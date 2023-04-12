@@ -31,7 +31,7 @@ octo dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY1234 -
 ```
 
 :::success
-Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md), and [how to use the Octopus Cli](/docs/octopus-rest-api/octopus-cli/)
+Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/), and [how to use the Octopus Cli](/docs/octopus-rest-api/octopus-cli/)
 :::
 
 The output will appear as follows:

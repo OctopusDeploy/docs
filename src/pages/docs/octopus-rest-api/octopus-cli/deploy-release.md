@@ -6,7 +6,7 @@ description: Using the Octopus CLI to deploy releases.
 navOrder: 110
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to deploy releases that have [already been created](/docs/octopus-rest-api/octopus-cli/create-release.md).
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to deploy releases that have [already been created](/docs/octopus-rest-api/octopus-cli/create-release/).
 
 ```
 Deploys a release.
@@ -173,5 +173,5 @@ You can deploy to ALL tenants in an environment by using the `--tenant=*` argume
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
 - [Releases](/docs/releases/)

@@ -44,7 +44,7 @@ Once you have a key, you can provide it to the API in the following ways:
 1. As an `apikey` query string parameter with all requests. This should only be used for simple requests.
 
 :::hint
-Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/).
 :::
 
 ## REST API Swagger Documentation {#api-swagger-docs}

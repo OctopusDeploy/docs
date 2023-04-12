@@ -21,19 +21,19 @@ The leasing algorithm is not round-robin.  It looks for the worker with the leas
 
 Some important items to note about workers:
 - Unlike deployment targets, workers are designed to run multiple tasks concurrently.  
-- **Octopus Server 2020.1** added the [Worker Pool Variable Type](/docs/projects/variables/worker-pool-variables.md) making it possible to scope worker pools to environments.
+- **Octopus Server 2020.1** added the [Worker Pool Variable Type](/docs/projects/variables/worker-pool-variables/) making it possible to scope worker pools to environments.
 - **Octopus Server 2020.2** added the [execution container for workers](/docs/projects/steps/execution-containers-for-workers/) feature, making it easier to manage software dependencies.
 - We provide a [Tentacle docker image](https://hub.docker.com/repository/docker/octopusdeploy/tentacle) that can be configured to run as a worker.
 
 ## Provided Workers
 
-The Octopus Server includes a [built-in worker](/docs/infrastructure/workers/built-in-worker.md).  When you configure a deployment or runbook to run tasks on the server, it is handing off that work to the built-in worker.   
+The Octopus Server includes a [built-in worker](/docs/infrastructure/workers/built-in-worker/).  When you configure a deployment or runbook to run tasks on the server, it is handing off that work to the built-in worker.   
 
 :::hint
-Octopus Cloud is running the Octopus Linux container.  To ensure maximum cross-compatibility with both Windows and Linux, the built-in worker is disabled on Octopus Cloud.  Instead, we provide you with the ability to choose from 2 [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md), Windows Server 2019 and Ubuntu 22.04.  Each worker type is a different worker pool.
+Octopus Cloud is running the Octopus Linux container.  To ensure maximum cross-compatibility with both Windows and Linux, the built-in worker is disabled on Octopus Cloud.  Instead, we provide you with the ability to choose from 2 [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools/), Windows Server 2019 and Ubuntu 22.04.  Each worker type is a different worker pool.
 :::
 
-The built-in worker and [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md) were created to help get you started.  Using them at scale will quickly expose their flaws.
+The built-in worker and [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools/) were created to help get you started.  Using them at scale will quickly expose their flaws.
 
 - The built-in worker will run under the same account as the Octopus Deploy service.  By default, that is `Local System`.  You can change it to run under a different account, but it can only run under one account.  You cannot change that account during a deployment or runbook run.
 - The built-in worker may or may not be in the same data center as your deployment targets.  You could experience some significant latency.
@@ -87,9 +87,9 @@ All Octopus Cloud and self-hosted Server, Data Center, and Standard licenses off
 For further reading on workers in Octopus Deploy please see:
 
 - [Workers](/docs/infrastructure/workers/)
-- [Built-in Worker](/docs/infrastructure/workers/built-in-worker.md)
-- [Worker Pool Variable Type](/docs/projects/variables/worker-pool-variables.md)
+- [Built-in Worker](/docs/infrastructure/workers/built-in-worker/)
+- [Worker Pool Variable Type](/docs/projects/variables/worker-pool-variables/)
 - [Execution Container for Workers](/docs/projects/steps/execution-containers-for-workers/)
-- [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools.md)
+- [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools/)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/project-and-project-groups">Next</a></span>

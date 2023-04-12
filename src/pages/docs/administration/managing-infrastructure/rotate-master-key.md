@@ -12,22 +12,22 @@ The ability to rotate the master key was added in **Octopus 2022.4**.
 
 There are times you might want to rotate your master key, for example if you're worried about the existing master key being leaked. This guide walks you through this process. The rotation should have no impact once it's completed.
 
-This guide assumes you still have access to your Master Key. You should be able to run the [`show-master-key` command](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md). If you've lost access to the Master Key, please refer to [Recovering after losing your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
+This guide assumes you still have access to your Master Key. You should be able to run the [`show-master-key` command](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md). If you've lost access to the Master Key, please refer to [Recovering after losing your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key/).
 
 ## What is affected by the rotation
 
-Octopus [encrypts important and sensitive data](/docs/security/data-encryption.md) using a Master Key. This includes:
+Octopus [encrypts important and sensitive data](/docs/security/data-encryption/) using a Master Key. This includes:
 
 - The Octopus Server X.509 certificate which is used for [Octopus to Tentacle communication](/docs/security/octopus-tentacle-communication/) - your Tentacles will still trust your Octopus Server after the rotation.
 - Sensitive variable values, wherever you have defined them.
 - Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account.
-- Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/deployment-targets/offline-package-drop.md).
+- Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/deployment-targets/offline-package-drop/).
 
 ## Rotating the Master Key
 
 ### Step 1. Back up before you start
 
-Make sure to [back up everything](/docs/administration/data/backup-and-restore.md) before you start this process. This should also include the `OctopusServer.config` which contains the old master key in case the process fails.
+Make sure to [back up everything](/docs/administration/data/backup-and-restore/) before you start this process. This should also include the `OctopusServer.config` which contains the old master key in case the process fails.
 
 ### Step 2. Stop the server
 

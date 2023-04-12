@@ -52,7 +52,7 @@ Another reason we hear about is needing an approval process for changes to the d
 The final reason reason we hear about is to "speed up the deployment."  Typically we hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
 
 - If package acquisition is taking a long time to transfer to the targets, consider:
-    - Enabling [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md) to reduce the amount of data to transfer.  
+    - Enabling [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers/) to reduce the amount of data to transfer.  
     - Leveraging an external feed such as Artifactory, GitHub Packages, AWS CodeArtifact, or Feedz.io and configure Octopus to download the packages directly from the external feeds.
 - If there appears to be latency when running scripts on the Octopus Server to make database changes, run e2e tests, or any other similar task, then leverage [workers](/docs/infrastructure/workers/).  Workers can execute tasks that don't need to run on individual deployment targets.  They can be located in the same data center as your database or applications.
 
@@ -62,10 +62,10 @@ Do not split an instance and sync it for any of the following use cases.
 
 - You want an approval process for any changes to your deployment process.  Please see our [config as code feature](/docs/projects/version-control/) as that integrates with git.
 - You want to move a project from the default space to another space on the same instance (or different instance).  Please see our documentation on our [Export/Import Projects feature](docs/projects/export-import/).
-- You want to create a test instance to test out upgrades or try out new processes.  Please see our guide on [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance.md)
-- You want to upgrade the underlying VM hosting Octopus Deploy from Windows Server 2012 to Windows Server 2019.  Please see our guide on [moving the Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md).
-- You want to move the SQL Server database from SQL Server 2012 to SQL Server 2019.  Please see our guide on [moving the Octopus Database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md).
-- You want to migrate from self-hosted Octopus to Octopus Cloud.  Please see our [migration guide](/docs/octopus-cloud/migrations.md) on how to leverage the [Export/Import Projects feature](docs/projects/export-import/) to accomplish this.
+- You want to create a test instance to test out upgrades or try out new processes.  Please see our guide on [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance/)
+- You want to upgrade the underlying VM hosting Octopus Deploy from Windows Server 2012 to Windows Server 2019.  Please see our guide on [moving the Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server/).
+- You want to move the SQL Server database from SQL Server 2012 to SQL Server 2019.  Please see our guide on [moving the Octopus Database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server/).
+- You want to migrate from self-hosted Octopus to Octopus Cloud.  Please see our [migration guide](/docs/octopus-cloud/migrations/) on how to leverage the [Export/Import Projects feature](docs/projects/export-import/) to accomplish this.
 - You want to consolidate multiple Octopus Deploy instances into a single Octopus Deploy instance.  Please see our documentation on our [Export/Import Projects feature](docs/projects/export-import/).
 
 ## Syncing is not cloning
@@ -80,13 +80,13 @@ Unfortunately, there is not first-class tooling available to support syncing two
 
 ### Migrator and Export/Import Project
 
-The [Migrator](docs/administration/data/data-migration.md) and the [Export/Import Project](docs/projects/export-import/) feature were designed to migrate or clone a project to another instance (or space for Export/Import Project).  The primary use case for both tools is that a user wants to move a project to a new instance and deprecate the older instance.  For example, when migrating from a self-hosted Octopus Server to Octopus Cloud.
+The [Migrator](docs/administration/data/data-migration/) and the [Export/Import Project](docs/projects/export-import/) feature were designed to migrate or clone a project to another instance (or space for Export/Import Project).  The primary use case for both tools is that a user wants to move a project to a new instance and deprecate the older instance.  For example, when migrating from a self-hosted Octopus Server to Octopus Cloud.
 
 The Migrator and Export/Import Project feature can be run multiple times for the same project.  But they will ensure the source and destination instances match.  There is no way to exclude specific environments, tenants, or any specific data you wish to keep separate.  While it is possible to modify the JSON exported by those tools, such an approach is error-prone and unsupported.  
 
 ### Octopus CLI
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) includes the [export](/docs/octopus-rest-api/octopus-cli/export.md) and [import](/docs/octopus-rest-api/octopus-cli/import.md) commands.  Those commands are deprecated and should not be used.  
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) includes the [export](/docs/octopus-rest-api/octopus-cli/export.md) and [import](/docs/octopus-rest-api/octopus-cli/import/) commands.  Those commands are deprecated and should not be used.  
 
 ### Config as Code and Octopus Terraform Provider
 

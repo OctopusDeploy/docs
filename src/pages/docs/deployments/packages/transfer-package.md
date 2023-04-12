@@ -7,7 +7,7 @@ description: Transfer Package step allows you to simply transfer a package to yo
 
 ## Transferring a package to your target without extraction {#TransferPackage-Transferringapackagetoyourtargetwithoutextraction}
 
-If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deployments/packages/index.md) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](/docs/projects/steps/) section.
+If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deployments/packages/index/) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](/docs/projects/steps/) section.
 
 ![](images/5866194.png "width=500")
 
@@ -15,11 +15,11 @@ When transferring a package you will need to specify a location that the file wi
 
 ![](images/5866214.png "width=500")
 
-This package will be transferred to the target during the package acquisition phase, and then copied to the specified location at the appropriate time during the deployment process. The copy process is used as opposed to moving or simply transferring it directly to the requested location during acquisition for a number of reasons. First, this will allow the package location to be derived from output variables from previous steps while allowing the full acquisition process to occur up-front, and secondly it will allow the [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers.md) checks to take place to reduce to amount of data that needs to be transferred on subsequent deployments.
+This package will be transferred to the target during the package acquisition phase, and then copied to the specified location at the appropriate time during the deployment process. The copy process is used as opposed to moving or simply transferring it directly to the requested location during acquisition for a number of reasons. First, this will allow the package location to be derived from output variables from previous steps while allowing the full acquisition process to occur up-front, and secondly it will allow the [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers/) checks to take place to reduce to amount of data that needs to be transferred on subsequent deployments.
 
 ## Output variables {#TransferPackage-OutputVariables}
 
-Since the Transfer a Package step has been kept simple by-design, most deployments will probably want to use the transferred package for some further processing. For this purpose, the following [output variables](/docs/projects/variables/output-variables.md) are generated for access by subsequent steps.
+Since the Transfer a Package step has been kept simple by-design, most deployments will probably want to use the transferred package for some further processing. For this purpose, the following [output variables](/docs/projects/variables/output-variables/) are generated for access by subsequent steps.
 
 - `Octopus.Action[StepName].Output.Package.DirectoryPath`- The directory the package was transferred to
 - `Octopus.Action[StepName].Output.Package.FileName` - The name of the package

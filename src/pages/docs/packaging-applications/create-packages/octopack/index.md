@@ -13,7 +13,7 @@ OctoPack works by calling `nuget.exe pack` to build the NuGet package, and `nuge
 
 :::warning
 **OctoPack and .NET Core**
-OctoPack is not compatible with .NET Core applications. If you want to package .NET Core applications see [create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md).
+OctoPack is not compatible with .NET Core applications. If you want to package .NET Core applications see [create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/).
 :::
 
 ## Install OctoPack {#UsingOctoPack-InstallingOctoPack}
@@ -160,7 +160,7 @@ OctoPack won't run web.config transformation files, because these will be run as
 
 ### .NET XML configuration transforms
 
-You can use [.NET XML configuration transforms](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) on any XML files including the `app.config` file for Windows Service, Console, Windows Forms, or WPF applications. Make sure the transform files are copied to the build output directory as part of your build, and they will be packaged by OctoPack so you can use them as part of your [deployment](/docs/projects/steps/configuration-features/).
+You can use [.NET XML configuration transforms](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/) on any XML files including the `app.config` file for Windows Service, Console, Windows Forms, or WPF applications. Make sure the transform files are copied to the build output directory as part of your build, and they will be packaged by OctoPack so you can use them as part of your [deployment](/docs/projects/steps/configuration-features/).
 
 ## Include additional files using copy to output directory {#UsingOctoPack-IncludingadditionalfilesusingCopytoOutputDirectory}
 
@@ -182,7 +182,7 @@ During the build, messages are output at the `Normal` msbuild logging level whic
 
 ### Version numbers are preserved as-is
 
-NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](/docs/packaging-applications/create-packages/versioning.md).
+NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](/docs/packaging-applications/create-packages/versioning/).
 
 To make this work for NuGet packages we have forked NuGet.
 
@@ -212,16 +212,16 @@ To publish your package to a NuGet feed, you can optionally use some extra MSBui
 
 ## Push your packages to the Octopus built-in repository
 
-Octopus provides a [built-in package repository](/docs/packaging-applications/package-repositories/index.md) for your deployment packages. The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/).
+Octopus provides a [built-in package repository](/docs/packaging-applications/package-repositories/index/) for your deployment packages. The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/).
 
 To push your packages to the Octopus built-in repository use the following settings:
 
 - `/p:OctoPackPublishPackageToHttp=http://your.octopusserver.com/nuget/packages`: this is the URL to your Octopus Server noting the `/nuget/packages` path.
-- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations).
+- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations).
 
 ## Push a NuGet package that already exists
 
-When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md) using [OctoPack](/docs/packaging-applications/create-packages/octopack/) or [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference), the default URL looks like this:
+When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index/) using [OctoPack](/docs/packaging-applications/create-packages/octopack/) or [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference), the default URL looks like this:
 
 `http://MyOctopusServer/nuget/packages`
 
@@ -266,6 +266,6 @@ In addition to the common arguments above, OctoPack has a number of other parame
 
 ## Learn more
 
- - Use [OctoPack to include BuildEvent files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md)
- - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md)
+ - Use [OctoPack to include BuildEvent files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files/)
+ - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack/)
  - [Package deployments](/docs/deployments/packages/)

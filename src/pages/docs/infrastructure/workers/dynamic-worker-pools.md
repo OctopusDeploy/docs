@@ -6,7 +6,7 @@ description: Dynamic Worker pools are used in our cloud product to dynamically c
 navOrder: 50
 ---
 
-Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools.md) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers/) provided by Octopus, and they don't require users to configure any infrastructure.  
+Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools/) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers/) provided by Octopus, and they don't require users to configure any infrastructure.  
 
 ## On demand
 
@@ -95,7 +95,7 @@ We recommend execution containers as the preferred option for steps requiring ex
 ### Ubuntu 18.04
 
 :::warning
-Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to [Ubuntu 18.04 End-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life.md) for further details.
+Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to [Ubuntu 18.04 End-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life/) for further details.
 :::
 
 ### Ubuntu 22.04
@@ -144,7 +144,7 @@ For deployments and runbook runs that require additional software dependencies o
 
 :::hint
 **Octopus worker-tools cached on Dynamic Workers**
-The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows [Worker Tool](/docs/infrastructure/workers/worker-tools-versioning-and-caching.md) images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic Worker.
+The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows [Worker Tool](/docs/infrastructure/workers/worker-tools-versioning-and-caching/) images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic Worker.
 
 :::
 
@@ -158,4 +158,4 @@ If you choose to install additional software on a dynamic worker, you are respon
 ## Learn more
 
 - [Worker blog posts](https://octopus.com/blog/tag/workers)
-- [Worker Tools, versioning and caching](/docs/infrastructure/workers/worker-tools-versioning-and-caching.md)
+- [Worker Tools, versioning and caching](/docs/infrastructure/workers/worker-tools-versioning-and-caching/)

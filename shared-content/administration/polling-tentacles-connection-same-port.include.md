@@ -3,7 +3,7 @@ In this scenario, no load balancer is required. Instead, each Octopus node would
 For each node in your HA cluster:
 
 - Ensure the communication port Octopus listens on (`10943` by default) is open, including any firewall.
-- Register the node with the [Poll Server command line](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server.md) option. Specify the unique address for the node, including the listening port. For example, in a three-node cluster:
+- Register the node with the [Poll Server command line](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server/) option. Specify the unique address for the node, including the listening port. For example, in a three-node cluster:
     - Node1 would use address: **Octo1.domain.com:10943** 
     - Node2 would use address: **Octo2.domain.com:10943** 
     - Node3 would use address: **Octo3.domain.com:10943** 

@@ -16,7 +16,7 @@ When managing a large fleet of machines, however, it is occasionally necessary t
 
 For these situations, the Octopus **Script Console** can be used.
 
-Any machines registered with Octopus as [workers](/docs/infrastructure/workers/index.md) or [deployment targets](/docs/infrastructure/deployment-targets/) can be targeted by the Script Console. You can target an individual machine, or perform a task across an entire group of machines.
+Any machines registered with Octopus as [workers](/docs/infrastructure/workers/index/) or [deployment targets](/docs/infrastructure/deployment-targets/) can be targeted by the Script Console. You can target an individual machine, or perform a task across an entire group of machines.
 
 ## Use the Script Console
 
@@ -27,7 +27,7 @@ The Script Console can be found under the Tasks area:
 Inside the Script Console, you can choose whether to run your script on:
 - One or more individual [deployment targets](/docs/infrastructure/deployment-targets/).
 - One or more individual [workers](/docs/infrastructure/workers/).
-- All workers in a set of [worker pools](/docs/infrastructure/workers/worker-pools.md).
+- All workers in a set of [worker pools](/docs/infrastructure/workers/worker-pools/).
 - All deployment targets in a set of environments, roles and tenants or an entire group of machines.
 - The Octopus Server. **Note:** This option is only available for Octopus Server, and not for [Octopus Cloud](/docs/octopus-cloud/).
 
@@ -47,13 +47,13 @@ The **Script Body** tab can be used to see the contents of the script, and you c
 
 ## Targeting the Octopus Server
 
-You can target the Octopus Server using the Script Console providing you are on a self-hosted instance (and not [Octopus Cloud](/docs/octopus-cloud/)) and the [built-in worker](/docs/infrastructure/workers/built-in-worker.md) is enabled.
+You can target the Octopus Server using the Script Console providing you are on a self-hosted instance (and not [Octopus Cloud](/docs/octopus-cloud/)) and the [built-in worker](/docs/infrastructure/workers/built-in-worker/) is enabled.
 
 However, please consider the security implications of allowing ad-hoc scripts to be executed on your Octopus Server.
 
-Learn more about [hardening Octopus](/docs/security/hardening-octopus.md).
+Learn more about [hardening Octopus](/docs/security/hardening-octopus/).
 
-If you want to run ad-hoc tasks on [Octopus Cloud](/docs/octopus-cloud/), you should make use of [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md) or install a Tentacle agent on your own Virtual Machines and register that Tentacle as a worker or deployment target.
+If you want to run ad-hoc tasks on [Octopus Cloud](/docs/octopus-cloud/), you should make use of [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools/) or install a Tentacle agent on your own Virtual Machines and register that Tentacle as a worker or deployment target.
 
 ## Script Console permissions
 
@@ -74,7 +74,7 @@ To learn how to configure access to the Script Console for a subset of users, ta
 
 ## Collect artifacts {#ScriptConsole-Collectingartifacts}
 
-Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](docs/projects/deployment-process/artifacts.md).
+Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](docs/projects/deployment-process/artifacts/).
 
 ## Audit records {#ScriptConsole-Auditrecords}
 

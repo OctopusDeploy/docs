@@ -38,7 +38,7 @@ When enabling `OctopusBypassDeploymentMutex` there are a couple of special varia
 * `Octopus.Action.MaxParallelism`:
     * This variable limits the maximum number of machines on which the action will concurrently execute.
     * By default, this is set to `10`.
-    * **Note:** Some built-in steps have their own concurrent limit and will ignore this value if set. For example the [health-check step](/docs/projects/built-in-step-templates/health-check.md).
+    * **Note:** Some built-in steps have their own concurrent limit and will ignore this value if set. For example the [health-check step](/docs/projects/built-in-step-templates/health-check/).
 
 Given five projects with the **OctopusBypassDeploymentMutex** set as follows:
 

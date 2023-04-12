@@ -15,7 +15,7 @@ Lifecycles enable a number of advanced deployment workflow features:
 - **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
 :::hint
-Lifecycles don't apply to [Runbooks](/docs/runbooks/index.md). Learn more about the [differences between Runbooks and Deployments](/docs/runbooks/runbooks-vs-deployments/).
+Lifecycles don't apply to [Runbooks](/docs/runbooks/index/). Learn more about the [differences between Runbooks and Deployments](/docs/runbooks/runbooks-vs-deployments/).
 :::
 
 ## Phases
@@ -71,7 +71,7 @@ Any future environments you define will also be deployed to as part of this phas
 
 7. By default, users must manually queue the deployment to the environment, if you would like the deployment to occur automatically as soon as the release enters the phase, select *Deploy automatically...*.
 
-   If you have a project set up with [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release and a deployment to that environment.
+   If you have a project set up with [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation/) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release and a deployment to that environment.
 
 8. Set the *Required to progress* option. This determines how many environments must be deployed to before the next phase can be activated. The options are:
 

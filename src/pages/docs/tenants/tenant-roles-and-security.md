@@ -9,7 +9,7 @@ navOrder: 70
 This page describes several conventional approaches to structuring roles and teams to secure a multi-tenant Octopus instance. Using the permissions system in Octopus, you can configure internal team members with different roles who interact with tenants in different ways. You can also configure Octopus to provide access for your external customers. This page explores several of those roles for both internal and external parties.
 
 :::success
-To get the most out of this guide you will need to understand how to [manage users and teams](/docs/security/users-and-teams/) and how to [work with custom roles](/docs/security/users-and-teams/user-roles.md). Octopus provides an expressive permissions system, and you can customize the security configuration to your particular scenario.
+To get the most out of this guide you will need to understand how to [manage users and teams](/docs/security/users-and-teams/) and how to [work with custom roles](/docs/security/users-and-teams/user-roles/). Octopus provides an expressive permissions system, and you can customize the security configuration to your particular scenario.
 :::
 
 ## Account manager {#account-manager}
@@ -30,7 +30,7 @@ It is usually a good idea to build smaller roles that can be composed together i
 
 1. In **{{Configuration,Teams,Roles}}** click **Add custom role** and call it **Tenant project deployer**.
 2. Set the description to **Tenant project deployers can deploy releases on behalf of tenants**
-3. Choose the following permissions under [Space Permissions](/docs/security/users-and-teams/system-and-space-permissions.md):
+3. Choose the following permissions under [Space Permissions](/docs/security/users-and-teams/system-and-space-permissions/):
    1. AccountView
    2. ArtifactView
    3. DeploymentCreate
@@ -91,7 +91,7 @@ The scoping for a User Role can also be defined on the `Include User Role` scree
 
 ## Infrastructure manager {#infrastructure-manager}
 
-Bob is a member of the IT infrastructure team for [Car Rental](https://samples.octopus.app/app#/Spaces-682/projects/car-rental/deployments), and he manages all the virtual servers for the different regions in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/infrastructure/index.md) and [environments](/docs/infrastructure/environments/).  He should have read-only access to tenant details required and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
+Bob is a member of the IT infrastructure team for [Car Rental](https://samples.octopus.app/app#/Spaces-682/projects/car-rental/deployments), and he manages all the virtual servers for the different regions in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/infrastructure/index/) and [environments](/docs/infrastructure/environments/).  He should have read-only access to tenant details required and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
 
 ### Step 1: Configure the tenant viewer role {#step-1-configure-tenant-viewer}
 

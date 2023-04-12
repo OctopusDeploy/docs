@@ -68,7 +68,7 @@ The built-in Worker can be switched off.  If it is switched off, then the Octopu
 
 Toggle the built-in worker on or off from the **{{Configuration > Features}}** page.
 
-The built-in Worker will also not be used if any workers are added to the [default worker pool](/docs/infrastructure/workers/worker-pools.md), but, unless it is switched off, Octopus will revert to using the built-in worker if all workers are later removed from the default pool.
+The built-in Worker will also not be used if any workers are added to the [default worker pool](/docs/infrastructure/workers/worker-pools/), but, unless it is switched off, Octopus will revert to using the built-in worker if all workers are later removed from the default pool.
 
 Note that [some steps](/docs/infrastructure/workers/index.md#Where-steps-run) run inside the Octopus Server process (not using Calamari), don't need a worker and are not affected by this setting.
 

@@ -9,7 +9,7 @@ hideInThisSection: true
 
 !include <add-deployment-targets>
 
-The next step of this guide will [update the runbook process](/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets.md) to run a script on those newly created runbook targets.  
+The next step of this guide will [update the runbook process](/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets/) to run a script on those newly created runbook targets.  
 
 **Further Reading**
 

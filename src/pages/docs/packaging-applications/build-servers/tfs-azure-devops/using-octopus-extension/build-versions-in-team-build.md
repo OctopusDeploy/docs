@@ -21,7 +21,7 @@ While this is a valid Azure DevOps build number, it can cause issues when trying
 
 ## SemVer
 
-Packages used by Octopus must conform to [SemVer 1.0 or 2.0](/docs/packaging-applications/create-packages/versioning.md) depending on the version of Octopus you're using.
+Packages used by Octopus must conform to [SemVer 1.0 or 2.0](/docs/packaging-applications/create-packages/versioning/) depending on the version of Octopus you're using.
 
 The link above explains versioning in detail, but in its simplest form it means two things:
 

@@ -137,7 +137,7 @@ _Git File Storage Directory_ specifies the path within the repository where the 
 If multiple projects will be persisted to the repository, adding the project name to the path is the recommended convention, e.g. `./octopus/acme`
 :::
 
-We recommend storing projects alongside the application code. While it is possible to store all your deployment projects in a single central repository with folders for each project, it will be challenging to manage as you add more projects. For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository. If you move the application code later, you can also [move the deployment configuration](/docs/projects/version-control/moving-version-control.md) to keep it with the application.
+We recommend storing projects alongside the application code. While it is possible to store all your deployment projects in a single central repository with folders for each project, it will be challenging to manage as you add more projects. For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository. If you move the application code later, you can also [move the deployment configuration](/docs/projects/version-control/moving-version-control/) to keep it with the application.
 
 ### Branch Settings
 
@@ -286,7 +286,7 @@ variable "DeploymentPool" {
 ```
 
 :::hint
-In Git projects, [Octopus will continue apply variable permissions based on scopes](/docs/security/users-and-teams/security-and-un-scoped-variables.md) when interacting through the API and Portal. As these variables are written to a single text file, any user with access to the repository will have full access to all variables (regardless of scoping).
+In Git projects, [Octopus will continue apply variable permissions based on scopes](/docs/security/users-and-teams/security-and-un-scoped-variables/) when interacting through the API and Portal. As these variables are written to a single text file, any user with access to the repository will have full access to all variables (regardless of scoping).
 :::
 
 ## Slugs in OCL
@@ -316,5 +316,5 @@ When designing the config-as-code feature, we made several decisions to keep an 
 - Octopus currently only supports connecting to git repositories over HTTPS and not SSH. 
 - Shared resources (environments, external feeds, channels, etc.) are referenced by their slug from OCL. The API however will still use IDs.
 - Shared resources must exist before loading an OCL file into Octopus Deploy. What that means is if you copy the OCL files from one git repo to another, and point a new project at those files, then any shared resource must exist before creating that project. That only applies when projects are in different spaces or on different instances. If the resources do not exist, an error message will appear.
-- Pointing multiple projects to the same folder in the same git repo is unsupported. Please see our [unsupported config as code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios.md) for more information.
+- Pointing multiple projects to the same folder in the same git repo is unsupported. Please see our [unsupported config as code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios/) for more information.
 - Converting a project to be version-controlled is a one-way process. At this time, you cannot convert back.

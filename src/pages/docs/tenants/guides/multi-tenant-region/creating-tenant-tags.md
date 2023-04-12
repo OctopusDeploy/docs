@@ -7,7 +7,7 @@ navOrder: 10
 hideInThisSectionHeader: true
 ---
 
-The Car Rental company utilizes Azure to host the application for the different stores in their chain.  In addition, each store plays a different role in the development lifecycle by participating in different upgrade rings.  To designate which tenant is in which region and upgrade ring, we define we define [Tenant Tag Sets](/docs/tenants/tenant-tags.md).
+The Car Rental company utilizes Azure to host the application for the different stores in their chain.  In addition, each store plays a different role in the development lifecycle by participating in different upgrade rings.  To designate which tenant is in which region and upgrade ring, we define we define [Tenant Tag Sets](/docs/tenants/tenant-tags/).
 
 ## Creating Tenant Tag Sets
 

@@ -45,7 +45,7 @@ Occasionally it may be necessary to change the location at which a Tentacle stor
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Tentacle installation, and you may wish to run each step separately to deal with any issues like locked files.
 
-Default Tentacle instances are named *Tentacle*. You can find your instance names by running the [Tentacle.exe list-instances](/docs/octopus-rest-api/tentacle.exe-command-line/list-instances.md) command.
+Default Tentacle instances are named *Tentacle*. You can find your instance names by running the [Tentacle.exe list-instances](/docs/octopus-rest-api/tentacle.exe-command-line/list-instances/) command.
 
 :::hint
 **Administrator rights required**

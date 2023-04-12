@@ -38,7 +38,7 @@ Find out more about the new Octopus dedicated [Google Cloud](/docs/deployments/g
 
 ### IIS {#deployments-iis}
 
-Learn more about the [IIS](/docs/deployments/windows/iis-websites-and-application-pools.md) support that Octopus has to offer, including IIS deployments, and community step templates that allow fine-grain control of your IIS Websites and applications.
+Learn more about the [IIS](/docs/deployments/windows/iis-websites-and-application-pools/) support that Octopus has to offer, including IIS deployments, and community step templates that allow fine-grain control of your IIS Websites and applications.
 
 !include <samples-iis-deployment-feature-list>
 
@@ -78,7 +78,7 @@ Find out more about the new Octopus dedicated [Google Cloud](/docs/deployments/g
 
 ### IIS {#runbooks-iis}
 
-Learn more about the [IIS](/docs/deployments/windows/iis-websites-and-application-pools.md) support that Octopus has to offer, including IIS deployments, and community step templates that allow fine-grain control of your IIS Websites and applications.
+Learn more about the [IIS](/docs/deployments/windows/iis-websites-and-application-pools/) support that Octopus has to offer, including IIS deployments, and community step templates that allow fine-grain control of your IIS Websites and applications.
 
 !include <samples-iis-runbook-feature-list>
 

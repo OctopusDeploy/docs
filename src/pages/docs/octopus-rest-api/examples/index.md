@@ -21,7 +21,7 @@ In addition, we also have a wide range of some of the more common examples here 
 
 ## Using the scripts
 
-To use the example scripts, you'll need to provide your Octopus Server URL and an [API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md). There may be other values that need to be updated to fit your scenario such as Space, Project, and Environment names.
+To use the example scripts, you'll need to provide your Octopus Server URL and an [API Key](/docs/octopus-rest-api/how-to-create-an-api-key/). There may be other values that need to be updated to fit your scenario such as Space, Project, and Environment names.
 
 :::hint
 **The examples provided are for reference and should be modified and tested prior to using in a production Octopus instance.**

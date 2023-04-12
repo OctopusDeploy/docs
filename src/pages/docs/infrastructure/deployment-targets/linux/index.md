@@ -11,7 +11,7 @@ Linux servers can be configured as [deployment targets](/docs/infrastructure/dep
 
 The Octopus Server can communicate with Linux targets in two ways:
 - Using the [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/).  
-- Over SSH using an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target.md). 
+- Over SSH using an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target/). 
 
 When using SSH for deployments to a Linux server, the Tentacle agent is not required and doesn't need to be installed.
 
@@ -29,7 +29,7 @@ If you operate in a highly secure environment, where it's not possible to open a
 - `base64` is available. This is used for encoding and decoding variables.
 - `grep` is available.
 
-Any Linux server which meets these minimum requirements will be able to be configured as a deployment target or worker. However, there are additional requirements to be aware of for both [SSH targets](/docs/infrastructure/deployment-targets/linux/ssh-requirements.md) and [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/index.md#requirements).
+Any Linux server which meets these minimum requirements will be able to be configured as a deployment target or worker. However, there are additional requirements to be aware of for both [SSH targets](/docs/infrastructure/deployment-targets/linux/ssh-requirements/) and [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/index.md#requirements).
 
 ## Supported distributions
 

@@ -58,7 +58,7 @@ In the case of an Azure region wide disaster the time to restore services will v
 
 ### Importing data
 
-Due to some key differences between the self-hosted and cloud configurations, it **is not possible** to use the existing [Migration API](/docs/octopus-rest-api/migration-api/) to import data. If you are migrating from an existing self-hosted instance please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md).
+Due to some key differences between the self-hosted and cloud configurations, it **is not possible** to use the existing [Migration API](/docs/octopus-rest-api/migration-api/) to import data. If you are migrating from an existing self-hosted instance please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations/).
 
 ### Exporting your data
 

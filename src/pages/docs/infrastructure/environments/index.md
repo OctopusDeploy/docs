@@ -21,7 +21,7 @@ The most common setup is four environments. These are:
 
 However, we didn't design Octopus Deploy to force people to use a set of predefined environments. Some companies only have three environments. Others have many more. Likewise, not everyone names their environments the same way. One person's Test is another person's QA. It's important that you can name your environments in the way that best supports your organization's needs.
 
-Take a look at our [environment recommendations](/docs/infrastructure/environments/environment-recommendations.md) section for more tips.
+Take a look at our [environment recommendations](/docs/infrastructure/environments/environment-recommendations/) section for more tips.
 
 !include <add-new-environments>
 

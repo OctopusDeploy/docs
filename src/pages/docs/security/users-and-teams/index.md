@@ -18,12 +18,12 @@ You can manage users and teams in the Octopus Web Portal:
 
 ## User and service accounts {#Managingusersandteams-UserandServiceaccounts}
 
-**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/).
 
-[Service accounts](/docs/security/users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts.md).
+[Service accounts](/docs/security/users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts/).
 
 :::success
-You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/security/users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
+You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/security/users-and-teams/service-accounts/) for each service that will integrate with Octopus Deploy.
 :::
 
 ### User API Key Management
@@ -104,7 +104,7 @@ Note that project leads can create releases but not deploy them, while project d
 The roles assigned by a team can be scoped by project or environment.
 
 :::hint
-You can learn more about User Roles in our [documentation](/docs/security/users-and-teams/user-roles.md).
+You can learn more about User Roles in our [documentation](/docs/security/users-and-teams/user-roles/).
 :::
 
 ## System teams {#Managingusersandteams-Systemteams}

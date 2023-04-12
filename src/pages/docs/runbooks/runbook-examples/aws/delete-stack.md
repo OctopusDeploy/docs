@@ -30,7 +30,7 @@ The proceeding instructions can be followed to configure the Delete an AWS Cloud
 
 ### AWS section
 
-Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables.md).
+Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables/).
 
 ![AWS Account](images/step-aws-account.png "width=500")
 

@@ -24,7 +24,7 @@ The executable bundle created when deploying to an offline package drop target c
 
 #### Artifact {#OfflinePackageDrop-Artifact}
 
-The bundle can be zipped and attached as an [Octopus Artifact](docs/projects/deployment-process/artifacts.md) to the deployment. It can then be downloaded when required.
+The bundle can be zipped and attached as an [Octopus Artifact](docs/projects/deployment-process/artifacts/) to the deployment. It can then be downloaded when required.
 
 :::hint
 Octopus Cloud instances will almost certainly want to use _Artifact_ as the destination.

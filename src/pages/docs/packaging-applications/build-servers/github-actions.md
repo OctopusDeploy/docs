@@ -210,7 +210,7 @@ To package your artifacts for deployment, configure your build to use the `Octop
         version: latest
 ```
 
-Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](/docs/octopus-rest-api/octopus-cli/).  Using the [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command, you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above:
+Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](/docs/octopus-rest-api/octopus-cli/).  Using the [pack](/docs/octopus-rest-api/octopus-cli/pack/) command, you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above:
 
 ```yaml
     - name: Install Octopus CLI
@@ -409,7 +409,7 @@ GitHub Action Integrations v3 no longer requires the Octo CLI to function. This 
 
 ### Migration Guides
 
-Migrations guides can be found on each [GitHub Action Integration Repo](https://github.com/OctopusDeploy/create-release-action/blob/main/migration-guide.md).
+Migrations guides can be found on each [GitHub Action Integration Repo](https://github.com/OctopusDeploy/create-release-action/blob/main/migration-guide/).
 
 ### New GitHub Actions
 

@@ -91,5 +91,5 @@ octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http:
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
 - [Projects](/docs/projects/)

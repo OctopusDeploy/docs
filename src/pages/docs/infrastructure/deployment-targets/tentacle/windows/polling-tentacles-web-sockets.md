@@ -47,7 +47,7 @@ To confirm that the server is successfully configured, open the listen address i
 
 If you get a connection refused or reset error, check the address and port and ensure a certificate is [configured](#certificate) for that address.
 
-If you get the other application that is listening on that port, ensure that your listen address has a [higher precedence](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) and that the server successfully bound to that address in the [server log file](/docs/support/log-files.md).
+If you get the other application that is listening on that port, ensure that your listen address has a [higher precedence](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) and that the server successfully bound to that address in the [server log file](/docs/support/log-files/).
 
 If you encounter a certificate warning, ignore it and continue. This warning is due to the certificate not having a valid chain of trust back to a trusted certificate authority. Octopus [trusts certificates directly](https://octopus.com/blog/why-self-signed-certificates).
 
@@ -86,7 +86,7 @@ Windows will need to be configured with a SSL certificate on the selected addres
 The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
 It does need to be installed into the Personal certificate store of the Machine account.
 
-The easiest way to get the SSL certificate set up is to configure [Octopus to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md) on that address and port.
+The easiest way to get the SSL certificate set up is to configure [Octopus to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/) on that address and port.
 
 If you need to generate a self signed certificate, this can be done by issuing the following PowerShell command. Take note of the thumbprint generated.
 

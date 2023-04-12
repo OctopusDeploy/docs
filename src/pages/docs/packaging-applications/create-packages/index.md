@@ -11,9 +11,9 @@ There are a variety of tools you can use to package your applications, and as lo
 
 We've created the following tools to help you package your applications:
 
- - The [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
+ - The [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
  - [OctoPack](/docs/packaging-applications/create-packages/octopack/) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
- - The [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
+ - The [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity/).
  - The [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/).
 
 In addition to these tools, you can use other tools to create your packages, for instance, you might use the following:

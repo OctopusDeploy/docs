@@ -16,9 +16,9 @@ You may already have an existing Octopus Server that you wish to make highly ava
 
 This guide is generic and purposely avoids mentioning specific technologies such as Azure File Storage, AWS RDS SQL Server, etc.  Please refer to the guide matching your hosting solution for specifics.
 
-- [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
-- [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
-- [Designing Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
+- [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises/)
+- [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure/)
+- [Designing Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws/)
 
 ## Prep Work
 
@@ -60,7 +60,7 @@ $sqlConnection.Close()
 ```
 
 :::hint
-You can run that script using the Octopus Deploy [script console](/docs/administration/managing-infrastructure/script-console.md).  If you are using a SQL Login, you'll want to change the user's password after your run your tests as that password will appear in the task log.
+You can run that script using the Octopus Deploy [script console](/docs/administration/managing-infrastructure/script-console/).  If you are using a SQL Login, you'll want to change the user's password after your run your tests as that password will appear in the task log.
 :::
 
 ### Moving BLOB data
@@ -69,7 +69,7 @@ Most of the BLOB data (task logs, artifacts, packages, imports etc) stored on th
 
 - Provision the shared storage folder.
 - If you are going to create a symbolic link to that shared folder, do that now.
-- Use the [script console](/docs/administration/managing-infrastructure/script-console.md) to ensure Octopus can connect to the shared folder and create files.
+- Use the [script console](/docs/administration/managing-infrastructure/script-console/) to ensure Octopus can connect to the shared folder and create files.
 
 ```powershell
 $filePath = "YOUR DIRECTORY"
@@ -106,7 +106,7 @@ The below steps will cause an outage in Octopus Deploy.  With all the prep work,
 During your outage window, perform the following steps (skip the sections that don't apply).
 
 1. Ensure you have a backup of your master key.
-1. Enable [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) to prevent anyone from deploying or making changes during the upgrade.
+1. Enable [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode/) to prevent anyone from deploying or making changes during the upgrade.
 1. Stop the Octopus Deploy windows service.
 
 ### Move the database

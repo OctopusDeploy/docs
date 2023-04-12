@@ -51,7 +51,7 @@ As you promote through the environments, you will see the greeting change.
 
 ![The results of the hello world deployment with variables](images/img-environmentvariables.png "width=500")
 
-The next step will [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions.md). 
+The next step will [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions/). 
 
 **Further Reading**
 

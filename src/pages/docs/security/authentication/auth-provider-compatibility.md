@@ -6,7 +6,7 @@ description: Compatibility of authentication providers differ between Octopus Se
 navOrder: 0
 ---
 
-Octopus ships with a number of authentication providers. The support for these providers differ between Octopus Server, [Octopus Cloud](/docs/octopus-cloud/index.md) and the [Octopus Linux Container](/docs/installation/octopus-server-linux-container/). Some authentication providers only work with Octopus Server, whilst others only work with Octopus Cloud. This page describes the compatibility of these providers in Octopus.
+Octopus ships with a number of authentication providers. The support for these providers differ between Octopus Server, [Octopus Cloud](/docs/octopus-cloud/index/) and the [Octopus Linux Container](/docs/installation/octopus-server-linux-container/). Some authentication providers only work with Octopus Server, whilst others only work with Octopus Cloud. This page describes the compatibility of these providers in Octopus.
 
 :::hint
 Most of the authentication providers listed here are available in modern versions of Octopus. However, some are shipped with Octopus from a specific version. Where this is the case, the version will be noted alongside the provider.
@@ -27,11 +27,11 @@ The following table shows login support for each authentication provider in Octo
 | GitHub                                | :x: | :white_check_mark: **\*** | :x: |
 | Guest Login                           | :white_check_mark: | :white_check_mark:&nbsp;&nbsp;&nbsp; | :white_check_mark: |
 
-**Note:** Entries marked with **\*** are only supported via [Octopus ID](/docs/security/authentication/octopusid-authentication.md).
+**Note:** Entries marked with **\*** are only supported via [Octopus ID](/docs/security/authentication/octopusid-authentication/).
 
 ## External groups and roles support {#external-groups-and-roles}
 
-Octopus allows [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles.md) to be added as members of Teams in Octopus. The following table shows which authentication providers support this in Octopus Server, Octopus Cloud, and the Octopus Linux Container:
+Octopus allows [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles/) to be added as members of Teams in Octopus. The following table shows which authentication providers support this in Octopus Server, Octopus Cloud, and the Octopus Linux Container:
 
 |                                         | Octopus Server     | Octopus Cloud   | Octopus Linux Container |
 |-----------------------------------------|:------------------:|:---------------:|:-----------------------:|
@@ -44,10 +44,10 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 | GitHub                                  | :x:&nbsp;&nbsp;&nbsp; | :x:&nbsp;&nbsp;&nbsp; | :x:&nbsp;&nbsp;&nbsp; |
 | Guest Login                             | :x:&nbsp;&nbsp;&nbsp; | :x:&nbsp;&nbsp;&nbsp; | :x:&nbsp;&nbsp;&nbsp; |
 
-**\*** For Azure Active Directory (AAD) users and groups, these must also be mapped in the Azure App Registration. Please read the [Mapping AAD users into Octopus teams](/docs/security/authentication/azure-ad-authentication.md#mapping-aad-users-into-octopus-teams-optional) section for more details. For Octopus Cloud, external groups and roles cannot be configured for Azure AD when using [Octopus ID](/docs/security/authentication/octopusid-authentication.md).
+**\*** For Azure Active Directory (AAD) users and groups, these must also be mapped in the Azure App Registration. Please read the [Mapping AAD users into Octopus teams](/docs/security/authentication/azure-ad-authentication.md#mapping-aad-users-into-octopus-teams-optional) section for more details. For Octopus Cloud, external groups and roles cannot be configured for Azure AD when using [Octopus ID](/docs/security/authentication/octopusid-authentication/).
 
 **†** For Okta groups to flow through to Octopus, you'll need to change the _Groups claim_ fields. Please read the [Okta group integration](/docs/security/authentication/okta-authentication.md#Oktaauthentication-OpenIDConnectSettings-OktaGroups) section for more details.
 
 :::hint
-[Octopus ID](/docs/security/authentication/octopusid-authentication.md) does not currently support configuring [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles.md).
+[Octopus ID](/docs/security/authentication/octopusid-authentication.md) does not currently support configuring [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles/).
 :::

@@ -93,10 +93,10 @@ Take a moment to enjoy your first deployment! The next step will introduce you t
 
 
 Subsequent pages in the guide:
-1. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md)
-2. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions.md)
-3. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets.md)
-4. [Deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package.md)
+1. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables/)
+2. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions/)
+3. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets/)
+4. [Deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package/)
 
 **Further Reading**
 

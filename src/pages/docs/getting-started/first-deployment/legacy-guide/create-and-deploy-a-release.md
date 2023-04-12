@@ -28,7 +28,7 @@ Because we didn't define any deployment targets for the **Test** environment, Oc
 
 ![The results of the Hello world deployment](images/deployed-release.png "width=500")
 
-You have finished your first deployment!  But there is still a bit of work to do.  The next step will [define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md) in the deployment process.
+You have finished your first deployment!  But there is still a bit of work to do.  The next step will [define and use variables](/docs/getting-started/first-deployment/define-and-use-variables/) in the deployment process.
 
 **Further Reading**
 

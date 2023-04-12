@@ -35,21 +35,21 @@ In this example, we are running the image `!docker-image <octopusdeploy/octopusd
 
 This section walks through some of the different ways you can run the Octopus Server Linux Container, from `docker compose` to using a full orchestration service such as Kubernetes:
 
-- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
-- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
-- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
+- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux/)
+- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition/)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes/)
 
 ## Migration
 
 You may already have an existing Octopus Server running on Windows Server or running in a Windows container that you wish to run in a Linux Container. This section walks through the different options and considerations for migration to the Octopus Server Linux Container. 
 
-- [Migrate to Octopus Server Linux Container from Windows Server](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-server.md)
-- [Migrate to Octopus Server Linux Container from Windows Container](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-container.md)
+- [Migrate to Octopus Server Linux Container from Windows Server](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-server/)
+- [Migrate to Octopus Server Linux Container from Windows Container](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-container/)
 
 ## Configuration
 
 :::hint
-Support for authentication providers differs depending on how you host Octopus Server. Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility.md) to ensure any existing authentication provider is supported when running Octopus in a Linux Container.
+Support for authentication providers differs depending on how you host Octopus Server. Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility/) to ensure any existing authentication provider is supported when running Octopus in a Linux Container.
 :::
 
 When running an Octopus Server Image, the following values can be provided to configure the running Octopus Server instance.
@@ -107,7 +107,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 ## Upgrading
 
-When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server.md) since containers, being immutable, don't themselves get updated.
+When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server/) since containers, being immutable, don't themselves get updated.
 
 Similar to moving an instance, to perform the container upgrade you will need the Master Key that was used to set up the original database. The Master Key for an Octopus Server in a container can be found by using the container exec command:
 
@@ -127,7 +127,7 @@ The standard backup and restore procedures for the [data stored on the filesyste
 
 ## Troubleshooting
 
-If you're running into issues with the Octopus Server Linux Container then please use our [Troubleshooting](/docs/installation/octopus-server-linux-container/troubleshooting-octopus-server-in-a-container.md) guide.
+If you're running into issues with the Octopus Server Linux Container then please use our [Troubleshooting](/docs/installation/octopus-server-linux-container/troubleshooting-octopus-server-in-a-container/) guide.
 
 
 ## Learn more

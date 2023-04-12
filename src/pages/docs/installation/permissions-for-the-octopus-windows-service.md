@@ -26,12 +26,12 @@ The following table acts as a guide for the minimal permission set that Octopus 
 | Listen | Port **10943** | Octopus accepts commands from polling Tentacles on this port. | NETSH.EXE |
 | Listen | Port **80** | The Octopus Server responds to browser requests on this port. | NETSH.EXE |
 | Listen | Port **443** | If using SSL, the Octopus Server responds to browser requests on this port. | NETSH.EXE |
-| db\_owner | For the SQL database. [Learn more](/docs/installation/sql-server-database.md). | Octopus needs to be able to manage its database, including making schema changes. | SQL Server Management Studio |
+| db\_owner | For the SQL database. [Learn more](/docs/installation/sql-server-database/). | Octopus needs to be able to manage its database, including making schema changes. | SQL Server Management Studio |
 
 If you rely on Octopus to run certain tasks on the Octopus Server, you'll also need to grant appropriate permissions for these. Examples include:
 
 - Using the Windows Azure deployment tasks in Octopus (these run on the Octopus Server).
-- Deploying to an [offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop.md) deployment target.
+- Deploying to an [offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop/) deployment target.
 - Running a [custom script](/docs/deployments/custom-scripts/) on the Octopus Server.
 
 ## Learn more

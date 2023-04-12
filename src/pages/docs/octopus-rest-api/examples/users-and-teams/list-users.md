@@ -9,7 +9,7 @@ This script will list all active users in an Octopus instance. In addition, ther
 
 - scoped user roles
 - any associated [Active Directory](/docs/security/authentication/active-directory/) details
-- any associated [Azure Active Directory](/docs/security/authentication/azure-ad-authentication.md) details
+- any associated [Azure Active Directory](/docs/security/authentication/azure-ad-authentication/) details
 - inactive users
 
 ## Usage

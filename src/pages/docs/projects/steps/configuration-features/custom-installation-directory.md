@@ -6,13 +6,13 @@ description: The Custom Installation Directory feature deploys your package to a
 navOrder: 10
 ---
 
-The custom installation directory feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/).
+The custom installation directory feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index/) in your [deployment process](/docs/projects/deployment-process/).
 
-You can specify a custom installation directory for [package](/docs/deployments/packages/) and [IIS](/docs/deployments/windows/iis-websites-and-application-pools.md) steps. The custom installation directory feature deploys your package to a specified location on the target server. This feature helps when you are using an application that requires your files be in specific locations, such as many Content Management Systems (CMS).
+You can specify a custom installation directory for [package](/docs/deployments/packages/) and [IIS](/docs/deployments/windows/iis-websites-and-application-pools/) steps. The custom installation directory feature deploys your package to a specified location on the target server. This feature helps when you are using an application that requires your files be in specific locations, such as many Content Management Systems (CMS).
 
 Only use the *custom installation directory* feature when you really need it.
 
-The standard convention for deploying packages is often the best and simplest way to deploy your packages, and it eliminates problems caused by file locks and stale files being left in the deployment folder. It also provides smoother deployments and less downtime for Windows Services and Web Applications, so before you configure a custom installation directory, review the [package deployment convention](/docs/deployments/packages/) and [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering.md) to be certain that you really need to configure a custom installation directory.
+The standard convention for deploying packages is often the best and simplest way to deploy your packages, and it eliminates problems caused by file locks and stale files being left in the deployment folder. It also provides smoother deployments and less downtime for Windows Services and Web Applications, so before you configure a custom installation directory, review the [package deployment convention](/docs/deployments/packages/) and [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering/) to be certain that you really need to configure a custom installation directory.
 
 ## Add a custom installation directory
 
@@ -26,7 +26,7 @@ When you return to your deployment process, you will see the **Custom Install Di
 3. Add the [step](/docs/projects/steps/) details:
   - Enter a name for the step.
   - Select the targets where the step should run.
-  - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/) will be available.
+  - Select the [package feed](/docs/packaging-applications/package-repositories/index/) where the [package](/docs/packaging-applications/) will be available.
   - Enter the [package ID](/docs/packaging-applications/index.md#package-id) for the package to be deployed.
 4. Enter the path for the **custom installation directory**, or you can insert a [variable](/docs/projects/variables/) if you have defined the path as a variable.
 
@@ -54,6 +54,6 @@ The **Exclude from purge** list must be a newline-separated list of file or dire
 
 7. Add any [conditions](/docs/projects/steps/conditions/) you need to specify for the step, and then click **SAVE**.
 
-This will save and display the step you've just created. From here you can use the project overview menu to continue defining your [deployment process](/docs/projects/deployment-process/index.md), or click **CREATE RELEASE** to create a [release](/docs/releases/) and deploy your application.
+This will save and display the step you've just created. From here you can use the project overview menu to continue defining your [deployment process](/docs/projects/deployment-process/index/), or click **CREATE RELEASE** to create a [release](/docs/releases/) and deploy your application.
 
 Packages deployed to a custom installation directory are deployed in the same way as other package deploy steps. Read about [how packages are deployed](/docs/deployments/packages/index.md#how-packages-are-deployed) for more information.

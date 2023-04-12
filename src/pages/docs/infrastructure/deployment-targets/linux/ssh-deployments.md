@@ -45,7 +45,7 @@ Your script can use a [variable value](/docs/projects/variables/) by invoking th
 
 > `echo "Installed to step: " $(get_octopusvariable "Octopus.Action[Acme Deployment].Output.Package.InstallationDirectoryPath")`
 
-You can also set an [output variable](/docs/projects/variables/output-variables.md):
+You can also set an [output variable](/docs/projects/variables/output-variables/):
 
 > ```
 > set_octopusvariable RandomNumber 3
@@ -53,7 +53,7 @@ You can also set an [output variable](/docs/projects/variables/output-variables.
 
 ### Example: Collecting an artifact
 
-Your script can tell Octopus to collect a file and store it as a [deployment artifact](docs/projects/deployment-process/artifacts.md):
+Your script can tell Octopus to collect a file and store it as a [deployment artifact](docs/projects/deployment-process/artifacts/):
 
 > ```
 > new_octopusartifact "./subdir/anotherdir/myfile"
@@ -84,4 +84,4 @@ Calamari is the tool Octopus uses to execute deployments on a remote computer. B
 ## Learn more
 
 - [Linux blog posts](https://octopus.com/blog/tag/linux)
-- [Node.js sample](/docs/deployments/node-js/node-on-linux.md)
+- [Node.js sample](/docs/deployments/node-js/node-on-linux/)

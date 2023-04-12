@@ -19,7 +19,7 @@ You should not restore a backup of the Octopus SQL Database.
 ## Single Octopus Server
 
 1. Schedule a maintenance window with the teams using Octopus.
-1. Go to **{{Configuration > Maintenance}}** and enable [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
+1. Go to **{{Configuration > Maintenance}}** and enable [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode/).
 1. Wait for any remaining Octopus Tasks to complete by watching the **{{Configuration > Nodes}}** page.
 1. Stop the Octopus Server service.
 
@@ -27,7 +27,7 @@ You should not restore a backup of the Octopus SQL Database.
 
 1. Apply patches and reboot as required.
 1. Start the Octopus Server service.
-1. Exit [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
+1. Exit [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode/).
 
 ## Octopus High Availability
 

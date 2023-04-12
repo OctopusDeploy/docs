@@ -18,15 +18,15 @@ From the **Deployment Targets** tab you can add new deployment targets, disable 
 Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Server. For instructions, see:
 
 - [Listening and Polling Windows Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/)
-- [Linux SSH connection](/docs/infrastructure/deployment-targets/linux/ssh-target.md)
+- [Linux SSH connection](/docs/infrastructure/deployment-targets/linux/ssh-target/)
 - [Linux Tentacle](docs/infrastructure/deployment-targets/tentacle/linux/)
 - [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/)
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/)
 - [Azure Service Fabric cluster](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/)
 - [AWS](/docs/infrastructure/accounts/aws/)
 - [Kubernetes target](/docs/infrastructure/deployment-targets/kubernetes-target/)
-- [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
-- [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions.md)
+- [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop/)
+- [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions/)
 
 ## Target roles {#target-roles}
 
@@ -54,5 +54,5 @@ Learn about [Managing resources with scripts](/docs/infrastructure/deployment-ta
 
 ## Learn more
 
- - [Machine policies](/docs/infrastructure/deployment-targets/machine-policies.md)
- - [Proxy support](/docs/infrastructure/deployment-targets/proxy-support.md)
+ - [Machine policies](/docs/infrastructure/deployment-targets/machine-policies/)
+ - [Proxy support](/docs/infrastructure/deployment-targets/proxy-support/)

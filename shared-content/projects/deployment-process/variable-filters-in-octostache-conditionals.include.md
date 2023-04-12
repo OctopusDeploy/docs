@@ -1,4 +1,4 @@
-It's possible to use [variable filters](/docs/projects/variables/variable-filters.md) to help create both complex run conditions and variable expressions, but there are limitations to be aware of.
+It's possible to use [variable filters](/docs/projects/variables/variable-filters/) to help create both complex run conditions and variable expressions, but there are limitations to be aware of.
 
 :::warning
 Using variable filters *inline* in the two [conditional statements](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-Conditionalsconditionals) `if` and `unless` are **not supported**.

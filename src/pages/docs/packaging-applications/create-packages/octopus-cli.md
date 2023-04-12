@@ -6,7 +6,7 @@ description: Using the Octopus CLI (octo) command line tool to create packages f
 navOrder: 30
 ---
 
-The Octopus CLI (`octo`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/) and includes a [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
+The Octopus CLI (`octo`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/) and includes a [pack](/docs/octopus-rest-api/octopus-cli/pack/) command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
 
 ## Installation
 
@@ -20,7 +20,7 @@ dotnet octo --version
 
 For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/).
 
-For a full list of the `pack` command options see [Octopus CLI - Pack](/docs/octopus-rest-api/octopus-cli/pack.md) or run the following command:
+For a full list of the `pack` command options see [Octopus CLI - Pack](/docs/octopus-rest-api/octopus-cli/pack/) or run the following command:
 
 ```powershell
 dotnet octo help pack
@@ -115,7 +115,7 @@ These are known issues to be aware of with other compression libraries:
 
  - [Packaging application](/docs/packaging-applications/)
  - [Create packages with Octopack](/docs/packaging-applications/create-packages/octopack/).
- - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
+ - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity/).
  - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/).
  - [Package repositories](/docs/packaging-applications/).
  - [Package deployments](/docs/deployments/packages/).

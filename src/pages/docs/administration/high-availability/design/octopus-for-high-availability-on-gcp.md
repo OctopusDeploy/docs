@@ -22,7 +22,7 @@ Octopus High Availability is designed for mission-critical enterprise scenarios 
 
 :::hint
 **IaaS vs PaaS:**
-If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in GCP and don't intend to use their PaaS offerings (such as Cloud SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
+If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in GCP and don't intend to use their PaaS offerings (such as Cloud SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises/) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
 :::
 
 ### Compute
@@ -134,7 +134,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    Remember to create the folders in the SMB share before trying to create the symbolic links.
    :::
 
-Once you've completed those steps, [install Octopus](/docs/installation/) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) to change the paths to the shared storage:
+Once you've completed those steps, [install Octopus](/docs/installation/) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path/) to change the paths to the shared storage:
 
 ```powershell
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path `
@@ -258,7 +258,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
 
    ```
    :::hint
-   This is in effect the same when using the [watchdog](/docs/octopus-rest-api/octopus.server.exe-command-line/watchdog.md) command to configure a scheduled task to monitor the Octopus Server service.
+   This is in effect the same when using the [watchdog](/docs/octopus-rest-api/octopus.server.exe-command-line/watchdog/) command to configure a scheduled task to monitor the Octopus Server service.
    :::
 
 6. Create folders in your **NFS share** for the Artifacts, Packages, TaskLogs, and Imports.
@@ -302,7 +302,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    Remember to create the folders in the NFS share before trying to create the symbolic links.
    :::
 
-Once you've completed those steps, [install Octopus](/docs/installation/) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) to change the paths to the shared storage:
+Once you've completed those steps, [install Octopus](/docs/installation/) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path/) to change the paths to the shared storage:
 
 ```powershell
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path `

@@ -27,11 +27,11 @@ Dynamic infrastructure can be enabled when a new environment is created, or it c
 
 Octopus comes with a REST API that can be used to register Octopus accounts and deployment targets dynamically:
 
-- [Create an AWS Account](/docs/octopus-rest-api/examples/accounts/create-aws-account.md)
-- [Create an Azure Service Principal Account](/docs/octopus-rest-api/examples/accounts/create-azure-service-principal.md)
-- [Add an Azure Web App target](/docs/octopus-rest-api/examples/deployment-targets/add-azure-web-app.md)
-- [Register a listening Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle.md)
-- [Register a Polling Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle.md)
+- [Create an AWS Account](/docs/octopus-rest-api/examples/accounts/create-aws-account/)
+- [Create an Azure Service Principal Account](/docs/octopus-rest-api/examples/accounts/create-azure-service-principal/)
+- [Add an Azure Web App target](/docs/octopus-rest-api/examples/deployment-targets/add-azure-web-app/)
+- [Register a listening Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle/)
+- [Register a Polling Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle/)
 
 To learn more about the things you can do with the API, take a look at our [API examples](/docs/octopus-rest-api/examples/) section.
 
@@ -45,10 +45,10 @@ Only a subset of account types and deployment targets support being created dyna
 
 ### Accounts
 
-- [AWS Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/aws-accounts.md)
-- [Azure Service Principal Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-accounts.md)
-- [Token Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/token-accounts.md)
-- [Username/Password Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/username-password-accounts.md)
+- [AWS Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/aws-accounts/)
+- [Azure Service Principal Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-accounts/)
+- [Token Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/token-accounts/)
+- [Username/Password Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/username-password-accounts/)
 
 ### Targets
 
@@ -56,12 +56,12 @@ Only a subset of account types and deployment targets support being created dyna
 Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md#enable-dynamic-infrastructure) for more information.
 :::
 
-- [Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md)
-- [Azure Service Fabric](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-service-fabric-target.md)
-- [Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target.md)
-- [Kubernetes Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md)
-- [AWS ECS Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md)
-- [Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md)
+- [Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target/)
+- [Azure Service Fabric](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-service-fabric-target/)
+- [Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target/)
+- [Kubernetes Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target/)
+- [AWS ECS Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget/)
+- [Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget/)
 
 ### Restrictions
 
@@ -74,7 +74,7 @@ These commands are not available in the **Script Console**.
 
 ## Using bash functions
 
-Any targets defined by a step package have access to creating that target with a bash script. See the [new-target function documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md) for further information.
+Any targets defined by a step package have access to creating that target with a bash script. See the [new-target function documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget/) for further information.
 
 ## Examples
 

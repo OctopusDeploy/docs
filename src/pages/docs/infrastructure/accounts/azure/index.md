@@ -6,7 +6,7 @@ description: Configure your infrastructure so Octopus can deploy software to you
 navOrder: 10
 ---
 
-You can deploy software to the Azure cloud by adding your Azure subscription to Octopus. With an active Azure subscription, you can use Octopus to deploy to [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md) targets, [Azure Service Fabric](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) targets, and [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/) targets.
+You can deploy software to the Azure cloud by adding your Azure subscription to Octopus. With an active Azure subscription, you can use Octopus to deploy to [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md) targets, [Azure Service Fabric](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index/) targets, and [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/) targets.
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy.
 
@@ -215,7 +215,7 @@ A newly created Service Principal may take several minutes before the credential
 
 ## Creating an Azure Management Certificate account {#azure-management-certificate}
 
-Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used when Octopus deploys [Cloud Services](/docs/deployments/azure/cloud-services/index.md) and [Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/).
+Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used when Octopus deploys [Cloud Services](/docs/deployments/azure/cloud-services/index/) and [Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/).
 
 :::warning
 The Azure Service Management APIs are being deprecated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.
@@ -249,7 +249,7 @@ You can now configure Octopus to deploy to Azure via the Azure Service Managemen
 
 ## Azure account variables {#azure-account-variables}
 
-You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/projects/variables/azure-account-variables.md) and [Azure Deployments](/docs/deployments/azure/).
+You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/projects/variables/azure-account-variables/) and [Azure Deployments](/docs/deployments/azure/).
 
 ## Automate Azure Service Principal creation and Octopus Deploy account registration {#azure-octopus-account-automate-creation}
 

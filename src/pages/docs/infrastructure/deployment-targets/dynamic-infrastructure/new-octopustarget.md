@@ -48,7 +48,7 @@ Command (bash) **new_octopustarget**
 
 ### Examples
 
-The below examples demonstrate creating a new AWS ECS Cluster target, evidenced by the `aws-ecs-target` target identifier. These scripts would typically be invoked after creating the cluster in a preceeding step. The required information can be passed to these scripts via [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), or via [output variables](/docs/deployments/custom-scripts/output-variables.md) published in preceeding steps, or can simply be hard-coded.
+The below examples demonstrate creating a new AWS ECS Cluster target, evidenced by the `aws-ecs-target` target identifier. These scripts would typically be invoked after creating the cluster in a preceeding step. The required information can be passed to these scripts via [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), or via [output variables](/docs/deployments/custom-scripts/output-variables/) published in preceeding steps, or can simply be hard-coded.
 
 #### Account credentials
 

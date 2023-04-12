@@ -21,10 +21,10 @@ The following certificate formats are supported in Octopus Deploy:
 
 ![](certificate-list.png "width=500")
 
-- [Add certificate](add-certificate.md)
-- [Replacing certificates](replace-certificate.md)
-- [Archiving and deleting certificates](archiving-and-deleting-certificates.md)
-- [Exporting certificates](export-certificate.md)
+- [Add certificate](add-certificate/)
+- [Replacing certificates](replace-certificate/)
+- [Archiving and deleting certificates](archiving-and-deleting-certificates/)
+- [Exporting certificates](export-certificate/)
 
 ## Configure subscriptions for expiry notifications
 
@@ -41,18 +41,18 @@ The background task which raises the certificate-expiry events runs:
 - 10 minutes after the Octopus Server service starts
 - Every 4 hours
 
-Certificate-expiry events are _not_ raised for [archived](archiving-and-deleting-certificates.md) certificates.
+Certificate-expiry events are _not_ raised for [archived](archiving-and-deleting-certificates/) certificates.
 :::
 
 ## Import certificates into the Windows certificate store  
 
-Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deployments/certificates/import-certificate-step.md).
+Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deployments/certificates/import-certificate-step/).
 
 ![](images/import-certificate-step-select.png "width=500")
 
 ## Use certificates for HTTPS bindings when deploying IIS websites   
 
-When configuring HTTPS bindings for [IIS Websites](/docs/deployments/windows/iis-websites-and-application-pools.md), a certificate can be configured either by:
+When configuring HTTPS bindings for [IIS Websites](/docs/deployments/windows/iis-websites-and-application-pools/), a certificate can be configured either by:
 - entering the thumbprint directly (this assumes the certificate has already been installed on the machine).
 - selecting a certificate-typed variable (this will automatically install the certificate).
 
@@ -60,7 +60,7 @@ When configuring HTTPS bindings for [IIS Websites](/docs/deployments/windows/iis
 
 ## Create certificate-typed variables
 
-Certificates managed by Octopus can be configured as the [value of variables](/docs/projects/variables/certificate-variables.md), and used from custom deployment scripts.
+Certificates managed by Octopus can be configured as the [value of variables](/docs/projects/variables/certificate-variables/), and used from custom deployment scripts.
 
 ![](images/certificate-variables-scoped.png "width=500")
 
@@ -68,4 +68,4 @@ Note that certificates can not be selected directly when configuring a deploymen
 
 ## Learn more
 
-- [Lets Encrypt runbook examples](/docs/runbooks/runbook-examples/routine/lets-encrypt-renew-certificate.md).
+- [Lets Encrypt runbook examples](/docs/runbooks/runbook-examples/routine/lets-encrypt-renew-certificate/).

@@ -10,11 +10,11 @@ Restoring databases is a common practice in most organizations. Using a Runbook 
 
 ## Permissions
 
-In this example, you will restore a Microsoft SQL Server database using a step template from our [community library](/docs/projects/community-step-templates.md) called [SQL - Restore Database](https://library.octopus.com/step-templates/469b6d9d-761a-4f94-9745-20e9c2f93841/actiontemplate-sql-restore-database). This template supports both:
+In this example, you will restore a Microsoft SQL Server database using a step template from our [community library](/docs/projects/community-step-templates/) called [SQL - Restore Database](https://library.octopus.com/step-templates/469b6d9d-761a-4f94-9745-20e9c2f93841/actiontemplate-sql-restore-database). This template supports both:
 - SQL authentication.
 - Integrated authentication. 
 
-In this example, we'll use SQL authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information about this in the [permissions documentation](/docs/deployments/databases/sql-server/permissions.md).
+In this example, we'll use SQL authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information about this in the [permissions documentation](/docs/deployments/databases/sql-server/permissions/).
 
 ## Create the Runbook
 
@@ -41,7 +41,7 @@ In this example, we'll use SQL authentication and provide both a SQL username an
 Use variables where possible so you can assign scopes to values. This will ensure credentials and database connections are correct for the environment you're deploying to.
 :::
 
-After adding all of the required parameters, click **Save**, and you have a basic runbook to restore your SQL database. You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) step for business approvals. 
+After adding all of the required parameters, click **Save**, and you have a basic runbook to restore your SQL database. You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step for business approvals. 
 
 ## Samples
 

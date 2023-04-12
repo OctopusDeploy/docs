@@ -6,17 +6,17 @@ description: How to set a step in your deployment/runbook process to run inside 
 navOrder: 30
 ---
 
-For a [step](/docs/projects/steps/index.md) running on a [worker](docs/infrastructure/workers/) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker.md), you can select a Docker image to execute the step inside of.
+For a [step](/docs/projects/steps/index.md) running on a [worker](docs/infrastructure/workers/) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker/), you can select a Docker image to execute the step inside of.
 
 When an execution container is configured for a step, Octopus will still connect to the worker machine via a [Tentacle or SSH](/docs/infrastructure/workers/index.md#register-a-worker-as-a-listening-tentacle). The difference is that the specified image will be run as a container and the step will be executed inside the container.
 
 See the [blog post](https://octopus.com/blog/execution-containers) announcing this feature for some added context.
 
 ## Requirements
-You need Docker installed and running on the [worker](docs/infrastructure/workers/)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker.md)), in order to use execution containers for workers
+You need Docker installed and running on the [worker](docs/infrastructure/workers/)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker/)), in order to use execution containers for workers
 
 ### Octopus cloud dynamic worker pools 
-[Octopus Cloud dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md) have Docker pre-installed and support execution containers.
+[Octopus Cloud dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools/) have Docker pre-installed and support execution containers.
 
 ![](images/hosted-worker-pools-execution-containers.png "width=500")
 
@@ -117,7 +117,7 @@ docker run --entrypoint='' octopusdeploy/worker-tools:5.0.0-ubuntu.22.04 /bin/ca
 
 #### Required OS dependencies
 
-The operating system must also include a number of dependencies required to support .NET Core applications. When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container. Since Calamari is a .NET Core self-contained executable, any custom Docker image needs to include the dependencies required to execute a .NET self-contained executable.
+The operating system must also include a number of dependencies required to support .NET Core applications. When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari/) (the Octopus deployment utility) is executed inside the specified container. Since Calamari is a .NET Core self-contained executable, any custom Docker image needs to include the dependencies required to execute a .NET self-contained executable.
 
 The Microsoft [.NET Core documentation](https://docs.microsoft.com/en-us/dotnet/core/install/linux) lists the dependencies required for a .NET Core application with popular Linux distributions. 
 
@@ -180,6 +180,6 @@ Including one of these directives will result in the step failing.
 
 ## Collecting artifacts with execution containers
 
-You can collect Octopus [artifacts](docs/projects/deployment-process/artifacts.md) from steps used with the execution containers feature. 
+You can collect Octopus [artifacts](docs/projects/deployment-process/artifacts/) from steps used with the execution containers feature. 
 
 !include <collect-artifact-in-execution-container>

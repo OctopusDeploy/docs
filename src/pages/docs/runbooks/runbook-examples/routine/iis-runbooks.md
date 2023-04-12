@@ -177,7 +177,7 @@ Configure any other settings for the step and click **Save**, and you have a run
 
 ## Optional Approvals
 
-You can also include additional steps to your runbook to include another layer of protection, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) step for business approvals. 
+You can also include additional steps to your runbook to include another layer of protection, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step for business approvals. 
 
 ## Harden IIS
 

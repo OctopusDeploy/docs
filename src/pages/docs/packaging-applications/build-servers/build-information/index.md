@@ -23,18 +23,18 @@ Build information is passed to Octopus as a file using a custom format. The reco
 
 The Build Information step is currently available in the official Octopus Deploy plugins:
 
-- [GitHub Actions](/docs/packaging-applications/build-servers/github-actions.md) 
-- [TeamCity](/docs/packaging-applications/build-servers/teamcity.md) 
-- [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
+- [GitHub Actions](/docs/packaging-applications/build-servers/github-actions/) 
+- [TeamCity](/docs/packaging-applications/build-servers/teamcity/) 
+- [Bamboo](/docs/packaging-applications/build-servers/bamboo/)
 - [Jenkins](/docs/packaging-applications/build-servers/jenkins/) 
 - [TFS/AzureDevOps](/docs/packaging-applications/build-servers/tfs-azure-devops/)
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 
 In addition to the official plugins, there are some community supported integrations available for
-- [BitBucket Pipelines](https://bitbucket.org/octopusdeploy/octopus-cli-run/src/master/README.md)
+- [BitBucket Pipelines](https://bitbucket.org/octopusdeploy/octopus-cli-run/src/master/README/)
 - [CircleCI](https://circleci.com/developer/orbs/orb/octopus-samples/octo-exp)
-- [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
+- [Continua CI](/docs/packaging-applications/build-servers/continua-ci/)
 
 Build information is independent of the packages that it relates to. You can pass build information to Octopus **before** the packages have been pushed to either the built-in repository or an external feed. You can also [push build information manually](https://octopus.com/blog/manually-push-build-information-to-octopus) using the Octopus REST API when you aren't utilizing a Build Server.
 
@@ -80,10 +80,10 @@ For packages pushed to the Octopus built-in repository, the build information ca
 
 ## Using build information in release notes #{build-info-in-release-notes}
 
-The build information associated with packages is available for use in [release notes](/docs/releases/release-notes.md) (and [release notes templates](/docs/releases/release-notes.md#Release-Notes-Templates)) as Octopus variables.
+The build information associated with packages is available for use in [release notes](/docs/releases/release-notes/) (and [release notes templates](/docs/releases/release-notes.md#Release-Notes-Templates)) as Octopus variables.
 
 See the [system variable documentation](/docs/projects/variables/system-variables.md#release-package-build-information) for the available variables.
 
 ## Using build information in deployments {#build-info-in-deployments}
 
-Package build information associated with a release will be also [captured in deployments](/docs/releases/deployment-notes.md) of the release.
+Package build information associated with a release will be also [captured in deployments](/docs/releases/deployment-notes/) of the release.

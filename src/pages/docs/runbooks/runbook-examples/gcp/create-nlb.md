@@ -10,7 +10,7 @@ Google Cloud (GCP) has a [Network Load Balancing solution](https://cloud.google.
 
 The other benefit of a network load balancer in GCP is that it supports any and all ports.
 
-In this example, we'll walk through how to create a runbook with a number of [PowerShell Script steps](/docs/deployments/custom-scripts/run-a-script-step.md) to create a network load balancer in GCP for both a test and production environment using ports to differentiate traffic:
+In this example, we'll walk through how to create a runbook with a number of [PowerShell Script steps](/docs/deployments/custom-scripts/run-a-script-step/) to create a network load balancer in GCP for both a test and production environment using ports to differentiate traffic:
 
 - Port `8080` is used for traffic destined for the test environment.
 - Port `80` is used for traffic destined for the production environment.
@@ -40,9 +40,9 @@ The next sections explains how to configure a service account to be authorized t
 
 #### Create project variables {#gcp-project-variables}
 
-We'll use project [variables](/docs/projects/variables/) to authorize the gcloud CLI with Google Cloud with the the help of a Powershell function included in a [Script module](/docs/deployments/custom-scripts/script-modules.md).
+We'll use project [variables](/docs/projects/variables/) to authorize the gcloud CLI with Google Cloud with the the help of a Powershell function included in a [Script module](/docs/deployments/custom-scripts/script-modules/).
 
-Create two [sensitive variables](/docs/projects/variables/sensitive-variables.md), one for the service account email, and the other will contain the service account key. This is a JSON payload you obtain when creating the service account in Google Cloud:
+Create two [sensitive variables](/docs/projects/variables/sensitive-variables/), one for the service account email, and the other will contain the service account key. This is a JSON payload you obtain when creating the service account in Google Cloud:
 
 ![Google Cloud Project variables](images/gcp-auth-project-variables.png
  "width=500")

@@ -17,7 +17,7 @@ Add the `Deploy an AWS CloudFormation template` step to the project, and provide
 
 ### AWS section
 
-Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables.md).
+Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables/).
 
 ![AWS Account](images/step-aws-account.png "width=500")
 
@@ -98,11 +98,11 @@ Variable replacement is performed before the template is deployed when deploying
 
 Then the values from the project variables `KeyName` and `InstanceType` would be substituted for the markers `#{KeyName}` and `#{InstanceType}`.
 
-See the [variable substitution](/docs/projects/variables/variable-substitutions.md) documentation for more information.
+See the [variable substitution](/docs/projects/variables/variable-substitutions/) documentation for more information.
 
 #### Accessing CloudFormation outputs
 
-As mentioned in the Template Section, when the `wait for completion` check-box has been checked, any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/projects/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
+As mentioned in the Template Section, when the `wait for completion` check-box has been checked, any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/projects/variables/output-variables/) automatically. For example, an output `Foo` would be available as:
 
 ```powershell
 Octopus.Action[CloudFormationTemplateStepName].Output.AwsOutputs[Foo]
@@ -133,7 +133,7 @@ All change sets have to be unique for a given stack, and Octopus will generate a
 
 #### Deferring execution and preview changes
 
-There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` check-box, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
+There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` check-box, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
 `Apply an AWS CloudFormation Change Set` step can make use of the `AwsOutputs[StackId]` and `AwsOutputs[ChangeSetId]` output variables to apply the change set.
 
 ## CloudFormation deployment workflow

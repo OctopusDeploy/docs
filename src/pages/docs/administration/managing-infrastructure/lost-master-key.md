@@ -8,7 +8,7 @@ navOrder: 40
 
 Sometimes the worst possible thing happens. The machine hosting Octopus Server dies irrecoverably, and you've discovered you don't have your Master Key! Whilst you cannot recover the data encrypted with your missing Master Key, this guide will help you get back up and running again.
 
-If you are reading this page: [**please back up your Master Key**](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md)
+If you are reading this page: [**please back up your Master Key**](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key/)
 
 ## Recover the Master Key
 
@@ -16,12 +16,12 @@ The fastest and easiest way to get up and running is to recover the Master Key. 
 
 ## What is lost
 
-Octopus [encrypts important and sensitive data](/docs/security/data-encryption.md) using a Master Key. This includes:
+Octopus [encrypts important and sensitive data](/docs/security/data-encryption/) using a Master Key. This includes:
 
 - The Octopus Server X.509 certificate which is used for [Octopus to Tentacle communication](/docs/security/octopus-tentacle-communication/) - this means your Tentacles won't trust your Octopus Server any more.
 - Sensitive variable values, wherever you have defined them.
 - Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account.
-- Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/deployment-targets/offline-package-drop.md).
+- Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/deployment-targets/offline-package-drop/).
 
 ## Recovering with a New Master Key
 
@@ -29,7 +29,7 @@ If you are confident with Octopus you can follow these steps to get back up and 
 
 ### Step 1. Back up before you start
 
-Make sure to [back up everything](/docs/administration/data/backup-and-restore.md) before you start this process. At least this will help you start the process again from a known position.
+Make sure to [back up everything](/docs/administration/data/backup-and-restore/) before you start this process. At least this will help you start the process again from a known position.
 
 ### Step 2. Install Octopus Server on a new machine
 

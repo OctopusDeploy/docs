@@ -89,5 +89,5 @@ octo pack --id="MyPackage" --format="zip" --version="1.0.0.0" --basePath="/tmp/M
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/)

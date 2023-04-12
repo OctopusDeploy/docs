@@ -37,23 +37,23 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 
 ## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowdoesOctopusactuallydeploymyWindowsService?}
 
-Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering.md).
+Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering/).
 
 :::success
-Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
+Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory/) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
 :::
 
 As an approximation including the Windows Service manager integration:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers.md)).
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers/)).
 2. Stop your Windows Service if it is already running. Ensure that the user account running the Octopus Tentacle has the appropriate permissions to start\stop the Windows Service or this step may fail.
 3. Create a new folder for the deployment (which avoids many common problems like file locks, and leaving stale files behind).
 4. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
 5. Extract the package into the newly created folder.
-6. Execute each of your [custom scripts](/docs/deployments/custom-scripts/index.md) and the [deployment features](/docs/deployments/) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering.md)..
+6. Execute each of your [custom scripts](/docs/deployments/custom-scripts/index.md) and the [deployment features](/docs/deployments/) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering/)..
 7. As part of this process Windows Service will be created, or reconfigured if it already exists, including updating the **binPath** to point to this folder and your executable entry point.
 8. The service will be started based on the selected `State` option using the rules in the table below.
-9. [Output variables](/docs/projects/variables/output-variables.md) and deployment [artifacts](docs/projects/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
+9. [Output variables](/docs/projects/variables/output-variables.md) and deployment [artifacts](docs/projects/deployment-process/artifacts/) from this step are sent back to the Octopus Server.
 
 :::success
 You can see exactly how Octopus deploys your Windows Service by looking at the scripts in our [open-source Calamari](https://github.com/OctopusDeploy/Calamari) project which actually performs the deployment:
@@ -61,7 +61,7 @@ You can see exactly how Octopus deploys your Windows Service by looking at the s
 - [Octopus.Features.WindowsService\_AfterPreDeploy.ps1](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.WindowsService_AfterPreDeploy.ps1)
 - [Octopus.Features.WindowsService\_BeforePostDeploy.ps1](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.WindowsService_BeforePostDeploy.ps1)
 
-You can inject your own logic into this process using [custom scripts](/docs/deployments/custom-scripts/) and understanding where your scripts will execute in the context of [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering.md).
+You can inject your own logic into this process using [custom scripts](/docs/deployments/custom-scripts/) and understanding where your scripts will execute in the context of [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering/).
 :::
 
 This table shows how the combination of the `Start Mode`, `State` and the state of any existing services determines is the service will be started or left stopped after the deployment is completed.

@@ -51,7 +51,7 @@ Config\*.json
 Application/**/*.xml
 ```
 
-The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
+The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions/), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
 
 ### How the file type for target files is determined
 
@@ -80,7 +80,7 @@ An example for each supported file type can be found in the following table:
 
 #### Variable names starting with the word Octopus
 
-When targeting JSON and YAML files, care should be taken when naming variables to be used with the Structured Configuration Variables feature; Specifically, to avoid the use of the word `Octopus` in the name where possible. This is because Octopus provides a number of [system variables](/docs/projects/variables/system-variables.md) that start with the word `Octopus` that aren't intended for use with this feature. 
+When targeting JSON and YAML files, care should be taken when naming variables to be used with the Structured Configuration Variables feature; Specifically, to avoid the use of the word `Octopus` in the name where possible. This is because Octopus provides a number of [system variables](/docs/projects/variables/system-variables/) that start with the word `Octopus` that aren't intended for use with this feature. 
 
 :::warning
 Any variables that start with `Octopus` that **aren't** followed with a `:` are ignored when performing variable replacement on JSON and YAML files.

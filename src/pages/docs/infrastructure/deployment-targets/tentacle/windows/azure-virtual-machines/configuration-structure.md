@@ -8,7 +8,7 @@ navOrder: 7
 
 !include <azure-vm-extension-deprecated>
 
-These files are required to install the extension [via the Azure CLI](via-the-azure-cli.md) or [via PowerShell](via-powershell.md).
+These files are required to install the extension [via the Azure CLI](via-the-azure-cli.md) or [via PowerShell](via-powershell/).
 
 ## Public settings
 

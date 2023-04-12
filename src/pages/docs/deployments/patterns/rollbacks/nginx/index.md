@@ -38,7 +38,7 @@ View the deployment process on our [samples instance](https://samples.octopus.ap
 
 ## Rollback Process
 
-For most rollbacks, the typical strategy is to skip the database step while re-deploying the Node.js application website.  In addition, a rollback indicates something is wrong with a release, so we'd want to [prevent that release from progressing](/docs/releases/prevent-release-progression.md).
+For most rollbacks, the typical strategy is to skip the database step while re-deploying the Node.js application website.  In addition, a rollback indicates something is wrong with a release, so we'd want to [prevent that release from progressing](/docs/releases/prevent-release-progression/).
 
 The updated deployment process will be:
 

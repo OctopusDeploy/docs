@@ -27,7 +27,7 @@ Octopus Server can be hosted on **Windows Server 2012 R2 or higher**. We automat
 
 Octopus Server will run on [Windows Server (Core)](https://docs.microsoft.com/en-us/windows-server/administration/server-core/what-is-server-core) without the Desktop experience. However, the easiest installation path is to use "Server with Desktop Experience" which has a GUI and supports running our installation wizard. If you want to use Windows Server Core, you will need to add some missing Windows Features and configure the Octopus Server yourself.
 
-Learn about [automating installation](/docs/installation/automating-installation.md).
+Learn about [automating installation](/docs/installation/automating-installation/).
 
 ### Windows desktop
 
@@ -39,9 +39,9 @@ From **Octopus 2020.6**, we publish `linux/amd64` Docker images for each Octopus
 
 Requirements for the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/) will depend on how you intend to run it. There are some different options to run the Octopus Server Linux Container, which include:
 
-- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
-- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
-- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
+- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux/)
+- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition/)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes/)
 
 You can also run the Octopus Server Linux Container using a platform such as [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html).
 
@@ -114,4 +114,4 @@ Our default supported browsers are:
 ## Learn more
 
 - [Installation](/docs/installation/)
-- [Compatibility](/docs/support/compatibility.md)
+- [Compatibility](/docs/support/compatibility/)

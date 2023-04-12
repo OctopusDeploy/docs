@@ -9,7 +9,7 @@ navOrder: 1
 Most commands support printing the result in JSON format.
 
 :::warning
-[Dump Deployment](dump-deployments.md), [Export](export.md) and [Import](import.md) do not support JSON output.
+[Dump Deployment](dump-deployments.md), [Export](export.md) and [Import](import/) do not support JSON output.
 :::
 
 To access JSON formatted output, use the `--outputformat=json` parameter.
@@ -57,5 +57,5 @@ Version Assembled                     PackageVersions ReleaseNotes
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
 

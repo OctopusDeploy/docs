@@ -94,11 +94,11 @@ In a follow-up step, you can add it back to the web farm if the service status i
 #{if Octopus.Action[Sanity Test Web Service].Output[#{Octopus.Machine.Name}].ShouldAddBackToWebFarm == "True"}True#{/if}
 ```
 
-Octopus will evaluate the value of the [Output variable](/docs/projects/variables/output-variables.md) indicated by `#{Octopus.Machine.Name}` individually as the value will be specific to each machine in the rolling deployment.
+Octopus will evaluate the value of the [Output variable](/docs/projects/variables/output-variables/) indicated by `#{Octopus.Machine.Name}` individually as the value will be specific to each machine in the rolling deployment.
 
 ## Rolling deployments with guided failures
 
-[Guided failures](/docs/releases/guided-failures.md) work perfectly with rolling deployments. If your deployment fails to one of the targets in your rolling deployment you can decide how to proceed. Imagine a scenario where you have three web servers in a load-balanced pool: `Web01`, `Web02` and `Web03`:
+[Guided failures](/docs/releases/guided-failures/) work perfectly with rolling deployments. If your deployment fails to one of the targets in your rolling deployment you can decide how to proceed. Imagine a scenario where you have three web servers in a load-balanced pool: `Web01`, `Web02` and `Web03`:
 
 1. `Web01` is removed from the load balancer, the new release is deployed successfully and `Web01` is returned to the load-balanced pool.
 2. `Web02` is removed from the load balancer, but the deployment of the new release fails. You can choose what happens next while `Web01` and `Web03` are still in the load-balanced pool.

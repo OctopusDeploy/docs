@@ -8,7 +8,7 @@ hideInThisSectionHeader: true
 ---
 
 :::hint
-Active Directory authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information.
+Active Directory authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility/) section for further information.
 :::
 
 Octopus Deploy can authenticate users using Windows credentials. Windows AD authentication can be chosen during installation of the Octopus Server, or later through the configuration.
@@ -210,7 +210,7 @@ Octopus alllows users to sign in by entering their Active Directory credentials 
 **How it works**
 Using this option, the credentials are posted back to the Octopus Server, and Octopus validates them against Active Directory by invoking the Windows API `LogonUser()` function. If that is successful, Octopus will then query Active Directory for information about the user.
 
-Keep in mind that if your Octopus Server isn't [configured to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md), these are posted in plain text (just like signing in to any other website).
+Keep in mind that if your Octopus Server isn't [configured to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/), these are posted in plain text (just like signing in to any other website).
 :::
 
 If the Octopus Server and its users are on the **same domain**, it is sufficient to provide a simple username in this field, for example *paul**.*User Principal Names, of the form *user@domain.com* are also accepted in this scenario.
@@ -293,7 +293,7 @@ Another common scenario is to have a one way trust between the domains. This con
 
 In this example, DomainA trusts DomainB. Given that both domains trust users from DomainB, the Octopus service should be configured to run as an account from DomainB. If the service was configured to run as an account from DomainA then users from DomainB wouldn't be able to log in and Octopus wouldn't be able to query group information from DomainB.
 
-Learn about [configuring Teams to utilize Trusted Domains](/docs/security/users-and-teams/external-groups-and-roles.md).
+Learn about [configuring Teams to utilize Trusted Domains](/docs/security/users-and-teams/external-groups-and-roles/).
 
 ## Learn more
 

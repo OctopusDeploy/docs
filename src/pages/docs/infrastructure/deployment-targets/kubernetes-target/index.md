@@ -78,8 +78,8 @@ users:
 4. Select at least one [environment](/docs/infrastructure/environments/) for the target.
 5. Select at least one [target role](/docs/infrastructure/deployment-targets/index.md#target-roles) for the target.
 6. Select the authentication method. Kubernetes targets support multiple [account types](https://oc.to/KubernetesAuthentication):
-    - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password.md) account.
-    - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens.md) account.
+    - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password/) account.
+    - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens/) account.
     - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/accounts/azure/) allow Azure Active Directory accounts to be used.
 
       The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
@@ -284,7 +284,7 @@ When a Kubernetes target is used with a Helm step, the `helm` executable must be
 
 Kubernetes targets can be created dynamically at deploy time with the PowerShell function `New-OctopusKubernetesTarget`.
 
-See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md) for more information.
+See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target/) for more information.
 
 ## Troubleshooting
 

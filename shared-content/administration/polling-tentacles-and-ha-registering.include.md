@@ -8,7 +8,7 @@ Configuring a Polling Tentacle via the command-line is the preferred option with
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my.Octopus.server --apikey=API-77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6
 ```
 
-For more information on this command please refer to the [Tentacle Poll Server command line options](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server.md).
+For more information on this command please refer to the [Tentacle Poll Server command line options](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server/).
 
 **Tentacle.config:**
 

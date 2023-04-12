@@ -37,7 +37,7 @@ View the deployment process on our [samples instance](https://samples.octopus.ap
 
 ## Simple Rollback Process
 
-The typical rollback strategy is to skip specific steps and run additional ones during a rollback.  In this example, the database steps will be skipped with another step to [prevent that release from progressing](/docs/releases/prevent-release-progression.md) will run during a rollback.
+The typical rollback strategy is to skip specific steps and run additional ones during a rollback.  In this example, the database steps will be skipped with another step to [prevent that release from progressing](/docs/releases/prevent-release-progression/) will run during a rollback.
 
 The updated deployment process will be:
 

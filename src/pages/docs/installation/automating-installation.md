@@ -106,7 +106,7 @@ Test-DscConfiguration
 
 ### Settings and properties
 
-To review the latest available settings and properties, refer to the [OctopusDSC Server readme.md](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cOctopusServer.md) in the GitHub repository.
+To review the latest available settings and properties, refer to the [OctopusDSC Server readme.md](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cOctopusServer/) in the GitHub repository.
 
 ## Taking DSC further
 

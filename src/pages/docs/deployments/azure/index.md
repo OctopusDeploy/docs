@@ -11,11 +11,11 @@ Octopus Deploy can help you perform repeatable and controlled deployments of you
 
 Out-of-the-box, Octopus provides built-in steps to deploy to the following Azure products:
 
-- [Azure Web applications](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/) and [web jobs](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md) (also works for [Azure Functions](https://octopus.com/blog/azure-functions)).
+- [Azure Web applications](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/) and [web jobs](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs/) (also works for [Azure Functions](https://octopus.com/blog/azure-functions)).
 - [Resource Group Templates](/docs/runbooks/runbook-examples/azure/resource-groups/).
 - [Azure Cloud Services](/docs/deployments/azure/cloud-services/).
 - [Service Fabric](/docs/deployments/azure/service-fabric/).
-- [Executing PowerShell scripts using the Azure cmdlets](/docs/deployments/custom-scripts/azure-powershell-scripts.md). Follow our guide on [running Azure PowerShell scripts](/docs/deployments/azure/running-azure-powershell/).
+- [Executing PowerShell scripts using the Azure cmdlets](/docs/deployments/custom-scripts/azure-powershell-scripts/). Follow our guide on [running Azure PowerShell scripts](/docs/deployments/azure/running-azure-powershell/).
 - The one you are looking for is not here? [Share your product feedback](https://roadmap.octopus.com/submit-idea) to let us know how we can help you have happy deployments.
 
 

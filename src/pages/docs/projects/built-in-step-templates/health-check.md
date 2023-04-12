@@ -6,9 +6,9 @@ description: Health check steps allow you to perform a health check on deploymen
 navOrder: 30
 ---
 
-Octopus periodically runs health checks on deployment targets and workers to ensure that they are available and running the latest version of Calamari as part of a [machine policy](/docs/infrastructure/deployment-targets/machine-policies.md).
+Octopus periodically runs health checks on deployment targets and workers to ensure that they are available and running the latest version of Calamari as part of a [machine policy](/docs/infrastructure/deployment-targets/machine-policies/).
 
-However, often it can be useful to check the health of deployment targets when executing a runbook or deployment, particularly with [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/) and [transient deployment targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets.md).
+However, often it can be useful to check the health of deployment targets when executing a runbook or deployment, particularly with [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/) and [transient deployment targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets/).
 
 This can be achieved using the _Health Check_ step.
 

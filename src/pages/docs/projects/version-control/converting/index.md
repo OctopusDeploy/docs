@@ -21,7 +21,7 @@ Click the **New Project** button and select **Use version control for this proje
 
 Once you click the **Save** button, you'll be sent to the version control screen to configure your version control settings. Enter the URL for your Git repository, your username and password / personal access token. 
 
-Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference.md).
+Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference/).
 
 Next, add the directory you would like Octopus to store the project configuration. You can connect multiple projects to the same repository if they all use a different sub-directory (e.g. `.octopus/acme` and `.octopus/another-project`).
 
@@ -58,7 +58,7 @@ Enter the connection information for your Git repository. You need to provide:
 - The directory you would like Octopus to store the deployment process in
 - The name of the default branch
 
-Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference.md).
+Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference/).
 
 :::hint
 You can have multiple deployment processes in the same repository if they all use a different sub-directory.
@@ -94,7 +94,7 @@ Optionally, you can also nominate protected branches for your Project. This will
 
 ## Migrating variables on an existing Git project
 
-Since the initial public release of config-as-code, we've added support for additional project configuration in Git. You can now [migrate non-sensitive variables to Git](/docs/projects/version-control/converting/migrating-variables.md).
+Since the initial public release of config-as-code, we've added support for additional project configuration in Git. You can now [migrate non-sensitive variables to Git](/docs/projects/version-control/converting/migrating-variables/).
 
 ## Not everything is saved to version control
 
@@ -102,10 +102,10 @@ The Configuration as Code feature is per-project. Currently, only the deployment
 
 Even after Runbooks are added, a number of project-level and instance-level settings will not be stored in version control.
 
-Learn more about [what is stored in version control](/docs/projects/version-control/config-as-code-reference.md).
+Learn more about [what is stored in version control](/docs/projects/version-control/config-as-code-reference/).
 
 ## Using a project with version control enabled
 
 In general, modifying a project via the Octopus UI with version control enabled is the same as modifying a project configured to save changes to SQL Server. However, there are some minor differences.
 
-Learn more about [Editing a project with version control enabled](/docs/projects/version-control/editing-a-project-with-version-control-enabled.md).
+Learn more about [Editing a project with version control enabled](/docs/projects/version-control/editing-a-project-with-version-control-enabled/).

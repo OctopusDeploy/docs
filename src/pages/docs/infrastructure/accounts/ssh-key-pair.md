@@ -6,7 +6,7 @@ description: SSH key pair accounts allow you to securely authenticate with SSH t
 navOrder: 40
 ---
 
-An SSH key pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md).
+An SSH key pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target/).
 
 ## Creating an SSH key pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
 
@@ -79,7 +79,7 @@ If you need more information about generating an SSH key pair, see the [useful l
 1. If you want to restrict which environments can use the account, select only the environments that are allowed to account. If you don't select any environments, all environments will be allowed to use the account.
 1. Click **SAVE**.
 
-The account is now ready to be used when you configure your [SSH deployment target](/docs/infrastructure/deployment-targets/linux/ssh-target.md).
+The account is now ready to be used when you configure your [SSH deployment target](/docs/infrastructure/deployment-targets/linux/ssh-target/).
 
 The server will confirm that this private key matches its public key at the start of each SSH connection.
 

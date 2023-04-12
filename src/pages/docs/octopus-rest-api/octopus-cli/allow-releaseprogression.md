@@ -79,7 +79,7 @@ Common options:
 
 !include <samples-instance>
 
-This example removes the [prevent progression](/docs/releases/prevent-release-progression.md) flag from a release, allowing it to proceed to the next environment.
+This example removes the [prevent progression](/docs/releases/prevent-release-progression/) flag from a release, allowing it to proceed to the next environment.
 ```
 octo allow-releaseprogression --project="Octo Pet Shop" --releaseNumber="2020.08.03.82" --space="Target - Hybrid" --server="https://samples.octopus.app" --apiKey="MyApiKey"
 ```
@@ -87,4 +87,4 @@ octo allow-releaseprogression --project="Octo Pet Shop" --releaseNumber="2020.08
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)

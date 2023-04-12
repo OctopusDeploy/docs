@@ -23,7 +23,7 @@ To perform an in-place upgrade, follow these steps:
 
 ### 1. Back up Your Octopus 2.6.5 database and Master Key {#Manualupgrade-1.BackupyourOctopus2.6databaseandmasterkey}
 
-See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md)[ page for instructions on backing up your database.](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md)
+See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md)[ page for instructions on backing up your database.](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6/)
 
 ### 2. Install Octopus 2018.10 LTS on your Octopus Server {#Manualupgrade-2.InstallOctopus3.xonyourOctopusServer}
 
@@ -52,7 +52,7 @@ After upgrading, the Octopus Manager will prompt to import your **Octopus 2.6.5*
 
 ![](images/3278005.png "width=500")
 
-See the [Migrating data from Octopus 2.6.5 to 2018.10 LTS](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) page for more detailed instructions on importing your **Octopus 2.6.5** database backup into **Octopus 2018.10 LTS**.
+See the [Migrating data from Octopus 2.6.5 to 2018.10 LTS](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts/) page for more detailed instructions on importing your **Octopus 2.6.5** database backup into **Octopus 2018.10 LTS**.
 
 :::hint
 **Migration taking a long time?**

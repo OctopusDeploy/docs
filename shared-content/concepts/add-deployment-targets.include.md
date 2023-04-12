@@ -12,8 +12,8 @@ If you run into any issues, refer to the documentation for the type of deploymen
 - [Linux](/docs/infrastructure/deployment-targets/linux/)
 - [Azure](/docs/infrastructure/deployment-targets/azure/)
 - [Kubernetes](/docs/infrastructure/deployment-targets/kubernetes-target/)
-- [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
-- [Cloud region](/docs/infrastructure/deployment-targets/cloud-regions.md)
+- [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop/)
+- [Cloud region](/docs/infrastructure/deployment-targets/cloud-regions/)
 
 As you configure your deployment targets, select the environment, they will belong to, and assign the target role(s).  Roles ensure you deploy the right software to the correct deployment targets. Typical target roles include:
 

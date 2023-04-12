@@ -32,6 +32,6 @@ In the tenant overview, Click on **MANAGE TAGS** to edit which tags are associat
 
 Repeat this process for each of the tenants. 
 
-The next step will define the [project template variables](/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables.md) needed for the application.
+The next step will define the [project template variables](/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables/) needed for the application.
 
 <span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables">Next</a></span>

@@ -79,9 +79,9 @@ We have created the step template [Calculate Deployment Mode](https://library.oc
 
 ### Enabling and Disabling Steps based on Deployment Mode
 
-Once you know the deployment mode, you can enable or disable steps using [output variables](/docs/projects/variables/output-variables.md) and [variable run conditions](/docs/projects/steps/conditions/index.md#variable-expressions).  You can have steps run only on **Rollback**, only on **Deploy**, only on **Deploy** or **Redeployment**, or any other combination.  
+Once you know the deployment mode, you can enable or disable steps using [output variables](/docs/projects/variables/output-variables/) and [variable run conditions](/docs/projects/steps/conditions/index.md#variable-expressions).  You can have steps run only on **Rollback**, only on **Deploy**, only on **Deploy** or **Redeployment**, or any other combination.  
 
-The step template [Calculate Deployment Mode](https://library.octopus.com/step-templates/d166457a-1421-4731-b143-dd6766fb95d5/actiontemplate-calculate-deployment-mode) includes a number of [output variables](/docs/projects/variables/output-variables.md).
+The step template [Calculate Deployment Mode](https://library.octopus.com/step-templates/d166457a-1421-4731-b143-dd6766fb95d5/actiontemplate-calculate-deployment-mode) includes a number of [output variables](/docs/projects/variables/output-variables/).
 
  - **DeploymentMode**: Will be `Deploy`, `Rollback`, or `Redeploy`.
  - **Trigger**: This indicates if the deployment was caused by a deployment target trigger or a scheduled trigger.  It will be `True` or `False`.
@@ -109,7 +109,7 @@ The usage will be:
 
 ## Automatic Trigger of Rollbacks
 
-Using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md), or [one of our step templates](https://library.octopus.com/step-templates/0dac2fe6-91d5-4c05-bdfb-1b97adf1e12e/actiontemplate-deploy-child-octopus-deploy-project) it is possible to automatically trigger a rollback process.  
+Using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release/), or [one of our step templates](https://library.octopus.com/step-templates/0dac2fe6-91d5-4c05-bdfb-1b97adf1e12e/actiontemplate-deploy-child-octopus-deploy-project) it is possible to automatically trigger a rollback process.  
 
 While it is possible to automatically trigger a rollback, this is not something we recommend unless you have a robust testing suite and you've tested your rollback process multiple times.  We recommend first manually triggering the rollback.  Once you are confident in your rollback process, look into updating your process to be automatically triggered.
 

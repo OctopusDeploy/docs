@@ -11,21 +11,21 @@ This tutorial will help you complete your first runbook run using a sample scrip
 
 This tutorial will take between **15-25 minutes** to complete, with each step taking between **2-3** minutes to complete.  
 
-1. [Configure environments](docs/getting-started/first-runbook-run/configure-runbook-environments.md)
-1. [Create a project](docs/getting-started/first-runbook-run/create-runbook-projects.md)
-1. [Create a runbook](docs/getting-started/first-runbook-run/create-a-runbook.md)
-1. [Define a runbook process to run on workers](docs/getting-started/first-runbook-run/define-the-runbook-process.md)
-1. [Running a runbook](/docs/getting-started/first-runbook-run/running-a-runbook.md)
-1. [Defining and using runbook variables](/docs/getting-started/first-runbook-run/runbook-specific-variables.md)
-1. [Adding deployment targets](/docs/getting-started/first-runbook-run/add-runbook-deployment-targets.md)
-1. [Update runbook process to run on deployment targets](docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets.md)
-1. [Publishing a runbook](/docs/getting-started/first-runbook-run/publishing-a-runbook.md)
+1. [Configure environments](docs/getting-started/first-runbook-run/configure-runbook-environments/)
+1. [Create a project](docs/getting-started/first-runbook-run/create-runbook-projects/)
+1. [Create a runbook](docs/getting-started/first-runbook-run/create-a-runbook/)
+1. [Define a runbook process to run on workers](docs/getting-started/first-runbook-run/define-the-runbook-process/)
+1. [Running a runbook](/docs/getting-started/first-runbook-run/running-a-runbook/)
+1. [Defining and using runbook variables](/docs/getting-started/first-runbook-run/runbook-specific-variables/)
+1. [Adding deployment targets](/docs/getting-started/first-runbook-run/add-runbook-deployment-targets/)
+1. [Update runbook process to run on deployment targets](docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets/)
+1. [Publishing a runbook](/docs/getting-started/first-runbook-run/publishing-a-runbook/)
 
 Before starting the tutorial, if you haven't set up an Octopus Deploy instance, please do so by selecting one of the following options:
 
 !include <octopus-deploy-setup-options>
 
-When you have an instance running, go to the [configure runbook environments page](docs/getting-started/first-runbook-run/configure-runbook-environments.md) to get started.
+When you have an instance running, go to the [configure runbook environments page](docs/getting-started/first-runbook-run/configure-runbook-environments/) to get started.
 
 **Further Reading**
 

@@ -43,7 +43,7 @@ After signing up to Okta you will receive your own url to access the Okta portal
 **Tips::**
 - **Reply URLs are case-sensitive** - Please take care when adding this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters.
 - **Not using SSL?** - We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
-Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration.md) making it easier to setup SSL on your Octopus Server.
+Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration/) making it easier to setup SSL on your Octopus Server.
 :::
 
    If you want to allow users to log in directly from Okta then change the **Login initiated by** to _Either Okta or App_, set **Login flow** to _Redirect to app to initiate login_, and set the **Initiate login URI** to `https://octopus.example.com/#/users/sign-in`.
@@ -131,7 +131,7 @@ octopus.server.exe configure --oktaScope="openid%20profile%20email%20groups"
 
 ### Octopus user accounts are still required {#Oktaauthentication-Octopususeraccountsarestillrequired}
 
-Octopus still requires a [user account](/docs/security/users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
+Octopus still requires a [user account](/docs/security/users-and-teams/index/) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
 :::hint
 **How Octopus matches external identities to user accounts**
@@ -149,7 +149,7 @@ If you already have Octopus user accounts and you want to enable external authen
 
 ## Troubleshooting {#Oktaauthentication-Troubleshooting}
 
-We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with Okta, be sure to check your [server logs](/docs/support/log-files.md) for warnings.
+We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with Okta, be sure to check your [server logs](/docs/support/log-files/) for warnings.
 
 You can also check Okta logs by clicking the **View Logs** link on the Okta admin portal.
 

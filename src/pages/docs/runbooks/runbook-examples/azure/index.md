@@ -18,7 +18,7 @@ Typical routines could be:
 
 Out-of-the-box, Octopus provides built-in steps to help manage your infrastructure in Azure:
 - [Resource Group Templates](/docs/runbooks/runbook-examples/azure/resource-groups/).
-- [Executing PowerShell scripts using the Azure cmdlets](/docs/deployments/custom-scripts/azure-powershell-scripts.md). Follow our guide on [running Azure PowerShell scripts](/docs/deployments/azure/running-azure-powershell/).
+- [Executing PowerShell scripts using the Azure cmdlets](/docs/deployments/custom-scripts/azure-powershell-scripts/). Follow our guide on [running Azure PowerShell scripts](/docs/deployments/azure/running-azure-powershell/).
 
 ## Learn more
 

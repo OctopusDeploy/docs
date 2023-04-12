@@ -66,7 +66,7 @@ Using a runbook in Octopus can provide a self-service mechanism for developers t
 Use variables where possible so you can assign scopes to values. This will ensure that things like service name are correct for the environment you're executing the runbook on.
 :::
 
-After adding all of the required parameters, click **Save**, and you have a basic runbook to restart a service on Ubuntu. You can add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) step for business approvals. 
+After adding all of the required parameters, click **Save**, and you have a basic runbook to restart a service on Ubuntu. You can add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step for business approvals. 
 
 ### Linux service samples {#linux-services-samples}
 

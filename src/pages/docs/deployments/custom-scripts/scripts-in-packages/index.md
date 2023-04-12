@@ -19,7 +19,7 @@ You can add any of the following script files in any of the scripting languages 
 
 Where `<ext>` is the appropriate extension for your scripting language of choice. Also note these file names will be case sensitive on certain operating systems.
 
-Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run; see the section on [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables.md) and [collecting artifacts](docs/projects/deployment-process/artifacts.md).
+Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run; see the section on [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables.md) and [collecting artifacts](docs/projects/deployment-process/artifacts/).
 
 ## Supported steps
 
@@ -39,7 +39,7 @@ The following steps have been designed to support running scripts; either at the
 - Deploy to Wildfly or EAP
 - Upgrade a Helm Chart
 
-However, not all package steps support script hooks. As a general rule, any of the [built-in step templates](/docs/projects/built-in-step-templates/index.md) or [community step templates](/docs/projects/community-step-templates.md) that have the `Custom Deployment Scripts` feature available in the [configuration features](/docs/projects/steps/configuration-features/) dialog support script hooks:
+However, not all package steps support script hooks. As a general rule, any of the [built-in step templates](/docs/projects/built-in-step-templates/index.md) or [community step templates](/docs/projects/community-step-templates/) that have the `Custom Deployment Scripts` feature available in the [configuration features](/docs/projects/steps/configuration-features/) dialog support script hooks:
 
 :::hint
 **Note:** The `Custom Deployment Scripts` feature only needs to be enabled if you want to [define your scripts inline](#scripts-in-package-steps) instead of executing scripts at the root of a package.
@@ -63,11 +63,11 @@ At each stage during the deployment, Octopus will look for a scripts matching th
 
 1. Octopus extracts the package to new uniquely named directory. **This becomes the current working directory.**
 2. Octopus does some work, then executes `PreDeploy.<ext>` in the current working directory.
-3. Optional: If you are using the [custom installation directory feature](/docs/projects/steps/configuration-features/custom-installation-directory.md), Octopus will copy the contents of the current working directory to the custom installation directory. **This becomes the current working directory.**
+3. Optional: If you are using the [custom installation directory feature](/docs/projects/steps/configuration-features/custom-installation-directory/), Octopus will copy the contents of the current working directory to the custom installation directory. **This becomes the current working directory.**
 4. Octopus does some work, then executes `Deploy.<ext>` in the current working directory.
 5. Octopus does some work, then executes `PostDeploy.<ext>` in the current working directory.
 
-For more details see [how packages are deployed](/docs/deployments/packages/) and [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering.md).
+For more details see [how packages are deployed](/docs/deployments/packages/) and [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering/).
 
 ### Cross-platform support {#cross-platform-support}
 

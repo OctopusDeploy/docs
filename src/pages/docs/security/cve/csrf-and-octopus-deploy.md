@@ -59,13 +59,13 @@ Octopus requires two cookies when using a web browser: the authentication cookie
 
 1. Your web browser does not support cookies. Configure your browser to accept cookies from your Octopus Server. You may need to ask your systems administrator for help with this.
 1. The time is incorrect on your computer, or the time is incorrect on the Octopus Server. This can cause your authentication cookies to expire and become unusable. Correct the time and configure your computers to automatically synchronize their time from a time server.
-1. You are using Chrome and have not configured your Octopus Server to use HTTPS. Chrome has started to consider web sites served over `http://` as unsafe and will refuse to accept cookies from those unsafe sites. [Configure your Octopus Server to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md) instead of HTTP. [Learn more about Chrome and the move toward a more secure web](https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html).
+1. You are using Chrome and have not configured your Octopus Server to use HTTPS. Chrome has started to consider web sites served over `http://` as unsafe and will refuse to accept cookies from those unsafe sites. [Configure your Octopus Server to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/) instead of HTTP. [Learn more about Chrome and the move toward a more secure web](https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html).
 1. You have a network device between your browser and your Octopus Server which is stripping cookies it doesn't trust, or is modifying cookies and setting `HttpOnly=true`. The anti-forgery cookie is configured as `HttpOnly=false` because the Octopus JavaScript client requires access to the cookie. Some firewalls or proxies can be configured to strip or modify cookies like this in the HTTP response headers. You should configure your network device to allow this cookie through to the browser without being removed nor modified.
 1. You are hosting Octopus Server on the same domain as other applications. One of the other applications may be issuing a malformed cookie causing the Octopus authentication cookies to be misinterpreted. Move Octopus Server to a different domain to isolate it from the other applications, or stop the other applications from issuing malformed cookies. See [this GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2343) for more details.
 
 ### Using the Octopus REST API with raw HTTP
 
-If you use raw HTTP to access Octopus Deploy we recommend using an [API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md) to authenticate your requests. Learn about the [Octopus REST API](/docs/octopus-rest-api/) including [authenticating with the Octopus REST API](/docs/octopus-rest-api/index.md#authentication).
+If you use raw HTTP to access Octopus Deploy we recommend using an [API Key](/docs/octopus-rest-api/how-to-create-an-api-key/) to authenticate your requests. Learn about the [Octopus REST API](/docs/octopus-rest-api/) including [authenticating with the Octopus REST API](/docs/octopus-rest-api/index.md#authentication).
 
 ### Contact Octopus support {#support}
 
@@ -80,4 +80,4 @@ If none of these troubleshooting steps work, please get in contact with our [sup
   h. Do you have other web applications hosted on the same server?
   i. Do you have other web applications hosted on the same domain? (for example: `octopus.mycompany.com` and `myapp.mycomany.com`?)
   j. Do you have any intermediary network devices (like proxies or web application firewalls) which may be stripping custom HTTP headers or cookies from your requests?
-  k. Please [record the problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser.md) and send the recording to us for analysis. Please record the following steps: Sign out of Octopus Deploy, sign back in again, and then try to do the action that fails.
+  k. Please [record the problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser/) and send the recording to us for analysis. Please record the following steps: Sign out of Octopus Deploy, sign back in again, and then try to do the action that fails.

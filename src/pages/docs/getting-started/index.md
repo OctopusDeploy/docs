@@ -31,7 +31,7 @@ Learn more about [Octopus Cloud](/docs/octopus-cloud/).
 
 ### Self-Hosted Octopus
 
-Installing the self-hosted [Octopus Server](/docs/installation/index.md) sets up the [Octopus Web Portal](#the-octopus-web-portal) and the [Octopus REST API](/docs/octopus-rest-api/).
+Installing the self-hosted [Octopus Server](/docs/installation/index/) sets up the [Octopus Web Portal](#the-octopus-web-portal) and the [Octopus REST API](/docs/octopus-rest-api/).
 
 The [installation documentation](/docs/installation/) provides instructions for downloading, installing, and configuring your Octopus Deploy Server.
 
@@ -81,7 +81,7 @@ Learn more about the [deployment process](/docs/projects/deployment-process/) an
 
 As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. For instance, your test environment shouldn't have access to your production database. Using variables, you can specify a different database for each environment, ensuring your production data won't be impacted by codes changes that are still in review.
 
-Learn more about [variables](/docs/projects/variables/index.md) and advanced [configuration features](/docs/projects/steps/configuration-features/).
+Learn more about [variables](/docs/projects/variables/index/) and advanced [configuration features](/docs/projects/steps/configuration-features/).
 
 ### Lifecycle
 

@@ -9,7 +9,7 @@ hideInThisSection: true
 
 !include <create-projects>
 
-The next step will [create a runbook](/docs/getting-started/first-runbook-run/create-a-runbook.md) in the newly created project.
+The next step will [create a runbook](/docs/getting-started/first-runbook-run/create-a-runbook/) in the newly created project.
 
 **Further Reading**
 

@@ -70,7 +70,7 @@ Some places in Octopus Deploy allow a user to add rich content, like description
 
 When you sign in to the Octopus Deploy web user interface, the server will send back an encrypted cookie called `OctopusIdentificationToken` in the response header with the `HttpOnly=true` cookie flag set. Even if an attacker could successfully execute a malicious script, the browser will prevent that script from accessing the session cookie.
 
-In the worst case where an attacker could steal the session cookie, Octopus Deploy actively prevents against [Cross-Site Request Forgery](csrf-and-octopus-deploy.md).
+In the worst case where an attacker could steal the session cookie, Octopus Deploy actively prevents against [Cross-Site Request Forgery](csrf-and-octopus-deploy/).
 
 ### A strict content security policy (CSP) is configured
 
@@ -78,13 +78,13 @@ By default, your Octopus Server implements a strict Content Security Policy (CSP
 
 You can see the `Content-Security-Policy` of your Octopus Server by inspecting any of the HTTP responses sent to your browser.
 
-Learn about [HTTP security headers used by Octopus Deploy](/docs/security/http-security-headers.md).
+Learn about [HTTP security headers used by Octopus Deploy](/docs/security/http-security-headers/).
 
 ### Built-in XSS filters are enforced in modern browsers
 
 The Octopus Server forces modern browsers to enable their built-in XSS filters, even if these filters were disabled by the user, by adding the `X-XSS-Protection` header to every HTTP response.
 
-Learn about [HTTP security headers used by Octopus Deploy](/docs/security/http-security-headers.md).
+Learn about [HTTP security headers used by Octopus Deploy](/docs/security/http-security-headers/).
 
 ## Frequently asked questions {#faq}
 
@@ -101,4 +101,4 @@ The Octopus Server performs content-negotiation, and will encode the response ap
 
 ### Which web browsers are supported by Octopus Deploy?
 
-The quick answer is "all modern browsers". Learn more about [supported browsers](/docs/installation/requirements.md).
+The quick answer is "all modern browsers". Learn more about [supported browsers](/docs/installation/requirements/).

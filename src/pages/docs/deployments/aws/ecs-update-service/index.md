@@ -126,7 +126,7 @@ Selecting the `Don't wait` option means that the step will not fail if the tasks
 
 #### Variable replacements
 
-Any of the input fields can be bound to an Octostache expression. [Variable substitution](/docs/projects/variables/variable-substitutions.md) will be performed before the release is deployed.
+Any of the input fields can be bound to an Octostache expression. [Variable substitution](/docs/projects/variables/variable-substitutions/) will be performed before the release is deployed.
 
 ### Output variables
 

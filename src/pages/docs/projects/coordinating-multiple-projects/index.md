@@ -10,7 +10,7 @@ When working with multiple related projects, it is often necessary to co-ordinat
 
 :::success
 **Samples**
-For in depth code samples covering many of the processes discussed in this section, see the [Project Coordination Code Samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples.md) page
+For in depth code samples covering many of the processes discussed in this section, see the [Project Coordination Code Samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples/) page
 :::
 
 ## Responding to events across multiple projects
@@ -23,7 +23,7 @@ There are various ways to respond to events within Octopus, which is useful for:
 - Triggering another process, for example, another deployment.
 - Verifying that some conditions have been met.
 
-The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function, or as a windows service. Alternatively, it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples.md)).
+The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function, or as a windows service. Alternatively, it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples/)).
 
 [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/) can call a web service or send an email when Octopus events occur.
 

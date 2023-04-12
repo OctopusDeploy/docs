@@ -40,7 +40,7 @@ After you have installed the Octopus Deploy plugin. First navigate to {{Manage J
 
 :::success
 **Creating API keys**
-Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) so the plugin can interact with your Octopus Server.
+Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/) so the plugin can interact with your Octopus Server.
 :::
 
 ### Octopus CLI
@@ -50,7 +50,7 @@ This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-
  The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
 
 You can do either of these:
-  - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool.md) this works great on Linux and Windows.
+  - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool/) this works great on Linux and Windows.
   - [Download Octopus CLI](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo` or `/usr/local/bin`.
 
 Then we can let the plugin know where it is installed.
@@ -63,7 +63,7 @@ Next, navigate to {{Manage Jenkins > Configure System}}.
 
 #### Octopus Server settings
 
-Here you can create the link to your Octopus Server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) for it.
+Here you can create the link to your Octopus Server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/) for it.
 
 ![](images/octopusdeploy-servers.png "width=500")
 
@@ -97,11 +97,11 @@ The Octopus Jenkins plugin comes with these Octopus Build Steps:
 
 Octopus supports multiple [package formats](/docs/packaging-applications/index.md#supported-formats) for deploying your software.
 
-You can configure your Jenkins project to [package](/docs/octopus-rest-api/octopus-cli/pack.md) your application or other files on disk, without the need of any specification files, e.g. `.nuspec`.
+You can configure your Jenkins project to [package](/docs/octopus-rest-api/octopus-cli/pack/) your application or other files on disk, without the need of any specification files, e.g. `.nuspec`.
 
 The two supported formats are `zip` and `nuget`.
 
-To see the full set of additional arguments that can be supplied see the [pack documentation](/docs/octopus-rest-api/octopus-cli/pack.md)
+To see the full set of additional arguments that can be supplied see the [pack documentation](/docs/octopus-rest-api/octopus-cli/pack/)
 
 [Pack syntax for Pipeline](/docs/packaging-applications/build-servers/jenkins/pipeline.md#pack)
 
@@ -182,7 +182,7 @@ We welcome contributions; issues, bug fixes, enhancements.
 
 If you are starting to work on something more detailed please reach out to support@octopus.com to ensure it aligns with what we have going on, and that we are not doubling up efforts.
 
-Have a look at the [Octopus-Jenkins-Plugin repository](https://github.com/OctopusDeploy/octopus-jenkins-plugin) on GitHub. We also have the following [developer focused guidelines](https://github.com/OctopusDeploy/octopus-jenkins-plugin/blob/master/developer-guide.md) to get you started working on the plugin.
+Have a look at the [Octopus-Jenkins-Plugin repository](https://github.com/OctopusDeploy/octopus-jenkins-plugin) on GitHub. We also have the following [developer focused guidelines](https://github.com/OctopusDeploy/octopus-jenkins-plugin/blob/master/developer-guide/) to get you started working on the plugin.
 :::
 
 ## Learn more

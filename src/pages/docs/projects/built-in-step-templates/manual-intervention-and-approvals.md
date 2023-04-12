@@ -51,7 +51,7 @@ When aborting a deployment, it's a good idea to write a reason into the **Notes*
 
 ## Output variables
 
-When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/projects/built-in-step-templates/email-notifications.md) templates.
+When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/projects/built-in-step-templates/email-notifications/) templates.
 
 *Step Name* below refers to the name given to the manual step, for example *Ensure traders are aware of the deployment*.
 
@@ -66,8 +66,8 @@ When a manual step is completed, details of the interruption are saved as variab
 
 ## Learn more
 
-- [Advanced manual approvals](/docs/deployments/databases/common-patterns/manual-approvals.md)
-- [Automated approvals](/docs/deployments/databases/common-patterns/automatic-approvals.md)
+- [Advanced manual approvals](/docs/deployments/databases/common-patterns/manual-approvals/)
+- [Automated approvals](/docs/deployments/databases/common-patterns/automatic-approvals/)
 - [Automated approval sample](https://samples.octopus.app/app#/Spaces-202/projects/octofx/deployments/process)
 - [Automatic approvals for your database deployments](https://octopus.com/blog/autoapprove-database-deployments)
 - [Building trust in an automated database deployment process](https://octopus.com/blog/building-trust-in-automated-db-deployments)

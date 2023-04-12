@@ -108,6 +108,6 @@ octo clean-workerpool --workerPool="Default Worker Pool" --health-status="Health
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
 - [Workers](/docs/infrastructure/workers/)
-- [Worker Pools](/docs/infrastructure/workers/worker-pools.md)
+- [Worker Pools](/docs/infrastructure/workers/worker-pools/)

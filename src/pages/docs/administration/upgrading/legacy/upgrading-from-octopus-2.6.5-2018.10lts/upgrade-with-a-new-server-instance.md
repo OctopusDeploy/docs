@@ -16,7 +16,7 @@ To upgrade to a modern version of Octopus Server, follow these steps:
 
 ### 1. Back up your Octopus 2.6.5 database and Master Key {#Upgradewithanew3.0serverinstance-1.BackupyourOctopus2.6databaseandmasterkey}
 
-See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md) page for instructions on backing up your database.
+See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6/) page for instructions on backing up your database.
 
 ### 2. Install Octopus 2018.10 LTS on a new virtual or physical server {#Upgradewithanew3.0serverinstance-2.InstallOctopus3.xonanewvirtualorphysicalserver}
 
@@ -29,7 +29,7 @@ See the [Installing Octopus 2018.10 LTS](/docs/installation/) page for instruc
 
 ### 3. Migrate your data from 2.6.5 to 2018.10 LTS {#Upgradewithanew3.0serverinstance-3.Migrateyourdatafrom2.6to3.x}
 
-See the [Migrating data from Octopus 2.6.5 to 2018.10 LTS](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) page for instructions on importing your **Octopus 2.6.5** database backup into **Octopus 2018.10 LTS**.
+See the [Migrating data from Octopus 2.6.5 to 2018.10 LTS](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts/) page for instructions on importing your **Octopus 2.6.5** database backup into **Octopus 2018.10 LTS**.
 
 :::hint
 **Migration taking a long time?**

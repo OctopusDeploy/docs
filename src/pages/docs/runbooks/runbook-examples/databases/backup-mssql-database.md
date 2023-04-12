@@ -10,11 +10,11 @@ Backing up databases to protect application data should be a common practice in 
 
 ## Permissions
 
-In this example, you will be backing up a Microsoft SQL Server database using a step template from our [community library](/docs/projects/community-step-templates.md) called [SQL - Backup Database](https://library.octopus.com/step-templates/34b4fa10-329f-4c50-ab7c-d6b047264b83/actiontemplate-sql-backup-database). This template supports both:
+In this example, you will be backing up a Microsoft SQL Server database using a step template from our [community library](/docs/projects/community-step-templates/) called [SQL - Backup Database](https://library.octopus.com/step-templates/34b4fa10-329f-4c50-ab7c-d6b047264b83/actiontemplate-sql-backup-database). This template supports both:
 - SQL Authentication.
 - Integrated Authentication. 
 
-In this example, we'll use SQL Authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information on this [here](/docs/deployments/databases/sql-server/permissions.md).
+In this example, we'll use SQL Authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information on this [here](/docs/deployments/databases/sql-server/permissions/).
 
 ## Create the Runbook
 
@@ -44,7 +44,7 @@ In this example, we'll use SQL Authentication and provide both a SQL username an
 Use variables where possible so you can assign scopes to values. This will ensure credentials and database connections are correct for the environment you're deploying to.
 :::
 
-After adding all of the required parameters, click **Save**, and you have a basic runbook to backup your SQL database! You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) step for business approvals. 
+After adding all of the required parameters, click **Save**, and you have a basic runbook to backup your SQL database! You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step for business approvals. 
 
 ## Samples
 

@@ -14,14 +14,14 @@ Octopus provides a built in Deployment Target for Azure Service Fabric clusters.
 
 ## Packaging
 
-Learn how to [package a Service Fabric application](/docs/deployments/azure/service-fabric/packaging.md) for use with Octopus Deploy.
+Learn how to [package a Service Fabric application](/docs/deployments/azure/service-fabric/packaging/) for use with Octopus Deploy.
 
 ## Step Templates
 
 Octopus comes with two built-in step templates facilitating deployment and management of Azure Service Fabric apps.
 
 - [Deploy a Service Fabric App](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md#step-4-create-the-service-fabric-application-deployment-step)
-- [Run a Service Fabric SDK PowerShell Script](/docs/deployments/custom-scripts/service-fabric-powershell-scripts.md)
+- [Run a Service Fabric SDK PowerShell Script](/docs/deployments/custom-scripts/service-fabric-powershell-scripts/)
 
 ## Security modes
 

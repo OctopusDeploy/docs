@@ -9,15 +9,15 @@ navOrder: 3
 When upgrading from **Octopus 2.6** to **Octopus 2018.10 LTS** you can migrate your data. There are some points worth noting about the data migration process:
 
 - The data migration tool has been designed to perform a **one-time** migration from **Octopus 2.6** to **Octopus 2018.10 LTS** for each backup file.
-    * Re-running the data migration will overwrite matching data. See [Importing](/docs/administration/data/data-migration.md) in the Data Migration page for more details on how data is imported.
+    * Re-running the data migration will overwrite matching data. See [Importing](/docs/administration/data/data-migration/) in the Data Migration page for more details on how data is imported.
     * Data is matched on name. Names are unique in Octopus. This is to allow multiple backups to be run from multiple Octopus Server instances to combine into one **Octopus 2018.10 LTS** instance.
     So you can run multiple backup files into an **Octopus 2018.10 LTS** instance but if it matches names it will use the currently running backup as the source of truth.
-- The built-in Octopus NuGet package repository is not migrated automatically - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) for more details.
-- You can optionally limit the days of historical data to migrate - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) for more details.
+- The built-in Octopus NuGet package repository is not migrated automatically - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts/) for more details.
+- You can optionally limit the days of historical data to migrate - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts/) for more details.
 
 :::hint
 **The migrator can take a long time**
-Please see our [tips for minimizing the migration duration](minimize-migration-time.md).
+Please see our [tips for minimizing the migration duration](minimize-migration-time/).
 :::
 
 ## Importing your 2.6 backup into 2018.10 LTS {#MigratingdatafromOctopus2.6to3.x-Importingyour2.6Backupinto3.x}
@@ -50,4 +50,4 @@ You will need to transfer them to the new server to `C:\Octopus\Packages`. Once
 
 ### Migrating historical data {#MigratingdatafromOctopus2.6to3.x-MaxAgeMigratinghistoricaldata}
 
-By default we migrate everything from your backup including all historical data. Learn about [minimizing migration time](minimize-migration-time.md).
+By default we migrate everything from your backup including all historical data. Learn about [minimizing migration time](minimize-migration-time/).

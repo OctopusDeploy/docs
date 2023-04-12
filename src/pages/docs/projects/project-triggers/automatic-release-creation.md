@@ -8,15 +8,15 @@ navOrder: 15
 
 :::hint
 **Consider using a build server extension**
-We have [extensions/plugins](/docs/packaging-applications/build-servers/index.md) available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository), create releases and deploy them to your environments:
+We have [extensions/plugins](/docs/packaging-applications/build-servers/index/) available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository), create releases and deploy them to your environments:
 
  - [AppVeyor](/docs/packaging-applications/build-servers/appveyor/)
  - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops/)
- - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
+ - [Bamboo](/docs/packaging-applications/build-servers/bamboo/)
  - [BitBucket Pipelines](/docs/packaging-applications/build-servers/bitbucket-pipelines/)
- - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
+ - [Continua CI](/docs/packaging-applications/build-servers/continua-ci/)
  - [Jenkins](/docs/packaging-applications/build-servers/jenkins/)
- - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md)
+ - [TeamCity](/docs/packaging-applications/build-servers/teamcity/)
 
 :::
 
@@ -51,7 +51,7 @@ The release number that is created is guided by the Release Versioning settings 
 
 You must select the [channels](/docs/releases/channels/) that will be used for any automatically created releases. This means that **only one channel for each project can have an automatic release creation trigger enabled at any one time.** This can be painful, and here are some points you can consider:
 
-- Use one of the [build-server extensions](/docs/packaging-applications/build-servers/), or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
+- Use one of the [build-server extensions](/docs/packaging-applications/build-servers/), or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release/) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
 - Choose the channel that will be used most commonly for automatically creating releases, and create releases manually for the other channels.
 - Try creating some releases manually for the selected channel to make sure it works as expected.
 

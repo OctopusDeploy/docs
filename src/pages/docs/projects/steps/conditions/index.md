@@ -6,7 +6,7 @@ description: Adding conditions to steps to define your project's deployment proc
 navOrder: 20
 ---
 
-For each [step](/docs/projects/steps/index.md) that you define in your [deployment processes](/docs/projects/deployment-process/), you can set conditions for greater control over the step's execution. You can set conditions to:
+For each [step](/docs/projects/steps/index/) that you define in your [deployment processes](/docs/projects/deployment-process/), you can set conditions for greater control over the step's execution. You can set conditions to:
 
 - Run the step on specific environments or skip specific environments.
 - Specify which channels the step should run on.
@@ -85,7 +85,7 @@ The currently-running machine could be substituted in this expression:
 
 This will evaluate to `True` on Web01 and `False` on Web02.
 
-Machine-level variable expressions are also supported in [rolling deployments](/docs/deployments/patterns/rolling-deployments.md) using child steps.
+Machine-level variable expressions are also supported in [rolling deployments](/docs/deployments/patterns/rolling-deployments/) using child steps.
 
 ### Variable filters in run conditions
 
@@ -115,7 +115,7 @@ This acts like a window, where Octopus will roll through your parallel steps, an
 
 ### Steps in parallel on the same deployment target
 
-For safety reasons, by default, Octopus runs only one step at the same time on a single deployment target. If you want to run multiple steps on a deployment target in parallel, [you'll need to enable that behavior](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously.md).
+For safety reasons, by default, Octopus runs only one step at the same time on a single deployment target. If you want to run multiple steps on a deployment target in parallel, [you'll need to enable that behavior](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously/).
 
 ### Steps which depend on each other
 
@@ -123,7 +123,7 @@ Watch out not to run steps that depend on each other in parallel. If **Step2** d
 
 ### Other ways to improve deployment time
 
-We have written a comprehensive guide on [deployment performance](docs/projects/deployment-process/performance.md) which covers many other aspects which affect your deployment time in addition to running steps in parallel.
+We have written a comprehensive guide on [deployment performance](docs/projects/deployment-process/performance/) which covers many other aspects which affect your deployment time in addition to running steps in parallel.
 
 ## Package requirement
 

@@ -10,7 +10,7 @@ With the `Configure certificate for WildFly or EAP` step, certificates managed b
 
 ## Prerequisites
 
-If a new KeyStore is to be created as part of the deployment, the certificate being deployed must be referenced by a variable. [Add a Certificate to Octopus](add-certificate.md) provides instructions on how to add a new certificate to the Octopus library, and [Certificate Variables](/docs/projects/variables/certificate-variables.md) provides instructions on how to define a certificate variable.
+If a new KeyStore is to be created as part of the deployment, the certificate being deployed must be referenced by a variable. [Add a Certificate to Octopus](add-certificate.md) provides instructions on how to add a new certificate to the Octopus library, and [Certificate Variables](/docs/projects/variables/certificate-variables/) provides instructions on how to define a certificate variable.
 
 ## Common connection settings
 

@@ -26,7 +26,7 @@ Before going down the automation path, it is critical to back up the master key 
 A single node Octopus Deploy instance is an instance not configured for [high availability](/docs/administration/high-availability/).  The instance is running on a single Windows Server, and as such, you can run this script to:
 
 1. Check for a new version (exit if the current version is the newest version).
-1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
+1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode/).
 1. Backup all the files if it is a major version change.
 1. Stop the instance.
 1. Backup the database.

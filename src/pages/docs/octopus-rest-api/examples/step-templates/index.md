@@ -6,4 +6,4 @@ description: This section includes examples of how to use the REST API to create
 navOrder: 180
 hideInThisSectionHeader: true
 ---
-You can use the REST API to create and manage your Octopus [step templates](/docs/projects/custom-step-templates.md). Typical tasks can include:
+You can use the REST API to create and manage your Octopus [step templates](/docs/projects/custom-step-templates/). Typical tasks can include:

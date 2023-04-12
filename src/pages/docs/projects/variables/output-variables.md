@@ -8,7 +8,7 @@ navOrder: 30
 
 As you work with [variables](/docs/projects/variables/) in Octopus, there will be times when you want to use dynamic variables, for example, the value of a variable is the result of a calculation, or the output from running a command. For these scenarios, Octopus supports **output variables**.
 
-Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console.md), or [package scripts and script steps](/docs/deployments/custom-scripts/) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
+Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console/), or [package scripts and script steps](/docs/deployments/custom-scripts/) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
 
 For example, you might have a standalone [PowerShell script step](/docs/deployments/custom-scripts/) called **StepA** that does something like this:
 
@@ -32,7 +32,7 @@ Octopus.setVariable "TestResult" "Passed"
 set_octopusvariable("TestResult", "Passed")
 ```
 
-You can then use the variable from other steps, either in [variable binding syntax](/docs/projects/variables/variable-substitutions.md):
+You can then use the variable from other steps, either in [variable binding syntax](/docs/projects/variables/variable-substitutions/):
 
 ```powershell
 #{Octopus.Action[StepA].Output.TestResult}

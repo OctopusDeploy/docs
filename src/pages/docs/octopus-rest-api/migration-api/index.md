@@ -8,15 +8,15 @@ navOrder: 90
 
 Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely.
 
-The API currently includes support for both the [partial-export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md) commands. The API uses the same [Migrator.exe command line tool](/docs/octopus-rest-api/octopus.migrator.exe-command-line/) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
+The API currently includes support for both the [partial-export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/octopus-rest-api/octopus.migrator.exe-command-line/import/) commands. The API uses the same [Migrator.exe command line tool](/docs/octopus-rest-api/octopus.migrator.exe-command-line/) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
 
 :::warning
-**Note:** the migration API is **not supported** for migrations from self-hosted Octopus Server to Octopus Cloud currently - please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md) for information on how to migrate to Octopus Cloud.
+**Note:** the migration API is **not supported** for migrations from self-hosted Octopus Server to Octopus Cloud currently - please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations/) for information on how to migrate to Octopus Cloud.
 :::
 
 ## How it works
 
-When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your **Tasks** screen. During execution of this task, your Octopus Server will go into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md) to try and minimize any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
+When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your **Tasks** screen. During execution of this task, your Octopus Server will go into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode/) to try and minimize any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
 
 :::warning
 We advise that you only use the migration API under the same conditions that you'd typically do a manual migration, i.e., during a maintenance period when you know that:
@@ -243,4 +243,4 @@ Write-Host ("Migration complete, #GreatSuccess")
 
 ## Troubleshooting
 
-We do our best to log information and warnings to your task logs during a migration. An API migration follows the same path as a manual migration using [Migrator.exe command line tools](/docs/octopus-rest-api/octopus.migrator.exe-command-line/) behind the scenes, so if you are having difficulty running migrations, be sure to check your [task logs](/docs/support/get-the-raw-output-from-a-task.md) for information that might help.
+We do our best to log information and warnings to your task logs during a migration. An API migration follows the same path as a manual migration using [Migrator.exe command line tools](/docs/octopus-rest-api/octopus.migrator.exe-command-line/) behind the scenes, so if you are having difficulty running migrations, be sure to check your [task logs](/docs/support/get-the-raw-output-from-a-task/) for information that might help.

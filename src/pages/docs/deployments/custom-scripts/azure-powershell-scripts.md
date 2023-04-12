@@ -8,7 +8,7 @@ navOrder: 80
 
 Octopus can help you to run scripts on targets within Microsoft Azure.
 
-Within your Azure scripts, you can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployments/custom-scripts/output-variables.md) and [collecting artifacts](/docs/deployments/custom-scripts/index.md#Customscripts-Collectingartifacts).
+Within your Azure scripts, you can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployments/custom-scripts/output-variables/) and [collecting artifacts](/docs/deployments/custom-scripts/index.md#Customscripts-Collectingartifacts).
 
 These scripts typically rely on tools being available when they execute.
 
@@ -23,7 +23,7 @@ Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bu
 
 From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
 
-We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md).
+We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli/).
 :::
 
 When executing PowerShell against Azure, Octopus Deploy will automatically use your configured Azure account details to authenticate you into the [AzureRM PowerShell modules](https://docs.microsoft.com/powershell/azure/azurerm/overview), the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview), and [Azure CLI tools](https://docs.microsoft.com/cli/azure/), if they exist on the worker executing the script.
@@ -43,7 +43,7 @@ Learn more about [configuring the right Azure Account](/docs/infrastructure/acco
 
 ## Running Scripts in Octopus Cloud
 
-Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). Octopus provides these, and you cannot easily install custom versions of the Azure tools on them.
+Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools/). Octopus provides these, and you cannot easily install custom versions of the Azure tools on them.
 
 To use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
 
@@ -60,7 +60,7 @@ Refer to [this page](/docs/infrastructure/accounts/azure/) for more details, an
 
 ## Example {#AzurePowerShellscripts-Example}
 
-This example uses the Service Management API to create a new Staging slot as part of the [blue/green deployment sample for Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md).
+This example uses the Service Management API to create a new Staging slot as part of the [blue/green deployment sample for Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps/).
 
 ```powershell
 #Remove the staging slot if it exists

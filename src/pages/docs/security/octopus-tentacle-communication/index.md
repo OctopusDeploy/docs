@@ -6,7 +6,7 @@ description: Octopus Server and Tentacle communications details.
 navOrder: 40
 ---
 
-This page describes how the [Octopus Server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/deployment-targets/tentacle/windows/) communicate in a secure way.
+This page describes how the [Octopus Server](/docs/installation/index/) and the [Tentacle deployment agents](/docs/infrastructure/deployment-targets/tentacle/windows/) communicate in a secure way.
 
 ## Background {#Octopus-Tentaclecommunication-Background}
 
@@ -36,7 +36,7 @@ If necessary you can further restrict access using IPSec or VPNs.
 The X.509 certificates used by Octopus and Tentacle are generated on installation and use 2048-bit private keys. There is an insightful discussion of [why Octopus uses self-signed certificates](https://octopus.com/blog/why-self-signed-certificates) by default.
 
 :::hint
-Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation.md#export-and-import-tentacle-certificates-without-a-profile) which is helpful when [automating Tentacle installation](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation.md).
+Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation.md#export-and-import-tentacle-certificates-without-a-profile) which is helpful when [automating Tentacle installation](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation/).
 :::
 
 ### Scenario: Listening Tentacles {#Octopus-Tentaclecommunication-Scenario:ListeningTentacles}
@@ -77,9 +77,9 @@ To harden the TLS implementation used, review our documentation on [Disabling we
 
 ## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 
-We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles.md).
+We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles/).
 
-If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](troubleshooting-schannel-and-tls.md):
+If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](troubleshooting-schannel-and-tls/):
 
 Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---> System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
 

@@ -8,7 +8,7 @@ navOrder: 160
 
 ## Server extensions configuration {#ServerConfiguration-ServerExtensionsConfiguration}
 
-The Server Configuration screen is available from **{{Configuration,Nodes,Configuration Settings}}** and allows administrators to see which [server extensions](/docs/administration/server-extensibility/) are enabled for the Octopus Server. To learn more about customizing server extensions, please see [the documentation](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md).
+The Server Configuration screen is available from **{{Configuration,Nodes,Configuration Settings}}** and allows administrators to see which [server extensions](/docs/administration/server-extensibility/) are enabled for the Octopus Server. To learn more about customizing server extensions, please see [the documentation](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension/).
 
 Each configuration value has properties that will determine whether it is shown on this Server Configuration screen.
 
@@ -49,7 +49,7 @@ Checkout the [UsernamePasswordAuthenticationProvider](https://github.com/Octopus
 
 ### ShowInPortalSummary {#ServerConfiguration-ShowInPortalSummary}
 
-The configuration values provided via this interface actually serve 2 purposes.  The first is that they are displayed by the [Show Configuration](/docs/administration/managing-infrastructure/show-configuration.md) command (all values are displayed by the command).  The second is being displayed on the Server Configuration page in the web UI (only value with ShowInPortalSummary will be displayed).
+The configuration values provided via this interface actually serve 2 purposes.  The first is that they are displayed by the [Show Configuration](/docs/administration/managing-infrastructure/show-configuration/) command (all values are displayed by the command).  The second is being displayed on the Server Configuration page in the web UI (only value with ShowInPortalSummary will be displayed).
 
 ## Publicly accessible URL {#ServerConfiguration-PubliclyAccessibleURL}
 

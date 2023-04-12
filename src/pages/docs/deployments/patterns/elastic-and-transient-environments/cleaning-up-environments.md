@@ -38,7 +38,7 @@ Machine deletion happens as part of health checks.
 
 
 :::hint
-Read more about [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md)
+Read more about [machine policies](/docs/infrastructure/deployment-targets/machine-policies/)
 :::
 
 ## Troubleshooting Automatic Environment Clean Up {#Cleaningupenvironments-Troubleshootingautomaticenvironmentcleanup}

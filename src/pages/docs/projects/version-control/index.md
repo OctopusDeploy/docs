@@ -49,26 +49,26 @@ Learn more about [Configuring version control on a project](/docs/projects/versi
 
 Several resources previously stored in SQL Server will now be stored in git once a project is version-controlled.
 
-Learn more about [Configuration as Code reference](/docs/projects/version-control/config-as-code-reference.md)
+Learn more about [Configuration as Code reference](/docs/projects/version-control/config-as-code-reference/)
 
 ## Making changes to a version-controlled project
 
 Any changes to the deployment process or settings are made on a branch after a project is configured to be version-controlled.
 
-Learn more about [Editing a project with version control enabled](/docs/projects/version-control/editing-a-project-with-version-control-enabled.md).
+Learn more about [Editing a project with version control enabled](/docs/projects/version-control/editing-a-project-with-version-control-enabled/).
 
 ## Migrating projects to support new features
 
-Since the initial public release of config-as-code, we've added support for additional project configuration in Git. Learn more about [migrating variables to Git](/docs/projects/version-control/converting/migrating-variables.md)
+Since the initial public release of config-as-code, we've added support for additional project configuration in Git. Learn more about [migrating variables to Git](/docs/projects/version-control/converting/migrating-variables/)
 
 ## Creating and deploying releases
 
 Once an Octopus project is configured to be version-controlled, you can choose which branch to build from before creating a release in Octopus.
 
-Learn more about [creating and deploying releases in a version controlled project](/docs/projects/version-control/creating-and-deploying-releases-version-controlled-project.md).
+Learn more about [creating and deploying releases in a version controlled project](/docs/projects/version-control/creating-and-deploying-releases-version-controlled-project/).
 
 ## Unsupported scenarios
 
 The Configuration as Code feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios.
 
-Learn more about [unsupported config-as-code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios.md)
+Learn more about [unsupported config-as-code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios/)

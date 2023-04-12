@@ -18,7 +18,7 @@ Octopus integrates with Jira issues. The integration includes the ability to:
 1.  When you commit code, add a commit message containing one or more [Jira issue references](https://confluence.atlassian.com/adminjiracloud/integrating-with-development-tools-776636216.html).
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The Jira issue-tracker extension in Octopus parses the commit messages and recognizes the issue references.
-4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/index.md#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes.md).
+4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/index.md#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes/).
 5. As the release is deployed to each environment, Octopus notifies Jira to update the issue.
 
 ![Octopus release with Jira issues](images/octo-jira-release-details.png "width=500")
@@ -206,7 +206,7 @@ The commits that are pushed to Octopus as build information need to have the exa
 
 If you push build information to Octopus after a release is created, the build information won't be included in the release. This is because the information is included in the release snapshot. To ensure your release contains any build information, push the build information *before* you create a release.
 
-If you have [Automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) enabled for a specific package step, you will need to push build information *before* you push the configured package to the built-in repository.
+If you have [Automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) enabled for a specific package step, you will need to push build information *before* you push the configured package to the built-in repository.
 
 ### Check the entire package ID {#troubleshooting-check-the-entire-package-id}
 

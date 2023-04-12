@@ -5,7 +5,7 @@ title: Register SSH target
 description: An example script to register an SSH target using the REST API.
 ---
 
-This script demonstrates how to programmatically register an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target.md) using the REST API.
+This script demonstrates how to programmatically register an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target/) using the REST API.
 
 ## Usage
 

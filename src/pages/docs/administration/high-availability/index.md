@@ -46,7 +46,7 @@ If you do not have that node in your license key then you are limited to a singl
 
 In broad terms, HA allows for load to be distributed between multiple Octopus Server nodes.  How that load is distributed, specifically tasks, is more complex than "it's load balanced."
 
-Learn more in our [How High Availability Works](/docs/administration/high-availability/how-high-availability-works.md) section.
+Learn more in our [How High Availability Works](/docs/administration/high-availability/how-high-availability-works/) section.
 
 ## Designing Octopus High Availability
 
@@ -54,18 +54,18 @@ There are several ways to configure High Availability for Octopus and this diffe
 
 This section walks through the different options and considerations for setting up Octopus and how you can incorporate each of the components, making them highly-available, whether you're using Windows Servers or running the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/) in Kubernetes, hosted on-premises or in the Cloud.
 
-- [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
-- [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
-- [Designing Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
-- [Designing Octopus for High Availability in GCP](/docs/administration/high-availability/design/octopus-for-high-availability-on-gcp.md)
-- [Designing Octopus for High Availability in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
+- [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises/)
+- [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure/)
+- [Designing Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws/)
+- [Designing Octopus for High Availability in GCP](/docs/administration/high-availability/design/octopus-for-high-availability-on-gcp/)
+- [Designing Octopus for High Availability in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes/)
 
 ## Configuring Octopus High Availability
 
 When you have selected the approach you will use for Octopus High Availability and provisioned your infrastructure, the next step is to configure it. This section includes guides on configuring Octopus for High Availability with and without Active Directory:
 
-- [Configuring High Availability: with Active Directory](/docs/administration/high-availability/configure/octopus-with-active-directory.md)
-- [Configuring High Availability: without Active Directory](/docs/administration/high-availability/configure/octopus-without-active-directory.md)
+- [Configuring High Availability: with Active Directory](/docs/administration/high-availability/configure/octopus-with-active-directory/)
+- [Configuring High Availability: without Active Directory](/docs/administration/high-availability/configure/octopus-without-active-directory/)
 
 ## Migrating to High Availability
 
@@ -79,16 +79,16 @@ One great benefit of Octopus High Availability is the ability to update and rest
 
 This section contains useful information on how to maintain the nodes in your Octopus High Availability cluster, along with specific things to know when running an Octopus High Availability instance:
 
-- [Maintaining High Availability nodes](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md)
-- [Polling Tentacles with Octopus High Availability](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md)
+- [Maintaining High Availability nodes](/docs/administration/high-availability/maintain/maintain-high-availability-nodes/)
+- [Polling Tentacles with Octopus High Availability](/docs/administration/high-availability/maintain/polling-tentacles-with-ha/)
 
 ## Load balancing
 
 There are plenty of options when it comes to choosing a load balancer to direct user traffic between each of the Octopus Server nodes. You can also use Apache or NGINX as a reverse load-balancing proxy. For more information on setting up a load balancer with Octopus High Availability we have the following guides:
 
-- [Configure Netscaler](/docs/administration/high-availability/load-balancing/configuring-netscaler.md)
-- [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy.md)
-- [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy.md)
+- [Configure Netscaler](/docs/administration/high-availability/load-balancing/configuring-netscaler/)
+- [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy/)
+- [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy/)
 
 ## Auditing
 

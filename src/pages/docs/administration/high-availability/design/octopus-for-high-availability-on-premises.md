@@ -44,7 +44,7 @@ Since each of the Octopus Server nodes will need access to the database, we reco
 
 The simplest way to provide shared storage, assuming the Octopus Server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 
-An alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)). If using Microsoft DFS for the shared storage, it must be [configured specifically for use with Octopus Deploy](docs/getting-started/best-practices/configuring-microsoft-dfs-with-octopus-server.md).
+An alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)). If using Microsoft DFS for the shared storage, it must be [configured specifically for use with Octopus Deploy](docs/getting-started/best-practices/configuring-microsoft-dfs-with-octopus-server/).
 
 
 ### Load balancer
@@ -62,8 +62,8 @@ If you don't have a hardware load balancer available, an easy option is the [App
 ![](images/create-server-farm.png "width=500")
 
 For more information on setting up a reverse proxy with Octopus Deploy we have the following guides:
-- [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy.md)
-- [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy.md)
+- [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy/)
+- [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy/)
 
 ## Polling Tentacles with HA
 

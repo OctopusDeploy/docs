@@ -26,7 +26,7 @@ When your application has been published you need to package it:
 octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
 ```
 
-For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md).
+For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/).
 
 If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli.md#create-zip-packages). 
 
@@ -36,7 +36,7 @@ If you are using TeamCity, you can use the [new TeamCity plugin for dotnet comm
 
 :::warning
 **OctoPack and .NET Core**
-OctoPack is not compatible with .NET Core applications. If you want to package .NET Core applications see [create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md).
+OctoPack is not compatible with .NET Core applications. If you want to package .NET Core applications see [create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/).
 :::
 
 ## Deployment {#DeployingASP.NETCoreWebApplications-Deployment}
@@ -73,7 +73,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
-Refer to [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) on how to setup configuration.
+Refer to [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/) on how to setup configuration.
 
 
 ## Learn more

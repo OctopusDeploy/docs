@@ -7,13 +7,13 @@ description: An example script that swaps any active directory external group fo
 
 This script demonstrates how to programmatically swap any Active Directory external group for a matching LDAP external group in each Octopus team. This can be useful when you are migrating from the Active Directory authentication provider to the LDAP provider.
 
-We also have a script that will [swap Active Directory login records with matching LDAP ones](/docs/octopus-rest-api/examples/users-and-teams/swap-users-ad-domain-to-ldap.md) for Octopus users.
+We also have a script that will [swap Active Directory login records with matching LDAP ones](/docs/octopus-rest-api/examples/users-and-teams/swap-users-ad-domain-to-ldap/) for Octopus users.
 
 :::hint
 **Note:**
 Please note there are some things to consider before using this script:
 
-- Both the [Active Directory](/docs/security/authentication/active-directory/index.md) and [LDAP](/docs/security/authentication/ldap/) providers must be enabled for this script to work as it queries both providers.
+- Both the [Active Directory](/docs/security/authentication/active-directory/index/) and [LDAP](/docs/security/authentication/ldap/) providers must be enabled for this script to work as it queries both providers.
 - Always ensure you test the script on a non-production server first, and have a production database backup.
 :::
 

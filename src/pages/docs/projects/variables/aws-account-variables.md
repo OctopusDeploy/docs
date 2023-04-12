@@ -6,7 +6,7 @@ description: Create an AWS account to use it in AWS-related deployment steps
 navOrder: 80
 ---
 
-[AWS accounts](/docs/infrastructure/accounts/aws/index.md) are included in a project through a project [variable](/docs/projects/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS account Variable**, you need to [create an AWS account](/docs/infrastructure/accounts/aws/) in Octopus:
+[AWS accounts](/docs/infrastructure/accounts/aws/index.md) are included in a project through a project [variable](/docs/projects/variables/index/) of the type **Amazon Web Services Account**. Before you create an **AWS account Variable**, you need to [create an AWS account](/docs/infrastructure/accounts/aws/) in Octopus:
 
 ![AWS account variable](images/aws-account-variable.png "width=500")
 

@@ -24,7 +24,7 @@ You can access the machine policies by navigating to **{{Infrastructure,Machine 
 
 ### Health check step
 
-It's also possible to run a health check as part of a deployment or runbook using the built-in [health check step](/docs/projects/built-in-step-templates/health-check.md). 
+It's also possible to run a health check as part of a deployment or runbook using the built-in [health check step](/docs/projects/built-in-step-templates/health-check/). 
 
 This step allows a deployment target that was created in the currently executing deployment to be confirmed as healthy and then added to the running deployment for subsequent steps.
 
@@ -39,7 +39,7 @@ After installing and configuring a new Tentacle, you need to run a health check 
 
 The first time you complete a health check on a Tentacle or SSH Target, you will see health warnings and that Calamari needs to be installed.
 
-Learn more about [Calamari](/docs/octopus-rest-api/calamari.md).
+Learn more about [Calamari](/docs/octopus-rest-api/calamari/).
 
 Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
 
@@ -136,7 +136,7 @@ There is a limit to the number of concurrent upgrades possible when choosing `Al
 The number of concurrent upgrades will be double the Octopus Server's logical processor count which is a minimum of 2 and will not exceed 32.
 
 ### Tentacle update account {#MachinePolicies-TentacleUpdateAccount}
-You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. If this account is not an Administrator it will not have enough permission to perform Tentacle updates. In that scenario you will need to create a [username/password account](/docs/infrastructure/accounts/username-and-password.md) for a user with administrative rights to install software on your machines and select it from the drop down.
+You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. If this account is not an Administrator it will not have enough permission to perform Tentacle updates. In that scenario you will need to create a [username/password account](/docs/infrastructure/accounts/username-and-password/) for a user with administrative rights to install software on your machines and select it from the drop down.
 
 **Note:** This option can not be used when Tentacle is running as Local System.
 

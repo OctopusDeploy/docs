@@ -7,7 +7,7 @@ navOrder: 70
 hideInThisSection: true
 ---
 
-[Step Templates](/docs/projects/custom-step-templates.md) and [Script Modules](/docs/deployments/custom-scripts/script-modules.md) allow you to extend the functionality of Octopus Deploy.  While they appear similar, they are designed to meet different goals.
+[Step Templates](/docs/projects/custom-step-templates.md) and [Script Modules](/docs/deployments/custom-scripts/script-modules/) allow you to extend the functionality of Octopus Deploy.  While they appear similar, they are designed to meet different goals.
 
 - Step Templates are re-usable steps you can inject into your deployment or runbook process to perform a specific task.  Examples include stopping IIS, deploying database migration scripts using a third-party tool such as Flyway, notifying VictorOps of a completed deployment, and more.
 - Script Modules are re-usable functions you can inject into scripts run by your deployment or runbook process.  Examples include a function to call the Octopus API, functions to write output to a centralized log, or a function to find an item in a list by name.
@@ -32,7 +32,7 @@ If you are writing custom scripts, passing in parameters will allow you to copy 
 
 Our recommendation is you can never have enough logging.  Logging informs your users of the location of the script module or step template they are.  It also helps debug if something isn't working as it should.  
 
-[Octopus Deploy](/docs/deployments/custom-scripts/logging-messages-in-scripts.md) supplies built-in logging utilities you can leverage in your scripts.  Using the built-in logging utilities is one of the few areas where it is okay to directly reference these functions instead of passing them in as parameters.
+[Octopus Deploy](/docs/deployments/custom-scripts/logging-messages-in-scripts/) supplies built-in logging utilities you can leverage in your scripts.  Using the built-in logging utilities is one of the few areas where it is okay to directly reference these functions instead of passing them in as parameters.
 
 We also recommend leveraging the different logging levels as Octopus treats each one differently.
 
@@ -42,15 +42,15 @@ We also recommend leveraging the different logging levels as Octopus treats each
 - Error: Messages are highlighted in red in the task log and task summary.  This is for what it says on the tin, error messages.
 - Highlight: Messages are highlighted in blue in the task log and task summary.  Use these for important messages you want to let the user know about.  
 
-Octopus provides [manual interventions](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) which pause the deployment and allow people to review the progress made so far.  Putting information needed for approvals in logs can make it difficult for the approvers to find.  If there is information needed for approvals, such as test results or database delta scripts, the recommendation is to create an [artifact](/docs/projects/deployment-process/artifacts.md).
+Octopus provides [manual interventions](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) which pause the deployment and allow people to review the progress made so far.  Putting information needed for approvals in logs can make it difficult for the approvers to find.  If there is information needed for approvals, such as test results or database delta scripts, the recommendation is to create an [artifact](/docs/projects/deployment-process/artifacts/).
 
 ## Further reading
 
 For further reading on step templates and script modules in Octopus Deploy please see:
 
-- [Step Templates](/docs/projects/custom-step-templates.md)
+- [Step Templates](/docs/projects/custom-step-templates/)
 - [Built-in Step Templates](/docs/projects/built-in-step-templates/)
-- [Community Step Templates](/docs/projects/community-step-templates.md)
-- [Script Modules](/docs/deployments/custom-scripts/script-modules.md)
+- [Community Step Templates](/docs/projects/community-step-templates/)
+- [Script Modules](/docs/deployments/custom-scripts/script-modules/)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/users-roles-and-teams">Next</a></span>

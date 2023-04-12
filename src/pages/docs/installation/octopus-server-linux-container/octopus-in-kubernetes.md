@@ -16,10 +16,10 @@ Since [Octopus High Availability](/docs/administration/high-availability/) (HA) 
 
 Whether you are running Octopus in a Container using Docker or Kubernetes, or running it on Windows Server, there are a number of items to consider when creating an Octopus High Availability cluster:
 
-- A Highly available [SQL Server database](/docs/installation/sql-server-database.md)
+- A Highly available [SQL Server database](/docs/installation/sql-server-database/)
 - A shared file system for [Artifacts, Packages, and Task Logs](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md#ServerconfigurationandFilestorage-FileStorageFilestorage)
 - A [Load balancer](/docs/administration/high-availability/load-balancing/) for traffic to the Octopus Web Portal 
-- Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md)
+- Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha/)
 
 The following sections describe these in more detail.
 
@@ -119,7 +119,7 @@ If you use the YAML definition above, remember to change the `SA_PASSWORD` from 
 
 ### Load balancer {#load-balancer}
 
-A Load balancer is required to direct traffic to the Octopus Web Portal, and optionally a way to access each of the Octopus Server nodes in an Octopus High Availability cluster may be required if you're using [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md).
+A Load balancer is required to direct traffic to the Octopus Web Portal, and optionally a way to access each of the Octopus Server nodes in an Octopus High Availability cluster may be required if you're using [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha/).
 
 ### Octopus Web Portal load balancer {#octopus-web-portal-load-balancer}
 
@@ -197,7 +197,7 @@ Note the selectors of:
 
 These labels are added to pods created as part of a [Stateful Set](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset), and the values are the combination of the Stateful Set name and the pod index.
 
-For more information on Polling Tentacles with High Availability refer to our [documentation](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md) on the topic.
+For more information on Polling Tentacles with High Availability refer to our [documentation](/docs/administration/high-availability/maintain/polling-tentacles-with-ha/) on the topic.
 
 ### File Storage {#file-storage}
 
@@ -621,7 +621,7 @@ When running Octopus in Kubernetes, it'd be nice to increase the `replicaCount` 
 In order to create UI-only nodes in Kubernetes, you need to perform some additional configuration:
 
 - Create an additional Stateful Set just for the UI-only nodes, for example called `octopus-ui`.
-- Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/octopus-rest-api/octopus.server.exe-command-line/node.md) to `0`.
+- Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/octopus-rest-api/octopus.server.exe-command-line/node/) to `0`.
 - Update the `octopus-web` Load balancer Service to direct traffic to pods with the label `app:octopus-ui`.
 
 :::hint

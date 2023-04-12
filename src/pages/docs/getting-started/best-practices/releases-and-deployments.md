@@ -7,12 +7,12 @@ navOrder: 95
 hideInThisSection: true
 ---
 
-[Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (references to package versions, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index.md) to [environments](/docs/infrastructure/environments/), or different stages in your deployment pipeline.  
+[Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (references to package versions, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index/) to [environments](/docs/infrastructure/environments/), or different stages in your deployment pipeline.  
 
 A release snapshot takes references (rather than the entire resource) for certain items in a release. For example, packages are referenced by their version and not the package itself. Take care when overwriting existing packages that may be used in releases or snapshots.
 
 :::hint 
-**Tenant variables** are not included in release snapshots. Find out more in our [tenant documentation](/docs/tenants/tenant-variables.md).
+**Tenant variables** are not included in release snapshots. Find out more in our [tenant documentation](/docs/tenants/tenant-variables/).
 :::
 
 ## Release creation
@@ -27,7 +27,7 @@ When you create a release, you must enter or choose the following items:
 Our recommendation is to let the CI, or Build Server, create the release after it finishes uploading the package you wish to deploy.  The build server knows when it has finished uploading the package, along with other important information, such as the current branch, was the build triggered by a pull request, and more.  
 
 :::hint
-Octopus Deploy provides [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) functionality.  That monitors a specific package in the built-in package repository.  When a new version is pushed, it automatically creates a release.  
+Octopus Deploy provides [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) functionality.  That monitors a specific package in the built-in package repository.  When a new version is pushed, it automatically creates a release.  
 
 That has the following limitations:
 - Only works for the built-in repository.
@@ -63,7 +63,7 @@ Our recommendation is a release must be deployed to at least **ONE** environment
 
 During testing, you might find a show-stopping bug.  Or, the UI isn't acceptable to the business owner.  There are several reasons for a release rejection to occur.  
 
-When a release is rejected, our recommendation is to leverage the [prevent release progression](/docs/releases/prevent-release-progression.md) functionality to block that release from being deployed to additional stages, or environments, in your pipeline.  
+When a release is rejected, our recommendation is to leverage the [prevent release progression](/docs/releases/prevent-release-progression/) functionality to block that release from being deployed to additional stages, or environments, in your pipeline.  
 
 ## Release and Deployment retention
 
@@ -93,7 +93,7 @@ As you deploy more frequently, the available disk space on your deployment targe
 - How long should we keep releases? That means how long the release is retained on the Octopus Server.
 - How long should we keep extracted packages and files on disk on Tentacles?  That means how long the release is retained on your deployment targets.
 
-Unless you are using a [custom install directory](/docs/projects/steps/configuration-features/custom-installation-directory.md), Octopus Deploy will create a unique folder on your deployment targets to extract packages to.  The unique folder is generated _per deployment_.  If the same release is deployed five times, expect to see five unique folders.
+Unless you are using a [custom install directory](/docs/projects/steps/configuration-features/custom-installation-directory/), Octopus Deploy will create a unique folder on your deployment targets to extract packages to.  The unique folder is generated _per deployment_.  If the same release is deployed five times, expect to see five unique folders.
 
 Our recommendation is to configure your deployment target retention policies to match your release retention policies.  Unless, of course, you are limited by disk space.  If that happens, then set your deployment target retention policy to something smaller than the release retention policy.  
 

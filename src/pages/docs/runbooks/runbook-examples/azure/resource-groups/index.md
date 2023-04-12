@@ -35,7 +35,7 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
     ![Azure Account variable](azure-account.png "width=500")
 
     :::hint
-    [Azure accounts](/docs/infrastructure/accounts/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 
+    [Azure accounts](/docs/infrastructure/accounts/azure/index/) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 
 
     The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
     :::
@@ -59,7 +59,7 @@ The JSON will be parsed, and your parameters will appear dynamically as fields i
 The parameter fields will show text boxes or select-lists as appropriate.  You can enter values directly, or bind the parameters to Octopus Variables (e.g. see the *siteName* parameter in the image above).
 
 :::success
-Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions.md) on the JSON template.
+Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions/) on the JSON template.
 
 Although you can use variables directly in the template, it is more idiomatic to use parameters, and plug the variables into those (as seen above). This will allow you to use or test your template outside of Octopus Deploy.
 :::
@@ -72,7 +72,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
 :::
 
-The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables.md) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
+The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
 
 ![](arm-sensitive-data.png "width=500")
 
@@ -85,7 +85,7 @@ By selecting *File inside a Package* as the *Template Source*, you can select
 The Template Path and Parameters Path fields should contain the relative path to these files within the package.
 
 :::success
-Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions.md) on both the Template and Parameter files.
+Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions/) on both the Template and Parameter files.
 :::
 
 #### Parameter file format {#DeployusinganAzureResourceGroupTemplate-ParameterFileFormat}
@@ -156,7 +156,7 @@ The Parameter JSON file can be in one of two formats:
 
 ### Accessing ARM template output parameters {#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters}
 
-Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/projects/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
+Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/projects/variables/output-variables/) automatically. For example, an output `Foo` would be available as:
 
 ```powershell
 Octopus.Action[Arm Template Step Name].Output.AzureRmOutputs[Foo]

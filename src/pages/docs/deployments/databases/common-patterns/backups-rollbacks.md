@@ -6,7 +6,7 @@ description: Recommendations on backing up and rolling back a database during a 
 navOrder: 25
 ---
 
-A common question we get asked is, "how does Octopus Deploy handle rollbacks?"  For stateless components of your application, such as Web UIs, Web APIs, and services, rollbacks are accomplished by various means.  The most straightforward approach is to deploy the previous version of those components.  You can also leverage more advanced patterns such as [Blue/Green, Red/Black](/docs/deployments/patterns/blue-green-deployments/), or [Canary deployments](/docs/deployments/patterns/canary-deployments.md).  
+A common question we get asked is, "how does Octopus Deploy handle rollbacks?"  For stateless components of your application, such as Web UIs, Web APIs, and services, rollbacks are accomplished by various means.  The most straightforward approach is to deploy the previous version of those components.  You can also leverage more advanced patterns such as [Blue/Green, Red/Black](/docs/deployments/patterns/blue-green-deployments/), or [Canary deployments](/docs/deployments/patterns/canary-deployments/).  
 
 For stateful components, such as a relational database, rollbacks are much more complex.  This page focuses on database rollbacks.
 
@@ -31,7 +31,7 @@ A database backup has a very limited useful rollback lifespan.
 Rolling back changed data will require extensive analysis and testing.  As such, there cannot be an automated rollback process.  There are too many what-if scenarios, and risk exponentially increases as more records are changed.  As long as the application continues to run, the data will continue to change.  Any rollback scripts to move data around will have to keep hitting a moving target. 
 
 :::hint
-Prior to upgrading the Octopus Server we recommend putting your server into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).  When in maintenance mode, only Octopus Administrators can kick off deployments.  This allows Octopus Administrators to test the upgrade without users changing data.  If anything goes wrong, a rollback can happen as the data changed was only test data.
+Prior to upgrading the Octopus Server we recommend putting your server into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode/).  When in maintenance mode, only Octopus Administrators can kick off deployments.  This allows Octopus Administrators to test the upgrade without users changing data.  If anything goes wrong, a rollback can happen as the data changed was only test data.
 :::
 
 ## Making database changes backwards compatible
@@ -79,8 +79,8 @@ Databases often contain personally identifiable (PII) data, along with credit ca
 1. Use a designated backup service account to perform backups.  That backup service account is different than the deployment service account.
 2. At the very least, use a different backup service account per environment.  Ideally, use a different account per database per environment to reduce the attack surface area.
 3. Store database backups in a secure file location.  Only the backup service account should have access to that file location.  
-4. If you are storing credentials (username/password) in Octopus Deploy, mark the values as [sensitive](/docs/projects/variables/sensitive-variables.md).  Sensitive variables are write-only through the Octopus Deploy API.  The only time they are decrypted is during a deployment.
-5. If the database server supports it, use integrated security.  The Tentacles will [run as a specific user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account.md).  
+4. If you are storing credentials (username/password) in Octopus Deploy, mark the values as [sensitive](/docs/projects/variables/sensitive-variables/).  Sensitive variables are write-only through the Octopus Deploy API.  The only time they are decrypted is during a deployment.
+5. If the database server supports it, use integrated security.  The Tentacles will [run as a specific user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account/).  
 
 ## Leveraging runbook for backup and restore
 

@@ -7,7 +7,7 @@ navOrder: 10
 hideInThisSection: true
 ---
 
-If you're using a version prior to **Tentacle 3.1**, refer to the [installation requirements for older versions of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements.md).
+If you're using a version prior to **Tentacle 3.1**, refer to the [installation requirements for older versions of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements/).
 
 The installation requirements for the latest version of Tentacle are:
 

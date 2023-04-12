@@ -9,7 +9,7 @@ hideInThisSection: true
 
 !include <add-deployment-targets>
 
-The next step will [deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package.md) to those deployment targets.
+The next step will [deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package/) to those deployment targets.
 
 **Further Reading**
 

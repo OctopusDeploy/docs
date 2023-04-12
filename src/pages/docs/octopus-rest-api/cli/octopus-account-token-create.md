@@ -45,4 +45,4 @@ $ octopus account token create
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)

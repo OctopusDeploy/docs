@@ -101,7 +101,7 @@ The second option is to run a script from a package. This is done by selecting t
 
 ## Running Scripts in Octopus Cloud
 
-Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). Octopus provides these, and you cannot easily install custom versions of the AWS tools on them.
+Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools/). Octopus provides these, and you cannot easily install custom versions of the AWS tools on them.
 
 To use your own version of the AWS CLI or AWS Powershell cmdlets when using Dynamic Worker Pools, please do the following:
 

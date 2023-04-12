@@ -28,14 +28,14 @@ Learn more about [common patterns](/docs/deployments/databases/common-patterns/)
 
 The database account used in the database deployment process needs enough permissions to make appropriate changes, but it should not have so much control it could damage an entire server.  
 
-Learn more about [user permissions for SQL Server](/docs/deployments/databases/sql-server/permissions.md).
+Learn more about [user permissions for SQL Server](/docs/deployments/databases/sql-server/permissions/).
 
 ## Guides
 
 We have written a number of guides and blog posts on the various tooling Octopus Deploy interacts with.  
 
-- [Docs: Deploying to SQL Server with Redgate SQL Change Automation](/docs/deployments/databases/sql-server/redgate.md)
-- [Docs: Deploying to SQL Server with a DacPac](/docs/deployments/databases/sql-server/dacpac.md)
+- [Docs: Deploying to SQL Server with Redgate SQL Change Automation](/docs/deployments/databases/sql-server/redgate/)
+- [Docs: Deploying to SQL Server with a DacPac](/docs/deployments/databases/sql-server/dacpac/)
 - [Blog: Using DbUp and Workers to Automate Database Deployments](https://octopus.com/blog/dbup-database-deployments)
 - [Blog: Deploying to SQL Server with Entity Framework Core](https://octopus.com/blog/will-it-deploy-episode-03)
 - [Blog: Ad hoc SQL data scripts](https://octopus.com/blog/database-deployment-automation-adhoc-scripts-with-runbooks)

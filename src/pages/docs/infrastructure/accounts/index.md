@@ -14,6 +14,6 @@ You can configure the following accounts:
 - [Azure accounts](/docs/infrastructure/accounts/azure/).
 - [AWS accounts](/docs/infrastructure/accounts/aws/)
 - [Google cloud accounts](/docs/infrastructure/accounts/google-cloud/)
-- [SSH Key Pairs](/docs/infrastructure/accounts/ssh-key-pair.md).
-- [Tokens](/docs/infrastructure/accounts/tokens.md)
-- [Username and Password accounts](/docs/infrastructure/accounts/username-and-password.md)
+- [SSH Key Pairs](/docs/infrastructure/accounts/ssh-key-pair/).
+- [Tokens](/docs/infrastructure/accounts/tokens/)
+- [Username and Password accounts](/docs/infrastructure/accounts/username-and-password/)

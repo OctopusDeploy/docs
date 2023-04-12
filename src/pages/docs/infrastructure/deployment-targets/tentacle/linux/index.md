@@ -7,7 +7,7 @@ navOrder: 20
 hideInThisSectionHeader: true
 ---
 
-If you want to deploy software to Linux servers without using [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target.md), you need to install Tentacle, a lightweight agent service, on your Linux servers so they can communicate with the Octopus Server.
+If you want to deploy software to Linux servers without using [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target/), you need to install Tentacle, a lightweight agent service, on your Linux servers so they can communicate with the Octopus Server.
 
 ## Requirements
 
@@ -15,7 +15,7 @@ Before you can configure a Linux Tentacle, the Linux server must meet the [requi
 
 - Octopus Server **2019.8.3** or newer
 
-Linux Tentacle is a .NET application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained). On most Linux distributions it will *just work*, but be aware that there are [.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) that may need to be installed.
+Linux Tentacle is a .NET application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained). On most Linux distributions it will *just work*, but be aware that there are [.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs/) that may need to be installed.
 
 ## Known limitations
 
@@ -102,7 +102,7 @@ Start the Tentacle interactively by running:
 /opt/octopus/tentacle/Tentacle run --instance <instance name>
 ```
 
-### Running Tentacle as a service (systemd)
+### Running Tentacle as a service (syst/)
 Tentacle has command line options for configuring a systemd service:
 
 ```
@@ -222,7 +222,7 @@ The following bash scripts install, configure and register Linux Tentacle for us
       ```bash
       publicIp=$(curl -s https://ifconfig.info)
       ```
-      You can specify the address when using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command by providing the value to the `--publicHostName` parameter.
+      You can specify the address when using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command by providing the value to the `--publicHostName` parameter.
 :::
 
 !include <quickstart-debian>

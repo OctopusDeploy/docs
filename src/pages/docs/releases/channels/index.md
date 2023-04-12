@@ -35,13 +35,13 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
 2. Give the Channel a name and add a description. The channel name must be unique within the project.
-3. Select the [Lifecycle](/docs/releases/lifecycles/index.md) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/releases/lifecycles/) for information about creating new lifecycles.
+3. Select the [Lifecycle](/docs/releases/lifecycles/index/) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/releases/lifecycles/) for information about creating new lifecycles.
 4. If you want to make this the default Channel for the project, click the **Default Channel** check-box.
 5. Design the [version rules](#Channels-versionrules) that will be used to enforce which versions of your packages are deployed to this channel.
 
 ## Design the version rules {#Channels-versionrules}
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md).
+Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation/).
 
 :::hint
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
@@ -128,11 +128,11 @@ The package list allows you to select the version of each package involved in th
 
 ### Using build server extensions or the Octopus CLI {#Channels-UsingBuildServerExtensionsOrTheOctopusCLI}
 
-When using one of the [build server extensions](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
+When using one of the [build server extensions](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release/) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
 
 ### Automatic release creation {#Channels-AutomaticReleaseCreation}
 
-When enabling [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
+When enabling [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) for your project, you are required to select a Channel (if the project has more than one).
 
 ![](images/3278462.png "width=500")
 

@@ -12,7 +12,7 @@ The timezone of the viewer is used when generating the charts. Viewers in differ
 
 ## Charts
 
-On the Overview page, a chart is shown for each [metric](metrics.md). On each of the metric detail pages, the same chart is shown along with a breakdown of the trends and lists of the data viewed from different angles.
+On the Overview page, a chart is shown for each [metric](metrics/). On each of the metric detail pages, the same chart is shown along with a breakdown of the trends and lists of the data viewed from different angles.
 
 The top left drop downs allow you to choose which channel, environment and tenant to view data for. The channel drop down is only shown if there is more than one channel. The tenant drop down is only shown if the project is tenanted.
 
@@ -24,12 +24,12 @@ The tenant filter will only appear if tenanted deployments is enabled for the pr
 
 The data is real time and based on the deployment completion time.
 
-See the [trend indicators](trend-indicators.md) section for more details on the trend indicator and trend tables on each page.
+See the [trend indicators](trend-indicators/) section for more details on the trend indicator and trend tables on each page.
 
 ## Detail
 
 Below the chart on the single metric pages are various tables showing more detailed view of the data.
 
-For tenanted projects there is a list of the top 10 tenants whose [trend](trend-indicators.md) for that metric is up or down.
+For tenanted projects there is a list of the top 10 tenants whose [trend](trend-indicators/) for that metric is up or down.
 
 Below that are tables of deployments relevant to that metric. These give you a starting point when investigating how to improve a metric.

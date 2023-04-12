@@ -69,8 +69,8 @@ To migrate from Active Directory to LDAP, you will need to:
 
 1. Enable and configure the [LDAP auth provider](/docs/security/authentication/ldap/).
 2. Add the LDAP auth provider to each user and group.  We created two scripts to help speed that up:
-   - [Swap Active Directory groups with matching LDAP groups](/docs/octopus-rest-api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group.md) for Octopus teams.
-   - [Swap Active Directory login records with matching LDAP ones](/docs/octopus-rest-api/examples/users-and-teams/swap-users-ad-domain-to-ldap.md) for Octopus users.
+   - [Swap Active Directory groups with matching LDAP groups](/docs/octopus-rest-api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group/) for Octopus teams.
+   - [Swap Active Directory login records with matching LDAP ones](/docs/octopus-rest-api/examples/users-and-teams/swap-users-ad-domain-to-ldap/) for Octopus users.
 3. Log out with your current user and log back in, ideally with a new test user.
 4. Verify permissions are as expected.
 5. Test a few more users out.
@@ -80,7 +80,7 @@ To migrate from Active Directory to LDAP, you will need to:
 
 If you currently have many PowerShell and C# script steps configured to run on the Octopus Server, you will need to configure a Windows Worker to handle that responsibility.  
 
-Under the covers, the Octopus Server includes a [built-in worker](/docs/security/built-in-worker.md).  When you configure a step to run on the Octopus Server, it runs on the built-in worker.  Switching from the Windows to the Linux Container means changing the underlying OS those steps previously ran on.  If your scripts are not PowerShell Core compliant, this means they will fail.  The vast majority of scripts we encounter work with both PowerShell 5.1 and PowerShell Core.  However, if you have a lot of older scripts, there is a chance they could fail.      
+Under the covers, the Octopus Server includes a [built-in worker](/docs/security/built-in-worker/).  When you configure a step to run on the Octopus Server, it runs on the built-in worker.  Switching from the Windows to the Linux Container means changing the underlying OS those steps previously ran on.  If your scripts are not PowerShell Core compliant, this means they will fail.  The vast majority of scripts we encounter work with both PowerShell 5.1 and PowerShell Core.  However, if you have a lot of older scripts, there is a chance they could fail.      
 
 Instead of running directly on the Octopus Server's built-in worker, you will need to offload that work onto Windows [workers](/docs/infrastructure/workers/).  
 
@@ -136,7 +136,7 @@ Linux:
 
 ## Folder Paths
 
-The Dockerfile runs the Octopus Server installer each time the Octopus Server Windows Container or Octopus Server Linux Container starts up.  The installer runs a series of commands to configure Octopus Deploy.  The installer will run the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) command to update the paths to leverage the different folder structure.
+The Dockerfile runs the Octopus Server installer each time the Octopus Server Windows Container or Octopus Server Linux Container starts up.  The installer runs a series of commands to configure Octopus Deploy.  The installer will run the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path/) command to update the paths to leverage the different folder structure.
 
 For example:
 
@@ -174,7 +174,7 @@ The certificate backing the server thumbprint is stored in the database.  Any te
 Migrating to the Octopus Server Linux Container will require an outage window.  The steps to perform during the outage window are:
 
 1. Back up the master key.
-1. Enable [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) to prevent anyone from deploying or making changes during the transition.
+1. Enable [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode/) to prevent anyone from deploying or making changes during the transition.
 1. Shut down the existing Octopus Deploy instance.
 1. Perform a final file copy to pick up any new files.
 1. Start up the Octopus Server Linux Container.

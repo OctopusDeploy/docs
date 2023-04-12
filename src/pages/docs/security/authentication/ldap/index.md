@@ -7,12 +7,12 @@ navOrder: 20
 ---
 
 :::hint
-LDAP authentication can only be configured for Octopus Server, the Octopus Linux Container, and not for [Octopus Cloud](/docs/octopus-cloud/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information.
+LDAP authentication can only be configured for Octopus Server, the Octopus Linux Container, and not for [Octopus Cloud](/docs/octopus-cloud/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility/) section for further information.
 :::
 
 Octopus provides an LDAP authentication provider allowing you to utilize an existing LDAP Server to authenticate with Octopus.  
 
-From **Octopus 2021.2**, the LDAP Authentication provider is available out-of-the-box as one of [a number of custom Server extensions](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md) provided as part of the Octopus Deploy installation. It is an open-source project, and the source code is available on [GitHub](https://github.com/OctopusDeploy/LdapAuthenticationProvider).
+From **Octopus 2021.2**, the LDAP Authentication provider is available out-of-the-box as one of [a number of custom Server extensions](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension/) provided as part of the Octopus Deploy installation. It is an open-source project, and the source code is available on [GitHub](https://github.com/OctopusDeploy/LdapAuthenticationProvider).
 
 This guide will walk you through how to configure the LDAP authentication provider in Octopus Deploy.  This example will enable Octopus Deploy to authenticate to the domain `devopswalker.local`.  
 
@@ -55,7 +55,7 @@ This example uses a straightforward Active Directory configuration.  Your DN and
 
 ### Octopus user accounts are still required {#Octopususeraccountsarestillrequired}
 
-Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/) based on the profile information returned from the LDAP lookup.
+Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/index/) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/) based on the profile information returned from the LDAP lookup.
 
 **How Octopus matches external identities to user accounts**
 You can configure the attributes to match external identities to user accounts.  By default, Octopus will use `sAMAccountName` for the unique account name and `displayName` for the display name.

@@ -9,7 +9,7 @@ hideInThisSection: true
 
 !include <creating-environments>
 
-The next step will [create a project](/docs/getting-started/first-deployment/legacy-guide/create-projects.md).
+The next step will [create a project](/docs/getting-started/first-deployment/legacy-guide/create-projects/).
 
 **Further Reading**
 

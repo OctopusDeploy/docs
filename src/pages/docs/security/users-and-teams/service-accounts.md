@@ -17,7 +17,7 @@ It is best to create **Service accounts** for this purpose to provide each servi
 :::hint
 **Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus Web Portal.
 
-Service accounts authenticate with the Octopus API using their [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+Service accounts authenticate with the Octopus API using their [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key/).
 :::
 
 ## Creating a service account {#ServiceAccounts-Creatingaserviceaccount}
@@ -34,12 +34,12 @@ Creating a new Service account is very similar to creating a new User account:
 ![Create service account](images/create-service-acount.png "width=500")
 
 :::hint
-This Service account is not very useful until it [belongs to one or more teams](/docs/security/users-and-teams/), and has one or more [Octopus API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md) associated with it
+This Service account is not very useful until it [belongs to one or more teams](/docs/security/users-and-teams/), and has one or more [Octopus API keys](/docs/octopus-rest-api/how-to-create-an-api-key/) associated with it
 :::
 
 ![Service account API Key](images/service-account-apikey.png "width=500")
 
-Once you have created an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) and [added this Service account to a team](/docs/security/users-and-teams/), you can start using this Service account to automate Octopus with another service.
+Once you have created an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) and [added this Service account to a team](/docs/security/users-and-teams/), you can start using this Service account to automate Octopus with another service.
 
 ## Logins
 

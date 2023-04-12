@@ -32,7 +32,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 8. Click **SAVE**.
 
-The next step will [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook.md).
+The next step will [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook/).
 
 **Further Reading**
 

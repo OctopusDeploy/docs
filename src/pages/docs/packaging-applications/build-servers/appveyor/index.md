@@ -32,7 +32,7 @@ The following environment variables are available and can be configured on the *
 | ------------- | ------- |
 | OCTOPUS_PACKAGE_VERSION | Overrides the version in the package name. (default AppVeyor build version)|
 | OCTOPUS_PACKAGE_NUGET | Overrides the package type. (default nupkg) |
-| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/create-packages/octopus-cli.md) to pass to `octo pack` |
+| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/create-packages/octopus-cli/) to pass to `octo pack` |
 
 ### Non-MSbuild projects
 
@@ -57,13 +57,13 @@ You can use a wildcard to pick up the dynamically generated package.
 
 Next, go to the **Deployment** page in your project's settings and click **Add deployment** and from the **Deployment providers** select **Octopus Deploy**.
 
-Enter the URL where the Octopus Server can be reached, and add an [API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+Enter the URL where the Octopus Server can be reached, and add an [API key](/docs/octopus-rest-api/how-to-create-an-api-key/).
 
 ![AppVeyor Deploy](images/appveyor_deploy.png "width=500")
 
 When you define an "Octopus package" in AppVeyor through the **Package Web Applications for Octopus Deployment** flag or the **Artifacts** page, then AppVeyor will automatically select that package to push to your Octopus Server. Set the **Artifact(s)** field on the **Deployment** page if you have manually created an archive.
 
-If your Octopus Deploy project doesn't make use of [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) or automatic lifecycle progression you can optionally trigger these actions from within the AppVeyor configuration providing the appropriate values in the inputs provided.
+If your Octopus Deploy project doesn't make use of [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) or automatic lifecycle progression you can optionally trigger these actions from within the AppVeyor configuration providing the appropriate values in the inputs provided.
 
 Unless overridden, the AppVeyor project name will be used in place of the Octopus project name when creating a release.
 

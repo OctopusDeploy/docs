@@ -52,7 +52,7 @@ You need to fill out the following fields for an IIS Virtual Directory deploymen
 | **Physical path**        | The physical path on disk this Virtual Directory will point to. | `/Path1/Path2/MyDirectory`, `#{MyCustomInstallationDirectory}`. | You can specify an absolute path, or a relative path inside the package installation directory. |
 
 :::success
-The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployments/windows/iis-websites-and-application-pools.md) for more details.
+The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployments/windows/iis-websites-and-application-pools/) for more details.
 :::
 
 :::warning
@@ -71,7 +71,7 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 You need to fill out the following fields for an IIS Web Application deployment:
 
 :::success
-The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployments/windows/iis-websites-and-application-pools.md) for more details.
+The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployments/windows/iis-websites-and-application-pools/) for more details.
 :::
 
 | Field                     | Meaning                                  | Examples                                 | Notes                                    |
@@ -85,21 +85,21 @@ The Virtual Path and Physical Path do not need to match which is one of the true
 
 ## How Octopus Deploys your web site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
 
-Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering.md).
+Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering/).
 
 :::success
-Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
+Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory/) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
 :::
 
 Octopus performs the following steps:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers.md)).
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers/)).
 2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts).
 3. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
 4. Extract the package into the newly created folder.
-5. Execute each of your [custom scripts](/docs/deployments/custom-scripts/index.md) and the [deployment features](/docs/projects/steps/configuration-features/) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering.md).
+5. Execute each of your [custom scripts](/docs/deployments/custom-scripts/index.md) and the [deployment features](/docs/projects/steps/configuration-features/) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering/).
 6. As part of this process the IIS Web Site, Web Application, or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder.
-7. [Output variables](/docs/projects/variables/output-variables.md) and deployment [artifacts](docs/projects/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
+7. [Output variables](/docs/projects/variables/output-variables.md) and deployment [artifacts](docs/projects/deployment-process/artifacts/) from this step are sent back to the Octopus Server.
 
 :::success
 You can see exactly how Octopus integrates with IIS in the [open-source Calamari library](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1).
@@ -111,7 +111,7 @@ A IIS Website can be taken offline by placing a `app_offline.htm` file into the 
 
 This can be done by including an `app_online.htm` file in your website and then renaming it to `app_offline.htm` at the
 start of the deployment. This can be done via a script or the `IIS - Change App Offline` step in the
-[community library](/docs/projects/community-step-templates.md).
+[community library](/docs/projects/community-step-templates/).
 
 ## Learn more
 

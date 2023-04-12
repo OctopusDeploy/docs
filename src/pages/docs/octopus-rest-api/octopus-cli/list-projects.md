@@ -80,5 +80,5 @@ octo list-projects --server="http://MyOctopusServer" --apiKey="API-MyApiKey"
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
 - [Projects](/docs/projects/)

@@ -15,20 +15,20 @@ This tutorial will help you complete your first deployment in Octopus Deploy.  I
 
 This tutorial will take between **25-35 minutes** to complete, with each step taking between **2-5** minutes to complete.
 
-1. [Configure environments](/docs/getting-started/first-deployment/legacy-guide/configure-environments.md)
-2. [Create a project](/docs/getting-started/first-deployment/legacy-guide/create-projects.md)
-3. [Define the deployment process](/docs/getting-started/first-deployment/legacy-guide/define-the-deployment-process.md)
-4. [Create a release and deploy it](/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release.md)
-5. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md)
-6. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions.md)
-7. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets.md)
-8. [Deploy a package to the deployment targets](/docs/getting-started/first-deployment/deploy-a-package.md)
+1. [Configure environments](/docs/getting-started/first-deployment/legacy-guide/configure-environments/)
+2. [Create a project](/docs/getting-started/first-deployment/legacy-guide/create-projects/)
+3. [Define the deployment process](/docs/getting-started/first-deployment/legacy-guide/define-the-deployment-process/)
+4. [Create a release and deploy it](/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release/)
+5. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables/)
+6. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions/)
+7. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets/)
+8. [Deploy a package to the deployment targets](/docs/getting-started/first-deployment/deploy-a-package/)
 
 Before starting the tutorial, if you haven't set up an Octopus Deploy instance, please do so by picking from one of the following options:
 
 !include <octopus-deploy-setup-options>
 
-When you have an instance running, go to the [configure environments page](/docs/getting-started/first-deployment/legacy-guide/configure-environments.md) to get started.
+When you have an instance running, go to the [configure environments page](/docs/getting-started/first-deployment/legacy-guide/configure-environments/) to get started.
 
 **Further Reading**
 

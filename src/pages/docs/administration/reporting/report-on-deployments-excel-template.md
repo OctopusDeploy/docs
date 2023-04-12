@@ -53,7 +53,7 @@ The best way to consume reporting data from Octopus is using the XML feed. The f
 Where:
 
 - `<OCTOPUS-SERVER>` is the hostname of your Octopus Server
-- `<API-KEY>` is one of [your API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- `<API-KEY>` is one of [your API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
 
 For example:
 

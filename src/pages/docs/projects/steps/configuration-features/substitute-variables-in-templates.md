@@ -5,10 +5,10 @@ title: Substitute variables in templates
 description: Package steps have a feature that allows you to replace variables in any file.
 navOrder: 80
 ---
-The Substitute Variables in Files feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/) into any file.
+The Substitute Variables in Files feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/index/). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/) into any file.
 
 :::hint
-You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) and [Structured configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md).
+You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) and [Structured configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/).
 :::
 
 ## How to substitute variables in a file
@@ -48,7 +48,7 @@ When you return to your deployment process, you will see the **Substitute Variab
 7. Add the [step](/docs/projects/steps/) details:
   - Enter a name for the step.
   - Select the targets where the step should run.
-  - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/) will be available.
+  - Select the [package feed](/docs/packaging-applications/package-repositories/index/) where the [package](/docs/packaging-applications/) will be available.
   - Enter the [package ID](/docs/packaging-applications/index.md#package-id) for the package to be deployed.
 8. In the **Target Files** text area, enter the files, as a newline separated list, that you want to perform the variable substitution on. You need to state the full path of the file, relative to the installation directory. In our example, that includes any file that references the `{LoginURL}` variable. For instance:
 
@@ -67,7 +67,7 @@ When the application is deployed to your **test** and **production** environment
 From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/releases/) and deploy your application.
 
 :::warning
-If you include a configuration file that you are also doing a [transformation](/docs/projects/steps/configuration-features/configuration-transforms/) and [variable](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in templates' before the transformation as defined in the [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering.md) process.
+If you include a configuration file that you are also doing a [transformation](/docs/projects/steps/configuration-features/configuration-transforms/) and [variable](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in templates' before the transformation as defined in the [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering/) process.
 :::
 
 :::warning

@@ -9,7 +9,7 @@ navOrder: 50
 Cloud providers, such as AWS and Azure, provide the ability to scale out and scale in virtual machines automatically.  It's possible to leverage that technology to automatically add and remove nodes from your Octopus High Availability cluster, but there are a few pitfalls to note.
 
 :::warning
-At this time, we don't recommend auto-scaling if you are using polling tentacles.  Polling tentacles must poll _all_ the nodes of your High Availability cluster.  That requires [additional configuration](docs/administration/high-availability/maintain/polling-tentacles-with-ha.md).  Attempting to perform that additional configuration using auto-scaling can result in frustration and errors.
+At this time, we don't recommend auto-scaling if you are using polling tentacles.  Polling tentacles must poll _all_ the nodes of your High Availability cluster.  That requires [additional configuration](docs/administration/high-availability/maintain/polling-tentacles-with-ha/).  Attempting to perform that additional configuration using auto-scaling can result in frustration and errors.
 :::
 
 ## Adding new nodes with Scale-out events
@@ -199,7 +199,7 @@ Auto-scaling technologies don't let you run scripts directly on virtual machines
 - Delete the node from the `OctopusServerNodes` table.
 
 :::warning
-The user required to run this script will need `Administrator` rights to your cluster.  We recommend creating a [service account](/docs/security/users-and-teams/service-accounts.md) and store that API Key securely.
+The user required to run this script will need `Administrator` rights to your cluster.  We recommend creating a [service account](/docs/security/users-and-teams/service-accounts/) and store that API Key securely.
 :::
 
 ```powershell

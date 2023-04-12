@@ -74,12 +74,12 @@ Removing entries from the registry can have serious implications. Please make su
 6. Find and delete any Octopus certificates from the following certificate stores:
    - **`Local Computer\Octopus`**
    - **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle windows service
-7. Find and delete any [scheduled tasks](/docs/administration/managing-infrastructure/service-watchdog.md) associated with the Tentacle windows service
+7. Find and delete any [scheduled tasks](/docs/administration/managing-infrastructure/service-watchdog/) associated with the Tentacle windows service
 
 ### Manually removing Tentacle without affecting the deployed applications {#ManuallyuninstallTentacle-ManuallyremovingTentaclewithoutaffectingthedeployedapplications}
 
 Follow the same steps described above, but instead of deleting the entire Octopus Home folder, you should leave the Application folder alone. Everything else can be removed without causing any disruption.
 
 :::success
-You can configure Octopus to use a different root folder for deploying your applications. This is a good idea so you can clearly see which folders are only related to Tentacle, and which folders contain your deployed applications. Learn about [Tentacle configuration and file storage](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/) and [how to move the Tentacle Home and Application folders](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md).
+You can configure Octopus to use a different root folder for deploying your applications. This is a good idea so you can clearly see which folders are only related to Tentacle, and which folders contain your deployed applications. Learn about [Tentacle configuration and file storage](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/) and [how to move the Tentacle Home and Application folders](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders/).
 :::

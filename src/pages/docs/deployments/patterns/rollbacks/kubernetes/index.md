@@ -32,7 +32,7 @@ View that deployment process on [samples instance](https://samples.octopus.app/a
 !include <zero-configuration-rollback>
 
 ## Simple Rollback Process
-The most common reason for a rollback is something is wrong with the release.  In these cases, you'll want to block the bad release from [moving forward](/docs/releases/prevent-release-progression.md).
+The most common reason for a rollback is something is wrong with the release.  In these cases, you'll want to block the bad release from [moving forward](/docs/releases/prevent-release-progression/).
 
 The updated deployment process for a simple rollback would look like this:
 
@@ -103,7 +103,7 @@ View that deployment process on [samples instance](https://samples.octopus.app/a
 Next, we'll go through the newly added and altered steps:
 
 ### Rollback reason
-This is a [Manual Intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) step that prompts the user for the reason they are rolling back.  The text entered is stored in an output variable which will be used in the Block Release Progression step further down the process.
+This is a [Manual Intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step that prompts the user for the reason they are rolling back.  The text entered is stored in an output variable which will be used in the Block Release Progression step further down the process.
 
 ### Deploy PetClinic Web
 The revision history command for Kubernetes showed that there were multiple revisions stored within Kubernetes for deployment.  However, it's not obvious as to which revision belongs to which Octopus release.  Adding a `kubernetes.io/change-cause` annotation to the `Deploy PetClinic Web` step would add the Octopus Release Number as the `change-cause` so we could later parse it for which revision to roll back to.

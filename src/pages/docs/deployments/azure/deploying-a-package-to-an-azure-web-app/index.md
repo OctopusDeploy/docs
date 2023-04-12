@@ -68,10 +68,10 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Web App.
 
 - [Custom scripts](/docs/deployments/custom-scripts/)
-- [Configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
+- [Configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/)
 - [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/)
-- [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
-- [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)
+- [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/)
+- [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates/)
 
 Please note these features actually run on the Octopus Server prior to executing web deploy to synchronize the resultant files to the Azure Web App slot. They don't execute in the Azure Web App host you are eventually targeting.
 
@@ -90,12 +90,12 @@ Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bu
 
 From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
 
-We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md).
+We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli/).
 :::
 
 If the Azure PowerShell module is available, it will be loaded for your convenience, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticating with Azure yourself.
 
-You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
+You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps/):
 
 ```powershell
 # Swap the staging slot into production
@@ -111,9 +111,9 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/).
 2. Extract the package on the Octopus Server to a temporary location.
 3. Any configured or packaged `PreDeploy` scripts are executed.
-4. [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)(if configured).
+4. [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates/)(if configured).
 5. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/) (if configured) are performed.
-6. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+6. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/) (if configured) are replaced.
 7. Any configured or packaged `Deploy` scripts are executed.
 8. Push your package content to the Web App in Azure.
 9. Any configured or packaged `PostDeploy` scripts are executed.
@@ -124,7 +124,7 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md): enable [rolling deployments](/docs/deployments/patterns/rolling-deployments.md) across multiple geographic regions.
+1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md): enable [rolling deployments](/docs/deployments/patterns/rolling-deployments/) across multiple geographic regions.
 2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/releases/lifecycles/) to create a strict release promotion process.
 
 The example we've discussed here is the most common scenario for deploying Azure Web Apps: a single package that contains an ASP.NET Web Application and some Web Jobs in the same release cadence. It is possible to implement more complex deployment scenarios where the ASP.NET Web Application and each Web Job follow independent release cadences. In this case you would build multiple packages using the folder structure expected by the Azure Web App hosting framework discussed earlier. Once you've done that you can simply reuse the same Azure Web App Deployment Target to deploy each package when they are released.

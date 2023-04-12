@@ -6,7 +6,7 @@ description: With Octopus you can define variables for use with your custom scri
 navOrder: 30
 ---
 
-Octopus allows you to [define variables](/docs/projects/variables/) to customize your deployments. These variables, along with some [predefined variables](/docs/projects/variables/system-variables.md), will automatically be made available to your scripts as global variables.
+Octopus allows you to [define variables](/docs/projects/variables/) to customize your deployments. These variables, along with some [predefined variables](/docs/projects/variables/system-variables/), will automatically be made available to your scripts as global variables.
 
 :::warning
 **All variables are strings**

@@ -12,7 +12,7 @@ You can change the setting for tenanted deployments for a project by navigating 
 
 ![](images/multi-tenant-project-settings.png "width=500")
 
-It's also possible to enable tenanted deployments when [connecting a tenant to a project](/docs/tenants/tenant-creation/connecting-projects.md) from the tenant screen:
+It's also possible to enable tenanted deployments when [connecting a tenant to a project](/docs/tenants/tenant-creation/connecting-projects/) from the tenant screen:
 
 ![](images/multi-tenant-project.png "width=500")
 

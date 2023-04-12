@@ -157,5 +157,5 @@ octo promote-release --project Web --from Development --to Staging -progress --s
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
 - [Releases](/docs/releases/)

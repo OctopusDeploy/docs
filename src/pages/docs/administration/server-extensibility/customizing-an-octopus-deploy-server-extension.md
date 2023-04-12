@@ -26,4 +26,4 @@ Included in the project repositories are the [Cake](http://cakebuild.net/) build
 
 ## Installing a custom extension {#CustomisinganOctopusDeployserverextension-&#39;Installing&#39;acustomextension}
 
-Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/administration/server-extensibility/installing-a-custom-server-extension.md) and restarting the Octopus Server.
+Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/administration/server-extensibility/installing-a-custom-server-extension/) and restarting the Octopus Server.

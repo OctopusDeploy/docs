@@ -188,13 +188,13 @@ Common options:
 
 ## Basic Examples {#Creatingreleases-Basicexamples}
 
-This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning.md) project setting: 
+This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning/) project setting: 
 
 ```bash
 octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-This creates a release with a specified release number, overriding the [Release Versioning](/docs/releases/release-versioning.md) project setting:
+This creates a release with a specified release number, overriding the [Release Versioning](/docs/releases/release-versioning/) project setting:
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
@@ -284,5 +284,5 @@ Showdownjs supports the common markdown syntax as well as a rich set of extras s
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
 - [Releases](/docs/releases/)
