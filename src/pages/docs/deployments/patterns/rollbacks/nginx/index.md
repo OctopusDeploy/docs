@@ -27,7 +27,7 @@ The existing deployment process is:
 1. Verify Application.
 1. Notify Stakeholders.
 
-![Original deployment process for Node.js application](images/rollback-nginx-original-process.png)
+![Original deployment process for Node.js application](/docs/deployments/patterns/rollbacks/nginx/images/rollback-nginx-original-process.png)
 
 :::success
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
@@ -49,7 +49,7 @@ The updated deployment process will be:
 1. Verify the Application
 1. Notify stakeholders
 
-![simple rollback for windows deployment](images/rollback-nginx-simple-rollback.png)
+![simple rollback for windows deployment](/docs/deployments/patterns/rollbacks/nginx/images/rollback-nginx-simple-rollback.png)
 
 :::success
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/bestbags-rollback/deployments/process).  Please login as a guest.
@@ -71,7 +71,7 @@ To skip these steps during a rollback, set the variable run condition to be:
 
 We also recommend adding or updating the notes field to indicate it will only run on deployments.
 
-![windows updating notes field](images/rollback-nginx-notes-field.png)
+![windows updating notes field](/docs/deployments/patterns/rollbacks/nginx/images/rollback-nginx-notes-field.png)
 
 ### Block Release Progression
 

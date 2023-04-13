@@ -22,7 +22,7 @@ For this guide, we'll start with an existing deployment process for deploying Pe
 1. Verify the deployment
 1. Notify stakeholders
 
-![](octopus-original-deployment-process.png)
+![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-original-deployment-process.png)
 
 :::success
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-kubernetes-original/deployments/process).  Please login as a guest.
@@ -44,7 +44,7 @@ The updated deployment process for a simple rollback would look like this:
 1. Notify stakeholders
 1. Block Release Progression (only during rollback)
 
-![](octopus-simple-rollback-process.png)
+![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-simple-rollback-process.png)
 
 :::success
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-kubernetes-simple-rollback/deployments/process).  Please login as a guest.
@@ -94,7 +94,7 @@ The new deployment process would look like this:
 1. Rollback to the previous version for PetClinic Web (only during rollback)
 1. Block Release Progression (only during rollback)
 
-![](octopus-complex-rollback-process.png)
+![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-complex-rollback-process.png)
 
 :::success
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-kubernetes-complex-rollback/deployments/process).  Please login as a guest.
@@ -108,7 +108,7 @@ This is a [Manual Intervention](/docs/projects/built-in-step-templates/manual-in
 ### Deploy PetClinic Web
 The revision history command for Kubernetes showed that there were multiple revisions stored within Kubernetes for deployment.  However, it's not obvious as to which revision belongs to which Octopus release.  Adding a `kubernetes.io/change-cause` annotation to the `Deploy PetClinic Web` step would add the Octopus Release Number as the `change-cause` so we could later parse it for which revision to roll back to.
 
-![](octopus-k8s-deployment-annotation.png)
+![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-k8s-deployment-annotation.png)
 
 Running `kubectl rollout history deployment.v1.apps/<deploymentname>` would now show something like this.
 

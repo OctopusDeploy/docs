@@ -40,11 +40,11 @@ Since the [helm upgrade](https://docs.helm.sh/helm/#helm-upgrade) command provid
 Remember that since the Kubernetes cluster connection context is available via the kubectl script step, any helm commands that you want to perform that don't fit into the existing helm upgrade step can easily be scripted as per usual.
 :::
 
-![Helm upgrade step](step-card.png "width=500")
+![Helm upgrade step](/docs/deployments/kubernetes/helm-update/step-card.png "width=500")
 
 ### Upgrade options
 
-![Upgrade options](upgrade-options.png "width=500")
+![Upgrade options](/docs/deployments/kubernetes/helm-update/upgrade-options.png "width=500")
 
 #### Kubernetes release
 The Kubernetes release uniquely identifies the released chart in the cluster. Because of the unique naming requirements of the release name, the default value provided includes both the project and environment name to ensure that successive Octopus releases do not conflict with one another. When redeploying new versions of the chart, this name is what is used to uniquely identify the resources that are related to that Octopus deployment. Helm requires that this name consist of only lowercase alpha numeric and dash (-) characters.

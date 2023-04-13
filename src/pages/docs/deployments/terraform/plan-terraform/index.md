@@ -14,7 +14,7 @@ Octopus has two steps that generate plan information:
 
 As their names suggest, the `Plan to apply a Terraform template` step will generate a plan for the result of running `apply` on the template, while the `Plan a Terraform destroy` step will generate a plan for the result of running `destroy` on the template.
 
-![Octopus Steps](images/octopus-terraform-plan-step.png "width=500")
+![Octopus Steps](/docs/deployments/terraform/plan-terraform/images/octopus-terraform-plan-step.png "width=500")
 
 ## Step options
 
@@ -66,11 +66,11 @@ Typically the result of a plan will be displayed in a Manual Intervention step. 
 ```
 ````
 
-![Terraform manual intervention](images/terraform-manual-intervention.png "width=500")
+![Terraform manual intervention](/docs/deployments/terraform/plan-terraform/images/terraform-manual-intervention.png "width=500")
 
 When run as part of a deployment, the plan output will be displayed like the image below.
 
-![Manual Intervention Message](images/manual-intervention-message.png "width=500")
+![Manual Intervention Message](/docs/deployments/terraform/plan-terraform/images/manual-intervention-message.png "width=500")
 
 ## Advanced options section
 

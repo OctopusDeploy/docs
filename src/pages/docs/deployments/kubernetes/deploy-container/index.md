@@ -12,7 +12,7 @@ Octopus supports the deployment of Kubernetes resources through the `Deploy Kube
 
 To begin, add the `Deploy Kubernetes containers` step to a project.
 
-![Deploy Container Step](deploy-container-step.png "width=500")
+![Deploy Container Step](/docs/deployments/kubernetes/deploy-container/deploy-container-step.png "width=500")
 
 This step has three important sections that make up the combined objects that are deployed to Kubernetes.
 
@@ -22,7 +22,7 @@ The second feature is the `Service`. This feature is used to build a [Service re
 
 The third feature is the `Ingress`. This feature is used to build a [Ingress resource](https://oc.to/KubernetesIngressResource).
 
-![Deploy Container Resources](deploy-container.svg "width=500")
+![Deploy Container Resources](/docs/deployments/kubernetes/deploy-container/deploy-container.svg "width=500")
 
 :::hint
 Kubernetes terminology overlaps with a number of general concepts in Octopus. For example, Kubernetes has the notion of a Deployment, which is distinct from the act of performing a deployment in Octopus.
@@ -769,7 +769,7 @@ The `Deployment Annotations` section defines the annotations that are added to t
 
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
-![](deployment-annotation.png "width=500")
+![](/docs/deployments/kubernetes/deploy-container/deployment-annotation.png "width=500")
 
 This will result in a Deployment resource YAML file something like this following.
 
@@ -908,19 +908,19 @@ A Service resource can be one of three different types:
 #### Cluster IP
 A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other Pod resources.
 
-![Cluster IP](../cluster-ip.svg "width=500")
+![Cluster IP](/docs/deployments/kubernetes/cluster-ip.svg "width=500")
 
 #### Node port
 A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publicly accessible.
 
-![Node Port](../node-port.svg "width=500")
+![Node Port](/docs/deployments/kubernetes/node-port.svg "width=500")
 
 #### Load balancer
 A Load Balancer Service resource provides the same Cluster IP and Node Ports that the other two service resources provide. In addition, it will create a cloud load balancer that directs traffic to the node ports.
 
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
-![Loadbalancer](../loadbalancer.svg "width=500")
+![Loadbalancer](/docs/deployments/kubernetes/loadbalancer.svg "width=500")
 
 #### Cluster IP address
 
@@ -940,7 +940,7 @@ The `Protocol` field defines the protocol exposed by the port. It can be `TCP` o
 
 If the Service resource is a NodePort or LoadBalancer, then there is an additional optional `Node Port` field that defines the port exposed on the nodes that direct traffic to the Service resource. If not defined, a port number will be automatically assigned.
 
-![Service ports](../ports.svg "width=500")
+![Service ports](/docs/deployments/kubernetes/ports.svg "width=500")
 
 ### Ingress
 
@@ -974,12 +974,12 @@ There are many Ingress Controller resources available. [NGINX](https://oc.to/Ngi
 
 The diagram below shows a typical configuration with Ingress and Ingress Controller resources.
 
-![Ingress](../ingress.svg "width=500")
+![Ingress](/docs/deployments/kubernetes/ingress.svg "width=500")
 
 :::hint
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](../deploy-ingress/) step.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](/docs/deployments/kubernetes/deploy-ingress/) step.
 
 On the other hand, the [NGINX Ingress Controller resource installation procedure](https://oc.to/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::

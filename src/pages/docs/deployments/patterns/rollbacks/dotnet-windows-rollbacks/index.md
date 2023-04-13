@@ -26,7 +26,7 @@ For this guide, we will start with the following deployment process for the Octo
 1. Verify the application
 1. Notify stakeholders
 
-![original windows deployment process](images/original-windows-deployment-process.png)
+![original windows deployment process](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/original-windows-deployment-process.png)
 
 :::success
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
@@ -50,7 +50,7 @@ The updated deployment process will be:
 1. Verify the Application
 1. Notify stakeholders
 
-![simple rollback for windows deployment](images/windows-simple-rollback-process.png)
+![simple rollback for windows deployment](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-simple-rollback-process.png)
 
 :::success
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please login as a guest.
@@ -72,7 +72,7 @@ To skip these steps during a rollback, set the variable run condition to be:
 
 We also recommend adding or updating the notes field to indicate it will only run on deployments.
 
-![windows updating notes field](images/windows-updating-notes-field.png)
+![windows updating notes field](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-updating-notes-field.png)
 
 ### Prevent Release Progression
 
@@ -104,7 +104,7 @@ The resulting process will be:
 1. Verify the Application
 1. Notify stakeholders
 
-![windows complex rollbacks](images/windows-complex-rollbacks.png)
+![windows complex rollbacks](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-complex-rollbacks.png)
 
 :::success
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please login as a guest.
@@ -129,7 +129,7 @@ Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will 
 #{if Octopus.Action[Calculate Deployment Mode].Output.DeploymentMode == "Deploy"}False#{else}True#{/if}
 ```
 
-![windows skip if already installed](images/windows-skip-if-already-installed.png)
+![windows skip if already installed](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-skip-if-already-installed.png)
 
 ### Windows Service Rollback
 

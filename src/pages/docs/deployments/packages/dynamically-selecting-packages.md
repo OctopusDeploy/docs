@@ -16,7 +16,7 @@ We typically recommend using a static package configuration wherever possible - 
 
 You may want to use a different package feed for each environment. This can help when you have a slow connection between your main package feed and your deployment environments. In this case you could configure a package feed in your remote environments, and instruct Octopus to use the best package feed for each deployment.
 
-![Defining the feed value as a variable on the package step](images/dynamic-feed.png "width=500")
+![Defining the feed value as a variable on the package step](/docs/deployments/packages/images/dynamic-feed.png "width=500")
 
 For example, you can bind the Package Feed to `#{FeedId}` and set the following environment-scoped variables:
 
@@ -46,7 +46,7 @@ Now you can configure Octopus to deploy your common package just like normal, bu
 
 You can now create the `3.1.6` release for the `MyApp.Web` project, but have Octopus deploy the correct styles/assets package for each tenant at deployment time.
 
-![Dynamic Package ID](images/dynamic-package-id.png "width=500")
+![Dynamic Package ID](/docs/deployments/packages/images/dynamic-package-id.png "width=500")
 
 :::info
 In this example we recommend creating a [tenant-specific variable](/docs/tenants/tenant-variables/) called something like `TenantAlias`, where each tenant will provide a value. You could have used a built-in variable like `#{Octopus.Deployment.Tenant.Name}` but then your tenant name would be tightly coupled to your Package ID, and changing the tenant's name could break your deployments.
@@ -81,7 +81,7 @@ Learn about [retention policies](/docs/administration/retention-policies/).
 
 1. Older versions of `octo.exe` and the build server extension would fail to create releases if you are using a variable binding for your Package Feed. You would see an error message like this: `The version number for step 'Deploy' cannot be automatically resolved because the feed or package ID is dynamic.`
     - The best way to work around this is to upgrade the Octopus CLI or your build server extension. Otherwise you can work around this by defining an unscoped/global variable with the same name referring to a valid package feed.
-      ![Working around but with older octo.exe](images/dynamic-feed-variable-workaround.png "width=500")
+      ![Working around but with older octo.exe](/docs/deployments/packages/images/dynamic-feed-variable-workaround.png "width=500")
 
 2. You haven't provided a version for each required package in your deployment process. You would see an error message like this: `Package versions could not be resolved for one or more of the package steps in this release. See the errors above for details. Either ensure the latest version of the package can be automatically resolved, or set the version to use specifically by using the --package argument.`
     - Make sure you specify a package version for the dynamic package. Octopus cannot select a package for you automatically since it doesn't know either the Package Feed to inspect, or the Package ID it should use to find the latest version.

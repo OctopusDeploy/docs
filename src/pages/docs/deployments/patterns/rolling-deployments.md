@@ -10,7 +10,7 @@ Rolling deployments are a pattern whereby, instead of deploying a package to all
 
 Normally, when executing a deployment process with multiple steps, Octopus runs all of the steps **sequentially**; it waits for the first step to finish before starting the second, and so on.
 
-![](images/normal-deployment.png "width=500")
+![](/docs/deployments/patterns/images/normal-deployment.png "width=500")
 
 NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts/), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
 
@@ -23,11 +23,11 @@ However, sometimes this isn't desired. If you are deploying to a farm of 10 web 
 
 Rolling deployments can be configured on a PowerShell or NuGet package step by clicking **Configure a rolling deployment**.
 
-![](images/rolling-deployments-select.png "width=500")
+![](/docs/deployments/patterns/images/rolling-deployments-select.png "width=500")
 
 When configuring a rolling deployment, you specify a **window size**.
 
-![](images/rolling-deployments-window-size.png "width=500")
+![](/docs/deployments/patterns/images/rolling-deployments-window-size.png "width=500")
 
 The window size controls how many deployment targets can be deployed to at once.
 
@@ -45,7 +45,7 @@ Rolling deployments allow you to wait for a step to finish on one deployment tar
 
 First, open the menu for an existing step, and click **Add Child Step**.
 
-![](images/rolling-deployments-child-step.png "width=500")
+![](/docs/deployments/patterns/images/rolling-deployments-child-step.png "width=500")
 
 Octopus has numerous steps that support rolling deployments depending on your install version including:
 
@@ -59,15 +59,15 @@ Octopus has numerous steps that support rolling deployments depending on your in
 - Deploy an Azure Resource Manager template step
 - Run a Service Fabric SDK PowerShell Script step
 
-![](images/rolling-deployments-package-type.png "width=500")
+![](/docs/deployments/patterns/images/rolling-deployments-package-type.png "width=500")
 
 After adding a child step, the deployment process will now show the step as containing multiple actions:
 
-![](images/rolling-deployments-multiple-actions.png "width=500")
+![](/docs/deployments/patterns/images/rolling-deployments-multiple-actions.png "width=500")
 
 All child steps run on the same machine at the same time, and you can add more than one child step. You can also change the order that the steps are executed in using the **Reorder steps** link.
 
-![](images/rolling-deployments-reorder.png "width=500")
+![](/docs/deployments/patterns/images/rolling-deployments-reorder.png "width=500")
 
 You can edit the parent step to change the roles that the steps run on or the window size.
 

@@ -35,12 +35,12 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
 2. Select **Add Step** and then select **Health check**. For more information about adding a step to the deployment process, see the [add step](/docs/projects/steps/) section.
 3. Configure the Health Check step, exclude deployment targets if they are unavailable and include new deployment targets if they are found:
 
-   ![](images/healthcheck.png "width=500")
+   ![](/docs/deployments/patterns/elastic-and-transient-environments/images/healthcheck.png "width=500")
 
 4. Save the step.
 5. Back at the deployment process, re-order the steps so that the **Health Check** step occurs before the **Trading Website** step.  This will ensure that deployment targets in the **TradingWebServer** role are re-evaluated before the trading web site is deployed:
 
-   ![](images/evaluate.png "width=500")
+   ![](/docs/deployments/patterns/elastic-and-transient-environments/images/evaluate.png "width=500")
 
 6. Deploy OctoFX to an environment that has some deployment targets in the **TradingWebServer** role that are disabled.  While the deployment is in progress (but before the Health Check step), enable the disabled targets and disable the enabled targets. When the Health Check step runs:
 
@@ -49,7 +49,7 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
 
 In this case, the machine **SWeb01** has been found and included in the rest of the deployment:
 
-![](images/newtarget.png "width=500")
+![](/docs/deployments/patterns/elastic-and-transient-environments/images/newtarget.png "width=500")
 
 Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date/).
 

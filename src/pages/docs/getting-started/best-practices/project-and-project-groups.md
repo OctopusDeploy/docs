@@ -17,7 +17,7 @@ We recommend thinking of projects and project groups this way:
 - Project = Application Component
 
 This screenshot represents the Octo Pet Shop application (project group) with all the various components (projects)
-![project and project groups](images/projects-and-project-groups.png "width=500")
+![project and project groups](/docs/getting-started/best-practices/images/projects-and-project-groups.png "width=500")
 
 At first, it makes sense to include all the necessary steps to deploy all the components in an application into one project.  A single process works fine when you change all the components for a release.  If you a release once a quarter, chances are high you are changing every component.
 
