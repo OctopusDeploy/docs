@@ -22,7 +22,7 @@ The sections below will walk you through _how_ to automate adding new nodes via 
 
 All nodes in the Octopus High Availability cluster must be running the same version of Octopus Deploy. The server version is returned from the API by going to `[ServerURL]/api`, for example, `https://samples.octopus.app/api`.  
 
-![the version number from the api](images/retrieve-version-from-api.png)
+![the version number from the api](/docs/administration/high-availability/configure/images/retrieve-version-from-api.png)
 
 :::hint
 Unlike most API calls, the `/api` endpoint does not require an API key.  

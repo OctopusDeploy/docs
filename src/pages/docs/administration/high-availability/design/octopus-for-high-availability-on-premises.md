@@ -59,7 +59,7 @@ Octopus can work with any load balancer technology, including hardware and softw
 
 If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or NGINX as a reverse load-balancing proxy. 
 
-![](images/create-server-farm.png "width=500")
+![](/docs/administration/high-availability/design/images/create-server-farm.png "width=500")
 
 For more information on setting up a reverse proxy with Octopus Deploy we have the following guides:
 - [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy/)

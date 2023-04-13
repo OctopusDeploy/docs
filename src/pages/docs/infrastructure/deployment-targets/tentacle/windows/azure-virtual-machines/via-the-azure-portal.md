@@ -10,19 +10,19 @@ navOrder: 2
 
 After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then click on **Extensions**:
 
-![Azure VM Properties - Extensions Tab](azure-portal-extensions-menu-item.png "width=500")
+![Azure VM Properties - Extensions Tab](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/azure-portal-extensions-menu-item.png "width=500")
 
 Click **Add** to add a new extension.
 
-![Azure VM Properties - Add extensions button](azure-portal-extensions-add.png "width=500")
+![Azure VM Properties - Add extensions button](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/azure-portal-extensions-add.png "width=500")
 
 Select the **Octopus Deploy Tentacle Agent** extension, and click **Create**.
 
-![Add Extension - Create Octopus Deploy Tentacle Agent](azure-portal-extensions-about-extension.png "width=500")
+![Add Extension - Create Octopus Deploy Tentacle Agent](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/azure-portal-extensions-about-extension.png "width=500")
 
 Fill in the settings, and click **OK**.
 
-![ Octopus Deploy Tentacle Agent properties](azure-portal-extensions-extension-properties.png "width=500")
+![ Octopus Deploy Tentacle Agent properties](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/azure-portal-extensions-extension-properties.png "width=500")
 
 A deployment will be initiated which adds the extension to your virtual machine.
 
@@ -51,5 +51,5 @@ After entering the extension settings, click **OK**, and the extension will be i
 After a few minutes, the machine should appear in the environments tab of your Octopus Server. If it doesn't, please read the [Diagnosing issues](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/diagnosing-issues/) section.
 
 :::hint
-If you need the ability to customize more of the installation, the [CLI](via-the-azure-cli/), [PowerShell](via-powershell/) and [ARM Template](via-an-arm-template/) methods expose more options than the Azure Portal. For even more customization, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.
+If you need the ability to customize more of the installation, the [CLI](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-the-azure-cli/), [PowerShell](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-powershell/) and [ARM Template](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template/) methods expose more options than the Azure Portal. For even more customization, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.
 :::

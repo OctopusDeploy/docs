@@ -57,7 +57,7 @@ configuration OctopusTentacle
 If you build the ZIP file incorrectly the provisioning of the DSC extension and Tentacle application install is likely to fail.
 :::
 
-![A brief description of the image](images/dsc-folder-structure-example.png)
+![A brief description of the image](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/images/dsc-folder-structure-example.png)
 
 4. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 5. Create an ARM template (eg `arm-template.json`) that creates your virtual machine as normal. eg:

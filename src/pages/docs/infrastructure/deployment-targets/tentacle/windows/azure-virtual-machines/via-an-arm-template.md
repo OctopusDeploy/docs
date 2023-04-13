@@ -60,11 +60,11 @@ Create your ARM template as normal, and add a `resources` element under your `Mi
 
 * `publisher`: (string) Must be `OctopusDeploy.Tentacle`.
 * `type`: (string) Must be `OctopusDeployWindowsTentacle`.
-* `typeHandlerVersion`: (string): The major and minor version of the extension to apply. You can find what versions are available [via the Azure CLI](via-the-azure-cli/).
+* `typeHandlerVersion`: (string): The major and minor version of the extension to apply. You can find what versions are available [via the Azure CLI](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-the-azure-cli/).
 * `autoUpgradeMinorVersion`: (string) Indicates whether the extension version should be automatically updated to a newer minor version. Accepts the values `true` or `false`.
 * `forceUpdateTag`: (string) Any user defined value that can be modified to force the extension to re-run, even if none of the `settings` or `protectedSettings` have changed.
 
-Please refer to the [configuration structure](configuration-structure/) for details regarding the format of the `settings` and `protectedSettings` elements.
+Please refer to the [configuration structure](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/configuration-structure/) for details regarding the format of the `settings` and `protectedSettings` elements.
 
 :::hint
 If you need more the ability to customize more of the installation, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.

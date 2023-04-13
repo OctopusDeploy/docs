@@ -89,7 +89,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
 
 5. Create folders in your **SMB share** for the Artifacts, Packages, TaskLogs, and Imports.
 
-   ![Create folders in your SMB share](images/smb-create-folders.png "width=500")
+   ![Create folders in your SMB share](/docs/administration/high-availability/design/images/smb-create-folders.png "width=500")
 
 6. Create the symbolic links for the Artifacts, Packages, TaskLogs, and Imports folders.
 
@@ -331,15 +331,15 @@ To use Network Load Balancers exclusively for Octopus High Availability with Pol
 
 - One to serve the Octopus Web Portal HTTP traffic to your backend pool of Compute engine instances:
 
-   ![Network Load Balancer for Web portal](images/gcp-octopus-nlb-webportal.png "width=500")
+   ![Network Load Balancer for Web portal](/docs/administration/high-availability/design/images/gcp-octopus-nlb-webportal.png "width=500")
 
 - One *for each* Compute engine instance for Polling Tentacles to connect to:
 
-   ![Network Load Balancer for Polling Tentacles](images/gcp-octopus-nlb-polling.png "width=500")
+   ![Network Load Balancer for Polling Tentacles](/docs/administration/high-availability/design/images/gcp-octopus-nlb-polling.png "width=500")
 
 With Network Load Balancers, you can configure a health check to ensure your Compute engine instances are healthy before traffic is served to them:
 
-![Network Load Balancer health check](images/gcp-octopus-nlb-health-check.png "width=500")
+![Network Load Balancer health check](/docs/administration/high-availability/design/images/gcp-octopus-nlb-health-check.png "width=500")
 
 !include <load-balancer-endpoint-info>
 

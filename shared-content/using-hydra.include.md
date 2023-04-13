@@ -49,11 +49,11 @@ These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Te
 1. Download the latest Hydra NuGet package from [https://octopus.com/downloads/latest/Hydra](https://octopus.com/downloads/latest/Hydra).
 2. Use the Upload Package feature of the library to upload the OctopusDeploy. Hydra package to the built-in NuGet repository on your **Octopus 2.6.5** server.
 
-![](images/3278019.png "width=500")
+![](/docs/public/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278019.png "width=500")
 
 3. Import the [Hydra step template](http://library.octopus.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 
-![](images/3278018.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278018.png "width=500")
 
 4. Create a [new project](/docs/projects/) with a single "Update Octopus Tentacle" step from the step template.
 
@@ -76,12 +76,12 @@ It is very important you get this value correct. An incorrect value will result 
 3. Multiple Polling Tentacle instances on the same machine pointing to different Octopus Servers **a very rare case**:
   - Use this syntax to tell Hydra the mapping from your old Octopus Server to your new Octopus Server: `https://oldserver:oldport=>https://newserver:newport,https://oldserver2:oldport2/=>https://newserver2:newport2` where each pair is separated by commas. This will match the first case and replace it => with the second case.
 
-Click the ![](images/3278017.png "width=500") help button for more detailed instructions.
+Click the ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278017.png "width=500") help button for more detailed instructions.
 
-![](images/3278014.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278014.png "width=500")
 
-![](images/3278015.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278015.png "width=500")
 :::
 
 5. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
-    ![](images/3278010.png "width=500")
+    ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278010.png "width=500")
