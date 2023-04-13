@@ -124,7 +124,7 @@ If you had a variable named `APP:PORT` with value `8080`, the value would be rep
 }
 ```
 
-For more information, refer to our [variable casing](/docs/projects/variables/index.md#variable-casing) documentation.
+For more information, refer to our [variable casing](/docs/projects/variables/#variable-casing) documentation.
 
 ## JSON and YAML
 

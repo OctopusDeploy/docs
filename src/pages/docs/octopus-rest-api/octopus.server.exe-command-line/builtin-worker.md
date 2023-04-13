@@ -6,7 +6,7 @@ description: Configure the built-in worker used to run deployment actions and sc
 navOrder: 160
 ---
 
-Use the builtin-worker command to configure the user context that the [built-in worker](/docs/infrastructure/workers/index.md#built-in-worker) runs under. 
+Use the builtin-worker command to configure the user context that the [built-in worker](/docs/infrastructure/workers/#built-in-worker) runs under. 
 
 **builtin-worker options**
 

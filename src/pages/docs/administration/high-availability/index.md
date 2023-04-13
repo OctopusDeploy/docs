@@ -92,7 +92,7 @@ There are plenty of options when it comes to choosing a load balancer to direct 
 
 ## Auditing
 
-From **Octopus 2023.1**, audit events include the IP address of the client that initiated the request. As High Availability redirects user traffic through a load balancer, the default value of the IP address in audit events will be the IP address of the load balancer rather than the client's IP address. See [IP address forwarding](/docs/security/users-and-teams/auditing/index.md#ip-address-forwarding) for configuring trusted proxies in Octopus.
+From **Octopus 2023.1**, audit events include the IP address of the client that initiated the request. As High Availability redirects user traffic through a load balancer, the default value of the IP address in audit events will be the IP address of the load balancer rather than the client's IP address. See [IP address forwarding](/docs/security/users-and-teams/auditing/#ip-address-forwarding) for configuring trusted proxies in Octopus.
 
 ## Troubleshooting
 

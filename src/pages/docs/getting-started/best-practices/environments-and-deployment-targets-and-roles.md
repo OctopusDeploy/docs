@@ -7,7 +7,7 @@ navOrder: 30
 hideInThisSection: true
 ---
 
-[Deployment targets](/docs/infrastructure/deployment-targets/index.md) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more.  Please refer to the [Deployment targets](/docs/infrastructure/deployment-targets/index/) for an up to date list on deployment targets.  [Environments](/docs/infrastructure/environments/) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  Target roles, or tags, are a filter to select specific deployment targets in an environment.
+[Deployment targets](/docs/infrastructure/deployment-targets/) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more.  Please refer to the [Deployment targets](/docs/infrastructure/deployment-targets/) for an up to date list on deployment targets.  [Environments](/docs/infrastructure/environments/) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  Target roles, or tags, are a filter to select specific deployment targets in an environment.
 
 ## Deployment Target Environment and Role Relationship
 Environments are how you group deployment targets in a stage in your deployment pipeline.  Target roles, or tags, are how you identify which deployment targets you wish to deploy to in that specific stage.
@@ -104,6 +104,6 @@ For further reading on environments, deployment targets, and roles in Octopus De
 
 - [Deployment Targets](/docs/infrastructure/deployment-targets/)
 - [Environments](/docs/infrastructure/environments/)
-- [Target Roles](/docs/infrastructure/deployment-targets/index.md#create-target-roles)
+- [Target Roles](/docs/infrastructure/deployment-targets/#create-target-roles)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/lifecycles-and-environments">Next</a></span>

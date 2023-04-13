@@ -10,7 +10,7 @@ In the variable-editor, selecting *Certificate* as the [variable](/docs/projects
 
 ![](images/certificate-variable-select.png "width=500")
 
-Certificate variables can be [scoped](/docs/projects/variables/index.md#scoping-variables), similar to regular text variables.
+Certificate variables can be [scoped](/docs/projects/variables/#scoping-variables), similar to regular text variables.
 
 ![](images/certificate-variables-scoped.png "width=500")
 

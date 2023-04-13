@@ -11,7 +11,7 @@ If you want to deploy software to Linux servers without using [SSH](/docs/infras
 
 ## Requirements
 
-Before you can configure a Linux Tentacle, the Linux server must meet the [requirements](/docs/infrastructure/deployment-targets/linux/index.md#requirements) and the following additional requirements:
+Before you can configure a Linux Tentacle, the Linux server must meet the [requirements](/docs/infrastructure/deployment-targets/linux/#requirements) and the following additional requirements:
 
 - Octopus Server **2019.8.3** or newer
 

@@ -79,7 +79,7 @@ We have created the step template [Calculate Deployment Mode](https://library.oc
 
 ### Enabling and Disabling Steps based on Deployment Mode
 
-Once you know the deployment mode, you can enable or disable steps using [output variables](/docs/projects/variables/output-variables/) and [variable run conditions](/docs/projects/steps/conditions/index.md#variable-expressions).  You can have steps run only on **Rollback**, only on **Deploy**, only on **Deploy** or **Redeployment**, or any other combination.  
+Once you know the deployment mode, you can enable or disable steps using [output variables](/docs/projects/variables/output-variables/) and [variable run conditions](/docs/projects/steps/conditions/#variable-expressions).  You can have steps run only on **Rollback**, only on **Deploy**, only on **Deploy** or **Redeployment**, or any other combination.  
 
 The step template [Calculate Deployment Mode](https://library.octopus.com/step-templates/d166457a-1421-4731-b143-dd6766fb95d5/actiontemplate-calculate-deployment-mode) includes a number of [output variables](/docs/projects/variables/output-variables/).
 

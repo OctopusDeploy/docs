@@ -6,7 +6,7 @@ description: Requirements for using SSH deployment targets with Octopus.
 navOrder: 15
 ---
 
-Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target/), they must meet the [requirements](/docs/infrastructure/deployment-targets/linux/index.md#requirements) for a Linux server and the following additional requirements:
+Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target/), they must meet the [requirements](/docs/infrastructure/deployment-targets/linux/#requirements) for a Linux server and the following additional requirements:
 
 - It must be accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
 

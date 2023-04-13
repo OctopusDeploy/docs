@@ -14,7 +14,7 @@ Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/in
 
 ## Terraform backends
 
-Neither Octopus nor Terraform will generate errors if a remote backend is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](/docs/deployments/terraform/preparing-your-terraform-environment/index.md#remote-state-terraform-cloud) and more general information
+Neither Octopus nor Terraform will generate errors if a remote backend is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](/docs/deployments/terraform/preparing-your-terraform-environment/#remote-state-terraform-cloud) and more general information
 regarding backends in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
 
 ## Managed Cloud Accounts

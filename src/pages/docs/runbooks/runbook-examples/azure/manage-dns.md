@@ -27,9 +27,9 @@ The next section shows how you can create runbooks to manage DNS records:
 ![Azure Account variable](images/azure-account-variable.png "width=500")
 
 :::hint
-[Azure accounts](/docs/infrastructure/accounts/azure/index/) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 
+[Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 
 
-The [Azure Run a Script](/docs/deployments/azure/running-azure-powershell/) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
+The [Azure Run a Script](/docs/deployments/azure/running-azure-powershell/) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions).
 :::
   
 9. In the **Inline source code** section, add the following code as a **PowerShell** script:

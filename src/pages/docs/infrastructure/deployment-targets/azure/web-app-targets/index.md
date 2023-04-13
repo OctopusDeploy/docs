@@ -14,7 +14,7 @@ From version 2022.1 Octopus can discover Azure Web App targets using tags on you
 
 ## Requirements
 
-- You need an [Azure Service Principal account](/docs/infrastructure/accounts/azure/index.md#azure-service-principal) that references your Azure subscription.
+- You need an [Azure Service Principal account](/docs/infrastructure/accounts/azure/#azure-service-principal) that references your Azure subscription.
 
 - Once your Azure account is setup, you need an existing Azure Web App / App Service setup within your Azure subscription. To learn more about App Services, see the [Azure App Services documentation](https://docs.microsoft.com/en-us/azure/app-service/) that can help you get started. If you are dynamically creating the web app during your deployment, check our section about [creating Web App targets by scripts using service messages](#creating-web-app-targets-by-scripts).
 
@@ -29,7 +29,7 @@ From **Octopus 2022.3**, you can configure the well-known variables used to disc
 To discover targets use the following steps:
 
 - Add an Azure account variable named **Octopus.Azure.Account** to your project.
-- [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#tag-cloud-resources) to your Azure Web App so that Octopus can match it to your deployment step and environment.
+- [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/#tag-cloud-resources) to your Azure Web App so that Octopus can match it to your deployment step and environment.
 - Add a `Deploy an Azure App Service` or `Deploy an Azure Web App (Web Deploy)` step to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Azure Web App targets to deploy to.
 
 From **Octopus 2022.2**, deployment slots within an Azure Web App can also be discovered separately from the Web App it is a part of by adding tags to the slot. Any deployment slot discovered during deployment will be created as a separate target in Octopus.

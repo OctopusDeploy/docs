@@ -43,7 +43,7 @@ Java packages tend to be formatted with Maven versioning schemes. Maven versions
 See the section [Building SemVer Compatible Artifacts](#building_semver_compatible_artifacts) for tips on creating valid package filenames from builds tools like Maven and Gradle.
 :::
 
-Valid packages can then be added to the library using the [web based interface, or using the CLI tool](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository).
+Valid packages can then be added to the library using the [web based interface, or using the CLI tool](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository).
 
 #### <a name="building_semver_compatible_artifacts"></a>Building SemVer Compatible Artifacts
 The most common incompatibility between Maven and SemVer formatting comes from the use of a dash to separate the package name from the version.

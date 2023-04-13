@@ -5,7 +5,7 @@ title: Create an Azure service principal
 description: An example script to create an Azure service principal in Octopus.
 ---
 
-This script provides an example of how to programmatically create an [Azure Service Principal account](/docs/infrastructure/accounts/azure/index.md#azure-service-principal).
+This script provides an example of how to programmatically create an [Azure Service Principal account](/docs/infrastructure/accounts/azure/#azure-service-principal).
 
 ## Usage
 

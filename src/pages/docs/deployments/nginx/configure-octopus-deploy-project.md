@@ -15,7 +15,7 @@ Assuming you are starting with a clean install of Octopus Deploy, the following 
 ![](/docs/deployments/nginx/images/production_environment.png "width=500")
 
 :::success
-For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/index/) and [lifecycles](/docs/releases/lifecycles/) to create advanced deployment processes.
+For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/) and [lifecycles](/docs/releases/lifecycles/) to create advanced deployment processes.
 :::
 
 ## Configure account and target
@@ -40,7 +40,7 @@ The next step is to create a project that will extract the package.
 - Give the new project an appropriate name (for example *NGINXSampleWebApp*) and once saved, go to the project's *Process* page and click **{{Add Step,Deploy to NGINX}}**.
     * Give the step a name (for example *Deploy NginxSampleWebApp*)
     * Ensure that the target role matches that which was assigned to the machine in the previous step and
-    * Select *NGINXsamplewebapp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/index.md#package-id) documentation for more details).
+    * Select *NGINXsamplewebapp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/#package-id) documentation for more details).
 
 ![](/docs/deployments/nginx/images/deployment_process_name_role_and_package.png "width=500")
 

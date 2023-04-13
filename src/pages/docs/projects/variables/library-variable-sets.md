@@ -6,7 +6,7 @@ description: Library variable sets allow you to define and share common variable
 navOrder: 90
 ---
 
-Octopus [variables](/docs/projects/variables/index/) can be added to library variables sets, which make it possible to define variables for use with multiple [projects](/docs/projects/).
+Octopus [variables](/docs/projects/variables/) can be added to library variables sets, which make it possible to define variables for use with multiple [projects](/docs/projects/).
 
 This can be useful if you have the same variables that are used across multiple projects. Instead of defining the variables for each project, you can define a set of variables in the Library Variable Set and then access them from every project that needs them.
 
@@ -14,7 +14,7 @@ This can be useful if you have the same variables that are used across multiple 
 
 1. Navigate to **{{Library,Variable Sets}}** and click **ADD NEW VARIABLE SET**.
 2. Give the variable set a name, a description, and click **SAVE**.
-3. Define the variables. As with project variables, library variables can be [scoped](/docs/projects/variables/index.md#scoping-variables) to environment, deployment target, or target roles.
+3. Define the variables. As with project variables, library variables can be [scoped](/docs/projects/variables/#scoping-variables) to environment, deployment target, or target roles.
 4. Save the variable set by clicking **SAVE**.
 
 ## Adding the library variable set to a project
@@ -58,7 +58,7 @@ You can use the following advanced filters to refine the result of the audit tra
 
 ## Naming libary variable set variables
 
-Always try to name variables in a variable set uniquely to avoid variable name collision. A common example is when a project and a library variable set have the same variable name, scoped to the same environment. When a name collision occurs, Octopus Deploy will do its best to pick the *right one* [using an algorithm](/docs/projects/variables/index.md#Scopingvariables-Scopespecificity). But sometimes the variables are scoped equally. If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
+Always try to name variables in a variable set uniquely to avoid variable name collision. A common example is when a project and a library variable set have the same variable name, scoped to the same environment. When a name collision occurs, Octopus Deploy will do its best to pick the *right one* [using an algorithm](/docs/projects/variables/#Scopingvariables-Scopespecificity). But sometimes the variables are scoped equally. If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
 
 Read more about our recommendations for [variable naming](/docs/getting-started/best-practices/variables.md#variable-naming).
 

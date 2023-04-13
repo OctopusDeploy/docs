@@ -8,7 +8,7 @@ navOrder: 80
 
 Octopus can help you to run scripts on targets within Microsoft Azure.
 
-Within your Azure scripts, you can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployments/custom-scripts/output-variables/) and [collecting artifacts](/docs/deployments/custom-scripts/index.md#Customscripts-Collectingartifacts).
+Within your Azure scripts, you can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployments/custom-scripts/output-variables/) and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 
 These scripts typically rely on tools being available when they execute.
 
@@ -34,8 +34,8 @@ This functionality requires the Azure CLI version 2.0 or above to be installed o
 
 Azure supports two authentication methods, each of which provides access to a different set of Azure APIs:
 
-- To use the Azure Service Management (ASM) API, use an [Azure Management Certificate Account](/docs/infrastructure/accounts/azure/index.md#azure-management-certificate).
-- To use the Azure Resource Management (ARM) API, use an [Azure Service Principal Account](/docs/infrastructure/accounts/azure/index.md#azure-service-principal).
+- To use the Azure Service Management (ASM) API, use an [Azure Management Certificate Account](/docs/infrastructure/accounts/azure/#azure-management-certificate).
+- To use the Azure Resource Management (ARM) API, use an [Azure Service Principal Account](/docs/infrastructure/accounts/azure/#azure-service-principal).
   - The ARM PowerShell cmdlets are prefixed with `AzureRM`, like `Get-AzureRMWebApp`.
   - The Az PowerShell cmdlets are prefixed with `Az`, like `Get-AzWebApp`.
 
@@ -48,7 +48,7 @@ Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](
 To use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/).
-- Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
+- Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
 
 ![](images/5865912.png "width=170")
 

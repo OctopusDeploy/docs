@@ -15,7 +15,7 @@ You can upgrade from **Octopus 2.6.5** to **Octopus 2018.10 LTS** by downloading
 3. Migrate your data from **Octopus 2.6.5** to **Octopus 2018.10 LTS**.
 4. Install **the latest version of Tentacle** on your deployment targets.
 5. Verify the connectivity between the **Octopus 2018.10 LTS** Server and your Tentacles.
-6. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp).
+6. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage\#ServerconfigurationandFilestorage-CleanUp).
 
 ## Step by step {#Manualupgrade-Stepbystep}
 

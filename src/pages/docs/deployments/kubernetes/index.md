@@ -7,7 +7,7 @@ navOrder: 80
 hideInThisSectionHeader: true
 ---
 
-Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're starting simple or want complete control over a complex setup. You can deploy Kubernetes resources such as [deployments](/docs/deployments/kubernetes/deploy-container/index.md), [services](/docs/deployments/kubernetes/deploy-service/index/), and [ingress](/docs/deployments/kubernetes/deploy-ingress/), and run scripts against a Kubernetes cluster.
+Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're starting simple or want complete control over a complex setup. You can deploy Kubernetes resources such as [deployments](/docs/deployments/kubernetes/deploy-container/), [services](/docs/deployments/kubernetes/deploy-service/), and [ingress](/docs/deployments/kubernetes/deploy-ingress/), and run scripts against a Kubernetes cluster.
 
 - Centralize your Kubernetes clusters and resources in a single place so you can focus on your applications and customers
 - Adopt development best practices:
@@ -15,7 +15,7 @@ Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're
   - Use built-in service accounts for simple and secure authentication
   - Implement deployment patterns like blue/green, canary, and rolling deployments
 - Automate routine maintenance and respond more quickly to emergencies:
-  - Octopus [runbooks](/docs/runbooks/index/) and [projects](/docs/projects/) share the same variables and accounts to interact with your clusters
+  - Octopus [runbooks](/docs/runbooks/) and [projects](/docs/projects/) share the same variables and accounts to interact with your clusters
   - Use pre-approved [kubectl](/docs/deployments/kubernetes/kubectl/) scripts
 
 ![Three screenshots from Octopus, showing the Google Cloud account configuration, Kubernetes deployment process, and a successful deployment to production.](image-octopus-gcp-kubernetes-2021-q3.png "width=500")

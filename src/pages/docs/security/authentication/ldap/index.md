@@ -55,7 +55,7 @@ This example uses a straightforward Active Directory configuration.  Your DN and
 
 ### Octopus user accounts are still required {#Octopususeraccountsarestillrequired}
 
-Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/index/) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/) based on the profile information returned from the LDAP lookup.
+Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/) based on the profile information returned from the LDAP lookup.
 
 **How Octopus matches external identities to user accounts**
 You can configure the attributes to match external identities to user accounts.  By default, Octopus will use `sAMAccountName` for the unique account name and `displayName` for the display name.

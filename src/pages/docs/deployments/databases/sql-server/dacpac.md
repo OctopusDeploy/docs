@@ -142,7 +142,7 @@ If you're using Integrated Authentication with Windows, you do not need either o
 
 ![The project variables in the Octopus Web Portal](images/octopus-project-variables.png "width=500")
 
-Note, both `Project.SQLServer.Admin.Password` and `Project.SQLServer.Name` have multiple variables that are scoped to different environments. Learn more about [scoping variables](/docs/projects/variables/index.md#scoping-variables).
+Note, both `Project.SQLServer.Admin.Password` and `Project.SQLServer.Name` have multiple variables that are scoped to different environments. Learn more about [scoping variables](/docs/projects/variables/#scoping-variables).
 
 ### Define the deployment process
 

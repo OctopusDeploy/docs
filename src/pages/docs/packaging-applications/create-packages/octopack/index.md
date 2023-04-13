@@ -212,16 +212,16 @@ To publish your package to a NuGet feed, you can optionally use some extra MSBui
 
 ## Push your packages to the Octopus built-in repository
 
-Octopus provides a [built-in package repository](/docs/packaging-applications/package-repositories/index/) for your deployment packages. The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/).
+Octopus provides a [built-in package repository](/docs/packaging-applications/package-repositories/) for your deployment packages. The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/).
 
 To push your packages to the Octopus built-in repository use the following settings:
 
 - `/p:OctoPackPublishPackageToHttp=http://your.octopusserver.com/nuget/packages`: this is the URL to your Octopus Server noting the `/nuget/packages` path.
-- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations).
+- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations).
 
 ## Push a NuGet package that already exists
 
-When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index/) using [OctoPack](/docs/packaging-applications/create-packages/octopack/) or [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference), the default URL looks like this:
+When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/) using [OctoPack](/docs/packaging-applications/create-packages/octopack/) or [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference), the default URL looks like this:
 
 `http://MyOctopusServer/nuget/packages`
 

@@ -93,4 +93,4 @@ If one or more health checks do not succeed after a few attempts, see the Troubl
 
 We leave some files used by **Octopus 2.6.5** in place so you can roll back if necessary. After the upgrade is complete these files will never be used again and can be safely deleted.
 
-You can follow the instructions on this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp) to clean up files left over from your **Octopus 2.6.5** to **Octopus 2018.10 LTS** upgrade.
+You can follow the instructions on this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage\#ServerconfigurationandFilestorage-CleanUp) to clean up files left over from your **Octopus 2.6.5** to **Octopus 2018.10 LTS** upgrade.

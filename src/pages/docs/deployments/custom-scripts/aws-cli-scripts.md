@@ -28,7 +28,7 @@ The proceeding instructions can be followed to configure the `Run an AWS CLI Scr
 
 ## Create an AWS account
 
-The instructions at [Creating an AWS Account](/docs/infrastructure/accounts/aws/index.md#create-an-aws-account) detail the procedure for creating an account in Octopus.
+The instructions at [Creating an AWS Account](/docs/infrastructure/accounts/aws/#create-an-aws-account) detail the procedure for creating an account in Octopus.
 
 ## Create a AWS account project variable
 
@@ -106,4 +106,4 @@ Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](
 To use your own version of the AWS CLI or AWS Powershell cmdlets when using Dynamic Worker Pools, please do the following:
 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/).
-- Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) that contains the versions of the AWS CLI or AWS Powershell cmdlets that you would like to use.
+- Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the AWS CLI or AWS Powershell cmdlets that you would like to use.

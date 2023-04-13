@@ -95,7 +95,7 @@ The Octopus Jenkins plugin comes with these Octopus Build Steps:
 
 ## Package application {#Jenkins-Packageapplication}
 
-Octopus supports multiple [package formats](/docs/packaging-applications/index.md#supported-formats) for deploying your software.
+Octopus supports multiple [package formats](/docs/packaging-applications/#supported-formats) for deploying your software.
 
 You can configure your Jenkins project to [package](/docs/octopus-rest-api/octopus-cli/pack/) your application or other files on disk, without the need of any specification files, e.g. `.nuspec`.
 

@@ -8,7 +8,7 @@ navOrder: 15
 
 :::hint
 **Consider using a build server extension**
-We have [extensions/plugins](/docs/packaging-applications/build-servers/index/) available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository), create releases and deploy them to your environments:
+We have [extensions/plugins](/docs/packaging-applications/build-servers/) available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository), create releases and deploy them to your environments:
 
  - [AppVeyor](/docs/packaging-applications/build-servers/appveyor/)
  - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops/)
@@ -41,7 +41,7 @@ When a release is set to be created this way, the audit will tell you that is ho
 
 ![Release history](images/history.png "width=500")
 
-If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/releases/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
+If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/releases/lifecycles/#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
 
 :::hint
 The release number that is created is guided by the Release Versioning settings under **{{Project,Settings}}**. It will use the rules defined.

@@ -6,7 +6,7 @@ description: You can control release promotion using safe tenant-aware lifecycle
 navOrder: 60
 ---
 
-You can control which [releases](/docs/releases/index/) will be deployed to certain Tenants using [Channels](/docs/releases/channels/). 
+You can control which [releases](/docs/releases/) will be deployed to certain Tenants using [Channels](/docs/releases/channels/). 
 
 ![](images/channel-restrict-by-tenant.png "width=500")
 

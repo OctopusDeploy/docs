@@ -5,7 +5,7 @@ title: Synchronize packages
 description: An example script that synchronizes packages from the built-in feed between two spaces in Octopus using the REST API.
 ---
 
-This script synchronizes packages from the [built-in feed](/docs/packaging-applications/package-repositories/built-in-repository/index/) between two [spaces](/docs/administration/spaces/). The spaces can be on the same Octopus instance, or in different instances.
+This script synchronizes packages from the [built-in feed](/docs/packaging-applications/package-repositories/built-in-repository/) between two [spaces](/docs/administration/spaces/). The spaces can be on the same Octopus instance, or in different instances.
 
 ## Usage
 

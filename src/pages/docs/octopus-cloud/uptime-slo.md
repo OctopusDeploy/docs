@@ -8,7 +8,7 @@ description: The uptime SLO for Octopus Cloud instances
 
 Each Octopus Cloud customer has their own instance of the Octopus Server and can use [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools/). As the name implies, these workers are assigned to a cloud instance dynamically and are spun up and down as required by the Deployment or Runbook executed. The following uptime SLO (service level objective), therefore, refers to the customer's Cloud instance.
 
-Each customer's instance may experience its own series of maintenance operations and reprovisioning for operational and upgrade reasons. Therefore the 95th percentile of monthly uptime is used as the basis for the Octopus Cloud uptime SLO. Operational downtime is, other than in exceptional circumstances, scheduled in the customer’s [maintenance window](/docs/octopus-cloud/index.md#set-the-outage-window). All downtime (unplanned and planned) is used in the determination of the uptime SLO.
+Each customer's instance may experience its own series of maintenance operations and reprovisioning for operational and upgrade reasons. Therefore the 95th percentile of monthly uptime is used as the basis for the Octopus Cloud uptime SLO. Operational downtime is, other than in exceptional circumstances, scheduled in the customer’s [maintenance window](/docs/octopus-cloud/#set-the-outage-window). All downtime (unplanned and planned) is used in the determination of the uptime SLO.
 
 ## Uptime SLO
 Monthly uptime SLO: 99.5%

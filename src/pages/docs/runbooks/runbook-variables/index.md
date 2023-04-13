@@ -10,7 +10,7 @@ navOrder: 24
 
 ## Variables in runbooks
 
-A project's variables are available to both the runbooks and the deployment process, and the process for consuming variables is the same (see [an example](/docs/projects/variables/index.md#example)). 
+A project's variables are available to both the runbooks and the deployment process, and the process for consuming variables is the same (see [an example](/docs/projects/variables/#example)). 
 
 ### Variables specific to a runbook 
 

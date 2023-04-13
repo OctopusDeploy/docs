@@ -7,7 +7,7 @@ navOrder: 10
 hideInThisSection: true
 ---
 
-There are a variety of tools you can use to package your applications, and as long as you can create [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
+There are a variety of tools you can use to package your applications, and as long as you can create [supported packages](/docs/packaging-applications/#supported-formats) you can deploy your applications with Octopus Deploy.
 
 We've created the following tools to help you package your applications:
 

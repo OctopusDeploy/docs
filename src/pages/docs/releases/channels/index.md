@@ -35,7 +35,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
 2. Give the Channel a name and add a description. The channel name must be unique within the project.
-3. Select the [Lifecycle](/docs/releases/lifecycles/index/) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/releases/lifecycles/) for information about creating new lifecycles.
+3. Select the [Lifecycle](/docs/releases/lifecycles/) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/releases/lifecycles/) for information about creating new lifecycles.
 4. If you want to make this the default Channel for the project, click the **Default Channel** check-box.
 5. Design the [version rules](#Channels-versionrules) that will be used to enforce which versions of your packages are deployed to this channel.
 

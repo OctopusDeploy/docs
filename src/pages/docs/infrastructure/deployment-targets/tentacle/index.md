@@ -8,7 +8,7 @@ navOrder: 0
 
 When you deploy software to your servers, you'll typically need to install Tentacle, a lightweight agent service so they can communicate securely with the Octopus Server.
 
-Tentacle can be installed on either [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/index/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux/). 
+Tentacle can be installed on either [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux/). 
 
 When installed, Tentacles can:
 
@@ -23,7 +23,7 @@ Before you install Tentacle, review the software and hardware requirements depen
 - Windows:
   - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/).
   - [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements/).
-- Linux [system prerequisites](/docs/infrastructure/deployment-targets/linux/index.md#requirements)
+- Linux [system prerequisites](/docs/infrastructure/deployment-targets/linux/#requirements)
 
 
 ## Communication mode
@@ -35,8 +35,8 @@ Tentacles can be configured to communicate in Listening mode or Polling mode. Li
 ## Configure a Listening Tentacle (recommended)
 
 To install and configure Tentacles in listening mode, see either:
- - The [Windows Listening Tentacle installation docs](/docs/infrastructure/deployment-targets/tentacle/windows/index.md#configure-a-listening-tentacle-recommended).
- - The [Linux Tentacle Automation scripts](/docs/infrastructure/deployment-targets/tentacle/linux/index.md#automation-scripts), selecting the tab for either a Listening deployment target or worker for your Linux distro.
+ - The [Windows Listening Tentacle installation docs](/docs/infrastructure/deployment-targets/tentacle/windows/#configure-a-listening-tentacle-recommended).
+ - The [Linux Tentacle Automation scripts](/docs/infrastructure/deployment-targets/tentacle/linux/#automation-scripts), selecting the tab for either a Listening deployment target or worker for your Linux distro.
 
 ### Update your Tentacle firewall
 
@@ -51,8 +51,8 @@ Don't forget to allow access in any intermediary firewalls between the Octopus S
 Listening Tentacles are recommended, but there might be situations where you need to configure a Polling Tentacle. You can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/) page.
 
 To install and configure Tentacles in polling mode, see either:
- - The [Windows Polling Tentacle installation docs](/docs/infrastructure/deployment-targets/tentacle/windows/index.md#configure-a-polling-tentacle).
- - The [Linux Tentacle Automation scripts](/docs/infrastructure/deployment-targets/tentacle/linux/index.md#automation-scripts), selecting the tab for either a Polling deployment target or worker for your Linux distro.
+ - The [Windows Polling Tentacle installation docs](/docs/infrastructure/deployment-targets/tentacle/windows/#configure-a-polling-tentacle).
+ - The [Linux Tentacle Automation scripts](/docs/infrastructure/deployment-targets/tentacle/linux/#automation-scripts), selecting the tab for either a Polling deployment target or worker for your Linux distro.
 
 ### Update your Octopus Server firewall
 

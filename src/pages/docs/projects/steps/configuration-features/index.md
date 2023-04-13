@@ -11,7 +11,7 @@ hideInThisSection: true
 
 ## Enable configuration features
 
-You enable configuration features as you define the [steps](/docs/projects/steps/index/) in your [deployment process](/docs/projects/deployment-process/).
+You enable configuration features as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/).
 
 1. If the step you are defining has configuration features available, there is a **CONFIGURE FEATURES** link. Click the link.
 1. Select the features you would like to enable by clicking the relevant check-boxes in the list and click **OK**.

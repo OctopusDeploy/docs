@@ -56,7 +56,7 @@ As an example, many customers have reported speed improvements of 50-90% for the
 
 ### Retention policies
 
-Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/releases/index/). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/) you configure.
+Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/) and [environments](/docs/infrastructure/environments/), are stored until you delete them, unlike historical documents like [releases](/docs/releases/). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/) you configure.
 
 _The one exception to this is the `Events` table which records an [audit trail](/docs/security/users-and-teams/auditing/) of every significant event in your Octopus._
 
@@ -64,7 +64,7 @@ A tighter retention policy means your Octopus Server will run faster across the 
 
 :::hint
 **We need to keep everything for auditing purposes**
-You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/security/users-and-teams/auditing/index/) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
+You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/security/users-and-teams/auditing/) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
 
 ## Scaling Octopus Server {#scaling}
@@ -96,7 +96,7 @@ See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availabi
 
 The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.  Increasing that to 10 should be fine without requiring more CPU or RAM.  Anything more and we recommend [High Availability](/docs/administration/high-availability/).
 
-The task cap also interacts with offloading deployment work to Workers.  If you have more workers available, you might be able to increase your deployment performance and [different task cap or step parallelism](/docs/infrastructure/workers/index.md#run-multiple-processes-on-workers-simultaneously) might be right with the extra ability to scale.
+The task cap also interacts with offloading deployment work to Workers.  If you have more workers available, you might be able to increase your deployment performance and [different task cap or step parallelism](/docs/infrastructure/workers/#run-multiple-processes-on-workers-simultaneously) might be right with the extra ability to scale.
 
 ### Octopus High Availability
 
@@ -140,7 +140,7 @@ Consider using a custom package feed close to your deployment targets, and downl
 
 ### Retention Policy
 
-The built-in package feed has its own [retention policy](/docs/administration/retention-policies/index.md#set-builtinfeed-retentionpolicy).  Ensure that is enabled to keep the amount of packages to store and index down.
+The built-in package feed has its own [retention policy](/docs/administration/retention-policies/#set-builtinfeed-retentionpolicy).  Ensure that is enabled to keep the amount of packages to store and index down.
 
 :::hint
 The package retention policy only deletes packages not referenced by a release or runbook.  Setting the retetion policy to 1 day means the package will be deleted 1 day after the release is deleted.

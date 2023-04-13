@@ -16,7 +16,7 @@ Microsoft [announced](https://blogs.msdn.microsoft.com/appserviceteam/2018/03/12
 
 You can read more about all the PaaS targets [in our blog](https://octopus.com/blog/paas-targets).
 
-- You will need an [Azure Management Certificate account](/docs/infrastructure/accounts/azure/index.md#azure-management-certificate) that references your Azure subscription.
+- You will need an [Azure Management Certificate account](/docs/infrastructure/accounts/azure/#azure-management-certificate) that references your Azure subscription.
 
 - Once your Azure account is setup, you will then need an existing Azure Cloud Service (classic) setup within your Azure subscription. To learn more about App Services, the Azure team provide [useful documentation on App Services](https://docs.microsoft.com/en-us/azure/cloud-services/) that can help you get started. If you are dynamically creating the cloud services during your deployment, check our section about [creating Cloud Service targets by scripts using service messages](#creating-cloud-service-targets-by-scripts).
 

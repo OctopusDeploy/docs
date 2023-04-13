@@ -29,7 +29,7 @@ If you operate in a highly secure environment, where it's not possible to open a
 - `base64` is available. This is used for encoding and decoding variables.
 - `grep` is available.
 
-Any Linux server which meets these minimum requirements will be able to be configured as a deployment target or worker. However, there are additional requirements to be aware of for both [SSH targets](/docs/infrastructure/deployment-targets/linux/ssh-requirements/) and [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/index.md#requirements).
+Any Linux server which meets these minimum requirements will be able to be configured as a deployment target or worker. However, there are additional requirements to be aware of for both [SSH targets](/docs/infrastructure/deployment-targets/linux/ssh-requirements/) and [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/#requirements).
 
 ## Supported distributions
 

@@ -34,7 +34,7 @@ Your package repository will typically be:
 
 Because Octopus can consume packages from multiple feeds, we recommend using different repositories for different  purposes as each repository provides different benefits. For instance, if you produce your own application library packages in addition to your deployment packages you might consider something like the following:
 
-- Use the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index/) for your deployment packages. This is generally the best choice as it offers better performance and through the [retention policies](/docs/administration/retention-policies/) you've configured, Octopus knows which packages are no longer required and can be cleaned up.
+- Use the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/) for your deployment packages. This is generally the best choice as it offers better performance and through the [retention policies](/docs/administration/retention-policies/) you've configured, Octopus knows which packages are no longer required and can be cleaned up.
 - For application library packages consider using the repository provided by your [build server](/docs/packaging-applications/build-servers/), a [file-share](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds), [MyGet](http://www.myget.org/ "MyGet"), or [Azure DevOps Package Management](https://www.visualstudio.com/en-us/docs/package/overview).
 - For deployment scripts that you want to store in your source control and where a build process is unnecessary, [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds/) might be suitable.
 

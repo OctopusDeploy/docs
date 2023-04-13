@@ -43,7 +43,7 @@ Depending on your familiarity with Octopus Server, or SQL Server, or networking,
 
 ### Upgrade to the latest version
 
-Generally speaking, the latest available version of Octopus Server will be the most secure. You should consider a strategy for keeping Octopus Server updated. We follow a [responsible disclosure policy](index.md#disclosure-policy) so it is possible for you to be aware of any known issues which affect the security and integrity of your Octopus Server.
+Generally speaking, the latest available version of Octopus Server will be the most secure. You should consider a strategy for keeping Octopus Server updated. We follow a [responsible disclosure policy](#disclosure-policy) so it is possible for you to be aware of any known issues which affect the security and integrity of your Octopus Server.
 
 ### Securely expose your Octopus Server
 
@@ -76,7 +76,7 @@ The decisions you need to make are:
 
 ## Harden your host operating system
 
-These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/index/) and any [workers](/docs/infrastructure/workers/).
+These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/) and any [workers](/docs/infrastructure/workers/).
 
 1. Rename local administrator account.
 1. Configure malware protection.

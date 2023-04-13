@@ -6,7 +6,7 @@ description: Configure your infrastructure so Octopus can deploy software to you
 navOrder: 10
 ---
 
-You can deploy software to the Azure cloud by adding your Azure subscription to Octopus. With an active Azure subscription, you can use Octopus to deploy to [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md) targets, [Azure Service Fabric](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index/) targets, and [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/) targets.
+You can deploy software to the Azure cloud by adding your Azure subscription to Octopus. With an active Azure subscription, you can use Octopus to deploy to [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/) targets, [Azure Service Fabric](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/) targets, and [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/) targets.
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy.
 
@@ -73,7 +73,7 @@ Firstly, you might want to constrain the service principal to a single resource 
 
 Next, if you want to get even more granular you can constrain the service principal to a single resource, e.g. a Web App. _In this case, you have to assign the **Contributor** role on the Web App and explicitly assign the **Reader** role on the subscription itself_.
 
-The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployments/azure/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
+The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployments/azure/ase/#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
 
 ### Create an Service Principal with PowerShell {#create-service-principal-account-with-powershell}
 
@@ -215,7 +215,7 @@ A newly created Service Principal may take several minutes before the credential
 
 ## Creating an Azure Management Certificate account {#azure-management-certificate}
 
-Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used when Octopus deploys [Cloud Services](/docs/deployments/azure/cloud-services/index/) and [Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/).
+Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used when Octopus deploys [Cloud Services](/docs/deployments/azure/cloud-services/) and [Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/).
 
 :::warning
 The Azure Service Management APIs are being deprecated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.

@@ -26,7 +26,7 @@ By using this pattern you can:
 2. Scope region-specific variables to the region-specific Environments.
 3. Quickly see which releases are deployed to which regions on the main dashboard.
 4. Quickly promote releases through your regions using the Project Overview.
-5. Use [Scheduled Deployments](/docs/releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage.
+5. Use [Scheduled Deployments](/docs/releases/#scheduling-a-deployment) to plan deployments for times of low usage.
 
 :::success
 Environments and Lifecycles are a really good solution if you want to enforce a particular order of deployments through your regions.
@@ -71,7 +71,7 @@ Alternatively you could create [Tenants](/docs/tenants/) to represent each regi
 
     ![](images/projectdashboardrelease.png "width=500")
 
-6. Use [Scheduled Deployments](/docs/releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage:
+6. Use [Scheduled Deployments](/docs/releases/#scheduling-a-deployment) to plan deployments for times of low usage:
 
     ![](images/scheduleddeployment.png "width=500")
 
@@ -83,7 +83,7 @@ Tenants offer a balanced approach to modeling multi-region deployments, offering
 
 ## Conclusion
 
-[Environments](/docs/infrastructure/environments/index.md), [Tenants](/docs/tenants/) and [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
+[Environments](/docs/infrastructure/environments/), [Tenants](/docs/tenants/) and [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
 
 ## Learn more
 

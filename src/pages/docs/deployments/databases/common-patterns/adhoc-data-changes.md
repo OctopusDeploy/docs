@@ -27,8 +27,8 @@ Runbooks provide an excellent way to run ad-hoc data change scripts.  Runbooks d
 2. The script to run is analyzed for any schema change commands, and it is run and immediately rolled back in a transaction.  
     1. If no schema change commands are found, the script ran successfully, and it updated less than X number of rows then a DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is set to `False`.
     2. If any of those conditions fail, then the DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is set to `True`.
-3. Notify the approvers when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/index.md#run-condition).
-4. Pause for a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/index.md#run-condition).
+3. Notify the approvers when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
+4. Pause for a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
 5. Run the script on the desired database.
 6. Notify the DBAs and the person who submitted the script that the script has finished running.
 

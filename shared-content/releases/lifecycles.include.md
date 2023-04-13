@@ -6,4 +6,4 @@ Lifecycles are managed from the library page by navigating to **{{Library,Lifecy
 
 ![The lifecyles area of the Octopus Web Portal](/docs/shared-content/releases/images/lifecycles.png "width=500")
 
-Octopus automatically creates a [default lifecycle](/docs/releases/lifecycles/index.md#default-lifecycle) for you that contains a phase for each environment that you've created in Octopus Deploy. When you deploy your software it passes through the phases of the lifecycle in order.
+Octopus automatically creates a [default lifecycle](/docs/releases/lifecycles/#default-lifecycle) for you that contains a phase for each environment that you've created in Octopus Deploy. When you deploy your software it passes through the phases of the lifecycle in order.

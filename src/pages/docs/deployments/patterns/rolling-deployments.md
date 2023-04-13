@@ -76,7 +76,7 @@ With this configuration, we run the entire website deployment step - taking the 
 
 ### Child step variable run conditions {#Rollingdeployments-childstepvariablerunconditions}
 
-It’s possible to add variable [run conditions](/docs/projects/steps/conditions/) to child steps in a rolling deployment. Both [variable expressions](/docs/projects/steps/conditions/index.md#variable-expressions) and [machine-level](/docs/projects/steps/conditions/index.md#machine-level-variable-expressions) variable expressions are supported. This allows you to customize the deployment process for machines taking part in a rolling deployment based on your specific needs.
+It’s possible to add variable [run conditions](/docs/projects/steps/conditions/) to child steps in a rolling deployment. Both [variable expressions](/docs/projects/steps/conditions/#variable-expressions) and [machine-level](/docs/projects/steps/conditions/#machine-level-variable-expressions) variable expressions are supported. This allows you to customize the deployment process for machines taking part in a rolling deployment based on your specific needs.
 
 For example, if you are deploying a web service update to a web farm in a rolling deployment, you could sanity test the service in a step called `Sanity Test Web Service`. This step would run after the update step and set the service status in an output variable:
 

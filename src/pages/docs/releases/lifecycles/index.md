@@ -15,7 +15,7 @@ Lifecycles enable a number of advanced deployment workflow features:
 - **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
 :::hint
-Lifecycles don't apply to [Runbooks](/docs/runbooks/index/). Learn more about the [differences between Runbooks and Deployments](/docs/runbooks/runbooks-vs-deployments/).
+Lifecycles don't apply to [Runbooks](/docs/runbooks/). Learn more about the [differences between Runbooks and Deployments](/docs/runbooks/runbooks-vs-deployments/).
 :::
 
 ## Phases

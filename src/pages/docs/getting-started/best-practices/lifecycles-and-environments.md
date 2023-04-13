@@ -7,7 +7,7 @@ navOrder: 35
 hideInThisSection: true
 ---
 
-[Lifecycles](/docs/releases/lifecycles/index/) control the order of promotion of a release through different stages, or environments, in your pipeline.  You can configure a lifecycle to require deployments to **development**, **test**, and **staging** prior to deployments to **production**.  They are also used to set [retention policies](/docs/administration/retention-policies/) (how long releases are saved) at a per environment level.
+[Lifecycles](/docs/releases/lifecycles/) control the order of promotion of a release through different stages, or environments, in your pipeline.  You can configure a lifecycle to require deployments to **development**, **test**, and **staging** prior to deployments to **production**.  They are also used to set [retention policies](/docs/administration/retention-policies/) (how long releases are saved) at a per environment level.
 
 Lifecycles are shared across an entire space.  A project references lifecycles via [channels](/docs/releases/channels/) and can reference 1 to N lifecycles.
 

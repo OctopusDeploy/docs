@@ -52,7 +52,7 @@ Octopus Cloud and Octopus Server are built on the same code base.  The differenc
 
 - Octopus Cloud users cannot be Octopus Administrators, the "highest" level of permission possible is [Octopus Manager](/docs/octopus-cloud/permissions/).
 - Octopus Cloud has a subset of auth providers available to the Octopus Server.  Most notably, Octopus Cloud does not include Active Directory or LDAP.  Please see the [authentication provider compatibility page](/docs/security/authentication/auth-provider-compatibility/) for an up to date list of what is available.
-- Octopus Cloud is subject to [storage limits and default retention policies](/docs/octopus-cloud/index.md#octopus-cloud-storage-limits).
+- Octopus Cloud is subject to [storage limits and default retention policies](/docs/octopus-cloud/#octopus-cloud-storage-limits).
 - Octopus Cloud does not support running tasks on the server itself.  Everything must run on a deployment target or worker.  To help, Octopus Cloud includes [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools/) with both Windows and Linux workers.
 
 Before starting your migration, please ensure you are familiar with these fundamental differences (and limitations).  Depending on your requirements, Octopus Cloud, in its current form, might not be suitable for you.  If any of these limitations are deal-breakers, we'd love to know; please [email our support team](mailto:support@octopus.com).  We are constantly improving Octopus Cloud; a current limit has a genuine chance of changing in the future.
@@ -143,7 +143,7 @@ Follow the instructions on [exporting and importing page](/docs/projects/export-
 
 ### Upload any packages, project images, and reconfigure triggers
 
-As stated on the [export and import page](/docs/projects/export-import/index.md#what-is-imported), packages, project images, and project triggers are **not exported**.  If you have any pre-existing releases you intend to promote and use the internal package feed; you'll need to manually upload packages associated with those releases.  You will also have to upload project images and reconfigure any triggers.
+As stated on the [export and import page](/docs/projects/export-import/#what-is-imported), packages, project images, and project triggers are **not exported**.  If you have any pre-existing releases you intend to promote and use the internal package feed; you'll need to manually upload packages associated with those releases.  You will also have to upload project images and reconfigure any triggers.
 
 ### Copy or Create Deployment Targets
 

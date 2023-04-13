@@ -108,7 +108,7 @@ Each option provides different performance benefits, depending on your specific 
 
 Imagine if you keep every package you've ever built or deployed. Over time your package feed will get slower and slower to index, query, and stream packages for your deployments.
 
-If you are using the [built-in feed](/docs/packaging-applications/package-repositories/index.md#Packagerepositories-Choosingtherightrepository), you can configure [retention policies](/docs/administration/retention-policies/) to keep it running fast.
+If you are using the [built-in feed](/docs/packaging-applications/package-repositories/#Packagerepositories-Choosingtherightrepository), you can configure [retention policies](/docs/administration/retention-policies/) to keep it running fast.
 
 If you are using another feed, you should configure its retention policies yourself, making sure to cater for packages you may want to deploy.
 
@@ -144,4 +144,4 @@ Similarly to [parallel targets](#parallel-targets), running too many steps in pa
 
 ### Consider how much deployment work the Octopus Server is doing {#server-work}
 
-Some steps, like Azure deployments and AWS steps, [run on a worker](docs/infrastructure/workers/index.md#where-steps-run).  By default, thats the [built-in worker](/docs/infrastructure/workers/index.md#built-in-worker) in the Octopus Server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+Some steps, like Azure deployments and AWS steps, [run on a worker](docs/infrastructure/workers/#where-steps-run).  By default, thats the [built-in worker](/docs/infrastructure/workers/#built-in-worker) in the Octopus Server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.

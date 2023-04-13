@@ -40,7 +40,7 @@ To create an Azure Service Fabric Cluster target within Octopus:
 
 If your Azure Service Fabric Cluster target does not successfully complete a health check, you may need to check that your Octopus Server can communicate with Azure. If your Octopus Server is behind a proxy or firewall, you will need to consult your Systems Administrator to ensure it can communicate with Azure.
 
-Alternatively, it could be the security settings of your Service Fabric Cluster denying access. Our deployments documentation discusses [the various security modes of Service Fabric](/docs/deployments/azure/service-fabric/index.md#security-modes) in greater detail.
+Alternatively, it could be the security settings of your Service Fabric Cluster denying access. Our deployments documentation discusses [the various security modes of Service Fabric](/docs/deployments/azure/service-fabric/#security-modes) in greater detail.
 
 ## Deploying to Service Fabric targets
 

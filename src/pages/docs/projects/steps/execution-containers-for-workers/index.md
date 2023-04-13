@@ -6,9 +6,9 @@ description: How to set a step in your deployment/runbook process to run inside 
 navOrder: 30
 ---
 
-For a [step](/docs/projects/steps/index.md) running on a [worker](docs/infrastructure/workers/) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker/), you can select a Docker image to execute the step inside of.
+For a [step](/docs/projects/steps/) running on a [worker](docs/infrastructure/workers/) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker/), you can select a Docker image to execute the step inside of.
 
-When an execution container is configured for a step, Octopus will still connect to the worker machine via a [Tentacle or SSH](/docs/infrastructure/workers/index.md#register-a-worker-as-a-listening-tentacle). The difference is that the specified image will be run as a container and the step will be executed inside the container.
+When an execution container is configured for a step, Octopus will still connect to the worker machine via a [Tentacle or SSH](/docs/infrastructure/workers/#register-a-worker-as-a-listening-tentacle). The difference is that the specified image will be run as a container and the step will be executed inside the container.
 
 See the [blog post](https://octopus.com/blog/execution-containers) announcing this feature for some added context.
 

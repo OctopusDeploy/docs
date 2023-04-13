@@ -36,7 +36,7 @@ A release notes template is a convenient way to keep release notes consistent an
 
 Release notes templates will generally be most useful when combined with package build information, pushed from the build server.
 
-The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/build-information/index/) and [issues](/docs/releases/issue-tracking/).
+The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/build-information/) and [issues](/docs/releases/issue-tracking/).
 
 :::hint
 4 spaces of indentation in a Release Note template indicates a code block. 

@@ -6,7 +6,7 @@ description: Variable substitutions are a flexible way to adjust configuration b
 navOrder: 10
 ---
 
-Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/index/) and the context of your [deployment](/docs/projects/deployment-process/). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
+Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/) and the context of your [deployment](/docs/projects/deployment-process/). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
 ## Binding variables {#binding-variables}
 
@@ -33,7 +33,7 @@ Also read about [common mistakes for variables](/docs/projects/variables/sensiti
 
 ## Using variables in step definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
 
-Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/projects/variables/index.md#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
+Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/projects/variables/#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
 
 Most text fields that support binding to variables will have a variable insert button:
 

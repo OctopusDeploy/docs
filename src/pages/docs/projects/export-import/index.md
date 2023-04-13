@@ -32,7 +32,7 @@ The current implementation of the Export/Import feature was designed for moving 
 
 Scenarios this feature was _not_ designed for include:
 - Backup/restore.  See our [recommended approach](/docs/administration/data/backup-and-restore/) to disaster-recovery for your Octopus instance.    
-- Cloning projects _within_ a space. There is an [easier way to achieve this](/docs/projects/index.md#clone-a-project).  
+- Cloning projects _within_ a space. There is an [easier way to achieve this](/docs/projects/#clone-a-project).  
 - Promoting changes between environments on different Octopus instances. See below. 
 
 ### Promoting changes between Octopus instances
@@ -77,13 +77,13 @@ The Octopus Deploy data-model is a web, not a graph.  Some resources are shared 
 
 Any environments which can be reached via the project will be included in the export.  This includes:
 
-- Environments included in any of the project's lifecycles, *except* when using the [default lifecycle](/docs/releases/lifecycles/index.md#default-lifecycle).
+- Environments included in any of the project's lifecycles, *except* when using the [default lifecycle](/docs/releases/lifecycles/#default-lifecycle).
 - Environments used to scope variables in any [library variable sets](/docs/projects/variables/library-variable-sets/) connected to the project
 - Environment restrictions defined on any accounts or certificates referenced by the project
 
 :::warning
 **Environments from the default lifecycle are not exported:**
-If your projects use the [default lifecycle](/docs/releases/lifecycles/index.md#default-lifecycle) that Octopus creates, environments associated with that lifecycle will *not* be included in the project export. This was an intentional design decision made to avoid some tricky, unexpected behavior during project import.
+If your projects use the [default lifecycle](/docs/releases/lifecycles/#default-lifecycle) that Octopus creates, environments associated with that lifecycle will *not* be included in the project export. This was an intentional design decision made to avoid some tricky, unexpected behavior during project import.
 :::
 
 ### Deployment targets #{deployment-targets}
@@ -174,7 +174,7 @@ Triggers are also not currently included, and will need to be reconfigured in th
 
 ## Moving to Octopus Cloud {#octopus-cloud}
 
-When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](/docs/octopus-cloud/index.md#octopus-cloud-storage-limits) which should be considered.  Specifically:
+When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](/docs/octopus-cloud/#octopus-cloud-storage-limits) which should be considered.  Specifically:
 
 !include <octopus-cloud-storage-limits>
 - There are some caveats around [worker pools](#workers).

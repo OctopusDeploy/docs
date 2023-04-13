@@ -20,7 +20,7 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
 1. Give the runbook a name and click **SAVE**.
 
     :::hint
-    Before creating the step, you must have created an [Azure Service Principal Account](/docs/infrastructure/accounts/azure/index.md#azure-service-principal).
+    Before creating the step, you must have created an [Azure Service Principal Account](/docs/infrastructure/accounts/azure/#azure-service-principal).
     :::
 
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
@@ -35,9 +35,9 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
     ![Azure Account variable](azure-account.png "width=500")
 
     :::hint
-    [Azure accounts](/docs/infrastructure/accounts/azure/index/) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 
+    [Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 
 
-    The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
+    The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions).
     :::
 
 1. Select the **Resource Group** to place the created resources in. This can be selected from the drop-down of available resources or bound to a variable. The resource group must exist when the step is executed.

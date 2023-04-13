@@ -88,7 +88,7 @@ Write-Error "This is an error"
 Fail-HealthCheck "This is an error"
 ```
 
-Bash targets do not include a disk space check by default like PowerShell targets do. As such, there is no default Bash script listed in your machine policy for Bash targets by default. However, you may write your own, or choose to add additional Bash script to run against your Bash targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/deployment-targets/linux/index.md#requirements) that are included as part of the standard health check.
+Bash targets do not include a disk space check by default like PowerShell targets do. As such, there is no default Bash script listed in your machine policy for Bash targets by default. However, you may write your own, or choose to add additional Bash script to run against your Bash targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/deployment-targets/linux/#requirements) that are included as part of the standard health check.
 
 Bash deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
 

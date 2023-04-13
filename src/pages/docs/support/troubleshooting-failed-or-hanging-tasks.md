@@ -12,7 +12,7 @@ Sometimes your deployments, health checks, or other tasks may unexpectedly fail,
 
 The first step to debug your failed tasks is to check the [Task Log](docs/support/get-the-raw-output-from-a-task/). This will usually contain detailed information about the failure. For deployments, this includes the step, and information about the deployment targets that the step was running on.
 
-If a deployment failed unexpectedly within a built-in step, you may have misconfigured the step. Double check the configuration of your [step](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/index.md). If your step is relying on [variables](/docs/projects/variables/), then you may have also misconfigured your variables. There are [some methods](docs/support/debug-problems-with-octopus-variables/) available that can help you debug your variables.
+If a deployment failed unexpectedly within a built-in step, you may have misconfigured the step. Double check the configuration of your [step](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/). If your step is relying on [variables](/docs/projects/variables/), then you may have also misconfigured your variables. There are [some methods](docs/support/debug-problems-with-octopus-variables/) available that can help you debug your variables.
 
 If a task fails while executing a PowerShell script, you may be able to get more information by debugging the PowerShell script. You can easily [debug PowerShell scripts](docs/deployments/custom-scripts/debugging-powershell-scripts/) as they are executed by Tentacle.
 

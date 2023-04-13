@@ -154,7 +154,7 @@ The full path for this example is:
     $(Build.Repository.Localpath)\RandomQuotes-SQLChangeAutomation.1.0.$(Build.BuildNumber).nupkg
 ```
 
-The Octopus Server must be configured in Azure DevOps.  The steps to do that are detailed in [this documentation](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md#add-a-connection-to-octopus-deploy).
+The Octopus Server must be configured in Azure DevOps.  The steps to do that are detailed in [this documentation](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/#add-a-connection-to-octopus-deploy).
 
 The last step is to create a release in Octopus Deploy and deploy it to dev using the plugin.  Select the project from the drop-down list, and enter the same build number as the package.  Expand the **Deployment** section and select an environment to deploy to.  Clicking _Show Deployment Progress_ will stop the build and force it to wait for Octopus to complete.
 

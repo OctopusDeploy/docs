@@ -6,7 +6,7 @@ description: Using .NET configuration transformations.
 navOrder: 70
 ---
 
-The .NET Configuration Transforms feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index/) in your [deployment process](/docs/projects/deployment-process/).
+The .NET Configuration Transforms feature is one of the [configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/).
 
 If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!**.
 

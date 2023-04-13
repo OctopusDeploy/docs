@@ -6,14 +6,14 @@ description: This section describes how Octopus Deploy encrypts sensitive data a
 navOrder: 50
 ---
 
-This section focuses on securing data in the [Octopus database](/docs/administration/data/octopus-database/index.md), [backup files](/docs/administration/data/backup-and-restore/), and other settings in the registry and on disk. For information on how Octopus secures data between Octopus and Tentacles, see [Octopus - Tentacle communication](/docs/security/octopus-tentacle-communication/).
+This section focuses on securing data in the [Octopus database](/docs/administration/data/octopus-database/), [backup files](/docs/administration/data/backup-and-restore/), and other settings in the registry and on disk. For information on how Octopus secures data between Octopus and Tentacles, see [Octopus - Tentacle communication](/docs/security/octopus-tentacle-communication/).
 
 When an Octopus Server is installed, we generate a special key used for encryption, called the **Master Key**. The Master Key is then encrypted asymmetrically, using [DPAPI](http://msdn.microsoft.com/en-us/library/ms995355.aspx), and stored in the Octopus configuration file.
 
 The Master Key is then used along with [AES-128](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt certain sensitive data in the Octopus database, including:
 
 - [Sensitive variables](/docs/projects/variables/sensitive-variables/).
-- Private keys used for [Octopus/Tentacle](/docs/security/octopus-tentacle-communication/index.md) communication, and for authenticating with [Azure](/docs/infrastructure/accounts/azure/) and [SSH endpoints](/docs/infrastructure/deployment-targets/linux/ssh-target/).
+- Private keys used for [Octopus/Tentacle](/docs/security/octopus-tentacle-communication/) communication, and for authenticating with [Azure](/docs/infrastructure/accounts/azure/) and [SSH endpoints](/docs/infrastructure/deployment-targets/linux/ssh-target/).
 - Credentials used to authenticate with [SSH](/docs/infrastructure/accounts/ssh-key-pair/) (for username/password auth) and [external NuGet feeds](/docs/packaging-applications/package-repositories/).
 
 The practical impact of this is:

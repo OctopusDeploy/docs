@@ -45,4 +45,4 @@ If something goes wrong during the deployment, Octopus will interrupt the deploy
  Guided failure mode uses the same [user experience that is used for manual steps](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/octopus-rest-api/)).
 :::
 
-Note: If a process step is set to [required](/docs/projects/steps/conditions/index.md#required) then you will not see the manual intervention options like "IGNORE" and "EXCLUDE MACHINE FROM DEPLOYMENTS".  
+Note: If a process step is set to [required](/docs/projects/steps/conditions/#required) then you will not see the manual intervention options like "IGNORE" and "EXCLUDE MACHINE FROM DEPLOYMENTS".  

@@ -41,7 +41,7 @@ You can select the runbook to run in:
 - Environments from the [Project Lifecycle](/docs/releases/lifecycles/).
 
 :::hint
-In Octopus 2020.2 and earlier, if you need to restrict the environment that a runbook can be executed in, you can achieve this by adding an [Environment run condition](/docs/projects/steps/conditions/index.md#environments) in each step of the runbook process.
+In Octopus 2020.2 and earlier, if you need to restrict the environment that a runbook can be executed in, you can achieve this by adding an [Environment run condition](/docs/projects/steps/conditions/#environments) in each step of the runbook process.
 :::
 
 ## Retention policy
@@ -62,7 +62,7 @@ In Octopus 2020.2 and earlier, the runbook retention policy could not be set. In
 
 ## Snapshots vs Releases
 
-Runbooks are similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/runbooks/runbook-publishing/index.md#snapshots) versus a [release](/docs/releases/) for a deployment. Runbooks can have two different types of snapshots:
+Runbooks are similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/runbooks/runbook-publishing/#snapshots) versus a [release](/docs/releases/) for a deployment. Runbooks can have two different types of snapshots:
 - Draft
 - Published
 

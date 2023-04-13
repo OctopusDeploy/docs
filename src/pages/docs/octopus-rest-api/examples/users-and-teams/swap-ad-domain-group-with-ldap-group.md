@@ -13,7 +13,7 @@ We also have a script that will [swap Active Directory login records with matchi
 **Note:**
 Please note there are some things to consider before using this script:
 
-- Both the [Active Directory](/docs/security/authentication/active-directory/index/) and [LDAP](/docs/security/authentication/ldap/) providers must be enabled for this script to work as it queries both providers.
+- Both the [Active Directory](/docs/security/authentication/active-directory/) and [LDAP](/docs/security/authentication/ldap/) providers must be enabled for this script to work as it queries both providers.
 - Always ensure you test the script on a non-production server first, and have a production database backup.
 :::
 

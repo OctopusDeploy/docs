@@ -53,7 +53,7 @@ Only a subset of account types and deployment targets support being created dyna
 ### Targets
 
 :::warning
-Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md#enable-dynamic-infrastructure) for more information.
+Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/#enable-dynamic-infrastructure) for more information.
 :::
 
 - [Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target/)
@@ -121,4 +121,4 @@ Firstly, turn on **Custom deployment scripts** under _Configure Features_ on you
 
 Under the _Features_ section you will have _Pre-deployment_, _Deployment_, and _Post-deployment_ scripts.
 
-In the _Post-deployment_ script section, you can [access the output parameters](/docs/runbooks/runbook-examples/azure/resource-groups/index.md#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters) and use those output parameters to run any of the cmdlets above.
+In the _Post-deployment_ script section, you can [access the output parameters](/docs/runbooks/runbook-examples/azure/resource-groups/#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters) and use those output parameters to run any of the cmdlets above.

@@ -22,7 +22,7 @@ We recommend cloud target discovery over the existing [dynamic infrastructure](/
 
 ## Configure credentials for discovery
 
-To perform discovery of targets from cloud resources, Octopus uses a well-known set of variables configured within your project to provide the credentials for authentication to the cloud provider. Variables can be [scoped](/docs/projects/variables/index.md#scoping-variables) allowing for different credentials to be used when performing discovery as required (for example in different environments).
+To perform discovery of targets from cloud resources, Octopus uses a well-known set of variables configured within your project to provide the credentials for authentication to the cloud provider. Variables can be [scoped](/docs/projects/variables/#scoping-variables) allowing for different credentials to be used when performing discovery as required (for example in different environments).
 
 :::hint
 From **Octopus 2022.3**, you can configure the well-known variables used for target discovery when editing your deployment process in the Web Portal.
@@ -85,7 +85,7 @@ Tags are in the format `octopus-{scope}` and support the following for discovery
 | Tag                   | Required | Description                                                                                                                                                                                  | Example                             |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
 | `octopus-environment` | Yes      | The name of the [environment](/docs/infrastructure/environments/) the target can be used in during deployments. Only deployments matching the environment will discover the target.  | `octopus-environment = Development` |
-| `octopus-role`        | Yes      | The [role](/docs/infrastructure/deployment-targets/index.md#target-roles) that should be applied to the target. Only deployments with a step that matches the role will discover the target. | `octopus-role = PetShotFrontEnd`    |
+| `octopus-role`        | Yes      | The [role](/docs/infrastructure/deployment-targets/#target-roles) that should be applied to the target. Only deployments with a step that matches the role will discover the target. | `octopus-role = PetShotFrontEnd`    |
 | `octopus-space`       | No       | The name of the [space](/docs/administration/spaces/) the target can be used in. If present only deployments within the matching space can discover the target.                      | `octopus-space = PetShopTeam`       |
 | `octopus-project`     | No       | The name of the [project](/docs/projects/) the target will be discovered by. If present only deployments for the matching project can discover the target.                           | `octopus-project = PetShop`         |
 | `octopus-tenant`      | No       | The name of the [tenant](/docs/projects/) the target can be discovered for. If present only deployments for the matching tenant will discover the target.                            | `octopus-tenant = MyClient`         |

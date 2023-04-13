@@ -30,7 +30,7 @@ Tentacles can be configured to communicate in Listening mode or Polling mode. Li
 !include <install-tentacle-manager>
 !include <configure-listening-target>
 1. Select which [environments](/docs/infrastructure/environments/) the deployment target will be assigned to.
-1. Choose or create at least one [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles) for the deployment target and click **Save**.
+1. Choose or create at least one [target roles](/docs/infrastructure/deployment-targets/#target-roles) for the deployment target and click **Save**.
 
 Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/deployment-targets/machine-policies.md#health-check).
 

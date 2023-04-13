@@ -6,7 +6,7 @@ description: The .NET XML Configuration Variables feature updates your .NET XML
 navOrder: 60
 ---
 
-The .NET XML configuration variables feature is one of the [.NET configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index/) in your [deployment process](/docs/projects/deployment-process/).
+The .NET XML configuration variables feature is one of the [.NET configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/).
 
 This feature can be enabled for package deploy steps.
 

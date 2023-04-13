@@ -14,7 +14,7 @@ In addition, customers can choose to take advantage of custom features, includin
 The following resources have been preconfigured in Octopus 
 
 * Four environments: Development, Test, Staging and Production.
-* The guides deploys to Azure Web Apps and these have already been pre configured in Azure. To create some Azure resources you can follow [this](/docs/runbooks/runbook-examples/azure/provision-app-service/index.md
+* The guides deploys to Azure Web Apps and these have already been pre configured in Azure. To create some Azure resources you can follow [this](/docs/runbooks/runbook-examples/azure/provision-app-service/
 ) runbook guide to set up Azure Web App Services for each of the environments. 
 
 <span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-lifecycle">Get Started</a></span>

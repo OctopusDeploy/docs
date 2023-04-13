@@ -18,8 +18,8 @@ The general auto-approval process looks something like this:
     2. Loop through a list of schema change commands, such as `Drop Table`, `Create Table`, `Drop Column`, `Alter Table`, `Drop User`.
     3. If a schema change command is found set a DBA Approval Required [output variable](/docs/projects/variables/output-variables/) to `True`.
     4. If no schema change command is found set the same DBA Approval Required [output variable](/docs/projects/variables/output-variables/) to `False`. 
-3. Notify the approvers when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/index.md#run-condition).
-4. Pause for a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/index.md#run-condition).
+3. Notify the approvers when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
+4. Pause for a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
 5. Deploy database changes.
 6. Send notifications on the status of deployments.
 
@@ -33,12 +33,12 @@ For instance, `#{Octopus.Action[Auto-Approve Delta Report].Output.DBAApprovalReq
 
 ![Image showing the auto approve output variable](images/auto_approve_output_variable_variable.png "width=500")
 
-Creating a variable also makes it much easier to use in a [run condition](/docs/projects/steps/conditions/index.md#run-condition):
+Creating a variable also makes it much easier to use in a [run condition](/docs/projects/steps/conditions/#run-condition):
 
 ![](images/auto_approve_run_conditions.png "width=500")
 
 :::hint
-We recommend setting the output variable to `True` or `False` because that is what the [run conditions](/docs/projects/steps/conditions/index.md#run-condition) look for.  If you need an if/then statement, then in include it in the auto-approval script.
+We recommend setting the output variable to `True` or `False` because that is what the [run conditions](/docs/projects/steps/conditions/#run-condition) look for.  If you need an if/then statement, then in include it in the auto-approval script.
 :::
 
 ## Logging

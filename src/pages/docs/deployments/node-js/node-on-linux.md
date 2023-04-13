@@ -221,7 +221,7 @@ You can now execute the publish command directly through npm even if the task ru
 
 ### Option 3 - Bespoke {#CreatePushNode.jsProject-Option3-Bespoke}
 
-Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module you can write your own Node.js scripts to package and push your projects to the Octopus Server (both the Gulp and Grunt tasks leverage this module). Alternately, package your files into the [format of your choice](/docs/packaging-applications/index.md#supported-formats) and push to the API over a HTTP call using whatever framework or language best suits you.
+Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module you can write your own Node.js scripts to package and push your projects to the Octopus Server (both the Gulp and Grunt tasks leverage this module). Alternately, package your files into the [format of your choice](/docs/packaging-applications/#supported-formats) and push to the API over a HTTP call using whatever framework or language best suits you.
 
 ## Publish package {#Create&amp;PushNode.jsProject-PublishPackage}
 

@@ -11,7 +11,7 @@ If this discovery process is not successful, you will need to click **ENTER DETA
 
 5. Give the target a name.
 6. Select which environment the deployment target will be assigned to.
-7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles).
+7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/#target-roles).
 8. Select the account that will be used for the Octopus Server and the SSH target to communicate.
 9. If entering the details manually, enter the **Host**, **Port** and the host's fingerprint.
 

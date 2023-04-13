@@ -15,8 +15,8 @@ The [Audit Retention functionality](#archived-audit-events) was introduced in **
 
 Below is a short list of just some of the things that Octopus captures:
 
-- Changes to [deployment processes](/docs/deployments/index/) and [variables](/docs/projects/variables/).
-- Create/modify/delete events for [projects](/docs/projects/index.md), [environments](/docs/infrastructure/environments/index/), [deployment targets](/docs/infrastructure/), releases, and so on.
+- Changes to [deployment processes](/docs/deployments/) and [variables](/docs/projects/variables/).
+- Create/modify/delete events for [projects](/docs/projects/), [environments](/docs/infrastructure/environments/), [deployment targets](/docs/infrastructure/), releases, and so on.
 - Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to.
 - Queuing and canceling of deployments and other tasks.
 

@@ -21,7 +21,7 @@ By default your deployment journal is located at: `<Tentacle Home>\DeploymentJo
 
 If you have multiple Tentacle instances configured on the same server you will find a unique deployment journal for each instance located at `<Tentacle Home>\[Instance Name]\DeploymentJournal.xml`.
 
-Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md#Tentacleconfigurationandfilestorage-Filestorage).
+Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/#Tentacleconfigurationandfilestorage-Filestorage).
 
 An example DeploymentJournal.xml is shown below on a Windows Tentacle with the instance name set to `DWebApp01`:
 
@@ -70,7 +70,7 @@ Defining retention policies is done within lifecycles. Each phase can have a dif
 
 In this example the default for the Lifecycle is to Keep 3 releases on both Octopus Server and Tentacle.
 
-Learn more about [Lifecycles](/docs/releases/lifecycles/index/) and [Retention Policies](/docs/administration/retention-policies/) on their own detailed pages.
+Learn more about [Lifecycles](/docs/releases/lifecycles/) and [Retention Policies](/docs/administration/retention-policies/) on their own detailed pages.
 
 ## Retention policies with channels {#retention-policy-channels}
 
@@ -111,7 +111,7 @@ Tentacle instances on one machine.
 - For Windows Tentacles, the default directory is: `C:\Octopus\Files`
 - For Linux Tentacles, the default directory is: `/etc/octopus/files`
 
-Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md#Tentacleconfigurationandfilestorage-Filestorage).
+Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/#Tentacleconfigurationandfilestorage-Filestorage).
 
 ![](images/3278387.png "width=500")
 

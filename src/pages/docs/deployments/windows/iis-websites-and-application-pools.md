@@ -97,7 +97,7 @@ Octopus performs the following steps:
 2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts).
 3. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
 4. Extract the package into the newly created folder.
-5. Execute each of your [custom scripts](/docs/deployments/custom-scripts/index.md) and the [deployment features](/docs/projects/steps/configuration-features/) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering/).
+5. Execute each of your [custom scripts](/docs/deployments/custom-scripts/) and the [deployment features](/docs/projects/steps/configuration-features/) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering/).
 6. As part of this process the IIS Web Site, Web Application, or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder.
 7. [Output variables](/docs/projects/variables/output-variables.md) and deployment [artifacts](docs/projects/deployment-process/artifacts/) from this step are sent back to the Octopus Server.
 

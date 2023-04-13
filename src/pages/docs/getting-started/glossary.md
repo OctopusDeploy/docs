@@ -24,7 +24,7 @@ When first setting up a POC or Hello World project you will become familiar with
     - **Self-Hosted**: When the Octopus Server application is installed on your infrastructure.  You manage all the upgrades and other maintenance, along with when an upgrade occurs as well as to what version.  
     - [**Octopus Cloud**](/docs/octopus-cloud/): When the Octopus Server application is hosted by Octopus Deploy (the company).  We manage all the upgrades and maintenace, and we determine when to upgrade and the version to upgrade to.
 - [**Infrastructure**](/docs/infrastructure/): made up of the servers, services, and accounts where the Octopus Server will deploy your software.
-    - [**Tentacle**](/docs/security/octopus-tentacle-communication/index.md): The service responsible for facilitating communication between the Octopus Server and your [Linux](/docs/infrastructure/deployment-targets/linux/index/) or [Windows-based](/docs/infrastructure/deployment-targets/tentacle/windows/) servers.
+    - [**Tentacle**](/docs/security/octopus-tentacle-communication/): The service responsible for facilitating communication between the Octopus Server and your [Linux](/docs/infrastructure/deployment-targets/linux/) or [Windows-based](/docs/infrastructure/deployment-targets/tentacle/windows/) servers.
     - [**Listening Tentacle**](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended): The Tentacle communication mode in which all traffic is inbound from the Octopus Server to the Tentacle.  The Tentacle is the TCP server, and Octopus Server is the TCP client.
     - [**Polling Tentacle**](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles): The Tentacle communication mode in which all traffic is outbound from the Tentacle to the Octopus Server.  The Tentacle is the TCP client, and Octopus Server is the TCP Server.
     - [**Deployment Targets**](/docs/infrastructure/deployment-targets/): The servers, machines, or cloud services where you will deploy your software and services.
@@ -36,7 +36,7 @@ When first setting up a POC or Hello World project you will become familiar with
     - [**Manual Interventions**](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/): The approval step in Octopus Deploy.  Manual interventions can be scoped to specific teams and environments so they can be skipped on deployments to dev or testing but required for deployments to production. 
     - [**Variables**](/docs/projects/variables/): A value stored in the Octopus Server for use in different phases of your deployments.  Variables can be scoped to environments, steps, and more.  Variables allow you to have a consistent deployment process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
 - **Library**: where you store build artifacts and other assets that can be used across multiple projects.
-    - [**Packages**](/docs/packaging-applications/): An archive ([zip, tar, Nuget](/docs/packaging-applications/index.md#supported-formats)) that contains your application assets (binaries, .js files, .css files, .html files, etc.).    
+    - [**Packages**](/docs/packaging-applications/): An archive ([zip, tar, Nuget](/docs/packaging-applications/#supported-formats)) that contains your application assets (binaries, .js files, .css files, .html files, etc.).    
     - [**Feed**](/docs/packaging-applications/package-repositories/): The package repository.  Octopus Deploy has a built-in feed, as well as support for external feeds such as TeamCity, Azure DevOps, Docker, MyGet, Maven, Artifactory, Cloudsmith, GitHub, and more.
 - [**Deployments**](/docs/deployments/) are the execution of the deployment process with all the associated details as they existed when the release was created.
     - **Raw Log**: The unfiltered and raw look at the deployment log.  During the deployment Octopus will capture the output of each step and save it for review.
@@ -54,7 +54,7 @@ As you move on from the POC phase to the Pilot phase you should familarize yours
 - **Infrastructure**
     - [**Workers**](/docs/infrastructure/workers/): Workers are machines that can execute tasks that don't need to be run on the Octopus Server or individual deployment targets.
     - [**Worker Pools**](/docs/infrastructure/workers/worker-pools/): A group of workers.  One pool might be in a particular network security zone. Another pool might have a specific set of tools installed.
-    - [**Accounts**](/docs/infrastructure/deployment-targets/index.md#accounts): Credentials that are used during your deployments, including things like username/password, tokens, Azure and AWS credentials, and SSH key pairs. 
+    - [**Accounts**](/docs/infrastructure/deployment-targets/#accounts): Credentials that are used during your deployments, including things like username/password, tokens, Azure and AWS credentials, and SSH key pairs. 
 - **Projects**
     - [**Runbooks**](/docs/runbooks/): Runbooks automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.   
 - **Library**
@@ -81,7 +81,7 @@ After the pilot phase is successful it is time to start bringing other projects 
     - [**Machine Proxies**](/docs/infrastructure/deployment-targets/proxy-support/): Machine proxies allow you to specify a proxy server for Octopus to use when communicating with Tentacles or SSH Targets; you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
 - **Projects**
     - [**Projects**](/docs/projects/) contain the deployment process, configuration variables, and runbooks to deploy and manage your software.
-    - [**Channels**](/docs/releases/channels/index/): How a [lifecycle](/docs/releases/lifecycles/) is associated with a project.  Every project has at least one channel.
+    - [**Channels**](/docs/releases/channels/): How a [lifecycle](/docs/releases/lifecycles/) is associated with a project.  Every project has at least one channel.
     - [**Runbook Publishing**](/docs/runbooks/runbook-publishing/): A snapshot of the runbook process and associated assets (packages, scripts, variables) as they existed when the snapshot was created.
     - [**Triggers**](/docs/projects/project-triggers/): Triggers automate your deployments and runbooks by responding to deployment target changes or time-based schedules.
 - **Library**

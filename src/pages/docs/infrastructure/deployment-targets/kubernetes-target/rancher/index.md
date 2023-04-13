@@ -49,4 +49,4 @@ Use one of the methods Rancher provided you with, *Username and Password* or *To
 
 ## Connecting a Rancher Kubernetes Deployment Target
 
-Adding a Rancher K8s target is done in exactly the same way you would add any other [Kubernetes target](/docs/infrastructure/deployment-targets/kubernetes-target/index.md#add-a-kubernetes-target).  The only Rancher specific component is the URL.  Other than that, the process is exactly the same.
+Adding a Rancher K8s target is done in exactly the same way you would add any other [Kubernetes target](/docs/infrastructure/deployment-targets/kubernetes-target/#add-a-kubernetes-target).  The only Rancher specific component is the URL.  Other than that, the process is exactly the same.

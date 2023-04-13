@@ -22,7 +22,7 @@ The Docker Hub API endpoint [https://index.docker.io/v1](https://index.docker.io
 | Public + Unofficial | Yes | No |
 | Private | No | No |
 
-We suggest using alternative registry when trying to manage your own private images. See here for more details on hosting your own [Private Registry](/docs/packaging-applications/package-repositories/docker-registries/index.md#DockerRegistriesasFeeds-PrivateRegistry).
+We suggest using alternative registry when trying to manage your own private images. See here for more details on hosting your own [Private Registry](/docs/packaging-applications/package-repositories/docker-registries/#DockerRegistriesasFeeds-PrivateRegistry).
 :::
 
 ## Adding Docker Hub as an Octopus External Feed

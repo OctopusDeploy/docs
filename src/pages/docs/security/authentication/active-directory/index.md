@@ -107,7 +107,7 @@ Here's a simple checklist to help you on your way to allowing Kerberos Authentic
 
 1. Change the Authentication Scheme.
 2. Set the Octopus Deploy HTTP/S Bindings to use a Fully Qualified Domain Name (FQDN) or NETBIOS name as per your usage.
-3. Add the Octopus Deploy URL to the [list of Trusted Sites](/docs/security/authentication/active-directory/index.md#ActiveDirectoryAuthentication-AddingtrustedSitesviaGPO).
+3. Add the Octopus Deploy URL to the [list of Trusted Sites](/docs/security/authentication/active-directory/#ActiveDirectoryAuthentication-AddingtrustedSitesviaGPO).
 4. Allow Automatic logon via a browser.
 5. Set the appropriate SPNs.
 6. Enable AES256 encryption for Kerberos tickets.

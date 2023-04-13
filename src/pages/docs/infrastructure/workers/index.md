@@ -59,7 +59,7 @@ Learn about the security implications and how to configure the [built-in worker]
 ## External Workers {#external-workers}
 
 An **External Worker** is either:
-- A [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/index/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux/) Tentacle.
+- A [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux/) Tentacle.
 - An [SSH machine](/docs/infrastructure/deployment-targets/linux/ssh-target/) that has been registered with the Octopus Server as a worker.  
 
 The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/tentacle/windows/) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target/), except that instead of being added to an environment, a worker is added to a worker pool.
@@ -70,7 +70,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 ## Registering an External Worker {#registering-an-external-worker}
 
-Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/index/), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client/) or with the Tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
+Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client/) or with the Tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
 ### Registering Workers in the Octopus Web Portal {#registering-workers-in-the-octopus-web-portal}
 

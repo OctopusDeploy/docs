@@ -16,7 +16,7 @@ It is possible to manually upload a package file from your local machine via the
 
 However, we recommend using a [build server](/docs/packaging-applications/build-servers/) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository.
 
-In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations)).
+In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
 
 In addition to manually uploading packagings or using your build server, you can add, upload, and push packages to the built-in feed in the following ways:
 
@@ -29,7 +29,7 @@ In addition to manually uploading packagings or using your build server, you can
 To push packages using these methods, you will need:
 
 1. The URL to your Octopus Server.
-2. An [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations)).
+2. An [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
 
 ## Using the Octopus CLI {#UsingOctopusCli}
 
@@ -107,7 +107,7 @@ We do not recommend manually placing packages into the package store, however in
 
 For most users, this will be a seamless background task. However, for some installations, this may cause performance issues. Users with `AdministerSystem` rights can disable the re-indexing task on the **{{Library,Packages}}** page.
 
-Note that packages uploaded via the [recommended methods](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository) will still be indexed.
+Note that packages uploaded via the [recommended methods](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) will still be indexed.
 
 ## Learn more
 

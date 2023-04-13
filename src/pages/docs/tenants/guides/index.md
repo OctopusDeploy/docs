@@ -10,7 +10,7 @@ hideInThisSectionHeader: true
 This section provides a number of guides that will introduce you to multi-tenant deployments in Octopus, including some of the more common scenarios we see.
 
 :::hint
-Multi-tenant deployments are an advanced pattern, and these guides assume you are already familiar with Octopus concepts like [projects](/docs/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [lifecycles](/docs/releases/lifecycles/index.md), [variables](/docs/projects/variables/index/) and [deploying applications](/docs/deployments/).
+Multi-tenant deployments are an advanced pattern, and these guides assume you are already familiar with Octopus concepts like [projects](/docs/projects/), [environments](/docs/infrastructure/environments/), [lifecycles](/docs/releases/lifecycles/), [variables](/docs/projects/variables/) and [deploying applications](/docs/deployments/).
 :::
 
 ## Sample tenant projects

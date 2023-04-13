@@ -17,7 +17,7 @@ Octopus Deploy includes dedicated integration with Amazon Web Services (AWS) to 
 
 :::hint
 **Where do AWS Steps execute?**
-All AWS steps execute on a worker. By default, that will be the [built-in worker](/docs/infrastructure/workers/index.md#built-in-worker) in the Octopus Server. Learn about [workers](/docs/infrastructure/workers/) and the different configuration options.
+All AWS steps execute on a worker. By default, that will be the [built-in worker](/docs/infrastructure/workers/#built-in-worker) in the Octopus Server. Learn about [workers](/docs/infrastructure/workers/) and the different configuration options.
 :::
 
 ## Get started with ECS or deploy a new service
@@ -40,7 +40,7 @@ When you outgrow the guided UI step or need more flexibility, you can expose the
 
 Octopus offers a central platform to manage your AWS resources, including account credentials, ECS clusters, certificates, configuration, and scripts.
 
-The ECS [deployment target](/docs/getting-started/first-deployment/add-deployment-targets.md) and steps integrate with other Octopus features, including [built-in AWS service accounts](/docs/infrastructure/accounts/aws/index.md), [runbooks](/docs/runbooks/index.md), [variables](/docs/projects/variables/index.md), [channels](/docs/releases/channels/index/), and [lifecycles](/docs/releases/lifecycles/).
+The ECS [deployment target](/docs/getting-started/first-deployment/add-deployment-targets.md) and steps integrate with other Octopus features, including [built-in AWS service accounts](/docs/infrastructure/accounts/aws/), [runbooks](/docs/runbooks/), [variables](/docs/projects/variables/), [channels](/docs/releases/channels/), and [lifecycles](/docs/releases/lifecycles/).
 
 Octopus projects and runbooks share the same variables and accounts, making it easier to capture shared procedures, automate routine maintenance and respond quickly to emergencies.
 

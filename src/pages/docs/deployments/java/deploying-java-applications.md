@@ -14,7 +14,7 @@ This guide provides a simple example of deploying a Java application using Octop
 
 ## Prerequisites {#DeployingJavaapplications-Prerequisites}
 
-This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/projects/index/)and have a [Tentacle or SSH deployment target](/docs/infrastructure/) already configured.
+This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/projects/)and have a [Tentacle or SSH deployment target](/docs/infrastructure/) already configured.
 
 :::hint
 Naked scripting allows you to transfer and extract your package on remote targets without the need for Calamari or mono. Read the short guide [here](/docs/deployments/custom-scripts/) for more details.
@@ -47,7 +47,7 @@ In order to deploy the application with Octopus Deploy it must be compiled and p
 javac PressAnyKey.java
 ```
 2. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
-3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**{{Library,Packages}}** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository)).
+3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**{{Library,Packages}}** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository)).
 
 ### Step 2: Create the project and deployment process {#DeployingJavaapplications-Step2:Createtheprojectanddeploymentprocess}
 

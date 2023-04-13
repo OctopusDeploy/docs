@@ -6,7 +6,7 @@ description: Octopus Deploy and Bamboo can work together to make automated, cont
 navOrder: 30
 ---
 
-The Octopus Deploy [add-on for Bamboo](https://octopus.com/downloads) allows packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](docs/infrastructure/environments/index/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/).
+The Octopus Deploy [add-on for Bamboo](https://octopus.com/downloads) allows packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/).
 
 ## Getting started
 

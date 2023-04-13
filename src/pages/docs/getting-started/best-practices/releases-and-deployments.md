@@ -7,7 +7,7 @@ navOrder: 95
 hideInThisSection: true
 ---
 
-[Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (references to package versions, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index/) to [environments](/docs/infrastructure/environments/), or different stages in your deployment pipeline.  
+[Releases](/docs/releases/) are snapshots of your deployment process and other associated assets (references to package versions, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/) to [environments](/docs/infrastructure/environments/), or different stages in your deployment pipeline.  
 
 A release snapshot takes references (rather than the entire resource) for certain items in a release. For example, packages are referenced by their version and not the package itself. Take care when overwriting existing packages that may be used in releases or snapshots.
 

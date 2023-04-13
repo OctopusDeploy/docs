@@ -23,7 +23,7 @@ With tenant tags you can:
 - Customize the deployment process for tenants.
 - Scope project variables to tags.
 - Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure/) section.
-- Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/index.md#guides).
+- Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/#guides).
 - Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles/) section.
 
 ## Managing Tenant Tags {#managing-tenant-tags}

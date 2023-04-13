@@ -14,7 +14,7 @@ A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/
 ![Helm Feed](/helm-feed.png "width=500")
 
 :::info
-The built-in repository is [capable of storing Helm Charts](/docs/packaging-applications/index.md#supported-formats). However, the mechanism for determining the **PackageID** and **Version** may differ depending on the contents of the `.tgz` file.  If the `.tgz` file contains a `chart.yaml` file, the PackageID is determined by the `name`, and the version is determined by the `version` sections of the YAML.  
+The built-in repository is [capable of storing Helm Charts](/docs/packaging-applications/#supported-formats). However, the mechanism for determining the **PackageID** and **Version** may differ depending on the contents of the `.tgz` file.  If the `.tgz` file contains a `chart.yaml` file, the PackageID is determined by the `name`, and the version is determined by the `version` sections of the YAML.  
 
 ```yaml
 apiVersion: v2

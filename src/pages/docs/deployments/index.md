@@ -7,7 +7,7 @@ navOrder: 80
 hideInThisSectionHeader: true
 ---
 
-Deploying software with Octopus Deploy involves [packaging your applications](/docs/packaging-applications/index.md) and [configuring your infrastructure](/docs/infrastructure/index.md). With those two completed, you define your [deployment process](/docs/projects/deployment-process/index.md) by creating a [project](/docs/projects/index.md), adding [steps](/docs/projects/steps/index.md),  [configuration variables](/docs/projects/variables/index/), and creating [releases](/docs/releases/).
+Deploying software with Octopus Deploy involves [packaging your applications](/docs/packaging-applications/) and [configuring your infrastructure](/docs/infrastructure/). With those two completed, you define your [deployment process](/docs/projects/deployment-process/) by creating a [project](/docs/projects/), adding [steps](/docs/projects/steps/),  [configuration variables](/docs/projects/variables/), and creating [releases](/docs/releases/).
 
 When you deploy a release, you execute the deployment process with all the included assets as they existed when the release was created.
 
