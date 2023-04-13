@@ -138,7 +138,7 @@ For Windows Service or Console applications, and many Windows Forms or WPF appli
 
 The example below shows a Windows Service called `OctoFX.RateService.exe` and all of the files required to run the application, including libraries and configuration files.
 
-![An example of a Windows Service package](images/sample-package.png "width=500")
+![An example of a Windows Service package](/docs/packaging-applications/create-packages/octopack/images/sample-package.png "width=500")
 
 ## Include web application content files {#UsingOctoPack-Includingwebapplicationcontentfiles}
 
@@ -148,11 +148,11 @@ When packaging a web application, OctoPack will automatically include the `bin` 
 
 You can see **Build Action** in the Solution Explorer properties window for the currently selected file in Visual Studio:
 
-![](images/build-action.png "width=500")
+![](/docs/packaging-applications/create-packages/octopack/images/build-action.png "width=500")
 
 The example below shows a web app called **OctoFX.TradingWebsite**. All the files required to host the web app have been packaged, including the contents of the `bin` folder and any files with **Build Action: Content**:
 
-![Sample Package of a Web App](images/sample-web-app-package.png "width=500")
+![Sample Package of a Web App](/docs/packaging-applications/create-packages/octopack/images/sample-web-app-package.png "width=500")
 
 ### .NET configuration transformation
 
@@ -233,7 +233,7 @@ Sometimes the package version number don't always change. This can happen if you
 
 This will force the Octopus Server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the check-box on the package upload pane:
 
-![](images/existing-package.png "width=500")
+![](/docs/packaging-applications/create-packages/octopack/images/existing-package.png "width=500")
 
 ## All supported parameters {#UsingOctoPack-Allsupportedparameters}
 

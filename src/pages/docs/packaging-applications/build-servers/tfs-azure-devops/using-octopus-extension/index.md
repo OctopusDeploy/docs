@@ -31,7 +31,7 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 
 You can [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
-If you're using an earlier version of the formerly named Team Foundation Server, see the [Extension Compatibility documentation](extension-compatibility/) for details on where to get a compatible extension.
+If you're using an earlier version of the formerly named Team Foundation Server, see the [Extension Compatibility documentation](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/extension-compatibility/) for details on where to get a compatible extension.
 
 After installing the extension, follow the below steps to get it running for your build.
 
@@ -85,7 +85,7 @@ The Azure DevOps extension tasks require the Octopus CLI to be available on the 
 To integrate with Octopus Deploy, an application must be packaged into either a NuGet, ZIP archive, or tarball, and pushed to Octopus Deploy (or any supported [external feed](/docs/packaging-applications/package-repositories/) by Octopus Server).
 
 :::hint
-We strongly recommend reading the [Build Versions in Azure DevOps](build-versions-in-team-build/) guide for advice around build and package versions.
+We strongly recommend reading the [Build Versions in Azure DevOps](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/build-versions-in-team-build/) guide for advice around build and package versions.
 :::
 
 There are many ways to create such package formats in Azure DevOps, our recommended approach is to use the [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
@@ -111,7 +111,7 @@ Add a step to your Build or Release process, our recommended approach is to use 
 
 :::success
 **Package versioning**
-We recommend you read the [Build Versions in Team Build](build-versions-in-team-build/) document for full details on versioning builds and packages.
+We recommend you read the [Build Versions in Team Build](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/build-versions-in-team-build/) document for full details on versioning builds and packages.
 :::
 
 #### Publish package artifact {#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact}
@@ -289,8 +289,8 @@ Hover over the widget and click the wrench icon to configure the widget.
 
 Select an Octopus Deploy connection (see the [Add a Connection](#add-a-connection-to-octopus-deploy) section for details), a Project, and an Environment.
 
-![](images/widget-setup-preview.jpg "width=500")
+![](/docs/packaging-applications/build-servers/tfs-azure-devops/images/widget-setup-preview.jpg "width=500")
 
 The widget should refresh to show the current status of the selected project in the selected environment.
 
-![](images/multiple-widget-preview.jpg "width=500")
+![](/docs/packaging-applications/build-servers/tfs-azure-devops/images/multiple-widget-preview.jpg "width=500")

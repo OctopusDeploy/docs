@@ -12,11 +12,11 @@ You can add NuGet feeds by clicking the **Add feed** button.
 
 In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or local directory path. Then click **Save and test**.
 
-![](images/add-external-feed.png "width=500")
+![](/docs/packaging-applications/package-repositories/images/add-external-feed.png "width=500")
 
 On the test page, you can check whether the feed is working by searching for packages:
 
-![](images/external-feed-search.png "width=500")
+![](/docs/packaging-applications/package-repositories/images/external-feed-search.png "width=500")
 
 Learn more about [hosting your own NuGet Feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds)
 

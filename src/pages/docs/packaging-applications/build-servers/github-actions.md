@@ -43,7 +43,7 @@ For example:
 | `OCTOPUSSERVERAPIKEY` | The Octopus Deploy API Key required for authentication |
 | `OCTOPUSSERVER_SPACE` | The Space to push packages to |
 
-![GitHub Actions Secrets](images/github-actions-secrets.png "width=500")
+![GitHub Actions Secrets](/docs/packaging-applications/build-servers/images/github-actions-secrets.png "width=500")
 
 ## GitHub Actions configuration
 
@@ -112,7 +112,7 @@ on:
 
 Adding `workflow_dispatch` will enable the `Run workflow` button that will allow manual runs.
 
-![GitHub Actions Run Workflow](images/github-actions-run-workflow.png "width=500")
+![GitHub Actions Run Workflow](/docs/packaging-applications/build-servers/images/github-actions-run-workflow.png "width=500")
 
 ### Building with GitHub Actions
 

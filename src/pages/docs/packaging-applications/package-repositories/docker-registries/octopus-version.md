@@ -60,4 +60,4 @@ Docker image tags can be matched by a channel version rule. The NuGet version ra
 
 Pre-release tag regular expressions can be used to limit the tags that are made available when creating a new release. A common use case is to exclude the `latest` tag, which can be achieved with a regular expression like `^(?!latest\b).+$|^$`.
 
-![](channel-rule.png "width=500")
+![](/docs/packaging-applications/package-repositories/docker-registries/channel-rule.png "width=500")

@@ -49,7 +49,7 @@ Work items will not show unless you have one of the [Issue Tracker](/docs/releas
 
 All of the available plugins contain a Build Information step/task, the TeamCity version of the _Build Information_ step is shown below. 
 
-![TeamCity Build Information Step](images/build-information-step.png "width=500")
+![TeamCity Build Information Step](/docs/packaging-applications/build-servers/build-information/images/build-information-step.png "width=500")
 
 The Build Information step requires
 - Octopus URL: Url to your Octopus server
@@ -68,15 +68,15 @@ The Verbose logging option can be used to include more detail in the build logs.
 
 As of `2019.10.0`, the build information for a package can be viewed by navigating to **{{Library,Build Information}}**
 
-![Library Build information](images/library-build-information-2.png "width=500")
+![Library Build information](/docs/packaging-applications/build-servers/build-information/images/library-build-information-2.png "width=500")
 
 The build information for a package can be viewed on any release which contains the package.
 
-![Build information on release page](images/build-information-release-2.png "width=500")
+![Build information on release page](/docs/packaging-applications/build-servers/build-information/images/build-information-release-2.png "width=500")
 
 For packages pushed to the Octopus built-in repository, the build information can also be viewed in the package version details by navigating to **{{Library, Packages}}** and selecting the package.
 
-![Build information on package version page](images/build-information-package-version-2.png "width=500")
+![Build information on package version page](/docs/packaging-applications/build-servers/build-information/images/build-information-package-version-2.png "width=500")
 
 ## Using build information in release notes #{build-info-in-release-notes}
 

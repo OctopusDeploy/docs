@@ -29,9 +29,9 @@ In most cases the `FeedUri` that you will need to provide is the standard public
 
 For authorization, it is recommended that you create a [Personal access tokens](https://github.com/blog/1509-personal-api-tokens) for your account and use this token as the password. Tokens can be created for your GitHub account by logging in to GitHub and navigating to  **{{Settings,Developer Settings,Personal access tokens}}** and click **Generate new token**.
 
-![GitHub Personal Access Token](images/github-personalaccesstoken1.png "width=500")
+![GitHub Personal Access Token](/docs/packaging-applications/package-repositories/images/github-personalaccesstoken1.png "width=500")
 
-![GitHub Personal Access Token](images/github-personalaccesstoken2.png "width=500")
+![GitHub Personal Access Token](/docs/packaging-applications/package-repositories/images/github-personalaccesstoken2.png "width=500")
 
 Give the token a meaningful name and enable the **repo** scope if you want to be able to access private repositories from Octopus Deploy.
 
@@ -41,7 +41,7 @@ Copy the token that is generated and use this value as the password for the GitH
 
 You can check whether the GitHub feed is working by searching for packages. Click the **TEST** button, and you'll be taken to the test page:
 
-![GitHub Feed Test search](images/github-feed-test.png "width=500")
+![GitHub Feed Test search](/docs/packaging-applications/package-repositories/images/github-feed-test.png "width=500")
 
 :::hint
 **Note:** When testing a GitHub Feed, the **Version** field will not be displayed. This is due to the way Octopus queries the GitHub [repository search API](https://docs.github.com/en/rest/reference/search#search-repositories) which doesn't return release tags. This was an intentional decision implemented for performance reasons.
@@ -59,13 +59,13 @@ git push --tags
 2. Optionally add release notes to the tagged commit from within GitHub.
 (Note additional resources currently do not get included in the Octopus deployment). The pre-release state of a release is also tied to the pre-release component of the tag name.
 
-![GitHub release notes](images/github-releasenotes.png "width=500")
+![GitHub release notes](/docs/packaging-applications/package-repositories/images/github-releasenotes.png "width=500")
 
 If Octopus can link a particular version (which in the context of GitHub feeds refers to a tag) to a release, then the release notes will be exposed through the Octopus Deploy portal. At this point in time the `This is a pre-release` check-box on the GitHub Release will be ignored in favor of the pre-release state indicated in the version itself. Additionally, artifacts are not currently retrieved as part of an Octopus deployment, however this may become available in the future.
 
 3. _(Note: Any steps that currently support zips and NuGet packages can also use GitHub as the feed source, but for the purpose of this example we will run a script)_  From within Octopus Deploy, create a project with a [`Run a Script`](/docs/deployments/custom-scripts/run-a-script-step/#Standalonescripts-Choosingwheretosourcethescript) step. Under `Script Source` check the `Script file inside a package` option. Select the GitHub feed source as the package feed and enter the full name of the repository where the required files are located. In the case of https://github.com/OctopusDeploy/Calamari this would be represented as `OctopusDeploy/Calamari`. Under `Script File` provide the path to the script that you want to run along with any parameters that you want to pass in.
 
- ![GitHub Script Source](images/github-scriptsource.png "width=500")
+ ![GitHub Script Source](/docs/packaging-applications/package-repositories/images/github-scriptsource.png "width=500")
 
  4. When you create a new release Octopus will query the GitHub api to determine the list of tags which can be parsed as SemVer 2 versions. As with standard package feeds the latest version will be selected by default and any [channel version rules](/docs/releases/channels/#Channels-versionrules) will be applied.
 
