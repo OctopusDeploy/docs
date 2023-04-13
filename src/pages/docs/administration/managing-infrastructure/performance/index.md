@@ -13,7 +13,7 @@ Octopus is a complex system where we control some parts of the deployment while 
 This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
 
 :::hint
-Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](docs/projects/deployment-process/performance/).
+Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/projects/deployment-process/performance/).
 :::
 
 ## Minimum requirements
@@ -114,7 +114,7 @@ Consider separating your teams/projects into "spaces" using the [Spaces](/docs/a
 
 ## Tentacles
 
-Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target/) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) wherever possible.  Listening Tentacles and SSH place the Octopus Server under less load.  We try to make Polling Tentacles as efficient as possible. However, they can place the Octopus Server under high load, just handling incoming connections.
+Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target/) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) wherever possible.  Listening Tentacles and SSH place the Octopus Server under less load.  We try to make Polling Tentacles as efficient as possible. However, they can place the Octopus Server under high load, just handling incoming connections.
 
 Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/deployment-targets/machine-policies/).
 
@@ -152,7 +152,7 @@ Octopus Deploy stores BLOB data (task logs, packages, project images, etc.) on t
 
 ### Task Logs {#tip-task-logs}
 
-Larger task logs put the entire Octopus pipeline under more pressure.  The task log has to be transferred from the Tentacle to the server, it has to be saved to the file system, and is read when you are on the deployment or runbook screen.  We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](docs/projects/deployment-process/artifacts/).
+Larger task logs put the entire Octopus pipeline under more pressure.  The task log has to be transferred from the Tentacle to the server, it has to be saved to the file system, and is read when you are on the deployment or runbook screen.  We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/projects/deployment-process/artifacts/).
 
 ### Image Size
 
@@ -166,7 +166,7 @@ By default, Octopus will only run one process on each [deployment target](/docs/
 - `Octopus.Acquire.MaxParallelism` - limits the maximum number of packages that can be concurrently deployed to multiple targets.
 - `Octopus.Action.MaxParallelism` - limits the maximum number of machines on which the action will concurrently execute
 
-For more details, see our [run multiple processes on a target simultaneously](docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously/) page.
+For more details, see our [run multiple processes on a target simultaneously](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously/) page.
 
 ## Troubleshooting
 
@@ -205,7 +205,7 @@ When the Task Logs are taking a long time to load, or your deployments are takin
 
 When you experience overly high CPU or memory usage during deployments which may be causing your deployments to become unreliable:
 - Try reducing your Task Cap back towards the default of `5` and then increase progressively until your server is reliable again.
-- Look for potential [performance problems in your deployment processes](docs/projects/deployment-process/performance/), especially:
+- Look for potential [performance problems in your deployment processes](/docs/projects/deployment-process/performance/), especially:
     - Consider how you [transfer your packages](#package-transfer).
     - Consider reducing the amount of parallelism in your deployments by reducing the number of steps you run in parallel, or the number of machines you deploy to in parallel.
 

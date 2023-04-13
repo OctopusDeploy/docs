@@ -59,7 +59,7 @@ These output variables are captured as variables with the following name pattern
 Octopus.Action[Deploy Release Step Name].Output.Deployment[Child Step Name].VariableName
 ```
 
-and for [machine-specific output variables](/docs/projects/variables/output-variables.md#Outputvariables-Outputfrommultiplemachines):
+and for [machine-specific output variables](/docs/projects/variables/output-variables/#Outputvariables-Outputfrommultiplemachines):
 
 ```
 Octopus.Action[Deploy Release Step Name].Output.Deployment[Child Step Name][Machine Name].VariableName

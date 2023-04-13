@@ -44,13 +44,13 @@ The choices of built-in worker, built-in worker running in a separate account, a
 
 ## Migrating to Workers {#migrating-to-workers}
 
-Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus Server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus Server](/docs/infrastructure/workers/worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server).
+Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus Server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus Server](/docs/infrastructure/workers/worker-pools/#Using-the-default-pool-to-stop-running-scripts-on-the-server).
 
 ## Built-in Worker {#built-in-worker}
 
 The Octopus Server has a built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** for the **Run steps on the Octopus Server** option.
 
-The **built-in worker** is executed on the same machine as the Octopus Server.  When the built-in worker is needed to execute a step, the Octopus Server spawns a new process and runs the step using Calamari.  The spawned process is either under the server's security context (default) or under a [context configured for the built-in worker](/docs/infrastructure/workers/built-in-worker.md#Running-tasks-on-the-Octopus-Server-as-a-different-user).
+The **built-in worker** is executed on the same machine as the Octopus Server.  When the built-in worker is needed to execute a step, the Octopus Server spawns a new process and runs the step using Calamari.  The spawned process is either under the server's security context (default) or under a [context configured for the built-in worker](/docs/infrastructure/workers/built-in-worker/#Running-tasks-on-the-Octopus-Server-as-a-different-user).
 
 Adding a worker to the default worker pool will disable the built-in worker, and steps will no longer run on the Octopus Server.
 
@@ -74,7 +74,7 @@ Once the Tentacle or SSH machine has been configured, workers can be added using
 
 ### Registering Workers in the Octopus Web Portal {#registering-workers-in-the-octopus-web-portal}
 
-You can register workers from the Octopus Web portal if they are a Windows or Linux [Listening Tentacle](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended) or an [SSH deployment target](/docs/infrastructure/deployment-targets/linux/ssh-target/).
+You can register workers from the Octopus Web portal if they are a Windows or Linux [Listening Tentacle](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended) or an [SSH deployment target](/docs/infrastructure/deployment-targets/linux/ssh-target/).
 
 You can choose between:
 

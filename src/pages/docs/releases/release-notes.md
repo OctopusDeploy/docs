@@ -24,7 +24,7 @@ Only variables in scope when the release is created will be available for use in
 
 ## Accessing release notes during a deployment
 
-The release notes may be accessed during a deployment using the [Octopus.Release.Notes](/docs/projects/variables/system-variables.md#Systemvariables-Release) variable.  
+The release notes may be accessed during a deployment using the [Octopus.Release.Notes](/docs/projects/variables/system-variables/#Systemvariables-Release) variable.  
 
 Release notes are also rolled up into the [deployment notes](/docs/releases/deployment-notes/).
 

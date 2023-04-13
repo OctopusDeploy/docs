@@ -10,7 +10,7 @@ hideInThisSectionHeader: true
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
 :::success
-See an example deployment using Docker Registries in our guide: [Docker run with networking](docs/deployments/docker/docker-run-with-networking/).
+See an example deployment using Docker Registries in our guide: [Docker run with networking](/docs/deployments/docker/docker-run-with-networking/).
 :::
 
 ## Using Docker registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}

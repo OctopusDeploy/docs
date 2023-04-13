@@ -10,7 +10,7 @@ Building trust is critical when automating database deployments.  You are workin
 
 The high-level overview of the process is:
 
-1. Use database deployment tooling to generate the *what-if* report and create an [artifact](docs/projects/deployment-process/artifacts/).
+1. Use database deployment tooling to generate the *what-if* report and create an [artifact](/docs/projects/deployment-process/artifacts/).
 2. Send notifications to approvers.
 3. Pause the deployment using a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/).  Approvers sign-in to Octopus Deploy, download the *what-if* report, review it, and give their approval.
 4. Use database deployment tooling to deploy the database changes.
@@ -32,7 +32,7 @@ How the report is generated depends on the database tooling you chose.  Below ar
 - [Redgate SQL Change Automation Create Database Release](https://documentation.red-gate.com/sca4/deploying-database-changes/automated-deployments-with-sql-change-automation-projects/deploying-sql-change-automation-projects) - Please note: [Redgate's step template](https://library.octopus.com/step-templates/c20b70dc-69aa-42a1-85db-6d37341b63e3/actiontemplate-redgate-create-database-release) automatically creates artifacts for you.
 - [Redgate Oracle Deployment Suite](https://octopus.com/blog/database-deployment-automation-for-oracle-using-octopus-and-redgate-tools)
 
-The goal is to create a single file that can be uploaded as an [artifact](docs/projects/deployment-process/artifacts/) for the approvers to review.  
+The goal is to create a single file that can be uploaded as an [artifact](/docs/projects/deployment-process/artifacts/) for the approvers to review.  
 
 ![An artifact in Octopus Deploy](images/manual_approval_artifacts.png "width=500")
 

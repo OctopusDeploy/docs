@@ -21,4 +21,4 @@ In addition to these tools, you can use other tools to create your packages, for
  - The built-in tools for [TeamCity](https://blog.jetbrains.com/teamcity/2010/02/artifact-packaging-with-teamcity/).
  - [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference) to create NuGet packages.
  - [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer).
- - [Grunt, gulp, or octojs](/docs/deployments/node-js/node-on-linux.md#create-and-push-node.js-project) for JavaScript apps.
+ - [Grunt, gulp, or octojs](/docs/deployments/node-js/node-on-linux/#create-and-push-node.js-project) for JavaScript apps.

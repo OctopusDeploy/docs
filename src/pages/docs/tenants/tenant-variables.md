@@ -28,7 +28,7 @@ Both of these methods use the [variable templates](/docs/projects/variables/vari
 
 ## Project variables {#project-variables}
 
-Project variables allow you to specify a variable which a tenant can change. A perfect example would be a connection string or a database server. With project variables you define them at the project level using [project templates](/docs/projects/variables/variable-templates.md#project-templates).
+Project variables allow you to specify a variable which a tenant can change. A perfect example would be a connection string or a database server. With project variables you define them at the project level using [project templates](/docs/projects/variables/variable-templates/#project-templates).
 
 ![](images/project-template-screen.png "width=500")
 
@@ -47,7 +47,7 @@ The great thing about project template variables is that they are treated like a
 
 ## Common variables {#common-variables}
 
-Common variables are similar to project variables. The main difference between the two is that common variables can be used across multiple projects, and they aren't scoped to environments. Common variables are defined using [Library variable set templates](/docs/projects/variables/variable-templates.md#adding-a-variable-template)
+Common variables are similar to project variables. The main difference between the two is that common variables can be used across multiple projects, and they aren't scoped to environments. Common variables are defined using [Library variable set templates](/docs/projects/variables/variable-templates/#adding-a-variable-template)
 
 For example, if we wanted to define an abbreviation for the tenant to use in a deployment or runbook, we can configure a variable template for the library set.
 

@@ -51,7 +51,7 @@ If you are hosting the Octopus Server yourself, you take responsibility for the 
 
 Octopus Deploy encrypts any data which we deem to be sensitive. You can also instruct Octopus Deploy to encrypt sensitive variables which can be used as part of your deployments.
 
-Learn about [data encryption](/docs/security/data-encryption.md) and [sensitive variables](/docs/projects/variables/sensitive-variables/).
+Learn about [data encryption](/docs/security/data-encryption/) and [sensitive variables](/docs/projects/variables/sensitive-variables/).
 
 ### Secure communication
 

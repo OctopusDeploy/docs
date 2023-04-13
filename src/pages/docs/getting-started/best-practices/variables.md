@@ -25,7 +25,7 @@ During a deployment, Octopus will gather all the variables for the project, Tena
 Multi-tenancy is an advanced topic, with its own set of recommendations.  Tenants were mentioned here so you could see the bigger picture of variables.
 :::
 
-Octopus Deploy provides the ability to replace values in your configuration files using the [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) or the [.NET XML configuration variables feature](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/).  In addition, Octopus Deploy supports the ability to perform [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/) during deployment time.
+Octopus Deploy provides the ability to replace values in your configuration files using the [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/) or the [.NET XML configuration variables feature](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/).  In addition, Octopus Deploy supports the ability to perform [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/) during deployment time.
 
 In addition to having the above levels of variables, there are also two categories of variables.
 
@@ -100,7 +100,7 @@ Our recommendations for variable edit permissions are:
 - Variable edit permissions should be all or nothing, either a person can edit variables, or they cannot.  Don't scope permissions to environments.  Anyone responsible for the application should have permission to update variables (developers, lead devs, DB developers, etc.) along with operations (DBAs, web admins, sys admins) who can create and update service accounts and passwords.  
 - Library variable sets can be shared across multiple projects.  Limit who can edit library variable set variables to more experienced Octopus Deploy users, or people who understand "with great power comes great responsibility."  Typically, we see senior or lead developers along with operations people who have these permissions.  If you want to isolate an application, consider using [spaces](/docs/administration/spaces/).
 - Leverage [sensitive variables](/docs/projects/variables/sensitive-variables/) to encrypt and hide sensitive values such as usernames and passwords.  Sensitive variables are write-only in the Octopus UI and Octopus API.  
-- Use [composite variables](docs/projects/variables/variable-substitutions.md#binding-variables) to combine sensitive and non-sensitive values.  A typical use case is database connection strings.  Each language has a specific syntax.  In the screenshot below `Project.Database.ConnectionString` is the composite variable, with the username and password referenced by the composite variable, but they are separate sensitive variables. 
+- Use [composite variables](/docs/projects/variables/variable-substitutions/#binding-variables) to combine sensitive and non-sensitive values.  A typical use case is database connection strings.  Each language has a specific syntax.  In the screenshot below `Project.Database.ConnectionString` is the composite variable, with the username and password referenced by the composite variable, but they are separate sensitive variables. 
 
 ![composite variables](images/composite-variables.png "width=500")
 

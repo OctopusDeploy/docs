@@ -48,11 +48,11 @@ Command (bash) **new_octopustarget**
 
 ### Examples
 
-The below examples demonstrate creating a new AWS ECS Cluster target, evidenced by the `aws-ecs-target` target identifier. These scripts would typically be invoked after creating the cluster in a preceeding step. The required information can be passed to these scripts via [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), or via [output variables](/docs/deployments/custom-scripts/output-variables/) published in preceeding steps, or can simply be hard-coded.
+The below examples demonstrate creating a new AWS ECS Cluster target, evidenced by the `aws-ecs-target` target identifier. These scripts would typically be invoked after creating the cluster in a preceeding step. The required information can be passed to these scripts via [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), or via [output variables](/docs/deployments/custom-scripts/output-variables/) published in preceeding steps, or can simply be hard-coded.
 
 #### Account credentials
 
-Below is an example of creating an AWS ECS Cluster target with [account credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target.md#aws-account).
+Below is an example of creating an AWS ECS Cluster target with [account credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target/#aws-account).
 
 ```powershell PowerShell
 $inputs = @"
@@ -96,7 +96,7 @@ new_octopustarget -n "$(get_octopusvariable "target_name")" -t "aws-ecs-target" 
 
 #### Worker credentials
 
-Below is an example of creating an AWS ECS Cluster target with [worker credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target.md#worker-credentials).
+Below is an example of creating an AWS ECS Cluster target with [worker credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target/#worker-credentials).
 
 ```powershell PowerShell
 $inputs = @"
@@ -138,7 +138,7 @@ new_octopustarget -n "$(get_octopusvariable "target_name")" -t "aws-ecs-target" 
 
 #### Assuming an IAM role
 
-Below is an example of creating an AWS ECS Cluster target using an [assumed role](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target.md#assuming-an-iam-role). Assuming a role can be used with either worker or account credentials, the example below uses worker credentials.
+Below is an example of creating an AWS ECS Cluster target using an [assumed role](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target/#assuming-an-iam-role). Assuming a role can be used with either worker or account credentials, the example below uses worker credentials.
 
 ```powershell PowerShell
 $inputs = @"

@@ -8,7 +8,7 @@ navOrder: 7
 
 !include <azure-vm-extension-deprecated>
 
-These files are required to install the extension [via the Azure CLI](via-the-azure-cli.md) or [via PowerShell](via-powershell/).
+These files are required to install the extension [via the Azure CLI](via-the-azure-cli/) or [via PowerShell](via-powershell/).
 
 ## Public settings
 
@@ -46,7 +46,7 @@ The schema for the public configuration file is:
 * `Roles`: (array of string) The roles to assign to the Tentacle.
 * `CommunicationMode`: (string) Whether the Tentacle should wait for connections from the server (`Listen`) or should poll the server (`Poll`).
 * `Tenants`: (array of string) The tenants to assign to the Tentacle.
-* `TenantTags`: (array of strings) The tenant tags in [canonical name format](/docs/tenants/tenant-tags.md#referencing-tenant-tags) to assign to the Tentacle.
+* `TenantTags`: (array of strings) The tenant tags in [canonical name format](/docs/tenants/tenant-tags/#referencing-tenant-tags) to assign to the Tentacle.
 * `MachinePolicy`: (string) The name of a machine policy to apply to the Tentacle.
 * `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus Server (`Poll` mode).
 * `PublicHostNameConfiguration`: If in listening mode, how the server should contact the Tentacle. Can be one of the following:

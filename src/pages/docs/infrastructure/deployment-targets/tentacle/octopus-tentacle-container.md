@@ -10,13 +10,13 @@ Running an Octopus Tentacle inside a container may be preferable in some environ
 
 Octopus publishes both `windows/amd64` and `linux/amd64` Docker images for Tentacle and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/tentacle).
 
-The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommend) mode.
+The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommend) mode.
 
 :::info
 Tentacles set up this way will run *inside a container* and script execution will not happen on the host itself. For this reason, Octopus Tentacles inside a container may not be appropriate for many deployment tasks.
 :::
 
-When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command to connect and add itself as a machine to that server with the provided roles and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies/) to remove the duplicated targets.
+When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command to connect and add itself as a machine to that server with the provided roles and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies/) to remove the duplicated targets.
 
 ```powershell Deployment Target
 docker run --interactive --detach `

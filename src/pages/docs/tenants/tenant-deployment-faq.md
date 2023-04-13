@@ -23,7 +23,7 @@ No. A tenant is treated like a smaller slice of an environment. Octopus creates 
 
 ## Can I deploy to multiple tenants at the same time? {#Multi-tenantdeploymentsFAQ-CanIdeploytomultipletenantsatthesametime?}
 
-Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [Tenant Tags](/docs/tenants/tenant-tags.md) or all of the tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release/) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags.md#deploying-to-multiple-tenants-tags).
+Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [Tenant Tags](/docs/tenants/tenant-tags/) or all of the tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release/) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
 
 ## Can I control the order in which tenanted deployments execute?
 
@@ -43,7 +43,7 @@ We recommend avoiding order dependence of your deployments wherever possible.
 
 Yes! This is a practice we recommend. You can use [tenant tags](/docs/tenants/tenant-tags/) to group your tenants together into batches and then promote your releases through your tenants in batches. It can be convenient to deploy to some of your tenants first in order to detect any problems with your release before you promote to all of your other tenants.
 
-Learn more about [deploying to multiple tenants using tags](/docs/tenants/tenant-tags.md#deploying-to-multiple-tenants-tags).
+Learn more about [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
 
 ## Can I send a single email at the end of a batch of tenanted deployments?
 
@@ -103,7 +103,7 @@ Firstly check you can select a project for your tenant (see above for more detai
 
 ## I want to deploy my project to a tenant, but I can't see that tenant in the list? {#Multi-tenantdeploymentsFAQ-Iwanttodeploymyprojecttoatenant,butIcantseethattenantinthelist?}
 
-Granted, multi-tenant deployments can get complicated very quickly, so we've written a [troubleshooting guide](/docs/tenants/troubleshooting-multi-tenant-deployments.md) to help when you get stuck. At the very least, make sure your tenant is connected to the correct project and environment(s). For more information refer to our [tenant creation](/docs/tenants/tenant-creation/) and [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments/) sections.
+Granted, multi-tenant deployments can get complicated very quickly, so we've written a [troubleshooting guide](/docs/tenants/troubleshooting-multi-tenant-deployments/) to help when you get stuck. At the very least, make sure your tenant is connected to the correct project and environment(s). For more information refer to our [tenant creation](/docs/tenants/tenant-creation/) and [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments/) sections.
 
 ## Is licensing affected by the number of tenants I have? {#Multi-tenantdeploymentsFAQ-IslicensingaffectedbythenumberoftenantsIhave?}
 
@@ -150,13 +150,13 @@ Yes, we recommend creating some variable templates in a library variable set, an
 
 Yes, you can apply a tenant filter to a channel as a way of expressing: "Releases in this channel may only be deployed to tenants matching the filter." For examples of working with tenants and channels see our guides:
 
-- [Using channels and tenant tags to restrict releases to the test team](/docs/tenants/tenant-lifecycles.md#restricting-test-releases)
-- [Implementing an early access program](/docs/tenants/tenant-lifecycles.md#early-access-program)
-- [Pinning tenants to a release](/docs/tenants/tenant-lifecycles.md#pinning-tenants)
+- [Using channels and tenant tags to restrict releases to the test team](/docs/tenants/tenant-lifecycles/#restricting-test-releases)
+- [Implementing an early access program](/docs/tenants/tenant-lifecycles/#early-access-program)
+- [Pinning tenants to a release](/docs/tenants/tenant-lifecycles/#pinning-tenants)
 
 ## Can I pin or lock a tenant to a specific release? {#Multi-tenantdeploymentsFAQ-CanIpinorlockatenanttoaspecificrelease?}
 
-Yes, you can determine which types of releases should be deployed to a your tenants by using a combination of channels and tag sets. This is part of an advanced topic which is covered in our [Pinning tenants to a release](/docs/tenants/tenant-lifecycles.md#pinning-tenants) section.
+Yes, you can determine which types of releases should be deployed to a your tenants by using a combination of channels and tag sets. This is part of an advanced topic which is covered in our [Pinning tenants to a release](/docs/tenants/tenant-lifecycles/#pinning-tenants) section.
 
 ## Are there any known limitations or problems with multi-tenant deployments? {#LimitationsAndBugs?}
 

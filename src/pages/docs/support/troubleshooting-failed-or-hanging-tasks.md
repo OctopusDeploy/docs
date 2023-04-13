@@ -10,13 +10,13 @@ Sometimes your deployments, health checks, or other tasks may unexpectedly fail,
 
 ## Check the logs
 
-The first step to debug your failed tasks is to check the [Task Log](docs/support/get-the-raw-output-from-a-task/). This will usually contain detailed information about the failure. For deployments, this includes the step, and information about the deployment targets that the step was running on.
+The first step to debug your failed tasks is to check the [Task Log](/docs/support/get-the-raw-output-from-a-task/). This will usually contain detailed information about the failure. For deployments, this includes the step, and information about the deployment targets that the step was running on.
 
-If a deployment failed unexpectedly within a built-in step, you may have misconfigured the step. Double check the configuration of your [step](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/). If your step is relying on [variables](/docs/projects/variables/), then you may have also misconfigured your variables. There are [some methods](docs/support/debug-problems-with-octopus-variables/) available that can help you debug your variables.
+If a deployment failed unexpectedly within a built-in step, you may have misconfigured the step. Double check the configuration of your [step](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/). If your step is relying on [variables](/docs/projects/variables/), then you may have also misconfigured your variables. There are [some methods](/docs/support/debug-problems-with-octopus-variables/) available that can help you debug your variables.
 
-If a task fails while executing a PowerShell script, you may be able to get more information by debugging the PowerShell script. You can easily [debug PowerShell scripts](docs/deployments/custom-scripts/debugging-powershell-scripts/) as they are executed by Tentacle.
+If a task fails while executing a PowerShell script, you may be able to get more information by debugging the PowerShell script. You can easily [debug PowerShell scripts](/docs/deployments/custom-scripts/debugging-powershell-scripts/) as they are executed by Tentacle.
 
-Manually running the failed script on the same target may often be a helpful step towards getting more useful error information, and helping to isolate the problem. Remember to run the script under the same user account as the Tentacle service. This user is often the **Local System** account, but this may have been changed so that [Tentacle runs under a specific user account](docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account/).
+Manually running the failed script on the same target may often be a helpful step towards getting more useful error information, and helping to isolate the problem. Remember to run the script under the same user account as the Tentacle service. This user is often the **Local System** account, but this may have been changed so that [Tentacle runs under a specific user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account/).
 
 If none of the above steps help, then you may have encountered a bug in a built-in step, in which case you can contact support for further assistance.
 
@@ -32,11 +32,11 @@ A common problem is that traffic on the appropriate ports (10933 by default for 
 
 A utility called [TentaclePing](https://github.com/OctopusDeploy/TentaclePing) can be used to test and diagnose connections between the machine hosting Octopus Server and the machines hosting Tentacles. This allows you to quickly test connections in isolation, without involving the complexity of Octopus Server, Tentacles, or tasks.
 
-See [Tentacle Communication Modes](docs/infrastructure/deployment-targets/tentacle/tentacle-communication/) for more information on configuring your Tentacles.
+See [Tentacle Communication Modes](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/) for more information on configuring your Tentacles.
 
 #### Halibut
 
-The tool that manages connections between the Octopus Server and your Tentacles is called [Halibut](https://github.com/OctopusDeploy/Halibut/). In order to discover more detailed information about the connections, it may be useful to [increase the log level for Halibut](docs/support/log-files.md#Logfiles-Changingloglevelshalibut). The same change to increase the log level for Halibut can also be made on [Tentacle](docs/support/log-files.md#Logfiles-Changingloglevelstentacle).
+The tool that manages connections between the Octopus Server and your Tentacles is called [Halibut](https://github.com/OctopusDeploy/Halibut/). In order to discover more detailed information about the connections, it may be useful to [increase the log level for Halibut](/docs/support/log-files/#Logfiles-Changingloglevelshalibut). The same change to increase the log level for Halibut can also be made on [Tentacle](/docs/support/log-files/#Logfiles-Changingloglevelstentacle).
 
 ### Connections to external services
 
@@ -78,4 +78,4 @@ We recommend including sub-directories in any allow list for the directories lis
 
 ## Steps are slow to start
 
-If you notice that your PowerShell script or built-in steps take a while to begin execution, and the time is consistent across your steps, then you may have something in your Tentacle user's PowerShell profile which is causing PowerShell to take a long time to initialize. Add the `Octopus.Action.PowerShell.ExecuteWithoutProfile` variable to your deployment to help diagnose this problem. See [System Variables](/docs/projects/variables/system-variables.md#Systemvariables-User-modifiablesettings) for more information.
+If you notice that your PowerShell script or built-in steps take a while to begin execution, and the time is consistent across your steps, then you may have something in your Tentacle user's PowerShell profile which is causing PowerShell to take a long time to initialize. Add the `Octopus.Action.PowerShell.ExecuteWithoutProfile` variable to your deployment to help diagnose this problem. See [System Variables](/docs/projects/variables/system-variables/#Systemvariables-User-modifiablesettings) for more information.

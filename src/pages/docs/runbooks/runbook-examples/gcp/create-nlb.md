@@ -49,7 +49,7 @@ Create two [sensitive variables](/docs/projects/variables/sensitive-variables/),
 
 #### Create authorization function in script module
 
-The instructions at [Creating a script module](/docs/deployments/custom-scripts/script-modules.md#ScriptModules-CreatingaScriptmodule) detail the procedure for creating a script module in Octopus.
+The instructions at [Creating a script module](/docs/deployments/custom-scripts/script-modules/#ScriptModules-CreatingaScriptmodule) detail the procedure for creating a script module in Octopus.
 
 In the **Body** of the script module, include the following PowerShell code:
 
@@ -88,7 +88,7 @@ function Set-GCPAuth() {
 
 This script defines a function named `Set-GCPAuth` which uses the `auth activate-service-account` command that is used in the runbook steps to authorize with Google Cloud.
 
-Add the script module into your runbook process following [these instructions](/docs/deployments/custom-scripts/script-modules.md#ScriptModules-UsingaScriptModuleonaDeployment):
+Add the script module into your runbook process following [these instructions](/docs/deployments/custom-scripts/script-modules/#ScriptModules-UsingaScriptModuleonaDeployment):
 
 ![Google Cloud Project variables](images/gcp-runbook-include-script-module.png
  "width=500")

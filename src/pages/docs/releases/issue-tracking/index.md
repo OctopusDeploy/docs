@@ -7,7 +7,7 @@ navOrder: 50
 hideInThisSection: true
 ---
 
-Octopus **2019.4** introduced integration with [Jira](/docs/releases/issue-tracking/jira.md) and [GitHub](/docs/releases/issue-tracking/github.md) issue tracking, and **2019.7.6** added support for [Azure DevOps](/docs/releases/issue-tracking/azure-devops/) work item tracking. This integration makes it possible to add links to your GitHub issues, Jira issues, and Azure DevOps work items from releases and deployments in Octopus.
+Octopus **2019.4** introduced integration with [Jira](/docs/releases/issue-tracking/jira/) and [GitHub](/docs/releases/issue-tracking/github/) issue tracking, and **2019.7.6** added support for [Azure DevOps](/docs/releases/issue-tracking/azure-devops/) work item tracking. This integration makes it possible to add links to your GitHub issues, Jira issues, and Azure DevOps work items from releases and deployments in Octopus.
 
 For an overview of the integration, the features these integrations enable, and configuration instructions, see:
 

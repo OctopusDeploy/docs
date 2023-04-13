@@ -123,7 +123,7 @@ When you have the Master Key, you can stop the running Octopus Server container 
 $ docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env MASTER_KEY "5qJcW9E6B99teMmrOzaYNA==" !docker-image <octopusdeploy/octopusdeploy>
 ```
 
-The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/) still apply as per normal Octopus installations.
+The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore/#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/) still apply as per normal Octopus installations.
 
 ## Troubleshooting
 

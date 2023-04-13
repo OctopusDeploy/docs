@@ -74,7 +74,7 @@ To learn how to configure access to the Script Console for a subset of users, ta
 
 ## Collect artifacts {#ScriptConsole-Collectingartifacts}
 
-Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](docs/projects/deployment-process/artifacts/).
+Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](/docs/projects/deployment-process/artifacts/).
 
 ## Audit records {#ScriptConsole-Auditrecords}
 

@@ -93,4 +93,4 @@ The above script is a very basic hardening of Ubuntu.  Using the CIS guidelines,
 
 ## Disabling weak TLS protocols {#disable-weak-tls-protocols}
 
-To harden the TLS implementation used, review our documentation on [Disabling weak TLS protocols](/docs/security/hardening-octopus.md#disable-weak-tls-protocols).
+To harden the TLS implementation used, review our documentation on [Disabling weak TLS protocols](/docs/security/hardening-octopus/#disable-weak-tls-protocols).

@@ -80,7 +80,7 @@ For planned outages, the recommendation is to enable drain mode.  That will tell
 
 Once the outage is finished, repeat the same steps, but select **Disable Drain Node** instead.
 
-Not all outages can be planned.  The underlying hypervisor hosting VM the node is running on could crash.  A data center could go offline.  When that happens you can use this [API Script](docs/octopus-rest-api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown/) to re-run those canceled deployments and runbook runs.
+Not all outages can be planned.  The underlying hypervisor hosting VM the node is running on could crash.  A data center could go offline.  When that happens you can use this [API Script](/docs/octopus-rest-api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown/) to re-run those canceled deployments and runbook runs.
 
 ### Several smaller nodes are better than a few large ones
 

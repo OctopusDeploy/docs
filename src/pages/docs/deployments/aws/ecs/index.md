@@ -99,7 +99,7 @@ Specify the Security Groups and Subnets in the clusters VPC that will be attache
 Specify whether to enable Amazon ECS managed tags. Changing this value will force the service to be re-created.
 
 :::hint
-Octopus automatically adds stack-level tags that propagate to the task definition and the service. The full list of these auto-generated tags can be found in our [Architecture repository](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/StepDesignGuidelines.md#tags-and-labels).
+Octopus automatically adds stack-level tags that propagate to the task definition and the service. The full list of these auto-generated tags can be found in our [Architecture repository](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/StepDesignGuidelines/#tags-and-labels).
 :::
 
 No more than 20 additional tags can be provided.

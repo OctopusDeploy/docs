@@ -20,7 +20,7 @@ or
 ```
 
 :::info
-If you are using a **Run a script** step, packages are extracted to a sub-directory with the name of the package reference. Please refer to [package files](/docs/deployments/custom-scripts/run-a-script-step.md#referencing-packages-package-files) to learn more.
+If you are using a **Run a script** step, packages are extracted to a sub-directory with the name of the package reference. Please refer to [package files](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages-package-files) to learn more.
 :::
 
 Octopus will find the target files, match structures described by the names of Octopus variables, and replace their contents with the values of the variables.
@@ -51,7 +51,7 @@ Config\*.json
 Application/**/*.xml
 ```
 
-The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions/), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
+The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions/), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
 
 ### How the file type for target files is determined
 

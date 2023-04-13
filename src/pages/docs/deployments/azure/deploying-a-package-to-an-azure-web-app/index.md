@@ -90,7 +90,7 @@ Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bu
 
 From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
 
-We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli/).
+We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules/) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli/).
 :::
 
 If the Azure PowerShell module is available, it will be loaded for your convenience, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticating with Azure yourself.
@@ -124,7 +124,7 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md): enable [rolling deployments](/docs/deployments/patterns/rolling-deployments/) across multiple geographic regions.
+1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/): enable [rolling deployments](/docs/deployments/patterns/rolling-deployments/) across multiple geographic regions.
 2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/releases/lifecycles/) to create a strict release promotion process.
 
 The example we've discussed here is the most common scenario for deploying Azure Web Apps: a single package that contains an ASP.NET Web Application and some Web Jobs in the same release cadence. It is possible to implement more complex deployment scenarios where the ASP.NET Web Application and each Web Job follow independent release cadences. In this case you would build multiple packages using the folder structure expected by the Azure Web App hosting framework discussed earlier. Once you've done that you can simply reuse the same Azure Web App Deployment Target to deploy each package when they are released.

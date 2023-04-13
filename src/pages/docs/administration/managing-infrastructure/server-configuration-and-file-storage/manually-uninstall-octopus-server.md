@@ -11,7 +11,7 @@ When you uninstall the Octopus Server MSI, it automatically removes the applicat
 ## Why Would I Want To Clean Up? {#ManuallyuninstallOctopusServer-WhywouldIwanttocleanupinthefirstplace?}
 
 :::problem
-In some of these scenarios you should make sure you have a recent backup of the **Octopus home directory** and your **Master Key** before continuing. Learn about [backup and restore](/docs/administration/data/backup-and-restore.md) and [backing up your Master Key](/docs/security/data-encryption/). If you want to completely remove this instance of Octopus Server and don't care about the configuration or data, you won't need to worry about having a backup or rollback strategy.
+In some of these scenarios you should make sure you have a recent backup of the **Octopus home directory** and your **Master Key** before continuing. Learn about [backup and restore](/docs/administration/data/backup-and-restore/) and [backing up your Master Key](/docs/security/data-encryption/). If you want to completely remove this instance of Octopus Server and don't care about the configuration or data, you won't need to worry about having a backup or rollback strategy.
 :::
 
 Here are a few reasons why you may want to completely remove Octopus Server from your computer:

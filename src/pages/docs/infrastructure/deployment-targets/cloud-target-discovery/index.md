@@ -172,7 +172,7 @@ Server will not remove unhealthy targets immediately. Targets need to fail multi
 
 Let's say you have a project in Octopus called _Pet Shop_ that deploys an application to an Azure Web App in a _Development_ environment using a role of _PetShopFrontEnd_ and this web app is dynamically created as part of the deployment using an ARM template.
 
-To use this web app previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md) with custom code to try and find and create the web app target. In addition, previously when this web app was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget/) or manually remove the target in Octopus.
+To use this web app previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target/) with custom code to try and find and create the web app target. In addition, previously when this web app was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget/) or manually remove the target in Octopus.
 
 By configuring a well-known variable and tagging your Azure Web App appropriately, Octopus can discover this target for you at deployment time. Additionally, Octopus will continue to monitor the target, and will remove it if it is removed in Azure.
 
@@ -197,7 +197,7 @@ Octopus will now discover the web app as a target before deploying to it, matchi
 
 Let's say you have a project in Octopus called _Pet Shop_ that deploys an application to an Amazon ECS Cluster in a _Development_ environment using a role of _PetShopFrontEnd_ and the cluster is dynamically created as part of the deployment using a CloudFormation template.
 
-To use this cluster previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md) with custom code to try and find and create the cluster target. In addition, previously when this cluster was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget/) or manually remove the target in Octopus.
+To use this cluster previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget/) with custom code to try and find and create the cluster target. In addition, previously when this cluster was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget/) or manually remove the target in Octopus.
 
 By configuring some well-known variables and tagging your ECS cluster appropriately, Octopus can discover this target for you at deployment time. Additionally, Octopus will continue to monitor the target, and will remove it if it is removed in AWS.
 

@@ -44,7 +44,7 @@ A lifecycle with a single phase is an anti-pattern.  Typically we see this when 
 
 ## Production Approval
 
-Octopus Deploy uses the [manual intervention](docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step for all approvals.  At the time of this writing, that step runs during a deployment.  That requires you to first start the deployment to **production** to approve the deployment in **production**.
+Octopus Deploy uses the [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step for all approvals.  At the time of this writing, that step runs during a deployment.  That requires you to first start the deployment to **production** to approve the deployment in **production**.
 
 We recommend two approaches to **production** approvals.
 

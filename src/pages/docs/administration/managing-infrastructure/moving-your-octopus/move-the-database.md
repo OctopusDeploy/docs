@@ -11,7 +11,7 @@ This page outlines our recommended steps to move your SQL database to another se
 ## Step-by-step process {#Movethedatabase-StepByStep}
 1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode/) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --stop`
-2. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption.md#Securityandencryption-YourMasterKey).
+2. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption/#Securityandencryption-YourMasterKey).
 3. Take a backup of your Octopus database.
 4. Restore the database on your new server.
 5. On your Octopus Server, run the following command to update the connection string (where "VALUE" is your connection string).
@@ -32,7 +32,7 @@ When you are using [Octopus High Availability](/docs/administration/high-availab
 2. Toggle the [Drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes/) option for each Octopus Server node in {{ Configuration,Nodes }}
 3. Stop the service on each Octopus Server node when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --stop`
-4. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption.md#Securityandencryption-YourMasterKey).
+4. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption/#Securityandencryption-YourMasterKey).
 5. Take a backup of your Octopus database.
 6. Restore the database on your new server.
 7. On each Octopus Server node, run the following command to update the connection string (where "VALUE" is your connection string).
@@ -46,7 +46,7 @@ Octopus.Server.exe database --connectionString="VALUE"
 
 ## Moving from Azure SQL to AWS RDS
 
-If you want to move your Octopus database from Azure SQL to AWS RDS, replace steps 3 and 4 in the [step-by-step process](docs/administration/managing-infrastructure/moving-your-octopus/move-the-database.md#Movethedatabase-StepByStep) with the steps below:
+If you want to move your Octopus database from Azure SQL to AWS RDS, replace steps 3 and 4 in the [step-by-step process](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database/#Movethedatabase-StepByStep) with the steps below:
 
 1. Take a backup of your Azure SQL database (`.bacpac`)
 2. Download the `.bacpac` backup from Azure

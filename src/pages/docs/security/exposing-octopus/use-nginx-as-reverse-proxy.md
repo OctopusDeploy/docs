@@ -11,7 +11,7 @@ There are scenarios in which you may be required to run Octopus Deploy behind a 
 This example assumes:
 
 - NGINX will terminate your SSL connections.
-- [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) are not required.
+- [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) are not required.
 
 Our starting configuration:
 
@@ -205,7 +205,7 @@ ADMIN_API_KEY=
 ```
 ## NGINX as a Load Balancer
 
-NGINX can be used as a load balancer for Octopus Deploy configured for [High Availability](docs/administration/high-availability/).  To do so, add all the HA nodes to this section.
+NGINX can be used as a load balancer for Octopus Deploy configured for [High Availability](/docs/administration/high-availability/).  To do so, add all the HA nodes to this section.
 
 ```
 upstream octopusdeploy {

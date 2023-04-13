@@ -44,10 +44,10 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 | GitHub                                  | :x:&nbsp;&nbsp;&nbsp; | :x:&nbsp;&nbsp;&nbsp; | :x:&nbsp;&nbsp;&nbsp; |
 | Guest Login                             | :x:&nbsp;&nbsp;&nbsp; | :x:&nbsp;&nbsp;&nbsp; | :x:&nbsp;&nbsp;&nbsp; |
 
-**\*** For Azure Active Directory (AAD) users and groups, these must also be mapped in the Azure App Registration. Please read the [Mapping AAD users into Octopus teams](/docs/security/authentication/azure-ad-authentication.md#mapping-aad-users-into-octopus-teams-optional) section for more details. For Octopus Cloud, external groups and roles cannot be configured for Azure AD when using [Octopus ID](/docs/security/authentication/octopusid-authentication/).
+**\*** For Azure Active Directory (AAD) users and groups, these must also be mapped in the Azure App Registration. Please read the [Mapping AAD users into Octopus teams](/docs/security/authentication/azure-ad-authentication/#mapping-aad-users-into-octopus-teams-optional) section for more details. For Octopus Cloud, external groups and roles cannot be configured for Azure AD when using [Octopus ID](/docs/security/authentication/octopusid-authentication/).
 
-**†** For Okta groups to flow through to Octopus, you'll need to change the _Groups claim_ fields. Please read the [Okta group integration](/docs/security/authentication/okta-authentication.md#Oktaauthentication-OpenIDConnectSettings-OktaGroups) section for more details.
+**†** For Okta groups to flow through to Octopus, you'll need to change the _Groups claim_ fields. Please read the [Okta group integration](/docs/security/authentication/okta-authentication/#Oktaauthentication-OpenIDConnectSettings-OktaGroups) section for more details.
 
 :::hint
-[Octopus ID](/docs/security/authentication/octopusid-authentication.md) does not currently support configuring [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles/).
+[Octopus ID](/docs/security/authentication/octopusid-authentication/) does not currently support configuring [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles/).
 :::

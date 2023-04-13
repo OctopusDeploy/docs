@@ -15,11 +15,11 @@ When installed, the self-hosted Octopus Server:
 
 - Runs
   - As a Windows Service called **OctopusDeploy**, installed via an MSI.
-  - In a [Linux](docs/installation/octopus-server-linux-container/) container.
+  - In a [Linux](/docs/installation/octopus-server-linux-container/) container.
 - Stores its data in an [SQL Server Database](/docs/installation/sql-server-database/). ([SQL Server Express](http://downloadsqlserverexpress.com/) is an easy way of getting started.)
 - Includes an embedded HTTP server which serves the [Octopus REST API](/docs/octopus-rest-api/) and the  **Octopus Web Portal** that you will use to manage your [infrastructure](/docs/infrastructure/), [deployments](/docs/projects/deployment-process/), [runbooks](/docs/runbooks/), and coordinate your [releases](/docs/releases/).
 
-Before you install Octopus Deploy, review the software and hardware [requirements](/docs/installation/requirements.md), and make sure you have access to an instance of [SQL Server Database](/docs/installation/sql-server-database/) that you can use with Octopus Deploy.
+Before you install Octopus Deploy, review the software and hardware [requirements](/docs/installation/requirements/), and make sure you have access to an instance of [SQL Server Database](/docs/installation/sql-server-database/) that you can use with Octopus Deploy.
 
 ## Install Octopus as a Windows Service {#install-octopus}
 
@@ -32,9 +32,9 @@ Before you install Octopus Deploy, review the software and hardware [requirement
 1. Accept the default **Home Directory** or enter a location of your choice and click **Next**.
 1. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
 
-Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md) or using a [Managed Service Account](/docs/installation/managed-service-account/).
+Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service/) or using a [Managed Service Account](/docs/installation/managed-service-account/).
 
-9. On the **Database** page, click the drop-down arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is the recommended process; however, you can also [create your own database](/docs/installation/sql-server-database.md#creating-the-database).
+9. On the **Database** page, click the drop-down arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is the recommended process; however, you can also [create your own database](/docs/installation/sql-server-database/#creating-the-database).
 10. Enter a name for the database, and click **Next** and **OK** to **create the database**.
 
   Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database.

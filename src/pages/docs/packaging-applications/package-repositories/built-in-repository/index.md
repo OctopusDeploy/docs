@@ -92,12 +92,12 @@ Instead of using your own API key, consider using a [Service Account](/docs/secu
 
 :::hint
 **Using automatic release creation?**
-If you are using [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) page.
+If you are using [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) page.
 :::
 
 ## Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
-See [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome).
+See [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-OctopusHome).
 
 ## Built-in repository reindexing
 

@@ -88,7 +88,7 @@ The deployment and runbook processes should be the same for all environments, ex
 
 When defining your runbook or deployment process, you can configure a run condition based on a variable.  Generally, that feature is used to skip over a specific step when a particular condition occurs.  For example, skip over a testing step if only .css or image files were deployed.
 
-Octopus Deploy provides an [extended variable syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) that includes support for if/elseif/else/then statements.  While it is possible to have a complex if/then statement in run condition, we don't recommend it.  Instead, we recommend you run a script and set an [output variable](/docs/projects/variables/output-variables/).  Use that output variable in the run condition.  Having the decision made in a script means you can easily test and debug it. 
+Octopus Deploy provides an [extended variable syntax](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-ExtendedSyntax) that includes support for if/elseif/else/then statements.  While it is possible to have a complex if/then statement in run condition, we don't recommend it.  Instead, we recommend you run a script and set an [output variable](/docs/projects/variables/output-variables/).  Use that output variable in the run condition.  Having the decision made in a script means you can easily test and debug it. 
 
 ## Further reading
 

@@ -56,7 +56,7 @@ You can achieve the opposite effect by swapping `unless` with `if`:
 #{if Octopus.Deployment.Error}#{Variable}#{/if}
 ```
 
-It's also possible to check the status of specific [steps and actions](/docs/projects/variables/system-variables.md#Systemvariables-DeploymentStatusTrackingdeploymentstatus).
+It's also possible to check the status of specific [steps and actions](/docs/projects/variables/system-variables/#Systemvariables-DeploymentStatusTrackingdeploymentstatus).
 
 ### Machine-level variable expressions
 
@@ -123,7 +123,7 @@ Watch out not to run steps that depend on each other in parallel. If **Step2** d
 
 ### Other ways to improve deployment time
 
-We have written a comprehensive guide on [deployment performance](docs/projects/deployment-process/performance/) which covers many other aspects which affect your deployment time in addition to running steps in parallel.
+We have written a comprehensive guide on [deployment performance](/docs/projects/deployment-process/performance/) which covers many other aspects which affect your deployment time in addition to running steps in parallel.
 
 ## Package requirement
 

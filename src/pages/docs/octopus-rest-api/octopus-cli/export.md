@@ -9,7 +9,7 @@ navOrder: 130
 :::warning
 The export command has been **deprecated**. The recommended way to export data from an Octopus instance is with the **Export/Import Projects** feature that was released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/).
 
-If you are running an earlier version of Octopus, please see our [data migration](docs/administration/data/data-migration/) section for alternative options.
+If you are running an earlier version of Octopus, please see our [data migration](/docs/administration/data/data-migration/) section for alternative options.
 :::
 
 When you try to run **export**, you'll now receive the following error:

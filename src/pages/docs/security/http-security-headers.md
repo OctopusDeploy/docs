@@ -42,7 +42,7 @@ This header is used to disable the MIME type "sniffing" capability which can all
 
 ### Strict-Transport-Security (HSTS)
 
-The `Strict-Transport-Security` header is used to instruct browsers that all future requests (for a specified amount of time) are sent over HTTPS, even if the user types `http://` into the browser address bar. This is not enabled by default, but as it can cause issues if implemented incorrectly, please read [our HSTS documentation](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#HSTS) before implementing.
+The `Strict-Transport-Security` header is used to instruct browsers that all future requests (for a specified amount of time) are sent over HTTPS, even if the user types `http://` into the browser address bar. This is not enabled by default, but as it can cause issues if implemented incorrectly, please read [our HSTS documentation](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#HSTS) before implementing.
 
 ### Referrer-Policy
 

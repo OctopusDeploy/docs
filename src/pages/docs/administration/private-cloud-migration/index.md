@@ -59,7 +59,7 @@ Octopus can either maintain users and teams in its own internal database or dele
 
 Whether users and teams managed by Octopus are migrated or manually recreated depends on the migration path.
 
-Also be aware that Octopus hosted in a [Linux container](docs/installation/octopus-server-linux-container/) has some limitations with the supported authentication providers compared to the Windows version.
+Also be aware that Octopus hosted in a [Linux container](/docs/installation/octopus-server-linux-container/) has some limitations with the supported authentication providers compared to the Windows version.
 
 ### Where have tentacles been installed?
 
@@ -83,7 +83,7 @@ Octopus was initially provided only as a Windows application. Today Octopus is a
 
 Teams may wish to migrate to the Linux version of Octopus when moving to the cloud. There are many benefits to doing so, including cheaper hosting costs and the option to host Octopus on platforms like Kubernetes or ECS.
 
-The Windows and Linux versions are mostly identical. However, there are some caveats to be aware of as documented [here](docs/installation/octopus-server-linux-container/).
+The Windows and Linux versions are mostly identical. However, there are some caveats to be aware of as documented [here](/docs/installation/octopus-server-linux-container/).
 
 ### Do you have a direct network connection from your cloud provider to your on-premises infrastructure?
 
@@ -140,7 +140,7 @@ A complete migration involves:
     1. Pointing CI servers and external scripts to the cloud instance.
     1. Updating firewall rules to allow the cloud instance to connect to listening tentacles.
 
-This process is documented in more detail under [Moving your Octopus components to other servers](docs/administration/managing-infrastructure/moving-your-octopus/).
+This process is documented in more detail under [Moving your Octopus components to other servers](/docs/administration/managing-infrastructure/moving-your-octopus/).
 
 Choose a complete migration when:
 

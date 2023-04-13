@@ -21,7 +21,7 @@ Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bu
 
 From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
 
-We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli/).
+We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules/) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli/).
 :::
 
 When executing PowerShell against Azure, Octopus Deploy will automatically use your configured Azure account details to authenticate you into the [AzureRM PowerShell modules](https://docs.microsoft.com/powershell/azure/azurerm/overview), the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview), and [Azure CLI tools](https://docs.microsoft.com/cli/azure/), if they exist on the worker executing the script.

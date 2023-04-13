@@ -7,7 +7,7 @@ navOrder: 70
 hideInThisSection: true
 ---
 
-[Step Templates](/docs/projects/custom-step-templates.md) and [Script Modules](/docs/deployments/custom-scripts/script-modules/) allow you to extend the functionality of Octopus Deploy.  While they appear similar, they are designed to meet different goals.
+[Step Templates](/docs/projects/custom-step-templates/) and [Script Modules](/docs/deployments/custom-scripts/script-modules/) allow you to extend the functionality of Octopus Deploy.  While they appear similar, they are designed to meet different goals.
 
 - Step Templates are re-usable steps you can inject into your deployment or runbook process to perform a specific task.  Examples include stopping IIS, deploying database migration scripts using a third-party tool such as Flyway, notifying VictorOps of a completed deployment, and more.
 - Script Modules are re-usable functions you can inject into scripts run by your deployment or runbook process.  Examples include a function to call the Octopus API, functions to write output to a centralized log, or a function to find an item in a list by name.
@@ -42,7 +42,7 @@ We also recommend leveraging the different logging levels as Octopus treats each
 - Error: Messages are highlighted in red in the task log and task summary.  This is for what it says on the tin, error messages.
 - Highlight: Messages are highlighted in blue in the task log and task summary.  Use these for important messages you want to let the user know about.  
 
-Octopus provides [manual interventions](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) which pause the deployment and allow people to review the progress made so far.  Putting information needed for approvals in logs can make it difficult for the approvers to find.  If there is information needed for approvals, such as test results or database delta scripts, the recommendation is to create an [artifact](/docs/projects/deployment-process/artifacts/).
+Octopus provides [manual interventions](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) which pause the deployment and allow people to review the progress made so far.  Putting information needed for approvals in logs can make it difficult for the approvers to find.  If there is information needed for approvals, such as test results or database delta scripts, the recommendation is to create an [artifact](/docs/projects/deployment-process/artifacts/).
 
 ## Further reading
 

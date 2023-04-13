@@ -53,7 +53,7 @@ You can also set an [output variable](/docs/projects/variables/output-variables/
 
 ### Example: Collecting an artifact
 
-Your script can tell Octopus to collect a file and store it as a [deployment artifact](docs/projects/deployment-process/artifacts/):
+Your script can tell Octopus to collect a file and store it as a [deployment artifact](/docs/projects/deployment-process/artifacts/):
 
 > ```
 > new_octopusartifact "./subdir/anotherdir/myfile"

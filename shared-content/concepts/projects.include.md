@@ -6,4 +6,4 @@ For each project, you can define a deployment process, runbooks to manage your i
 
 You can manage your projects by navigating to the **Projects** tab in the Octopus Web Portal:
 
-![The projects area of Octopus Deploy](docs/shared-content/concepts/images/projects.png "width=500")
+![The projects area of Octopus Deploy](/docs/shared-content/concepts/images/projects.png "width=500")

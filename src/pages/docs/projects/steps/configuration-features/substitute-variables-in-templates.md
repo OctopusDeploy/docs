@@ -8,7 +8,7 @@ navOrder: 80
 The Substitute Variables in Files feature is one of the [configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/) into any file.
 
 :::hint
-You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) and [Structured configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/).
+You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/) and [Structured configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/).
 :::
 
 ## How to substitute variables in a file
@@ -67,7 +67,7 @@ When the application is deployed to your **test** and **production** environment
 From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/releases/) and deploy your application.
 
 :::warning
-If you include a configuration file that you are also doing a [transformation](/docs/projects/steps/configuration-features/configuration-transforms/) and [variable](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in templates' before the transformation as defined in the [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering/) process.
+If you include a configuration file that you are also doing a [transformation](/docs/projects/steps/configuration-features/configuration-transforms/) and [variable](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/) swap on, the variable change will run under the 'substitute variables in templates' before the transformation as defined in the [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering/) process.
 :::
 
 :::warning

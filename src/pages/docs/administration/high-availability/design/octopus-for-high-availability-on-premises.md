@@ -44,7 +44,7 @@ Since each of the Octopus Server nodes will need access to the database, we reco
 
 The simplest way to provide shared storage, assuming the Octopus Server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 
-An alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)). If using Microsoft DFS for the shared storage, it must be [configured specifically for use with Octopus Deploy](docs/getting-started/best-practices/configuring-microsoft-dfs-with-octopus-server/).
+An alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)). If using Microsoft DFS for the shared storage, it must be [configured specifically for use with Octopus Deploy](/docs/getting-started/best-practices/configuring-microsoft-dfs-with-octopus-server/).
 
 
 ### Load balancer

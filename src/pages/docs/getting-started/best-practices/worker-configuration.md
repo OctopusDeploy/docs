@@ -44,7 +44,7 @@ The built-in worker and [dynamic workers](/docs/infrastructure/workers/dynamic-w
 
 ## Workers for Octopus at Scale
 
-If you plan on using Octopus Deploy at scale, [disable the built-in worker](/docs/infrastructure/workers/built-in-worker.md#switching-off-the-built-in-worker) for self-hosted or stop using the dynamic workers and host your own workers and worker pools.
+If you plan on using Octopus Deploy at scale, [disable the built-in worker](/docs/infrastructure/workers/built-in-worker/#switching-off-the-built-in-worker) for self-hosted or stop using the dynamic workers and host your own workers and worker pools.
 
 - Establish an easy-to-understand naming convention for workers.  For example, `p-db-omaha-worker-01` for a worker located in Omaha to do database deployments on Production.  
 - Configure workers to run in the same data centers as your deployment targets.  For example, if you are hosting Octopus Deploy in an on-premise data center, but you are deploying to the US-central region in Azure, then create workers to run in that region in Azure.  

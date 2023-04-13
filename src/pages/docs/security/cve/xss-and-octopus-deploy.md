@@ -31,7 +31,7 @@ As the customer, you are responsible for granting access to people you trust, an
 
 XSS is a browser-based vulnerability. The Octopus Server and its browser application work on your behalf to actively prevent XSS attacks, and the browser itself can also help in the prevention of XSS attacks. To this end, **Octopus 4.0** (and newer) has increased its minimum supported browser requirements to further improve the security of your Octopus installation.
 
-Learn about [supported web browsers](/docs/installation/requirements.md#supported-browsers).
+Learn about [supported web browsers](/docs/installation/requirements/#supported-browsers).
 
 ## How Octopus Deploy prevents XSS attacks {#prevention}
 

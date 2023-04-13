@@ -75,7 +75,7 @@ dotnet publish ./OctoWeb.csproj --output ./dist
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
 ```
 
-Please refer to [Microsoft's publish and packing](/docs/deployments/dotnet/netcore-webapp.md#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
+Please refer to [Microsoft's publish and packing](/docs/deployments/dotnet/netcore-webapp/#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
 
 ## Packaging a .NET Core library
 

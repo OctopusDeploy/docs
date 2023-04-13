@@ -17,7 +17,7 @@ The Octopus UI needed to remain fully functional for version-controlled projects
 
 Of course, there is now a text representation of the process in the Git repository, and if you prefer editing text, open your favorite editor and go for it. We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
 
-That means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases, the relevant branch can be selected. We have also added [branch system variables](docs/projects/variables/system-variables.md#release-branch-information) that can be used in your custom deployment scripts.
+That means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases, the relevant branch can be selected. We have also added [branch system variables](/docs/projects/variables/system-variables/#release-branch-information) that can be used in your custom deployment scripts.
 
 :::warning
 Config-as-code only supports [git](https://git-scm.com/) repositories.  Before using this feature, you should be familiar with [git concepts](https://git-scm.com/doc) such as distributed version control, pushing, pulling, branching, merging, and fetching.

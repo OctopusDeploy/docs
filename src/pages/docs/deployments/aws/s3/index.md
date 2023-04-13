@@ -70,7 +70,7 @@ The **Structured Variable File Patterns** field for the **Upload a package to an
 
 A list of files to perform structured variable substitution on. 
 
-Target files need to be newline-seperated, relative to the package contents. Extended wildcard syntax is supported. E.g., `appsettings.json`, `Config\*.xml`, `**\specific-folder\*.yaml`. Learn more about the [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/) feature and view [Structured Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md#StructuredConfigurationVariablesFeature-VariableReplacement) examples.
+Target files need to be newline-seperated, relative to the package contents. Extended wildcard syntax is supported. E.g., `appsettings.json`, `Config\*.xml`, `**\specific-folder\*.yaml`. Learn more about the [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/) feature and view [Structured Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/#StructuredConfigurationVariablesFeature-VariableReplacement) examples.
 
 #### Use filename with embedded content hash
 

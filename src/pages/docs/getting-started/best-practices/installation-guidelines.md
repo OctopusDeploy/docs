@@ -238,7 +238,7 @@ Occasionally, you'll want to delete a node.  Perhaps you added two, three, or fo
 
 To do that, you'll want to follow these steps:
 
-1. Configure the node to [drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md#drain).  This will finish all tasks and prevent any new ones from being picked up.
+1. Configure the node to [drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes/#drain).  This will finish all tasks and prevent any new ones from being picked up.
 2. Wait until any executing tasks on that node are complete.
 3. Remove the node from any load balancers.
 4. Delete server or Docker image.
@@ -263,7 +263,7 @@ Removing the node will require a bit more planning.  When the node is deleted by
 
 If you are hosting Octopus Deploy on a Windows server, you will need to install regular Windows patches.  To do that, follow these steps:
 
-1. Configure the node to [drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md#drain).  This will finish all tasks and prevent any new ones from being picked up.
+1. Configure the node to [drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes/#drain).  This will finish all tasks and prevent any new ones from being picked up.
 2. Wait until any executing tasks on that node are complete.
 3. Restart the server and wait for it to come back online.
 4. Remove the drain mode from the node.

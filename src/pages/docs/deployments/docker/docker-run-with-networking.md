@@ -19,7 +19,7 @@ If you already have a Linux machine with Docker installed, you can use that once
 If not, you'll need to configure a host for our sample application. We recommend using **Ubuntu 18.04 LTS** or **Ubuntu 20.04 LTS** for this sample.
 
 1. Install Ubuntu.
-2. Configure your Ubuntu machine as either an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target.md#configuring-ssh-targets) or [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/) in Octopus
+2. Configure your Ubuntu machine as either an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target/#configuring-ssh-targets) or [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/) in Octopus
     * Make sure this Deployment Target has a [target role](/docs/infrastructure/deployment-targets/#target-roles) like **docker-server**. We will configure the Docker steps to target this role.
 
 ![](images/my-docker-host.png "width=500")
@@ -58,7 +58,7 @@ In a newly created project, click **{{Add Step,Create a Docker network}}**. Thi
 
 :::hint
 **docker network support**
-Keep in mind that as the Docker Network Octopus step simply wraps the `docker network` command, you will need to ensure your installed version of docker-engine supports this command. This was provided as of the [1.9.0 Docker Engine release](https://github.com/docker/docker/blob/master/CHANGELOG.md#networking-10).
+Keep in mind that as the Docker Network Octopus step simply wraps the `docker network` command, you will need to ensure your installed version of docker-engine supports this command. This was provided as of the [1.9.0 Docker Engine release](https://github.com/docker/docker/blob/master/CHANGELOG/#networking-10).
 
 For detailed information about Docker networking and additional arguments you can provide, we suggest reading the [Understand Docker container networks](https://docs.docker.com/network/) and the [network create](https://docs.docker.com/engine/reference/commandline/network_create/) Docker documentation.
 :::
@@ -76,7 +76,7 @@ From the project process page, add a new step via **{{Add Step,Run a Docker Cont
 
 :::success
 **Using output variables from Docker Inspect**
-Once Octopus creates the network in the previous step, it invokes the [docker network inspect](https://docs.docker.com/engine/reference/commandline/network_inspect/) command and stores the JSON output in an [output variable](/docs/projects/variables/output-variables.md). This data contains all the information about the network and we will use the network name to signify to the container that it should connect to that network. All the values of the inspect command can be accessed with standard [variable substitution syntax](/docs/projects/variables/variable-substitutions/).
+Once Octopus creates the network in the previous step, it invokes the [docker network inspect](https://docs.docker.com/engine/reference/commandline/network_inspect/) command and stores the JSON output in an [output variable](/docs/projects/variables/output-variables/). This data contains all the information about the network and we will use the network name to signify to the container that it should connect to that network. All the values of the inspect command can be accessed with standard [variable substitution syntax](/docs/projects/variables/variable-substitutions/).
 :::
 6. Set *Network Alias* to **FirstServer**. This will make it easier to identify this specific container from another container in the network.
 7. Skip down to the *Additional Arguments* section, and set the *Command* to be: `/bin/sh -c "ping localhost"`. This arbitrary script instructs the linux instance to ping itself forever, keeping the container alive for this demonstration.

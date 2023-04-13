@@ -114,7 +114,7 @@ If you are using another feed, you should configure its retention policies yours
 
 ### Consider the size of your task logs {#task-logs}
 
-Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](docs/projects/deployment-process/artifacts/).
+Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/projects/deployment-process/artifacts/).
 
 ### Consider how many targets acquire packages in parallel {#parallel-acquisition}
 
@@ -144,4 +144,4 @@ Similarly to [parallel targets](#parallel-targets), running too many steps in pa
 
 ### Consider how much deployment work the Octopus Server is doing {#server-work}
 
-Some steps, like Azure deployments and AWS steps, [run on a worker](docs/infrastructure/workers/#where-steps-run).  By default, thats the [built-in worker](/docs/infrastructure/workers/#built-in-worker) in the Octopus Server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+Some steps, like Azure deployments and AWS steps, [run on a worker](/docs/infrastructure/workers/#where-steps-run).  By default, thats the [built-in worker](/docs/infrastructure/workers/#built-in-worker) in the Octopus Server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.

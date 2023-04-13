@@ -117,7 +117,7 @@ To learn more about how you can automate Service Fabric versioning with Octopus,
 
 ## Troubleshooting
 
-Due to the complexity of the PowerShell deployment script, it's likely you'll run into unsupported actions or unforeseen edge cases. The most common type of errors are related to the wrong action type chosen by the script due to either unforeseen edge cases or unsupported cases. For this reason, we highly recommend using [a customized version of the PowerShell script](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md#customizing-the-deployment-process) that comes with Visual Studio for Service Fabric for most scenarios.
+Due to the complexity of the PowerShell deployment script, it's likely you'll run into unsupported actions or unforeseen edge cases. The most common type of errors are related to the wrong action type chosen by the script due to either unforeseen edge cases or unsupported cases. For this reason, we highly recommend using [a customized version of the PowerShell script](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster/#customizing-the-deployment-process) that comes with Visual Studio for Service Fabric for most scenarios.
 
 :::hint
 Octopus will not modify the service fabric script due to the complexity associated with the script and the number of combinations it supports. We are considering options to improve this experience in the future, and this will most likely require customers to include/bundle their own version of the PS script.

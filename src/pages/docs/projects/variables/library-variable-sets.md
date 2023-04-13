@@ -60,7 +60,7 @@ You can use the following advanced filters to refine the result of the audit tra
 
 Always try to name variables in a variable set uniquely to avoid variable name collision. A common example is when a project and a library variable set have the same variable name, scoped to the same environment. When a name collision occurs, Octopus Deploy will do its best to pick the *right one* [using an algorithm](/docs/projects/variables/#Scopingvariables-Scopespecificity). But sometimes the variables are scoped equally. If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
 
-Read more about our recommendations for [variable naming](/docs/getting-started/best-practices/variables.md#variable-naming).
+Read more about our recommendations for [variable naming](/docs/getting-started/best-practices/variables/#variable-naming).
 
 ## Learn more
 

@@ -16,7 +16,7 @@ In order to provide the ability to perform raw scripting and just execute exactl
 
 The script that is provided by the user is executed "as-is" through the open SSH connection so the actual shell will depend on what you have configured for that account and it may not actually be bash. Keep this in mind when expecting certain commands to be available.
 
-The bootstrapping script that is provided by Calamari will not be available and so you will lose the ability to use helper functions like [new\_octopusartifact](docs/projects/deployment-process/artifacts.md), [set\_octopusvariable](/docs/projects/variables/output-variables/) or [get\_octopusvariable](/docs/deployments/custom-scripts/). You can still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
+The bootstrapping script that is provided by Calamari will not be available and so you will lose the ability to use helper functions like [new\_octopusartifact](/docs/projects/deployment-process/artifacts/), [set\_octopusvariable](/docs/projects/variables/output-variables/) or [get\_octopusvariable](/docs/deployments/custom-scripts/). You can still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
 
 While still available as an option in the UI, raw scripts cannot currently be sourced from inside a package unless manually extracted & executed in conjunction with a `Transfer a Package` step.
 :::

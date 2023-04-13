@@ -28,7 +28,7 @@ If the file undergoing variable replacement includes a string that *shouldn't* 
 | `##{NotToBeReplaced}` | `#{NotToBeReplaced}` |
 
 :::info
-Also read about [common mistakes for variables](/docs/projects/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes) for more information
+Also read about [common mistakes for variables](/docs/projects/variables/sensitive-variables/#Sensitivevariables-Avoidingcommonmistakes) for more information
 :::
 
 ## Using variables in step definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
@@ -54,8 +54,8 @@ The capabilities of the extended syntax are:
 - [Conditionals](#VariableSubstitutionSyntax-Conditionalsconditionals) - `if`, `if-else` and `unless`
 - [Repetition](#VariableSubstitutionSyntax-Repetition) - `each`
 - [Filters](#VariableSubstitutionSyntax-Filters) - `HtmlEscape`, `Markdown` etc.
-- [Differences from regular variable bindings](/docs/projects/variables/variable-filters.md#VariableSubstitutionSyntax-Differencesfromregularvariablebindings)
-- [JSON Parsing](/docs/projects/variables/variable-filters.md#VariableSubstitutionSyntax-JSONParsingjson)
+- [Differences from regular variable bindings](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-Differencesfromregularvariablebindings)
+- [JSON Parsing](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-JSONParsingjson)
 
 :::hint
 [Octostache](https://github.com/OctopusDeploy/Octostache) is the open source component that powers this feature.
@@ -300,7 +300,7 @@ The resulting text will be:
 :::hint
 **Tips:**
 - Note both operands **don't** include the Octostache syntax denoting them as a variable e.g. `#{WidgetIdSelector}`. This is because within a conditional expression Octostache is already able to evaluate the operands as variable values.
-- The template references `.Value` which is a property available when using [JSON repetition](/docs/projects/variables/variable-filters.md#VariableSubstitutionSyntax-RepetitionoverJSON).
+- The template references `.Value` which is a property available when using [JSON repetition](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-RepetitionoverJSON).
 :::
 
 #### Iterating over comma-separated values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}

@@ -19,7 +19,7 @@ The general auto-approval process looks something like this:
     3. If a schema change command is found set a DBA Approval Required [output variable](/docs/projects/variables/output-variables/) to `True`.
     4. If no schema change command is found set the same DBA Approval Required [output variable](/docs/projects/variables/output-variables/) to `False`. 
 3. Notify the approvers when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
-4. Pause for a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
+4. Pause for a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
 5. Deploy database changes.
 6. Send notifications on the status of deployments.
 

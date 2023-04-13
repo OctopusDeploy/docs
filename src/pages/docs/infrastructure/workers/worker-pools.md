@@ -68,7 +68,7 @@ The **Octopus Web Portal** is worker pool aware.  If you haven't configured pool
 
 ## Configuring a cloud target to have a Default Worker Pool
 
-Cloud targets such as [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions/) and [Kubernetes targets](/docs/infrastructure/deployment-targets/kubernetes-target/) can set their own default worker pool, both for deployment steps and [health checks](/docs/infrastructure/deployment-targets/machine-policies.md#health-check).  If a step is targeted at a cloud target and the worker pool selected for the step is the default pool, the cloud target's default pool is used.  This allows setting up workers that are co-located with cloud targets.  Another option is locking down cloud targets so the only machines that can deploy are co-located polling workers. 
+Cloud targets such as [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions/) and [Kubernetes targets](/docs/infrastructure/deployment-targets/kubernetes-target/) can set their own default worker pool, both for deployment steps and [health checks](/docs/infrastructure/deployment-targets/machine-policies/#health-check).  If a step is targeted at a cloud target and the worker pool selected for the step is the default pool, the cloud target's default pool is used.  This allows setting up workers that are co-located with cloud targets.  Another option is locking down cloud targets so the only machines that can deploy are co-located polling workers. 
 
 ## Variables
 

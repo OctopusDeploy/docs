@@ -22,7 +22,7 @@ Octopus supports the retrieval of sensitive values from a number of Secret Manag
 
 ![Aure Key Vault Retrieve Secrets step template](images/azure-keyvault-retrieve-secrets-step-in-process.png "width=500")
 
-Each of the community step templates work by retrieving secrets from the Secret Manager/Key Vault and create [sensitive output variables](/docs/projects/variables/output-variables.md#sensitive-output-variables) for use in your executing deployments and runbooks.
+Each of the community step templates work by retrieving secrets from the Secret Manager/Key Vault and create [sensitive output variables](/docs/projects/variables/output-variables/#sensitive-output-variables) for use in your executing deployments and runbooks.
 
 Octopus has the following community step templates for integrating with Secret Manager/Key Vault tools:
 
@@ -42,7 +42,7 @@ View working examples of all of our Secrets Management community step templates 
 
 Variables, such as passwords or API keys can be marked as **sensitive**. 
 
-Just like non-sensitive variables they can [reference other variables](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](/docs/projects/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#Sensitivevariables-Avoidingcommonmistakes).
+Just like non-sensitive variables they can [reference other variables](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](/docs/projects/variables/sensitive-variables/#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#Sensitivevariables-Avoidingcommonmistakes).
 
 ### Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
 

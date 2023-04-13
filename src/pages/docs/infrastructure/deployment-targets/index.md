@@ -19,7 +19,7 @@ Deployment targets are added in different ways, depending on the type of target
 
 - [Listening and Polling Windows Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/)
 - [Linux SSH connection](/docs/infrastructure/deployment-targets/linux/ssh-target/)
-- [Linux Tentacle](docs/infrastructure/deployment-targets/tentacle/linux/)
+- [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/)
 - [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/)
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/)
 - [Azure Service Fabric cluster](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/)

@@ -60,8 +60,8 @@ Email steps are added to deployment processes in the same way as other steps.
 Octopus will build the resulting recipient list during the deployment, remove duplicate emails addresses, and send the email to each recipient.
 docs
 
-7. Provide a subject line for the emails. The subject can contain Octopus [basic variable syntax](/docs/projects/variables/variable-substitutions.md#basic-syntax-variablesubstitutionsyntax-basicsyntax).
-8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/projects/variables/variable-substitutions.md#extended-syntax-variablesubstitutionsyntax-extendedsyntax) to include information about the deployment in the email. See the [Email Template Examples](#email-template-examples) below.
+7. Provide a subject line for the emails. The subject can contain Octopus [basic variable syntax](/docs/projects/variables/variable-substitutions/#basic-syntax-variablesubstitutionsyntax-basicsyntax).
+8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/projects/variables/variable-substitutions/#extended-syntax-variablesubstitutionsyntax-extendedsyntax) to include information about the deployment in the email. See the [Email Template Examples](#email-template-examples) below.
 9. You can set conditions to determine when the step should run. For instance:
 
    - Send the email only for successful deployments to certain environments.
@@ -158,7 +158,7 @@ Iterating over `Octopus.Action` like this above is a useful way to retrieve data
 
 #### Referencing additional package metadata
 
-Using [custom scripts](/docs/deployments/custom-scripts/) you can include additional [reference packages](docs/deployments/custom-scripts/run-a-script-step.md#referencing-packages). This example displays package ID and version numbers for any steps that include additional reference packages.
+Using [custom scripts](/docs/deployments/custom-scripts/) you can include additional [reference packages](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages). This example displays package ID and version numbers for any steps that include additional reference packages.
 
 ```xml
 #{each action in Octopus.Action}

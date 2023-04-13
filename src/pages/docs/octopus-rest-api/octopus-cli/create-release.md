@@ -246,7 +246,7 @@ octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 -
 
 The example above uses `1.0.1` for `StepA`, and the latest version available at the moment for `StepB`.
 
-For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployments/custom-scripts/run-a-script-step.md#referencing-packages
+For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages
 )), the format `StepName:PackageName:Version` can also be used:  
 
 ```bash

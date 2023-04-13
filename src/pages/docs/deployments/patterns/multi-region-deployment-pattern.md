@@ -34,7 +34,7 @@ Environments and Lifecycles are a really good solution if you want to enforce a 
 
 ## Rolling solution
 
-[Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md) enable you to configure [Rolling deployments](/docs/deployments/patterns/rolling-deployments/) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
+[Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/) enable you to configure [Rolling deployments](/docs/deployments/patterns/rolling-deployments/) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
 ![](images/production.png "width=500")
 

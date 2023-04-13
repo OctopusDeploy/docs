@@ -28,7 +28,7 @@ octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
 
 For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/).
 
-If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli.md#create-zip-packages). 
+If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli/#create-zip-packages). 
 
 When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories/).
 

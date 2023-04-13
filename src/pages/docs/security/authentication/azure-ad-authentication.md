@@ -13,7 +13,7 @@ You can use Azure Active Directory (AAD) to authenticate when logging in to the 
 3. Configure your Octopus Deploy instance to trust and use AAD as an Identity Provider.
 
 :::hint
-If your Octopus database is running in Azure SQL, it's also possible to configure an Azure Active Directory (AAD) Managed identity for use with your SQL database. See our [Using Azure Active Directory (AAD) in Azure SQL](/docs/installation/sql-server-database.md#using-aad-in-azure-sql) section for further information.
+If your Octopus database is running in Azure SQL, it's also possible to configure an Azure Active Directory (AAD) Managed identity for use with your SQL database. See our [Using Azure Active Directory (AAD) in Azure SQL](/docs/installation/sql-server-database/#using-aad-in-azure-sql) section for further information.
 :::
 
 ## Configure Azure Active Directory (AAD)
@@ -84,7 +84,7 @@ If you want to manage user/team membership via AAD, you must configure Roles for
    ![Apply App Role value and name](images/aad-new-app-role-create-apply.png "width=500")
 
    :::hint
-   The **Value** property is the most important field. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams/external-groups-and-roles.md#ExternalGroupsandRoles-AddExternalRole) in Octopus Deploy.
+   The **Value** property is the most important field. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams/external-groups-and-roles/#ExternalGroupsandRoles-AddExternalRole) in Octopus Deploy.
    :::
 
 ##### Edit AAD App Manifest

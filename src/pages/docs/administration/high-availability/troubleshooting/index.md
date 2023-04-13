@@ -46,12 +46,12 @@ This usually means the user account running the Octopus Server does not have the
 
 ## Task logs are empty for certain deployments
 
-Sometimes you go to a deployment and there are no steps displayed, and detailed logs are not available for the deployment. Sometimes refreshing your browser fixes it and the logs come back. The cause for this is when you have not configured [shared storage](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md#shared-storage) correctly. The most common situation is when you have configured each node to use a folder on a local disk instead of a shared network location.
+Sometimes you go to a deployment and there are no steps displayed, and detailed logs are not available for the deployment. Sometimes refreshing your browser fixes it and the logs come back. The cause for this is when you have not configured [shared storage](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises/#shared-storage) correctly. The most common situation is when you have configured each node to use a folder on a local disk instead of a shared network location.
 
 To fix this problem you should:
 
 1. Plan some downtime for your Octopus HA cluster.
-2. Create shared storage as [described here](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md#shared-storage).
+2. Create shared storage as [described here](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises/#shared-storage).
 3. Put your Octopus HA cluster into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode/) after draining tasks from each node.
 3. Reconfigure your Octopus HA cluster to use the shared storage.
 4. Copy all of the files into the shared storage location - there shouldn't be any filename collisions since each node will generally run independent tasks.

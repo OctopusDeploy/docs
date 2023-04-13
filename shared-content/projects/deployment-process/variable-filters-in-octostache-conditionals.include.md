@@ -1,10 +1,10 @@
 It's possible to use [variable filters](/docs/projects/variables/variable-filters/) to help create both complex run conditions and variable expressions, but there are limitations to be aware of.
 
 :::warning
-Using variable filters *inline* in the two [conditional statements](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-Conditionalsconditionals) `if` and `unless` are **not supported**.
+Using variable filters *inline* in the two [conditional statements](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-Conditionalsconditionals) `if` and `unless` are **not supported**.
 :::
 
-If you wanted to include a variable run condition to run a step *only* when the release had a prerelease tag matching `mybranch`, you might be tempted to use the `VersionPreReleasePrefix` [extraction filter](/docs/projects/variables/variable-filters.md#VariableSubstitutionSyntax-ExtractionFilters) to write a condition like this:
+If you wanted to include a variable run condition to run a step *only* when the release had a prerelease tag matching `mybranch`, you might be tempted to use the `VersionPreReleasePrefix` [extraction filter](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-ExtractionFilters) to write a condition like this:
 
 ```
 #{if Octopus.Release.Number | VersionPreReleasePrefix == "mybranch"}true#{/if}

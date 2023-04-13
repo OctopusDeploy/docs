@@ -30,7 +30,7 @@ octo pack --id NginxSampleWebApp --version 1.0.0 --basePath published-app
 ```
 
 :::hint
-If you are using the built-in repository, you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli.md#create-zip-packages) instead. The generated nupkg or zip file should then be then be [pushed to a repository](/docs/packaging-applications/package-repositories/).
+If you are using the built-in repository, you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli/#create-zip-packages) instead. The generated nupkg or zip file should then be then be [pushed to a repository](/docs/packaging-applications/package-repositories/).
 :::
 
 ## Learn more

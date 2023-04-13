@@ -40,6 +40,6 @@ Because Octopus can consume packages from multiple feeds, we recommend using dif
 
 ## Planning package repository placement {#Packagerepositories-Placement}
 
-By default, when you [deploy a package](/docs/deployments/packages/) to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by changing the setting of the [Action System Variable](/docs/projects/variables/system-variables.md#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle` from `False` to `True`. When set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.
+By default, when you [deploy a package](/docs/deployments/packages/) to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by changing the setting of the [Action System Variable](/docs/projects/variables/system-variables/#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle` from `False` to `True`. When set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.
 
 To reduce network latency, when your package repository is in close proximity to the Octopus Server leave `Octopus.Action.Package.DownloadOnTentacle` set to the default value of `False`. Alternatively, if you have explicitly set the Tentacles to download packages by the Tentacle to `True`, you should consider placing your package repository in close proximity to your Tentacles.

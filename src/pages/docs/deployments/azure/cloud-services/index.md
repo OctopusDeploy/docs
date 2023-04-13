@@ -77,7 +77,7 @@ Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bu
 
 From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
 
-We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli/).
+We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules/) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli/).
 :::
 
 If the Azure PowerShell module is available, it will be loaded for your convenience, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticating with Azure yourself. 
@@ -170,7 +170,7 @@ If you choose to override the deployment script, remember that your `DeployToAzu
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md): enable [rolling deployments](/docs/deployments/patterns/rolling-deployments/) across multiple geographic regions.
+1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/): enable [rolling deployments](/docs/deployments/patterns/rolling-deployments/) across multiple geographic regions.
 2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/releases/lifecycles/) to create a strict release promotion process.
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.

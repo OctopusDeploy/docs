@@ -9,7 +9,7 @@ navOrder: 1
 Most commands support printing the result in JSON format.
 
 :::warning
-[Dump Deployment](dump-deployments.md), [Export](export.md) and [Import](import/) do not support JSON output.
+[Dump Deployment](dump-deployments/), [Export](export/) and [Import](import/) do not support JSON output.
 :::
 
 To access JSON formatted output, use the `--outputformat=json` parameter.

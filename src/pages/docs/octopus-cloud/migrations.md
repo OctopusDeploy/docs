@@ -104,7 +104,7 @@ Please do not skip Step 3.  In doing step 3, you will start your migration in a 
 
 ### Testing External Package Repository Connectivity
 
-If you use an external package repository, such as a self-hosted Artifactory instance, you'll need to test that Octopus Cloud can see and connect to it.  You might have to expose that server to the internet, or leverage a [proxy server](docs/infrastructure/deployment-targets/proxy-support.md#ProxySupport-WorkingwithExternalNuGetFeeds).
+If you use an external package repository, such as a self-hosted Artifactory instance, you'll need to test that Octopus Cloud can see and connect to it.  You might have to expose that server to the internet, or leverage a [proxy server](/docs/infrastructure/deployment-targets/proxy-support/#ProxySupport-WorkingwithExternalNuGetFeeds).
 
 ### Proof of Concept Deployments
 
@@ -188,7 +188,7 @@ If anything goes wrong immediately after the migration, you can re-enable this p
 
 ## Deprecate your Octopus Server instance
 
-Eventually, you will migrate all your projects over to Octopus Cloud.  When that day comes, we recommend [turning on maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md) and setting the [task cap to 0](/docs/support/increase-the-octopus-server-task-cap/) on your Octopus Server.  That will make your Octopus Server read-only.  No new deployments will be triggered.  Keep this running for a short while to review any old audit logs.
+Eventually, you will migrate all your projects over to Octopus Cloud.  When that day comes, we recommend [turning on maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode/) and setting the [task cap to 0](/docs/support/increase-the-octopus-server-task-cap/) on your Octopus Server.  That will make your Octopus Server read-only.  No new deployments will be triggered.  Keep this running for a short while to review any old audit logs.
 
 At this point, we recommend deleting all the tentacle instances still pointing to your Octopus Server instance.  You can run this script in the [script console](/docs/administration/managing-infrastructure/script-console/) to delete the original tentacle instance.  Please test this on a few non-production servers first.
 

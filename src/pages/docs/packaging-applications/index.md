@@ -32,7 +32,7 @@ Avoid using numbers in your package ID as it could result in the version number 
 
 ## Version numbers {#version-numbers}
 
-Octopus supports [Semantic Versioning](/docs/packaging-applications/create-packages/versioning.md#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds/) in which case you will need to use [Maven Versions](/docs/packaging-applications/create-packages/versioning.md#maven).
+Octopus supports [Semantic Versioning](/docs/packaging-applications/create-packages/versioning/#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds/) in which case you will need to use [Maven Versions](/docs/packaging-applications/create-packages/versioning/#maven).
 
 The version number needs to be applied to your package after the package ID and before the format. For instance. The version number in our sample package is **1.0.0**.
 

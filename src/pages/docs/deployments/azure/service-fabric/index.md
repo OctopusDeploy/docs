@@ -20,7 +20,7 @@ Learn how to [package a Service Fabric application](/docs/deployments/azure/serv
 
 Octopus comes with two built-in step templates facilitating deployment and management of Azure Service Fabric apps.
 
-- [Deploy a Service Fabric App](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md#step-4-create-the-service-fabric-application-deployment-step)
+- [Deploy a Service Fabric App](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster/#step-4-create-the-service-fabric-application-deployment-step)
 - [Run a Service Fabric SDK PowerShell Script](/docs/deployments/custom-scripts/service-fabric-powershell-scripts/)
 
 ## Security modes

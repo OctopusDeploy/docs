@@ -70,7 +70,7 @@ public class Commit
 }
 ```
 
-The packages in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-Repetition).  e.g.
+The packages in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-Repetition).  e.g.
 
 ```
 #{each package in Octopus.Release.Package}
@@ -171,7 +171,7 @@ public class BuildPackage
 }
 ```
 
-The builds in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-Repetition).  e.g.
+The builds in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-Repetition).  e.g.
 
 ```
 #{each build in Octopus.Release.Builds}
@@ -292,7 +292,7 @@ Deployment-level variables are drawn from the project and release being deployed
 | Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Deployment.Changes` <br/>A JSON array of `ReleaseChanges` objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). | This will be JSON (see below) |
-|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking/) is enabled. | This will be JSON (see below) |
+|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-notes/). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking/) is enabled. | This will be JSON (see below) |
 |`Octopus.Deployment.PackageBuildInformation` <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/build-information/) across all [changes in the deployment](/docs/releases/deployment-notes/). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed | This will be JSON (see below) |
 
 The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChanges` objects matching the following C# classes:
@@ -395,7 +395,7 @@ Action-level variables are available during execution of an action. Indexer noti
 
 ### Reference package variables {#reference-package-variables}
 
-When [referencing packages](/docs/deployments/custom-scripts/run-a-script-step.md#referencing-packages) in custom scripts, they can contribute variables that can be used just like any other variable. The variables are available **per package**. Assuming a referenced package named `Acme`:
+When [referencing packages](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages) in custom scripts, they can contribute variables that can be used just like any other variable. The variables are available **per package**. Assuming a referenced package named `Acme`:
 
 | Name and description | Example |
 | -------------------- | ------- |

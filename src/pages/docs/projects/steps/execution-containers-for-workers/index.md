@@ -6,14 +6,14 @@ description: How to set a step in your deployment/runbook process to run inside 
 navOrder: 30
 ---
 
-For a [step](/docs/projects/steps/) running on a [worker](docs/infrastructure/workers/) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker/), you can select a Docker image to execute the step inside of.
+For a [step](/docs/projects/steps/) running on a [worker](/docs/infrastructure/workers/) or on the [Octopus Server](/docs/infrastructure/workers/built-in-worker/), you can select a Docker image to execute the step inside of.
 
 When an execution container is configured for a step, Octopus will still connect to the worker machine via a [Tentacle or SSH](/docs/infrastructure/workers/#register-a-worker-as-a-listening-tentacle). The difference is that the specified image will be run as a container and the step will be executed inside the container.
 
 See the [blog post](https://octopus.com/blog/execution-containers) announcing this feature for some added context.
 
 ## Requirements
-You need Docker installed and running on the [worker](docs/infrastructure/workers/)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker/)), in order to use execution containers for workers
+You need Docker installed and running on the [worker](/docs/infrastructure/workers/)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker/)), in order to use execution containers for workers
 
 ### Octopus cloud dynamic worker pools 
 [Octopus Cloud dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools/) have Docker pre-installed and support execution containers.
@@ -180,6 +180,6 @@ Including one of these directives will result in the step failing.
 
 ## Collecting artifacts with execution containers
 
-You can collect Octopus [artifacts](docs/projects/deployment-process/artifacts/) from steps used with the execution containers feature. 
+You can collect Octopus [artifacts](/docs/projects/deployment-process/artifacts/) from steps used with the execution containers feature. 
 
 !include <collect-artifact-in-execution-container>

@@ -23,7 +23,7 @@ To perform an in-place upgrade, follow these steps:
 
 ### 1. Back up Your Octopus 2.6.5 database and Master Key {#Manualupgrade-1.BackupyourOctopus2.6databaseandmasterkey}
 
-See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md)[ page for instructions on backing up your database.](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6/)
+See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6/)[ page for instructions on backing up your database.](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6/)
 
 ### 2. Install Octopus 2018.10 LTS on your Octopus Server {#Manualupgrade-2.InstallOctopus3.xonyourOctopusServer}
 

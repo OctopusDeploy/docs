@@ -15,7 +15,7 @@ Before you configure an SSH deployment target, review the SSH target [requiremen
 
 ## Create an SSH account
 
-The SSH connection you configure will use an account with either an [SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/accounts/username-and-password/) that has access to the remote host.
+The SSH connection you configure will use an account with either an [SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair/) or a [Username and Password](/docs/infrastructure/accounts/username-and-password/) that has access to the remote host.
 
 See [accounts](/docs/infrastructure/accounts/ssh-key-pair/) for instructions to configure the account.
 
@@ -37,7 +37,7 @@ Learn more about health checks and [machine policies](/docs/infrastructure/deplo
 
 ## Running scripts on SSH endpoints
 
-You can use [raw scripting](/docs/deployments/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/deployment-targets/machine-policies/) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
+You can use [raw scripting](/docs/deployments/custom-scripts/raw-scripting/) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/deployment-targets/machine-policies/) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
 
 ## Learn more
 

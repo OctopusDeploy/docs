@@ -49,7 +49,7 @@ In strict SemVer 2.0, a version like `1.5.2-rc.1` is considered a **pre-releas
 
 When it comes to application versioning, we suggest the pre-release tag (the bit after the `-`) can be used however works best for you. For example, you could build version `1.5.2-rc` of your application and configure a [Channel](/docs/releases/channels/) to promote packages like `*-rc` to Staging and eventually Production.
 
-If you are using the [Deployment Notes](/docs/releases/deployment-notes/) features, note that pre-releases are handled differently to other releases by that feature and you may need to take that into consideration in your [versioning](/docs/releases/deployment-notes.md#versioning) strategy.
+If you are using the [Deployment Notes](/docs/releases/deployment-notes/) features, note that pre-releases are handled differently to other releases by that feature and you may need to take that into consideration in your [versioning](/docs/releases/deployment-notes/#versioning) strategy.
 
 Learn more about Semantic Version at [semver.org](http://semver.org/).
 
