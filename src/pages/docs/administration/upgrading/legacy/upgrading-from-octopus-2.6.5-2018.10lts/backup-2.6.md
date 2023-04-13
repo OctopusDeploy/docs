@@ -9,7 +9,7 @@ All of the data and settings managed by Octopus - the projects, environments, de
 
 You can view and change the backup settings by browsing to the *Configuration* tab in the Octopus Web Portal, and then clicking the *Backup* tab.
 
-![](images/3277492.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3277492.png "width=500")
 
 ## Encrypted backups
 
@@ -23,11 +23,11 @@ Making a copy of your Master Key is easy:
 
 1. Open the **Octopus Manager** from the start menu/start screen:
 
-   ![](images/3277161.png "width=500")
+   ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3277161.png "width=500")
 
 2. Click **Copy Master Key to clipboard...**:
 
-   ![](images/3277158.png "width=500")
+   ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3277158.png "width=500")
 
 3. Paste the Master Key into a text editor or a secure enterprise password manager, and save it:
 
@@ -35,4 +35,4 @@ Making a copy of your Master Key is easy:
 
 You can take a backup of your Octopus database immediately, simply by clicking the green **Backup now** button.
 
-![](images/3277490.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3277490.png "width=500")

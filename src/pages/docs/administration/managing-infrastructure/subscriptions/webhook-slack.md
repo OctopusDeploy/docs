@@ -22,7 +22,7 @@ A number of technologies can be used to consume the webhook from Octopus.  This 
 
 Configure a subscription in Octopus to send any events that occur against the `User`, `User Role`, and `Scoped User Role` documents:
 
-![Copy webhook URL](images/subscriptions-user-webhook-2.png "width=800")
+![Copy webhook URL](/docs/administration/managing-infrastructure/subscriptions/images/subscriptions-user-webhook-2.png "width=800")
 
 As a starting point, the Payload URL is set to a value on  [RequestBin](https://requestbin.com/), which provides access to the JSON being sent by Octopus before the function is built.
 
@@ -33,19 +33,19 @@ A Slack app must be configured to enable a message to be sent through to Slack.
 1. In Slack, go to [**Your Apps**](https://api.slack.com/apps) and click **Create New App**.
 
 2. Enter a useful **App Name** and select the relevant Development Slack Workspace and click **Create App**:
-![Create a Slack App](images/slack-add-app-1.png "width=600")
+![Create a Slack App](/docs/administration/managing-infrastructure/subscriptions/images/slack-add-app-1.png "width=600")
 
 3. Select **Incoming Webhooks** from the **Add features and functionality** section:
-![Select Incoming Webhooks](images/slack-add-app-2.png "width=600")
+![Select Incoming Webhooks](/docs/administration/managing-infrastructure/subscriptions/images/slack-add-app-2.png "width=600")
 
 4. Click **Add New Webhook to Workspace**:
-![Add New Webhook to Workspace](images/slack-add-app-3.png "width=600")
+![Add New Webhook to Workspace](/docs/administration/managing-infrastructure/subscriptions/images/slack-add-app-3.png "width=600")
 
 5. Select the channel to post the messages to:
-![Select the channel](images/slack-add-app-4.png "width=600")
+![Select the channel](/docs/administration/managing-infrastructure/subscriptions/images/slack-add-app-4.png "width=600")
 
 6. Copy the webhook URL, this is the value for the `SLACK_URI_APIKEY` environment variable on the Azure Function App:
-![Copy webhook URL](images/slack-add-app-5.png "width=600")
+![Copy webhook URL](/docs/administration/managing-infrastructure/subscriptions/images/slack-add-app-5.png "width=600")
 
 
 ## Create an Azure Function App 
@@ -300,22 +300,22 @@ Before pushing this to Azure it can be tested locally.  The `Run` method uses th
 
 Hit F5 to compile and run the app, a URL will be output to the terminal to which a `POST` test request can be sent:
 
-![Debug URL](images/azure-function-debug-1.png "width=800")
+![Debug URL](/docs/administration/managing-infrastructure/subscriptions/images/azure-function-debug-1.png "width=800")
 
 [Postman](https://www.postman.com/) can send a test request, passing in a test JSON payload. 
 
-![Postman](images/azure-function-debug-postman.png "width=800")
+![Postman](/docs/administration/managing-infrastructure/subscriptions/images/azure-function-debug-postman.png "width=800")
 
 If this is configured correctly, it will return `200 OK`, and the message will appear in Slack!
 
-![Slack message](images/slack-message.png "width=800")
+![Slack message](/docs/administration/managing-infrastructure/subscriptions/images/slack-message.png "width=800")
 
 
 ### Build the Azure App Function
 
 This example uses [Github Actions](https://github.com/features/actions) to build the function code, package it, and push it to Octopus, which deploys it to Azure. 
 
-![Build output](images/github-action-build-output.png "width=800")
+![Build output](/docs/administration/managing-infrastructure/subscriptions/images/github-action-build-output.png "width=800")
 
 The build YAML can be found in `.github/workflows/AzureSlackFunction.yaml` in the [samples repo](https://oc.to/SamplesSubscriptionsRepo).
 
@@ -325,7 +325,7 @@ The Azure Function App created here is deployed to with Octopus, using a deploym
 
 A [project](/docs/projects/) has been configured to deploy the Function App.  
 
-![Octopus Project](images/octopus-azure-function-project.png "width=800")
+![Octopus Project](/docs/administration/managing-infrastructure/subscriptions/images/octopus-azure-function-project.png "width=800")
 
 The project has two steps:
 1. Deploy the Azure Function App.
@@ -337,10 +337,10 @@ The project can be viewed in the `AzFuncNotifySlack` project on our Octopus [sam
 
 If an Octopus user is changed, the change is shown in the audit trail.  
 
-![Octopus Project](images/user-change-audit-entry.png "width=800")
+![Octopus Project](/docs/administration/managing-infrastructure/subscriptions/images/user-change-audit-entry.png "width=800")
 
 And the message is sent from the subscription webhook to the Azure Function App in Azure and then on to Slack.
 
-![Slack message](images/slack-message-final.png "width=800")
+![Slack message](/docs/administration/managing-infrastructure/subscriptions/images/slack-message-final.png "width=800")
 
 

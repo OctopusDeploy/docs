@@ -8,7 +8,7 @@ navOrder: 30
 
 Maintaining the nodes in your Octopus Server High Availability cluster can be done on the **Nodes** tab in the **Configuration** area:
 
-![](images/nodes.png "width=500")
+![](/docs/administration/high-availability/maintain/images/nodes.png "width=500")
 
 Information regarding each of your nodes is displayed here.  You can see:
 
@@ -23,7 +23,7 @@ Information regarding each of your nodes is displayed here.  You can see:
 
 Octopus Server nodes will check-in at regular intervals.  If an Octopus Server node goes offline a warning will be displayed and the time that it went offline can be determined by looking at the **last seen** field.
 
-![](images/nodes-last-seen.png "width=500")
+![](/docs/administration/high-availability/maintain/images/nodes-last-seen.png "width=500")
 
 ## Tasks
 

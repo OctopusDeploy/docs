@@ -25,15 +25,15 @@ Octopus Server Community has limits that apply:
 
 From the [Octopus Control Center](https://octopus.com/control-center/) dashboard, navigate to **{{Server Licenses, View}}**, select your Server license and on the **Overview** pane under the serial select **Change license**.
 
-![](images/octopus-server-change-license.png "width=500")
+![](/docs/administration/managing-licenses/community/images/octopus-server-change-license.png "width=500")
 
 This will take you to the **Manage your licenses** page. Here you can switch to a Community Server license by clicking on **Change to Community**.
 
-![](images/octopus-server-community.png "width=500")
+![](/docs/administration/managing-licenses/community/images/octopus-server-community.png "width=500")
 
 Lastly, you'll be shown a preview screen where you can review the changes. Once you're happy, click the **Agree, change license** button to complete your switch to the Community edition.
 
-![](images/octopus-server-agree.png "width=500")
+![](/docs/administration/managing-licenses/community/images/octopus-server-agree.png "width=500")
 
 ## Cloud Community
 
@@ -55,7 +55,7 @@ The Octopus Cloud Community plan has limits that apply.
 
 From the [Octopus Control Center](https://octopus.com/control-center/) dashboard, navigate to **{{Cloud Instances, View}}**, select your instance and click on the **Finance** pane. Once there, click on the **Change Plan** button, and you'll be presented with an option at the bottom of the page. To complete the switch to Community Cloud, click on the **Switch to community plan** link.
 
-![](images/octopus-cloud-community.png "width=500")
+![](/docs/administration/managing-licenses/community/images/octopus-cloud-community.png "width=500")
 
 ## Restricted permissions
 

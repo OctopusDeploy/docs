@@ -13,7 +13,7 @@ If your reporting tool of choice can't consume the XML feed, you can query the S
 - The main benefit of this approach is that it supports Spaces in reporting by default.
 ::::
 
-![](images/sql.png "width=500")
+![](/docs/administration/reporting/images/sql.png "width=500")
 
 A few notes about accessing the table directly:
 

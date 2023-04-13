@@ -12,27 +12,27 @@ In normal usage, there is one Octopus Server, and one instance of the Tentacle a
 
 Octopus and Tentacle Manager both have the ability to manage multiple instances. You can launch Octopus Manager or Tentacle Manager via the Windows start screen. Then you can use the instance selector drop down to create or manage instances:
 
-![](images/3278042.png "width=500")
+![](/docs/administration/managing-infrastructure/images/3278042.png "width=500")
 
 You can use this drop down to create new instances, or to switch between managing instances.
 
 When creating an instance, you will be asked to provide a name. Each instance needs a unique name.
 
-![](images/3278041.png "width=500")
+![](/docs/administration/managing-infrastructure/images/3278041.png "width=500")
 
 After adding an instance, you'll then be asked to walk through the setup wizard for that instance.
 
-![](images/3278040.png "width=500")
+![](/docs/administration/managing-infrastructure/images/3278040.png "width=500")
 
 Each configured instance has its own configuration files, home directory and Windows Services. For example, this machine is configured with many instances of Tentacle:
 
-![](images/3278043.png "width=500")
+![](/docs/administration/managing-infrastructure/images/3278043.png "width=500")
 
 ## Command-line {#Managingmultipleinstances-Commandline}
 
 All wizards that you follow in the Octopus or Tentacle Manager provide the ability to export a command-line script of the actions taken. This can be done with the **Show Script** option at the end of every wizard:
 
-![](images/3278039.png "width=500")
+![](/docs/administration/managing-infrastructure/images/3278039.png "width=500")
 
 All command line operations accept the instance name as an argument. For example, to stop and start a running Tentacle, the command would usually be:
 
@@ -82,4 +82,4 @@ If Tentacles are running under different accounts, please ensure the [upgrade ac
 
 If you no longer need an instance, you can delete it from the Octopus or Tentacle Manager.
 
-![](images/3278038.png "width=500")
+![](/docs/administration/managing-infrastructure/images/3278038.png "width=500")

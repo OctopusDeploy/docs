@@ -15,7 +15,7 @@ Subscriptions can be accessed from the `Configuration` menu.
 For earlier versions of Octopus, Subscriptions can be accessed from the **{{Configuration > Audit > Subscriptions}}** menu. See the version-selector of the documentation to jump to your specific Octopus version.
 :::
 
-![](images/subscriptions-menu.png "width=800")
+![](/docs/administration/managing-infrastructure/subscriptions/images/subscriptions-menu.png "width=800")
 
 ## Email notifications {#Subscriptions-EmailNotifications}
 
@@ -31,7 +31,7 @@ Let's say you have some critical projects and you want your administrators to re
 
 Consider the following example:
 
-![](images/subscriptions-email-example.png "width=800")
+![](/docs/administration/managing-infrastructure/subscriptions/images/subscriptions-email-example.png "width=800")
 
 We can select the _Deployment-critical events_ group, which will automatically filter all deployment-critical events for us.
 

@@ -17,30 +17,30 @@ When upgrading from **Octopus 2.6** to **Octopus 2018.10 LTS** you can migrate y
 
 :::hint
 **The migrator can take a long time**
-Please see our [tips for minimizing the migration duration](minimize-migration-time/).
+Please see our [tips for minimizing the migration duration](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time/).
 :::
 
 ## Importing your 2.6 backup into 2018.10 LTS {#MigratingdatafromOctopus2.6to3.x-Importingyour2.6Backupinto3.x}
 
 To import your 2.6 Raven data into a 2018.10 LTS installation (generally this is run after a side-by-side upgrade) you need to select import from the Octopus Manager.
 
-![](images/3964992.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964992.png "width=500")
 
 This will open up the importer. From here you select that you want to import from a 2.6 backup file.
 
-![](images/3964993.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964993.png "width=500")
 
 You need to select your most recent 2.6 Backup file, and provide the Master Key associated with the backup you are importing. The next step lets you perform a preview of your import.
 
-![](images/3964994.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964994.png "width=500")
 
 When you deselect ***Preview only***, your import will run against the database. This cannot be reversed. The backup is treated as the truth, so any changes that have been made to the database (if this is not your first import) will be overwritten with the backup.
 
-![](images/3964995.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964995.png "width=500")
 
 If you need to use any of the options below to manage the data being imported you need to use the Show Script feature to run the migration via console.
 
-![](images/3964996.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964996.png "width=500")
 
 ### Migrating the built-in Octopus NuGet package repository {#MigratingdatafromOctopus2.6to3.x-PackageRepositoryMigratingthebuilt-inOctopusNuGetpackagerepository}
 
@@ -50,4 +50,4 @@ You will need to transfer them to the new server to `C:\Octopus\Packages`. Once
 
 ### Migrating historical data {#MigratingdatafromOctopus2.6to3.x-MaxAgeMigratinghistoricaldata}
 
-By default we migrate everything from your backup including all historical data. Learn about [minimizing migration time](minimize-migration-time/).
+By default we migrate everything from your backup including all historical data. Learn about [minimizing migration time](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time/).

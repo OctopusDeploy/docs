@@ -8,7 +8,7 @@ navOrder: 100
 
 To help you get started, we provide a sample Excel spreadsheet that you can connect to your own Octopus Server.
 
-![](images/3278354.png "width=500")
+![](/docs/administration/reporting/images/3278354.png "width=500")
 
 ## Getting started {#Reporting-Gettingstarted}
 
@@ -24,25 +24,25 @@ To change the source of the data:
 
 1. Go to the **DATA** ribbon tab in Excel, then click **Queries & Connections**:
 
-   ![](images/3278356.png "width=500")
+   ![](/docs/administration/reporting/images/3278356.png "width=500")
 
 2. Select the **Octopus Deployment history** connection, then click **Properties...**
 
-   ![](images/3278357.png "width=500")
+   ![](/docs/administration/reporting/images/3278357.png "width=500")
 
 3. Go to the **Definition** tab, then click **Browse...**
 
-   ![](images/3278358.png "width=500")
+   ![](/docs/administration/reporting/images/3278358.png "width=500")
 
 4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**.
 
-   ![](images/3278360.png "width=500")
+   ![](/docs/administration/reporting/images/3278360.png "width=500")
 
 ## Refreshing the data {#Reporting-Refreshingthedata}
 
 Once you have set up your connection, you can refresh the data from the source whenever you like. If you make your own customizations to the spreadsheet, you can save them, and simply refresh the data in the sheet whenever you like.
 
-![](images/3278361.png "width=500")
+![](/docs/administration/reporting/images/3278361.png "width=500")
 
 ## Using the XML feed {#Reporting-UsingtheXMLFeed}
 

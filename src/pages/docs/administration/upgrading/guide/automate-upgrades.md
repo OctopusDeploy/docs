@@ -161,7 +161,7 @@ Automating the upgrade of a Highly Available Octopus Deploy instance requires mo
 
 The recommendation is to use an Octopus Deploy runbook on another instance to upgrade the High Availability instance.  You can get a free license to do this with an [Octopus Cloud instance](https://octopus.com/start).
 
-![](images/upgrade-diagram.png "width=500")
+![](/docs/administration/upgrading/guide/images/upgrade-diagram.png "width=500")
 
 Each node will need a Tentacle installed on it.  You will need two roles for this to work.
 
@@ -170,7 +170,7 @@ Each node will need a Tentacle installed on it.  You will need two roles for thi
 
 The same sample script from above will be used, but it will be broken up into steps.  For example:
 
-![](images/automated-upgrade-runbook-process.png "width=500")
+![](/docs/administration/upgrading/guide/images/automated-upgrade-runbook-process.png "width=500")
 
 ### Variables
 
@@ -192,7 +192,7 @@ The upgrade process itself is very similar to upgrading a single node instance. 
 :::hint
 Aside from step 1, all steps should set a run condition to look at the variable `Upgrade.Octopus.HasNewVersion`
 
-![](images/automate-upgrade-variable-run-condition.png "width=500")
+![](/docs/administration/upgrading/guide/images/automate-upgrade-variable-run-condition.png "width=500")
 :::
 
 **1. Check for a new version (HAServer-Primary).**

@@ -22,7 +22,7 @@ This may unintentionally occur if you have copied or moved your Octopus folders 
 
 If you go to your nodes screen **{{Configuration,Nodes}}**, you can delete the node(s) that are no longer applicable using the Delete option in the node's ... overflow menu.
 
-![](images/deleting-nodes.png "width=500")
+![](/docs/administration/high-availability/troubleshooting/images/deleting-nodes.png "width=500")
 
 ## Octopus Server starts and stops again
 
