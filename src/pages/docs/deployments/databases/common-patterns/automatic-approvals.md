@@ -23,7 +23,7 @@ The general auto-approval process looks something like this:
 5. Deploy database changes.
 6. Send notifications on the status of deployments.
 
-![IMage showing an example auto approve deployment process](images/auto_approve_deployment_process.png "width=500")
+![IMage showing an example auto approve deployment process](/docs/deployments/databases/common-patterns/images/auto_approve_deployment_process.png "width=500")
 
 ## Output variables and run conditions
 
@@ -31,11 +31,11 @@ We recommend creating a variable in the project to reference the output variable
 
 For instance, `#{Octopus.Action[Auto-Approve Delta Report].Output.DBAApprovalRequired}`.
 
-![Image showing the auto approve output variable](images/auto_approve_output_variable_variable.png "width=500")
+![Image showing the auto approve output variable](/docs/deployments/databases/common-patterns/images/auto_approve_output_variable_variable.png "width=500")
 
 Creating a variable also makes it much easier to use in a [run condition](/docs/projects/steps/conditions/#run-condition):
 
-![](images/auto_approve_run_conditions.png "width=500")
+![](/docs/deployments/databases/common-patterns/images/auto_approve_run_conditions.png "width=500")
 
 :::hint
 We recommend setting the output variable to `True` or `False` because that is what the [run conditions](/docs/projects/steps/conditions/#run-condition) look for.  If you need an if/then statement, then in include it in the auto-approval script.
@@ -47,7 +47,7 @@ We recommend the auto-approval step write logs using `Write-Host` for PowerShell
 
 For important logs, such as when a command is found, leverage the [write highlight](/docs/deployments/custom-scripts/logging-messages-in-scripts/) command.  That is a custom command Octopus Deploy injects into the deployment process.  Using that command will show the message on the task summary screen.
 
-![](images/auto_approve_write_highlight.png "width=500")
+![](/docs/deployments/databases/common-patterns/images/auto_approve_write_highlight.png "width=500")
 
 ## Example
 

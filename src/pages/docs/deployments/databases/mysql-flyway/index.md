@@ -18,7 +18,7 @@ To add Flyway to your project:
 
 The Flyway download comes with everything it needs to execute, including a version of the Java Runtime Environment (JRE):
 
-![Flyway included in a Visual Studio project](images/visual-studio-code-add-flyway.png "width=500")
+![Flyway included in a Visual Studio project](/docs/deployments/databases/mysql-flyway/images/visual-studio-code-add-flyway.png "width=500")
 
 :::hint
 If Flyway doesn't find Java installed on the machine (detected by the presence of the JAVA_HOME environment variable), it will fall back to the included JRE.  The included version of the JRE has the .exe and .dll files located within a `bin` sub-directory.  It is often the case that source control will ignore any directory with the name `bin`, so be careful when including a Flyway project and you need the included JRE.
@@ -89,7 +89,7 @@ Then use the Date parameter to create some parameters:
   - **Date Format**: MM
   - **Default Value**: LocalDate.now();
 
-![An image showing the Jenkins' date parameters](images/jenkins-build-date-parameters.png "width=500")
+![An image showing the Jenkins' date parameters](/docs/deployments/databases/mysql-flyway/images/jenkins-build-date-parameters.png "width=500")
 
 Lastly, set the build name in the **Build Environment** section, by checking the `Set Build Name` checkbox and adding the build name, for instance: 
 
@@ -108,11 +108,11 @@ Those are the only two steps that are needed to package and push a Flyway projec
 
 The generated Date parameters will display.  Click **Build** to continue:
 
-![The generated date parameters](images/jenkins-build-parameters.png "width=500")
+![The generated date parameters](/docs/deployments/databases/mysql-flyway/images/jenkins-build-parameters.png "width=500")
 
 When the build is complete, you should have something like this:
 
-![Jenkins console output](images/jenkins-build-success.png "width=500")
+![Jenkins console output](/docs/deployments/databases/mysql-flyway/images/jenkins-build-success.png "width=500")
 
 Now that the build is complete, it's time to configure the Octopus Deploy project.
 
@@ -120,7 +120,7 @@ Now that the build is complete, it's time to configure the Octopus Deploy projec
 
 From the Octopus Web Portal, navigate to the **Projects** tab:
 
-![The Octopus project tab](images/octopus-projects.png "width=500")
+![The Octopus project tab](/docs/deployments/databases/mysql-flyway/images/octopus-projects.png "width=500")
 
 Select the **Project Group** and click the **ADD PROJECT** button.
 
@@ -137,7 +137,7 @@ In the new project, click **Variables** to configure the following variables:
 - `Project.MySql.Database.Admin.User.Password`: The password for the user account.
 - `Project.MySql.ConnectionString`: `jdbc:mysql://#{Project.MySql.Database.Server.Name}:#{Project.MySql.Database.Server.Port}/#{Project.MySql.Database.Name}?useUnicode=true`.
 
-![Variables defined in the Octopus Web Portal](images/octopus-project-variables-defined.png "width=500")
+![Variables defined in the Octopus Web Portal](/docs/deployments/databases/mysql-flyway/images/octopus-project-variables-defined.png "width=500")
 
 ### Deployment process
 
@@ -171,7 +171,7 @@ Fill in the fields:
 
 Add a `Manual Intervention` step and scope it to the **Production** environment.  This will pause the deployment so you can review what will be executed and determine whether or not to proceed when deploying to **Production**.
 
-![A manual intervention step in Octopus Deploy](images/octopus-project-manual-intervention.png "width=500")
+![A manual intervention step in Octopus Deploy](/docs/deployments/databases/mysql-flyway/images/octopus-project-manual-intervention.png "width=500")
 
 Add the **Flyway Migrate** step.  The fields for this are identical to the **Flyway Info** step that was added previously:
 
@@ -189,7 +189,7 @@ Add the **Flyway Migrate** step.  The fields for this are identical to the **Fly
 
 When complete, the deployment process will look like this:
 
-![The complete deployment process in Octopus Deploy](images/octopus-project-process.png "width=500")
+![The complete deployment process in Octopus Deploy](/docs/deployments/databases/mysql-flyway/images/octopus-project-process.png "width=500")
 
 ### Creating the release
 
