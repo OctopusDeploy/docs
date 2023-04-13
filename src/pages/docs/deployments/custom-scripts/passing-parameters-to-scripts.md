@@ -33,7 +33,7 @@ When you call external scripts (sourced from a file inside a package) you can pa
 
 You can define your parameters in the **Script Parameters** field using the format expected by your scripting execution environment (see below for examples).
 
-![Script Parameters](images/script-parameters.png "width=500")
+![Script Parameters](/docs/deployments/custom-scripts/images/script-parameters.png "width=500")
 
 :::hint
 **Delimiting string values**

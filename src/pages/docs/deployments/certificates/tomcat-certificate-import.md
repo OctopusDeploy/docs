@@ -10,7 +10,7 @@ With the `Deploy a certificate to Tomcat` step, certificates managed by Octopus 
 
 ## Prerequisites
 
-Before a certificate can be deployed to a Tomcat instance, the certificate itself must be uploaded to Octopus. [Add a Certificate to Octopus](add-certificate/) provides instructions on how to add a new certificate to the Octopus library.
+Before a certificate can be deployed to a Tomcat instance, the certificate itself must be uploaded to Octopus. [Add a Certificate to Octopus](/docs/deployments/certificates/add-certificate/) provides instructions on how to add a new certificate to the Octopus library.
 
 Once uploaded, the certificate has to be referenced by a variable. [Certificate Variables](/docs/projects/variables/certificate-variables/) provides instructions on how to define a certificate variable.
 

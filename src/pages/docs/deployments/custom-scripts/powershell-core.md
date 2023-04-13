@@ -16,11 +16,11 @@ If you have picked a non-default location for your PowerShell Core installation,
 
 You can enable the option to select PowerShell Core from the Configure Features button on a step in your deployment.
 
-![custom feature](images/customfeature.png "width=500")
+![custom feature](/docs/deployments/custom-scripts/images/customfeature.png "width=500")
 
 Enabling this feature will give you the option to use PowerShell Core to execute your PowerShell scripts. By default, Octopus will execute your PowerShell scripts using Windows PowerShell.
 
-![powershellcore](images/powershellcore.png "width=500")
+![powershellcore](/docs/deployments/custom-scripts/images/powershellcore.png "width=500")
 
 ## PowerShell Core on Linux targets
 
