@@ -13,7 +13,7 @@ Every process within a Tentacle is executed by the user account configured on th
 
 To change this setting, go to **{{Services,OctopusDeploy Tentacle,Properties,Log On}}**.
 
-![](images/3277918.jpg "width=500")
+![](/docs/infrastructure/deployment-targets/tentacle/windows/images/3277918.jpg "width=500")
 
 Making the user a local administrator will be the easiest path to full functionality. If this is not possible, the following table acts as a guide for the minimal permission set that Tentacle must have for successful operation.
 

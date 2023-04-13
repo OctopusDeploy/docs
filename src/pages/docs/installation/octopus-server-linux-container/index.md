@@ -9,7 +9,7 @@ hideInThisSection: true
 
 !include <octopus-server-in-container>
 
-![Introducing the Octopus Server Linux Docker image](octopus-linux-docker-image.png "width=500")
+![Introducing the Octopus Server Linux Docker image](/docs/installation/octopus-server-linux-container/octopus-linux-docker-image.png "width=500")
 
 This page describes how to run Octopus Server in the Linux Container.
 

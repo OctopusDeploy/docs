@@ -10,7 +10,7 @@ navOrder: 5
 
 The VM Extension can be installed onto a virtual machine via the [Azure command line](https://docs.microsoft.com/en-us/azure/xplat-cli-install). The instructions are slightly different depending on whether you are using the the [Resource](#AzureResourceManagerMode) model or the [Classic](#AzureServiceManagementMode) model.
 
-Refer to the [configuration structure](configuration-structure/) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
+Refer to the [configuration structure](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/configuration-structure/) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
 
 :::hint
 If you need more the ability to customize more of the installation, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.

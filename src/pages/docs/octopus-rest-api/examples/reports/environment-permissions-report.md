@@ -9,7 +9,7 @@ The Octopus Web Portal provides the ability to see the permissions from a user's
 
 This report will look for teams scoped to a role with a specific environment (Production) or no environments.  For example, you want to find out all the users who have permissions to deploy to **Production**.  If a user is on a team scoped to the role `Deployment Creator` with no environments that user will show up in the report with an environment scoping of **All** because they have permissions to deploy to **Production**.
 
-![Sample environment permissions report](images/environment-permissions-example.png)
+![Sample environment permissions report](/docs/octopus-rest-api/examples/reports/images/environment-permissions-example.png)
 
 **Please note:** The report is generated as a CSV file, formatting was added to the screenshot to make it easier to read.
 

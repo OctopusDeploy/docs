@@ -12,7 +12,7 @@ The timezone of the viewer is used when generating the charts. Viewers in differ
 
 ## Charts
 
-On the Overview page, a chart is shown for each [metric](metrics/). On each of the metric detail pages, the same chart is shown along with a breakdown of the trends and lists of the data viewed from different angles.
+On the Overview page, a chart is shown for each [metric](/docs/insights/metrics/). On each of the metric detail pages, the same chart is shown along with a breakdown of the trends and lists of the data viewed from different angles.
 
 The top left drop downs allow you to choose which channel, environment and tenant to view data for. The channel drop down is only shown if there is more than one channel. The tenant drop down is only shown if the project is tenanted.
 

@@ -14,15 +14,15 @@ The trend indicators are unaffected by the chosen granularity and time period.
 
 ## Indicators
 
-![None trend indicator](images/trend-none.svg) **None**: There are fewer than 10 deployments in the data set in either the current or prior periods.
+![None trend indicator](/docs/insights/images/trend-none.svg) **None**: There are fewer than 10 deployments in the data set in either the current or prior periods.
 
-![Steady trend indicator](images/trend-steady.svg) **Steady**: The current metric is less than 5% higher or lower than the previous value.
+![Steady trend indicator](/docs/insights/images/trend-steady.svg) **Steady**: The current metric is less than 5% higher or lower than the previous value.
 
-![Up trend indicator](images/trend-up.svg) **Up**: The metric is higher than it was previously.
+![Up trend indicator](/docs/insights/images/trend-up.svg) **Up**: The metric is higher than it was previously.
 
-![Down trend indicator](images/trend-down.svg) **Down**: The metric is lower than it was previously.
+![Down trend indicator](/docs/insights/images/trend-down.svg) **Down**: The metric is lower than it was previously.
 
-If there is no current value/trend, ![Not enough data indicator](images/trend-no-data.svg) will be shown.
+If there is no current value/trend, ![Not enough data indicator](/docs/insights/images/trend-no-data.svg) will be shown.
 
 ## Sentiment
 

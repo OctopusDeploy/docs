@@ -7,7 +7,7 @@ description: An example script that will provide a list of all the deployment ta
 
 The Octopus Web Portal allows you to see what deployments have gone out to a specific deployment target, but it doesn't provide you with a list of deployments for all the deployment targets in a role.  This script demonstrates how to generate such a report.
 
-![Sample deployments per target role](images/deployments-per-target-role-report.png)
+![Sample deployments per target role](/docs/public/docs/octopus-rest-api/examples/reports/images/deployments-per-target-role-report.png)
 
 **Please note:** The report is generated as a CSV file, formatting was added to the screenshot to make it easier to read.
 

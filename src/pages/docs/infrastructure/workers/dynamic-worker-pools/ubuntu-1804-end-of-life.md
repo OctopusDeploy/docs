@@ -43,7 +43,7 @@ Any impacted custom scripts will need to be updated to use Ubuntu 22.04 and test
 
 The `Ubuntu 22.04` image can be found within the configuration of a worker pool:
 
-![Ubuntu 22.04 in worker image list](images/ubuntu-2204-worker-image-list.png)
+![Ubuntu 22.04 in worker image list](/docs/infrastructure/workers/dynamic-worker-pools/images/ubuntu-2204-worker-image-list.png)
 
 **Octopus preparation**
 

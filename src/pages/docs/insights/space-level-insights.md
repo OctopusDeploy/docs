@@ -51,7 +51,7 @@ If the current space has tenants, there will be an additional section to select 
 
 ## Charts
 
-On the Overview page, a chart is shown for each [metric](metrics/). On each of the metric detail pages, the same chart is shown along with a breakdown of the trends and lists of the data viewed from different angles.
+On the Overview page, a chart is shown for each [metric](/docs/insights/metrics/). On each of the metric detail pages, the same chart is shown along with a breakdown of the trends and lists of the data viewed from different angles.
 
 The top left drop down allows you to split the data on a particular dimension and compare them on the one chart. Only the first 10 lines are shown. If splitting by tenant tag set, a tenant's data will be shown for each of their tags.
 

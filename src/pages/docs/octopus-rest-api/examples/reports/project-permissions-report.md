@@ -7,7 +7,7 @@ description: An example script that will provide a report of which users have ac
 
 The Octopus Web Portal provides the ability to see the permissions from a user's point of view.  This script demonstrates how to generate a report of permissions from a project's point of view.
 
-![Sample environment permissions report](images/project-permissions-example.png)
+![Sample environment permissions report](/docs/octopus-rest-api/examples/reports/images/project-permissions-example.png)
 
 **Please note:** The report is generated as a CSV file, formatting was added to the screenshot to make it easier to read.
 

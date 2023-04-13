@@ -55,7 +55,7 @@ You should validate that your deployments and runbooks work with the new version
 If the Worker Pool has been configured to specifically use a deprecated worker type, you will need to update the Worker Image on the Worker Pool.
 
 The Worker Pool with a deprecated Worker Type will show a `Deprecated` label next to the worker pool, available by navigating to **{{ Infrastructure, Worker Pools }}**:
-![Worker Pool list with deprecated worker](images/deprecated-worker-pool-overview.png)
+![Worker Pool list with deprecated worker](/docs/infrastructure/workers/images/deprecated-worker-pool-overview.png)
 
 The Worker Type can be modified by editing the Worker Pool and changing the Worker Type to a different option, such as `Windows (default)` or a specific operating system version.
 

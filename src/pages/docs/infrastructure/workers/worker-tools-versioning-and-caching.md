@@ -44,7 +44,7 @@ When a new worker is acquired, if a new set of Worker Tools has been released, t
 
 To update to the latest set of Worker Tools select the "Use latest Distro-based image" 
 
-![](images/container-selector.png "width=500")
+![](/docs/infrastructure/workers/images/container-selector.png "width=500")
 
 
 ## Currently Cached Worker Tools

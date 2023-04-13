@@ -85,7 +85,7 @@ All commands require you to pass the URL of the Octopus Server's API endpoint, a
 octo ... --server http://your-octopus-server/ --apiKey API-ABCDEF123456
 ```
 
-Most commands also support [JSON formatted output](formatted-output/).
+Most commands also support [JSON formatted output](/docs/octopus-rest-api/octopus-cli/formatted-output/).
 
 :::success
 **Create an API key**

@@ -51,7 +51,7 @@ Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create
 
 Octopus includes the default Swagger UI for displaying the API documentation in a nice human readable way. To browse that UI just open your browser and go to `https://<your-octopus-url>/swaggerui/`. The original Non-Swagger API page is still available and can always be accessed via `https://<your-octopus-url>/api/`.
 
-![Server API](images/server-api.png "width=500")
+![Server API](/docs/octopus-rest-api/images/server-api.png "width=500")
 
 You can view the API through the Octopus Demo server at [demo.octopus.app/swaggerui/index.html](https://demo.octopus.app/swaggerui/index.html).
 
