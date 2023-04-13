@@ -9,7 +9,7 @@ hideInThisSection: true
 
 A single Octopus Deploy Project can have multiple Runbooks.  Each Runbook has a unique runbook process, retention policy, and allowable environments to run in.  For example, a project might have a runbook to spin up additional infrastructure, or restart the server, or perform a daily backup.  
 
-![example runbook](images/runbook-overview.png "width=500")
+![example runbook](/docs/getting-started/first-runbook-run/images/runbook-overview.png "width=500")
 
 1. From the *Hello world* project you created on the previous page, click **OPERATIONS** on the left menu to expand it (if it is not already expanded).
 1. Click **GO TO RUNBOOKS**. 

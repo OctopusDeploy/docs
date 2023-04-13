@@ -50,7 +50,7 @@ Octopus will automatically push the latest version of Calamari with your first d
 
 You can set the "Time between checks" to control how frequently automatic health checks run.
 
-![](images/5865585.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/5865585.png "width=500")
 
 ### Health check type {#MachinePolicies-Healthchecktype}
 
@@ -112,7 +112,7 @@ When using a custom health check script, the script execution through Calamari i
 
 By default, health checks fail if any deployment targets are unavailable during the health check.  Machine policies offer an option to ignore machines if they are unavailable during a health check:
 
-![](images/5865592.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/5865592.png "width=500")
 
 By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (i.e., a warning will be reported or the health check will fail with an error).
 
@@ -120,7 +120,7 @@ By selecting **Unavailable machines will not cause health checks to fail,** any
 
 Brand new Tentacle and SSH endpoints require the installation of Calamari to perform a deployment.  Also, if Calamari is updated, the Octopus Server will push the update to Tentacle and SSH endpoints. When there is a Tentacle update, Octopus can automatically update Tentacle endpoints.  Machine policies allow the customization of when Calamari and Tentacle updates occur.
 
-![](images/5865594.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/5865594.png "width=500")
 
 By default, Calamari will be installed or updated when a machine is involved in a deployment.  The other two options will update Calamari:
 
@@ -144,13 +144,13 @@ You can select a username/password account to perform automatic Tentacle updates
 
 Machine policies can be configured to automatically remove unavailable machines after a time period.  When a health check runs, Octopus detects if machines are unavailable (cannot be contacted). When the **Automatically delete unavailable machines** option is set, Octopus checks how long a machine has been unavailable.  If the specified time period has elapsed, the machine is permanently deleted from Octopus.
 
-![](images/5865595.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/5865595.png "width=500")
 
 ## Assign machine policies to machines {#MachinePolicies-Assignmachinepoliciestomachines}
 
 Assign a machine policy to a machine by selecting a machine from the *Environments* screen and using the *Policy* drop down to select the machine policy:
 
-![](images/5865599.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/5865599.png "width=500")
 
 Machine policy can also be set from the command line by using the --policy argument:
 

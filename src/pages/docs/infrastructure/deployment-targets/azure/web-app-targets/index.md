@@ -50,7 +50,7 @@ To create an Azure Web App target within Octopus:
 - Select **Azure Web App** from the list of available targets and click _Next_.
 - Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Web App target.
 
-![](create-azure-web-app-target.png "width=500")
+![](/docs/infrastructure/deployment-targets/azure/web-app-targets/create-azure-web-app-target.png "width=500")
 
 :::info
 If you are using a **Standard** or **Premium** Azure Service Plan, you can also select a specific slot as your target.
@@ -62,7 +62,7 @@ You can also leave the slot selection blank and specify the slot, by name, on th
 - After clicking _Save_, your deployment target will be added and go through a health check to ensure Octopus can connect to it.
 - If all goes well, you should see your newly created target in your **Deployment Targets** list, with a status of _Healthy_.
 
-![](deployment-targets-web-app-healthy.png "width=500")
+![](/docs/infrastructure/deployment-targets/azure/web-app-targets/deployment-targets-web-app-healthy.png "width=500")
 
 ### Creating Web App targets by scripts
 

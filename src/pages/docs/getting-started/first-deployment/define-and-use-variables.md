@@ -21,7 +21,7 @@ Octopus allows you to define variables and scope them for use in different phase
 1. Add **Hello, Production** and scope it to the `Production` environment.
 1. Click the **SAVE** button.
 
-![The hello world variables](images/img-variables.png "width=500")
+![The hello world variables](/docs/getting-started/first-deployment/images/img-variables.png "width=500")
 
 Steps in the deployment process can reference the variables.
 
@@ -49,7 +49,7 @@ A release snapshots everything about your project, including variables and the d
 
 As you promote through the environments, you will see the greeting change.
 
-![The results of the hello world deployment with variables](images/img-environmentvariables.png "width=500")
+![The results of the hello world deployment with variables](/docs/getting-started/first-deployment/images/img-environmentvariables.png "width=500")
 
 The next step will [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions/). 
 

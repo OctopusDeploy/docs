@@ -20,7 +20,7 @@ A runbook process can run steps, which include scripts, on the Octopus Server, a
 1. In the **Execution Location** section change the option to be **Run on each deployment target**.
 1. In the **On Target In Roles** section change the role to be `Hello-World`.
 
-![Changing the script step to run on a deployment target](images/run-script-on-deployment-target.png "width=500")
+![Changing the script step to run on a deployment target](/docs/getting-started/first-runbook-run/images/run-script-on-deployment-target.png "width=500")
 
 :::hint
 Not all steps can run on deployment targets.  A step missing the option **On Target In Roles** indicates that step must run on the Octopus Server or a [on a worker](/docs/infrastructure/workers/)
@@ -42,7 +42,7 @@ echo $machineName
 12. Click **SAVE**
 13. Click **RUN...** and select an environment to run on.
 
-![Running the runbook script on a deployment target](images/run-deployment-target-results.png "width=500")
+![Running the runbook script on a deployment target](/docs/getting-started/first-runbook-run/images/run-deployment-target-results.png "width=500")
 
 :::hint
 Not all scripts should run on a deployment target.  A rule of thumb is a script should target a deployment target if it needs to modify something specific on that target, such as restarting a service, or installing a web server.  If you need to manage PaaS targets, K8s clusters, or database servers, the recommendation is to run the script [on a worker](/docs/infrastructure/workers/).

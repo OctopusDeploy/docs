@@ -43,7 +43,7 @@ OpenShift will automatically create a Token for your Service Account.  This Toke
 - Scroll down to the Secrets section.
 - Click on the entry that has the `type` of `kubernetes.io/service-account-token`.
 
-![OpenShift Service Account](openshift-service-account-secrets.png "width=500")
+![OpenShift Service Account](/docs/infrastructure/deployment-targets/kubernetes-target/openshift/openshift-service-account-secrets.png "width=500")
 
 Copy the Token value by clicking on the copy to clipboard icon on the right hand side.
 

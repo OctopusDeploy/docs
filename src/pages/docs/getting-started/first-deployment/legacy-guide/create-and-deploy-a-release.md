@@ -19,14 +19,14 @@ When you deploy the release, you execute the deployment process with all the ass
 
 The next screen gives you the details of the release you are about to deploy:
 
-![Deploy release screen in the Octopus Web Portal](images/deploy-release.png "width=500")
+![Deploy release screen in the Octopus Web Portal](/docs/getting-started/first-deployment/legacy-guide/images/deploy-release.png "width=500")
 
 4. To deploy the release, click **Deploy**.
 5. The next screen displays a task summary. If you click the **TASK LOG**, you'll see the steps Octopus took to execute your hello world script.
 
 Because we didn't define any deployment targets for the **Test** environment, Octopus leased a [dynamic worker](/docs/infrastructure/workers/dynamic-worker-pools/#on-demand) (a machine that executes tasks on behalf of the Octopus Server) that was then used to execute the hello world script.  If you are on a self-hosted instance of Octopus Deploy, you won't see that message.
 
-![The results of the Hello world deployment](images/deployed-release.png "width=500")
+![The results of the Hello world deployment](/docs/getting-started/first-deployment/legacy-guide/images/deployed-release.png "width=500")
 
 You have finished your first deployment!  But there is still a bit of work to do.  The next step will [define and use variables](/docs/getting-started/first-deployment/define-and-use-variables/) in the deployment process.
 

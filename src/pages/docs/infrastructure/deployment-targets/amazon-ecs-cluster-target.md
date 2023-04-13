@@ -49,7 +49,7 @@ See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-targe
    - Enter the AWS region where the ECS cluster is running in AWS.
    - Enter a cluster name that matches the cluster name running in your AWS region.
 
-   ![ECS Cluster Deployment Target Settings](images/aws-ecs-target-cluster.png "width=500")
+   ![ECS Cluster Deployment Target Settings](/docs/infrastructure/deployment-targets/images/aws-ecs-target-cluster.png "width=500")
 
 ### Authentication
 
@@ -61,13 +61,13 @@ Authentication can be configured to use credentials from the worker on which a d
 
 To configure the ECS cluster to use worker credentials select the "Use credentials provided on the worker" option in the Credentials field.
 
-![ECS Cluster Worker Credentials](images/aws-ecs-target-worker-credentials.png "width=500")
+![ECS Cluster Worker Credentials](/docs/infrastructure/deployment-targets/images/aws-ecs-target-worker-credentials.png "width=500")
 
 #### AWS Account
 
 Authentication can be configured to use an [AWS Account](/docs/infrastructure/accounts/aws/). To configure your ECS cluster to use an account select the "Use account" option in the Credentials field.
 
-![ECS Cluster Account Credentials](images/aws-ecs-target-account-credentials.png "width=500")
+![ECS Cluster Account Credentials](/docs/infrastructure/deployment-targets/images/aws-ecs-target-account-credentials.png "width=500")
 
 ### Assuming an IAM role
 
@@ -84,4 +84,4 @@ When assuming a role there are a number of options which can be configured.
 | Session Duration | The duration that the session will be available for. If this is not provided the default session duration for the role will be used.                                                                                             | N        |
 | External ID      | An external ID which can be provided to authorize third-party access. See the [AWS documentation on External Id](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) for more information | N        |
 
-![ECS Cluster Assume Role](images/aws-ecs-target-assume-role.png "width=500")
+![ECS Cluster Assume Role](/docs/infrastructure/deployment-targets/images/aws-ecs-target-assume-role.png "width=500")

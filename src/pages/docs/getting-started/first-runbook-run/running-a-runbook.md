@@ -13,12 +13,12 @@ Unlike a deployment with a pre-defined lifecycle, Runbooks can run on any enviro
 
 This screen provides the details of the Runbook you are about to run.
 
-![run runbook basic options](images/run-runbook-basic-options.png "width=500")
+![run runbook basic options](/docs/getting-started/first-runbook-run/images/run-runbook-basic-options.png "width=500")
 
 2. Select an environment.
 3. Click **RUN**.
 
-![run runbook results](images/run-hello-runbook-results.png "width=500")
+![run runbook results](/docs/getting-started/first-runbook-run/images/run-hello-runbook-results.png "width=500")
 
 Because we didn't define any deployment targets for the target environment, Octopus ran the script directly on the Octopus Server.  If you are on Octopus Cloud, Octopus Deploy leased a [dynamic worker](/docs/infrastructure/workers/dynamic-worker-pools/#on-demand) (a machine that executes tasks on behalf of the Octopus Server) that was then used to execute the hello world script.
 
