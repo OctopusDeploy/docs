@@ -41,7 +41,7 @@ The `Update Amazon ECS Service` step requires [a deployment target](/docs/infras
 Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name.
 If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/).
 
-![ECS Cluster Deployment Target Settings](images/target.png "width=500")
+![ECS Cluster Deployment Target Settings](/docs/deployments/aws/ecs-update-service/images/target.png "width=500")
 
 :::hint
 The benefits of using deployment targets for ECS are outlined in the [ECS RFC blog post](https://octopus.com/blog/rfc-ecs-integration-with-octopus#why-use-targets).
@@ -55,7 +55,7 @@ As the step is using a deployment target a target role will also need to be spec
 The role will be used to determine which ECS cluster to deploy to.
 Use the same role that you applied to your deployment target in Step 2.
 
-![Update ECS Step General Settings](images/update-ecs-general-settings.png "width=500")
+![Update ECS Step General Settings](/docs/deployments/aws/ecs-update-service/images/update-ecs-general-settings.png "width=500")
 
 ### Configuration section
 
@@ -65,18 +65,18 @@ This is the task definition that will receive a new revision upon deploy.
 Lastly, specify the name of the service to be updated.
 Upon deployment, the named service will be updated to refer to the newly created task definition revision.
 
-![Update ECS Step Configuration Section](images/update-ecs-configuration.png "width=500")
+![Update ECS Step Configuration Section](/docs/deployments/aws/ecs-update-service/images/update-ecs-configuration.png "width=500")
 
 ### Container Definitions section
 
 At least one container definition must be specified when updating a task definition.
 
-![Update ECS Step Container Definitions Section](images/update-ecs-container-definitions.png "width=500")
+![Update ECS Step Container Definitions Section](/docs/deployments/aws/ecs-update-service/images/update-ecs-container-definitions.png "width=500")
 
 Specify the container name that will be used to locate the container definition within your task and select a feed and image that will be run by your task.
 The specific image version will be specified later, when creating a release.
 
-![ECS Step Container Definition Parameters](images/update-ecs-container-definition.png "width=500")
+![ECS Step Container Definition Parameters](/docs/deployments/aws/ecs-update-service/images/update-ecs-container-definition.png "width=500")
 
 #### Environment Files
 
@@ -87,7 +87,7 @@ The configured environment file list can be used to either completely replace or
 
 Each environment file has a type to configure the storage device (S3 is currently the only option) and a source to specify the location within that storage (for S3, this is an ARN).
 
-![Update ECS Step Container Definition Environment Files](images/update-ecs-environment-files.png "width=500")
+![Update ECS Step Container Definition Environment Files](/docs/deployments/aws/ecs-update-service/images/update-ecs-environment-files.png "width=500")
 
 #### Environment Variables
 
@@ -97,13 +97,13 @@ Plain text environment variables will use the value provided, while secret varia
 The configured environment variables can either completely replace the container's existing environment variables or be merged with them.
 Merging environment variables will add any new variables and overwrite the value of any existing variables with the same key.
 
-![Update ECS Step Container Definition Environment Variables](images/update-ecs-environment-variables.png "width=500")
+![Update ECS Step Container Definition Environment Variables](/docs/deployments/aws/ecs-update-service/images/update-ecs-environment-variables.png "width=500")
 
 ### Tags section
 
 Specify any additional tags that should be added to the task definition and service. Tags can be used to attach arbitrary metadata to categorize and organize resources. For more information see the [ECS Documentation](https://oc.to/ECSUsingTags)
 
-![ECS Step Tags](images/update-ecs-tags.png "width=500")
+![ECS Step Tags](/docs/deployments/aws/ecs-update-service/images/update-ecs-tags.png "width=500")
 
 ### Advanced Options section
 
@@ -111,14 +111,14 @@ Optionally, specify the name of the Template Source Task Definition.
 If provided, this task definition will be used as a template for the new task definition.
 This configuration allows the template task definition to be updated without conflicting with the changes made to the target task definition during deployment.
 
-![ECS Advanced Options](images/update-ecs-advanced-options.png "width=500")
+![ECS Advanced Options](/docs/deployments/aws/ecs-update-service/images/update-ecs-advanced-options.png "width=500")
 
 ### Deployment Options section
 
 You can optionally change whether the step should wait until the release is fully deployed by changing the `Wait Option` selection.
 By default, the step will wait until all of the ECS Tasks within the target service are running (or failed to run).
 
-![ECS Step Deployment Options section](images/update-ecs-deployment-option.png "width=500")
+![ECS Step Deployment Options section](/docs/deployments/aws/ecs-update-service/images/update-ecs-deployment-option.png "width=500")
 
 :::hint
 Selecting the `Don't wait` option means that the step will not fail if the tasks fail to properly start.

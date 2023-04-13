@@ -11,13 +11,13 @@ You may want to use a different Azure subscription depending on which environmen
 1. Add an [Azure Subscription Account](/docs/infrastructure/accounts/azure/) to Octopus.
    * If you want to use the Account ID in your variable, open the account you just added from **{{Infrastructure,Accounts,[Account name]}}** and copy the account ID from the URL.
 
-   ![Account Id](images/varying-account-id.png "width=500")
+   ![Account Id](/docs/deployments/azure/images/varying-account-id.png "width=500")
    ​    
    The Account ID is the value after the last `/` in the URL.
 
 2. Create a variable in your project and set the Account ID or Account Name as its value. Make sure to scope this variable to the Environment/Role/Target where you'll be using it.
 
-   ![variable](images/varying-variable.png "width=500")
+   ![variable](/docs/deployments/azure/images/varying-variable.png "width=500")
 
 3. If you are deploying an **Azure Web App**, you will need to create an [Azure Web App Target](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/) for each environment.
 

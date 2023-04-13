@@ -26,7 +26,7 @@ The [Deploy Amazon ECS Service](/docs/deployments/aws/ecs/) step makes it easier
 
 The step guides you through the configuration of the task definition and service with built-in validation. Octopus generates and executes the CloudFormation templates, so you don't have to write any YAML or JSON.
 
-![A rocket links the Deploy Amazon ECS Service step in Octopus with tasks performed by Octopus in AWS to deploy the Octo Pet Shop website. Octopus generated the CloudFormation template and created and deployed the CloudFormation stack.](octopus-ecs-integration-deploy-to-fargate.png)
+![A rocket links the Deploy Amazon ECS Service step in Octopus with tasks performed by Octopus in AWS to deploy the Octo Pet Shop website. Octopus generated the CloudFormation template and created and deployed the CloudFormation stack.](/docs/deployments/aws/octopus-ecs-integration-deploy-to-fargate.png)
 
 With the UI step, you can:
 

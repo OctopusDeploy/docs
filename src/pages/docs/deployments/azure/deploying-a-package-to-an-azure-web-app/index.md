@@ -35,7 +35,7 @@ If instead you want to **dynamically** create you account during your deployment
 
 1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/projects/steps/).
 
-![](5865899.png "width=170")
+![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/5865899.png "width=170")
 
 2. On the **Execution Location** section, select the Roles that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
 
@@ -45,7 +45,7 @@ If instead you want to **dynamically** create you account during your deployment
 
 3. On the **Package** section, select your **Package Feed** and **Package ID**.
 
-![](deploying-an-azure-web-app.png "width=500")
+![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-an-azure-web-app.png "width=500")
 
 4. On the **Deployment** section you can configure any of the below settings which are related to _how_ your files are going to be pushed to Azure.
 
