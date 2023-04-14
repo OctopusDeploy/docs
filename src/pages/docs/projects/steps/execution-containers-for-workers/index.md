@@ -18,7 +18,7 @@ You need Docker installed and running on the [worker](/docs/infrastructure/worke
 ### Octopus cloud dynamic worker pools 
 [Octopus Cloud dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools/) have Docker pre-installed and support execution containers.
 
-![](images/hosted-worker-pools-execution-containers.png "width=500")
+![](/docs/projects/steps/execution-containers-for-workers/images/hosted-worker-pools-execution-containers.png "width=500")
 
 
 ## How to use execution containers for workers 
@@ -33,7 +33,7 @@ You need Docker installed and running on the [worker](/docs/infrastructure/worke
 - Click **Save**.
 - Click **Create release & deploy**.
 
-![](images/container-selector.png "width=500")
+![](/docs/projects/steps/execution-containers-for-workers/images/container-selector.png "width=500")
 
 ## First deployment on a docker container
 

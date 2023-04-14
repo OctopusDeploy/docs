@@ -19,19 +19,19 @@ To reorder steps in a deployment or runbook process:
 1. Click on the overflow menu (...) next to the **Filter by name** text box.
 1. Select the **Reorder Steps** option. 
 
-    ![Reorder steps menu](images/overflow-reorder.png "width=532")
+    ![Reorder steps menu](/docs/projects/steps/images/overflow-reorder.png "width=532")
 1. This will open a drag and drop pane to sort your steps in the desired order.
 
-    ![Reorder steps pane](images/overflow-reorder-pane.png "width=611")
+    ![Reorder steps pane](/docs/projects/steps/images/overflow-reorder-pane.png "width=611")
 
 ## Example: A simple deployment process
 
 In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/). The remaining steps both [deploy a package](/docs/deployments/packages/) and execute [custom scripts](/docs/deployments/custom-scripts/) on all of the [deployment targets](/docs/infrastructure/) with the [role](/docs/infrastructure/deployment-targets/#target-roles) **web-server**.
 
-![A simple deployment process](images/simple-process.png "width=500")
+![A simple deployment process](/docs/projects/steps/images/simple-process.png "width=500")
 
 ## Example: A rolling deployment process
 
 Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single step and three actions which form a [rolling deployment](/docs/deployments/patterns/rolling-deployments/).
 
-![A Rolling Deployment](images/rolling-process.png "width=500")
+![A Rolling Deployment](/docs/projects/steps/images/rolling-process.png "width=500")

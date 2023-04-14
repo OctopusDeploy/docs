@@ -15,7 +15,7 @@ For each [step](/docs/projects/steps/) that you define in your [deployment proce
 - Specify whether the step runs before or after package acquisition.
 - Make the step a required step that cannot be skipped.
 
-![Conditions](images/conditions.png "width=500")
+![Conditions](/docs/projects/steps/conditions/images/conditions.png "width=500")
 
 Some of these options will only appear if they're available. For instance, the [channels](/docs/releases/channels/) option is only visible if you have created one or more channels.
 

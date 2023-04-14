@@ -10,11 +10,11 @@ Sometimes you may want to delete releases of your project. Maybe they're defecti
 
 Deleting individual releases can be done by entering the release page and selecting the `Edit` option in the ... overflow menu.
 
-![Edit release](images/edit-release.png "width=500")
+![Edit release](/docs/releases/images/edit-release.png "width=500")
 
 In the edit release page, click the ... overflow menu and select `Delete`.
 
-![Delete release](images/delete-release.png "width=500")
+![Delete release](/docs/releases/images/delete-release.png "width=500")
 
 You can also delete a batch of releases by specifying a release version range in the Octopus CLI. An example can be found in our [Octopus CLI documentation](/docs/octopus-rest-api/octopus-cli/delete-releases/).
 

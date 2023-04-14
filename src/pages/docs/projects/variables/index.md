@@ -20,7 +20,7 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
 5. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello, Production*.
 6. Define the scope for this value, for instance, by selecting the *Production* environment.
 
-![Adding a variable](images/adding-a-variable.png "width=500")
+![Adding a variable](/docs/projects/variables/images/adding-a-variable.png "width=500")
 
 7. Save the variable by clicking **SAVE**.
 8. In this example, we'll reference this variable from a **Run a Script** step.
@@ -32,7 +32,7 @@ Write-Host
 
 10. Select the variable *Greeting* from the insert variable tool (**#\{\}**) next to the script editor, and click **SAVE**.
 
-![Script with Variable](images/script-variable.png "width=500")
+![Script with Variable](/docs/projects/variables/images/script-variable.png "width=500")
 
 When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
 
@@ -61,7 +61,7 @@ During deployment, Octopus will try to select the most specifically scoped varia
 
 You can set the scope of a variable values when you are creating or editing your variables, either from the **variable** section of the project, or in the **Variable Sets** section of the Library; however, when you assign scope to variables that are part of a library **variable set**, the variables cannot be scoped to deployment steps or channels.
 
-![Assigning scope to variables](images/scoping-variables.png "width=500")
+![Assigning scope to variables](/docs/projects/variables/images/scoping-variables.png "width=500")
 
 ### Using multiple scopes
 
@@ -132,11 +132,11 @@ Let’s say you have the following targets with their respective roles:
 
 You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we’ll call it *DeployPath*) with a different value for each target role:
 
-![](images/deploy-path-variable.png "width=500")
+![](/docs/projects/variables/images/deploy-path-variable.png "width=500")
 
 Then, on your deployment step, you can set the **[Custom Install Directory](/docs/projects/steps/configuration-features/custom-installation-directory/)** to `#{DeployPath}`.
 
-![](images/custom-install-path.png "width=500")
+![](/docs/projects/variables/images/custom-install-path.png "width=500")
 
 ### Variables and permissions
 

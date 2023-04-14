@@ -41,7 +41,7 @@ The following example shows you how to use the Substitute Variables in Templates
 5. From the [Step](/docs/projects/steps/) Template page, click the **Configure Features** link.
 6. Check the **Substitute Variables in Templates** check-box and click **Ok**.
 
-![Substitute Variables in Templates feature](images/substitute-variables.png "width=500")
+![Substitute Variables in Templates feature](/docs/projects/steps/configuration-features/images/substitute-variables.png "width=500")
 
 When you return to your deployment process, you will see the **Substitute Variables in Templates** option has been added to the **Features** section of the deployment process.
 
