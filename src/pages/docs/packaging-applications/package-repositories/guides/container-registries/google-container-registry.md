@@ -20,4 +20,4 @@ Google Cloud provides a [container registry](https://cloud.google.com/container-
     - **Username:** _json_key
     - **Password:** _{{The contents of your JSON keyfile}}_
 
-![](images/google-container-registry.png "width=500")
+![](/docs/packaging-applications/package-repositories/guides/container-registries/images/google-container-registry.png "width=500")

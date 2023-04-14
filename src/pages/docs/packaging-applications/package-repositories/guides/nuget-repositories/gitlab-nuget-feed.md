@@ -10,11 +10,11 @@ GitLab creates a NuGet Registry for each Project or Group.  To add the NuGet Reg
 
 Project Id
 
-![GitLab Project Id](../images/gitlab-project-id.png)
+![GitLab Project Id](/docs/packaging-applications/package-repositories/guides/images/gitlab-project-id.png)
 
 Group Id
 
-![GitLab Group Id](../images/gitlab-group-id.png)
+![GitLab Group Id](/docs/packaging-applications/package-repositories/guides/images/gitlab-group-id.png)
 
 ## Adding a GitLab NuGet repository as an Octopus External Feed
 Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and select the `NuGet Feed` Feed type. 
@@ -31,6 +31,6 @@ Group:
 
 Replace the URL from the examples above.
 
-![GitLab NuGet Feed](images/gitlab-octopus-add-nuget-feed.png)
+![GitLab NuGet Feed](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/gitlab-octopus-add-nuget-feed.png)
 
 Optionally add Credentials if they are required.
