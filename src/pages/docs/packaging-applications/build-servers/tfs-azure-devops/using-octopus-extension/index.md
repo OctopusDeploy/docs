@@ -289,8 +289,8 @@ Hover over the widget and click the wrench icon to configure the widget.
 
 Select an Octopus Deploy connection (see the [Add a Connection](#add-a-connection-to-octopus-deploy) section for details), a Project, and an Environment.
 
-![](/docs/packaging-applications/build-servers/tfs-azure-devops/images/widget-setup-preview.jpg "width=500")
+![](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/widget-setup-preview.jpg "width=500")
 
 The widget should refresh to show the current status of the selected project in the selected environment.
 
-![](/docs/packaging-applications/build-servers/tfs-azure-devops/images/multiple-widget-preview.jpg "width=500")
+![](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/multiple-widget-preview.jpg "width=500")

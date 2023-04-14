@@ -13,22 +13,22 @@ The Car Rental applications consist of a PHP web UI and a MySQL database back en
 
 By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, navigate to **{{Infrastructure, Deployment Targets}}**
 
-![](/docs/tenants/images/octopus-deployment-targets.png "width=500")
+![](/docs/tenants/guides/multi-tenant-region/images/octopus-deployment-targets.png "width=500")
 
 Click on the deployment target you wish to edit.  In this case, we're editing the DeMoines Azure App Service for the development environment.
 
-![](/docs/tenants/images/tenant-demoines-development.png "width=500")
+![](/docs/tenants/guides/multi-tenant-region/images/tenant-demoines-development.png "width=500")
 
 In the **Restrictions** section, expand the **Tenanted Deployments** option and select **Include only in tenanted deployments**.  Expand the **Associated Tenants** section and assign the `De Moines` tenant.
 
-![](/docs/tenants/images/tenant-demoines-tenanted.png "width=500")
+![](/docs/tenants/guides/multi-tenant-region/images/tenant-demoines-tenanted.png "width=500")
 
 These options configure the deployment target to be tenanted and only for the `De Moines` tenant.
 
 ## Adding Tenant Tags to Infrastructure
 The above screenshot shows that it is possible to attach Tenant Tags to infrastructure.  An example of how this can be used is if we assign the `Alpha` Release Ring tag to the target, it would further restrict this target in that it can only be deployed to for the `Des Moines` tenant and `Alpha` releases.  Conversely, if we remove the `Des Moines` tenant, this target can participate in any deployment that uses the `Alpha` Release Ring tag.
 
-![](/docs/tenants/images/tenant-demoines-tenanted-alpha-tag.png "width=500")
+![](/docs/tenants/guides/multi-tenant-region/images/tenant-demoines-tenanted-alpha-tag.png "width=500")
 
 ## Example automation script
 

@@ -49,7 +49,7 @@ These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Te
 1. Download the latest Hydra NuGet package from [https://octopus.com/downloads/latest/Hydra](https://octopus.com/downloads/latest/Hydra).
 2. Use the Upload Package feature of the library to upload the OctopusDeploy. Hydra package to the built-in NuGet repository on your **Octopus 2.6.5** server.
 
-![](/docs/public/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278019.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278019.png "width=500")
 
 3. Import the [Hydra step template](http://library.octopus.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 

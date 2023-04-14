@@ -29,15 +29,15 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
 
 1. Log in to the [Azure Portal](https://portal.azure.com), click on your account positioned at the top-right of the screen, then select your desired directory:
 
-![Switch Azure Directories](/docs/public/docs/security/authentication/images/aad-portal.png "width=500")
+![Switch Azure Directories](/docs/security/authentication/images/aad-portal.png "width=500")
 
 2. Select the hamburger menu in the [Azure Portal](https://portal.azure.com)  and select **Azure Active Directory** from the Azure menu:
 
-![Open AzureAD service](/docs/public/docs/security/authentication/images/aad-service.png "width=500")
+![Open AzureAD service](/docs/security/authentication/images/aad-service.png "width=500")
 
 3. Select **App registrations** then choose **New application registration**:
 
-![New App registration](/docs/public/docs/security/authentication/images/aad-new-app-registration.png "width=500")
+![New App registration](/docs/security/authentication/images/aad-new-app-registration.png "width=500")
 
 4. Choose a **Name** like *Octopus Deploy*, select the correct **Supported account type**  for Single or Multi-Tenant, and enter a value for **Redirect URI** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.
  - The URL must use HTTPS.
@@ -49,7 +49,7 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
 Take care when you add this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `HTTP` here and need to use `https`. You will need to use an SSL certificate from a Certificate Authority, such as [LetsEncrypt](https://letsencrypt.org/). You can do this by using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration/) or one from Active Directory Certificate Services.
 :::
 
-![Filling the App registration form](/docs/public/docs/security/authentication/images/aad-new-app-registration-form.png "width=500")
+![Filling the App registration form](/docs/security/authentication/images/aad-new-app-registration-form.png "width=500")
 
 #### Enable ID Tokens and configure
 
@@ -60,14 +60,14 @@ Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**.
 1. Within your new App registration in AzureAD navigate to Authentication.
 2. Ensure the ID Tokens box is enabled:
 
-![Enable ID Token](/docs/public/docs/security/authentication/images/aad_id_token.png "width=500")
+![Enable ID Token](/docs/security/authentication/images/aad_id_token.png "width=500")
 
 #### Enable Logout URL if using Single Sign-On (optional)
 
 1. Within your new App registration in AzureAD navigate to Authentication.
 2. Input logout URL and enter `https://octopus.example.com/app#/users/sign-out` substituting your URL.
 
-![Configure Logout URL](/docs/public/docs/security/authentication/images/aad_logout_url.png "width=500")
+![Configure Logout URL](/docs/security/authentication/images/aad_logout_url.png "width=500")
 
 #### Mapping AAD users into Octopus teams (optional)
 
@@ -77,11 +77,11 @@ If you want to manage user/team membership via AAD, you must configure Roles for
 
 1. Under App Roles, select **Create app role**.
 
-   ![Creating new App Role](/docs/public/docs/security/authentication/images/aad-new-app-role-create.png "width=500")
+   ![Creating new App Role](/docs/security/authentication/images/aad-new-app-role-create.png "width=500")
 
 2. Enter all required fields and click **Apply** to create the new app role.
 
-   ![Apply App Role value and name](/docs/public/docs/security/authentication/images/aad-new-app-role-create-apply.png "width=500")
+   ![Apply App Role value and name](/docs/security/authentication/images/aad-new-app-role-create-apply.png "width=500")
 
    :::hint
    The **Value** property is the most important field. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams/external-groups-and-roles/#ExternalGroupsandRoles-AddExternalRole) in Octopus Deploy.
@@ -91,7 +91,7 @@ If you want to manage user/team membership via AAD, you must configure Roles for
 
 1. Under the App Registration, select **Manifest**, and then you can start editing your manifest file as required.
 
-![Editing an App registration manifest](/docs/public/docs/security/authentication/images/aad-edit-app-registration-manifest.png "width=500")
+![Editing an App registration manifest](/docs/security/authentication/images/aad-edit-app-registration-manifest.png "width=500")
 
 The example below illustrates two roles, one for administrators and one for application testers. You need to create each required group in the Manifest file.
 
@@ -125,7 +125,7 @@ Make sure you replace the `NEWGUID`s with a generated GUID (unique per entry). Y
 
 After you have completed editing the manifest, select the **Save** option.
 
-![Saving an App registration manifest](/docs/public/docs/security/authentication/images/aad-save-app-registration-manifest.png "width=500")
+![Saving an App registration manifest](/docs/security/authentication/images/aad-save-app-registration-manifest.png "width=500")
 
 :::hint
 The **value** property is the most important one. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams/) in Octopus Deploy.
@@ -142,13 +142,13 @@ After the App Role(s) have been defined, users/groups from Azure AD may be mappe
 
 1. Under the App Registration, select your App registrations name under **Managed application in local directory**.
 
-![Editing App registration users](/docs/public/docs/security/authentication/images/aad-edit-app-registration-users.png "width=500")
+![Editing App registration users](/docs/security/authentication/images/aad-edit-app-registration-users.png "width=500")
 
 2. Choose **Users and groups** and select **Add user** to create a new role assignment.
 
 3. Select the users you would like to assign roles to. Next, under **Select Role**, specify one of the AppRoles that you added to the App registration manifest.
 
-![Editing App registration users role](/docs/public/docs/security/authentication/images/aad-edit-app-registration-users-role.png "width=500")
+![Editing App registration users role](/docs/security/authentication/images/aad-edit-app-registration-users-role.png "width=500")
 
 4. To save your changes, select the **Assign** button.
 
@@ -164,13 +164,13 @@ There are three values you need from the Azure AD configuration to complete the 
 
 In the Azure portal, you can see the **Application (client) ID** and **Directory (tenant) ID** on your App's Overview page.
 
-![Getting the App registration](/docs/public/docs/security/authentication/images/aad-get-app-registration-id.png "width=500")
+![Getting the App registration](/docs/security/authentication/images/aad-get-app-registration-id.png "width=500")
 
 ### Generate the Client secret
 
 In the Azure portal, navigate to the **Certificates & secrets** page and click **New client secret** to generate a new client secret for the App registration.
 
-![Generating a client secret](/docs/public/docs/security/authentication/images/aad-client-secret.png "width=500")
+![Generating a client secret](/docs/security/authentication/images/aad-client-secret.png "width=500")
 
 ### Setting the Client ID, Client secret and Issuer in Octopus Deploy
 
@@ -195,7 +195,7 @@ Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --az
 
 Alternatively, these settings can be defined through the user interface by selecting **{{Configuration,Settings,Azure AD}}** and populating the fields **Issuer**, **ClientId**, **ClientSecret**, and **IsEnabled**. If you want to remove the ClientSecret you can use the delete button shown in the screenshot.
 
-![Settings](/docs/public/docs/security/authentication/images/aad-azure-ad-settings.png "width=500")
+![Settings](/docs/security/authentication/images/aad-azure-ad-settings.png "width=500")
 
 ### Assign app registration roles to Octopus teams (optional)
 
@@ -207,11 +207,11 @@ If you followed the optional steps to modify the App registration's manifest to 
 
 3. Under the **Members** section, select the option **Add External Group/Role**.
  
-![Adding Octopus Teams from external providers](/docs/public/docs/security/authentication/images/add-octopus-teams-external.png "width=500")
+![Adding Octopus Teams from external providers](/docs/security/authentication/images/add-octopus-teams-external.png "width=500")
 
 4. Enter the details from your App registration's manifest. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `OctopusTesters` as the **Display Name**.
  
-![Add Octopus Teams Dialog](/docs/public/docs/security/authentication/images/add-octopus-teams-external-dialog.png "width=500")
+![Add Octopus Teams Dialog](/docs/security/authentication/images/add-octopus-teams-external-dialog.png "width=500")
 
 5. Save your changes by clicking the **Save** button.
 
@@ -266,12 +266,12 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 1. Open the Developer Tools of your browser and enable Network logging, making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools, this is called "Preserve Log".
 
-![Preserve Logs](/docs/public/docs/security/authentication/images/5866122.png "width=500")
+![Preserve Logs](/docs/security/authentication/images/5866122.png "width=500")
 
 3. Attempt to sign into Octopus using Azure AD and find the HTTP POST coming back to your Octopus instance from Azure AD on a route like `/api/users/authenticatedToken/azureAD`. You should see an **id_token** field in the HTTP POST body.
 4. Grab the contents of the **id_token** field and paste that into [https://jwt.io/](https://jwt.io/), which will decode the token for you.
 
-![ID Token](/docs/public/docs/security/authentication/images/5866123.png "width=500")
+![ID Token](/docs/security/authentication/images/5866123.png "width=500")
 
 5. Octopus uses most of the data to validate the token but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior.
 

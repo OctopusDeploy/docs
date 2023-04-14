@@ -61,4 +61,4 @@ For further reading on variables in Octopus Deploy please see:
 - [Deployment Documentation](/docs/deployments/)
 - [Patterns and Practices](/docs/deployments/patterns/)
 
-<span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/create-and-deploy-a-release">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Next</a></span>
