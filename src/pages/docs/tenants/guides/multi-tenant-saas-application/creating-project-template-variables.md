@@ -13,19 +13,19 @@ Project templates define variables that are required to be provided by each tena
 
 To create a Project Template navigate to the **{{Variables, Project Templates}}** tab in your tenant connected project and click **ADD TEMPLATE**.
 
-![](images/creating-new-project-variable-templates.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/creating-new-project-variable-templates.png "width=500")
 
 Next, add a **Variable Name**, **Label**, any **Help text**, and **Control Type**. Lastly, choose an *optional* Default value.
 
-![](images/add-new-project-variable-template.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/add-new-project-variable-template.png "width=500")
 
 Next, we need to provide variable values for each tenant. To do this, navigate to the **Tenants** menu, choose your tenant and click **Variables**.
 
-![](images/adding-tenant-variables.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/adding-tenant-variables.png "width=500")
 
 Next, fill in the variable value for **Database Name** for each connected environment
 
-![](images/adding-tenant-variables-database-name.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/adding-tenant-variables-database-name.png "width=500")
 
 Repeat these steps for each of your tenants.
 

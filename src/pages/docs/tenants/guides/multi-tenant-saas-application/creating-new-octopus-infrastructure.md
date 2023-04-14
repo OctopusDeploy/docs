@@ -11,17 +11,17 @@ In this section, we need to add our infrastructure and associate it with our ten
 
 To add a new Azure Web Target, go to **{{Infrastructure, Deployment Targets}}** and click **ADD DEPLOYMENT TARGET**.
 
-![](images/creating-new-deployment-target.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/creating-new-deployment-target.png "width=500")
 
 Next, go to **{{Azure, Azure Web App}}** and click **ADD**. Then, add a **Display Name**, **Environment** and **Target Role**.
 
-![](images/adding-new-deployment-target-details-1.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/adding-new-deployment-target-details-1.png "width=500")
 
 Choose the Azure **Account**, **Azure Web App** and *optionally* **Azure Web App Slot** and **Worker Pool**.
 
 Lastly associate the deployment target with a tenant.
 
-![](images/adding-deployment-target-details-tenant.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/adding-deployment-target-details-tenant.png "width=500")
 
 Repeat these steps for the rest of your deployment targets and tenants.
 
