@@ -13,17 +13,17 @@ What happens when you are providing Software as a Service (SaaS) applications an
 
 You could model it with multiple projects:
 
-![](images/multiple-projects.png "width=500")
+![](/docs/tenants/images/multiple-projects.png "width=500")
 
 Alternatively, you could model it with a single project deployed to multiple environments:
 
-![](images/multiple-environments.png "width=500")
+![](/docs/tenants/images/multiple-environments.png "width=500")
 
 In either case, this can quickly become overwhelming. It doesn't scale well as there is a lot of duplication.
 
 To solve this, Octopus provides first-class support for modeling tenants.
 
-![](images/multiple-tenants.png "width=500")
+![](/docs/tenants/images/multiple-tenants.png "width=500")
 
 Tenants in Octopus allow you to easily create customer specific deployment pipelines without duplicating project configuration. You can
 manage separate instances of your application in multiple environments in a single Octopus project.

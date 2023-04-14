@@ -47,7 +47,7 @@ Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=Cli
 
 Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,GoogleApps}}** and populating the fields `Is Enabled`, `Hosted Domain`, `Client ID` and `Client Secret`.
 
-![Settings](images/google.png "width=500")
+![Settings](/docs/public/docs/security/authentication/images/google.png "width=500")
 
 ### Octopus user accounts are still required {#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
 
@@ -92,7 +92,7 @@ Perhaps the contents of the security token sent back by GoogleApps aren't exactl
 
 3. Attempt to sign into Octopus using GoogleApps and find the HTTP POST coming back to your Octopus instance from GoogleApps on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body. 
 
-![ID Token](images/5866125.png "width=500")
+![ID Token](/docs/public/docs/security/authentication/images/5866125.png "width=500")
 
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.  
 

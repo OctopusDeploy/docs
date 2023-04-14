@@ -6,7 +6,7 @@ description: How the SHA1 "Shattered" Collision impacts Octopus Deploy
 navOrder: 1
 ---
 
-![Shattered logo](shattered-logo.png "width=500")
+![Shattered logo](/docs/security/cve/shattered-logo.png "width=500")
 
 _Extracted from our [blog post in 2017](https://octopus.com/blog/shattered)._
 
@@ -143,4 +143,4 @@ foreach ($site in Get-ChildItem IIS:\Sites)
 
 You can easily run this in the [Octopus Script Console](/docs/administration/managing-infrastructure/script-console/) across all of your machines:
 
-![Running the IIS SHA1 binding detection in the Octopus script console](shattered-console.png "width=500")
+![Running the IIS SHA1 binding detection in the Octopus script console](/docs/security/cve/shattered-console.png "width=500")

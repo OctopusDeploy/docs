@@ -23,7 +23,7 @@ Octopus Deploy has the responsibility of providing a secure and stable platform 
 
 You have the responsibility for how that platform is implemented and exposed to your infrastructure and users.
 
-![A diagram depicting the shared responsibility model for Octopus Deploy](shared-responsibility.png "width=500")
+![A diagram depicting the shared responsibility model for Octopus Deploy](/docs/security/shared-responsibility.png "width=500")
 
 ### Octopus Cloud
 
@@ -73,7 +73,7 @@ To make Octopus Deploy useful to your organization it needs a high level of acce
 
 We take every reasonable effort to make Octopus Server, Tentacle, Calamari, and any other tools we provide FIPS 140 compliant. If something is not FIPS 140 compliant we will take every reasonable effort to fix the problem, or otherwise degrade the feature gracefully.
 
-Learn about [FIPS and Octopus Deploy](fips-and-octopus-deploy/).
+Learn about [FIPS and Octopus Deploy](/docs/security/fips-and-octopus-deploy/).
 
 ## Provided by the host
 
@@ -121,7 +121,7 @@ Learn about [PCI/DSS compliance and Octopus Deploy](pci-compliance-and-octopus-d
 
 Some components in Octopus Deploy will make outbound requests from time to time. Generally these requests are required to perform your deployments, some of them are for things like certificate revocation checks, and some are designed to help us build a better product for you.
 
-Learn about the [outbound requests](outbound-requests/) made by Octopus Deploy.
+Learn about the [outbound requests](/docs/security/outbound-requests/) made by Octopus Deploy.
 
 ## Privacy
 

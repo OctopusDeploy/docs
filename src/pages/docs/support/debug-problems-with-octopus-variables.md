@@ -16,14 +16,14 @@ Sometimes a variable used during deployment may have a different value from the 
     * Update the Variable in the **Variables** section of the project, and then.
     * Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
 
-![](images/3278466.png "width=500")
+![](/docs/support/images/3278466.png "width=500")
 
 ## Check the variable value in the all variables tab {#DebugproblemswithOctopusvariables-CheckthevariablevalueintheAllVariablestab}
 
 1. Open the **{{Project,Variables,All Variables}}** tab.
 2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/projects/variables/library-variable-sets/), and [tenants](/docs/tenants/).
 
-![](images/5865680.png "width=500")
+![](/docs/support/images/5865680.png "width=500")
 
 :::success
 Did you know you can sort filter all of the variables grids? Click **Show Advanced filters** and select your filter type.
@@ -43,7 +43,7 @@ This will log the variables available at the beginning of each step in the deplo
 
 It should look like this. You can have as many extra variables as you want besides these two.
 
-![](images/evaluatedvars.png "width=500")
+![](/docs/support/images/evaluatedvars.png "width=500")
 
 3. **Create a new release** of the project or **Update the variable snapshot** for the release as shown above.
 4. Deploy the new release.

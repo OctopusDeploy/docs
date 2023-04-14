@@ -10,14 +10,14 @@ Sometimes you may wish to allow users to access your Octopus Server, without req
 
 When guest login is enabled, the sign in page for the Octopus Web Portal will present users with a choice to either sign in as a guest, or to sign in with their standard account:
 
-![](images/guest.png "width=500")
+![](/docs/public/docs/security/authentication/images/guest.png "width=500")
 
 ## Enable guest user via UI {#Guestlogin-Enableguestlogin}
 
 You can enable your guest accounts from the Octopus Web Portal by navigating to **{{Configuration,Settings,Guest Login}}**. From there you can click the **Is Enabled** checkbox to enable or disable the Guest account.
 
-![](images/enableguests1.png "width=500")
-![](images/enableguests2.png "width=500")
+![](/docs/public/docs/security/authentication/images/enableguests1.png "width=500")
+![](/docs/public/docs/security/authentication/images/enableguests2.png "width=500")
 
 The guest account will now be activated and added to your Octopus Users.
 
@@ -25,7 +25,7 @@ The guest account will now be activated and added to your Octopus Users.
 
 The guest user is created as a standard user managed by Octopus. If you are using Active Directory authentication, you don't need a matching AD user account. The user is automatically added to the **Everyone** team. The guest user can be found in the **Users** tab in the **Configuration** area:
 
-![](images/guestuser.png "width=500")
+![](/docs/public/docs/security/authentication/images/guestuser.png "width=500")
 
 As with any standard user, you can [assign the guest account to different teams](/docs/security/users-and-teams/) to give them permissions to view projects or environments.
 
@@ -35,7 +35,7 @@ The guest user is designed to be used by multiple people, so it has one addition
 
 For example, you could assign the guest user to your **Octopus Administrators** team, which normally gives the user full access to everything. However for the guest account, this will be read-only - they will be able to view all settings, but they won't be able to change anything. They can't even change their profile settings! Any attempt to make any changes will result in the following message:
 
-![](images/guestuserpermissions.png "width=500")
+![](/docs/public/docs/security/authentication/images/guestuserpermissions.png "width=500")
 :::
 
 :::warning

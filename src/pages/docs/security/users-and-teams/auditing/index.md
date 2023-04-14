@@ -34,13 +34,13 @@ If you are concerned that Octopus does not capture a specific action of interest
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
-![Audit Configuration](images/audit-configuration.png "width=500")
+![Audit Configuration](/docs/security/users-and-teams/auditing/images/audit-configuration.png "width=500")
 
 Some audit events will also include details, which you can see by clicking the **show details** link. For example:
 
-![Audit Event Details](images/audit-event-details.png "width=500")
+![Audit Event Details](/docs/security/users-and-teams/auditing/images/audit-event-details.png "width=500")
 
-![Audit Event Details extended](images/audit-event-details-extended.png "width=500")
+![Audit Event Details extended](/docs/security/users-and-teams/auditing/images/audit-event-details-extended.png "width=500")
 
 This feature makes it extremely easy to see who made what changes on the Octopus Server.
 
@@ -62,7 +62,7 @@ From **Octopus 2022.4** [enterprise-tier](https://octopus.com/pricing) customers
 
 Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days or 3650 days for self-hosted customer) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
 
-![Manage Archived Audit Logs Menu](images/manage-archived-audit-logs-menu.png "width=500")
+![Manage Archived Audit Logs Menu](/docs/security/users-and-teams/auditing/images/manage-archived-audit-logs-menu.png "width=500")
 
 ### Modifying and deleting audit logs is prevented
 

@@ -26,12 +26,12 @@ This default behavior can be changed by granting an additional permission to the
 
 As an administrator, open **{{Configuration,Teams}}**, and select the **Roles** item in the tool area:
 
-![](images/3277948.png "width=500")
+![](/docs/security/users-and-teams/images/3277948.png "width=500")
 
 In the list of user roles shown, either create a new role to assign to the team, or select a built-in role like **Project contributors** to modify.
 
-![](images/3277947.png "width=500")
+![](/docs/security/users-and-teams/images/3277947.png "width=500")
 
 The individual permissions that make up the role will then be shown. Tick the **VariableEditUnscoped**or **VariableViewUnscoped** items as required, and save the role.
 
-![](images/3277946.png "width=500")
+![](/docs/security/users-and-teams/images/3277946.png "width=500")

@@ -70,7 +70,7 @@ Some places in Octopus Deploy allow a user to add rich content, like description
 
 When you sign in to the Octopus Deploy web user interface, the server will send back an encrypted cookie called `OctopusIdentificationToken` in the response header with the `HttpOnly=true` cookie flag set. Even if an attacker could successfully execute a malicious script, the browser will prevent that script from accessing the session cookie.
 
-In the worst case where an attacker could steal the session cookie, Octopus Deploy actively prevents against [Cross-Site Request Forgery](csrf-and-octopus-deploy/).
+In the worst case where an attacker could steal the session cookie, Octopus Deploy actively prevents against [Cross-Site Request Forgery](/docs/security/cve/csrf-and-octopus-deploy/).
 
 ### A strict content security policy (CSP) is configured
 

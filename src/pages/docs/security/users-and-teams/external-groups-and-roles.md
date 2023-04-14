@@ -12,13 +12,13 @@ Adding external groups or roles to Octopus Teams can be helpful in controlling t
 
 Depending on which authentication providers you have enabled, the following buttons may appear on the Team page.
 
-![](images/members-buttons.png "width=694")
+![](/docs/security/users-and-teams/images/members-buttons.png "width=694")
 
 ## Add Active Directory group {#ExternalGroupsandRoles-AddActiveDirectorygroup}
 
 This button appears if you have the Active Directory authentication provider enabled, and when activated you will see the following dialog
 
-![](images/add-ad-group.png "width=500")
+![](/docs/security/users-and-teams/images/add-ad-group.png "width=500")
 
 The search on this dialog will locate any groups in the domain that start with the text you provide.
 
@@ -26,7 +26,7 @@ The search on this dialog will locate any groups in the domain that start with t
 
 If your environment has trusted domains, you can search for groups in the trusted domain by prefixing the search text with "**domain**" (where domain is the name of the Trusted Domain).
 
-![](images/add-ad-group-trusted-domains.png "width=500")
+![](/docs/security/users-and-teams/images/add-ad-group-trusted-domains.png "width=500")
 
 :::hint
 Domain trust is the only constraint when Active Directory users authenticate with Octopus. If the user does not exist in Octopus, but is able to authenticate with Active Directory, a new Octopus user will automatically be created for the user. This new user will be placed in the Everyone Team, which by default has limited permissions, so they won't be able to do anything until they are moved to a Team with additional permissions assigned to it.
@@ -36,6 +36,6 @@ Domain trust is the only constraint when Active Directory users authenticate wit
 
 This button appears if you have an external authentication provider enabled (e.g. Azure AD), and when activated you will see the following dialog
 
-![](images/add-external-role.png "width=500")
+![](/docs/security/users-and-teams/images/add-external-role.png "width=500")
 
 The Role Id corresponds to the role id from the external provider (learn more about [roles for Azure AD](/docs/security/authentication/azure-ad-authentication/)), Display Name is purely for display in the Team page.

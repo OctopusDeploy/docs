@@ -81,7 +81,7 @@ Navigate to **{{Configuration, Settings, LDAP}}**.  Enter values in the followin
 The root DN `cn=users,dc=devopswalker,dc=local` was selected because that is the directory for both users and groups in the example Active Directory server.
 :::
 
-![basic configuration for LDAP authentication provider](images/ldap-auth-provider-configuration.png)
+![basic configuration for LDAP authentication provider](/docs/security/authentication/ldap/images/ldap-auth-provider-configuration.png)
 
 ## Testing the LDAP authentication provider
 
@@ -92,19 +92,19 @@ After configuring the LDAP authentication provider, you will want to test it.  T
 
 For the external user lookup, navigate to **{{Configuration, Users}}** and select a user account.  Once that screen is loaded, expand the LDAP section under logins and click the `ADD LOGIN` button.  If everything is working correctly, then you will see a modal window similar to this.
 
-![successful user lookup](images/successful-user-lookup.png)
+![successful user lookup](/docs/security/authentication/ldap/images/successful-user-lookup.png)
 
 If the LDAP authentication provider or LDAP server is not configured properly, you will encounter an error similar to this.
 
-![failed user lookup](images/failed-user-lookup.png)
+![failed user lookup](/docs/security/authentication/ldap/images/failed-user-lookup.png)
 
 The error `Unable to connect to the LDAP server.  Please see your administrator if this re-occurs.  Error Code 49 Invalid Credentials` is an LDAP lookup error caused by bad credentials.  That is easy to debug, but there might be a specific reason why that is failing.  You can find the specific error type code by looking at your Octopus server logs.
 
-![data error code](images/ldap-error-data.png)
+![data error code](/docs/security/authentication/ldap/images/ldap-error-data.png)
 
 The external group lookup is the same as the external user lookup.  Except, go to **{{Configuration, Teams}}** and select a team.  Then click the button `ADD LDAP GROUP` and perform a search.  If everything is configured correctly, then you will see this message:
 
-![external group lookup successful](images/external-group-success.png)
+![external group lookup successful](/docs/security/authentication/ldap/images/external-group-success.png)
 
 If the lookup fails, then perform the same troubleshooting you did for the user lookup.
 
@@ -114,21 +114,21 @@ After the above tests are successful, it is time to try the next test, logging i
 
 Signing in with the username `professor.octopus` worked as expected.  As stated earlier, the default configuration is to match on the `sAMAccountName` attribute.  Assuming the username and password were successful, the new user was created and assigned to the appropriate team.
 
-![Successful sign in](images/new-user-created.png)
+![Successful sign in](/docs/security/authentication/ldap/images/new-user-created.png)
 
 ## Changing the user filter
 
 By default, Octopus matches on the `sAMAccountName` attribute.  In our testing, it proved to be more reliable than other options.  With that default, signing in using the UPN such as `professor.octopus@devopswalker.local`, will give you this error:
 
-![UPN Error](images/failed-sign-in.png)
+![UPN Error](/docs/security/authentication/ldap/images/failed-sign-in.png)
 
 You might have a company policy (or personal preference) to use the UPN.  If so, change the User Filter to be `(&(objectClass=person)(userPrincipalName=*))`.  
 
-![Updated User Filter](images/updated-ldap-user-filter.png)
+![Updated User Filter](/docs/security/authentication/ldap/images/updated-ldap-user-filter.png)
 
 That is because with Active Directory, the email address is stored on the user principal, not the user id.
 
-![user principal vs user id](images/user-id-vs-principal.png)
+![user principal vs user id](/docs/security/authentication/ldap/images/user-id-vs-principal.png)
 
 ## Troubleshooting
 
@@ -142,4 +142,4 @@ The first recommendation is to use an LDAP lookup tool, such as [ldp.exe](https:
 
 You can find all the LDAP failures in the Octopus logs on the Octopus Server.  Lookup the error codes and data codes to see what the specific error is.  You can look up that specific error code using your search engine of choice to find the specific error message and a more detailed description.
 
-![data error code](images/ldap-error-data.png)
+![data error code](/docs/security/authentication/ldap/images/ldap-error-data.png)
