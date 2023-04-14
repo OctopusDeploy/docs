@@ -10,7 +10,7 @@ When a release is deployed to an environment, it can be thought of as deploying 
 
 Deployment notes summarize these changes by rolling up the [release notes](/docs/releases/release-notes/) from all releases since the previous deployment of the project to the environment.  
 
-![Deployment notes](images/deployment-notes.png "width=500")
+![Deployment notes](/docs/releases/images/deployment-notes.png "width=500")
 
 ## Versioning and pre-releases  {#Versioning}
 
@@ -27,7 +27,7 @@ It can be useful to access the changes associated with a deployment in the deplo
 
 A common example of this is for use in the [email step](/docs/projects/built-in-step-templates/email-notifications/).  
 
-![Deployment notes variables in email step](images/deployment-notes-email-step.png "width=500")
+![Deployment notes variables in email step](/docs/releases/images/deployment-notes-email-step.png "width=500")
 
 In scenarios where you want to use Release Notes Templates and Emails steps together, there can be some complications depending on the layout of the email content you need. The easiest option is to use the release notes directly from the releases:
 
@@ -117,7 +117,7 @@ The following template only shows the most recent change being deployed, includi
 
 This is achieved using the Octopus [special variables](https://octopus.com/docs/projects/variables/variable-substitutions#VariableSubstitutionSyntax-SpecialVariables), specifically `Octopus.Template.Each.Last` and `Octopus.Template.Each.First` to include a header for each section, and will render like this:
 
-![Deployment notes rendered using the Octopus.Template.Each.Last variable](images/deployment-notes-template-each-last-example.png "width=500")
+![Deployment notes rendered using the Octopus.Template.Each.Last variable](/docs/releases/images/deployment-notes-template-each-last-example.png "width=500")
 
 ### Deployment changes and targets
 

@@ -10,8 +10,9 @@ navOrder: 30
 
 The next section shows how you can create runbooks to manage DNS records:
 
-- [Create DNS record runbook](#create-dnsrecord)
-- [Delete DNS record runbook](#delete-dnsrecord)
+- [Create DNS record runbook {#create-dnsrecord}](#create-dns-record-runbook-create-dnsrecord)
+- [Delete DNS record runbook {#delete-dnsrecord}](#delete-dns-record-runbook-delete-dnsrecord)
+- [Samples](#samples)
 
 ## Create DNS record runbook {#create-dnsrecord}
 
@@ -24,7 +25,7 @@ The next section shows how you can create runbooks to manage DNS records:
 1. Choose the **Azure Account** to use:
 1. In the **Azure** section, select the variable that references the **Account**. If you don't have an **Azure Account** yet, check our [documentation on how to create one](/docs/infrastructure/accounts/azure/).
 
-![Azure Account variable](images/azure-account-variable.png "width=500")
+![Azure Account variable](/docs/runbooks/runbook-examples/azure/images/azure-account-variable.png "width=500")
 
 :::hint
 [Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 

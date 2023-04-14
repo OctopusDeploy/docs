@@ -49,7 +49,7 @@ az network dns record-set a add-record --resource-group $resourceGroup --zone-na
 az network dns record-set a remove-record --resource-group $resourceGroup --zone-name $zoneName --record-set-name www --ipv4-address $ipAddressDR
 ```
 
-![](octopus-runbook-app-monitoring.png "width=500")
+![](/docs/runbooks/runbook-examples/emergency/octopus-runbook-app-monitoring.png "width=500")
 
 ## Create the trigger
 
@@ -63,7 +63,7 @@ az network dns record-set a remove-record --resource-group $resourceGroup --zone
 5. Scheduled Timezone:
    - Select timezone: Select the timezone to use when evaluating when to run.
 
-![](octopus-runbook-trigger.png "width=500")
+![](/docs/runbooks/runbook-examples/emergency/octopus-runbook-trigger.png "width=500")
 
 
 ## Samples

@@ -16,7 +16,7 @@ Have you heard about [Octopus Cloud](https://octopus.com/cloud)? We take care of
 
 Octopus Deploy is a complex system with many security features baked in and tuned by default. Take some time to understand what we've built in to the product, and what you are ultimately taking responsibility for when self-hosting Octopus Deploy.
 
-Learn about [security in Octopus Deploy]().
+Learn about [security in Octopus Deploy](/docs/security).
 
 Reading this guide carefully before you begin will help you prepare all the secure networking and server infrastructure you need for your Octopus installation. If you need any help along the way, don't hesitate to [get in touch](https://octopus.com/support)!
 

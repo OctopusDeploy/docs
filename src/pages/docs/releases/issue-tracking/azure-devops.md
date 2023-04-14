@@ -13,7 +13,7 @@ Octopus integrates with Azure DevOps work items. The integration includes the ab
 
 ## How Azure DevOps integration works
 
-![Octopus Azure DevOps integration - how it works diagram](images/octo-azure-devops-how-it-works.png "width=500")
+![Octopus Azure DevOps integration - how it works diagram](/docs/releases/issue-tracking/images/octo-azure-devops-how-it-works.png "width=500")
 
 1. Associate code changes with their relevant work items in any of the following ways:
     - Edit a pull request in Azure DevOps, and use the **Work Items** panel to select a work item.
@@ -22,11 +22,11 @@ Octopus integrates with Azure DevOps work items. The integration includes the ab
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The Azure DevOps Issue Tracker extension in Octopus uses the build information to request work item references from Azure DevOps.
 
-![Octopus release with Azure DevOps work items](images/octo-azure-devops-release-details.png "width=500")
+![Octopus release with Azure DevOps work items](/docs/releases/issue-tracking/images/octo-azure-devops-release-details.png "width=500")
 
 4. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes/).  
 
-![Octopus deployment with generated release notes](images/octo-azure-devops-release-notes.png "width=500")
+![Octopus deployment with generated release notes](/docs/releases/issue-tracking/images/octo-azure-devops-release-notes.png "width=500")
 
 ### Availability {#availability}
 
@@ -60,7 +60,7 @@ To supply the build information:
 :::warning
 If you had previously been using the older functionality on the Create Octopus Release step, you should disable all of the release note options on that step as they use different mechanics and will conflict with the new features.
 
-![Legacy create release settings](images\octo-azure-devops-create-release-notes-fields.png "width=500")
+![Legacy create release settings](/docs/releases/issue-tracking/images/octo-azure-devops-create-release-notes-fields.png "width=500")
 :::
 
 ## Connect Octopus to Azure DevOps {#connect-octopus-to-azure-devops}
@@ -84,7 +84,7 @@ If you had previously been using the older functionality on the Create Octopus R
     Support for multiple Azure DevOps connections was added in Octopus **2021.3**.
     :::
 
-    !["Multiple Azure DevOps Issue Tracker connections"](images/octopus-azure-devops-tracker-multiple-connections.png "width=500")
+    !["Multiple Azure DevOps Issue Tracker connections"](/docs/releases/issue-tracking/images/octopus-azure-devops-tracker-multiple-connections.png "width=500")
 
 1. Ensure the **Is Enabled** property is enabled
 

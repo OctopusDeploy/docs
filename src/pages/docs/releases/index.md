@@ -82,7 +82,7 @@ For each release you create, a snapshot is taken of the project variables. You c
 
 This lets you see the variables as they existed when the release was created.
 
-![](images/release-variable-snapshot-section.png "width=500")
+![](/docs/releases/images/release-variable-snapshot-section.png "width=500")
 
 You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
 

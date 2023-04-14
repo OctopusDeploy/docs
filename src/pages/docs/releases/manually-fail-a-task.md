@@ -10,6 +10,6 @@ Octopus implements a queue of running background tasks. Sometimes, a task may ha
 
 When a task is queued, you'll see a list of tasks that it is waiting on in the task summary:
 
-![Cancel a running task](images/cancel-tasks.png "width=500")
+![Cancel a running task](/docs/releases/images/cancel-tasks.png "width=500")
 
 You can navigate to any of these tasks, and then click the Cancel button in the top right corner on the executing/waiting/queued task (you may need to click it twice). This will mark the blocked task as Failed and then allow your new task to proceed.

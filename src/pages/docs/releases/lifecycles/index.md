@@ -84,7 +84,7 @@ Any future environments you define will also be deployed to as part of this phas
      Optional phases do not execute automatic deployments. If you want to deploy releases automatically to any environments in a phase, use one of the other *Required to progress* options.
      :::
 
-     ![Optional Phase](images/optional-phase.png "width=500")
+     ![Optional Phase](/docs/releases/lifecycles/images/optional-phase.png "width=500")
 
    If you want to be able to deploy to any environment at any time, then simply create a single-phase that has **Required to progress** set to `All must complete` and includes all your environments.
 
@@ -94,17 +94,17 @@ Any future environments you define will also be deployed to as part of this phas
 
 After you have defined your lifecycles, they become available to your projects. Projects can be deployed to any environment in their lifecycle.
 
-![](images/lifecycle-deployment-process.png "width=500")
+![](/docs/releases/lifecycles/images/lifecycle-deployment-process.png "width=500")
 
 ## Default lifecycle {#default-lifecycle}
 
 Octopus creates a default lifecycle for you. To view it, navigate to **{{Library,Lifecycles}}**, and it will be in the list named **Default Lifecycle**:
 
-![Default Lifecycle Library view](images/default-lifecycle.png "width=500")
+![Default Lifecycle Library view](/docs/releases/lifecycles/images/default-lifecycle.png "width=500")
 
 The phases shown are created implicitly by the default lifecycle. By convention, the default lifecycle will create one phase per environment. They appear in the same order the environments are listed on the environments page. To view the default conventions applied, click on the lifecycle and the information appears in the **Phases** section :
 
-![Default Lifecycle Library view](images/default-lifecycle-default-conventions.png "width=500")
+![Default Lifecycle Library view](/docs/releases/lifecycles/images/default-lifecycle-default-conventions.png "width=500")
 
 ### Update the default lifecycle
 
@@ -124,7 +124,7 @@ In the next section, we look at configuring the default lifecycle to add your ow
 
 You can define your own phases for the default lifecycle. This helps to prevent having too many phases being added automatically. To add a new phase, in the default lifecycle, Click **ADD PHASE**. Here, we are creating a phase named **Development** and adding the Dev environment to the phase:
 
-![Add Dev lifecycle phase](images/default-lifecycle-add-dev-phase.png "width=500")
+![Add Dev lifecycle phase](/docs/releases/lifecycles/images/default-lifecycle-add-dev-phase.png "width=500")
 
 This phase has the default option to manually deploy to the environment set. The Required to progress and Retention policy are also set to the default values.
 
@@ -134,7 +134,7 @@ Phase names usually match the environment it contains. While this is a good prac
 
 You can repeat this process to create extra phases. In this example, we are creating a phase for Testing, Staging, and Production.
 
-![Default lifecycle phases added](images/default-lifecycle-phases-added.png "width=500")
+![Default lifecycle phases added](/docs/releases/lifecycles/images/default-lifecycle-phases-added.png "width=500")
 
 This allows you to explicitly configure the default lifecycle for deploying your software.
 
@@ -148,7 +148,7 @@ A hotfix lifecycle is useful when you have a critical bug-fix that needs to be d
 
 It's recommended to follow good deployment practices and validate any changes before pushing them to production. To match this, a hotfix lifecycle usually has just two phases, Staging and Production. Software with the bug fix is validated in Staging and then promoted to Production. Your lifecycle may be different to reflect how you decide to handle hotfixes.
 
-![Hotfix lifecycle](images/hotfix-lifecycle.png "width=500")
+![Hotfix lifecycle](/docs/releases/lifecycles/images/hotfix-lifecycle.png "width=500")
 
 ### Maintenance lifecycle
 
@@ -160,7 +160,7 @@ A Maintenance lifecycle can be used for projects that run maintenance tasks such
 
 It typically consists of just one phase and one environment, also called Maintenance. You can include this environment in all deployment targets you want to run these tasks against. You can also split them up into the Development, Testing, Staging, and Production environments if you want to run the tasks for targets in those environments at different times.
 
-![Maintenance lifecycle](images/maintenance-lifecycle.png "width=500")
+![Maintenance lifecycle](/docs/releases/lifecycles/images/maintenance-lifecycle.png "width=500")
 
 ## Recommendations {#lifecycle-recommendations}
 
