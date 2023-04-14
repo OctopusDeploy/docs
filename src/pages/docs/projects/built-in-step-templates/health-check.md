@@ -12,7 +12,7 @@ However, often it can be useful to check the health of deployment targets when e
 
 This can be achieved using the _Health Check_ step.
 
-![Health check step search](images/health-check-step-search.png "width=500")
+![Health check step search](/docs/projects/built-in-step-templates/images/health-check-step-search.png "width=500")
 
 This step allows a deployment target that was created in the currently executing deployment to be confirmed as healthy and then added to the running deployment for subsequent steps.
 
@@ -24,7 +24,7 @@ Health check steps are added to deployment and runbook processes in the same way
 
 1. Add a new `Health Check` step to your [project's deployment process](/docs/projects/steps/).
 
-    ![Health check step](images/health-check-step-select.png "width=170")
+    ![Health check step](/docs/projects/built-in-step-templates/images/health-check-step-select.png "width=170")
 2. In the **On Behalf Of** section, select the [target roles](/docs/infrastructure/deployment-targets/#target-roles) that match the deployment targets you want to run a health check against. 
 
 3. In the **Health check** section select an option for **Health check type**:

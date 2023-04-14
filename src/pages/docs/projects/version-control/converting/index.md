@@ -9,7 +9,7 @@ hideInThisSection: true
 
 Git settings are configured per project and are accessed via the **{{ Settings, Version Control }}** link in the project navigation menu. This page will walk through how to convert a project to Git.
 
-![Version-control configuration UI](version-control-configuration.png "width=500")
+![Version-control configuration UI](/docs/projects/version-control/converting/version-control-configuration.png "width=500")
 
 ## Creating a new version-controlled project
 
@@ -17,7 +17,7 @@ To get a feel for the config-as-code feature, you may want to create a new proje
 
 Click the **New Project** button and select **Use version control for this project.**
 
-![adding a project using vcs](add-project-vcs.png)
+![adding a project using vcs](/docs/projects/version-control/converting/add-project-vcs.png)
 
 Once you click the **Save** button, you'll be sent to the version control screen to configure your version control settings. Enter the URL for your Git repository, your username and password / personal access token. 
 
@@ -31,7 +31,7 @@ You can have multiple deployment processes in the same repository if they all us
 
 Finally, add your default branch name in Branch Settings and click **Configure**. Once you press the **Configure** button, a modal window will appear to confirm this change and give you the option to provide a summary and description for the first commit or cancel the conversion.
 
-![configuring version control](configure-version-control.png)
+![configuring version control](/docs/projects/version-control/converting/configure-version-control.png)
 
 Your project is now configured with Version Control. You can see this change reflected on the left navigation of the page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files:
 
@@ -66,7 +66,7 @@ You can have multiple deployment processes in the same repository if they all us
 
 Once you press the **Configure** button, a modal window will appear to confirm this change and give you the option to provide a summary and description for the first commit or cancel the conversion.
 
-![configuring version control](configure-version-control.png)
+![configuring version control](/docs/projects/version-control/converting/configure-version-control.png)
 
 Your project is now configured with Version Control. You can see this change reflected on the left navigation of the page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files:
 
@@ -81,7 +81,7 @@ If your repository has branch protection setup, see [Setting up in a repository 
 
 If your default branch is protected, you can select that option under Branch Settings. You will need to provide a different branch name for the initial commit. If the branch doesn't exist, it will be created. Once you click the **Configure** button, Octopus will commit the OCL file to the initial commit branch. 
 
-![initial commit branch and protected default branch](configure-initial-commit-branch.png "width=500")
+![initial commit branch and protected default branch](/docs/projects/version-control/converting/configure-initial-commit-branch.png "width=500")
 
 Next, you will need to merge your changes into the default branch in your Git provider using your usual workflow. You will not be able to use the default branch within the project until you have merged your changes from the initial commit branch to the default branch. However, you can continue to make changes to the initial commit branch until then.
 
@@ -89,7 +89,7 @@ Optionally, you can also nominate protected branches for your Project. This will
 
 *Note that this is independent of your branch protection rules in your Git Provider and does not offer any protection outside of the Octopus UI.*
 
-![protected branches](configure-protected-branches.png "width=500")
+![protected branches](/docs/projects/version-control/converting/configure-protected-branches.png "width=500")
 
 
 ## Migrating variables on an existing Git project

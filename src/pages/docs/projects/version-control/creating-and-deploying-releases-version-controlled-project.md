@@ -16,7 +16,7 @@ When you create a release with a version-controlled Octopus Project, you will ha
 
 When you create a release via the UI, you must specify a branch name. Octopus will select the default branch configured in the project settings. When the **SAVE** button is pressed, a snapshot will be created using OCL files from the most recent commit from the specified branch for the Snapshot.  
 
-![creating a release via the Octopus UI](create-release-octopus-ui.png)
+![creating a release via the Octopus UI](/docs/projects/version-control/create-release-octopus-ui.png)
 
 ### Creating a release from a build server plug-in
 

@@ -31,15 +31,15 @@ To add your SMTP configuration navigate to **{{Configuration,SMTP}}** and set th
 
 Click **SAVE AND TEST** to save the SMTP configuration and verify the values are valid:
 
-![](images/smtp-configuration.png "width=500")
+![](/docs/projects/built-in-step-templates/images/smtp-configuration.png "width=500")
 
 You will be prompted for an email address to send a test email to:
 
-![](images/smtp-test-email.png "width=500")
+![](/docs/projects/built-in-step-templates/images/smtp-test-email.png "width=500")
 
 Enter a test email address and click **OK**. A Send test email task will start to verify your SMTP Configuration:
 
-![](images/smtp-verify-task.png "width=500")
+![](/docs/projects/built-in-step-templates/images/smtp-verify-task.png "width=500")
 
 ## Add an email step
 
@@ -107,7 +107,7 @@ To use the template in your projects, replace `nuget.org` with the DNS name of
 
 The output of the template will be an HTML email like:
 
-![](images/email-output.png "width=500")
+![](/docs/projects/built-in-step-templates/images/email-output.png "width=500")
 
 ### Including step status
 

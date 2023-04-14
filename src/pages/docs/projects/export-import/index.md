@@ -14,15 +14,15 @@ The `Export/Import Projects` feature can export one or more projects into a zip 
 
 Export/Import features are found in the overflow menu on the {{Projects}} page. 
 
-![Import Export Menu](import-export-menu.png "width=500")
+![Import Export Menu](/docs/projects/export-import/import-export-menu.png "width=500")
 
 When exporting, a password is required to assist with encryption. The password should be treated carefully, as it will be used to decrypt any sensitive values contained within the export when importing the project(s) into Octopus.
 
-![Export projects](export-project-page.png "width=500")
+![Export projects](/docs/projects/export-import/export-project-page.png "width=500")
 
 The export runs as a task. Once the task is complete, the export zip file is attached as an artifact and available for download.
 
-![Export zip artifact](export-task-artifact.png "width=500")
+![Export zip artifact](/docs/projects/export-import/export-task-artifact.png "width=500")
 
 ## Scenarios
 

@@ -27,6 +27,6 @@ Variables can be scoped to specific runbooks, or to the deployment process, by n
 ## Runbooks variables in Git projects
 When snapshotting a Runbook in a Git project, the variables will always be taken from the default branch. The Git reference and commit that was used to create the snapshot is shown on the Runbook snapshot page.
 
-![Screenshot of Octopus Runbook snapshot page showing variable snapshot with reference main and commit d6cff1a](git-variables-runbook-snapshot.png "width=400")
+![Screenshot of Octopus Runbook snapshot page showing variable snapshot with reference main and commit d6cff1a](/docs/runbooks/runbook-variables/git-variables-runbook-snapshot.png "width=400")
 
 To use a different branch to snapshot variables, you will need to change the default branch for the project.
