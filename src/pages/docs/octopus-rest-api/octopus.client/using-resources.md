@@ -15,7 +15,7 @@ $machine = $repository.Machines.Get("machines-1");
 $machine.Name = "Test Server 1";
 $repository.Machines.Modify($machine);
 ```
-```cs C#
+```csharp C#
 // Sync
 var machine = repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";

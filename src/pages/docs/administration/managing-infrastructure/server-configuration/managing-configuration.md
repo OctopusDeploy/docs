@@ -39,7 +39,7 @@ This requires version 4.27.0 or later of the client library.
 
 To access the API from .Net you will need to add a NuGet reference to the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) library and to at least one of the above Extensibility libraries.
 
-```cs
+```csharp
 var server = "http://myoctopusserver";
 var apikey = "API-XXXXXXXX";
 var endpoint = new OctopusServerEndpoint(server, apikey);
@@ -51,7 +51,7 @@ guestConfig = repository.Configuration.Modify(guestConfig);
 
 For the Web Portal and Authentication configurations, you need the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) NuGet package:
 
-```cs
+```csharp
 var server = "http://myoctopusserver/";   
 var apiKey = "API-XXXXXXXX";             // Get this from your 'profile' page in the Octopus Web Portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);

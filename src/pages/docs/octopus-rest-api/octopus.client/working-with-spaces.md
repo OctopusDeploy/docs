@@ -24,7 +24,7 @@ $space = $repository.Spaces.FindByName("Space Name")
 $repositoryForSpace = $client.ForSpace($space)
 $projects = $repositoryForSpace.Projects.GetAll()
 ```
-```cs C#
+```csharp C#
 // Create endpoint and client
 var endpoint = new OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY");
 var client = new OctopusClient(endpoint);
@@ -52,7 +52,7 @@ $space = $repository.Spaces.FindByName("Space Name")
 $repositoryForSpace = [Octopus.Client.OctopusRepositoryExtensions]::ForSpace($repository, $space)
 $projects = $repositoryForSpace.Projects.GetAll()
 ```
-```cs C#
+```csharp C#
 // Create endpoint and repository
 var endpoint = new OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY");
 var repository = new OctopusRepository(endpoint);

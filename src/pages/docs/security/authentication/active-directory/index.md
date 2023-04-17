@@ -145,7 +145,8 @@ For more information about configuration of SPNs [please see this microsoft supp
 
 The aim here is to allow the current user's logon credentials to be sent through to Octopus and authenticated against the SPNs. It is important to remember that a URI is considered to be in the "Internet Zone" whenever it contains a `.`. 
 
-```Internet Zone
+```
+Internet Zone
 http://host.local
 http://192.168.x.x
 http://127.0.0.1

@@ -66,7 +66,8 @@ Starting from **Octopus 2019.9** you can specify a template for deployment chang
 
 The output is also available for use during a deployment by using the `Octopus.Deployment.ChangesMarkdown` variable. The content of the email above could be used as the deployment changes template for the project, and the email step could be simplified to:
 
-```Deployment contained releases:<br/>
+```
+Deployment contained releases:<br/>
 #{Octopus.Deployment.ChangesMarkdown | MarkdownToHtml}
 ```
 

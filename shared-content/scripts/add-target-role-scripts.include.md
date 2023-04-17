@@ -1,4 +1,6 @@
-```powershell PowerShell (REST API)
+**PowerShell (REST API):**
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -20,7 +22,10 @@ $machine.roles += ($targetRole)
 
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/machines/$($machine.Id)" -Body ($machine | ConvertTo-Json -Depth 10) -Headers $header
 ```
-```powershell PowerShell (Octopus.Client)
+
+**PowerShell (Octopus.Client):**
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
@@ -53,7 +58,10 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+**C#:**
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -91,7 +99,10 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+**Python3:**
+
+```python
 import json
 import requests
 
@@ -125,7 +136,10 @@ uri = '{0}/{1}/machines/{2}'.format(octopus_server_uri, space['Id'], target['Id'
 response = requests.put(uri, headers=headers, json=target)
 response.raise_for_status()
 ```
-```go Go
+
+**Go:**
+
+```go
 package main
 
 import (

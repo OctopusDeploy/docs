@@ -37,7 +37,7 @@ dotnet add package Octopus.Server.Client
 
 The easiest way to use the client is via the `OctopusRepository` helper:
 
-```cs C#
+```csharp C#
 var server = "https://myoctopus.example.com/";
 var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus Web Portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
@@ -46,7 +46,7 @@ var repository = new OctopusRepository(endpoint);
 
 API key authentication is recommended, but you can use username/password for authentication with the `SignIn()` method instead:
 
-```cs C#
+```csharp C#
 repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
 
@@ -55,7 +55,7 @@ repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" 
 
 The easiest way to use the client is via the `OctopusAsyncClient`:
 
-```cs C#
+```csharp C#
 var server = "https://myoctopus.example.com/";
 var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus Web Portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
@@ -66,7 +66,7 @@ using (var client = await OctopusAsyncClient.Create(endpoint))
 
 If you don't want to provide an API key for authentication, you can leave it out and authenticate with the `SignIn()` method instead:
 
-```cs
+```csharp
 await client.Repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
 

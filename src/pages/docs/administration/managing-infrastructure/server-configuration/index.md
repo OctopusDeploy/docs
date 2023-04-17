@@ -15,7 +15,7 @@ Each configuration value has properties that will determine whether it is shown 
 
 For example, any server extensions conforming to the **IHasConfigurationSettings** interface will contribute configuration values:
 
-```cs
+```csharp
 namespace Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration
 {
     public interface IHasConfigurationSettings
@@ -28,7 +28,7 @@ namespace Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration
 
 Where each **ConfigurationValue** is an object as follows:
 
-```cs
+```csharp
 namespace Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration
 {
     public class ConfigurationValue

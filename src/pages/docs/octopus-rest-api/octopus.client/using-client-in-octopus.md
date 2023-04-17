@@ -12,7 +12,7 @@ You can use Octopus.Client from inside Octopus (for example in a script step or 
 ```powershell PowerShell
 Add-Type -Path 'Octopus.Client/lib/netstandard2.0/Octopus.Client.dll'
 ```
-```cs C#
+```csharp C#
 #r "Octopus.Client/lib/netstandard2.0/Octopus.Client.dll"
 using Octopus.Client;
 using Octopus.Client.Model;

@@ -12,7 +12,7 @@ For some operations not available through [repositories](/docs/octopus-rest-api/
 ```powershell PowerShell
 $connection = $repository.Client.Get($machine.Links["Connection"]);
 ```
-```cs C#
+```csharp C#
 // Sync
 var connection = repository.Client.Get(machine.Links["Connection"]);
  
@@ -33,7 +33,7 @@ $link = $repository.Client.RootDocument.Links["CurrentUser"].ToString()
 $method = $repository.Client.GetType().GetMethod("Get").MakeGenericMethod([Octopus.Client.Model.UserResource])
 $me = $method.invoke($repository.Client, @($link, $null))
 ```
-```cs C#
+```csharp C#
 // Sync
 var me = repository.Client.Get<UserResource>(repository.Client.RootDocument.Links["CurrentUser"]);
  

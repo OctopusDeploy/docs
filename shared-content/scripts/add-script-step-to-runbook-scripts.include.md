@@ -1,4 +1,6 @@
-```csharp C#
+**C#:**
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 

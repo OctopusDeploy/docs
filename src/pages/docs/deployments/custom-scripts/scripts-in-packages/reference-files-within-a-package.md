@@ -43,7 +43,7 @@ Get-Content "$customPath\subfolder\file.txt"
 #   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 Get-Content ".\subfolder\file.txt"
 ```
-```cs C#
+```csharp C#
 // in pre-deploy, in post-deploy if custom installation directory has not been defined
 var extractPath = Octopus.Parameters["Octopus.Action.Package.InstallationDirectoryPath"];
 // if a custom installation directory has been defined

@@ -316,7 +316,7 @@ The syntax used by Octostash and Java libraries such as Spring do overlap, so ca
 
 For example, you may have a `application.properties` file that defines an environment variable which reflects the environment that the application has been published to.
 
-```properties
+```
 environment: #{Environment}
 ```
 
@@ -326,7 +326,7 @@ This file is expected to be used as an Octostash template during deployment, but
 
 For example, you may create a file called `application-dev.properties` with the following settings:
 
-```properties
+```
 environment: Development
 ```
 

@@ -42,7 +42,7 @@ Get-ChildItem . -Recurse -Include *.xml | New-OctopusArtifact
 New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt"
 ```
 
-```cs C#
+```csharp C#
 // Collect a custom log file from the current working directory using the file name as the name of the artifact
 Octopus.CreateArtifact("output.log");
 

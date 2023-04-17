@@ -19,7 +19,7 @@ Write-Warning "This will be logged as a Warning"
 Write-Error "This will be logged as an Error and may cause your script to stop running - take a look at the section on Error Handling"
 ```
 
-```cs C#
+```csharp C#
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
@@ -76,7 +76,7 @@ Progress messages will display and update a progress bar on your deployment task
 Update-Progress 10
 Update-Progress 50 "Woah, we're halfway there!"
 ```
-```cs C#
+```csharp C#
 Octopus.UpdateProgress(10);
 Octopus.UpdateProgress(50, "Woah, we're halfway there!");
 ```
@@ -84,7 +84,7 @@ Octopus.UpdateProgress(50, "Woah, we're halfway there!");
 update_progress 10
 update_progress 50 "Woah, we're halfway there!"
 ```
-```fs F#
+```fsharp F#
 Octopus.updateProgress 10
 Octopus.updateProgress 50 "Woah, we're halfway there!"
 ```

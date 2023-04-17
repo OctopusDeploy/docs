@@ -10,7 +10,7 @@ navOrder: 76
 Include a variable set in a project in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project variables include [flags]
 
@@ -32,11 +32,9 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project variable include
 $ octopus project variable include --variable-set "Slack Variables"
-
-
 ```
 
 ## Learn more
