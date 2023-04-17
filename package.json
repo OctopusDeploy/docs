@@ -15,8 +15,8 @@
     "dependencies": {
         "@squoosh/lib": "^0.4.0",
         "astro": "^2.1.3",
-        "astro-accelerator": "^0.0.78",
-        "astro-accelerator-utils": "^0.2.25",
+        "astro-accelerator": "^0.0.79",
+        "astro-accelerator-utils": "^0.2.26",
         "hast-util-from-selector": "^2.0.1",
         "remark-directive": "^2.0.1"
     },

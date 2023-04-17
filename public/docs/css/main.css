@@ -534,6 +534,11 @@ nav.site-nav h2 {
     border-radius: var(--standard-radius);
 }
 
+.site-nav li.has-children ul details {
+    width: calc(100% - var(--marker-size));
+    margin-inline-start: var(--marker-size);
+}
+
 .site-nav a {
     padding: 0.3em 1em;
 }
@@ -563,12 +568,12 @@ nav.site-nav h2 {
     display: none;
 }
 
-.site-nav details summary::after {
+.site-nav details > summary::after {
     content: '\f078'; /* Chevron Down */
     font-family: fa-solid;
 }
 
-.site-nav details[open] summary::after {
+.site-nav details[open] > summary::after {
     content: '\f077'; /* Chevron Up */
     font-family: fa-solid;
 }
