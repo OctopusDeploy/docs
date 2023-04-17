@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: GitLab container registry
 description: Configuring a GitLab container registry as an Octopus feed.
 navOrder: 60

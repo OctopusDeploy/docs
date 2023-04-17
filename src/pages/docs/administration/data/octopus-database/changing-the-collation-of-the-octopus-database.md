@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Changing the collation of the Octopus database
 description: Information on changing the collation of the Octopus SQL Server Database.
 ---

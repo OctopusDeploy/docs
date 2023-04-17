@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: JSON formatted output
 description: Formatting output from the Octopus CLI
 navOrder: 1

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: octopus account azure
 description: Manage Azure subscription accounts
 navOrder: 5

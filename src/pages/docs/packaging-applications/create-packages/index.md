@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create packages
 description: Create packages for deployment with Octopus Deploy.
 navOrder: 10

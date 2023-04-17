@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: List users with editing roles
 description: An example script to list all users that have any user roles (permissions) containing the words Edit, Create or Delete.
 ---

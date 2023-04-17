@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Add or update project variable
 description: An example script that adds or updates a project variable.
 ---

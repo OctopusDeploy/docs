@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Move the Octopus home folder and the Tentacle home and application folders
 description: How to move the Octopus home folder and the Tentacle home and application folders.
 navOrder: 13

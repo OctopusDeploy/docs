@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: octopus deployment-target cloud-region list
 description: List Cloud Region deployment targets
 navOrder: 34

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Proxy support
 description: Octopus supports proxy servers to ensure Octopus Server and Tentacle can operate correctly.
 navOrder: 120

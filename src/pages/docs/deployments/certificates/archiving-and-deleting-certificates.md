@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Archive and delete certificates
 description: Archiving and Deleting certificates managed by Octopus Deploy
 navOrder: 100

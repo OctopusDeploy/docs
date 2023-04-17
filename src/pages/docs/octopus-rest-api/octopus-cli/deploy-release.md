@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploy release
 description: Using the Octopus CLI to deploy releases.
 navOrder: 110

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Release versioning
 description: Select how the next release number is generated when creating a release.
 navOrder: 125

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Teams with mixed environment privileges
 description: This guide describes how to create a teams for a user with mixed environment privileges.
 navOrder: 10

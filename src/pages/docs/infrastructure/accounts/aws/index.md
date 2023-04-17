@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: AWS accounts
 description: Configure your infrastructure so Octopus can deploy infrastructure to AWS and run scripts against the AWS CLI.
 navOrder: 20

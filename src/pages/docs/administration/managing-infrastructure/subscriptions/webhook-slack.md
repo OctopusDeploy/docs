@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Subscription webhook notifications
 description: Set up a Slack notification from a subscription
 navOrder: 20 

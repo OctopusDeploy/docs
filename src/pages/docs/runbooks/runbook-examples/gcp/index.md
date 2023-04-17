@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: GCP
 description: Octopus Deploy can help you automate the provisioning and management of your infrastructure in GCP using runbooks.
 navOrder: 60

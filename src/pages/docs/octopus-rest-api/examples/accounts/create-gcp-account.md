@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create a Google Cloud account
 description: An example script to create a Google Cloud (GCP) account in Octopus.
 ---

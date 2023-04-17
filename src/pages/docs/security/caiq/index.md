@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Security Self Assessment Questionnaire (CAIQ - Lite)
 description: Read about our security posture in real terms
 navOrder: 101

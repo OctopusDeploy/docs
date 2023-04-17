@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: AWS permissions required by Octopus
 description: Details of the AWS permissions required by the CloudFormation steps in Octopus.
 ---

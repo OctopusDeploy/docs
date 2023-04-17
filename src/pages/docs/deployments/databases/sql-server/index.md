@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: SQL Server deployments
 description: Automating deployments to SQL Server
 navOrder: 10

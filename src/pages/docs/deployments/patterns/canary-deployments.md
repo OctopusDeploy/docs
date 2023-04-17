@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Canary deployments
 description: Implementing canary deployments, i.e. rolling out releases to a subset of users or servers, with Octopus.
 navOrder: 50

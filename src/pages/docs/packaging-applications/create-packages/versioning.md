@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Versioning schemes
 description: Considerations for selecting a versioning scheme for the applications you'll deploy.
 navOrder: 10

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Certificate chains
 description: Manage certificate files containing a chain of certificates
 navOrder: 15

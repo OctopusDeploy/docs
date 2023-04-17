@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Upgrading minor and patch releases of Octopus Deploy
 description: Information on how to upgrade major releases of Octopus Deploy.
 navOrder: 2

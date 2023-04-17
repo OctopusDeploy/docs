@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: .NET XML configuration variables feature
 description: The .NET XML Configuration Variables feature updates your .NET XML configuration files with the values from matching Octopus variables.
 navOrder: 60

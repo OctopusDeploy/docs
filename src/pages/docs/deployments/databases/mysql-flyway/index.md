@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: MySQL flyway deployment
 description: How to do MySQL database deployments with Flyway.
 navOrder: 30

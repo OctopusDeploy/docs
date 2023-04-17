@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Approvals
 description: Octopus Deploy can integrate with supported ITSM tools for deployment control using Change Request approvals
 navOrder: 95

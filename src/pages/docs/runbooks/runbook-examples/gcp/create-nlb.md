@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create Network Load Balancer
 description: With runbooks, you can automate the creation of a Network Load Balancer to distribute traffic among virtual machine instances in GCP.
 navOrder: 10

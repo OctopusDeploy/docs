@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Jenkins
 description: Jenkins can work together with Octopus Deploy to create releases, push packages, push build information, and execute deployments.
 navOrder: 60

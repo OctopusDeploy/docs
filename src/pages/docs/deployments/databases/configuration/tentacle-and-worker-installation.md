@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Install Tentacles and Workers for database deployments
 description: Where to install Tentacles and how to configure Workers.
 navOrder: 10

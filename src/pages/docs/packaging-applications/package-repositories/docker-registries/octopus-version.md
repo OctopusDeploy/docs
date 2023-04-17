@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Octopus versioning scheme
 description: Details of the versioning scheme used by Docker feeds
 navOrder: 4

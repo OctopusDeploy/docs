@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Octopus - Tentacle communication
 description: Octopus Server and Tentacle communications details.
 navOrder: 40

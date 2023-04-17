@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Manual approvals
 description: Recommendations and techniques for configuring manual approvals in an automated database deployment process.
 navOrder: 10

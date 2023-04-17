@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: GitHub Organizations
 description: Octopus Deploy houses its source code on GitHub in three organizations.
 navOrder: 250

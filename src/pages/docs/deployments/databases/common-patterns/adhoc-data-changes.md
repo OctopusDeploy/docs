@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Ad-hoc data change scripts
 description: Recommendations on configuring a pipeline to handle ad-hoc data change scripts.
 navOrder: 20

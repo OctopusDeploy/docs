@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Capture and export a HAR file
 description: How to capture a HAR file to help the Octopus team diagnose problems when something unexpected happens.
 navOrder: 17

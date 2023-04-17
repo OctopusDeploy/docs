@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Dump deployments
 description: Writes deployments to an XML file that can be imported in Excel.
 navOrder: 120

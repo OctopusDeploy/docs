@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Rerun all canceled deployments and runbook runs after node shutdown.
 description: An example script that determine which deployments and runbook runs were canceled because of a node shutdown and resubmit them.
 ---

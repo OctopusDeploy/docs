@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Register Listening Tentacle
 description: An example script to register a listening tentacle using the REST API.
 ---

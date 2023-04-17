@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Creating new infrastructure
 description: Create infrastructure for each tenant used as part of a multi-tenant SaaS setup in Octopus Deploy.
 navOrder: 60

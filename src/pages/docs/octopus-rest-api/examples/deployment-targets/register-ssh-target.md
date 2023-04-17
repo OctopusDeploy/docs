@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Register SSH target
 description: An example script to register an SSH target using the REST API.
 ---

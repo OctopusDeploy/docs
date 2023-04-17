@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Upgrading from Octopus 1.6 to 2.6.5
 description: Information on how to upgrade from Octopus 1.6 tp 2.6.5.
 navOrder: 2

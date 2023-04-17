@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: In place upgrade (Install Over 2.6.5)
 description: Information on how to do an in-place upgrade to Octopus 2018.10 LTS from Octopus 2.6.5.
 navOrder: 0

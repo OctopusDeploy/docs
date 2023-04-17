@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Manually fail a task
 description: How to manually fail a running or canceling task when tasks hang or get stuck.
 navOrder: 21

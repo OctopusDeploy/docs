@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: SHA1 "Shattered" collision and Octopus Deploy
 description: How the SHA1 "Shattered" Collision impacts Octopus Deploy
 navOrder: 1

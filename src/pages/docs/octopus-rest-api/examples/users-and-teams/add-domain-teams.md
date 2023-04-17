@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Add domain teams
 description: An example script that adds teams from a new domain to existing Octopus teams.
 ---

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Find unused targets
 description: An example script the will find provide a list of targets being unused that might cause your target count to be inflated.
 ---

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Terraform plugin cache
 description: Using plugin caches with Terraform
 navOrder: 60

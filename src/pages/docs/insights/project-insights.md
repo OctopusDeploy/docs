@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Project Insights
 description: Project level insights are available as a new tab in every project so you can understand the performance of your projects across channels, environments, and tenants.
 navOrder: 130

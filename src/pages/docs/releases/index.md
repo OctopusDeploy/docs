@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Releases
 description: Releases allow you to capture everything required to deploy a project in a repeatable and reliable manner.
 navOrder: 70

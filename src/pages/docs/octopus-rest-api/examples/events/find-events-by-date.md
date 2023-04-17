@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Find events by date
 description: An example script that finds events by date in Octopus using the REST API and Octopus.Client.
 ---

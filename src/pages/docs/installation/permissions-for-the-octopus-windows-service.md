@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Permissions for the Octopus Windows Service
 description: Information about the permissions required by the Octopus windows service to operate.
 navOrder: 4

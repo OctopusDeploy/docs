@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Docker run with networking
 description: This guide demonstrates the basic functionality provided by the Octopus Docker steps.
 ---

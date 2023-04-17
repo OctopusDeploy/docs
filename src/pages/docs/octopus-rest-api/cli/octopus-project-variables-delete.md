@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: octopus project variables delete
 description: Delete a project variable
 navOrder: 74

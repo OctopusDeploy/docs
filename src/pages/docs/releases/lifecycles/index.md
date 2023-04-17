@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Lifecycles
 description: Lifecycles allow you to control the way releases are promoted between environments.
 navOrder: 2

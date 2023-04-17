@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Moving version control
 description: Changing the location of your configuration repository. 
 navOrder: 60

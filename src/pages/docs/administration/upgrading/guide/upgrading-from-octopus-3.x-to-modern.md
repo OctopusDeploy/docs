@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Upgrading from Octopus 3.x to the latest version
 description: Information on how to upgrade from Octopus Deploy 3.x to the latest version
 navOrder: 6

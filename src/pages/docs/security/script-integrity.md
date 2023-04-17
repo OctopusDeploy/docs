@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Script integrity in Octopus Deploy
 description: Script integrity is an interesting topic, especially in security sensitive situations. This page describes how scripting works in Octopus Deploy, interaction with PowerShell Execution Policies, and how to make Octopus work in restrictive environments.
 navOrder: 1

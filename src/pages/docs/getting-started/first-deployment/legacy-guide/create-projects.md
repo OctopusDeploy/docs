@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create a Project
 description: Step by step guide on how to create projects in Octopus Deploy
 navOrder: 20

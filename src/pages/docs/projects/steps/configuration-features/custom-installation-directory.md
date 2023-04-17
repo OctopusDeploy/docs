@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Custom installation directory
 description: The Custom Installation Directory feature deploys your package to a specific location on the server.
 navOrder: 10

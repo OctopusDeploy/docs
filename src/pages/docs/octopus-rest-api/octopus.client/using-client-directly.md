@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Working directly with the Client
 description: How to use the IOctopusClient type in the Octopus.Client library.
 navOrder: 30

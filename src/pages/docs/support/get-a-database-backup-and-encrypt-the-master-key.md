@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: How to get a database backup and encrypt your Master Key
 description: Guides the user on producing a database backup binary file (.bak) and encrypt their Master Key to provide us with.
 navOrder: 28

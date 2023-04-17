@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploy an Azure Resource Manager template
 description: Deploy an Azure Resource Manager (ARM) template.
 navOrder: 10

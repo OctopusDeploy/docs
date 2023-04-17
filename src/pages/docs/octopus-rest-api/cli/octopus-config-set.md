@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: octopus config set
 description: Set will write the value for given key to Octopus CLI config file
 navOrder: 26

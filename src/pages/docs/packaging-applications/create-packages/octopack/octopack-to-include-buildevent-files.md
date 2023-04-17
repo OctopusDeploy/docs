@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Include BuildEvent files
 description: Using OctoPack when you have a PostBuild event in Visual Studio and want to include files that are not specifically part of your build.
 navOrder: 10

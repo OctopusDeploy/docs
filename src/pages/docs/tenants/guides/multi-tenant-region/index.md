@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Multi-tenant regions
 description: A guide showing you how to use tenants to deploy an application to regions using different release rings in Octopus Deploy.
 navOrder: 10

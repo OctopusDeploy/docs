@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Google cloud CLI scripts
 description: Google cloud CLI Scripts allow you to manage your Google cloud resources as part of your deployment process.
 navOrder: 10

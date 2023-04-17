@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Configuration
 description: Information on configuring Octopus High Availability (HA) including different options and considerations.
 navOrder: 20

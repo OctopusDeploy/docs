@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Using the Octopus extension
 description: Octopus Deploy and Azure DevOps can work together to make automated, continuous delivery easy.
 navOrder: 1

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Bulk Operations
 description: This section includes examples of how to use the REST API to perform a variety of bulk operations using the Octopus Deploy API.
 navOrder: 400

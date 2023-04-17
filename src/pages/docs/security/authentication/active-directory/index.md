@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Active Directory authentication
 description: Octopus Deploy can use Windows credentials to identify users.
 navOrder: 5

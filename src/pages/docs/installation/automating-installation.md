@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Automating Octopus installation
 description: Information on how to install and configure an Octopus Server in a fully automated way from the command line.
 navOrder: 7

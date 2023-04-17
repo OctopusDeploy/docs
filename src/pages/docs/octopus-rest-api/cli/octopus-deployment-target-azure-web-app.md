@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: octopus deployment-target azure-web-app
 description: Manage Azure Web App deployment targets
 navOrder: 28

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploying a sample Java application
 description: This guide provides a simple example of deploying a Java application with Octopus Deploy.
 navOrder: 2

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create Azure Web App target command
 description: Cmdlet for creating an Azure Web App target
 navOrder: 20

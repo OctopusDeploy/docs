@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: New certificate
 description: Using the Tentacle.exe command line executable to create and install a new certificate for this Tentacle.
 ---

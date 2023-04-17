@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create and push an ASP.NET Core project
 description: This guide describes how to package and publish an ASP.NET Core project to Octopus from your development workstation.
 navOrder: 1

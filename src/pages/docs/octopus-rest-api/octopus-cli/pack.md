@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Pack
 description: Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj
 navOrder: 260

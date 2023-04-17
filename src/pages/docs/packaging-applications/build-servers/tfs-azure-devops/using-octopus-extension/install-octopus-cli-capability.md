@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Installing the Octopus CLI as a capability
 description: This guide covers how to add the Octopus CLI as a capability to your Azure DevOps custom build agents.
 ---

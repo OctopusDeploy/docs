@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Promote a release not in the destination
 description: An example script that will promote a release if it is not in the destination.
 ---

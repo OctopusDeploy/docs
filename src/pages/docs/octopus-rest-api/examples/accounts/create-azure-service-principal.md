@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create an Azure service principal
 description: An example script to create an Azure service principal in Octopus.
 ---

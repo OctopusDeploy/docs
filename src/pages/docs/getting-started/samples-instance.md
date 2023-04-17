@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Samples instance
 description: View real-world deployment and runbook examples in our Octopus Cloud samples instance - https://samples.octopus.app
 navOrder: 50

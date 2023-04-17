@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Add a Space with environments
 description: An example script to create a new space and populate it with some default environments.
 ---

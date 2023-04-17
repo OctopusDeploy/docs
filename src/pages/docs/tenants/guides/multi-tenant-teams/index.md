@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Multi-tenant teams
 description: A guide showing you how to use tenants to support multiple teams developing the same application using Octopus Deploy.
 navOrder: 10

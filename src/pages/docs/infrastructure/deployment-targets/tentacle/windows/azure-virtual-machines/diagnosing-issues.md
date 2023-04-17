@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Diagnosing Tentacle VM extension issues
 description: How to diagnose and resolve installation issues with the Tentacle VM Extension
 navOrder: 8

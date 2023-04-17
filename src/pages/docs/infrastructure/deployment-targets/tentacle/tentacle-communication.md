@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Tentacle communication modes
 description: Tentacles can be configured to communicate with the Octopus Server in Listening or Polling mode.
 navOrder: 30

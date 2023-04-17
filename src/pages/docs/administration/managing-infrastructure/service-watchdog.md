@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Service watchdog
 description: The Octopus Server and Tentacle watchdog command can be used to configure a Windows Scheduled Task that ensures the services are running.
 navOrder: 2300

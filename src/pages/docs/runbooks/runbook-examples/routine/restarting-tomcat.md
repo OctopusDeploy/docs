@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Restarting a Tomcat Web application
 description: With Octopus Deploy you can restart a Tomcat web application as part of a routine operations task.
 navOrder: 120

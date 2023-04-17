@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: The Octopus Command Line (CLI)
 description: The Octopus CLI (octo) is the Octopus command line tool that builds on top of the Octopus REST API.
 navOrder: 30

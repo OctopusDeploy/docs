@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Maintenance Mode
 description: You can put Octopus Server into maintenance mode so you can safely perform server maintenance or other administrative activities.
 navOrder: 1

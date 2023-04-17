@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create Kubernetes Target Command
 description: Cmdlet for creating a Kubernetes target
 navOrder: 40

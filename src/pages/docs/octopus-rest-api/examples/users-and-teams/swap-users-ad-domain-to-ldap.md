@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Change users AD domain to LDAP
 description: An example script that swaps an Octopus user's Active Directory login record for a matching LDAP one.
 ---

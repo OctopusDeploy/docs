@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: GitHub Actions
 description: GitHub Actions can leverage the Octopus CLI to pack, build, push, and create releases for Octopus Deploy.
 navOrder: 55

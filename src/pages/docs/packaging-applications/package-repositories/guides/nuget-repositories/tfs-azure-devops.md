@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Azure DevOps and TFS package management
 description: Configuring an Azure DevOps or TFS package management NuGet feed as an Octopus feed.
 navOrder: 20

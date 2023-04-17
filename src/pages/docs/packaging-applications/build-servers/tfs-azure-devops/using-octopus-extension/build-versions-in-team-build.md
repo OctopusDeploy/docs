@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Build versions and packaging in Azure DevOps
 description: A guide to build version numbers in Azure DevOps, and how they work with packages for Octopus.
 ---

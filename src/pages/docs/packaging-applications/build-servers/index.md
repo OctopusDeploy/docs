@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Build server integration
 description: Integrate your continuous integration or build server with Octopus Deploy.
 navOrder: 20

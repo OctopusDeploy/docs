@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Hardening an Ubuntu server
 description: With Octopus Deploy you can harden an Ubuntu server as part of a routine operations task.
 navOrder: 70

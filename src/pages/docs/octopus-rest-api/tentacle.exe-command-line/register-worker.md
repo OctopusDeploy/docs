@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Register Worker
 description: Using the Tentacle.exe command line executable to register this machine as a Worker with an Octopus Server.
 ---

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Disable project triggers
 description: An example script that disables a project's triggers in Octopus using the REST API and Octopus.Client.
 ---

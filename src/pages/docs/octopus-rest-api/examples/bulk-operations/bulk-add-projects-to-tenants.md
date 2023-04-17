@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Bulk add a project to a list of tenants
 description: An example script that will add a project to a lot of tenants at once.
 ---

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Import certificates into WildFly and JBoss EAP
 description: Configure WildFly or JBoss EAP with a certificate managed by Octopus.
 navOrder: 50

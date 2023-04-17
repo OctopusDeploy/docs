@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Set Master Key
 description: Sets the new master key in the config after rotation.
 navOrder: 124

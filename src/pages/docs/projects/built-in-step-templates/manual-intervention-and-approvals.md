@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Manual intervention and approval step
 description: Manual intervention and approvals allow a human to review, approve, or sign off on deployments.
 navOrder: 20

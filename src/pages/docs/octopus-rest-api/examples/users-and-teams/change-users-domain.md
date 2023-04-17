@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Change users domain
 description: An example script that changes an Octopus user's Active Directory domain assignment.
 ---

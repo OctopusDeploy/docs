@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create instances
 description:  Registers a new instance of the Octopus service
 navOrder: 32

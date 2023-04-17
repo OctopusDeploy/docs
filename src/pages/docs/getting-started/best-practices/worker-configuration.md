@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Offload Work to Workers
 description: Guidelines and recommendations for configuring workers in Octopus Deploy.
 navOrder: 40

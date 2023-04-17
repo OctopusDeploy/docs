@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Recovering after losing your Octopus Server and Master Key
 description: A guide to recovering if the machine hosting Octopus Server dies irrecoverably, and you don't have the Master Key.
 navOrder: 40

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deployments
 description: Deployment examples, patterns and practices, and their practical implementation using Octopus.
 navOrder: 80

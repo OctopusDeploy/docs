@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Delta compression for package transfers
 description: Octopus delta compression for package transfers can dramatically reduce the time for package acquisition during deployment.
 navOrder: 18

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Recommended database permissions
 description: Permission recommendations for database deployments.
 navOrder: 15

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: BitBucket Pipelines
 description: Octopus Deploy can be integrated with your BitBucket Pipelines build chain with the help of the Octopus CLI.
 navOrder: 40

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create MySQL database
 description: With Octopus Deploy you can create a MySQL database with a Runbook.
 navOrder: 40

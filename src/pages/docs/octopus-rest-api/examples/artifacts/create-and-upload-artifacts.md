@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Upload Artifact to Existing Deployment 
 description: An example script to upload an existing local file as an artifact to an existing deployment.
 ---

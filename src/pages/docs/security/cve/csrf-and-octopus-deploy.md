@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Cross-Site Request Forgery (CSRF) and Octopus Deploy
 description: Octopus Server actively prevents Cross-Site Request Forgery (CSRF) using anti-forgery tokens.
 navOrder: 1

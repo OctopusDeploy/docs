@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Security and unscoped variables
 description: Rationale behind limited user access to unscope variables if their access is restricted to specific environments.
 navOrder: 1

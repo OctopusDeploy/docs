@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Azure
 description: Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.
 navOrder: 30

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Octopus ID authentication
 description: Octopus Deploy can use Octopus accounts to identify users.
 navOrder: 30

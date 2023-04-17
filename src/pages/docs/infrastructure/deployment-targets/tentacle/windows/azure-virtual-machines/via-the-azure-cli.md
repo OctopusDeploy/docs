@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Installing the Tentacle VM extension via the Azure CLI
 description: How to install the Tentacle VM Extension using the Azure Command Line Interface (CLI)
 navOrder: 5

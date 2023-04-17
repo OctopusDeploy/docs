@@ -1,6 +1,7 @@
 ﻿---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Ubuntu 18.04 End-of-life
 description: Describing the deprecation process of Ubuntu 18.04 Dynamic Workers.
 navOrder: 50

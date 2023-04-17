@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: List instances
 description: Lists all installed Octopus instances
 navOrder: 121

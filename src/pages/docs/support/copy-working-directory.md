@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Copy the working directory 
 description: Copy the Calamari working directory to assist in debugging.
 navOrder: 2 

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Using Deployment Slots with Azure Web Apps
 description: Deploying Slots provide a nice way to implement Blue-Green deployments for Azure Web Apps.
 ---

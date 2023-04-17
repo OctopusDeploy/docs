@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Add library set to a project
 description: An example script that adds a library variable set to a project.
 ---

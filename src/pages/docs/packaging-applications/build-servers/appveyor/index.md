@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: AppVeyor integration
 description: Octopus Deploy can be seamlessly integrated with your AppVeyor build chain.
 navOrder: 10

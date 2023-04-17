@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Windows Tentacle
 description: How to install Octopus Tentacles on Windows Servers in either listening or polling mode.
 navOrder: 10

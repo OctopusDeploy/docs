@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Accounts
 description: Configure accounts to use in conjunction with infrastructure during your deployments.
 navOrder: 30

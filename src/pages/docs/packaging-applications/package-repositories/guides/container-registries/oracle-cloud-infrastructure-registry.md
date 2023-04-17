@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Oracle Cloud Infrastructure Container Registry  
 description: How to add an Oracle Cloud Infrastructure (OCI) Container Registry as an Octopus feed 
 navOrder: 90

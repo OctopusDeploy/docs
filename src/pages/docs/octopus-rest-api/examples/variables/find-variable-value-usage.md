@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Find variable value usage
 description: An example script that finds all variables with a specific value in project variables and library variable sets.
 ---

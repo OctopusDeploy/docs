@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deployment process
 description: Deploying applications starts with defining a project's deployment process.
 hideInThisSection: false

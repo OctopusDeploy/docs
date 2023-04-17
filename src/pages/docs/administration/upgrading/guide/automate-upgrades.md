@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: How to automate Octopus Deploy upgrades
 description: A how-to guide on how to automate Octopus Deploy upgrades
 navOrder: 4

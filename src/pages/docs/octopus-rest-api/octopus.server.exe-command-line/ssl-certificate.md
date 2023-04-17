@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: SSL certificate
 description: Binds the SSL/TLS certificate used by the portal to the specified address/port.
 navOrder: 194

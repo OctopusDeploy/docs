@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: SQL Server DACPAC deployment
 description: How to do database deployments with DACPAC.
 navOrder: 20

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Add a script step to runbook
 description: An example script that adds a simple PowerShell script to a runbook.
 ---

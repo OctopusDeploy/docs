@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Promote release
 description: Using the Octopus CLI to promote releases between environments.
 navOrder: 270

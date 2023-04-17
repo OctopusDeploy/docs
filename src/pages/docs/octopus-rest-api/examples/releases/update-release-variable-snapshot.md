@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Update release variable snapshot
 description: An example script that updates the variable snapshot for a release.
 ---

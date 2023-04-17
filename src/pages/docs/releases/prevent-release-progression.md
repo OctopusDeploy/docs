@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Prevent release progression
 description: Preventing progression lets you block a release of a project from being used in any future deployments.
 navOrder: 17

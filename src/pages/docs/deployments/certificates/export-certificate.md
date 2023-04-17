@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Export a certificate
 description: Export a certificate managed by Octopus as a selected file-format
 navOrder: 60

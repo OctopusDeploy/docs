@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Amazon S3 Create Bucket
 description: Create a new bucket in Amazon S3.
 ---

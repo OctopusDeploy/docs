@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: octopus worker polling-tentacle list
 description: List Polling Tentacle workers
 navOrder: 121

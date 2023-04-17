@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Maintain High Availability nodes
 description: Managing the nodes in your Octopus High Availability cluster can be done in the Octopus Web Portal.
 navOrder: 30

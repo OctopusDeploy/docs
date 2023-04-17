@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Offline package drop
 description: Offline package drop deployment targets allow you to deploy your applications in the most restricted security environments where Tentacles cannot be used.
 navOrder: 60

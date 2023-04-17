@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Send a secret to Octopus
 description: How to send sensitive information to Octopus support.
 navOrder: 16

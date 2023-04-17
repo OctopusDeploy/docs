@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: PCI compliance and Octopus Deploy
 description: Using Octopus Deploy in PCI compliant environments.
 navOrder: 90

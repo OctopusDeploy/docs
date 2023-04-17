@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Server comms
 description: Using the Tentacle.exe command line executable to configure how the Tentacle communicates with the Octopus Server.
 ---

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Change target's machine policy
 description: An example script that changes a machine policy of a deployment target.
 ---

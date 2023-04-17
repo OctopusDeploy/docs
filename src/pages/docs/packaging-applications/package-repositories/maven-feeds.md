@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Maven feeds
 description: Configuring Maven repositories as Octopus Feeds
 navOrder: 40

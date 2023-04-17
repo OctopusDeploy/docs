@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: GitHub Repository feeds
 description: Configuring GitHub repositories as Octopus Feeds
 navOrder: 30

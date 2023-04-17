@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Build information
 description: Integrate your commits and work items with Octopus Deploy.
 navOrder: 5

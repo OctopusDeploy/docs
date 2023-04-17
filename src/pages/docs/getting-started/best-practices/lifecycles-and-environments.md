@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Lifecycles and Environments
 description: Guidelines and recommendations for configuring your lifecycles to control the flow to your environments
 navOrder: 35

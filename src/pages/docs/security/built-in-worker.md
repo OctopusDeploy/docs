@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Built-in Worker
 description: The built-in worker is enabled by default in your Octopus Server. This is very convenient when getting started with Octopus, but comes with several security implications.
 navOrder: 55

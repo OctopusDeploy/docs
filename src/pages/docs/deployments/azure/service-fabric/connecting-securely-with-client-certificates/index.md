@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Connecting securely with client certificates
 description: Octopus Deploy can help you connect securely to Service Fabric clusters using Client Certificate authentication.
 navOrder: 40

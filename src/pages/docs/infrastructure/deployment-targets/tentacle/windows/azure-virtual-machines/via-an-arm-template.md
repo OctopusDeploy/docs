@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Installing the Tentacle VM extension via an ARM template
 description: How to install the Tentacle VM extension using an Azure Resource Manager (ARM) template
 navOrder: 6

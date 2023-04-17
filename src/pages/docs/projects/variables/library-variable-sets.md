@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Library variable sets
 description: Library variable sets allow you to define and share common variables between your Octopus projects.
 navOrder: 90

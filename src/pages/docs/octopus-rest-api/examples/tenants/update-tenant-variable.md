@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Update tenant variables
 description: An example script that updates tenant variables for a specific project template with a single value across each connected environment in Octopus using the REST API and Octopus.Client.
 ---

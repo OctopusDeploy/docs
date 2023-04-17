@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Get the raw output from a deployment process
 description: How to get the raw output from a deployment process to help the Octopus team resolve deployment related issues.
 navOrder: 1

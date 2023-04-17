@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Artifactory container registry
 description: How to add Artifactory as an Octopus Deploy feed for use in Docker steps.
 navOrder: 20

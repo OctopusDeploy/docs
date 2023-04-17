@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Packaging a Service Fabric application
 description: Learn how to package a Service Fabric application so it can be deployed from Octopus.
 navOrder: 10

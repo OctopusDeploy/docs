@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Delete projects with no process 
 description: An example script that deletes projects that have no deployment process in Octopus using the REST API and Octopus.Client.
 ---

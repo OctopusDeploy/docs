@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Find projects using library set
 description: An example script that finds all projects using a specific library variable set.
 ---

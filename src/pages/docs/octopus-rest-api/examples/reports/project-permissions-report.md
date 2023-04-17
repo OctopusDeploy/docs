@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Project permissions report
 description: An example script that will provide a report of which users have access to specific projects.
 ---

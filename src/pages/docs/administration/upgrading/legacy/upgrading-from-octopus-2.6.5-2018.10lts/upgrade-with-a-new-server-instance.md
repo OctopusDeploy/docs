@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Upgrade with a new server instance
 description: Information on how to upgrade from Octopus 2.6.5 to a new Octopus instance.
 navOrder: 2

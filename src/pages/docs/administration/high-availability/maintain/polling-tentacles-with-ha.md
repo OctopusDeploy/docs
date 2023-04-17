@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Polling Tentacles with HA
 description: With Octopus High Availability, Polling Tentacles must poll all of the Octopus Server nodes in your configuration.
 navOrder: 50

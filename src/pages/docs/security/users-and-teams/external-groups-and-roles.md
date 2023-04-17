@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: External groups and roles
 description: Some of the authentication providers allow external groups or roles to be added as Members of Teams in Octopus.
 navOrder: 3

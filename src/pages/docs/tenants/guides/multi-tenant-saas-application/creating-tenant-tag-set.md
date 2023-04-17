@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Creating new tenant tags
 description: Create tenant tags as part of a multi-tenant SaaS setup in Octopus Deploy.
 navOrder: 30

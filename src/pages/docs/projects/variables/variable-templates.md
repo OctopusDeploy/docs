@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Variable templates
 description: Variable templates can be defined in Octopus to indicate which variable values are required to successfully deploy a project.
 navOrder: 100

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Installation requirements
 description: Software and hardware requirements for installing the Octopus Server.
 navOrder: 1

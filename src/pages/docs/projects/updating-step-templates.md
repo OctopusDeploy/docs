@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Update step templates
 description: How to update steps that are based on a step templates
 navOrder: 70

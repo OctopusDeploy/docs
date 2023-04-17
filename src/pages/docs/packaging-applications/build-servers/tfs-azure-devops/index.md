@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Azure DevOps
 description: Octopus Deploy integrates with Azure DevOps to provide for a full automated build and deployment pipeline.
 navOrder: 20

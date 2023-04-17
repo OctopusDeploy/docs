@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Rotate Master Key
 description: Generate a new Master Key and re-encrypt all the sensitive data.
 navOrder: 123

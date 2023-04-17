@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: ZipBombs and Octopus Deploy
 description: Octopus Server actively prevents ZipBomb-based denial-of-service attacks using a number of preventative measures.
 navOrder: 1

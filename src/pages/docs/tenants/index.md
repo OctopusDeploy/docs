@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Tenants
 description: Tenants allow you to easily create customer specific deployment pipelines without duplicating project configuration.
 navOrder: 60

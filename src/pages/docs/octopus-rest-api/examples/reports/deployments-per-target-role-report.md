@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deployments Per Deployment Target Role Report
 description: An example script that will provide a list of all the deployment targets in a given role and their respective deployments.
 ---

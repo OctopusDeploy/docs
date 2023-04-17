@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Manually uninstall Tentacle
 description: Information on how to manually uninstall the Octopus Tentacle.
 ---

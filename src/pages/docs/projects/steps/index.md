@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Steps
 description: Adding steps to define your project's deployment process.
 navOrder: 30

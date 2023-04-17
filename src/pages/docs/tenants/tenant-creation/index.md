@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Tenant creation
 description: How to create a tenant in Octopus Deploy.
 navOrder: 20

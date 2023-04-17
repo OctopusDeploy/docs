@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: GoogleApps authentication
 description: Octopus Deploy can use GoogleApps authentication to identify users.
 navOrder: 15

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Nexus Hosted Maven repository
 description: Configuring a Nexus Hosted Maven repository as an Octopus feed.
 navOrder: 10

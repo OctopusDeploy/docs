@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Define and use variables
 description: Step by step guide on how to define and use variables in an Octopus Deploy deployment.
 navOrder: 50

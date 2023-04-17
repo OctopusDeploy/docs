@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create PaaS MySQL database server
 description: With Octopus Deploy you can create a MySQL PaaS database server with a runbook.
 navOrder: 50

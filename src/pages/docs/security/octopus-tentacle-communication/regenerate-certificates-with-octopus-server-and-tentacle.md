@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: How to regenerate certificates with Octopus Server and Tentacle
 description: How to regenerate the certificates used for communication between Octopus Server and its Tentacles.
 navOrder: 2

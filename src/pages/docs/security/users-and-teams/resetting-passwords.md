@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Resetting passwords
 description: The Octopus Web Portal makes it easy to change or reset your password.
 navOrder: 1

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Authentication provider compatibility
 description: Compatibility of authentication providers differ between Octopus Server and Octopus Cloud.
 navOrder: 0

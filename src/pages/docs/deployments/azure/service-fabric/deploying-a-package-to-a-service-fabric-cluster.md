@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploying a package to an Azure Service Fabric cluster
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Service Fabric clusters.
 navOrder: 20

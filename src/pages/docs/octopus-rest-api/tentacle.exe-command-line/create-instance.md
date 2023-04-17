@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create instance
 description: Using the Tentacle.exe command line executable to register a new instance of the Tentacle service.
 ---

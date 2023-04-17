@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Project Release Deployment Targets Report
 description: An example script that will provide a list of all the deployments and deployment targets deployed to.
 ---

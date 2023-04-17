@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Troubleshooting
 description: Solutions to common problems with Octopus High Availability (HA).
 navOrder: 60

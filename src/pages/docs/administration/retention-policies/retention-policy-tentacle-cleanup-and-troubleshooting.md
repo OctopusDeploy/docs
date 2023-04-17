@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Retention policy Tentacle cleanup and troubleshooting
 description: Reviewing and troubleshooting why some files aren't cleaned up by Octopus retention policies.
 ---

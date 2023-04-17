@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Connecting securely with Azure Active Directory
 description: Octopus Deploy can help you connect securely to Service Fabric clusters using Azure Active Directory authentication.
 navOrder: 50

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Spectre (Speculative Execution Side-Channel Vulnerabilities), Meltdown, and Octopus Deploy
 description: How the Spectre (speculative execution side-channel vulnerabilities) and meltdown vulnerabilities impact Octopus Deploy
 navOrder: 1

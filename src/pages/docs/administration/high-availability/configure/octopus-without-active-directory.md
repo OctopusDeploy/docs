@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Configure Octopus High Availability without Active Directory
 description: A step-by-step guide showing you how to configure Octopus in High-Availability without using Active Directory.
 navOrder: 40

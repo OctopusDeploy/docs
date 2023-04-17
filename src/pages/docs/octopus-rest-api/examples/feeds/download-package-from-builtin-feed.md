@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Download package from built-in feed
 description: An example script that downloads a package from the built-in feed.
 ---

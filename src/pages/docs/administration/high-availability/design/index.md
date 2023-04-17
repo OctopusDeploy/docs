@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Design
 description: Information on designing Octopus High Availability including different options and considerations whether its using on-premises servers or cloud infrastructure.
 navOrder: 10

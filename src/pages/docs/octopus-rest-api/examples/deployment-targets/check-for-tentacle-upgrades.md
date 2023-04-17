@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Check Tentacles for available upgrades
 description: An example script to check targets and workers for available Tentacle upgrades.
 ---

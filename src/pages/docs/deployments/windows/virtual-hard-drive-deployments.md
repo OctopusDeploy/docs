@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Virtual hard drives
 description: VHD steps allow you to deploy a virtual hard drive and optionally attach it to a Hyper-V virtual machine.
 navOrder: 20

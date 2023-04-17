@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploy Amazon ECS Service
 description: Deploy a service to an Amazon ECS cluster.
 ---

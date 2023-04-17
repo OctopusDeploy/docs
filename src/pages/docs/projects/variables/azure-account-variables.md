@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Azure account variables
 description: Create an Azure account variable to use it in Azure deployment steps
 navOrder: 70

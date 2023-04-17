@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Show Master Key
 description:  Print the server's Master Encryption Key, so that it can be backed up
 navOrder: 192

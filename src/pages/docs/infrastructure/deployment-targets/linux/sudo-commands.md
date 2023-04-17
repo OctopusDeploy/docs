@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Sudo commands
 description: Useful sudo commands to help you with your deployments to SSH Targets.
 navOrder: 40

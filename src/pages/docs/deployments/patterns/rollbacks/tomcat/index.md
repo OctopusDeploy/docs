@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Rolling back a Tomcat deployment
 description: This guide covers the topic of rolling back an application deployed to a Tomcat Java application server.
 navOrder: 10

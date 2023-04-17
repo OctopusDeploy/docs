@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Debug problems with Octopus variables
 description: How to debug problems with Octopus variables when a variable used during a deploying is different than the one you expect.
 navOrder: 1

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Octopus Tentacle
 description: Octopus Tentacle is a lightweight agent service, available on both Windows and Linux servers to communicate securely with the Octopus Server.
 navOrder: 0

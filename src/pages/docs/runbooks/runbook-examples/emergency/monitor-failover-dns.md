@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Automatically failover DNS with monitoring
 description: With Octopus Deploy you can monitor your application and failover DNS with a runbook.
 navOrder: 20

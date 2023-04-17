@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: HTML and JavaScript applications
 description: This guide provides a simple example of deploying and configuring a simple JavaScript application built using AngularJS.
 navOrder: 150

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Troubleshooting invalid certificates
 description: How to troubleshoot invalid certificates that won't load in Octopus Deploy
 navOrder: 110

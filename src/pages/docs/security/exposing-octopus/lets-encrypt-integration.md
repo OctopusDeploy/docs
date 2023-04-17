@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Let's Encrypt integration
 description: Octopus can integrate with Let's Encrypt to setup and automatically renew the Octopus Portal SSL certificate.
 navOrder: 2300

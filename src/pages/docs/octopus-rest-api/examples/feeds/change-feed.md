@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Change feed
 description: An example script that changes an existing feed by updating the feed name in Octopus using the REST API and Octopus.Client.
 ---

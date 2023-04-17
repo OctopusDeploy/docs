@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Tentacle configuration and file storage
 description: Octopus Tentacle configuration command reference including how to specify your file storage locations.
 navOrder: 1200

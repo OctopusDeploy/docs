@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Cloudsmith Multi-format repositories
 description: Configuring a Cloudsmith repository as an Octopus feed for NuGet, Docker, Maven or Helm packages.
 navOrder: 40

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Node
 description: Configure settings related to this Octopus Server node
 navOrder: 141

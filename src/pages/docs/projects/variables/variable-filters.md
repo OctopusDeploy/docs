@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Variable filters
 description: Octopus variable substitutions support *filters* to correctly encode values for a variety of target file types.
 navOrder: 18

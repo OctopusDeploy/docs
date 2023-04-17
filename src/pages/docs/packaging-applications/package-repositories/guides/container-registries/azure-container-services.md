@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Azure Container Registry
 description: How to add an Azure Container Registry as an Octopus Deploy feed
 navOrder: 40

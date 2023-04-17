@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Export projects
 description: An example script that will export projects that can be imported into a different space on the same, or different Octopus instance.
 ---

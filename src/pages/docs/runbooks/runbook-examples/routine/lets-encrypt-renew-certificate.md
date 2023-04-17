@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Renew Let's Encrypt certificates
 description: Renew and store TLS certificates issued by Let's Encrypt with a runbook as part of a routine operations task.
 navOrder: 130

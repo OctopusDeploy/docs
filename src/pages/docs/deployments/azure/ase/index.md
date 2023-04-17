@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Azure app service environments
 description: This guide covers deploying to Azure App Service Environments.
 navOrder: 7

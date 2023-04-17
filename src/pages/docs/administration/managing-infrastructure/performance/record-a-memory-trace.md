@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Record memory snapshots
 description: How to record memory snapshots of your running Octopus Server so we can solve memory issues.
 navOrder: 28

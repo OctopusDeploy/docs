@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Script Console
 description: The Script Console allows Octopus administrators to execute scripts and perform administrative tasks on workers and deployment targets as groups or individuals.
 navOrder: 600

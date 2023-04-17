@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: NGINX deployments
 description: This guide covers everything you need to configure NGINX on Linux for your web applications
 navOrder: 90

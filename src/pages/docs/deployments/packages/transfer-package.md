@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Transfer package
 description: Transfer Package step allows you to simply transfer a package to your deployment target without extracting it.
 ---

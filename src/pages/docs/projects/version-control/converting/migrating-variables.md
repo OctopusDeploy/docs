@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Migrating variables to Git
 description: Variables needs to be manually migrated to Git for existing projects
 navOrder: 110

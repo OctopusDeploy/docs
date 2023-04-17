@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Register Polling Tentacle
 description: An example script to register a Polling Tentacle using the REST API.
 ---

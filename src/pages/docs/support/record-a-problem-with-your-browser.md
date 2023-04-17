@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Record a problem with Octopus Deploy in your web browser
 description: This page describes how you can record HTTP traffic between your browser and Octopus Server. This is especially helpful if you are having a problem with Octopus Deploy in your web browser. It includes instructions for taking a screen recording and web traffic capture, for diagnosing issues.
 navOrder: 28

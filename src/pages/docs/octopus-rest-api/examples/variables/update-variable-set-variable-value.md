@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Update variable set variable value
 description: An example script that loads variables from a variable set, looks for a match and replaces the variable value.
 ---

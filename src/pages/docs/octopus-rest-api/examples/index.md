@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: API examples
 description: A set of examples using the Octopus REST API to accomplish tasks.
 navOrder: 40

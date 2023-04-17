@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Installing the Tentacle via DSC in an ARM template
 description: How to install the Tentacle using Desired State configuration (DSC) in Azure Resource Manager (ARM) Template
 navOrder: 1

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: octopus config get
 description: Gets the value of config key for Octopus CLI
 navOrder: 24

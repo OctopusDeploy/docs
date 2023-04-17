@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Regenerate certificates
 description:  Regenerate one or more of the certificates that Octopus uses
 navOrder: 180

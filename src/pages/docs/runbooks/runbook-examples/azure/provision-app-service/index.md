@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Provision an Azure App Service
 description: Provision an Azure App Service using a runbook
 navOrder: 20

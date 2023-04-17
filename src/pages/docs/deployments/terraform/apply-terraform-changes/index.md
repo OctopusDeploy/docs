@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Applying changes from Terraform templates
 description: Direction on using Octopus steps for applying or destroying Terraform templates
 navOrder: 40

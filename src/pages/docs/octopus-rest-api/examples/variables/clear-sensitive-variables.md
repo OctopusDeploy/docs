@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Clear sensitive variables
 description: An example script that clears all sensitive variables.
 ---

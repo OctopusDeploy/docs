@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Legacy Tentacle installation requirements
 description: Software and hardware requirements for installing legacy versions of Tentacles.
 navOrder: 20

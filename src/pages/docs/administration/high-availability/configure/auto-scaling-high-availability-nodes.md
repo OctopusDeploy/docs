@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Auto Scaling High Availability Nodes
 description: What to consider if you want to use auto-scaling technology to scale out your Octopus Server High Availability Cluster automatically.
 navOrder: 50

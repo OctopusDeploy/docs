@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Migration
 description: How to migrate from a stand-alone Octopus server to a High Availability (HA) setup.
 navOrder: 30

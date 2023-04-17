@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Automatic release creation
 description: Automatic release creation allows you to automatically create a new release when a new package is pushed to the built-in package repository.
 navOrder: 15

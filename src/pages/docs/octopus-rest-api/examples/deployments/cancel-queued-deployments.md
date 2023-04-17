@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Cancel queued deployments
 description: An example script to cancel queued deployments.
 ---

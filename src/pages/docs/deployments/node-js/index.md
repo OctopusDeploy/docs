@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Node deployments
 description: With Octopus Deploy you can deploy your Node.JS applications to on-premises servers, Azure websites, Azure and AWS EC2 virtual machines.
 navOrder: 100

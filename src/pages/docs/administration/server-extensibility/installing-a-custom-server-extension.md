@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Installing a custom server extension
 description: To install a custom server extension, you need to copy the extension dll into a folder on the machine that is running the Octopus Server.
 ---

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Add an Azure Web App
 description: An example script to add an Azure Web App as a deployment target.
 ---

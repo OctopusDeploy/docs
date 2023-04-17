@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Accessing container details
 description: Docker steps provide access to container details, including network, volume, environment variables etc., and make them available in subsequent steps.
 navOrder: 1

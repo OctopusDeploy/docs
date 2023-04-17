@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Octopus Tentacle in a Container
 description: An Octopus Tentacle instance can be run directly from within a container.
 navOrder: 40

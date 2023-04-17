@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Designing Octopus HA in GCP
 description: Information on configuring Octopus High Availability hosted in Google Cloud Platform (GCP).
 navOrder: 40

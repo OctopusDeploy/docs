@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: List deployments to environment
 description: An example script to retrieve a list of deployments to an environment
 ---

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Log files
 description: Octopus Server and Tentacle log file locations and details.
 navOrder: 1

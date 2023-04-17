@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Assigning a team to a tenant
 description: This part of the guide demonstrates scoping an Octopus Team to a Tenant
 navOrder: 30

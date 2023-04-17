@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Tenant roles and security
 description: Common approaches to structuring roles and teams to secure a multi-tenant Octopus instance.
 navOrder: 70

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Octopus database
 description: Octopus uses a Microsoft SQL Server Database to store environments, projects, variables, releases, and deployment history.
 navOrder: 150

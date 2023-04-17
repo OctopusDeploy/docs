@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Output variables
 description: Your scripts can emit variables that are available in subsequent deployment steps.
 navOrder: 70

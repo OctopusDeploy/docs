@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Call the Jenkins REST API from PowerShell
 description: Learn how to call the Jenkins REST API from PowerShell
 navOrder: 30

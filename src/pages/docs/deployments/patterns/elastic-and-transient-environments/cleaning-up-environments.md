@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Cleaning up Environments
 description: Octopus can automatically remove unwanted machines from environments based on their health status.  
 navOrder: 3

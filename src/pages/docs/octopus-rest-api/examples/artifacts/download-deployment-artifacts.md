@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Download Deployment Artifact 
 description: An example script to download a deployment artifact to a specified location.
 ---

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Blue-green deployments
 description: Implementing blue-green deployments, i.e. having two production environments ("blue" and "green"), with Octopus.
 navOrder: 30

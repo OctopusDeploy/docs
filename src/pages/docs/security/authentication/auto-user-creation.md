@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Automatic user creation
 description: User can be automatically created using some providers.
 navOrder: 35

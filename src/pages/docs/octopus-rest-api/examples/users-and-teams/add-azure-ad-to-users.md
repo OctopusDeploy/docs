@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Add Azure Active Directory login to users
 description: An example script to add Azure Active Directory login details to Octopus user accounts.
 ---

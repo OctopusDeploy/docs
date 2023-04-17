@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Version automation with Service Fabric application packages
 description: Octopus Deploy can help you automate versioning of your Service Fabric application packages.
 navOrder: 30

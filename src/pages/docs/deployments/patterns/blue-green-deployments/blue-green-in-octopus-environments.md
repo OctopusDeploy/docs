@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Blue-green deployments in Octopus using Environments
 description: Implementing blue-green deployments in Octopus using Environments.
 navOrder: 10

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Working with Spaces
 description: How to work with Spaces in the Octopus.Client library.
 navOrder: 40

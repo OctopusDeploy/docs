@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: New Octopus Target Command
 description: Function for creating an Octopus target for a step package
 navOrder: 50

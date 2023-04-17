@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Customizing an Octopus Server extension
 description: Octopus Deploy built-in server extensions are available on GitHub and can be forked and customized.
 ---

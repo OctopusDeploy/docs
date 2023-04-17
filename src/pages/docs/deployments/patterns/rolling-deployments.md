@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Rolling deployments
 description: Implementing rolling deployments, i.e. deploying to release to servers one-by-one, with Octopus.
 navOrder: 0

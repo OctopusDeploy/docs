@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Moving your Octopus components to other servers
 description: Moving Octopus components reference.
 navOrder: 1100

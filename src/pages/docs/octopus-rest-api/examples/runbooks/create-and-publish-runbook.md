@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create and publish a new runbook snapshot
 description: An example script to create and publish a new runbook snapshot
 ---

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Restore RDS SQL database from S3
 description: An example that demonstrates restoring a database backup file from an S3 bucket.
 navOrder: 100

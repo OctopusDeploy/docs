@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Exposing Octopus
 description: You can keep your Octopus installation inside your corporate network, or you may want to expose it to the Internet. This section describes how to safely expose your Octopus installation and the security implications you should consider.
 navOrder: 20

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create AWS account command
 description: New-OctopusAwsAccount allows you to create an AWS account in Octopus from within a running deployment
 navOrder: 10

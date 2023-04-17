@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Load balancing
 description: Instructions on how to set-up third-party load balancers for Octopus High Availability (HA) to direct user traffic between each of the Octopus Server nodes.
 navOrder: 50

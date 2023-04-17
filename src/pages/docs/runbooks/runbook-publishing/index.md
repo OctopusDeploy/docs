@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Runbooks publishing
 description: Publishing makes a runbook available to scheduled triggers and consumers.
 navOrder: 30

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Find unused projects
 description: An example script that will find any project that hasn't had a release created in the previous days
 ---

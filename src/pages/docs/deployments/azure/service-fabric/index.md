@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Azure Service Fabric
 description: Learn how Octopus Deploy fits into a Continuous Deployment pipeline for your Azure Service Fabric applications.
 navOrder: 2

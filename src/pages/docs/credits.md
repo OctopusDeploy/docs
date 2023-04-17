@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Credits
 description: Octopus is made possible thanks to many great third-party products.
 navOrder: 200

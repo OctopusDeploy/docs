@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploying to a team tenant
 description: This part of the guide demonstrates deploying to a team tenant
 navOrder: 50

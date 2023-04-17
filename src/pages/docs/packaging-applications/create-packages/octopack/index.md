@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create packages with OctoPack
 description: Using OctoPack is the easiest way to package .NET applications for use in your deployments.
 navOrder: 40

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Restart server
 description: With Octopus Deploy you can restart a server with a runbook.
 navOrder: 30

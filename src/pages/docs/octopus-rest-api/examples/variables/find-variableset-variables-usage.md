@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Find library variable set variables usage
 description: An example script that loads variables from a library variable set and finds usages in project variables, and optionally deployment processes and runbooks.
 ---

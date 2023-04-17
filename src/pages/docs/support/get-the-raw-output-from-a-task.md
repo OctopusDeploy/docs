@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Get the Raw Output From a Task
 description: How to get the raw output from a task to help the Octopus team resolve deployment related issues.
 navOrder: 0

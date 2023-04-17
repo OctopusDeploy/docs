@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Record a performance trace
 description: How to record a software performance trace of your running Octopus Server so we can solve performance issues.
 navOrder: 27

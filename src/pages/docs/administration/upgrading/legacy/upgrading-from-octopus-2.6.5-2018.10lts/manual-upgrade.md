@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Manual upgrade
 description: Information on how to manually upgrade to Octopus 2018.10 LTS from Octopus 2.6.5.
 navOrder: 1

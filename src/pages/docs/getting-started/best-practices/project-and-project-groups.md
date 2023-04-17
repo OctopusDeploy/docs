@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Projects and Project Groups Structure
 description: Guidelines and recommendations for configuring projects and project groups in Octopus Deploy.
 navOrder: 50

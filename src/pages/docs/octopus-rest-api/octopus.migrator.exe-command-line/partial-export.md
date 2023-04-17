@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Partial export
 description: Using the Octopus.Migrator.exe command line tool to export data to a directory filtered by a single project.
 ---

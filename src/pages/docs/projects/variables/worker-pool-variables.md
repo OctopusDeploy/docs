@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Worker Pool variables
 description: Create a worker pool variable and use it in deployment steps
 navOrder: 60

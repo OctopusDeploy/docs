@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Google cloud account variables
 description: Create a Google cloud account variable to use it in Google Cloud deployment steps
 navOrder: 65

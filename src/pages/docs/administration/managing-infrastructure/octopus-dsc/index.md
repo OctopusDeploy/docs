@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Automating infrastructure with DSC
 description: OctopusDSC is an Open-Source PowerShell module designed to assist with the automation of Octopus infrastructure
 navOrder: 120

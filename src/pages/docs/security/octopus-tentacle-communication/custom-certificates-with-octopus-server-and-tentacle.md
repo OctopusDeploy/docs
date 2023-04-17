@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: How to use custom certificates with Octopus Server and Tentacle
 description: How to use custom certificates with Octopus Server and Tentacle.
 navOrder: 1

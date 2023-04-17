@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Push package to built-in feed
 description: An example script that pushes a package to the built-in feed.
 ---

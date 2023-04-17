@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploy an Ingress resource
 description: Deploy an ingress resource to a Kubernetes cluster.
 navOrder: 40

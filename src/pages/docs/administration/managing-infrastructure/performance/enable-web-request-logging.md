@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Enable web request logging
 description: How to enable web request logging to help the Octopus team analyze usage patterns and detecting performance problems.
 navOrder: 90

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Debugging PowerShell scripts on remote machines
 description: This guide provides details on debugging PowerShell scripts with Octopus Deploy.
 navOrder: 13

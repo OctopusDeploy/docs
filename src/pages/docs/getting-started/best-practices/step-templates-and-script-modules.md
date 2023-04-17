@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Step Templates and Script Modules
 description: Guidelines and recommendations for creating re-usable components in Octopus Deploy.
 navOrder: 70

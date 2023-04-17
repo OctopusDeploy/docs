@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Server configuration
 description: The Octopus Server Configuration screen is available from Configuration > Nodes > Configuration Settings and allows administrators to see which server extensions are enabled for the Octopus Server.
 navOrder: 160

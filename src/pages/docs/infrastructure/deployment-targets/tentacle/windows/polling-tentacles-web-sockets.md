@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Polling Tentacles over WebSockets
 description: Octopus Polling Tentacles open a connection to the Octopus Server over WebSockets to ask what to do.
 navOrder: 62

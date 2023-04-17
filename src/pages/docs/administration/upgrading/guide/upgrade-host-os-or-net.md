@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Upgrading host OS or .NET
 description: A how-to guide on how to upgrade the host OS or .NET with Octopus Deploy.
 navOrder: 7

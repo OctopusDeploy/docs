@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Installing the Tentacle VM extension via PowerShell
 description: How to install the Tentacle VM Extension using the PowerShell
 navOrder: 4

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Delete an AWS CloudFormation stack
 description: Use a runbook to teardown resources by deleting an AWS CloudFormation stack.
 navOrder: 30

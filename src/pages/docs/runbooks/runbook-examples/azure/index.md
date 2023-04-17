@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Azure
 description: Octopus Deploy can help you automate the provisioning of infrastructure in Azure using runbooks.
 navOrder: 50

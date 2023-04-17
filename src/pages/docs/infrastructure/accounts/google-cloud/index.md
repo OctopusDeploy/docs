@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Google cloud accounts
 description:  Configure your infrastructure so Octopus can deploy infrastructure to GCP and run scripts against the gcloud CLI.
 navOrder: 30

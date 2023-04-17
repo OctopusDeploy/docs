@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: How to turn on variable logging and export the task log
 description: How to turn on variable logging and export the task log to help the Octopus team resolve deployment issues.
 navOrder: 27

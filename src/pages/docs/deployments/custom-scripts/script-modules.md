@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Script modules
 description: Script modules allow users to create collections of functions that can be used in deployment processes across multiple projects.
 navOrder: 120

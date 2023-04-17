@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: octopus worker listening-tentacle view
 description: View a Listening Tentacle worker
 navOrder: 119

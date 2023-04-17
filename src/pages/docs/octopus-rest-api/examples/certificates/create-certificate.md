@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Create a certificate
 description: An example script to add a certificate to the Octopus certificate library.
 ---

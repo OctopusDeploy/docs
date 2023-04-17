@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Running Azure PowerShell
 description: Octopus supports executing PowerShell against Azure and will automatically import the Azure PowerShell modules if they are available.
 hideInThisSectionHeader: true

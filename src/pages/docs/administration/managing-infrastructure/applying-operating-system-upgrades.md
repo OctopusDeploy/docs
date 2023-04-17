@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Applying Operating System upgrades
 description: This is the procedure you should follow when applying patches to the Operating System where Octopus Server is hosted.
 navOrder: 20

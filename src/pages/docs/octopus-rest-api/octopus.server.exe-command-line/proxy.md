@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Proxy
 description:  Configure the HTTP proxy used by Octopus
 navOrder: 161

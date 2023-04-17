@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Manage Tenants and Tag sets
 description: Manage tenants and tag sets as part of a multi-tenant region setup in Octopus Deploy.
 navOrder: 30

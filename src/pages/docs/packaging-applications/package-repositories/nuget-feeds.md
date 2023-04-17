@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: NuGet feeds
 description: Configuring NuGet repositories as Octopus Feeds
 navOrder: 50

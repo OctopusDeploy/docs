@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: HTTP Security Headers
 description: Describes the security related browser headers that Octopus supports
 navOrder: 30

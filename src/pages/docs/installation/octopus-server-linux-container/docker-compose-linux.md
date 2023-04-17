@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Octopus Server Container with Docker Compose
 description: A fully self-contained SQL Server and Octopus Server provisioned as Linux containers using Docker Compose.
 navOrder: 10

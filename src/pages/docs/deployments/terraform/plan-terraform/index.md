@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Planning changes made by Terraform templates
 description: Planning changes made by applying or destroying Terraform templates
 navOrder: 30

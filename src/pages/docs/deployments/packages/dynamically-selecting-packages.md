@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Dynamically selecting packages at deployment time
 description: You can configure Octopus to dynamically resolve package details, including Feed and Package ID at deployment time by using variables. This can be useful if you want a different package feed for each environment, or a different package per environment or tenant.
 navOrder: 0

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Manage DNS records in Azure
 description: Create or delete DNS A records in Azure DNS using a runbook.
 navOrder: 30

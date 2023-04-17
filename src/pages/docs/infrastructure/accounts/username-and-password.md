@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Username and password accounts
 description: Username and Password Accounts allow you securely authenticate with different services.
 navOrder: 60

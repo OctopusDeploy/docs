@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Configure Octopus Deploy project
 description: This guide describes how to configure your Octopus project to deploy an ASP.NET Core project together with an Angular CLI project and configuring NGINX to a Linux deployment target.
 navOrder: 2

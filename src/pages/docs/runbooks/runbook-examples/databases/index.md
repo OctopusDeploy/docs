@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Database examples
 description: Examples of using Runbooks to help automate database maintenance.
 navOrder: 30

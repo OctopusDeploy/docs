@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Designing Octopus HA in Azure
 description: Information on configuring Octopus High Availability hosted in Microsoft Azure.
 navOrder: 20

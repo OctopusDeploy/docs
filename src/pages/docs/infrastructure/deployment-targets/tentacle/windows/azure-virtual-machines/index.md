@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Azure virtual machines
 description: The Azure VM Tentacle extension makes it easy to automatically download, install and register a Tentacle with your Octopus Server.
 navOrder: 80

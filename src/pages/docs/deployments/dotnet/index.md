@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: .NET deployments
 description: Octopus Deploy can help you perform repeatable, reliable deployments of your .NET applications.
 navOrder: 10

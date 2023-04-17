@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Installing the Tentacle VM extension via the Azure Portal
 description: How to install a Tentacle using the Azure VM Extension via the new Azure Portal
 navOrder: 2

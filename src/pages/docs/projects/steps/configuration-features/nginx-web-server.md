@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: NGINX Web Server
 description: Configuring NGINX as a web server or reverse proxy
 navOrder: 90

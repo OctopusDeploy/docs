@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Authentication providers
 description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Azure AD, Okta, and GoogleApps.
 navOrder: 50

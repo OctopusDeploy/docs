@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Add deployment targets
 description: Step by step guide on how to add deployment targets in Octopus Deploy.
 navOrder: 70

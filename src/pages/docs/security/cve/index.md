@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Common security vulnerabilities and exploits
 description: This section describes how Octopus Deploy prevents attackers from leveraging common vulnerabilities and exploits.
 navOrder: 100

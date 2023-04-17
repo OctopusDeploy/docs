@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Rollback Kubernetes deployment
 description: A guide on how to rollback a Kubernetes deployment
 navOrder: 5

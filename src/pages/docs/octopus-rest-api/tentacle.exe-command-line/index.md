@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Tentacle.exe command line
 description: Tentacle.exe is the command line executable that runs the Octopus Tentacle instance.
 navOrder: 60

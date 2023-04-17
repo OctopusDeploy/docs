@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Configuring target machine
 description: This guide describes how to configure your target machine running Linux to be used in Octopus deployments.
 navOrder: 0

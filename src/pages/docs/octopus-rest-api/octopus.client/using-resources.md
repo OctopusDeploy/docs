@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Working with Resources
 description: How to load, modify and save resources with the Octopus.Client library.
 navOrder: 20

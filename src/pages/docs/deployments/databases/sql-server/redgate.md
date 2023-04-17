@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploy to SQL Server using Redgate SQL change automation 
 description: Guide to configuring Octopus Deploy to deploy to SQL Server with Redgate SQL change automation
 navOrder: 25

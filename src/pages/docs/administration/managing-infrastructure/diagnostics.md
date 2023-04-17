@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Diagnostics
 description: Octopus diagnostics includes a system integrity check to ensure the system's database schema and data are correct.
 navOrder: 2400

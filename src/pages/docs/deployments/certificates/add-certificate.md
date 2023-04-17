@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Add a certificate to Octopus
 description: Upload a X.509 certificate to be managed by Octopus Deploy
 navOrder: 10

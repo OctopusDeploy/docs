@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Publishing a runbook
 description: Step by step guide on how to publish an Octopus Deploy Runbook to use with triggers.
 navOrder: 90

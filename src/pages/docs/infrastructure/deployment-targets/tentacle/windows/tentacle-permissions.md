@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Permissions required for the Tentacle Windows Service
 description: Everything you need to know about the permissions your Tentacles need.
 navOrder: 40

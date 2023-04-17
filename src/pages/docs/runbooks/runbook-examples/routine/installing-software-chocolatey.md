@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Install software with Chocolatey
 description: Create runbooks to install software with Chocolatey as part of a routine operations task.
 navOrder: 30

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Environment specific .NET configuration transforms with sensitive values
 description: How to configure environment-specific .NET configuration transforms while keeping sensitive values in Octopus.
 navOrder: 30

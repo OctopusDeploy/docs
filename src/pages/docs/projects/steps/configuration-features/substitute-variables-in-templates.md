@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Substitute variables in templates
 description: Package steps have a feature that allows you to replace variables in any file.
 navOrder: 80

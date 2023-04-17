@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Defining the runbook process for workers
 description: Step by step guide on how to define a runbook process to run on Workers in Octopus Deploy.
 navOrder: 40

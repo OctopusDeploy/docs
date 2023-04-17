@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Clean Worker pool
 description: Cleans all Offline Workers from a Worker Pool
 navOrder: 20

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: AWS S3 Bucket feeds
 description: Configuring AWS S3 buckets as Octopus Feeds
 navOrder: 60

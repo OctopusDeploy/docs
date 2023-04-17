@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploy a service resource
 description: Deploy a service resource to a Kubernetes cluster.
 navOrder: 30

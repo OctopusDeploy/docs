@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Upgrading Octopus
 description: Everything you need to know about upgrading Octopus to a newer version.
 navOrder: 40

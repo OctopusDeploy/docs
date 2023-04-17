@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Project triggers
 description: Project Triggers allow you to define unattended behavior for your project such as automatically deploying a release to an environment.
 navOrder: 90

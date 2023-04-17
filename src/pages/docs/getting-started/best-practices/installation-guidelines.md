@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Installation Guidelines
 description: Guidelines and recommendations for installing Octopus Deploy on your infrastructure.
 navOrder: 10

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: ASP.NET Core webapp
 description: This guide covers everything you need to perform your first ASP.NET Core webapp deployment.
 navOrder: 0

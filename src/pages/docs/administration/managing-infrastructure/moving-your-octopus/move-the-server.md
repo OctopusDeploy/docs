@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Moving the Octopus Server
 description: Walk-through outlining how you can move an Octopus instance from one server to another.
 navOrder: 100

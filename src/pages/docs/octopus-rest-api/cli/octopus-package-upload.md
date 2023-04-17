@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: octopus package upload
 description: upload one or more packages to Octopus Deploy
 navOrder: 61

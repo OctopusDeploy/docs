@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Clean environments
 description: Using the Octopus CLI to delete/remove machines with a particular status from environments on your Octopus instance.
 navOrder: 15

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Minimize the data-migration time
 description: Tips to minimize the time taken to migrate your data from Octopus 2.6 to 2018.10 LTS
 navOrder: 5

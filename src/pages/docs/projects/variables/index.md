@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Variables
 description: Defining variables in Octopus allows you to promote your applications through environments and update their configuration files.
 navOrder: 80

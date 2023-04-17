@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Auditing
 description: Octopus Deploy captures audit information whenever significant events happen in the system.
 ---

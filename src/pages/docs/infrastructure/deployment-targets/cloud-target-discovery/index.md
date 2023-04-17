@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Cloud Target Discovery
 description: Cloud resources can be discovered and registered as deployment targets by Octopus
 navOrder: 100

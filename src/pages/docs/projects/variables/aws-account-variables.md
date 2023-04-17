@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: AWS account variables
 description: Create an AWS account to use it in AWS-related deployment steps
 navOrder: 80

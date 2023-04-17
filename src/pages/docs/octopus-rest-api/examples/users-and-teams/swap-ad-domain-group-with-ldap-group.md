@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Swap AD group with LDAP group
 description: An example script that swaps any active directory external group for a matching LDAP external group in each Octopus team.
 ---

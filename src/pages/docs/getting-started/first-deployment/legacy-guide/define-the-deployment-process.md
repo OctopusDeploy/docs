@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Defining the deployment process
 description: Step by step guide on how to define a deployment process in Octopus Deploy
 navOrder: 30

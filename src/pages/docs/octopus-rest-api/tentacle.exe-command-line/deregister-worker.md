@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deregister Worker
 description: Using the Tentacle.exe command line executable to deregister a Worker from an Octopus Server.
 ---

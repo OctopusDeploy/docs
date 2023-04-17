@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Prompted variables
 description: Prompted variables allow you to prompt a user to enter a value rather than storing it in Octopus.
 navOrder: 40

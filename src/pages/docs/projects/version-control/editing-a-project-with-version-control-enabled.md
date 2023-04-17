@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Editing a project with version control enabled
 description: What to expect when using the Configuration as Code feature in Octopus Deploy
 navOrder: 30 

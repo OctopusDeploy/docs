@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploying to a Release Ring
 description: Deploy a release based on tenant tag.
 navOrder: 50

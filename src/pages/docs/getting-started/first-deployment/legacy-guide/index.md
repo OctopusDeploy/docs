@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: First Deployment (2022.2 and below)
 description: This section will walk you through how to configure your first deployment in Octopus Deploy.
 navOrder: 10

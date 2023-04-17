@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Using in an Octopus Step
 description: How to use the Octopus.Client library from inside Octopus, for example within a script step.
 navOrder: 50

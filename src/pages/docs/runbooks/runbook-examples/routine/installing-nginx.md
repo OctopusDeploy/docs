@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Install NGINX
 description: With Octopus Deploy you can install NGINX with a runbook as part of a routine operations task.
 navOrder: 100

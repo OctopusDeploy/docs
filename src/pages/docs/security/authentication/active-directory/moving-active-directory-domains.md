@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Moving your Octopus Server to another Active Directory domain
 description: the steps and considerations to move your Octopus Server from one Active Directory domain to another.
 navOrder: 10

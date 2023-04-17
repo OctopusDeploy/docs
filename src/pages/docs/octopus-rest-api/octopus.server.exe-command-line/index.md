@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Octopus.Server.exe command line
 description: Octopus.Server.exe is the executable that runs the Octopus instance, it can also be called from the command line.
 navOrder: 50

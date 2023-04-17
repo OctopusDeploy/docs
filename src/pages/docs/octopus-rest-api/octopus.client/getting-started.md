@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Getting started
 description: Getting started with the Octopus.Client.
 navOrder: 10

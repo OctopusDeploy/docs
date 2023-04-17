@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Debugging PowerShell scripts
 description: How to debug PowerShell scripts running as part of your deployment process.
 navOrder: 110

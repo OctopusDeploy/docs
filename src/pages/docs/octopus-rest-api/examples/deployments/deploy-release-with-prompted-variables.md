@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Deploy existing release with prompted variables
 description: An example script to deploy an existing release with prompted variables.
 ---

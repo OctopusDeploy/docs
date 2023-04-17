@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Best Practices
 description: Some of the best practices you can adopt to set yourself up for success in using Octopus Deploy. 
 navOrder: 30

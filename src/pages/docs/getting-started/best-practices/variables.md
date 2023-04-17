@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Variable Recommendations
 description: Guidelines and recommendations for configuring variables in Octopus Deploy.
 navOrder: 60

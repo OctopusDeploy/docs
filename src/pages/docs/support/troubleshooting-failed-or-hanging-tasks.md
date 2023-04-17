@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Troubleshooting failed or hanging tasks
 description: A guide for troubleshooting tasks that fail unexpectedly or are unresponsive
 navOrder: 8

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Lost Master Key
 description: Get your Octopus Server working again after losing your Master Key
 navOrder: 122

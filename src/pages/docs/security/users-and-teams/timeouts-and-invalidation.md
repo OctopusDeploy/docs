@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
+modDate: 2023-01-01
 title: Configurable Timeouts and Session Invalidation
 description: Timeouts and session invalidation can be used to enforce a user to re-authenticate.
 ---
