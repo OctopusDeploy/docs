@@ -138,7 +138,7 @@ Elytron is the new security subsystem introduced with WildFly 11 and JBoss EAP 7
 
 The `Elytron key store name` defines the name of the Elytron Key Store in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsKS`.
 
-![Elyton Key Store](/docs/deployments/certificates/images/elytron-KeyStore.png "width=500")
+![Elyton Key Store](/docs/deployments/certificates/images/elytron-keystore.png "width=500")
 
 The `Elytron key manager name` defines the name of the Elytron Key Manager in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsKM`.
 

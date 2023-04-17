@@ -37,4 +37,4 @@ This tutorial will deploy a sample package to your servers.  If you prefer to sk
 - [Customizable End-to-End CI/CD pipeline tutorial](https://octopus.com/docs/guides)
 - [Deployment Examples](/docs/deployments/)
 
-<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/legacy-guide/configure-environments">Get Started</a></span>
+<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/legacy-guide/configure-environments/">Get Started</a></span>

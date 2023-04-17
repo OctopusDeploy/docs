@@ -194,7 +194,7 @@ No, from **Octopus 3.1** onward, we are dropping official support for Octopus Se
 
 :::hint
 **Tentacle communications protocol**
-Read more about the [Octopus - Tentacle communication](/docs/security/octopus-Tentacle-communication/) protocol and [Troubleshooting Schannel and TLS](/docs/security/octopus-Tentacle-communication/troubleshooting-schannel-and-tls/).
+Read more about the [Octopus - Tentacle communication](/docs/security/octopus-tentacle-communication/) protocol and [Troubleshooting Schannel and TLS](/docs/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls/).
 :::
 
 ### Upgrading to Octopus 3.4 or greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.4orgreater}

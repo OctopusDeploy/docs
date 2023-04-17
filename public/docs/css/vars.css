@@ -3,86 +3,114 @@
     https://toolness.github.io/accessible-color-matrix/
 */
 
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-display: block;
+    src: url('poppins-bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('roboto-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'fa-solid';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url("fa/webfonts/fa-solid-900.woff2") format("woff2"), url("fa/webfonts/fa-solid-900.ttf") format("truetype");
+}
+ 
+@font-face {
+    font-family: 'fa-brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("fa/webfonts/fa-brands-400.woff2") format("woff2"), url("fa/webfonts/fa-brands-400.ttf") format("truetype");
+}
+
 :root {
-    --fore: #333;
-    --fore-headings: #225;
-    --aft: #FBFBFC;
+    /* Theme colors */
+    --black: #000000FF;
+    --white: #FFFFFFFF;
+    --grey: #555555FF; /* #777777 is low contrast (WCAG) */
 
-    --fore-link: #2d4295;
-    --fore-link-alt: #4D71FF;
-    --aft-link-alt: #F3F5FF;
+    
+    --blue-midnight-dark: #070E14FF;
+    --blue-midnight-darker: #0A202FFF;
+    --blue-midnight: #10212FFF;
+    --blue-midnight-lighter: #22425CFF;
 
-    --fore-head: #333;
-    --aft-head: #E6E8F1;
+    --navy-400: #7C98B4FF;
+    --navy-200: #DAE2E9FF;
+    --light-bg: #F9FAFAFF;
 
-    --fore-breadcrumb: #333;
-    --aft-breadcrumb: #F3F5FF;
+    --blue-grey-dark: #152B3DFF;
+    --blue-gray-darker: #1F2F3CFF;
+    --blue-grey-medium: #113049FF;
+    --blue-grey-light: #274B66FF;
+    --blue-grey-smoke: #C5E6FF66;
+    
+    --lightest-blue: #E5F4FFFF;
+    --octo-blue: #0D79CEFF; /* Insufficient contrast for #0D80D8FF; */
+    --octo-blue-lighter: #2F95E3FF;
+    --octo-blue-lightest: #1FC0FFFF;
+    --lilac: #9C6ADEFF;
+    --green: #25D284FF;
+    --light-green: #00FFA3FF;
 
-    --link-head: #2d4295;
-    --link-alt-head: #2a4dd8;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'robotoregular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --code-font: Consolas, monaco, monospace;
 
-    --fore-block: #333;
-    --aft-block: #F3F5FF;
-    --icon-block: #4D71FF;
+    --font-size-xlarge: 24px;
+    --font-size-large: 20px;
+    --font-size-regular: 18px;
+    --font-size-medium: 16px;
+    --font-size-small: 14px;
 
-    --fore-table-head: #FDFDFE;
-    --aft-table-head: #2F3141;
-    --fore-table-row-odd: #333;
-    --aft-table-row-odd: #FDFDFE;
-    --fore-table-row-even: #333;
-    --aft-table-row-even: #F3F5FF;
+    --header-bg: var(--white);
+    --header-icon-stroke: var(--blue-grey-light);
+    --header-link-color: var(--octo-blue);
+    --header-link-alt: var(--blue-gray-darker);
+    --header-link-alt-bg: var(--blue-grey-smoke);
 
-    --heading-font: Georgia, 'Times New Roman', Times, serif;
-    --content-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --code-font: Consolas, 'Courier New', Courier, monospace;
+    --image-bg: var(--blue-grey-smoke);
+    --content-bg: var(--white);
+    
+    --body-link-color: var(--octo-blue);
+    --body-link-alt: var(--blue-grey-light);
+    --menu-link-bg: var(--blue-grey-smoke);
+
+    --gradient-start: var(--lilac);
+    --gradient-end: var(--green);
+
+    --icon-stroke: var(--white);
+    --icon-fill: var(--blue-grey-light);
 
     --block-gap: 2rem;
-    --block-radius: 0.3rem;
 
-    --marker-size: 1.2rem;
-    --paragraph-margin: 1.2rem;
-
-    --box-shadow: 0 12px 24px -12px rgb(0 0 0 / 80%);
-    --box-shadow-slight: 0 6px 12px -6px rgb(0 0 0 / 40%);
+    --header-pin: 0;
+    --scroll-pad: 110px;
 
     --content-width: 78vw;
-    --navigation-width: 260px;
+    --content-width-mobile: calc(100vw - 2rem);
+    --navigation-width: 250px;
+    --grid-max-width: 1250px;
     --grid-gap: 1rem;
-    --grid-max-width: 60rem;
-    --grid-width: 90vw;
+    --grid-gap-main: 4rem;
 
-    /* Calculate the mobile width by removing l/r columns and grid gap */
-    --content-width-mobile: calc(100vw - (1rem * 2));
+    --standard-radius: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --fore: #CCC;
-        --fore-headings: #CCE;
-        --aft: #333;
-    
-        --fore-link: #abb9ef;
-        --fore-link-alt: #abb9ef;
-        --aft-link-alt: #232323;
         
-        --fore-head: #CCC;
-        --aft-head: #222;
-
-        --fore-breadcrumb: #CCC;
-        --aft-breadcrumb: #2C2C2C;
-
-        --link-head: #abb9ef;
-        --link-alt-head: #6580ed;
-
-        --fore-block: #CCC;
-        --aft-block: #111;
-        --icon-block: #abb9ef;
-
-        --fore-table-head: #CCC;
-        --aft-table-head: #222; 
-        --fore-table-row-odd: #CCC;
-        --aft-table-row-odd: #333;
-        --fore-table-row-even: #CCC;
-        --aft-table-row-even: #444;
     }
 }

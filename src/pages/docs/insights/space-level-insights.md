@@ -59,14 +59,14 @@ The top right allows you to change the time range and granularity of the chart.
 
 The data is real time and based on the deployment completion time.
 
-See the [trend indicators](trend-indicators/) section for more details on the trend indicator and trend tables on each page.
+See the [trend indicators](/docs/insights/trend-indicators/) section for more details on the trend indicator and trend tables on each page.
 
 
 ## Tables
 
 Below the chart on the single metric pages are various tables showing a more detailed view of the data.
 
-For each of projects, environments and tenants, a list of [trends](trend-indicators/) may be shown. The list is only shown if there are at least two of that item present in the data. The list shows the top 10 of that dimension where the trend for the metric is up or down.
+For each of projects, environments and tenants, a list of [trends](/docs/insights/trend-indicators/) may be shown. The list is only shown if there are at least two of that item present in the data. The list shows the top 10 of that dimension where the trend for the metric is up or down.
 
 Below that there are tables showing a particular measure grouped by project, environment and tenant combination. These give you a starting point when investigating how to improve a metric.
 

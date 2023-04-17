@@ -2,7 +2,7 @@ import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
 
 export const menu: (NavPage | 'categories' | 'tags' | 'toptags')[] = [
 	{
-		title: '<img src="/devops/img/octopus.svg" alt="Octopus Deploy" class="octo-logo" width="40" height="43">',
+		title: '<img src="/docs/img/octopus.svg" alt="Octopus Deploy" class="octo-logo" width="40" height="43">',
 		url: '',
 		ariaCurrent: false,
 		isOpen: false,

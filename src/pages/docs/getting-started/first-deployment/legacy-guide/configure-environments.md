@@ -19,4 +19,4 @@ For further reading on environments in Octopus Deploy please see:
 - [Deployment Documentation](/docs/deployments/)
 - [Patterns and Practices](/docs/deployments/patterns/)
 
-<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/create-projects">Next</a></span>
+<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/legacy-guide/create-projects/">Next</a></span>

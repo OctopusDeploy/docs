@@ -24,12 +24,12 @@ The tenant filter will only appear if tenanted deployments is enabled for the pr
 
 The data is real time and based on the deployment completion time.
 
-See the [trend indicators](trend-indicators/) section for more details on the trend indicator and trend tables on each page.
+See the [trend indicators](/docs/insights/trend-indicators/) section for more details on the trend indicator and trend tables on each page.
 
 ## Detail
 
 Below the chart on the single metric pages are various tables showing more detailed view of the data.
 
-For tenanted projects there is a list of the top 10 tenants whose [trend](trend-indicators/) for that metric is up or down.
+For tenanted projects there is a list of the top 10 tenants whose [trend](/docs/insights/trend-indicators/) for that metric is up or down.
 
 Below that are tables of deployments relevant to that metric. These give you a starting point when investigating how to improve a metric.

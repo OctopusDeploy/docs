@@ -3,7 +3,7 @@ import type { Site } from 'astro-accelerator-utils/types/Site';
 export const SITE: Site = {
 	url: 'https://octopus.com',
 	useTrailingUrlSlash: true,
-	subfolder: '/docs/',
+	subfolder: '/docs',
 	feedUrl: '',
 	title: 'Documentation and Support',
 	description: 'Site description.',
@@ -46,15 +46,15 @@ export const SITE: Site = {
 // Default image for OG: Tags
 export const OPEN_GRAPH = {
 	image: {
-		src: '/devops/img/devops.png',
+		src: '/docs/img/devops.png',
 		alt: 'An Octopus arm in an infinity shape, supporting people collaborating',
 	}
 };
 
 export const HEADER_SCRIPTS = `
 <meta name="google-site-verification" content="nIbWsTU_ELqMnLNxIexH_s6ch3m-s_MaFnl5u8WoaRM" />
-  <link rel="preload" href="/devops/css/poppins-bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/devops/css/roboto-regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/docs/css/poppins-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/docs/css/roboto-regular.woff" as="font" type="font/woff" crossorigin>
   <script defer>
   const whenActivated = new Promise((resolve) => {
 	if (document.prerendering) {

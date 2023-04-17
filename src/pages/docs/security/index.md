@@ -109,13 +109,13 @@ Learn about [managing users and teams](/docs/security/users-and-teams/).
 
 You can configure the Octopus Server to send certain standard HTTP security headers with each HTTP response. The Octopus Server will be secure by default, however you can enable certain advanced HTTP security headers, like HSTS if you desire.
 
-Learn about [HTTP security headers](http-security-headers/).
+Learn about [HTTP security headers](/docs/security/http-security-headers/).
 
 ## PCI/DSS compliance
 
 We have a lot of customers running Octopus Deploy in their PCI compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
 
-Learn about [PCI/DSS compliance and Octopus Deploy](pci-compliance-and-octopus-deploy/).
+Learn about [PCI/DSS compliance and Octopus Deploy](/docs/security/pci-compliance-and-octopus-deploy/).
 
 ## Outbound requests
 
