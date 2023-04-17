@@ -15,7 +15,7 @@ Before you can deploy a package you need to:
 1. Give your package a [package ID](#package-id).
 1. Choose and apply a [versioning scheme](#version-numbers).
 1. Create the package in a [supported format](#supported-formats).
-1. Host the package in a [package repository](/docs/packaging-applications/package-repositories/).
+1. Host the package in a [package repository](/docs/packaging-applications/package-repositories).
 
 ## Package ID {#package-id}
 
@@ -33,13 +33,13 @@ Avoid using numbers in your package ID as it could result in the version number 
 
 ## Version numbers {#version-numbers}
 
-Octopus supports [Semantic Versioning](/docs/packaging-applications/create-packages/versioning/#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds/) in which case you will need to use [Maven Versions](/docs/packaging-applications/create-packages/versioning/#maven).
+Octopus supports [Semantic Versioning](/docs/packaging-applications/create-packages/versioning/#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds) in which case you will need to use [Maven Versions](/docs/packaging-applications/create-packages/versioning/#maven).
 
 The version number needs to be applied to your package after the package ID and before the format. For instance. The version number in our sample package is **1.0.0**.
 
 > [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 
-Learn more about [versioning schemes](/docs/packaging-applications/create-packages/versioning/).
+Learn more about [versioning schemes](/docs/packaging-applications/create-packages/versioning).
 
 ## Package dependencies and structure
 
@@ -51,17 +51,17 @@ It is important that your packages have the correct **file extension** because O
 
 | Package type          | File Extensions           | Notes                                    |
 | --------------------- | ------------------------- | ---------------------------------------- |
-| NuGet        | .nupkg                   | Compatible with any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/)). Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata. Learn about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).|
-| Zip          | .zip                     | Standard zip file as created through most common zip programs. Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/) only. |
-| JAR WAR EAR RAR | .jar, .war, .ear, .rar  | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds/). RAR files are Java Resource Adaptor Archives, not the .rar compressed archive format. |
-| Tar          | .tar                   | Compatible with the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/) only. |
-| Tar + Gzip   | .tgz, .tar.gz, .tar.Z | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/) only. |                                          |
-| Tar + Bzip2  | .tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/) only. |                                          |
-| Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/). Learn about [Docker](/docs/deployments/docker/) and Octopus Deploy. |
-| Helm Chart   | .tgz                       | [Helm Chart Repositories](https://helm.sh/docs/topics/chart_repository/) (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/)). Learn about [Helm](/docs/deployments/kubernetes/helm-update/) and Octopus Deploy. |
+| NuGet        | .nupkg                   | Compatible with any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository)). Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata. Learn about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).|
+| Zip          | .zip                     | Standard zip file as created through most common zip programs. Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository) only. |
+| JAR WAR EAR RAR | .jar, .war, .ear, .rar  | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds). RAR files are Java Resource Adaptor Archives, not the .rar compressed archive format. |
+| Tar          | .tar                   | Compatible with the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository) only. |
+| Tar + Gzip   | .tgz, .tar.gz, .tar.Z | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository) only. |                                          |
+| Tar + Bzip2  | .tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository) only. |                                          |
+| Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/). Learn about [Docker](/docs/deployments/docker) and Octopus Deploy. |
+| Helm Chart   | .tgz                       | [Helm Chart Repositories](https://helm.sh/docs/topics/chart_repository/) (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/)). Learn about [Helm](/docs/deployments/kubernetes/helm-update) and Octopus Deploy. |
 
 ## Learn more
 
- - [Create packages](/docs/packaging-applications/create-packages/)
- - [Build servers](/docs/packaging-applications/build-servers/)
- - [Package repositories](/docs/packaging-applications/package-repositories/)
+ - [Create packages](/docs/packaging-applications/create-packages)
+ - [Build servers](/docs/packaging-applications/build-servers)
+ - [Package repositories](/docs/packaging-applications/package-repositories)

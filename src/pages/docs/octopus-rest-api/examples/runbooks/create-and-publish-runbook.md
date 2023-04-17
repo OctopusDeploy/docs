@@ -6,7 +6,7 @@ title: Create and publish a new runbook snapshot
 description: An example script to create and publish a new runbook snapshot
 ---
 
-This script demonstrates how to programmatically create a new runbook snapshot and publish it for use by runbook consumers. If the runbook references any packages from the [Octopus built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/), then the latest package versions will be included in the snapshot.
+This script demonstrates how to programmatically create a new runbook snapshot and publish it for use by runbook consumers. If the runbook references any packages from the [Octopus built-in repository](/docs/packaging-applications/package-repositories/built-in-repository), then the latest package versions will be included in the snapshot.
 
 ## Usage
 

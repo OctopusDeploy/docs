@@ -7,7 +7,7 @@ description: List the releases last-deployed in each environment
 navOrder: 190
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to list the releases last deployed in each environment.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list the releases last deployed in each environment.
 
 ```
 Lists the releases last-deployed in each environment.
@@ -101,5 +101,5 @@ octo list-latestdeployments --project="DACPAC SQL Server" --environment="Test" -
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

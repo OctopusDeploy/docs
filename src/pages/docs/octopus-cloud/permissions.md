@@ -15,4 +15,4 @@ If you find there is something you think you ought to have access to as an **Oct
 
 ## Learn more
 
-- [Permissions](/docs/security/users-and-teams/)
+- [Permissions](/docs/security/users-and-teams)

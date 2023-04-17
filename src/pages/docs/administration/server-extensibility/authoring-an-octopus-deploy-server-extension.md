@@ -128,4 +128,4 @@ At the moment you can only extend [Authentication](https://github.com/OctopusDep
 
 ## Install a custom extension {#AuthoringanOctopusDeployserverextension-&#39;Installing&#39;acustomextension}
 
-Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/administration/server-extensibility/installing-a-custom-server-extension/) and restarting the Octopus Server.
+Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/administration/server-extensibility/installing-a-custom-server-extension) and restarting the Octopus Server.

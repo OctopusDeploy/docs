@@ -17,7 +17,7 @@ This example assumes:
 Our starting configuration:
 
 - Octopus Deploy installed and running on <http://servername:8080/>
-   For guidance on this topic, see [Installing Octopus](/docs/installation/).
+   For guidance on this topic, see [Installing Octopus](/docs/installation).
 - Valid SSL certificate installed in the Local Certificate store.
    For guidance on this topic, please follow [Importing your SSL certificate](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate).
 - IIS Management Console installed.

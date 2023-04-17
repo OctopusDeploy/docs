@@ -17,7 +17,7 @@ For users familiar with Octopus prior to the introduction of runbooks, an obviou
 
 ## Variables
 
-A [project's variables](/docs/projects/variables/) are shared between the deployment process and any runbooks in the project (though specific values can be scoped exclusively to specific runbooks or to the deployment process). This means the following configurations can be shared between your deployment process and runbooks:
+A [project's variables](/docs/projects/variables) are shared between the deployment process and any runbooks in the project (though specific values can be scoped exclusively to specific runbooks or to the deployment process). This means the following configurations can be shared between your deployment process and runbooks:
 - Database connection strings
 - Passwords
 - Certificates
@@ -39,7 +39,7 @@ From **Octopus 2020.3**, it’s also possible to choose which environments a run
 You can select the runbook to run in:
 - All environments (the default).
 - Only specific environments.
-- Environments from the [Project Lifecycle](/docs/releases/lifecycles/).
+- Environments from the [Project Lifecycle](/docs/releases/lifecycles).
 
 :::hint
 In Octopus 2020.2 and earlier, if you need to restrict the environment that a runbook can be executed in, you can achieve this by adding an [Environment run condition](/docs/projects/steps/conditions/#environments) in each step of the runbook process.
@@ -47,7 +47,7 @@ In Octopus 2020.2 and earlier, if you need to restrict the environment that a ru
 
 ## Retention policy
 
-Project [Lifecycles](/docs/releases/lifecycles/) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it’s possible to set a retention policy for a runbook by selecting this from the *Run settings* in **{{Runbook,Settings}}**:
+Project [Lifecycles](/docs/releases/lifecycles) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it’s possible to set a retention policy for a runbook by selecting this from the *Run settings* in **{{Runbook,Settings}}**:
 
 ![Runbook retention policies](/docs/runbooks/runbooks-vs-deployments/runbook-runsettings-retention.png "width=500")
 
@@ -63,7 +63,7 @@ In Octopus 2020.2 and earlier, the runbook retention policy could not be set. In
 
 ## Snapshots vs Releases
 
-Runbooks are similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/runbooks/runbook-publishing/#snapshots) versus a [release](/docs/releases/) for a deployment. Runbooks can have two different types of snapshots:
+Runbooks are similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/runbooks/runbook-publishing/#snapshots) versus a [release](/docs/releases) for a deployment. Runbooks can have two different types of snapshots:
 - Draft
 - Published
 

@@ -15,12 +15,12 @@ While Docker Containers on Windows Server (not Docker for Windows through Docker
 
 ## Configuring a Docker host {#configure-docker-host}
 
-If you already have a Linux machine with Docker installed, you can use that once you have configured it as a [Linux target](/docs/infrastructure/deployment-targets/linux/) in Octopus.
+If you already have a Linux machine with Docker installed, you can use that once you have configured it as a [Linux target](/docs/infrastructure/deployment-targets/linux) in Octopus.
 
 If not, you'll need to configure a host for our sample application. We recommend using **Ubuntu 18.04 LTS** or **Ubuntu 20.04 LTS** for this sample.
 
 1. Install Ubuntu.
-2. Configure your Ubuntu machine as either an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target/#configuring-ssh-targets) or [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/) in Octopus
+2. Configure your Ubuntu machine as either an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target/#configuring-ssh-targets) or [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux) in Octopus
     * Make sure this Deployment Target has a [target role](/docs/infrastructure/deployment-targets/#target-roles) like **docker-server**. We will configure the Docker steps to target this role.
 
 ![](/docs/deployments/docker/images/my-docker-host.png "width=500")
@@ -77,7 +77,7 @@ From the project process page, add a new step via **{{Add Step,Run a Docker Cont
 
 :::success
 **Using output variables from Docker Inspect**
-Once Octopus creates the network in the previous step, it invokes the [docker network inspect](https://docs.docker.com/engine/reference/commandline/network_inspect/) command and stores the JSON output in an [output variable](/docs/projects/variables/output-variables/). This data contains all the information about the network and we will use the network name to signify to the container that it should connect to that network. All the values of the inspect command can be accessed with standard [variable substitution syntax](/docs/projects/variables/variable-substitutions/).
+Once Octopus creates the network in the previous step, it invokes the [docker network inspect](https://docs.docker.com/engine/reference/commandline/network_inspect/) command and stores the JSON output in an [output variable](/docs/projects/variables/output-variables/). This data contains all the information about the network and we will use the network name to signify to the container that it should connect to that network. All the values of the inspect command can be accessed with standard [variable substitution syntax](/docs/projects/variables/variable-substitutions).
 :::
 6. Set *Network Alias* to **FirstServer**. This will make it easier to identify this specific container from another container in the network.
 7. Skip down to the *Additional Arguments* section, and set the *Command* to be: `/bin/sh -c "ping localhost"`. This arbitrary script instructs the linux instance to ping itself forever, keeping the container alive for this demonstration.

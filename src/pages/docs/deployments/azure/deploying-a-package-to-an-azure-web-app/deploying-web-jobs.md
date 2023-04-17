@@ -36,7 +36,7 @@ If you are packaging and deploying your Web App and Web Job together, the Web Jo
     \---web.config
 ```
 
-Below is a sample of a nuspec file which could be used to produce the layout above.  For example using [OctoPack](/docs/packaging-applications/create-packages/octopack/).
+Below is a sample of a nuspec file which could be used to produce the layout above.  For example using [OctoPack](/docs/packaging-applications/create-packages/octopack).
 
 ```xml
 <?xml version="1.0"?><package >

@@ -10,7 +10,7 @@ navOrder: 50
 :::warning
 **Deprecated**
 
-Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favor of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/).
+Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favor of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery).
 :::
 
 In **Octopus 2021.3**, a new architecture for deployments and steps targets was developed, known as **step packages**.
@@ -49,7 +49,7 @@ Command (bash) **new_octopustarget**
 
 ### Examples
 
-The below examples demonstrate creating a new AWS ECS Cluster target, evidenced by the `aws-ecs-target` target identifier. These scripts would typically be invoked after creating the cluster in a preceeding step. The required information can be passed to these scripts via [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), or via [output variables](/docs/deployments/custom-scripts/output-variables/) published in preceeding steps, or can simply be hard-coded.
+The below examples demonstrate creating a new AWS ECS Cluster target, evidenced by the `aws-ecs-target` target identifier. These scripts would typically be invoked after creating the cluster in a preceeding step. The required information can be passed to these scripts via [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), or via [output variables](/docs/deployments/custom-scripts/output-variables) published in preceeding steps, or can simply be hard-coded.
 
 #### Account credentials
 

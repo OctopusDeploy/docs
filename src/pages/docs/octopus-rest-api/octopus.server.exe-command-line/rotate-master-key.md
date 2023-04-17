@@ -11,7 +11,7 @@ Generate a new Master Key and re-encrypt all the sensitive data. This option was
 
 :::warning
 
-Before using this command, we recommend taking a look at our [guide on rotating the Master Key](/docs/administration/managing-infrastructure/rotate-master-key/).
+Before using this command, we recommend taking a look at our [guide on rotating the Master Key](/docs/administration/managing-infrastructure/rotate-master-key).
 :::
 
 **rotate-master-key options**

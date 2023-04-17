@@ -7,7 +7,7 @@ description:  Checks the Octopus instances are running
 navOrder: 30
 ---
 
-The `checkservices` command checks the Octopus Server instances to see if they are running and start them if they're not.  The [watchdog](/docs/administration/managing-infrastructure/service-watchdog/) command sets up a scheduled task that calls `checkservices`.
+The `checkservices` command checks the Octopus Server instances to see if they are running and start them if they're not.  The [watchdog](/docs/administration/managing-infrastructure/service-watchdog) command sets up a scheduled task that calls `checkservices`.
 
 **Check Services options**
 

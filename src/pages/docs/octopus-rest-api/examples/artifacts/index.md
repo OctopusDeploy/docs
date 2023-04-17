@@ -8,4 +8,4 @@ navOrder: 20
 hideInThisSectionHeader: true
 ---
 
-You can use the REST API to create and download [artifacts](/docs/projects/deployment-process/artifacts/) in Octopus. Typical tasks can include:
+You can use the REST API to create and download [artifacts](/docs/projects/deployment-process/artifacts) in Octopus. Typical tasks can include:

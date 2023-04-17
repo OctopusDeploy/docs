@@ -42,4 +42,4 @@ Once this option is on, PowerShell scripts automatically support long file names
 
 ## Learn more
 
- - [Octopus installation](/docs/installation/)
+ - [Octopus installation](/docs/installation)

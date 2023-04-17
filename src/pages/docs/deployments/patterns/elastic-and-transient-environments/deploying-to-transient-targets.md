@@ -13,7 +13,7 @@ Transient deployment targets are targets that are intermittently available for a
 - Laptops that are taken home at night.
 - Client servers that go down for maintenance.
 
-A typical Octopus deployment requires that all deployment targets are available when the deployment starts and will remain available while the deployment is in progress.  Elastic Environments provides mechanisms for deploying to targets that may become unavailable while a deployment is in progress. You can also run a [health check](/docs/projects/built-in-step-templates/health-check/) during a deployment, and based on those results opt to add or remove machines from the deployment.
+A typical Octopus deployment requires that all deployment targets are available when the deployment starts and will remain available while the deployment is in progress.  Elastic Environments provides mechanisms for deploying to targets that may become unavailable while a deployment is in progress. You can also run a [health check](/docs/projects/built-in-step-templates/health-check) during a deployment, and based on those results opt to add or remove machines from the deployment.
 
 ## Deploying to Targets That Become Unavailable During a Deployment {#Deployingtotransienttargets-Deployingtotargetsthatbecomeunavailableduringadeployment}
 
@@ -25,7 +25,7 @@ This example uses the OctoFX project that does a deployment to two roles: **Rate
 4. Create and deploy a release to an environment where deployment targets in the **TradingWebServer** role are unavailable. They will be automatically removed from the deployment.
 
 :::success
-To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date/).
+To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date).
 :::
 
 ## Including and Excluding Targets During a Deployment {#Deployingtotransienttargets-Includingandexcludingtargetsduringadeployment}
@@ -33,7 +33,7 @@ To ensure that a machine which has been skipped is kept up to date, consider [ke
 In this example, OctoFX will deploy to **RateServer** and then run a Health Check step before it deploys to **TradingWebServer**, ensuring that only currently available targets are involved in the deployment.
 
 1. Navigate to the OctoFX project process page.
-2. Select **Add Step** and then select **Health check**. For more information about adding a step to the deployment process, see the [add step](/docs/projects/steps/) section.
+2. Select **Add Step** and then select **Health check**. For more information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 3. Configure the Health Check step, exclude deployment targets if they are unavailable and include new deployment targets if they are found:
 
    ![](/docs/deployments/patterns/elastic-and-transient-environments/images/healthcheck.png "width=500")
@@ -52,7 +52,7 @@ In this case, the machine **SWeb01** has been found and included in the rest of 
 
 ![](/docs/deployments/patterns/elastic-and-transient-environments/images/newtarget.png "width=500")
 
-Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date/).
+Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date).
 
 ## Learn more
 

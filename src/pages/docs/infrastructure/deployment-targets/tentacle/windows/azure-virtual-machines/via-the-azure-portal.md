@@ -31,11 +31,11 @@ A deployment will be initiated which adds the extension to your virtual machine.
 
 The settings for the extension are:
 
-**Octopus Server URL**: URL to your Octopus Server. You'll need your own Octopus Server (possibly also running on Azure), and you should [consider using HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/). The extension will use the [Octopus REST API](/docs/octopus-rest-api/) against this URL to register the machine.
+**Octopus Server URL**: URL to your Octopus Server. You'll need your own Octopus Server (possibly also running on Azure), and you should [consider using HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/). The extension will use the [Octopus REST API](/docs/octopus-rest-api) against this URL to register the machine.
 
-**API Key**: [Your API key](/docs/octopus-rest-api/how-to-create-an-api-key/). This key will only be used when registering the machine with the Octopus Server; it isn't used for [subsequent communication](/docs/security/octopus-tentacle-communication/).
+**API Key**: [Your API key](/docs/octopus-rest-api/how-to-create-an-api-key/). This key will only be used when registering the machine with the Octopus Server; it isn't used for [subsequent communication](/docs/security/octopus-tentacle-communication).
 
-**Environments**: The name of the [environment](/docs/infrastructure/environments/) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`.
+**Environments**: The name of the [environment](/docs/infrastructure/environments) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`.
 
 **Roles**: The roles to give to the machine. Again, separate them using commas for more than one, for example: `web-server,app-server`.
 
@@ -49,8 +49,8 @@ The settings for the extension are:
 
 After entering the extension settings, click **OK**, and the extension will be installed.
 
-After a few minutes, the machine should appear in the environments tab of your Octopus Server. If it doesn't, please read the [Diagnosing issues](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/diagnosing-issues/) section.
+After a few minutes, the machine should appear in the environments tab of your Octopus Server. If it doesn't, please read the [Diagnosing issues](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/diagnosing-issues) section.
 
 :::hint
-If you need the ability to customize more of the installation, the [CLI](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-the-azure-cli/), [PowerShell](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-powershell/) and [ARM Template](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template/) methods expose more options than the Azure Portal. For even more customization, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.
+If you need the ability to customize more of the installation, the [CLI](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-the-azure-cli/), [PowerShell](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-powershell/) and [ARM Template](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template) methods expose more options than the Azure Portal. For even more customization, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.
 :::

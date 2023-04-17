@@ -33,7 +33,7 @@ Some other examples of tasks include (but are not limited to):
 - Tentacle upgrade
 - Update Calamari
 
-By default, each Octopus Deploy node is configured to process five (5) tasks concurrently.  That is known as the task cap.  It is possible to [change the task cap on each node](/docs/support/increase-the-octopus-server-task-cap/).  
+By default, each Octopus Deploy node is configured to process five (5) tasks concurrently.  That is known as the task cap.  It is possible to [change the task cap on each node](/docs/support/increase-the-octopus-server-task-cap).  
 
 While it is possible to increase the task cap on a single node to 50, 75, or even 100, you'll eventually run into the underlying host OS and .NET limits.  A server can only open up so many network connections, transport so many files, and run so many concurrent threads.  High Availability solves that problem by scaling the task cap horizontally.  Each node will pull items from the task queue and process them.  
 
@@ -81,7 +81,7 @@ For planned outages, the recommendation is to enable drain mode.  That will tell
 
 Once the outage is finished, repeat the same steps, but select **Disable Drain Node** instead.
 
-Not all outages can be planned.  The underlying hypervisor hosting VM the node is running on could crash.  A data center could go offline.  When that happens you can use this [API Script](/docs/octopus-rest-api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown/) to re-run those canceled deployments and runbook runs.
+Not all outages can be planned.  The underlying hypervisor hosting VM the node is running on could crash.  A data center could go offline.  When that happens you can use this [API Script](/docs/octopus-rest-api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown) to re-run those canceled deployments and runbook runs.
 
 ### Several smaller nodes are better than a few large ones
 

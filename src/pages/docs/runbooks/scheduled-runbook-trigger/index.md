@@ -7,7 +7,7 @@ description: Scheduled runbook triggers allow you to define unattended behavior 
 navOrder: 40
 ---
 
-Scheduled runbook triggers allow you to define unattended behavior for your [Runbook](/docs/runbooks/) that will cause an automatic runbook run to environments of your choosing.
+Scheduled runbook triggers allow you to define unattended behavior for your [Runbook](/docs/runbooks) that will cause an automatic runbook run to environments of your choosing.
 
 :::hint
 Only published snapshots can be used to create a scheduled runbook trigger, draft snapshots cannot be used to create a scheduled trigger.
@@ -33,7 +33,7 @@ Scheduled runbook triggers provide a way to configure your runbooks to run on a 
 4. Specify the target environments the runbook will run against.
 5. Set the Trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can specify the time the trigger should run and a daily scheduled, specific days of the week, or days of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
 
-If you are using [tenants](/docs/tenants/) you can select the tenants that the runbook will run against. For each tenant, the published runbook will run against the tenant's environment. 
+If you are using [tenants](/docs/tenants) you can select the tenants that the runbook will run against. For each tenant, the published runbook will run against the tenant's environment. 
 
 6. Save the Trigger.
 

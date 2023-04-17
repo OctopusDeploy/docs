@@ -15,11 +15,11 @@ Octopus Deploy uses a common certificate library called [Bouncy Castle](https://
 
 ### `failed to construct sequence from byte[]: extra data found after object` 
 
-This error implies that the file being uploaded might be an SSH Key and not a valid certificate. Octopus only supports [SSH key pair accounts](/docs/infrastructure/accounts/ssh-key-pair/) for securely authenticating with SSH targets.
+This error implies that the file being uploaded might be an SSH Key and not a valid certificate. Octopus only supports [SSH key pair accounts](/docs/infrastructure/accounts/ssh-key-pair) for securely authenticating with SSH targets.
 
 ### `PEM file must contain a certificate`
 
-This error implies that the file being uploaded might be an SSH Key and not a valid certificate. Octopus only supports [SSH key pair accounts](/docs/infrastructure/accounts/ssh-key-pair/) for securely authenticating with SSH targets.
+This error implies that the file being uploaded might be an SSH Key and not a valid certificate. Octopus only supports [SSH key pair accounts](/docs/infrastructure/accounts/ssh-key-pair) for securely authenticating with SSH targets.
 
 ### `corrupted stream detected malformed integer`
 

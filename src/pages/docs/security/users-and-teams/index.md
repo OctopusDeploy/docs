@@ -19,12 +19,12 @@ You can manage users and teams in the Octopus Web Portal:
 
 ## User and service accounts {#Managingusersandteams-UserandServiceaccounts}
 
-**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/).
+**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
-[Service accounts](/docs/security/users-and-teams/service-accounts/) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts/).
+[Service accounts](/docs/security/users-and-teams/service-accounts/) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts).
 
 :::success
-You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/security/users-and-teams/service-accounts/) for each service that will integrate with Octopus Deploy.
+You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/security/users-and-teams/service-accounts) for each service that will integrate with Octopus Deploy.
 :::
 
 ### User API Key Management
@@ -38,7 +38,7 @@ There are some things to be aware of when deleting or disabling an Octopus User:
 
 ## Inviting users {#Managingusersandteams-Invitingusers}
 :::warning
-This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/octopus-cloud/).
+This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/octopus-cloud).
 :::
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
@@ -105,7 +105,7 @@ Note that project leads can create releases but not deploy them, while project d
 The roles assigned by a team can be scoped by project or environment.
 
 :::hint
-You can learn more about User Roles in our [documentation](/docs/security/users-and-teams/user-roles/).
+You can learn more about User Roles in our [documentation](/docs/security/users-and-teams/user-roles).
 :::
 
 ## System teams {#Managingusersandteams-Systemteams}

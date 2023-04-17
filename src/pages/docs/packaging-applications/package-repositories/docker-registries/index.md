@@ -11,18 +11,18 @@ hideInThisSectionHeader: true
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
 :::success
-See an example deployment using Docker Registries in our guide: [Docker run with networking](/docs/deployments/docker/docker-run-with-networking/).
+See an example deployment using Docker Registries in our guide: [Docker run with networking](/docs/deployments/docker/docker-run-with-networking).
 :::
 
 ## Using Docker registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
 
-In Octopus Deploy, Docker registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories/), and Images are treated very similarly to Packages.
+In Octopus Deploy, Docker registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories), and Images are treated very similarly to Packages.
 
-Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/packaging-applications/package-repositories/docker-registries/).
+Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/packaging-applications/package-repositories/docker-registries).
 
 ### How Octopus Server and deployment targets integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
-The Docker Registries you configure need to be accessed by both the Octopus Server  and your [deployment targets](/docs/infrastructure/).
+The Docker Registries you configure need to be accessed by both the Octopus Server  and your [deployment targets](/docs/infrastructure).
 
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the deployment targets themselves and they will pull the Images directly from the Docker Registry.
 
@@ -50,7 +50,7 @@ When you create a release in Octopus, you need to choose the "version" of the Im
 
 :::hint
 **Container images are downloaded directly by the Deployment Target or Worker**
-Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
+Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
 :::
 
 ## Private registry {#DockerRegistriesasFeeds-PrivateRegistry}
@@ -67,10 +67,10 @@ This image supports custom storage locations, certificates for HTTPS and authent
 There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [Cloudsmith](https://www.cloudsmith.com), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
 
 We have provided further details on setting up a Octopus Feed to the following Docker Registries:
-- [Docker Hub](/docs/packaging-applications/package-repositories/guides/container-registries/docker-hub/)
-- [Azure Container Services](/docs/packaging-applications/package-repositories/guides/container-registries/azure-container-services/)
-- [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/guides/container-registries/amazon-ec2-container-services/)
-- [Cloudsmith](/docs/packaging-applications/package-repositories/guides/cloudsmith-feed/)
+- [Docker Hub](/docs/packaging-applications/package-repositories/guides/container-registries/docker-hub)
+- [Azure Container Services](/docs/packaging-applications/package-repositories/guides/container-registries/azure-container-services)
+- [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/guides/container-registries/amazon-ec2-container-services)
+- [Cloudsmith](/docs/packaging-applications/package-repositories/guides/cloudsmith-feed)
 
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 

@@ -10,14 +10,14 @@ navOrder: 1
 Octopus supports a wide variety of scripting languages and runtimes. Octopus executes your scripts as provided using the language and runtime best suited to the script in the host operating environment. The content of these scripts can come from a wide variety of sources, including:
 
 - Built-in steps provided by Octopus.
-- [Step templates contributed by the community and curated by Octopus](/docs/projects/community-step-templates/).
-- Your own [custom scripts](/docs/deployments/custom-scripts/).
-- Your own [custom script modules](/docs/deployments/custom-scripts/script-modules/).
-- Your own [custom step templates](/docs/projects/custom-step-templates/).
+- [Step templates contributed by the community and curated by Octopus](/docs/projects/community-step-templates).
+- Your own [custom scripts](/docs/deployments/custom-scripts).
+- Your own [custom script modules](/docs/deployments/custom-scripts/script-modules).
+- Your own [custom step templates](/docs/projects/custom-step-templates).
 
-Octopus lets you tailor these scripts to your needs at runtime using features like [dynamically substituting variables into your script files](/docs/projects/steps/configuration-features/substitute-variables-in-templates/).
+Octopus lets you tailor these scripts to your needs at runtime using features like [dynamically substituting variables into your script files](/docs/projects/steps/configuration-features/substitute-variables-in-templates).
 
-Once this is done Octopus will inject your script into a "bootstrapper" enabling friction free interaction with important Octopus features like [variables](/docs/projects/variables/), [output variables](/docs/projects/variables/output-variables/), and [artifacts](/docs/projects/deployment-process/artifacts/).
+Once this is done Octopus will inject your script into a "bootstrapper" enabling friction free interaction with important Octopus features like [variables](/docs/projects/variables/), [output variables](/docs/projects/variables/output-variables/), and [artifacts](/docs/projects/deployment-process/artifacts).
 
 ## Script integrity in Octopus
 
@@ -60,6 +60,6 @@ If this approach doesn't feel like it will work, and script integrity is a real 
 
 In case you want to read further and consider other options for securing your Octopus installation:
 
-- Octopus provides a robust and detailed security model allowing you to control who has access to certain projects, environments, tenants, and ultimately which people can author the scripts which are executed by Octopus on your behalf. Learn about [managing users and teams](/docs/security/users-and-teams/).
+- Octopus provides a robust and detailed security model allowing you to control who has access to certain projects, environments, tenants, and ultimately which people can author the scripts which are executed by Octopus on your behalf. Learn about [managing users and teams](/docs/security/users-and-teams).
 - Most Octopus customers use source control systems to track changes to all their scripts, using a trusted chain of authority to embed those scripts into the packages which are used by Octopus.
-- Octopus provides detailed auditing enabling post-emptive analysis of a person's activity including custom scripts authored as part of your deployment process. Learn about [auditing](/docs/security/users-and-teams/auditing/).
+- Octopus provides detailed auditing enabling post-emptive analysis of a person's activity including custom scripts authored as part of your deployment process. Learn about [auditing](/docs/security/users-and-teams/auditing).

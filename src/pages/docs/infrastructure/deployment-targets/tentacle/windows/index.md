@@ -17,12 +17,12 @@ When installed, Tentacles:
 
 Before you install Tentacle, review the software and hardware requirements for:
 
-- [The latest version of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/).
-- [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements/).
+- [The latest version of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements).
+- [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements).
 
 ## Communication mode
 
-Tentacles can be configured to communicate in Listening mode or Polling mode. Listening mode is the recommended communication style. Learn about the differences between the two modes and when you might choose to use Polling mode instead of Listening mode on the [Tentacle communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/) page.
+Tentacles can be configured to communicate in Listening mode or Polling mode. Listening mode is the recommended communication style. Learn about the differences between the two modes and when you might choose to use Polling mode instead of Listening mode on the [Tentacle communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication) page.
 
 !include <tentacle-downloads>
 
@@ -30,12 +30,12 @@ Tentacles can be configured to communicate in Listening mode or Polling mode. Li
 
 !include <install-tentacle-manager>
 !include <configure-listening-target>
-1. Select which [environments](/docs/infrastructure/environments/) the deployment target will be assigned to.
+1. Select which [environments](/docs/infrastructure/environments) the deployment target will be assigned to.
 1. Choose or create at least one [target roles](/docs/infrastructure/deployment-targets/#target-roles) for the deployment target and click **Save**.
 
 Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/deployment-targets/machine-policies/#health-check).
 
-If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles/).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles).
 
 ### Update your Tentacle firewall
 
@@ -47,26 +47,26 @@ Don't forget to allow access in any intermediary firewalls between the Octopus S
 
 ## Configure a Polling Tentacle
 
-Listening Tentacles are recommended, but there might be situations where you need to configure a Polling Tentacle. You can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/) page.
+Listening Tentacles are recommended, but there might be situations where you need to configure a Polling Tentacle. You can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication) page.
 
 !include <install-tentacle-manager>
 !include <configure-polling-target>
 
 Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/deployment-targets/machine-policies/#health-check).
 
-If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles/).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles).
 
 ### Update your Octopus Server firewall
 
-To allow Tentacle to connect to your Octopus Server, you'll need to allow access to port **10943** on the Octopus Server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the HTTP Octopus Web Portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Server](/docs/installation/)).
+To allow Tentacle to connect to your Octopus Server, you'll need to allow access to port **10943** on the Octopus Server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the HTTP Octopus Web Portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Server](/docs/installation)).
 
 If your network rules only allow port **80** and **443** to the Octopus Server, you can either:
 - Change the server bindings to either HTTP or HTTPS and use the remaining port for polling Tentacle connections.
-  - The listening port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) using the `--commsListenPort` option.
+  - The listening port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) using the `--commsListenPort` option.
 Even if you do use port **80** for Polling Tentacles, the communication is still secure.
 - Use a reverse proxy to redirect incoming connections to the Tentacle listening port on Octopus Server by differentiating the connection based on Hostname (TLS SNI) or IP Address
   - The polling endpoint Tentacle uses can be [changed from the command line](/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443/#self-hosted) using the `--server-comms-address` option. 
-  - You can learn about this configuration on the [Polling Tentacles over port 443](/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443/) page.
+  - You can learn about this configuration on the [Polling Tentacles over port 443](/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443) page.
 
 Note that the port (or address) used to poll Octopus for jobs is different from the port (or address) used by your team to access the Octopus Deploy web interface;
 this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access the Octopus Server by IP address.

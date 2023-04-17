@@ -7,7 +7,7 @@ description: List worker pools
 navOrder: 240
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to list all Worker pools.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list all Worker pools.
 
 ```
 Lists worker pools.
@@ -88,6 +88,6 @@ octo list-workerpools --server="https://samples.octopus.app" --apiKey="API-MyApi
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
-- [Worker pools](/docs/infrastructure/workers/worker-pools/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
+- [Worker pools](/docs/infrastructure/workers/worker-pools)

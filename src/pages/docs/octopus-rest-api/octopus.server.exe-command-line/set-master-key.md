@@ -10,7 +10,7 @@ navOrder: 124
 Sets the new master key in the config after rotation.
 
 :::warning
-This command only updates the config file and does not mutate any data. Make sure to [rotate the Master Key](/docs/administration/managing-infrastructure/rotate-master-key/) first.
+This command only updates the config file and does not mutate any data. Make sure to [rotate the Master Key](/docs/administration/managing-infrastructure/rotate-master-key) first.
 :::
 
 **set-master-key options**

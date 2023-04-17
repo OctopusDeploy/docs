@@ -1,6 +1,6 @@
 Many workers may be running in parallel and a single worker can run multiple actions in parallel.  
 
-The [task cap](/docs/support/increase-the-octopus-server-task-cap/) determines how many tasks (deployments or system tasks) can run simultaneously.  The [system variable](/docs/projects/variables/system-variables/) `Octopus.Action.MaxParallelism` controls how much parallelism is allowed in executing a deployment action.  It applies the same to deployment targets as it does to workers.   For example, if `Octopus.Action.MaxParallelism` is set to its default value of 10, any one deployment action will:
+The [task cap](/docs/support/increase-the-octopus-server-task-cap/) determines how many tasks (deployments or system tasks) can run simultaneously.  The [system variable](/docs/projects/variables/system-variables) `Octopus.Action.MaxParallelism` controls how much parallelism is allowed in executing a deployment action.  It applies the same to deployment targets as it does to workers.   For example, if `Octopus.Action.MaxParallelism` is set to its default value of 10, any one deployment action will:
 - Deploy to at most 10 deployment targets simultaneously, or 
 - Have no more than 10 concurrent worker invocations running. 
 

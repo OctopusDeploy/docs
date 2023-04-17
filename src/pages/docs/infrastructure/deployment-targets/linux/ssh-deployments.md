@@ -19,7 +19,7 @@ Windows-specific features such as IIS and Windows Services are not supported whe
 
 ## Scripts
 
-You can execute scripts using almost any installed scripting runtime. Learn about what you can do with [custom scripts](/docs/deployments/custom-scripts/).
+You can execute scripts using almost any installed scripting runtime. Learn about what you can do with [custom scripts](/docs/deployments/custom-scripts).
 
 :::hint
 **Environment Variable Differences**
@@ -42,11 +42,11 @@ This will ensure that they are evaluated on non-interactive logins.
 
 ### Example: Using variables in Bash
 
-Your script can use a [variable value](/docs/projects/variables/) by invoking the `get_octopusvariable` function. For example, to echo out the installation directory call
+Your script can use a [variable value](/docs/projects/variables) by invoking the `get_octopusvariable` function. For example, to echo out the installation directory call
 
 > `echo "Installed to step: " $(get_octopusvariable "Octopus.Action[Acme Deployment].Output.Package.InstallationDirectoryPath")`
 
-You can also set an [output variable](/docs/projects/variables/output-variables/):
+You can also set an [output variable](/docs/projects/variables/output-variables):
 
 > ```
 > set_octopusvariable RandomNumber 3
@@ -54,7 +54,7 @@ You can also set an [output variable](/docs/projects/variables/output-variables/
 
 ### Example: Collecting an artifact
 
-Your script can tell Octopus to collect a file and store it as a [deployment artifact](/docs/projects/deployment-process/artifacts/):
+Your script can tell Octopus to collect a file and store it as a [deployment artifact](/docs/projects/deployment-process/artifacts):
 
 > ```
 > new_octopusartifact "./subdir/anotherdir/myfile"
@@ -85,4 +85,4 @@ Calamari is the tool Octopus uses to execute deployments on a remote computer. B
 ## Learn more
 
 - [Linux blog posts](https://octopus.com/blog/tag/linux)
-- [Node.js sample](/docs/deployments/node-js/node-on-linux/)
+- [Node.js sample](/docs/deployments/node-js/node-on-linux)

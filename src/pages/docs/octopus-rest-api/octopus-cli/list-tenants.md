@@ -7,7 +7,7 @@ description: List tenants
 navOrder: 230
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to List tenants.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to List tenants.
 
 ```
 Lists tenants.
@@ -88,5 +88,5 @@ octo list-tenants --server="https://samples.octopus.app" --apiKey="API-MyApiKey"
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

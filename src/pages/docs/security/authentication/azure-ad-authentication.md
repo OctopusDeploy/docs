@@ -47,7 +47,7 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
  - Include `/api/users/authenticatedToken/AzureAD` at the end of your Octopus URL.
 
 :::hint
-Take care when you add this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `HTTP` here and need to use `https`. You will need to use an SSL certificate from a Certificate Authority, such as [LetsEncrypt](https://letsencrypt.org/). You can do this by using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration/) or one from Active Directory Certificate Services.
+Take care when you add this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `HTTP` here and need to use `https`. You will need to use an SSL certificate from a Certificate Authority, such as [LetsEncrypt](https://letsencrypt.org/). You can do this by using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration) or one from Active Directory Certificate Services.
 :::
 
 ![Filling the App registration form](/docs/security/authentication/images/aad-new-app-registration-form.png "width=500")
@@ -129,7 +129,7 @@ After you have completed editing the manifest, select the **Save** option.
 ![Saving an App registration manifest](/docs/security/authentication/images/aad-save-app-registration-manifest.png "width=500")
 
 :::hint
-The **value** property is the most important one. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams/) in Octopus Deploy.
+The **value** property is the most important one. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams) in Octopus Deploy.
 :::
 
 :::success
@@ -218,7 +218,7 @@ If you followed the optional steps to modify the App registration's manifest to 
 
 ### Octopus user accounts are still required
 
-Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/), so that you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
+Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/), so that you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
 **How Octopus matches external identities to user accounts**
 
@@ -246,7 +246,7 @@ You should also consider disabling any authentication providers you aren't using
 
 ## Troubleshooting
 
-If you are having difficulty configuring Octopus to authenticate with Azure Active Directory, check your [server logs](/docs/support/log-files/) for warnings.
+If you are having difficulty configuring Octopus to authenticate with Azure Active Directory, check your [server logs](/docs/support/log-files) for warnings.
 
 ### Triple check your configuration
 

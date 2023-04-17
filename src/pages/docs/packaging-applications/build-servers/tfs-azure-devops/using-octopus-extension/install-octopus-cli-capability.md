@@ -6,7 +6,7 @@ title: Installing the Octopus CLI as a capability
 description: This guide covers how to add the Octopus CLI as a capability to your Azure DevOps custom build agents.
 ---
 
-Tasks in the Octopus extension use the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) to execute commands with an instance of Octopus. As a result, the Octopus CLI is required to be installed and available on an agent before subsequent tasks run. There are two ways to fulfill this requirement:
+Tasks in the Octopus extension use the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) to execute commands with an instance of Octopus. As a result, the Octopus CLI is required to be installed and available on an agent before subsequent tasks run. There are two ways to fulfill this requirement:
 
 1. Use the tool installer task, **Octopus CLI Installer** as part of a build pipeline definition
 2. Install the Octopus CLI into a [self-hosted agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents#install)

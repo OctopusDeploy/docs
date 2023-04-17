@@ -7,14 +7,14 @@ description: Octopus is all about reliable and repeatable deployments, but that 
 navOrder: 60
 ---
 
-Over the years, we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. Octopus can scale with you as you grow. Some Octopus customers are reliably deploying hundreds of projects to many thousands of deployment targets from a single [Octopus High Availability](/docs/administration/high-availability/) cluster.
+Over the years, we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. Octopus can scale with you as you grow. Some Octopus customers are reliably deploying hundreds of projects to many thousands of deployment targets from a single [Octopus High Availability](/docs/administration/high-availability) cluster.
 
 Octopus is a complex system where we control some parts of the deployment while offering you the freedom to inject your own custom steps into the process. We work hard to make our parts work quickly and efficiently, leaving as many resources available for running your parts of the deployment. We can't control the performance of your custom parts, but there are many things you can do as an Octopus administrator to ensure your installation operates efficiently.
 
 This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
 
 :::hint
-Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/projects/deployment-process/performance/).
+Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/projects/deployment-process/performance).
 :::
 
 ## Minimum requirements
@@ -23,7 +23,7 @@ Want to tune your deployments for optimum performance? Read our [detailed guide 
 
 ## Database
 
-[SQL Server](/docs/installation/sql-server-database/) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. 
+[SQL Server](/docs/installation/sql-server-database) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. 
 
 ### Infrastructure
 
@@ -51,21 +51,21 @@ Routine maintenance can help your Octopus keep running at optimum performance an
 
 ### Upgrade
 
-We are continually working to make Octopus perform better, and we will always recommend [upgrading to the latest version](/docs/administration/upgrading/) whenever asked about performance. We generally tag [performance-related issues in our GitHub repository](https://github.com/OctopusDeploy/Issues/issues?q=label%3Afeature%2Fperformance) so you can see which performance improvements have been added in each version of Octopus.
+We are continually working to make Octopus perform better, and we will always recommend [upgrading to the latest version](/docs/administration/upgrading) whenever asked about performance. We generally tag [performance-related issues in our GitHub repository](https://github.com/OctopusDeploy/Issues/issues?q=label%3Afeature%2Fperformance) so you can see which performance improvements have been added in each version of Octopus.
 
 As an example, many customers have reported speed improvements of 50-90% for their deployments after upgrading from an early version of **Octopus 3.x** to the latest version.
 
 ### Retention policies
 
-Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/) and [environments](/docs/infrastructure/environments/), are stored until you delete them, unlike historical documents like [releases](/docs/releases/). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/) you configure.
+Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/) and [environments](/docs/infrastructure/environments/), are stored until you delete them, unlike historical documents like [releases](/docs/releases/). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies) you configure.
 
-_The one exception to this is the `Events` table which records an [audit trail](/docs/security/users-and-teams/auditing/) of every significant event in your Octopus._
+_The one exception to this is the `Events` table which records an [audit trail](/docs/security/users-and-teams/auditing) of every significant event in your Octopus._
 
 A tighter retention policy means your Octopus Server will run faster across the board.
 
 :::hint
 **We need to keep everything for auditing purposes**
-You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/security/users-and-teams/auditing/) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
+You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/security/users-and-teams/auditing/) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
 
 ## Scaling Octopus Server {#scaling}
@@ -74,7 +74,7 @@ Octopus Servers do quite a lot of work during deployments, mostly around package
 
 - Downloading packages from the package source (network-bound).
 - Verifying package hashes (CPU-bound).
-- Calculating deltas between packages for [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers/) (I/O-bound and CPU-bound).
+- Calculating deltas between packages for [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers) (I/O-bound and CPU-bound).
 - Uploading packages to deployment targets (network-bound).
 - Monitoring deployment targets for job status, and collecting logs.
 
@@ -83,9 +83,9 @@ At some point your server hardware is going to limit how many of these things a 
 We offer four options for scaling your Octopus Server:
 
 - scale up by controlling the **task cap** and providing more server resources as required.
-- scale out using [Octopus High Availability](/docs/administration/high-availability/).
-- scale out using [Workers](/docs/infrastructure/workers/).
-- dividing up your Octopus environment using [Spaces](/docs/administration/spaces/).
+- scale out using [Octopus High Availability](/docs/administration/high-availability).
+- scale out using [Workers](/docs/infrastructure/workers).
+- dividing up your Octopus environment using [Spaces](/docs/administration/spaces).
 
 ### Task cap
 
@@ -95,29 +95,29 @@ Instead, we decided to put this control into your hands, allowing you to control
 
 See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availability) for more details on why we chose this approach.
 
-The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.  Increasing that to 10 should be fine without requiring more CPU or RAM.  Anything more and we recommend [High Availability](/docs/administration/high-availability/).
+The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.  Increasing that to 10 should be fine without requiring more CPU or RAM.  Anything more and we recommend [High Availability](/docs/administration/high-availability).
 
 The task cap also interacts with offloading deployment work to Workers.  If you have more workers available, you might be able to increase your deployment performance and [different task cap or step parallelism](/docs/infrastructure/workers/#run-multiple-processes-on-workers-simultaneously) might be right with the extra ability to scale.
 
 ### Octopus High Availability
 
-You can scale out your Octopus Server by implementing a [High Availability](/docs/administration/high-availability/) cluster. Each node in the cluster will have its own task cap.  Two servers in a cluster each with a task cap of 5 means you can process 10 concurrent tasks.  
+You can scale out your Octopus Server by implementing a [High Availability](/docs/administration/high-availability) cluster. Each node in the cluster will have its own task cap.  Two servers in a cluster each with a task cap of 5 means you can process 10 concurrent tasks.  
 
 In addition to linearly increasing the performance of your cluster, you can perform certain kinds of maintenance on your Octopus Servers without incurring downtime.
 
 ### Workers
 
-Consider using [Workers](/docs/infrastructure/workers/) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+Consider using [Workers](/docs/infrastructure/workers) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
 
 ### Spaces
 
-Consider separating your teams/projects into "spaces" using the [Spaces](/docs/administration/spaces/) feature.  A space is considered a "hard wall". Each space has its own environments, projects, deployment targets, packages, machine policies, etc.  The only thing shared is users and teams.  That means less data for the Octopus UI to query.  Splitting 60 projects evenly into 3 spaces will result in the dashboard only having to load 20 projects instead of 60.
+Consider separating your teams/projects into "spaces" using the [Spaces](/docs/administration/spaces) feature.  A space is considered a "hard wall". Each space has its own environments, projects, deployment targets, packages, machine policies, etc.  The only thing shared is users and teams.  That means less data for the Octopus UI to query.  Splitting 60 projects evenly into 3 spaces will result in the dashboard only having to load 20 projects instead of 60.
 
 ## Tentacles
 
-Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target/) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) wherever possible.  Listening Tentacles and SSH place the Octopus Server under less load.  We try to make Polling Tentacles as efficient as possible. However, they can place the Octopus Server under high load, just handling incoming connections.
+Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) wherever possible.  Listening Tentacles and SSH place the Octopus Server under less load.  We try to make Polling Tentacles as efficient as possible. However, they can place the Octopus Server under high load, just handling incoming connections.
 
-Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/deployment-targets/machine-policies/).
+Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/deployment-targets/machine-policies).
 
 ## Packages {#package-transfer}
 
@@ -127,7 +127,7 @@ Transferring packages from your Octopus Server is a key piece of functionality w
 
 The larger the package the more network bandwidth is required to transfer data to your deployment targets.  
 
-Consider using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers/).  Larger packages will require more CPU and disk IOPS to calculate the delta - monitor resource consumption to ensure delta compression doesn't negatively impact the rest of your Octopus Server.
+Consider using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers).  Larger packages will require more CPU and disk IOPS to calculate the delta - monitor resource consumption to ensure delta compression doesn't negatively impact the rest of your Octopus Server.
 
 :::hint
 Delta compression doesn't always result in smaller package transfers.  The algorithm will transfer the entire package if over a certain percentage changes.
@@ -153,7 +153,7 @@ Octopus Deploy stores BLOB data (task logs, packages, project images, etc.) on t
 
 ### Task Logs {#tip-task-logs}
 
-Larger task logs put the entire Octopus pipeline under more pressure.  The task log has to be transferred from the Tentacle to the server, it has to be saved to the file system, and is read when you are on the deployment or runbook screen.  We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/projects/deployment-process/artifacts/).
+Larger task logs put the entire Octopus pipeline under more pressure.  The task log has to be transferred from the Tentacle to the server, it has to be saved to the file system, and is read when you are on the deployment or runbook screen.  We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/projects/deployment-process/artifacts).
 
 ### Image Size
 
@@ -161,17 +161,17 @@ While it is fun to have gifs and fancy images for your projects consider the siz
 
 ## Deployment Parallelism
 
-By default, Octopus will only run one process on each [deployment target](/docs/infrastructure/deployment-targets/) at a time, queuing the rest. There may be times that you want to run multiple processes at a time. In those situations, there are three special variables that can be used to control the way Octopus runs steps in parallel:
+By default, Octopus will only run one process on each [deployment target](/docs/infrastructure/deployment-targets) at a time, queuing the rest. There may be times that you want to run multiple processes at a time. In those situations, there are three special variables that can be used to control the way Octopus runs steps in parallel:
 
 - `OctopusBypassDeploymentMutex` - allows for multiple processes to run at once on the target.
 - `Octopus.Acquire.MaxParallelism` - limits the maximum number of packages that can be concurrently deployed to multiple targets.
 - `Octopus.Action.MaxParallelism` - limits the maximum number of machines on which the action will concurrently execute
 
-For more details, see our [run multiple processes on a target simultaneously](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously/) page.
+For more details, see our [run multiple processes on a target simultaneously](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously) page.
 
 ## Troubleshooting
 
-The best place to start troubleshooting your Octopus Server is to inspect the [Octopus Server logs](/docs/support/log-files/). Octopus writes details for common causes of performance problems.
+The best place to start troubleshooting your Octopus Server is to inspect the [Octopus Server logs](/docs/support/log-files). Octopus writes details for common causes of performance problems.
 
 ### Long running requests
 
@@ -206,7 +206,7 @@ When the Task Logs are taking a long time to load, or your deployments are takin
 
 When you experience overly high CPU or memory usage during deployments which may be causing your deployments to become unreliable:
 - Try reducing your Task Cap back towards the default of `5` and then increase progressively until your server is reliable again.
-- Look for potential [performance problems in your deployment processes](/docs/projects/deployment-process/performance/), especially:
+- Look for potential [performance problems in your deployment processes](/docs/projects/deployment-process/performance), especially:
     - Consider how you [transfer your packages](#package-transfer).
     - Consider reducing the amount of parallelism in your deployments by reducing the number of steps you run in parallel, or the number of machines you deploy to in parallel.
 
@@ -260,9 +260,9 @@ ORDER BY Obj.name
 In addition to providing the above information, gathering logs and traces will help us troubleshoot your performance problem.
 
 1. Attach a screen recording showing the performance problem or charts showing the Octopus Server performance.  If problem happens at certain times, please attach charts and screen recordings before and during those events.
-1. [Record and attach the performance problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser/) (if applicable).
-1. Attach the [Octopus Server logs](/docs/support/log-files/).
-1. Attach the [raw task logs](/docs/support/get-the-raw-output-from-a-task/) for any tasks exhibiting the performance problem, or that may have been running at the same time as the performance problem.
-1. If the performance problem is causing high CPU utilization on the Octopus Server, please [record and attach a performance trace](/docs/administration/managing-infrastructure/performance/record-a-performance-trace/).
-1. If the performance problem is causing high memory utilization on the Octopus Server, please [record and attach a memory trace](/docs/administration/managing-infrastructure/performance/record-a-memory-trace/).
-1. We might ask for a sanitized database backup to do our own testing against.  Please [follow these instructions](/docs/administration/managing-infrastructure/performance/create-sanitized-database-backup/).
+1. [Record and attach the performance problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser) (if applicable).
+1. Attach the [Octopus Server logs](/docs/support/log-files).
+1. Attach the [raw task logs](/docs/support/get-the-raw-output-from-a-task) for any tasks exhibiting the performance problem, or that may have been running at the same time as the performance problem.
+1. If the performance problem is causing high CPU utilization on the Octopus Server, please [record and attach a performance trace](/docs/administration/managing-infrastructure/performance/record-a-performance-trace).
+1. If the performance problem is causing high memory utilization on the Octopus Server, please [record and attach a memory trace](/docs/administration/managing-infrastructure/performance/record-a-memory-trace).
+1. We might ask for a sanitized database backup to do our own testing against.  Please [follow these instructions](/docs/administration/managing-infrastructure/performance/create-sanitized-database-backup).

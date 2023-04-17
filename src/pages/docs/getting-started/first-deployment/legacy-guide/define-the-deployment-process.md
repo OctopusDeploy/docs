@@ -35,14 +35,14 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 8. Click **SAVE**.
 
-The next step will [create a release and deploy it](/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release/).
+The next step will [create a release and deploy it](/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release).
 
 **Further Reading**
 
 For further reading on defining a deployment process in Octopus Deploy please see:
 
-- [Deployment Process Documentation](/docs/projects/deployment-process/)
-- [Deployment Documentation](/docs/deployments/)
-- [Patterns and Practices](/docs/deployments/patterns/)
+- [Deployment Process Documentation](/docs/projects/deployment-process)
+- [Deployment Documentation](/docs/deployments)
+- [Patterns and Practices](/docs/deployments/patterns)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/legacy-guide/create-projects/">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release/">Next</a></span>

@@ -7,7 +7,7 @@ description: With Octopus Deploy you can install Tomcat on Ubuntu with a runbook
 navOrder: 110
 ---
 
-[Tomcat](https://tomcat.apache.org/) is a popular web server for running Java applications. With Runbooks, you can create a runbook as part of a routine operations task to install Tomcat on your [deployment targets](/docs/infrastructure/deployment-targets/tentacle/linux/).
+[Tomcat](https://tomcat.apache.org/) is a popular web server for running Java applications. With Runbooks, you can create a runbook as part of a routine operations task to install Tomcat on your [deployment targets](/docs/infrastructure/deployment-targets/tentacle/linux).
 
 ## Create the runbook
 
@@ -154,4 +154,4 @@ We have a [Pattern - Rolling](https://oc.to/PatternRollingSamplesSpace) Space on
 - Generate an Octopus guide for [Java, Tomcat, and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?application=Java&destination=Tomcat).
 - [Java blog posts](https://octopus.com/blog/tag/java).
 - [Webinar: Octopus 101: Deploy Your First Java Application](https://www.youtube.com/watch?v=AM6GyYr2n4Y)
-- [Java application deployment example](/docs/deployments/java/deploying-java-applications/).
+- [Java application deployment example](/docs/deployments/java/deploying-java-applications).

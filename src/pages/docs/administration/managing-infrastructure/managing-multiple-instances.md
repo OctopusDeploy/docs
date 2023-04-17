@@ -64,9 +64,9 @@ Different instances of Octopus Server:
 **Multiple-instance &quot;gotchas&quot;**
 There are a few things to keep in mind when running multiple Octopus Server instances.
 
-- When [upgrading the Octopus Server](/docs/administration/upgrading/), each instance of the **Windows service should be stopped first by hand**; the default installation process sometimes seems to ignore non-default instances and won't stop them before replacing files, nor restart them afterwards.
-- Each instance is **backed up separately**, so don't forget to [configure backup for each one](/docs/administration/data/backup-and-restore/).
-- Each instance has its own SQL Server Database, with a different **Master Encryption Key**; make sure [the key for each instance is recorded somewhere safe](/docs/security/data-encryption/).
+- When [upgrading the Octopus Server](/docs/administration/upgrading), each instance of the **Windows service should be stopped first by hand**; the default installation process sometimes seems to ignore non-default instances and won't stop them before replacing files, nor restart them afterwards.
+- Each instance is **backed up separately**, so don't forget to [configure backup for each one](/docs/administration/data/backup-and-restore).
+- Each instance has its own SQL Server Database, with a different **Master Encryption Key**; make sure [the key for each instance is recorded somewhere safe](/docs/security/data-encryption).
   :::
 
 ## Considerations for Tentacle instances {#Managingmultipleinstances-ConsiderationsforTentacleinstances}

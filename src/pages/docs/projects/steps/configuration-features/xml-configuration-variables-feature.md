@@ -7,18 +7,18 @@ description: The .NET XML Configuration Variables feature updates your .NET XML
 navOrder: 60
 ---
 
-The .NET XML configuration variables feature is one of the [.NET configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/).
+The .NET XML configuration variables feature is one of the [.NET configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process).
 
 This feature can be enabled for package deploy steps.
 
 ![.NET XML configuration variables screenshot](/docs/projects/steps/configuration-features/images/dotnet-xml-configuration-variables-feature.png "width=500")
 
-Octopus will extract your package and parse your `*.config` files looking for any `appSettings`, `connectionStrings`, and `applicationSettings` elements where the name matches one of your [variables](/docs/projects/variables/).
+Octopus will extract your package and parse your `*.config` files looking for any `appSettings`, `connectionStrings`, and `applicationSettings` elements where the name matches one of your [variables](/docs/projects/variables).
 
 :::hint
-You can perform simple convention-based replacements in .NET XML configuration files using this feature. We also have a feature tailored to [JSON, YAML, XML, and Properties configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/).
+You can perform simple convention-based replacements in .NET XML configuration files using this feature. We also have a feature tailored to [JSON, YAML, XML, and Properties configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature).
 
-If you are looking for something more flexible, we have the [Substitute Variables in Templates feature](/docs/projects/steps/configuration-features/substitute-variables-in-templates/) enabling you to perform complex transformations on any kind of file.
+If you are looking for something more flexible, we have the [Substitute Variables in Templates feature](/docs/projects/steps/configuration-features/substitute-variables-in-templates) enabling you to perform complex transformations on any kind of file.
 :::
 
 ## How to use this feature
@@ -46,7 +46,7 @@ Suppose you have this `web.config` or `MyApp.exe.config` file in your package wh
 </configuration>
 ```
 
-1. Create the variables in Octopus. From the [project](/docs/projects/) overview page, click **Variables**:
+1. Create the variables in Octopus. From the [project](/docs/projects) overview page, click **Variables**:
   - Enter a the name for the variable, for instance, `AWSAccessKey`. **This name must match the key in your configuration file.**
   - Enter the value for the variable, for instance, `ABCDEFG`.
   - Scope the variable to the environment, for instance, `Test`.
@@ -125,6 +125,6 @@ There may be other variables you would like Octopus to replace in your configura
     </authentication>
 ```
 
-Learn how to do this [with a fully worked example](/docs/projects/steps/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values/) which describes how Octopus can take care of your deployment environments, without impacting how you configure your application for your local development environment.
+Learn how to do this [with a fully worked example](/docs/projects/steps/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values) which describes how Octopus can take care of your deployment environments, without impacting how you configure your application for your local development environment.
 
-This example uses the [.NET XML Configuration Transforms feature](/docs/projects/steps/configuration-features/configuration-transforms/) and [Substitute Variables in Templates feature](/docs/projects/steps/configuration-features/substitute-variables-in-templates/) together.
+This example uses the [.NET XML Configuration Transforms feature](/docs/projects/steps/configuration-features/configuration-transforms/) and [Substitute Variables in Templates feature](/docs/projects/steps/configuration-features/substitute-variables-in-templates) together.

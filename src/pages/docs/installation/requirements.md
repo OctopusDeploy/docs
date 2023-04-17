@@ -13,7 +13,7 @@ If you are hosting your Octopus Server yourself, these are the minimum requireme
 
 Octopus Server can be hosted on either:
 - A Microsoft Windows operating system
-- In a [Linux](/docs/installation/octopus-server-linux-container/) container.
+- In a [Linux](/docs/installation/octopus-server-linux-container) container.
 
 However, once your Octopus Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, GCP, Cloud Regions, or even an offline package drop.
 
@@ -28,7 +28,7 @@ Octopus Server can be hosted on **Windows Server 2012 R2 or higher**. We automat
 
 Octopus Server will run on [Windows Server (Core)](https://docs.microsoft.com/en-us/windows-server/administration/server-core/what-is-server-core) without the Desktop experience. However, the easiest installation path is to use "Server with Desktop Experience" which has a GUI and supports running our installation wizard. If you want to use Windows Server Core, you will need to add some missing Windows Features and configure the Octopus Server yourself.
 
-Learn about [automating installation](/docs/installation/automating-installation/).
+Learn about [automating installation](/docs/installation/automating-installation).
 
 ### Windows desktop
 
@@ -38,11 +38,11 @@ Octopus Server will run on client/desktop versions of Windows, such as Windows 7
 
 From **Octopus 2020.6**, we publish `linux/amd64` Docker images for each Octopus Server release and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/).
 
-Requirements for the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/) will depend on how you intend to run it. There are some different options to run the Octopus Server Linux Container, which include:
+Requirements for the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container) will depend on how you intend to run it. There are some different options to run the Octopus Server Linux Container, which include:
 
-- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux/)
-- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition/)
-- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes/)
+- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux)
+- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes)
 
 You can also run the Octopus Server Linux Container using a platform such as [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html).
 
@@ -114,5 +114,5 @@ Our default supported browsers are:
 
 ## Learn more
 
-- [Installation](/docs/installation/)
-- [Compatibility](/docs/support/compatibility/)
+- [Installation](/docs/installation)
+- [Compatibility](/docs/support/compatibility)

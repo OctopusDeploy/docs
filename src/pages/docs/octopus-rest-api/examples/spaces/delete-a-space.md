@@ -6,7 +6,7 @@ title: Delete a Space
 description: An example script to delete a space.
 ---
 
-This script deletes a [Space](/docs/administration/spaces/) from your Octopus instance.
+This script deletes a [Space](/docs/administration/spaces) from your Octopus instance.
 
 ## Usage
 

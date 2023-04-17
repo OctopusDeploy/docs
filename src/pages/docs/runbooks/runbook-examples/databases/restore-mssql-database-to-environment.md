@@ -7,7 +7,7 @@ description: With Octopus Deploy you can restore a MSSQL database to another env
 navOrder: 30
 ---
 
-To restore a SQL database with a runbook see [restore SQL database](/docs/runbooks/runbook-examples/databases/restore-mssql-database/).  
+To restore a SQL database with a runbook see [restore SQL database](/docs/runbooks/runbook-examples/databases/restore-mssql-database).  
 
 This section shows you how to restore a database to a different environment, for instance restoring from production down to test.  Using a runbook, you can create a self-service method for developers to restore the production database to a lower level environment to test bugs, fixes, and even the deployment process itself.
 
@@ -19,7 +19,7 @@ Using the runbook means developers don't need any extra permissions to the datab
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **SQL - Restore Database**.
-5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables/) rather than entering the values directly in the step parameters.
+5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables) rather than entering the values directly in the step parameters.
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
@@ -47,7 +47,7 @@ Using the runbook means developers don't need any extra permissions to the datab
 
 After adding all of the required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts.
 
-You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step for business approvals. 
+You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals. 
 
 ## Samples
 

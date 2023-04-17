@@ -33,5 +33,5 @@ octo --version
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

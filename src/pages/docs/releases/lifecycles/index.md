@@ -16,7 +16,7 @@ Lifecycles enable a number of advanced deployment workflow features:
 - **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
 :::hint
-Lifecycles don't apply to [Runbooks](/docs/runbooks/). Learn more about the [differences between Runbooks and Deployments](/docs/runbooks/runbooks-vs-deployments/).
+Lifecycles don't apply to [Runbooks](/docs/runbooks/). Learn more about the [differences between Runbooks and Deployments](/docs/runbooks/runbooks-vs-deployments).
 :::
 
 ## Phases
@@ -62,7 +62,7 @@ Any future environments you define will also be deployed to as part of this phas
 2. Give the Lifecycle a name and add a description.
 3. Define the Retention Policy.
 
-   Retention policies define how long releases are kept for, and how long extracted packages and files are kept on Tentacles. The default for both is to keep all. Learn more about [Retention Policies](/docs/administration/retention-policies/).
+   Retention policies define how long releases are kept for, and how long extracted packages and files are kept on Tentacles. The default for both is to keep all. Learn more about [Retention Policies](/docs/administration/retention-policies).
 
 4. Click **ADD PHASE** to define the phases of the lifecycle.
 5. Give the phase a name.
@@ -72,7 +72,7 @@ Any future environments you define will also be deployed to as part of this phas
 
 7. By default, users must manually queue the deployment to the environment, if you would like the deployment to occur automatically as soon as the release enters the phase, select *Deploy automatically...*.
 
-   If you have a project set up with [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation/) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release and a deployment to that environment.
+   If you have a project set up with [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release and a deployment to that environment.
 
 8. Set the *Required to progress* option. This determines how many environments must be deployed to before the next phase can be activated. The options are:
 
@@ -154,7 +154,7 @@ It's recommended to follow good deployment practices and validate any changes be
 ### Maintenance lifecycle
 
 :::success
-**Octopus 2019.10** introduced [Runbooks](/docs/runbooks/) as an alternative to having a maintenance lifecycle. They allow you to automate routine maintenance and emergency operations tasks.
+**Octopus 2019.10** introduced [Runbooks](/docs/runbooks) as an alternative to having a maintenance lifecycle. They allow you to automate routine maintenance and emergency operations tasks.
 :::
 
 A Maintenance lifecycle can be used for projects that run maintenance tasks such as backups or software upgrades. This lifecycle can be used for any tasks that you want to run regularly with the same benefits that Octopus provides for your application deployments.

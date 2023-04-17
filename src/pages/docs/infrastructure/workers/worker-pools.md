@@ -7,11 +7,11 @@ description: Worker pools are used to group workers and allow targeting steps at
 navOrder: 40
 ---
 
-Worker pools are groups of [workers](/docs/infrastructure/workers/), when a task is assigned to a worker, the task will be executed by one of the workers in the worker pools you've configured.
+Worker pools are groups of [workers](/docs/infrastructure/workers), when a task is assigned to a worker, the task will be executed by one of the workers in the worker pools you've configured.
 
 ## Default Worker Pool
 
-There is always a default worker pool, and the default Pool can't be deleted, but you can swap which pool is the default. Worker pools are global resources which can be scoped using [worker pool variables](/docs/projects/variables/worker-pool-variables/).  All users can see what pools are available and if there are workers in the pools. Only a user with the `ConfigureServer` permission can see the worker machines or edit workers or pools.
+There is always a default worker pool, and the default Pool can't be deleted, but you can swap which pool is the default. Worker pools are global resources which can be scoped using [worker pool variables](/docs/projects/variables/worker-pool-variables).  All users can see what pools are available and if there are workers in the pools. Only a user with the `ConfigureServer` permission can see the worker machines or edit workers or pools.
 
 Using multiple workers pools allows you to configure the workers in your  pools for the tasks they will be assigned. For instance, depending on your teams needs you might configure worker pools in the following ways:
 
@@ -69,7 +69,7 @@ The **Octopus Web Portal** is worker pool aware.  If you haven't configured pool
 
 ## Configuring a cloud target to have a Default Worker Pool
 
-Cloud targets such as [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions/) and [Kubernetes targets](/docs/infrastructure/deployment-targets/kubernetes-target/) can set their own default worker pool, both for deployment steps and [health checks](/docs/infrastructure/deployment-targets/machine-policies/#health-check).  If a step is targeted at a cloud target and the worker pool selected for the step is the default pool, the cloud target's default pool is used.  This allows setting up workers that are co-located with cloud targets.  Another option is locking down cloud targets so the only machines that can deploy are co-located polling workers. 
+Cloud targets such as [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions/) and [Kubernetes targets](/docs/infrastructure/deployment-targets/kubernetes-target) can set their own default worker pool, both for deployment steps and [health checks](/docs/infrastructure/deployment-targets/machine-policies/#health-check).  If a step is targeted at a cloud target and the worker pool selected for the step is the default pool, the cloud target's default pool is used.  This allows setting up workers that are co-located with cloud targets.  Another option is locking down cloud targets so the only machines that can deploy are co-located polling workers. 
 
 ## Variables
 
@@ -96,7 +96,7 @@ Yes, the existence of other pools doesn't affect the behavior of the default poo
 
 *How can I cordon off my worker pools so each team only has access to certain pools?*
 
-With the [Spaces](/docs/administration/spaces/) feature of Octopus Deploy you can partition your Octopus Server so that each of your teams can only access the projects, environments, and infrastructure, including workers. 
+With the [Spaces](/docs/administration/spaces) feature of Octopus Deploy you can partition your Octopus Server so that each of your teams can only access the projects, environments, and infrastructure, including workers. 
 
 *I see "leases" being taken out on particular workers in the deployment logs, can I get an exclusive lease for my deployment and clean off the worker once I'm done?*
 
@@ -105,4 +105,4 @@ Not yet.  At the moment, the only time an exclusive lease is taken out is if a T
 ## Learn more
 
 - [Worker blog posts](https://octopus.com/blog/tag/workers)
-- [Worker pool variables](/docs/projects/variables/worker-pool-variables/)
+- [Worker pool variables](/docs/projects/variables/worker-pool-variables)

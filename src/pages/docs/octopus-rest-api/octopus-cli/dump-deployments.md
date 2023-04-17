@@ -7,7 +7,7 @@ description: Writes deployments to an XML file that can be imported in Excel.
 navOrder: 120
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to write deployments to an XML file that can be imported in Excel.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to write deployments to an XML file that can be imported in Excel.
 
 ```
 Writes deployments to an XML file that can be imported in Excel.
@@ -91,5 +91,5 @@ octo dump-deployments --filePath="/tmp/octo-deployments.xml" --space="Pattern - 
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

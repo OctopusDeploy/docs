@@ -17,7 +17,7 @@ The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastru
 Tentacles set up this way will run *inside a container* and script execution will not happen on the host itself. For this reason, Octopus Tentacles inside a container may not be appropriate for many deployment tasks.
 :::
 
-When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command to connect and add itself as a machine to that server with the provided roles and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies/) to remove the duplicated targets.
+When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command to connect and add itself as a machine to that server with the provided roles and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies) to remove the duplicated targets.
 
 ```powershell Deployment Target
 docker run --interactive --detach `
@@ -51,7 +51,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 
 |  Name       |    |
 | ------------- | ------- |
-|**DISABLE_DIND**|Setting `DISABLE_DIND` to `Y` will disable Docker-in-Docker (used for [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/)) when the container is run. **Note:** This requires the image to be launched with privileged permissions. See [this section](#using-execution-containers-dind) for more information|
+|**DISABLE_DIND**|Setting `DISABLE_DIND` to `Y` will disable Docker-in-Docker (used for [execution containers for workers](/docs/projects/steps/execution-containers-for-workers)) when the container is run. **Note:** This requires the image to be launched with privileged permissions. See [this section](#using-execution-containers-dind) for more information|
 |**ServerApiKey**|The API Key of the Octopus Server the Tentacle should register with|
 |**ServerUsername**|If not using an API key, the user to use when registering the Tentacle with the Octopus Server|
 |**ServerPassword**|If not using an API key, the password to use when registering the Tentacle|
@@ -94,7 +94,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 By default, Docker containers are "unprivileged" and cannot run a Docker daemon inside a Docker container. 
 
-Unless disabled, the Octopus Tentacle image attempts to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/). This requires the image to be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities):
+Unless disabled, the Octopus Tentacle image attempts to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers). This requires the image to be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities):
 
 ```bash
 docker run --privileged

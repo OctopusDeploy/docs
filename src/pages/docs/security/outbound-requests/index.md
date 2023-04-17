@@ -25,11 +25,11 @@ It's possible that scripts in your packages may make outbound requests; in this 
 The Octopus Server makes the following outbound requests:
 
 1. Pushing packages and deployment instructions, and checking the health, of Tentacles.
-2. Downloading packages from the [NuGet feeds](/docs/packaging-applications/package-repositories/) that you configure.
+2. Downloading packages from the [NuGet feeds](/docs/packaging-applications/package-repositories) that you configure.
 3. Windows Azure traffic (only when deploying to an Azure deployment target).
 4. Checking for updates (if enabled).
-5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates/) (if enabled).
-6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates/) (if enabled).
+5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates) (if enabled).
+6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates) (if enabled).
 7. Behavioral telemetry is sent to https://telemetry.octopus.com (if enabled).
 
 ### Built-in step templates
@@ -62,13 +62,13 @@ The Octopus.com site is hosted on Microsoft Azure, so you will see traffic going
 In isolated/air-gapped scenarios without access to the internet, it may prove beneficial to disable attempts to contact these external services to prevent failed tasks and/or errors in the logs. Details on how to disable each feature are as follows:
 * Octopus Server updates
   * Via the Web Portal: **{{ Configuration, Settings, Updates }}**
-  * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/): `Octopus.Server.exe configure --upgradeCheck=false`
+  * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --upgradeCheck=false`
 * Built-in step template updates
   * Via the Web Portal: **{{ Configuration, Features, Step Template Updates }}**
 * Community step updates
   * Via the Web Portal: **{{ Configuration, Features, Community Step Templates }}**
 * Telemetry
   * Via the Web Portal: **{{ Configuration, Telemetry }}**
-  * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/): `Octopus.Server.exe configure --sendTelemetry=false`
+  * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --sendTelemetry=false`
 * Dynamic Extensions
-  * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
+  * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`

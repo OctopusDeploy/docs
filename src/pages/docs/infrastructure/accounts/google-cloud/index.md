@@ -36,8 +36,8 @@ Google Cloud steps can also defer to the service account assigned to the instanc
 
 ## Google cloud account variables
 
-You can access your Google cloud account from within projects through a variable of type **Google Cloud Account Variable**. Learn more about [Google Cloud Account Variables](/docs/projects/variables/google-cloud-account-variables/)
+You can access your Google cloud account from within projects through a variable of type **Google Cloud Account Variable**. Learn more about [Google Cloud Account Variables](/docs/projects/variables/google-cloud-account-variables)
 
 ## Learn more
 
-- How to use the [Run gcloud in a Script](/docs/deployments/google-cloud/run-gcloud-script/) step
+- How to use the [Run gcloud in a Script](/docs/deployments/google-cloud/run-gcloud-script) step

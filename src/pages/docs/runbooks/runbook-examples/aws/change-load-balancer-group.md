@@ -7,7 +7,7 @@ description: Modify an existing AWS Elastic load-balancer listener to forward tr
 navOrder: 20
 ---
 
-AWS [Elastic Load Balancing (ELB)](https://aws.amazon.com/elasticloadbalancing/) offers the ability to load balance traffic across AWS and on-premises resources using the same load balancer.  Using a runbook, Octopus makes it easy to provide an automated method for modifying an AWS Elastic load balancer. This is particularly useful if you are deploying using the [blue-green](/docs/deployments/patterns/blue-green-deployments/) deployment pattern, as you can change the load balancer automatically to direct traffic to a different set of servers when you switch to your new active environment.
+AWS [Elastic Load Balancing (ELB)](https://aws.amazon.com/elasticloadbalancing/) offers the ability to load balance traffic across AWS and on-premises resources using the same load balancer.  Using a runbook, Octopus makes it easy to provide an automated method for modifying an AWS Elastic load balancer. This is particularly useful if you are deploying using the [blue-green](/docs/deployments/patterns/blue-green-deployments) deployment pattern, as you can change the load balancer automatically to direct traffic to a different set of servers when you switch to your new active environment.
 
 In this example, we'll swap out servers that are being used in an AWS Elastic load-balancer by modifying the configured listener to forward traffic to a new target group.
 
@@ -24,7 +24,7 @@ This example assumes that you already have an ELB configured with a [listener](h
 1. Choose the **Execution Location** on which to run this step.
 1. Choose whether to use the bundled **AWS Tools**, or the ones pre-installed on the worker.
 1. Choose the **AWS Account** to use.
-1. In the **Amazon Web Services Account** section select the variable that references the **AWS Account** or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables/).
+1. In the **Amazon Web Services Account** section select the variable that references the **AWS Account** or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).
 
 ![AWS Account](/docs/runbooks/runbook-examples/aws/images/step-aws-account.png "width=500")
 

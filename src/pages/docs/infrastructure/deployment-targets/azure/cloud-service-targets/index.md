@@ -40,11 +40,11 @@ To create an Azure Cloud Service target within Octopus:
 
 Azure Cloud Service targets can also be created via a PowerShell cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Cloud Service via a script.
 
-See [Creating Resources by script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/) for more information on creating Azure Cloud Services via a script.
+See [Creating Resources by script](/docs/infrastructure/deployment-targets/dynamic-infrastructure) for more information on creating Azure Cloud Services via a script.
 
 ## Deploying to Cloud Service targets
 
-See our [documentation about this topic](/docs/deployments/azure/cloud-services/)
+See our [documentation about this topic](/docs/deployments/azure/cloud-services)
 
 ## Troubleshooting
 

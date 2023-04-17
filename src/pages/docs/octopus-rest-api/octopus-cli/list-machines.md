@@ -7,7 +7,7 @@ description: Lists all machines
 navOrder: 200
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to list all machines in your environments.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list all machines in your environments.
 
 ```
 Lists all machines.
@@ -120,5 +120,5 @@ octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

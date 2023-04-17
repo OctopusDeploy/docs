@@ -322,9 +322,9 @@ The build YAML can be found in `.github/workflows/AzureSlackFunction.yaml` in th
 
 ### Deploy the Azure App Function
 
-The Azure Function App created here is deployed to with Octopus, using a deployment target type of Azure web app. For more information see, [deploying a package to an Azure web app](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/).
+The Azure Function App created here is deployed to with Octopus, using a deployment target type of Azure web app. For more information see, [deploying a package to an Azure web app](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app).
 
-A [project](/docs/projects/) has been configured to deploy the Function App.  
+A [project](/docs/projects) has been configured to deploy the Function App.  
 
 ![Octopus Project](/docs/administration/managing-infrastructure/subscriptions/images/octopus-azure-function-project.png "width=800")
 

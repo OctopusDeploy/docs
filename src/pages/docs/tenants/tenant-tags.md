@@ -23,9 +23,9 @@ With tenant tags you can:
 - Deploy to multiple tenants at the same time - read more [below](#deploying-to-multiple-tenants-tags).
 - Customize the deployment process for tenants.
 - Scope project variables to tags.
-- Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure/) section.
+- Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
 - Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/#guides).
-- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles/) section.
+- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles) section.
 
 ## Managing Tenant Tags {#managing-tenant-tags}
 
@@ -41,8 +41,8 @@ We suggest taking some time to design your tag sets based on how you will apply 
 Let's look at an Example tag set design :
 
 - **Importance (VIP, Standard, Trial):** concerned with classifying tenants so they can be found easily.
-- **Hosting Region (West US, East US 2):** concerned with how the tenant software is hosted - read more about this in our [tenant infrastructure](/docs/tenants/tenant-infrastructure/) section.
-- **Release ring (Alpha, Beta, Stable):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring/).
+- **Hosting Region (West US, East US 2):** concerned with how the tenant software is hosted - read more about this in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
+- **Release ring (Alpha, Beta, Stable):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring).
 
 This kind of tag set design will make it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on your tenanted deployments.
 
@@ -97,9 +97,9 @@ Consider an example deploying a release to the tenants tagged with the **Alpha*
 
 Some places you can use tags are:
 
-- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release/).
-- Scoping a deployment target to one or more tenants when registering a new Tentacle - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure/) section.
-- When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api/).
+- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release).
+- Scoping a deployment target to one or more tenants when registering a new Tentacle - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
+- When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api).
 
 ## Deploying to multiple tenants using tags {#deploying-to-multiple-tenants-tags}
 

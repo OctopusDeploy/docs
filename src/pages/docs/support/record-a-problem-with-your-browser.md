@@ -14,7 +14,7 @@ This kind of analysis is most successful when you can provide us with a full pic
 - What is going wrong, and what you expected to happen, in your own words.
 - A screen recording of the problem happening.
 - A recording of the HTTP traffic for the same period.
-- The [Octopus Server logs](/docs/support/log-files/) for the same period.
+- The [Octopus Server logs](/docs/support/log-files) for the same period.
 
 ## Privacy
 
@@ -39,7 +39,7 @@ You can usually reduce the frame rate of the screen capture tool to reduce the o
 1. Start recording web traffic.
 1. Reproduce the problem including any steps required to make the problem happen (like setting up your deployment process in a certain way).
 1. Stop the recordings.
-1. Zip the recordings along with any log files which may be helpful for diagnosing the problem (like [Task Logs](/docs/support/get-the-raw-output-from-a-task/) or [Octopus Server logs](/docs/support/log-files/)).
+1. Zip the recordings along with any log files which may be helpful for diagnosing the problem (like [Task Logs](/docs/support/get-the-raw-output-from-a-task/) or [Octopus Server logs](/docs/support/log-files)).
 1. Upload the zip file bundle to the secure and private share which should have been provided by an Octopus team member, then get back in touch with us - unfortunately we don't get notified of file uploads.
 
 ## Analysis

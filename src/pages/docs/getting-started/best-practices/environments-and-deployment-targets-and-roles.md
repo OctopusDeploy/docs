@@ -8,7 +8,7 @@ navOrder: 30
 hideInThisSection: true
 ---
 
-[Deployment targets](/docs/infrastructure/deployment-targets/) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more.  Please refer to the [Deployment targets](/docs/infrastructure/deployment-targets/) for an up to date list on deployment targets.  [Environments](/docs/infrastructure/environments/) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  Target roles, or tags, are a filter to select specific deployment targets in an environment.
+[Deployment targets](/docs/infrastructure/deployment-targets/) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more.  Please refer to the [Deployment targets](/docs/infrastructure/deployment-targets/) for an up to date list on deployment targets.  [Environments](/docs/infrastructure/environments) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  Target roles, or tags, are a filter to select specific deployment targets in an environment.
 
 ## Deployment Target Environment and Role Relationship
 Environments are how you group deployment targets in a stage in your deployment pipeline.  Target roles, or tags, are how you identify which deployment targets you wish to deploy to in that specific stage.
@@ -72,12 +72,12 @@ Adding an environment is a non-trivial task, as it involves adding/updating addi
 Our recommendations for environments are:
 - Keep the number of environments per space to be between 2 and 20.  
 - Name environments to match your company's terminology so you can re-use them across projects.  Common names include **development**, **test**, **QA**, **acceptance**, **uat**, and **production**.
-- If you have between one and five data centers (including cloud regions), it's okay to have an environment per data center.  For example, **Production - AU** for a data center in Australia and **Production - Central US** for the Azure Central US region. If you have more than five data centers, consider [tenants](/docs/tenants/) where each data center is a tenant.
+- If you have between one and five data centers (including cloud regions), it's okay to have an environment per data center.  For example, **Production - AU** for a data center in Australia and **Production - Central US** for the Azure Central US region. If you have more than five data centers, consider [tenants](/docs/tenants) where each data center is a tenant.
 - It's okay to have team-specific environments, similar to data center environments.  Although if you have more than five or six teams, consider [tenants](//docs/tenants/) where each team is a tenant.
 
 Anti-patterns to avoid are:
-- Project names in your environments.  An environment name of **QA - OctoPetShop** indicates you need to either have more specific roles on your targets or you need to leverage spaces to isolate that application.  Project-specific environments are a good indicator to consider [spaces](/docs/administration/spaces/).  
-- Branch names in your environment names.  Consider using temporary [tenants](/docs/tenants/) for your branch names or storing your branch name in a pre-release tag in the release version.
+- Project names in your environments.  An environment name of **QA - OctoPetShop** indicates you need to either have more specific roles on your targets or you need to leverage spaces to isolate that application.  Project-specific environments are a good indicator to consider [spaces](/docs/administration/spaces).  
+- Branch names in your environment names.  Consider using temporary [tenants](/docs/tenants) for your branch names or storing your branch name in a pre-release tag in the release version.
 - A single deployment environment, **production**.  You should have at least one test environment to test and verify your release.
 
 ## Roles
@@ -103,8 +103,8 @@ Add a new role to group servers and filter servers within each environment.
 
 For further reading on environments, deployment targets, and roles in Octopus Deploy please see:
 
-- [Deployment Targets](/docs/infrastructure/deployment-targets/)
-- [Environments](/docs/infrastructure/environments/)
+- [Deployment Targets](/docs/infrastructure/deployment-targets)
+- [Environments](/docs/infrastructure/environments)
 - [Target Roles](/docs/infrastructure/deployment-targets/#create-target-roles)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/lifecycles-and-environments">Next</a></span>

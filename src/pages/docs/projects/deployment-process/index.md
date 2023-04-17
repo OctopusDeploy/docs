@@ -8,7 +8,7 @@ hideInThisSection: false
 navOrder: 10
 ---
 
-Now that you have access to an Octopus Server, your [infrastructure is configured](/docs/infrastructure/), and your [applications packaged](/docs/packaging-applications/), you're ready to start deploying your software.
+Now that you have access to an Octopus Server, your [infrastructure is configured](/docs/infrastructure/), and your [applications packaged](/docs/packaging-applications), you're ready to start deploying your software.
 
 !include <deployment-process>
 
@@ -29,13 +29,13 @@ This is an example of a very simple process, the following sections go into more
 
 Before you can define how your software is deployed, you must create a project for the deployment process. Projects contain the deployment steps and configuration variables that define how your software is deployed.
 
-Learn more about managing [projects](/docs/projects/).
+Learn more about managing [projects](/docs/projects).
 
 ## Lifecycles
 
 Lifecycles control how your software is promoted through your environments and which projects are associated with which environments.
 
-Learn more about [Lifecycles](/docs/releases/lifecycles/).
+Learn more about [Lifecycles](/docs/releases/lifecycles).
 
 ## Deployment steps
 
@@ -43,31 +43,31 @@ Steps contain the actions your deployment process will execute each time your so
 
 Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, email notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
 
-Learn more about [steps](/docs/projects/steps/).
+Learn more about [steps](/docs/projects/steps).
 
 ## Configuration features
 
 When you deploy your software, it needs to be configured for the specific environments it will be deployed to. Configuration files let you define custom installation directories, database connections, and other settings that make it possible to deploy your software.
 
-Learn more about [configuration features](/docs/projects/steps/configuration-features/).
+Learn more about [configuration features](/docs/projects/steps/configuration-features).
 
 ## Variables
 
 Octopus supports variables to make it easier to define application settings for your deployment processes without the need to hardcode them. For instance, you might use different connection strings for apps deployed to Test and Production. Variables let you define these settings and then refer to them by the variable name throughout the deployment process, meaning you don't have to manually change them between deployments, or even give them much thought after the variables and deployment process have been defined.
 
-Learn more about [variables](/docs/projects/variables/).
+Learn more about [variables](/docs/projects/variables).
 
 ## Conditions
 
 You can specify run conditions on the steps that you define to give you greater control over the deployment process.
 
-Learn more about [conditions](/docs/projects/steps/conditions/).
+Learn more about [conditions](/docs/projects/steps/conditions).
 
 ## Deploying releases
 
 In Octopus you create releases to be deployed. Projects have multiple releases and releases can be deployed multiple times to across different infrastructure.
 
-Learn more about [releases](/docs/releases/).
+Learn more about [releases](/docs/releases).
 
 ## Working with the Octopus API
 
@@ -78,9 +78,9 @@ Octopus Deploy is built API-first, which means everything you can do through the
 - Steps
 - Actions
 
-We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/octopus-rest-api/octopus.client/), or you can use the raw HTTP API if that suits your needs better.
+We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/octopus-rest-api/octopus.client), or you can use the raw HTTP API if that suits your needs better.
 
-Learn about using the [Octopus REST API](/docs/octopus-rest-api/).
+Learn about using the [Octopus REST API](/docs/octopus-rest-api).
 
 :::success
 Record the HTTP requests made by the Octopus UI to see how we build your deployment processes using the Octopus API. You can do this in the Chrome developer tools, or using a tool like Fiddler.

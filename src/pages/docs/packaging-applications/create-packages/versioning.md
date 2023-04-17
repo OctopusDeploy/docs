@@ -7,11 +7,11 @@ description: Considerations for selecting a versioning scheme for the applicatio
 navOrder: 10
 ---
 
-The [Package ID](/docs/packaging-applications/#package-id), version number, and [package format](/docs/packaging-applications/#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/#supported-formats), [releases](/docs/releases/), and [channels](/docs/releases/channels/), which will help you design a versioning scheme that suits your needs.
+The [Package ID](/docs/packaging-applications/#package-id), version number, and [package format](/docs/packaging-applications/#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/#supported-formats), [releases](/docs/releases/), and [channels](/docs/releases/channels), which will help you design a versioning scheme that suits your needs.
 
 ## Choosing a versioning scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
-The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](#semver) for your applications, unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds/), in which case, you need to use [Maven Versions](#maven).
+The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](#semver) for your applications, unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds), in which case, you need to use [Maven Versions](#maven).
 
 Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
 
@@ -26,7 +26,7 @@ Consider the following factors when deciding on the versioning scheme you'll use
 
 4. Does your tool chain support the versioning scheme?
 
-  *Octopus supports Semantic Versioning, which enables enhanced features like [Channels](/docs/releases/channels/).*
+  *Octopus supports Semantic Versioning, which enables enhanced features like [Channels](/docs/releases/channels).*
 
 ## SemVer {#semver}
 
@@ -48,9 +48,9 @@ Octopus also supports versions that can be sorted alphanumerically:
 
 In strict SemVer 2.0, a version like `1.5.2-rc.1` is considered a **pre-release**, and `1.5.2` is considered a **full release**.
 
-When it comes to application versioning, we suggest the pre-release tag (the bit after the `-`) can be used however works best for you. For example, you could build version `1.5.2-rc` of your application and configure a [Channel](/docs/releases/channels/) to promote packages like `*-rc` to Staging and eventually Production.
+When it comes to application versioning, we suggest the pre-release tag (the bit after the `-`) can be used however works best for you. For example, you could build version `1.5.2-rc` of your application and configure a [Channel](/docs/releases/channels) to promote packages like `*-rc` to Staging and eventually Production.
 
-If you are using the [Deployment Notes](/docs/releases/deployment-notes/) features, note that pre-releases are handled differently to other releases by that feature and you may need to take that into consideration in your [versioning](/docs/releases/deployment-notes/#versioning) strategy.
+If you are using the [Deployment Notes](/docs/releases/deployment-notes) features, note that pre-releases are handled differently to other releases by that feature and you may need to take that into consideration in your [versioning](/docs/releases/deployment-notes/#versioning) strategy.
 
 Learn more about Semantic Version at [semver.org](http://semver.org/).
 
@@ -74,7 +74,7 @@ Octopus uses a string-based approach to version numbers. These are the decisions
 
 ## Maven versions {#maven}
 
-Maven versions are used by Octopus when an artifact is sourced from an external [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds/). SemVer is still required when versioning any artifact to be deployed to the [built-in](/docs/packaging-applications/package-repositories/built-in-repository/) library or an external [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds), and the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
+Maven versions are used by Octopus when an artifact is sourced from an external [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds/). SemVer is still required when versioning any artifact to be deployed to the [built-in](/docs/packaging-applications/package-repositories/built-in-repository) library or an external [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds), and the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
 
 The Maven versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
 
@@ -108,10 +108,10 @@ For an in-depth look at Maven versions, see the blog post [Maven Versions Explai
 
 ## Learn more
 
- - [Package your applications](/docs/packaging-applications/).
- - [Create packages with Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/).
- - [Creating packages with OctoPack](/docs/packaging-applications/create-packages/octopack/).
- - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity/).
- - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/).
- - [Package repositories](/docs/packaging-applications/).
- - [Package deployments](/docs/deployments/packages/).
+ - [Package your applications](/docs/packaging-applications).
+ - [Create packages with Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).
+ - [Creating packages with OctoPack](/docs/packaging-applications/create-packages/octopack).
+ - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity).
+ - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension).
+ - [Package repositories](/docs/packaging-applications).
+ - [Package deployments](/docs/deployments/packages).

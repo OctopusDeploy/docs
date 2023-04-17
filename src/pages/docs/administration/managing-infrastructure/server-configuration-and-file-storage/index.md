@@ -15,11 +15,11 @@ Make sure you have a **current backup** of your Octopus data before proceeding
 
 ## Server configuration {#ServerconfigurationandFilestorage-ConfigurationServerconfiguration}
 
-If you need to re-configure your Octopus Server instance, you can do that using the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) command.
+If you need to re-configure your Octopus Server instance, you can do that using the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
 ## Server folders {#ServerconfigurationandFilestorage-Serverfolders}
 
-If you need to move folders other than the Octopus Home folder, you can do that using the Octopus Server [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path/) command. Also see [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-OctopusHome).
+If you need to move folders other than the Octopus Home folder, you can do that using the Octopus Server [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path) command. Also see [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-OctopusHome).
 
 ## File storage {#ServerconfigurationandFilestorage-FileStorageFilestorage}
 
@@ -46,7 +46,7 @@ The Octopus Server stores files in the following folders by default:
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-Telemetry) on how to move the Octopus Server telemetry folder
 - `C:\Octopus\Imports`
     - This folder was added in **Octopus 2021.1**
-    - This is where imported zip files are stored when using the [Export/Import Projects feature](/docs/projects/export-import/).
+    - This is where imported zip files are stored when using the [Export/Import Projects feature](/docs/projects/export-import).
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-Imports) on how to move the Octopus Server imports folder
 
 ## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}

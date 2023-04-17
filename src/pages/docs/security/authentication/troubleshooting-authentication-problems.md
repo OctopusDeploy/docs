@@ -7,7 +7,7 @@ description: A guide for troubleshooting authentication problems in Octopus Depl
 navOrder: 50
 ---
 
-We take every reasonable effort to make Octopus Deploy secure by enabling you to use the best [authentication provider](/docs/security/authentication/) for your organization. This guide will help you troubleshoot any problems you may encounter when signing in to the Octopus Deploy portal.
+We take every reasonable effort to make Octopus Deploy secure by enabling you to use the best [authentication provider](/docs/security/authentication) for your organization. This guide will help you troubleshoot any problems you may encounter when signing in to the Octopus Deploy portal.
 
 
 ## No authentication providers enabled
@@ -18,7 +18,7 @@ You will need to enable at least one of the authentication providers in order to
 
 ## Octopus authentication cookie
 
-Once you have proven your identity to Octopus Server using one of the supported [authentication providers](/docs/security/authentication/), the Octopus Server will issue a cookie so your web browser can make secure requests on your behalf. The following messages may indicate a problem with your browser, or your network, and the Octopus authentication cookie:
+Once you have proven your identity to Octopus Server using one of the supported [authentication providers](/docs/security/authentication), the Octopus Server will issue a cookie so your web browser can make secure requests on your behalf. The following messages may indicate a problem with your browser, or your network, and the Octopus authentication cookie:
 
 `The sign in succeeded but we failed to get the resultant permissions for this user account. This can happen if the Octopus authentication cookie is blocked.`
 
@@ -26,7 +26,7 @@ This can happen for quite a number of reasons:
 
 1. Your web browser does not support cookies. Configure your browser to accept cookies from your Octopus Server. You may need to ask your systems administrator for help with this.
 1. The time is incorrect on your computer, or the time is incorrect on the Octopus Server. This can cause your authentication cookies to expire and become unusable. Correct the time and configure your computers to automatically synchronize their time from a time server.
-1. You are using Chrome and have not configured your Octopus Server to use HTTPS. Chrome has started to consider web sites served over `http://` as unsafe and will refuse to accept cookies from those unsafe sites. [Configure your Octopus Server to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/) instead of HTTP. [Learn more about Chrome and the move toward a more secure web](https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html).
+1. You are using Chrome and have not configured your Octopus Server to use HTTPS. Chrome has started to consider web sites served over `http://` as unsafe and will refuse to accept cookies from those unsafe sites. [Configure your Octopus Server to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https) instead of HTTP. [Learn more about Chrome and the move toward a more secure web](https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html).
 1. You are hosting Octopus Server on the same domain as other applications. One of the other applications may be issuing a malformed cookie causing the Octopus authentication cookies to be misinterpreted. Move Octopus Server to a different domain to isolate it from the other applications, or stop the other applications from issuing malformed cookies. See [this GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2343) for more details.
 
 ## Octopus anti-forgery token
@@ -35,11 +35,11 @@ Octopus Server prevents Cross-Site Request Forgery (CSRF) using an anti-forgery 
 
 `A required anti-forgery token was not supplied or was invalid.`
 
-See our [detailed troubleshooting guide](/docs/security/cve/csrf-and-octopus-deploy/) for solving problems with anti-forgery validation.
+See our [detailed troubleshooting guide](/docs/security/cve/csrf-and-octopus-deploy) for solving problems with anti-forgery validation.
 
 ## Active Directory
 
-If you are using Active Directory please refer to our [detailed troubleshooting guide](/docs/security/authentication/active-directory/troubleshooting-active-directory-integration/).
+If you are using Active Directory please refer to our [detailed troubleshooting guide](/docs/security/authentication/active-directory/troubleshooting-active-directory-integration).
 
 ## External authentication providers
 
@@ -70,4 +70,4 @@ If you are still unable to troubleshoot the issue, please get in contact with ou
   i. Do you have other web applications hosted on the same domain? (for example: `octopus.mycompany.com` and `myapp.mycompany.com`?)
   j. Do you have any intermediary network devices (like proxies or web application firewalls) which may be stripping custom HTTP headers or cookies from your requests?
   k. Do you have Octopus Deploy running inside a Virtual Machine?
-  l. Please [record the problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser/) and send the recording to us for analysis. Please record the following steps: Sign out of Octopus Deploy, sign back in again, and then try to do the action that fails.
+  l. Please [record the problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser) and send the recording to us for analysis. Please record the following steps: Sign out of Octopus Deploy, sign back in again, and then try to do the action that fails.

@@ -8,7 +8,7 @@ navOrder: 60
 hideInThisSectionHeader: true
 ---
 
-The SecOps team at Car Rental have implemented the policy that when a deployment occurs, the infrastructure used must reside within the same region datacenter.  Database deployments for Car Rental are handled by [workers](/docs/infrastructure/workers/), so the deployment process needs to automatically select the correct worker during a deployment. 
+The SecOps team at Car Rental have implemented the policy that when a deployment occurs, the infrastructure used must reside within the same region datacenter.  Database deployments for Car Rental are handled by [workers](/docs/infrastructure/workers), so the deployment process needs to automatically select the correct worker during a deployment. 
 
 ## Region worker pools
 
@@ -18,7 +18,7 @@ To accommodate the policy, Car Rental has created distinct worker pools for each
 
 ## Worker pool variable
 
-Region specific worker pools are only half of the equation, the deployment still needs to be configured to select the correct pool based on the tenant being deployed to.  To solve this issue, we'll utilize a [worker pool variable](/docs/projects/variables/worker-pool-variables/).  A worker pool variable is a type of variable that you can add to your project.  Just like other variables, these variables can be scoped to tenant tags
+Region specific worker pools are only half of the equation, the deployment still needs to be configured to select the correct pool based on the tenant being deployed to.  To solve this issue, we'll utilize a [worker pool variable](/docs/projects/variables/worker-pool-variables).  A worker pool variable is a type of variable that you can add to your project.  Just like other variables, these variables can be scoped to tenant tags
 
 ![](/docs/tenants/guides/multi-tenant-region/images/worker-pool-variables.png "width=500")
 

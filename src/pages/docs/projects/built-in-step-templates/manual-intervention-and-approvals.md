@@ -22,7 +22,7 @@ The **Manual intervention step** is a step that can be added to deployment proce
 
 Manual intervention steps are added to deployment processes in the same way as other steps.
 
-1. Navigate to your [project's](/docs/projects/) overview page by selecting **Projects** and clicking on the project you are working with.
+1. Navigate to your [project's](/docs/projects) overview page by selecting **Projects** and clicking on the project you are working with.
 2. Click **PROCESS** and **ADD STEP** to add a step to an existing process. Alternatively, if this is a new deployment process, click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
 3. Find the **Manual Intervention Required** step, hover over the step, and click **ADD**.
 4. Give the step a short memorable name.
@@ -52,7 +52,7 @@ When aborting a deployment, it's a good idea to write a reason into the **Notes*
 
 ## Output variables
 
-When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/projects/built-in-step-templates/email-notifications/) templates.
+When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/projects/built-in-step-templates/email-notifications) templates.
 
 *Step Name* below refers to the name given to the manual step, for example *Ensure traders are aware of the deployment*.
 
@@ -67,8 +67,8 @@ When a manual step is completed, details of the interruption are saved as variab
 
 ## Learn more
 
-- [Advanced manual approvals](/docs/deployments/databases/common-patterns/manual-approvals/)
-- [Automated approvals](/docs/deployments/databases/common-patterns/automatic-approvals/)
+- [Advanced manual approvals](/docs/deployments/databases/common-patterns/manual-approvals)
+- [Automated approvals](/docs/deployments/databases/common-patterns/automatic-approvals)
 - [Automated approval sample](https://samples.octopus.app/app#/Spaces-202/projects/octofx/deployments/process)
 - [Automatic approvals for your database deployments](https://octopus.com/blog/autoapprove-database-deployments)
 - [Building trust in an automated database deployment process](https://octopus.com/blog/building-trust-in-automated-db-deployments)

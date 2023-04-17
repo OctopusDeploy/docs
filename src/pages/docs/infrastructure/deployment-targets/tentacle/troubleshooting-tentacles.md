@@ -27,13 +27,13 @@ Alternatively, open the **Services** app, find **OctopusDeploy Tentacle**, and c
 
 ## Uninstall Tentacles
 
-If you get to the end of this guide without success, it can be worthwhile to completely remove the Tentacle configuration, data, and working folders, and then reconfigure it from scratch. This can be done without any impact to the applications you have deployed. Learn about [manually uninstalling Tentacle](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/manually-uninstall-tentacle/). Working from a clean slate can sometimes expose the underlying problem.
+If you get to the end of this guide without success, it can be worthwhile to completely remove the Tentacle configuration, data, and working folders, and then reconfigure it from scratch. This can be done without any impact to the applications you have deployed. Learn about [manually uninstalling Tentacle](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/manually-uninstall-tentacle). Working from a clean slate can sometimes expose the underlying problem.
 
 ## Communication mode
 
 Before continuing, it's worth briefly revisiting the concept of **Listening Tentacles** and **Polling Tentacles**. As you troubleshoot problems with your Tentacles, please pay attention to which communication mode they are configured for.
 
-Review [Tentacle communication modes](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/).
+Review [Tentacle communication modes](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication).
 
 ## Identify the problem
 
@@ -51,7 +51,7 @@ The Tentacle Manager usually shows correct service status, but it pays to double
 
 **If the services is not running...**
 
-If the Tentacle service is not running, you can try to start it from the Services applet. Allow 30 seconds for the service to start work, then refresh the Services screen. **If the Tentacle service keeps running**, go back to the Octopus Web Portal and try Health Checking the affected machine again. **If the service stops**, it is likely that the service is crashing during startup; this can be caused by a number of things, most of which can be diagnosed from the Tentacle log files. Inspect these yourself, and either send the [log files](/docs/support/log-files/) or extracts from them showing the issue to the Octopus Deploy Support email address for assistance.
+If the Tentacle service is not running, you can try to start it from the Services applet. Allow 30 seconds for the service to start work, then refresh the Services screen. **If the Tentacle service keeps running**, go back to the Octopus Web Portal and try Health Checking the affected machine again. **If the service stops**, it is likely that the service is crashing during startup; this can be caused by a number of things, most of which can be diagnosed from the Tentacle log files. Inspect these yourself, and either send the [log files](/docs/support/log-files) or extracts from them showing the issue to the Octopus Deploy Support email address for assistance.
 
 If the service is running, continue to the next step.
 
@@ -106,7 +106,7 @@ The page shown should look like the one below.
 
 :::hint
 **If you can't browse to the page...**
-If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files/) and contact Octopus Deploy support.
+If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files) and contact Octopus Deploy support.
 :::
 
 Next, repeat the process of connecting to the Tentacle with a web browser, but do this *from the Octopus Server machine*.
@@ -135,7 +135,7 @@ If you've made it this far, good news! Your Octopus Server is running and ready 
 **If you can't browse to the page...**
 If this is where your journey ends, there's a problem on the Octopus Server machine itself. It is very likely that the Octopus Server is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you can see connections being opened and immediately closed (`CLOSE_WAIT` state in `netstat` output) from the same *Foreign Address*, it might indicate that this server is blocking traffic from the communications port and therefore resetting the connection immediately. Check both the built-in Windows Firewall, and any other firewalls (in Amazon EC2, check your security group settings for example) on the server identified by the **Foreign Address** in `netstat` and make sure that the communications port isn't being blocked. You can also use [Wireshark](https://www.wireshark.org/) to inspect traffic that is coming in on the Octopus Server communications port to find any connections that are being immediately reset by starting a network capture and filtering the traffic by `tcp.port == 10943` (or your chosen Tentacle communications port if it isn't the default), this should identify any incoming requests that gets reset immediately.
 
-If you're still in trouble, check the Octopus Server [log files](/docs/support/log-files/) and contact Octopus Deploy support.
+If you're still in trouble, check the Octopus Server [log files](/docs/support/log-files) and contact Octopus Deploy support.
 :::
 
 Next, repeat the process of connecting to the Octopus Server with a web browser, but do this *from the Tentacle machine*.
@@ -156,7 +156,7 @@ If the Tentacle welcome page is shown, good news - your network is fine.
 **Watch out for proxy servers or SSL offloading...**
 Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading** are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Octopus Server and Tentacle, without an HTTP proxy or a network appliance performing SSL offloading in between.
 
-Also see, [advanced support for HTTP proxies](/docs/infrastructure/deployment-targets/proxy-support/).
+Also see, [advanced support for HTTP proxies](/docs/infrastructure/deployment-targets/proxy-support).
 :::
 
 ## Tentacle ping
@@ -237,7 +237,7 @@ To do this open **{{Control Panel,Internet Options,Advanced}}**, and uncheck th
 
 ## Schannel and TLS configuration mismatches
 
-Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls/):
+Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls):
 
 Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---> System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
 

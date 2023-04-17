@@ -24,14 +24,14 @@ The next section shows how you can create runbooks to manage DNS records:
 1. Choose the **Execution Location** on which to run this step.
 1. Choose whether to use the bundled **Azure Tools** or the ones pre-installed on the worker.
 1. Choose the **Azure Account** to use:
-1. In the **Azure** section, select the variable that references the **Account**. If you don't have an **Azure Account** yet, check our [documentation on how to create one](/docs/infrastructure/accounts/azure/).
+1. In the **Azure** section, select the variable that references the **Account**. If you don't have an **Azure Account** yet, check our [documentation on how to create one](/docs/infrastructure/accounts/azure).
 
 ![Azure Account variable](/docs/runbooks/runbook-examples/azure/images/azure-account-variable.png "width=500")
 
 :::hint
-[Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 
+[Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Azure account**. 
 
-The [Azure Run a Script](/docs/deployments/azure/running-azure-powershell/) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions).
+The [Azure Run a Script](/docs/deployments/azure/running-azure-powershell) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions).
 :::
   
 9. In the **Inline source code** section, add the following code as a **PowerShell** script:
@@ -77,7 +77,7 @@ Configure any other settings for the step and click **Save**, and in just a few 
 1. Choose the **Execution Location** on which to run this step.
 1. Choose whether to use the bundled **Azure Tools**, or the ones pre-installed on the worker.
 1. Choose the **Azure Account** to use:
-1. In the **Azure** section, select the variable that references the **Account**. If you don't have an **Azure Account Variable** yet, check our [documentation on how to create one](/docs/infrastructure/accounts/azure/).
+1. In the **Azure** section, select the variable that references the **Account**. If you don't have an **Azure Account Variable** yet, check our [documentation on how to create one](/docs/infrastructure/accounts/azure).
 1. In the **Inline source code** section, add the following code as a **PowerShell** script:
 
 :::hint

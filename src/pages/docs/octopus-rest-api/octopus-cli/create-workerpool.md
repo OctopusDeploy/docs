@@ -7,7 +7,7 @@ description: Creates a pool for workers
 navOrder: 80
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to create a worker pool.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create a worker pool.
 
 ```
 Creates a pool for workers.
@@ -94,6 +94,6 @@ octo create-workerpool --name="Docker Worker Pool" --ignoreIfExists --space="Pat
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
-- [Worker pools](/docs/infrastructure/workers/worker-pools/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
+- [Worker pools](/docs/infrastructure/workers/worker-pools)

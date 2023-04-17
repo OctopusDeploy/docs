@@ -11,7 +11,7 @@ Deployments can have a strong impact on the people whose work depends on the sys
 
 - Notify stakeholders when a new version of an app has been deployed to production.
 - Let testers know when a new version is available in UAT.
-- Use email in conjunction with [manual interventions approvals](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) to make sure everyone is ready for a new deployment.
+- Use email in conjunction with [manual interventions approvals](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) to make sure everyone is ready for a new deployment.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VromFu8RYxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -46,7 +46,7 @@ Enter a test email address and click **OK**. A Send test email task will start t
 
 Email steps are added to deployment processes in the same way as other steps.
 
-1. Navigate to your [project's](/docs/projects/) overview page by selecting **Projects** and clicking on the project you are working with.
+1. Navigate to your [project's](/docs/projects) overview page by selecting **Projects** and clicking on the project you are working with.
 2. Click **PROCESS** and **ADD STEP** to add a step to an existing process. Alternatively, if this is a new deployment process, click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
 3. Find the **Send Email** step, hover over the step, and click **ADD**.
 4. Give the step a short memorable name.
@@ -54,8 +54,8 @@ Email steps are added to deployment processes in the same way as other steps.
 6. Choose the recipients of the email. You have several options:
 
    - Enter a comma-separated list of email addresses.
-   - Bind to a [variable](/docs/projects/variables/) which defines a list of email addresses (this is really useful for tailoring your recipient list per-environment).
-   - Choose [one or more teams](/docs/security/users-and-teams/) to include members of those teams in the recipient list.
+   - Bind to a [variable](/docs/projects/variables) which defines a list of email addresses (this is really useful for tailoring your recipient list per-environment).
+   - Choose [one or more teams](/docs/security/users-and-teams) to include members of those teams in the recipient list.
    - Use a combination of all of these options.
 
 Octopus will build the resulting recipient list during the deployment, remove duplicate emails addresses, and send the email to each recipient.
@@ -67,13 +67,13 @@ docs
 
    - Send the email only for successful deployments to certain environments.
    - Send a specific email for failed deployments.
-   - Send an email based on the value of a variable expression which works really well with [output variables](/docs/projects/variables/output-variables/).
+   - Send an email based on the value of a variable expression which works really well with [output variables](/docs/projects/variables/output-variables).
 
 10. Save the step.
 
 ## Email template examples
 
-You can set the email subject and author the email body as plain text or HTML content. You can even use the Octopus [variable syntax](/docs/projects/variables/variable-substitutions/) to include information about the deployment in the email.
+You can set the email subject and author the email body as plain text or HTML content. You can even use the Octopus [variable syntax](/docs/projects/variables/variable-substitutions) to include information about the deployment in the email.
 
 ### Deployment summary template
 
@@ -136,7 +136,7 @@ The outcome of each step can be included using a template like the one below:
 **Step error detail**
 `step.Status.Error` and `step.Status.ErrorDetail` will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 
-See [System variables](/docs/projects/variables/system-variables/)
+See [System variables](/docs/projects/variables/system-variables)
 :::
 
 ### Referencing package metadata
@@ -159,7 +159,7 @@ Iterating over `Octopus.Action` like this above is a useful way to retrieve data
 
 #### Referencing additional package metadata
 
-Using [custom scripts](/docs/deployments/custom-scripts/) you can include additional [reference packages](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages). This example displays package ID and version numbers for any steps that include additional reference packages.
+Using [custom scripts](/docs/deployments/custom-scripts) you can include additional [reference packages](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages). This example displays package ID and version numbers for any steps that include additional reference packages.
 
 ```xml
 #{each action in Octopus.Action}

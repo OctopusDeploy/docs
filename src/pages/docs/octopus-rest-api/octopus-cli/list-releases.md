@@ -7,7 +7,7 @@ description: List releases by project
 navOrder: 220
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to list releases by project.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list releases by project.
 
 ```
 Lists releases by project.
@@ -93,7 +93,7 @@ octo list-releases --project="Dbup - AWS RDS" --project="Flyway - AWS RDS" --pro
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
-- [Releases](/docs/releases/)
-- [Projects](/docs/projects/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
+- [Releases](/docs/releases)
+- [Projects](/docs/projects)

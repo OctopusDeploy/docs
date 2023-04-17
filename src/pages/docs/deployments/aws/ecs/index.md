@@ -41,9 +41,9 @@ Configuring an ECS service for the first time can be quite intimidating due to a
 
 ## Step 2: Create a deployment target for your ECS cluster
 
-The `Deploy Amazon ECS Service` step requires [a deployment target](/docs/infrastructure/deployment-targets/) to be defined.
+The `Deploy Amazon ECS Service` step requires [a deployment target](/docs/infrastructure/deployment-targets) to be defined.
 
-Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/).
+Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws).
 
 ![ECS Cluster Deployment Target Settings](/docs/deployments/aws/ecs/images/target.png "width=500")
 
@@ -146,14 +146,14 @@ For container logging the step can either auto-configure CloudWatch logs, or you
 In this section, you can enable a container to act as a log router using AWS FireLens. When enabled you can configure the configuration format to use, as well as properties for metadata and custom configuration files.
 
 :::hint
-To enable FireLens configuration, your Deploy Amazon ECS Service step needs to be upgraded to use version 2. See [Automatic Step Template Updates](/docs/projects/built-in-step-templates/automatic-updates/) for more information on automatic updates to steps and updating to new major versions of steps.
+To enable FireLens configuration, your Deploy Amazon ECS Service step needs to be upgraded to use version 2. See [Automatic Step Template Updates](/docs/projects/built-in-step-templates/automatic-updates) for more information on automatic updates to steps and updating to new major versions of steps.
 :::
 
 ![ECS Step Container Definition FireLens Configuration](/docs/deployments/aws/ecs/images/ecs-container-firelens.png "width=500")
 
 ### Deployment section
 
-Specify the minimum and maximum health percentages for the resulting service. These settings enable scenarios such as [Rolling deployments](/docs/deployments/patterns/rolling-deployments/). When the maximum health percentage is set above 100% ECS will attempt to start new tasks before bringing down old ones. On the other hand, the minimum health percentage will allow ECS to bring down tasks when the cluster does not have enough capacity to handle the load.
+Specify the minimum and maximum health percentages for the resulting service. These settings enable scenarios such as [Rolling deployments](/docs/deployments/patterns/rolling-deployments). When the maximum health percentage is set above 100% ECS will attempt to start new tasks before bringing down old ones. On the other hand, the minimum health percentage will allow ECS to bring down tasks when the cluster does not have enough capacity to handle the load.
 
 ![ECS Step Deployment section](/docs/deployments/aws/ecs/images/ecs-deployment.png "width=500")
 
@@ -183,7 +183,7 @@ Specify volumes that can be referenced by each individual container within the t
 
 ### Export to CloudFormation template
 
-The ECS step operates entirely via CloudFormation templates, which means that every input field corresponds to a set of options in the generated template. To cater for more advanced deployment scenarios the step provides an option to export the CloudFormation template as YAML text. This template can be used via AWS CLI or as input in the [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation/) step.
+The ECS step operates entirely via CloudFormation templates, which means that every input field corresponds to a set of options in the generated template. To cater for more advanced deployment scenarios the step provides an option to export the CloudFormation template as YAML text. This template can be used via AWS CLI or as input in the [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation) step.
 
 Some options will be converted to CloudFormation parameters with default values matching the specific values provided in the step. This allows you to easily override these values, while maintaining a simple conversion process between the ECS step and the `Deploy an AWS CloudFormation Template` step.
 
@@ -203,7 +203,7 @@ The dialog window will appear, showing the complete CloudFormation template and 
 
 #### Variable replacements
 
-Any of the input fields can be bound to an Octostache expression. [Variable substitution](/docs/projects/variables/variable-substitutions/) will be performed before the template is deployed.
+Any of the input fields can be bound to an Octostache expression. [Variable substitution](/docs/projects/variables/variable-substitutions) will be performed before the template is deployed.
 
 ### Output variables
 

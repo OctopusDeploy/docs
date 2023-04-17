@@ -36,7 +36,7 @@ For a package to be made available to the deployment steps, it first must be add
 
 The Octopus library accepts files with the `jar`, `war`, `ear` and `rar` file extensions.
 
-The package filenames have to adhere to the standard Octopus [versioning rules](/docs/packaging-applications/create-packages/versioning/), which are based on the SemVer format.
+The package filenames have to adhere to the standard Octopus [versioning rules](/docs/packaging-applications/create-packages/versioning), which are based on the SemVer format.
 
 :::hint
 Java packages tend to be formatted with Maven versioning schemes. Maven versions are mostly compatible with SemVer, but the two versioning schemes are not identical.
@@ -310,7 +310,7 @@ The following steps can be used to deploy an application via a file copy to an a
 
 ## Variable substitution in Java packages
 
-Octopus provides the [ability to replace variables in packages during deployment](/docs/projects/steps/configuration-features/substitute-variables-in-templates/). This is done using a [specific syntax](/docs/projects/variables/variable-substitutions/) implemented by the [Octostash](https://github.com/OctopusDeploy/Octostache) library.
+Octopus provides the [ability to replace variables in packages during deployment](/docs/projects/steps/configuration-features/substitute-variables-in-templates/). This is done using a [specific syntax](/docs/projects/variables/variable-substitutions) implemented by the [Octostash](https://github.com/OctopusDeploy/Octostache) library.
 
 The syntax used by Octostash and Java libraries such as Spring do overlap, so care must be taken to ensure that files intended to be used as Octostash templates during deployment don't interfere with local development.
 
@@ -364,7 +364,7 @@ Now local testing is done against a valid properties file, while the main `appli
 
 ## Error messages
 
-The Java deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Please see the [error codes and troubleshooting](/docs/deployments/java/error-messages/) page for more details.
+The Java deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Please see the [error codes and troubleshooting](/docs/deployments/java/error-messages) page for more details.
 
 
 ## Learn more
@@ -372,4 +372,4 @@ The Java deployment steps include a number of unique error codes that may be dis
 - Generate an Octopus guide for [Java, Tomcat, and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?application=Java&destination=Tomcat).
 - [Java blog posts](http://octopus.com/blog/tag/java)
 - [Webinar: Octopus 101: Deploy Your First Java Application](https://www.youtube.com/watch?v=AM6GyYr2n4Y)
-- [Install Tomcat Runbook example](/docs/runbooks/runbook-examples/routine/installing-tomcat/).
+- [Install Tomcat Runbook example](/docs/runbooks/runbook-examples/routine/installing-tomcat).

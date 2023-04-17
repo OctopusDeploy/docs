@@ -8,7 +8,7 @@ navOrder: 10
 hideInThisSectionHeader: true
 ---
 
-The first step in this guide is to create a new [lifecycle](/docs/releases/lifecycles/) for our project.
+The first step in this guide is to create a new [lifecycle](/docs/releases/lifecycles) for our project.
 
 To create a new Lifecycle, navigate to **{{Library, Lifecycles, ADD LIFECYCLE}}**.
 
@@ -19,6 +19,6 @@ Give the **Lifecycle** a name, an optional description, and four phases. The lif
 
 ![](/docs/tenants/guides/multi-tenant-saas-application/images/creating-lifecycle.png "width=500") 
 
-In the next step, we'll [create the project](/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants/) needed for this scenario.
+In the next step, we'll [create the project](/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants) needed for this scenario.
 
 <span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-project">Next</a></span>

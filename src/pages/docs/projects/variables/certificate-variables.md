@@ -7,7 +7,7 @@ description: Variables in Octopus Deploy can have a certificate as the value
 navOrder: 60
 ---
 
-In the variable-editor, selecting *Certificate* as the [variable](/docs/projects/variables/) type allows you to create a variable with a certificate managed by Octopus as the value.
+In the variable-editor, selecting *Certificate* as the [variable](/docs/projects/variables) type allows you to create a variable with a certificate managed by Octopus as the value.
 
 ![](/docs/projects/variables/images/certificate-variable-select.png "width=500")
 
@@ -29,7 +29,7 @@ At deploy-time, certificate variables are expanded. For example, a variable _MyC
 | `MyCertificate.Password`          | The password specified when the file was uploaded. |
 | `MyCertificate.Pfx`               | The base64 encoded certificate in PKCS#12 format, including the private-key if present.  |
 | `MyCertificate.Certificate`       | The base64 encoded DER ASN.1 certificate.              |
-| `MyCertificate.PrivateKey`        | The base64 encoded DER ASN.1 private key. This will be stored and transmitted as a [sensitive variable](/docs/projects/variables/sensitive-variables/).                |
+| `MyCertificate.PrivateKey`        | The base64 encoded DER ASN.1 private key. This will be stored and transmitted as a [sensitive variable](/docs/projects/variables/sensitive-variables).                |
 | `MyCertificate.CertificatePem`    | The PEM representation of the certificate (i.e. the PublicKey with header\footer).  |
 | `MyCertificate.PrivateKeyPem`     | The PEM representation of the private key (i.e. the PrivateKey with header\footer).  |
 | `MyCertificate.ChainPem`    | The PEM representation of any chain certificates (intermediate or certificate-authority). This variable does not include the primary certificate. |

@@ -13,7 +13,7 @@ hideInThisSection: true
 This tutorial will help you complete your first deployment in Octopus Deploy. We’ll walk you through the steps to deploy a sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers. All you’ll need is a running Octopus Deploy instance.
 
 :::hint
-If you are using **Octopus 2022.2** or earlier, please visit the legacy [First deployment guide](/docs/getting-started/first-deployment/legacy-guide/)
+If you are using **Octopus 2022.2** or earlier, please visit the legacy [First deployment guide](/docs/getting-started/first-deployment/legacy-guide)
 :::
  
 Before starting the tutorial, if you haven't set up an Octopus Deploy instance, please do so by picking from one of the following options:
@@ -94,16 +94,16 @@ Take a moment to enjoy your first deployment! The next step will introduce you t
 
 
 Subsequent pages in the guide:
-1. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables/)
-2. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions/)
-3. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets/)
-4. [Deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package/)
+1. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables)
+2. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions)
+3. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets)
+4. [Deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package)
 
 **Further Reading**
 
 This tutorial will deploy a sample package to your servers.  If you prefer to skip that and start configuring Octopus Deploy for your application right away, please see:
 
 - [Customizable End-to-End CI/CD pipeline tutorial](https://octopus.com/docs/guides)
-- [Deployment Examples](/docs/deployments/)
+- [Deployment Examples](/docs/deployments)
 
 <span><a class="btn btn-success" href="/docs/getting-started/first-deployment/define-and-use-variables">Next</a></span>

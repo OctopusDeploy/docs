@@ -15,7 +15,7 @@ When thinking about branching and Octopus, keep this rule in mind:
 
 > Octopus doesn't care about branches. It cares about NuGet packages.
 
-Your build server cares about source code and branches, and uses them to compile and [package your application](/docs/packaging-applications/).
+Your build server cares about source code and branches, and uses them to compile and [package your application](/docs/packaging-applications).
 
 Octopus, on the other hand, only sees packages. It doesn't particularly care which branch they came from, or how they were built, or which source control system you used.
 
@@ -45,7 +45,7 @@ Multiple release branches may be supported over a period of time. For example, y
 
 ![](/docs/deployments/patterns/images/3278440.png "width=500")
 
-To prevent [retention policies](/docs/administration/retention-policies/) for one channel from impacting deployments for another channel, version `3.12.2` introduces the [Discrete Channel Releases setting](/docs/releases/channels/#discrete-channel-releases). Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment _in each channel_. Without this set, the default behavior is for releases across channels to supersede each other (for example, in a hotfix scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release, allowing `3.2.2` to be considered for retention policy cleanup).
+To prevent [retention policies](/docs/administration/retention-policies) for one channel from impacting deployments for another channel, version `3.12.2` introduces the [Discrete Channel Releases setting](/docs/releases/channels/#discrete-channel-releases). Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment _in each channel_. Without this set, the default behavior is for releases across channels to supersede each other (for example, in a hotfix scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release, allowing `3.2.2` to be considered for retention policy cleanup).
 
  ![Discrete channel release](/docs/deployments/patterns/images/discrete-channel-release.png "width=500")
 
@@ -53,7 +53,7 @@ Modeling this in Octopus is a little more complicated than the scenarios above, 
 
 ![](/docs/deployments/patterns/images/3278469.png "width=500")
 
-If you plan to create many releases from both branches, or your deployment process is different between branches, then you will need to use channels. [Channels](/docs/releases/channels/) are a feature in Octopus that lets you model differences in releases:
+If you plan to create many releases from both branches, or your deployment process is different between branches, then you will need to use channels. [Channels](/docs/releases/channels) are a feature in Octopus that lets you model differences in releases:
 
 ![](/docs/deployments/patterns/images/3278470.png "width=500")
 
@@ -99,7 +99,7 @@ We do not like or recommend this strategy, as it violates the principle of [Buil
 - It's easy for a merge to go wrong and result in different code than you expected running in production.
 - Packages have to be rebuilt, and different dependencies might be used.
 
-You can make this work in Octopus, by creating a package for each environment and pushing them to environment-specific [feeds](/docs/packaging-applications/package-repositories/), and then binding the NuGet feed selector in your package steps to an environment-scoped variable:
+You can make this work in Octopus, by creating a package for each environment and pushing them to environment-specific [feeds](/docs/packaging-applications/package-repositories), and then binding the NuGet feed selector in your package steps to an environment-scoped variable:
 
 However, on the whole, this isn't a scenario we've set out to support in Octopus, and we don't believe it's a good idea in general.
 

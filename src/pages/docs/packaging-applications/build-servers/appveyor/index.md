@@ -9,7 +9,7 @@ navOrder: 10
 
 [AppVeyor](https://ci.appveyor.com) is a cloud-based continuous integration system that integrates natively with your source control and allows CI configuration files to live alongside your projects.
 
-You can use AppVeyor to automatically package your applications from your source control repository, push the packaged application to the [built-in Octopus repository](/docs/packaging-applications/package-repositories/built-in-repository/), and create and deploy releases.
+You can use AppVeyor to automatically package your applications from your source control repository, push the packaged application to the [built-in Octopus repository](/docs/packaging-applications/package-repositories/built-in-repository), and create and deploy releases.
 
 ## Configuring an AppVeyor project for Octopus
 
@@ -19,7 +19,7 @@ To use AppVeyor with a source code repository, you'll need to create and configu
 
 Once you've added a project with a repository, you need to configure the build. In the settings for your AppVeyor project, navigate to the **build** page and check the check-box for the **Package Web Applications for Octopus deployment** option.
 
-AppVeyor will run `octo pack` after MSBuild has finished its `publish` command. Because AppVeyor is running the `publish` command, some of the files that [OctoPack](/docs/packaging-applications/create-packages/octopack/) would normally include might not be included by default, this includes the `web.*.config` files. To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` in Visual Studio.
+AppVeyor will run `octo pack` after MSBuild has finished its `publish` command. Because AppVeyor is running the `publish` command, some of the files that [OctoPack](/docs/packaging-applications/create-packages/octopack) would normally include might not be included by default, this includes the `web.*.config` files. To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` in Visual Studio.
 
 In the **Before build script** section add `nuget restore` as AppVeyor will not perform this operation by default.
 
@@ -33,7 +33,7 @@ The following environment variables are available and can be configured on the *
 | ------------- | ------- |
 | OCTOPUS_PACKAGE_VERSION | Overrides the version in the package name. (default AppVeyor build version)|
 | OCTOPUS_PACKAGE_NUGET | Overrides the package type. (default nupkg) |
-| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/create-packages/octopus-cli/) to pass to `octo pack` |
+| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/create-packages/octopus-cli) to pass to `octo pack` |
 
 ### Non-MSbuild projects
 
@@ -58,13 +58,13 @@ You can use a wildcard to pick up the dynamically generated package.
 
 Next, go to the **Deployment** page in your project's settings and click **Add deployment** and from the **Deployment providers** select **Octopus Deploy**.
 
-Enter the URL where the Octopus Server can be reached, and add an [API key](/docs/octopus-rest-api/how-to-create-an-api-key/).
+Enter the URL where the Octopus Server can be reached, and add an [API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
 ![AppVeyor Deploy](/docs/packaging-applications/build-servers/appveyor/images/appveyor_deploy.png "width=500")
 
 When you define an "Octopus package" in AppVeyor through the **Package Web Applications for Octopus Deployment** flag or the **Artifacts** page, then AppVeyor will automatically select that package to push to your Octopus Server. Set the **Artifact(s)** field on the **Deployment** page if you have manually created an archive.
 
-If your Octopus Deploy project doesn't make use of [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) or automatic lifecycle progression you can optionally trigger these actions from within the AppVeyor configuration providing the appropriate values in the inputs provided.
+If your Octopus Deploy project doesn't make use of [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) or automatic lifecycle progression you can optionally trigger these actions from within the AppVeyor configuration providing the appropriate values in the inputs provided.
 
 Unless overridden, the AppVeyor project name will be used in place of the Octopus project name when creating a release.
 

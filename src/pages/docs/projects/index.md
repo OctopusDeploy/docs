@@ -20,11 +20,11 @@ Before you can define your deployment processes or runbooks, you must create a p
 1. Click **SHOW ADVANCED**.
 1. Add a description for the project.
 1. If you want to change the [Project group](/docs/projects/#project-group) select an existing project group from the drop-down menu.
-1. If you want to change the [Lifecycle](/docs/releases/lifecycles/) select an existing lifecycle from the drop down menu.
+1. If you want to change the [Lifecycle](/docs/releases/lifecycles) select an existing lifecycle from the drop down menu.
 1. Click **SHOW LIFECYCLE** if you'd like to see a visual representation of the selected lifecycle.
 1. Click **SAVE** and you will be taken to the newly created project's overview page.
 
-Now that you've created a project, you can define your [deployment process](/docs/projects/deployment-process/) or [runbooks](/docs/runbooks/).
+Now that you've created a project, you can define your [deployment process](/docs/projects/deployment-process/) or [runbooks](/docs/runbooks).
 
 ## Project settings
 
@@ -35,7 +35,7 @@ You can change the projects settings by accessing the settings menu on the proje
 - [Logo](#project-logo)
 - Description
 - [Project Group](#project-group)
-- [Release Versioning](/docs/releases/release-versioning/)
+- [Release Versioning](/docs/releases/release-versioning)
 - [Release Notes Template](/docs/releases/release-notes/#Release-Notes-Templates)
 
 ### Deployment settings
@@ -51,7 +51,7 @@ You can change the projects settings by accessing the settings menu on the proje
 - [Deployment changes template](/docs/releases/deployment-notes/#Templates)
     - Specify a template for each deployment's changes.
 - Default failure mode
-    - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures/).
+    - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures).
 
 ## Project logo {#project-logo}
 
@@ -95,7 +95,7 @@ To edit or delete a project group click the project group’s overflow menu (...
 
 ## Project permissions
 
-For information about project permissions, see [managing users and teams](/docs/security/users-and-teams/).
+For information about project permissions, see [managing users and teams](/docs/security/users-and-teams).
 
 ## Clone a project
 

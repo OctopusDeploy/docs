@@ -35,14 +35,14 @@ Please create a new release and deploy it through to **Production**.  You will s
 
 ![Manual intervention is required in production](/docs/getting-started/first-deployment/images/img-manualintervention.png "width=500")
 
-The next step will [add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets/).
+The next step will [add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets).
 
 **Further Reading**
 
 For further reading on approvals in Octopus Deploy please see:
 
-- [Manual Intervention and Approvals](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/)
-- [Deployment Documentation](/docs/deployments/)
-- [Patterns and Practices](/docs/deployments/patterns/)
+- [Manual Intervention and Approvals](/docs/projects/built-in-step-templates/manual-intervention-and-approvals)
+- [Deployment Documentation](/docs/deployments)
+- [Patterns and Practices](/docs/deployments/patterns)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/define-and-use-variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/add-deployment-targets">Next</a></span>

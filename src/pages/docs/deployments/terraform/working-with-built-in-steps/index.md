@@ -18,7 +18,7 @@ Octopus provides four built-in step templates for managing and interacting with 
 All four of the built-in Terraform steps provide common configuration points you can use to control how the steps execute your Terraform code.
 
 :::hint
-While these are the options common to each step, there are additional ways to interact and extend these steps, specifically using [Terraform plan outputs](/docs/deployments/terraform/plan-terraform/#plan-output-format) and [Terraform output variables](/docs/deployments/terraform/terraform-output-variables/)
+While these are the options common to each step, there are additional ways to interact and extend these steps, specifically using [Terraform plan outputs](/docs/deployments/terraform/plan-terraform/#plan-output-format) and [Terraform output variables](/docs/deployments/terraform/terraform-output-variables)
 :::
 
 ## Managed Accounts
@@ -26,7 +26,7 @@ While these are the options common to each step, there are additional ways to in
 You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template.
 
 :::hint
-Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step. You can learn more about creating managed cloud accounts using Octopus [here](/docs/infrastructure/accounts/).
+Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step. You can learn more about creating managed cloud accounts using Octopus [here](/docs/infrastructure/accounts).
 :::
 
 ## Template section 
@@ -91,7 +91,7 @@ Then the value from the project variable `AMI` would be substituted for the mark
 
 When applying an inline template, the variable fields can also include replacement markers. For example, if a map variable for a HCL template was defined as `{"key" = "value", #{MapValues}}` and the Octopus project had a variable called `MapValues` defined as `"key2" = "value2"`, then the final variable would resolve to `{"key" = "value", "key2" = "value2"}`.
 
-See the [variable substitution](/docs/projects/variables/variable-substitutions/) documentation for more information.
+See the [variable substitution](/docs/projects/variables/variable-substitutions) documentation for more information.
 
 ### Additional variable files
 

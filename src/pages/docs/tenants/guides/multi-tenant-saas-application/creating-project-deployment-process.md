@@ -28,6 +28,6 @@ To configure this, go into your step, under **Conditions**, expand the **Tenants
 
 This will ensure this step only runs for tenants that have the `Branding` tag applied.
 
-The final step in the guide will [create and deploy a release](/docs/tenants/guides/multi-tenant-saas-application/creating-project-release/) of our application.
+The final step in the guide will [create and deploy a release](/docs/tenants/guides/multi-tenant-saas-application/creating-project-release) of our application.
 
 <span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-release">Next</a></span>

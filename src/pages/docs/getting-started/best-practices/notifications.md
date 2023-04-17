@@ -10,8 +10,8 @@ hideInThisSection: true
 
 Octopus Deploy provides multiple mechanisms for notifying you and your users of specific actions within Octopus Deploy.  These include:
 
-- [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/) to send out notifications when specific events occur within Octopus.  Both email and webhook subscriptions are currently supported.
-- [Email notification step](/docs/projects/built-in-step-templates/email-notifications/) to send out an email during a deployment or runbook run.
+- [Subscriptions](/docs/administration/managing-infrastructure/subscriptions) to send out notifications when specific events occur within Octopus.  Both email and webhook subscriptions are currently supported.
+- [Email notification step](/docs/projects/built-in-step-templates/email-notifications) to send out an email during a deployment or runbook run.
 - [Slack notification step template](https://library.octopus.com/step-templates/99e6f203-3061-4018-9e34-4a3a9c3c3179/actiontemplate-slack-send-simple-notification) to send out Slack messages during a deployment or runbook run.
 - [Microsoft Teams notification step template](https://library.octopus.com/step-templates/110a8b1e-4da4-498a-9209-ef8929c31168/actiontemplate-microsoft-teams-post-a-message) to send out messages to Microsoft Teams during a deployment or runbook run.
 - [Twilio - send SMS step template](https://library.octopus.com/step-templates/3c3904a9-d08c-4f18-b86c-0304800bb541/actiontemplate-twilio-send-sms-(powershell)) to send out an SMS message during a deployment or runbook run.
@@ -59,7 +59,7 @@ Regardless of the notification technology (email, Slack, MS Teams, etc.), the re
 
 For further reading on subscriptions and other notifications in Octopus Deploy please see:
 
-- [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/)
-- [Email Notifications](/docs/projects/built-in-step-templates/email-notifications/)
+- [Subscriptions](/docs/administration/managing-infrastructure/subscriptions)
+- [Email Notifications](/docs/projects/built-in-step-templates/email-notifications)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/releases-and-deployments">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/ongoing-maintenance">Next</a></span>

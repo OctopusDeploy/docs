@@ -22,14 +22,14 @@ The following certificate formats are supported in Octopus Deploy:
 
 ![](/docs/deployments/certificates/certificate-list.png "width=500")
 
-- [Add certificate](/docs/deployments/certificates/add-certificate/)
-- [Replacing certificates](/docs/deployments/certificates/replace-certificate/)
-- [Archiving and deleting certificates](/docs/deployments/certificates/archiving-and-deleting-certificates/)
-- [Exporting certificates](/docs/deployments/certificates/export-certificate/)
+- [Add certificate](/docs/deployments/certificates/add-certificate)
+- [Replacing certificates](/docs/deployments/certificates/replace-certificate)
+- [Archiving and deleting certificates](/docs/deployments/certificates/archiving-and-deleting-certificates)
+- [Exporting certificates](/docs/deployments/certificates/export-certificate)
 
 ## Configure subscriptions for expiry notifications
 
-[Octopus Subscriptions](/docs/administration/managing-infrastructure/subscriptions/) can be used to configure notifications when certificates are close to expiry or have expired.
+[Octopus Subscriptions](/docs/administration/managing-infrastructure/subscriptions) can be used to configure notifications when certificates are close to expiry or have expired.
 
 There is a "Certificate expiry events" event-group, and three events:  
 
@@ -42,18 +42,18 @@ The background task which raises the certificate-expiry events runs:
 - 10 minutes after the Octopus Server service starts
 - Every 4 hours
 
-Certificate-expiry events are _not_ raised for [archived](/docs/deployments/certificates/archiving-and-deleting-certificates/) certificates.
+Certificate-expiry events are _not_ raised for [archived](/docs/deployments/certificates/archiving-and-deleting-certificates) certificates.
 :::
 
 ## Import certificates into the Windows certificate store  
 
-Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deployments/certificates/import-certificate-step/).
+Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deployments/certificates/import-certificate-step).
 
 ![](/docs/deployments/certificates/images/import-certificate-step-select.png "width=500")
 
 ## Use certificates for HTTPS bindings when deploying IIS websites   
 
-When configuring HTTPS bindings for [IIS Websites](/docs/deployments/windows/iis-websites-and-application-pools/), a certificate can be configured either by:
+When configuring HTTPS bindings for [IIS Websites](/docs/deployments/windows/iis-websites-and-application-pools), a certificate can be configured either by:
 - entering the thumbprint directly (this assumes the certificate has already been installed on the machine).
 - selecting a certificate-typed variable (this will automatically install the certificate).
 
@@ -61,7 +61,7 @@ When configuring HTTPS bindings for [IIS Websites](/docs/deployments/windows/iis
 
 ## Create certificate-typed variables
 
-Certificates managed by Octopus can be configured as the [value of variables](/docs/projects/variables/certificate-variables/), and used from custom deployment scripts.
+Certificates managed by Octopus can be configured as the [value of variables](/docs/projects/variables/certificate-variables), and used from custom deployment scripts.
 
 ![](/docs/deployments/certificates/images/certificate-variables-scoped.png "width=500")
 
@@ -69,4 +69,4 @@ Note that certificates can not be selected directly when configuring a deploymen
 
 ## Learn more
 
-- [Lets Encrypt runbook examples](/docs/runbooks/runbook-examples/routine/lets-encrypt-renew-certificate/).
+- [Lets Encrypt runbook examples](/docs/runbooks/runbook-examples/routine/lets-encrypt-renew-certificate).

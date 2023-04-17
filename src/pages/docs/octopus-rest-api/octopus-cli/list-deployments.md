@@ -7,7 +7,7 @@ description: List a number of deployments by project, environment or by tenant.
 navOrder: 170
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to list deployments by project, environment, or tenant: 
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list deployments by project, environment, or tenant: 
 
 ```
 Lists a number of deployments by project, environment or by tenant.
@@ -111,5 +111,5 @@ octo list-deployments --project="Octo Pet Shop - DB" --server="https://samples.o
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

@@ -16,8 +16,8 @@ The [Audit Retention functionality](#archived-audit-events) was introduced in **
 
 Below is a short list of just some of the things that Octopus captures:
 
-- Changes to [deployment processes](/docs/deployments/) and [variables](/docs/projects/variables/).
-- Create/modify/delete events for [projects](/docs/projects/), [environments](/docs/infrastructure/environments/), [deployment targets](/docs/infrastructure/), releases, and so on.
+- Changes to [deployment processes](/docs/deployments/) and [variables](/docs/projects/variables).
+- Create/modify/delete events for [projects](/docs/projects/), [environments](/docs/infrastructure/environments/), [deployment targets](/docs/infrastructure), releases, and so on.
 - Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to.
 - Queuing and canceling of deployments and other tasks.
 
@@ -51,13 +51,13 @@ We take great care to ensure the security and integrity of your audit logs, to m
 
 ### Viewing audit logs
 
-To grant a user access to audit logs you can make use of a built-in User Role that contains **EventView**. All project related user roles contain it. **EventView** can also be scoped to narrow down which audit information a user can see, for example, it can be restricted to specific Projects or Environments. Learn more about [managing users and teams](/docs/security/users-and-teams/).
+To grant a user access to audit logs you can make use of a built-in User Role that contains **EventView**. All project related user roles contain it. **EventView** can also be scoped to narrow down which audit information a user can see, for example, it can be restricted to specific Projects or Environments. Learn more about [managing users and teams](/docs/security/users-and-teams).
 
 In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
 
 ### Streaming audit logs
 
-From **Octopus 2022.4** [enterprise-tier](https://octopus.com/pricing) customers have the option to [stream their audit logs](/docs/security/users-and-teams/auditing/audit-stream/) to their chosen security information and event management (SIEM) solution.
+From **Octopus 2022.4** [enterprise-tier](https://octopus.com/pricing) customers have the option to [stream their audit logs](/docs/security/users-and-teams/auditing/audit-stream) to their chosen security information and event management (SIEM) solution.
 
 ### Accessing archived logs {#accessing-archived-logs}
 

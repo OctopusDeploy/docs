@@ -42,7 +42,7 @@ msiexec INSTALLLOCATION=C:\YourDirectory /i Octopus.Tentacle.<version>.msi /quie
 ```
 
 :::problem
-While you can set a custom INSTALLLOCATION for the Tentacle, please be aware that upgrades initiated by Octopus Server will install the upgraded Tentacle in the default location. This may have an impact if you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog/).
+While you can set a custom INSTALLLOCATION for the Tentacle, please be aware that upgrades initiated by Octopus Server will install the upgraded Tentacle in the default location. This may have an impact if you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog).
 :::
 
 ## Configuration {#AutomatingTentacleinstallation-Configuration}
@@ -53,7 +53,7 @@ To configure the Tentacle in listening or polling mode, it's easiest to run the 
 
 ### Advanced configuration options
 
-When configuring your Tentacle, you can configure advanced options, such as [proxies](/docs/infrastructure/deployment-targets/proxy-support/), [machine policies](/docs/infrastructure/deployment-targets/machine-policies/), and [tenants](/docs/tenants/tenant-infrastructure/), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
+When configuring your Tentacle, you can configure advanced options, such as [proxies](/docs/infrastructure/deployment-targets/proxy-support/), [machine policies](/docs/infrastructure/deployment-targets/machine-policies/), and [tenants](/docs/tenants/tenant-infrastructure), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
 
@@ -103,7 +103,7 @@ $repository.machines.create($tentacle)
 ```
 
 :::hint
-Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api/).
+Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api).
 :::
 
 ## Example: Polling Tentacle {#AutomatingTentacleinstallation-Example:PollingTentacle}
@@ -126,7 +126,7 @@ Tentacle.exe service --instance "Tentacle" --install --start --console
 :::hint
 **Tips:**
 - If you are running this from a PowerShell remote session, make sure to add `--console` at the end of each command to force Tentacle.exe not to run as a service.
-- Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api/).
+- Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api).
 :::
 
 ## Obtaining the Tentacle thumbprint {#AutomatingTentacleinstallation-tentaclethumbprintObtainingtheTentacleThumbprint}
@@ -228,6 +228,6 @@ To review the latest available settings and properties, refer to the [OctopusDSC
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://docs.microsoft.com/en-us/powershell/scripting/dsc/pull-server/pullserver), [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Channel 9 Getting Started with DSC series](https://channel9.msdn.com/Series/Getting-Started-with-PowerShell-DSC).
 
-For an in depth look, check out the [sample walk-through](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc/) of how to use DSC with an Azure ARM template to deploy and configure the Tentacle on an Azure VM.
+For an in depth look, check out the [sample walk-through](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc) of how to use DSC with an Azure ARM template to deploy and configure the Tentacle on an Azure VM.
 
 !include <rootless-tentacle-instance-creation>

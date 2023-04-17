@@ -7,7 +7,7 @@ description: System variables are variables provided by Octopus that can be used
 navOrder: 20
 ---
 
-This page lists built-in [variables](/docs/projects/variables/) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployments/custom-scripts/).
+This page lists built-in [variables](/docs/projects/variables/) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployments/custom-scripts).
 
 Most of the variables listed here are available in modern versions of Octopus and Calamari. However, some are only available from a specific version. Where this is the case, the version will be noted alongside the variable.
 
@@ -38,8 +38,8 @@ Release-level variables are drawn from the project and release being created.
 
 The `Octopus.Release.Package` and `Octopus.Release.Builds` variables:
 
-* will only be populated if [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed from the build server.  
-* is only available to be used by the project [release notes](/docs/releases/release-notes/), it is not accessible from the project deployment steps.
+* will only be populated if [build information](/docs/packaging-applications/build-servers/build-information) has been pushed from the build server.  
+* is only available to be used by the project [release notes](/docs/releases/release-notes), it is not accessible from the project deployment steps.
 
 :::
 
@@ -118,7 +118,7 @@ The variables available for commits are:
 |`LinkUrl`| `#{commit.LinkUrl}` |
 |`Comment`| `#{commit.Comment}` |
 
-If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/releases/issue-tracking/) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
+If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/releases/issue-tracking) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
 
 ```
 #{each issue in package.WorkItems}
@@ -211,7 +211,7 @@ The variables available for build packages are:
 
 ### Release Branch information {#release-branch-information}
 
-For projects that have [version control](/docs/projects/version-control/) enabled, information about the branch and commit from which the release was created is also available.
+For projects that have [version control](/docs/projects/version-control) enabled, information about the branch and commit from which the release was created is also available.
 
 | Name and description                   | Example                                    |
 | -------------------------------------- | ------------------------------------------ |
@@ -233,8 +233,8 @@ Deployment-level variables are drawn from the project and release being deployed
 |`Octopus.Deployment.CreatedBy.EmailAddress` <br/>The email address of the user who initiated the deployment | *[alice@example.com](mailto:alice@example.com)*|
 |`Octopus.Deployment.CreatedBy.Id` <br/>The ID of the user who initiated the deployment | *users-123*|
 |`Octopus.Deployment.CreatedBy.Username` <br/>The username of the user who initiated the deployment | *alice*|
-|`Octopus.Deployment.Error` <br/>This variable outputs the error/exit code for a failed deployment. [See here](/docs/projects/variables/system-variables/) | *Script returned exit code 123*|
-|`Octopus.Deployment.ErrorDetail` <br/>The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/projects/variables/system-variables/) | *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*|
+|`Octopus.Deployment.Error` <br/>This variable outputs the error/exit code for a failed deployment. [See here](/docs/projects/variables/system-variables) | *Script returned exit code 123*|
+|`Octopus.Deployment.ErrorDetail` <br/>The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/projects/variables/system-variables) | *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*|
 |`Octopus.Deployment.ForcePackageDownload` <br/>If true, the package will be freshly downloaded from the feed/repository regardless of whether it is already present on the endpoint *(Boolean)* | *False*|
 |`Octopus.Deployment.Id` <br/>The ID of the deployment | *deployments-123*|
 |`Octopus.Deployment.Name` <br/>The name of the deployment | *Deploy to Production*|
@@ -293,8 +293,8 @@ Deployment-level variables are drawn from the project and release being deployed
 | Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Deployment.Changes` <br/>A JSON array of `ReleaseChanges` objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). | This will be JSON (see below) |
-|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-notes/). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking/) is enabled. | This will be JSON (see below) |
-|`Octopus.Deployment.PackageBuildInformation` <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/build-information/) across all [changes in the deployment](/docs/releases/deployment-notes/). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed | This will be JSON (see below) |
+|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-notes/). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking) is enabled. | This will be JSON (see below) |
+|`Octopus.Deployment.PackageBuildInformation` <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/build-information/) across all [changes in the deployment](/docs/releases/deployment-notes/). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information) has been pushed | This will be JSON (see below) |
 
 The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChanges` objects matching the following C# classes:
 
@@ -370,7 +370,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |`Octopus.Action.IsSkipped` <br/>Whether or not the action has been skipped in the current deployment *(Boolean)*<br/>Note: This value can be True or null (indicated by an empty string) | *True*|
 |`Octopus.Action.Manual.Instructions` <br/>The instructions provided for a manual step | *Don't break anything* |
 |`Octopus.Action.Manual.ResponsibleTeamIds` <br/>The teams responsible for completing a manual step *(List)* | *teams-123,teams-124*|
-|`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments/). *(Number - Default: 10)* <br/>**Note:** Some built-in steps have their own concurrent limit and will ignore this value if set. | *5*|
+|`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments). *(Number - Default: 10)* <br/>**Note:** Some built-in steps have their own concurrent limit and will ignore this value if set. | *5*|
 |`Octopus.Action.Name` <br/>The name of the action | *Website*|
 |`Octopus.Action.Number` <br/>The sequence number of the action in the deployment process *(Number)* | *5*|
 |`Octopus.Action.Package.CustomInstallationDirectory` <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
@@ -386,7 +386,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |`Octopus.Action.Package.SkipIfAlreadyInstalled` <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
 |`Octopus.Action.Script.ScriptBody` <br/>The script being run in a script step | *Write-Host 'Hello!'*|
 |`Octopus.Action.Script.Syntax` <br/>The syntax of the script being run in a script step | *PowerShell*|
-|`Octopus.Action.SkipRemainingConventions` <br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables/). e.g. <br> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'` | *True*|
+|`Octopus.Action.SkipRemainingConventions` <br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables). e.g. <br> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'` | *True*|
 |`Octopus.Action.TargetRoles` <br/>Machine roles targeted by the action *(List)* | *web-server,frontend*|
 |`Octopus.Action.Template.Id` <br/>If the action is based on a step template, the ID of the template | *actiontemplates-123*|
 |`Octopus.Action.Template.Version` <br/>If the action is based on a step template, the version of the template in use *(Number)* | *123*|
@@ -448,7 +448,7 @@ When [referencing packages](/docs/deployments/custom-scripts/run-a-script-step/#
 
 ## Output {#Systemvariables-Output}
 
-Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/projects/variables/output-variables/).
+Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/projects/variables/output-variables).
 
 | Name and description | Example|
 | -------------------- | ----------------------------------------|
@@ -560,7 +560,7 @@ The following variables can be defined as variables in your project to modify th
 | Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Acquire.MaxParallelism` <br/>Maximum number of NuGet packages that should be downloaded at once when acquiring packages. | 3|
-|`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments/). *(Number - Default: 10)* | *5*|
+|`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments). *(Number - Default: 10)* | *5*|
 |`OctopusPrintVariables` <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it. We recommend only using this setting for non-production environments. | True|
 |`OctopusPrintEvaluatedVariables` <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it after evaluating them. We recommend only using this setting for non-production environments. | True|
 |`OctopusSkipFreeDiskSpaceCheck` <br/>Set to "True" to skip the check for available free disk space when deploying packages. **Introduced in Calamari version 3.1.30.** | True|
@@ -571,7 +571,7 @@ The following variables can be defined as variables in your project to modify th
 |`Octopus.Action.PowerShell.ExecuteWithoutProfile` <br/>Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+) | True|
 |`OctopusSuppressDuplicateVariableWarning` <br/>Set to `true` to have the duplicate variable message logged as verbose instead of warning. **Do this if you are aware of the duplication and that it isn't causing any issues in your deployment**  (available in version 3.17.0+) | True|
 |`Octopus.Action.Package.RunScripts`  <br/>Set to `false` to prevent scripts inside packages from executing. **Do this if you are aware of the duplication and that it isn't causing any issues in your deployment**  (available in version 4.1.10+) | True|
-|`Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo`  <br/>Set to a file-path and the Calamari working directory will be copied to the configured location. **Copied files include the one-time key to decrypt sensitive variables** [More details.](/docs/support/copy-working-directory/) | `c:\temp\octopus-debug`|
+|`Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo`  <br/>Set to a file-path and the Calamari working directory will be copied to the configured location. **Copied files include the one-time key to decrypt sensitive variables** [More details.](/docs/support/copy-working-directory) | `c:\temp\octopus-debug`|
 
 ## Learn more
 

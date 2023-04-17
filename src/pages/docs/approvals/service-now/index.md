@@ -139,7 +139,7 @@ result in deployments of the project creating a `Standard` (i.e. low-risk, pre-a
 
 ### Supplying the CR number to a deployment
 
-If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables/).
+If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables).
 
 ### Setting up environments for CR approval
 
@@ -220,7 +220,7 @@ The following list assumes the linked change is in an **approved** state.
 
 - Once a CR is deemed to be related to a deployment, then only this CR will be evaluated for the deployment to proceed. If the CR is incorrect, you will need to cancel the deployment, close the CR and try the deployment again.
 - Each project only supports a single ServiceNow connection.
-- Each project only supports supplying the same **Change Template Name** across all environments in the [Lifecycle](/docs/releases/lifecycles/) attached to the project or channel.
+- Each project only supports supplying the same **Change Template Name** across all environments in the [Lifecycle](/docs/releases/lifecycles) attached to the project or channel.
 
 ## Troubleshooting
 

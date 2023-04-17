@@ -32,7 +32,7 @@ AWS steps can also defer to the IAM role assigned to the instance that hosts the
 
 ## AWS account variables
 
-You can access your AWS account from within projects through a variable of type **AWS Account Variable**. Learn more about [AWS Account Variables](/docs/projects/variables/aws-account-variables/)
+You can access your AWS account from within projects through a variable of type **AWS Account Variable**. Learn more about [AWS Account Variables](/docs/projects/variables/aws-account-variables)
 
 ## Using AWS Service roles for an EC2 instance
 
@@ -72,7 +72,7 @@ It is also possible to use the keys defined in the AWS account manually, such as
 
 First, add the AWS Account as a variable. In the screenshot below, the account has been assigned to the **AWS Account** variable.
 
-The **OctopusPrintVariables** has been set to true to print the variables to the output logs. This is a handy way to view the available variables that can be consumed by a custom script. You can find more information on debugging variables at [Debug problems with Octopus variables](/docs/support/debug-problems-with-octopus-variables/).
+The **OctopusPrintVariables** has been set to true to print the variables to the output logs. This is a handy way to view the available variables that can be consumed by a custom script. You can find more information on debugging variables at [Debug problems with Octopus variables](/docs/support/debug-problems-with-octopus-variables).
 
 ![](/docs/infrastructure/accounts/aws/variables.png "width=500")
 
@@ -98,4 +98,4 @@ If you are experiencing SSL/TLS connection errors when connecting to AWS from yo
 
 ## AWS deployments
 
-Learn more about [AWS deployments](/docs/deployments/aws/).
+Learn more about [AWS deployments](/docs/deployments/aws).

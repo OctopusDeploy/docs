@@ -56,5 +56,5 @@ $ octopus release deploy -p MyProject --version 1.0 -e Dev --force-package-downl
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

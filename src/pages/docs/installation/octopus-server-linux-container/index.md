@@ -36,21 +36,21 @@ In this example, we are running the image `!docker-image <octopusdeploy/octopusd
 
 This section walks through some of the different ways you can run the Octopus Server Linux Container, from `docker compose` to using a full orchestration service such as Kubernetes:
 
-- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux/)
-- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition/)
-- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes/)
+- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux)
+- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes)
 
 ## Migration
 
 You may already have an existing Octopus Server running on Windows Server or running in a Windows container that you wish to run in a Linux Container. This section walks through the different options and considerations for migration to the Octopus Server Linux Container. 
 
-- [Migrate to Octopus Server Linux Container from Windows Server](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-server/)
-- [Migrate to Octopus Server Linux Container from Windows Container](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-container/)
+- [Migrate to Octopus Server Linux Container from Windows Server](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-server)
+- [Migrate to Octopus Server Linux Container from Windows Container](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-container)
 
 ## Configuration
 
 :::hint
-Support for authentication providers differs depending on how you host Octopus Server. Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility/) to ensure any existing authentication provider is supported when running Octopus in a Linux Container.
+Support for authentication providers differs depending on how you host Octopus Server. Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility) to ensure any existing authentication provider is supported when running Octopus in a Linux Container.
 :::
 
 When running an Octopus Server Image, the following values can be provided to configure the running Octopus Server instance.
@@ -77,7 +77,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |**ADMIN_USERNAME**|The admin user to create for the Octopus Server|
 |**ADMIN_PASSWORD**|The password for the admin user for the Octopus Server|
 |**ADMIN_EMAIL**|The email associated with the admin user account|
-|**DISABLE_DIND**|The Linux image will by default attempt to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/). This requires the image be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). Setting `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted.|
+|**DISABLE_DIND**|The Linux image will by default attempt to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers). This requires the image be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). Setting `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted.|
 
 ### Exposed Container Ports
 
@@ -96,7 +96,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 | Name     | Description | Mount source |
 | ------------- | ------- | ------- | 
-|**/import**| Imports from this folder if [Octopus Migrator](/docs/octopus-rest-api/octopus.migrator.exe-command-line/) metadata.json exists then migrator `Import` takes place on startup | Host filesystem or container |
+|**/import**| Imports from this folder if [Octopus Migrator](/docs/octopus-rest-api/octopus.migrator.exe-command-line) metadata.json exists then migrator `Import` takes place on startup | Host filesystem or container |
 |**/repository**| Package path for the built-in package repository | Shared storage |
 |**/artifacts**| Path where artifacts are stored | Shared storage |
 |**/taskLogs**| Path where task logs are stored | Shared storage |
@@ -108,7 +108,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 ## Upgrading
 
-When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server/) since containers, being immutable, don't themselves get updated.
+When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server) since containers, being immutable, don't themselves get updated.
 
 Similar to moving an instance, to perform the container upgrade you will need the Master Key that was used to set up the original database. The Master Key for an Octopus Server in a container can be found by using the container exec command:
 
@@ -124,11 +124,11 @@ When you have the Master Key, you can stop the running Octopus Server container 
 $ docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env MASTER_KEY "5qJcW9E6B99teMmrOzaYNA==" !docker-image <octopusdeploy/octopusdeploy>
 ```
 
-The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore/#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/) still apply as per normal Octopus installations.
+The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore/#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database) still apply as per normal Octopus installations.
 
 ## Troubleshooting
 
-If you're running into issues with the Octopus Server Linux Container then please use our [Troubleshooting](/docs/installation/octopus-server-linux-container/troubleshooting-octopus-server-in-a-container/) guide.
+If you're running into issues with the Octopus Server Linux Container then please use our [Troubleshooting](/docs/installation/octopus-server-linux-container/troubleshooting-octopus-server-in-a-container) guide.
 
 
 ## Learn more

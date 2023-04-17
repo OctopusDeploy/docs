@@ -6,17 +6,17 @@ title: Substitute variables in templates
 description: Package steps have a feature that allows you to replace variables in any file.
 navOrder: 80
 ---
-The Substitute Variables in Files feature is one of the [configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/) into any file.
+The Substitute Variables in Files feature is one of the [configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables) into any file.
 
 :::hint
-You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/) and [Structured configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/).
+You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/) and [Structured configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature).
 :::
 
 ## How to substitute variables in a file
 
 The following example shows you how to use the Substitute Variables in Templates feature to provide a different login form to the different environments you're deploying to. In this example, we're deploying to a **Test** and **Production** environment.
 
-1. Create the login variable in Octopus. From the: [project](/docs/projects/) overview page, click **Variables**.
+1. Create the login variable in Octopus. From the: [project](/docs/projects) overview page, click **Variables**.
   - Enter a the name for the variable, for instance, *LoginURL*.
   - Enter the first value for the variable, for instance, *https://test.example.com/login*.
   - Scope this value to the test environment by clicking the *Define Scope* field and selecting the test environment.
@@ -39,17 +39,17 @@ The following example shows you how to use the Substitute Variables in Templates
 
 3. Define the deployment process, by clicking **Process** from the project overview page, then select, **ADD STEP**.
 4. Select the **Deploy a Package** step.
-5. From the [Step](/docs/projects/steps/) Template page, click the **Configure Features** link.
+5. From the [Step](/docs/projects/steps) Template page, click the **Configure Features** link.
 6. Check the **Substitute Variables in Templates** check-box and click **Ok**.
 
 ![Substitute Variables in Templates feature](/docs/projects/steps/configuration-features/images/substitute-variables.png "width=500")
 
 When you return to your deployment process, you will see the **Substitute Variables in Templates** option has been added to the **Features** section of the deployment process.
 
-7. Add the [step](/docs/projects/steps/) details:
+7. Add the [step](/docs/projects/steps) details:
   - Enter a name for the step.
   - Select the targets where the step should run.
-  - Select the [package feed](/docs/packaging-applications/package-repositories/) where the [package](/docs/packaging-applications/) will be available.
+  - Select the [package feed](/docs/packaging-applications/package-repositories/) where the [package](/docs/packaging-applications) will be available.
   - Enter the [package ID](/docs/packaging-applications/#package-id) for the package to be deployed.
 8. In the **Target Files** text area, enter the files, as a newline separated list, that you want to perform the variable substitution on. You need to state the full path of the file, relative to the installation directory. In our example, that includes any file that references the `{LoginURL}` variable. For instance:
 
@@ -61,14 +61,14 @@ config\app.config
 
 The default option for Output file encoding (Detect from template) will use the Byte Order Mark (BOM) of the file to determine the encoding.
 
-10. Add any [conditions](/docs/projects/steps/conditions/) you need to specify for the step, and then click **SAVE**.
+10. Add any [conditions](/docs/projects/steps/conditions) you need to specify for the step, and then click **SAVE**.
 
 When the application is deployed to your **test** and **production** environments, each environment will include the login URL you defined for the specific environment.
 
-From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/releases/) and deploy your application.
+From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/releases) and deploy your application.
 
 :::warning
-If you include a configuration file that you are also doing a [transformation](/docs/projects/steps/configuration-features/configuration-transforms/) and [variable](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/) swap on, the variable change will run under the 'substitute variables in templates' before the transformation as defined in the [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering/) process.
+If you include a configuration file that you are also doing a [transformation](/docs/projects/steps/configuration-features/configuration-transforms/) and [variable](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/) swap on, the variable change will run under the 'substitute variables in templates' before the transformation as defined in the [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering) process.
 :::
 
 :::warning

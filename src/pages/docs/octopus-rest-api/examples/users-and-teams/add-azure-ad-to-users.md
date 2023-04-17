@@ -6,7 +6,7 @@ title: Add Azure Active Directory login to users
 description: An example script to add Azure Active Directory login details to Octopus user accounts.
 ---
 
-Octopus supports a number of external [authentication providers](/docs/security/authentication/), including [Azure Active Directory Authentication](/docs/security/authentication/azure-ad-authentication/). If you want to use Azure Active Directory to authenticate but re-use existing Octopus user accounts, the easiest way is to add an Azure AD login:
+Octopus supports a number of external [authentication providers](/docs/security/authentication/), including [Azure Active Directory Authentication](/docs/security/authentication/azure-ad-authentication). If you want to use Azure Active Directory to authenticate but re-use existing Octopus user accounts, the easiest way is to add an Azure AD login:
 
 ![Add an Azure AD login to an Octopus user](/docs/octopus-rest-api/examples/users-and-teams/images/add-azure-ad-login.png "width=500")
 

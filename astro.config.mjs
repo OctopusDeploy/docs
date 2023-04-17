@@ -14,7 +14,7 @@ export default defineConfig({
             attributeMarkdown,
             wrapTables
         ],
-        trailingSlash: 'always',
+        trailingSlash: 'never',
         extendDefaultPlugins: true,
     },
 });

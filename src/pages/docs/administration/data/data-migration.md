@@ -8,14 +8,14 @@ navOrder: 900
 ---
 
 :::problem
-The recommended way to migrate data to or from an Octopus instance is with the **Export/Import Projects** feature that was released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/).
+The recommended way to migrate data to or from an Octopus instance is with the **Export/Import Projects** feature that was released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import).
 :::
 
 Octopus comes with a data migrator which can help in certain scenarios like moving projects from one Octopus Server to another, and exporting your configuration for auditing in a source control repository.
 
 ## Suitable scenarios
 
-With the addition of the [Export/Import Projects](/docs/projects/export-import/) feature, the number of suitable scenarios has been reduced to the following.  
+With the addition of the [Export/Import Projects](/docs/projects/export-import) feature, the number of suitable scenarios has been reduced to the following.  
 
 - Copying projects and their dependencies from one Octopus Server to another periodically in a single direction where there is a single source of truth.
 - Wanting to exclude tenants, releases, or deployments from the migration.
@@ -28,16 +28,16 @@ In all scenarios, both the source and target Octopus Servers must be running the
 
 The data migration tools are not suitable for every imaginable scenario. In these cases there are better tools for the job:
 
-1. To split a single Octopus Server into multiple separate Octopus Servers in a one time operation use the [Export/Import Projects feature](/docs/projects/export-import/).
-1. To sync projects with disparate environments, tenants, lifecycles, channels, variable values or deployment process steps see [syncing multiple instances](/docs/administration/sync-instances/)
-1. To consolidate multiple Octopus Servers into a single Octopus Server use the [Export/Import Projects feature](/docs/projects/export-import/).
-1. To get auditing of your project configuration see [configuration as code](/docs/projects/version-control/).
-1. To split a single space into multiple spaces see the [Export/Import Projects feature](/docs/projects/export-import/).
-1. To migrate data from older versions of Octopus see [upgrading old versions of Octopus](/docs/administration/upgrading/legacy/).
-1. For general disaster recovery learn about [backup and restore for your Octopus Server](/docs/administration/data/backup-and-restore/).
-1. To move your Octopus database to another database server see [moving your database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database/).
-1. To move your Octopus Server and database to another server see [moving your Octopus Server and database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server/).
-1. To move your entire Octopus Server from a self-hosted installation to Octopus Cloud, see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations/).
+1. To split a single Octopus Server into multiple separate Octopus Servers in a one time operation use the [Export/Import Projects feature](/docs/projects/export-import).
+1. To sync projects with disparate environments, tenants, lifecycles, channels, variable values or deployment process steps see [syncing multiple instances](/docs/administration/sync-instances)
+1. To consolidate multiple Octopus Servers into a single Octopus Server use the [Export/Import Projects feature](/docs/projects/export-import).
+1. To get auditing of your project configuration see [configuration as code](/docs/projects/version-control).
+1. To split a single space into multiple spaces see the [Export/Import Projects feature](/docs/projects/export-import).
+1. To migrate data from older versions of Octopus see [upgrading old versions of Octopus](/docs/administration/upgrading/legacy).
+1. For general disaster recovery learn about [backup and restore for your Octopus Server](/docs/administration/data/backup-and-restore).
+1. To move your Octopus database to another database server see [moving your database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database).
+1. To move your Octopus Server and database to another server see [moving your Octopus Server and database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server).
+1. To move your entire Octopus Server from a self-hosted installation to Octopus Cloud, see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations).
 
 :::problem
 **Unsupported scenarios**
@@ -67,7 +67,7 @@ Unfortunately, since the import isn't running all of the same validation checks 
 ### Exporting {#Datamigration-ExportingExporting}
 
 :::hint
-It's a good idea to make sure your Octopus Server isn't changing data while exporting. Learn about making your Octopus Server read-only using [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode/).
+It's a good idea to make sure your Octopus Server isn't changing data while exporting. Learn about making your Octopus Server read-only using [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode).
 :::
 
 You can export data using the Export Wizard built into the Octopus Server Manager, or using the command-line interface `Octopus.Migrator.exe`. You can export your entire Octopus Server configuration, or certain projects and their dependencies. The wizard is a good way to get started, but the full feature set is only available using the command-line interface.
@@ -81,7 +81,7 @@ We have tried to make the exported file structure predictable and easy to naviga
 ### Importing {#Datamigration-ImportingImporting}
 
 :::hint
-It's a good idea to [perform a backup](/docs/administration/data/backup-and-restore/) before attempting an import.
+It's a good idea to [perform a backup](/docs/administration/data/backup-and-restore) before attempting an import.
 :::
 
 You can import data using the Import Wizard built into the Octopus Server Manager, or using the command-line interface `Octopus.Migrator.exe import`. Similarly to exporting data, the wizard is a good way to get started, but the full feature set is only available using the command-line interface.

@@ -7,7 +7,7 @@ description: Using the Octopus CLI to create releases.
 navOrder: 70
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
 
 This command creates a release, and optionally deploy it to one or more environments:
 
@@ -189,13 +189,13 @@ Common options:
 
 ## Basic Examples {#Creatingreleases-Basicexamples}
 
-This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning/) project setting: 
+This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning) project setting: 
 
 ```bash
 octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-This creates a release with a specified release number, overriding the [Release Versioning](/docs/releases/release-versioning/) project setting:
+This creates a release with a specified release number, overriding the [Release Versioning](/docs/releases/release-versioning) project setting:
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
@@ -203,7 +203,7 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 ## Version controlled projects {#Creatingreleases-version-controlled}
 
-For projects that use the [Config as Code feature](/docs/projects/version-control/) (they are version controlled), you can create a release pointing at a git reference, e.g. a branch name or tag. This example creates a release using the branch name of `main`:
+For projects that use the [Config as Code feature](/docs/projects/version-control) (they are version controlled), you can create a release pointing at a git reference, e.g. a branch name or tag. This example creates a release using the branch name of `main`:
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456 --gitRef main
@@ -274,7 +274,7 @@ octo create-release --project HelloWorld --deployto Production --server http://o
 
 :::hint
 **A note on lifecycle phases with automated deployment:**
-If the `--deployTo` parameter is specified and the [lifecycle](/docs/releases/lifecycles/) of the project you are deploying to is set to *Deploy automatically* when a release is created, it's possible multiple deployments to the same environment will be triggered.
+If the `--deployTo` parameter is specified and the [lifecycle](/docs/releases/lifecycles) of the project you are deploying to is set to *Deploy automatically* when a release is created, it's possible multiple deployments to the same environment will be triggered.
 :::
 
 ## Release Notes Supported Syntax
@@ -284,6 +284,6 @@ Showdownjs supports the common markdown syntax as well as a rich set of extras s
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
-- [Releases](/docs/releases/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
+- [Releases](/docs/releases)

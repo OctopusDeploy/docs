@@ -23,7 +23,7 @@ Octopus High Availability is designed for mission-critical enterprise scenarios 
 
 :::hint
 **IaaS vs PaaS:**
-If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in AWS and don't intend to use their PaaS offerings (such as AWS RDS), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises/) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
+If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in AWS and don't intend to use their PaaS offerings (such as AWS RDS), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
 :::
 
 ### Compute

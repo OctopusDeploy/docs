@@ -55,9 +55,9 @@ These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Te
 
 ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278018.png "width=500")
 
-4. Create a [new project](/docs/projects/) with a single "Update Octopus Tentacle" step from the step template.
+4. Create a [new project](/docs/projects) with a single "Update Octopus Tentacle" step from the step template.
 
- 1. Ensure you choose or create a [Lifecycle](/docs/releases/lifecycles/) that allows you to deploy to all Tentacles.
+ 1. Ensure you choose or create a [Lifecycle](/docs/releases/lifecycles) that allows you to deploy to all Tentacles.
  2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
  3. Set the `Server Mapping` field:
 

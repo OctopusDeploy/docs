@@ -8,7 +8,7 @@ description: Further information for missing packages error messages that can oc
 
 When deploying your project you may see a message like one of the following examples:
 
-- The package could not be located in the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/).
+- The package could not be located in the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository).
 - The package could not be downloaded from the [external feed](/docs/packaging-applications/package-repositories/#supported-package-and-repository-types).
 - Unable to download package.
 - Failed to download package.
@@ -53,4 +53,4 @@ If you are using an external feed you may see a message explaining the package c
 
 ### Configurable retries for external feeds {#ConfigurableRetriesForExternalFeeds}
 
-You can configure how tolerant Octopus will be when attempting to source a package from an external feed, by specifying how many times to attempt the download and how long to leave between attempts. This can be configured when you define the [external feed](/docs/packaging-applications/package-repositories/).
+You can configure how tolerant Octopus will be when attempting to source a package from an external feed, by specifying how many times to attempt the download and how long to leave between attempts. This can be configured when you define the [external feed](/docs/packaging-applications/package-repositories).

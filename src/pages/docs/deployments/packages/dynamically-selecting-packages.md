@@ -50,7 +50,7 @@ You can now create the `3.1.6` release for the `MyApp.Web` project, but have Oct
 ![Dynamic Package ID](/docs/deployments/packages/images/dynamic-package-id.png "width=500")
 
 :::info
-In this example we recommend creating a [tenant-specific variable](/docs/tenants/tenant-variables/) called something like `TenantAlias`, where each tenant will provide a value. You could have used a built-in variable like `#{Octopus.Deployment.Tenant.Name}` but then your tenant name would be tightly coupled to your Package ID, and changing the tenant's name could break your deployments.
+In this example we recommend creating a [tenant-specific variable](/docs/tenants/tenant-variables) called something like `TenantAlias`, where each tenant will provide a value. You could have used a built-in variable like `#{Octopus.Deployment.Tenant.Name}` but then your tenant name would be tightly coupled to your Package ID, and changing the tenant's name could break your deployments.
 :::
 
 :::hint
@@ -76,7 +76,7 @@ Where possible we recommend keeping the number and size of dynamic packages to a
 
 If you use a binding expression for the Package ID It becomes more difficult to look at a release and understand exactly which packages will be deployed. This prevents package retention policies from working properly for the built-in package feed, and on deployment targets.
 
-Learn about [retention policies](/docs/administration/retention-policies/).
+Learn about [retention policies](/docs/administration/retention-policies).
 
 ## Troubleshooting
 

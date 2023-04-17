@@ -7,7 +7,7 @@ description: How to create reusable steps
 navOrder: 60
 ---
 
-Sometimes there isn't a [built-in step template](/docs/projects/built-in-step-templates/) or a [community step template](/docs/projects/community-step-templates/) available that does what you need. Or perhaps several of your projects have similar or identical steps. You can create your own custom step templates to reuse across your projects. You can also share them with the community.
+Sometimes there isn't a [built-in step template](/docs/projects/built-in-step-templates/) or a [community step template](/docs/projects/community-step-templates) available that does what you need. Or perhaps several of your projects have similar or identical steps. You can create your own custom step templates to reuse across your projects. You can also share them with the community.
 
 Custom step templates can be based on a built-in or installed community step templates. These custom step templates can be reused in projects and managed in the step template library.
 
@@ -29,7 +29,7 @@ There are three parts to any step template:
 
 The Step tab is where you fill out the details of what the step will do. This tab gives you exactly the same fields as you would see if you added the step type directly to your project, so it will be the most familiar.
 
-Any details that need to be specified at the project level can be handled using Parameters. Any parameters specified in the Parameters tab will be exposed to you as [variables](/docs/projects/variables/) and can be used in the same way.
+Any details that need to be specified at the project level can be handled using Parameters. Any parameters specified in the Parameters tab will be exposed to you as [variables](/docs/projects/variables) and can be used in the same way.
 
 ## Parameters
 
@@ -59,7 +59,7 @@ You'll also see a handy counter next to the Usage tab so you can see at a glance
 
 ![Step templates usage](/docs/projects/images/step-templates-usage.png "width=500")
 
-If you have [version-controlled](/docs/projects/version-control/) projects that use step templates, you will be able to see a tab with version-controlled usages from up to twenty recent releases. You can filter this list to search for usage in a specific branch or use the advanced filters. 
+If you have [version-controlled](/docs/projects/version-control) projects that use step templates, you will be able to see a tab with version-controlled usages from up to twenty recent releases. You can filter this list to search for usage in a specific branch or use the advanced filters. 
 
 :::hint
 
@@ -94,7 +94,7 @@ If the linking process isn't linking a template that you believe should be linke
 
 ## Running script based custom step templates
 
-You can run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](/docs/administration/managing-infrastructure/performance/enable-web-request-logging/) in the past.
+You can run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](/docs/administration/managing-infrastructure/performance/enable-web-request-logging) in the past.
 
 :::hint
 It's important to note that you can only run script based custom step templates. It's not currently possible to execute step templates based on other step types.
@@ -127,7 +127,7 @@ To re-run the script against different deployment targets or modify the input pa
 All steps have a name, which is used to identify the step.
 
 :::success
-Be careful when changing names! Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example you can use [output variables](/docs/projects/variables/output-variables/) to chain steps together, and you use the name as the indexer for the output variable. For example: `#{Octopus.Action[StepA].Output.TestResult}`
+Be careful when changing names! Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example you can use [output variables](/docs/projects/variables/output-variables) to chain steps together, and you use the name as the indexer for the output variable. For example: `#{Octopus.Action[StepA].Output.TestResult}`
 :::
 
 ## Learn more

@@ -10,14 +10,14 @@ hideInThisSection: true
 
 !include <add-deployment-targets>
 
-The next step of this guide will [update the runbook process](/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets/) to run a script on those newly created runbook targets.  
+The next step of this guide will [update the runbook process](/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets) to run a script on those newly created runbook targets.  
 
 **Further Reading**
 
 For further reading on deployment targets in Octopus Deploy please see:
 
-- [Deployment Targets](/docs/infrastructure/deployment-targets/)
-- [Runbook Documentation](/docs/runbooks/)
-- [Runbook Examples](/docs/runbooks/runbook-examples/)
+- [Deployment Targets](/docs/infrastructure/deployment-targets)
+- [Runbook Documentation](/docs/runbooks)
+- [Runbook Examples](/docs/runbooks/runbook-examples)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/runbook-specific-variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets">Next</a></span>

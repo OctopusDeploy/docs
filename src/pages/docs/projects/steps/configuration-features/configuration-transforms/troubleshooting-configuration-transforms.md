@@ -7,7 +7,7 @@ description: Using .NET configuration transformations.
 navOrder: 50
 ---
 
-If you're new to .NET configuration transformation, first check the package(s) part of the deployment are structured and contain what you expect. Following on from that review the deployment logs and output of the package(s) on your deployment targets to get investigate any unexpected behavior. You can try using the `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` variable defined in the [System Variables](/docs/projects/variables/system-variables/) section of the documentation while you set it up the first time.
+If you're new to .NET configuration transformation, first check the package(s) part of the deployment are structured and contain what you expect. Following on from that review the deployment logs and output of the package(s) on your deployment targets to get investigate any unexpected behavior. You can try using the `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` variable defined in the [System Variables](/docs/projects/variables/system-variables) section of the documentation while you set it up the first time.
 
 ## Advanced .NET configuration transforms examples
 

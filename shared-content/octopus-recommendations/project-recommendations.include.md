@@ -79,7 +79,7 @@ When it is time to deploy a project to an environment for the first time, you sh
 
 ## Take advantage of run conditions
 
-Almost everyone is familiar with environment [run conditions](/docs/projects/steps/conditions/).  For instance, run a step in production only.  Alternatively, don't run this step in development or testing.  However, there are other [run conditions](/docs/projects/steps/conditions/#run-condition):
+Almost everyone is familiar with environment [run conditions](/docs/projects/steps/conditions).  For instance, run a step in production only.  Alternatively, don't run this step in development or testing.  However, there are other [run conditions](/docs/projects/steps/conditions/#run-condition):
 
  * Only running when the previous step was successful.
  * Only running on failure.
@@ -94,7 +94,7 @@ These conditions allow you to have a greater degree of control over your deploym
 
 A typical scenario we see is that application deployments are automated, but the database deployment is manual.  This means a DBA must run the scripts on the night of deployment to production.  After they finish, the automated process can be kicked off.  Because this is manual, there's a good chance one or more of the scripts were not included in the deployments to dev, testing or staging.  Without prior testing, the likelihood of success decreases and the deployment time increases.
 
-Essentially, this great automated process takes a few minutes to finish, but it depends on a manual process that takes anywhere from ten minutes to an hour to complete.  Every component of the application needs to be automated, even the database.  Octopus Deploy integrates with many [database deployment](/docs/deployments/databases/) tools to help with this sort of automation.
+Essentially, this great automated process takes a few minutes to finish, but it depends on a manual process that takes anywhere from ten minutes to an hour to complete.  Every component of the application needs to be automated, even the database.  Octopus Deploy integrates with many [database deployment](/docs/deployments/databases) tools to help with this sort of automation.
 
 ## Conclusion
 

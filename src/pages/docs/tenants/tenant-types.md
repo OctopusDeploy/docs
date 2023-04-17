@@ -40,7 +40,7 @@ Database based tenancy is similar to Code based, however, each tenant has their 
 
 Isolated is where each tenant has their own, dedicated infrastructure.  This removes the risk of cross tenant data contamination, but it complicates deployments. The deployment process itself may not change, but the application now has to be deployed per tenant. Each deployment has to configure the application instance for that tenant. The complication to the deployment process offers flexibility and scalability to the application and its deployments. Tenants can now be upgraded independently and be hosted on hardware that fits their needs.
 
-Learn more about how to to configure multi-tenancy for a SaaS application in Octopus with our [multi-tenant SaaS guide](/docs/tenants/guides/multi-tenant-saas-application/).
+Learn more about how to to configure multi-tenancy for a SaaS application in Octopus with our [multi-tenant SaaS guide](/docs/tenants/guides/multi-tenant-saas-application).
 
 ## Geographical regions or datacenters {#regions}
 
@@ -48,7 +48,7 @@ Another pattern for multi-tenancy is to treat geographic regions of the same org
 
 ![](/docs/tenants/images/region-tenants.png "width=500")
 
-Learn more about how to to configure multi-tenancy for regions in Octopus with our [multi-tenant regions guide](/docs/tenants/guides/multi-tenant-region/).
+Learn more about how to to configure multi-tenancy for regions in Octopus with our [multi-tenant regions guide](/docs/tenants/guides/multi-tenant-region).
 
 ## Teams {#teams}
 
@@ -56,4 +56,4 @@ Concurrent application development is another multi-tenant use-case.  Using tena
 
 ![](/docs/tenants/images/team-tenants.png "width=500")
 
-Learn more about how to to configure multi-tenancy for teams in Octopus with our [multi-tenant teams guide](/docs/tenants/guides/multi-tenant-teams/).
+Learn more about how to to configure multi-tenancy for teams in Octopus with our [multi-tenant teams guide](/docs/tenants/guides/multi-tenant-teams).

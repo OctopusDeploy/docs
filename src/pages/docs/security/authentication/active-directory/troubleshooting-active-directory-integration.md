@@ -19,14 +19,14 @@ This information is provided as a guide to help teams troubleshoot Octopus authe
 - Read-Only Domain Controllers are not supported
 - Run as a different user not working
 
-Octopus integrates with Active Directory to authenticate users as well as authorize what actions they can perform.  Our [Active Directory authentication](/docs/security/authentication/active-directory/) page provides more information on how to set up Octopus to work with Active Directory and some details on how it's technically implemented.  Essentially, Octopus interacts with Active Directory in two ways:
+Octopus integrates with Active Directory to authenticate users as well as authorize what actions they can perform.  Our [Active Directory authentication](/docs/security/authentication/active-directory) page provides more information on how to set up Octopus to work with Active Directory and some details on how it's technically implemented.  Essentially, Octopus interacts with Active Directory in two ways:
 
 1. First, we authenticate a users' credentials are valid by invoking the Windows API `LogonUser()` function.
 2. If that is successful, Octopus will then query Active Directory for information about the user.  In this second interaction, we retrieve the groups a user is a member of and use them to determine what teams they belong to.
 
 :::hint
 **Teams are not Distribution Groups**
-Whilst you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/administration/managing-infrastructure/subscriptions/) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group, email address will require setting up a user with that email address and assigning them to the appropriate Octopus team.
+Whilst you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/administration/managing-infrastructure/subscriptions) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group, email address will require setting up a user with that email address and assigning them to the appropriate Octopus team.
 :::
 
 ## How Active Directory Authentication Works
@@ -102,7 +102,7 @@ Notes:
 If specifying a container.
 - Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we suggest talking to your network team (active directory expert) or trying different values and testing it with the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
 
-See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](/docs/security/authentication/active-directory/custom-containers-for-ad-authentication/).
+See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](/docs/security/authentication/active-directory/custom-containers-for-ad-authentication).
 
 Similarly, the following script duplicates the logic we use to search for groups (when you're trying to find one to add to a Team).
 
@@ -193,6 +193,6 @@ To resolve this issue, open Active Directory Administrative Center for the domai
 
 ## Integrated authentication across domains not working {#Integrated}
 
-Octopus Server `2020.1.x` has a known issue with users signing in across domains. The underlying cause relates to server moving from .NET Framework (HttpListener) to .NET Core (HttpSys). For more information about the issue, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/6265). For confguration guidelines and troubleshooting integrated authentication, see our [Active Directory authentication](/docs/security/authentication/active-directory/) guide.
+Octopus Server `2020.1.x` has a known issue with users signing in across domains. The underlying cause relates to server moving from .NET Framework (HttpListener) to .NET Core (HttpSys). For more information about the issue, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/6265). For confguration guidelines and troubleshooting integrated authentication, see our [Active Directory authentication](/docs/security/authentication/active-directory) guide.
 
 For users on a different domain to the domain the Octopus Server is a member of, the workaround is to use forms authentication instead of the `Sign in with a domain account` button. As of `2020.1.7` the server will detect this issue when users attempt to sign in across domains, and it will provide guidance to those users who are impacted.

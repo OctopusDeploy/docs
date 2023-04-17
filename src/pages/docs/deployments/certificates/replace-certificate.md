@@ -11,7 +11,7 @@ The replace certificate feature is designed for the scenario where a new certifi
 
 The new certificate will assume the ID of the previous certificate, meaning all referencing variables will now refer to the new certificate.
 
-The previous certificate will be [archived](/docs/deployments/certificates/archiving-and-deleting-certificates/).
+The previous certificate will be [archived](/docs/deployments/certificates/archiving-and-deleting-certificates).
 
 To replace a certificate, navigate to the certificate details page and click 'Replace':
 

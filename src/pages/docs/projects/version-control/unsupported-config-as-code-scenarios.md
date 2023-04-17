@@ -30,7 +30,7 @@ An error will occur when Octopus Deploy attempts to load a process from source c
 
 The configuration as code feature is not designed to allow two or more projects on different instances to point to the same folder. We've seen our users attempt to use Configuration as Code to keep the deployment processes in sync across multiple instances. That scenario is unsupported.
 
-While it may work initially, it will be harder and harder to manage over time. You will need to keep _all_ the scaffolding data in sync across multiple instances. That is [easier said than done](/docs/administration/sync-instances/).  Step templates will be the most difficult, as having the same step template on all instances, the version has to match. Otherwise, you'll have to worry about settings such as parameters, scripts, package versions, feeds, and more.
+While it may work initially, it will be harder and harder to manage over time. You will need to keep _all_ the scaffolding data in sync across multiple instances. That is [easier said than done](/docs/administration/sync-instances).  Step templates will be the most difficult, as having the same step template on all instances, the version has to match. Otherwise, you'll have to worry about settings such as parameters, scripts, package versions, feeds, and more.
 
 :::warning
 The first version of Configuration as Code only stores the deployment process in the git repo. It does not store variables or runbook processes. Once variables are added, the amount of scaffolding data will increase.  

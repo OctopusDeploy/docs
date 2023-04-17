@@ -7,7 +7,7 @@ description: Prevents a release from progressing to next phase
 navOrder: 265
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to prevent a release from progressing to next phase.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to prevent a release from progressing to next phase.
 
 ```
 Prevents a release from progressing to the next phase.
@@ -87,5 +87,5 @@ octo prevent-releaseprogression --project="WingtipToys" --releaseNumber="1.0.0.0
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

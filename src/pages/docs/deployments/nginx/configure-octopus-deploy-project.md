@@ -7,7 +7,7 @@ description: This guide describes how to configure your Octopus project to deplo
 navOrder: 2
 ---
 
-Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [NGINX Sample Web App](/docs/deployments/nginx/create-and-push-asp.net-core-project/) ASP.NET Core project to a Linux machine.
+Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [NGINX Sample Web App](/docs/deployments/nginx/create-and-push-asp.net-core-project) ASP.NET Core project to a Linux machine.
 
 ## Configure environment
 
@@ -16,12 +16,12 @@ Assuming you are starting with a clean install of Octopus Deploy, the following 
 ![](/docs/deployments/nginx/images/production_environment.png "width=500")
 
 :::success
-For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/) and [lifecycles](/docs/releases/lifecycles/) to create advanced deployment processes.
+For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/) and [lifecycles](/docs/releases/lifecycles) to create advanced deployment processes.
 :::
 
 ## Configure account and target
 
-To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous "[Configuring Target Machine](/docs/deployments/nginx/configure-target-machine/)" step this should consist of a username and password pair.
+To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous "[Configuring Target Machine](/docs/deployments/nginx/configure-target-machine)" step this should consist of a username and password pair.
 
 - Navigate to **{{Environments,Accounts,Usernames/Passwords,Add Account}}** and add these credentials.
 - In the **Production** environment click *Add deployment target* and select *SSH Connection*.
@@ -30,7 +30,7 @@ To connect over SSH the first thing you will need to do is add the credentials f
 - Continue to fill out the rest of the details, selecting the account that you created above.
 
 :::success
-Further details are provided throughout the rest of this documentation about [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target/).
+Further details are provided throughout the rest of this documentation about [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target).
 :::
 
 ## Create deployment project

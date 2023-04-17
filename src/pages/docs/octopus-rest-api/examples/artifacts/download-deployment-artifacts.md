@@ -6,7 +6,7 @@ title: Download Deployment Artifact
 description: An example script to download a deployment artifact to a specified location.
 ---
 
-This script provides an example of how to programmatically download an existing [artifact](/docs/projects/deployment-process/artifacts/) created as part of a deployment to a specified location.
+This script provides an example of how to programmatically download an existing [artifact](/docs/projects/deployment-process/artifacts) created as part of a deployment to a specified location.
 
 ## Usage
 

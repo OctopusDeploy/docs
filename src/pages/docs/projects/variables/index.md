@@ -14,7 +14,7 @@ hideInThisSectionHeader: true
 
 In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
 
-1. To add a variable to your [project](/docs/projects/), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
+1. To add a variable to your [project](/docs/projects), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
 2. Give the variable a name, for instance, *Greeting*.
 3. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
 4. Define the scope for the value, for instance, by selecting the *Test* environment.
@@ -135,7 +135,7 @@ You want to deploy the same package on each server but the deployment path will 
 
 ![](/docs/projects/variables/images/deploy-path-variable.png "width=500")
 
-Then, on your deployment step, you can set the **[Custom Install Directory](/docs/projects/steps/configuration-features/custom-installation-directory/)** to `#{DeployPath}`.
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/projects/steps/configuration-features/custom-installation-directory)** to `#{DeployPath}`.
 
 ![](/docs/projects/variables/images/custom-install-path.png "width=500")
 
@@ -147,22 +147,22 @@ When applying permissions on variables via scopes, the only options that are che
 
 It's important to understand how Octopus treats variables with regard to case sensitivity:
 - Variable names are **case insensitive**. 
-- Variable contents are by default **case insensitive**. You can alter this behavior by using either the `ToLower` or `ToUpper` [variable filters](/docs/projects/variables/variable-filters/).
+- Variable contents are by default **case insensitive**. You can alter this behavior by using either the `ToLower` or `ToUpper` [variable filters](/docs/projects/variables/variable-filters).
 
-If you are using the [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/) feature, variable names are matched in a **case insensitive** way.
+If you are using the [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) feature, variable names are matched in a **case insensitive** way.
 
 ## Variable Recommendations
 
 ### Group variables into Variable Sets
 
-Variables sometimes naturally fit into groups, and often you'll find multiple applications will use these groups.  Octopus has [Variable Sets](/docs/projects/variables/library-variable-sets/); allowing you to group variables into a reusable set so that they can be used by other projects.
+Variables sometimes naturally fit into groups, and often you'll find multiple applications will use these groups.  Octopus has [Variable Sets](/docs/projects/variables/library-variable-sets); allowing you to group variables into a reusable set so that they can be used by other projects.
 
 ### Namespace variables
 
 We recommend namespacing your variables to make identifying their use clearer.  Examples of how this can work are:
 
 * A project-level variable that holds the value for a SQL Server user's password could be `Project.SQL.Password`.  Then you can have `Project.SQL.Username`.  This adds clarity to the variable's value and has the added advantage that the variables will show next to each other in the list of variables.
-* If you are using [Variable Sets](/docs/projects/variables/library-variable-sets/), use the set name as the first part of the variable name.  A variable that holds an RSS feed URL in the set **Global** can be named `Global.RSSFeed.Url`.  
+* If you are using [Variable Sets](/docs/projects/variables/library-variable-sets), use the set name as the first part of the variable name.  A variable that holds an RSS feed URL in the set **Global** can be named `Global.RSSFeed.Url`.  
 
 ### Keep variable numbers low 
 
@@ -176,4 +176,4 @@ If the answer to either of those questions is yes, it might be worth considering
 ## Learn more
 
 - [Variable blog posts](https://octopus.com/blog/tag/variables)
-- [Using variables in your scripts](/docs/deployments/custom-scripts/) 
+- [Using variables in your scripts](/docs/deployments/custom-scripts) 

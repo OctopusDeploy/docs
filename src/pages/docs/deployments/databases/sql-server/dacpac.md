@@ -186,4 +186,4 @@ The results will look like:
 
 ![](/docs/deployments/databases/sql-server/images/octopus-project-deploy-complete.png "width=500")
 
-The first part of this process gathers the changes and creates two [artifacts](/docs/projects/deployment-process/artifacts/), an XML file that reports which objects will be changed and the script it will use to apply those changes.  The deployment (deploy DACPAC) uses that generated script and applies it to the target so the database matches the desired state.
+The first part of this process gathers the changes and creates two [artifacts](/docs/projects/deployment-process/artifacts), an XML file that reports which objects will be changed and the script it will use to apply those changes.  The deployment (deploy DACPAC) uses that generated script and applies it to the target so the database matches the desired state.

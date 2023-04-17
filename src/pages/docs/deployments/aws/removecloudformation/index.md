@@ -18,7 +18,7 @@ Add the **Delete an AWS CloudFormation stack** step to the project, and provide 
 
 ### AWS section
 
-Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables/).
+Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).
 
 ![AWS Account](/docs/deployments/aws/removecloudformation/images/step-aws-account.png "width=500")
 

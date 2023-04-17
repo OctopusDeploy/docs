@@ -35,7 +35,7 @@ To override the guided failure settings of the environments being deployed to an
 If something goes wrong during the deployment, Octopus will interrupt the deployment, and request guidance for how to handle the failure.
 
 1. When a deployment encounters an error, Octopus will interrupt the deployment and wait for manual intervention.
-1. A user with the correct [permissions](/docs/security/users-and-teams/user-roles/) can claim the manual intervention by clicking **ASSIGN TO ME**.
+1. A user with the correct [permissions](/docs/security/users-and-teams/user-roles) can claim the manual intervention by clicking **ASSIGN TO ME**.
 1. Next, the user can choose between the following options:
   - **FAIL**: mark the deployment as failed, don't try anything else.
   - **RETRY**: retry the step where the error occurred.
@@ -43,7 +43,7 @@ If something goes wrong during the deployment, Octopus will interrupt the deploy
   - **EXCLUDE MACHINE FROM DEPLOYMENTS**: exclude the deployment target from the rest of the deployment and proceed.
 
 :::success
- Guided failure mode uses the same [user experience that is used for manual steps](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/octopus-rest-api/)).
+ Guided failure mode uses the same [user experience that is used for manual steps](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/octopus-rest-api)).
 :::
 
 Note: If a process step is set to [required](/docs/projects/steps/conditions/#required) then you will not see the manual intervention options like "IGNORE" and "EXCLUDE MACHINE FROM DEPLOYMENTS".  

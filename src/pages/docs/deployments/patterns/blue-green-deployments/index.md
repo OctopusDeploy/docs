@@ -26,4 +26,4 @@ As well as reducing downtime, Blue-Green can be a powerful way to use extra hard
 
 ## Learn More
 
-- [Change load-balancer group Runbook example](/docs/runbooks/runbook-examples/aws/change-load-balancer-group/).
+- [Change load-balancer group Runbook example](/docs/runbooks/runbook-examples/aws/change-load-balancer-group).

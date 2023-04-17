@@ -10,7 +10,7 @@ navOrder: 200
 This page outlines our recommended steps to move your SQL database to another server, without moving your Octopus Server. The following is our advised approach to moving your Octopus database while retaining all of your data.
 
 ## Step-by-step process {#Movethedatabase-StepByStep}
-1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode/) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
+1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --stop`
 2. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption/#Securityandencryption-YourMasterKey).
 3. Take a backup of your Octopus database.
@@ -21,16 +21,16 @@ Octopus.Server.exe database --connectionString="VALUE"
 ```
 :::hint
 **Database connection string tips**
-- Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database](/docs/installation/sql-server-database/) documentation page.
+- Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database](/docs/installation/sql-server-database) documentation page.
 - When running the Octopus Deploy service as a Local System account, Windows Authentication can be used only if the SQL server instance is hosted on the same machine. To host SQL Server remotely, use SQL Server Authentication, or run the Octopus Deploy service as a custom account.
 :::
 
 ## Step-by-step process for Octopus HA {#Movethedatabase-StepByStepOctopusHA}
 
-When you are using [Octopus High Availability](/docs/administration/high-availability/) clusters, you should generally follow the same instructions as above, but repeat certain steps for each node.
+When you are using [Octopus High Availability](/docs/administration/high-availability) clusters, you should generally follow the same instructions as above, but repeat certain steps for each node.
 
-1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode/)
-2. Toggle the [Drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes/) option for each Octopus Server node in {{ Configuration,Nodes }}
+1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode)
+2. Toggle the [Drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes) option for each Octopus Server node in {{ Configuration,Nodes }}
 3. Stop the service on each Octopus Server node when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --stop`
 4. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption/#Securityandencryption-YourMasterKey).

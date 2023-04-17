@@ -7,7 +7,7 @@ description: You can control release promotion using safe tenant-aware lifecycle
 navOrder: 60
 ---
 
-You can control which [releases](/docs/releases/) will be deployed to certain Tenants using [Channels](/docs/releases/channels/). 
+You can control which [releases](/docs/releases/) will be deployed to certain Tenants using [Channels](/docs/releases/channels). 
 
 ![](/docs/tenants/images/channel-restrict-by-tenant.png "width=500")
 
@@ -19,16 +19,16 @@ This page discusses some scenarios for controlling release promotion for tenants
 
 ## Implementing an early access program {#early-access-program}
 
-Quite often, you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/releases/channels/) and [Tenant Tags](/docs/tenants/tenant-tags/) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
+Quite often, you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/releases/channels/) and [Tenant Tags](/docs/tenants/tenant-tags) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the lifecycle {#eap-step-1-lifecycle}
 
-Firstly we will create a new [Lifecycle](/docs/releases/lifecycles/).
+Firstly we will create a new [Lifecycle](/docs/releases/lifecycles).
 
 ![](/docs/tenants/images/multi-tenant-limited-lifecycle.png "width=500")
 
 :::hint
-Learn more about [defining a limited Lifecycle for your test Channel](/docs/releases/channels/).
+Learn more about [defining a limited Lifecycle for your test Channel](/docs/releases/channels).
 :::
 
 ### Step 2: Configure the tenant tags {#eap-step-2-configure-tenant-tag}
@@ -63,16 +63,16 @@ Now when you are deploying **2.0.0-beta.1**, you will be able to select tenants 
 
 ## Restricting test releases {#restricting-test-releases}
 
-You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/releases/channels/) and [Tenant Tags](/docs/tenants/tenant-tags/) you can make sure test releases are only deployed to the correct tenants and environments.
+You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/releases/channels/) and [Tenant Tags](/docs/tenants/tenant-tags) you can make sure test releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the lifecycle {#test-step-1-lifecycle}
 
-Firstly we will create a new [Lifecycle](/docs/releases/lifecycles/).
+Firstly we will create a new [Lifecycle](/docs/releases/lifecycles).
 
 ![](/docs/tenants/images/multi-tenant-limited-lifecycle.png "width=500")
 
 :::hint
-Learn more about [defining a limited Lifecycle for your test Channel](/docs/releases/channels/).
+Learn more about [defining a limited Lifecycle for your test Channel](/docs/releases/channels).
 :::
 
 ### Step 2: Configure the tenant tags {#test-step-2-configure-tenant-tag}
@@ -107,7 +107,7 @@ When you deploy this release, you will be able to choose from the limited set of
 
 ## Pinning tenants to a release {#pinning-tenants}
 
-Quite often, you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/releases/channels/) and [Tenant Tags](/docs/tenants/tenant-tags/).
+Quite often, you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/releases/channels/) and [Tenant Tags](/docs/tenants/tenant-tags).
 
 ### Step 1: Create the upgrade ring/pinned tag {#pinned-step-1-configure-tenant-tag}
 

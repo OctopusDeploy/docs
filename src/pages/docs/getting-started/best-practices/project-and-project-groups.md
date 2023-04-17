@@ -8,7 +8,7 @@ navOrder: 50
 hideInThisSection: true
 ---
 
-[Projects](/docs/projects/) let you create and manage your deployment processes, releases, and runbooks from the Octopus REST API and Octopus Web Portal. For each project, you can define a deployment process, runbooks to manage your infrastructure, variables, the environments where the software will be deployed, and your software releases.  Project groups allow you to group like projects together.  
+[Projects](/docs/projects) let you create and manage your deployment processes, releases, and runbooks from the Octopus REST API and Octopus Web Portal. For each project, you can define a deployment process, runbooks to manage your infrastructure, variables, the environments where the software will be deployed, and your software releases.  Project groups allow you to group like projects together.  
 
 ## Project Structure
 
@@ -59,7 +59,7 @@ Octopus Deploy expects any application component it deploys to contain everythin
 
 For further reading on projects and project groups in Octopus Deploy please see:
 
-- [Projects](/docs/projects/)
+- [Projects](/docs/projects)
 - [Release Orchestration](https://octopus.com/blog/release-management-with-octopus)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/worker-configuration">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/variables">Next</a></span>

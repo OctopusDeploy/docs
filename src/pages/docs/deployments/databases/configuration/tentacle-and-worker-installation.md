@@ -7,7 +7,7 @@ description: Where to install Tentacles and how to configure Workers.
 navOrder: 10
 ---
 
-Do not install Tentacles directly on your database servers, instead, use [Workers](/docs/infrastructure/workers/) or install Tentacles on jump boxes for database deployments.
+Do not install Tentacles directly on your database servers, instead, use [Workers](/docs/infrastructure/workers) or install Tentacles on jump boxes for database deployments.
 
 High-availability groups or clusters have 1 to N nodes, and the nodes are kept in sync by replication.  You only need to deploy to the primary node, and replication will apply the changes to all the nodes.  Installing a Tentacle on each node will not work as Octopus Deploy will see multiple Tentacles and attempt to deploy to multiple nodes.
 
@@ -15,11 +15,11 @@ SQL PaaS, such as [AWS RDS](https://aws.amazon.com/rds/) and [Azure's SQL](https
 
 Don't use the Tentacles on your web or application servers.  A recommended security practice is the principle of least privilege. The account used by the website to connect to the database server should have restricted permissions. For example, the website uses stored procedures; the account would only have permissions to execute those stored procedures. Whereas, the account used for deployments needs elevated permissions because that account needs to make schema changes.
 
-**Please note:** This document only covers the infrastructure side of database deployments.  You still need to configure a [project](/docs/projects/) in Octopus Deploy to handle the actual deployments.  
+**Please note:** This document only covers the infrastructure side of database deployments.  You still need to configure a [project](/docs/projects) in Octopus Deploy to handle the actual deployments.  
 
 ## Workers
 
-We recommend using [Workers](/docs/infrastructure/workers/) to handle all of your database deployments.  Workers have several advantages:
+We recommend using [Workers](/docs/infrastructure/workers) to handle all of your database deployments.  Workers have several advantages:
 
 1. You can run multiple deployments on them at the same time.
 2. You can place multiple VMs into a worker pool.  If a VM goes down during a deployment, another VM would step in and take it's place.
@@ -78,7 +78,7 @@ Certain steps do not let you to pick a Worker pool.  That list includes **Deploy
 
 ### Worker pool per environment after Octopus Deploy 2020.1
 
-A common security practice is to leverage Active Directory service accounts.  But each environment has its own service account.  The account that deploys to **Development** is prevented from deploying to **Test**.  The account that deploys to **Production** is prevented from deploying to **Development**.  This is accomplished with integrated security and running the Octopus Tentacle [as a specific user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account/).  This approach needs a Worker pool per environment:
+A common security practice is to leverage Active Directory service accounts.  But each environment has its own service account.  The account that deploys to **Development** is prevented from deploying to **Test**.  The account that deploys to **Production** is prevented from deploying to **Development**.  This is accomplished with integrated security and running the Octopus Tentacle [as a specific user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account).  This approach needs a Worker pool per environment:
 
 ![](/docs/deployments/databases/configuration/images/worker-pool-per-environment.png "width=500")
 
@@ -136,7 +136,7 @@ When a release is performed, it will use the environment-specific Worker pool.  
 
 ### Database deployments with Tentacles on a jump box {#tentacles-on-a-jump-box}
 
-If you are using an older version of Octopus Deploy, or your license limits you to one worker, then you need to install Tentacles on a jump box.  The jump box sits between Octopus Deploy and the Database Server VIP.  The Tentacle is running as a [service account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account/) with the necessary permissions to make schema changes.  The tooling you chose for database deployments is installed on the jump box:
+If you are using an older version of Octopus Deploy, or your license limits you to one worker, then you need to install Tentacles on a jump box.  The jump box sits between Octopus Deploy and the Database Server VIP.  The Tentacle is running as a [service account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account) with the necessary permissions to make schema changes.  The tooling you chose for database deployments is installed on the jump box:
 
 ![](/docs/deployments/databases/configuration/images/database-with-jump-box.png "width=500")
 
@@ -144,6 +144,6 @@ In the event of multiple domains, a jump box is needed per domain.  This might b
 
 ![](/docs/deployments/databases/configuration/images/database-jump-box-multiple-domains.png "width=500")
 
-It is possible to install many Tentacles on a single server.  Please [managing multiple instances](/docs/administration/managing-infrastructure/managing-multiple-instances/) for more information.  
+It is possible to install many Tentacles on a single server.  Please [managing multiple instances](/docs/administration/managing-infrastructure/managing-multiple-instances) for more information.  
 
 ![](/docs/deployments/databases/configuration/images/database-jump-box-multiple-tentacles.png "width=500")

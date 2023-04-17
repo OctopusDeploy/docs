@@ -41,17 +41,17 @@ After you have installed the Octopus Deploy plugin. First navigate to {{Manage J
 
 :::success
 **Creating API keys**
-Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/) so the plugin can interact with your Octopus Server.
+Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key) so the plugin can interact with your Octopus Server.
 :::
 
 ### Octopus CLI
 
-This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/).
+This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-cli).
 
- The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
+ The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
 
 You can do either of these:
-  - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool/) this works great on Linux and Windows.
+  - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool) this works great on Linux and Windows.
   - [Download Octopus CLI](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo` or `/usr/local/bin`.
 
 Then we can let the plugin know where it is installed.
@@ -64,7 +64,7 @@ Next, navigate to {{Manage Jenkins > Configure System}}.
 
 #### Octopus Server settings
 
-Here you can create the link to your Octopus Server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/) for it.
+Here you can create the link to your Octopus Server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key) for it.
 
 ![](/docs/packaging-applications/build-servers/jenkins/images/octopusdeploy-servers.png "width=500")
 
@@ -98,11 +98,11 @@ The Octopus Jenkins plugin comes with these Octopus Build Steps:
 
 Octopus supports multiple [package formats](/docs/packaging-applications/#supported-formats) for deploying your software.
 
-You can configure your Jenkins project to [package](/docs/octopus-rest-api/octopus-cli/pack/) your application or other files on disk, without the need of any specification files, e.g. `.nuspec`.
+You can configure your Jenkins project to [package](/docs/octopus-rest-api/octopus-cli/pack) your application or other files on disk, without the need of any specification files, e.g. `.nuspec`.
 
 The two supported formats are `zip` and `nuget`.
 
-To see the full set of additional arguments that can be supplied see the [pack documentation](/docs/octopus-rest-api/octopus-cli/pack/)
+To see the full set of additional arguments that can be supplied see the [pack documentation](/docs/octopus-rest-api/octopus-cli/pack)
 
 [Pack syntax for Pipeline](/docs/packaging-applications/build-servers/jenkins/pipeline/#pack)
 
@@ -112,7 +112,7 @@ This action works well combined with the next action `Push Packages`.
 
 ## Push packages {#Jenkins-Pushpackages}
 
-Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/), using this action you can push packages to Octopus.
+Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository), using this action you can push packages to Octopus.
 
 This action will push all packages that match the `Package paths` supplied.
 
@@ -126,7 +126,7 @@ Note that the package paths defined here should be full paths, not including any
 
 ## Push build information {#Jenkins-Pushbuildinformation}
 
-Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/build-information/).
+Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/build-information).
 
 The build information is associated with a package and includes:
 
@@ -151,7 +151,7 @@ Jenkins is compiling our code and publishing packages to Octopus Deploy. If we w
 
 :::success
 **Octopus CLI more information**
-Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) and the arguments it accepts.
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) and the arguments it accepts.
 :::
 
 When this job runs, Jenkins will now not only build and publish packages, it will also create a release in Octopus Deploy.

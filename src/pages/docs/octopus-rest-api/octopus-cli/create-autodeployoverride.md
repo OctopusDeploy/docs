@@ -7,7 +7,7 @@ description: Using the Octopus CLI to create automatic deployment release overri
 navOrder: 30
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to create automatic deployment release overrides.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create automatic deployment release overrides.
 
 ```
 Overrides the release that auto deploy will use.
@@ -113,6 +113,6 @@ octo create-autodeployoverride --project HelloWorld --environment Development --
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
-- [Automatic deployments](/docs/projects/project-triggers/deployment-target-triggers/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
+- [Automatic deployments](/docs/projects/project-triggers/deployment-target-triggers)

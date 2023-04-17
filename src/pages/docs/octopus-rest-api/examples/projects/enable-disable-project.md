@@ -6,7 +6,7 @@ title: Enable/disable project
 description: An example script that enables or disables a project in Octopus.
 ---
 
-This script demonstrates how to programatically enable or disable an Octopus [project](/docs/projects/).
+This script demonstrates how to programatically enable or disable an Octopus [project](/docs/projects).
 
 ## Usage
 

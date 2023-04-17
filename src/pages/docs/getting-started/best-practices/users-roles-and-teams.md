@@ -8,13 +8,13 @@ navOrder: 80
 hideInThisSection: true
 ---
 
-A [user](/docs/security/users-and-teams/) is an entity that performs an action in Octopus Deploy.  [User roles](/docs/security/users-and-teams/user-roles/) control what actions a user can perform.  Users and roles are assigned to [teams](/docs/security/users-and-teams/#Managingusersandteams-Creatingteams).  Teams are the core piece of the RBAC configuration in Octopus Deploy.  You control what specific users have permissions to perform specific actions on specific projects in specific environments by role assignment and scoping.
+A [user](/docs/security/users-and-teams/) is an entity that performs an action in Octopus Deploy.  [User roles](/docs/security/users-and-teams/user-roles) control what actions a user can perform.  Users and roles are assigned to [teams](/docs/security/users-and-teams/#Managingusersandteams-Creatingteams).  Teams are the core piece of the RBAC configuration in Octopus Deploy.  You control what specific users have permissions to perform specific actions on specific projects in specific environments by role assignment and scoping.
 
-A user can be directly or indirectly associated with a team.  You can explicitly assign a user to a team.  Or you can assign teams from [external auth providers](/docs/security/authentication/) to Octopus Deploy teams.
+A user can be directly or indirectly associated with a team.  You can explicitly assign a user to a team.  Or you can assign teams from [external auth providers](/docs/security/authentication) to Octopus Deploy teams.
 
 There are two kinds of users in Octopus Deploy:
 - User Account: allowed to log in to both the Octopus Web Portal and Octopus API.  Can be authenticated with external auth providers, username and password, or an Octopus API Key.
-- [Service Accounts](/docs/security/users-and-teams/service-accounts/) are API-only accounts used for automated services that integrate with Octopus Deploy.  It can only be authenticated with an Octopus API Key.
+- [Service Accounts](/docs/security/users-and-teams/service-accounts) are API-only accounts used for automated services that integrate with Octopus Deploy.  It can only be authenticated with an Octopus API Key.
 
 ## User Accounts
 
@@ -31,7 +31,7 @@ We also recommend creating a unique service account per integration.  For exampl
 
 ## API Keys
 
-[API Keys](/docs/octopus-rest-api/how-to-create-an-api-key/) allow you, or the service account, to access the [Octopus Deploy REST API](/docs/octopus-rest-api/).  API keys for users should be kept to a minimum, if a key was ever shared, then anyone can impersonate that user.  Only use API keys for service accounts for any external integrations.  
+[API Keys](/docs/octopus-rest-api/how-to-create-an-api-key/) allow you, or the service account, to access the [Octopus Deploy REST API](/docs/octopus-rest-api).  API keys for users should be kept to a minimum, if a key was ever shared, then anyone can impersonate that user.  Only use API keys for service accounts for any external integrations.  
 
 **Octopus Deploy 2020.6** introduced the concept of expiring API keys.  Our recommendation is to set up a periodic rotation of API keys following your companies policy on key expiration.  
 
@@ -97,10 +97,10 @@ Here are some of the more common scenarios we get asked about, along with the as
 
 For further reading on users, roles, and teams in Octopus Deploy please see:
 
-- [User](/docs/security/users-and-teams/)
-- [User roles](/docs/security/users-and-teams/user-roles/)
+- [User](/docs/security/users-and-teams)
+- [User roles](/docs/security/users-and-teams/user-roles)
 - [Teams](/docs/security/users-and-teams/#Managingusersandteams-Creatingteams)
-- [External Groups and Roles](/docs/security/users-and-teams/external-groups-and-roles/)
-- [Default Permissions for Built-in User Roles](/docs/security/users-and-teams/default-permissions/)
+- [External Groups and Roles](/docs/security/users-and-teams/external-groups-and-roles)
+- [Default Permissions for Built-in User Roles](/docs/security/users-and-teams/default-permissions)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/deployment-and-runbook-processes">Next</a></span>

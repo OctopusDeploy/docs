@@ -11,7 +11,7 @@ navOrder: 65
 Google Cloud Accounts were added in Octopus **2021.2**.
 :::
 
-[Google cloud accounts](/docs/infrastructure/accounts/google-cloud/) are included in a project through a project [variable](/docs/projects/variables/) of the type **Google Cloud Account**. Before you create a **Google cloud account Variable**, you need to [create a Google cloud account](/docs/infrastructure/accounts/google-cloud/) in Octopus:
+[Google cloud accounts](/docs/infrastructure/accounts/google-cloud/) are included in a project through a project [variable](/docs/projects/variables/) of the type **Google Cloud Account**. Before you create a **Google cloud account Variable**, you need to [create a Google cloud account](/docs/infrastructure/accounts/google-cloud) in Octopus:
 
 ![Google cloud account variable](/docs/projects/variables/images/google-cloud-account-variable.png "width=500")
 
@@ -47,10 +47,10 @@ Write-Host 'GoogleCloudAccount.JsonKey=' #{google cloud account.JsonKey}
 
 ## Add a Google cloud account to Octopus
 
-For instructions to set up a Google cloud account in Octopus, see [Google Cloud Accounts](/docs/infrastructure/accounts/google-cloud/).
+For instructions to set up a Google cloud account in Octopus, see [Google Cloud Accounts](/docs/infrastructure/accounts/google-cloud).
 
 ## Learn more
 
 - [Variable blog posts](https://octopus.com/blog/tag/variables)
-- How to use the [Run gcloud in a Script](/docs/deployments/google-cloud/run-gcloud-script/) step
-- How to create [Google cloud accounts](/docs/infrastructure/accounts/google-cloud/)
+- How to use the [Run gcloud in a Script](/docs/deployments/google-cloud/run-gcloud-script) step
+- How to create [Google cloud accounts](/docs/infrastructure/accounts/google-cloud)

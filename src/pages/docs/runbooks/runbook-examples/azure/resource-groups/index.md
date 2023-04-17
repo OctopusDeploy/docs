@@ -11,7 +11,7 @@ From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en
 
 > Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation.
 
-Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the *Deploy an Azure Resource Manager template* step type. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/) section. The instructions there apply equally to a runbook process too.
+Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the *Deploy an Azure Resource Manager template* step type. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section. The instructions there apply equally to a runbook process too.
 
 ## Create Azure resources runbook
 
@@ -31,12 +31,12 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
 
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. In the **Azure** section, choose the [Account](/docs/infrastructure/accounts/azure/) to use.
+1. In the **Azure** section, choose the [Account](/docs/infrastructure/accounts/azure) to use.
 
     ![Azure Account variable](/docs/runbooks/runbook-examples/azure/resource-groups/azure-account.png "width=500")
 
     :::hint
-    [Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 
+    [Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Azure account**. 
 
     The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions).
     :::
@@ -60,7 +60,7 @@ The JSON will be parsed, and your parameters will appear dynamically as fields i
 The parameter fields will show text boxes or select-lists as appropriate.  You can enter values directly, or bind the parameters to Octopus Variables (e.g. see the *siteName* parameter in the image above).
 
 :::success
-Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions/) on the JSON template.
+Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions) on the JSON template.
 
 Although you can use variables directly in the template, it is more idiomatic to use parameters, and plug the variables into those (as seen above). This will allow you to use or test your template outside of Octopus Deploy.
 :::
@@ -73,7 +73,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
 :::
 
-The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
+The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter).
 
 ![](/docs/runbooks/runbook-examples/azure/resource-groups/arm-sensitive-data.png "width=500")
 
@@ -86,7 +86,7 @@ By selecting *File inside a Package* as the *Template Source*, you can select
 The Template Path and Parameters Path fields should contain the relative path to these files within the package.
 
 :::success
-Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions/) on both the Template and Parameter files.
+Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions) on both the Template and Parameter files.
 :::
 
 #### Parameter file format {#DeployusinganAzureResourceGroupTemplate-ParameterFileFormat}
@@ -157,7 +157,7 @@ The Parameter JSON file can be in one of two formats:
 
 ### Accessing ARM template output parameters {#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters}
 
-Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/projects/variables/output-variables/) automatically. For example, an output `Foo` would be available as:
+Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/projects/variables/output-variables) automatically. For example, an output `Foo` would be available as:
 
 ```powershell
 Octopus.Action[Arm Template Step Name].Output.AzureRmOutputs[Foo]

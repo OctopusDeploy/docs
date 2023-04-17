@@ -30,7 +30,7 @@ The Azure Script step has an option called "Azure Tools". Toggle the setting to 
 
 ## Octopus 2018.5.5 to 2019.13.7 {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2018.5.5-to-2019.13.7}
 
-Create a [variable](/docs/projects/variables/) named **OctopusUseBundledAzureCLI** and set its value to **False**.
+Create a [variable](/docs/projects/variables) named **OctopusUseBundledAzureCLI** and set its value to **False**.
 
 With this value set, Octopus Deploy will not load the bundled Azure CLI.
 

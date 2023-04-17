@@ -7,4 +7,4 @@ description: This section includes examples of how to use the REST API to create
 navOrder: 170
 hideInThisSectionHeader: true
 ---
-You can use the REST API to create and manage your Octopus [Spaces](/docs/administration/spaces/). Typical tasks can include:
+You can use the REST API to create and manage your Octopus [Spaces](/docs/administration/spaces). Typical tasks can include:

@@ -7,7 +7,7 @@ description: Allows a release to progress to next phase
 navOrder: 5
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to allow a release to progress to next phase.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to allow a release to progress to next phase.
 
 ```
 Allows a release to progress to the next phase.
@@ -80,12 +80,12 @@ Common options:
 
 !include <samples-instance>
 
-This example removes the [prevent progression](/docs/releases/prevent-release-progression/) flag from a release, allowing it to proceed to the next environment.
+This example removes the [prevent progression](/docs/releases/prevent-release-progression) flag from a release, allowing it to proceed to the next environment.
 ```
 octo allow-releaseprogression --project="Octo Pet Shop" --releaseNumber="2020.08.03.82" --space="Target - Hybrid" --server="https://samples.octopus.app" --apiKey="MyApiKey"
 ```
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

@@ -6,7 +6,7 @@ title: Kubernetes cluster
 description: How to configure a Kubernetes cluster as a deployment target in Octopus
 navOrder: 50
 ---
-Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernetes/) to define the context in which deployments and scripts are run.
+Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernetes) to define the context in which deployments and scripts are run.
 
 Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.  A namespace is required when registering the Kubernetes cluster with Octopus Deploy. By default, the namespace used in the registration is used in health checks and deployments. The namespace can be overwritten in the deployment process.
 
@@ -22,7 +22,7 @@ From **Octopus 2022.3** will include EKS cluster support.
 Octopus can discover Kubernetes targets in _Azure Kubernetes Service_ (AKS) or _Amazon Elastic Container Service for Kubernetes_ (EKS) as part of your deployment using tags on your AKS or EKS resource. 
 
 :::hint
-From **Octopus 2022.3**, you can configure the well-known variables used to discover Kubernetes targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/) for more information.
+From **Octopus 2022.3**, you can configure the well-known variables used to discover Kubernetes targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 :::
 
 To discover targets use the following steps:
@@ -33,7 +33,7 @@ To discover targets use the following steps:
 
 Kubernetes targets discovered will not have a namespace set, the namespace on the step will be used during deployment (or the default namespace in the cluster if no namespace is set on the step).
 
-See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/) for more information.
+See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 
 ## A sample config file
 
@@ -76,12 +76,12 @@ users:
 1. Navigate to **{{Infrastructure,Deployment Targets}}**, and click **ADD DEPLOYMENT TARGET**.
 2. Select **KUBERNETES CLUSTER** and click **ADD** on the Kubernetes Cluster card.
 3. Enter a display name for the Kubernetes Cluster.
-4. Select at least one [environment](/docs/infrastructure/environments/) for the target.
+4. Select at least one [environment](/docs/infrastructure/environments) for the target.
 5. Select at least one [target role](/docs/infrastructure/deployment-targets/#target-roles) for the target.
 6. Select the authentication method. Kubernetes targets support multiple [account types](https://oc.to/KubernetesAuthentication):
-    - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password/) account.
-    - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens/) account.
-    - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/accounts/azure/) allow Azure Active Directory accounts to be used.
+    - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password) account.
+    - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens) account.
+    - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/accounts/azure) allow Azure Active Directory accounts to be used.
 
       The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
 
@@ -89,7 +89,7 @@ users:
       Available from **Octopus 2020.6**, the **Login with administrator credentials** option may be required to authenticate with an AKS cluster with Azure Active Directory integration, as performing a non-interactive login with `kubectl` is not currently available. See this <a href="https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks/suggestions/35146387-support-non-interactive-login-for-aad-integrated-c">Azure UserVoice</a> suggestion for more details on this limitation.
       :::
 
-    - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/accounts/aws/) allow IAM accounts and roles to be used.
+    - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/accounts/aws) allow IAM accounts and roles to be used.
 
       The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. We highly recommend reading the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).    
 
@@ -101,7 +101,7 @@ users:
 
       When you create an Amazon EKS cluster, the IAM entity user or role that creates the cluster is automatically granted `system:master` permissions in the cluster's RBAC configuration. To grant additional AWS users or roles the ability to interact with your cluster, you must edit the `aws-auth` ConfigMap within Kubernetes. See the [Managing Users or IAM Roles for your Cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
       :::
-    - **Google Cloud Account**: When using a GKE cluster, [Google Cloud accounts](/docs/infrastructure/accounts/google-cloud/) allow you to authenticate using a Google Cloud IAM service account.
+    - **Google Cloud Account**: When using a GKE cluster, [Google Cloud accounts](/docs/infrastructure/accounts/google-cloud) allow you to authenticate using a Google Cloud IAM service account.
 
       :::hint
       From `kubectl` version `1.26`, authentication against a GKE cluster [requires an additional plugin called `gke-cloud-auth-plugin` to be available](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke) on the PATH where your step is executing. If you manage your own execution environment (eg self-hosted workers, custom execution containers etc), you will need to ensure the auth plugin is available alongside `kubectl`
@@ -143,7 +143,7 @@ users:
         -inkey private.key
       ```
 
-      This file can then be uploaded to the [Octopus certificate management area](/docs/deployments/certificates/), after which, it will be made available to the Kubernetes target.
+      This file can then be uploaded to the [Octopus certificate management area](/docs/deployments/certificates), after which, it will be made available to the Kubernetes target.
 
       The Certificates Library can be accessed via **{{Library>Certificates}}**.
 
@@ -285,7 +285,7 @@ When a Kubernetes target is used with a Helm step, the `helm` executable must be
 
 Kubernetes targets can be created dynamically at deploy time with the PowerShell function `New-OctopusKubernetesTarget`.
 
-See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target/) for more information.
+See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target) for more information.
 
 ## Troubleshooting
 
@@ -375,5 +375,5 @@ If you are finding that certain API calls are failing, for example `https://your
 
 ## Learn more
 
-- [Kubernetes Deployment](/docs/deployments/kubernetes/)
+- [Kubernetes Deployment](/docs/deployments/kubernetes)
 - [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)

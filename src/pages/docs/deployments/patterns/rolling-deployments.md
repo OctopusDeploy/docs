@@ -13,7 +13,7 @@ Normally, when executing a deployment process with multiple steps, Octopus runs 
 
 ![](/docs/deployments/patterns/images/normal-deployment.png "width=500")
 
-NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts/), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
+NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
 
 - Deployment steps are run in sequence
 - The actions performed by each step are performed in parallel on all deployment targets
@@ -77,7 +77,7 @@ With this configuration, we run the entire website deployment step - taking the 
 
 ### Child step variable run conditions {#Rollingdeployments-childstepvariablerunconditions}
 
-It’s possible to add variable [run conditions](/docs/projects/steps/conditions/) to child steps in a rolling deployment. Both [variable expressions](/docs/projects/steps/conditions/#variable-expressions) and [machine-level](/docs/projects/steps/conditions/#machine-level-variable-expressions) variable expressions are supported. This allows you to customize the deployment process for machines taking part in a rolling deployment based on your specific needs.
+It’s possible to add variable [run conditions](/docs/projects/steps/conditions) to child steps in a rolling deployment. Both [variable expressions](/docs/projects/steps/conditions/#variable-expressions) and [machine-level](/docs/projects/steps/conditions/#machine-level-variable-expressions) variable expressions are supported. This allows you to customize the deployment process for machines taking part in a rolling deployment based on your specific needs.
 
 For example, if you are deploying a web service update to a web farm in a rolling deployment, you could sanity test the service in a step called `Sanity Test Web Service`. This step would run after the update step and set the service status in an output variable:
 
@@ -95,11 +95,11 @@ In a follow-up step, you can add it back to the web farm if the service status i
 #{if Octopus.Action[Sanity Test Web Service].Output[#{Octopus.Machine.Name}].ShouldAddBackToWebFarm == "True"}True#{/if}
 ```
 
-Octopus will evaluate the value of the [Output variable](/docs/projects/variables/output-variables/) indicated by `#{Octopus.Machine.Name}` individually as the value will be specific to each machine in the rolling deployment.
+Octopus will evaluate the value of the [Output variable](/docs/projects/variables/output-variables) indicated by `#{Octopus.Machine.Name}` individually as the value will be specific to each machine in the rolling deployment.
 
 ## Rolling deployments with guided failures
 
-[Guided failures](/docs/releases/guided-failures/) work perfectly with rolling deployments. If your deployment fails to one of the targets in your rolling deployment you can decide how to proceed. Imagine a scenario where you have three web servers in a load-balanced pool: `Web01`, `Web02` and `Web03`:
+[Guided failures](/docs/releases/guided-failures) work perfectly with rolling deployments. If your deployment fails to one of the targets in your rolling deployment you can decide how to proceed. Imagine a scenario where you have three web servers in a load-balanced pool: `Web01`, `Web02` and `Web03`:
 
 1. `Web01` is removed from the load balancer, the new release is deployed successfully and `Web01` is returned to the load-balanced pool.
 2. `Web02` is removed from the load balancer, but the deployment of the new release fails. You can choose what happens next while `Web01` and `Web03` are still in the load-balanced pool.

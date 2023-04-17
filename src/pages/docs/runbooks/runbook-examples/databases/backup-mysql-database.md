@@ -18,7 +18,7 @@ In the following example, we'll use the [MySQL - Backup Database](https://librar
 2. Give the Runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **MySQL - backup database**.
-5. Fill out all the parameters in the step. It's best practice to use [variables](/docs/projects/variables/) rather than entering the values directly in the step parameters:
+5. Fill out all the parameters in the step. It's best practice to use [variables](/docs/projects/variables) rather than entering the values directly in the step parameters:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |

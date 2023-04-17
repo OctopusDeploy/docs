@@ -30,4 +30,4 @@ A good starting point is:
 These suggestions are a baseline. Monitor your Octopus Server and SQL Server performance on all resources including CPU, memory, disk, and network, and increase resources when needed. 
 :::
 
-If you have a Server or Data Center license you can leverage [Octopus High Availability](/docs/administration/high-availability/) to scale out your Octopus Deploy instance.  With that option we recommend adding more nodes with 4 cores / 8 GB of RAM instead of increasing resources on one single node.  Scaling vertically will only get you so far, at some point you run into underlying host limitations.
+If you have a Server or Data Center license you can leverage [Octopus High Availability](/docs/administration/high-availability) to scale out your Octopus Deploy instance.  With that option we recommend adding more nodes with 4 cores / 8 GB of RAM instead of increasing resources on one single node.  Scaling vertically will only get you so far, at some point you run into underlying host limitations.

@@ -19,7 +19,7 @@ Release notes may contain variable expressions. These will be evaluated and subs
 
 Only variables in scope when the release is created will be available for use in release notes. Variables scoped to environments, tenants, target roles, or targets will _not_ be available as these scopes apply only during deployments.   
 
-[Build information](/docs/packaging-applications/build-servers/build-information/) associated with packages in the release may also be used in release notes.
+[Build information](/docs/packaging-applications/build-servers/build-information) associated with packages in the release may also be used in release notes.
 
 ![Build information variables in release notes](/docs/releases/images/release-notes-build-information.png "width=500")
 
@@ -27,7 +27,7 @@ Only variables in scope when the release is created will be available for use in
 
 The release notes may be accessed during a deployment using the [Octopus.Release.Notes](/docs/projects/variables/system-variables/#Systemvariables-Release) variable.  
 
-Release notes are also rolled up into the [deployment notes](/docs/releases/deployment-notes/).
+Release notes are also rolled up into the [deployment notes](/docs/releases/deployment-notes).
 
 ## Release notes templates {#Release-Notes-Templates}
 
@@ -37,7 +37,7 @@ A release notes template is a convenient way to keep release notes consistent an
 
 Release notes templates will generally be most useful when combined with package build information, pushed from the build server.
 
-The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/build-information/) and [issues](/docs/releases/issue-tracking/).
+The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/build-information/) and [issues](/docs/releases/issue-tracking).
 
 :::hint
 4 spaces of indentation in a Release Note template indicates a code block. 

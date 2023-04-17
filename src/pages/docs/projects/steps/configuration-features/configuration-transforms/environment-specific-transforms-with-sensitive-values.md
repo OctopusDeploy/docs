@@ -9,7 +9,7 @@ navOrder: 30
 
 It is possible to combine the configuration features that you use in your deployments. One scenario where this is useful is if you need to provide environment specific configuration that includes sensitive values.
 
-This can be achieved using both the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates/) feature and the [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/) features.
+This can be achieved using both the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates/) feature and the [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms) features.
 
 ## One transform and variable replacement
 
@@ -51,7 +51,7 @@ We also have a `Web.Release.Config` transform file with the following contents:
 </configuration>
 ```
 
-Finally, we have the following [variables](/docs/projects/variables/) configured in Octopus:
+Finally, we have the following [variables](/docs/projects/variables) configured in Octopus:
 
 | Name       | Value   | Scope   |
 | ------------- | ------- | ------ |

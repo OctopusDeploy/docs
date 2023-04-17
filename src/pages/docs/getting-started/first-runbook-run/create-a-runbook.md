@@ -17,13 +17,13 @@ A single Octopus Deploy Project can have multiple Runbooks.  Each Runbook has a 
 1. Click **ADD RUNBOOK**.
 1. Give the Runbook a name, for example, *Hello Runbook* and click **SAVE**.
 
-The next step will [define a simple runbook process](/docs/getting-started/first-runbook-run/define-the-runbook-process/) to run on either the Octopus Server or a worker (if you are using Octopus Cloud).
+The next step will [define a simple runbook process](/docs/getting-started/first-runbook-run/define-the-runbook-process) to run on either the Octopus Server or a worker (if you are using Octopus Cloud).
 
 **Further Reading**
 
 For further reading on Runbooks please see:
 
-- [Runbook Documentation](/docs/runbooks/)
-- [Runbook Examples](/docs/runbooks/runbook-examples/)
+- [Runbook Documentation](/docs/runbooks)
+- [Runbook Examples](/docs/runbooks/runbook-examples)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/create-runbook-projects">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/define-the-runbook-process">Next</a></span>

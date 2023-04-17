@@ -13,7 +13,7 @@ These scripts typically rely on tools being available when they execute.
 
 It is best that you control the version of these tools - your scripts will rely on a specific version that they are compatible with to function correctly.
 
-The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers/) for your script step.
+The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers) for your script step.
 
 If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
@@ -102,9 +102,9 @@ The second option is to run a script from a package. This is done by selecting t
 
 ## Running Scripts in Octopus Cloud
 
-Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools/). Octopus provides these, and you cannot easily install custom versions of the AWS tools on them.
+Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools). Octopus provides these, and you cannot easily install custom versions of the AWS tools on them.
 
 To use your own version of the AWS CLI or AWS Powershell cmdlets when using Dynamic Worker Pools, please do the following:
 
-- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/).
+- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers).
 - Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the AWS CLI or AWS Powershell cmdlets that you would like to use.

@@ -36,7 +36,7 @@ Octopus Deploy installation requirements are:
 - Windows Server 2012 R2 or later when hosting on Windows Server
 - Linux is supported when using the [Octopus Deploy Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image)
 
-[High availability](/docs/administration/high-availability/) functionality may or may not be included in your license.  All Server licenses, or Professional/Enterprise licenses sold after 2022 include at least 2 nodes.
+[High availability](/docs/administration/high-availability) functionality may or may not be included in your license.  All Server licenses, or Professional/Enterprise licenses sold after 2022 include at least 2 nodes.
 
 ![](/docs/administration/high-availability/images/high-availability.svg "width=500")
 
@@ -82,14 +82,14 @@ Some reference points to consider:
 
 Our recommendation is to host Octopus Deploy Windows Server over the Octopus Server Linux Container unless you are okay with **all** these conditions:
 - You plan on using LDAP, Okta, Azure AD, Google Auth, or the built-in username and password to authenticate users.  The current version of the Octopus Server Linux Container only supports Active Directory authentication via LDAP.
-- You are okay running at least one [worker](/docs/infrastructure/workers/) to handle tasks typically done by the Octopus Server.  The Octopus Server Linux Container doesn't include PowerShell Core or Python.
+- You are okay running at least one [worker](/docs/infrastructure/workers) to handle tasks typically done by the Octopus Server.  The Octopus Server Linux Container doesn't include PowerShell Core or Python.
 - You are familiar with Docker concepts, specifically around debugging containers, volume mounting, and networking.
 - You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
 - You understand Octopus Deploy is a stateful, not a stateless application, requiring additional monitoring.  
 
 !include <octopus-instance-mixed-os-warning>
 
-We are confident in the Octopus Server Linux Container's reliability and performance. After all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Server Linux Container in Octopus Cloud, we made some design decisions and create custom workflows due to the above limitations.  We restrict the authentication options to Okta, AzureAD, OctopusID, Google Auth and the built-in username and password.  Octopus Cloud disables the built-in worker and uses [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools/).  Finally, we have a process that injects a custom logging configuration to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
+We are confident in the Octopus Server Linux Container's reliability and performance. After all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Server Linux Container in Octopus Cloud, we made some design decisions and create custom workflows due to the above limitations.  We restrict the authentication options to Okta, AzureAD, OctopusID, Google Auth and the built-in username and password.  Octopus Cloud disables the built-in worker and uses [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools).  Finally, we have a process that injects a custom logging configuration to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
 
 :::hint
 Below is the default configuration for Octopus Cloud.  We've found this provides the resources necessary for 10 concurrent tasks.  Anything more, and we have to either increase the container or database resources.
@@ -103,7 +103,7 @@ We are currently working with our existing customers on what best practices look
 
 ## Small-Medium Scale Configuration
 
-Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/) from the start, even if you only plan on running one node.  
+Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure) from the start, even if you only plan on running one node.  
 
 :::hint
 For the remainder of this document, the assumption is you will be using Windows Servers.  
@@ -147,7 +147,7 @@ To ensure high performance, the SQL Server and the servers hosting Octopus Deplo
 
 ### Configure task cap
 
-By default, the number of concurrent tasks for each Octopus Deploy node is 5.  Increase that to 10 using this [guide](/docs/support/increase-the-octopus-server-task-cap/).  We don't recommend going beyond 40-60, even if the node has the necessary compute resources.  
+By default, the number of concurrent tasks for each Octopus Deploy node is 5.  Increase that to 10 using this [guide](/docs/support/increase-the-octopus-server-task-cap).  We don't recommend going beyond 40-60, even if the node has the necessary compute resources.  
 
 As stated earlier, each node will pick up tasks until it reaches its task cap or it runs out of pending tasks to pick up.  Octopus has a load balancing algorithm in place to ensure one node in an HA cluster doesn't process all the pending tasks.  The algorithm will do its best to keep the load even, but outside factors, such as duration of task, the kind of task, etc., could result in one node seemingly doing more work than others.
 
@@ -157,7 +157,7 @@ Setting the task cap to 0 will mean that node picks up no tasks.  It will only h
 
 ### Load Balancer
 
-The Octopus Deploy UI is a stateless React single page application that leverages a RESTful API for its data.  Any standard load balancer, be it F5, Netscaler, or provided via a cloud provider, will work.  If you need a small load balancer, [NGINX](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy/) will provide all the functionality you'll need.
+The Octopus Deploy UI is a stateless React single page application that leverages a RESTful API for its data.  Any standard load balancer, be it F5, Netscaler, or provided via a cloud provider, will work.  If you need a small load balancer, [NGINX](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy) will provide all the functionality you'll need.
 
 The recommendations for load balancers are:
 
@@ -171,7 +171,7 @@ Octopus Deploy will return the name of the node in the `Octopus-Node` response h
 We have noticed specific user actions, such as creating a new space or updating permissions, won't update the cache on all nodes, and you'll get odd permissions errors.  Typically the cache is updated after a few minutes, and those errors go away.  If that happens to you, look at the `Octopus-Node` header to determine which node has updated data vs. not updated.  If you see that jumping between nodes is the problem, and you update permissions a lot, we recommend switching over to sticky sessions.
 :::
 
-If you plan on having external [polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/) provide steps on how to do this.
+If you plan on having external [polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design) provide steps on how to do this.
 
 ### File Storage
 
@@ -179,8 +179,8 @@ Octopus Deploy stores BLOB items such as task logs (generated during deployments
 
 The kind of file storage will depend on where you are hosting Octopus Deploy.
 - On-premise data center: Any SMB-based file storage technology will work.  If running Octopus Deploy as a specific Active Directory account, limit permissions to the file share to that account and system administrators.
-- AWS Windows EC2 instance: [Use AWS FSx](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws/)
-- Azure: [Use Azure File storage](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure/)
+- AWS Windows EC2 instance: [Use AWS FSx](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws)
+- Azure: [Use Azure File storage](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure)
 
 ### Monitoring
 
@@ -243,7 +243,7 @@ To do that, you'll want to follow these steps:
 2. Wait until any executing tasks on that node are complete.
 3. Remove the node from any load balancers.
 4. Delete server or Docker image.
-5. Remove the node from the [nodes UI](/docs/administration/high-availability/maintain/maintain-high-availability-nodes/) by clicking on `...` next to the node name and selecting **Delete**.
+5. Remove the node from the [nodes UI](/docs/administration/high-availability/maintain/maintain-high-availability-nodes) by clicking on `...` next to the node name and selecting **Delete**.
 
 :::hint
 Any task associated with the node will fail if you don't wait for the node to finish draining and wrapping up any active tasks.
@@ -290,9 +290,9 @@ Using the Octopus Deploy API, all of that is possible; however, it will require 
 
 For further reading on installation requirements and guidelines for Octopus Deploy please see:
 
-- [Installation](/docs/installation/)
-- [Requirements](/docs/installation/requirements/)
-- [Permissions for Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service/)
-- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/)
+- [Installation](/docs/installation)
+- [Requirements](/docs/installation/requirements)
+- [Permissions for Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service)
+- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container)
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Next</a></span>

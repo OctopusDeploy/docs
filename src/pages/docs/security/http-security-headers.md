@@ -17,7 +17,7 @@ The `Server` browser header is set to `Octopus Deploy/ Microsoft-HTTPAPI/2.0`. T
 
 ### Access-Control-Allow-* (CORS)
 
-The Cross Origin Resource Security (CORS) headers are used to instruct browsers to allow/disallow requests from other websites to access the Octopus portal. By default, it is disabled, preventing any access. To modify this setting, you can use the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) command.
+The Cross Origin Resource Security (CORS) headers are used to instruct browsers to allow/disallow requests from other websites to access the Octopus portal. By default, it is disabled, preventing any access. To modify this setting, you can use the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
 ### Cache-Control
 
@@ -35,7 +35,7 @@ The Octopus Server sets this header to `1; block`, enabling the filters and inst
 
 ### X-Frame-Options
 
-Instructs browsers whether to allow the Octopus portal to be hosted in a frame. This is set to `DENY` by default, but can be configured via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) command.
+Instructs browsers whether to allow the Octopus portal to be hosted in a frame. This is set to `DENY` by default, but can be configured via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
 ### X-Content-Type-Options
 
@@ -47,13 +47,13 @@ The `Strict-Transport-Security` header is used to instruct browsers that all fut
 
 ### Referrer-Policy
 
-This header instructs browsers on how much information to share, and with whom, when navigating between pages. This is enabled by default, and set to `no-referrer`. The value of this header can be modified using the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) command.
+This header instructs browsers on how much information to share, and with whom, when navigating between pages. This is enabled by default, and set to `no-referrer`. The value of this header can be modified using the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
 ### Content-Security-Policy (CSP)
 
 The `Content-Security-Policy` header defines the list of browser features required by the Octopus portal and the allow list of domains which Octopus uses. This is used to limit the attack surface area for XSS and data injection attacks.
 
-This is enabled by default, and set to the tightest policy that allows full functionality. This can be disabled via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) command.
+This is enabled by default, and set to the tightest policy that allows full functionality. This can be disabled via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
 ### Public-Key-Pins (PKP)
 
@@ -69,7 +69,7 @@ The Octopus portal does not support this header.
 
 ## Octopus Server communications port
 
-The Octopus Server listens on a port (usually 10943) for connections from polling Tentacles. It uses a [custom communications protocol](/docs/security/octopus-tentacle-communication/) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
+The Octopus Server listens on a port (usually 10943) for connections from polling Tentacles. It uses a [custom communications protocol](/docs/security/octopus-tentacle-communication) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
 
 While there is limited scope for attack on this page, as some security scanning tools can report errors on this page, the following headers are supported on this port since **Octopus 3.17.13**.
 
@@ -77,11 +77,11 @@ While there is limited scope for attack on this page, as some security scanning 
 
 The `Content-Security-Policy` header defines the list of browser features required by the Octopus portal and the allow list of domains which Octopus uses. This is used to limit the attack surface area for XSS and data injection attacks.
 
-This is enabled by default, and set to the tightest policy that allows full functionality. This can be disabled via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) command.
+This is enabled by default, and set to the tightest policy that allows full functionality. This can be disabled via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
 ### Referrer-Policy
 
-This header instructs browsers on how much information to share, and with whom, when navigating between pages. This is enabled by default, and set to `no-referrer`. The value of this header can be modified using the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) command.
+This header instructs browsers on how much information to share, and with whom, when navigating between pages. This is enabled by default, and set to `no-referrer`. The value of this header can be modified using the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
 ### X-Content-Type-Options
 
@@ -89,7 +89,7 @@ This header is used to disable the MIME type "sniffing" capability which can all
 
 ### X-Frame-Options
 
-Instructs browsers whether to allow the Octopus portal to be hosted in a frame. This is set to `DENY` by default, but can be configured via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) command.
+Instructs browsers whether to allow the Octopus portal to be hosted in a frame. This is set to `DENY` by default, but can be configured via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
 ### X-XSS-Protection
 
@@ -99,7 +99,7 @@ The Octopus Server sets this header to `1; block`, enabling the filters and inst
 
 ## Octopus Tentacle communications port
 
-The Octopus Tentacle listens on a port (usually 10933) for connections from the Octopus Server. It uses a [custom communications protocol](/docs/security/octopus-tentacle-communication/) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
+The Octopus Tentacle listens on a port (usually 10933) for connections from the Octopus Server. It uses a [custom communications protocol](/docs/security/octopus-tentacle-communication) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
 
 While there is limited scope for attack on this page, as some security scanning tools can report errors on this page, the following headers are supported on this port since **Tentacle 3.16.1**.
 

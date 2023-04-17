@@ -27,17 +27,17 @@ When your application has been published you need to package it:
 octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
 ```
 
-For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/).
+For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).
 
 If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli/#create-zip-packages). 
 
-When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories/).
+When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories).
 
 If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 
 :::warning
 **OctoPack and .NET Core**
-OctoPack is not compatible with .NET Core applications. If you want to package .NET Core applications see [create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/).
+OctoPack is not compatible with .NET Core applications. If you want to package .NET Core applications see [create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).
 :::
 
 ## Deployment {#DeployingASP.NETCoreWebApplications-Deployment}
@@ -74,7 +74,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
-Refer to [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/) on how to setup configuration.
+Refer to [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) on how to setup configuration.
 
 
 ## Learn more

@@ -8,7 +8,7 @@ navOrder: 3
 ---
 
 :::success
-Please read our guide for [upgrading older versions of Octopus](/docs/administration/upgrading/legacy/) before continuing.
+Please read our guide for [upgrading older versions of Octopus](/docs/administration/upgrading/legacy) before continuing.
 :::
 
 Upgrading **Octopus 2.0** involves two major steps.
@@ -22,7 +22,7 @@ Additional information on troubleshooting upgrades is below.
 
 To upgrade the Octopus Server, you will need to follow these steps:
 
-1. Ensure you have a recent [database backup](/docs/administration/data/backup-and-restore/) that you can restore in case anything goes wrong.
+1. Ensure you have a recent [database backup](/docs/administration/data/backup-and-restore) that you can restore in case anything goes wrong.
 2. Download the [Octopus Deploy 2.6.5 Installer](https://octopus.com/downloads/2.6.5).
 3. Run the installer and follow the prompts.
 

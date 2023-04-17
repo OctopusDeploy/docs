@@ -2,7 +2,7 @@ import type { Site } from 'astro-accelerator-utils/types/Site';
 
 export const SITE: Site = {
 	url: 'https://octopus.com',
-	useTrailingUrlSlash: true,
+	useTrailingUrlSlash: false,
 	subfolder: '/docs',
 	feedUrl: '',
 	title: 'Documentation and Support',

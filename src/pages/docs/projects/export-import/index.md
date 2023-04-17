@@ -32,7 +32,7 @@ The current implementation of the Export/Import feature was designed for moving 
 - Splitting a space containing many projects into multiple spaces
 
 Scenarios this feature was _not_ designed for include:
-- Backup/restore.  See our [recommended approach](/docs/administration/data/backup-and-restore/) to disaster-recovery for your Octopus instance.    
+- Backup/restore.  See our [recommended approach](/docs/administration/data/backup-and-restore) to disaster-recovery for your Octopus instance.    
 - Cloning projects _within_ a space. There is an [easier way to achieve this](/docs/projects/#clone-a-project).  
 - Promoting changes between environments on different Octopus instances. See below. 
 
@@ -59,7 +59,7 @@ The root of the export/import is a project (or multiple projects).  The simple r
 - [Accounts](#accounts) and [certificates](#certificates) used by the project
 - [Library variable sets](#library-variable-sets) included in the project 
 - [Step templates](#step-templates) used in the deployment process or runbooks
-- Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step/)
+- Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step)
 
 It is worth explicitly mentioning some things that are **not included**:
 
@@ -79,7 +79,7 @@ The Octopus Deploy data-model is a web, not a graph.  Some resources are shared 
 Any environments which can be reached via the project will be included in the export.  This includes:
 
 - Environments included in any of the project's lifecycles, *except* when using the [default lifecycle](/docs/releases/lifecycles/#default-lifecycle).
-- Environments used to scope variables in any [library variable sets](/docs/projects/variables/library-variable-sets/) connected to the project
+- Environments used to scope variables in any [library variable sets](/docs/projects/variables/library-variable-sets) connected to the project
 - Environment restrictions defined on any accounts or certificates referenced by the project
 
 :::warning
@@ -89,16 +89,16 @@ If your projects use the [default lifecycle](/docs/releases/lifecycles/#default-
 
 ### Deployment targets #{deployment-targets}
 
-[Deployment targets](/docs/infrastructure/deployment-targets/) are not included in the export. They will need to be recreated in the target space.  For Tentacle deployment targets (both Windows and Linux), there are specific considerations:
+[Deployment targets](/docs/infrastructure/deployment-targets) are not included in the export. They will need to be recreated in the target space.  For Tentacle deployment targets (both Windows and Linux), there are specific considerations:
 
 **Listening Tentacles** must be configured to trust the certificate of the Octopus Server. If you are importing your project into a different Octopus instance, for the new instance to be able to communicate with existing listening Tentacles, the following must be true:
 
 - The Tentacles are accessible by the new Octopus instance (i.e. networking and firewalls must be correctly configured)
-- The Tentacles are configured to trust the certificate of the new instance. This can be done using the Tentacle [configure](/docs/octopus-rest-api/tentacle.exe-command-line/configure/) command.  
+- The Tentacles are configured to trust the certificate of the new instance. This can be done using the Tentacle [configure](/docs/octopus-rest-api/tentacle.exe-command-line/configure) command.  
 
 An alternative is to create a new Tentacle on the same machine.  This gives the option to switch to a polling Tentacle (which may be preferable when migrating a project to Octopus Cloud), and allows having both the original and cloned project deployable for a period of time.
 
-**Polling Tentacles** can be configured to poll multiple Octopus servers using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command.  
+**Polling Tentacles** can be configured to poll multiple Octopus servers using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with) command.  
 
 ### Packages #{packages}
 
@@ -114,31 +114,31 @@ Any teams which are referenced by projects (for example via manual intervention 
 
 ### Workers #{workers}
 
-[Workers](/docs/infrastructure/workers/) are not included in the export. [Worker pools](/docs/infrastructure/workers/worker-pools/) referenced by any steps (or variables) will attempt to match by name on the target, and if a matching pool does not exist then an empty pool will be created. 
+[Workers](/docs/infrastructure/workers/) are not included in the export. [Worker pools](/docs/infrastructure/workers/worker-pools) referenced by any steps (or variables) will attempt to match by name on the target, and if a matching pool does not exist then an empty pool will be created. 
 
 If moving from a self-hosted to an Octopus Cloud instance, any steps which are configured to `Run on Server` will be converted to run on the default worker pool on import (`Run on server` is not supported on Octopus Cloud). 
 
-If moving from an Octopus Cloud instance to a self-hosted instance, [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools/) will be converted to static worker pools on import (dynamic worker pools are not supported on self-hosted instances).
+If moving from an Octopus Cloud instance to a self-hosted instance, [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools) will be converted to static worker pools on import (dynamic worker pools are not supported on self-hosted instances).
 
 ### Audit logs #{audit-logs}
 
-[Audit events](/docs/security/users-and-teams/auditing/) are not exported.
+[Audit events](/docs/security/users-and-teams/auditing) are not exported.
 
 ### Tenants
 
-All [tenants](/docs/tenants/) connected to the project will be included in the export.
+All [tenants](/docs/tenants) connected to the project will be included in the export.
 
 On import, for any tenants which already exist on the destination the project/environment connections in the export will be merged into the existing tenant. 
 
 ### Library Variable Sets #{library-variable-sets} 
 
-[Library variable sets](/docs/projects/variables/library-variable-sets/) connected to the project will be exported, including all variables. 
+[Library variable sets](/docs/projects/variables/library-variable-sets) connected to the project will be exported, including all variables. 
 
 When importing, if a library variable set with the same name already exists, the variables will be merged. If a variable in the export doesn't exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched. 
 
 ### Step templates
 
-[Step templates](/docs/projects/custom-step-templates/) used in the project's deployment or runbook processes will be included in the export.
+[Step templates](/docs/projects/custom-step-templates) used in the project's deployment or runbook processes will be included in the export.
 
 :::hint
 Care should be taken with step templates when exporting/importing projects at different times
@@ -186,8 +186,8 @@ When moving a project from a self-hosted Octopus Server instance to an Octopus C
 Automating the export and import of projects using the REST API as part of a backup/restore process is **not recommended**. See our [supported scenarios](#scenarios).
 :::
 
-You can use the [Octopus REST API](/docs/octopus-rest-api/) to export or import Octopus projects.
+You can use the [Octopus REST API](/docs/octopus-rest-api) to export or import Octopus projects.
 
 To find out more take a look at our examples:
-- [Export projects](/docs/octopus-rest-api/examples/projects/export-projects/)
-- [Import projects](/docs/octopus-rest-api/examples/projects/import-projects/)
+- [Export projects](/docs/octopus-rest-api/examples/projects/export-projects)
+- [Import projects](/docs/octopus-rest-api/examples/projects/import-projects)

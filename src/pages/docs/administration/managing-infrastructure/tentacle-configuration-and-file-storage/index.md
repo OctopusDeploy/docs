@@ -15,7 +15,7 @@ Make sure you have a **current backup** of your Tentacle Home Directory before
 
 ## Tentacle configuration {#Tentacleconfigurationandfilestorage-Tentacleconfiguration}
 
-If you need to re-configure your Tentacle instance, you can do that using the Tentacle [configure](/docs/octopus-rest-api/tentacle.exe-command-line/configure/) command.
+If you need to re-configure your Tentacle instance, you can do that using the Tentacle [configure](/docs/octopus-rest-api/tentacle.exe-command-line/configure) command.
 
 ## File storage {#Tentacleconfigurationandfilestorage-Filestorage}
 

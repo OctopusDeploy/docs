@@ -24,7 +24,7 @@ From version 2022.1 Octopus can discover Azure Web App targets using tags on you
 Octopus can discover Azure Web App targets as part of your deployment using tags on your resource.
 
 :::hint
-From **Octopus 2022.3**, you can configure the well-known variables used to discover Azure Web App targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/) for more information.
+From **Octopus 2022.3**, you can configure the well-known variables used to discover Azure Web App targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 :::
 
 To discover targets use the following steps:
@@ -39,7 +39,7 @@ From **Octopus 2022.2**, deployment slots within an Azure Web App can also be di
 The name of discovered Azure Web Apps has changed in **Octopus 2022.2** to include additional information about the resource group. Any Web App targets discovered in **Octopus 2022.1** whilst this feature was in Early Access Preview will need to be deleted and will be rediscovered during the next deployment.
 :::
 
-See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/) for more information.
+See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 
 ## Creating web app targets
 
@@ -69,7 +69,7 @@ You can also leave the slot selection blank and specify the slot, by name, on th
 
 Azure Web App targets can also be created via a PowerShell cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Web App via a script.
 
-See [Managing Resources by script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/) for more information on creating Azure Web Apps via a script.
+See [Managing Resources by script](/docs/infrastructure/deployment-targets/dynamic-infrastructure) for more information on creating Azure Web Apps via a script.
 
 ## Troubleshooting
 
@@ -77,4 +77,4 @@ If your Azure Web App target does not successfully complete a health check, you 
 
 ## Deploying to Web App targets
 
-To learn about deploying to Azure Web App targets, see our [documentation about this topic](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/)
+To learn about deploying to Azure Web App targets, see our [documentation about this topic](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app)

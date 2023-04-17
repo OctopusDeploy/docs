@@ -36,7 +36,7 @@ tentacle agent --console
 
 ## Docker container example
 
-This example shows hows to run the Tentacle Agent for an instance named `Tentacle` when running in a custom Docker container. This is also how the official [Tentacle container](/docs/infrastructure/deployment-targets/tentacle/octopus-tentacle-container/) is launched too.
+This example shows hows to run the Tentacle Agent for an instance named `Tentacle` when running in a custom Docker container. This is also how the official [Tentacle container](/docs/infrastructure/deployment-targets/tentacle/octopus-tentacle-container) is launched too.
 
 ```
 tentacle agent --instance Tentacle --noninteractive

@@ -83,7 +83,7 @@ The Octopus Server will attempt to connect to the Tentacle.  The listening Tenta
 
 The process to register Polling Tentacles as workers takes place in the **Tentacle Manager** on the server hosting the Tentacle.  Select the polling Tentacle to get started with the wizard.
 
-On the credentials screen enter a username and password or the [API key](/docs/octopus-rest-api/how-to-create-an-api-key/) of a user who has permissions to add worker pools.  This account will only be used for registration.  
+On the credentials screen enter a username and password or the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) of a user who has permissions to add worker pools.  This account will only be used for registration.  
 
 :::highlight
 The registration process will connect to the RESTful API of the Octopus Server.  It will connect over port 80 or 443 using the http/https protocol.  After registration the default port the Tentacle will connect to is port 10943.
@@ -185,7 +185,7 @@ The final step is creating and deploying the release.  Very similar to before, p
 
 ## Create and configure the Octopus Deploy project
 
-This guide will follow the [manual approvals process](/docs/deployments/databases/common-patterns/manual-approvals/).  
+This guide will follow the [manual approvals process](/docs/deployments/databases/common-patterns/manual-approvals).  
 
 The deployment process will be:
 

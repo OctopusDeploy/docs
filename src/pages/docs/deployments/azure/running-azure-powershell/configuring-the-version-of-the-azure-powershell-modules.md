@@ -34,7 +34,7 @@ The Azure Script step has an option called "Azure Tools". Toggle the setting to 
 
 ## Octopus 2018.5.5 to 2019.13.7 {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2018.5.5-to-2019.13.7}
 
-We made this configurable by variables in **Octopus 2018.5.5** to be more flexible. Create a [variable](/docs/projects/variables/) named **OctopusUseBundledAzureModules** and set its value to **False**.
+We made this configurable by variables in **Octopus 2018.5.5** to be more flexible. Create a [variable](/docs/projects/variables) named **OctopusUseBundledAzureModules** and set its value to **False**.
 
 With this value set, Octopus Deploy will not load the bundled Azure PowerShell modules, and PowerShell will automatically load the Azure modules installed on the Octopus Server.
 

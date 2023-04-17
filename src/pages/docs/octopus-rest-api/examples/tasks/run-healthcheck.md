@@ -6,7 +6,7 @@ title: Run a health check
 description: An example script that creates and runs a health check task.
 ---
 
-This script demonstrates how to programmatically create and run a [health check](/docs/infrastructure/deployment-targets/machine-policies/) task in Octopus Deploy.
+This script demonstrates how to programmatically create and run a [health check](/docs/infrastructure/deployment-targets/machine-policies) task in Octopus Deploy.
 
 ## Usage
 

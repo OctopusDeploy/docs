@@ -12,7 +12,7 @@ The examples in this guide can be used with an AWS AMI instance of Ubuntu 14.04 
 
 ## Configure your Linux deployment target {#configuring-target-machine}
 
-Your Linux deployment target needs to be configured to accept projects being deployed over [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target/).
+Your Linux deployment target needs to be configured to accept projects being deployed over [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target).
  
 ### Install Mono {#ConfiguringTargetMachine-InstallMono}
 
@@ -131,7 +131,7 @@ npm install
 npm install --save-dev gulp-bump @octopusdeploy/gulp-octo
 ```
 
-Modify the **gulpfile.js** file to add the following gulp tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key/).
+Modify the **gulpfile.js** file to add the following gulp tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
 ```js
 var bump = require('gulp-bump');
@@ -179,7 +179,7 @@ npm install
 npm install --save-dev grunt-bump grunt-contrib-clean @octopusdeploy/grunt-octo
 ```
 
-Modify the **gruntfile.js** file to add the following grunt tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key/).
+Modify the **gruntfile.js** file to add the following grunt tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
 
 ```js
@@ -235,7 +235,7 @@ npm run publish
 The command can be run as many times as you like. With each invocation the minor version will be bumped up and a new package will be ready to be deployed from the built-in package feed in your Octopus Deploy instance.
 
 :::success
-While this guide executes the publish task from your local machine, we recommend configuring your [build server](/docs/packaging-applications/build-servers/) to automate the process.
+While this guide executes the publish task from your local machine, we recommend configuring your [build server](/docs/packaging-applications/build-servers) to automate the process.
 :::
 
 ## Configure Octopus Deploy project
@@ -254,7 +254,7 @@ Next, you need to configure your Octopus project to deploy a Node.js application
 4. Click **Discover** to automatically pre-populate the SSH fingerprint for the remote server.
 5. Continue to fill out the rest of the details, selecting the account you created above.
 
-More information about working with Linux deployment targets see [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target/) or [Linux Tentacles](/docs/infrastructure/deployment-targets/tentacle/linux/).
+More information about working with Linux deployment targets see [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target/) or [Linux Tentacles](/docs/infrastructure/deployment-targets/tentacle/linux).
 
 ### Create deployment project {#ConfigureOctopusDeployProject-CreateDeploymentProject}
 

@@ -7,17 +7,17 @@ description: Using the Octopus built-in repository.
 navOrder: 10
 ---
 
-Your Octopus Server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most robust [retention policy](/docs/administration/retention-policies/) support for cleaning up deployment packages.
+Your Octopus Server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most robust [retention policy](/docs/administration/retention-policies) support for cleaning up deployment packages.
 
-The built-in feed can only be consumed by Octopus. Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required. See [package repositories](/docs/packaging-applications/package-repositories/).
+The built-in feed can only be consumed by Octopus. Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required. See [package repositories](/docs/packaging-applications/package-repositories).
 
 ## Pushing packages to the built-in repository {#pushing-packages-to-the-built-in-repository}
 
 It is possible to manually upload a package file from your local machine via the Octopus Web Portal by navigating to **{{Library,Packages}}** and clicking the **Upload Package** button.
 
-However, we recommend using a [build server](/docs/packaging-applications/build-servers/) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository.
+However, we recommend using a [build server](/docs/packaging-applications/build-servers) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository.
 
-In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
+In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
 
 In addition to manually uploading packagings or using your build server, you can add, upload, and push packages to the built-in feed in the following ways:
 
@@ -30,11 +30,11 @@ In addition to manually uploading packagings or using your build server, you can
 To push packages using these methods, you will need:
 
 1. The URL to your Octopus Server.
-2. An [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
+2. An [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
 
 ## Using the Octopus CLI {#UsingOctopusCli}
 
-You can push one or more packages using the [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli/), the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
+You can push one or more packages using the [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli), the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
 
 ```powershell PowerShell
 C:\> octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server https://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
@@ -45,19 +45,19 @@ $ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip
 
 ## Using the Octopus API (HTTP POST) {#UsingtheOctopusAPI(HTTPPOST)}
 
-You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api/) - `POST /api/packages/raw HTTP 1.1`.
+You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api) - `POST /api/packages/raw HTTP 1.1`.
 
 - [C# example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/Feeds/PushPackage.cs)
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Feeds/PushPackage.ps1)
 
 ## Using NuGet.exe push {#UsingNuGetexePush}
 
-To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **{{Library,Packages}}** tab of the Octopus Web Portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/).
+To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **{{Library,Packages}}** tab of the Octopus Web Portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
 ![The Built-in Package Repository](/docs/packaging-applications/package-repositories/built-in-repository/built-in-package-repository.png "width=500")
 
 :::success
-If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) when prompted for the feed details.
+If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) when prompted for the feed details.
 :::
 
 If a package with the same version exists, and you want to force the Octopus Server to replace it, you can modify the URL to include a `?replace=true` parameter:
@@ -66,7 +66,7 @@ If a package with the same version exists, and you want to force the Octopus Ser
 
 ## Using npm.exe, Grunt or Gulp {#Usingnpm.exe,gruntorgulp}
 
-You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deployments/node-js/node-on-linux/).
+You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deployments/node-js/node-on-linux).
 
 ## Using Curl {#Usingcurl}
 
@@ -88,12 +88,12 @@ For your convenience Octopus Deploy provides a built-in role called **Package P
 
 :::hint
 **Consider using a service account**
-Instead of using your own API key, consider using a [Service Account](/docs/security/users-and-teams/service-accounts/) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Web Portal.
+Instead of using your own API key, consider using a [Service Account](/docs/security/users-and-teams/service-accounts) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Web Portal.
 :::
 
 :::hint
 **Using automatic release creation?**
-If you are using [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) page.
+If you are using [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) page.
 :::
 
 ## Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}

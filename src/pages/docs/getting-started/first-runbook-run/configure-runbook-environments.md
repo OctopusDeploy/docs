@@ -14,14 +14,14 @@ hideInThisSection: true
 Try to reuse the same environments as your deployments whenever possible.  You will often runbooks runbooks on the same deployment targets as your deployment process.  Creating runbook only environments can saturate your dashboards and lifecycles.  If you need to have an environment for runbooks, we recommend limiting it to one or two environments at most with a name similar to `Maintenance`.
 :::
 
-The next step will [create a project to house the runbook](/docs/getting-started/first-runbook-run/create-runbook-projects/).
+The next step will [create a project to house the runbook](/docs/getting-started/first-runbook-run/create-runbook-projects).
 
 **Further Reading**
 
 For further reading on deployment targets in Octopus Deploy please see:
 
-- [Deployment Targets](/docs/infrastructure/deployment-targets/)
-- [Runbook Documentation](/docs/runbooks/)
-- [Runbook Examples](/docs/runbooks/runbook-examples/)
+- [Deployment Targets](/docs/infrastructure/deployment-targets)
+- [Runbook Documentation](/docs/runbooks)
+- [Runbook Examples](/docs/runbooks/runbook-examples)
 
 <span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/create-runbook-projects">Next</a></span>

@@ -6,7 +6,7 @@ title: Upload Artifact to Existing Deployment
 description: An example script to upload an existing local file as an artifact to an existing deployment.
 ---
 
-This script provides an example of how to programmatically upload an [artifact](/docs/projects/deployment-process/artifacts/) to an existing deployment.
+This script provides an example of how to programmatically upload an [artifact](/docs/projects/deployment-process/artifacts) to an existing deployment.
 
 ## Usage
 

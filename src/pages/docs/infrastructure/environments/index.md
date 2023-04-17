@@ -22,17 +22,17 @@ The most common setup is four environments. These are:
 
 However, we didn't design Octopus Deploy to force people to use a set of predefined environments. Some companies only have three environments. Others have many more. Likewise, not everyone names their environments the same way. One person's Test is another person's QA. It's important that you can name your environments in the way that best supports your organization's needs.
 
-Take a look at our [environment recommendations](/docs/infrastructure/environments/environment-recommendations/) section for more tips.
+Take a look at our [environment recommendations](/docs/infrastructure/environments/environment-recommendations) section for more tips.
 
 !include <add-new-environments>
 
 ## Edit your environments
 
-To edit individual environments, click the overflow menu (...) for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/), or delete the environment.
+To edit individual environments, click the overflow menu (...) for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure), or delete the environment.
 
 ## Environment permissions
 
-You can control who has access to view, edit, and deploy to environments by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/security/users-and-teams/).
+You can control who has access to view, edit, and deploy to environments by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/security/users-and-teams).
 
 ## Manage your environments
 
@@ -64,4 +64,4 @@ This will let you search by:
 
 ## Learn more
 
-Learn how to add and manage your [deployment targets](/docs/infrastructure/deployment-targets/).
+Learn how to add and manage your [deployment targets](/docs/infrastructure/deployment-targets).

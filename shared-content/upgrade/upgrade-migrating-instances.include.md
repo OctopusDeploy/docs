@@ -43,4 +43,4 @@ Cutting over from the old instance to the new instance will require a bit of dow
 
 1. Enable maintenance mode on the old instance to put it into read-only mode.
 1. Ensure all CI servers are pointing to the new instance (or change DNS).
-1. You don't have to upgrade Tentacles right away.  Newer versions of Octopus Deploy [can communicate with older versions of Tentacles](/docs/support/compatibility/).  You can upgrade a set at a time instead of upgrading everything, starting in 2020.x you can perform a search on the deployment target page and update only the returned Tentacles.  Or, you can [upgrade Tentacles per environment](https://www.youtube.com/watch?v=KVxdSdYAqQU&t=352s).  
+1. You don't have to upgrade Tentacles right away.  Newer versions of Octopus Deploy [can communicate with older versions of Tentacles](/docs/support/compatibility).  You can upgrade a set at a time instead of upgrading everything, starting in 2020.x you can perform a search on the deployment target page and update only the returned Tentacles.  Or, you can [upgrade Tentacles per environment](https://www.youtube.com/watch?v=KVxdSdYAqQU&t=352s).  

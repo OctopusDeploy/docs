@@ -7,4 +7,4 @@ description: This section includes examples of how to use the REST API to create
 navOrder: 160
 hideInThisSectionHeader: true
 ---
-You can use the REST API to create and manage your Octopus [runbooks](/docs/runbooks/). Typical tasks can include:
+You can use the REST API to create and manage your Octopus [runbooks](/docs/runbooks). Typical tasks can include:

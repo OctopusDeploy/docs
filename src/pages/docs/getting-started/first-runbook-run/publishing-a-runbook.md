@@ -29,9 +29,9 @@ You have now completed the tutorial for running your first runbook!
 
 This tutorial is designed to cover the basics of how to configure runbooks and how they work.  For further reading please see:
 
-- [Runbook Documentation](/docs/runbooks/)
-- [Runbook Publishing](/docs/runbooks/runbook-publishing/)
-- [Runbook Examples](/docs/runbooks/runbook-examples/)
-- [Scheduled Runbook Triggers](/docs/runbooks/scheduled-runbook-trigger/)
+- [Runbook Documentation](/docs/runbooks)
+- [Runbook Publishing](/docs/runbooks/runbook-publishing)
+- [Runbook Examples](/docs/runbooks/runbook-examples)
+- [Scheduled Runbook Triggers](/docs/runbooks/scheduled-runbook-trigger)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets">Previous</a></span>

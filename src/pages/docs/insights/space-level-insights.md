@@ -52,7 +52,7 @@ If the current space has tenants, there will be an additional section to select 
 
 ## Charts
 
-On the Overview page, a chart is shown for each [metric](/docs/insights/metrics/). On each of the metric detail pages, the same chart is shown along with a breakdown of the trends and lists of the data viewed from different angles.
+On the Overview page, a chart is shown for each [metric](/docs/insights/metrics). On each of the metric detail pages, the same chart is shown along with a breakdown of the trends and lists of the data viewed from different angles.
 
 The top left drop down allows you to split the data on a particular dimension and compare them on the one chart. Only the first 10 lines are shown. If splitting by tenant tag set, a tenant's data will be shown for each of their tags.
 
@@ -60,14 +60,14 @@ The top right allows you to change the time range and granularity of the chart.
 
 The data is real time and based on the deployment completion time.
 
-See the [trend indicators](/docs/insights/trend-indicators/) section for more details on the trend indicator and trend tables on each page.
+See the [trend indicators](/docs/insights/trend-indicators) section for more details on the trend indicator and trend tables on each page.
 
 
 ## Tables
 
 Below the chart on the single metric pages are various tables showing a more detailed view of the data.
 
-For each of projects, environments and tenants, a list of [trends](/docs/insights/trend-indicators/) may be shown. The list is only shown if there are at least two of that item present in the data. The list shows the top 10 of that dimension where the trend for the metric is up or down.
+For each of projects, environments and tenants, a list of [trends](/docs/insights/trend-indicators) may be shown. The list is only shown if there are at least two of that item present in the data. The list shows the top 10 of that dimension where the trend for the metric is up or down.
 
 Below that there are tables showing a particular measure grouped by project, environment and tenant combination. These give you a starting point when investigating how to improve a metric.
 

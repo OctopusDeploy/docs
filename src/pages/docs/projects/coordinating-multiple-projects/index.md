@@ -11,7 +11,7 @@ When working with multiple related projects, it is often necessary to co-ordinat
 
 :::success
 **Samples**
-For in depth code samples covering many of the processes discussed in this section, see the [Project Coordination Code Samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples/) page
+For in depth code samples covering many of the processes discussed in this section, see the [Project Coordination Code Samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples) page
 :::
 
 ## Responding to events across multiple projects
@@ -24,11 +24,11 @@ There are various ways to respond to events within Octopus, which is useful for:
 - Triggering another process, for example, another deployment.
 - Verifying that some conditions have been met.
 
-The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function, or as a windows service. Alternatively, it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples/)).
+The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function, or as a windows service. Alternatively, it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples)).
 
-[Subscriptions](/docs/administration/managing-infrastructure/subscriptions/) can call a web service or send an email when Octopus events occur.
+[Subscriptions](/docs/administration/managing-infrastructure/subscriptions) can call a web service or send an email when Octopus events occur.
 
-The event can also be a script step in a project. If the script is defined as a [step template](/docs/projects/steps/) it can be shared among the related projects. However, it is difficult to ensure that two copies of the script do not run at the same time.
+The event can also be a script step in a project. If the script is defined as a [step template](/docs/projects/steps) it can be shared among the related projects. However, it is difficult to ensure that two copies of the script do not run at the same time.
 
 ## Orchestrating the deployment of multiple projects
 
@@ -57,6 +57,6 @@ This approach consists of each project taking on the role of checking that the o
 
 ## Deploy release step
 
-The [Deploy Release step](/docs/projects/coordinating-multiple-projects/deploy-release-step/) is helpful when implementing the _Parent Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
+The [Deploy Release step](/docs/projects/coordinating-multiple-projects/deploy-release-step) is helpful when implementing the _Parent Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
 
 ![Deploy Release Step Example Process](/docs/projects/coordinating-multiple-projects/voltron-project-process.png "width=500")

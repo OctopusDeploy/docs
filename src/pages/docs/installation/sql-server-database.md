@@ -17,7 +17,7 @@ The easiest and cheapest way to get started is with [SQL Server Express](http://
 
 ## Creating the database
 
-The Octopus [installation](/docs/installation/) wizard can create the database for you (our recommended method), during the installation; however, you can also point Octopus to an existing database. Octopus works with both local and remote database servers, but it is worth considering the [performance implications](/docs/administration/managing-infrastructure/performance/) before making a decision.
+The Octopus [installation](/docs/installation/) wizard can create the database for you (our recommended method), during the installation; however, you can also point Octopus to an existing database. Octopus works with both local and remote database servers, but it is worth considering the [performance implications](/docs/administration/managing-infrastructure/performance) before making a decision.
 
 If you are using a hosted database service you will need to [create your own database](#create-your-own) and provide Octopus with the connection details.
 
@@ -35,7 +35,7 @@ If you don't want Octopus to automatically create the database for you as part o
 
 ## Changing the database collation
 
-Learn more about [changing the database collation](/docs/administration/data/octopus-database/changing-the-collation-of-the-octopus-database/) after the initial Octopus installation.
+Learn more about [changing the database collation](/docs/administration/data/octopus-database/changing-the-collation-of-the-octopus-database) after the initial Octopus installation.
 
 ## Using SQL Server AlwaysOn
 
@@ -61,8 +61,8 @@ Server=localhost;Initial catalog=Octopus;authentication="Active Directory Manage
 
 ## Database administration and maintenance
 
-For more information about maintaining your Octopus database, please read our [database administrators guide](/docs/administration/data/octopus-database/).
+For more information about maintaining your Octopus database, please read our [database administrators guide](/docs/administration/data/octopus-database).
 
 ## Learn more
 
- - [Octopus installation](/docs/installation/)
+ - [Octopus installation](/docs/installation)

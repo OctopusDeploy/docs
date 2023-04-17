@@ -12,7 +12,7 @@ Over the years we have built Octopus to enable reliable and repeatable deploymen
 This page is intended to help you tune and maintain your deployment processes and troubleshoot problems as they occur.
 
 :::hint
-Want to tune your Octopus Server for optimum performance? Read our [detailed guide on optimizing your server](/docs/administration/managing-infrastructure/performance/).
+Want to tune your Octopus Server for optimum performance? Read our [detailed guide on optimizing your server](/docs/administration/managing-infrastructure/performance).
 :::
 
 ## Considerations
@@ -63,7 +63,7 @@ If a particular operation seems slow during deployment, test that single operati
 
 If the applications running on your deployment targets are busy, this will slow down your deployment. Similarly, when you run a deployment it will be taking resources from your running applications. Octopus does not perform any kind of throttling on the deployment target - it will attempt to run your deployment process on your targets as fast as possible.
 
-One of the best ways to reduce load on your deployment targets is to temporarily remove them from the active pool of servers. For example, with web applications you can do this by removing the server from your load balancer, perhaps using a [rolling deployment](/docs/deployments/patterns/rolling-deployments/).
+One of the best ways to reduce load on your deployment targets is to temporarily remove them from the active pool of servers. For example, with web applications you can do this by removing the server from your load balancer, perhaps using a [rolling deployment](/docs/deployments/patterns/rolling-deployments).
 
 If you don't want to take this kind of approach, you can safely deploy your application to an active server, but you should take some time to understand the impact this has on your running applications and the speed of your deployments.
 
@@ -76,8 +76,8 @@ A deployment process with a single giant step might be the most efficient approa
 There is typically a happy balance you can strike for each of your projects. The most common problem related to performance is having too many steps, where "too many" depends on your specific situation, but we typically consider an average project to use 10-20 steps, and we have many customers deploying projects with 50-80 steps. If your projects have hundreds of steps, perhaps you should consider modeling your deployments differently?
 
 - If your project could be broken down into logical components which ship on their own cadence, do it! Make each component its own project.
-- If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/projects/coordinating-multiple-projects/).
-- If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deployments/custom-scripts/) as a pre- or post- activity.
+- If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/projects/coordinating-multiple-projects).
+- If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deployments/custom-scripts) as a pre- or post- activity.
 
 ### Consider the size of your packages {#package-size}
 
@@ -85,8 +85,8 @@ Size really does matter when it comes to your packages:
 
 - Larger packages require more network bandwidth to transfer to your deployment targets.
 - Larger packages take more resources to unpack on your deployment targets.
-- When using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers/), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
-- Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates/) can be configured to scan every file extracted from your package.
+- When using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+- Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) can be configured to scan every file extracted from your package.
 
 Consider whether one large package is better in your scenario, or perhaps you could split your application into multiple smaller packages, one for each deployable component.
 
@@ -100,22 +100,22 @@ Octopus provides two primary methods for transferring your packages to your depl
 Each option provides different performance benefits, depending on your specific scenario:
 
 - If network bandwidth is the limiting factor, consider:
-  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers/); or
+  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers); or
   - using custom package feed in the same network as your deployment targets and download the packages directly on the agent.
 - If network bandwidth is not a limiting factor consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers/). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 
 ### Consider retention policies for your package feeds {#package-retention}
 
 Imagine if you keep every package you've ever built or deployed. Over time your package feed will get slower and slower to index, query, and stream packages for your deployments.
 
-If you are using the [built-in feed](/docs/packaging-applications/package-repositories/#Packagerepositories-Choosingtherightrepository), you can configure [retention policies](/docs/administration/retention-policies/) to keep it running fast.
+If you are using the [built-in feed](/docs/packaging-applications/package-repositories/#Packagerepositories-Choosingtherightrepository), you can configure [retention policies](/docs/administration/retention-policies) to keep it running fast.
 
 If you are using another feed, you should configure its retention policies yourself, making sure to cater for packages you may want to deploy.
 
 ### Consider the size of your task logs {#task-logs}
 
-Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/projects/deployment-process/artifacts/).
+Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/projects/deployment-process/artifacts).
 
 ### Consider how many targets acquire packages in parallel {#parallel-acquisition}
 
@@ -131,7 +131,7 @@ Imagine you have step in your deployment process which runs across all deploymen
 
 Alternatively if you constrain your process to a single deployment target at a time, the Octopus Server and your deployment targets will be bored, and your deployments will take longer.
 
-Consider using a [rolling deployment](/docs/deployments/patterns/rolling-deployments/) to deploy to a subset of these deployment targets at any one time. Rolling deployments allow you to define a "window" which is the maximum number of deployment targets which will run the step at any one time.
+Consider using a [rolling deployment](/docs/deployments/patterns/rolling-deployments) to deploy to a subset of these deployment targets at any one time. Rolling deployments allow you to define a "window" which is the maximum number of deployment targets which will run the step at any one time.
 
 ::: info
 This default behavior makes a lot of sense for smaller installations, but it is an unsafe default for larger installations. We are looking to [change this default behavior in a future version of Octopus](https://github.com/OctopusDeploy/Issues/issues/3305).
@@ -145,4 +145,4 @@ Similarly to [parallel targets](#parallel-targets), running too many steps in pa
 
 ### Consider how much deployment work the Octopus Server is doing {#server-work}
 
-Some steps, like Azure deployments and AWS steps, [run on a worker](/docs/infrastructure/workers/#where-steps-run).  By default, thats the [built-in worker](/docs/infrastructure/workers/#built-in-worker) in the Octopus Server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+Some steps, like Azure deployments and AWS steps, [run on a worker](/docs/infrastructure/workers/#where-steps-run).  By default, thats the [built-in worker](/docs/infrastructure/workers/#built-in-worker) in the Octopus Server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.

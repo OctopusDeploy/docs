@@ -8,7 +8,7 @@ navOrder: 20
 ---
 
 You can load, modify and save resources using the different `Repository` classes provided in the Octopus.Client library.
-The following example retrieves a [deployment target](/docs/infrastructure/deployment-targets/), names it `Test Server 1` and then saves it:
+The following example retrieves a [deployment target](/docs/infrastructure/deployment-targets), names it `Test Server 1` and then saves it:
 
 ```powershell PowerShell
 $machine = $repository.Machines.Get("machines-1");

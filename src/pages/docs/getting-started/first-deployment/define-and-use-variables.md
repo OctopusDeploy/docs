@@ -52,14 +52,14 @@ As you promote through the environments, you will see the greeting change.
 
 ![The results of the hello world deployment with variables](/docs/getting-started/first-deployment/images/img-environmentvariables.png "width=500")
 
-The next step will [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions/). 
+The next step will [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions). 
 
 **Further Reading**
 
 For further reading on variables in Octopus Deploy please see:
 
-- [Variable Documentation](/docs/projects/variables/)
-- [Deployment Documentation](/docs/deployments/)
-- [Patterns and Practices](/docs/deployments/patterns/)
+- [Variable Documentation](/docs/projects/variables)
+- [Deployment Documentation](/docs/deployments)
+- [Patterns and Practices](/docs/deployments/patterns)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Next</a></span>

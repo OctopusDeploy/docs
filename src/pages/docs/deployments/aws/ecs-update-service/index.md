@@ -37,10 +37,10 @@ The following settings will need to be configured:
 
 ## Step 2: Create a deployment target for your ECS cluster
 
-The `Update Amazon ECS Service` step requires [a deployment target](/docs/infrastructure/deployment-targets/) to be defined.
+The `Update Amazon ECS Service` step requires [a deployment target](/docs/infrastructure/deployment-targets) to be defined.
 
 Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name.
-If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/).
+If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws).
 
 ![ECS Cluster Deployment Target Settings](/docs/deployments/aws/ecs-update-service/images/target.png "width=500")
 
@@ -127,7 +127,7 @@ Selecting the `Don't wait` option means that the step will not fail if the tasks
 
 #### Variable replacements
 
-Any of the input fields can be bound to an Octostache expression. [Variable substitution](/docs/projects/variables/variable-substitutions/) will be performed before the release is deployed.
+Any of the input fields can be bound to an Octostache expression. [Variable substitution](/docs/projects/variables/variable-substitutions) will be performed before the release is deployed.
 
 ### Output variables
 

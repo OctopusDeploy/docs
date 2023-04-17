@@ -20,16 +20,16 @@ Just like database deployments, it is possible to automate this. Automation has 
 
 ## Leveraging runbooks for ad-hoc data change scripts
 
-[Runbooks](/docs/runbooks/) were added to Octopus Deploy in version: **2019.11**.
+[Runbooks](/docs/runbooks) were added to Octopus Deploy in version: **2019.11**.
 
 Runbooks provide an excellent way to run ad-hoc data change scripts.  Runbooks don't require a release to be created, but they still have the same functionality as a typical Octopus Deployment, such as prompted variables and auditing. Typically we find this process is a good starting point:
 
-1. The runbook run is created, and the script to run and the database information is provided via [prompted variables](/docs/projects/variables/prompted-variables/).
+1. The runbook run is created, and the script to run and the database information is provided via [prompted variables](/docs/projects/variables/prompted-variables).
 2. The script to run is analyzed for any schema change commands, and it is run and immediately rolled back in a transaction.  
-    1. If no schema change commands are found, the script ran successfully, and it updated less than X number of rows then a DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is set to `False`.
-    2. If any of those conditions fail, then the DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is set to `True`.
-3. Notify the approvers when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
-4. Pause for a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables/) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
+    1. If no schema change commands are found, the script ran successfully, and it updated less than X number of rows then a DBA Approval Required [output variable](/docs/projects/variables/output-variables) is set to `False`.
+    2. If any of those conditions fail, then the DBA Approval Required [output variable](/docs/projects/variables/output-variables) is set to `True`.
+3. Notify the approvers when that DBA Approval Required [output variable](/docs/projects/variables/output-variables) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
+4. Pause for a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
 5. Run the script on the desired database.
 6. Notify the DBAs and the person who submitted the script that the script has finished running.
 
@@ -39,7 +39,7 @@ For the example process, only the database name and script are prompted variable
 
 ![The prompted variables for the ad-hoc script process](/docs/deployments/databases/common-patterns/images/adhoc_scripts_submit.png "width=500")
 
-The auto-approval script leverages the [write highlight](/docs/deployments/custom-scripts/logging-messages-in-scripts/) command so important messages are shown on the task summary screen.  The `create table` command was detected, requiring a DBA to approve the script.  The DBA has a choice to accept the script or reject it.  There are some cases when a create table is necessary, for example, creating a temporary table:
+The auto-approval script leverages the [write highlight](/docs/deployments/custom-scripts/logging-messages-in-scripts) command so important messages are shown on the task summary screen.  The `create table` command was detected, requiring a DBA to approve the script.  The DBA has a choice to accept the script or reject it.  There are some cases when a create table is necessary, for example, creating a temporary table:
 
 ![Ad hoc script requires approval](/docs/deployments/databases/common-patterns/images/adhoc_approval_required.png "width=500")
 

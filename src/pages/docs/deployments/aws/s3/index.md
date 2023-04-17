@@ -18,7 +18,7 @@ Add the `Upload a package to an AWS S3 bucket` step to the project, and give it 
 
 ### AWS section
 
-Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables/).
+Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).
 
 ![AWS Account](/docs/deployments/aws/s3/step-aws-account.png "width=500")
 
@@ -37,7 +37,7 @@ Under the `Package section`, define how the target package and the associated fi
  ![S3 target options](/docs/deployments/aws/s3/upload-s3-target-options.png "width=500")
 
 :::hint
-The [Github feed](/docs/packaging-applications/package-repositories/github-feeds/) works well with the upload to S3 step when no build process is involved and content needs to be pushed to S3 and versioned separately.
+The [Github feed](/docs/packaging-applications/package-repositories/github-feeds) works well with the upload to S3 step when no build process is involved and content needs to be pushed to S3 and versioned separately.
 :::
 
 ### Entire package
@@ -71,7 +71,7 @@ The **Structured Variable File Patterns** field for the **Upload a package to an
 
 A list of files to perform structured variable substitution on. 
 
-Target files need to be newline-seperated, relative to the package contents. Extended wildcard syntax is supported. E.g., `appsettings.json`, `Config\*.xml`, `**\specific-folder\*.yaml`. Learn more about the [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/) feature and view [Structured Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/#StructuredConfigurationVariablesFeature-VariableReplacement) examples.
+Target files need to be newline-seperated, relative to the package contents. Extended wildcard syntax is supported. E.g., `appsettings.json`, `Config\*.xml`, `**\specific-folder\*.yaml`. Learn more about the [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) feature and view [Structured Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/#StructuredConfigurationVariablesFeature-VariableReplacement) examples.
 
 #### Use filename with embedded content hash
 

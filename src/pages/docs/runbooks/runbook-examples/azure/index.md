@@ -18,11 +18,11 @@ Typical routines could be:
 - Tearing down a Resource group.
 
 Out-of-the-box, Octopus provides built-in steps to help manage your infrastructure in Azure:
-- [Resource Group Templates](/docs/runbooks/runbook-examples/azure/resource-groups/).
-- [Executing PowerShell scripts using the Azure cmdlets](/docs/deployments/custom-scripts/azure-powershell-scripts/). Follow our guide on [running Azure PowerShell scripts](/docs/deployments/azure/running-azure-powershell/).
+- [Resource Group Templates](/docs/runbooks/runbook-examples/azure/resource-groups).
+- [Executing PowerShell scripts using the Azure cmdlets](/docs/deployments/custom-scripts/azure-powershell-scripts/). Follow our guide on [running Azure PowerShell scripts](/docs/deployments/azure/running-azure-powershell).
 
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
 - [Azure blog posts](https://octopus.com/blog/tag/azure).
-- [Azure deployment examples](/docs/deployments/azure/).
+- [Azure deployment examples](/docs/deployments/azure).

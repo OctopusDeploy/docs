@@ -10,10 +10,10 @@ navOrder: 80
 **Octopus.Migrator.exe** is a command line tool that provides the ability to back-up and restore parts of an Octopus Deploy instance as well as migrate data from **Octopus 2.6** builds.
 
 :::warning
-Octopus.Migrator.exe is not designed to support migrating projects between spaces. Issues and unintended results may occur when attempting to use the tool in this manner. If you wish to migrate projects between spaces or from an on-premise installation to a cloud instance, please see our [Exporting and Importing Projects](/docs/projects/export-import/) documentation.
+Octopus.Migrator.exe is not designed to support migrating projects between spaces. Issues and unintended results may occur when attempting to use the tool in this manner. If you wish to migrate projects between spaces or from an on-premise installation to a cloud instance, please see our [Exporting and Importing Projects](/docs/projects/export-import) documentation.
 :::
 
-For more in depth information about applicable data migration scenarios and tips, please reference the [data migration documentation](/docs/administration/data/data-migration/).
+For more in depth information about applicable data migration scenarios and tips, please reference the [data migration documentation](/docs/administration/data/data-migration).
 
 
 The latest version of **Octopus.Migrator.exe** is available in the Octopus Deploy installation directory and is usually located in:
@@ -26,11 +26,11 @@ C:\Program Files\Octopus Deploy\Octopus
 
 `octopus.migrator.exe` supports the following commands:
 
-- **[export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/export/)**:  Exports all configuration data to a directory.
-- **[import](/docs/octopus-rest-api/octopus.migrator.exe-command-line/import/)**:  Imports data from an Octopus 3.0+ export directory.
-- **[migrate](/docs/octopus-rest-api/octopus.migrator.exe-command-line/migrate/)**:  Imports data from an Octopus 2.6 backup.
-- **[partial-export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export/)**:  Exports configuration data to a directory filtered by projects.
-- **[version](/docs/octopus-rest-api/octopus.migrator.exe-command-line/version/)**:  Shows the version information for this release of the Octopus Migrator.
+- **[export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/export)**:  Exports all configuration data to a directory.
+- **[import](/docs/octopus-rest-api/octopus.migrator.exe-command-line/import)**:  Imports data from an Octopus 3.0+ export directory.
+- **[migrate](/docs/octopus-rest-api/octopus.migrator.exe-command-line/migrate)**:  Imports data from an Octopus 2.6 backup.
+- **[partial-export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export)**:  Exports configuration data to a directory filtered by projects.
+- **[version](/docs/octopus-rest-api/octopus.migrator.exe-command-line/version)**:  Shows the version information for this release of the Octopus Migrator.
 
 ## General usage {#Octopus.Migrator.exeCommandLine-Generalusage}
 

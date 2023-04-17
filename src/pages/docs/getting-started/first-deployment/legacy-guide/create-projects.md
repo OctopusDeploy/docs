@@ -10,14 +10,14 @@ hideInThisSection: true
 
 !include <create-projects>
 
-The next step will [define the deployment process](/docs/getting-started/first-deployment/legacy-guide/define-the-deployment-process/) in the newly created project.
+The next step will [define the deployment process](/docs/getting-started/first-deployment/legacy-guide/define-the-deployment-process) in the newly created project.
 
 **Further Reading**
 
 For further reading on projects in Octopus Deploy please see:
 
-- [Projects Documentation](/docs/projects/)
-- [Deployment Documentation](/docs/deployments/)
-- [Patterns and Practices](/docs/deployments/patterns/)
+- [Projects Documentation](/docs/projects)
+- [Deployment Documentation](/docs/deployments)
+- [Patterns and Practices](/docs/deployments/patterns)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/legacy-guide/configure-environments/">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/legacy-guide/define-the-deployment-process/">Next</a></span>

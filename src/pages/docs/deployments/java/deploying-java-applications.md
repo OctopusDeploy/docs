@@ -8,17 +8,17 @@ navOrder: 2
 ---
 
 :::hint
-See [Java Applications](/docs/deployments/java/) for details on deploying Java application servers.
+See [Java Applications](/docs/deployments/java) for details on deploying Java application servers.
 :::
 
 This guide provides a simple example of deploying a Java application using Octopus Deploy.
 
 ## Prerequisites {#DeployingJavaapplications-Prerequisites}
 
-This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/projects/)and have a [Tentacle or SSH deployment target](/docs/infrastructure/) already configured.
+This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/projects/)and have a [Tentacle or SSH deployment target](/docs/infrastructure) already configured.
 
 :::hint
-Naked scripting allows you to transfer and extract your package on remote targets without the need for Calamari or mono. Read the short guide [here](/docs/deployments/custom-scripts/) for more details.
+Naked scripting allows you to transfer and extract your package on remote targets without the need for Calamari or mono. Read the short guide [here](/docs/deployments/custom-scripts) for more details.
 :::
 
 ## Sample application {#DeployingJavaapplications-SampleApplication}
@@ -55,7 +55,7 @@ javac PressAnyKey.java
 1. Create a new project called **Press Any Key**.
 2. Add a **Deploy a package** step to the deployment process.
 3. Configure the step to deploy the package `PressAnyKey.1.0.0.zip`.
-4. Configure the step to run a [post-deployment script](/docs/deployments/custom-scripts/) to start the application.
+4. Configure the step to run a [post-deployment script](/docs/deployments/custom-scripts) to start the application.
 
 **PowerShell**
 

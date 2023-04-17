@@ -33,13 +33,13 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 8. Click **SAVE**.
 
-The next step will [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook/).
+The next step will [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook).
 
 **Further Reading**
 
 For further reading on runbook processes and what is possible please see:
 
-- [Runbook Examples](/docs/runbooks/runbook-examples/)
-- [Runbook Documentation](/docs/runbooks/)
+- [Runbook Examples](/docs/runbooks/runbook-examples)
+- [Runbook Documentation](/docs/runbooks)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/create-a-runbook">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/running-a-runbook">Next</a></span>

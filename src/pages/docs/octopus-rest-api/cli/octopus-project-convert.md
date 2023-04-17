@@ -50,5 +50,5 @@ $ octopus project convert --project "Deploy web site" --git-url https://github.c
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

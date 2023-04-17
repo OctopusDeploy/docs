@@ -15,13 +15,13 @@ Your application is deployed to multiple geographic regions (or multiple Data Ce
 
 ## Strict solution using environments
 
-You can use [Environments](/docs/infrastructure/environments/) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
+You can use [Environments](/docs/infrastructure/environments) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
 ![](/docs/deployments/patterns/images/multi-tenant-region.png "width=500")
 
 By using this pattern you can:
 
-1. Use [lifecycles](/docs/releases/lifecycles/) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
+1. Use [lifecycles](/docs/releases/lifecycles) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
     * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe.
     * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions.
 2. Scope region-specific variables to the region-specific Environments.
@@ -35,7 +35,7 @@ Environments and Lifecycles are a really good solution if you want to enforce a 
 
 ## Rolling solution
 
-[Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/) enable you to configure [Rolling deployments](/docs/deployments/patterns/rolling-deployments/) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
+[Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/) enable you to configure [Rolling deployments](/docs/deployments/patterns/rolling-deployments) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
 ![](/docs/deployments/patterns/images/production.png "width=500")
 
@@ -50,9 +50,9 @@ If you don't mind which order your regions are deployed, or you always upgrade a
 
 ## Tenanted solution
 
-Alternatively you could create [Tenants](/docs/tenants/) to represent each region or data center. By doing so you can:
+Alternatively you could create [Tenants](/docs/tenants) to represent each region or data center. By doing so you can:
 
-1. Use [variable templates](/docs/projects/variables/variable-templates/) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables:
+1. Use [variable templates](/docs/projects/variables/variable-templates) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables:
 
     ![](/docs/deployments/patterns/images/australiavariables.png "width=500")
 
@@ -84,7 +84,7 @@ Tenants offer a balanced approach to modeling multi-region deployments, offering
 
 ## Conclusion
 
-[Environments](/docs/infrastructure/environments/), [Tenants](/docs/tenants/) and [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
+[Environments](/docs/infrastructure/environments/), [Tenants](/docs/tenants/) and [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
 
 ## Learn more
 

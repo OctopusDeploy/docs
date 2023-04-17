@@ -7,7 +7,7 @@ description: Automatic deployment triggers allow you to define unattended behavi
 navOrder: 2
 ---
 
-Scheduled Deployment Triggers allow you to define an unattended behavior for your [Projects](/docs/projects/) that will cause an automatic deployment of a release based on a defined recurring schedule.
+Scheduled Deployment Triggers allow you to define an unattended behavior for your [Projects](/docs/projects) that will cause an automatic deployment of a release based on a defined recurring schedule.
 
 ## Schedule
 
@@ -28,9 +28,9 @@ Scheduled deployment triggers provide a way to configure your projects to create
   - **Deploy Latest Release** re-deploys a release or promote a release between environments. You need to specify the **Source Environment** and the **Destination Environment**. The latest successful release in the source environment will be deployed to the destination environment.
   - **Deploy New Release** deploys a new release which will deployed to the environment you specify in the **Destination Environment**.
 
-If you are using [channels](/docs/releases/channels/) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
+If you are using [channels](/docs/releases/channels) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
 
-If you are using [tenants](/docs/tenants/) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
+If you are using [tenants](/docs/tenants) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
 
 5. Save the trigger.
 

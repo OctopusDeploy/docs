@@ -9,7 +9,7 @@ navOrder: 7
 
 !include <azure-vm-extension-deprecated>
 
-These files are required to install the extension [via the Azure CLI](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-the-azure-cli/) or [via PowerShell](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-powershell/).
+These files are required to install the extension [via the Azure CLI](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-the-azure-cli/) or [via PowerShell](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-powershell).
 
 ## Public settings
 

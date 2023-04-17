@@ -8,9 +8,9 @@ navOrder: 35
 hideInThisSection: true
 ---
 
-[Lifecycles](/docs/releases/lifecycles/) control the order of promotion of a release through different stages, or environments, in your pipeline.  You can configure a lifecycle to require deployments to **development**, **test**, and **staging** prior to deployments to **production**.  They are also used to set [retention policies](/docs/administration/retention-policies/) (how long releases are saved) at a per environment level.
+[Lifecycles](/docs/releases/lifecycles/) control the order of promotion of a release through different stages, or environments, in your pipeline.  You can configure a lifecycle to require deployments to **development**, **test**, and **staging** prior to deployments to **production**.  They are also used to set [retention policies](/docs/administration/retention-policies) (how long releases are saved) at a per environment level.
 
-Lifecycles are shared across an entire space.  A project references lifecycles via [channels](/docs/releases/channels/) and can reference 1 to N lifecycles.
+Lifecycles are shared across an entire space.  A project references lifecycles via [channels](/docs/releases/channels) and can reference 1 to N lifecycles.
 
 Lifecycles contain 1 to N phases, which represent a stage in your deployment lifecycle.  A phase can have 0 to N environments; for example, you could have a test phase that contains both **development** and **test** environments. Or, you could have a development phase for your **development** environment and a test phase for your **test** environment.  
 
@@ -45,11 +45,11 @@ A lifecycle with a single phase is an anti-pattern.  Typically we see this when 
 
 ## Production Approval
 
-Octopus Deploy uses the [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step for all approvals.  At the time of this writing, that step runs during a deployment.  That requires you to first start the deployment to **production** to approve the deployment in **production**.
+Octopus Deploy uses the [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for all approvals.  At the time of this writing, that step runs during a deployment.  That requires you to first start the deployment to **production** to approve the deployment in **production**.
 
 We recommend two approaches to **production** approvals.
 
-1. Restrict who can deploy to **production** to your operations or systems admin people.  See [common RBAC scenarios](/docs/getting-started/best-practices/users-roles-and-teams/) on how to set that up.
+1. Restrict who can deploy to **production** to your operations or systems admin people.  See [common RBAC scenarios](/docs/getting-started/best-practices/users-roles-and-teams) on how to set that up.
 2. Create a **prod approval** environment and add it to your lifecycle.  An example lifecycle with a **prod approval** environment is {{development,test,staging,prod approval,production}}.
 
 The **prod approval** environment has all the manual intervention steps required for approval.  After the release is "deployed" to the **prod approval** environment, it can then be scheduled for a **production** deployment.  No manual intervention steps will be required in **production** as all approvals happened earlier.
@@ -83,8 +83,8 @@ While possible to configure, you cannot have an optional phase with automatic de
 
 For further reading on lifecycles and environments in Octopus Deploy please see:
 
-- [Lifecycles](/docs/releases/lifecycles/)
-- [Environments](/docs/infrastructure/environments/)
-- [Channels](/docs/releases/channels/)
+- [Lifecycles](/docs/releases/lifecycles)
+- [Environments](/docs/infrastructure/environments)
+- [Channels](/docs/releases/channels)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/worker-configuration">Next</a></span>

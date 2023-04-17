@@ -12,7 +12,7 @@ hideInThisSection: true
 
 ## Enable configuration features
 
-You enable configuration features as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/).
+You enable configuration features as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process).
 
 1. If the step you are defining has configuration features available, there is a **CONFIGURE FEATURES** link. Click the link.
 1. Select the features you would like to enable by clicking the relevant check-boxes in the list and click **OK**.
@@ -23,14 +23,14 @@ The features you have enabled will now be available in the **Features** section 
 
 You can configure the following features:
 
-- [Custom installation directory](/docs/projects/steps/configuration-features/custom-installation-directory/)
-- [IIS web site and application pool](/docs/projects/steps/configuration-features/iis-website-and-application-pool/)
-- [Windows Service](/docs/projects/steps/configuration-features/windows-services/)
-- [Custom deployment scripts](/docs/deployments/custom-scripts/)
-- [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/)
-- [Configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/)
-- [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/)
-- [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates/)
+- [Custom installation directory](/docs/projects/steps/configuration-features/custom-installation-directory)
+- [IIS web site and application pool](/docs/projects/steps/configuration-features/iis-website-and-application-pool)
+- [Windows Service](/docs/projects/steps/configuration-features/windows-services)
+- [Custom deployment scripts](/docs/deployments/custom-scripts)
+- [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature)
+- [Configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature)
+- [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms)
+- [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates)
 - IIS6+ Home directory
-- [NGINX Web Server](/docs/projects/steps/configuration-features/nginx-web-server/)
+- [NGINX Web Server](/docs/projects/steps/configuration-features/nginx-web-server)
 - Red Gate database deployment

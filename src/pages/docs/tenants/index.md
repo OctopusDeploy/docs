@@ -31,7 +31,7 @@ manage separate instances of your application in multiple environments in a sing
 
 Tenants enable:
 
-1. Deploying multiple instances of your project to the same [Environment](/docs/infrastructure/environments/).
+1. Deploying multiple instances of your project to the same [Environment](/docs/infrastructure/environments).
 2. Managing configuration settings unique to each tenant.
 3. Promoting releases using safe tenant-aware lifecycles.
 4. Tailoring the deployment process using tenant tags.
@@ -53,7 +53,7 @@ Tenants can also represent:
 - Developers, testers, or Teams
 - Feature branches
 
-Learn more about [tenant types](/docs/tenants/tenant-types/).
+Learn more about [tenant types](/docs/tenants/tenant-types).
 
 ## When to use tenants {#when-to-use-tenants}
 
@@ -66,15 +66,15 @@ Here are some signs that you should consider using tenants:
 - You need to deploy different versions of your application to the same environment.
 - You are creating multiple environments of the same type. This could be multiple Test environments for different testers or multiple Production environments for different customers.
 
-Check out our [multi-tenancy guides](/docs/tenants/guides/) that go into more detail on how to use multi-tenancy in Octopus for some common scenarios.
+Check out our [multi-tenancy guides](/docs/tenants/guides) that go into more detail on how to use multi-tenancy in Octopus for some common scenarios.
 
 ## Create your first tenant {#create-your-first-tenant}
 
 With just a few simple steps, you can configure a new or existing Octopus project to use the multi-tenancy feature:
 
-1. [Create a tenant](/docs/tenants/tenant-creation/)
-1. [Enable tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments/)
-1. [Connect a tenant to a project](/docs/tenants/tenant-creation/connecting-projects/)
+1. [Create a tenant](/docs/tenants/tenant-creation)
+1. [Enable tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments)
+1. [Connect a tenant to a project](/docs/tenants/tenant-creation/connecting-projects)
 
 ## Tenant variables {#tenant-variables}
 
@@ -82,20 +82,20 @@ You often want to define variable values that are different for each tenant, lik
 
 :::hint
 **Tenant-provided variables are not snapshotted**
-When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release/) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/projects/variables/), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
+When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release/) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/projects/variables), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
 :::
 
-Learn more about [tenant variables](/docs/tenants/tenant-variables/) in our reference documentation.
+Learn more about [tenant variables](/docs/tenants/tenant-variables) in our reference documentation.
 
 ## Tenant tags {#tenant-tags}
 
-Tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Learn more about [tenant tags](/docs/tenants/tenant-tags/) in our reference documentation.
+Tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Learn more about [tenant tags](/docs/tenants/tenant-tags) in our reference documentation.
 
 ## Troubleshooting multi-tenant deployments
 
 If you're running into any issues with tenants, then this section has some useful answers to some of the questions we are often asked relating to multi-tenant deployments in Octopus Deploy:
 
-- [Multi-tenant deployments FAQ](/docs/tenants/tenant-deployment-faq/)
-- [Troubleshooting multi-tenant deployments](/docs/tenants/troubleshooting-multi-tenant-deployments/)
+- [Multi-tenant deployments FAQ](/docs/tenants/tenant-deployment-faq)
+- [Troubleshooting multi-tenant deployments](/docs/tenants/troubleshooting-multi-tenant-deployments)
 
 If you still need assistance, don't worry - [we are always here to help!](https://octopus.com/support)

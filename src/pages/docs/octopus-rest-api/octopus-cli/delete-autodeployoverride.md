@@ -7,7 +7,7 @@ description: Using the Octopus CLI to delete automatic deployment release overri
 navOrder: 90
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to delete automatic deployment release overrides.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to delete automatic deployment release overrides.
 
 ```
 Deletes auto deploy release overrides.
@@ -111,6 +111,6 @@ octo delete-autodeployoverride --project HelloWorld --environment Development --
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
-- [Automatic deployments](/docs/projects/project-triggers/deployment-target-triggers/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
+- [Automatic deployments](/docs/projects/project-triggers/deployment-target-triggers)

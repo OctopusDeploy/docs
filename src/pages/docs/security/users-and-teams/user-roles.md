@@ -35,7 +35,7 @@ Octopus comes with a set of built-in user roles that are designed to work for mo
 The built-in user roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own user roles.
 
 :::success
-To view the default permissions for each of the built-in user roles, please see [default permissions](/docs/security/users-and-teams/default-permissions/).
+To view the default permissions for each of the built-in user roles, please see [default permissions](/docs/security/users-and-teams/default-permissions).
 :::
 
 ### Additional user roles for spaces
@@ -46,7 +46,7 @@ To view the default permissions for each of the built-in user roles, please see 
 | Space Manager        | Space managers can do everything within the context of the space they own. |
 
 :::success
-For more information regarding the _system or space level_, please see [system and space permissions](/docs/security/users-and-teams/system-and-space-permissions/).
+For more information regarding the _system or space level_, please see [system and space permissions](/docs/security/users-and-teams/system-and-space-permissions).
 :::
 
 ## Creating user roles {#UserRoles-CreatingUserRoles}
@@ -65,7 +65,7 @@ A custom User Role can be created with any combination of permissions. To creat
 
 Once the custom role is saved, the new role will be available to be assigned to teams in Octopus. [Some rules apply](/docs/security/users-and-teams/system-and-space-permissions/#SystemAndSpacePermissions-RulesOfTheRoad), depending on the mix of system or space level permissions you chose.
 
-When applying roles to a team, you can optionally specify a scope for each role applied. This enables some complex scenarios, like granting a team [different levels of access](/docs/security/users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges/) based on the environment they are authorized for.
+When applying roles to a team, you can optionally specify a scope for each role applied. This enables some complex scenarios, like granting a team [different levels of access](/docs/security/users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges) based on the environment they are authorized for.
 
 ![](/docs/security/users-and-teams/images/define-scope-for-user-role.png "width=500")
 
@@ -78,8 +78,8 @@ To test the permissions go to **{{Configuration,Test Permissions}}** and selec
 The results will show:
 
 - The teams of which the user is a member of. There are two separate Permission context that you can check.
-   - **Show System permissions** will show [System level permissions](/docs/security/users-and-teams/system-and-space-permissions/)
-   - **Show permissions within a specific space** will show [Space specific Permissions](/docs/security/users-and-teams/system-and-space-permissions/).
+   - **Show System permissions** will show [System level permissions](/docs/security/users-and-teams/system-and-space-permissions)
+   - **Show permissions within a specific space** will show [Space specific Permissions](/docs/security/users-and-teams/system-and-space-permissions).
 - A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
 
 ![](/docs/security/users-and-teams/images/systempermissions.png "width=500")

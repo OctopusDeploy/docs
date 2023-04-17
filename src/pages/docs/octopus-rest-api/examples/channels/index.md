@@ -8,4 +8,4 @@ navOrder: 40
 hideInThisSectionHeader: true
 ---
 
-You can use the REST API to create and manage your [channels](/docs/releases/channels/) in Octopus. Typical tasks can include:
+You can use the REST API to create and manage your [channels](/docs/releases/channels) in Octopus. Typical tasks can include:

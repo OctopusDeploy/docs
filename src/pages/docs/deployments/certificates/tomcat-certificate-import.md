@@ -11,9 +11,9 @@ With the `Deploy a certificate to Tomcat` step, certificates managed by Octopus 
 
 ## Prerequisites
 
-Before a certificate can be deployed to a Tomcat instance, the certificate itself must be uploaded to Octopus. [Add a Certificate to Octopus](/docs/deployments/certificates/add-certificate/) provides instructions on how to add a new certificate to the Octopus library.
+Before a certificate can be deployed to a Tomcat instance, the certificate itself must be uploaded to Octopus. [Add a Certificate to Octopus](/docs/deployments/certificates/add-certificate) provides instructions on how to add a new certificate to the Octopus library.
 
-Once uploaded, the certificate has to be referenced by a variable. [Certificate Variables](/docs/projects/variables/certificate-variables/) provides instructions on how to define a certificate variable.
+Once uploaded, the certificate has to be referenced by a variable. [Certificate Variables](/docs/projects/variables/certificate-variables) provides instructions on how to define a certificate variable.
 
 ## Deploying a certificate to Tomcat
 
@@ -33,7 +33,7 @@ When a single binary distribution of Tomcat is shared among multiple users on th
 
 The `Tomcat Certificate` section defines the details of the certificate being deployed.
 
-The `Select certificate variable` field provides a list of all the certificate variables defined in the project. [Certificate Variables](/docs/projects/variables/certificate-variables/) provides instructions on how to define a certificate variable.
+The `Select certificate variable` field provides a list of all the certificate variables defined in the project. [Certificate Variables](/docs/projects/variables/certificate-variables) provides instructions on how to define a certificate variable.
 
 The `Tomcat service name` field references that name of the service in the `conf/server.xml` file that the certificate will be deployed to. By default, the service is called `Catalina`, as defined by the `name` attribute in the `<Service name="Catalina">` element.
 

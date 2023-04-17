@@ -13,7 +13,7 @@ Eventually, the server hosting Octopus Deploy or the .NET version installed will
 
 If you have a Data Center or a Server license, it is possible to upgrade the host OS or .NET without downtime and with minimal risk.  Those licenses support an unlimited number of high availability (HA) nodes.  If you do not have HA configured, this is an excellent time to do it.  There are numerous benefits, including horizontal scaling, a more robust CI/CD pipeline, and low friction maintenance.
 
-Please see our guide on [configuring high availability](/docs/administration/high-availability/configure/).
+Please see our guide on [configuring high availability](/docs/administration/high-availability/configure).
 
 Once high availability is configured, the process to upgrade the host OS will be:
 

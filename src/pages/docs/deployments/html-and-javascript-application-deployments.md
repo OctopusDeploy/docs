@@ -16,11 +16,11 @@ This example uses AngularJS but the same basic principles apply for any applicat
 
 ## Prerequisites {#DeployingHTMLandJavaScriptApplications-Prerequisites}
 
-This guide assumes some familiarity with common Octopus concepts like configuring [projects ](/docs/projects/)and [variables](/docs/projects/variables/). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deployments/windows/iis-websites-and-application-pools/) deployment steps. Alternatively you could use any other web host, like Express in Node.js, since this is just a single HTML file with no other dependencies.
+This guide assumes some familiarity with common Octopus concepts like configuring [projects ](/docs/projects/)and [variables](/docs/projects/variables/). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deployments/windows/iis-websites-and-application-pools) deployment steps. Alternatively you could use any other web host, like Express in Node.js, since this is just a single HTML file with no other dependencies.
 
 ## Sample application {#DeployingHTMLandJavaScriptApplications-SampleApplication}
 
-Here is a very simple AngularJS application which uses [AngularJS Constants](https://docs.angularjs.org/api/auto/service/$provide#constant) to provide other services, controllers and directives with access to the configuration data stored in Octopus. The important part to note here is where we set the constant: we are going to use the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates/) feature to replace the **`#{MyApp.ConfigValue1}`** expression at deployment time.
+Here is a very simple AngularJS application which uses [AngularJS Constants](https://docs.angularjs.org/api/auto/service/$provide#constant) to provide other services, controllers and directives with access to the configuration data stored in Octopus. The important part to note here is where we set the constant: we are going to use the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) feature to replace the **`#{MyApp.ConfigValue1}`** expression at deployment time.
 
 **MyApp.html**
 
@@ -58,7 +58,7 @@ angular
 Firstly we need to make the package available for Octopus to deploy.
 
 :::success
-We've crafted and packaged v1.0.0 of this sample application for you to try out (see the link below). Alternatively you can create your own application and [package the application](/docs/packaging-applications/) yourself to try it out.
+We've crafted and packaged v1.0.0 of this sample application for you to try out (see the link below). Alternatively you can create your own application and [package the application](/docs/packaging-applications) yourself to try it out.
 :::
 
 1. Download [MyApp.1.0.0.zip](/docs/attachments/myapp.1.0.0.zip).
@@ -72,7 +72,7 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 
 1. Create a new Project and choose an appropriate Lifecycle for testing this sample application.
  1. Remember you need to target a web server running IIS in order to follow this guide verbatim.
-2. Configure some project variables to match the JavaScript shown above. *You can use these values or any other values you wish - we've chosen to show a [complex expression](/docs/projects/variables/variable-substitutions/) including an [Octopus System Variable](/docs/projects/variables/system-variables/).*
+2. Configure some project variables to match the JavaScript shown above. *You can use these values or any other values you wish - we've chosen to show a [complex expression](/docs/projects/variables/variable-substitutions/) including an [Octopus System Variable](/docs/projects/variables/system-variables).*
 ![](/docs/deployments/images/5866206.png "width=500")
 3. Configure the deployment process to deploy the MyApp package and host it in an IIS Web Site. Our web servers in this example belong to the **web-server** role.
 
@@ -84,7 +84,7 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 
 ![](/docs/deployments/images/5866209.png "width=500")
 
-5. Enable the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates/) feature and configure it to replace the expressions in our `MyApp.html` file with variable values we defined earlier.
+5. Enable the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) feature and configure it to replace the expressions in our `MyApp.html` file with variable values we defined earlier.
 
 ![](/docs/deployments/images/5866210.png "width=500")
 

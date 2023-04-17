@@ -38,7 +38,7 @@ Also note that the data:
 
 ## What about information on concurrent users, web front-end performance, etc.?
 
-You may want to look at [enabling HTTP logging](/docs/administration/managing-infrastructure/performance/enable-web-request-logging/).
+You may want to look at [enabling HTTP logging](/docs/administration/managing-infrastructure/performance/enable-web-request-logging).
 
 :::hint
 **Limitation**

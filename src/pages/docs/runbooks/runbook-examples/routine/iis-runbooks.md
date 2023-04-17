@@ -111,10 +111,10 @@ To create a runbook to start your IIS application pool:
 1. Fill out the only required parameter: **Application Pool name**. 
 
 :::hint
-We recommend using [variables](/docs/projects/variables/) where appropriate, rather than entering values directly in the step parameters.
+We recommend using [variables](/docs/projects/variables) where appropriate, rather than entering values directly in the step parameters.
 :::
 
-Optionally, configure any [conditions](/docs/projects/steps/conditions/) for the step, click **Save**, and you have a runbook step to start an IIS Application Pool.
+Optionally, configure any [conditions](/docs/projects/steps/conditions) for the step, click **Save**, and you have a runbook step to start an IIS Application Pool.
 
 ![Runbook IIS maintenance Start App-Pool](/docs/runbooks/runbook-examples/routine/images/iis-maintenance-start-app-pool.png "width=500")
 
@@ -126,7 +126,7 @@ To create a runbook to stop your application pool:
 1. Give the runbook a Name and click **SAVE**.
 1. Add the community step template called [IIS AppPool - Stop](https://library.octopus.com/step-templates/3aaf34a5-90eb-4ea1-95db-15ec93c1e54d/actiontemplate-iis-apppool-stop), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. Fill out all of the required parameters in the step, using [variables](/docs/projects/variables/) where appropriate:
+1. Fill out all of the required parameters in the step, using [variables](/docs/projects/variables) where appropriate:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
@@ -146,7 +146,7 @@ To create a runbook to restart your IIS application pool:
 1. Give the runbook a name and click **SAVE**.
 1. Add the community step template called [IIS AppPool - Restart](https://library.octopus.com/step-templates/de4a85ca-38cc-4a30-8244-64612e3a7921/actiontemplate-iis-apppool-restart), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. Fill out the only required parameter: **Application pool name**, using a [variable](/docs/projects/variables/) if appropriate.
+1. Fill out the only required parameter: **Application pool name**, using a [variable](/docs/projects/variables) if appropriate.
 
 Configure any other settings for the step and click **Save**, and you have a runbook step to restart an IIS Application Pool.
 
@@ -160,7 +160,7 @@ To create a runbook to restart your IIS websites:
 1. Give the runbook a name and click **SAVE**.
 1. Add the community step template called [IIS Website - Restart](https://library.octopus.com/step-templates/6a17bd83-ef96-4c22-b212-91a89ca92fe6/actiontemplate-iis-website-restart), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. Fill out the only required parameter: **Website name**, using a [variable](/docs/projects/variables/) if appropriate.
+1. Fill out the only required parameter: **Website name**, using a [variable](/docs/projects/variables) if appropriate.
 
 Configure any other settings for the step and click **Save**, and you have a runbook step to restart an IIS website.
 
@@ -174,7 +174,7 @@ To create a runbook to delete your IIS websites:
 1. Give the runbook a name and click **SAVE**.
 1. Add the community step template called [IIS Website - Delete](https://library.octopus.com/step-templates/a032159b-0742-4982-95f4-59877a31fba3/actiontemplate-iis-website-delete), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. Fill out the only required parameter: **Website name**, using a [variable](/docs/projects/variables/) if appropriate.
+1. Fill out the only required parameter: **Website name**, using a [variable](/docs/projects/variables) if appropriate.
 
 Configure any other settings for the step and click **Save**, and you have a runbook step to delete an IIS website.
 
@@ -182,7 +182,7 @@ Configure any other settings for the step and click **Save**, and you have a run
 
 ## Optional Approvals
 
-You can also include additional steps to your runbook to include another layer of protection, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) step for business approvals. 
+You can also include additional steps to your runbook to include another layer of protection, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals. 
 
 ## Harden IIS
 

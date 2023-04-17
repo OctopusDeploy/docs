@@ -18,7 +18,7 @@ Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps a
 This page will walk you through the steps needed to enable cloud target discovery.
 
 :::hint
-We recommend cloud target discovery over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/) functionality.
+We recommend cloud target discovery over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure) functionality.
 :::
 
 ## Configure credentials for discovery
@@ -37,7 +37,7 @@ To discover Azure cloud resources, Octopus uses the following variables:
 
 | Name                    | Required | Description                                                                                                   |
 | ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| `Octopus.Azure.Account` | Y        | An [Azure account](/docs/projects/variables/azure-account-variables/) to use when discovering cloud targets |
+| `Octopus.Azure.Account` | Y        | An [Azure account](/docs/projects/variables/azure-account-variables) to use when discovering cloud targets |
 
 From **Octopus 2022.3**, Azure steps that support target discovery will allow you to configure the variables above from within the step configuration if they have not been configured within your project yet.
 
@@ -58,8 +58,8 @@ To discover AWS cloud resources, Octopus uses the following variables:
 | Name                                      | Required | Description                                                                                                                                                                                                                                                  |
 | ----------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `Octopus.Aws.Regions`                     | Y        | A comma separated list of AWS regions to perform target discovery in.                                                                                                                                                                                        |
-| `Octopus.Aws.Account`                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables/) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used.                                                |
-| `Octopus.Aws.WorkerPool`                  | N        | A [worker pool](/docs/projects/variables/worker-pool-variables/) to use when discovering cloud targets. If this is not set then the worker pool from the step will be used. If this is set any discovered targets will have this set as their worker pool. |
+| `Octopus.Aws.Account`                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used.                                                |
+| `Octopus.Aws.WorkerPool`                  | N        | A [worker pool](/docs/projects/variables/worker-pool-variables) to use when discovering cloud targets. If this is not set then the worker pool from the step will be used. If this is set any discovered targets will have this set as their worker pool. |
 | `Octopus.Aws.AssumedRole.Arn`             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles.                                                |
 | `Octopus.Aws.AssumedRole.SessionName`     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                                                                            |
 | `Octopus.Aws.AssumedRole.SessionDuration` | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                                                                             |
@@ -85,11 +85,11 @@ Tags are in the format `octopus-{scope}` and support the following for discovery
 
 | Tag                   | Required | Description                                                                                                                                                                                  | Example                             |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `octopus-environment` | Yes      | The name of the [environment](/docs/infrastructure/environments/) the target can be used in during deployments. Only deployments matching the environment will discover the target.  | `octopus-environment = Development` |
+| `octopus-environment` | Yes      | The name of the [environment](/docs/infrastructure/environments) the target can be used in during deployments. Only deployments matching the environment will discover the target.  | `octopus-environment = Development` |
 | `octopus-role`        | Yes      | The [role](/docs/infrastructure/deployment-targets/#target-roles) that should be applied to the target. Only deployments with a step that matches the role will discover the target. | `octopus-role = PetShotFrontEnd`    |
-| `octopus-space`       | No       | The name of the [space](/docs/administration/spaces/) the target can be used in. If present only deployments within the matching space can discover the target.                      | `octopus-space = PetShopTeam`       |
-| `octopus-project`     | No       | The name of the [project](/docs/projects/) the target will be discovered by. If present only deployments for the matching project can discover the target.                           | `octopus-project = PetShop`         |
-| `octopus-tenant`      | No       | The name of the [tenant](/docs/projects/) the target can be discovered for. If present only deployments for the matching tenant will discover the target.                            | `octopus-tenant = MyClient`         |
+| `octopus-space`       | No       | The name of the [space](/docs/administration/spaces) the target can be used in. If present only deployments within the matching space can discover the target.                      | `octopus-space = PetShopTeam`       |
+| `octopus-project`     | No       | The name of the [project](/docs/projects) the target will be discovered by. If present only deployments for the matching project can discover the target.                           | `octopus-project = PetShop`         |
+| `octopus-tenant`      | No       | The name of the [tenant](/docs/projects) the target can be discovered for. If present only deployments for the matching tenant will discover the target.                            | `octopus-tenant = MyClient`         |
 
 ## Add step to deployment process
 
@@ -173,12 +173,12 @@ Server will not remove unhealthy targets immediately. Targets need to fail multi
 
 Let's say you have a project in Octopus called _Pet Shop_ that deploys an application to an Azure Web App in a _Development_ environment using a role of _PetShopFrontEnd_ and this web app is dynamically created as part of the deployment using an ARM template.
 
-To use this web app previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target/) with custom code to try and find and create the web app target. In addition, previously when this web app was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget/) or manually remove the target in Octopus.
+To use this web app previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target/) with custom code to try and find and create the web app target. In addition, previously when this web app was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget) or manually remove the target in Octopus.
 
 By configuring a well-known variable and tagging your Azure Web App appropriately, Octopus can discover this target for you at deployment time. Additionally, Octopus will continue to monitor the target, and will remove it if it is removed in Azure.
 
-- Configure an [Azure account](/docs/projects/variables/azure-account-variables/) variable in your project named **Octopus.Azure.Account**, selecting an account that has permissions to be able to find the web app.
-- Add tags to the web app resource within the ARM template to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions/):
+- Configure an [Azure account](/docs/projects/variables/azure-account-variables) variable in your project named **Octopus.Azure.Account**, selecting an account that has permissions to be able to find the web app.
+- Add tags to the web app resource within the ARM template to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions):
 
 ```json
 "resources": [{
@@ -198,16 +198,16 @@ Octopus will now discover the web app as a target before deploying to it, matchi
 
 Let's say you have a project in Octopus called _Pet Shop_ that deploys an application to an Amazon ECS Cluster in a _Development_ environment using a role of _PetShopFrontEnd_ and the cluster is dynamically created as part of the deployment using a CloudFormation template.
 
-To use this cluster previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget/) with custom code to try and find and create the cluster target. In addition, previously when this cluster was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget/) or manually remove the target in Octopus.
+To use this cluster previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget/) with custom code to try and find and create the cluster target. In addition, previously when this cluster was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget) or manually remove the target in Octopus.
 
 By configuring some well-known variables and tagging your ECS cluster appropriately, Octopus can discover this target for you at deployment time. Additionally, Octopus will continue to monitor the target, and will remove it if it is removed in AWS.
 
 - Set the credentials to use during discovery by
-  - Configuring an [AWS account](/docs/projects/variables/aws-account-variables/) variable in your project named **Octopus.Aws.Account**, selecting an account that has permissions to be able to find the cluster. If not configured the credentials from the worker set on the deployment step will be used.
-  - Optionally configuring a [worker pool](/docs/projects/variables/worker-pool-variables/) variable in your project named **Octopus.Aws.WorkerPool** if discovery should be executed in a specific worker pool.
+  - Configuring an [AWS account](/docs/projects/variables/aws-account-variables) variable in your project named **Octopus.Aws.Account**, selecting an account that has permissions to be able to find the cluster. If not configured the credentials from the worker set on the deployment step will be used.
+  - Optionally configuring a [worker pool](/docs/projects/variables/worker-pool-variables) variable in your project named **Octopus.Aws.WorkerPool** if discovery should be executed in a specific worker pool.
   - Optionally configuring discovery to use an assumed role by setting a variable in your project named **Octopus.Aws.AssumedRole.Arn** as well as other variables to configure the session name, duration and external id if required.
 - Configure which AWS region to search for your ECS cluster in by setting a variable in your project named **Octopus.Aws.Regions**.
-- Add tags to the ECS cluster resource within the CloudFormation template to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our project (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions/):
+- Add tags to the ECS cluster resource within the CloudFormation template to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our project (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions):
 
 ```json
 {

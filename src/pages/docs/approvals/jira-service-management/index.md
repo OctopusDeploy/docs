@@ -131,7 +131,7 @@ change**
 
 If you add a variable to your project named `Octopus.JiraServiceManagement.ChangeRequest.Number`,
 then an Issue will not be created, and instead, the supplied number will be used during the 
-approval check. This variable can also be [scoped](/docs/projects/variables/#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables/).
+approval check. This variable can also be [scoped](/docs/projects/variables/#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables).
 
 ### Setting up environments for CR approval
 

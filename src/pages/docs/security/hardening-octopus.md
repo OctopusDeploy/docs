@@ -27,7 +27,7 @@ Depending on your scenario you may want to relax or ignore these recommendations
 
 If you consider networking, the host operating system, Microsoft SQL Server, and Octopus Server: it is very likely Octopus Server is the new kid on the block. You should consider downloading a free trial of Octopus Server and setting it up on your local machine so you are familiar with how it works. This will eliminate some potential surprises as you progress through the security hardening.
 
-Learn about [getting started with Octopus Deploy](/docs/getting-started/).
+Learn about [getting started with Octopus Deploy](/docs/getting-started).
 
 ### Choose your order for hardening
 
@@ -50,34 +50,34 @@ Generally speaking, the latest available version of Octopus Server will be the m
 
 For Octopus Server to be useful you need to expose its HTTP API to your users, and perhaps your infrastructure and some external services. There are many different approaches to solving this problem, but at its core you will want to:
 
-1. Use HTTPS over SSL. Learn about [safely exposing your Octopus Server](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/).
-1. Configure the built in HTTP security features as appropriate for your scenario. Learn about [HTTP security headers](/docs/security/http-security-headers/).
+1. Use HTTPS over SSL. Learn about [safely exposing your Octopus Server](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https).
+1. Configure the built in HTTP security features as appropriate for your scenario. Learn about [HTTP security headers](/docs/security/http-security-headers).
 
 ### Configure your Workers {#configuring-workers}
 
-Workers offer a convenient way to run scripts and certain deployment steps. Learn about [workers](/docs/infrastructure/workers/).
+Workers offer a convenient way to run scripts and certain deployment steps. Learn about [workers](/docs/infrastructure/workers).
 
 We highly recommend configuring external workers running on a different host to your Octopus Server. This is the easiest and more secure approach to prevent user-provided scripts from doing harm to your Octopus Server.
 
-Learn about the [built-in worker](/docs/infrastructure/workers/built-in-worker/).
+Learn about the [built-in worker](/docs/infrastructure/workers/built-in-worker).
 
-Learn about [external workers](/docs/infrastructure/workers/).
+Learn about [external workers](/docs/infrastructure/workers).
 
 ### Configure how Octopus Server communicates with deployment targets
 
 Octopus Server always uses a secure and tamper-proof communications transport for communicating with deployment targets:
 
-- Learn about [Octopus Server to Tentacle communication](/docs/security/octopus-tentacle-communication/).
-- Learn about [Octopus Server to SSH communication](/docs/infrastructure/deployment-targets/linux/ssh-target/).
+- Learn about [Octopus Server to Tentacle communication](/docs/security/octopus-tentacle-communication).
+- Learn about [Octopus Server to SSH communication](/docs/infrastructure/deployment-targets/linux/ssh-target).
 
 The decisions you need to make are:
 
 1. Which kind of deployment targets do you want to allow? Listening Tentacles? Polling Tentacles? SSH? This will have an impact on how you configure your network. See [harden your network](#harden-your-network).
-1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/deployment-targets/proxy-support/).
+1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/deployment-targets/proxy-support).
 
 ## Harden your host operating system
 
-These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/) and any [workers](/docs/infrastructure/workers/).
+These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/) and any [workers](/docs/infrastructure/workers).
 
 1. Rename local administrator account.
 1. Configure malware protection.
@@ -221,7 +221,7 @@ Once you have performed changes to the available versions of TLS, you should ver
 These steps only apply if you are running either the built-in worker or an external worker on the same host operating system as the Octopus Server itself. You should prevent custom scripts executed by these workers from doing harm to your Octopus Server.
 
 :::hint
-Consider using an [external worker](/docs/infrastructure/workers/) and moving this workload to a different server. This is the very best way to prevent any potential for harm to your Octopus Server, and you won't need to rely on the rest of these steps to prevent harm to your Octopus Server.
+Consider using an [external worker](/docs/infrastructure/workers) and moving this workload to a different server. This is the very best way to prevent any potential for harm to your Octopus Server, and you won't need to rely on the rest of these steps to prevent harm to your Octopus Server.
 :::
 
 #### Run as a different user
@@ -302,7 +302,7 @@ You don't need to do very much here specific to Octopus Server.
 1. Use Integrated Security for the database connection if possible, otherwise use a strong password.
 1. Prevent the Octopus Server's Server Principal (Login) from doing harm outside its own database.
 
-Learn about managing your [Octopus SQL database](/docs/installation/sql-server-database/).
+Learn about managing your [Octopus SQL database](/docs/installation/sql-server-database).
 
 ## Harden your network {#harden-your-network}
 
@@ -318,7 +318,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |Name|Type|Source|Target|Allow/Deny|Description|
 |---|---|---|---|---|---|
 |HTTP|`TCP 80`|Users|Octopus Server|ALLOW|We recommend only using HTTPS over SSL, however it can be convenient to allow HTTP for the initial connection which is then forced to HTTPS over SSL.|
-|HTTPS|`TCP 443`|Users, Polling Tentacles, external services|Octopus Server|ALLOW|Required for HTTPS over SSL. Also required if using [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) over [Web Sockets](/docs/infrastructure/deployment-targets/tentacle/windows/polling-tentacles-web-sockets/).|
+|HTTPS|`TCP 443`|Users, Polling Tentacles, external services|Octopus Server|ALLOW|Required for HTTPS over SSL. Also required if using [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) over [Web Sockets](/docs/infrastructure/deployment-targets/tentacle/windows/polling-tentacles-web-sockets).|
 |Polling Tentacle|`TCP 10943`|Polling Tentacles|Octopus Server|ALLOW|Required when using [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) via TCP as deployment targets or external workers.|
 |SSH|`TCP 22`|Octopus Server|SSH deployment targets|ALLOW|Allows Octopus Server to securely connect to any SSH deployment targets.|
 |RDP|`TCP 3389`|Remote Desktop Users|Octopus Server|ALLOW|Allows your system administrators to perform maintenance tasks on your Octopus Server.|
@@ -338,7 +338,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 
 ## Harden your containers
 
-If you run an [Octopus Deploy container](/docs/installation/octopus-server-linux-container/), in addition to your usual security measure for running apps out of containers, take the following steps to secure it: 
+If you run an [Octopus Deploy container](/docs/installation/octopus-server-linux-container), in addition to your usual security measure for running apps out of containers, take the following steps to secure it: 
 
 - Move your docker data directory (the default location is `/var/lib/docker`) so that your containers are stored on a separate partition. 
 - Assign resources carefully:

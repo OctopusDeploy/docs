@@ -30,6 +30,6 @@ Next, fill in the variable value for **Database Name** for each connected enviro
 
 Repeat these steps for each of your tenants.
 
-The next step will define the [infrastructure](/docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure/) required to deploy our application.
+The next step will define the [infrastructure](/docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure) required to deploy our application.
 
 <span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure">Next</a></span>

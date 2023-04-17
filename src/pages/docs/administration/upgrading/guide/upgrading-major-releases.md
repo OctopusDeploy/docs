@@ -25,7 +25,7 @@ In general, the process looks like this:
 1. Verify the test instance works as expected along with testing integrations.
 1. Upgrade the main instance.
 
-Learn more about [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance/).
+Learn more about [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance).
 
 ## Prep Work
 

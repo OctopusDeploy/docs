@@ -51,14 +51,14 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 ![The results of the hello world runbook run with variables](/docs/getting-started/first-runbook-run/images/runbook-run-with-variables.png "width=500")
 
-The next step will [add deployment targets to run runbooks on](/docs/getting-started/first-runbook-run/add-runbook-deployment-targets/).
+The next step will [add deployment targets to run runbooks on](/docs/getting-started/first-runbook-run/add-runbook-deployment-targets).
 
 **Further Reading**
 
 For further reading on Runbook variables please see:
 
-- [Runbook Variables](/docs/runbooks/runbook-variables/)
-- [Runbook Documentation](/docs/runbooks/)
-- [Runbook Examples](/docs/runbooks/runbook-examples/)
+- [Runbook Variables](/docs/runbooks/runbook-variables)
+- [Runbook Documentation](/docs/runbooks)
+- [Runbook Examples](/docs/runbooks/runbook-examples)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/running-a-runbook">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/add-runbook-deployment-targets">Next</a></span>

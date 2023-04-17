@@ -37,7 +37,7 @@ Or one of the common options:
 
 ## Basic example
 
-This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/):
+This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows):
 
 ```
 octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd"

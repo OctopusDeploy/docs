@@ -7,7 +7,7 @@ description: Lists all workers
 navOrder: 250
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to list all Workers.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list all Workers.
 
 ```
 Lists all workers.
@@ -113,6 +113,6 @@ octo list-workers --workerPool="Default worker pool" --server="https://samples.o
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key/)
-- [Workers](/docs/infrastructure/workers/)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
+- [Workers](/docs/infrastructure/workers)

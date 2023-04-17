@@ -9,7 +9,7 @@ navOrder: 20
 
 These are the installation requirements for Tentacles prior to **Tentacle 3.1**.
 
-If you're using **Tentacle 3.1** or later, refer to these [installation requirements](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/).
+If you're using **Tentacle 3.1** or later, refer to these [installation requirements](/docs/infrastructure/deployment-targets/tentacle/windows/requirements).
 
 ## Windows Server
 

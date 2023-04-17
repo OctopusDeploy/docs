@@ -10,4 +10,4 @@
 1. Review the configuration commands to be run that are displayed, and press **Enter** to install the Tentacle.
 1. Back in the **Octopus Web Portal**, enter the hostname or IP address of the machine the Tentacle is installed on, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
 1. Add a display name for the Worker (the server where you just installed the Listening Tentacle).
-1. Select which [worker pools](/docs/infrastructure/workers/worker-pools/) the Worker will be assigned to and click **SAVE**.
+1. Select which [worker pools](/docs/infrastructure/workers/worker-pools) the Worker will be assigned to and click **SAVE**.

@@ -34,10 +34,10 @@ Octopus will never remove the latest release or the release previous to the late
 
 ### Tentacle files {#targets-whats-deleted}
 
-The Tentacle settings delete **packages**, and **files and folders** extracted from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/projects/steps/configuration-features/custom-installation-directory/) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
+The Tentacle settings delete **packages**, and **files and folders** extracted from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/projects/steps/configuration-features/custom-installation-directory) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
 
 :::hint
-We talk about Tentacles here, but the same process and logic applies to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target/) also.
+We talk about Tentacles here, but the same process and logic applies to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target) also.
 :::
 
 ### Built-in repository {#built-in-repo-whats-deleted}
@@ -56,14 +56,14 @@ When configuring the repository retention policy, it's also worth making note of
 
 ### Build information {#build-information-whats-deleted}
 
-[Build information](/docs/packaging-applications/build-servers/build-information/) stored in Octopus is associated with **packages**. Octopus will decide how long to keep the build information based on the package they are linked to:
+[Build information](/docs/packaging-applications/build-servers/build-information) stored in Octopus is associated with **packages**. Octopus will decide how long to keep the build information based on the package they are linked to:
 - If the package is used by a release, it will be kept.
 - If the package is present in the built-in repository, and a package retention policy has been configured, then the record will be kept according to that value. If no package retention policy has been configured, then the build information record will be kept indefinitely.
-- If the package is not present in the built-in repository, it's assumed that the package belongs to an [external package repository](/docs/packaging-applications/package-repositories/). The build information record will be kept for a fixed value of 100 days from when it was published to Octopus.
+- If the package is not present in the built-in repository, it's assumed that the package belongs to an [external package repository](/docs/packaging-applications/package-repositories). The build information record will be kept for a fixed value of 100 days from when it was published to Octopus.
 
 ## What isn't deleted {#what-isnt-deleted}
 
-Some items in Octopus are not affected by Retention policies, and are never deleted. One example of this is [Audit logs](/docs/security/users-and-teams/auditing/). Octopus actively [prevents modifying or deleting audit logs](/docs/security/users-and-teams/auditing/#modifying-and-deleting-audit-logs-is-prevented).
+Some items in Octopus are not affected by Retention policies, and are never deleted. One example of this is [Audit logs](/docs/security/users-and-teams/auditing). Octopus actively [prevents modifying or deleting audit logs](/docs/security/users-and-teams/auditing/#modifying-and-deleting-audit-logs-is-prevented).
 
 :::hint
 From version **Octopus 2023.1** the [Audit Retention functionality](/docs/security/users-and-teams/auditing/#archived-audit-events) will start being rolled out. This **does not** delete audit records. It just moves them from the database to the file system.

@@ -17,7 +17,7 @@ Packages must have the following attributes:
 - Package format, i.e., `.zip`.
 
 :::success
-To learn more about supported formats, versioning, and packaging applications, refer to the [packaging documentation](/docs/packaging-applications/).
+To learn more about supported formats, versioning, and packaging applications, refer to the [packaging documentation](/docs/packaging-applications).
 :::
 
 The following is a sample package that could be deployed with Octopus Deploy:
@@ -55,9 +55,9 @@ You have now completed the deployment tutorial!  This tutorial has focused on ru
 
 For further reading on deploying packages in Octopus Deploy along with integrating with your CI/CD pipeline please see:
 
-- [Deployment Process Documentation](/docs/projects/deployment-process/)
-- [Deployment Documentation](/docs/deployments/)
-- [Patterns and Practices](/docs/deployments/patterns/)
+- [Deployment Process Documentation](/docs/projects/deployment-process)
+- [Deployment Documentation](/docs/deployments)
+- [Patterns and Practices](/docs/deployments/patterns)
 - [Customizable End to End CI/CD Tutorials](https://octopus.com/docs/guides)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/add-deployment-targets">Previous</a></span>

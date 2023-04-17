@@ -7,20 +7,20 @@ description: Octopus can be installed into a Kubernetes cluster running the Octo
 navOrder: 40
 ---
 
-One of the driving forces behind creating the Octopus Server Linux Container was so Octopus could run in a container in Kubernetes for [Octopus Cloud](/docs/octopus-cloud/). With the release of the Octopus Server Linux Container image in **2020.6**, this option is available for those who want to host Octopus in their own Kubernetes clusters.
+One of the driving forces behind creating the Octopus Server Linux Container was so Octopus could run in a container in Kubernetes for [Octopus Cloud](/docs/octopus-cloud). With the release of the Octopus Server Linux Container image in **2020.6**, this option is available for those who want to host Octopus in their own Kubernetes clusters.
 
 This page describes how to run Octopus Server in Kubernetes, along with platform specific considerations when using different Kubernetes providers such as Azure AKS  and Google GKE.
 
-Since [Octopus High Availability](/docs/administration/high-availability/) (HA) and Kubernetes go hand in hand, this guide will show how to support scaling Octopus Server instances with multiple HA nodes. It assumes a working knowledge of Kubernetes concepts, such as Pods, Services, Persistent volume claims and Stateful Sets.
+Since [Octopus High Availability](/docs/administration/high-availability) (HA) and Kubernetes go hand in hand, this guide will show how to support scaling Octopus Server instances with multiple HA nodes. It assumes a working knowledge of Kubernetes concepts, such as Pods, Services, Persistent volume claims and Stateful Sets.
 
 ## Pre-requisites {#pre-requisites}  
 
 Whether you are running Octopus in a Container using Docker or Kubernetes, or running it on Windows Server, there are a number of items to consider when creating an Octopus High Availability cluster:
 
-- A Highly available [SQL Server database](/docs/installation/sql-server-database/)
+- A Highly available [SQL Server database](/docs/installation/sql-server-database)
 - A shared file system for [Artifacts, Packages, and Task Logs](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/#ServerconfigurationandFilestorage-FileStorageFilestorage)
-- A [Load balancer](/docs/administration/high-availability/load-balancing/) for traffic to the Octopus Web Portal 
-- Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha/)
+- A [Load balancer](/docs/administration/high-availability/load-balancing) for traffic to the Octopus Web Portal 
+- Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha)
 
 The following sections describe these in more detail.
 
@@ -120,7 +120,7 @@ If you use the YAML definition above, remember to change the `SA_PASSWORD` from 
 
 ### Load balancer {#load-balancer}
 
-A Load balancer is required to direct traffic to the Octopus Web Portal, and optionally a way to access each of the Octopus Server nodes in an Octopus High Availability cluster may be required if you're using [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha/).
+A Load balancer is required to direct traffic to the Octopus Web Portal, and optionally a way to access each of the Octopus Server nodes in an Octopus High Availability cluster may be required if you're using [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha).
 
 ### Octopus Web Portal load balancer {#octopus-web-portal-load-balancer}
 
@@ -198,7 +198,7 @@ Note the selectors of:
 
 These labels are added to pods created as part of a [Stateful Set](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset), and the values are the combination of the Stateful Set name and the pod index.
 
-For more information on Polling Tentacles with High Availability refer to our [documentation](/docs/administration/high-availability/maintain/polling-tentacles-with-ha/) on the topic.
+For more information on Polling Tentacles with High Availability refer to our [documentation](/docs/administration/high-availability/maintain/polling-tentacles-with-ha) on the topic.
 
 ### File Storage {#file-storage}
 
@@ -611,7 +611,7 @@ The `readinessProbe` is used to ensure the Octopus Server node is responding to 
 
 ### UI-only and back-end nodes {#ui-and-backend-nodes}
 
-When managing an Octopus High Availability cluster, it can be beneficial to separate the Octopus Web Portal from the deployment orchestration of tasks that Octopus Server provides. It's possible to create *UI-only* nodes that have the sole responsibility to serve web traffic for the Octopus Web Portal and the [Octopus REST API](/docs/octopus-rest-api/).
+When managing an Octopus High Availability cluster, it can be beneficial to separate the Octopus Web Portal from the deployment orchestration of tasks that Octopus Server provides. It's possible to create *UI-only* nodes that have the sole responsibility to serve web traffic for the Octopus Web Portal and the [Octopus REST API](/docs/octopus-rest-api).
 
 :::hint
 By default, all Octopus Server nodes are task nodes because the default task cap is set to `5`. To create UI-only Octopus Server nodes, you need to set the task cap for each node to `0`.
@@ -622,7 +622,7 @@ When running Octopus in Kubernetes, it'd be nice to increase the `replicaCount` 
 In order to create UI-only nodes in Kubernetes, you need to perform some additional configuration:
 
 - Create an additional Stateful Set just for the UI-only nodes, for example called `octopus-ui`.
-- Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/octopus-rest-api/octopus.server.exe-command-line/node/) to `0`.
+- Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/octopus-rest-api/octopus.server.exe-command-line/node) to `0`.
 - Update the `octopus-web` Load balancer Service to direct traffic to pods with the label `app:octopus-ui`.
 
 :::hint

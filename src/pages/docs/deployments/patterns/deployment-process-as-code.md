@@ -9,7 +9,7 @@ navOrder: 70
 
 :::hint
 **Looking for Configuration as Code?**
-This section looks at storing your deployment process as code **without** using the [Configuration as Code (Early Access)](/docs/projects/version-control/) feature.
+This section looks at storing your deployment process as code **without** using the [Configuration as Code (Early Access)](/docs/projects/version-control) feature.
 :::
 
 With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else.
@@ -40,7 +40,7 @@ You can follow this process to move your custom scripts without interrupting dep
 
 Now your scripts are colocated with your application source code, all without changing your build pipeline.
 
-Learn about [custom scripts](/docs/deployments/custom-scripts/) and [executing custom scripts in packages](/docs/deployments/custom-scripts/scripts-in-packages/).
+Learn about [custom scripts](/docs/deployments/custom-scripts/) and [executing custom scripts in packages](/docs/deployments/custom-scripts/scripts-in-packages).
 
 ### Consistency and repeatability using scripts as code
 
@@ -120,7 +120,7 @@ The general process should look something like this, tailored to your situation:
 
 #### Blessed branch approach
 
-In this approach you will be pushing configuration changes from **one specific branch** into Octopus. Using the example of git, you should only push changes from the `main` (default) branch into Octopus, and use [Channels](/docs/releases/channels/) to safely introduce changes to your process and variables.
+In this approach you will be pushing configuration changes from **one specific branch** into Octopus. Using the example of git, you should only push changes from the `main` (default) branch into Octopus, and use [Channels](/docs/releases/channels) to safely introduce changes to your process and variables.
 
 The general process should look something like this, tailored to your situation:
 

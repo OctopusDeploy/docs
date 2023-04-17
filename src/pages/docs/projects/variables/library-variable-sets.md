@@ -7,7 +7,7 @@ description: Library variable sets allow you to define and share common variable
 navOrder: 90
 ---
 
-Octopus [variables](/docs/projects/variables/) can be added to library variables sets, which make it possible to define variables for use with multiple [projects](/docs/projects/).
+Octopus [variables](/docs/projects/variables/) can be added to library variables sets, which make it possible to define variables for use with multiple [projects](/docs/projects).
 
 This can be useful if you have the same variables that are used across multiple projects. Instead of defining the variables for each project, you can define a set of variables in the Library Variable Set and then access them from every project that needs them.
 

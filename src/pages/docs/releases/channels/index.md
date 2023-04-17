@@ -7,7 +7,7 @@ description: Channels allow you to dynamically change the deployment logic and l
 navOrder: 10
 ---
 
-As you deploy your projects, you can assign [releases](/docs/releases/) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies. This would, of course, leave you trying to manage multiple duplicated projects. Channels lets you use one project, with multiple release strategies.
+As you deploy your projects, you can assign [releases](/docs/releases) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies. This would, of course, leave you trying to manage multiple duplicated projects. Channels lets you use one project, with multiple release strategies.
 
 Channels can be useful in the following scenarios:
 
@@ -26,7 +26,7 @@ You can also define versioning rules per channel to ensure that only versions wh
 
 ## Managing channels
 
-Every [project](/docs/projects/) has a default channel.
+Every [project](/docs/projects) has a default channel.
 
 Channels are managed from the Project overview page by selecting the specific project you are working with and clicking **Channels**.
 
@@ -36,13 +36,13 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
 2. Give the Channel a name and add a description. The channel name must be unique within the project.
-3. Select the [Lifecycle](/docs/releases/lifecycles/) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/releases/lifecycles/) for information about creating new lifecycles.
+3. Select the [Lifecycle](/docs/releases/lifecycles/) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/releases/lifecycles) for information about creating new lifecycles.
 4. If you want to make this the default Channel for the project, click the **Default Channel** check-box.
 5. Design the [version rules](#Channels-versionrules) that will be used to enforce which versions of your packages are deployed to this channel.
 
 ## Design the version rules {#Channels-versionrules}
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation/).
+Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation).
 
 :::hint
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
@@ -87,7 +87,7 @@ Once a project has more than one Channel, there a number of places they may be u
 
 ### Controlling deployment lifecycle {#Channels-ControllingDeploymentLifecycle}
 
-Each Channel defines which [Lifecycle](/docs/releases/lifecycles/) to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
+Each Channel defines which [Lifecycle](/docs/releases/lifecycles) to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
 
 For instance, when you ship pre-release software to your early access users, you can use an early access (or beta) channel which uses a Lifecycle that deploys the software to an environment your early access users have access to.
 
@@ -103,7 +103,7 @@ For instance, you might decide you'd like to notify your early access users by e
 
 ### Variables {#Channels-Variables}
 
-As you release software to different Channels, it's likely that some of the variables in those Channels will need to be different. [Variables](/docs/projects/variables/) can be scoped to specific Channels.
+As you release software to different Channels, it's likely that some of the variables in those Channels will need to be different. [Variables](/docs/projects/variables) can be scoped to specific Channels.
 
 ![](/docs/releases/channels/images/3278460.png "width=500")
 
@@ -129,11 +129,11 @@ The package list allows you to select the version of each package involved in th
 
 ### Using build server extensions or the Octopus CLI {#Channels-UsingBuildServerExtensionsOrTheOctopusCLI}
 
-When using one of the [build server extensions](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release/) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
+When using one of the [build server extensions](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
 
 ### Automatic release creation {#Channels-AutomaticReleaseCreation}
 
-When enabling [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) for your project, you are required to select a Channel (if the project has more than one).
+When enabling [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) for your project, you are required to select a Channel (if the project has more than one).
 
 ![](/docs/releases/channels/images/3278462.png "width=500")
 
@@ -156,7 +156,7 @@ In {{ Project, Settings }} there is an option named _Discrete Channel Releases_,
 Setting this to `Treat independently from other channels` will cause: 
 
 - Versions for each channel to be displayed on the dashboard 
-- Each channel to be treated independently when applying release [retention policies](/docs/administration/retention-policies/) 
+- Each channel to be treated independently when applying release [retention policies](/docs/administration/retention-policies) 
 
 The image below shows an example dashboard with discrete channel release enabled:
 

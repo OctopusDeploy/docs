@@ -8,7 +8,7 @@ navOrder: 20
 hideInThisSectionHeader: true
 ---
 
-If you want to deploy software to Linux servers without using [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target/), you need to install Tentacle, a lightweight agent service, on your Linux servers so they can communicate with the Octopus Server.
+If you want to deploy software to Linux servers without using [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target), you need to install Tentacle, a lightweight agent service, on your Linux servers so they can communicate with the Octopus Server.
 
 ## Requirements
 
@@ -223,7 +223,7 @@ The following bash scripts install, configure and register Linux Tentacle for us
       ```bash
       publicIp=$(curl -s https://ifconfig.info)
       ```
-      You can specify the address when using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command by providing the value to the `--publicHostName` parameter.
+      You can specify the address when using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with) command by providing the value to the `--publicHostName` parameter.
 :::
 
 !include <quickstart-debian>

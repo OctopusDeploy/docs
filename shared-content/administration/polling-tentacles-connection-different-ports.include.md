@@ -4,7 +4,7 @@ In this scenario, a type of [Network Address Translation (NAT)](https://en.wikip
 The advantage of using unique ports is that the Polling Tentacle doesn't need to know each node's address, only the port. The address translation is handled by the load balancer. This allows each node to have a private IP address, with no public access from outside your network required.
 :::
 
-Imagine a three-node HA cluster. For each one, we expose a different port to listen on using the [Octopus.Server configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/):
+Imagine a three-node HA cluster. For each one, we expose a different port to listen on using the [Octopus.Server configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure):
 
 - Node1 - Port `10943`
 - Node2 - Port `10944`

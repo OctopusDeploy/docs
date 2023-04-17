@@ -17,7 +17,7 @@ This example assumes:
 Our starting configuration:
 
 - Octopus Deploy installed and running on <http://servername:8080/>
-   For guidance on this topic, see [Installing Octopus](/docs/installation/).
+   For guidance on this topic, see [Installing Octopus](/docs/installation).
 - Valid SSL certificate NGINX recognizes with a .key file.
 
 At the end of this walk-through, you should be able to:
@@ -206,7 +206,7 @@ ADMIN_API_KEY=
 ```
 ## NGINX as a Load Balancer
 
-NGINX can be used as a load balancer for Octopus Deploy configured for [High Availability](/docs/administration/high-availability/).  To do so, add all the HA nodes to this section.
+NGINX can be used as a load balancer for Octopus Deploy configured for [High Availability](/docs/administration/high-availability).  To do so, add all the HA nodes to this section.
 
 ```
 upstream octopusdeploy {
