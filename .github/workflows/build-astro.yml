@@ -1,10 +1,11 @@
 name: Deploy
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
-  push:
-    branches: [ main ]
+
+  # Disable on push temporarily while we're doing the migration
+  # push:
+  #   branches: [ main ]
+
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
   
@@ -62,7 +63,7 @@ jobs:
       #   id: package
       #   uses: OctopusDeploy/create-zip-package-action@v3
       #   with:
-      #     package_id: 'DevOpsMicrosite'
+      #     package_id: 'DocsMicrosite'
       #     version: "${{ env.PACKAGE_VERSION  }}"
       #     base_path: "./dist"
       #     output_folder: "./artifacts"
@@ -78,13 +79,13 @@ jobs:
       #   uses: OctopusDeploy/push-build-information-action@v3
       #   with:
       #     version: "${{ env.PACKAGE_VERSION }}"
-      #     packages: "DevOps Microsite"
+      #     packages: "Docs Microsite"
 
       # - name: Create a release in Octopus Deploy 🐙
       #   uses: OctopusDeploy/create-release-action@v3
       #   id: "create_release"
       #   with:
-      #     project: "DevOps Microsite"
+      #     project: "Docs Microsite"
       #     package_version: "${{ env.PACKAGE_VERSION }}"
       #     git_ref: ${{ github.ref }}
 
@@ -92,7 +93,7 @@ jobs:
       #   uses: OctopusDeploy/deploy-release-action@v3
       #   id: "queue_deployments"
       #   with:
-      #     project: "DevOps Microsite"
+      #     project: "Docs Microsite"
       #     release_number: ${{ steps.create_release.outputs.release_number }}
       #     environments: |
       #       Test
