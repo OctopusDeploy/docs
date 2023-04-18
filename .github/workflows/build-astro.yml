@@ -1,13 +1,13 @@
 name: Deploy
 
-on:
+on: workflow_dispatch
 
   # Disable on push temporarily while we're doing the migration
   # push:
   #   branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab on GitHub.
-  workflow_dispatch:
+  #workflow_dispatch:
   
 # Allow this job to clone the repo and create a page deployment
 permissions:
