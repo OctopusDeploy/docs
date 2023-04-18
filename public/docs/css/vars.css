@@ -102,6 +102,7 @@
     --content-width: 78vw;
     --content-width-mobile: calc(100vw - 2rem);
     --navigation-width: 250px;
+    --toc-width: 250px;
     --grid-max-width: 1250px;
     --grid-gap: 1rem;
     --grid-gap-main: 4rem;

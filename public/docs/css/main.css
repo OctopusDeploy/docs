@@ -392,8 +392,6 @@ nav.skip-links a:focus {
 
 .site-breadcrumbs ol {
     font-size: 0.8rem;
-    width: var(--content-width);
-    max-width: var(--grid-max-width);
     margin: 0 auto;
     padding: 1rem 0 2rem 0;
 }
@@ -574,10 +572,7 @@ nav.site-nav h2 {
 /* Main content group */
 
 .content-group {
-    grid-template-columns: 
-        var(--navigation-width) 
-        1fr
-        var(--navigation-width);
+    grid-template-columns: var(--navigation-width) minmax(500px, 900px) var(--toc-width);
     display: grid; 
     grid-template-rows: auto; 
     gap: var(--grid-gap-main);

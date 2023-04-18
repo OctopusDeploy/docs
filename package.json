@@ -10,6 +10,7 @@
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
+        "css": "robocopy ./public/docs/css/ ./dist/docs/css/ /mir",
         "theme": "npm install --save astro-accelerator@latest && npm install --save astro-accelerator-utils@latest && node ./accelerator.js"
     },
     "dependencies": {
