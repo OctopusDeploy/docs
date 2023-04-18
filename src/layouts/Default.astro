@@ -54,10 +54,10 @@ const site_features = SITE.featureFlags;
         <SkipLinks frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         <Header frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         <Title frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-        <Breadcrumbs frontmatter={ frontmatter } headings={ headings } lang={ lang } breadcrumbs={ breadcrumbs } />
         <div class="content-group">
             <Navigation lang={ lang } />
             <main id="site-main">
+                <Breadcrumbs frontmatter={ frontmatter } headings={ headings } lang={ lang } breadcrumbs={ breadcrumbs } />
                 <article itemscope itemtype="https://schema.org/Article">
                     <header>
                         <h1 itemprop="name headline"><Fragment set:html={ title } /></h1>
@@ -66,7 +66,6 @@ const site_features = SITE.featureFlags;
                         )}
                     </header>
                     <div class="page-content anim-show-parent" itemprop="articleBody">
-                        <TableOfContents frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         <slot />
                         <Feedback frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         <Authors frontmatter={ frontmatter } lang={ lang } />
@@ -75,6 +74,7 @@ const site_features = SITE.featureFlags;
                     </div>
                 </article>
             </main>
+            <TableOfContents frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         </div>
         <ArticleJourney frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         <Related frontmatter={ frontmatter } headings={ headings } lang={ lang } />

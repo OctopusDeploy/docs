@@ -1,5 +1,5 @@
 ---
-layout: src/layouts/Home.astro
+layout: src/layouts/Default.astro
 title: 'Index'
 subtitle: This page is not shown on the live website.
 navSearch: false

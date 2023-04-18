@@ -116,16 +116,6 @@ h1 {
     margin: 0 0 4vh 0;
 }
 
-.octo-home h1 {
-    font-size: 5rem;
-    line-height: 1.4;
-    text-align: left;
-    color: var(--blue-grey-dark);
-    font-family: var(--heading-font);
-    margin: 0 0 2rem 0;
-    font-weight: 700;
-}
-
 header p {
     font-weight: 200;
     font-size: 1.2rem;
@@ -148,12 +138,6 @@ header p {
     h1 {
         font-size: 2.5rem;
         line-height: 1.3;
-    }
-
-    .octo-home h1 {
-        font-size: 3rem; 
-        line-height: 1.4;
-        padding: 10vh 3vh 0
     }
 }
 
@@ -408,10 +392,10 @@ nav.skip-links a:focus {
 
 .site-breadcrumbs ol {
     font-size: 0.8rem;
-    padding: 2% 0 5% 0;
     width: var(--content-width);
     max-width: var(--grid-max-width);
     margin: 0 auto;
+    padding: 1rem 0 2rem 0;
 }
 
 .site-breadcrumbs li {
@@ -494,6 +478,12 @@ nav.skip-links a:focus {
 
 /* Navigation */
 
+.site-nav {
+    overflow-x: auto;
+    height: calc(100vh - 300px);
+    padding-right: 1rem;
+}
+
 .site-nav.sticky {
     align-self: start;
     position: sticky;
@@ -571,11 +561,11 @@ nav.site-nav h2 {
 .site-nav details > summary::after {
     content: '\f078'; /* Chevron Down */
     font-family: fa-solid;
+    float: right;
 }
 
 .site-nav details[open] > summary::after {
     content: '\f077'; /* Chevron Up */
-    font-family: fa-solid;
 }
 
 .site-nav details ul {
@@ -587,13 +577,12 @@ nav.site-nav h2 {
 .content-group {
     width: 100%;
     max-width: 100%;
-    grid-template-columns: minmax(1vw, 50vw) var(--navigation-width) fit-content(900px) minmax(1vw, 50vw);
+    grid-template-columns: var(--navigation-width) auto fit-content(900px) var(--navigation-width);
     display: grid; 
     grid-template-rows: auto; 
     gap: var(--grid-gap-main);
     grid-template-areas:
-      "left menu content right";
-    padding-top: var(--block-gap);
+      "menu blank content toc";
 }
 
 .content-group header p {
@@ -637,43 +626,10 @@ nav.site-nav h2 {
     padding-right: 30px;
 }
 
-/* Home page customisation */
-
-.octo-home h1 {
-    text-align: center;
-    padding: 8vh 0 0 0;
-    line-height: 1.4;
-    font-weight: 600;
-}
-
-.octo-home .content-group {
-    width: 100%;
-    max-width: 100%;
-    grid-template-columns: minmax(1vw, 50vw) var(--navigation-width) min-content minmax(1vw, 50vw);
-    grid-template-areas: 
-        "top top top top"
-        "left menu content right";
-    padding-top: 0;
-}
-
-.octo-home main {
-    grid-area: unset;
-}
-
 .content-group .page-content {
     width: calc(var(--content-width) - var(--navigation-width));
     max-width: calc(var(--grid-max-width) - var(--navigation-width));
     grid-area: content;
-}
-
-.octo-home .content-group header {
-    grid-area: top;
-    text-align: center;
-}
-
-.octo-home .content-group main,
-.octo-home .content-group article {
-    display: contents;
 }
 
 @media (max-width: 930px) {
@@ -692,18 +648,13 @@ nav.site-nav h2 {
         width: unset;
         max-width: var(--content-width-mobile);
     }
-
-    .octo-home .content-group {
-        grid-template-columns: 1rem auto 1rem;
-        grid-template-rows: auto auto auto;
-        grid-template-areas: 
-          "top top top"
-          "left content right"
-          "left menu right";
-    }
 }
 
 /* Table of Contents */
+
+.page-toc {
+    grid-area: toc;
+}
 
 .page-toc details {
     margin: 2rem 0 2rem 0;
