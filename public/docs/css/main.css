@@ -626,6 +626,7 @@ nav.site-nav h2 {
         gap: 0;
         grid-template-areas: 
           "left top right"
+          "left toc right"
           "left content right"
           "left menu right";
     }
@@ -647,19 +648,6 @@ nav.site-nav h2 {
     margin: 2rem 0 2rem 0;
 }
 
-.page-toc details summary {
-    border: 2px solid var(--octo-blue-lighter);
-    display: inline-block;
-    border-radius: 100px;
-    text-decoration: none;
-    padding: 0.3em 1em;
-    color: var(--octo-blue-lighter);
-    text-transform: uppercase;
-    font-size: var(--font-size-small);
-    font-weight: 600;
-    letter-spacing: 0.1em;
-}
-
 .page-toc details summary::marker {
     content: '';
     display: none;
@@ -669,24 +657,18 @@ nav.site-nav h2 {
     content: '\f078';
     font-family: fa-solid;
     margin-left: 0.3em;
+    float: right;
 }
 
 .page-toc details[open] summary::after {
     content: '\f077';
     font-family: fa-solid;
-    margin-left: 0.3em;
 }
 
 .page-toc ol {
     margin: 1rem 0 2rem 0;
     list-style: none;
     font-size: var(--font-size-small);
-}
-
-.page-toc li {
-    border-radius: 100px;
-    background-color: var(--lightest-blue);
-    margin-bottom: 0.3em;
 }
 
 .page-toc li a {
