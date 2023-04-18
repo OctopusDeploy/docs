@@ -481,7 +481,6 @@ nav.skip-links a:focus {
 .site-nav {
     overflow-x: auto;
     height: calc(100vh - 300px);
-    padding-right: 1rem;
 }
 
 .site-nav.sticky {
@@ -575,14 +574,15 @@ nav.site-nav h2 {
 /* Main content group */
 
 .content-group {
-    width: 100%;
-    max-width: 100%;
-    grid-template-columns: var(--navigation-width) auto fit-content(900px) var(--navigation-width);
+    grid-template-columns: 
+        var(--navigation-width) 
+        1fr
+        var(--navigation-width);
     display: grid; 
     grid-template-rows: auto; 
     gap: var(--grid-gap-main);
     grid-template-areas:
-      "menu blank content toc";
+      "menu content toc";
 }
 
 .content-group header p {
@@ -610,7 +610,7 @@ nav.site-nav h2 {
     }
 }
 
-.content-group nav {
+.content-group .site-nav {
     grid-area: menu;
     width: 100%;
 }
@@ -618,18 +618,10 @@ nav.site-nav h2 {
 .content-group main {
     grid-area: content;
     margin: 0;
-    width: calc(var(--content-width) - var(--navigation-width));
-    max-width: calc(var(--grid-max-width) - var(--navigation-width));
 }
 
 .continue {
     padding-right: 30px;
-}
-
-.content-group .page-content {
-    width: calc(var(--content-width) - var(--navigation-width));
-    max-width: calc(var(--grid-max-width) - var(--navigation-width));
-    grid-area: content;
 }
 
 @media (max-width: 930px) {
