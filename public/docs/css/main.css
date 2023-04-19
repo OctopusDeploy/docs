@@ -469,20 +469,21 @@ nav.skip-links a:focus {
 
 /* Navigation */
 
-.site-nav {
+.site-nav,
+.page-toc {
+    position: sticky;
+    top: 112px;
+    align-self: start;
+    height: calc(100vh - 120px);
     overflow: hidden;
-    height: calc(100vh - 110px);
 }
+
 
 .site-nav:hover,
-.site-nav:focus-within {
+.site-nav:focus-within,
+.page-toc:hover,
+.page-toc:focus-within {
     overflow: overlay;
-}
-
-
-.site-nav.sticky {
-    align-self: start;
-    position: sticky;
 }
 
 nav.site-nav h2 {
@@ -579,6 +580,7 @@ nav.site-nav h2 {
     display: grid; 
     grid-template-rows: auto; 
     gap: var(--grid-gap-main);
+    justify-content: space-between;
     grid-template-areas:
       "menu content toc";
 }
@@ -645,6 +647,9 @@ nav.site-nav h2 {
 
 .page-toc {
     grid-area: toc;
+    position: sticky;
+    top: 112px;
+    align-self: start;
 }
 
 .page-toc details {

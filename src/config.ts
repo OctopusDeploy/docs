@@ -31,7 +31,7 @@ export const SITE: Site = {
 	},
 	cacheMaxAge: 200,
 	featureFlags: {
-		stickyNav: { top: 110 },
+		stickyNav: { top: 112 },
 		codeBlocks: [],
 		figures: [],
 		youTubeLinks: [],
