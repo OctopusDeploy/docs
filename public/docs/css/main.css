@@ -241,7 +241,7 @@ header h1 em,
     padding-top: 1px;
     text-decoration: none;
     opacity: 0;
-    width: 1.2em;
+    width: 1.3em;
     white-space: nowrap;
 }
 
@@ -255,7 +255,9 @@ h6:hover .bookmark-link,
 }
 
 .bookmark-link::before {
-    content: '🔗 ';
+    /* content: '🔗 '; */
+    content: '\f0c1 ';
+    font-family: fa-solid;
 }
 
 /* Tables */
@@ -712,6 +714,10 @@ nav.site-nav h2 {
     display: block;
     padding: 0.3em 0;
     text-decoration: none;
+}
+
+.page-toc li a.highlight {
+    font-weight: bold;
 }
 
 .page-toc .toc-lev-3 {

@@ -7,6 +7,7 @@ import { setClickableBlocks } from './modules/click-blocks.js';
 import { setExternalLinkAttributes } from './modules/external-links.js';
 import { monitorInputType } from './modules/input-type.js';
 import { enableSharing } from './modules/share.js';
+import { highlightCurrentHeading } from './modules/toc.js';
 
 const resizedEventName = addResizedEvent();
 
@@ -18,6 +19,7 @@ addIntersectionObserver('.anim-show-parent img, .anim-show-parent .list-item');
 addListImageIntersectionObserver('.post-list img');
 monitorInputType();
 enableSharing();
+highlightCurrentHeading('.page-toc a');
 
 // @ts-ignore
 const f = site_features ?? {};
