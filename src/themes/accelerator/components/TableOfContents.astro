@@ -9,18 +9,19 @@ type Props = {
   lang: string;
   frontmatter: Frontmatter;
   headings: { depth: number; slug: string; text: string; }[];
+  expanded?: boolean;
 };
-const { lang, frontmatter, headings } = Astro.props satisfies Props;
+const { lang, frontmatter, headings, expanded } = Astro.props satisfies Props;
 
 // Language
 const _ = Lang(lang);
 
 // Logic
-// ...
+const openAttribute = expanded ? 'open' : null;
 ---
 {headings?.length > 0 &&
 <nav class="page-toc" aria-label={ _(Translations.aria.toc) }>
-  <details>
+  <details open={ openAttribute }>
     <summary>{ _(Translations.toc.title) }</summary>
     <ol>
       {headings.map((heading) =>(

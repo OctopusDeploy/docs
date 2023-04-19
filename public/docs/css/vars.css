@@ -4,14 +4,6 @@
 */
 
 @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-display: block;
-    src: url('poppins-bold.woff2') format('woff2');
-}
-
-@font-face {
     font-family: 'robotoregular';
     src: url('roboto-regular.woff') format('woff');
     font-weight: 400;
@@ -65,7 +57,7 @@
     --green: #25D284FF;
     --light-green: #00FFA3FF;
 
-    --heading-font: 'Poppins', sans-serif;
+    --heading-font: 'robotoregular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --body-font: 'robotoregular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --code-font: Consolas, monaco, monospace;
 

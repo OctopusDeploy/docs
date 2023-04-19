@@ -31,10 +31,11 @@ export const SITE: Site = {
 	},
 	cacheMaxAge: 200,
 	featureFlags: {
-		stickyNav: { top: 130 },
+		stickyNav: { top: 110 },
 		codeBlocks: [],
 		figures: [],
 		youTubeLinks: [],
+		headers: ['link']
 	},
 	images: {
 		contentSize: '(min-width: 1680px) 1000px, (min-width: 940px) calc(71.81vw - 192px), calc(100vw - 32px)',
@@ -53,7 +54,6 @@ export const OPEN_GRAPH = {
 
 export const HEADER_SCRIPTS = `
 <meta name="google-site-verification" content="nIbWsTU_ELqMnLNxIexH_s6ch3m-s_MaFnl5u8WoaRM" />
-  <link rel="preload" href="/docs/css/poppins-bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/docs/css/roboto-regular.woff" as="font" type="font/woff" crossorigin>
   <script defer>
   const whenActivated = new Promise((resolve) => {
