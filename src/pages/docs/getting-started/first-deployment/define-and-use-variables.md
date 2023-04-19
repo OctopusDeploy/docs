@@ -8,7 +8,7 @@ navOrder: 50
 hideInThisSection: true
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Hd71uhcD61E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Variables](https://www.youtube.com/watch?v=Hd71uhcD61E)
 
 Octopus allows you to define variables and scope them for use in different phases of your deployments.  Variables allow you to have a consistent deployment process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
 

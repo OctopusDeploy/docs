@@ -17,7 +17,7 @@ Machine policies are groups of settings that can be applied to Tentacle and SSH 
 
 You can access the machine policies by navigating to **{{Infrastructure,Machine policies}}**.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uEjXuPttRO4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Machine Policies](https://www.youtube.com/watch?v=uEjXuPttRO4)
 
 ## Health check
 

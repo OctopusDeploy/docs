@@ -8,7 +8,7 @@ navOrder: 30
 hideInThisSection: true
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0oWRg_TxWxM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Deployment Process](https://www.youtube.com/watch?v=0oWRg_TxWxM)
 
 The deployment process is the steps the Octopus Server orchestrates to deploy your software. For our simple hello world script, we will only have one step.
 

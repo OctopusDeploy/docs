@@ -1,4 +1,4 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gfaRUIlQybA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Add Projects And Project Groups](https://www.youtube.com/watch?v=gfaRUIlQybA)
 
 Projects let you create and manage your deployment processes, releases, and runbooks from the Octopus REST API and Octopus Web Portal.
 

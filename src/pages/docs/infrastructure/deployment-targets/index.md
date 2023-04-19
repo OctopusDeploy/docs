@@ -8,7 +8,7 @@ navOrder: 10
 hideInThisSection: true
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CBws8yDaN4w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Deployment Targets](https://www.youtube.com/watch?v=CBws8yDaN4w)
 
 !include <deployment-targets>
 

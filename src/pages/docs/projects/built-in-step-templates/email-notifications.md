@@ -13,7 +13,7 @@ Deployments can have a strong impact on the people whose work depends on the sys
 - Let testers know when a new version is available in UAT.
 - Use email in conjunction with [manual interventions approvals](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) to make sure everyone is ready for a new deployment.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VromFu8RYxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Email Notifications](https://www.youtube.com/watch?v=VromFu8RYxc)
 
 Before you can add email steps to your deployment processes, you need to add your SMTP configuration.
 

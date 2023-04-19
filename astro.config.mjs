@@ -1,4 +1,5 @@
 import remarkDirective from 'remark-directive';
+import remarkHeading from 'remark-heading-id';
 import { defineConfig } from 'astro/config';
 import { attributeMarkdown, wrapTables } from '/src/themes/accelerator/utilities/custom-markdown.mjs';
 
@@ -11,6 +12,7 @@ export default defineConfig({
         },
         remarkPlugins: [
             remarkDirective,
+            remarkHeading,
             attributeMarkdown,
             wrapTables
         ],

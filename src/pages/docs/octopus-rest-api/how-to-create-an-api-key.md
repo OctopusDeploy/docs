@@ -13,7 +13,7 @@ See the [Service Accounts docs](/docs/security/users-and-teams/service-accounts)
 
 ## Creating an API Key {#HowtocreateanAPIkey-CreatinganAPIkey}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f3-vRjpB0cE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - API Keys](https://www.youtube.com/watch?v=f3-vRjpB0cE)
 
 You can create API keys by performing the following steps:
 

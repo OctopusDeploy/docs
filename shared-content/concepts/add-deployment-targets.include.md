@@ -1,4 +1,4 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CBws8yDaN4w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Deployment Targets](https://www.youtube.com/watch?v=CBws8yDaN4w)
 
 With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes clusters, cloud regions, or an offline package drop. Regardless of where you're deploying your software, these machines and services are known as your deployment targets.  Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/infrastructure/environments). 
 
@@ -21,7 +21,7 @@ As you configure your deployment targets, select the environment, they will belo
 - app-server
 - db-server 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AU8TBEOI-0M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Machine Roles](https://www.youtube.com/watch?v=AU8TBEOI-0M)
 
 1. Enter *dev-server-01* in the **Display Name**
 1. In **Environments** select *Development*.

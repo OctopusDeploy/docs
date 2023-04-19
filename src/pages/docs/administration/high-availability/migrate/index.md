@@ -7,7 +7,7 @@ description: How to migrate from a stand-alone Octopus server to a High Availabi
 navOrder: 30
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1tXVA5pyuqQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Ask Octopus Episode #14 - Configure your HA Cluster](https://www.youtube.com/watch?v=1tXVA5pyuqQ)
 
 You may already have an existing Octopus Server that you wish to make highly available. The process to migrate to Octopus High Availability is the same as the process detailed in [Configuring High Availability for Octopus](/docs/administration/high-availability/configure), except your existing server will be the **first node** in the cluster.  Migrating to HA will involve:
 

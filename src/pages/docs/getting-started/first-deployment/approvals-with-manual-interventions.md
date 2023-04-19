@@ -8,7 +8,7 @@ navOrder: 60
 hideInThisSection: true
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ePQjCClGfZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Manual Intervention](https://www.youtube.com/watch?v=ePQjCClGfZQ)
 
 The manual intervention step accomplishes approvals in Octopus Deploy.  A deployment will pause when a manual intervention step is encountered and wait for approval or a rejection from a member of the specified team.
 

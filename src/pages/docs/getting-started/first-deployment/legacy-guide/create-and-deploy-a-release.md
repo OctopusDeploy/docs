@@ -8,7 +8,7 @@ navOrder: 40
 hideInThisSection: true
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/syfl59pR4ZU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Create Release And Deployment](https://www.youtube.com/watch?v=syfl59pR4ZU)
 
 A release is a snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. Our hello world deployment process only has one step that executes the script we entered in the previous section.
 

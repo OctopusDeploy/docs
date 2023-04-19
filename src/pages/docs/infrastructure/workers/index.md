@@ -8,7 +8,7 @@ navOrder: 30
 hideInThisSectionHeader: true
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/v6621BId7fE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Worker and Worker Pools](https://www.youtube.com/watch?v=v6621BId7fE)
 
 !include <workers>
 

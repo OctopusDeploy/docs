@@ -16,7 +16,7 @@ While fully automated deployment is a great goal, there are times when a human n
 
 The **Manual intervention step** is a step that can be added to deployment processes to pause the deployment to wait for a member of a specified team to either allow the deployment to proceed or to be aborted.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ePQjCClGfZQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Manual Intervention](https://www.youtube.com/watch?v=ePQjCClGfZQ)
 
 ## Add a manual intervention step
 

@@ -1,4 +1,4 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ofc-u61ukRA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Lifecycles](https://www.youtube.com/watch?v=ofc-u61ukRA)
 
 Lifecycles give you control over the way releases of your software are promoted between your environments. You can also use them to automate deployments and set retention policies.
 

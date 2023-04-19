@@ -35,7 +35,7 @@ Azure Service Principal accounts are for use with the **Azure Resource Managemen
 
 This step shows you how to create a Service Principal with the Azure Portal, if you would rather use PowerShell to create the Service Principal, see [Create an Azure Service Principal With PowerShell](#create-service-principal-account-with-powershell).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QDwDi17Dkfs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Azure Account](https://www.youtube.com/watch?v=QDwDi17Dkfs)
 
 1. In the Azure Portal, navigate to **{{Azure Active Directory,Properties}}** and copy the value from the **Tenant ID** field, this is your **Tenant ID**.
 1. Next you need your **Application ID**.

@@ -9,7 +9,7 @@ navOrder: 60
 
 Octopus Deploy provides the most value when it is used by your whole team. Developers and testers might be allowed to deploy specific projects to pre-production environments, but not production environments. Stakeholders might be permitted to view certain projects, but not modify or deploy them. To support these scenarios, Octopus supports a permissions system based around the concept of **Teams**.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f_JPU7sAE8M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Users, Roles & Teams](https://www.youtube.com/watch?v=f_JPU7sAE8M)
 
 You can manage users and teams in the Octopus Web Portal:
 - For users, navigate to **{{Configuration,Users}}**.

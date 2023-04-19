@@ -1,4 +1,4 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gfaRUIlQybA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting Started - Add Projects And Project Groups](https://www.youtube.com/watch?v=gfaRUIlQybA)
 
 Projects are used to collect all the assets that make up your deployment processes. To deploy our simple hello world script, we first need a project. 
 
