@@ -819,6 +819,46 @@ nav.site-nav h2 {
     }
 }
 
+/* Video */
+
+.yt-video {
+    aspect-ratio: 4/3;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+  }
+  
+  .yt-video > * {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .yt-video .play-icon {
+    background-image: url(https://img.youtube.com/vi/VOWnhMxJMMk/0.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--block-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--fore-link);
+    font-size: 5em;
+  }
+  
+  .yt-video:hover .title, .yt-video:focus .title {
+    background-color: var(--funk);
+  }
+
+  .yt-iframe {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  a[data-youtube] {
+    text-decoration: none;
+  }
+
 /* Article Journey */
 
 .octo-article-nav {
