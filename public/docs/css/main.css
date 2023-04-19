@@ -1,6 +1,6 @@
 html {
     box-sizing: border-box;
-    scroll-padding-top: var(--scroll-pad);
+    scroll-padding-block-start: var(--scroll-pad);
 }
   
 *,
@@ -84,7 +84,7 @@ blockquote::before {
 blockquote cite {
     display: block;
     text-align: right;
-    margin-top: var(--block-gap);
+    margin-block-start: var(--block-gap);
     font-style: italic;
     font-size: var(--font-size-regular);
 }
@@ -198,12 +198,12 @@ header h1 em,
 .page-content > blockquote > *,
 .page-content > div.question > *,
 .page-content > div.hint > * {
-    margin-bottom: 1rem; 
+    margin-block-end: 1rem; 
 }
 
 .page-content ul,
 .page-content ol {
-    margin-left: 2rem; 
+    margin-inline-start: 2rem; 
 }
 
 .hint {
@@ -224,14 +224,14 @@ header h1 em,
 .question .answer {
     font-size: var(--font-size-large);
     font-weight: bold;
-    padding-top: 0.5em;
+    padding-block-start: 0.5em;
 }
 
 .question h3,
 .question h4,
 .question h5,
 .question h6 {
-    padding-top: 0.5em;
+    padding-block-start: 0.5em;
     font-size: var(--font-size-xlarge);
 }
 
@@ -296,7 +296,7 @@ nav.skip-links a:focus {
 
 .octo-header-dramatic {
     background-color: var(--light-bg);
-    margin-bottom: 1%;
+    margin-block-end: 1%;
 }
 
 .octo-header-dramatic::after {
@@ -327,7 +327,7 @@ nav.skip-links a:focus {
     font-size: var(--font-size-medium);
     align-items: center;
     z-index: 10;
-    padding-top: 4px;
+    padding-block-start: 4px;
 }
 
 .octo-header .logo {
@@ -458,7 +458,7 @@ nav.skip-links a:focus {
     .octo-title a::after {
         content: '\f078';
         font-family: fa-solid;
-        margin-left: 0.4rem;
+        margin-inline-start: 0.4rem;
     }
 
     .octo-title a[data-open]::after {
@@ -478,7 +478,7 @@ nav.skip-links a:focus {
 
 .site-nav {
     overflow-x: auto;
-    height: calc(100vh - 300px);
+    height: calc(100vh - 110px);
 }
 
 .site-nav.sticky {
@@ -502,6 +502,10 @@ nav.site-nav h2 {
   #site-nav {
     display: none;
   }
+}
+
+.site-nav ul {
+    padding-inline-end: 1rem;
 }
 
 .site-nav li {
@@ -566,7 +570,7 @@ nav.site-nav h2 {
 }
 
 .site-nav details ul {
-    margin-left: 1rem;
+    margin-inline-start: 1rem;
 }
 
 /* Main content group */
@@ -616,7 +620,7 @@ nav.site-nav h2 {
 }
 
 .continue {
-    padding-right: 30px;
+    padding-inline-end: 30px;
 }
 
 @media (max-width: 930px) {
@@ -656,7 +660,7 @@ nav.site-nav h2 {
 .page-toc details summary::after {
     content: '\f078';
     font-family: fa-solid;
-    margin-left: 0.3em;
+    margin-inline-start: 0.3em;
     float: right;
 }
 
@@ -678,44 +682,44 @@ nav.site-nav h2 {
 }
 
 .page-toc .toc-lev-3 {
-    padding-left: 1.5em;
+    padding-inline-start: 1.5em;
 }
 
 .page-toc .toc-lev-4 {
-    padding-left: 3em;
+    padding-inline-start: 3em;
 }
 
 .page-toc .toc-lev-5 {
-    padding-left: 4.5em;
+    padding-inline-start: 4.5em;
 }
 
 .page-toc .toc-lev-6 {
-    padding-left: 6em;
+    padding-inline-start: 6em;
 }
 
 /* Author info */
 
 .post-meta {
     border-top: 1px solid var(--navy-400);
-    padding-top: var(--block-gap);
-    margin-top: 5rem;
+    padding-block-start: var(--block-gap);
+    margin-block-start: 5rem;
     display: flex;
 }
 
 .post-meta .author-image {
     width: 170px;
     height: 170px;
-    margin-right: 1rem;
+    margin-inline-end: 1rem;
     object-fit: cover;
 }
 
 .post-meta p {
-    margin-top: 3%;
+    margin-block-start: 3%;
     font-size: var(--font-size-medium);
 }
 
 .author-info {
-    margin-top: 3%;
+    margin-block-start: 3%;
 }
 
 .author-list {
@@ -781,12 +785,8 @@ nav.site-nav h2 {
 .octo-article-nav {
     background: var(--white);
     box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
-    margin-top: 4rem;
+    margin-block-start: 4rem;
     padding: 1rem;
-    position: sticky;
-    bottom: 0;
-    /* Due to issue with HotJar widget */
-    z-index: 2147483646;
 }
 
 .octo-article-nav .grid {
@@ -813,7 +813,7 @@ nav.site-nav h2 {
 .octo-article-nav dl dt span:after {
     content: '\f138'; /* Circle Chevron Right */
     font-family: fa-solid;
-    padding-left: 0.6em;
+    padding-inline-start: 0.6em;
     color: var(--octo-blue);
 }
 
@@ -888,7 +888,7 @@ nav.site-nav h2 {
 /* Post List */
 
 .page-content > *:first-child {
-    padding-top: 0;
+    padding-block-start: 0;
 }
 
 .page-content ul.post-list {
@@ -985,7 +985,7 @@ nav.site-nav h2 {
 .site-footer nav a:after {
     content: '\f077'; /* Chevron Up */
     font-family: fa-solid;
-    padding-left: 0.6em;
+    padding-inline-start: 0.6em;
 }
 
 /* Footer columns */
@@ -1034,7 +1034,7 @@ nav.site-nav h2 {
 
 .octo-social ul li {
     display: inline-block;
-    margin-left: 0.5em;
+    margin-inline-start: 0.5em;
 }
 
 .octo-social ul li a {
@@ -1093,7 +1093,7 @@ nav.site-nav h2 {
 }
 
 .site-search-results > li {
-    margin-bottom: var(--block-gap);
+    margin-block-end: var(--block-gap);
 }
 
 .site-search-results > li > a {
@@ -1128,11 +1128,11 @@ nav.site-nav h2 {
 }
 
 .paging-collapse-before:before {
-    padding-right: 0.6rem;
+    padding-inline-end: 0.6rem;
 }
 
 .paging-collapse-after:after {
-    padding-left: 0.6rem;
+    padding-inline-start: 0.6rem;
 }
 
 /* Helper icons */
@@ -1144,7 +1144,7 @@ nav.site-nav h2 {
 .fa-share-nodes:before {
     content: '\f1e0';
     font-family: fa-solid;
-    margin-right: 0.3em;
+    margin-inline-end: 0.3em;
 }
 
 .fa-face {
@@ -1162,7 +1162,7 @@ nav.site-nav h2 {
     position: relative;
     top: 0.2em;
     opacity: 0.7;
-    margin-right: 1em;
+    margin-inline-end: 1em;
 }
 
 .fa-face:hover:before,
@@ -1200,31 +1200,31 @@ nav.site-nav h2 {
 .fa-twitter:before {
     content: '\f099';
     font-family: fa-brands;
-    padding-right: 1em;
+    padding-inline-end: 1em;
 }
 
 .fa-linkedin:before {
     content: '\f08c';
     font-family: fa-brands;
-    padding-right: 1em;
+    padding-inline-end: 1em;
 }
 
 .fa-github:before {
     content: '\f09b';
     font-family: fa-brands;
-    padding-right: 1em;
+    padding-inline-end: 1em;
 }
 
 .fa-youtube:before {
     content: '\f167';
     font-family: fa-brands;
-    padding-right: 1em;
+    padding-inline-end: 1em;
 }
 
 .fa-octopus:before {
     content: '\e082';
     font-family: fa-brands;
-    padding-right: 1em;
+    padding-inline-end: 1em;
 }
 
 .i-right:after {
@@ -1281,7 +1281,7 @@ nav.site-nav h2 {
 /* Reading List */
 
 .reading-list-control {
-    margin-bottom: 2.5rem;
+    margin-block-end: 2.5rem;
 }
 
 .reading-list-options {
@@ -1406,7 +1406,7 @@ nav.site-nav h2 {
 
 .rec-list .rec-book.rec-full-width > *,
 .rec-list .rec-book.rec-full-width p {
-    margin-bottom: 1rem;
+    margin-block-end: 1rem;
 }
 
 .rec-list .rec-book.rec-full-width figure {
