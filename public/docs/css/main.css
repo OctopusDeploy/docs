@@ -556,13 +556,13 @@ nav.site-nav h2 {
     display: none;
 }
 
-.site-nav details > summary::after {
+.site-nav details > summary::before {
     content: '\f078'; /* Chevron Down */
     font-family: fa-solid;
     float: right;
 }
 
-.site-nav details[open] > summary::after {
+.site-nav details[open] > summary::before {
     content: '\f077'; /* Chevron Up */
 }
 
@@ -678,7 +678,7 @@ nav.site-nav h2 {
 
 .page-toc li a {
     display: block;
-    padding: 0.3em 2em;
+    padding: 0.3em 0;
     text-decoration: none;
 }
 
