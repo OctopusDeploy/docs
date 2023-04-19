@@ -476,6 +476,7 @@ nav.skip-links a:focus {
     align-self: start;
     height: calc(100vh - 120px);
     overflow: hidden;
+    padding-inline-end: 1.5rem;
 }
 
 
@@ -502,10 +503,6 @@ nav.site-nav h2 {
   #site-nav {
     display: none;
   }
-}
-
-.site-nav ul {
-    padding-inline-end: 1rem;
 }
 
 .site-nav li {
