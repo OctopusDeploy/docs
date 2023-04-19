@@ -486,7 +486,7 @@ steps:
       OCTOPUS_URL: ${{ secrets.SERVER }}
       OCTOPUS_SPACE: 'Outer Space'
     with:
-      server_task_id: {{ steps.some_previous_deployment_step.outputs.server_tasks[0].server_task_id }}
+      server_task_id: ${{ fromJson(steps.some_previous_deployment_step.outputs.server_tasks)[0].serverTaskId }}
 ```
 
 ### Create Nuget Package
