@@ -228,6 +228,36 @@ header h1 em,
     font-size: var(--font-size-xlarge);
 }
 
+.bookmark-link {
+    border-radius: var(--block-radius);
+    color: var(--fore-link);
+    display: block;
+    float: right;
+    font-size: 0.8em;
+    height: 1.6em;
+    margin-inline-start: .2em;
+    opacity: .5;
+    overflow: hidden;
+    padding-top: 1px;
+    text-decoration: none;
+    opacity: 0;
+    width: 1.2em;
+    white-space: nowrap;
+}
+
+h2:hover .bookmark-link,
+h3:hover .bookmark-link,
+h4:hover .bookmark-link,
+h5:hover .bookmark-link,
+h6:hover .bookmark-link,
+.bookmark-link:focus {
+    opacity: 1;
+}
+
+.bookmark-link::before {
+    content: '🔗 ';
+}
+
 /* Tables */
 
 .table-wrap {
@@ -471,12 +501,13 @@ nav.skip-links a:focus {
 
 .site-nav,
 .page-toc {
-    position: sticky;
-    top: 112px;
     align-self: start;
     height: calc(100vh - 120px);
+    margin-block-start: 10vh;
     overflow: hidden;
     padding-inline-end: 1.5rem;
+    position: sticky;
+    top: 112px;
 }
 
 
@@ -649,8 +680,9 @@ nav.site-nav h2 {
     align-self: start;
 }
 
-.page-toc details {
-    margin: 2rem 0 2rem 0;
+.page-toc details summary {
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .page-toc details summary::marker {
