@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   schedule:
-    cron: '0 18 * * *'
+    - cron: '0 18 * * *'
   workflow_dispatch:
   # Disable on push temporarily while we're doing the migration
   # push:
