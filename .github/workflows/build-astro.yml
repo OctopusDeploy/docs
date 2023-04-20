@@ -1,12 +1,10 @@
 name: Deploy
 
 on:
-  schedule:
-    - cron: '0 18 * * *'
-  workflow_dispatch:
   # Disable on push temporarily while we're doing the migration
-  # push:
-  #   branches: [ main ]
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   
