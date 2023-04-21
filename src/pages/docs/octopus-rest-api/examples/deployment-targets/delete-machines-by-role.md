@@ -15,7 +15,7 @@ Provide values for the following:
 - Name of the space you want to use
 - Name of the role to use
 
-:::warning
+:::div{.warning}
 **This script will delete deployment targets matching the specified role. This operation is destructive and cannot be undone.**
 :::
 

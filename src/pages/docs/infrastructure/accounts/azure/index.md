@@ -20,7 +20,7 @@ When you add an Azure account to Octopus, there are two ways to authenticate wit
 
 You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
 
-:::warning
+:::div{.warning}
 Management Certificates are used to authenticate with Service Management APIs, those are being deprecated by Microsoft.  See our [blog post](https://octopus.com/blog/azure-management-certs) for more details.  Instructions remain only for legacy purposes.  Please migrate to service principals as soon as possible.
 :::
 
@@ -60,7 +60,7 @@ The final step is to ensure your registered app has permission to work with your
 
 Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account).
 
-:::hint
+:::div{.hint}
 Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
 
 It will also need the *Reader* role on the subscription itself.
@@ -80,7 +80,7 @@ The reason behind this has to do with the way Octopus queries for the web app re
 
 This step shows you how to create a Service Principal with the PowerShell script below, if you would rather use the Azure Portal to create the Service Principal, see [Create an Azure Service Principal With the Azure Portal](#create-service-principal-account-in-azure).
 
-:::hint
+:::div{.hint}
 During the script, you will be prompted to authenticate with Azure. The authenticated user must have administrator permissions in the Active Directory in which the Service Principal is being created.
 :::
 
@@ -210,7 +210,7 @@ Now that you have the following values, you can add your account to Octopus:
 
 Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure) for more details.
 
-:::hint
+:::div{.hint}
 A newly created Service Principal may take several minutes before the credential test passes. If you have double checked your credential values, wait 15 minutes and try again.
 :::
 
@@ -218,7 +218,7 @@ A newly created Service Principal may take several minutes before the credential
 
 Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used when Octopus deploys [Cloud Services](/docs/deployments/azure/cloud-services/) and [Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app).
 
-:::warning
+:::div{.warning}
 The Azure Service Management APIs are being deprecated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.
 :::
 

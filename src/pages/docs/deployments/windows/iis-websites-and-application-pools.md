@@ -37,7 +37,7 @@ You need to fill out the following fields for an IIS Web Site deployment:
 
 ## Deploy IIS virtual directory {#iiswebsitesandapplicationpools-DeployIISVirtualDirectoryvirtual-directory}
 
-:::success
+:::div{.success}
 The IIS Virtual Directory step requires a parent Web Site to exist in IIS before it runs. You can create a chain of steps like this:
 
 1. Make sure the parent Web Site exists in IIS and is configured correctly.
@@ -52,17 +52,17 @@ You need to fill out the following fields for an IIS Virtual Directory deploymen
 | **Virtual path**         | The relative path from the parent IIS Web Site to the Virtual Directory. | If you want a Virtual Directory called `MyDirectory` belonging to the Site `MySite` as part of the Application `MyApplication` you would set the Virtual Path to `/MyApplication/MyDirectory`. | All parent applications/directories must exist. Does not need to match the physical path. |
 | **Physical path**        | The physical path on disk this Virtual Directory will point to. | `/Path1/Path2/MyDirectory`, `#{MyCustomInstallationDirectory}`. | You can specify an absolute path, or a relative path inside the package installation directory. |
 
-:::success
+:::div{.success}
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployments/windows/iis-websites-and-application-pools) for more details.
 :::
 
-:::warning
+:::div{.warning}
 We use PowerShell to create virtual and physical directories. There is a known limitation with PowerShell which prevents the creation of virtual directories with a leading dot directly under the parent website in IIS. There are two workarounds for this. First, you can manually create a virtual directory on the server using the IIS manager. Alternatively, you can create a physical directory with the same name as your virtual directory's target physical directory where your site or application will be installed. For example, you might create a physical directory in the website installation directory called `.well-known`, and then configure your IIS deployment step to create a virtual directory directly under the parent website directory. This issue has been documented [here](https://github.com/OctopusDeploy/Issues/issues/6586).
 :::
 
 ## Deploy IIS web application {#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application}
 
-:::success
+:::div{.success}
 The IIS Web Application step requires a parent Web Site to exist in IIS before it runs. You can create a chain of steps like this:
 
 1. Make sure the parent Web Site exists in IIS and is configured correctly.
@@ -71,7 +71,7 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 
 You need to fill out the following fields for an IIS Web Application deployment:
 
-:::success
+:::div{.success}
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployments/windows/iis-websites-and-application-pools) for more details.
 :::
 
@@ -88,7 +88,7 @@ The Virtual Path and Physical Path do not need to match which is one of the true
 
 Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering).
 
-:::success
+:::div{.success}
 Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
 :::
 
@@ -102,7 +102,7 @@ Octopus performs the following steps:
 6. As part of this process the IIS Web Site, Web Application, or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder.
 7. [Output variables](/docs/projects/variables/output-variables/) and deployment [artifacts](/docs/projects/deployment-process/artifacts) from this step are sent back to the Octopus Server.
 
-:::success
+:::div{.success}
 You can see exactly how Octopus integrates with IIS in the [open-source Calamari library](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1).
 :::
 

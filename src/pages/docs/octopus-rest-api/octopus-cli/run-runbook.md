@@ -174,7 +174,7 @@ octo run-runbook --runbook="Hello World"  \
                  --apiKey="API-ABCDEF123456"
 ```
 
-:::success
+:::div{.success}
 You can run a runbook on ALL tenants in an environment by using the `--tenant=*` argument.
 :::
 

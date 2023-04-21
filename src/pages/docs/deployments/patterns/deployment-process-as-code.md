@@ -7,7 +7,7 @@ description: With Octopus you can manage your deployment process as code. This m
 navOrder: 70
 ---
 
-:::hint
+:::div{.hint}
 **Looking for Configuration as Code?**
 This section looks at storing your deployment process as code **without** using the [Configuration as Code (Early Access)](/docs/projects/version-control) feature.
 :::
@@ -139,7 +139,7 @@ The general process should look something like this, tailored to your situation:
     d. Test your brand new deployment through the `main` branch and your main channel.
     e. If something goes wrong, you can revert the single commit, isolating your changes back to your channel.
 
-:::hint
+:::div{.hint}
 If you have thoughts about how deployment as code could better support your organization, we would like to [talk with you about your dream scenario](https://octopus.com/support)!
 :::
 

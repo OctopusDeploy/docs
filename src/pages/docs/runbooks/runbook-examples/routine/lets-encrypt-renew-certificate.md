@@ -9,7 +9,7 @@ navOrder: 130
 
 [Let's Encrypt](https://oc.to/LetsEncryptOrg) is a popular nonprofit Certificate Authority that provides TLS certificates. However, creating and managing the renewals of these certificates across a large estate can be time-consuming. With Runbooks, you can automate this process to have your TLS certificates routinely checked for expiration, renewed, and securely stored in the Octopus [certificate library](/docs/deployments/certificates).
 
-:::hint
+:::div{.hint}
 If you're looking to secure your Octopus instance with a TLS certificate, take a look at our built-in [Let's Encrypt integration](/docs/security/exposing-octopus/lets-encrypt-integration).
 :::
 

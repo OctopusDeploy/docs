@@ -30,7 +30,7 @@ The guest user is created as a standard user managed by Octopus. If you are usin
 
 As with any standard user, you can [assign the guest account to different teams](/docs/security/users-and-teams) to give them permissions to view projects or environments.
 
-:::success
+:::div{.success}
 **Guest is read-only**
 The guest user is designed to be used by multiple people, so it has one additional limitation that other users do not have: the account is completely read-only, despite any roles it might be granted.
 
@@ -39,7 +39,7 @@ For example, you could assign the guest user to your **Octopus Administrators** 
 ![](/docs/security/authentication/images/guestuserpermissions.png "width=500")
 :::
 
-:::warning
+:::div{.warning}
 Please note, if you do add the guest user to your **Octopus Administrators** team, they will be able to view **all** settings and configuration. This includes viewing the license key, viewing the private keys for any uploaded certificates and potentially other information you don't want readable. Depending on your use case, you may want to create a custom role instead.
 :::
 

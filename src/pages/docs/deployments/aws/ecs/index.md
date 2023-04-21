@@ -10,7 +10,7 @@ Octopus supports deployments to ECS clusters through the `Deploy Amazon ECS Serv
 
 Choose this step if you have an ECS cluster, and want Octopus to create and manage your service and task definition for you.  
 
-:::hint
+:::div{.hint}
 The `Deploy Amazon ECS Service` step was added in Octopus **2021.3**. Presently only **Fargate** clusters are supported.
 :::
 
@@ -28,7 +28,7 @@ The followed instructions can be used to configure the `Deploy Amazon ECS Servic
 
 ## Step 1: Make a note of your ECS cluster's settings
 
-:::hint
+:::div{.hint}
 Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster. When presented with the `Select cluster compatibility` screen select the `Networking only` option, this will automatically associate your cluster with the `FARGATE` capacity provider.
 :::
 
@@ -47,7 +47,7 @@ Select the `AWS Account` under the `ECS Cluster` section and provide the cluster
 
 ![ECS Cluster Deployment Target Settings](/docs/deployments/aws/ecs/images/target.png "width=500")
 
-:::hint
+:::div{.hint}
 The benefits of using deployment targets for ECS are outlined in the [ECS RFC blog post](https://octopus.com/blog/rfc-ecs-integration-with-octopus#why-use-targets).
 :::
 
@@ -59,7 +59,7 @@ As the step is using a deployment target a target role will also need to be spec
 
 ![ECS Step General Settings](/docs/deployments/aws/ecs/images/ecs-step-1.png "width=500")
 
-:::hint
+:::div{.hint}
 CloudFormation stack and service names will be automatically generated and cannot be changed manually.
 :::
 
@@ -77,7 +77,7 @@ Under the **Task Execution IAM Role** section, the Task Execution Role can optio
 
 Task Execution Role is used by ecs-agent which runs on ECS to access AWS resources (for example, ECR feeds) and write logs to CloudWatch. The `AmazonECSTaskExecutionRolePolicy` role assigned by default should be sufficient for most scenarios.
 
-:::hint
+:::div{.hint}
 Additional permissions might need to be assigned to the task execution role if your tasks pull container images from private repositories. For more information, refer to the [AWS documentation](https://oc.to/ECSContainerDefinitionRegistryAuth).
 :::
 
@@ -99,7 +99,7 @@ Specify the Security Groups and Subnets in the clusters VPC that will be attache
 
 Specify whether to enable Amazon ECS managed tags. Changing this value will force the service to be re-created.
 
-:::hint
+:::div{.hint}
 Octopus automatically adds stack-level tags that propagate to the task definition and the service. The full list of these auto-generated tags can be found in our [Architecture repository](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/StepDesignGuidelines/#tags-and-labels).
 :::
 
@@ -145,7 +145,7 @@ For container logging the step can either auto-configure CloudWatch logs, or you
 
 In this section, you can enable a container to act as a log router using AWS FireLens. When enabled you can configure the configuration format to use, as well as properties for metadata and custom configuration files.
 
-:::hint
+:::div{.hint}
 To enable FireLens configuration, your Deploy Amazon ECS Service step needs to be upgraded to use version 2. See [Automatic Step Template Updates](/docs/projects/built-in-step-templates/automatic-updates) for more information on automatic updates to steps and updating to new major versions of steps.
 :::
 
@@ -163,7 +163,7 @@ You can optionally change whether the step should wait until the CloudFormation 
 
 ![ECS Step Deployment Options section](/docs/deployments/aws/ecs/images/ecs-deployment-options.png "width=500")
 
-:::hint
+:::div{.hint}
 Selecting the `Don't wait` option means that the step will not fail if the CloudFormation deployment fails.
 :::
 
@@ -187,7 +187,7 @@ The ECS step operates entirely via CloudFormation templates, which means that ev
 
 Some options will be converted to CloudFormation parameters with default values matching the specific values provided in the step. This allows you to easily override these values, while maintaining a simple conversion process between the ECS step and the `Deploy an AWS CloudFormation Template` step.
 
-:::hint
+:::div{.hint}
 Some values cannot be resolved until deployment time and will be replaced with their respective Octopus variable representations. Namely, container image reference will be exported as `#{Octopus.Action.Package[YOUR_IMAGE_NAME].Image`, which represents a fully qualified container image, including tag (for example, `docker.io/nginx:latest`). If you use the template in other Octopus steps, such as `Deploy an AWS CloudFormation Template` step, your image reference name must match the one exported from the ECS step.
 
 ![Reference Image Dialog](/docs/deployments/aws/ecs/images/reference-image.png "width=500")
@@ -237,7 +237,7 @@ If a deployment failure is detected, the step will attempt to extract error mess
 
 This error is raised if the CloudFormation stack is not in one of the expected states after the deployment has completed. 
 
-:::hint
+:::div{.hint}
 CloudFormation stack only owns the task definition and the service. Therefore this failure indicates that either the task definition or service definition themselves has failed to deploy (for example, due to an invalid set of parameters), not the tasks spawned from the service definition.
 :::
 

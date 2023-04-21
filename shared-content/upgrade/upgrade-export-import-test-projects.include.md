@@ -12,7 +12,7 @@ Run this command for each project you wish to export on the main, or production,
 Octopus.Migrator.exe partial-export --instance=OctopusServer --project=AcmeWebStore --password=5uper5ecret --directory=C:\Temp\AcmeWebStore --ignore-history --ignore-deployments --ignore-machines
 ```
 
-:::hint
+:::div{.hint}
 This command ignores all deployment targets to prevent your test instance and your main instance from deploying to the same targets.
 :::
 

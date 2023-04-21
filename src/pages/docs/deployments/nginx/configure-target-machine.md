@@ -7,7 +7,7 @@ description: This guide describes how to configure your target machine running L
 navOrder: 0
 ---
 
-:::hint
+:::div{.hint}
 This guide can be used with an AWS AMI instance of Ubuntu 14.04 LTS or an Azure VM running Ubuntu 14.04 LTS. If you want to use a different base instance there may be some slightly different steps you need to take during the configuration.
 :::
 
@@ -15,7 +15,7 @@ Deploying projects over [SSH](/docs/infrastructure/deployment-targets/linux/ssh-
 
 ## Install .NET Core {#ConfigureTargetMachine-InstallDotNetCore}
 
-:::hint
+:::div{.hint}
 **Authoritative documentation**
 The best and most up-to-date guide to installing .NET will continue to be on the [.NET website](https://www.microsoft.com/net/download/linux-package-manager/ubuntu16-04/runtime-current). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
 :::
@@ -44,7 +44,7 @@ sudo apt-get install aspnetcore-runtime-2.1
 
 ## Install NGINX {#ConfigureTargetMachine-InstallNginx}
 
-:::hint
+:::div{.hint}
 **Authoritative Documentation**
 The best and most up-to-date guide to installing NGINX will continue to be on the [NGINX website](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
 :::
@@ -108,7 +108,7 @@ Server: nginx/1.13.8
 
 Rather than connecting and deploying your application as the root user, you should create a custom user account that will be used for the purposes of deployment. The login credentials will then be able to be easily revoked without affecting other users who access the machine. Resources will also be able to be more granularly assigned, allowing greater control if the account is used maliciously.
 
-:::hint
+:::div{.hint}
 **Security**
 Entire books have been published on the subject of security on Unix based systems. These steps are intended to serve a basic level of security, while making sure you stop and consider the role that it plays in your environment.
 :::

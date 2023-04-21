@@ -46,7 +46,7 @@ Once an Account is selected, the list of Cloud Services and Storage Accounts ava
 | Swap            |         | Azure allows staging and production deployments to be swapped, by switching virtual IP addresses. When deploying to production, Octopus can detect whether the current staging deployment can be swapped, and if so, it can do a swap rather than a new deployment.<br/>If **Always deploy** is selected, the package will always be deployed to the selected Slot.<br/>If **Swap staging to production if possible** is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot).<br/>See [VIP Swap](/docs/deployments/azure/cloud-services/vip-swap) for more information on how to configure a VIP swap. |
 | Instance Count  |         | If you have scaled your Windows Azure service using the management portal (for example, changing the role count from 1 to 4), during a deployment Octopus can be configured to keep the existing instance counts rather than using the instance counts defined in your cloud service configuration file.                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-:::success
+:::div{.success}
 **Use variable binding expressions**
 Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different cloud services, like **MyCloudService_Production** and **MyCloudService_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
@@ -73,7 +73,7 @@ The easiest way to achieve this is to use an [execution container](/docs/project
 
 If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
-:::warning
+:::div{.warning}
 Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
 
 From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
@@ -126,7 +126,7 @@ To extract the Cloud Service Package, it is first converted to the CTP format (a
 
 Setting the `Octopus.Action.Azure.LogExtractedCspkg` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
-:::warning
+:::div{.warning}
 **Disable Package Extraction and Re-Packaging**
 
 Based on customer reports and Azure community discussions, we believe Microsoft is no longer recommending Azure Cloud Services: https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree. Several customers have reported timeout issues in regards to Azure Cloud Services and slow re-packing of CTP packages. Unfortunately, we cannot fix this issue, [as noted here](https://github.com/OctopusDeploy/Issues/issues/6111).
@@ -163,7 +163,7 @@ If a variable named `HelloMessage` is defined in your Octopus project variable
 
 The deployment is performed using the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari). For backwards compatibility, Octopus will look for a PowerShell script called `DeployToAzure.ps1`. If a file with this name exists within your package, Octopus will invoke it. Otherwise, Octopus will continue to use it's bundled [Sashimi.AzureCloudService](https://github.com/OctopusDeploy/Sashimi.AzureCloudService) library.
 
-:::hint
+:::div{.hint}
 If you choose to override the deployment script, remember that your `DeployToAzure.ps1` file must exist at **the root** of your package. It cannot be located in a subfolder. For reference, you can see how this filename is detected in your extracted package [here](https://github.com/OctopusDeploy/Sashimi.AzureCloudService/blob/main/source/Calamari/DeployAzureCloudServicePackageBehaviour.cs).
 :::
 

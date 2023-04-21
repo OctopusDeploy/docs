@@ -9,7 +9,7 @@ navOrder: 15
 
 If your reporting tool of choice can't consume the XML feed, you can query the SQL table directly. Octopus maintains a **DeploymentHistory** table, with the exact same information that the XML Feed exposes. This may work better for tools like **SQL Server Reporting Services**.
 
-::::hint
+::::div{.hint}
 **Benefits**
 - The main benefit of this approach is that it supports Spaces in reporting by default.
 ::::
@@ -40,7 +40,7 @@ Also note that the data:
 
 You may want to look at [enabling HTTP logging](/docs/administration/managing-infrastructure/performance/enable-web-request-logging).
 
-:::hint
+:::div{.hint}
 **Limitation**
 - This approach is only supported in Octopus Server. For Octopus Cloud you will need to use the API.
 ::::

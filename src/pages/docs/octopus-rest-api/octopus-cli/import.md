@@ -7,7 +7,7 @@ description: Using the Octopus CLI to import items exported from another Octopus
 navOrder: 150
 ---
 
-:::warning
+:::div{.warning}
 The import command has been **deprecated**. The recommended way to import data to an Octopus instance is with the **Export/Import Projects** feature that was released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import).
 
 If you are running an earlier version of Octopus, please see our [data migration](/docs/administration/data/data-migration) section for alternative options.

@@ -27,7 +27,7 @@ Currently, the Project level resources saved to git are:
     - Default Failure Mode
 - Variables (excluding Sensitive variables)
 
-:::hint
+:::div{.hint}
 Sensitive variables are still stored in the database. Regardless of the current branch, you will always see the same set of sensitive variables.
 :::
 
@@ -48,7 +48,7 @@ Currently, the Project level resources saved to SQL Server when version control 
     - Description
     - Project Group
 
-:::hint
+:::div{.hint}
 Runbooks and Sensitive Variables are planned for future releases of config-as-code.
 :::
 
@@ -88,7 +88,7 @@ The config-as-code feature manages project-level resources. However, it is worth
 
 Currently, there are no plans to include these resources in the config-as-code feature. Several of the resources above can be put into version control using the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs). 
 
-:::hint
+:::div{.hint}
 Resources managed by the Octopus Terraform Provider will have their state managed by Terraform. Resources managed by the Octopus config-as-code feature will have the state managed by Octopus Deploy. The two are not the same and shouldn't be treated as such.
 :::
 
@@ -106,7 +106,7 @@ The repository must be initialized (i.e. contain at least one branch) prior to s
 
 The config-as-code feature is designed to work with _any_ git repository. When configuring a project to be version-controlled, you can optionally provide credentials for authentication.
 
-:::hint
+:::div{.hint}
 Do not use credentials from a personal account. Select a shared or service account. When Octopus Deploy saves to your git repo, you will typically see the message `[User Name] authored and [Service Account] committed on [Date].`
 :::
 
@@ -121,7 +121,7 @@ Git providers allow you to create an access token in different ways. The recomme
 -   [BitBucket Server](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - `Project admin`)
 -   [BitBucket Cloud - Use App Passwords](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/); (Permission - `Repositories - Read & Write`)
 
-:::hint
+:::div{.hint}
 Some VCS providers require that you use only a username and personal access token for authentication, not an email address (i.e. BitBucket).
 :::
 
@@ -134,7 +134,7 @@ BitBucket's repository access tokens allow you to create repository-specific acc
 
 _Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored. The default directory is `.octopus`, but that can be changed. If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory.
 
-:::hint
+:::div{.hint}
 If multiple projects will be persisted to the repository, adding the project name to the path is the recommended convention, e.g. `./octopus/acme`
 :::
 
@@ -152,7 +152,7 @@ The _Default Branch Name_ is the branch on which the Octopus configuration will 
 
 For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
 
-:::hint
+:::div{.hint}
 When snapshotting a Runbook in a Git project, the variables will always be taken from the default branch.
 :::
 
@@ -286,7 +286,7 @@ variable "DeploymentPool" {
 }
 ```
 
-:::hint
+:::div{.hint}
 In Git projects, [Octopus will continue apply variable permissions based on scopes](/docs/security/users-and-teams/security-and-un-scoped-variables) when interacting through the API and Portal. As these variables are written to a single text file, any user with access to the repository will have full access to all variables (regardless of scoping).
 :::
 

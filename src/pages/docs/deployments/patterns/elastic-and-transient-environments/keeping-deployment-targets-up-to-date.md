@@ -85,7 +85,7 @@ Octopus will attempt to automatically deploy the current releases for the enviro
 
 Troubleshoot automatic deployment by viewing the auto deploy logs from the diagnostics page in the configuration section or viewing the [Audit log](/docs/security/users-and-teams/auditing).
 
-:::success
+:::div{.success}
 **Why isn&#39;t my trigger working?**
 The verbose logs usually contain the reason why a project trigger didn't take any action. For example:
 

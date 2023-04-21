@@ -38,13 +38,13 @@ greeting=$(get_octopusvariable "Helloworld.Greeting")
 echo $greeting
 ```
 
-:::hint
+:::div{.hint}
 If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
 :::
 
 4. Click the **SAVE** button and create a new release.
 
-:::hint
+:::div{.hint}
 A release snapshots everything about your project, including variables and the deployment process. You have to create a new release to see any changes.
 :::
 

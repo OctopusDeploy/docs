@@ -9,7 +9,7 @@ navOrder: 20
 
 You can use `systemd` to boot the Octopus Server Linux container each time the OS starts. To do this, create a file called `/etc/systemd/system/docker-octopusdeploy.service` with the following contents:
 
-:::hint
+:::div{.hint}
 Be sure to change the `ADMIN_PASSWORD` and `MASTER_KEY` from the defaults shown here.
 :::
 

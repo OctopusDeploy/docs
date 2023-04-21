@@ -37,7 +37,7 @@ For more information on setting up AWS RDS instances for native backups, please 
 | S3 Bucket Name | The name of the bucket (including any sub directories). | MyS3Bucket/backups/sql |
 | Backup File Name and Extension | The name of the back up file (including the extension). | MyBackup.bak |
 
-:::hint
+:::div{.hint}
 To use integrated SQL authentication, leave SQL Login and SQL Password blank.
 :::
  

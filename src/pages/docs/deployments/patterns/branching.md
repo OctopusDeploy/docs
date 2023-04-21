@@ -59,7 +59,7 @@ If you plan to create many releases from both branches, or your deployment proce
 
 In this example, packages that start with 2.x go to the "Stable" channel, while packages that start with 3.x go to the "Early Adopter" channel.
 
-:::hint
+:::div{.hint}
 **Tip: Channels aren't branches**
 When designing channels in Octopus, don't think about channels as another name for branches:
 

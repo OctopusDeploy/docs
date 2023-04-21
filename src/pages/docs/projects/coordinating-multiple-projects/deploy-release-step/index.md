@@ -22,7 +22,7 @@ When creating a release of a project containing _Deploy a Release_ steps you can
 
 ![Create release with deploy release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step/deploy-release-create-release-screen.png "width=500")
 
-:::hint
+:::div{.hint}
 By default, Octopus will select the *latest* release based on the creation time of the release, and **not** the Semantic version. This means Octopus might initially select a release that has a lower version that the latest for a Project.
 :::
 
@@ -30,7 +30,7 @@ By default, Octopus will select the *latest* release based on the creation time 
 
 The [Channel](/docs/releases/channels) used for any _Deploy a Release_ step is automatically determined by the release version of the project you select in the create release screen, since a channel is chosen when a release is created.
 
-:::hint
+:::div{.hint}
 It's possible to choose child releases from specific channels when using the _Deploy a Release_ step using [package version rules](/docs/releases/channels/#Channels-versionrules). Watch our - [Ask Octopus Episode: Deployment Channels with Child Projects](https://www.youtube.com/watch?v=3oLVq1EpUfc) to see it in action.
 :::
 
@@ -73,7 +73,7 @@ Where:
 *VariableName:* The original name of the output variable. e.g. for `Set-OctopusVariable -Name "Foo" -Value "Bar"` this would be `Foo`.   
 *Machine Name:* The machine the child process was targeting when the output variable was set.   
 
-:::hint
+:::div{.hint}
 For example, you have a project _Project Voltron_ which contains a _Deploy a Release_ step named _Deploy Red Lion_ which triggers a deployment of another project _Project Red Lion_.  
 _Project Red Lion_ contains a step _Echo Paladin_ which sets an output variable. e.g.
 
@@ -111,7 +111,7 @@ _Deploy a Release_ steps may be added as child steps, to be used in a [rolling d
 
 When executing a rolling deployment containing a _Deploy a Release_ step, child deployments will be created per deployment target, as each target is rolled over.  i.e. if the rolling step specifies a target role which matches 10 deployment targets, then 10 child deployments will be created. 
 
-:::hint
+:::div{.hint}
 When configuring a _Deploy a Release_ step as a child step in a rolling deployment, the [deployment condition](#conditional-deployment) should be set to `Deploy Always`.   
 Otherwise, as the step rolls across multiple machines, it will see the current release as having already been deployed to the environment, and execution will be skipped.  
 :::

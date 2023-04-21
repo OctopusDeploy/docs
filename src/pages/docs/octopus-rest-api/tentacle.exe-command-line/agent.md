@@ -42,6 +42,6 @@ This example shows hows to run the Tentacle Agent for an instance named `Tentacl
 tentacle agent --instance Tentacle --noninteractive
 ```
 
-:::hint
+:::div{.hint}
 The `--noninteractive` parameter is required when running in a container, otherwise the Tentacle host would exit immediately after starting.
 :::

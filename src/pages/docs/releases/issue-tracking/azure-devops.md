@@ -58,7 +58,7 @@ To supply the build information:
 1. Install one of our official [build server plugins](#availability) with support for our build information step.
 2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/#build-information-step).
 
-:::warning
+:::div{.warning}
 If you had previously been using the older functionality on the Create Octopus Release step, you should disable all of the release note options on that step as they use different mechanics and will conflict with the new features.
 
 ![Legacy create release settings](/docs/releases/issue-tracking/images/octo-azure-devops-create-release-notes-fields.png "width=500")
@@ -78,7 +78,7 @@ If you had previously been using the older functionality on the Create Octopus R
     
         For example, a prefix of `Release note:` can be used to identify a customer friendly work item title vs a technical feature or bug fix title.
 
-    :::hint
+    :::div{.hint}
     **Multiple Azure DevOps connections:**
     If you need to connect to more than one Azure DevOps organization, repeat this step.
     

@@ -1,6 +1,7 @@
 Hydra is a tool we've built that will help you update your Tentacles to the latest version. It is particularly useful migrating from 2.6.5 to 2018.10 LTS as the communication methods have changed.
 
-:::problem
+:::div{.problem}
+
 This is the point of no return. When your Tentacles are upgraded to 3.x your 2.6.5 server will not be able to communicate with them.
 
 We strongly recommend testing Hydra against a small subset of "canary" machines before upgrading the rest of your machines. The best way to do this is:
@@ -42,7 +43,7 @@ Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\AC
 
 To use Hydra, follow these steps:
 
-:::hint
+:::div{.hint}
 These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Tentacles.
 :::
 
@@ -64,7 +65,7 @@ These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Te
    - If you only use listening Tentacles you can leave the `Server Mapping` field blank.
    - If you are using any polling Tentacles, add the new **Octopus 2018.10 LTS** server address (including the polling TCP port) in the Server Mapping field. See below for examples.
 
-:::hint
+:::div{.hint}
 **Server mapping for Polling Tentacles**
 
 It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by neither a 2.6.5 or 2018.10 LTS server. Several different scenarios are supported:

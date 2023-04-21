@@ -22,14 +22,14 @@ You can create API keys by performing the following steps:
 1. Click **New API key**, state the purpose of the API key and click **Generate new**.
 1. Copy the new API key to your clipboard.
 
-:::warning
+:::div{.warning}
 **Write Your Key Down**
 After you generate an API key, it cannot be retrieved from the Octopus Web Portal again, we store only a one-way hash of the API key. If you want to use the API key again, you need to store it in a secure place such as a password manager. Read about [why we hash API keys](https://octopus.com/blog/hashing-api-keys).
 :::
 
 ## Setting an expiry date
 
-:::hint
+:::div{.hint}
 The ability to set an expiry date on new API keys was added in Octopus Deploy **2020.6**.
 :::
 
@@ -52,14 +52,15 @@ There is an "API key expiry events" event-group and three events:
 - API key expiry 10-day warning.
 - API key expired.
 
-:::info
+:::div{.info}
+
 The background task which raises the api-key-expiry events runs:
 - 10 minutes after the Octopus Server service starts
 - Every 4 hours
 :::
 
 ## Disabling API Key Creation {#HowtocreateanAPIkey-DisablingAPIKeyCreation}
-:::hint
+:::div{.hint}
 The ability to disable API key creation for user accounts was added in Octopus Deploy **2023.2**.
 :::
 

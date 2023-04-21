@@ -32,7 +32,7 @@ Inside the Script Console, you can choose whether to run your script on:
 - All deployment targets in a set of environments, roles and tenants or an entire group of machines.
 - The Octopus Server. **Note:** This option is only available for Octopus Server, and not for [Octopus Cloud](/docs/octopus-cloud).
 
-:::hint
+:::div{.hint}
 The options shown inside the Script Console may differ from the ones described here depending on the permissions assigned to your user account, or if you are using [Octopus Cloud](/docs/octopus-cloud).
 :::
 

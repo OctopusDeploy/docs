@@ -117,7 +117,7 @@ The script will run the `choco install` command if the `dotnetcore` package isnâ
 
 Chocolatey can also be used to install Windows features by leveraging [DISM, or Deployment Imaging Service Management](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism).
 
-:::hint
+:::div{.hint}
 To find out what features are available to install on the machine, you can run the command:
 
 ```

@@ -35,7 +35,7 @@ When you have your generated nupkg or zip file it needs to be [pushed to a repos
 
 If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 
-:::warning
+:::div{.warning}
 **OctoPack and .NET Core**
 OctoPack is not compatible with .NET Core applications. If you want to package .NET Core applications see [create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).
 :::
@@ -44,7 +44,7 @@ OctoPack is not compatible with .NET Core applications. If you want to package .
 
 ASP.NET Core applications can either run as a command line program with Kestrel, or under IIS ([which also uses Kestrel - check out the book for details](https://leanpub.com/aspnetdeployment)).
 
-:::hint
+:::div{.hint}
 See the [ASP.NET Core IIS documentation](https://docs.asp.net/en/latest/publishing/iis.html#install-the-http-platform-handler) for instructions on setting up IIS for ASP.NET Core.
 :::
 

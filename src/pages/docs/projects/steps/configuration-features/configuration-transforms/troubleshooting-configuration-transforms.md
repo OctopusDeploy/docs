@@ -101,12 +101,12 @@ This page lists the supported scenarios and the transform definitions required t
     </tr>
 </table>
 
-:::hint
+:::div{.hint}
 **Wildcard support**
 Please note that wildcards can be used anywhere in the transform filename (eg `*.mytransform.config` or `web.*.config`), but can only be used at the start of the target filename (eg `*.mytransform.config`, but **not** `web.*.config`)
 :::
 
-:::hint
+:::div{.hint}
 **Enable detailed transform diagnostics logging**
 To enable detailed logging of the process that searches for config transformations, add the variable `Octopus.Action.Package.EnableDiagnosticsConfigTransformationLogging`and set its value to `True.`
 :::
@@ -199,7 +199,7 @@ Then the transform **c:\transforms\web.mytransform.config** => **web.config** wi
 
 ## Applying a transform with an absolute path to a target in the extraction path root {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransformxtractiondirectoryroot}
 
-:::hint
+:::div{.hint}
 This transform is available in **Octopus Server 3.8.8** (Calamari 3.6.43) or later    
 :::
 

@@ -23,7 +23,7 @@ You can manage users and teams in the Octopus Web Portal:
 
 [Service accounts](/docs/security/users-and-teams/service-accounts/) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts).
 
-:::success
+:::div{.success}
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/security/users-and-teams/service-accounts) for each service that will integrate with Octopus Deploy.
 :::
 
@@ -37,20 +37,20 @@ There are some things to be aware of when deleting or disabling an Octopus User:
 - A disabled user's API keys will not function. Any attempt to use them will throw a `401 unauthorized error` and require the User to be re-enabled.
 
 ## Inviting users {#Managingusersandteams-Invitingusers}
-:::warning
+:::div{.warning}
 This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/octopus-cloud).
 :::
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
 ![](/docs/security/users-and-teams/images/user-invites.png "width=500")
 
-:::hint
+:::div{.hint}
 Prior to version 4.0 this feature was accessed via the **Invite users** button on the **Users** page
 :::
 
 In the example above, we are generating codes for the **Octopus Administrators** team, so anyone who uses one of the codes will automatically join that team when they have completed registration.
 
-:::warning
+:::div{.warning}
 Invite codes are only valid for 48-hours after being generated, so make sure you issue them quickly before the expire.
 :::
 
@@ -104,7 +104,7 @@ Note that project leads can create releases but not deploy them, while project d
 
 The roles assigned by a team can be scoped by project or environment.
 
-:::hint
+:::div{.hint}
 You can learn more about User Roles in our [documentation](/docs/security/users-and-teams/user-roles).
 :::
 

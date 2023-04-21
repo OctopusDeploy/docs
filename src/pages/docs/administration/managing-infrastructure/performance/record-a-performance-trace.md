@@ -26,7 +26,7 @@ We use [JetBrains dotTrace](https://www.jetbrains.com/profiler/) to record and a
 
 ## Recording the performance trace
 
-:::hint
+:::div{.hint}
 We don't usually need a long recording, the most important thing is to get a recording of a short period of time where the problem occurs. This may be during a particular deployment, or when another Octopus task is running (like retention policy processing or health checks), or perhaps it's just happening throughout the day.
 
 If we haven't asked for anything specific, start with a 1-5 minute recording so we can analyze it and go from there.

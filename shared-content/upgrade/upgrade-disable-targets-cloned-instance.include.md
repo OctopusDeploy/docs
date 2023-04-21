@@ -17,6 +17,6 @@ IF EXISTS (SELECT null FROM sys.tables WHERE name = 'Worker')
     UPDATE Worker SET IsDisabled = 1
 DELETE FROM ExtensionConfiguration WHERE Id in ('authentication-octopusid', 'jira-integration')
 ```
-:::hint
+:::div{.hint}
 Remember to replace `OctopusDeploy` with the name of your database.
 :::

@@ -6,7 +6,7 @@ title: Troubleshooting AWS transport level errors
 description: A guide for troubleshooting AWS Transport Errors.
 navOrder: 7
 ---
-:::warning
+:::div{.warning}
 **Information subject to change**
 The information on this page is to be considered incomplete and relies heavily on external links that are subject to change. We will endeavor as much as possible to keep these links and issues up to date.
 :::

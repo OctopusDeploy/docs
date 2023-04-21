@@ -11,7 +11,8 @@ GitHub projects come with a built-in NuGet package registry that can be configur
 
 ![GitHub Project Id](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/github-nuget-package-registry.png)
 
-:::info
+:::div{.info}
+
 Note: The **NuGet Feed** type discussed here is different from the [GitHub Feed](/docs/packaging-applications/package-repositories/github-feeds) type.
 :::
 

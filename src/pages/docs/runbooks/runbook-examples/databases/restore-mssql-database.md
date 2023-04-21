@@ -38,7 +38,7 @@ In this example, we'll use SQL authentication and provide both a SQL username an
 | Separator | Separator used between database name and suffix | _ |
 | Date Format | Date format to use if backup is suffixed with a date stamp (e.g. yyyy-MM-dd) | yyyy-MM-dd |
 
-:::warning
+:::div{.warning}
 Use variables where possible so you can assign scopes to values. This will ensure credentials and database connections are correct for the environment you're deploying to.
 :::
 

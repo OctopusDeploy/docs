@@ -19,7 +19,7 @@ This page outlines our recommended steps to move your SQL database to another se
 ```
 Octopus.Server.exe database --connectionString="VALUE"
 ```
-:::hint
+:::div{.hint}
 **Database connection string tips**
 - Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database](/docs/installation/sql-server-database) documentation page.
 - When running the Octopus Deploy service as a Local System account, Windows Authentication can be used only if the SQL server instance is hosted on the same machine. To host SQL Server remotely, use SQL Server Authentication, or run the Octopus Deploy service as a custom account.

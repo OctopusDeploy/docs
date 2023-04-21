@@ -9,7 +9,7 @@ navOrder: 120
 
 Octopus has support for proxies in two use cases. You can specify a proxy server for Octopus to use when communicating with a Tentacle or SSH Target, you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
 
-:::hint
+:::div{.hint}
 **HTTP proxies only**
 Octopus supports the use of HTTP proxies with support for SSL. There is no support for SOCKS proxies. See below for details on [choosing a proxy server](#Choosing-a-proxy-server).
 :::
@@ -42,7 +42,7 @@ The proxy for a Polling Tentacle is configured with the Octopus Tentacle Manager
 
 ![Polling Tentacle proxy settings](/docs/infrastructure/deployment-targets/images/polling-tentacle-proxy-settings.png "width=500")
 
-:::hint
+:::div{.hint}
 Please note, if you select "Use the proxy server configured in Internet Explorer" as your desired proxy configuration, when the installer check is completed it will use the proxy configured for the user running the installer. When the Tentacle service runs, it will use the proxy configured for the user running the Tentacle service, which were not checked and may not work or be configured correctly. It may be clearer to use the custom proxy option to explicitly set the proxy details.
 :::
 
@@ -64,7 +64,7 @@ After configuring the proxy, restart the Octopus Server to apply your changes.
 
  **Any** HTTP proxy should work as long as it supports HTTPS/SSL. We recommend selecting and configuring the HTTP proxy server which best suits your security requirements. Every release of Octopus Deploy is automatically tested against a [squid proxy](http://www.squid-cache.org/), and has been proven to work with [CCProxy](http://www.youngzsoft.net/ccproxy/) and [WinGate Proxy Server](http://www.wingate.com/products/wingate/index.php) to name just a few options.
 
-:::hint
+:::div{.hint}
 Do not enable SSL offloading for Tentacle Communication - the Tentacle communication protocol uses Client Certificate Authentication and requires an uninterrupted TLS tunnel.
 :::
 

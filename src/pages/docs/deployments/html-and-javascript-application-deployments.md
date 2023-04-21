@@ -9,7 +9,7 @@ navOrder: 150
 
 We are commonly asked how to deploy and configure HTML/JS or Single Page Applications (SPA) running in a browser, or JavaScript applications running in Node.js. This guide provides a simple example of deploying and configuring a simple JavaScript application using AngularJS.
 
-:::hint
+:::div{.hint}
 **Not using AngularJS?**
 This example uses AngularJS but the same basic principles apply for any applications running in a browser or Node.js. Instead of using AngularJS constants, you could provide globally accessible values, or alternatively provide the configuration values in a separate JavaScript file your application loads as a module. The important part to understand is how to get your Octopus Variables into your application.
 :::
@@ -57,7 +57,7 @@ angular
 
 Firstly we need to make the package available for Octopus to deploy.
 
-:::success
+:::div{.success}
 We've crafted and packaged v1.0.0 of this sample application for you to try out (see the link below). Alternatively you can create your own application and [package the application](/docs/packaging-applications) yourself to try it out.
 :::
 

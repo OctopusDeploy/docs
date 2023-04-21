@@ -54,7 +54,7 @@ configuration OctopusTentacle
 
 3. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file. Below is an example of what your folder should look like before you zip it up. 
 
-:::hint
+:::div{.hint}
 If you build the ZIP file incorrectly the provisioning of the DSC extension and Tentacle application install is likely to fail.
 :::
 

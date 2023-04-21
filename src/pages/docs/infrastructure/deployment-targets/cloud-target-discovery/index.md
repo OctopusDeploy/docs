@@ -9,7 +9,7 @@ navOrder: 100
 
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
 
-:::hint
+:::div{.hint}
 Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps and ECS. EAP support for AKS clusters is provided via a feature toggle in **{{Configuration, Features}}**.
 
 **Octopus 2022.3** will include EKS cluster support.
@@ -17,7 +17,7 @@ Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps a
 
 This page will walk you through the steps needed to enable cloud target discovery.
 
-:::hint
+:::div{.hint}
 We recommend cloud target discovery over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure) functionality.
 :::
 
@@ -25,7 +25,7 @@ We recommend cloud target discovery over the existing [dynamic infrastructure](/
 
 To perform discovery of targets from cloud resources, Octopus uses a well-known set of variables configured within your project to provide the credentials for authentication to the cloud provider. Variables can be [scoped](/docs/projects/variables/#scoping-variables) allowing for different credentials to be used when performing discovery as required (for example in different environments).
 
-:::hint
+:::div{.hint}
 From **Octopus 2022.3**, you can configure the well-known variables used for target discovery when editing your deployment process in the Web Portal.
 :::
 
@@ -145,7 +145,7 @@ If a target has been created via Cloud Target Discovery, the next time the same 
 - AKS Cluster: `aks/{subscription-id}/{resource-group}/{cluster-name}`
 - EKS Cluster: `{eks-cluster-arn}`
 
-:::warning
+:::div{.warning}
 Renaming or moving cloud resources can cause target discovery to create duplicate targets. In most cases the old target will become unhealthy and be removed automatically by Octopus (see [Cleaning up unhealthy targets]) but in some cases the old target may still be healthy. In these cases, it must be removed manually.
 
 **Example:** If you move an AKS Cluster to a different subscription and then update your Account in Octopus to use the new subscription ID, the old target will still pass its health-check. When discovery occurs a new target will be created (with the new Subscription ID in the target name) and the old target will need to be removed manually.
@@ -155,7 +155,7 @@ Renaming or moving cloud resources can cause target discovery to create duplicat
 
 Manually added targets can be overridden by Cloud Target Discovery but this will only happen if they match the name format above exactly. If they are different, a new target will be created.
 
-:::hint
+:::div{.hint}
 We recommend not manually adding targets when using Cloud Target Discovery to avoid duplicate targets for a single cloud resource.
 :::
 
@@ -163,7 +163,7 @@ We recommend not manually adding targets when using Cloud Target Discovery to av
 
 When targets are created via Cloud Target Discovery, they are monitored by Octopus. When the cloud resources are removed, Octopus will detect unhealthy targets and remove them periodically.
 
-:::hint
+:::div{.hint}
 Server will not remove unhealthy targets immediately. Targets need to fail multiple health checks over a period of at least one hour before they are removed.
 :::
 

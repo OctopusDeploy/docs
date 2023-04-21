@@ -57,6 +57,26 @@
     --green: #25D284FF;
     --light-green: #00FFA3FF;
 
+    --hint-color: #124164;
+    --hint-bg-color: #e5f4ff;
+    --hint-border-color: #0d80d8;
+
+    --info-color: #124164;
+    --info-bg-color: #e5f4ff;
+    --info-border-color: #0d80d8;
+
+    --success-color: #04502f;
+    --success-bg-color: #e8ffeb;
+    --success-border-color: #00b065;
+
+    --warning-color: #a23623;
+    --warning-bg-color: #fefae9;
+    --warning-border-color: #fc8431;
+
+    --problem-color: #931919;
+    --problem-bg-color: #fff2ee;
+    --problem-border-color: #ff4848;
+
     --heading-font: 'robotoregular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --body-font: 'robotoregular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --code-font: Consolas, monaco, monospace;

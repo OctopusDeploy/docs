@@ -8,7 +8,7 @@ description: An example script that finds usages of a variable, searching in pro
 
 This script demonstrates how to programmatically find usages of a variable in all project variable sets (either a named match, or referenced in another variable), and optionally any deployment process or runbook processes.
 
-:::hint
+:::div{.hint}
 **Limitations:** 
 Please note the limitations with this example:
 - It's not possible to use the REST API to search through sensitive variable values, as these values will be returned as `null`.

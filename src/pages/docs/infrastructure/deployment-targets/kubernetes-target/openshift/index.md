@@ -13,7 +13,7 @@ navOrder: 40
 
 To connect your OpenShift K8s cluster to Octopus Deploy, you must first create a means to authenticate with. We recommend that you create a [Service Account](https://docs.openshift.com/container-platform/4.4/authentication/understanding-and-creating-service-accounts.html) for Octopus Deploy to use.
 
-:::hint
+:::div{.hint}
 Service Accounts in OpenShift are project specific.  You will need to create a Service Account per project (namespace) for Octopus Deploy in OpenShift.
 :::
 

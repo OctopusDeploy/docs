@@ -53,7 +53,7 @@ We recommend using an up to date version of SQL Server for Octopus which is gene
 | 2020.2.x ➜ latest  | SQL Server 2016+                    | Supported   |
 | 3.0 ➜ 2019.13    | SQL Server 2008+                    | Supported   |
 
-:::hint
+:::div{.hint}
 The following versions of Octopus have a requirement for SQL Server 2017+.
 - 2020.2.0 ➜ 2020.2.17
 - 2020.3.0 ➜ 2020.3.5

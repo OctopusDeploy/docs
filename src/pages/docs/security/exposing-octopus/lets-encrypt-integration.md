@@ -21,13 +21,13 @@ To enable, click the `Configure` button.
 
 Enter the DNS name that you want to have on the new SSL certificate. Do not enter a prefix such as `http://` or `https://`.
 
-:::warning
+:::div{.warning}
 The DNS name you enter must be publicly accessible from the Internet (specifically the Let's Encrypt servers) over HTTP on port 80, so that Let's Encrypt can validate that you have control of this domain name. If your firewall has the ability, we recommend only allowing paths starting with `http://youroctopusserver.example.com/.well-known/acme-challenge/`.
 :::
 
 Once you have accepted the [Let's Encrypt Terms of Service](https://oc.to/LetsEncryptTermsOfService), and entered a registration email address, click the `Register` button.
 
-:::hint
+:::div{.hint}
 An account key for Let's Encrypt will be created automatically by Octopus, and reused for future requests.
 :::
 

@@ -29,7 +29,8 @@ Before starting the upgrade, it is critical to back up the master key and licens
 
 The standard upgrade process is an in-place upgrade.  In-place upgrades update the binaries in the install directory and update the database.  The guide below includes additional steps to backup key components to make it easier to rollback in the unlikely event of a failure.
 
-:::problem
+:::div{.problem}
+
 While an in-place upgrade will work, it involves risk as you are upgrading from a version released back in 2018.  Please see the risk mitigation sections below for steps on how to mitigate that risk.
 :::
 

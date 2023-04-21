@@ -9,7 +9,7 @@ navOrder: 70
 
 This page describes several conventional approaches to structuring roles and teams to secure a multi-tenant Octopus instance. Using the permissions system in Octopus, you can configure internal team members with different roles who interact with tenants in different ways. You can also configure Octopus to provide access for your external customers. This page explores several of those roles for both internal and external parties.
 
-:::success
+:::div{.success}
 To get the most out of this guide you will need to understand how to [manage users and teams](/docs/security/users-and-teams/) and how to [work with custom roles](/docs/security/users-and-teams/user-roles). Octopus provides an expressive permissions system, and you can customize the security configuration to your particular scenario.
 :::
 
@@ -25,7 +25,7 @@ Toby is a member of the sales team for [Vet Clinic](https://samples.octopus.app/
 
 Firstly we will create a custom role with the permissions required to deploy releases into tenant environments. This role is loosely based on the built-in **Project deployer** role but removing the permissions to edit the project.
 
-:::success
+:::div{.success}
 It is usually a good idea to build smaller roles that can be composed together into a team to provide easier management of your team permissions. In this example, we are creating a single role to grant all of the required permissions to keep the example simple. In this case, you could create a **Tenant project viewer** role and a **Tenant project deployer** role and combine them into a single team.
 :::
 
@@ -86,7 +86,7 @@ Select the tenants and click **APPLY**
 
 ![](/docs/tenants/images/scope-tenant-user-role.png "width=500")
 
-:::hint
+:::div{.hint}
 The scoping for a User Role can also be defined on the `Include User Role` screen by clicking on the **DEFINE SCOPE** button.
 :::
 

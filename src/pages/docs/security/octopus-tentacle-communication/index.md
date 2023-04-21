@@ -28,7 +28,7 @@ When Tentacle is configured, you give it the thumbprint (which uniquely identifi
 
 The only way another system can impersonate either party is by getting hold of the private key, which are kept safe and never leave the Octopus/Tentacle server (unless you export them from the certificate store). This makes it much more secure than exchanging passwords.  Since this is all based on public-key cryptography, it creates a highly secure way for the two machines to communicate without exchanging passwords, and works much like an SSH connection in the UNIX world.
 
-:::hint
+:::div{.hint}
 If necessary you can further restrict access using IPSec or VPNs.
 :::
 
@@ -36,7 +36,7 @@ If necessary you can further restrict access using IPSec or VPNs.
 
 The X.509 certificates used by Octopus and Tentacle are generated on installation and use 2048-bit private keys. There is an insightful discussion of [why Octopus uses self-signed certificates](https://octopus.com/blog/why-self-signed-certificates) by default.
 
-:::hint
+:::div{.hint}
 Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation/#export-and-import-tentacle-certificates-without-a-profile) which is helpful when [automating Tentacle installation](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation).
 :::
 
@@ -70,7 +70,7 @@ Octopus Server and Tentacle rely on the host OS for the available TLS version to
 
 The TLS implementation uses the [.NET SslStream](https://docs.microsoft.com/en-us/dotnet/api/system.net.security.sslstream) class, and uses the best available of TLS 1.2, TLS 1.1 or TLS 1.0. Fallback to SSL is disallowed. 
 
-:::hint
+:::div{.hint}
 TLS 1.2 requires .NET 4.5 which was introduced as a requirement in **Octopus 3.1**. Earlier versions of Octopus use TLS 1.0.
 :::
 

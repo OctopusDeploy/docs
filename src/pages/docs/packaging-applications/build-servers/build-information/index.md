@@ -39,7 +39,8 @@ In addition to the official plugins, there are some community supported integrat
 
 Build information is independent of the packages that it relates to. You can pass build information to Octopus **before** the packages have been pushed to either the built-in repository or an external feed. You can also [push build information manually](https://octopus.com/blog/manually-push-build-information-to-octopus) using the Octopus REST API when you aren't utilizing a Build Server.
 
-:::warning 
+:::div{.warning}
+ 
 
 Commit messages and deep links may not be shown if an unsupported `VcsType` is passed to Octopus as part of the build information call. Currently we support values of `Git` and `TFVC` (TFS / Azure DevOps). `SVN` (Subversion) is **not supported**.
 
@@ -59,7 +60,7 @@ The Build Information step requires
 - Package ID: List of package IDs to associate the Build Information to
 - Package version: The version of the packages
 
-:::hint
+:::div{.hint}
 
 The Verbose logging option can be used to include more detail in the build logs. This includes a complete output of all of the build information being passed to Octopus, which can be useful when troubleshooting.
 

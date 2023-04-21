@@ -16,7 +16,7 @@ Octopus Deploy includes dedicated integration with Amazon Web Services (AWS) to 
 - [Upload a package to an AWS S3 bucket](/docs/deployments/aws/s3) allows you to upload files and packages to S3 buckets.
 - [Run an AWS CLI Script](/docs/deployments/custom-scripts/aws-cli-scripts) runs a custom script with AWS credentials pre-loaded.
 
-:::hint
+:::div{.hint}
 **Where do AWS Steps execute?**
 All AWS steps execute on a worker. By default, that will be the [built-in worker](/docs/infrastructure/workers/#built-in-worker) in the Octopus Server. Learn about [workers](/docs/infrastructure/workers) and the different configuration options.
 :::

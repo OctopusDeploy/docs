@@ -39,7 +39,7 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 
 ![Ingress](/docs/deployments/kubernetes/ingress.svg "width=500")
 
-:::hint
+:::div{.hint}
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
 For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer.
@@ -59,7 +59,7 @@ The `Name` field will provide suggested annotation names, but this list of sugge
 
 The `Value` field defines the annotation value.
 
-:::hint
+:::div{.hint}
 Annotation values are always considered to be strings. See this [GitHub issue](https://oc.to/KubernetesAnnotationStringsIssue) for more information.
 :::
 

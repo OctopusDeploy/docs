@@ -16,7 +16,7 @@ Workers serve as "jump boxes" between the server and targets.  They are used whe
 
 When you do a deployment or a runbook run with workers, a worker is leased from the pool; the work is done, then the worker is added back into the pool.  The vast majority of the time, the same worker is used for a single runbook run or deployment.  But the worker can change in the middle of the deployment; you should design your process around that assumption.
 
-:::hint
+:::div{.hint}
 The leasing algorithm is not round-robin.  It looks for the worker with the least amount of active leases.  Multiple concurrent deployments or runbook runs can run on a worker.
 :::
 
@@ -30,7 +30,7 @@ Some important items to note about workers:
 
 The Octopus Server includes a [built-in worker](/docs/infrastructure/workers/built-in-worker).  When you configure a deployment or runbook to run tasks on the server, it is handing off that work to the built-in worker.   
 
-:::hint
+:::div{.hint}
 Octopus Cloud is running the Octopus Linux container.  To ensure maximum cross-compatibility with both Windows and Linux, the built-in worker is disabled on Octopus Cloud.  Instead, we provide you with the ability to choose from 2 [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools), Windows Server 2019 and Ubuntu 22.04.  Each worker type is a different worker pool.
 :::
 
@@ -79,7 +79,7 @@ Behind the scenes, there isn't much difference between a deployment target or a 
 
 A listening Tentacle can be registered as both a worker and a deployment target.  We don't recommend it, but it is possible.
 
-:::hint
+:::div{.hint}
 All Octopus Cloud and self-hosted Server, Data Center, and Standard licenses offer unlimited workers.
 :::
 

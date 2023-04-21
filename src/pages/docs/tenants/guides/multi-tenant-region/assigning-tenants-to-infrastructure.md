@@ -35,7 +35,7 @@ The above screenshot shows that it is possible to attach Tenant Tags to infrastr
 
 Car Rental has plans on expanding in the future.  Rather than having to run through the above steps to configure a tenanted target, they've automated the creation of region infrastructure using the [Octopus REST API](/docs/octopus-rest-api).  This script automates the above procedure of configuring the target as tenanted and assigning it to the appropriate tenant. 
 
-:::success
+:::div{.success}
 The entire runbook process can be found on our [Octopus samples instance](https://samples.octopus.app/app#/Spaces-682/projects/car-rental/operations/runbooks/Runbooks-1361/overview)
 :::
 

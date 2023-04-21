@@ -11,7 +11,7 @@ A common question we get asked is, "how does Octopus Deploy handle rollbacks?"  
 
 For stateful components, such as a relational database, rollbacks are much more complex.  This page focuses on database rollbacks.
 
-:::hint
+:::div{.hint}
 TL;DR; For stateful components, we recommend rolling forward and/or making any changes backward compatible with previous versions of your code.  The risk is much lower, and it is often quicker to fix.  
 :::
 
@@ -25,13 +25,13 @@ There are major pitfalls with rolling back databases:
 2. The decision to rollback will come after a successful deployment.  Most, if not all, automated database deployment tooling use transactions to deploy changes, and they automatically rollback that transaction on failure.  A restore of the database backup is required after the successful deployment.  
 3. Unless programmatically locked out, users will use the application during deployment verification.  After a user changes data, any database backup taken before deployment is worthless.  Rolling back to a database backup will result in data loss.
 
-:::warning
+:::div{.warning}
 A database backup has a very limited useful rollback lifespan.
 :::
 
 Rolling back changed data will require extensive analysis and testing.  As such, there cannot be an automated rollback process.  There are too many what-if scenarios, and risk exponentially increases as more records are changed.  As long as the application continues to run, the data will continue to change.  Any rollback scripts to move data around will have to keep hitting a moving target. 
 
-:::hint
+:::div{.hint}
 Prior to upgrading the Octopus Server we recommend putting your server into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode).  When in maintenance mode, only Octopus Administrators can kick off deployments.  This allows Octopus Administrators to test the upgrade without users changing data.  If anything goes wrong, a rollback can happen as the data changed was only test data.
 :::
 

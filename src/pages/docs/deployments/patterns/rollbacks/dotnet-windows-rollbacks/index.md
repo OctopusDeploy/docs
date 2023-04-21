@@ -29,7 +29,7 @@ For this guide, we will start with the following deployment process for the Octo
 
 ![original windows deployment process](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/original-windows-deployment-process.png)
 
-:::success
+:::div{.success}
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
 :::
 
@@ -53,7 +53,7 @@ The updated deployment process will be:
 
 ![simple rollback for windows deployment](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-simple-rollback-process.png)
 
-:::success
+:::div{.success}
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please login as a guest.
 :::
 
@@ -107,7 +107,7 @@ The resulting process will be:
 
 ![windows complex rollbacks](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-complex-rollbacks.png)
 
-:::success
+:::div{.success}
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please login as a guest.
 :::
 
@@ -166,7 +166,7 @@ Set the run condition for this step to:
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
-:::hint
+:::div{.hint}
 If you are using application pools instead of websites, use [IIS AppPool - Update Property](https://library.octopus.com/step-templates/183c1676-cb8e-44e8-a348-bbcb2b77536e/actiontemplate-iis-apppool-update-property) step template.
 :::
 

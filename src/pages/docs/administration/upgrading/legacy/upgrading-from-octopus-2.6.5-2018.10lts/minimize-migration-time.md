@@ -19,7 +19,7 @@ The goal is for the document count in the 2.6 RavenDB to be as low as possible.
 You can find the document count by viewing the RavenDB studio through the Octopus Manager. The document count is in the footer of the RavenDB studio.
 Less than 150k documents is a rough guide, though obviously some customers will simply have more required data than this.
 
-:::hint
+:::div{.hint}
 The original complete backup can always be retained if it is required for audit purposes.
 :::
 
@@ -43,6 +43,6 @@ This RAM is only required for the migration, and can be deallocated once it is c
 To minimize the initial migration time, you can skip migrating the server-task log files.  
 This option is available as a check-box in the Octopus Manager, or can be supplied as a `--nologs` option if running via the [command-line](/docs/octopus-rest-api/octopus.migrator.exe-command-line).
 
-:::hint
+:::div{.hint}
 The logs can always be imported later using the `--onlylogs` option if required
 :::

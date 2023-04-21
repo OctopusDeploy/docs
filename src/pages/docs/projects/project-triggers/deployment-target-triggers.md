@@ -33,7 +33,7 @@ Events have been placed into the following pre-defined groups:
 | **Machine is no longer available for deployment** | Machine disabled, Machine found to be unavailable, Machine found to be unhealthy |
 | **Machine health changed** | Machine found healthy, Machine found to be unavailable, Machine found to be unhealthy, Machine found to have warnings |
 
-:::success
+:::div{.success}
 For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the **Machine becomes available for deployment** event group.
 :::
 
@@ -83,7 +83,7 @@ When an deployment target trigger fires, the following rules are applied:
 
 Because projects are considered independent in Octopus, and there is no built-in way to define dependencies between Projects or control the order in which Projects are deployed.
 
-:::success
+:::div{.success}
 We generally recommend catering for application dependencies in the applications themselves, rather than pushing that responsibility to your deployments. This practice will reduce friction between your applications allowing you to reliably deploy your applications independently of each other.
 :::
 
@@ -95,7 +95,7 @@ In this case you could:
 2. Each step in the deployment process of this project could call the Octopus API to deploy the next project in the dependency chain, waiting for a successful deployment before continuing to the next project.
 3. Optionally create an deployment target trigger in the orchestrating project to start the whole process.
 
-:::success
+:::div{.success}
 The [Chain Deployment](https://library.octopus.com/step-template/actiontemplate-chain-deployment) step template might be a perfect fit for you in this situation, or you may want to customize this step template for more advanced scenarios.
 :::
 

@@ -11,7 +11,7 @@ There are two ways to use the Octopus Client library:
 1. The `Octopus.Server.Client` package is a standard NuGet package useful for normal applications.
 1. The `Octopus.Client` package is a NuGet package containing an ILMerged single `Octopus.Client.dll` comprising `Octopus.Server.Client.dll` (above) and all of its dependencies. This is useful for scripting where importing a single .NET assembly is preferable.
 
-:::hint
+:::div{.hint}
 **Usage guidance**
 
 - Unless you have a specific need to use the ILMerged `Octopus.Client`, we recommend using the `Octopus.Server.Client` package. In both cases, the calling conventions are identical - the former is just an ILMerged version of the latter.
@@ -86,7 +86,7 @@ Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDepende
 $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/netstandard2.0/Octopus.Client.dll"
 Add-Type -Path $path
 ```
-:::hint
+:::div{.hint}
 Note: The `PowerShell Core` example above needs the path to be slightly different than the one for `Windows PowerShell`.
 :::
 

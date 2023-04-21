@@ -7,7 +7,7 @@ description: The Insights API
 navOrder: 160
 ---
 
-:::warning
+:::div{.warning}
 The DevOps Insights feature is still in development.  You can use this API; however, please keep in mind that it could change at anytime.
 :::
 

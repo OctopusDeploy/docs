@@ -8,7 +8,7 @@ description: An example script to create a Google Cloud (GCP) account in Octopus
 
 This script provides an example of how to programmatically create a Google Cloud (GCP) account.
 
-:::hint
+:::div{.hint}
 **Note:**
 Please note there are some items to consider before using these scripts:
 - Google Cloud Accounts were added in **Octopus 2021.2**. Using these script examples in earlier versions of Octopus won't work.

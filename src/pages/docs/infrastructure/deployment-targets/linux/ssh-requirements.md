@@ -45,7 +45,8 @@ ScriptCS has not been ported for .NET Core ([GitHub issue](https://github.com/sc
 
 Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHub issue](https://github.com/Microsoft/visualfsharp/issues/2407)).
 
-:::warning 
+:::div{.warning}
+ 
 ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.14.x**.
 :::
 

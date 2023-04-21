@@ -58,7 +58,7 @@ This example of configuring a tenanted deployment target shows how the tenant fi
 
 Once you have defined some tag sets and tags you can start leveraging those tags to tailor your environments and deployments.
 
-:::hint
+:::div{.hint}
 **Combinational logic**
 When filtering tenants, Octopus will combine tags within the same tag set using the **`OR`** operator, and combine tag sets using the **`AND`** operator.
 :::
@@ -75,7 +75,7 @@ TenantsNamed("Capital Animal Hospital") UNION TenantsTagged(VIP AND (Alpha OR Be
 
 When paired with a well-structured tag design, this logic will enable you to tailor your tenanted deployments in interesting and effective ways.
 
-:::hint
+:::div{.hint}
 **Tips for working with tenant filters**
 - Only specify a tenant "by name" (explicitly) if you absolutely want that tenant included in the result, otherwise leave it blank
 - A filter with tags in the same tag set will be more inclusive since they are combined using **`OR`**

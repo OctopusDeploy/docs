@@ -11,7 +11,7 @@ Many deployment samples in our docs reference our Octopus Cloud [samples instanc
 
 This page acts as a directory of features found in our samples instance.
 
-:::hint
+:::div{.hint}
 We're constantly adding to our samples instance. If you'd like to explore any of our samples further, just go to [https://samples.octopus.app](https://samples.octopus.app) and log in as a guest.
 :::
 

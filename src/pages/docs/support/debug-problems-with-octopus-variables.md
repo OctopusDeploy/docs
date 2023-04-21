@@ -26,7 +26,7 @@ Sometimes a variable used during deployment may have a different value from the 
 
 ![](/docs/support/images/5865680.png "width=500")
 
-:::success
+:::div{.success}
 Did you know you can sort filter all of the variables grids? Click **Show Advanced filters** and select your filter type.
 :::
 
@@ -51,7 +51,7 @@ It should look like this. You can have as many extra variables as you want besid
 5. Enable **Verbose** output on the **Task log** page.
 6. Expand the element corresponding to the Tentacle on which the problem is observed. Two sets of variables will be printed, first, the raw definitions before any substitutions have been performed, then the result of evaluating all variables for deployment.
 
-:::warning
+:::div{.warning}
 **For debugging only**
 When adding these variables to your project, Octopus will add the following warning to your deployment log
 `20:30:45   Warning  |       OctopusPrintVariables is enabled. This should only be used for debugging problems with variables, and then disabled again for normal deployments.`

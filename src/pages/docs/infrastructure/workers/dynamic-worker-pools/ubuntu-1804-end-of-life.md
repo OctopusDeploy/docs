@@ -9,7 +9,7 @@ hideInThisSection: true
 hideInThisSectionHeader: true
 ---
 
-:::warning
+:::div{.warning}
 Ubuntu 18.04 images are no longer available as of 3 April 2023. The details below are provided for historical reference.
 :::
 

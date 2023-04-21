@@ -23,7 +23,7 @@ Subscriptions allow you to receive an email or send a message to a webhook for s
 - Document types are the "what was changed."  For example, accounts, deployments, projects, releases, and so on.
 - Categories are what caused it to change.  For example, deployment started, deployment failed, API key expired, and so on.
 
-:::hint
+:::div{.hint}
 If you are not careful with your subscription, you could end up with a lot of "noise" cluttering your inbox.  We recommend dialing in your subscription and running tests to limit that noise.
 :::
 

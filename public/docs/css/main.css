@@ -199,12 +199,43 @@ header h1 em,
     margin-inline-start: 2rem; 
 }
 
-.hint {
-    background: var(--lightest-blue);
-    border-radius: var(--standard-radius);
-    font-size: var(--font-size-large);
+/* Boxes */
+
+.hint, .info, .success, .warning {
+    border-radius: 0 var(--standard-radius) var(--standard-radius) 0;
     margin: var(--block-gap) 0;
     padding: 1.5rem;
+    border-left: 3px solid #000;
+}
+
+.hint {
+    color: var(--hint-color);
+    border-color: var(--hint-border-color);
+    background-color: var(--hint-bg-color);
+}
+
+.info {
+    color: var(--info-color);
+    border-color: var(--info-border-color);
+    background-color: var(--info-bg-color);
+}
+
+.success {
+    color: var(--success-color);
+    border-color: var(--success-border-color);
+    background-color: var(--success-bg-color);
+}
+
+.warning {
+    color: var(--warning-color);
+    border-color: var(--warning-border-color);
+    background-color: var(--warning-bg-color);
+}
+
+.problem {
+    color: var(--problem-color);
+    border-color: var(--problem-border-color);
+    background-color: var(--problem-bg-color);
 }
 
 .question {

@@ -13,7 +13,7 @@ It is common practice to assign meaningful versions to Docker tags, and when a D
 
 Starting with 2020.6, Octopus introduced a new, permissive versioning scheme for parsing Docker tags that allows almost any string to be interpreted as a comparable version. 
 
-:::hint
+:::div{.hint}
 Prior to 2020.6, Octopus only recognized Docker image tags that complied with the Semantic Versioning standard.
 :::
 

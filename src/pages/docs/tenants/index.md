@@ -57,7 +57,7 @@ Learn more about [tenant types](/docs/tenants/tenant-types).
 
 ## When to use tenants {#when-to-use-tenants}
 
-:::success
+:::div{.success}
 You don't need tenants to implement a multi-tenant SaaS application. You can architect your application so that one instance can serve multiple customers. We built multi-tenancy for situations where you want to deploy your application more than once in an environment.
 :::
 
@@ -80,7 +80,7 @@ With just a few simple steps, you can configure a new or existing Octopus projec
 
 You often want to define variable values that are different for each tenant, like database connection settings or a tenant-specific URL. If you were using an untenanted project, you would have previously defined these values in the project itself. But with a tenanted project, you can set these values directly on the tenant for any connected projects.
 
-:::hint
+:::div{.hint}
 **Tenant-provided variables are not snapshotted**
 When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release/) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/projects/variables), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
 :::

@@ -12,7 +12,8 @@ Tentacles can be configured during virtual machine provisioning via Desired Stat
 
 An Azure VM extension is also available, and has been tested on Windows 2008R2, Windows 2012, Windows 2012R2 and Windows 2016. However the VM extension has limited functionality, with no support for spaces or workers. 
 
-:::problem
+:::div{.problem}
+
 Microsoft [no longer supports third party extensions](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/how-to-create-and-publish-Azure-third-party-VM-extension-offer/m-p/12741/highlight/true#M454), and as such the VM extension will not be updated with new features.
 
 Support was available for the VM extension until the end of 2020, during which time reasonable efforts were made to fix bugs, subject to any limitations due to Microsoft no longer supporting third party extensions. From 2021, the VM extension is no longer supported.

@@ -6,7 +6,7 @@ title: Configurable Timeouts and Session Invalidation
 description: Timeouts and session invalidation can be used to enforce a user to re-authenticate.
 ---
 
-:::hint
+:::div{.hint}
 Configurable Session timeouts and Session invalidation was added in Octopus **2022.2**.
 :::
 

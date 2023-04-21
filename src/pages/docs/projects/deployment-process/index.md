@@ -82,6 +82,6 @@ We have provided lots of helpful functions for building your deployment process 
 
 Learn about using the [Octopus REST API](/docs/octopus-rest-api).
 
-:::success
+:::div{.success}
 Record the HTTP requests made by the Octopus UI to see how we build your deployment processes using the Octopus API. You can do this in the Chrome developer tools, or using a tool like Fiddler.
 :::

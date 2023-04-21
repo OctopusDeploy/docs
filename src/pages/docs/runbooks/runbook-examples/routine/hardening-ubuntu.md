@@ -23,7 +23,7 @@ To create a runbook to harden your Ubuntu server:
 1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, select **Bash** and add the following code:
 
-:::warning
+:::div{.warning}
 The following script will make changes to the default installation of SSH and disables the root logon.  Please review carefully if you plan to implement.
 :::
 

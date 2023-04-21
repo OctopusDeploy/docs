@@ -11,7 +11,7 @@ Octopus uses self-signed certificates to securely communicate between Tentacles 
 
 For more information on self-signed certificates, see the [blog post](https://octopus.com/blog/why-self-signed-certificates) on the topic.
 
-:::warning
+:::div{.warning}
 **Updating an existing Octopus Server or Tentacle**
 It's important to consider the impact of updating an existing Octopus Server or Tentacle as changes are required to ensure each component trusts the other. Read the information below carefully.
 :::
@@ -43,7 +43,7 @@ new thumbprint = 1EA1B432478117393C8BA435FD42727C0E87445C
 Certificate imported successfully.
 ```
 
-:::hint
+:::div{.hint}
 **Letting the Server regenerate its own certificate**
 If you have come from an earlier version of Octopus with a shorter security key, or just want the Server to use a new certificate without having to generate one yourself, you can follow these steps in this section but substitute the command in step 2, with the following
 
@@ -92,7 +92,7 @@ Importing the certificate stored in PFX file in C:\PathToCertificate\cert.pfx us
 Certificate with thumbprint DE010ABF6FF8ED1B7895A31F005B8D88A3329867 imported successfully.
 ```
 
-:::hint
+:::div{.hint}
 **Letting the Tentacle regenerate its own certificate**
 If you have come from an earlier version of Octopus with a shorter security key, or just want the Tentacle to use a new certificate without having to generate one yourself, you can follow these steps in this section but substitute the command in step 2, with the following
 

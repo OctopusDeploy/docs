@@ -26,7 +26,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 
 ![AWS Role](/docs/deployments/aws/removecloudformation/images/step-aws-role.png "width=500")
 
-:::hint
+:::div{.hint}
 If you select **Yes** to **Execute using the AWS service role for an EC2 instance**, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
@@ -34,13 +34,13 @@ If you select **Yes** to **Execute using the AWS service role for an EC2 instanc
 
 Under the **CloudFormation** section, the AWS region and stack name need to be defined.
 
-:::hint
+:::div{.hint}
 If the stack does not exist, this step will succeed and not attempt to delete it again.
 :::
 
 You can also optionally wait for the stack to be deleted completely before finishing the step by selecting the **Wait for completion** check-box.
 
-:::hint
+:::div{.hint}
 Unselecting the **Wait for completion** check-box will allow the step to complete once that CloudFormation deletion has been initiated. However unselecting the option means that the step will not fail if the CloudFormation stack deletion fails.
 :::
 

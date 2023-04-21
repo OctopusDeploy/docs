@@ -15,7 +15,7 @@ Before you can configure the SSH key pair account in Octopus, you need to genera
 
 ### Generating a key pair on Linux {#SSHKeyPair-Linux}
 
-:::hint
+:::div{.hint}
 From **Octopus 2021.1.7466**, Octopus supports newer ED25519 SSH keys. For older versions, and legacy compatibility, please follow the RSA instructions.
 :::
 

@@ -26,7 +26,7 @@ We recommend using [Workers](/docs/infrastructure/workers) to handle all of your
 
 ![](/docs/deployments/databases/configuration/images/standard-database-worker-pool.png "width=500")
 
-:::hint
+:::div{.hint}
 Workers were added in Octopus **2018.7.0.**
 :::
 
@@ -40,7 +40,7 @@ Out of the box, the Worker in the default Worker pool is your Octopus Server, an
 2. The database deployment tools might need to run on Linux while Octopus Deploy is running on Windows.
 3. It can slow down other deployments because the Octopus Server will allocate resources for database deployments in addition to everything else.
 
-:::hint
+:::div{.hint}
 A worker can be assigned to more than one pool.
 :::
 
@@ -72,7 +72,7 @@ After you've added a Worker pool, a new option will appear in the deployment pro
 
 ![](/docs/deployments/databases/configuration/images/use-worker-in-deployment-process.png "width=500")
 
-:::hint
+:::div{.hint}
 Certain steps do not let you to pick a Worker pool.  That list includes **Deploy to IIS**, **Deploy a Windows Service**, and **Deploy a Package**.  If you are using a step template that relies on that functionality, you need to use [jump boxes](#tentacles-on-a-jump-box).
 :::
 
@@ -110,7 +110,7 @@ If you are using a version of Octopus Deploy prior to 2020.1, the process is sli
 
 Next, create cloud region deployment targets (a cloud region is a group of deployment targets).
 
-:::hint
+:::div{.hint}
 Cloud region deployment targets do not count against your license.
 :::
 

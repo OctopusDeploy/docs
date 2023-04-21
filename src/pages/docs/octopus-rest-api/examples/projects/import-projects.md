@@ -8,7 +8,7 @@ description: An example script that will import projects from a previously execu
 
 This script demonstrates how you can import projects into an Octopus space. It uses a previously executed export task from another space as the source for the import.
 
-:::hint
+:::div{.hint}
 **Note:**
 Please note there are some items to consider before using this script:
 

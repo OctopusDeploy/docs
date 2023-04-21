@@ -29,7 +29,7 @@ If you wish to use [silent authentication](https://access.redhat.com/documentati
 
 Selecting `Standalone` from the `Standalone or domain Server` field in the `Server Type Details` section indicates that the certificate is to be deployed to a standalone server instance.
 
-:::hint
+:::div{.hint}
 Selecting the wrong server type will result in an error at deploy time.
 :::
 
@@ -83,7 +83,7 @@ The `Private key password` field defines a custom password for the new KeyStore 
 The `KeyStore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
 
 
-:::hint
+:::div{.hint}
 It is highly recommended that the KeyStore file be saved in the `domain/configuration` directory. This allows the KeyStore file to be referenced using a relative path against the base path identified by `jboss.domain.config.dir`.
 :::
 
@@ -103,7 +103,7 @@ The `KeyStore alias` field defines the optional alias under which the certificat
 
 ## Advanced options
 
-:::hint
+:::div{.hint}
 If you are unsure what these advanced values refer to, it is best to leave them blank and assume the default values.
 :::
 
@@ -133,7 +133,7 @@ The `Legacy security realm name` defines the name of the security realm that is 
 
 ![Security Realm](/docs/deployments/certificates/images/security-realm.png "width=500")
 
-:::hint
+:::div{.hint}
 Elytron is the new security subsystem introduced with WildFly 11 and JBoss EAP 7.1. All previous versions of WildFly and JBoss EAP use what is referred to as the "legacy" security system.
 :::
 
@@ -149,7 +149,7 @@ The `Elytron server SSL context name` defines the name of the Elytron SSL Contex
 
 ![Elyton Server SSL Context](/docs/deployments/certificates/images/elytron-ssl-context.png "width=500")
 
-:::hint
+:::div{.hint}
 You can find more information of the Elytron subsystem components in the [WildFly documentation](https://docs.jboss.org/author/display/WFLY/Using+the+Elytron+Subsystem#UsingtheElytronSubsystem-onewayapps).
 :::
 

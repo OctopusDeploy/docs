@@ -17,7 +17,7 @@ This includes deployment variables, credentials and certificates.
 Creating a process dump will pause the process for anywhere between a few seconds
 to a few minutes, depending on the amount of memory in use and the disk speed.
 
-:::hint
+:::div{.hint}
 Due to the nature of data contained in a process dump, we take great care in handling these files and will provide a secure upload facility. 
 We will also delete them as soon as they have been analyzed.
 :::
@@ -30,7 +30,7 @@ If you are capturing a process on your Octopus Server follow the below instructi
 1. Right click on it and select **Create dump file**.
 1. Note where the file is saved (generally in your temp folder).
 
-:::warning
+:::div{.warning}
 When capturing a process dump for **Tentacle.exe**, please also capture any child **Calamari.exe** processes. To do this, follow the process below.
 :::
 
@@ -47,7 +47,7 @@ from Microsoft.
 1. Right click on it and select `Create Dump` and then `Create Full Dump`.
 1. Note where the file is saved (generally in your temp folder).
 
-:::hint
+:::div{.hint}
 Sometimes the deployment in Octopus can complete or error out too quickly, which means you do not get a chance to capture the failing process. If this is happening [get in touch with us](https://octopus.com/support) and we can suggest some workarounds to make the process last longer so you can capture the dump correctly.
 :::
 
@@ -60,7 +60,7 @@ application. This file can contain connection strings, Tentacle thumbprints, pro
 
 It should not contain sensitive variables or certificates. For our purposes it contains for which threads are running and where they are in the code.
 
-:::hint
+:::div{.hint}
 This process can be performed on a different computer to the one the dump file was captured on
 :::
 

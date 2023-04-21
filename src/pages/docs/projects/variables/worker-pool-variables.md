@@ -7,7 +7,7 @@ description: Create a worker pool variable and use it in deployment steps
 navOrder: 60
 ---
 
-:::hint
+:::div{.hint}
 Worker pool variables are only available in **Octopus 2020.1** and later.
 :::
 
@@ -34,7 +34,7 @@ In Octopus, you can [scope](/docs/projects/variables/#scoping-variables) worker 
 
 ## Step Configuration
 
-:::hint
+:::div{.hint}
 Worker pool variables need to be configured on **all steps** in your deployment process that requires it.
 :::
 

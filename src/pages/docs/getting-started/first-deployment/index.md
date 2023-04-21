@@ -12,7 +12,7 @@ hideInThisSection: true
 
 This tutorial will help you complete your first deployment in Octopus Deploy. We’ll walk you through the steps to deploy a sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers. All you’ll need is a running Octopus Deploy instance.
 
-:::hint
+:::div{.hint}
 If you are using **Octopus 2022.2** or earlier, please visit the legacy [First deployment guide](/docs/getting-started/first-deployment/legacy-guide)
 :::
  
@@ -67,7 +67,7 @@ The next step in the journey is to create your deployment process. This is where
 Write-Host "Hello, World!"
 ```
 
-:::hint
+:::div{.hint}
 If you are using Octopus Cloud, Bash scripts require you to select the Hosted Ubuntu worker pool. The Default Worker Pool is running Windows and doesn't have Bash installed.
 :::
 

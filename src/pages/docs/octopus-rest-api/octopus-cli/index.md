@@ -88,7 +88,7 @@ octo ... --server http://your-octopus-server/ --apiKey API-ABCDEF123456
 
 Most commands also support [JSON formatted output](/docs/octopus-rest-api/octopus-cli/formatted-output).
 
-:::success
+:::div{.success}
 **Create an API key**
 Learn about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 :::

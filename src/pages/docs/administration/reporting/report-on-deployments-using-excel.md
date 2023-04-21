@@ -7,7 +7,7 @@ description: How to report on deployments using Excel & XML
 navOrder: 10
 ---
 
-:::hint
+:::div{.hint}
 Also take a look at the [Reporting features](/docs/administration/reporting) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
 :::
 
@@ -31,7 +31,7 @@ As of 2.5.10, the Octopus CLI can be used to export deployments to an XML file. 
 octo dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY1234 --filePath=Deployments.xml
 ```
 
-:::success
+:::div{.success}
 Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/), and [how to use the Octopus Cli](/docs/octopus-rest-api/octopus-cli)
 :::
 
@@ -135,7 +135,7 @@ Finally, don't forget to add pretty graphs!
 
 ![](/docs/administration/reporting/images/3278122.png "width=500")
 
-:::hint
+:::div{.hint}
 **Limitations**
 There are two major limits to this approach to be aware of:
 

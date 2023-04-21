@@ -7,7 +7,7 @@ description: Information on how to upgrade from Octopus 1.6 tp 2.6.5.
 navOrder: 2
 ---
 
-:::success
+:::div{.success}
 Please read our guide for [upgrading older versions of Octopus](/docs/administration/upgrading/legacy) before continuing.
 :::
 
@@ -15,7 +15,8 @@ A **lot** changed between **Octopus 1.6** and **Octopus 2.0**; so much that we h
 
 ## Preparing {#UpgradingfromOctopus1.6-Preparing}
 
-:::problem
+:::div{.problem}
+
 If your **Octopus 1.x** installation is at an earlier version than **Octopus 1.6**, please [upgrade it to Octopus 1.6](https://octopus.com/downloads/previous) before proceeding.
 :::
 
@@ -33,7 +34,7 @@ Then go to the **Storage** tab in the **Configuration** area, and make sure that
 
 Next, install **Octopus 2.0**, either on the same server as your current **Octopus 1.6** server, or on a new server (ideal). **Octopus 2.0** uses different paths, ports and service names to **Octopus 1.0** so there should not be any conflicts between them.
 
-:::hint
+:::div{.hint}
 View our [guide to installing an Octopus 2.0](/docs/installation), which includes a video walk-through.
 :::
 
@@ -51,7 +52,7 @@ When the wizard appears, select the backup file from **Octopus 1.6** that you cr
 
 Next, you'll be asked if you want to change the Tentacle port on all machines that get imported. For more information on why you might like to do this, see the section on upgrading Tentacles below.
 
-:::success
+:::div{.success}
 If you don't change the Tentacle port, make sure you completely shut down your **Octopus 1.6** server after the upgrade, or remove the upgraded machines from it. Leaving the **Octopus 1.6** server running will generate large numbers of invalid connection attempts from the old server to the new Tentacles, and this can adversely affect performance.
 :::
 

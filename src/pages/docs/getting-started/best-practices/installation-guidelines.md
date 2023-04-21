@@ -91,7 +91,7 @@ Our recommendation is to host Octopus Deploy Windows Server over the Octopus Ser
 
 We are confident in the Octopus Server Linux Container's reliability and performance. After all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Server Linux Container in Octopus Cloud, we made some design decisions and create custom workflows due to the above limitations.  We restrict the authentication options to Okta, AzureAD, OctopusID, Google Auth and the built-in username and password.  Octopus Cloud disables the built-in worker and uses [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools).  Finally, we have a process that injects a custom logging configuration to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
 
-:::hint
+:::div{.hint}
 Below is the default configuration for Octopus Cloud.  We've found this provides the resources necessary for 10 concurrent tasks.  Anything more, and we have to either increase the container or database resources.
 
 - Docker images hosted on AKS clusters with the CPU set to 400m and a limit of 4000m, memory set to 400Mi with the limit set of 4Gi.  
@@ -105,7 +105,7 @@ We are currently working with our existing customers on what best practices look
 
 Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure) from the start, even if you only plan on running one node.  
 
-:::hint
+:::div{.hint}
 For the remainder of this document, the assumption is you will be using Windows Servers.  
 :::
 
@@ -120,7 +120,7 @@ A high availability configuration will involve setting up:
 
 Depending on the number of nodes, that configuration will give you the capacity to process 15-45 concurrent tasks.  If you need to scale up quickly, double the compute resources, for example, 4 CPUs / 8 GB of RAM, to get to 30-90 concurrent tasks.  We don't recommend going beyond 8 CPUs / 16 GB of RAM and instead recommend scaling horizontally.  
 
-:::hint
+:::div{.hint}
 Even with a single node, taking the time to configure a load balancer and the separate file storage will ensure your Octopus Deploy instance is more resilient.  If the server hosting Octopus Deploy were ever to crash or stop responding, recovery time is measured in minutes, not hours.  Having a two-node cluster will result in zero downtime in the event of crashes or regular restarts to update Windows.  
 :::
 
@@ -139,7 +139,7 @@ But, if you need to stand up a new server, that is more than okay. Our recommend
 
 If you are going to run SQL Server Standard or Enterprise, configure either a [failover cluster instance](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-ver15) or an [availability group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver15) to ensure database resiliency.
 
-:::hint
+:::div{.hint}
 Keep an eye on your database resources as you increase the number of concurrent tasks and users.  You should perform routine SQL Server maintenance periodically to maintain performance, including rebuilding indexes, regenerating stats, and regular backups.
 :::
 
@@ -151,7 +151,7 @@ By default, the number of concurrent tasks for each Octopus Deploy node is 5.  I
 
 As stated earlier, each node will pick up tasks until it reaches its task cap or it runs out of pending tasks to pick up.  Octopus has a load balancing algorithm in place to ensure one node in an HA cluster doesn't process all the pending tasks.  The algorithm will do its best to keep the load even, but outside factors, such as duration of task, the kind of task, etc., could result in one node seemingly doing more work than others.
 
-:::hint
+:::div{.hint}
 Setting the task cap to 0 will mean that node picks up no tasks.  It will only host web requests for the Octopus Deploy UI.
 :::
 
@@ -165,7 +165,7 @@ The recommendations for load balancers are:
 - SSL offloading for all traffic over port 443 is fine (unless you plan on using polling Tentacles over web sockets).
 - Use `/api/octopusservernodes/ping` to test service health.
 
-:::hint
+:::div{.hint}
 Octopus Deploy will return the name of the node in the `Octopus-Node` response header.
 
 We have noticed specific user actions, such as creating a new space or updating permissions, won't update the cache on all nodes, and you'll get odd permissions errors.  Typically the cache is updated after a few minutes, and those errors go away.  If that happens to you, look at the `Octopus-Node` header to determine which node has updated data vs. not updated.  If you see that jumping between nodes is the problem, and you update permissions a lot, we recommend switching over to sticky sessions.
@@ -190,7 +190,7 @@ You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  
 
 The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps during an initial pilot of 4-7 teams.  The recommendation below is for a large Octopus Deploy configuration designed to handle close to 1000 deployments a day.  If you follow the advice in the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server, will be in place.
 
-:::hint
+:::div{.hint}
 We don't recommend starting with this unless you plan to onboard dozens of teams quickly or you have a lengthy approval process.  
 :::
 
@@ -202,7 +202,7 @@ We don't recommend starting with this unless you plan to onboard dozens of teams
 
 ![large scale instance](/docs/getting-started/best-practices/images/large-instance-diagram.png "width=500")
 
-:::hint
+:::div{.hint}
 The configuration above is a baseline.  We recommend monitoring your resources as you add projects, users and do more deployments and runbook runs.  The more data, the more Octopus UI and database have to process.  Experiment with increasing compute resources for the SQL Server and the UI nodes.  If you run into any performance concerns, please [contact support](https://octopus.com/support).
 :::
 
@@ -212,7 +212,7 @@ This configuration will provide 120 concurrent deployments, with the capacity to
 
 High availability allows you to add multiple nodes to your Octopus Deploy instance.  That, in turn, opens up additional questions about how to manage those nodes.
 
-:::hint
+:::div{.hint}
 Each node should update the `OctopusServerNodes` table in the database once a minute.  This tells the other nodes it is still alive and can continue to process tasks.
 :::
 
@@ -245,7 +245,7 @@ To do that, you'll want to follow these steps:
 4. Delete server or Docker image.
 5. Remove the node from the [nodes UI](/docs/administration/high-availability/maintain/maintain-high-availability-nodes) by clicking on `...` next to the node name and selecting **Delete**.
 
-:::hint
+:::div{.hint}
 Any task associated with the node will fail if you don't wait for the node to finish draining and wrapping up any active tasks.
 :::
 

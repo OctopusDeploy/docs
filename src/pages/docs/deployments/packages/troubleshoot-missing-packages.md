@@ -33,7 +33,7 @@ Try manually deploying the same release again (in other words retry the exact sa
   - By default Octopus will attempt several times to locate the package in the built-in feed over a period of time, just in case.  
   - Make sure all packages required by the project are pushed to the built-in repository before starting the deployment of that project.  
 
-:::hint
+:::div{.hint}
 The built-in repository is a simple abstraction around the file system on your Octopus Server, with an index stored in the Octopus SQL Database. When you [push a package to the Octopus built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository), it will be immediately added to the index and available for use in deployments: there is no delay. Octopus will also periodically scan the packages folder to make sure the index stored in the Octopus SQL Database is synchronized with the packages stored on the file system. If you manually add a package to the file system directly, there will be a delay until the package is added to the index.
 :::
 

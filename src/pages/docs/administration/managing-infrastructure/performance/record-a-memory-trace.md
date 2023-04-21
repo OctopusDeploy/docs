@@ -25,7 +25,7 @@ We use [JetBrains dotMemory](https://www.jetbrains.com/dotmemory/) to record and
 
 ## Recording the memory snapshots
 
-:::hint
+:::div{.hint}
 We usually only need one or two snapshots, the most important thing is that the snapshots cover the period of time where the problem occurs. This may be during a particular deployment, or when another Octopus task is running (like retention policy processing or health checks), or perhaps it's just happening throughout the day.
 
 If we haven't asked for anything specific, start by taking a single snapshot of your running Octopus Server so we can analyze it and go from there.

@@ -116,7 +116,7 @@ There are two distinct scoping scenarios which need to be explicitly called out,
 * Scoping to both a channel as well as a runbook process
 * Scoping a deployment process action as well as a runbook process
 
-:::hint
+:::div{.hint}
 Mutually exclusive scopings can generally be avoided by duplicating variable values and scoping appropriately for each value if needed.
 :::
 

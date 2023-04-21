@@ -65,7 +65,7 @@ You should see the IIS default page displayed in your browser.
 
 ## Configure URLRewrite
 
-:::success
+:::div{.success}
 After installing URLRewrite and ARR, you may need to restart IIS and/or the IIS Management Console to ensure that the URLRewrite icon appears correctly
 :::
 
@@ -91,7 +91,7 @@ Click OK.
 
 ![Configuring a Reverse Proxy Rule](/docs/security/exposing-octopus/images/rprules.png "width=500")
 
-:::success
+:::div{.success}
 There is no need to specify outbound rules, as the Octopus Portal always uses relative links.
 :::
 
@@ -99,7 +99,7 @@ Click OK and close down all dialogs.
 
 You should now be able to navigate to https://servername/ in your browser and log in to Octopus Deploy.
 
-:::warning
+:::div{.warning}
 **Polling Tentacles are not supported with this scenario**
 Polling Tentacles communicate with the Octopus Server over an end-to-end encrypted channel. This solution does not currently support polling Tentacles.
 :::

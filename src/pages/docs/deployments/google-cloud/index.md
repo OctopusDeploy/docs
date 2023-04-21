@@ -21,7 +21,7 @@ Octopus makes it easier to ship to Google cloud by helping you to:
 * Access Docker images hosted with [Google Container Registry (GCR)](/docs/packaging-applications/package-repositories/guides/container-registries/google-container-registry).
 * Deploy, scale and manage containerized applications on GCP with Octopus and [Kubernetes](/docs/deployments/kubernetes).
 
-:::hint
+:::div{.hint}
 **Where do Google cloud Steps execute?**
 All Google cloud steps execute on a worker. By default, that will be the built-in worker in the Octopus Server. Learn about [workers](/docs/infrastructure/workers) and the different configuration options.
 :::

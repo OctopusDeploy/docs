@@ -10,7 +10,7 @@ hideInThisSection: true
 
 !include <creating-environments>
 
-:::hint
+:::div{.hint}
 Try to reuse the same environments as your deployments whenever possible.  You will often runbooks runbooks on the same deployment targets as your deployment process.  Creating runbook only environments can saturate your dashboards and lifecycles.  If you need to have an environment for runbooks, we recommend limiting it to one or two environments at most with a name similar to `Maintenance`.
 :::
 

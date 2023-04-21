@@ -26,7 +26,7 @@ See the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/managi
 
 5. Click the **SAVE AND TEST** to save the account and verify the credentials are valid.
 
-:::hint
+:::div{.hint}
 AWS steps can also defer to the IAM role assigned to the instance that hosts the Octopus Server for authentication. In this scenario there is no need to create the AWS account.
 :::
 
@@ -42,7 +42,7 @@ All AWS steps execute on a worker. By default, that will be the [built-in worker
 
 If you use [external workers](/docs/infrastructure/workers/#external-workers) which are their own EC2 instances, they can have their own IAM roles that apply when running AWS steps.
 
-:::hint
+:::div{.hint}
 When using the IAM role assigned to either the built-in worker or external worker EC2 instances, there is no need to create an AWS account in Octopus.
 :::
 
@@ -52,7 +52,7 @@ AWS provides many solutions to inherit IAM roles depending on the platform where
 
 The first login process attempts to inherit the role from a web identity token. [EKS clusters can host pods that use service accounts linked to IAM roles](https://oc.to/ConfiguringPodsToUseAKubernetesServiceAccount), and these pods expose an environment variable called `AWS_WEB_IDENTITY_TOKEN_FILE` containing the path to a token file mounted in the pod. If this environment variable is defined, the worker will assume the role associated with the web identity token file.
 
-:::hint
+:::div{.hint}
 When the `Execute using the AWS service role for an EC2 instance` option is enabled, a worker will first attempt to inherit a pod web identity.
 :::
 
@@ -60,7 +60,7 @@ The second login process queries the [Instance Metadata Service](https://oc.to/I
 
 IMDS has two versions, v1, and v2. [IMDSv2 is available to all EC2 instances](https://oc.to/UseIMDSv2) and is optionally required over IMDSv1. Octopus uses IMDSv2 to inherit IAM roles. The worker assumes that IAM role if the request to generate account tokens from the IMDSv2 HTTP API succeeds.
 
-:::hint
+:::div{.hint}
 IMDSv2 adds a security measure limiting the network hops a request can make when accessing the HTTP API to one. This means requests made from a worker running on an EC2 instance will work as expected, as there is one hop from the worker to the IMDS HTTP API. However, if the Octopus worker is running in an EKS pod hosted on an EC2 node, requests to the IMDSv2 HTTP API will fail by default, as these requests make two hops: one from the worker to the pod and a second from the pod to the EC2 node. You can adjust the hop limit using the [modify-instance-metadata-options](https://oc.to/ModifyInstanceMetadataOptions) to allow requests with more than one hop.
 :::
 

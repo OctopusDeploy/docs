@@ -20,7 +20,7 @@ The installation requirements for the latest version of Tentacle are:
 -  Windows Server 2019 
 -  Windows Server 2022
 
-:::warning
+:::div{.warning}
 Octopus does not actively test against Windows 2008 nor Windows 2008 R2. Certain operating system specific issues may not be fixed as [Microsoft no longer supports Windows 2008](https://docs.microsoft.com/en-us/lifecycle/products/windows-server-2008) nor [Windows 2008R2](https://docs.microsoft.com/en-us/lifecycle/products/windows-server-2008-r2).
 :::
 

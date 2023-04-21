@@ -29,7 +29,7 @@ By using this pattern you can:
 4. Quickly promote releases through your regions using the Project Overview.
 5. Use [Scheduled Deployments](/docs/releases/#scheduling-a-deployment) to plan deployments for times of low usage.
 
-:::success
+:::div{.success}
 Environments and Lifecycles are a really good solution if you want to enforce a particular order of deployments through your regions.
 :::
 
@@ -44,7 +44,7 @@ By using this pattern you can:
 1. Scope region-specific variables to the Cloud Region targets.
 2. Conveniently deploy to all regions at the same time.
 
-:::success
+:::div{.success}
 If you don't mind which order your regions are deployed, or you always upgrade all regions at the same time, Cloud Regions are probably the right fit for you.
 :::
 
@@ -78,7 +78,7 @@ Alternatively you could create [Tenants](/docs/tenants) to represent each regio
 
 You do give up the advantage of enforcing the order in which you deploy your application to your regions, but you gain the flexibility to promote to your regions in different order depending on the circumstances.
 
-:::success
+:::div{.success}
 Tenants offer a balanced approach to modeling multi-region deployments, offering a measure of control and flexibility.
 :::
 

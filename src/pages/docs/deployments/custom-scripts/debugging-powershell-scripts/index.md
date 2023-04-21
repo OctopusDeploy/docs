@@ -44,7 +44,7 @@ From PowerShell ISE, execute the specified commands at the `PS >` prompt. ISE wi
 
 Once you've finished debugging, you can either allow the script to run to the end, or you can choose `Stop Debugging` from the `Debug` menu.
 
-:::hint
+:::div{.hint}
 If you receive an error message `The background process reported an error with the following message: "The named pipe target process has ended".`, you can safely ignore this - it is just reporting that the PowerShell process you were debugging has ended.
 :::
 

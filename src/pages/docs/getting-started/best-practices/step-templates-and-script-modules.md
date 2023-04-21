@@ -13,7 +13,7 @@ hideInThisSection: true
 - Step Templates are re-usable steps you can inject into your deployment or runbook process to perform a specific task.  Examples include stopping IIS, deploying database migration scripts using a third-party tool such as Flyway, notifying VictorOps of a completed deployment, and more.
 - Script Modules are re-usable functions you can inject into scripts run by your deployment or runbook process.  Examples include a function to call the Octopus API, functions to write output to a centralized log, or a function to find an item in a list by name.
 
-:::hint
+:::div{.hint}
 Step templates can use script module functions, but script module functions cannot use step templates.
 :::
 

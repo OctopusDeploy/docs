@@ -15,13 +15,13 @@ To provision an Azure App Service, there are a couple of things that need to be 
 - Resource group
 - App Service Plan
 
-:::hint
+:::div{.hint}
 We recommend grouping the resources for testing a feature branch into their own Azure Resource Group.  Doing this makes it easier to make sure you destroy all the resources you created by simply deleting the resource group itself.
 :::
 
 ## Create the runbook
 
-:::hint
+:::div{.hint}
 A quick way to create the App Service Plan is go use the Azure Portal UI to begin the creation process, and export the App Plan as an Azure Resource Manager (ARM) template and use that as a basis to start from.
 :::
 

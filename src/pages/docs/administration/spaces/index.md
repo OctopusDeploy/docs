@@ -85,7 +85,7 @@ If you don't want to think about spaces, just leave everything in the Default sp
 
 To change the default space, follow these steps:
 
-:::warning
+:::div{.warning}
 The following carries some minor downtime for any automation that relies on the default space being available.
 :::
 
@@ -99,7 +99,7 @@ For organizations that are new to Octopus, especially those that make heavy use 
 
 In addition to providing a home for existing resources, the default space allows any existing API calls that do not explicitly set a `Space Identifier` in the route to be routed to the default space. For example, in the case where the default space ID is `Spaces-1` then the route `/api/projects/my-project` is equivalent to `/api/Spaces-1/projects/my-project`.
 
-:::warning
+:::div{.warning}
 With a default space enabled, any REST API calls that do not specify a space in the URL will be assumed to be directed to the default space. **By turning off the default space**, this will no longer be the case. If you have a lot of bespoke automation relying on raw REST API calls, **you will need to make changes to ensure these scripts explicitly specify the space ID in the route**. Otherwise they will break with the default space turned off.
 :::
 
@@ -124,7 +124,7 @@ There is a hard barrier between spaces, so, for instance, a deployment target co
 
 The following table shows which Octopus resources are space-scoped, system-scoped, or scoped to both. 
 
-:::hint
+:::div{.hint}
 If a resource isn't listed below, then it's space-scoped.
 :::
 

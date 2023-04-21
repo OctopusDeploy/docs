@@ -31,7 +31,8 @@ The result will be:
 
 That is, the ampersand has been encoded correctly for use in an HTML document.
 
-:::problem
+:::div{.problem}
+
 The filters provided by Octopus are for use with trusted input; don't rely on them to sanitize data from potentially malicious sources.
 :::
 
@@ -122,7 +123,7 @@ The *Truncate* filter limits the length of the input. If the input is longer tha
 
 These filters return `true` or `false` depending on the result of a comparison. They are typically useful for specifying the condition in an `#{if}` block.
 
-:::hint
+:::div{.hint}
 **Note:** Entries marked with **\*** are supported from the version of Octopus listed.
 :::
 
@@ -198,7 +199,7 @@ The *NowDate* and *NowDateUtc* filters take no variable input but can take an a
 
 These filters apply format-specific escaping rules.
 
-:::hint
+:::div{.hint}
 **Note:** Entries marked with **\*** are supported from the version of Octopus listed.
 :::
 
@@ -218,7 +219,7 @@ These filters apply format-specific escaping rules.
 
 These filters extract a part of value.
 
-:::hint
+:::div{.hint}
 **Note:** Entries marked with **\*** are supported from the version of Octopus listed.
 :::
 

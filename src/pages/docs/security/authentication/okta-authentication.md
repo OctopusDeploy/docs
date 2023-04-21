@@ -24,7 +24,7 @@ You must first have an account at [Okta](https://www.okta.com/). You can sign up
 
 Once you have an account, log in to the Okta admin portal.
 
-:::hint
+:::div{.hint}
 After signing up to Okta you will receive your own url to access the Okta portal. For a developer account, it will look something similar to: `https://dev-xxxxxx-admin.okta.com`.
 :::
 
@@ -40,7 +40,7 @@ After signing up to Okta you will receive your own url to access the Okta portal
 
    ![](/docs/security/authentication/okta/okta-create-openid-integration.png "width=500")
 
-:::hint
+:::div{.hint}
 **Tips::**
 - **Reply URLs are case-sensitive** - Please take care when adding this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters.
 - **Not using SSL?** - We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
@@ -51,7 +51,7 @@ Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-enc
 
    ![](/docs/security/authentication/okta/okta-initiatelogin.png "width=500")
 
-:::warning
+:::div{.warning}
 Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this you will also need to select the **Implicit (hybrid)** grant type.
 :::
 
@@ -98,7 +98,7 @@ Next you will need to assign your app to people or groups within your Okta direc
 
 You will need the **Client ID** (aka **Audience**), **Client secret** and **Issuer** obtained from the Okta portal as described above.
 
-:::hint
+:::div{.hint}
 Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the **Client secret** setting is not required.
 :::
 
@@ -121,7 +121,7 @@ Alternatively these settings can be defined through the user interface by select
 
 ![Settings](/docs/security/authentication/okta/okta-settings.png "width=500")
 
-:::hint
+:::div{.hint}
 The request to Okta from Octopus will need to include the required scopes. See the [Inspect the request to Okta for scope](#Oktaauthentication-Inspecttherequesttookta) section for information about how to inspect the scope of the current request.
 :::
 
@@ -134,12 +134,12 @@ octopus.server.exe configure --oktaScope="openid%20profile%20email%20groups"
 
 Octopus still requires a [user account](/docs/security/users-and-teams/) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
-:::hint
+:::div{.hint}
 **How Octopus matches external identities to user accounts**
 When the security token is returned from the external identity provider, Octopus looks for a user account with a matching **Identifier**. If there is no match, Octopus looks for a user account with a matching **Email Address**. If a user account is found, the External Identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
 :::
 
-:::success
+:::div{.success}
 **Already have Octopus user accounts?**
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
@@ -170,7 +170,7 @@ You can see the OpenID Connect metadata by going to the Issuer address in your b
 
 ### Inspect the contents of the security token {#Oktaauthentication-Inspectthecontentsofthesecuritytoken}
 
-:::warning
+:::div{.warning}
 **Inspection of a JWT is impossible with OAuth code flow with PKCE**
 Please note: It's impossible to inspect the JWT within the Network tab of your browser's developer tools if you use OAuth code flow with PKCE (with a Client Secret specified in your Okta configuration in Octopus).
 
@@ -189,7 +189,7 @@ Perhaps the contents of the security token sent back by Okta aren't exactly the 
 
    ![](/docs/security/authentication/images/5866123.png "width=500")
 
-:::hint
+:::div{.hint}
 Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Okta.
 :::
 

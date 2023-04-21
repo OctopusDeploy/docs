@@ -102,7 +102,7 @@ This template collects basic information about the deployment, including the pac
 <p>View the <a href="http://my-octopus#{Octopus.Web.DeploymentLink}">detailed deployment log</a>.</p>
 ```
 
-:::hint
+:::div{.hint}
 To use the template in your projects, replace `nuget.org` with the DNS name of your NuGet server, and `my-octopus` with the DNS name of your Octopus Server. Make sure you select *Body is HTML* on the email step configuration page.
 :::
 
@@ -132,7 +132,7 @@ The outcome of each step can be included using a template like the one below:
 </ol>
 ```
 
-:::hint
+:::div{.hint}
 **Step error detail**
 `step.Status.Error` and `step.Status.ErrorDetail` will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 
@@ -153,7 +153,7 @@ This example displays package ID and version numbers for any steps that referenc
 #{/each}
 ```
 
-:::hint
+:::div{.hint}
 Iterating over `Octopus.Action` like this above is a useful way to retrieve data from all steps in your process without having to refer to a hard coded step name that could potentially change.
 :::
 
@@ -173,6 +173,6 @@ Using [custom scripts](/docs/deployments/custom-scripts) you can include additio
 #{/each}
 ```
 
-:::hint
+:::div{.hint}
 Iterating over both `Octopus.Action` and `action.Package` like this above is a useful way to retrieve data from all steps in your process without having to refer to a hard coded step or package reference name that could potentially change over time.
 :::

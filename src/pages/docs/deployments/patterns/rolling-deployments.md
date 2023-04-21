@@ -35,7 +35,7 @@ The window size controls how many deployment targets can be deployed to at once.
 - A window size of 1 will deploy to a single deployment target at a time. Octopus will wait for the step to finish running on deployment target A before starting on deployment target B
 - A window size of 3 will deploy to a three deployment targets at a time. Octopus will wait for the step to finish running on deployment targets A, B *or* C before starting on deployment target D
 
-:::hint
+:::div{.hint}
 **Window size with Octopus.Action.MaxParallelism**
 If you include the variable `Octopus.Action.MaxParallelism` in your Project with a value higher than your **Window size** set in a rolling deployment, you will find the `Octopus.Action.MaxParallelism` value is no longer respected. This is expected behavior as Octopus also uses this variable to limit the number of deployment targets on which the rolling deployment step will run concurrently. A warning will also be printed in the Task Log.
 :::

@@ -21,7 +21,7 @@ The Flyway download comes with everything it needs to execute, including a versi
 
 ![Flyway included in a Visual Studio project](/docs/deployments/databases/mysql-flyway/images/visual-studio-code-add-flyway.png "width=500")
 
-:::hint
+:::div{.hint}
 If Flyway doesn't find Java installed on the machine (detected by the presence of the JAVA_HOME environment variable), it will fall back to the included JRE.  The included version of the JRE has the .exe and .dll files located within a `bin` sub-directory.  It is often the case that source control will ignore any directory with the name `bin`, so be careful when including a Flyway project and you need the included JRE.
 :::
 
@@ -55,7 +55,7 @@ Flyway itself is already compiled, so there's no need to do anything for buildin
 
 Within a Jenkins project, navigate to **Build Environment**, and in the **Build** section, click **Add Build Step** and choose **Octopus Deploy Package application**.
 
-:::hint
+:::div{.hint}
 The [Octopus Deploy Jenkins plugin](/docs/packaging-applications/build-servers/jenkins/#install-the-octopus-jenkins-plugin) needs to be installed to use these templates.  You also need to download the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) on to the Jenkins build agent(s).
 :::
 

@@ -8,7 +8,7 @@ navOrder: 5
 hideInThisSectionHeader: true
 ---
 
-:::hint
+:::div{.hint}
 Active Directory authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information.
 :::
 
@@ -61,7 +61,7 @@ Octopus.Server.exe configure --webAuthenticationScheme=IntegratedWindowsAuthenti
 
 Setting `IntegratedWindowsAuthentication` will mean that Octopus will attempt to [use Kerberos Authentication](#ActiveDirectoryAuthentication-UsingNegotiate) instead. [Read about other supported values](https://msdn.microsoft.com/en-us/library/system.net.authenticationschemes(v=vs.110).aspx).
 
-:::hint
+:::div{.hint}
 **How it works**
 Octopus is built on top of HTTP.sys, the same kernel driver that IIS is built on top of. You may be familiar with "Integrated Windows Authentication" in IIS; this is actually provided by HTTP.sys. This means that Octopus supports the same challenge-based sign-in mechanisms that IIS supports, including Integrated Windows Authentication.
 
@@ -87,7 +87,7 @@ Without some additional configuration, AD authentication, whether forms-based or
 
 Octopus Deploy supports various options for Active Directory Authentication.
 
-:::hint
+:::div{.hint}
 Not all high availability and Active Directory configurations are supported. There are limitations on the use of Kerberos in high availability scenarios. This is due to a requirement to [use a machine level SPN in order to allow Kerberos to work](#ActiveDirectoryAuthentication-ConfiguringKerberos) with our web server.
 :::
 
@@ -97,7 +97,7 @@ Not all high availability and Active Directory configurations are supported. The
 | Negotiate                       |         Yes           |       No          |
 | IntegratedWindowsAuthentication |         Yes           |       No          |
 
-:::hint
+:::div{.hint}
  **Service Accounts and Kerberos**
 From Octopus version 2020.1.0 and above, an upgrade to .Net Core 3.1 and usage of the HTTP.sys library, the Octopus Deploy Service running with Domain Service Account credentials, does not have the ability to read the HttpContext.User.Identity.Name property which is used for Kerberos authentication. There is a requirement to run the Octopus Deploy Service as Local System in order to allow for Kerberos to successfully Authenticate. You can read more about this here: https://github.com/OctopusDeploy/Issues/issues/6602
 :::
@@ -134,7 +134,7 @@ setspn.exe -S HTTP/od octoserver1
 setspn.exe -S HTTP/od.mydomain.local octoserver1 
 ```
 
-:::hint
+:::div{.hint}
 **HA Clusters**
 If you are running a HA Octopus Deploy environment, Kerberos authentication is not currently supported. Please refer to our section on [Supported Setups for Active Directory Authentication](#ActiveDirectoryAuthentication-SupportedAuthentication)
 :::
@@ -205,7 +205,7 @@ Octopus alllows users to sign in by entering their Active Directory credentials 
 
 ![Login Screen](/docs/security/authentication/active-directory/images/activedirectory-forms.png "width=500")
 
-:::hint
+:::div{.hint}
 **How it works**
 Using this option, the credentials are posted back to the Octopus Server, and Octopus validates them against Active Directory by invoking the Windows API `LogonUser()` function. If that is successful, Octopus will then query Active Directory for information about the user.
 
@@ -218,7 +218,7 @@ If the server and its users are on different domains, or **many domains** are in
 
 See below for more details and examples related to Trusted Domains.
 
-:::hint
+:::div{.hint}
 Users will receive the error "**Username not found.  UPN format may not be supported for your domain configuration."** if they have entered a UPN and their details could not be located in the domain. This could occur because the UPN really doesn't exist, or it exists in a domain other than the one the Octopus Server is in (which as stated above is not supported).
 :::
 

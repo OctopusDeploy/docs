@@ -18,7 +18,7 @@ Lifecycles contain 1 to N phases, which represent a stage in your deployment lif
 
 A lifecycle with no phases will result in Octopus calculating the phases automatically for you containing all environments.  The order of the phases is dependent on the order of the environments on the environment page.    
 
-:::hint
+:::div{.hint}
 Every space has a default lifecycle without any phases.  We do this to make it easy to get started with a proof of concept.   
 :::
 
@@ -39,7 +39,7 @@ Two lifecycles allow you to have your standard workflow, where everything goes t
 
 We **_never_** recommend having a lifecycle with only **production**.  Any deployment to **production** must deploy to at least one other environment to verify the fix.  Skipping straight to **production**, especially during an emergency, will make a bad situation worse.
 
-:::hint
+:::div{.hint}
 A lifecycle with a single phase is an anti-pattern.  Typically we see this when users are strictly adhering to the [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) branching strategy.  If you create a new build, that build should be deployed through all environments to ensure it will work in **production**.  
 :::
 
@@ -75,7 +75,7 @@ Each phase can also be required or optional.
 
 We recommend having at least one required phase before a **production** environment.
 
-:::hint
+:::div{.hint}
 While possible to configure, you cannot have an optional phase with automatic deployments.  Octopus will ignore the automatic setting, and you will be forced to deploy manually.
 :::
 

@@ -7,7 +7,7 @@ description: Function for creating an Octopus target for a step package
 navOrder: 50
 ---
 
-:::warning
+:::div{.warning}
 **Deprecated**
 
 Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favor of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery).

@@ -11,7 +11,7 @@ Artifactory provides support for a number of [NuGet repositories](https://www.jf
 
 ## Configuring an Artifactory Local NuGet repository
 
-:::hint
+:::div{.hint}
 This guide was written using Artifactory version `7.11.5`.
 :::
 
@@ -35,7 +35,7 @@ With the repository configured, the next step is to configure access so Octopus 
 
 The recommended way is to either configure a [user](https://www.jfrog.com/confluence/display/JFROG/Users+and+Groups#UsersandGroups-ManagingUsers) with sufficient permissions, or use an [access token](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens). This user is the account which Octopus will use to authenticate with Artifactory.
 
-:::warning
+:::div{.warning}
 Every organization is different and the authentication example provided here is only intended to demonstrate functionality. Ensure you are complying with your company's security policies when you configure any user accounts and that your specific implementation matches your needs.
 :::
 
@@ -45,7 +45,7 @@ From the Artifactory web portal, navigate to **{{Administration,Identity and Acc
 
 Fill out the **User Name**, **Email Address**, **Password** and any other settings.
 
-:::hint
+:::div{.hint}
 If you have an existing group to add the user to, you can do that here. Alternatively you can add the user account when creating a new group.
 :::
 
@@ -85,13 +85,13 @@ Finally, choose the permissions to grant the group on the included repositories:
 
 ![Artifactory repository permissions](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission-repo-permissions.png "width=500")
 
-:::hint
+:::div{.hint}
 Octopus needs `Read` permissions as a minimum on the Local repository in order to search and download packages.
 :::
 
 When you've entered all of the settings, review your permissions are configured how you want, and click **Create**.
 
-:::hint
+:::div{.hint}
 You can also choose individual users to assign this permission to.
 :::
 

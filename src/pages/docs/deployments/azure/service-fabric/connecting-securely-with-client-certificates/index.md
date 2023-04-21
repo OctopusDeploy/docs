@@ -11,7 +11,7 @@ As part of Service Fabric step templates, Octopus allows you to securely connect
 
 This page assumes you have configured your Service Fabric cluster in secure mode and have already configured your primary/server certificate when setting up the cluster (and have used an Azure Key Vault to store the server certificate thumbprint).
 
-:::warning
+:::div{.warning}
 This example will use a self-signed certificate for testing purposes, and assumes you are using Azure to host your Service Fabric cluster.
 :::
 
@@ -48,7 +48,7 @@ An example of a Service Fabric cluster's DNS name is: `democtopus-sf1-secure.aus
 
 ## Step 2: Generate the client certificate
 
-:::warning
+:::div{.warning}
 Azure have recently updated their **Key vaults > Certificates** UI to allow generating self-signed certificates. If you're deploying to Azure and wish to generate a self-signed certificate for testing, please use their portal functions or cmdlets.
 :::
 
@@ -56,7 +56,7 @@ Using PowerShell, you can easily generate a self-signed certificate for testing 
 
 In this case, Octopus Server (the client) will be connecting to Service Fabric (the server) during a deployment. Therefore this client certificate will need to reside on your Octopus Server machine. If you do not install this certificate manually, Octopus will attempt to install it automatically as part of your [Server Fabric target's](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets) health check.
 
-:::hint
+:::div{.hint}
 In this PowerShell, we print the value of the certificate's thumbprint. Be sure to remember this thumbprint value, as you will need to store it in your Azure Key Vault used by Service Fabric:
 :::
 
@@ -70,7 +70,7 @@ Export-PfxCertificate -Cert $cert -FilePath "C:\_export\democtopus-sf1-secure-se
 
 We can then take the exported certificate and thumbprint, and complete the following steps.
 
-:::hint
+:::div{.hint}
 **Location matters!**
 By default, the Service Fabric steps assume the certificate store location is `LocalMachine` and that the certificate store name is `MY`. If you have this client certificate installed somewhere else, you will need to override these defaults using the variables mentioned below.
 :::

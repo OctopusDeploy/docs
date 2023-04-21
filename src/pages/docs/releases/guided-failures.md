@@ -42,7 +42,7 @@ If something goes wrong during the deployment, Octopus will interrupt the deploy
   - **IGNORE**: skip the operation, but keep going with the deployment.
   - **EXCLUDE MACHINE FROM DEPLOYMENTS**: exclude the deployment target from the rest of the deployment and proceed.
 
-:::success
+:::div{.success}
  Guided failure mode uses the same [user experience that is used for manual steps](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/octopus-rest-api)).
 :::
 

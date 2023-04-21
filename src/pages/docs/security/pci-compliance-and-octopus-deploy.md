@@ -35,7 +35,7 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 - Learn about [security and encryption](/docs/security/data-encryption) of sensitive information in Octopus Deploy.
 - Learn about how Octopus Deploy handles [sensitive variables](/docs/projects/variables/sensitive-variables).
 
-:::success
+:::div{.success}
 We conduct independent security analysis and penetration testing for Octopus Deploy. Contact our support team for a copy of the most recent report.
 :::
 

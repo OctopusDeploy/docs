@@ -23,7 +23,7 @@ To create a runbook to harden your Apache web server:
 1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, select **Bash** and add the following code:
 
-:::warning
+:::div{.warning}
 The following script is only an example of what can be done.  Please review the script carefully if you intend to implement.
 :::
 

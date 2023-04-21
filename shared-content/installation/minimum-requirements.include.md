@@ -26,7 +26,7 @@ A good starting point is:
     - 2+ Octopus Servers: 4 Cores / 8 GB of RAM each
     - SQL Server Standard or Enterprise: 4 Cores / 16 GB of RAM or Azure SQL with 200+ DTUs
 
-:::hint
+:::div{.hint}
 These suggestions are a baseline. Monitor your Octopus Server and SQL Server performance on all resources including CPU, memory, disk, and network, and increase resources when needed. 
 :::
 

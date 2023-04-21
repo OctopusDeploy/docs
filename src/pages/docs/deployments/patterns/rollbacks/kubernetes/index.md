@@ -25,7 +25,7 @@ For this guide, we'll start with an existing deployment process for deploying Pe
 
 ![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-original-deployment-process.png)
 
-:::success
+:::div{.success}
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-kubernetes-original/deployments/process).  Please login as a guest.
 :::
 
@@ -47,7 +47,7 @@ The updated deployment process for a simple rollback would look like this:
 
 ![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-simple-rollback-process.png)
 
-:::success
+:::div{.success}
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-kubernetes-simple-rollback/deployments/process).  Please login as a guest.
 :::
 
@@ -63,7 +63,7 @@ To ensure that both of those steps are not run during a rollback, use the follow
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
-:::hint
+:::div{.hint}
 When viewing the deployment process at a glance, it is not readily apparent that a step has a run condition associated with it.  Octopus Deploy provides a `Notes` field for each step where you can add information such as in which conditions the step will run as a way of self-documentation.
 :::
 
@@ -97,7 +97,7 @@ The new deployment process would look like this:
 
 ![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-complex-rollback-process.png)
 
-:::success
+:::div{.success}
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-kubernetes-complex-rollback/deployments/process).  Please login as a guest.
 :::
 

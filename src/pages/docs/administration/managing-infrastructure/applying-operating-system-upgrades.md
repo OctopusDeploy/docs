@@ -9,7 +9,7 @@ navOrder: 20
 
 You should schedule regular maintenance of the Operating System hosting your Octopus Server to maintain the integrity, performance, and security of your deployments.
 
-:::hint
+:::div{.hint}
 **Recovering from failure**
 
 If anything goes wrong during your Operating System maintenance you should restore the Operating System to the state just prior to applying patches and then start Octopus Server again.

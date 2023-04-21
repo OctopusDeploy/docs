@@ -13,7 +13,7 @@ Octopus is a complex system where we control some parts of the deployment while 
 
 This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
 
-:::hint
+:::div{.hint}
 Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/projects/deployment-process/performance).
 :::
 
@@ -41,7 +41,7 @@ You should implement a routine maintenance plan for your Octopus database. Here 
 - Rebuild all indexes **offline** with fragmentation > 50% once a week during off-hours (typically a Sunday morning).
 - Regenerate statistics once a month.
 
-:::hint
+:::div{.hint}
 Modern versions of Octopus Deploy automatically rebuild fragmented indexes during the upgrade process.  If you frequently upgrade you might not notice high index fragmentation compared to someone who upgrades once a year.
 :::
 
@@ -63,7 +63,7 @@ _The one exception to this is the `Events` table which records an [audit trail](
 
 A tighter retention policy means your Octopus Server will run faster across the board.
 
-:::hint
+:::div{.hint}
 **We need to keep everything for auditing purposes**
 You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/security/users-and-teams/auditing/) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
@@ -129,7 +129,7 @@ The larger the package the more network bandwidth is required to transfer data t
 
 Consider using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers).  Larger packages will require more CPU and disk IOPS to calculate the delta - monitor resource consumption to ensure delta compression doesn't negatively impact the rest of your Octopus Server.
 
-:::hint
+:::div{.hint}
 Delta compression doesn't always result in smaller package transfers.  The algorithm will transfer the entire package if over a certain percentage changes.
 :::
 
@@ -143,7 +143,7 @@ Consider using a custom package feed close to your deployment targets, and downl
 
 The built-in package feed has its own [retention policy](/docs/administration/retention-policies/#set-builtinfeed-retentionpolicy).  Ensure that is enabled to keep the amount of packages to store and index down.
 
-:::hint
+:::div{.hint}
 The package retention policy only deletes packages not referenced by a release or runbook.  Setting the retetion policy to 1 day means the package will be deleted 1 day after the release is deleted.
 :::
 
@@ -218,7 +218,7 @@ Seeing the error message `System.InvalidOperationException: Timeout expired. The
 - If your SQL Query performance is fine, and your SQL Server is running well below its capacity, perhaps your Octopus Server is under high load. This is perfectly normal in many situations at scale. If your SQL Server can handle more load from Octopus, you can increase the SQL Connection Pool size of your Octopus Server node(s). This will increase the amount of active connections Octopus is allowed to open against your SQL Server at any point in time, effectively allowing your Octopus Server to handle more concurrent requests. Try increasing the `Max Pool Size` in your `SQL Connection String`in the `OctopusServer.config` file to something like `200` (the default is `100`) and see how everything performs. Learn about [Connection Strings and Max Pool Size](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection.connectionstring).
 - Octopus is leaking SQL Connections. This should be very rare, but has happened in the past and we fix every instance we find. We recommend upgrading to the latest version of Octopus and [get help from us](#support) if the problem persists.
 
-:::hint
+:::div{.hint}
 Analyzing Octopus Server log files for performance problems is much easier in a tool like [Seq](https://getseq.net). We've built a [helpful tool](https://github.com/OctopusDeploy/SeqFlatFileImport) for importing Octopus Server and Task Logs directly into Seq for analysis.
 :::
 

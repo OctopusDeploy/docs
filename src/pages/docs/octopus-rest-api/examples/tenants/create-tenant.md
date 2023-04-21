@@ -20,7 +20,7 @@ Provide values for:
 - A list of Environment names to connect the new tenant with
 - A list of Tenant tags to use with the new tenant
 
-:::hint
+:::div{.hint}
 **Note:** 
 In order for this script to execute correctly, please note the following:
 - The projects provided must have the Multi-tenanted deployment setting enabled.

@@ -7,7 +7,7 @@ description: Octopus Deploy can integrate with your Jira Service Management inst
 navOrder: 10
 ---
 
-:::hint
+:::div{.hint}
 The Jira Service Management (JSM) Integration Early-Access Program (EAP)  is available in Octopus 
 **2022.3.12101** or later. [Contact us](https://octopus.com/company/contact) to request access to this feature. 
 :::
@@ -41,7 +41,7 @@ Before you can use the Octopus Deploy/JSM integration, you'll need to:
 
 ### Configuring Jira Service Management
 
-:::hint
+:::div{.hint}
 The instructions in this section will require a JSM Administrator.
 :::
 
@@ -73,7 +73,7 @@ An enabled license will include a block similar to below:
 
 ### Configuring JSM connections
 
-:::hint
+:::div{.hint}
 The instructions in this section will require an Octopus Deploy Manager or Administrator
 :::
 
@@ -95,7 +95,7 @@ connection.
 
 ### Configuring Issue Comments
 
-:::hint
+:::div{.hint}
 The instructions in this section will require an Octopus Deploy Manager or Administrator
 :::
 
@@ -163,7 +163,8 @@ Once an Issue has been found, the deployment will only proceed if the **State** 
 Implementation` the 
 deployment will wait. Any other **State** will cause the deployment task to fail.
 
-:::info
+:::div{.info}
+
 The only supported states are those defined in the default Issue lifecycle
 :::
 
@@ -182,7 +183,7 @@ Octopus supports matching a CR by setting the **Summary** of the CR to a well-kn
 
 e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
 
-:::hint
+:::div{.hint}
 The title must match the format **exactly**, including the double-quotes.
 :::
 

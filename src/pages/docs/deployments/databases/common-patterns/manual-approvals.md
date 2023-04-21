@@ -43,7 +43,7 @@ This document intentionally uses the word `approvers` instead of `DBAs` because 
 
 For lower environments, for instance, `Development`, `Test`, or `QA`, the approver might be a developer, lead developer, or database developer.  On production level environments, `Staging`, `Pre-Prod`, or `Production`, the approvers are typically DBAs.  
 
-:::hint
+:::div{.hint}
 We recommend you follow a crawl-walk-run approach for each team adopting database deployments.  
 :::
 
@@ -63,7 +63,7 @@ Often, DBAs review scripts too late in the process.  Having them review a script
 
 But having a DBA approve every change to `Development` isn't feasible.  They'd spend all day, every day, approving and reviewing changes.  
 
-:::hint
+:::div{.hint}
 We recommend a DBA review and approve scripts toward the end of the QA test effort.
 :::
 

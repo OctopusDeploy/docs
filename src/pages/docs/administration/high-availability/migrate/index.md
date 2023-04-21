@@ -60,7 +60,7 @@ Write-Host "Connection successful.  Closing connection."
 $sqlConnection.Close()
 ```
 
-:::hint
+:::div{.hint}
 You can run that script using the Octopus Deploy [script console](/docs/administration/managing-infrastructure/script-console).  If you are using a SQL Login, you'll want to change the user's password after your run your tests as that password will appear in the task log.
 :::
 
@@ -139,7 +139,7 @@ $filePath = "YOUR ROOT DIRECTORY"
 & .\Octopus.Server.exe path --telemetry "$filePath\Telemetry"
 ```
 
-:::hint
+:::div{.hint}
 Your version might not have all the above paths.  Remove them from the script if you are running an older version of Octopus.
 
 - `Imports` was added in 2021.1

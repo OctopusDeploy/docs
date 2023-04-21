@@ -31,7 +31,7 @@ These tools for Windows are both reputable and free. They should be installed an
 
 The most important thing is to get a screen and web traffic recording of the problem occurring. If you need to do any set up to make the problem occur, please record that as well.
 
-:::hint
+:::div{.hint}
 You can usually reduce the frame rate of the screen capture tool to reduce the overall size of the recording. Usually 5 FPS is enough to show the gist of what is going wrong.
 :::
 

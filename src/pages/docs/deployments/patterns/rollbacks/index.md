@@ -16,7 +16,7 @@ Octopus Deploy supports rollbacks out of the box.  It always keeps the two most 
 
 For example, Imagine you just deployed `1.1.21` to your **QA** servers.  For whatever reason, that version does not work.  You can re-deploy the previous version, `1.1.20`, to **QA** by going to that release and clicking on the **REDEPLOY** button.  That scenario is supported by default; you won't have to configure anything else.
 
-:::hint
+:::div{.hint}
 Doing that will re-run the previous deployment process as it existed at release creation.  It will re-extract any packages, re-run all the configuration transforms, re-run any manual intervention steps, etc.  If it took an hour before, it would most likely retake an hour on re-deployment.
 :::
 

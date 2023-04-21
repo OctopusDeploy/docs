@@ -11,7 +11,7 @@ As part of Service Fabric step templates, Octopus allows you to securely connect
 
 This page assumes you have configured your Service Fabric cluster in secure mode and have already configured your primary/server certificate when setting up the cluster (and have used an Azure Key Vault to store the server certificate thumbprint).
 
-:::warning
+:::div{.warning}
 This example assumes you are using Azure to host your Service Fabric cluster and AAD.
 :::
 

@@ -15,7 +15,7 @@ Assuming you are starting with a clean install of Octopus Deploy, the following 
 
 ![](/docs/deployments/nginx/images/production_environment.png "width=500")
 
-:::success
+:::div{.success}
 For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/) and [lifecycles](/docs/releases/lifecycles) to create advanced deployment processes.
 :::
 
@@ -29,7 +29,7 @@ To connect over SSH the first thing you will need to do is add the credentials f
 - Click *Discover* to automatically pre-populate the SSH fingerprint for the remote server.
 - Continue to fill out the rest of the details, selecting the account that you created above.
 
-:::success
+:::div{.success}
 Further details are provided throughout the rest of this documentation about [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target).
 :::
 

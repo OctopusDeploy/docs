@@ -13,7 +13,7 @@ The sample project for this guide is the [Angular project template with ASP.NET 
 
 Firstly we need to make the package available for Octopus to deploy.
 
-:::success
+:::div{.success}
 We've crafted and packaged v1.0.0 of this sample application for you to try out (see the link below). Alternatively you can create your own application and [package the application](/docs/packaging-applications) yourself to try it out. Click [here](#Create&PushASP.NETCoreProject-PublishingandPackingtheWebsite) for steps to publish and package the ASP.NET Core project.
 :::
 
@@ -30,7 +30,7 @@ dotnet publish source/NginxSampleWebApp --output published-app --configuration R
 octo pack --id NginxSampleWebApp --version 1.0.0 --basePath published-app
 ```
 
-:::hint
+:::div{.hint}
 If you are using the built-in repository, you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli/#create-zip-packages) instead. The generated nupkg or zip file should then be then be [pushed to a repository](/docs/packaging-applications/package-repositories).
 :::
 

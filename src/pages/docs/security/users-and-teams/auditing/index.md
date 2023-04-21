@@ -8,7 +8,7 @@ description: Octopus Deploy captures audit information whenever significant even
 
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
 
-:::hint
+:::div{.hint}
 The [Audit Retention functionality](#archived-audit-events) was introduced in **Octopus 2023.1**.
 :::
 
@@ -71,7 +71,7 @@ Octopus actively prevents modifying or deleting audit logs within the configured
 
 Entries older than the retention period can be deleted by users with the appropriate permissions (typically `Octopus Manager`). An audit log entry will be created each time an archived event file is deleted. Archived files are saved at a filesystem level. So any user that has the appropriate permissions could view or delete these files. If this is a concern, you should restrict the permissions to access the configured folder appropriately.
 
-:::warning
+:::div{.warning}
 As a safeguard, deletion of audit log files is only allowed on files that are at least 30 days old from when they were created.
 :::
 
@@ -83,7 +83,7 @@ We take the sensitive value and hash it using an irreversible hash algorithm. We
 
 ### Archived audit logs {#archived-audit-events}
 
-:::hint
+:::div{.hint}
 Audit Retention functionality was introduced in **Octopus 2023.1**.
 :::
 
@@ -93,7 +93,7 @@ Periodically, Octopus will apply the retention policy to the existing entries an
 
 Users with appropriate permissions (typically `Octopus Manager`) can download or delete the archived files. The downloaded files are intended to be imported into a datalake for querying and analysis.
 
-:::warning
+:::div{.warning}
 **Take care deleting archived files**
 Deleting the archived files will permanently erase the audit entries. As a safeguard, deletion of audit log files is only allowed on files that are at least 30 days old from when they were created.
 :::

@@ -15,7 +15,7 @@ hideInThisSectionHeader: true
 
 Rolling back the database is out of scope for this guide.  This [article](https://octopus.com/blog/database-rollbacks-pitfalls) describes reasons and scenarios in which rolling back a database could result in data loss or incorrect data.  This guide assumes that there are no database changes or the changes are backward compatible. Because the database changes are out of scope for rollbacks, the database package will be *skipped* during the rollback process.
 
-:::hint
+:::div{.hint}
 While this guide is for Node.js, the same process can be used for any framework, language or platform NGINX supports.  
 :::
 
@@ -30,7 +30,7 @@ The existing deployment process is:
 
 ![Original deployment process for Node.js application](/docs/deployments/patterns/rollbacks/nginx/images/rollback-nginx-original-process.png)
 
-:::success
+:::div{.success}
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
 :::
 
@@ -52,7 +52,7 @@ The updated deployment process will be:
 
 ![simple rollback for windows deployment](/docs/deployments/patterns/rollbacks/nginx/images/rollback-nginx-simple-rollback.png)
 
-:::success
+:::div{.success}
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/bestbags-rollback/deployments/process).  Please login as a guest.
 :::
 

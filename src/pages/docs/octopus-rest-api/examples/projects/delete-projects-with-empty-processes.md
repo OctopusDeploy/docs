@@ -14,7 +14,7 @@ This script demonstrates how to programmatically delete projects with no deploym
 - Octopus API Key
 - Name of the space to use
 
-:::warning
+:::div{.warning}
 **This script will delete projects with no deployment process. This operation is destructive and cannot be undone. Ensure you have a database backup and take care when running this script or one based on it**
 :::
 

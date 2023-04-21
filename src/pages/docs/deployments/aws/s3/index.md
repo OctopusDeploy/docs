@@ -26,7 +26,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 
 ![AWS Role](/docs/deployments/aws/s3/step-aws-role.png "width=500")
 
-:::hint
+:::div{.hint}
 If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
@@ -36,7 +36,7 @@ Under the `Package section`, define how the target package and the associated fi
 
  ![S3 target options](/docs/deployments/aws/s3/upload-s3-target-options.png "width=500")
 
-:::hint
+:::div{.hint}
 The [Github feed](/docs/packaging-applications/package-repositories/github-feeds) works well with the upload to S3 step when no build process is involved and content needs to be pushed to S3 and versioned separately.
 :::
 
@@ -48,7 +48,7 @@ By default, the entire package will be uploaded to the S3 bucket untouched with 
 
 #### Variable Substitution File Patterns
 
-:::hint
+:::div{.hint}
 The **Variable Substitution File Patterns field** for the **Upload a package to an AWS S3 bucket** step was added in Octopus **2022.2**.
 :::
 
@@ -65,7 +65,7 @@ Iteration over variable sets or comma-separated values with `each`:
 
 #### Structured Variable File Patterns
 
-:::hint
+:::div{.hint}
 The **Structured Variable File Patterns** field for the **Upload a package to an AWS S3 bucket** step was added in Octopus **2022.2**.
 :::
 
@@ -75,7 +75,7 @@ Target files need to be newline-seperated, relative to the package contents. Ext
 
 #### Use filename with embedded content hash
 
-:::hint
+:::div{.hint}
 The option **Use filename with embedded content hash** for the **Upload a package to an AWS S3 bucket** was added in Octopus **2022.2**.
 :::
 
@@ -99,7 +99,7 @@ A new file selection can be added by clicking on the `Add Another File Selection
 A file selection can be removed by expanding the appropriate selection and clicking on the `Remove File Selection` button.
 ![Remove file selection](/docs/deployments/aws/s3/remove-file-selection.png "width=500")
 
-:::warning
+:::div{.warning}
 File selections aren't formally removed or added until the step has been saved.
 :::
 
@@ -128,7 +128,7 @@ Here are a few examples to help you get those files in the right structure:
 | Logo.gif     | /Images/Logos/Logo.gif     | `Images/Logos/Logo.gif`     |
 | xyz.gif      | /Images/Animals/Girafe.gif | `Images/Animals/Girafe.gif` |
 
-:::hint
+:::div{.hint}
 The bucket key used for a single file selection will uniquely identify the file within the bucket and will be used verbatim. That is, if you wish for the file to have an extension you should provide it as part of the bucket key as it is effectively renaming the file as part of the upload.
 :::
 
@@ -137,7 +137,7 @@ Multiple file selections allow one or more files from the package to be uploaded
 
 ![Multiple file selections](/docs/deployments/aws/s3/multiple-file-selections.png "width=500")
 
-:::hint
+:::div{.hint}
 Any metadata and tags provided will be applied to all files uploaded to the bucket.
 :::
 
@@ -155,13 +155,13 @@ Please see the [AWS documentation](https://oc.to/AwsS3StorageClasses) for more i
 Uploads are skipped if the content hash is the same as an existing object in the target bucket. This is done to avoid unnecessary uploads and may require special care to be taken when using custom bucket
 keys.
 
-:::hint
+:::div{.hint}
 This behavior will be configurable in a future release to provide additional flexibility.
 :::
 
 ### Output variables
 
-:::hint
+:::div{.hint}
 Output variables for the **Upload a package to an AWS S3 bucket** were added in Octopus **2022.2**.
 :::
 

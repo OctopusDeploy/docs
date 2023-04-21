@@ -63,7 +63,7 @@ When Octopus is installed, it generates a Master Key which is a random string th
 
 Make a copy of the Master Key and save it in a **secure** location.
 
-:::warning
+:::div{.warning}
 **Warning**
 
 If you don't have a copy of your Master Key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the **Master Key** and save it in a secure location. Hopefully you will never need it, but you'll be glad you have it if you ever do. Learn about [Recovering After Losing Your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key).

@@ -7,7 +7,7 @@ description: This guide provides a simple example of deploying a Java applicatio
 navOrder: 2
 ---
 
-:::hint
+:::div{.hint}
 See [Java Applications](/docs/deployments/java) for details on deploying Java application servers.
 :::
 
@@ -17,7 +17,7 @@ This guide provides a simple example of deploying a Java application using Octop
 
 This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/projects/)and have a [Tentacle or SSH deployment target](/docs/infrastructure) already configured.
 
-:::hint
+:::div{.hint}
 Naked scripting allows you to transfer and extract your package on remote targets without the need for Calamari or mono. Read the short guide [here](/docs/deployments/custom-scripts) for more details.
 :::
 
@@ -71,7 +71,7 @@ screen -d -m -S "PressAnyKey" java PressAnyKey
 
 ![](/docs/deployments/java/5866219.png "width=500")
 
-:::hint
+:::div{.hint}
 The application must be launched in a new process or session so that control returns to the shell. Otherwise the deployment will wait until the application is terminated.
 :::
 

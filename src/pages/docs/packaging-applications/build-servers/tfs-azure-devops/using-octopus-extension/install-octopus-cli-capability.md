@@ -31,7 +31,7 @@ The accepted values for this field are:
 - `latest`: downloads and installs the latest version of the Octopus CLI
 - A specific version number of the Octopus CLI to use e.g. `7.4.3556`
 
-:::hint
+:::div{.hint}
 **Wildcards not supported**
 Please note: Wildcard values are **NOT** supported when providing a specific version of the Octopus CLI to use.
 :::
@@ -58,7 +58,7 @@ This field accepts a limited set of values, specified as `MAJOR.MINOR.PATCH` wit
 - `9.0.0`: install the exact version 9.0 of the Octopus CLI
 - `*`: install the latest version of the Octopus CLI
 
-:::hint
+:::div{.hint}
 **Range operators not supported**
 Please note: Range and range operators e.g. `~1.2.3` are not supported.
 :::
@@ -74,7 +74,7 @@ The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. U
 
 ### Octopus CLI Installer v6
 
-:::warning
+:::div{.warning}
 Version 6+ of each of the steps no longer require installing the CLI
 :::
 
@@ -93,7 +93,7 @@ Self-hosted agents are available for Linux, macOS, or Windows. They may also be 
 
 A self-hosted agent must be configured to include the Octopus CLI before using it in a pipeline. Binaries and/or packages for the Octopus CLI can be downloaded from the [Octopus CLI downloads](https://octopus.com/downloads/octopuscli) page.
 
-:::warning
+:::div{.warning}
 **Breaking Change in Version 5**
 
 Tasks in version 5 of the Octopus extension now assert [demands](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/demands) for agent capabilities. These tasks now require that self-hosted agents expose the user-defined capability `octo` along with the version of the Octopus CLI installed on the agent (i.e. `8.0.1`).

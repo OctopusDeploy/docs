@@ -17,7 +17,7 @@ The fastest way to get started is to use our Excel spreadsheet template. The sp
 
 First, **[download the template](/docs/attachments/octopusreport.xlsx)** and open it in Excel. The template fetches data from our public [Demo Octopus Server](https://demo.octopus.app).
 
-:::hint
+:::div{.hint}
 Please make sure you [unblock the file](https://www.google.com.au/search?q=windows%20unblock%20file) after downloading it, otherwise you may get a misleading error message like: `The file is corrupt and cannot be opened`
 :::
 
@@ -65,7 +65,7 @@ The XML feed can be consumed programmatically, or via Excel or [Microsoft PowerB
 
 Since a user-specific API key is used to consume the data, only data that the user can see will appear in the report.
 
-:::hint
+:::div{.hint}
 If you encounter the following error when using your own Octopus Server
 
 ```

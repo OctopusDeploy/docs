@@ -52,7 +52,7 @@ When the "Check for updates" option is enabled, Octopus will make a HTTPS reques
 - The current Octopus Deploy version number that you are running.
 - A unique installation ID.
 
-:::hint
+:::div{.hint}
 **Microsoft Azure**
 The Octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
 :::

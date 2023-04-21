@@ -33,7 +33,8 @@ Before starting the upgrade, it is critical to back up the master key and licens
 
 The standard upgrade process is an in-place upgrade.  In-place upgrades update the binaries in the install directory and update the database.  The guide below includes additional steps to backup key components to make it easier to rollback in the unlikely event of a failure.
 
-:::problem
+:::div{.problem}
+
 While an in-place upgrade will work, it involves risk as you are upgrading from a version released back in 2017 (or earlier).  Please see the risk mitigation sections below for steps on how to mitigate that risk.
 :::
 
@@ -97,7 +98,7 @@ IF EXISTS (SELECT null FROM sys.tables WHERE name = 'Worker')
     UPDATE Worker SET IsDisabled = 1
 DELETE FROM ExtensionConfiguration WHERE Id in ('authentication-octopusid', 'jira-integration')
 ```
-:::hint
+:::div{.hint}
 Remember to replace `OctopusDeploy` with the name of your database.
 :::
 !include <upgrade-inplace-upgrade>
@@ -163,7 +164,7 @@ Earlier versions of 3.x, including 3.1, 3.4, and 3.5, also carry some additional
 
 Summary: Tentacle was upgraded from .NET 4.0 to .NET 4.5 to enable TLS 1.2.
 
-:::success
+:::div{.success}
 **You can upgrade to Octopus Server 3.1 without upgrading any Tentacles and get all of the new 3.1 deployment features because Calamari will continue to work on both Tentacle 3.0 and 3.1.**
 :::
 
@@ -193,7 +194,7 @@ The deployment features are handled by Calamari and Octopus Server makes sure al
 **Will you continue to support Windows Server 2003 or Windows Server 2008 SP1?**
 No, from **Octopus 3.1** onward, we are dropping official support for Octopus Server and Tentacle hosted on Windows Server 2003 or Windows Server 2008 SP1.
 
-:::hint
+:::div{.hint}
 **Tentacle communications protocol**
 Read more about the [Octopus - Tentacle communication](/docs/security/octopus-tentacle-communication/) protocol and [Troubleshooting Schannel and TLS](/docs/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls).
 :::

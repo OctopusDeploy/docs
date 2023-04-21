@@ -17,7 +17,7 @@ Rolling back the database is out of scope for this guide.  This [article](https:
 ## Parallel deployments in Apache Tomcat
 In Tomcat v7, Apache included the ability to do [parallel deployments](https://tomcat.apache.org/tomcat-9.0-doc/config/context.html#Parallel_deployment) which allows you to deploy multiple versions of the same application to a Tomcat server.  If a version number is provided during deployment, Tomcat will combine it with the context path to rename the `.war` to `<contextpath>##<version>.war`.  Once the new version is in a running state, Tomcat will redirect new sessions to the new version of the application.  Existing sessions will continue against the old version until they expire.  This functionality is ideally suited for supporting rollback scenarios when deploying to Tomcat.
 
-:::warning
+:::div{.warning}
 The rollback strategy described in this guide will not work if the [undeployOldVersions](https://tomcat.apache.org/tomcat-9.0-doc/config/host.html) feature is enabled on Tomcat.
 :::
 
@@ -32,7 +32,7 @@ For this guide, we'll start with an existing deployment process for deploying th
 
 ![](/docs/deployments/patterns/rollbacks/tomcat/octopus-original-deployment-process.png)
 
-:::success
+:::div{.success}
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-petclinic-original/deployments/process).  Please login as a guest.
 :::
 
@@ -54,7 +54,7 @@ The updated deployment process for a simple rollback would look like this:
 
 ![](/docs/deployments/patterns/rollbacks/tomcat/octopus-simple-rollback-process.png)
 
-:::success
+:::div{.success}
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-petclinic-simplerollback/deployments/process).  Please login as a guest.
 :::
 
@@ -94,7 +94,7 @@ The new deployment process would look like this:
 
 ![](/docs/deployments/patterns/rollbacks/tomcat/octopus-complex-rollback-process.png)
 
-:::success
+:::div{.success}
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-petclinic-complexrollback/deployments/process).  Please login as a guest.
 :::
 
@@ -151,7 +151,8 @@ The `Rollback Reason` step captures the reason for the rollback.  We can pass th
 #{Octopus.Action[Rollback reason].Output.Manual.Notes}
 ```
 
-:::info
+:::div{.info}
+
 The retention policy of Octopus Deploy will clean up any old versions of the applications in folders controlled by Octopus.  However, the `<contextpath>##<version>.war` files are not controlled by Octopus and will not be cleaned up with a retention policy.  To assist in Tomcat maintenance, the Octopus team developed the [Undeploy Tomcat Application via Manager](https://library.octopus.com/step-templates/34f13b4c-64e1-42b4-ad1a-4599f25a850e/actiontemplate-undeploy-tomcat-application-via-manager) step template.  This template will remove the application using the specified context path and optional version number.  
 :::
 

@@ -9,11 +9,11 @@ navOrder: 30
 
 ECS Cluster targets are used by the [ECS steps](/docs/deployments/aws) to define the context in which deployments and scripts are run.
 
-:::hint
+:::div{.hint}
 Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster.
 :::
 
-:::hint
+:::div{.hint}
 From **Octopus 2022.2**, ECS Cluster targets can be discovered using tags on your cluster resource.
 :::
 
@@ -21,7 +21,7 @@ From **Octopus 2022.2**, ECS Cluster targets can be discovered using tags on you
 
 Octopus can discover ECS cluster targets as part of your deployment using tags on your resource. 
 
-:::hint
+:::div{.hint}
 From **Octopus 2022.3**, you can configure the well-known variables used to discover ECS Cluster targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 :::
 

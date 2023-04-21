@@ -27,7 +27,7 @@ Write-Host "Hello, World!"
 echo "Hello, World!"
 ```
 
-:::hint
+:::div{.hint}
 If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
 :::
 

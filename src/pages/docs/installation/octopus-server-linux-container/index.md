@@ -49,7 +49,7 @@ You may already have an existing Octopus Server running on Windows Server or run
 
 ## Configuration
 
-:::hint
+:::div{.hint}
 Support for authentication providers differs depending on how you host Octopus Server. Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility) to ensure any existing authentication provider is supported when running Octopus in a Linux Container.
 :::
 
@@ -102,7 +102,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |**/taskLogs**| Path where task logs are stored | Shared storage |
 |**/cache**| Path where cached files e.g. signature and delta files (used for package acquisition) are stored | Host filesystem or container |
 
-:::hint
+:::div{.hint}
 **Note:** We recommend using shared storage when mounting the volumes for files that need to be shared between multiple octopus container nodes, e.g. artifacts, packages and task logs.
 :::
 

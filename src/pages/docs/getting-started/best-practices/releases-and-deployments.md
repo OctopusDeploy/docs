@@ -12,7 +12,7 @@ hideInThisSection: true
 
 A release snapshot takes references (rather than the entire resource) for certain items in a release. For example, packages are referenced by their version and not the package itself. Take care when overwriting existing packages that may be used in releases or snapshots.
 
-:::hint 
+:::div{.hint} 
 **Tenant variables** are not included in release snapshots. Find out more in our [tenant documentation](/docs/tenants/tenant-variables).
 :::
 
@@ -27,7 +27,7 @@ When you create a release, you must enter or choose the following items:
 
 Our recommendation is to let the CI, or Build Server, create the release after it finishes uploading the package you wish to deploy.  The build server knows when it has finished uploading the package, along with other important information, such as the current branch, was the build triggered by a pull request, and more.  
 
-:::hint
+:::div{.hint}
 Octopus Deploy provides [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) functionality.  That monitors a specific package in the built-in package repository.  When a new version is pushed, it automatically creates a release.  
 
 That has the following limitations:
@@ -83,7 +83,7 @@ Some notes about retention policies:
 - Octopus will always keep the current release and the most recent previous release in any lifecycle phase.  Keeping the most recent release ensures you can quickly roll back in the event of an emergency.
 - The algorithm calculating the releases to delete is very conservative.  It prefers to keep releases rather than delete them.
 
-:::hint
+:::div{.hint}
 When the retention policies delete a release, it removes that release from the project (along with corresponding snapshots).  Audit information about the release, who created it, when it was deployed, and so on is still retained and can be viewed in the [audit log](/docs/security/users-and-teams/auditing).  
 :::
 
@@ -98,7 +98,7 @@ Unless you are using a [custom install directory](/docs/projects/steps/configura
 
 Our recommendation is to configure your deployment target retention policies to match your release retention policies.  Unless, of course, you are limited by disk space.  If that happens, then set your deployment target retention policy to something smaller than the release retention policy.  
 
-:::hint
+:::div{.hint}
 Both retention policies follow the same rules.  No release appearing on a dashboard will be deleted, nor will the current and previous release.  
 :::
 

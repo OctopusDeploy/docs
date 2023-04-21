@@ -26,7 +26,7 @@ The differences between running Octopus Server on Windows Server and Linux Conta
 - **Software support:** The Linux Container doesn't support running ScriptCS or F# scripts directly on the server.
 - **Authentication:** The Octopus Server Linux Container doesn't support Active Directory authentication.  If you want to use Active Directory, you must connect to it via the [LDAP authentication provider](/docs/security/authentication/ldap).
 
-:::hint
+:::div{.hint}
 The LDAP authentication provider was introduced in Octopus Deploy **2021.2**.
 :::
 

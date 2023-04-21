@@ -52,7 +52,7 @@ You can also run the Octopus Server Linux Container using a platform such as [AW
 
 Windows Server can be installed on a bare-metal machine or on a virtual machine (VM) hosted by any popular type-1 hypervisor or virtual private server (cloud) technology.  Type-2 hypervisors can work for demos and POCs, but because they are typically installed on desktop operating systems, aren't recommended.  
 
-:::hint
+:::div{.hint}
 Octopus Deploy works the exact same on both bare-metal machines or VMs.  All it sees is it is running on Windows Server.  Of our customers who self-host Octopus Deploy, the vast majority of them use VMs.
 :::
 

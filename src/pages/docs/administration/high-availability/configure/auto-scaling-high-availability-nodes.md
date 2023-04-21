@@ -9,7 +9,7 @@ navOrder: 50
 
 Cloud providers, such as AWS and Azure, provide the ability to scale out and scale in virtual machines automatically.  It's possible to leverage that technology to automatically add and remove nodes from your Octopus High Availability cluster, but there are a few pitfalls to note.
 
-:::warning
+:::div{.warning}
 At this time, we don't recommend auto-scaling if you are using polling tentacles.  Polling tentacles must poll _all_ the nodes of your High Availability cluster.  That requires [additional configuration](/docs/administration/high-availability/maintain/polling-tentacles-with-ha).  Attempting to perform that additional configuration using auto-scaling can result in frustration and errors.
 :::
 
@@ -25,7 +25,7 @@ All nodes in the Octopus High Availability cluster must be running the same vers
 
 ![the version number from the api](/docs/administration/high-availability/configure/images/retrieve-version-from-api.png)
 
-:::hint
+:::div{.hint}
 Unlike most API calls, the `/api` endpoint does not require an API key.  
 :::
 
@@ -70,7 +70,7 @@ After Octopus Deploy is installed, you'll need to configure it to point to your 
 
 The shared folder settings for BLOB storage are stored in the database.
 
-:::hint
+:::div{.hint}
 If you are using a mapped network drive, you'll need to configure that prior to configuring Octopus Deploy.
 :::
 
@@ -199,7 +199,7 @@ Auto-scaling technologies don't let you run scripts directly on virtual machines
 - Cancel any in-process tasks if the node is marked offline and there are tasks processing.
 - Delete the node from the `OctopusServerNodes` table.
 
-:::warning
+:::div{.warning}
 The user required to run this script will need `Administrator` rights to your cluster.  We recommend creating a [service account](/docs/security/users-and-teams/service-accounts) and store that API Key securely.
 :::
 

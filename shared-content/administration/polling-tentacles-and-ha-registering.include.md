@@ -24,6 +24,6 @@ Alternatively you can edit Tentacle.config directly to add each Octopus Server (
 </set>
 ```
 
-:::hint
+:::div{.hint}
 Notice there is an address entry for **each** Octopus Server in the High Availability configuration.
 :::

@@ -54,7 +54,7 @@ For example, if we wanted to define an abbreviation for the tenant to use in a d
 
 ![](/docs/tenants/images/common-variable-template.png "width=500")
 
-:::success
+:::div{.success}
 To include common variables for a tenant, you must add the library variable set in the tenant connected project.
 :::
 

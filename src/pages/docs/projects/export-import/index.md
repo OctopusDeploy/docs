@@ -7,7 +7,7 @@ description: Projects can be exported, and imported into another space. (Project
 navOrder: 40
 ---
 
-:::hint
+:::div{.hint}
 The Export/Import Projects feature was added in Octopus Deploy **2021.1**
 :::
 
@@ -82,7 +82,7 @@ Any environments which can be reached via the project will be included in the ex
 - Environments used to scope variables in any [library variable sets](/docs/projects/variables/library-variable-sets) connected to the project
 - Environment restrictions defined on any accounts or certificates referenced by the project
 
-:::warning
+:::div{.warning}
 **Environments from the default lifecycle are not exported:**
 If your projects use the [default lifecycle](/docs/releases/lifecycles/#default-lifecycle) that Octopus creates, environments associated with that lifecycle will *not* be included in the project export. This was an intentional design decision made to avoid some tricky, unexpected behavior during project import.
 :::
@@ -140,7 +140,7 @@ When importing, if a library variable set with the same name already exists, the
 
 [Step templates](/docs/projects/custom-step-templates) used in the project's deployment or runbook processes will be included in the export.
 
-:::hint
+:::div{.hint}
 Care should be taken with step templates when exporting/importing projects at different times
 :::
 
@@ -182,7 +182,7 @@ When moving a project from a self-hosted Octopus Server instance to an Octopus C
 
 ## Using the API #{using-the-api}
 
-:::hint
+:::div{.hint}
 Automating the export and import of projects using the REST API as part of a backup/restore process is **not recommended**. See our [supported scenarios](#scenarios).
 :::
 

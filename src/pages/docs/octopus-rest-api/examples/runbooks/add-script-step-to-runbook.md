@@ -19,7 +19,7 @@ Provide values for the following:
 - Source PowerShell script 
 - *Optional* Target role to run the script against.
 
-:::hint
+:::div{.hint}
 **Note:** The source script provided to Octopus must be properly escaped.
 :::
 

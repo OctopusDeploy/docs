@@ -6,7 +6,7 @@
         i. The username and password you use to log into Octopus, or:
         i. Your Octopus API key, see [How to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
     
-    :::hint
+    :::div{.hint}
     The Octopus credentials specified here are only used once to configure the Tentacle. All future communication is performed over a [secure TLS connection using certificates](/docs/security/octopus-tentacle-communication/#Octopus-Tentaclecommunication-Scenario:PollingTentacles). 
     :::
 1. Click **Verify credentials**, and then next.

@@ -43,7 +43,7 @@ To choose the tenants to associate with a deployment target navigate to the **{{
 
 ![](/docs/tenants/images/target-restrictions-associated-tenants.png "width=500")
 
-:::hint
+:::div{.hint}
 We generally recommend keeping tenanted and untenanted deployment targets separate, particularly in Production. You could use the same deployment targets for other environments but it's better to avoid this situation.
 :::
 

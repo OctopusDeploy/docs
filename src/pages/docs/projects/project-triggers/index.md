@@ -13,6 +13,6 @@ Project triggers allow you to choose from a subset of **events** that can occur 
 
 ![](/docs/projects/project-triggers/images/octopus-triggers-diagram.png "width=500")
 
-:::success
+:::div{.success}
 We have written a [comprehensive guide](/docs/deployments/patterns/elastic-and-transient-environments) about using project triggers with a focus on deploying to elastic and transient environments.
 :::

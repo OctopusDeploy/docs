@@ -31,7 +31,7 @@ The class definitions for each of the configurations is available by referencing
 
 Web Portal and Authentication types are available in [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/)
 
-:::hint
+:::div{.hint}
 This requires version 4.27.0 or later of the client library.
 :::
 

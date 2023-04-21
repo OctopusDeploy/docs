@@ -41,7 +41,7 @@ You can select the runbook to run in:
 - Only specific environments.
 - Environments from the [Project Lifecycle](/docs/releases/lifecycles).
 
-:::hint
+:::div{.hint}
 In Octopus 2020.2 and earlier, if you need to restrict the environment that a runbook can be executed in, you can achieve this by adding an [Environment run condition](/docs/projects/steps/conditions/#environments) in each step of the runbook process.
 :::
 
@@ -57,7 +57,7 @@ You can choose to:
 
 The retention policy is applied **per environment**. For example, if you had three environments, Development, Staging and Production and you set the retention policy limit to 10, that would keep a total of **30** runbook runs - 10 in *each* of Development, Staging and Production.
 
-:::hint
+:::div{.hint}
 In Octopus 2020.2 and earlier, the runbook retention policy could not be set. Instead, Octopus would keep the last 1000 runs.
 :::
 
@@ -67,7 +67,7 @@ Runbooks are similar to deployments in that they also take a copy of the process
 - Draft
 - Published
 
-:::hint
+:::div{.hint}
 **Package versions are included in a snapshot**
 Similar to releases, the version of any packages that are used in the runbook are also snapshotted. This means if a newer version of the package is uploaded, and you wish to use it in your runbook, you will need to create a new snapshot of the runbook.
 :::

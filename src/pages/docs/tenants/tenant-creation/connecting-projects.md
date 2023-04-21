@@ -27,6 +27,7 @@ You can connect each tenant to any number of projects and for each project, any 
 - You can offer specific projects to some tenants and not to others.
 - You can also provide most of your tenants with a single environment while offering specific customers extra environments. For example, you could give particular customers with a test/staging/acceptance environment where they can test new releases before upgrading their production environment.
 
-:::info
+:::div{.info}
+
 Not seeing the environment you want? Make sure at least one lifecycle used by your project includes that environment.
 :::

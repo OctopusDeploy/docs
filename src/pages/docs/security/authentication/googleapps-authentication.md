@@ -25,7 +25,7 @@ Once you have an account, log in to [https://console.developers.google.com](htt
 6. Enter a **Name** for identification, e.g. Octopus.  This is the name that will appear when the user is asked to allow access to their details.
 7. Add `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the url of your Octopus Server) to the **Authorized Redirect URIs**.
 
-:::hint
+:::div{.hint}
 **Tips:**
 - **Reply URLs are case-sensitive** - Be aware that the path in this URL after the domain name was **case sensitive** during our testing.
 - **Not using SSL?** - We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
@@ -36,7 +36,7 @@ Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-enc
 
 You can configure the GoogleApps settings from the command line. You will need the **Client ID** and **Client secret** from the Credentials tab and your **hosted domain name**.
 
-:::hint
+:::div{.hint}
 Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the **Client secret** setting is not required.
 :::
 
@@ -57,7 +57,7 @@ Even if you are using an external identity provider, Octopus still requires a [u
 **How Octopus matches external identities to user accounts**
 When the security token is returned from the external identity provider, Octopus looks for a user account with a **matching Identifier**. If there is no match, Octopus looks for a user account with a **matching Email Address**. If a user account is found, the External Identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
 
-:::success
+:::div{.success}
 **Already have Octopus user accounts?**
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::

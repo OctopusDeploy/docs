@@ -40,7 +40,7 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 
 Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering).
 
-:::success
+:::div{.success}
 Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
 :::
 
@@ -56,7 +56,7 @@ As an approximation including the Windows Service manager integration:
 8. The service will be started based on the selected `State` option using the rules in the table below.
 9. [Output variables](/docs/projects/variables/output-variables/) and deployment [artifacts](/docs/projects/deployment-process/artifacts) from this step are sent back to the Octopus Server.
 
-:::success
+:::div{.success}
 You can see exactly how Octopus deploys your Windows Service by looking at the scripts in our [open-source Calamari](https://github.com/OctopusDeploy/Calamari) project which actually performs the deployment:
 
 - [Octopus.Features.WindowsService\_AfterPreDeploy.ps1](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.WindowsService_AfterPreDeploy.ps1)
@@ -102,11 +102,11 @@ $serviceName = $OctopusParameters["Octopus.Action.WindowsService.ServiceName"]
 & "sc.exe" failure $serviceName reset= 30 actions= restart/5000
 ```
 
-:::success
+:::div{.success}
 This script will run after the Windows Service has been created (or reconfigured), and then started. If you want to customize the Windows Service before it is started, set the Start Mode to Manual, and then start the Windows Service yourself as part of your custom script.
 :::
 
-:::success
+:::div{.success}
 **Using sc.exe**
 This Microsoft TechNet [article](https://technet.microsoft.com/en-us/library/cc754599.aspx) is a great reference on the sc.exe utility including the failure action above.
 :::
@@ -174,7 +174,7 @@ To configure the Windows Service to use a Managed Service Account:
 
 ![Windows service startup](/docs/deployments/windows/images/windows-service-startup.png "width=500")
 
-:::hint
+:::div{.hint}
 **Important information about using Managed Service Accounts**
 There must be a dollar sign ($) at the end of the account name. When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as the [Carbon PowerShell module](http://get-carbon.org/), the Security Policy snap-in (secpol.msc), Secedit.exe, or NTRights.exe.
 

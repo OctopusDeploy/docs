@@ -41,7 +41,7 @@ If you are making changes on a protected branch, the quick save option will be d
 
 Enabling version control also enables you to edit the OCL (Octopus Configuration Language) file directly. We suggest using your favorite text editor or IDE to make changes, commit and push them just as you would any other code change. 
 
-:::hint
+:::div{.hint}
 We have a [Visual Studio Code Plug-in](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.vscode-octopusdeploy) that will add syntax highlighting, OCL snippets, and an integrated tree view for navigating nodes in an HCL file.
 :::
 
@@ -52,7 +52,7 @@ Any changes made to an OCL file via a text editor will not be reflected in the O
 
 Octopus will periodically fetch from the remote, so you might have to wait a short time for the changes to appear. To see the changes immediately, simply reload the page.
 
-:::hint
+:::div{.hint}
 The Octopus Deploy Web Portal will only add non-default properties to the OCL files. For example, if a step isn't scoped to run for a specific environment(s), that property will not show up when you view the deployment process there.
 :::
 

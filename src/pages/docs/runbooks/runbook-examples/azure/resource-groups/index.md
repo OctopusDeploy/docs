@@ -20,7 +20,7 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
 1. Navigate to your Project, then **{{Operations, Runbooks, Add Runbook}}**.
 1. Give the runbook a name and click **SAVE**.
 
-    :::hint
+    :::div{.hint}
     Before creating the step, you must have created an [Azure Service Principal Account](/docs/infrastructure/accounts/azure/#azure-service-principal).
     :::
 
@@ -35,7 +35,7 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
 
     ![Azure Account variable](/docs/runbooks/runbook-examples/azure/resource-groups/azure-account.png "width=500")
 
-    :::hint
+    :::div{.hint}
     [Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Azure account**. 
 
     The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions).
@@ -59,7 +59,7 @@ The JSON will be parsed, and your parameters will appear dynamically as fields i
 
 The parameter fields will show text boxes or select-lists as appropriate.  You can enter values directly, or bind the parameters to Octopus Variables (e.g. see the *siteName* parameter in the image above).
 
-:::success
+:::div{.success}
 Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions) on the JSON template.
 
 Although you can use variables directly in the template, it is more idiomatic to use parameters, and plug the variables into those (as seen above). This will allow you to use or test your template outside of Octopus Deploy.
@@ -69,7 +69,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 
 ### Sensitive data {#DeployusinganAzureResourceGroupTemplate-SensitiveData}
 
-:::warning
+:::div{.warning}
 Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
 :::
 
@@ -85,7 +85,7 @@ By selecting *File inside a Package* as the *Template Source*, you can select
 
 The Template Path and Parameters Path fields should contain the relative path to these files within the package.
 
-:::success
+:::div{.success}
 Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions) on both the Template and Parameter files.
 :::
 
@@ -168,7 +168,7 @@ Note, you need to replace **Arm Template Step Name** with the name of your ARM s
 
 Azure Resource Manager supports the concept of [linking templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates). In this model you create a main template which links to other templates and parameters files via URI. This can be a really useful way to break your ARM templates into manageable components. In this case you would configure Octopus to deploy your main template, and the Azure Resource Manager will download any linked templates and parameters files as required to complete the deployment.
 
-:::hint
+:::div{.hint}
 **Linked templates must be publicly accessible via URI**
 Please be aware that the URI you configure for the linked templates and parameters files must be publicly accessible by the Azure Resource Manager. For example: [http://www.contoso.com/AzureTemplates/newStorageAccount.json](http://www.contoso.com/AzureTemplates/newStorageAccount.json)
 

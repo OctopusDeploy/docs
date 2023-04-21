@@ -21,7 +21,7 @@ Octopus High Availability is designed for mission-critical enterprise scenarios 
 - You should be familiar with SANs, [Azure Files](https://azure.microsoft.com/services/storage/files/), or other approaches to sharing storage between servers.
 - You should be familiar with load balancing for applications.
 
-:::hint
+:::div{.hint}
 **IaaS vs PaaS:**
 If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in Azure and don't intend to use their PaaS offerings (such as Azure SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
 :::
@@ -83,7 +83,7 @@ New-Item -Path C:\Octopus\Packages -ItemType SymbolicLink -Value \\octostorage.f
 New-Item -Path C:\Octopus\Imports -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Imports
 
 ```
-:::hint
+:::div{.hint}
 It's worth noting that you need to have created the folders within the Azure File Share first before trying to create the Symbolic Links. 
 :::
 

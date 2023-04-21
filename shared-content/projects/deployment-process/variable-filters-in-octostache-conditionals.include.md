@@ -1,6 +1,6 @@
 It's possible to use [variable filters](/docs/projects/variables/variable-filters) to help create both complex run conditions and variable expressions, but there are limitations to be aware of.
 
-:::warning
+:::div{.warning}
 Using variable filters *inline* in the two [conditional statements](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-Conditionalsconditionals) `if` and `unless` are **not supported**.
 :::
 

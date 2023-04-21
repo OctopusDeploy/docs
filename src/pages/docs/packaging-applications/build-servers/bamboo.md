@@ -41,7 +41,7 @@ Creating the package is done with the `Octopus Deploy: Pack Packages` task. In a
 
 This steps runs the [pack command](/docs/packaging-applications/create-packages/octopus-cli) on the command line tool.
 
-:::hint
+:::div{.hint}
 If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](/docs/packaging-applications/create-packages/octopack) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
 :::
 
@@ -90,7 +90,7 @@ This step runs the [push command](/docs/octopus-rest-api/octopus-cli/push) on th
 
 The `Package paths` field defines the [Ant paths](https://ant.apache.org/manual/dirtasks.html) that are used to match packages to be pushed to Octopus Deploy. The Ant path `**/*${bamboo.buildNumber}.zip` matches the zip file created with during the previous step.
 
-:::hint
+:::div{.hint}
 Note that it is recommended that the package paths defined here are specific to the build. While the Ant path `**/*.zip` does match the package, it also match any old packages that might have been created in previous builds and not cleaned up. This means these less specific paths can result in old packages being uploaded, which is usually not the desired result.
 :::
 
@@ -156,7 +156,7 @@ Releases can be promoted to new environments with the `Octopus Deploy: Promote R
 
 This steps runs the [promote-release command](/docs/octopus-rest-api/octopus-cli/promote-release) on the command line tool.
 
-:::warning
+:::div{.warning}
 Because the promotion from one environment to another is not tied to any particular release number, adding this task to a Bamboo build plan means every time the plan is run (or more importantly rerun), releases will be promoted between environments. This is almost certainly not the desired result, and so it is not recommended that promotions be done as part of a Bamboo build plan.
 :::
 

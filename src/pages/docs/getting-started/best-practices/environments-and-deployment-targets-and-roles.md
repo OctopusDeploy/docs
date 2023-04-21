@@ -30,7 +30,7 @@ The deployment process from above targets the `hello-world-api` role.  When a de
 
 ![Octopus selecting deployment targets](/docs/getting-started/best-practices/images/selecting-target-roles.png "width=500")
 
-:::hint
+:::div{.hint}
 Assigning multiple roles to a deployment step results in an OR statement.  For example, adding `octo-petshop-api` to the deployment process and deploying to **development** will result in the filtering logic to be: 
 
 All servers in the **development** AND the servers who have the roles `hello-world-api` OR `octo-petshop-api`.  
@@ -61,7 +61,7 @@ Target roles are designed as a micro grouping of deployment targets meant to dep
 - Project Variable scoping
 - Process step scoping (run this step for specific environments)
 
-:::hint
+:::div{.hint}
 A deployment target can be assigned to 1 to N environments and 1 to N roles.  
 :::
 
@@ -93,7 +93,7 @@ Our recommendations for target roles are:
 - Use specific target roles, `hello-world-api`, to uniquely identify a project and component to deploy.  Use those specific target roles in your deployment process.
 - Use architecture and platform-specific target roles, for example, `IIS-Server-Windows-2019`.  Use those target roles for everyday maintenance tasks; updating to the latest version of Node.js, or installing a patch.
 
-:::hint
+:::div{.hint}
 Add an environment for a business need; a new data center is brought online, you are adding your disaster recovery location into Octopus, or adding the ability for customers to test changes prior to **production**.  
 
 Add a new role to group servers and filter servers within each environment.

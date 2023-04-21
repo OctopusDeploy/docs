@@ -39,7 +39,7 @@ Choosing the right combination of **Target** and **Roles** enables some really i
 | Octopus Server    |                        | The script will run once on the Octopus Server | Scope variables to the Step in order to customize variables for this script | Calculate some output variables to be used by other steps or run a database upgrade process |
 | Octopus Server    | `web-server`           | The script will run on the Octopus Server on behalf of the deployment targets with the `web-server` role. The script will execute once per deployment target | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Remove web servers from a load balancer as part of a [rolling deployment](/docs/deployments/patterns/rolling-deployments) where access to the load balancer API is restricted |
 
-:::hint
+:::div{.hint}
 Bash scripts are not able to be run on the Octopus Server, even if Bash is installed on that server
 :::
 
@@ -52,12 +52,12 @@ You may also select the source of the script, either:
 
 ![](/docs/deployments/custom-scripts/images/script-file-in-package.png "width=500")
 
-:::success
+:::div{.success}
 **Scripts from packages, versioning and source control**
 Using scripts from inside a package is a great way to version and source control your scripts. (You can be assured the correct version of your script will be run when deploying each version of your application.) Both methods (ad-hoc versus packaged) have benefits and suit different applications: choose the method best suited to your situation.
 :::
 
-:::hint
+:::div{.hint}
 When sourcing a script from a file inside a package you cannot choose to run the step before packages are acquired.
 :::
 

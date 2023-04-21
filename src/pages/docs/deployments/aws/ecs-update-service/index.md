@@ -11,7 +11,7 @@ This step provides an opinionated deployment workflow that allows new released t
 
 Choose this step if you have an existing ECS cluster, service, and task definition, and want Octopus to update your task definition for you during deployments.  
 
-:::hint
+:::div{.hint}
 The `Update Amazon ECS Step` was added in Octopus **2021.3**.
 :::
 
@@ -26,7 +26,7 @@ The following instructions can be followed to configure the `Update Amazon ECS S
 
 ## Step 1: Make a note of your ECS cluster's settings
 
-:::hint
+:::div{.hint}
 Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster.
 :::
 
@@ -44,7 +44,7 @@ If you don't have an `AWS Account` defined yet, check our [documentation on how 
 
 ![ECS Cluster Deployment Target Settings](/docs/deployments/aws/ecs-update-service/images/target.png "width=500")
 
-:::hint
+:::div{.hint}
 The benefits of using deployment targets for ECS are outlined in the [ECS RFC blog post](https://octopus.com/blog/rfc-ecs-integration-with-octopus#why-use-targets).
 :::
 
@@ -121,7 +121,7 @@ By default, the step will wait until all of the ECS Tasks within the target serv
 
 ![ECS Step Deployment Options section](/docs/deployments/aws/ecs-update-service/images/update-ecs-deployment-option.png "width=500")
 
-:::hint
+:::div{.hint}
 Selecting the `Don't wait` option means that the step will not fail if the tasks fail to properly start.
 :::
 

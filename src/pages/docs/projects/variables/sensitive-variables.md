@@ -33,7 +33,7 @@ Octopus has the following community step templates for integrating with Secret M
 - [GCP Secret Manager](https://octopus.com/blog/using-google-cloud-secret-manager-with-octopus)
 - [HashiCorp Vault](https://octopus.com/blog/using-hashicorp-vault-with-octopus-deploy)
 
-:::success
+:::div{.success}
 View working examples of all of our Secrets Management community step templates in our [samples instance](https://samples.octopus.app/app#/Spaces-822) of Octopus. You can sign in as `Guest` to view them.
 :::
 
@@ -59,7 +59,7 @@ For variable type, select **Sensitive**.
 
 ### How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 
-:::hint
+:::div{.hint}
 Learn more about [security and encryption](/docs/security/data-encryption) in Octopus Deploy.
 :::
 
@@ -100,7 +100,7 @@ Here are some common pitfalls to avoid:
 
 ## Logging {#Sensitivevariables-LoggingLogging}
 
-:::warning
+:::div{.warning}
 Avoid logging sensitive values! Whilst Octopus will attempt to mask sensitive values, it is better there is no value to mask in the first place!
 :::
 

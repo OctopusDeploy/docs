@@ -33,7 +33,7 @@ There are two kinds of workers you can use in Octopus:
 1. [The built-in worker](#built-in-worker) (default)
 1. [External workers](#external-workers)
 
-:::hint
+:::div{.hint}
 Workers are assigned at the start of a deployment or runbook, not at the time the individual step executes.
 :::
 
@@ -130,7 +130,7 @@ The Tentacle executable can also be used to deregister workers, for example:
 .\Tentacle.exe deregister-worker --instance MyInstance --server "https://example.com/" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
 ```
 
-:::hint
+:::div{.hint}
 For information on creating an API key, see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 :::
 

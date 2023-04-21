@@ -17,7 +17,7 @@ Octopus provides four built-in step templates for managing and interacting with 
 
 All four of the built-in Terraform steps provide common configuration points you can use to control how the steps execute your Terraform code.
 
-:::hint
+:::div{.hint}
 While these are the options common to each step, there are additional ways to interact and extend these steps, specifically using [Terraform plan outputs](/docs/deployments/terraform/plan-terraform/#plan-output-format) and [Terraform output variables](/docs/deployments/terraform/terraform-output-variables)
 :::
 
@@ -25,7 +25,7 @@ While these are the options common to each step, there are additional ways to in
 
 You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template.
 
-:::hint
+:::div{.hint}
 Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step. You can learn more about creating managed cloud accounts using Octopus [here](/docs/infrastructure/accounts).
 :::
 
@@ -61,7 +61,7 @@ The contents of the package will be extracted, and Terraform will automatically 
 
 You can optionally run Terraform from a subdirectory in the package by specifying the path in the `Terraform template directory` field. The path must be relative (i.e. without a leading slash). If your package has the Terraform templates in the root folder, leave this field blank.
 
-:::hint
+:::div{.hint}
 Given that Terraform templates and variable files are plain text, you may find it convenient to use the GitHub Repository Feed to provide the packages used by Terraform steps. Using GitHub releases means you do not have to manually create and upload a package, and can instead tag a release and download it directly from GitHub.
 :::
 

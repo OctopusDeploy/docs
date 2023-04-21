@@ -27,7 +27,7 @@ The executable bundle created when deploying to an offline package drop target c
 
 The bundle can be zipped and attached as an [Octopus Artifact](/docs/projects/deployment-process/artifacts) to the deployment. It can then be downloaded when required.
 
-:::hint
+:::div{.hint}
 Octopus Cloud instances will almost certainly want to use _Artifact_ as the destination.
 :::
 
@@ -152,7 +152,7 @@ The batch file to execute the deployment will be named with this convention:
 For example:
 `AcmeProductionDrop.Acme.Web.Deployments-1.cmd`
 
-:::success
+:::div{.success}
 **Using Sensitive Variables?**
 Usually the reason you need to use offline package drop is for some kind of security policy or compliance control. If you indicate any Variables as Sensitive they will be encrypted into a separate variable file so they are protected during transport. When you execute the deployment you will be prompted for the [sensitive-variables password](#OfflinePackageDrop-Sensitive-variablesencryptionpasswordSensitive-variablesencryptionpassword) that will be used to decrypt the sensitive values so they can be used as part of the deployment.
 :::

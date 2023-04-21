@@ -104,7 +104,7 @@ Octopus Deploy stores all the BLOB data (deployment logs, runbook logs, packages
 
 If you are moving from a Windows VM, the default path for those folders is: `C:\Octopus`.  For example, the task logs folder would be `C:\Octopus\TaskLogs`.  If you are unsure of the path, you can find it in the Octopus Deploy UI by navigating to **{{Configuration, Settings, Server Folders}}**.
 
-:::warning
+:::div{.warning}
 Failure to copy files over to the new storage location for the Linux Container to access will result in the following:
 
 - Existing deployment and runbook run screens will be empty.
@@ -157,7 +157,7 @@ If you are running Octopus Server directly on Docker, read the Docker [docs](htt
 
 If you are running Octopus Server on Kubernetes, you will want to configure [persistent volume mounts](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
-:::hint
+:::div{.hint}
 Due to how paths are stored, you cannot run an Octopus Server Windows Container and Octopus Server Linux Container simultaneously.  It has to be all Windows or all Linux.
 :::
 

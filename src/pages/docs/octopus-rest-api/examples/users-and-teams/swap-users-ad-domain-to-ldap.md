@@ -10,7 +10,7 @@ This script demonstrates how to programmatically swap an Octopus user's Active D
 
 We also have a script that will [swap Active Directory groups with matching LDAP groups](/docs/octopus-rest-api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group) for Octopus teams.
 
-:::hint
+:::div{.hint}
 **Note:**
 Please note there are some things to consider before using this script:
 

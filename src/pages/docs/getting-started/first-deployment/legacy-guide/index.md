@@ -8,7 +8,7 @@ navOrder: 10
 hideInThisSection: true
 ---
 
-:::hint
+:::div{.hint}
 For **Octopus 2022.3** or newer, please refer to the updated [First deployment guide](/docs/getting-started/first-deployment).
 :::
 

@@ -73,7 +73,7 @@ The Octopus support team will always be there to give you a hand. But do know th
 - A brief description of the error. We'll be especially interested in knowing what you were expecting from the failed step.
 - A full build log that shows the `octo` command.
 
-:::warning
+:::div{.warning}
 **Keep sensitive info safe!**
 Make sure to set the ticket as **private** before attaching any kind of log, as it might contain sensitive info. If you don't know how to set it to **private**, log the ticket without that log and ask us to do it. Once it's done we'll ask you to attach the log.
 :::

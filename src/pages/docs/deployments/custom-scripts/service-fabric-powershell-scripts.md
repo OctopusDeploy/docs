@@ -7,11 +7,11 @@ description: Service Fabric PowerShell scripts allow you to manage your Service 
 navOrder: 100
 ---
 
-:::success
+:::div{.success}
 You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables) and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 :::
 
-:::hint
+:::div{.hint}
 The [Service Fabric SDK](https://oc.to/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
 
 **PowerShell script execution** may also need to be enabled. See the _"Enable PowerShell script execution"_ section from the above link for more details.

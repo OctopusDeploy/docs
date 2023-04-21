@@ -38,7 +38,7 @@ You need Docker installed and running on the [worker](/docs/infrastructure/worke
 
 ## First deployment on a docker container
 
-:::hint
+:::div{.hint}
 Pre-pulling your chosen image will save you time during deployments.
 :::
 
@@ -48,7 +48,7 @@ For your first deployment this may take a while since your docker image won't be
 
 ## Which Docker images can I use? {#which-image}
 
-:::hint
+:::div{.hint}
 The easiest way to get started is to use the [worker-tools](#worker-tools-images) images built by Octopus Deploy.
 :::
 
@@ -62,7 +62,7 @@ If you run into issues with the provided [worker-tools](#worker-tools-images) im
 
 For convenience, we provide some images on Docker Hub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) which include common tools used in deployments. 
 
-:::hint
+:::div{.hint}
 We recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker.
 :::
 
@@ -92,7 +92,7 @@ It can be beneficial to build your own custom Docker image when using execution 
 
 For Windows images, we recommend using a base image no older than the `ltsc2019` image. Octopus does not support images that are older than `ltsc2019`, and while containers based on these images can still run steps, you may run into unexpected issues.
 
-:::hint
+:::div{.hint}
 If your containers are based on an earlier image of Windows, we strongly recommend upgrading your workers to Windows 2019 and rebasing your Docker containers to use a 2019 base image.
 :::
 
@@ -100,7 +100,7 @@ If your containers are based on an earlier image of Windows, we strongly recomme
 
 It's important to understand there are some limits to which Linux Docker images can be used as a container image. The Docker image must be based on a Linux distribution using the GNU C library, or **glibc**. This includes operating systems like Ubuntu, Debian, and Fedora.
 
-:::warning
+:::div{.warning}
 Linux distributions built on **musl**, most notably Alpine, do not support Calamari, and cannot be used as a container image. This is due to Calamari currently only being compiled against **glibc** and not **musl**.
 :::
 
@@ -122,7 +122,7 @@ The operating system must also include a number of dependencies required to supp
 
 The Microsoft [.NET Core documentation](https://docs.microsoft.com/en-us/dotnet/core/install/linux) lists the dependencies required for a .NET Core application with popular Linux distributions. 
 
-:::hint
+:::div{.hint}
 If a third party container is missing a library, it is usually the **libicu** library. The error **Couldn't find a valid ICU package installed on the system** indicates the ICU library is missing.
 :::
 

@@ -16,7 +16,7 @@ There are two types of variable templates:
 - [Library variable set templates](#adding-a-variable-template) are variable values that are common across all tenants but need a unique value per tenant. For example, website names, titles, headers, images, logo, URLs, contact information. These values don't change across projects and environments for a tenant.
 - [Project templates](#project-templates) are variable values that differ between projects and environments for a tenant. For example, server names or database connection settings. 
 
-:::hint
+:::div{.hint}
 View a working example on our [samples instance](https://samples.octopus.app/app#/Spaces-682/projects/vet-clinic-tenanted/variables).
 :::
 
@@ -47,7 +47,7 @@ To set common variable values for a tenant:
 
     ![](/docs/projects/variables/images/variable-templates-common-value.png "width=500")
 
-:::hint
+:::div{.hint}
 If you can't see any variables in the Common Variables tab, ensure you have included the Library variable set in the connected project.
 :::
 

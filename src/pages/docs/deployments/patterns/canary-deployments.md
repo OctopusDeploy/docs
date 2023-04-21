@@ -25,7 +25,7 @@ The basic steps of a canary deployment are:
 
 The test phase of the canary deployment can work in many ways. You could run some automated tests, perform manual testing yourself, or even leave the server live and wait to see if problems are encountered by end users. In fact, all three of these approaches might be used. Depending on how you plan to test, you might decide to remove the canary server from the production load balancer and return it only when rolling out the change to the rest of the servers.
 
-:::hint
+:::div{.hint}
 **Similar to staging**
 Canary deployments are similar to using a staging environment. The difference is that staging environments are usually dedicated to the task; a staging web server doesn't become a production server. By contrast, in a canary deployment, the canary server remains part of the production fleet when the deployment is complete. Canary deployments may be worth considering if you do not have the resources to have a dedicated staging environment.
 :::
@@ -46,7 +46,7 @@ Note that the first two steps have been configured to only run for production de
 
 A final variation is to set up a dedicated "Canary" environment to deploy to. The environment can contain a canary deployment target, with the same deployment target also belonging to the production environment.
 
-:::hint
+:::div{.hint}
 **Canary users**
 Another variation of the canary deployment is to deploy the new version to all servers, but to selectively show the features to users, slowly increasing the number of users who experience the new features. Implementing such a system usually involves [feature toggles](http://martinfowler.com/bliki/FeatureToggle.html) and designing your application to work this way; it's really outside of the scope of a tool like Octopus.
 :::

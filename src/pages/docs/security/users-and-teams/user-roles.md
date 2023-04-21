@@ -34,7 +34,7 @@ Octopus comes with a set of built-in user roles that are designed to work for mo
 
 The built-in user roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own user roles.
 
-:::success
+:::div{.success}
 To view the default permissions for each of the built-in user roles, please see [default permissions](/docs/security/users-and-teams/default-permissions).
 :::
 
@@ -45,7 +45,7 @@ To view the default permissions for each of the built-in user roles, please see 
 | -------------------- | ---------------------------------------- |
 | Space Manager        | Space managers can do everything within the context of the space they own. |
 
-:::success
+:::div{.success}
 For more information regarding the _system or space level_, please see [system and space permissions](/docs/security/users-and-teams/system-and-space-permissions).
 :::
 
@@ -90,6 +90,6 @@ If a user tries to perform an action without having enough permissions to do it,
 
 ![](/docs/security/users-and-teams/images/errors.png "width=500")
 
-:::warning
+:::div{.warning}
 As further versions of Octopus are released, we might create new roles to improve our security model. These new roles will not be automatically included in any of the built-in user roles, to avoid giving users permissions they are not supposed to have. These new roles will have to be added manually to a User Role by an administrator.
 :::

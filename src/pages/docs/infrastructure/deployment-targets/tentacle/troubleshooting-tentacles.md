@@ -104,7 +104,7 @@ The page shown should look like the one below.
 
 ![](/docs/infrastructure/deployment-targets/tentacle/images/3278074.png "width=500")
 
-:::hint
+:::div{.hint}
 **If you can't browse to the page...**
 If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files) and contact Octopus Deploy support.
 :::
@@ -131,7 +131,7 @@ The page shown should look like the one below.
 
 If you've made it this far, good news! Your Octopus Server is running and ready to accept inbound connections from Polling Tentacles.
 
-:::hint
+:::div{.hint}
 **If you can't browse to the page...**
 If this is where your journey ends, there's a problem on the Octopus Server machine itself. It is very likely that the Octopus Server is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you can see connections being opened and immediately closed (`CLOSE_WAIT` state in `netstat` output) from the same *Foreign Address*, it might indicate that this server is blocking traffic from the communications port and therefore resetting the connection immediately. Check both the built-in Windows Firewall, and any other firewalls (in Amazon EC2, check your security group settings for example) on the server identified by the **Foreign Address** in `netstat` and make sure that the communications port isn't being blocked. You can also use [Wireshark](https://www.wireshark.org/) to inspect traffic that is coming in on the Octopus Server communications port to find any connections that are being immediately reset by starting a network capture and filtering the traffic by `tcp.port == 10943` (or your chosen Tentacle communications port if it isn't the default), this should identify any incoming requests that gets reset immediately.
 
@@ -152,7 +152,8 @@ Remember to check both the built-in Windows Firewall, and any other firewalls (i
 
 If the Tentacle welcome page is shown, good news - your network is fine.
 
-:::problem
+:::div{.problem}
+
 **Watch out for proxy servers or SSL offloading...**
 Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading** are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Octopus Server and Tentacle, without an HTTP proxy or a network appliance performing SSL offloading in between.
 

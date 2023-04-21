@@ -37,7 +37,7 @@ What's included in our ServiceNow support?
 
 Learn more about our [ServiceNow integration](https://octopus.com/docs/approvals/service-now).
 
-:::hint
+:::div{.hint}
 ServiceNow integration is available to customers with an [enterprise subscription](https://octopus.com/pricing).
 :::
 

@@ -11,7 +11,8 @@ The default Docker Registry, which is maintained by the Docker organization, is 
 
 From September 5th 2022, the Docker Hub Registry is [deprecating v1 endpoints](https://www.docker.com/blog/docker-hub-v1-api-deprecation) to retrieve tags and images. The equivalent v2 endpoints require authentication. Therefore external feeds will require a username and password to access the Docker Hub API. Searching for repositories of a non-official repository will also require you to provide your Docker Hub username and password. Searching for official public repositories does not require credentials.
 
-:::problem
+:::div{.problem}
+
 **DockerHub Private Repository Limitations**
 
 By design, Docker Hub **does not support** [searching for private repositories](https://docs.docker.com/docker-hub/#/explore-repositories), even with valid credentials. Additionally, while you will be able to search for a non-official repository, Docker Hub *will not return any tags for unofficial images*. If you are using an unofficial image, you will be able to select this when configuring your run step, but you will need to manually enter the version that you wish to deploy. So long as it exists in the registry, your Docker Engine will be able to pull it down.

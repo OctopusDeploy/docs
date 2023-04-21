@@ -39,7 +39,7 @@ Release notes templates will generally be most useful when combined with package
 
 The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/build-information/) and [issues](/docs/releases/issue-tracking).
 
-:::hint
+:::div{.hint}
 4 spaces of indentation in a Release Note template indicates a code block. 
 :::
 
@@ -117,6 +117,6 @@ Under the covers, Octopus tracks this by channels.  When it is time to deploy `1
 - Determine releases `1.0.1` and `1.0.2` have numbers between the releases `1.0.0` and `1.0.3`.
 - Aggregate all the work items and packages for releases `1.0.1`, `1.0.2`, and `1.0.3`.
 
-:::hint
+:::div{.hint}
 The code goes strictly off of version numbers, not when the release was deployed.  If you were to deploy `1.0.1` to **Production**, then rollback to `1.0.0` it will include `1.0.1` in the next deployment to **Production**
 :::

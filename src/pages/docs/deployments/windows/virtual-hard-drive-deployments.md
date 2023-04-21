@@ -7,7 +7,7 @@ description: VHD steps allow you to deploy a virtual hard drive and optionally a
 navOrder: 20
 ---
 
-:::warning
+:::div{.warning}
 The Deploy a VHD step requires the target Machine to be running Windows Server 2012 or newer, and the Tentacle service to have Administrator privileges.
 :::
 

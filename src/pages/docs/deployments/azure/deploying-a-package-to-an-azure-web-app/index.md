@@ -17,7 +17,7 @@ The Azure web apps you build, and how you might want to deploy them, are becomin
 
 Deploying an Azure Web App with Octopus Deploy behaves very similarly to the Visual Studio publish wizard and uses **Web Deploy** to synchronize the files in your package to the Azure Web App. Similarly to Visual Studio you can change how Octopus Deploy invokes Web Deploy using the following options in your deployment steps which enable the most common deployment scenarios. All of these options are discussed below where we describe how to configure the Azure Web App step.
 
-:::hint
+:::div{.hint}
 **Defaults match Visual Studio**
 The default values for these variables were chosen to match Visual Studio following the principle of least surprise. You will typically need to adjust these values depending on your specific circumstances.
 :::
@@ -59,7 +59,7 @@ If instead you want to **dynamically** create you account during your deployment
 | **Enable AppOffline**       | _False_     | When _True_ instructs Web Deploy to place _app_offline.htm_ in root deployment directory to safely bring down the app domain.</br>Click [here](http://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) for more details.                                                     |
 | **File comparison method**  | _Timestamp_ | Can be _timestamp_ or _checksum_ and instructs web deploy to use the selected algorithm to determine which files to update.</br>_Note: There have been some issues with checksum in earlier versions of web deploy, and we've written about that in detail [here](https://octopus.com/blog/reliably-deploying-large-azure-web-apps)._ |
 
-:::success
+:::div{.success}
 **Use variable binding expressions**
 Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different web apps, like **MyApp_Production** and **MyApp_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
@@ -86,7 +86,7 @@ The easiest way to achieve this is to use an [execution container](/docs/project
 
 If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
-:::warning
+:::div{.warning}
 Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
 
 From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.

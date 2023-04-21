@@ -7,7 +7,7 @@ description: Information on how to upgrade from Octopus 2.6.5 to 2018.10 LTS
 navOrder: 3
 ---
 
-:::success
+:::div{.success}
 Please read our guide for [upgrading older versions of Octopus](/docs/administration/upgrading/legacy) before continuing.
 :::
 
@@ -55,6 +55,6 @@ Read the full guide: [Manual upgrades for smaller instances](/docs/administratio
 
 Don't worry, we've got you covered! We build a tool called **Hydra** to help you upgrade all your Tentacles during the upgrade process.
 
-:::warning
+:::div{.warning}
 Please pay careful attention to the instructions in these guides; if you skip ahead and do the upgrade in the wrong order, you might be stuck upgrading all Tentacles manually!
 :::

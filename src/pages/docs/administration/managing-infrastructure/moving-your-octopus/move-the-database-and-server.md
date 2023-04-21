@@ -14,7 +14,7 @@ You may need to move your Octopus installation of Server and database. The follo
 - Data that is stored in the file system needs to be moved over to the new server. These are your packages stored in the built-in package repository, your artifacts (includes project logos), and your Task Logs.
 - Tentacle thumbprints are stored in the database. If you’re using the same database, you won’t need to re-configure your Tentacles.
 
-:::warning
+:::div{.warning}
 **You can only move your Octopus Server installation to the same Octopus version, you cannot move to an upgraded version.** Either upgrade your existing Octopus Server version, then move the Server and files, or move and then upgrade on the new server. Please refer to our [upgrading guides](/docs/administration/upgrading) for applicable information for your scenario.
 :::
 
@@ -35,7 +35,7 @@ Below are instructions on how to move your Octopus Server and SQL Database.
    - Packages
       - This folder only needs to be moved if using the built-in package repository. External feed details are stored in the database, and they will connect automatically.
 
-:::warning
+:::div{.warning}
 The database stores the locations for these directories. After you connect to the database, your settings will be the same as they were in your original server. You can change the locations for these directories, but we recommend first moving the directories to there original location and then pointing to the new location. This process is outlined in the [moving the home directory](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory) page.
 :::
 

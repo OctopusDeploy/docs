@@ -7,7 +7,7 @@ description: Create a Google cloud account variable to use it in Google Cloud de
 navOrder: 65
 ---
 
-:::hint
+:::div{.hint}
 Google Cloud Accounts were added in Octopus **2021.2**.
 :::
 

@@ -73,7 +73,7 @@ If you're still seeing issues you could also try including these additional dire
 - `<Tentacle Home>\Logs`
     - This is where the Tentacle log files are stored.
 
-:::hint
+:::div{.hint}
 We recommend including sub-directories in any allow list for the directories listed above as processes initiated by Octopus may also create new folders within them.
 :::
 

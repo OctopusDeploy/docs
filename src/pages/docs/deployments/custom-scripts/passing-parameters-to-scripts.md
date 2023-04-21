@@ -36,7 +36,7 @@ You can define your parameters in the **Script Parameters** field using the fo
 
 ![Script Parameters](/docs/deployments/custom-scripts/images/script-parameters.png "width=500")
 
-:::hint
+:::div{.hint}
 **Delimiting string values**
 Don't forget to correctly delimit your parameters correctly for the scripting engine. In the example above we have surrounded the parameter value in double-quotes to handle cases where the Environment Name has spaces: `"#{Octopus.Environment.Name}"`
 :::
@@ -134,6 +134,6 @@ environment=sys.argv[1]
 storagePath=sys.argv[2]
 print("Parameters {} {}".format(environment, storagePath))
 ```
-:::hint
+:::div{.hint}
 **Note:** If your python scripts make use of [argparse](https://docs.python.org/3/library/argparse.html), it's possible you might encounter an error at execution time, as Calamari bootstraps the execution of the python script as part of the deployment or runbook run.
 :::

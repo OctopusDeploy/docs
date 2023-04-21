@@ -14,7 +14,7 @@ This provides many benefits, including:
 - When deploying packages with a large number of files, deployment times can be significantly reduced due to not having to compare with existing files (this assumes you are deploying to a clean slot).
 - Roll-back can be achieved by simply swapping the slots back.
 
-:::warning
+:::div{.warning}
 Deployment Slots are only available to Azure Web Apps running in Standard or Premium [App Service plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 :::
 
@@ -55,7 +55,7 @@ Remove-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName #{Res
 New-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName #{ResourceGroup}
 ```
 
-:::hint
+:::div{.hint}
 The first line of the script removes the Staging Slot to ensure we are deploying to a clean slot. This can significantly reduce the time taken for deployments with large numbers of files as it avoids having to calculate the set of files which have changed by comparing timestamps or checksums. For deployments with a smaller number of files, this may well not be any quicker.
 :::
 
@@ -81,7 +81,8 @@ As shown below:
 
 ![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-slot-binding.png "width=500")
 
-:::info
+:::div{.info}
+
 You can choose to specify the slot directly on the deployment target, or directly on the step (if you wish to deploy to multiple different slots on the same Web App Service, for example), however, the slot on the target will take priority.
 :::
 

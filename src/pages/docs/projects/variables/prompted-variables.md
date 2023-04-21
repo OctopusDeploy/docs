@@ -22,7 +22,7 @@ You can identify prompted variables by looking for the icon next to the value:
 
 ![](/docs/projects/variables/images/prompted-variable-icon.png "width=500")
 
-:::hint
+:::div{.hint}
 You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. Control type options are:
 - Single-line text box
 - Multi-line text box
@@ -44,7 +44,7 @@ A value can also be passed to a prompted variable when using the Octopus CLI thr
 octo deploy-release ... --variable "Missile launch code:LAUNCH123" --variable "Variable 2:Some value"
 ```
 
-:::hint
+:::div{.hint}
 Prompted variables can be combined with [sensitive variables](/docs/projects/variables/sensitive-variables/). They will appear with a password box when creating the deployment. They can also be combined with [Azure Account variables](/docs/projects/variables/azure-account-variables/), [AWS Account variables](/docs/projects/variables/aws-account-variables/), [Certificate variables](/docs/projects/variables/certificate-variables/), and [Worker Pool variables](/docs/projects/variables/worker-pool-variables), passing in the ID, e.g. `WorkerPools-1`.
 :::
 

@@ -12,7 +12,7 @@ hideInThisSectionHeader: true
 
 Now that you've created a tenant, you can enable [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments/) and then [connect the tenant to a project](/docs/tenants/tenant-creation/connecting-projects).
 
-:::hint
+:::div{.hint}
 It's also possible to create a tenant using the [Octopus REST API](/docs/octopus-rest-api/). To learn more, see our [Create a Tenant](/docs/octopus-rest-api/examples/tenants/create-tenant) example.
 :::
 

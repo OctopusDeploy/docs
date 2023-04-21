@@ -9,7 +9,7 @@ A component is considered tightly coupled when they depend on one another, and a
 
 The general rule of thumb to follow is when components are stored in the same source control repo and are built using the same build definition, they should be deployed together.
 
-:::hint
+:::div{.hint}
 We previously recommended creating a project for each component.  We have found in practice that while it solves a specific problem - you can have a faster deployment when only the front-end or back-end is changed to fix a bug, it generally leads to a higher maintenance overhead of orchestrating multiple projects.  Typically an orchestration project is created because the components must be deployed in a specific order.  We now recommend a single project should be responsible for deploying all the tightly coupled components in an application.
 :::
 
@@ -21,7 +21,7 @@ We recommend the project per component pattern when those components are decoupl
 
 When components are decoupled from one another, they can have different deployment schedules, and do not have to be deployed in a specific order.  That will negate the need for an orchestration project.
 
-:::hint
+:::div{.hint}
 In practice, it is rare to see the decoupling of all the components in a web application with a front-end, back-end, and database.  It is much more common for functionality, or backend services, to be decoupled.
 :::
 
@@ -65,7 +65,7 @@ Changes made on feature or short-lived branches are not ready for Production.  T
 
 For the packages / docker containers built from branches, append a pre-release tag to the release version.  Leverage channel version rules to only allow packages / docker containers with a pre-release tag for the Development lifecycle.  At the same time, only allow packages / docker containers **without** a pre-release tag for the release lifecycle.
 
-:::hint
+:::div{.hint}
 This section is another reason we recommend deploying all tightly coupled components stored in the same source control repository within the same project.  Attempting to coordinate different lifecycles and releases across multiple projects can add aditional overhead, which runs the risk of something needing to be fixed.
 :::
 

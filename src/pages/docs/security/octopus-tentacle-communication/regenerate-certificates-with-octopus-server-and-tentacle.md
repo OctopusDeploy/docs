@@ -15,7 +15,7 @@ For more information on why Octopus uses self-signed certificates, please see th
 
 You can view the algorithm used by the Server certificate on the {{Configuration,Thumbprint}} page. If the algorithm contains `sha1`, we recommend regenerating your certificate.
 
-:::warning
+:::div{.warning}
 **Updating an existing Octopus Server or Tentacle**
 It's important to consider the impact of updating an existing Octopus Server or Tentacle as changes are required to ensure each component trusts the other. If there is a mismatch between the certificate and the expected thumbprint, communication between the components will not be possible and must be resolved manually. Read the information below carefully.
 :::
@@ -30,7 +30,7 @@ At a high level, changing the certificate on an Octopus Server involves the foll
 * Replace the certificate on the Octopus Server.
 * Remove the old trusted certificate from the Tentacles.
 
-:::hint
+:::div{.hint}
 At present, this process is more manual than we would prefer, and we are aiming to improve this process over time.
 :::
 
@@ -54,7 +54,7 @@ The certificate has been written to C:\PathToCertificate\oldcert.pfx.
 
 Save this certificate and the specified password somewhere secure.
 
-:::hint
+:::div{.hint}
 If you see a warning message about `The X509 certificate CN=Octopus Portal was loaded but the private key was not loaded.`, you are most likely not running with elevated permissions. 
 :::
 

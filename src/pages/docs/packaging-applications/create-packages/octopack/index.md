@@ -12,7 +12,7 @@ You can package full framework .NET applications from your continuous integratio
 
 OctoPack works by calling `nuget.exe pack` to build the NuGet package, and `nuget.exe push` to publish the package (if so desired). OctoPack understands .NET applications and uses that knowledge to build the right kind of package for each kind of .NET application.
 
-:::warning
+:::div{.warning}
 **OctoPack and .NET Core**
 OctoPack is not compatible with .NET Core applications. If you want to package .NET Core applications see [create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).
 :::
@@ -46,7 +46,7 @@ When MSBuild is invoked OctoPack tries to establish the name of your NuSpec file
 
 Note: The `.nuspec` file needs to be in the same directory as your `.csproj` file.
 
-:::hint
+:::div{.hint}
 If you don't provide a NuSpec file, OctoPack will create one by guessing some of the settings from your project.
 :::
 

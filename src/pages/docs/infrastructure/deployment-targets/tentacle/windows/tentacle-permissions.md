@@ -24,7 +24,8 @@ In addition, since you are probably using Tentacle to install software, you'll n
 - Permissions to modify IIS (C:\Windows\system32\inetsrv).
 - Permissions to connect a SQL Server Database.
 
-:::problem
+:::div{.problem}
+
 If you **Reinstall** a Tentacle using the Tentacle Manager, the Windows Service account will revert to Local System.
 :::
 

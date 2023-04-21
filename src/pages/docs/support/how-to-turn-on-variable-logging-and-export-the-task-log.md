@@ -34,7 +34,7 @@ Two sets of variables will be printed, first, the raw definitions before any sub
 
    ![](/docs/support/images/raw.png "width=500")
 
-:::hint
+:::div{.hint}
 Remember to remove these variables after you get the full log. These variables are designed for debugging purposes only.
 
 You might want to open the file in a text editor, and redact any sensitive information like hostnames or company information, before sending the log to us.

@@ -9,7 +9,7 @@ navOrder: 123
 
 Generate a new Master Key and re-encrypt all the sensitive data. This option was added in **Octopus 2022.4**.
 
-:::warning
+:::div{.warning}
 
 Before using this command, we recommend taking a look at our [guide on rotating the Master Key](/docs/administration/managing-infrastructure/rotate-master-key).
 :::
@@ -47,7 +47,8 @@ Or one of the common options:
 
 This example will rotate the master key for the instance named `OctopusServer`.
 
-:::problem
+:::div{.problem}
+
 **Please note:**
 The command below will replace the existing Master Key with a newly generated Master Key, and **re-encrypt all sensitive data** in the Octopus instance - be sure you have taken a database backup before running this.
 :::

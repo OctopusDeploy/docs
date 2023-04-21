@@ -14,7 +14,8 @@ A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/
 
 ![Helm Feed](/docs/deployments/kubernetes/helm-update/helm-feed.png "width=500")
 
-:::info
+:::div{.info}
+
 The built-in repository is [capable of storing Helm Charts](/docs/packaging-applications/#supported-formats). However, the mechanism for determining the **PackageID** and **Version** may differ depending on the contents of the `.tgz` file.  If the `.tgz` file contains a `chart.yaml` file, the PackageID is determined by the `name`, and the version is determined by the `version` sections of the YAML.  
 
 ```yaml
@@ -37,7 +38,7 @@ For more information about Helm Chart repositories and how to run your own priva
 ## Helm upgrade step
 Since the [helm upgrade](https://docs.helm.sh/helm/#helm-upgrade) command provides the ability to ensure that the chart is installed when it runs for the first time (by using the `--install` argument), this upgrade command is the most practical step to provide.
 
-:::success
+:::div{.success}
 Remember that since the Kubernetes cluster connection context is available via the kubectl script step, any helm commands that you want to perform that don't fit into the existing helm upgrade step can easily be scripted as per usual.
 :::
 
@@ -50,7 +51,7 @@ Remember that since the Kubernetes cluster connection context is available via t
 #### Kubernetes release
 The Kubernetes release uniquely identifies the released chart in the cluster. Because of the unique naming requirements of the release name, the default value provided includes both the project and environment name to ensure that successive Octopus releases do not conflict with one another. When redeploying new versions of the chart, this name is what is used to uniquely identify the resources that are related to that Octopus deployment. Helm requires that this name consist of only lowercase alpha numeric and dash (-) characters.
 
-:::hint
+:::div{.hint}
 Due to the design of Helm, the release names must be [unique across the entire cluster](https://github.com/helm/helm/issues/2060#issuecomment-287164881), not just namespaces.
 :::
 
@@ -60,7 +61,7 @@ By default Helm will carry forward any existing configuration between deployment
 #### Helm client tool
 Helm performs some strict version checks when performing any commands against the cluster and requires that the client have the same minor version as the tiller service (the helm component running in your cluster) in your Kubernetes cluster.
 
-:::success
+:::div{.success}
 Like the other Kubernetes steps, the Octopus Server or workers will run the Helm commands directly during execution and need to have the `helm` executable installed.
 :::
 
@@ -78,7 +79,7 @@ The configuration for the Kubernetes resources required in a Helm Chart can be p
 - **Files in Additional Packages:** When using publicly available Helm Charts as the package source for this step, you may want to source your custom values files from outside Octopus, for example, through files committed to a [GitHub feed](/docs/packaging-applications/package-repositories/github-feeds). Files obtained through this option will have Octopus Variable replacement performed before being used.
 
 ## Known limitations
-:::warning
+:::div{.warning}
 Please note that [Cloud Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools/#available-dynamic-worker-images) come with Helm 2.9.1 installed.  This means that if you chose V3 on the Helm Step Template, it will fall back to V2 during execution.  To get around this problem, use the [Execution Containers](/docs/projects/steps/execution-containers-for-workers) feature with the [worker tools image](https://hub.docker.com/r/octopusdeploy/worker-tools).  
 :::
 Helm provides [provenance](https://helm.sh/docs/topics/provenance/) tools that assist in verifying the integrity and origin of a package. Octopus does not _currently automatically_ perform validation checks during a deployment using these tools however this may change in the future.

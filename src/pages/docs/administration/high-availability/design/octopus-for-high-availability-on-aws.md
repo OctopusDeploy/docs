@@ -21,7 +21,7 @@ Octopus High Availability is designed for mission-critical enterprise scenarios 
 - You should be familiar with SANs, [AWS FSx](https://aws.amazon.com/fsx/), or other approaches to sharing storage between servers.
 - You should be familiar with load balancing for applications.
 
-:::hint
+:::div{.hint}
 **IaaS vs PaaS:**
 If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in AWS and don't intend to use their PaaS offerings (such as AWS RDS), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
 :::
@@ -42,7 +42,7 @@ If you don't have a SQL cluster in AWS then AWS provides a fully managed and hig
 
 Choosing a SQL edition is an important decision, and will depend on your organization requirements and Octopus usage. 
 
-:::hint
+:::div{.hint}
 It's not possible to change the edition of a SQL Server RDS instance by modifying it without taking a snapshot and restoring that to a new instance. 
 :::
 

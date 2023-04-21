@@ -19,7 +19,7 @@ If anyone changes the runbook process or its associated assets after it has been
 
 ![Running a runbook after it was published and changes were detected](/docs/getting-started/first-runbook-run/images/run-runbook-post-publish-changes.png "width=500")
 
-:::hint
+:::div{.hint}
 The specific version of any packages used in a runbook process is included in the snapshot when it is published.  Updating a package requires you to republish the Runbook.  As such, it is not recommended to use runbooks to "stage" or "pre-deploy" an application package.
 :::
 

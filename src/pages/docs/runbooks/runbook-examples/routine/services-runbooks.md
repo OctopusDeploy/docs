@@ -31,7 +31,7 @@ For Windows services, there are three Community Step Templates available, one fo
 4. Add one of the templates listed above.
 5. Fill out all the parameters in the step. It is best practice to use [variables](/docs/projects/variables) rather than entering the values directly in the step parameters.
 
-:::hint
+:::div{.hint}
 All three services use a single parameter of the same name.
 :::
 
@@ -63,7 +63,7 @@ Using a runbook in Octopus can provide a self-service mechanism for developers t
 | Action | Start, Stop, Restart. | Restart |
 | Sleep in seconds | Length of time in seconds to wait for the service to start. | 5 (default) |
 
-:::warning
+:::div{.warning}
 Use variables where possible so you can assign scopes to values. This will ensure that things like service name are correct for the environment you're executing the runbook on.
 :::
 

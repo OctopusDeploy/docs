@@ -94,7 +94,7 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. If these are not provided, work items will not be displayed when viewing packages or creating releases.
 
-      :::warning
+      :::div{.warning}
       **Jira Cloud only supports API tokens**
       Please note: Jira Cloud only supports an **API Token** for authentication. An API token should be entered, rather than an actual password. You can create one from an Atlassian account in the **Security** area.
       :::
@@ -136,7 +136,7 @@ This process is for Jira Server, if you are using Jira Cloud, see [Connecting Ji
 
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. Note that if these credentials are not provided, work items will not be displayed when viewing packages or creating releases.
 
-      :::warning
+      :::div{.warning}
       **Jira Server does not support API tokens**
       Please note: Jira Server does not support API tokens, so a username and password must be entered.
       :::
@@ -154,14 +154,14 @@ You can verify a connection can be made successfully between the Octopus Server 
 The **Connect App** `Test` button (found under `Jira Connect App Password`) checks the connectivity for pushing deployment data to your Jira Cloud instance.
 ![Connect App Test button](/docs/releases/issue-tracking/images/jiraconnectapp_testbutton.png "width=500")
 
-:::hint
+:::div{.hint}
 For this connectivity test to succeed the Octopus Server must be able to connect to both your Jira Cloud instance's URL, and to [https://jiraconnectapp.octopus.com](https://jiraconnectapp.octopus.com), which hosts our Jira plugin.
 :::
 
 The **Release Notes** `Test` button (found under `Jira Password`) checks the connectivity to your Jira Cloud/Server instance for retrieving work item information.
 ![Release Notes Test button](/docs/releases/issue-tracking/images/jirareleasenotes_testbutton.png "width=500")
 
-:::hint
+:::div{.hint}
 For this connectivity test to succeed the Octopus Server must be able to connect to your Jira Cloud/Server instance's URL.
 :::
 
@@ -171,7 +171,7 @@ When the Jira Integration is enabled and configured with Connect App settings, y
 
 ![Deployment task log](/docs/releases/issue-tracking/images/deploy-task-log-green.png "width=500")
 
-:::hint
+:::div{.hint}
 You must [configure your build server](#configure-your-build-server) to push commit information to Octopus.
 Without this, Octopus will not attempt to update Jira issues.
 :::
@@ -186,7 +186,7 @@ If you're running into issues with the Jira Integration, it's possible it could 
 
 ### Issues after upgrading the Jira Plugin {#troubleshooting-jira-plugin-upgrades}
 
-:::warning
+:::div{.warning}
 **Change of functionality resulting in Data Loss**
 Please note: The reinstallation of the plugin has worked in the past to restore functionality of the integration. From April 2022 performing the below step will remove all Historical Deployment Information from Jira Cloud. We are waiting on information from Atlassian to confirm if this is a permanent or temporary feature. Please contact support@octopus.com for the latest information regarding this issue.
 :::

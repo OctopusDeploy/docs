@@ -9,7 +9,7 @@ navOrder: 55
 
 You can configure a pair of Octopus Tentacles in an active/passive failover cluster on shared storage with the **Failover Cluster Manager**. You may need to do this if you're running an application in a failover cluster and would like to use Octopus Deploy to deploy your application to it irrespective of the fail-over state. In this scenario your Octopus Server will always be communicating with the Octopus Tentacle that is installed on the active node within the failover cluster. This approach has been tested on Windows Server 2016.
 
-:::warning
+:::div{.warning}
 **Shared storage Considerations**
 It is not possible to store the `tentacle.config` file in shared storage because the Tentacle.Certificate component gets encrypted using a node's machine-specific key. If you attempt to store the config file in shared storage, you will encounter the error: `Key not valid for use in specified state` upon switching to a new active node. This occurs because the new active node is not able to decrypt the private key resulting in the Tentacle service failing to start.
 :::
@@ -26,7 +26,7 @@ This guide assumes you already have the following setup:
 
 ## Installation {#ClusteringTentacles-Installation}
 
-:::warning
+:::div{.warning}
 **Installing Tentacles with shared storage**
 This guide implements shared storage using an iSCSI target with Multipath IO configured on the Tentacle servers, in this scenario it is best to avoid accessing the same iSCSI volume from two different hosts at the same time as doing so may result in corrupt data on the iSCSI volume.
 :::
@@ -91,7 +91,7 @@ After all validation processes successfully, you will be returned to the **Creat
 
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/configure-clusterhostname.jpg "width=500")
 
-:::warning
+:::div{.warning}
 **Access point for administering the cluster**
 The IP address which you specify here is not going to be used by Octopus Server, instead this is used for administering the cluster.
 :::

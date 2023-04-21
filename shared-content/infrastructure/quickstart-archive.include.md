@@ -1,6 +1,6 @@
 ### Archive
 
-:::warning
+:::div{.warning}
 **Note:**
 - Linux Arm and Arm64 support is currently **experimental**.
 - Requires Octopus Server 2020.5.0+

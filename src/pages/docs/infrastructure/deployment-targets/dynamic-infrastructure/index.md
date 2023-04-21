@@ -7,7 +7,7 @@ description: Octopus resources created in cloud providers can also be modeled in
 navOrder: 100
 ---
 
-:::hint
+:::div{.hint}
 Octopus version 2022.1 has support for discovering and cleaning up supported types of deployment targets using tags on cloud resources, please see our documentation on [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 :::
 
@@ -40,7 +40,7 @@ To learn more about the things you can do with the API, take a look at our [API 
 
 Each of the resource commands is available as a PowerShell function anywhere that a step allows you to run a PowerShell script.
 
-:::hint
+:::div{.hint}
 Only a subset of account types and deployment targets support being created dynamically using the commands listed below.
 :::
 
@@ -53,7 +53,7 @@ Only a subset of account types and deployment targets support being created dyna
 
 ### Targets
 
-:::warning
+:::div{.warning}
 Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/#enable-dynamic-infrastructure) for more information.
 :::
 
@@ -69,7 +69,7 @@ Before you can create dynamic targets in an Environment, the environment needs t
 All of the commands will result in an Account or Deployment Target, which will automatically be scoped to the Environment and Tenant (if the deployment is for a tenant).
 This cannot be overridden through the commands.
 
-:::warning
+:::div{.warning}
 These commands are not available in the **Script Console**.
 :::
 

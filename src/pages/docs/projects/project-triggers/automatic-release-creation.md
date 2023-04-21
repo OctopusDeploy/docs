@@ -7,7 +7,7 @@ description: Automatic release creation allows you to automatically create a new
 navOrder: 15
 ---
 
-:::hint
+:::div{.hint}
 **Consider using a build server extension**
 We have [extensions/plugins](/docs/packaging-applications/build-servers/) available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository), create releases and deploy them to your environments:
 
@@ -25,7 +25,7 @@ We have [extensions/plugins](/docs/packaging-applications/build-servers/) availa
 
 If you use the [built-in Octopus package repository](/docs/packaging-applications/package-repositories), you can now select a package, that when uploaded it will automatically create a release.
 
-:::warning
+:::div{.warning}
 **Built-in repository only**
 External package repositories **cannot be used to automatically create releases**, only the [built-in package repository](/docs/packaging-applications/package-repositories) is supported.
 :::
@@ -44,7 +44,7 @@ When a release is set to be created this way, the audit will tell you that is ho
 
 If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/releases/lifecycles/#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
 
-:::hint
+:::div{.hint}
 The release number that is created is guided by the Release Versioning settings under **{{Project,Settings}}**. It will use the rules defined.
 :::
 

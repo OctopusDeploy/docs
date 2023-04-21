@@ -7,7 +7,7 @@ description: Octopus Deploy can use Octopus accounts to identify users.
 navOrder: 30
 ---
 
-:::hint
+:::div{.hint}
 Octopus ID authentication is only available in [Octopus Cloud](/docs/octopus-cloud).
 :::
 
@@ -25,7 +25,7 @@ Octopus ID allows you to sign in using the following external authentication pro
 - Microsoft Azure Active Directory (AAD)
 - GitHub
 
-:::hint
+:::div{.hint}
 Octopus ID does not currently support configuring [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles) using any of the authentication providers listed.
 :::
 

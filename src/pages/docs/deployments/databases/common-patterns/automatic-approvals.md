@@ -38,7 +38,7 @@ Creating a variable also makes it much easier to use in a [run condition](/docs/
 
 ![](/docs/deployments/databases/common-patterns/images/auto_approve_run_conditions.png "width=500")
 
-:::hint
+:::div{.hint}
 We recommend setting the output variable to `True` or `False` because that is what the [run conditions](/docs/projects/steps/conditions/#run-condition) look for.  If you need an if/then statement, then in include it in the auto-approval script.
 :::
 

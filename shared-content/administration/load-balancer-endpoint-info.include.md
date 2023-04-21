@@ -8,7 +8,7 @@ Making a standard `HTTP GET` request to this URL on your Octopus Server nodes wi
 - HTTP Status Code `418 I'm a teapot` when the Octopus Server node is online, but it is currently in [drain mode](#drain) preparing for maintenance.
 - Anything else indicates the Octopus Server node is offline, or something has gone wrong with this node.
 
-:::hint
+:::div{.hint}
 The Octopus Server node configuration is also returned as JSON in the HTTP response body.
 :::
 

@@ -21,7 +21,7 @@ As their names suggest, the `Plan to apply a Terraform template` step will gener
 
 The planning steps offer the [same base configuration as the other built-in Terraform steps](/docs/deployments/terraform/working-with-built-in-steps). You can refer to the documentation for those steps for more details on the options for the plan steps.
 
-:::warning
+:::div{.warning}
 The plan steps do not support saving the plan to a file and applying that file at a later date. This means the plan information only makes sense when the same values are used in the plan and apply/destroy steps. Configuring shared variables for the step fields ensures that the same values will be used.
 :::
 

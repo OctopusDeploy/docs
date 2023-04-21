@@ -23,7 +23,8 @@ The practical impact of this is:
 - The "Master Key" used to encrypt and decrypt this data is itself encrypted by Windows, using a private key known only by Windows.
 - If an attacker has access to your Octopus database backup file, but they aren't on the Octopus Server and don't know the Master Key, they won't be able to decrypt the database or other settings.
 
-:::problem
+:::div{.problem}
+
 **Warning**
 Without keeping a record of your Master Key, you won't be able to make use of your Octopus database backups, since there is no way to decrypt these sensitive values.
 :::

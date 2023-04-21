@@ -11,7 +11,7 @@ First, let's get the project scaffolding in place.  Start by creating a project 
 
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-projectgroupcreation.png "width=500")
 
-:::hint
+:::div{.hint}
 Project groups are a great way to organize your deployment projects.  They have many uses; not only do they visually separate the projects, but you can also configure the dashboard to hide/show specific project groups and configure permissions to restrict access to them.
 :::
 
@@ -19,7 +19,7 @@ That group looks a little empty.  Let's add in the three projects we discussed e
 
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-projectgrouppopulated.png "width=500")
 
-:::hint
+:::div{.hint}
 Adding an image to your project is a useful way to set them apart from other projects visually.  In addition to supporting .jpg and .png files, we also support .gif files; this means you can have an animated icon to add a little flair to your Octopus Deploy instance!
 :::
 
@@ -29,7 +29,7 @@ We have the three projects set up, but we need to share some common variables be
 
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-projectlibraryset.png "width=500")
 
-:::hint
+:::div{.hint}
 A project can reference 0 to N number of library sets.  Variable naming is significant.  A good practice is to use a Namespace style syntax on naming, `[LibrarySetName].[ComponentName].[SubName]`.  Project variables can then be called `[Project].[ComponentName].[SubName]`.  Using detailed names allow you to distinguish project variables from library set variables when viewing project steps, and task log output.
 :::
 
@@ -49,7 +49,7 @@ Next, we are going to add the manual intervention step for the DBAs to approve. 
 
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-dbaapprovaldatabase.png "width=500")
 
-:::hint
+:::div{.hint}
 This project deploys a database package using [DBUp](https://github.com/DbUp/), a free database deployment tool.  Some tools provide the ability to generate a difference report before deployments, Octopus can store this report as an artifact, and a DBA can download and review.  In that case, it makes more sense to have the manual intervention occur after that report has been generated.
 :::
 
@@ -71,7 +71,7 @@ Now we are ready to configure the database deployment.  When creating a PoC or o
 
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-dbprojectvariablepackage.png "width=500")
 
-:::hint
+:::div{.hint}
 Using a variable to reference a package also makes it easier to clone this project to use with another application.
 :::
 
@@ -105,7 +105,7 @@ You will then see the **Rolling Deployment** section, where you can set the wind
 
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-rollingdeployments2.png "width=500")
 
-:::hint 
+:::div{.hint} 
 Take a look at our documentation on how to [configure a rolling deployment](/docs/deployments/patterns/rolling-deployments).
 :::
 

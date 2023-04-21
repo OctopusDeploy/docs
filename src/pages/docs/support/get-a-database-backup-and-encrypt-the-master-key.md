@@ -17,7 +17,7 @@ The easiest way to import a database is to restore from a .bak file, and this is
 
 2. Encrypt your Master Key.
 
-:::hint
+:::div{.hint}
 You can get your Master Key using [Octopus Manager](/docs/security/data-encryption/#Securityandencryption-YourMasterKey) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key).
 :::
 

@@ -26,7 +26,7 @@ Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-cont
 
 Next, add the directory you would like Octopus to store the project configuration. You can connect multiple projects to the same repository if they all use a different sub-directory (e.g. `.octopus/acme` and `.octopus/another-project`).
 
-:::hint
+:::div{.hint}
 You can have multiple deployment processes in the same repository if they all use a different sub-directory.
 :::
 
@@ -46,7 +46,7 @@ If your repository has branch protection setup, see [Setting up in a repository 
 
 ## Configuring an existing project to use Git
 
-:::warning
+:::div{.warning}
 Converting a project to use Git is a one-way change. Once you convert a project Git, you **cannot** convert it back. Please make sure you want to do this, and consider cloning your project to test how it works, so you know what to expect before converting important projects.
 :::
 
@@ -61,7 +61,7 @@ Enter the connection information for your Git repository. You need to provide:
 
 Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference).
 
-:::hint
+:::div{.hint}
 You can have multiple deployment processes in the same repository if they all use a different sub-directory.
 :::
 

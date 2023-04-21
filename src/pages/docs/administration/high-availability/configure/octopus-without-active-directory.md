@@ -16,7 +16,7 @@ This document covers the configuration of Octopus **without Active Directory** a
 - SQL Authentication will be used over Windows Authentication.
 - You are configuring Octopus on a cloud provider or in a DMZ.
 
-:::hint
+:::div{.hint}
 **Not a Windows cluster**
 While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus nodes do not require Windows Server Failover Clustering. They should be standalone servers and they can be on-premises, in Azure, or AWS.
 :::
@@ -27,7 +27,7 @@ On the first Octopus Server node, [download the Octopus Server MSI](https://octo
 
 ![](/docs/administration/high-availability/configure/images/getting-started.png "width=500")
 
-:::hint
+:::div{.hint}
 The Octopus home directory is local to each specific node and **should not be shared** between nodes. This is usually located at `C:\Octopus`.
 :::
 
@@ -57,7 +57,7 @@ There are two options for configuring shared storage:
 1. Setting the root shared storage directory.
 2. Setting each directory individually.
 
-:::warning
+:::div{.warning}
 The first option was added in **2020.2.15**. If you are using an earlier version, then you need to use the second option and set each folder path individually.
 :::
 

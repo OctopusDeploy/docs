@@ -41,7 +41,7 @@ In this example, we'll use SQL Authentication and provide both a SQL username an
 | Copy Only | Just do a copy only backup | True |
 
 
-:::warning
+:::div{.warning}
 Use variables where possible so you can assign scopes to values. This will ensure credentials and database connections are correct for the environment you're deploying to.
 :::
 

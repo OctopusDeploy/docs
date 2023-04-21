@@ -41,11 +41,11 @@ If you have a build for a separate branch, it's a good idea to add the version t
 
 Please refer to [this](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/run-number) documentation on how to set the build number in your pipeline.
 
-:::warning
+:::div{.warning}
 The only downside of this numbering format is the `$(BuildID)` variable _always_ increases, and does so at the Project Collection level. That means it doesn't reset when you increment your major and minor versions, and if you have multiple builds in your Collection, numbers will be skipped.
 :::
 
-:::hint
+:::div{.hint}
 Other extensions such as [gitversion](https://github.com/GitTools/GitVersion) can also be used to easily get SemVer compliant build numbers.
 :::
 

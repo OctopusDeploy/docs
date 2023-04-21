@@ -1,3 +1,3 @@
-:::hint
+:::div{.hint}
 Microsoft has renamed Visual Studio Team Foundation Server (TFS) to Azure DevOps Server with the introduction of Azure DevOps Server 2019. The guidance provided in this document applies to supported versions of TFS. For more information about our support for TFS, see [Azure DevOps and TFS Extension Version Compatibility](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/extension-compatibility).
 :::

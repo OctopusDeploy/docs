@@ -28,7 +28,7 @@ You can configure an [offline package drop deployment target](/docs/infrastructu
 
 In this scenario, the customer would install different instances of Octopus in both environments. To keep settings in sync and to automate between environments, refer to the [documentation on keeping instances in sync](/docs/administration/sync-instances).
 
-:::success
+:::div{.success}
 **Friendly multi-instance licensing model**
 Your Octopus Deploy license includes the ability to install and configure up to three (3) separate instances of Octopus Server to support scenarios like this one.
 :::

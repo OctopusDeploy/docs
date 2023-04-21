@@ -9,7 +9,7 @@ navOrder: 20
 
 The Octopus Server Windows Container has been deprecated starting from **Octopus 2020.6**.  We made this decision because the uptake was low, and Microsoft has stopped supporting the OS Versions we were publishing (Windows [1809](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1809-and-windows-server-2019), [1903](https://docs.microsoft.com/en-us/lifecycle/announcements/windows-10-1903-end-of-servicing), and [1909](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1909)).  Going forward, we will only publish the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container).  
 
-:::hint
+:::div{.hint}
 We will continue to publish Windows Docker images for Tentacle. Once we've updated the Windows images for Tentacle to more modern OS versions, we will deprecate the existing Windows 1809/1903/1909 images.
 :::
 
@@ -24,7 +24,7 @@ This guide is designed to address the differences between the Windows and Linux 
 - **Software support:** The Linux Container doesn't support running ScriptCS or F# scripts directly on the server.
 - **Authentication:** The Octopus Server Linux Container doesn't support Active Directory authentication.  Some users have had success using Active Directory with the Octopus Server Windows Container, but any workarounds won't work with the Linux Container.  If you want to use Active Directory, you must connect to it via the [LDAP authentication provider](/docs/security/authentication/ldap).
 
-:::hint
+:::div{.hint}
 The LDAP authentication provider was introduced in Octopus Deploy **2021.2**.
 :::
 

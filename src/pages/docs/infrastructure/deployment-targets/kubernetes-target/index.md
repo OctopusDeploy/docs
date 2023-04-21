@@ -10,7 +10,7 @@ Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernet
 
 Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.  A namespace is required when registering the Kubernetes cluster with Octopus Deploy. By default, the namespace used in the registration is used in health checks and deployments. The namespace can be overwritten in the deployment process.
 
-:::hint
+:::div{.hint}
 From **Octopus 2022.2**, AKS target discovery has been added to the 
 Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
 
@@ -21,7 +21,7 @@ From **Octopus 2022.3** will include EKS cluster support.
 
 Octopus can discover Kubernetes targets in _Azure Kubernetes Service_ (AKS) or _Amazon Elastic Container Service for Kubernetes_ (EKS) as part of your deployment using tags on your AKS or EKS resource. 
 
-:::hint
+:::div{.hint}
 From **Octopus 2022.3**, you can configure the well-known variables used to discover Kubernetes targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 :::
 
@@ -85,7 +85,7 @@ users:
 
       The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
 
-      :::hint
+      :::div{.hint}
       Available from **Octopus 2020.6**, the **Login with administrator credentials** option may be required to authenticate with an AKS cluster with Azure Active Directory integration, as performing a non-interactive login with `kubectl` is not currently available. See this <a href="https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks/suggestions/35146387-support-non-interactive-login-for-aad-integrated-c">Azure UserVoice</a> suggestion for more details on this limitation.
       :::
 
@@ -93,7 +93,7 @@ users:
 
       The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. We highly recommend reading the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).    
 
-      :::hint
+      :::div{.hint}
       **Common issues:**
       From version 2022.4 Octopus can use the `aws cli` to authenticate to an EKS cluster, earlier versions rely on the `aws-iam-authenticator`. If using the AWS account type, the Octopus Server or worker must have either the `aws cli` (1.16.156 or later) or `aws-iam-authenticator` executable on the path. If both are present the `aws cli` will be used. The EKS api version is selected based on the kubectl version. For Octopus 2022.3 and earlier `kubectl` `1.23.6` and `aws-iam-authenticator` version `0.5.3` or earlier must be used, these target `v1alpha1` endpoints. For `kubectl` `1.24.0` and later `v1beta1` endpoints are used and versions `0.5.5` and later of the `aws-iam-authenticator` are required. See the [AWS documentation](https://oc.to/AWSEKSKubectl) for download links.
 
@@ -103,7 +103,7 @@ users:
       :::
     - **Google Cloud Account**: When using a GKE cluster, [Google Cloud accounts](/docs/infrastructure/accounts/google-cloud) allow you to authenticate using a Google Cloud IAM service account.
 
-      :::hint
+      :::div{.hint}
       From `kubectl` version `1.26`, authentication against a GKE cluster [requires an additional plugin called `gke-cloud-auth-plugin` to be available](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke) on the PATH where your step is executing. If you manage your own execution environment (eg self-hosted workers, custom execution containers etc), you will need to ensure the auth plugin is available alongside `kubectl`
       :::
     - **Client Certificate**: When authenticating with certificates, both the certificate and private key must be provided.

@@ -11,7 +11,7 @@ Subscriptions allow you to subscribe to events that are happening within Octopus
 
 Subscriptions can be accessed from the `Configuration` menu.
 
-:::hint
+:::div{.hint}
 **Running on an Octopus version below 3.12?**
 For earlier versions of Octopus, Subscriptions can be accessed from the **{{Configuration > Audit > Subscriptions}}** menu. See the version-selector of the documentation to jump to your specific Octopus version.
 :::
@@ -40,7 +40,7 @@ We can then select just the projects/environments we want to monitor. In this ca
 
 So in this example, all users in the _Octopus Administrators_ team (with a valid email address) will receive an email notification for _Deployment-critical events_, in the _Infrastructure_ and _Code_ projects, that occurred in our _Production_ environment.
 
-:::hint
+:::div{.hint}
 **Dates and Timezone**
 In this example, we have also configured the timezone drop-down so all dates shown in the emails will be in our preferred timezone.
 :::
@@ -90,7 +90,7 @@ The `Payload` includes:
 
 \** This property is available since version `3.12.5`
 
-:::hint
+:::div{.hint}
 **Consuming Events**
 While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your consuming API with this in mind.
 :::

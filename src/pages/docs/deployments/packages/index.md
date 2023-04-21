@@ -17,14 +17,14 @@ When adding a step to your deployment process, choose the **Deploy a Package**�
 
 When deploying a package you will need to select the machine role that the package will be deployed to. You will also be asked to select the [feed](/docs/packaging-applications/package-repositories) that is the source of the package, and the ID of the package to deploy.
 
-:::hint
+:::div{.hint}
 **Variable Package Feed and/or Package ID**
 You can dynamically select a Package Feed and/or the Package ID at deployment time using an Octopus variable expression. Learn more about [using dynamically selecting packages at deployment time](/docs/deployments/packages/dynamically-selecting-packages).
 :::
 
 ![](/docs/deployments/packages/images/deploy-package-step.png "width=500")
 
-:::hint
+:::div{.hint}
 When multiple machines are in the role you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/deployments/patterns/rolling-deployments).
 :::
 
@@ -41,7 +41,7 @@ Octopus is built to make it easy to deploy .NET applications, and contains a num
 1. Execute each of your [custom scripts](/docs/deployments/custom-scripts/) and the [deployment features](/docs/deployments/) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering).
 1. [Output variables](/docs/projects/variables/output-variables/) and deployment [artifacts](/docs/projects/deployment-process/artifacts) from this step are sent back to the Octopus Server.
 
-:::hint
+:::div{.hint}
 **Package deployment feature ordering**
 Each part of a package step is [executed in a specific order](/docs/deployments/packages/package-deployment-feature-ordering) by the open-source [Calamari project](https://github.com/OctopusDeploy/Calamari) to enable more complex deployment scenarios.
 :::

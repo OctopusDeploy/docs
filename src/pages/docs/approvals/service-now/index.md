@@ -7,7 +7,7 @@ description: Octopus Deploy can integrate with your ServiceNow instance for depl
 navOrder: 10
 ---
 
-:::hint
+:::div{.hint}
 The ServiceNow Integration feature is available from Octopus **2022.3** onwards and requires an [enterprise subscription](https://octopus.com/pricing).
 [Contact us](https://octopus.com/company/contact) to request a trial.
 :::
@@ -45,7 +45,7 @@ Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 
 ### Configuring Service Now
 
-:::hint
+:::div{.hint}
 The instructions in this section will require a ServiceNow Administrator.
 :::
 
@@ -80,7 +80,7 @@ An enabled license will include a block similar to below:
 
 ### Configuring ServiceNow connections
 
-:::hint
+:::div{.hint}
 The instructions in this section will require an Octopus Deploy Manager or Administrator
 :::
 
@@ -100,11 +100,11 @@ Multiple ServiceNow connections are supported, however, each project can only us
 
 ### Configuring Work Notes
 
-:::warning
+:::div{.warning}
 This feature is only available for version 2022.3.1274 and later
 :::
 
-:::hint
+:::div{.hint}
 The instructions in this section will require an Octopus Deploy Manager or Administrator
 :::
 
@@ -149,7 +149,7 @@ To enable an environment to enforce a requirement for an approved CR, navigate t
 
 ### Continuous Delivery (CD) audit record
 
-:::warning
+:::div{.warning}
 This feature is only available for version 2022.3.7086 and later
 :::
 
@@ -175,7 +175,8 @@ When re-deploying a previous deployment, the same CR will be used if it is still
 
 Once a CR has been found, the deployment will only proceed if the **State** of the CR is `Implement`. If the **State** is either `New`, `Assess`, `Authorize`, or `Scheduled` the deployment will wait. Any other **State** will cause the deployment task to fail.
 
-:::info
+:::div{.info}
+
 The only supported states are those defined in the default CR lifecycle
 :::
 
@@ -193,13 +194,13 @@ Octopus supports matching a CR by setting the **Short Description** of the CR to
 
 e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
 
-:::hint
+:::div{.hint}
 The title must match the format **exactly**, including the double-quotes.
 :::
 
 ### Respecting Change Windows
 
-:::warning
+:::div{.warning}
 This feature is only available for version 2022.3.3026 and later
 :::
 

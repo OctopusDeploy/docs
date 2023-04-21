@@ -8,7 +8,7 @@ description: An example script that finds all variables with a specific value in
 
 This script demonstrates how to programmatically find usages of a variable value in all projects and library variable sets. You could use this to help replace values in a connection string if a server name or IP has changed.
 
-:::hint
+:::div{.hint}
 **Limitations:** 
 Please note the limitations with this example:
 - It's not possible to use the REST API to search through sensitive variable values.

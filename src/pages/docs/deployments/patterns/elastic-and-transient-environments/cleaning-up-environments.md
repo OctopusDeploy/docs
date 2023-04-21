@@ -38,7 +38,7 @@ In this example we will create a machine policy to automatically delete machines
 Machine deletion happens as part of health checks.
 
 
-:::hint
+:::div{.hint}
 Read more about [machine policies](/docs/infrastructure/deployment-targets/machine-policies)
 :::
 

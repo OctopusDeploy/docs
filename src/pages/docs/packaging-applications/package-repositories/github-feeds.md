@@ -44,7 +44,7 @@ You can check whether the GitHub feed is working by searching for packages. Clic
 
 ![GitHub Feed Test search](/docs/packaging-applications/package-repositories/images/github-feed-test.png "width=500")
 
-:::hint
+:::div{.hint}
 **Note:** When testing a GitHub Feed, the **Version** field will not be displayed. This is due to the way Octopus queries the GitHub [repository search API](https://docs.github.com/en/rest/reference/search#search-repositories) which doesn't return release tags. This was an intentional decision implemented for performance reasons.
 :::
 

@@ -103,7 +103,7 @@ echo_error "This is an error"
 fail_healthcheck "This is an error"
 ```
 
-:::hint
+:::div{.hint}
 **Agent-Level variables**
 
 When using a custom health check script, the script execution through Calamari is bypassed. This results in some behavioral differences compared with the normal scripting in Octopus that you would be accustomed to. You can still use the standard `#` variable substitution syntax, however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.

@@ -54,7 +54,7 @@ The instructions at [Creating a script module](/docs/deployments/custom-scripts/
 
 In the **Body** of the script module, include the following PowerShell code:
 
-:::hint
+:::div{.hint}
 Note the use of the `Project.GCP.ProjectName` variable which also needs to be created in your project. The value defines the scope of the project in Google Cloud you are authorizing the service account for.
 :::
 
@@ -353,7 +353,7 @@ There are a number of variables used in the script:
 
 Finally, in order to have a functioning load balancer, we need virtual machines to add to the target pools.
 
-:::hint
+:::div{.hint}
 This step assumes you have already created one or more Compute Engine instance in Google Cloud to add to the target pool, which follow a naming convention of `machinename-number`. This is to allow multiple machines to be added to the target pool in a single step.
 :::
 

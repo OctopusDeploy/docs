@@ -62,7 +62,7 @@ Customize your project logo to make it easily identifiable amongst other project
 3. Select from our built-in icon library paired with your choice of color or upload a custom image.
 4. Click **Save**.
 
-:::hint
+:::div{.hint}
 For custom images, in addition to supporting .jpg and .png files, we also support .gif files. This means you can have an animated icon to add a little flair to your Octopus Deploy instance!
 :::
 
@@ -70,7 +70,7 @@ For custom images, in addition to supporting .jpg and .png files, we also suppor
 
 Project groups are a great way to organize your deployment projects. They have many uses; not only do they visually separate the projects, but you can also configure the dashboard to hide/show specific project groups and configure permissions to restrict access to them.
 
-:::hint
+:::div{.hint}
 The *Default Project* group contains all of the projects that have not been added to another group.
 :::
 ## Add a project group

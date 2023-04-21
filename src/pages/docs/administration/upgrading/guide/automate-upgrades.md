@@ -37,7 +37,7 @@ A single node Octopus Deploy instance is an instance not configured for [high av
 
 Depending on the duration of the upgrade, your Octopus Server may still be starting up when the script completes. It will still be in maintenance mode, giving you a chance to log in to the Octopus Web Portal and verify things are working as expected.
 
-:::hint
+:::div{.hint}
 Replace the variable values at the start of the script with ones applicable to your installation.
 :::
 
@@ -190,7 +190,7 @@ As this is a runbook, you'll want to create variables to share across the variou
 
 The upgrade process itself is very similar to upgrading a single node instance.  The key difference is the script is broken up into multiple steps.
 
-:::hint
+:::div{.hint}
 Aside from step 1, all steps should set a run condition to look at the variable `Upgrade.Octopus.HasNewVersion`
 
 ![](/docs/administration/upgrading/guide/images/automate-upgrade-variable-run-condition.png "width=500")

@@ -42,7 +42,7 @@ Its possible to run SQL Server in a container. This can be useful when running a
 
 The following YAML creates a single instance of SQL Server Express that can be deployed to a Kubernetes cluster. It creates a [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes) to store the database files, a [service](https://kubernetes.io/docs/concepts/services-networking/service/) to expose the database internally, and the database itself.
 
-:::warning
+:::div{.warning}
 Although Octopus [supports SQL Server Express](/docs/installation/sql-server-database/#sql-server-database), the edition has limitations. For more details, see the [Microsoft SQL Server editions](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15#-editions) documentation.
 :::
 
@@ -113,7 +113,7 @@ spec:
             - name: mssqldb
               mountPath: /var/opt/mssql
 ```
-:::hint
+:::div{.hint}
 **Change the SA Password:**
 If you use the YAML definition above, remember to change the `SA_PASSWORD` from the value used here.
 :::
@@ -212,7 +212,7 @@ These are created via [persistent volume claims](https://kubernetes.io/docs/conc
 
 Most of the YAML in this guide can be used with any Kubernetes provider. However, the YAML describing file storage can have differences between each Kubernetes provider as they typically expose different names for their shared filesystems via the `storageClassName` property. 
 
-:::hint
+:::div{.hint}
 To find out more about storage classes, refer to the [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) documentation.
 :::
 
@@ -266,7 +266,7 @@ spec:
 
 The following YAML creates the shared persistent volume claims that will host the artifacts, built-in feed packages, and the task logs using the `standard-rwx` storage class from the Google [Filestore CSI driver](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver).
 
-:::hint
+:::div{.hint}
 **GKE Cluster version pre-requisite:**
 To use the Filestore CSI driver, your clusters must use **GKE version 1.21 or later**. The Filestore CSI driver is supported for clusters using Linux.
 :::
@@ -327,7 +327,7 @@ parameters:
 allowVolumeExpansion: true
 ```
 
-:::hint
+:::div{.hint}
 Firewall rules may also need to be configured to allow the Kubernetes cluster access to the Filestore. Refer to the [Filestore Firewall rules](https://cloud.google.com/filestore/docs/configuring-firewall) for further details.
 :::
 
@@ -529,7 +529,7 @@ spec:
           periodSeconds: 60
 ```
 
-:::hint
+:::div{.hint}
 **Change the Default values:**
 If you use the YAML definition above, remember to change the default values entered including the Admin Username, Admin Password, and the version of the `octopusdeploy/octopusdeploy` image to use. You also need to provide values for the License Key and database Master Key.
 :::
@@ -597,7 +597,7 @@ You can then mount the folder for the server logs, with each Octopus Server Node
   mountPath: /home/octopus/.octopus/OctopusServer/Server/Logs
 ```
 
-:::hint
+:::div{.hint}
 **Note:** The PersistentVolumes associated with the Pods' PersistentVolume Claims are not deleted when the Pods, or StatefulSet are deleted. This must be done manually.
 :::
 
@@ -613,7 +613,7 @@ The `readinessProbe` is used to ensure the Octopus Server node is responding to 
 
 When managing an Octopus High Availability cluster, it can be beneficial to separate the Octopus Web Portal from the deployment orchestration of tasks that Octopus Server provides. It's possible to create *UI-only* nodes that have the sole responsibility to serve web traffic for the Octopus Web Portal and the [Octopus REST API](/docs/octopus-rest-api).
 
-:::hint
+:::div{.hint}
 By default, all Octopus Server nodes are task nodes because the default task cap is set to `5`. To create UI-only Octopus Server nodes, you need to set the task cap for each node to `0`.
 :::
 
@@ -625,7 +625,7 @@ In order to create UI-only nodes in Kubernetes, you need to perform some additio
 - Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/octopus-rest-api/octopus.server.exe-command-line/node) to `0`.
 - Update the `octopus-web` Load balancer Service to direct traffic to pods with the label `app:octopus-ui`.
 
-:::hint
+:::div{.hint}
 If you use Polling Tentacles, you don't need to export port `10943` on the `LoadBalancer` Service definition for the UI-only nodes as they won't be responsible for handling deployments or other tasks. For the same reason, you don't need to configure any Polling Tentacles to poll UI-only nodes.
 :::
 

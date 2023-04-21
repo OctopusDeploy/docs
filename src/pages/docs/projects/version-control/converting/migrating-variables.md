@@ -11,7 +11,7 @@ hideInThisSection: true
 Support for storing non-sensitive variables in Git will be available to everyone in an upcoming version of Octopus. All newly configured Git projects will automatically have variables migrated when converting the project to Git. For existing Git projects, you will need to migrate these manually.
 
 
-:::hint
+:::div{.hint}
 We recommend migrating your variables to Git as soon as practical. We will continue to support Git projects with variables that haven't been migrated for now, but we will remove support for this at some point in the future.
 :::
 
@@ -24,7 +24,7 @@ This document covers the process of migrating variables to Git. You will need to
 All non-sensitive values will be written to your Git repository in plain text during the migration. Before migrating, ensure that you do not have any secret values that are not stored as sensitive variables.
 
 
-:::warning
+:::div{.warning}
 If you can view a value on the variables page (and it's not shown as a password field) or retrieve the value from the API, it's not marked as sensitive and will be written to the `variables.ocl` file.
 :::
 

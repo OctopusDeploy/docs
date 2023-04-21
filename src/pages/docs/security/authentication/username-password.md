@@ -7,7 +7,7 @@ description: Octopus Deploy provides a Username and Password authentication prov
 navOrder: 2
 ---
 
-:::hint
+:::div{.hint}
 Username and Password authentication can only be configured for Octopus Server. For [Octopus Cloud](/docs/octopus-cloud/), authentication using this provider is supported through [Octopus ID](/docs/security/authentication/octopusid-authentication/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information. 
 :::
 

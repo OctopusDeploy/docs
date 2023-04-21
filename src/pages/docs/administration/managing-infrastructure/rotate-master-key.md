@@ -7,7 +7,7 @@ description: A guide to rotating the Master Key on all machines hosting the Octo
 navOrder: 45
 ---
 
-:::hint
+:::div{.hint}
 The ability to rotate the master key was added in **Octopus 2022.4**.
 :::
 
@@ -43,7 +43,7 @@ Once everything is backed up and the Octopus Server stopped, the steps are as fo
 1. You can confirm the new master key is being used by running `Octopus.Server show-master-key`.
 1. Run `Octopus.Server service --start` to start the Octopus Server running against the rotated database.
 
-:::warning
+:::div{.warning}
 **Please read the report carefully and get in touch with us if anything seems out of the ordinary. Back up your new Master Key!**
 :::
 

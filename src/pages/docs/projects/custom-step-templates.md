@@ -61,7 +61,7 @@ You'll also see a handy counter next to the Usage tab so you can see at a glance
 
 If you have [version-controlled](/docs/projects/version-control) projects that use step templates, you will be able to see a tab with version-controlled usages from up to twenty recent releases. You can filter this list to search for usage in a specific branch or use the advanced filters. 
 
-:::hint
+:::div{.hint}
 
 Note: The list of version-controlled usages will only include processes that have been released since converting to version control, and usages will be detected only if a version-controlled process used the step template at the time the release was created.
 
@@ -82,7 +82,7 @@ If you want to transport, backup, or share your custom step templates with the c
 
 Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopus.com/).
 
-:::success
+:::div{.success}
 Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING/) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
 :::
 
@@ -96,7 +96,7 @@ If the linking process isn't linking a template that you believe should be linke
 
 You can run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](/docs/administration/managing-infrastructure/performance/enable-web-request-logging) in the past.
 
-:::hint
+:::div{.hint}
 It's important to note that you can only run script based custom step templates. It's not currently possible to execute step templates based on other step types.
 :::
 
@@ -126,7 +126,7 @@ To re-run the script against different deployment targets or modify the input pa
 
 All steps have a name, which is used to identify the step.
 
-:::success
+:::div{.success}
 Be careful when changing names! Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example you can use [output variables](/docs/projects/variables/output-variables) to chain steps together, and you use the name as the indexer for the output variable. For example: `#{Octopus.Action[StepA].Output.TestResult}`
 :::
 

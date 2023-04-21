@@ -21,7 +21,7 @@ Similar to releases, the version of any packages that are used in the runbook ar
 
 A draft snapshot of a runbook is exactly what it sounds like, a draft version of the currently published version. Drafts are meant to give you a place to work and save a runbook that is a work in progress or has not yet been approved for general use.
 
-:::hint
+:::div{.hint}
 Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger), only published snapshots can. 
 :::
 

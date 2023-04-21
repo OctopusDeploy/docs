@@ -10,7 +10,7 @@ This script demonstrates how to programmatically swap any Active Directory exter
 
 We also have a script that will [swap Active Directory login records with matching LDAP ones](/docs/octopus-rest-api/examples/users-and-teams/swap-users-ad-domain-to-ldap) for Octopus users.
 
-:::hint
+:::div{.hint}
 **Note:**
 Please note there are some things to consider before using this script:
 

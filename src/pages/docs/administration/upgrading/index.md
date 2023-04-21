@@ -29,7 +29,7 @@ When running on Windows, the typical (manual) upgrade process is:
 
 Once the **Octopus Manager** starts the upgrade process, downtime _will_ occur.  The upgrade should take anywhere from a minute to 30 minutes to complete depending on the number of database changes, the database's size, and compute resources.  A good rule of thumb is: the greater the delta between versions, the longer the downtime.  An upgrade from 2019.2.1 to 2020.5.1 will generally take longer than an upgrade from 2020.4.1 to 2020.5.1.  
 
-:::hint
+:::div{.hint}
 [Automating your upgrade process](/docs/administration/upgrading/guide/automate-upgrades) will help reduce the total upgrade time.  Automation also mitigates risk, as all steps, including backups, will be followed.  We've found companies who automate their upgrade process are much more likely to stay up to date.  The smaller the delta between versions, the faster the upgrade.
 :::
 
@@ -42,7 +42,7 @@ If you are using the [Service Watchdog](/docs/administration/managing-infrastruc
 
 You are required to install the same MSI on all servers or nodes in your highly available Octopus Deploy instance.  The MSI installs the updated binaries, which include the latest database upgrade scripts.  Unlike the binaries, the database upgrade only needs to happen once.
 
-:::warning
+:::div{.warning}
 A small outage window will occur when upgrading a highly available Octopus Deploy instance.  The outage window will happen between when you shut down all the nodes and upgrade the first node.  The window duration depends on the number of database changes, the size of the database, and compute resources.  It is highly recommended to [automate your upgrade process](/docs/administration/upgrading/guide/automate-upgrades) to reduce that outage window.
 :::
 
@@ -98,7 +98,7 @@ Please pick from one of these upgrade scenarios.  Any version 3.x or higher is c
   - [Upgrade from 2.x to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.x-2.6.5)
   - [Upgrade from 1.6 to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-1.6-2.6.5)
 
-:::hint
+:::div{.hint}
 Since Octopus Deploy 3.x, the backing database is SQL Server.  Prior to Octopus Deploy 3.x, the backing database was RavenDB.  That is why we consider any version released before 3.x a legacy upgrade.
 :::
 

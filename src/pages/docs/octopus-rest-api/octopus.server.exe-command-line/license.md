@@ -36,7 +36,7 @@ This example supplies the license in a Base64 encoded string to use for the Octo
 octopus.server license --instance="OctopusServer" --licenseBase64="RXhhbXBsZVN0cmluZ1NpbXVsYXRpbmdMaWNlbnNlS2V5QXNCYXNlNjQ="
 ```
 
-:::warning
+:::div{.warning}
 Please note: the value used in the `--licenseBase64` here is not a valid license key for use with Octopus.
 :::
 

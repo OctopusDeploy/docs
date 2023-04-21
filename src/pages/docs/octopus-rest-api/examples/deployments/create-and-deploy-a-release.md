@@ -20,7 +20,7 @@ Provide values for:
 - Channel Name
 - (Optional) Tenant Names 
 
-:::warning
+:::div{.warning}
 **These scripts will create a release and deployments to the provided environments. Take care when running this script or one based on it.**
 :::
 

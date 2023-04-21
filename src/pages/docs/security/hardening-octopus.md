@@ -9,7 +9,7 @@ navOrder: 10
 
 We pride ourselves on making Octopus Deploy a secure product. If you are hosting the Octopus Server yourself, you are responsible for the security and integrity of your Octopus installation. This guide will help you harden your network, host operating system, and the Octopus Server itself.
 
-:::hint
+:::div{.hint}
 Have you heard about [Octopus Cloud](https://octopus.com/cloud)? We take care of hosting your Octopus Server for you so you can get on with the job of deploying and managing your applications.
 :::
 
@@ -151,7 +151,8 @@ All communication between Octopus Server and Tentacles is performed over a secur
 
 On Windows, the easiest way to disable weak versions of SSL and TLS are by using a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto) to change the Windows Registry. 
 
-:::problem
+:::div{.problem}
+
 **Take care editing registry entries**
 Editing the Windows registry can have serious implications. Please make sure you understand and are comfortable with the potential risks. Remember to always [backup any keys](https://support.microsoft.com/en-us/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692) before they are modified. If you have any questions or need assistance, please [contact us](https://octopus.com/support).
 :::
@@ -188,7 +189,7 @@ New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client" -name "DisabledByDefault" -value 1 -PropertyType "DWord" -Force | Out-Null
 ```
 
-:::hint
+:::div{.hint}
 Once the TLS versions are disabled, reboot your Server and importantly [verify the change was successful](#disable-weak-tls-protocols-verify).
 :::
 
@@ -208,7 +209,7 @@ On Ubuntu `18.04`, if the `MinProtocol` directive doesn't work, you can try this
 Protocol = -SSLv3, -TLSv1, -TLSv1.1, TLSv1.2
 ```
 
-:::hint
+:::div{.hint}
 Once the version of TLS is set in your config, you'll want to restart any Tentacle service, and importantly [verify the change was successful](#disable-weak-tls-protocols-verify).
 :::
 
@@ -220,7 +221,7 @@ Once you have performed changes to the available versions of TLS, you should ver
 
 These steps only apply if you are running either the built-in worker or an external worker on the same host operating system as the Octopus Server itself. You should prevent custom scripts executed by these workers from doing harm to your Octopus Server.
 
-:::hint
+:::div{.hint}
 Consider using an [external worker](/docs/infrastructure/workers) and moving this workload to a different server. This is the very best way to prevent any potential for harm to your Octopus Server, and you won't need to rely on the rest of these steps to prevent harm to your Octopus Server.
 :::
 

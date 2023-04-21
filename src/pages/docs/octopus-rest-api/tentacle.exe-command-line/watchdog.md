@@ -29,7 +29,7 @@ Or one of the common options:
 
 ## Basic examples 
 
-:::warning
+:::div{.warning}
 **Windows only**
 These examples apply to Tentacles installed on Windows only.
 :::

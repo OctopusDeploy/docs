@@ -11,7 +11,7 @@ It can be frustrating when a deployment step isn't working as expected.  Often t
 
 A handy way to debug is by using the variable `Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo`, which if set to a file-path will cause the [Calamari](/docs/octopus-rest-api/calamari) working directory to be copied to the configured location. The file-path location is local to the deployment target, so setting the value to c:\temp or #{Octopus.Agent.ProgramDirectoryPath}/#{Octopus.Release.Number} will copy the working directory to these folders on each of the targets. 
 
-:::warning
+:::div{.warning}
 The copied directory will include a file which contains the secret one-time key passed to Calamari to decrypt the sensitive variables used in the deployment.  
 This directory (or at least the `Variable.secret` file) should be deleted once no longer required.
 :::

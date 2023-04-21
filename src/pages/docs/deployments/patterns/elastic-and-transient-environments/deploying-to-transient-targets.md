@@ -24,7 +24,7 @@ This example uses the OctoFX project that does a deployment to two roles: **Rate
 3. Under *Unavailable Deployment targets* click **Skip** and select the roles that can be skipped, in our example (**TradingWebServer**). If no roles are selected, then any deployment target may be skipped.
 4. Create and deploy a release to an environment where deployment targets in the **TradingWebServer** role are unavailable. They will be automatically removed from the deployment.
 
-:::success
+:::div{.success}
 To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date).
 :::
 

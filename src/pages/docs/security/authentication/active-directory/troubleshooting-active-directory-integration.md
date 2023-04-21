@@ -9,7 +9,7 @@ navOrder: 30
 
 It's common for companies to integrate Octopus with Active Directory to manage their users and teams.  Active Directory is very flexible and can have complex configurations, so we've put together this troubleshooting guide to help people troubleshoot and resolve authentication issues.
 
-:::hint
+:::div{.hint}
 This information is provided as a guide to help teams troubleshoot Octopus authentication issues with Active Directory. This, combined with a solid working knowledge of your infrastructure and some perseverance, should help resolve most issues.
 :::
 
@@ -24,7 +24,7 @@ Octopus integrates with Active Directory to authenticate users as well as author
 1. First, we authenticate a users' credentials are valid by invoking the Windows API `LogonUser()` function.
 2. If that is successful, Octopus will then query Active Directory for information about the user.  In this second interaction, we retrieve the groups a user is a member of and use them to determine what teams they belong to.
 
-:::hint
+:::div{.hint}
 **Teams are not Distribution Groups**
 Whilst you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/administration/managing-infrastructure/subscriptions) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group, email address will require setting up a user with that email address and assigning them to the appropriate Octopus team.
 :::
@@ -71,7 +71,7 @@ Most errors we've seen are due to a lack of permissions or various active direct
 
 The best way we've found to troubleshoot Active Directory issues is by taking Octopus Deploy out of the equation and running the PowerShell script below.  This script duplicates the exact logic we use to retrieve a user's groups from Active Directory.  The benefit of this script is that you can try different settings and get immediate feedback, whereas it's much slower and disruptive to do the same with the Octopus Server service.
 
-:::hint
+:::div{.hint}
 Run the scripts on the same VM hosting Octopus Deploy.  If you are running the Octopus Deploy Windows Service as a specific Active Directory account, then run those scripts as that account.  Running the script on your work computer under your account can result in inaccurate results.
 :::
 
@@ -131,7 +131,7 @@ Notes:
 - Ensure you replace sample partial group name ``SomeGroup`` with text that matches the start of a group name in the domain.
 - Per previous example script, it's recommended that you run this script as the same user you're running the Octopus service under
 
-:::hint
+:::div{.hint}
 Octopus only uses Security Groups for controlling access permissions. When searching for groups to add to an Octopus team, Distribution Groups will be filtered out.
 :::
 
@@ -139,7 +139,8 @@ Octopus only uses Security Groups for controlling access permissions. When searc
 
 If problems persist, we suggest turning on active directory diagnostic logging and then executing the PowerShell script above to test changes based on the results.  We've found the best way to get actionable details out of the logs is to set the following registry settings on the the server running active directory directory services (i.e. your relevant domain controller).
 
-:::problem
+:::div{.problem}
+
 It's recommended that you backup any registry entries before making changes.
 :::
 
@@ -161,7 +162,7 @@ The diagnostic logs can be viewed in the Event Viewer.
 
 ![](/docs/security/authentication/active-directory/images/5865632.png "width=500")
 
-:::hint
+:::div{.hint}
 Remember to reset the registry values once you're finished troubleshooting.
 :::
 

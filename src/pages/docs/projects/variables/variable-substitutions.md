@@ -28,7 +28,8 @@ If the file undergoing variable replacement includes a string that *shouldn't* 
 | --------------------- | -------------------- |
 | `##{NotToBeReplaced}` | `#{NotToBeReplaced}` |
 
-:::info
+:::div{.info}
+
 Also read about [common mistakes for variables](/docs/projects/variables/sensitive-variables/#Sensitivevariables-Avoidingcommonmistakes) for more information
 :::
 
@@ -58,7 +59,7 @@ The capabilities of the extended syntax are:
 - [Differences from regular variable bindings](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-Differencesfromregularvariablebindings)
 - [JSON Parsing](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-JSONParsingjson)
 
-:::hint
+:::div{.hint}
 [Octostache](https://github.com/OctopusDeploy/Octostache) is the open source component that powers this feature.
 :::
 
@@ -100,7 +101,8 @@ Given the variables:
 `#{calc 22 * ScaleFactor}` would evaluate to `264`
 `#{each i in Numbers}#{calc i + 5} #{each}` would evaluate to `15 25 35 45 55 `
 
-:::info
+:::div{.info}
+
 The `calc` operator is available from version 2023.2
 :::
 
@@ -151,7 +153,7 @@ You could achieve a similar result, with a different default/fallback behavior, 
 
 The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined; an empty string; or (ignoring case and any leading or trailing whitespace) `False`, `No` or `0`. All other values are considered to be *truthy*.
 
-:::warning
+:::div{.warning}
 **All variables are strings**
 Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
 :::
@@ -222,7 +224,7 @@ And in both _Staging and Production_ it will be:
 We are at the MAX!
 ```
 
-:::hint
+:::div{.hint}
 Note both operands **don't** include the Octostache syntax denoting them as a variable e.g. `#{Environment.LogLevel}`. This is because within a conditional expression Octostache is already able to evaluate the operand as a variable value.
 :::
 
@@ -298,7 +300,7 @@ The resulting text will be:
 'Widget-2': This is my Widget!
 ```
 
-:::hint
+:::div{.hint}
 **Tips:**
 - Note both operands **don't** include the Octostache syntax denoting them as a variable e.g. `#{WidgetIdSelector}`. This is because within a conditional expression Octostache is already able to evaluate the operands as variable values.
 - The template references `.Value` which is a property available when using [JSON repetition](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-RepetitionoverJSON).

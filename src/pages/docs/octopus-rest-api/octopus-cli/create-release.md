@@ -209,7 +209,7 @@ For projects that use the [Config as Code feature](/docs/projects/version-contro
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456 --gitRef main
 ```
 
-:::warning
+:::div{.warning}
 If the provided project is **not a version controlled one**, passing `--gitRef` (or `--gitCommit`) will result in an error as these parameters are only valid for projects that are version controlled.
 :::
 
@@ -272,7 +272,7 @@ To create a release **and** deploy it to an environment named Production:
 octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress
 ```
 
-:::hint
+:::div{.hint}
 **A note on lifecycle phases with automated deployment:**
 If the `--deployTo` parameter is specified and the [lifecycle](/docs/releases/lifecycles) of the project you are deploying to is set to *Deploy automatically* when a release is created, it's possible multiple deployments to the same environment will be triggered.
 :::

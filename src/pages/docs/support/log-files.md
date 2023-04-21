@@ -9,7 +9,7 @@ navOrder: 1
 
 Octopus Server and Tentacles write diagnostic log messages to their local Windows filesystem. The files are rolled periodically to avoid consuming excessive space.
 
-:::success
+:::div{.success}
 **Recent Errors**
 The most recent warnings and errors can be view on the **{{Configuration,Diagnostics}}** page
 :::
@@ -28,7 +28,7 @@ To increase the number of log files Octopus will store, find the `octopus.server
 
 The retention of the logs is controlled by the `maxArchiveFiles` property, it defaults to 7 and can be increased or decreased. The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
-:::warning
+:::div{.warning}
 **Updates reset the nlog file**
 When you use the Octopus installer to update the version of Octopus the `octopus.server.exe.nlog` will be reset to the default values that ship with Octopus.
 :::
@@ -49,7 +49,7 @@ The `minlevel` attribute is most useful for configuring the logging level. Chang
 
 The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
-:::warning
+:::div{.warning}
 **Don&#39;t forget to reset your changes**
 Leaving your `minlevel` too low will impact the performance of Octopus Server. We recommend resetting back to the default logging configuration once you have completed your diagnostics session.
 :::
@@ -70,7 +70,7 @@ The `minlevel` attribute is most useful for configuring the logging level. Chang
 
 The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
-:::warning
+:::div{.warning}
 **Don&#39;t forget to reset your changes**
 Leaving your `minlevel` too low will impact the performance of Octopus Server. We recommend resetting back to the default logging configuration once you have completed your diagnostics session.
 :::
@@ -91,7 +91,7 @@ The `minlevel` attribute is most useful for configuring the logging level. Chang
 
 The Tentacle process will automatically switch to the new logging level as soon as the file is saved.
 
-:::warning
+:::div{.warning}
 **Don&#39;t forget to reset your changes**
 Leaving your `minlevel` too low will impact the performance of Octopus Server. We recommend resetting back to the default logging configuration once you have completed your diagnostics session.
 :::

@@ -7,7 +7,7 @@ description: Octopus Deploy can use LDAP authentication to identify users.
 navOrder: 20
 ---
 
-:::hint
+:::div{.hint}
 LDAP authentication can only be configured for Octopus Server, the Octopus Linux Container, and not for [Octopus Cloud](/docs/octopus-cloud/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information.
 :::
 
@@ -46,7 +46,7 @@ Before configuring the LDAP provider, you will need the following.
 - The username and password of a service account that can perform user and group lookups.  In this example, it will use the DN `cn=Octopus Service,cn=users,dc=devopswalker,dc=local`.
 - The root DN you wish to use for users and groups.  This example will be `cn=users,dc=devopswalker,dc=local` as both users and groups are in the same directory on the example server.
 
-:::hint
+:::div{.hint}
 This example uses a straightforward Active Directory configuration.  Your DN and FQDN might be much more complex.  Please consult your system administrator for all the required configuration values.
 :::
 
@@ -61,7 +61,7 @@ Even if you are using an external identity provider, Octopus still requires a [u
 **How Octopus matches external identities to user accounts**
 You can configure the attributes to match external identities to user accounts.  By default, Octopus will use `sAMAccountName` for the unique account name and `displayName` for the display name.
 
-:::success
+:::div{.success}
 **Already have Octopus user accounts?**
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
@@ -78,7 +78,7 @@ Navigate to **{{Configuration, Settings, LDAP}}**.  Enter values in the followin
 - **Group base DN**: enter the base DN for your users, which in the example is `cn=users,dc=devopswalker,dc=local`.
 - **Is Enabled**: Check the check box to enable the feature.
 
-:::hint
+:::div{.hint}
 The root DN `cn=users,dc=devopswalker,dc=local` was selected because that is the directory for both users and groups in the example Active Directory server.
 :::
 

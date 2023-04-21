@@ -49,7 +49,7 @@ There are two permissions required for the act of preventing progression and unb
 - **DefectReport**: Allows a user to block a release from progressing to the next lifecycle phase.
 - **DefectResolve**: Allows a user to unblock a release so it can progress to the next phase.
 
-:::hint
+:::div{.hint}
 **What is a defect?**
 When you block a release from being deployed, we actually use the Octopus API to create a "Defect" for that release with the reason you provided for blocking future Deployments from using that release.
 :::

@@ -24,7 +24,7 @@ An example web.config transformation that removes the `<compilation debug="true
 </configuration>
 ```
 
-:::success
+:::div{.success}
 **Testing .NET configuration transforms**
 The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test .NET configuration file transformations](https://webconfigtransformationtester.apphb.com/).
 :::
@@ -55,7 +55,7 @@ For **other applications**, like Console or Windows Service applications, suppos
 
 When deploying to an environment named "**Test**", Octopus will execute the transforms in this order: `YourService.exe.Release.config`, followed by `YourService.exe.Test.config`.
 
-:::success
+:::div{.success}
 You can see how this is actually done by our [open source Calamari project](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Deployment/Conventions/ConfigurationTransformsConvention.cs).
 :::
 
@@ -133,7 +133,7 @@ Transform.config => Path\*.config
 
 The above transform definition will apply **Transform.config** to **foo.config** and **bar.config** when **foo.config** and **bar.config** are in the directory **Path** relative to **Transform.config**.
 
-:::success
+:::div{.success}
 If you would like to define the order of all of your transformations, if you list them in the order of transformation inside the Additional transforms feature then Octopus will use that order to run the transforms.
 :::
 

@@ -10,7 +10,7 @@ For each node in your HA cluster:
 
 The important thing to remember is that each node should be using a **unique address** and the **same port**. 
 
-:::hint
+:::div{.hint}
 **Tip:**
 A Polling Tentacle will connect to the Octopus Rest API over ports 80 or 443 when it is registering itself with the Octopus Server. After that, it will connect over port `10943` (by default) with the Octopus Server node.
 

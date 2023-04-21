@@ -22,7 +22,7 @@ Octopus allows you to define variables and scope them for use in different envir
 
 ![The hello world variables](/docs/getting-started/first-runbook-run/images/variables.png "width=500")
 
-:::hint
+:::div{.hint}
 During a runbook run or deployment, Octopus will select the most specifically scoped variable that applies.  In the screenshot above, when running *Hello Runbook* in **Production**, Octopus will select `Hello, Production Runbook`.  When running a different runbook or doing a deployment to **Production**, Octopus will select `Hello, Production`.
 :::
 
@@ -42,7 +42,7 @@ greeting=$(get_octopusvariable "Helloworld.Greeting")
 echo $greeting
 ```
 
-:::hint
+:::div{.hint}
 If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
 :::
 

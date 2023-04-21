@@ -77,7 +77,8 @@ To create a runbook to perform updates on your Linux machines:
     fi
     ```
 
-:::info
+:::div{.info}
+
 You'll note the use of `2>&1` which redirects the stderr stream to stdout.  Bash writes diagnostic messages to stderr which Octopus interprets as an error so your runbook will show a success with warnings message.  The `if` statement checks to see if an error was actually encountered and will fail the step if it errored.
 :::
 

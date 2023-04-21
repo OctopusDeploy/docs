@@ -11,7 +11,7 @@ Octopus includes a migration API that provides the ability to back-up and restor
 
 The API currently includes support for both the [partial-export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export/) and [import](/docs/octopus-rest-api/octopus.migrator.exe-command-line/import/) commands. The API uses the same [Migrator.exe command line tool](/docs/octopus-rest-api/octopus.migrator.exe-command-line) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
 
-:::warning
+:::div{.warning}
 **Note:** the migration API is **not supported** for migrations from self-hosted Octopus Server to Octopus Cloud currently - please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations) for information on how to migrate to Octopus Cloud.
 :::
 
@@ -19,7 +19,7 @@ The API currently includes support for both the [partial-export](/docs/octopus-r
 
 When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your **Tasks** screen. During execution of this task, your Octopus Server will go into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode) to try and minimize any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
 
-:::warning
+:::div{.warning}
 We advise that you only use the migration API under the same conditions that you'd typically do a manual migration, i.e., during a maintenance period when you know that:
 
  1. You're not going to interrupt your daily deployment operations.

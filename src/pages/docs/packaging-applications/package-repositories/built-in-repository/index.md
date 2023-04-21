@@ -56,7 +56,7 @@ To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGe
 
 ![The Built-in Package Repository](/docs/packaging-applications/package-repositories/built-in-repository/built-in-package-repository.png "width=500")
 
-:::success
+:::div{.success}
 If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) when prompted for the feed details.
 :::
 
@@ -76,7 +76,7 @@ You can upload packages using **curl**. Like all of the other examples you will 
 curl -X POST https://demo.octopus.app/api/packages/raw -H "X-Octopus-ApiKey: API-YOURAPIKEY" -F "data=@Demo.1.0.0.zip"
 ```
 
-:::success
+:::div{.success}
 You may need to use the `-k` argument if you are using an untrusted connection.
 :::
 
@@ -86,12 +86,12 @@ To add a new package to the built-in feed requires the `BuiltInFeedPush` permi
 
 For your convenience Octopus Deploy provides a built-in role called **Package Publisher** that has been granted the `BuiltInFeedPush` permission.
 
-:::hint
+:::div{.hint}
 **Consider using a service account**
 Instead of using your own API key, consider using a [Service Account](/docs/security/users-and-teams/service-accounts) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Web Portal.
 :::
 
-:::hint
+:::div{.hint}
 **Using automatic release creation?**
 If you are using [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) page.
 :::

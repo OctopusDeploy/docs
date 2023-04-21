@@ -29,7 +29,7 @@ If your environment has trusted domains, you can search for groups in the truste
 
 ![](/docs/security/users-and-teams/images/add-ad-group-trusted-domains.png "width=500")
 
-:::hint
+:::div{.hint}
 Domain trust is the only constraint when Active Directory users authenticate with Octopus. If the user does not exist in Octopus, but is able to authenticate with Active Directory, a new Octopus user will automatically be created for the user. This new user will be placed in the Everyone Team, which by default has limited permissions, so they won't be able to do anything until they are moved to a Team with additional permissions assigned to it.
 :::
 

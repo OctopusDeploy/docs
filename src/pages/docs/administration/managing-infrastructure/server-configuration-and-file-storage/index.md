@@ -9,7 +9,8 @@ navOrder: 1100
 
 Occasionally, it may be necessary to change the location at which Octopus stores its data (called the "Octopus Home" folder) as well as the Registry Key which defines the Octopus Server instance, you may also want to clean up the Octopus Home folder after migrating from Octopus Server 2.6 to a modern version of Octopus Server. This page will explain what settings can be configured using the command-line on the Octopus Server and what folders can safely be removed from the Octopus Home folder after successfully migrating to a modern version of Octopus Server.
 
-:::problem
+:::div{.problem}
+
 Make sure you have a **current backup** of your Octopus data before proceeding. You will also need your **Master Key** if you need to use the backup, so please copy that also!
 :::
 

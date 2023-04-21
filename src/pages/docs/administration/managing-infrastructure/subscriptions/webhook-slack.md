@@ -15,7 +15,7 @@ You can configure Octopus to send message to a [Slack](https://slack.com/) Works
 - Configure a Slack App.
 - Configure a tool to consume the webhook from Octopus and forward a message on to Slack.
 
-:::hint
+:::div{.hint}
 A number of technologies can be used to consume the webhook from Octopus.  This document uses an [Azure Function App](https://docs.microsoft.com/en-us/azure/azure-functions/).  Another alternative is to use Firebase Cloud Functions, and this is described in this [blog](https://octopus.com/blog/notifications-with-subscriptions-and-webhooks).
 :::
 
@@ -75,7 +75,7 @@ az functionapp create -g OctopusFunctions -n SubscriptionHandler -s octofuncstor
 
 ### Write the Function App code
 
-:::hint
+:::div{.hint}
 The code for this can be found in the [samples repo](https://oc.to/SamplesSubscriptionsRepo).
 :::
 
@@ -174,7 +174,7 @@ The items that will be used in the Slack message for this example are:
 - Payload.Event.Username
 - Payload.ServerUri
 
-:::hint
+:::div{.hint}
 If you're using [VS Code](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp) to write the code, you need to install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) to enable debugging for your function.
 :::
 

@@ -1,4 +1,5 @@
-:::info
+:::div{.info}
+
 This Configuration Feature was previously called JSON Configuration Variables. In version **2020.4.0**, we added support for YAML, XML, and Properties configuration file replacements and renamed the feature Structured Configuration Variables.
 :::
 
@@ -19,7 +20,8 @@ or
 **/application.yaml
 ```
 
-:::info
+:::div{.info}
+
 If you are using a **Run a script** step, packages are extracted to a sub-directory with the name of the package reference. Please refer to [package files](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages-package-files) to learn more.
 :::
 
@@ -82,7 +84,7 @@ An example for each supported file type can be found in the following table:
 
 When targeting JSON and YAML files, care should be taken when naming variables to be used with the Structured Configuration Variables feature; Specifically, to avoid the use of the word `Octopus` in the name where possible. This is because Octopus provides a number of [system variables](/docs/projects/variables/system-variables) that start with the word `Octopus` that aren't intended for use with this feature. 
 
-:::warning
+:::div{.warning}
 Any variables that start with `Octopus` that **aren't** followed with a `:` are ignored when performing variable replacement on JSON and YAML files.
 :::
 
@@ -313,7 +315,8 @@ If you define a variable called `//connectionString` with the value `Server=.;Da
 <connectionString>Server=.;Database=db;User Id=admin&amp;boss;Password=Pass&lt;word&gt;1;</connectionString>
 ```
 
-:::info
+:::div{.info}
+
 This behavior of escaping special characters is [a requirement of the XML specification](https://www.w3.org/TR/2008/REC-xml-20081126/#syntax) (see section 2.4 for specifics), but any library or framework (such as IIS) reading the resulting XML document will automatically handle unencoding those special characters when the value is retrieved.
 :::
 

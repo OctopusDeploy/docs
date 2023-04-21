@@ -63,7 +63,7 @@ If the Service resource is a NodePort or LoadBalancer, then there is an addition
 
 [Selector Labels](https://oc.to/KubernetesLabels) define the optional labels that must exist on the Pod resources in order for this Service resource to send traffic to them.
 
-:::hint
+:::div{.hint}
 There are some advanced use cases where creating a Service resource without selectors is useful. Refer to the [Kubernetes documentation](https://oc.to/KubernetesServicesWithoutSelectors) for more information.
 :::
 

@@ -7,7 +7,7 @@ description:  Configure your infrastructure so Octopus can deploy infrastructure
 navOrder: 30
 ---
 
-:::hint
+:::div{.hint}
 Google Cloud Accounts were added in Octopus **2021.2**.
 :::
 
@@ -30,7 +30,7 @@ See the [Google cloud documentation](https://cloud.google.com/iam/docs/creating-
 
 5. Click the **SAVE AND TEST** to save the account and verify the credentials are valid.
 
-:::hint
+:::div{.hint}
 Google Cloud steps can also defer to the service account assigned to the instance/virtual machine that hosts the Octopus Tentacles for authentication. In this scenario there is no need to create a Google Cloud account in Octopus Deploy.
 :::
 

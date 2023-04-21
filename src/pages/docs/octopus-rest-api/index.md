@@ -44,7 +44,7 @@ Once you have a key, you can provide it to the API in the following ways:
 1. Through the `X-Octopus-ApiKey` HTTP header with all requests. This is the preferred approach.
 1. As an `apikey` query string parameter with all requests. This should only be used for simple requests.
 
-:::hint
+:::div{.hint}
 Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 :::
 
@@ -85,7 +85,7 @@ For example, a `GET` request to `/api` returns a resource that looks like:
     }
 }
 ```
-:::hint
+:::div{.hint}
 Note: the `Links` collection example above has been significantly reduced in size for demonstration purposes.
 :::
 

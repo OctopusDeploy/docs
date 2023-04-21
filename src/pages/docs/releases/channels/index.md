@@ -44,7 +44,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation).
 
-:::hint
+:::div{.hint}
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
 :::
 
@@ -69,7 +69,7 @@ Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release
 | ^bugfix- | matches any with `*bugfix-*` prefix (e.g. `bugfix-syscrash`) | Bypass Dev & UAT environments when urgent bug fixes are made to the mainline branch and to be released straight from Staging to Production |
 | ^beta | matches pre-releases which begin with `beta` but _not_ metadata containing `beta` | Prevent SemVer metadata from inadvertently matching the rule|
 
-:::hint
+:::div{.hint}
 If adding a pre-release tag to Channels, you will also need to add the tag `^$` to your `default` channel
 :::
 

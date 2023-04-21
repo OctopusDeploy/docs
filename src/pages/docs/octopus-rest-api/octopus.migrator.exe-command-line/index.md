@@ -9,7 +9,7 @@ navOrder: 80
 
 **Octopus.Migrator.exe** is a command line tool that provides the ability to back-up and restore parts of an Octopus Deploy instance as well as migrate data from **Octopus 2.6** builds.
 
-:::warning
+:::div{.warning}
 Octopus.Migrator.exe is not designed to support migrating projects between spaces. Issues and unintended results may occur when attempting to use the tool in this manner. If you wish to migrate projects between spaces or from an on-premise installation to a cloud instance, please see our [Exporting and Importing Projects](/docs/projects/export-import) documentation.
 :::
 

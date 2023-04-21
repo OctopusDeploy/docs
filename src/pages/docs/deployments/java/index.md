@@ -20,7 +20,7 @@ The following application servers are supported by Octopus Deploy:
 * Red Hat JBoss EAP 6 and above
 * WildFly 10 and above
 
-:::hint
+:::div{.hint}
 The `Deploy Java Archive` step deploys a Java package to a location on the target machine's filesystem. This means that any Java application server that can deploy applications with a file copy can make use of Octopus Deploy.
 
 The application servers listed above are those that are tested with Octopus Deploy, and have custom steps for deploying and managing the state of applications.
@@ -38,7 +38,7 @@ The Octopus library accepts files with the `jar`, `war`, `ear` and `rar` file ex
 
 The package filenames have to adhere to the standard Octopus [versioning rules](/docs/packaging-applications/create-packages/versioning), which are based on the SemVer format.
 
-:::hint
+:::div{.hint}
 Java packages tend to be formatted with Maven versioning schemes. Maven versions are mostly compatible with SemVer, but the two versioning schemes are not identical.
 
 See the section [Building SemVer Compatible Artifacts](#building_semver_compatible_artifacts) for tips on creating valid package filenames from builds tools like Maven and Gradle.
@@ -110,7 +110,7 @@ Here is an example of a `$CATALINA_HOME/conf/tomcat-users.xml` file that defines
 
 See the [Tomcat documentation](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html#Configuring_Manager_Application_Access) for more details on the groups used by the manager application.
 
-:::hint
+:::div{.hint}
 By default you can only upload files of around 50MB through the manager. This is often not large enough for big packages, so you can set a higher limit by editing the `webapps/manager/WEB-INF/web.xml` file. Inside you will find a `<multipart-config>` element whose child elements define the maximum file upload size.
 
 This example sets the maximum file upload size to 250MB.

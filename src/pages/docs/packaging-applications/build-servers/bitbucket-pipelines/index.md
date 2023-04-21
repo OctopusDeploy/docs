@@ -11,7 +11,7 @@ navOrder: 40
 
 [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines) is Atlassian's cloud-based continuous integration server, built using pre-configured docker containers.
 
-:::warning
+:::div{.warning}
 As Bitbucket Pipelines is only available as a cloud offering, your Octopus Server must be accessible over the Internet.
 :::
 
@@ -31,7 +31,8 @@ Octopus Deploy can be integrated with BitBucket Pipelines in two ways:
 - Using the up-to-date [Octopus CLI Docker image](https://hub.docker.com/r/octopusdeploy/octo/) of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) command-line tool.
 - Using the new **experimental** BitBucket Pipe called [octopus-cli-run](https://bitbucket.org/octopusdeploy/octopus-cli-run/src/master/README/).
 
-:::warning 
+:::div{.warning}
+ 
 **Experimental Pipe:**
 
 The `octopus-cli-run` Bitbucket Pipe is currently experimental.
@@ -96,7 +97,7 @@ To show how you can achieve the same pack and push commands as above, here's an 
           PACKAGES: [ "./out/$BITBUCKET_REPO_SLUG.$VERSION.zip" ]
 ```
 
-:::success
+:::div{.success}
 **Example Bitbucket Pipeline with octopus-cli-run Pipe:**
 View a working Pipeline example on our [samples Bitbucket repository](https://bitbucket.org/octopussamples/petclinic/addon/pipelines/home#!/).
 

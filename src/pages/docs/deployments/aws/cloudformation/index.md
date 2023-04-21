@@ -26,7 +26,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 
 ![AWS Role](/docs/deployments/aws/cloudformation/images/step-aws-role.png "width=500")
 
-:::hint
+:::div{.hint}
 If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
@@ -36,7 +36,7 @@ Under the `CloudFormation` section, the AWS region and stack name need to be def
 
 You can also optionally wait for the stack to complete before finishing the step by selecting the `Wait for completion` check-box.
 
-:::hint
+:::div{.hint}
 Unselecting the `Wait for completion` check-box will allow the step to complete once that CloudFormation process has been started. However unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack has finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
 :::
 
@@ -124,7 +124,7 @@ In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/late
 
 ![Change Set Feature](/docs/deployments/aws/cloudformation/images/aws-changeset-feature.png "width=500")
 
-:::hint
+:::div{.hint}
 The Change Sets feature was introduced as part of **Octopus 2018.8**, and Octopus did not support CloudFormation transforms in prior versions.
 :::
 
@@ -180,7 +180,7 @@ To resolve the error, ensure that the user has the appropriate permissions in AW
 
 ### AWS-CLOUDFORMATION-ERROR-0003
 
-:::hint
+:::div{.hint}
 Please be aware that this error will also show if the **Variable Account** cannot be resolved to an AWS Account, in this case please check the variable scopes. You can use the **{{Variables,Preview}}** for the project to test the variable values for a given deployment scenario are being included or not.
 :::
 

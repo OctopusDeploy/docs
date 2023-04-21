@@ -24,7 +24,7 @@ This functionality requires the Google cloud (gcloud) CLI to be installed on the
 
 ## Run a gcloud script step {#RunningGcloudScript}
 
-:::hint
+:::div{.hint}
 The **Run gcloud in a Script** step was added in Octopus **2021.2**.
 :::
 

@@ -18,7 +18,8 @@ In this example, we'll use the built-in steps of Octopus Deploy to create an AWS
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Add a **Run an AWS CLI script** step.
 
-:::info
+:::div{.info}
+
 This example assumes that you already have a Virtual Private Cloud (VPC), subnets, and security groups created.  The ID's of these resources will be needed for our RDS instance.
 :::
 
@@ -75,7 +76,8 @@ Set-OctopusVariable -name "AWS.SecurityGroup.Id" -value $securityGroupId
 | Disable rollback | Whether or not you want to automatically rollback if the create failed | Checked |
 
 8. Paste in the following template code:
-:::info
+:::div{.info}
+
 Note the use of Octostache variables, you will need to make sure you create these for this example to work.  You will also see use of the output variables created in the previous step.
 :::
 ```yaml

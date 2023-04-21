@@ -21,7 +21,7 @@ To allow the Octopus Server to connect using the provided credentials you the wi
 
 If you experience problems connecting, it may help to try connecting directly to the target machine using these credentials though a client like putty. This will help eliminate any network related problems with your Octopus configuration.
 
-:::warning
+:::div{.warning}
 **Different distributions use different conventions**
 While the above instructions should work on common platforms like Ubuntu or Red Hat, you may need to double check the details for specific instructions relating to SSH authentication on target operating system. There are many different Linux based distributions, and some of these have their own unique way of doing things. For this reason we cannot guarantee that these SSH instructions will work in every case.
 :::

@@ -7,7 +7,7 @@ description: Octopus Polling Tentacles open a connection to the Octopus Server o
 navOrder: 62
 ---
 
-:::warning
+:::div{.warning}
 Connecting Polling Tentacles to an [Octopus Cloud](/docs/octopus-cloud) instance over WebSockets is not currently supported.
 :::
 

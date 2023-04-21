@@ -13,7 +13,8 @@ Octopus publishes both `windows/amd64` and `linux/amd64` Docker images for Tenta
 
 The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommend) mode.
 
-:::info
+:::div{.info}
+
 Tentacles set up this way will run *inside a container* and script execution will not happen on the host itself. For this reason, Octopus Tentacles inside a container may not be appropriate for many deployment tasks.
 :::
 
@@ -73,7 +74,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 ### Exposed Container Ports
 Read the [Docker docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
 
-:::warning
+:::div{.warning}
 **Listening Port Breaking Change:** 
 On Linux containers, prior to version `6.1.1271` the internal listening port was set by the `ListeningPort` environment variable. Any containers which previously exposed Tentacle on a port other than `10933` will need to have their port configuration updated if updating to a version `>=6.1.1271`. For example if the container was run with `-p 10934:10934` this should be updated to `-p 10934:10933`.
 :::
@@ -110,7 +111,7 @@ containers:
     privileged: true
 ```
 
-:::hint
+:::div{.hint}
 Setting the environment variable `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted, and will prevent the execution containers feature working successfully.
 :::
 

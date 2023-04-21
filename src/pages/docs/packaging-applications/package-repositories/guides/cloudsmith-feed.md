@@ -9,7 +9,7 @@ navOrder: 40
 
 [Cloudsmith](https://www.cloudsmith.com) is a fully managed package management as a service that securely hosts all of your packages, in any format that you need, including NuGet, Helm, Docker, Maven, or NPM in one location and accessible across your organization.
 
-:::hint
+:::div{.hint}
 All Cloudsmith repositories are [multi-format](https://www.youtube.com/watch?v=Wgn-zJ8R3fg). This means you can mix and match different package types in one repository. A NuGet package can sit beside a Maven package, a Docker, or an NPM package.
 :::
 
@@ -141,7 +141,7 @@ docker login docker.cloudsmith.io
 # Enter your Cloudsmith username and your Cloudsmith API Key.
 ```
 
-:::hint
+:::div{.hint}
 **Note:** There are no steps required to add Cloudsmith as a Source for Helm.
 :::
 
@@ -202,7 +202,7 @@ NuGet V3:
 https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
 ```
 
-:::hint
+:::div{.hint}
 Private repositories require authentication. Refer to the [Adding Credentials for Private Repositories](#credentials-for-private-repos) section for more information on how to add your credentials
 :::
 
@@ -216,7 +216,7 @@ Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and s
 
   `https://docker.cloudsmith.io/v2/OWNER/REGISTRY/`
 
-:::hint
+:::div{.hint}
 Private repositories require authentication. Refer to the [Adding Credentials for Private Repositories](#credentials-for-private-repos) section for more information on how to add your credentials
 :::
 
@@ -240,7 +240,7 @@ Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and s
   
     `https://dl.cloudsmith.io/basic/OWNER/REPOSITORY/maven/`    
 
-:::hint
+:::div{.hint}
 Private repositories require authentication. Refer to the [Adding Credentials for Private Repositories](#credentials-for-private-repos) section for more information on how to add your credentials
 :::
 
@@ -265,7 +265,7 @@ Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and s
   
     `https://dl.cloudsmith.io/basic/OWNER/REPOSITORY/helm/charts/`
 
-:::hint
+:::div{.hint}
 Private repositories require authentication. Refer to the [Adding Credentials for Private Repositories](#credentials-for-private-repos) section for more information on how to add your credentials
 :::
 
@@ -279,7 +279,7 @@ You can choose between two types of authentication:
  
 The setup method will differ depending on what authentication type you choose to use.
 
-:::warning
+:::div{.warning}
 **Securing credentials:**
 Entitlement Tokens, User Credentials and API-Keys should be treated as secrets and should be stored in a secure location, such as a Password Manager. You should avoid committing them into source control or exposing them in configuration and log files.
 :::
@@ -296,7 +296,7 @@ Provide one of the following three types of credentials:
 
 These will be populated in the Credentials section of the Octopus External Feed. 
 
-:::hint
+:::div{.hint}
 For more information about credentials refer to the [Cloudsmith documentation](https://help.cloudsmith.io/docs/docker-registry#private-registries).
 :::
 

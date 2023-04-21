@@ -60,7 +60,8 @@ Different instances of Octopus Server:
 - Can share Tentacle machines (but don't have to).
 - Run from the same on-disk executables (the MSI installer is only run once).
 
-:::problem
+:::div{.problem}
+
 **Multiple-instance &quot;gotchas&quot;**
 There are a few things to keep in mind when running multiple Octopus Server instances.
 

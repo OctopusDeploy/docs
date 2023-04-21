@@ -31,7 +31,7 @@ sudo apt-get install mono-complete
 
 Create a custom user account for the purpose of deployments. 
 
-:::hint
+:::div{.hint}
 Using a custom user account makes it easy to revoke the user's credentials without affecting other users who access the machine. The following steps are intended to provide a basic level of security. You should familiarize yourself with the security features of the specific distribution you are using.
 :::
 
@@ -234,7 +234,7 @@ npm run publish
 
 The command can be run as many times as you like. With each invocation the minor version will be bumped up and a new package will be ready to be deployed from the built-in package feed in your Octopus Deploy instance.
 
-:::success
+:::div{.success}
 While this guide executes the publish task from your local machine, we recommend configuring your [build server](/docs/packaging-applications/build-servers) to automate the process.
 :::
 
@@ -310,7 +310,7 @@ Navigating to the host machine after deploying to the *prod* environment will re
 
 ![](/docs/deployments/node-js/images/successful-deployment.png "width=500")
 
-:::hint
+:::div{.hint}
 **Trouble browsing to your site?**
 You may need to allow inbound network traffic over Port 80 which isn't normally allowed by default in either Azure or AWS.
 :::

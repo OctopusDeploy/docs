@@ -16,7 +16,7 @@ Packages must have the following attributes:
 - Version number, i.e., `1.0.0`. 
 - Package format, i.e., `.zip`.
 
-:::success
+:::div{.success}
 To learn more about supported formats, versioning, and packaging applications, refer to the [packaging documentation](/docs/packaging-applications).
 :::
 

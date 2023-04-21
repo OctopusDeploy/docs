@@ -17,7 +17,7 @@ any deployments that you do not have permission to view are omitted.
 
 The same data is available in JSON format via an API call.
 
-:::warning
+:::div{.warning}
 The columns included and their order may vary in the future, particularly during the EAP period. Please take this into account if ingesting the file into an automated process.
 :::
 

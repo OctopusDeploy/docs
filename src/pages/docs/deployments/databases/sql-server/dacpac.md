@@ -15,7 +15,7 @@ For earlier versions of Visual Studio such as 2015 and below, installing the SSD
 
 For more modern versions of Visual Studio (2017+), checkout [Microsofts installation instructions](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15)
 
-:::success
+:::div{.success}
 This guide uses Visual Studio 2019
 :::
 
@@ -56,7 +56,7 @@ Visual studio will now compare the project to the database and list the steps it
 
 ![The results of the Schema Compare in Visual Studio](/docs/deployments/databases/sql-server/images/visual-studio-2019-project-schema-compare-results.png "width=500")
 
-:::hint
+:::div{.hint}
 For databases that have a dependency on other databases, it is possible to add a reference to another database project.  This should be done with caution to avoid circular dependencies with each database depending on each other, as this will result in neither database project compiling.
 :::
 
@@ -70,7 +70,7 @@ This guide uses Azure DevOps as the build platform, but any build server can do 
 
 To create the build definition, take the following steps:
 
-:::warning
+:::div{.warning}
 Note, this example uses the classic editor without YAML.
 :::
 
@@ -79,7 +79,7 @@ Note, this example uses the classic editor without YAML.
 3. Choose a build pool, then click on the **+** to add a step to the build definition.
 4. Click on the Build category and scroll down to **Visual Studio build**.
 
-:::hint
+:::div{.hint}
 An MSBuild task will accomplish the same thing
 :::
 
@@ -89,7 +89,7 @@ An MSBuild task will accomplish the same thing
 
 6. Click on the **+**, select **Package**, and select **Package Application for Octopus**.
 
-:::hint
+:::div{.hint}
 The Octopus Deploy extension is available in the Marketplace, install the extension if you haven't already done so.
 :::
 
@@ -100,7 +100,7 @@ The Octopus Deploy extension is available in the Marketplace, install the extens
     - **Source Path**: This will be the same path as what we set the MSBuild argument to, `$(build.stagingdirectory)`.
     - **Output Path**: Location to store the created package.
 
-:::hint
+:::div{.hint}
 For Azure DevOps, the build number can be formatted on the Options tab under Build number format.  This guide uses the format `$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)`.
 :::
 
@@ -137,7 +137,7 @@ Now that the build server has been configured to push the artifact to the Octopu
 
 It is considered best practice to namespace your variables.  Doing this helps prevent any variable name conflicts from library variable sets or step template variables.  Prefixing `Project.` to the front indicates that this is a project variable.
 
-:::hint
+:::div{.hint}
 If you're using Integrated Authentication with Windows, you do not need either of the `Project.SQLServer.Admin*` variables.
 :::
 

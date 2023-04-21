@@ -25,7 +25,7 @@ The third feature is the `Ingress`. This feature is used to build a [Ingress res
 
 ![Deploy Container Resources](/docs/deployments/kubernetes/deploy-container/deploy-container.svg "width=500")
 
-:::hint
+:::div{.hint}
 Kubernetes terminology overlaps with a number of general concepts in Octopus. For example, Kubernetes has the notion of a Deployment, which is distinct from the act of performing a deployment in Octopus.
 
 To distinguish between Kubernetes and Octopus terminology, we will reference Kubernetes "resources" e.g. a Deployment resource or Pod resource.
@@ -73,7 +73,7 @@ The labels are optional, as Octopus will automatically add the tags required to 
 
 ### Completions
 
-:::hint
+:::div{.hint}
 This field is used when creating Kubernetes `Job` resources only.
 :::
 
@@ -81,7 +81,7 @@ This field is used when creating Kubernetes `Job` resources only.
 
 ### Parallelism
 
-:::hint
+:::div{.hint}
 This field is used when creating Kubernetes `Job` resources only.
 :::
 
@@ -89,7 +89,7 @@ This field is used when creating Kubernetes `Job` resources only.
 
 ### Backoff limit
 
-:::hint
+:::div{.hint}
 This field is used when creating Kubernetes `Job` resources only.
 :::
 
@@ -97,7 +97,7 @@ This field is used when creating Kubernetes `Job` resources only.
 
 ### Active deadline seconds
 
-:::hint
+:::div{.hint}
 This field is used when creating Kubernetes `Job` resources only.
 :::
 
@@ -105,7 +105,7 @@ This field is used when creating Kubernetes `Job` resources only.
 
 ### TTL Seconds After Finished
 
-:::hint
+:::div{.hint}
 This field is used when creating Kubernetes `Job` resources only.
 :::
 
@@ -115,7 +115,7 @@ This field is used when creating Kubernetes `Job` resources only.
 
 Kubernetes exposes two native deployment strategies: [Recreate](https://oc.to/KubernetesRecreateStrategy) and [Rolling Update](https://oc.to/KubernetesRollingStrategy). When deploying containers with this step, Octopus supports a third deployment strategy called blue/green.
 
-:::hint
+:::div{.hint}
 Deployment strategies are not applicable to Kubernetes `Job` resources.
 :::
 
@@ -156,7 +156,7 @@ The third phase involves waiting for the blue Deployment resource to be ready.
 
 Octopus executes the command `kubectl rollout status "deployment/blue-deployment-name"`, which will wait until the newly created blue Deployment resource is ready. For a Deployment resource to be considered ready, it must have been successfully created, and any Container resource [readiness probes](https://oc.to/KubernetesProbes) must have successfully completed.
 
-:::hint
+:::div{.hint}
 The [progression deadline](#progression-deadline) field can be used to limit how long Kubernetes will wait for a deployment to be successful.
 :::
 
@@ -174,7 +174,7 @@ Octopus now updates the Service resource to direct traffic to the blue Deploymen
 
 Once the Service resource is updated, any old Deployment, ConfigMap and Secret resources are deleted. Old resources are defined as any Deployment resource with an `Octopus.Step.Id`, `Octopus.Environment.Id` and `Octopus.Deployment.Tenant.Id` label that matches the Octopus step that was just deployed, and a `Octopus.Deployment.Id` label that does not match the ID of the deployment that was just completed.
 
-:::hint
+:::div{.hint}
 If the deployment fails at phase 3, the Kubernetes cluster can be left with multiple Deployment resources in a failed state. Because Deployment resources with an `Octopus.Deployment.Id` label that does not match the current deployment are deleted in phase 4, a successful deployment will remove all previously created Deployment resource objects.
 
 This means failed deployments can be retried, and once successful, all previous Deployment resources will be cleaned up.
@@ -204,7 +204,7 @@ When using the Recreate or Rolling update deployment strategy, you have the opti
 
 A completed deployment means all liveness checks passed, the rollout succeeded and all Pod resources have been updated.
 
-:::success
+:::div{.success}
 The Blue/Green deployment strategy always waits for the rollout to succeed, as this is the point at which the Service resource is modified to point to the new Deployment resource.
 :::
 
@@ -469,7 +469,7 @@ A Container resource hosting a webserver would specify the `Sub Path` to be `web
 
 The `Read Only` field defines if the Volume resource is mounted in read only mode.
 
-:::hint
+:::div{.hint}
 Some Volume resources like ConfigMap and Secret are always mounted in read only mode, regardless of the setting in the `Read Only` field.
 
 See https://github.com/kubernetes/kubernetes/issues/62099 for more details.
@@ -528,7 +528,7 @@ The `Port` field defines the port that is requested. This value can be a number,
 
 The [Readiness probe resource](https://oc.to/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it has started correctly. Readiness probes are not supported by Init Container resources.
 
-:::hint
+:::div{.hint}
 If defined, the readiness probe must succeed for a [Blue/Green](#bluegreen-deployment-strategy) deployment to complete successfully. If the readiness probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
 :::
 
@@ -608,7 +608,7 @@ an argument with a space
 
 The [Startup probe resource](https://oc.to/KubernetesProbes) configures a health check that must complete before the Liveness probe begins. This is useful to accomodate any inital delay in booting a container.
 
-:::hint
+:::div{.hint}
 If defined, the startup probe must succeed for a [Blue/Green](#bluegreen-deployment-strategy) deployment to complete successfully. If the startup probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
 :::
 
@@ -886,7 +886,7 @@ metadata:
 
 By creating each custom resource with a unique name and common labels, Octopus will ensure that a new resource is created with each deployment, and old resources are cleaned up. This means that the custom resources are tightly coupled to a Deployment resource, and can be treated as a single deployment.
 
-:::success
+:::div{.success}
 To deploy resources that are not bound to the lifecycle of the Deployment resource, use an additional step such as the `Run a kubectl CLI Script` or `Deploy raw Kubernetes YAML` step.
 :::
 
@@ -977,7 +977,7 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 
 ![Ingress](/docs/deployments/kubernetes/ingress.svg "width=500")
 
-:::hint
+:::div{.hint}
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
 For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](/docs/deployments/kubernetes/deploy-ingress) step.
@@ -997,7 +997,7 @@ The `Name` field will provide suggested annotation names, but this list of sugge
 
 The `Value` field defines the annotation value.
 
-:::hint
+:::div{.hint}
 Annotation values are always considered to be strings. See this [GitHub issue](https://oc.to/KubernetesAnnotationStringsIssue) for more information.
 :::
 

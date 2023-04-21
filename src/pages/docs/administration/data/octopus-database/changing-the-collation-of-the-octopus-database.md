@@ -10,7 +10,7 @@ By default, the Octopus database is created using `Latin1_General_CI_AS` collat
 
 You can change the collation, or [create a database](/docs/installation/sql-server-database) initially with a different collation.
 
-:::warning
+:::div{.warning}
 A case-insensitive collation (one which has a name containing '\_CI\_') must be used.
 :::
 
@@ -26,7 +26,7 @@ For this reason, when modifying the SQL Server Database during Octopus upgrades,
 
 If you have received the error above while upgrading your Octopus Server, it is likely that at some point the collation on your Octopus database was changed without changing the collation of the existing objects.
 
-:::success
+:::div{.success}
 If you have received the error above, then your database has not been modified and you can safely revert by re-installing your previous version of Octopus Server.
 :::
 

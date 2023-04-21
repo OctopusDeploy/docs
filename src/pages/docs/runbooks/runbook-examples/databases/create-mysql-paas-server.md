@@ -12,7 +12,7 @@ Cloud based applications often need databases to store their data.  Cloud provid
 In this example, we'll create a MySQL database server on [Google Cloud](https://cloud.google.com/gcp).
 
 
-:::hint
+:::div{.hint}
 **gcloud CLI and authorization**
 Most of the commands used for interacting with Google in this next section make use of the [Google Cloud CLI](https://cloud.google.com/sdk/gcloud). To use the **gcloud** CLI you usually need to authorize it. For further information on gcloud authorization, please refer to the [documentation](https://cloud.google.com/sdk/docs/authorizing).
 :::
@@ -79,7 +79,7 @@ Write-Host "Completed creating mysql instance"
 ```
 6. Add project [variables](/docs/projects/variables) for use with the scripts
 
-:::hint
+:::div{.hint}
 If you have a keen eye, you may have noticed that the script above uses the gcloud `beta` option to create the MySQL database server. This is done to allow use of the `--network` flag where you can specify a specific network in which to place the database server. This can be useful if you want to specify a [private ip address](https://cloud.google.com/sql/docs/mysql/configure-private-ip) for your server.
 :::
 

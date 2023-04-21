@@ -21,7 +21,7 @@ When a certificate is [replaced](/docs/deployments/certificates/replace-certific
 
 Once a certificate has been archived, it can then be deleted.  
 
-:::warning
+:::div{.warning}
 This is a hard delete. Once deleted, a certificate and it's private key (if present) cannot be recovered.
 :::
 

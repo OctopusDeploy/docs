@@ -13,7 +13,7 @@ Each Azure region uses a range of static IP addresses. The static IP address for
 
 With a static IP address, you can lock down the ingress and egress communications between a Tentacle in your infrastructure and your Octopus Cloud Server. 
 
-:::hint
+:::div{.hint}
 **Note:**
 The built-in worker for your Octopus Cloud Server does not use an IP address from the range of static IP addresses.
 :::

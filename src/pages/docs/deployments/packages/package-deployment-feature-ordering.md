@@ -9,7 +9,7 @@ navOrder: 200
 
 When Octopus deploys packages, it runs a series of actions implementing the conventions or features enabled for that step.
 
-:::hint
+:::div{.hint}
 [Calamari](https://github.com/OctopusDeploy/Calamari) is the open source component that powers this feature.
 :::
 
@@ -34,7 +34,7 @@ The order of evaluation once the package is extracted is:
 
 If an item fails, the remaining items will not be executed, and instead **DeployFailed.\* Scripts** will be found and executed.
 
-:::success
+:::div{.success}
 **Skipping conventions**
 Any of the scripts run during deployment may set a variable to short-circuit the process and skip remaining items, as with this example in *PowerShell*:
 

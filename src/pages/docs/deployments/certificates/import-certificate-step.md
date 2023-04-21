@@ -27,7 +27,7 @@ The Administrators group on the target machine will always be granted access to 
 
 ## Recommended practice
 
-:::hint
+:::div{.hint}
 It is recommended to allow Octopus to perform the initial import of a certificate.
 :::
 

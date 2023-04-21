@@ -27,7 +27,7 @@ Firstly we will create a new [Lifecycle](/docs/releases/lifecycles).
 
 ![](/docs/tenants/images/multi-tenant-limited-lifecycle.png "width=500")
 
-:::hint
+:::div{.hint}
 Learn more about [defining a limited Lifecycle for your test Channel](/docs/releases/channels).
 :::
 
@@ -71,7 +71,7 @@ Firstly we will create a new [Lifecycle](/docs/releases/lifecycles).
 
 ![](/docs/tenants/images/multi-tenant-limited-lifecycle.png "width=500")
 
-:::hint
+:::div{.hint}
 Learn more about [defining a limited Lifecycle for your test Channel](/docs/releases/channels).
 :::
 

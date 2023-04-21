@@ -22,7 +22,7 @@ To create a runbook to harden your Windows installation:
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, select **PowerShell** and add the following code:
-:::warning
+:::div{.warning}
 The following script is an example of what can be done, please review the script carefully before using.
 :::
 

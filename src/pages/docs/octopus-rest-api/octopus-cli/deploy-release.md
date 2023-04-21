@@ -167,7 +167,7 @@ This deploys the latest release in the *1.x Normal* Channel of the *HelloWorl
 octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --tenantTag "Upgrade Ring/Early Adopters" --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-:::success
+:::div{.success}
 You can deploy to ALL tenants in an environment by using the `--tenant=*` argument. This instructs Octopus to create a deployment for each tenant which is ready for that Release to be deployed to the project/environment.
 :::
 

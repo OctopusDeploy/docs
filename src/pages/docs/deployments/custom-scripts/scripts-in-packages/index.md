@@ -42,7 +42,7 @@ The following steps have been designed to support running scripts; either at the
 
 However, not all package steps support script hooks. As a general rule, any of the [built-in step templates](/docs/projects/built-in-step-templates/) or [community step templates](/docs/projects/community-step-templates/) that have the `Custom Deployment Scripts` feature available in the [configuration features](/docs/projects/steps/configuration-features) dialog support script hooks:
 
-:::hint
+:::div{.hint}
 **Note:** The `Custom Deployment Scripts` feature only needs to be enabled if you want to [define your scripts inline](#scripts-in-package-steps) instead of executing scripts at the root of a package.
 :::
 

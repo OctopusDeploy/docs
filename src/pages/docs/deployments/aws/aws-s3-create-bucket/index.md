@@ -9,7 +9,7 @@ description: Create a new bucket in Amazon S3.
 Octopus supports creating a new S3 bucket through the `Create an Amazon S3 Bucket` step.
 This step provides a way to create or manage an arbitrary Amazon S3 Bucket via CloudFormation. This could be especially useful in conjunction with AWS Lambda functions.
 
-:::hint
+:::div{.hint}
 The `Create an Amazon S3 Bucket` step was added in **Octopus 2022.1**. We'd love to hear [your feedback about this step](https://octopusdeploy.typeform.com/to/KwQXY2zv).
 :::
 
@@ -32,7 +32,7 @@ The following settings will need to be configured:
 * AWS Region
 * AWS Account
 
-:::hint
+:::div{.hint}
 Note: The **S3 Bucket Name** will be automatically generated if not provided.
 :::
 
@@ -48,7 +48,7 @@ The S3 bucket is created and managed through a CloudFormation stack. You can opt
 
 ![Create an Amazon S3 Bucket Advanced section](/docs/deployments/aws/aws-s3-create-bucket/images/advanced-section.png "width=500")
 
-:::warning
+:::div{.warning}
 In April 2023 Amazon is updating their security settings for newly created S3 Buckets. Buckets will now be created with Block all public access enabled and access control lists (ACLs) disabled. For more information on these changes see [the announcement](https://aws.amazon.com/blogs/aws/heads-up-amazon-s3-security-changes-are-coming-in-april-of-2023/). Octopus Deploy is updating our defaults in line with these changes and now offers the ability to override both of these settings. Existing projects that rely on creating publicly accessible S3 buckets will need to be updated with public access enabled and ACLs enabled.
 :::
 

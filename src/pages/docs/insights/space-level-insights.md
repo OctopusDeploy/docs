@@ -9,7 +9,8 @@ navOrder: 140
 
 Space level insights provide actionable DORA metrics for more complex scenarios across projects, project groups, environments, or tenants. This enables managers and decision-makers to get far more insight into the DevOps performance of their organization in line with their business context, such as team, portfolio, or platform.
 
-:::info
+:::div{.info}
+
 Space level insights requires an [enterprise subscription](https://octopus.com/pricing).
 :::
 
@@ -75,7 +76,7 @@ Below that there are tables showing a particular measure grouped by project, env
 
 Permissions are available to help you manage access to Insights reports. You can limit your team’s ability to view, edit, delete and create Insights reports by customizing the roles. During the EAP period, the whole feature may be disabled via the **{{ Configuration, Features}}** page.
 
-:::warning
+:::div{.warning}
 By creating a report, permission to view the aggregated data is granted to anyone with the `InsightsReportView` permission. Someone who has restricted view permissions will be able to see the aggregated data but not the name of the object.
 :::
 

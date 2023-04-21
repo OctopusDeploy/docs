@@ -13,7 +13,7 @@ The VM Extension can be installed onto a virtual machine via the [Azure command 
 
 Refer to the [configuration structure](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/configuration-structure) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
 
-:::hint
+:::div{.hint}
 If you need more the ability to customize more of the installation, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.
 :::
 

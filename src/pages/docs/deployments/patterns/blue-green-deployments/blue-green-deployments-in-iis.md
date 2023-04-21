@@ -15,14 +15,14 @@ In this case the blue/green are not separate environments, they are different we
 2. Use an on-server reverse-proxy to seamlessly switch new incoming requests to the new instance.
 3. Delete the old instance once it has finished processing outstanding requests.
 
-:::hint
+:::div{.hint}
 **A reverse-proxy or some kind of router is required**
 Changing the configuration of a web site in IIS (like physical path or bindings) **always** results in the application pool being recycled. The default [IIS websites and application pools](/docs/deployments/windows/iis-websites-and-application-pools) step in Octopus will try to reuse an existing web site in IIS (or create one for you), and as the last step it will [update the physical path in IIS](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1). This causes a minimum of downtime, especially if you have [allowed overlapping rotation on your application pool](https://msdn.microsoft.com/en-us/library/microsoft.web.administration.applicationpoolrecycling.disallowoverlappingrotation(v=vs.90).aspx). However, to achieve truly zero-downtime deployments of IIS Web Applications, you must use a reverse-proxy or some kind of routing technology.
 :::
 
 ## General steps for zero-downtime deployments in IIS {#Blue-greendeploymentsinIIS-Generalstepsforzero-downtimedeploymentsinIIS}
 
-:::hint
+:::div{.hint}
 Every scenario is slightly different which is why this page is written more as a general guide than a step-by-step walk-through. This rough example should provide a strong starting point to reduce downtime for your deployments to IIS.
 :::
 

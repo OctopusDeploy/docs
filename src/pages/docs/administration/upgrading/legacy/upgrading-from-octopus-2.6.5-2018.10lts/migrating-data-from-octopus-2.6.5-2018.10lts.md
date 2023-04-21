@@ -16,7 +16,7 @@ When upgrading from **Octopus 2.6** to **Octopus 2018.10 LTS** you can migrate y
 - The built-in Octopus NuGet package repository is not migrated automatically - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts) for more details.
 - You can optionally limit the days of historical data to migrate - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts) for more details.
 
-:::hint
+:::div{.hint}
 **The migrator can take a long time**
 Please see our [tips for minimizing the migration duration](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time).
 :::

@@ -18,7 +18,7 @@ The supported upgrade paths are as follows:
 - Currently running `2.6.5`? Upgrade `2.6.5` to `2018.10 LTS` to any newer version
 - Currently running a modern version of Octopus like `3.x`, `4.x`, `2018.x`, or newer? Upgrade to any newer version
 
-:::warning
+:::div{.warning}
 **Broken upgrade paths**
 
 We track any unresolved upgrade problems which require special attention using [this GitHub issue](https://github.com/OctopusDeploy/Issues/issues/4979).

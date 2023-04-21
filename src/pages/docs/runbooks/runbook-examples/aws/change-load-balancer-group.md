@@ -13,7 +13,7 @@ In this example, we'll swap out servers that are being used in an AWS Elastic lo
 
 ## Create the runbook
 
-:::hint
+:::div{.hint}
 This example assumes that you already have an ELB configured with a [listener](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html), and at least one [target group](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html). These resources will be needed for the runbook.
 :::
 
@@ -32,7 +32,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 
 ![AWS Role](/docs/runbooks/runbook-examples/aws/images/step-aws-role.png "width=500")
 
-:::hint
+:::div{.hint}
 If you select **Yes** to **Execute using the AWS service  role for an EC2 instance**, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
   

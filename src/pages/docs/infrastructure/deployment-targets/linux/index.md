@@ -16,7 +16,7 @@ The Octopus Server can communicate with Linux targets in two ways:
 
 When using SSH for deployments to a Linux server, the Tentacle agent is not required and doesn't need to be installed.
 
-:::success
+:::div{.success}
 The Linux Tentacle is the recommended way to configure your server as a deployment target. This allows you to secure the SSH port on your servers.
 
 If you operate in a highly secure environment, where it's not possible to open an inbound TCP port for Tentacle (`10933` by default), you can configure the Linux Tentacle in [Polling mode](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles).

@@ -13,7 +13,7 @@ You can use Azure Active Directory (AAD) to authenticate when logging in to the 
 2. Optionally map AAD Users into Roles so you the users can be automatically connected to Octopus Teams.
 3. Configure your Octopus Deploy instance to trust and use AAD as an Identity Provider.
 
-:::hint
+:::div{.hint}
 If your Octopus database is running in Azure SQL, it's also possible to configure an Azure Active Directory (AAD) Managed identity for use with your SQL database. See our [Using Azure Active Directory (AAD) in Azure SQL](/docs/installation/sql-server-database/#using-aad-in-azure-sql) section for further information.
 :::
 
@@ -23,7 +23,7 @@ First, you need to configure your Azure Active Directory to trust your instance 
 
 ### Configure Octopus Deploy as an App in your AAD
 
-:::success
+:::div{.success}
 **Get the right permissions for your Azure Active Directory tenant before starting**
 To configure your instance of Octopus Deploy as an App, you need administrator permissions to the desired Azure Active Directory tenant in your subscription.
 :::
@@ -46,7 +46,7 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
  - The value you specify for **Redirect URI** should be the URL to your Octopus Server. This address is only linked within your browser, so it only has to be resolvable on your network, not from the public Internet.
  - Include `/api/users/authenticatedToken/AzureAD` at the end of your Octopus URL.
 
-:::hint
+:::div{.hint}
 Take care when you add this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `HTTP` here and need to use `https`. You will need to use an SSL certificate from a Certificate Authority, such as [LetsEncrypt](https://letsencrypt.org/). You can do this by using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration) or one from Active Directory Certificate Services.
 :::
 
@@ -54,7 +54,7 @@ Take care when you add this URL. They are **case-sensitive** and can be sensitiv
 
 #### Enable ID Tokens and configure
 
-:::hint
+:::div{.hint}
 Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. This step is **not required** for any newer versions of Octopus. Instead we suggest following the instructions for [generating a client secret](#generate-the-client-secret) below.
 :::
 
@@ -84,7 +84,7 @@ If you want to manage user/team membership via AAD, you must configure Roles for
 
    ![Apply App Role value and name](/docs/security/authentication/images/aad-new-app-role-create-apply.png "width=500")
 
-   :::hint
+   :::div{.hint}
    The **Value** property is the most important field. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams/external-groups-and-roles/#ExternalGroupsandRoles-AddExternalRole) in Octopus Deploy.
    :::
 
@@ -96,7 +96,7 @@ If you want to manage user/team membership via AAD, you must configure Roles for
 
 The example below illustrates two roles, one for administrators and one for application testers. You need to create each required group in the Manifest file.
 
-:::success
+:::div{.success}
 Make sure you replace the `NEWGUID`s with a generated GUID (unique per entry). You can find these online and use them as required. An example is [guidgenerator.com](https://guidgenerator.com/).
 :::
 
@@ -128,11 +128,11 @@ After you have completed editing the manifest, select the **Save** option.
 
 ![Saving an App registration manifest](/docs/security/authentication/images/aad-save-app-registration-manifest.png "width=500")
 
-:::hint
+:::div{.hint}
 The **value** property is the most important one. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams) in Octopus Deploy.
 :::
 
-:::success
+:::div{.success}
 **Want a more advanced manifest?**
 For more advanced scenarios, please see the [Azure manifest file documentation](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-manifest/).
 :::
@@ -153,7 +153,7 @@ After the App Role(s) have been defined, users/groups from Azure AD may be mappe
 
 4. To save your changes, select the **Assign** button.
 
-:::hint
+:::div{.hint}
 If you only have one role it will be automatically assigned. If you have **multiple** roles, a popup will appear when you click the **Assign** button so you can select the role to assign.
 :::
 
@@ -175,7 +175,7 @@ In the Azure portal, navigate to the **Certificates & secrets** page and click *
 
 ### Setting the Client ID, Client secret and Issuer in Octopus Deploy
 
-:::hint
+:::div{.hint}
 Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the **Client secret** setting is not required.
 :::
 
@@ -224,7 +224,7 @@ Even if you are using an external identity provider, Octopus still requires a [u
 
 When the security token is returned from the external identity provider, Octopus looks for a user account with a **matching Identifier**. If there is no match, Octopus looks for a user account with a **matching Email Address**. If a user account is found, the external identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
 
-:::hint
+:::div{.hint}
 **Existing Octopus user accounts**
 
 If you already have Octopus user accounts and you want to enable external authentication:

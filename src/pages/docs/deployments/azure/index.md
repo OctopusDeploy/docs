@@ -23,7 +23,7 @@ Out-of-the-box, Octopus provides built-in steps to deploy to the following Azure
 With [runbooks](/docs/runbooks), Octopus provides built-in steps to help manage your infrastructure in Azure:
 - [Resource Group Templates](/docs/runbooks/runbook-examples/azure/resource-groups).
 
-:::hint
+:::div{.hint}
 **Where do Azure steps execute?**
 All steps that target an Azure deployment target (including script steps) execute on a worker.  By default, that will be the built-in worker in the Octopus Server. Learn about [workers](/docs/infrastructure/workers) and the different configuration options.
 :::

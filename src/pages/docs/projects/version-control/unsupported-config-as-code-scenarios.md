@@ -32,7 +32,7 @@ The configuration as code feature is not designed to allow two or more projects 
 
 While it may work initially, it will be harder and harder to manage over time. You will need to keep _all_ the scaffolding data in sync across multiple instances. That is [easier said than done](/docs/administration/sync-instances).  Step templates will be the most difficult, as having the same step template on all instances, the version has to match. Otherwise, you'll have to worry about settings such as parameters, scripts, package versions, feeds, and more.
 
-:::warning
+:::div{.warning}
 The first version of Configuration as Code only stores the deployment process in the git repo. It does not store variables or runbook processes. Once variables are added, the amount of scaffolding data will increase.  
 :::
 
@@ -42,7 +42,7 @@ Typically, having two instances results from splitting an Octopus Deploy instanc
 
 Use the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs) to keep multiple instances in sync. Use Terraform's [variable functionality](https://www.terraform.io/language/values/variables) to manage the differences between the instances. For example, have a variable for environment scoping. One instance populates the environment list with "Test" while the other populates it with **Staging** and **Production**.
 
-:::warning
+:::div{.warning}
 You will still need a process to keep step templates in sync.
 :::
 
@@ -57,7 +57,7 @@ Another alternative is each instance points to a unique folder in the same GitHu
 
 Use a file diff tool, Beyond Compare, Meld, WinMerge, or KDiff, to manually copy specific changes between the two directories. Any instance-specific configuration, such as environment scoping, worker pools, or feeds, would be excluded.
 
-:::warning
+:::div{.warning}
 You will still need a process to keep step templates in sync.
 :::
 
@@ -81,7 +81,7 @@ One option is to have a single git repo for all your projects, with each project
 
 Having a branch per project will partially solve the problem of the subtle differences, but it will be very time-consuming to sync any "main" branch changes with the project branches. You will need to manually sync all the branches or create and maintain a process to handle the syncing.
 
-:::warning
+:::div{.warning}
 Configuration as Code is an all-or-nothing feature. You'll be unable to say manage "some of my deployment process" using Configuration as Code. It is the entire deployment process or nothing.
 :::
 

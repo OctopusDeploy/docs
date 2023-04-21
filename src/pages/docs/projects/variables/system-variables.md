@@ -11,7 +11,7 @@ This page lists built-in [variables](/docs/projects/variables/) provided by Octo
 
 Most of the variables listed here are available in modern versions of Octopus and Calamari. However, some are only available from a specific version. Where this is the case, the version will be noted alongside the variable.
 
-:::warning
+:::div{.warning}
 **All variables are strings**
 Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
 :::
@@ -34,7 +34,7 @@ Release-level variables are drawn from the project and release being created.
 |`Octopus.Release.Package` <br/>Packages, including changes, associated with the release. See below. | This is a collection.|
 |`Octopus.Release.Builds` <br/>Build and version control details associated with the release. | This is a collection.|
 
-:::hint 
+:::div{.hint} 
 
 The `Octopus.Release.Package` and `Octopus.Release.Builds` variables:
 
@@ -532,7 +532,7 @@ Octopus.Deployment.Error
 Octopus.Deployment.ErrorDetail
 ```
 
-:::hint
+:::div{.hint}
 **Error detail returned**
 Octopus.Deployment.Error and Octopus.Deployment.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 :::

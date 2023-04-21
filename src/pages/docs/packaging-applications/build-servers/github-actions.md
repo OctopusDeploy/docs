@@ -11,7 +11,7 @@ navOrder: 55
 
 [GitHub Actions](https://github.com/features/actions) is GitHub's cloud-based continuous integration server.
 
-:::warning
+:::div{.warning}
 The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner) require your Octopus Server to be accessible over the Internet.  Otherwise you must [self-host your runners](https://help.github.com/en/actions/hosting-your-own-runners).
 :::
 
@@ -96,7 +96,7 @@ on:
     - cron: "0 07 * * *"
 ```
 
-:::warning
+:::div{.warning}
 If your repo has been inactive for over 60 days, cron jobs will stop building.
 :::
 
@@ -262,7 +262,7 @@ To create a release, use the **OctopusDeploy/create-release-action**.  This acti
         progress: true
 ```
 
-:::warning
+:::div{.warning}
 The variable **PACKAGE_VERSION** must be referenced like **${{ env.PACKAGE_VERSION }}** for both **push-package-action** and **create-release-action**
 :::
 
@@ -393,7 +393,7 @@ Build information is generated and pushed to Octopus with the
       overwrite_mode: OverwriteExisting
 ```
 
-:::success
+:::div{.success}
 **Example GitHub Actions Repo:**
 
 View a working GitHub Actions examples on our [samples GitHub repository](https://github.com/OctopusSamples).
@@ -540,7 +540,7 @@ steps:
 
 Although the CLI is not required for GitHub Actions v3, the install Octopus CLI Action v3 will now install the new [Octopus CLI](https://octopus.com/docs/octopus-rest-api/cli).
 
-:::warning
+:::div{.warning}
 If you require the use of the original Octo CLI, you can use `OctopusDeploy/install-octopus-cli-action@v1`.
 :::
 

@@ -9,7 +9,7 @@ navOrder: 20
 
 Octopus Deploy supports deployment of [Azure Service Fabric applications](https://azure.microsoft.com/en-au/services/service-fabric/).
 
-:::hint
+:::div{.hint}
 The [Service Fabric SDK](https://oc.to/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
 
 **PowerShell Script Execution** may also need to be enabled. See the _"Enable PowerShell script execution"_ section from the above link for more details.
@@ -52,7 +52,7 @@ Various options are available to deploy your Service Fabric application.
 | Copy package timeout (seconds)                         | SDK Default | Timeout in seconds for copying application package to image store |
 | Register Application Type Timeout (seconds)            | SDK Default | Timeout in seconds for registering application type. Requires Service Fabric SDK version 6.2+ |
 
-:::success
+:::div{.success}
 **Use Variable Binding Expressions**
 Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming-convention for your application services, like **MyFabricApplication\_Production** and **MyFabricApplication\_Test**, you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
@@ -67,7 +67,7 @@ The following features are available when deploying a package to a Service Fabri
 - [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature)
 - [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates)
 
-:::hint
+:::div{.hint}
 Please note these features run on the Octopus Server prior to deploying the Service Fabric application to your cluster. They don't execute in the cluster nodes you are eventually targeting.
 :::
 
@@ -97,7 +97,7 @@ Setting the `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage` vari
 
 The deployment is performed using a PowerShell script called `DeployToServiceFabric.ps1`. If a file with this name exists within the root of your package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Sashimi.AzureServiceFabric/blob/main/source/Calamari/Scripts/DeployAzureServiceFabricApplication.ps1)**, and use it as a basis for creating your own custom deployment script.
 
-:::hint
+:::div{.hint}
 If you choose to override the deployment script, remember that your `DeployToServiceFabric.ps1` file must exist at **the root** of your package. It cannot be located in a subfolder. For reference, you can see how this filename is detected in your extracted package [here](https://github.com/OctopusDeploy/Sashimi.AzureServiceFabric/blob/main/source/Calamari/Behaviours/DeployAzureServiceFabricAppBehaviour.cs).
 :::
 
@@ -120,7 +120,7 @@ To learn more about how you can automate Service Fabric versioning with Octopus,
 
 Due to the complexity of the PowerShell deployment script, it's likely you'll run into unsupported actions or unforeseen edge cases. The most common type of errors are related to the wrong action type chosen by the script due to either unforeseen edge cases or unsupported cases. For this reason, we highly recommend using [a customized version of the PowerShell script](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster/#customizing-the-deployment-process) that comes with Visual Studio for Service Fabric for most scenarios.
 
-:::hint
+:::div{.hint}
 Octopus will not modify the service fabric script due to the complexity associated with the script and the number of combinations it supports. We are considering options to improve this experience in the future, and this will most likely require customers to include/bundle their own version of the PS script.
 :::
 

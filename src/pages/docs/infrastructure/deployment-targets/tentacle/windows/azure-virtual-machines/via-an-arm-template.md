@@ -13,7 +13,7 @@ An Azure Resource Manager (ARM) template is a JSON file that defines a set of Az
 
 Using an ARM template, you can deploy the Tentacle VM extension at the same time you create the virtual machine, or update the resource group to apply the extension later.
 
-:::hint
+:::div{.hint}
 A [fully functioning example](https://azure.microsoft.com/en-gb/resources/templates/octopus-deploy-tentacle-windows/) can be found in the [Azure Quickstart Templates](https://azure.microsoft.com/en-gb/resources/templates/) library.
 :::
 
@@ -67,6 +67,6 @@ Create your ARM template as normal, and add a `resources` element under your `Mi
 
 Please refer to the [configuration structure](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/configuration-structure) for details regarding the format of the `settings` and `protectedSettings` elements.
 
-:::hint
+:::div{.hint}
 If you need more the ability to customize more of the installation, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.
 :::

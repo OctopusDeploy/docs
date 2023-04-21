@@ -35,7 +35,7 @@ Or one of the common options:
 
 This example imports a certificate from a .pfx file:
 
-:::hint
+:::div{.hint}
 This command will import the first certificate it finds.  If the .pfx file contains the entire certificate chain, it will attempt to load the first one, which is often the certificate for the Certificate Authority, and fail will with an error that it is unable to load the private key.
 :::
 

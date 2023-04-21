@@ -10,7 +10,7 @@ hideInThisSection: true
 
 Microsoft DFS is a [distributed file system](https://en.wikipedia.org/wiki/Clustered_file_system#Distributed_file_systems), which is important to consider when configuring Octopus Deploy with a DFS file share. Octopus Server makes specific assumptions about the performance and consistency of the file system when accessing log files, performing log retention, storing deployment packages and other deployment artifacts, and temporary storage when communicating with Tentacles.
 
-:::warning
+:::div{.warning}
 **DFS in the standard configuration (i.e., accessed through a DFS Namespace Root) is _not_ suitable for use as a shared file store with Octopus Deploy.**
 
 Operating Octopus Deploy with the non-recommended DFS configuration will likely result in intermittent and potentially significant issues.

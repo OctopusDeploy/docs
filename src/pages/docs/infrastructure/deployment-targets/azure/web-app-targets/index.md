@@ -9,7 +9,7 @@ navOrder: 20
 
 Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
 
-:::hint
+:::div{.hint}
 From version 2022.1 Octopus can discover Azure Web App targets using tags on your Web App resource.
 :::
 
@@ -23,7 +23,7 @@ From version 2022.1 Octopus can discover Azure Web App targets using tags on you
 
 Octopus can discover Azure Web App targets as part of your deployment using tags on your resource.
 
-:::hint
+:::div{.hint}
 From **Octopus 2022.3**, you can configure the well-known variables used to discover Azure Web App targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 :::
 
@@ -35,7 +35,7 @@ To discover targets use the following steps:
 
 From **Octopus 2022.2**, deployment slots within an Azure Web App can also be discovered separately from the Web App it is a part of by adding tags to the slot. Any deployment slot discovered during deployment will be created as a separate target in Octopus.
 
-:::hint
+:::div{.hint}
 The name of discovered Azure Web Apps has changed in **Octopus 2022.2** to include additional information about the resource group. Any Web App targets discovered in **Octopus 2022.1** whilst this feature was in Early Access Preview will need to be deleted and will be rediscovered during the next deployment.
 :::
 
@@ -53,7 +53,8 @@ To create an Azure Web App target within Octopus:
 
 ![](/docs/infrastructure/deployment-targets/azure/web-app-targets/create-azure-web-app-target.png "width=500")
 
-:::info
+:::div{.info}
+
 If you are using a **Standard** or **Premium** Azure Service Plan, you can also select a specific slot as your target.
 The _Azure Web App Slot_ field will allow you to select one of the slots available on the Web App. If there are no slots, this will be empty.
 

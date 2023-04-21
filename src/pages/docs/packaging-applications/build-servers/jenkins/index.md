@@ -39,7 +39,7 @@ Once any of the above plugins are installed, you can then search and install the
 
 After you have installed the Octopus Deploy plugin. First navigate to {{Manage Jenkins > Global Tool Configuration}} to supply the details for the Octopus CLI.
 
-:::success
+:::div{.success}
 **Creating API keys**
 Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key) so the plugin can interact with your Octopus Server.
 :::
@@ -116,7 +116,7 @@ Octopus can be used as a [NuGet package repository](/docs/packaging-applications
 
 This action will push all packages that match the `Package paths` supplied.
 
-:::hint
+:::div{.hint}
 Note that the package paths defined here should be full paths, not including any wildcards.
 :::
 
@@ -149,7 +149,7 @@ As an example here is what build information looks like when attached to a relea
 Jenkins is compiling our code and publishing packages to Octopus Deploy. If we wish, we can also have Jenkins automatically create (and optionally, deploy) a release in Octopus along with other supporting actions.
 
 
-:::success
+:::div{.success}
 **Octopus CLI more information**
 Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) and the arguments it accepts.
 :::
@@ -176,7 +176,7 @@ A successful run looks like this:
 
 ![](/docs/packaging-applications/build-servers/jenkins/images/random-quotes-successful-run.png "width=500")
 
-:::success
+:::div{.success}
 **Contributing to the plugin**
 
 We welcome contributions; issues, bug fixes, enhancements.

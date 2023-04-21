@@ -1749,7 +1749,7 @@ Octopus Deploy is made possible thanks to the following great third-party produc
 
 Each project listed here is the property of its respective copyright owner.
 
-:::hint
+:::div{.hint}
 Have we missed something from this list? Typos or inaccuracies? Please let us know via our [support forum](https://octopus.com/support) so that we can fix it. Thanks!
 :::
 

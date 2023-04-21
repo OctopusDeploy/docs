@@ -8,7 +8,8 @@ navOrder: 50
 ---
 Both Nexus OSS and Nexus Pro offer three types of NuGet repository, Hosted, Group, and Proxy.  This guide will cover creating a Hosted NuGet repository and adding it as an External Feed in Octopus Deploy.
 
-:::info
+:::div{.info}
+
 This guide was written using Nexus OSS version 3.37.0-01
 :::
 

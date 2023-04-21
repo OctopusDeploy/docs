@@ -7,7 +7,7 @@ description: Information on how to upgrade from Octopus 2.x to 2.6.5.
 navOrder: 3
 ---
 
-:::success
+:::div{.success}
 Please read our guide for [upgrading older versions of Octopus](/docs/administration/upgrading/legacy) before continuing.
 :::
 
@@ -26,7 +26,8 @@ To upgrade the Octopus Server, you will need to follow these steps:
 2. Download the [Octopus Deploy 2.6.5 Installer](https://octopus.com/downloads/2.6.5).
 3. Run the installer and follow the prompts.
 
-:::problem
+:::div{.problem}
+
 **Changing installation paths**
 If you change the Octopus Server installation path (e.g. *C:\Program Files\Octopus Deploy\Server*) between upgrades, you will need to reconfigure the Windows service after the installer completes. In the Octopus Server Manager, choose the "Reinstall" button to the right of the service status.
 :::
@@ -57,7 +58,7 @@ Instead, we added a check in **Octopus 2.1.3** that checks if a per-user install
 
 ### Uninstall Octopus 2.0 {#UpgradingfromOctopus2.0-UninstallingOctopus2.0}
 
-:::success
+:::div{.success}
 **Your data is safe**
 Uninstalling the old Octopus MSI only removes the program files from disk and stops the Windows Service; your configuration files and the Octopus database will not be touched. When you install the new version, it will continue to work.
 

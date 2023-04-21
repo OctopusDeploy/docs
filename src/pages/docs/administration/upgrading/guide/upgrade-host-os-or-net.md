@@ -87,6 +87,6 @@ A polling Tentacle can only connect to one Octopus Deploy instance.  It connects
 
 Each polling Tentacle will need to be cloned on each deployment target.  To make things easier, we have provided [this script](https://github.com/OctopusDeployLabs/SpaceCloner/blob/master/CloneTentacleInstance.ps1) to help clone a Tentacle instance.  That script will look at the source instance, determine the roles, environments, and tenants, then create a cloned Tentacle and register that cloned Tentacle with your cloned instance.  
 
-:::hint
+:::div{.hint}
 Any script that clones a Tentacle instance must be run on the deployment target.  It cannot be run on your development machine.  
 :::

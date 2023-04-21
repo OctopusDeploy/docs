@@ -12,7 +12,8 @@ Syncing instances involves copying projects and all of the required scaffolding 
 
 Keeping multiple instances in sync is a complex task involving dozens if not hundreds of decisions across all the projects.  This guide will walk you through suitable scenarios, unsuitable scenarios, tooling available, and how to design a syncing process.  
 
-:::problem
+:::div{.problem}
+
 TL;DR; copying projects between instances should be done when all other options have been exhausted.  There is no provided tooling to support syncing instances with different environments, tenants, or variable values.  Due to the number of decisions and business rules, you will have to create and maintain a custom syncing process.  Before making this decision, reach out to [customersuccess@octopus.com](mailto:customersuccess@octopus.com) to see if there are alternatives.
 :::
 
@@ -26,7 +27,7 @@ Split and sync instances only when Octopus lacks a critical feature to satisfy a
 
 The expectation is the source instance is the the source of truth and the destination instance(s) contain copies of that data.  The syncing process will run periodically to ensure changes made on the source instance are added to the destination instance.
 
-:::hint
+:::div{.hint}
 If you wish to do a one-time split of an instance and have no desire to keep anything in sync afterwards, then we recommend the [Export/Import Projects](/docs/projects/export-import) feature.  
 :::
 
@@ -34,7 +35,7 @@ If you wish to do a one-time split of an instance and have no desire to keep any
 
 As you will soon see, a syncing process is complex an requires constant care and maintenance.  Even if we provided a built-in tool, you'd still need to monitor and maintain the process.  Below are the common reasons we hear for splitting an instance.  Please reach out to reach out to [customersuccess@octopus.com](mailto:customersuccess@octopus.com) if your use case is not mentioned and you'd like to discuss alternatives.
 
-:::hint
+:::div{.hint}
 We've been asked if splitting environments, tenants or deployment targets by space is a safer alternative.  [Spaces](/docs/administration/spaces) are hard walls and do not allow the sharing of environments, projects, library variable sets, step templates, script modules, deployment targets and more.  For all intents and purposes, a space is a unique instance.  Any problems you encounter when syncing instances will happen when trying to sync spaces.
 :::
 
@@ -107,7 +108,7 @@ The Octopus team has written a sample PowerShell tool, [SpaceCloner](https://git
 
 If you do determine the best course of action is to sync projects across multiple Octopus Deploy instances, then you will need to start designing a syncing process.  While the actual business rules and decisions will vary between implementations, the core rules for any syncing process will remain the same.
 
-:::warning
+:::div{.warning}
 As the syncing process requires the use of the Octopus Deploy REST API, or one of the API wrappers, you should be comfortable with the Octopus Deploy data model and API endpoint structure before starting.  
 :::
 
@@ -115,7 +116,7 @@ As the syncing process requires the use of the Octopus Deploy REST API, or one o
 
 It is possible to take JSON data retrieved via a `GET` request on an instance running 2020.1, make some modifications, and then `POST` that data to an instance running 2021.3.  But there is no guarantee that the data model will be the same between versions.  Something could've changed, a new required property, a property type was updated, or any other reason a model changes when there are over 12 months between releases.  The risk of error is directly correlated to the delta between versions—the greater the delta, the greater the risk.
 
-:::hint
+:::div{.hint}
 In late 2020 an engineering effort was made to move from NancyFX to ASP.NET for the Octopus Deploy API Controllers.  Since that conversion started, missing or additional previously tolerated fields will now cause a 400 bad request error.  Looking at the SpaceCloner code, you will see several invocations of an "add field if missing" method because of a model change.
 :::
 

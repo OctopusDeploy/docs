@@ -21,12 +21,12 @@ Windows-specific features such as IIS and Windows Services are not supported whe
 
 You can execute scripts using almost any installed scripting runtime. Learn about what you can do with [custom scripts](/docs/deployments/custom-scripts).
 
-:::hint
+:::div{.hint}
 **Environment Variable Differences**
 If you are writing a cross-platform script, be aware of the differences between environment variables for each platform. For example the Windows based variable `env:USERNAME` roughly correlates to `env:USER` on an Ubuntu machine however `env:ProgramFiles(x86)` has no corollary.
 :::
 
-:::hint
+:::div{.hint}
 **Bash (and other shell) variables**
 Octopus Deploy will log into the SSH target via a non-interactive shell. Because of this, startup files like `.bashrc` are not fully evaluated. If you are referencing bash variables `export`ed in these files, you should move them before the following common code block at the top of the file:
 ```

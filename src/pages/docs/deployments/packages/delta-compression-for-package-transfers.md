@@ -9,7 +9,8 @@ navOrder: 18
 
 Octopus supports delta compression for package transfer using our [delta compression library](https://github.com/OctopusDeploy/Octodiff). Delta compression will speed up the package acquisition phase of your deployments, especially when the limiting factor is transfer bandwidth, or if the delta achieves significant size reduction.
 
-:::info
+:::div{.info}
+
 Delta compression is not available when a package is downloaded directly on your machine(s).
 Delta compression is used by default when a package is uploaded from the Built-in repository to the remote machine(s).
 Delta compression is used by default when a package is downloaded from an external feed to the Octopus Server's package cache and then uploaded to the remote machine(s).
@@ -25,7 +26,8 @@ A typical scenario in Octopus Deploy is frequent deployments of small changes to
 4. If the delta file meets the size criteria (see note below), the server will upload the delta file to the Tentacle and call Calamari to apply the delta file to the transferred package. N.B. If any of [these issues](#Deltacompressionforpackagetransfers-Whatifsomethinggoeswrong?ifanyofthebelowoccurswewilluploadthefullpackage) are experienced during the creation or application of the delta, then the entire package will be uploaded to the tentacle.
 5. Once the delta is applied, the signature file from step 2 will be compared with the final applied package on the target to determine if the change was successful. If the signatures don't match, calamari will request the server to re-upload the entire package.
 
-:::info
+:::div{.info}
+
 **Delta file size**
 If the final size of the delta file is within 80% of the new package, we upload the full package instead of uploading and applying the delta file as this will save on server resources as applying the delta file can be quite resource heavy with big delta files.
 :::
@@ -45,7 +47,7 @@ When running a deployment that creates and applies a delta file, you will see th
 
 ![Package Logs](/docs/deployments/packages/images/package-logs.png "width=500")
 
-:::hint
+:::div{.hint}
 **Delta progress logging**
 As can be seen in the screenshot above, the logging of the progress of applying the delta doesn't look like it's successfully completed as it's reporting only 20% and 0%(!!). Don't worry though, this is due to a problem with how our delta compression library (Octodiff) reports progress (we will be fixing this logging issue) and it's actually applying the full delta.
 :::
@@ -56,7 +58,7 @@ The best way to guarantee the best size reduction is to use the tools provided b
 
 If you want to use your own tools, that is fine! Just be sure to test the performance of delta compression to make sure you have configured everything correctly.
 
-:::hint
+:::div{.hint}
 The most common mistake causing delta compression to yield minimal size reduction is when artificial differences are injected into the package file. One example is when timestamps are changed each time the package is built. The tools provided by Octopus Deploy are designed to yield high size reductions based on the actual content of your packaged files.
 :::
 

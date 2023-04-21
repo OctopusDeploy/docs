@@ -9,7 +9,7 @@ navOrder: 60
 
 The Tentacle agent can be automatically installed from the command line. This is very useful if you're deploying to a large number of servers, or you're provisioning servers automatically.
 
-:::warning
+:::div{.warning}
 **Cloning Tentacle VMs**
 In a virtualized environment, it may be desirable to install Tentacle on a base virtual machine image, and clone this image to create multiple machines.
 
@@ -41,7 +41,8 @@ By default, the Tentacle files are installed under **%programfiles(x86)%**. You
 msiexec INSTALLLOCATION=C:\YourDirectory /i Octopus.Tentacle.<version>.msi /quiet
 ```
 
-:::problem
+:::div{.problem}
+
 While you can set a custom INSTALLLOCATION for the Tentacle, please be aware that upgrades initiated by Octopus Server will install the upgraded Tentacle in the default location. This may have an impact if you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog).
 :::
 
@@ -102,7 +103,7 @@ $tentacle.Endpoint.Thumbprint = "YOUR_TENTACLE_THUMBPRINT"
 $repository.machines.create($tentacle)
 ```
 
-:::hint
+:::div{.hint}
 Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api).
 :::
 
@@ -123,7 +124,7 @@ Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" 
 Tentacle.exe service --instance "Tentacle" --install --start --console
 ```
 
-:::hint
+:::div{.hint}
 **Tips:**
 - If you are running this from a PowerShell remote session, make sure to add `--console` at the end of each command to force Tentacle.exe not to run as a service.
 - Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api).

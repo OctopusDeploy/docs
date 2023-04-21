@@ -22,7 +22,7 @@ Project, Tenant, and Step Template variables are associated with their specific 
 
 During a deployment, Octopus will gather all the variables for the project, Tenant (when applicable), step template, associated library sets, and system variables and create a "variable manifest" for each step to use.
 
-:::hint
+:::div{.hint}
 Multi-tenancy is an advanced topic, with its own set of recommendations.  Tenants were mentioned here so you could see the bigger picture of variables.
 :::
 

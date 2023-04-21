@@ -45,7 +45,7 @@ You can then update the version control settings by following the steps below:
 
 You can now delete the files from the old location.
 
-:::hint
+:::div{.hint}
 If you receive the error `Branch has not been initialized` it is likely you haven't copied the configuration files to the new location, didn't publish your changes, or have mistyped the directory name.
 :::
 
@@ -70,6 +70,6 @@ Copy the latest version of the `*.ocl` files into the new location. Then commit 
 
 You can now delete the files from the old location.
 
-:::hint
+:::div{.hint}
 When you use the **TEST** button to check your connection, the most common issues will be an incorrect username or using your password instead of a personal access token.
 :::

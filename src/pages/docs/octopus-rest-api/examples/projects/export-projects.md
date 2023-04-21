@@ -8,7 +8,7 @@ description: An example script that will export projects that can be imported in
 
 This script will export projects from an Octopus space that can be imported into a different space on the same instance or a separate Octopus instance. 
 
-:::hint
+:::div{.hint}
 **Note:**
 Please note there are some items to consider before using this script:
 

@@ -54,7 +54,7 @@ else {
 
 The script checks to see if IIS is already installed by inspecting the `InstallState` for the `Web-Server` feature. If it’s installed it will skip the install of IIS.
 
-:::hint
+:::div{.hint}
 **Execution Policy:**
 It’s possible you may need to set the [Execution policy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy) to an appropriate value (as part of the script) in order for it to run successfully. 
 :::
@@ -110,7 +110,7 @@ To create a runbook to start your IIS application pool:
 1. Choose the **Execution Location** on which to run this step.
 1. Fill out the only required parameter: **Application Pool name**. 
 
-:::hint
+:::div{.hint}
 We recommend using [variables](/docs/projects/variables) where appropriate, rather than entering values directly in the step parameters.
 :::
 
@@ -197,7 +197,7 @@ To create a runbook to harden your IIS server:
 1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Add a **Run a Script** step and past in the following example PowerShell:
-:::warning
+:::div{.warning}
 The following script makes a number of registry changes and alterations to ciphers, key hashes, key exchange algorithms, and cipher suite ordering.  Be sure to review the changes that it will implement before proceeding.
 :::
 

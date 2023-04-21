@@ -44,13 +44,13 @@ The `SSL implementation` field lists the standard Tomcat SSL implementations. Di
 * [Tomcat 8](https://tomcat.apache.org/tomcat-8.0-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
 * [Tomcat 7](https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
 
-:::hint
+:::div{.hint}
 If you select an SSL implementation that is not supported by the version of Tomcat that the certificate is being deployed to, an error will be reported at deploy time.
 :::
 
 The `HTTPS port` field defines the HTTPS port of the Tomcat connector that will be created or edited by the step. The port is considered to be a connector identifier. This means that if a `<Connector>` element exists with the specified port, it will be updated with the new certificate. If a `<Connector>` element does not exist with that port, a new connector will be created.
 
-:::hint
+:::div{.hint}
 Existing `<Connector>` elements can only be updated with the same SSL implementation. Octopus does not support changing the SSL implementation of an existing connector.
 :::
 
@@ -66,13 +66,13 @@ The `Certificate SNI hostname` field defines the hostname that the deployed cert
 
 For example, when set to the hostname `example.org`, the certificate being deployed will be used to secure requests to URLs like `https://example.org`.
 
-:::hint
+:::div{.hint}
 Defining the `Certificate SNI hostname` field will result in an error when deploying to Tomcat 8 and below.
 :::
 
 The `Default certificate` field can be used to indicate if the certificate being deployed will be the default for the connector. By selecting `Make this the default certificate`, this certificate will be used for any request to a hostname that does not have a certificate specifically mapped to it. Selecting `Leave this certificate's default status unchanged` will leave the existing default hostname unchanged.
 
-:::hint
+:::div{.hint}
 There must always be a default certificate. If the certificate being deployed is the only certificate available to the connector, it will be made the default even if `Make this the default certificate` is not selected.
 :::
 
@@ -114,7 +114,7 @@ For example, if you had both an RSA and a ECDSA certificate managed by Octopus, 
 </Connector>
 ```
 
-:::hint
+:::div{.hint}
 Although the example above uses the `APR` protocol, any protocol can be used to deploy multiple certificate types.
 :::
 

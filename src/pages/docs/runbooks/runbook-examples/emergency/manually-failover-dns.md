@@ -9,7 +9,8 @@ navOrder: 10
 
 Power outages, natural disasters, or fiber lines being cut in construction projects are just a few things that can cause outages.  One of the most common Disaster Recovery (DR) methods is to have a secondary site where you can update the Domain Name System (DNS) record and be back online.
 
-:::info
+:::div{.info}
+
 Updating the IP address of a DNS entry is quick and easy, but you are at the mercy of those changes being propagated throughout the Internet.
 :::
 

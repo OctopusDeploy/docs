@@ -1,4 +1,4 @@
-:::warning
+:::div{.warning}
 Octopus High Availability has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database/#highavailability)
 :::
 

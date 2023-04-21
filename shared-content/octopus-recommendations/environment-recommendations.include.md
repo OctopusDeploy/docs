@@ -56,7 +56,7 @@ Creating seven environments like this doesn't scale. A better solution is using 
 
 ![Data Center tenants](/docs/shared-content/octopus-recommendations/images/data-center-tenants.png "width=500")
 
-:::hint
+:::div{.hint}
 **Tip:** Adding images to your tenants makes them easier to find. You can do this by clicking on the tenant and choosing **Settings**, and you can choose an image to upload in the **Logo** section.
 :::
 

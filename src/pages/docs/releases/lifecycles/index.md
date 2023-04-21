@@ -15,7 +15,7 @@ Lifecycles enable a number of advanced deployment workflow features:
 - **Automate deployment to specific environments**: for example, automatically deploy to *test* as soon as a release is created.
 - **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
-:::hint
+:::div{.hint}
 Lifecycles don't apply to [Runbooks](/docs/runbooks/). Learn more about the [differences between Runbooks and Deployments](/docs/runbooks/runbooks-vs-deployments).
 :::
 
@@ -30,7 +30,7 @@ Phases can also include multiple environments. This can be useful where you have
 
 When no phases are defined in a lifecycle, Octopus will use a default convention to control which environments may be deployed to, and in which order. The default convention forces releases to be deployed to each environment in the order that they are defined on the environments page.
 
-:::warning
+:::div{.warning}
 When you add a new environment to Octopus, it will automatically be included in the list of environments available to the default convention. To prevent Octopus from applying the default convention, define your own phases or restrict your lifecycle to specific environments.
 :::
 
@@ -52,7 +52,7 @@ When adding an environment to a phase, you can choose whether you want deploymen
 
 When a phase is defined without any environments added to it, this phase of the lifecycle will deploy to all the environments that haven't been *explicitly added* to the lifecycle in previous phases. 
 
-:::hint
+:::div{.hint}
 Any future environments you define will also be deployed to as part of this phase of the Lifecycle.
 :::
 
@@ -80,7 +80,7 @@ Any future environments you define will also be deployed to as part of this phas
    - **A minimum of x must complete**. If you choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
    - **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
 
-     :::warning
+     :::div{.warning}
      **Automatic deployments not evaluated for Optional phases**
      Optional phases do not execute automatic deployments. If you want to deploy releases automatically to any environments in a phase, use one of the other *Required to progress* options.
      :::
@@ -113,7 +113,7 @@ The default lifecycle handles most cases for small or straightforward configurat
 
 When you create a new environment, it's automatically included in the default lifecycle. This also means that if you reorder the environments, the order of the phases will also change to match. These conventions can be helpful, but can sometimes lead to performance problems.
 
-:::hint
+:::div{.hint}
 Try to keep the number of environments in Octopus under ten. Having fewer environments keeps the number of phases in the default lifecyle low.
 :::
 
@@ -129,7 +129,7 @@ You can define your own phases for the default lifecycle. This helps to prevent 
 
 This phase has the default option to manually deploy to the environment set. The Required to progress and Retention policy are also set to the default values.
 
-:::hint
+:::div{.hint}
 Phase names usually match the environment it contains. While this is a good practice, it's not a rule.
 :::
 
@@ -153,7 +153,7 @@ It's recommended to follow good deployment practices and validate any changes be
 
 ### Maintenance lifecycle
 
-:::success
+:::div{.success}
 **Octopus 2019.10** introduced [Runbooks](/docs/runbooks) as an alternative to having a maintenance lifecycle. They allow you to automate routine maintenance and emergency operations tasks.
 :::
 

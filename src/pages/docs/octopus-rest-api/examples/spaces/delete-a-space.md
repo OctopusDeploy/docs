@@ -16,7 +16,7 @@ Provide values for:
 - Octopus API Key
 - Space Name to delete the space with the given name.
 
-:::warning
+:::div{.warning}
 **Be very careful when deleting a Space. This operation is destructive and cannot be undone.**
 :::
 

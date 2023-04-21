@@ -9,7 +9,7 @@ navOrder: 0
 
 Octopus ships with a number of authentication providers. The support for these providers differ between Octopus Server, [Octopus Cloud](/docs/octopus-cloud/) and the [Octopus Linux Container](/docs/installation/octopus-server-linux-container). Some authentication providers only work with Octopus Server, whilst others only work with Octopus Cloud. This page describes the compatibility of these providers in Octopus.
 
-:::hint
+:::div{.hint}
 Most of the authentication providers listed here are available in modern versions of Octopus. However, some are shipped with Octopus from a specific version. Where this is the case, the version will be noted alongside the provider.
 :::
 
@@ -49,6 +49,6 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 
 **†** For Okta groups to flow through to Octopus, you'll need to change the _Groups claim_ fields. Please read the [Okta group integration](/docs/security/authentication/okta-authentication/#Oktaauthentication-OpenIDConnectSettings-OktaGroups) section for more details.
 
-:::hint
+:::div{.hint}
 [Octopus ID](/docs/security/authentication/octopusid-authentication/) does not currently support configuring [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles).
 :::

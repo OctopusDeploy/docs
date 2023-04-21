@@ -15,7 +15,7 @@ This feature can be enabled for package deploy steps.
 
 Octopus will extract your package and parse your `*.config` files looking for any `appSettings`, `connectionStrings`, and `applicationSettings` elements where the name matches one of your [variables](/docs/projects/variables).
 
-:::hint
+:::div{.hint}
 You can perform simple convention-based replacements in .NET XML configuration files using this feature. We also have a feature tailored to [JSON, YAML, XML, and Properties configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature).
 
 If you are looking for something more flexible, we have the [Substitute Variables in Templates feature](/docs/projects/steps/configuration-features/substitute-variables-in-templates) enabling you to perform complex transformations on any kind of file.
@@ -67,7 +67,7 @@ In this example, you would have variables similar to the following:
 | `WelcomeMessage` | `Hello tester!` | `No` | `Test` |
 | `WelcomeMessage` | `Hello customer!` | `No` | `Production` |
 
-:::warning
+:::div{.warning}
 Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the Octopus database. During deployment they are encrypted during transport, but eventually decrypted and written in clear-text to the configuration files so your application can use the value.
 :::
 

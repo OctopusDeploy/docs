@@ -26,7 +26,7 @@ ScriptCS has not been ported for .NET Core ([GitHub issue](https://github.com/sc
 
 Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHub issue](https://github.com/Microsoft/visualfsharp/issues/2407)).
 
-:::warning
+:::div{.warning}
 ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.14.x**.
 :::
 
@@ -46,7 +46,7 @@ The latest release of Linux Tentacle is available for download from:
 
 ## Installing and configuring Linux Tentacle
 
-:::hint
+:::div{.hint}
 Many of the steps described below require elevated permissions, or must be run as a super user using `sudo`.
 :::
 
@@ -90,7 +90,7 @@ Many instances of Tentacle can be configured on a single machine. To configure a
 
 Additional instances of Tentacle can be created and configured by passing the `--instance $instanceName` argument to all of the commands listed here.
 
-:::warning
+:::div{.warning}
 The installer script does not make any adjustments to firewalls. Be sure to check any ports specified are open on your firewalls. For example port `10933` for listening tentacles.
 :::
 
@@ -215,7 +215,7 @@ cd /home/Octopus/Applications
 ## Automation scripts
 The following bash scripts install, configure and register Linux Tentacle for use in automated environments:
 
-:::hint
+:::div{.hint}
 **Note:**
 - Many of the steps described below require elevated permissions, or must be run as a super user using `sudo`.
 - By default, when registering Linux Targets or Workers, the scripts below assume Octopus will communicate with the target or worker using the server hostname (from the `$HOSTNAME` variable). To provide a different address, consider looking up the hostname/IP address. For example:

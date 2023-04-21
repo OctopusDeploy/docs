@@ -9,7 +9,7 @@ navOrder: 40
 
 Scheduled runbook triggers allow you to define unattended behavior for your [Runbook](/docs/runbooks) that will cause an automatic runbook run to environments of your choosing.
 
-:::hint
+:::div{.hint}
 Only published snapshots can be used to create a scheduled runbook trigger, draft snapshots cannot be used to create a scheduled trigger.
 :::
 
@@ -47,7 +47,7 @@ Example:
 
 Runs at 06:00 AM, Monday through Friday.
 
-:::success
+:::div{.success}
 The CRON expression must consist of all 6 fields, there is an optional 7th field for "Year".
 :::
 

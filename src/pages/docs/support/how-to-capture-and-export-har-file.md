@@ -9,7 +9,7 @@ navOrder: 17
 
 When something goes wrong in Octopus we may ask you to provide a HAR file to help us diagnose the problem. This file captures a web browser's interaction with a site and may provide insight into where and why a specific request is failing.
 
-:::warning
+:::div{.warning}
 HAR files may contain sensitive data as they include any pages you visited and associated cookies whilst recording. Depending on what has been recorded, this may allow someone with your HAR file to impersonate accounts or any other personal information submitted during recording.
 ::: 
 

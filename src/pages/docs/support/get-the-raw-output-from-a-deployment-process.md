@@ -19,6 +19,6 @@ When you contact Octopus Deploy support with a deployment related issue, we'll s
 
 Send this file to us, or attach it to your support request.
 
-:::hint
+:::div{.hint}
 You might want to open the file in a text editor, and redact any sensitive information like hostnames or company information, before sending the data to us.
 :::

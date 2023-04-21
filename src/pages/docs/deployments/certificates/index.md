@@ -37,7 +37,8 @@ There is a "Certificate expiry events" event-group, and three events:
 - Certificate expiry 10-day warning.
 - Certificate expired.
 
-:::info
+:::div{.info}
+
 The background task which raises the certificate-expiry events runs:
 - 10 minutes after the Octopus Server service starts
 - Every 4 hours

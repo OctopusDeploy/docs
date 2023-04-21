@@ -22,7 +22,7 @@ var connection = await client.Get(machine.Links["Connection"]);
 
 The entire API is accessible by traversing links - each resource carries a collection of links, like the `Connection` link on `MachineResource` shown above.
 
-:::warning
+:::div{.warning}
 Always access objects by traversing the links; avoid using direct url segments, as they may change in the future.
 :::
 

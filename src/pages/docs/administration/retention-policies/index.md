@@ -24,7 +24,7 @@ One important thing to note about the release retention policy is that any relea
 
 These releases are assumed to be a working release and may still be promoted (even if their dates fall well outside the retention policy). This can be helpful as it means you don't have to worry about a recent release in the Staging environment being deleted before it can be promoted to Production. 
 
-:::hint
+:::div{.hint}
 If you see a release that isn't being cleaned up, check the dashboards to see if it's being displayed.
 :::
 
@@ -36,7 +36,7 @@ Octopus will never remove the latest release or the release previous to the late
 
 The Tentacle settings delete **packages**, and **files and folders** extracted from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/projects/steps/configuration-features/custom-installation-directory) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
 
-:::hint
+:::div{.hint}
 We talk about Tentacles here, but the same process and logic applies to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target) also.
 :::
 
@@ -50,7 +50,7 @@ When a package retention policy is applied, Octopus will delete packages that me
 1. The time span from the package's initial publish date exceeds the configured time period in the policy
 2. The package is **not associated with any releases in Octopus**.
 
-:::hint
+:::div{.hint}
 When configuring the repository retention policy, it's also worth making note of your [release retention policy](#releases-whats-deleted) settings too. When releases are deleted as a result of your release retention policy, then packages associated with those releases may become subject to cleanup by your repository policy.
 :::
 
@@ -65,7 +65,7 @@ When configuring the repository retention policy, it's also worth making note of
 
 Some items in Octopus are not affected by Retention policies, and are never deleted. One example of this is [Audit logs](/docs/security/users-and-teams/auditing). Octopus actively [prevents modifying or deleting audit logs](/docs/security/users-and-teams/auditing/#modifying-and-deleting-audit-logs-is-prevented).
 
-:::hint
+:::div{.hint}
 From version **Octopus 2023.1** the [Audit Retention functionality](/docs/security/users-and-teams/auditing/#archived-audit-events) will start being rolled out. This **does not** delete audit records. It just moves them from the database to the file system.
 :::
 
@@ -186,7 +186,7 @@ In Octopus Server, this can be set to keep packages forever, or for a set number
 
 Choosing the *A limited time* option will allow you to select the number of days to keep a package in the repository. The default value is 30, but you can choose something shorter or longer based on your needs.
 
-:::hint
+:::div{.hint}
 **Note on package clean-up**
 Only packages that are not associated with releases will be cleaned up. That means even if a package is older than the value you choose, if it's attached to an existing release, it won't be cleaned up until that release is also cleaned up.
 :::

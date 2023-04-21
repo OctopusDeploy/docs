@@ -21,7 +21,7 @@ Provide values for:
 - What if is true or false
 - Max number of tenants to change
 
-:::hint
+:::div{.hint}
 **Note:** 
 In order for this script to execute correctly, please note the following:
 - The projects provided must have the Multi-tenanted deployment setting enabled.

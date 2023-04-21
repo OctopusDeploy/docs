@@ -9,7 +9,7 @@ navOrder: 30
 
 Octopus allows you to [define variables](/docs/projects/variables/) to customize your deployments. These variables, along with some [predefined variables](/docs/projects/variables/system-variables), will automatically be made available to your scripts as global variables.
 
-:::warning
+:::div{.warning}
 **All variables are strings**
 Note that in scripts **all Octopus variables are strings** even if they look like numbers or other data types. You will need to cast to the appropriate type before using the value if you need something other than a string.
 :::
@@ -59,7 +59,7 @@ connectionString = get_octopusvariable("MyApp.ConnectionString")
 print(connectionString)
 ```
 
-:::success
+:::div{.success}
 To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/FSharp/Bootstrap.fsi).
 :::
 

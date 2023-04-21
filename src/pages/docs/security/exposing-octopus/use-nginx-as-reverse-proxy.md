@@ -32,7 +32,7 @@ Follow these steps if you're running NGINX directly on a server, such as Windows
 
 The first step is to copy the SSL certificate to a folder NGINX can access, for example, `/etc/nginx`.  This example will use two files, `STAR_octopusdemos.app.pem` and `STAR_octopusdemos.app.key`.  The .pem file contains the entire certificate chain.  
 
-:::warning
+:::div{.warning}
 The certificate file (.crt, .pem, etc.) should contain the entire certificate chain.  Failure to do so could cause the browser to reject the certificate.
 :::
 

@@ -58,7 +58,7 @@ How many deployments occur to the target environment.
 
 How long it takes to recover a failed deployment with a subsequent successful deployment.
 
-:::hint
+:::div{.hint}
 Some of these metrics differ slightly from the textbook DORA metrics given the data available.
 :::
 
@@ -92,7 +92,7 @@ With the Space level insights, you can build reports with the relevant data that
 
 This also allows you to easily identify contributors to a performance trend you see at the aggregated level. It provides a breakdown of the highest and lowest performing projects and releases that may significantly impact the overall performance. This enables you to identify where things are improving or declining and take action based on that.
 
-:::hint
+:::div{.hint}
 Users who have view permissions to Space-level Insights reports will see sanitized data on projects / environments they don’t have access to.
 :::
 

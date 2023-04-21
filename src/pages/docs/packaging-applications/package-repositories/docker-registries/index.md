@@ -10,7 +10,7 @@ hideInThisSectionHeader: true
 
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
-:::success
+:::div{.success}
 See an example deployment using Docker Registries in our guide: [Docker run with networking](/docs/deployments/docker/docker-run-with-networking).
 :::
 
@@ -33,7 +33,7 @@ According to the Docker API documentation, the [version 1](https://docs.docker.c
 Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expects a `Docker-Distribution-API-Version` HTTP header with a value of `registry/2.0`. Both of these endpoints are expected to be located at an absolute path of either `/v1` or `/v2` from the host.
 
 
-:::success
+:::div{.success}
 **Accessing Docker registries from different security zones**
 It is possible that the URI to the Docker Registry will be different for the Octopus Server and the deployment targets. You can use the *Registry Path* field when configuring the Docker Registry in Octopus to provide an alternative URI to use on the deployment target.
 :::
@@ -48,7 +48,7 @@ When you create a release in Octopus, you need to choose the "version" of the Im
 
 ![](/docs/packaging-applications/package-repositories/docker-registries/images/5865828.png "width=500")
 
-:::hint
+:::div{.hint}
 **Container images are downloaded directly by the Deployment Target or Worker**
 Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
 :::
@@ -74,7 +74,8 @@ We have provided further details on setting up a Octopus Feed to the following D
 
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 
-:::problem
+:::div{.problem}
+
 **Searching in a v2 Registry**
 Although a search feature is available in the v1 registry API, as of the time of writing there is no built-in search ability in the v2 specifications. There are ongoing discussions around an open [GitHub ticket](https://github.com/docker/distribution/issues/206) in the Docker registry Github repository however there is no clear indication if one will be provided due to changes in the philosophy behind the registry responsibilities. The current workaround, and one one that Octopus Deploy uses when a v2 Docker registry is provided, is to retrieve the full catalog via the [/v2/\_catalog](https://docs.docker.com/registry/spec/api/#/listing-repositories) endpoint and search for the required image locally.
 :::

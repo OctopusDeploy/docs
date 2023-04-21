@@ -21,7 +21,7 @@ See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-fr
 
 ### 2. Install Octopus 2018.10 LTS on a new virtual or physical server {#Upgradewithanew3.0serverinstance-2.InstallOctopus3.xonanewvirtualorphysicalserver}
 
-:::success
+:::div{.success}
 **Upgrade to the latest version**
 When upgrading to **Octopus 2018.10 LTS** please use the latest version available. We have been constantly improving the **Octopus 2.6.5** to **Octopus 2018.10 LTS** data migration process whilst adding new features and fixing bugs.
 :::
@@ -32,14 +32,14 @@ See the [Installing Octopus 2018.10 LTS](/docs/installation) page for instruct
 
 See the [Migrating data from Octopus 2.6.5 to 2018.10 LTS](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts) page for instructions on importing your **Octopus 2.6.5** database backup into **Octopus 2018.10 LTS**.
 
-:::hint
+:::div{.hint}
 **Migration taking a long time?**
 By default we migrate everything from your backup including historical data. You can use the `maxage=` argument when executing the migrator to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
 
 To see the command syntax click the **Show script** link in the wizard
 :::
 
-:::hint
+:::div{.hint}
 **Using the built-in Octopus NuGet repository?**
 If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories) you will need to move the files from your **Octopus 2.6.5** server to your **Octopus 2018.10 LTS** server. They are not part of the backup.
 In a standard **Octopus 2.6.5** install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
@@ -64,7 +64,7 @@ Performing the Check Health on your **Octopus 2018.10 LTS** server should now su
 
 ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278009.png "width=500")
 
-:::hint
+:::div{.hint}
 If you have multiple Tentacles running on the same server, an update to one will result in an update to **all** of them. This is because there is only one copy of the Tentacle binaries, even with multiple instances configured.
 :::
 

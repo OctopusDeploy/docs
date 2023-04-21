@@ -11,7 +11,7 @@ Projects are used to collect all the assets that make up your deployment process
 
 By default, Octopus Deploy will store the deployment process, runbook process, and variables in the back-end SQL Server.  From **Octopus 2022.1**, you have the option to store the *deployment process* in a git repository.  
 
-:::hint
+:::div{.hint}
 The ability to store runbook processes and variables will be added in future versions.
 :::
 

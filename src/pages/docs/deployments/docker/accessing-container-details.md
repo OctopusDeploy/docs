@@ -11,7 +11,7 @@ When creating a container or network via one of the new Docker steps, you may wi
 
 To allow access to this information Octopus invokes this command right after creating a container (or network) which results in a large detailed JSON array (since you can request multiple container details from a single invocation) that will look something like the examples below. This output is then returned back to the server and processed as an [Output Variable](/docs/projects/variables/output-variables) with the format `#{Octopus.Action[<action name>].Output.Docker.Inspect}`.
 
-:::warning
+:::div{.warning}
 **Inspection timing and relevance**
 Keep in mind when using the results of Octopus Deploy's automatic inspection that this is **invoked just after the resource is created**. This means that
 
@@ -19,7 +19,7 @@ Keep in mind when using the results of Octopus Deploy's automatic inspection tha
 2. If your container state changes *after* this point in time, such as a new network or volume is attached, then the information may be out of date.
 :::
 
-:::success
+:::div{.success}
 **Advanced JSON parsing in variables**
 Variables that are a JSON object can now be [parsed natively](/docs/projects/variables/variable-substitutions) and sub properties within the document can now be used for general variable substitution. This makes accessing information about your container from subsequent steps trivial.
 :::
@@ -46,7 +46,7 @@ Once a container has started and is attached to a network, an IP address will be
 
 while this variable might look complex, you should be able to see the two aforementioned steps involved. The network name inside the `Networks` index is first resolved, and then the network information is extracted from the container inspection variable.
 
-:::hint
+:::div{.hint}
 **Output variable in project variables**
 You may find that you want to access variables from the inspection output several times and find it a bit cumbersome to keep typing out their full value. To simply things, you might find it helpful to create a project variable with the value of the output variable.
 

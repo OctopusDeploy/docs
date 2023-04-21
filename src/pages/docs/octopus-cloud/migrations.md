@@ -11,11 +11,12 @@ This guide will walk you through a general set of steps to take to migrate your 
 
 It is impossible to cover every last use case in a single guide, and as such, if you have any questions, please [email our support team](mailto:support@octopus.com). We're always happy to help, and we can provide more specific information when you are ready to migrate.
 
-:::hint
+:::div{.hint}
 This guide will follow the recommended approach to migrating to Octopus Cloud using the **Export/Import Projects** feature released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import).
 :::
 
-:::problem
+:::div{.problem}
+
 **Historical Data is not included in the migration.**
 
 The Export/Import Projects feature will create releases and "shells" of your deployments.  The releases are created so you can promote existing releases through your environments.  The deployments are created because lifecycle conditions need to be met prior to those releases being promoted.  
@@ -81,7 +82,7 @@ Regardless of your tentacle communication mode, ensure you have the appropriate 
     - Port `443` outbound (to register the tentacle with Octopus Cloud)
     - Port `10943` outbound (communications)
 
-:::hint
+:::div{.hint}
 Our recommendation is to create a test server in each of your data centers, install a tentacle on it with the desired communication mode, and register it with Octopus Cloud.  Work out any firewall configuration issues before starting the migration.
 :::
 
@@ -99,7 +100,7 @@ Our recommendation is to:
 2. Create virtual machines and install tentacles as workers for each worker pool.  For redundancy, we recommend a minimum of two (2) workers per worker pool.  Install any required software on each worker.  Consider leveraging [execution containers](/docs/projects/steps/execution-containers-for-workers).
 3. Change your deployment and runbook processes to target the appropriate worker pool.  You can leverage [worker pool variables](/docs/projects/variables/worker-pool-variables) to change worker pools per environment.  Ensure all deployments and runbooks work as expected.
 
-:::warning
+:::div{.warning}
 Please do not skip Step 3.  In doing step 3, you will start your migration in a known good state.  If you change to workers _after_ migration to Octopus Cloud, you will have changed two things (workers and your instance), making it much harder to troubleshoot.
 :::
 
@@ -134,7 +135,7 @@ Your process for each project or application will generally follow these steps.
 
 We recommend choosing an "off-cycle" or "slow time" whenever possible to keep any potential impact to a minimum.  The last thing you want is to change your deployment process in the middle of a project with a tight deadline.
 
-:::hint
+:::div{.hint}
 Following this approach, you will have a time period with both an Octopus Server instance and an Octopus Cloud instance.  
 :::
 
@@ -155,7 +156,7 @@ A Windows or Linux server can have [1 to N tentacle instances](/docs/administrat
 
 We have a [script to help create](https://github.com/OctopusDeployLabs/SpaceCloner/blob/master/docs/UseCase-CopyExistingTentacles/) a cloned tentacle instance pointing to Octopus Cloud.  You can copy a listening tentacle as a polling tentacle, a polling tentacle as a polling tentacle, or a listening tentacle as a listening tentacle. 
 
-:::hint
+:::div{.hint}
 That script requires PowerShell 5.1 or greater for Windows.  We recommend PowerShell 7.
 :::
 

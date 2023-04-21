@@ -16,7 +16,7 @@ Provide values for:
 - Octopus API Key
 - Date to find events by
 
-:::warning
+:::div{.warning}
 **This script will query all events for a specific date in Octopus. It may take some time to execute on an Octopus instance with a large amount of Event records. Take care when running this script or one based on it.**
 :::
 

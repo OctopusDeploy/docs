@@ -21,7 +21,7 @@ Octopus High Availability is designed for mission-critical enterprise scenarios 
 - You should be familiar with SANs, [Google Filestore](https://cloud.google.com/filestore), or other approaches to sharing storage between servers.
 - You should be familiar with load balancing for applications.
 
-:::hint
+:::div{.hint}
 **IaaS vs PaaS:**
 If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in GCP and don't intend to use their PaaS offerings (such as Cloud SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
 :::
@@ -64,7 +64,7 @@ Google Cloud offers its own managed file storage option known as [Filestore](htt
 
 For SMB storage, Google have partenered with NetApp to offer [NetApp Cloud Volumes](https://cloud.google.com/architecture/partners/netapp-cloud-volumes). This is a fully managed, cloud-based solution that runs on a Compute Engine virtual machine and uses a combination of persistent disks (PDs) and Cloud Storage buckets to store your NAS data.
 
-:::hint
+:::div{.hint}
 Typically, NFS shares are better suited to Linux or macOS clients, although it is possible to access NFS shares on Windows Servers. NFS shares on Windows are mounted per-user and are not persisted when the server reboots. It's for these reasons that Octopus recommends using SMB storage over NFS when running on Windows Servers.
 :::
 
@@ -72,7 +72,7 @@ You can see the different file server options Google Cloud has in their [File St
 
 #### NetApp Cloud Volumes
 
-:::hint
+:::div{.hint}
 To successfully create a NetApp Cloud SMB Volume in Google Cloud, you must have an Active Directory service that can be used to connect to the SMB volume. Please see the [creating and managing SMB volumes](https://cloud.google.com/architecture/partners/netapp-cloud-volumes/creating-smb-volumes) for further information. It's also worth reviewing the [security considerations for SMB access](https://cloud.google.com/architecture/partners/netapp-cloud-volumes/security-considerations) too.
 :::
 
@@ -131,7 +131,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
        New-Item -Path $ImportsFolder -ItemType SymbolicLink -Value "$SmbShare\Imports"
    }
    ```
-   :::hint
+   :::div{.hint}
    Remember to create the folders in the SMB share before trying to create the symbolic links.
    :::
 
@@ -145,7 +145,7 @@ Once you've completed those steps, [install Octopus](/docs/installation/) and th
 --imports "C:\OctopusShared\Imports"
 ```
 
-:::hint
+:::div{.hint}
 Changing the path only needs to be done once, and not on each node as the values are stored in the database.
 :::
 
@@ -258,7 +258,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    </Exec>
 
    ```
-   :::hint
+   :::div{.hint}
    This is in effect the same when using the [watchdog](/docs/octopus-rest-api/octopus.server.exe-command-line/watchdog) command to configure a scheduled task to monitor the Octopus Server service.
    :::
 
@@ -299,7 +299,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
        New-Item -Path $ImportsFolder -ItemType SymbolicLink -Value "$NfsShare\Imports"
    }
    ```
-   :::hint
+   :::div{.hint}
    Remember to create the folders in the NFS share before trying to create the symbolic links.
    :::
 
@@ -313,7 +313,7 @@ Once you've completed those steps, [install Octopus](/docs/installation/) and th
 --imports "C:\OctopusShared\Imports"
 ```
 
-:::hint
+:::div{.hint}
 Changing the path only needs to be done once, and not on each node as the values are stored in the database.
 :::
 

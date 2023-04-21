@@ -13,7 +13,7 @@ Once added, the TeamCity feed will appear in the NuGet feed list.
 
 You can use the *Test* link to make sure that the NuGet package is available before creating your Octopus project.
 
-:::success
+:::div{.success}
 **Tip: delayed package publishing**
 NuGet packages created from your build **won't appear in the TeamCity NuGet feed until after the build fully completes**. If you plan to trigger a deployment during a build, this creates a problem: the package won't be in the feed until the build is published, so you won't be able to deploy it.
 

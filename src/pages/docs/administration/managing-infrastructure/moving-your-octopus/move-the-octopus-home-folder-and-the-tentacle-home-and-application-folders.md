@@ -9,7 +9,8 @@ navOrder: 13
 
 ## Move the Octopus home folder {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheOctopusHomefolder}
 
-:::problem
+:::div{.problem}
+
 Make sure you have a **current backup** of your Octopus data before proceeding. You will also need your **Master Key** if you need to use the backup, so please copy that also!
 :::
 
@@ -17,7 +18,7 @@ Occasionally it may be necessary to change the location at which Octopus stores 
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
-:::hint
+:::div{.hint}
 **Administrator Rights Required**
 The following commands will need to be run as Administrator as they require access to the Registry.
 
@@ -48,7 +49,7 @@ A PowerShell script showing the steps is set out below. You need to change the v
 
 Default Tentacle instances are named *Tentacle*. You can find your instance names by running the [Tentacle.exe list-instances](/docs/octopus-rest-api/tentacle.exe-command-line/list-instances) command.
 
-:::hint
+:::div{.hint}
 **Administrator rights required**
 The following commands will need to be run as Administrator as they require access to the Registry.
 
