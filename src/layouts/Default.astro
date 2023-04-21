@@ -21,6 +21,7 @@ import Related from '../components/Related.astro';
 import ArticleJourney from '../components/ArticleJourney.astro';
 import Title from '../components/Title.astro';
 import Feedback from 'src/components/Feedback.astro';
+import EditOnGithub from 'src/components/EditOnGithub.astro';
 
 type Props = {
     frontmatter: Frontmatter
@@ -74,7 +75,10 @@ const site_features = SITE.featureFlags;
                     </div>
                 </article>
             </main>
-            <TableOfContents expanded={ true } frontmatter={ frontmatter } headings={ headings } lang={ lang } />
+            <div class="side-nav">
+                <TableOfContents expanded={ true } frontmatter={ frontmatter } headings={ headings } lang={ lang } />
+                <EditOnGithub frontmatter={ frontmatter } headings={ headings } lang={ lang } />
+            </div>
         </div>
         <ArticleJourney frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         <Related frontmatter={ frontmatter } headings={ headings } lang={ lang } />

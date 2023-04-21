@@ -17,6 +17,11 @@
             "en": "Read more"
         }
     },
+    "octopus_github": {
+        "edit_on_github": {
+            "en": "Edit on GitHub"
+        }
+    },
     "post": {
         "written_by": {
             "en": ""

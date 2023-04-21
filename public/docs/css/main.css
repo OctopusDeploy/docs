@@ -502,7 +502,7 @@ nav.skip-links a:focus {
 /* Navigation */
 
 .site-nav,
-.page-toc {
+.side-nav {
     align-self: start;
     height: calc(100vh - 120px);
     margin-block-start: 10vh;
@@ -512,11 +512,17 @@ nav.skip-links a:focus {
     top: 112px;
 }
 
+.side-nav {
+    grid-area: toc;
+    position: sticky;
+    top: 112px;
+    align-self: start;
+}
 
 .site-nav:hover,
 .site-nav:focus-within,
-.page-toc:hover,
-.page-toc:focus-within {
+.side-nav:hover,
+.side-nav:focus-within {
     overflow: overlay;
 }
 
@@ -675,13 +681,6 @@ nav.site-nav h2 {
 
 /* Table of Contents */
 
-.page-toc {
-    grid-area: toc;
-    position: sticky;
-    top: 112px;
-    align-self: start;
-}
-
 .page-toc details summary {
     text-decoration: none;
     font-weight: bold;
@@ -817,6 +816,13 @@ nav.site-nav h2 {
     .post-taxonomy div {
         text-align: left;
     }
+}
+
+/* GitHub Link */
+
+.octo-github-edit a {
+    color: var(--body-link-alt);
+    text-decoration: none;
 }
 
 /* Video */
