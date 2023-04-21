@@ -18,7 +18,7 @@ We've crafted and packaged v1.0.0 of this sample application for you to try out 
 :::
 
 1. Download [NginxSampleWebApp.1.0.0.zip](/docs/attachments/nginxsamplewebapp.1.0.0.zip).
-2. [Upload it to the Octopus Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) (you can do this by going to **{{Library > Packages}}** and clicking the **Upload package** button).
+2. [Upload it to the Octopus Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) (you can do this by going to **Library ➜ Packages** and clicking the **Upload package** button).
 
 ## Publishing and packing the website {#Create&PushASP.NETCoreProject-PublishingandPackingtheWebsite}
 

@@ -1,4 +1,4 @@
-1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Workers** and click **{{ADD WORKER,LINUX}}**, and select **Listening Tentacle**.
+1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Workers** and click **ADD WORKER ➜ LINUX**, and select **Listening Tentacle**.
 1. Make a note of the **Thumbprint** (the long alphanumerical string).
 1. On the Linux Tentacle Server, run `/opt/octopus/tentacle/configure-tentacle.sh` in a terminal window to configure the Tentacle.
 1. Give the Tentacle instance a name (default `Tentacle`) and press **Enter**.

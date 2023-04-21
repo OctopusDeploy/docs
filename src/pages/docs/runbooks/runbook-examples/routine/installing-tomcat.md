@@ -13,7 +13,7 @@ navOrder: 110
 
 To create a runbook to install Tomcat on an Ubuntu machine:
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
@@ -143,7 +143,7 @@ The script expects the following variables to be created:
 | Runbook.InstallTomcat.Tomcat.AdminUser | Text | Tomcat admin user | tomcatadmin |
 | Runbook.InstallTomcat.Tomcat.AdminPassword | Sensitive | Tomcat admin user password | SuperSecretPa$$word |
 
-The variables can be created by navigating to **{{Project,Variables}}** and adding them there.
+The variables can be created by navigating to **Project ➜ Variables** and adding them there.
 
 ## Samples
 

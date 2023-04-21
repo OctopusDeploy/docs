@@ -29,7 +29,7 @@ If you are looking for a highly-available database solution, we recommend using 
 
 Octopus should be given its own database - the database should not be shared with any other applications. Octopus Server maintains its own schema - it will create the initial database schema upon installation, and it will update the schema when you upgrade Octopus Server.
 
-The System Integrity Check at **{{Configuration,Diagnostics}}** will let you know if the database schema has drifted from its intended state.
+The System Integrity Check at **Configuration ➜ Diagnostics** will let you know if the database schema has drifted from its intended state.
 
 ![](/docs/administration/data/octopus-database/run-system-integrity-check.png "width=500")
 

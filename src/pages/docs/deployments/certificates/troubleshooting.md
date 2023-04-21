@@ -25,9 +25,9 @@ This error implies that the file being uploaded might be an SSH Key and not a va
 
 This error implies that a certificate violates the X.690 spec, section 8.3.2.
 
-If you receive this error when creating a deployment, please review the certificate's variables on the project, and try to view each one in {{Library,Certificates}}. One of them will either fail to load, or show the message: `Invalid Certificate: This certificate was unable to be parsed and may be in an invalid format`. Please modify any references to use a new, valid certificate, and use the REST API to delete the certificate in question.
+If you receive this error when creating a deployment, please review the certificate's variables on the project, and try to view each one in **Library ➜ Certificates**. One of them will either fail to load, or show the message: `Invalid Certificate: This certificate was unable to be parsed and may be in an invalid format`. Please modify any references to use a new, valid certificate, and use the REST API to delete the certificate in question.
 
-This error may also appear on the variables page: `An error occurred on the mapping CertificateResource.CertificateDataFomat = Certificate.CertificateDataFormat [attempted value was (unknown)]: corrupted stream detected malformed integer`. Please review the certificates in  {{Library,Certificates}} to find the invalid one, update any usages to use a new valid certificate, and delete the old certificate via the REST API.
+This error may also appear on the variables page: `An error occurred on the mapping CertificateResource.CertificateDataFomat = Certificate.CertificateDataFormat [attempted value was (unknown)]: corrupted stream detected malformed integer`. Please review the certificates in  **Library ➜ Certificates** to find the invalid one, update any usages to use a new valid certificate, and delete the old certificate via the REST API.
 
 Please see [BC-CSharp issue #156](https://github.com/bcgit/bc-csharp/issues/156) for further information.
 
@@ -41,7 +41,7 @@ This is the same root cause as the message above, however, it includes details a
 
 This can happen when certificates include extension data without specifying the certificate format of v3. If the version is omitted, then v1 is implied. Since only v3 certificates are allowed to have this additional data, this leads to an invalid certificate. Please see [BC-CSharp issue #158](https://github.com/bcgit/bc-csharp/issues/158) for further information.
 
-Please review the certificates in  {{Library,Certificates}} to find the invalid one, update any usages to use a new valid certificate, and delete the old certificate via the REST API.
+Please review the certificates in  **Library ➜ Certificates** to find the invalid one, update any usages to use a new valid certificate, and delete the old certificate via the REST API.
 
 ### `Invalid certificate detected - Unable to parse certificate`
 

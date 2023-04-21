@@ -87,7 +87,7 @@ We take the sensitive value and hash it using an irreversible hash algorithm. We
 Audit Retention functionality was introduced in **Octopus 2023.1**.
 :::
 
-Audit log entries can require a significant amount of database space to store, degrading overall system performance. For this reason, Octopus Server applies a retention policy to automatically archive audit log entries older than the configured number of days and remove them from the database. The retention period can be configured via **{{Configuration, Settings, Event Retention}}**. The location of the archived audit log files can be changed via **{{Configuration, Settings, Server Folders}}**.
+Audit log entries can require a significant amount of database space to store, degrading overall system performance. For this reason, Octopus Server applies a retention policy to automatically archive audit log entries older than the configured number of days and remove them from the database. The retention period can be configured via **Configuration ➜ Settings ➜ Event Retention**. The location of the archived audit log files can be changed via **Configuration ➜ Settings ➜ Server Folders**.
 
 Periodically, Octopus will apply the retention policy to the existing entries and store them as [JSONL](https://jsonlines.org/) files, grouped as a single file for each day (for example, `events-2019-01-01.jsonl`). These files can be accessed through a separate page available via the overflow menu (`...`) in the top right corner of the audit page.
 
@@ -102,7 +102,7 @@ The archived files can also be accessed via the Octopus REST API endpoints `/api
 
 ## IP address forwarding
 
-From **Octopus 2023.1**, the originating IP address of a request is recorded as part of any audit event. If you host Octopus on-premises and run multiple nodes in a High Availability setup, incoming requests will be redirected from your load balancer. This means that by default, the IP address recorded with any event will be the IP address of your load balancer. To resolve this, you can configure any trusted IP addresses via **{{Configuration, Settings, Web Portal, Trusted Proxies}}**.
+From **Octopus 2023.1**, the originating IP address of a request is recorded as part of any audit event. If you host Octopus on-premises and run multiple nodes in a High Availability setup, incoming requests will be redirected from your load balancer. This means that by default, the IP address recorded with any event will be the IP address of your load balancer. To resolve this, you can configure any trusted IP addresses via **Configuration ➜ Settings ➜ Web Portal ➜ Trusted Proxies**.
 
 Octopus accepts any number of trusted proxies. A trusted proxy can either be a single IP address such as `192.168.123.111` or an IP range such as `192.168.0.0/16`.
 

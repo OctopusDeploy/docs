@@ -100,7 +100,7 @@ Lastly, set the build name in the **Build Environment** section, by checking the
 
 Add an Octopus Deploy Push step to your build by navigating to the **Build** tab, click the **Add build step** drop-down list and select **Octopus Deploy: Push packages**, and complete the following fields:
 
-- **Octopus Deploy Server**: The values for the drop-down for this come from the Jenkins server configuration.  To configure this, navigate to {{Jenkins home screen,Manage Jenkins,Configure System}}, and then scroll down to the **Octopus Deploy Plugin** section:
+- **Octopus Deploy Server**: The values for the drop-down for this come from the Jenkins server configuration.  To configure this, navigate to **Jenkins home screen ➜ Manage Jenkins ➜ Configure System**, and then scroll down to the **Octopus Deploy Plugin** section:
 - **Space**: Select the space to deploy to.  You can leave this blank for the Default space
 - **Package paths**: `/*.nupkg`
 - **Overwrite mode**: Fail if exists.

@@ -24,9 +24,9 @@ View a working example on our [samples instance](https://samples.octopus.app/app
 
 To specify common variables that can be used across multiple tenants, you need to add a Variable template to either an existing or new Library variable set:
 
-1. Navigate to **{{Library,Variable Sets}}** and click **ADD VARIABLE SET**.
+1. Navigate to **Library ➜ Variable Sets** and click **ADD VARIABLE SET**.
 2. Give the variable set a name, description, and click **SAVE**.
-3. Click **{{Variable Templates,ADD TEMPLATE}}**.
+3. Click **Variable Templates ➜ ADD TEMPLATE**.
 4. Add the details to your template and click **SAVE**:
 
 |      | Description                              | Example |
@@ -42,7 +42,7 @@ To specify common variables that can be used across multiple tenants, you need t
 
 To set common variable values for a tenant:
 
-1. Navigate to the **{{Variables,Common Variables}}** tab in the tenant screen:
+1. Navigate to the **Variables ➜ Common Variables** tab in the tenant screen:
 1. Expand each connected environment and provide values for each project template:
 
     ![](/docs/projects/variables/images/variable-templates-common-value.png "width=500")
@@ -57,7 +57,7 @@ Project templates allow you to specify variables that can have different values 
 
 To add a project template:
 
-1. Navigate to the **{{Variables,Project Templates}}** tab in your tenant connected project.
+1. Navigate to the **Variables ➜ Project Templates** tab in your tenant connected project.
 1. Click **ADD TEMPLATE**.
 1. Add the details to your template and click **ADD**:
 
@@ -65,7 +65,7 @@ To add a project template:
 
 Then to set the variable values for a tenant:
 
-1. Navigate to the **{{Variables,Project Variables}}** tab in the tenant screen:
+1. Navigate to the **Variables ➜ Project Variables** tab in the tenant screen:
 1. Expand each connected environment and provide values for each project template:
 
     ![](/docs/projects/variables/images/variable-templates-project-value.png "width=500")

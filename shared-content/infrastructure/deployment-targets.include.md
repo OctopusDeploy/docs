@@ -16,6 +16,6 @@ Deployment targets are defined as:
 
 **Please note:** Octopus will only count Windows Servers, Linux Servers, ECS Clusters, Kubernetes Clusters, etc., that are registered with an Octopus Deploy Instance.  If you have 5,000 Linux Servers, and 4,000 of them are registered with Octopus Deploy, then Octopus will only count those 4,000 against your license.  
 
-You can manage your deployment targets by navigating to **{{Infrastructure,Deployment Targets}}** in the Octopus Web Portal:
+You can manage your deployment targets by navigating to **Infrastructure ➜ Deployment Targets** in the Octopus Web Portal:
 
 ![The deployment targets area of Octopus Deploy](/docs/shared-content/concepts/images/deployment-targets.png "width=500")

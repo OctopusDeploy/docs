@@ -170,10 +170,10 @@ This can be done in several ways including via Group Policy, scripting or via [i
 All **client machines** will need to be configured to allow automatic logon. We can set this option on all sites added to the trusted sites zone. This can be done via Group Policy, scripting or via the internet security settings menu. 
 
 To enable the option via the Internet Security Settings
-**Internet Explorer** go to {{ Tools > Internet Options > Security }} tab, Select "Trusted Zones" then **Custom level...**.
-**Windows 10/Windows Server** Search for "Internet Options" or {{ open Control Panel > Network and Internet > Internet Options}}.
+**Internet Explorer** go to **Tools ➜ Internet Options ➜ Security** tab, Select "Trusted Zones" then **Custom level...**.
+**Windows 10/Windows Server** Search for "Internet Options" or open **Control Panel ➜ Network and Internet ➜ Internet Options**.
 
-In the **Security Settings - Internet Zone** window, go to {{ User Authentication > Logon }} and select **Automatic logon with current username and password**.
+In the **Security Settings - Internet Zone** window, go to **User Authentication ➜ Logon** and select **Automatic logon with current username and password**.
 
 ![Client Security](/docs/security/authentication/active-directory/images/clientsecurity.png "width=500")
 
@@ -182,7 +182,7 @@ In the **Security Settings - Internet Zone** window, go to {{ User Authenticatio
 To set trusted sites via GPO:
 
 1. Open the **Group Policy Management Editor**.
-1. Go to {{User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page }}.
+1. Go to **User Configuration ➜ Policies ➜ Administrative Templates ➜ Windows Components ➜ Internet Explorer ➜ Internet Control Panel ➜ Security Page**.
 1. Select the **Site to Zone Assignment List**.
 1. Select **Enabled** and click Show to edit the list. Zone value 2 is for trusted sites.
 1. Click **OK** then **Apply** and **OK**.
@@ -191,7 +191,7 @@ To set trusted sites via GPO:
 ### Allowing Auto Logon via Group Policy Object {#ActiveDirectoryAuthentication-AllowingAutoLogon}
 
 1. Open the **Group Policy Management Editor**.
-1. Go to {{ User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page}}.
+1. Go to **User Configuration ➜ Policies ➜ Administrative Templates ➜ Windows Components ➜ Internet Explorer ➜ Internet Control Panel ➜ Security Page**.
 1. Select the **Logon Options**.
 1. Select **Enabled** and click the drop-down menu that has appeared.
 1. Select **Automatic logon with current username and password**.

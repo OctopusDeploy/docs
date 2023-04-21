@@ -13,7 +13,7 @@ Unlike most other runbooks, this type of operation needs to run on a [worker](/d
 
 ## Create the runbook
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a **Run a script** step

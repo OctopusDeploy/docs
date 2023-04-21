@@ -13,7 +13,7 @@ The following example tests the URL of an application, if the expected `200` cod
 
 ## Create the runbook
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 
@@ -54,7 +54,7 @@ az network dns record-set a remove-record --resource-group $resourceGroup --zone
 
 ## Create the trigger
 
-1. To create a trigger, navigate to **{{Project, Operations, Triggers, Add Scheduled Trigger}}**.
+1. To create a trigger, navigate to **Project ➜ Operations ➜ Triggers ➜ Add Scheduled Trigger**.
 2. Give the trigger a name and a description
 3. Fill in Trigger Action section:
    - Runbook: Select the runbook to execute.

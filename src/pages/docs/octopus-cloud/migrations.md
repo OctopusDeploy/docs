@@ -182,7 +182,7 @@ After the build server has been updated, create a small change to trigger your C
 
 Disabling a project will prevent it from being able to create and deploy releases.  It is also an excellent signal to all Octopus users that the project has been migrated.  
 
-1. Go to **{{Project, Settings, General}}**
+1. Go to **Project ➜ Settings ➜ General**
 2. Click the overflow menu (`...`)
 3. Select **Disable** on the menu
 

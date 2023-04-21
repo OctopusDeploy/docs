@@ -96,7 +96,7 @@ Add the script module into your runbook process following [these instructions](/
 
 ## Create the runbook {#create-runbook}
 
-1. To create the runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create the runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 1. Give the runbook a name and click **SAVE**.
 
 Next, we'll add the steps to create the network load balancer.
@@ -160,7 +160,7 @@ In order to know if your machines behind the network load balancer are healthy y
 
 Add the step to create the necessary health checks for the load balancer:
 
-1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
+1. Navigate to **Project ➜ Operations ➜ Runbooks**, and choose the runbook.
 1. Click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
@@ -221,7 +221,7 @@ As we are creating a single load balancer that routes traffic for both the test 
 
 Add the step to create the necessary target pools for the load balancer:
 
-1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
+1. Navigate to **Project ➜ Operations ➜ Runbooks**, and choose the runbook.
 1. Click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
@@ -286,7 +286,7 @@ In order to direct traffic that hits the load balancer to the correct backend ta
 
 Add the step to create the necessary forwarding rules for the load balancer:
 
-1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
+1. Navigate to **Project ➜ Operations ➜ Runbooks**, and choose the runbook.
 1. Click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
@@ -359,7 +359,7 @@ This step assumes you have already created one or more Compute Engine instance i
 
 Add the step to add machines to a target pool for the load balancer:
 
-1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
+1. Navigate to **Project ➜ Operations ➜ Runbooks**, and choose the runbook.
 1. Click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.

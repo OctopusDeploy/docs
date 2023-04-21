@@ -45,7 +45,7 @@ Our community contributed step template integration queries `library.octopus.com
 
 ## What information is included when Octopus checks for updates? {#Outboundrequests-WhatinformationisincludedwhenOctopuschecksforupdates?}
 
-By default, Octopus will periodically check for new releases. You can opt-out of checking for updates by navigating to **{{Configuration,Settings,Updates}}** in Octopus.
+By default, Octopus will periodically check for new releases. You can opt-out of checking for updates by navigating to **Configuration ➜ Settings ➜ Updates** in Octopus.
 
 When the "Check for updates" option is enabled, Octopus will make a HTTPS request to the `octopus.com` domain every 8 hours. This request includes:
 
@@ -61,14 +61,14 @@ The Octopus.com site is hosted on Microsoft Azure, so you will see traffic going
 
 In isolated/air-gapped scenarios without access to the internet, it may prove beneficial to disable attempts to contact these external services to prevent failed tasks and/or errors in the logs. Details on how to disable each feature are as follows:
 * Octopus Server updates
-  * Via the Web Portal: **{{ Configuration, Settings, Updates }}**
+  * Via the Web Portal: **Configuration ➜ Settings ➜ Updates**
   * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --upgradeCheck=false`
 * Built-in step template updates
-  * Via the Web Portal: **{{ Configuration, Features, Step Template Updates }}**
+  * Via the Web Portal: **Configuration ➜ Features ➜ Step Template Updates**
 * Community step updates
-  * Via the Web Portal: **{{ Configuration, Features, Community Step Templates }}**
+  * Via the Web Portal: **Configuration ➜ Features ➜ Community Step Templates**
 * Telemetry
-  * Via the Web Portal: **{{ Configuration, Telemetry }}**
+  * Via the Web Portal: **Configuration ➜ Telemetry**
   * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --sendTelemetry=false`
 * Dynamic Extensions
   * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`

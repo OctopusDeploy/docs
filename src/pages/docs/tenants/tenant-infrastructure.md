@@ -25,11 +25,11 @@ Learn more about the differences between [tenanted and untenanted deployments](/
 
 ## Configuring targets for tenanted deployments {#configuring-targets-tenanted-deploy}
 
-By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, navigate to **{{Infrastructure, Deployment Targets}}**
+By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, navigate to **Infrastructure ➜ Deployment Targets**
 
 ![](/docs/tenants/images/octopus-deployment-targets.png "width=500")
 
-Click on the deployment target you wish to configure for tenanted deployments. In the **{{Restrictions, Tenanted Deployments}}** section, you can choose the kinds of deployments the target can be involved in
+Click on the deployment target you wish to configure for tenanted deployments. In the **Restrictions ➜ Tenanted Deployments** section, you can choose the kinds of deployments the target can be involved in
 
 - **Exclude from tenanted deployments** (default) - the deployment target will never be included in tenanted deployments.
 - **Include only in tenanted deployments** - the deployment target will only be included in deployments to the associated tenants. It will be excluded from untenanted deployments.
@@ -39,7 +39,7 @@ Click on the deployment target you wish to configure for tenanted deployments. I
 
 ### Choose tenants for target {#choose-tenants-for-target}
 
-To choose the tenants to associate with a deployment target navigate to the **{{Restrictions, Associated Tenants}}** section of the deployment target. You can select the tenants to allow to deploy to individually, or you can choose from any of the configured [tenant tags](/docs/tenants/tenant-tags).
+To choose the tenants to associate with a deployment target navigate to the **Restrictions ➜ Associated Tenants** section of the deployment target. You can select the tenants to allow to deploy to individually, or you can choose from any of the configured [tenant tags](/docs/tenants/tenant-tags).
 
 ![](/docs/tenants/images/target-restrictions-associated-tenants.png "width=500")
 
@@ -55,7 +55,7 @@ Dedicated hosting ensures the applications for some tenants are completely isola
 
 To configure deployment targets as dedicated hosts for one or more tenants:
 
-1. Go to **{{Infrastructure,Deployment Targets}}** and find the deployment targets that will be used to host the applications for the tenant. 
+1. Go to **Infrastructure ➜ Deployment Targets** and find the deployment targets that will be used to host the applications for the tenant. 
 1. Configure each deployment target as a dedicated host for the tenant:
    ![](/docs/tenants/images/multi-tenant-dedicated-deployment-target.png "width=500")
 
@@ -75,7 +75,7 @@ This is very similar to the dedicated hosting scenario. Instead of choosing a si
 
 Firstly let's create a tag set to identify which tenants should be hosted on which shared server farms:
 
-1. Go to **{{Library,Tenant Tag Sets}}** and create a new tag set called **Hosting**.
+1. Go to **Library ➜ Tenant Tag Sets** and create a new tag set called **Hosting**.
 1. Add a tag called **Shared-Farm-1** and set the color to green to help identify tenants on shared hosting more quickly:
    ![](/docs/tenants/images/multi-tenant-shared-tag.png "width=500")
 
@@ -83,7 +83,7 @@ Firstly let's create a tag set to identify which tenants should be hosted on whi
 
 Now let's configure some shared servers in a farm:
 
-1. Go to **{{Infrastructure,Deployment Targets}}** and find the deployment targets that will be used to host the applications for these tenants.
+1. Go to **Infrastructure ➜ Deployment Targets** and find the deployment targets that will be used to host the applications for these tenants.
 1. Select the **Shared-Farm-1** tag:
 
 ![](/docs/tenants/images/multi-tenant-infra.png "width=500")

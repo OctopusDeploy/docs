@@ -15,7 +15,7 @@ Artifactory provides support for a number of [NuGet repositories](https://www.jf
 This guide was written using Artifactory version `7.11.5`.
 :::
 
-From the Artifactory web portal, navigate to **{{Administration,Repositories}}**. From there, choose **{{Add Repositories,Local Repository}}**:
+From the Artifactory web portal, navigate to **Administration ➜ Repositories**. From there, choose **Add Repositories ➜ Local Repository**:
 
  ![Artifactory repositories addition](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-repo-add.png "width=500")
 
@@ -39,7 +39,7 @@ The recommended way is to either configure a [user](https://www.jfrog.com/conflu
 Every organization is different and the authentication example provided here is only intended to demonstrate functionality. Ensure you are complying with your company's security policies when you configure any user accounts and that your specific implementation matches your needs.
 :::
 
-From the Artifactory web portal, navigate to **{{Administration,Identity and Access,Users}}** and select **New User**.
+From the Artifactory web portal, navigate to **Administration ➜ Identity and Access ➜ Users** and select **New User**.
 
 ![Artifactory Add user](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-user.png "width=500")
 
@@ -53,7 +53,7 @@ When you've entered all of the settings, click **Save**.
 
 Next, we need to ensure the user is in a [group](https://www.jfrog.com/confluence/display/JFROG/Users+and+Groups#UsersandGroups-ManagingGroups) which can access our new repository.
 
-From the Artifactory web portal, navigate to **{{Administration,Identity and Access,Groups}}** and select **New Group**.
+From the Artifactory web portal, navigate to **Administration ➜ Identity and Access ➜ Groups** and select **New Group**.
 
 ![Artifactory Add Group](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-group.png "width=500")
 
@@ -63,7 +63,7 @@ When you've entered all of the settings, click **Save**.
 
 Lastly, we need to ensure the group has [permissions](https://www.jfrog.com/confluence/display/JFROG/Permissions) for Octopus to retrieve package information.
 
-From the Artifactory web portal, navigate to **{{Administration,Identity and Access,Permissions}}** and select **New Permission**.
+From the Artifactory web portal, navigate to **Administration ➜ Identity and Access ➜ Permissions** and select **New Permission**.
 
 From there, give the permission a **Name**, and choose the **Add Repositories** option:
 
@@ -103,7 +103,7 @@ To learn more about setting up anonymous access to specific repositories, see th
 
 ## Adding an Artifactory Local NuGet repository as an Octopus External Feed
 
-Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and select the `NuGet Feed` Feed type. 
+Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and select the `NuGet Feed` Feed type. 
 
 Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the feed for your Artifactory Local repository in the format:
 

@@ -25,7 +25,7 @@ For Windows services, there are three Community Step Templates available, one fo
 
 ### Manage Windows services runbook {#windowsservices-manage-runbook}
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add one of the templates listed above.
@@ -51,7 +51,7 @@ Using a runbook in Octopus can provide a self-service mechanism for developers t
 
 ### Restart Ubuntu service runbook {#linuxservices-restart-ubuntuservice-runbook}
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **Linux Service - Start, Stop, Restart**.

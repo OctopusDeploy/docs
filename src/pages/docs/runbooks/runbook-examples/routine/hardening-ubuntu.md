@@ -15,7 +15,7 @@ Hackers, viruses, worms, and malware, today's world needs constant vigilance in 
 
 To create a runbook to harden your Ubuntu server:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.

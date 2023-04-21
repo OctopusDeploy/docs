@@ -12,7 +12,7 @@ Conceptually, a Kubernetes target represent a permission boundary and an endpoin
 
 :::div{.hint}
 From **Octopus 2022.2**, AKS target discovery has been added to the 
-Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
+Kubernetes Target Discovery Early Access Preview and is enabled via **Configuration ➜ Features**.
 
 From **Octopus 2022.3** will include EKS cluster support.
 :::
@@ -73,7 +73,7 @@ users:
 
 ## Add a Kubernetes target
 
-1. Navigate to **{{Infrastructure,Deployment Targets}}**, and click **ADD DEPLOYMENT TARGET**.
+1. Navigate to **Infrastructure ➜ Deployment Targets**, and click **ADD DEPLOYMENT TARGET**.
 2. Select **KUBERNETES CLUSTER** and click **ADD** on the Kubernetes Cluster card.
 3. Enter a display name for the Kubernetes Cluster.
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.
@@ -145,7 +145,7 @@ users:
 
       This file can then be uploaded to the [Octopus certificate management area](/docs/deployments/certificates), after which, it will be made available to the Kubernetes target.
 
-      The Certificates Library can be accessed via **{{Library>Certificates}}**.
+      The Certificates Library can be accessed via **Library ➜ Certificates**.
 
 7. Enter the Kubernetes cluster URL. Each Kubernetes target requires the cluster URL, which is defined in the `Kubernetes cluster URL` field. In the example YAML about, this is defined in the `server` field.
 8. Optionally, select the certificate authority if you've added one. Kubernetes clusters are often protected with self-signed certificates. In the YAML example above the certificate is saved as a base 64 encoded string in the `certificate-authority-data` field.

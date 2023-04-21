@@ -13,7 +13,7 @@ The Export/Import Projects feature was added in Octopus Deploy **2021.1**
 
 The `Export/Import Projects` feature can export one or more projects into a zip file, which can then be imported into other spaces.  The target space may be in a different Octopus Server instance, and projects can be exported and imported between self-hosted and Octopus Cloud instances (see below for some [specific considerations when moving a project to Octopus Cloud](#octopus-cloud)). 
 
-Export/Import features are found in the overflow menu on the {{Projects}} page. 
+Export/Import features are found in the overflow menu on the **Projects** page. 
 
 ![Import Export Menu](/docs/projects/export-import/import-export-menu.png "width=500")
 

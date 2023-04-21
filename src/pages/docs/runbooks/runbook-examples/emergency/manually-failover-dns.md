@@ -22,7 +22,7 @@ The following example uses the Azure CLI to update the DNS record for www.octopu
 
 ## Create the runbook
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new **Run an Azure Script** step.

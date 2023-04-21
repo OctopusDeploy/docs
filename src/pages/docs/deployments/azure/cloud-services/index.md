@@ -19,7 +19,7 @@ An Azure cloud service package is normally compiled into a `.cspkg` file. This
 
 ### Upload to a NuGet feed {#DeployingapackagetoanAzureCloudService-UploadtoaNuGetfeed}
 
-In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories). The built-in Octopus package repository is accessible from **{{Library > Packages}}** and is a suitable place to upload your Cloud Service NuGet package:
+In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories). The built-in Octopus package repository is accessible from **Library ➜ Packages** and is a suitable place to upload your Cloud Service NuGet package:
 
 ![Package feed](package-feed.png "width=500")
 

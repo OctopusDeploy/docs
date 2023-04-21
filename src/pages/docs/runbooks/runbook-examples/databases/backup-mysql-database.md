@@ -14,7 +14,7 @@ In the following example, we'll use the [MySQL - Backup Database](https://librar
 
 ## Create the Runbook
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the Runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **MySQL - backup database**.

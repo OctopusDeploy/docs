@@ -21,7 +21,7 @@ Enter and confirm your new password, then click **Save**:
 
 ## Resetting user passwords {#Resettingpasswords-Resettinguserpasswords}
 
-Octopus Server administrators can reset the passwords of other users from the Octopus Web Portal at **{{Configuration,Users}}**.
+Octopus Server administrators can reset the passwords of other users from the Octopus Web Portal at **Configuration ➜ Users**.
 
 Select the user whose password you want to change:
 

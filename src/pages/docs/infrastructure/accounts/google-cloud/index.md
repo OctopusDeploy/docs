@@ -21,7 +21,7 @@ The Google cloud account is the JSON key file credentials that can be retrieved 
 
 Google Cloud steps can use an Octopus managed account for authentication.
 
-1. Navigate to **{{Infrastructure,Accounts}}**, click the **ADD ACCOUNT** and select **Google Cloud Account**.
+1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **Google Cloud Account**.
 1. Add a memorable name for the account.
 1. Provide a description for the account.
 1. Upload the JSON key file.

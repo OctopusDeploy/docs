@@ -94,7 +94,7 @@ Resources managed by the Octopus Terraform Provider will have their state manage
 
 ## Git Configuration Options
 
-Project version control settings can be accessed by clicking on the **{{ Settings, Version Control }}** link on the project navigation menu.
+Project version control settings can be accessed by clicking on the **Settings ➜ Version Control** link on the project navigation menu.
 
 ### Git Repository
 

@@ -32,8 +32,8 @@ We recommend manually configuring the phases in your lifecycles, including the d
 
 If you have the typical set of environments, **development**, **test** (or QA), **staging** (or Pre-prod/UAT), and **production**, our recommendation is to have at least two lifecycles.
 
-- Standard lifecycle: {{development,test,staging,production}}
-- Emergency lifecycle: {{staging,production}}
+- Standard lifecycle: **development ➜ test ➜ staging ➜ production**
+- Emergency lifecycle: **staging ➜ production**
 
 Two lifecycles allow you to have your standard workflow, where everything goes to **development** and **test** while having a mechanism to bypass those environments in an emergency bug fix.  
 
@@ -50,7 +50,7 @@ Octopus Deploy uses the [manual intervention](/docs/projects/built-in-step-templ
 We recommend two approaches to **production** approvals.
 
 1. Restrict who can deploy to **production** to your operations or systems admin people.  See [common RBAC scenarios](/docs/getting-started/best-practices/users-roles-and-teams) on how to set that up.
-2. Create a **prod approval** environment and add it to your lifecycle.  An example lifecycle with a **prod approval** environment is {{development,test,staging,prod approval,production}}.
+2. Create a **prod approval** environment and add it to your lifecycle.  An example lifecycle with a **prod approval** environment is **development ➜ test ➜ staging ➜ prod approval ➜ production**.
 
 The **prod approval** environment has all the manual intervention steps required for approval.  After the release is "deployed" to the **prod approval** environment, it can then be scheduled for a **production** deployment.  No manual intervention steps will be required in **production** as all approvals happened earlier.
 

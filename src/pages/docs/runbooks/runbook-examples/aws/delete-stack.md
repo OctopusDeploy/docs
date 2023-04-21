@@ -15,7 +15,7 @@ The proceeding instructions can be followed to configure the Delete an AWS Cloud
 
 ## Create the runbook
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Choose the **Delete an AWS CloudFormation stack** step:

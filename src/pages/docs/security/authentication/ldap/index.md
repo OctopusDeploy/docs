@@ -68,7 +68,7 @@ If you already have Octopus user accounts and you want to enable external authen
 
 ## Configuring LDAP authentication provider
 
-Navigate to **{{Configuration, Settings, LDAP}}**.  Enter values in the following fields:
+Navigate to **Configuration ➜ Settings ➜ LDAP**.  Enter values in the following fields:
 
 - **Server**: Enter the FQDN of your server.
 - **Port**: Change the port (if your secure port is different from the default).
@@ -91,7 +91,7 @@ After configuring the LDAP authentication provider, you will want to test it.  T
 - External User Lookup
 - External Group Lookup
 
-For the external user lookup, navigate to **{{Configuration, Users}}** and select a user account.  Once that screen is loaded, expand the LDAP section under logins and click the `ADD LOGIN` button.  If everything is working correctly, then you will see a modal window similar to this.
+For the external user lookup, navigate to **Configuration ➜ Users** and select a user account.  Once that screen is loaded, expand the LDAP section under logins and click the `ADD LOGIN` button.  If everything is working correctly, then you will see a modal window similar to this.
 
 ![successful user lookup](/docs/security/authentication/ldap/images/successful-user-lookup.png)
 
@@ -103,7 +103,7 @@ The error `Unable to connect to the LDAP server.  Please see your administrator 
 
 ![data error code](/docs/security/authentication/ldap/images/ldap-error-data.png)
 
-The external group lookup is the same as the external user lookup.  Except, go to **{{Configuration, Teams}}** and select a team.  Then click the button `ADD LDAP GROUP` and perform a search.  If everything is configured correctly, then you will see this message:
+The external group lookup is the same as the external user lookup.  Except, go to **Configuration ➜ Teams** and select a team.  Then click the button `ADD LDAP GROUP` and perform a search.  If everything is configured correctly, then you will see this message:
 
 ![external group lookup successful](/docs/security/authentication/ldap/images/external-group-success.png)
 

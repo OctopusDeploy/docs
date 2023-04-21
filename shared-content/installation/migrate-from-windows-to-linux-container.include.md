@@ -102,7 +102,7 @@ Octopus Deploy stores all the BLOB data (deployment logs, runbook logs, packages
 - Artifacts
 - Packages
 
-If you are moving from a Windows VM, the default path for those folders is: `C:\Octopus`.  For example, the task logs folder would be `C:\Octopus\TaskLogs`.  If you are unsure of the path, you can find it in the Octopus Deploy UI by navigating to **{{Configuration, Settings, Server Folders}}**.
+If you are moving from a Windows VM, the default path for those folders is: `C:\Octopus`.  For example, the task logs folder would be `C:\Octopus\TaskLogs`.  If you are unsure of the path, you can find it in the Octopus Deploy UI by navigating to **Configuration ➜ Settings ➜ Server Folders**.
 
 :::div{.warning}
 Failure to copy files over to the new storage location for the Linux Container to access will result in the following:

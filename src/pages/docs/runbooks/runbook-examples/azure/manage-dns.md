@@ -17,7 +17,7 @@ The next section shows how you can create runbooks to manage DNS records:
 
 ## Create DNS record runbook {#create-dnsrecord}
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Add a **Run an Azure Script** step, and give the step a name.
@@ -70,7 +70,7 @@ Configure any other settings for the step and click **Save**, and in just a few 
 
 ## Delete DNS record runbook {#delete-dnsrecord}
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Add a **Run an Azure Script** step, and give the step a name.

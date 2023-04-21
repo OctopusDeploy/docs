@@ -11,7 +11,7 @@ Octopus can integrate with [Let's Encrypt](https://oc.to/LetsEncryptOrg) to setu
 
 **Octopus 2019.10.3, 2019.9.6 LTS, 2019.6.12 LTS** or newer use ACME v2, which is required after Let's Encrypt [retired the v1 APIs](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) in November 2019.
 
-Let's Encrypt integration can be found under **{{Configuration,Let's Encrypt}}**.
+Let's Encrypt integration can be found under **Configuration ➜ Let's Encrypt**.
 
 ![](/docs/security/exposing-octopus/images/letsencrypt.png "width=500")
 
@@ -37,11 +37,12 @@ If the Octopus Server is not currently listening on the binding/port, it will re
 
 Octopus will then register with Let's Encrypt, handle the domain validation, request a new certificate and apply it to the Portal. If need be, the server will be restarted. Once available, you will be able to access your server on the new HTTPS URL.
 
-The **{{Configuration,Let's Encrypt}}** page will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if its due to expire in the next 21 days.
+The **Configuration ➜ Let's Encrypt** page will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if its due to expire in the next 21 days.
 
 At this point, we recommend enabling [Force SSL](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#ForcingHTTPS) and [HSTS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#HSTS).
 
 ## Let's Encrypt for Containers
+
 The integration for Let's Encrypt was designed for self-hosted Octopus Server installations running on a Windows server. There are currently no plans to support Let's Encrypt when running [Octopus in a container](/docs/installation/octopus-server-linux-container).
 
 In **Octopus 2020.5** and earlier, when attempting to configure the Let's Encrypt integration on an Octopus Server Linux container, it would fail with a message similar to `We received an error 'Unix LocalMachine X509Stores are read-only for all users`.
@@ -51,16 +52,18 @@ From **Octopus 2020.6**, when running Octopus in a container, the Let's Encrypt 
 Customers running Octopus in a container that wish to secure the Octopus Portal to be accessible over HTTPS can do so in a number of standard ways, which are discussed in more detail here.
 
 ### NGINX proxy {#nginx-proxy}
+
 If you are running Octopus in a Docker container without an orchestration platform like Kubernetes, you can set up an NGINX reverse proxy with TLS termination.
 
 For more information on configuring TLS/SSL termination in NGINX, refer to the [documentation](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
 
 ### Let's Encrypt and Traefik {#lets-encrypt-traefik}
+
 Another popular and cloud-native HTTP reverse proxy and load balancer is [Traefik](https://traefik.io/traefik/). You can combine this with Let's Encrypt to support TLS/SSL termination with your Octopus container. To find out more, refer to  the [Traefik documentation](https://doc.traefik.io/traefik/v1.7/user-guide/docker-and-lets-encrypt/).
 
 ### Kubernetes and Octopus Deploy {#kubernetes-and-octopus}
-If you plan to use an orchestrator with your container say, Kubernetes and Docker, an ingress controller can be used to secure the Octopus Portal. You can find an extensive list in the  [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/). It includes multiple open-source, popular platforms such as Traefik, HAProxy Ingress, Istio, and many others.
 
+If you plan to use an orchestrator with your container say, Kubernetes and Docker, an ingress controller can be used to secure the Octopus Portal. You can find an extensive list in the  [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/). It includes multiple open-source, popular platforms such as Traefik, HAProxy Ingress, Istio, and many others.
 
 ## Availability
 

@@ -25,7 +25,7 @@ We recommend grouping the resources for testing a feature branch into their own 
 A quick way to create the App Service Plan is go use the Azure Portal UI to begin the creation process, and export the App Plan as an Azure Resource Manager (ARM) template and use that as a basis to start from.
 :::
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a **Run an Azure script** step.

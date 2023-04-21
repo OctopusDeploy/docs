@@ -11,7 +11,7 @@ When you contact Octopus Deploy support, sometimes we cannot reproduce the perfo
 
 1. Create the database backup.
 
-The easiest way to do this is to use SQL Server Management Studio, right-click on the database, select **{{Tasks, Backup}}** and follow the wizard to create a full backup.  
+The easiest way to do this is to use SQL Server Management Studio, right-click on the database, select **Tasks ➜ Backup** and follow the wizard to create a full backup.  
 
 You can also run this script to create the backup.
 

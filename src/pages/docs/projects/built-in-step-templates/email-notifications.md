@@ -19,7 +19,7 @@ Before you can add email steps to your deployment processes, you need to add you
 
 ## SMTP configuration
 
-To add your SMTP configuration navigate to **{{Configuration,SMTP}}** and set the following values:
+To add your SMTP configuration navigate to **Configuration ➜ SMTP** and set the following values:
 
 | Property           | Description                            | Example |
 | ------------------ | ------------------------------------   | ----------- |

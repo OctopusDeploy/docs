@@ -99,7 +99,7 @@ After you have defined your lifecycles, they become available to your projects. 
 
 ## Default lifecycle {#default-lifecycle}
 
-Octopus creates a default lifecycle for you. To view it, navigate to **{{Library,Lifecycles}}**, and it will be in the list named **Default Lifecycle**:
+Octopus creates a default lifecycle for you. To view it, navigate to **Library ➜ Lifecycles**, and it will be in the list named **Default Lifecycle**:
 
 ![Default Lifecycle Library view](/docs/releases/lifecycles/images/default-lifecycle.png "width=500")
 

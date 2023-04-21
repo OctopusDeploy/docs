@@ -29,7 +29,7 @@ Firstly we will create a custom role with the permissions required to deploy rel
 It is usually a good idea to build smaller roles that can be composed together into a team to provide easier management of your team permissions. In this example, we are creating a single role to grant all of the required permissions to keep the example simple. In this case, you could create a **Tenant project viewer** role and a **Tenant project deployer** role and combine them into a single team.
 :::
 
-1. In **{{Configuration,Teams,Roles}}** click **Add custom role** and call it **Tenant project deployer**.
+1. In **Configuration ➜ Teams ➜ Roles** click **Add custom role** and call it **Tenant project deployer**.
 2. Set the description to **Tenant project deployers can deploy releases on behalf of tenants**
 3. Choose the following permissions under [Space Permissions](/docs/security/users-and-teams/system-and-space-permissions):
    1. AccountView
@@ -62,7 +62,7 @@ It is usually a good idea to build smaller roles that can be composed together i
 
 Now we will create a team for all the Account Managers and add the role we created in the last step.
 
-1. In **{{Configuration,Teams}}** click Add team and call it **Toby's clients**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces) and then select **Save**.
+1. In **Configuration ➜ Teams** click Add team and call it **Toby's clients**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces) and then select **Save**.
 
 ![](/docs/tenants/images/add-account-manager-team.png "width=500")
 
@@ -74,11 +74,11 @@ Now we will create a team for all the Account Managers and add the role we creat
 
 ![](/docs/tenants/images/multi-tenant-select-user-role.png "width=500")
 
-4. Under **{{Members,Add member}}**  and add any user accounts that will form part of this team.
+4. Under **Members ➜ Add member**  and add any user accounts that will form part of this team.
 
 ### Step 3: Reduce the scope of the team {#step-3-reduce-team-scope}
 
-After adding the **Tenant project deployer** role, we'll see that Toby has access to all tenants.  Toby only needs access to the accounts that he's responsible for; Midland Veterinary and Valley Veterinary Clinic.  To limit Toby to his accounts, click on the **{{elipses,Edit}}**
+After adding the **Tenant project deployer** role, we'll see that Toby has access to all tenants.  Toby only needs access to the accounts that he's responsible for; Midland Veterinary and Valley Veterinary Clinic.  To limit Toby to his accounts, click on the **elipses ➜ Edit**
 
 ![](/docs/tenants/images/edit-tenant-team.png "width=500")
 

@@ -2,7 +2,7 @@
 
 To define a simple deployment process in the Octopus Web Portal that executes a hello world script on the Octopus Server, complete the following steps:
 
-1. Navigate to the **{{ Projects }}** tab.
+1. Navigate to the **Projects** tab.
 2. Select **ADD PROJECT**.
 3. Name the project, for instance, `Hello world`, and click **SAVE**.
 4. Click **DEFINE YOUR DEPLOYMENT PROCESS**, and click **ADD STEP**.

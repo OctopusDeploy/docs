@@ -43,7 +43,7 @@ To see the command syntax click the **Show script** link in the wizard
 **Using the built-in Octopus NuGet repository?**
 If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories) you will need to move the files from your **Octopus 2.6.5** server to your **Octopus 2018.10 LTS** server. They are not part of the backup.
 In a standard **Octopus 2.6.5** install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
-You will need to transfer them to the new server to `C:\Octopus\Packages`. Once the files have been copied, go to {{Library>Packages>Package Indexing}} and click the `RE-INDEX NOW` button. This process runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
+You will need to transfer them to the new server to `C:\Octopus\Packages`. Once the files have been copied, go to **Library ➜ Packages ➜ Package Indexing** and click the `RE-INDEX NOW` button. This process runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::
 
 ### 4. Use Hydra to automatically upgrade your Tentacles {#Upgradewithanew3.0serverinstance-4.UseHydratoautomaticallyupgradeyourTentacles}

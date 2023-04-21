@@ -24,7 +24,7 @@ Support for authentication providers differ between Octopus Server and [Octopus 
 
 ## Configuring authentication providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
-You can use the Octopus Web Portal to configure authentication providers by navigating to **{{Configuration,Settings}}**.
+You can use the Octopus Web Portal to configure authentication providers by navigating to **Configuration ➜ Settings**.
 
 Alternatively, you can configure authentication providers using the `Octopus.Server.exe configure` command-line interface.
 
@@ -54,13 +54,13 @@ When using an external authentication provider, you can configure Octopus to wor
 1. Make the user click a button on the Octopus login screen.
 2. Automatically sign the user in by redirecting to the external identity provider.
 
-Auto login is **disabled by default**, and you can enable it in {{Configuration>Settings>Authentication>Auto Login}}.
+Auto login is **disabled by default**, and you can enable it in **Configuration ➜ Settings ➜ Authentication ➜ Auto Login**.
 
 Note that even when enabled, **this functionality is only active when there is a single, non forms-based authentication provider enabled**.  If multiple providers are enabled, which includes Guest access being enabled, this setting is overridden.
 
 ### Auto login and Active Directory
 
-When using the Active Directory provider, auto login will only be active when the {{Configuration>Settings>Active Directory>Allow Forms Authentication For Domain Users}} setting is **false**.
+When using the Active Directory provider, auto login will only be active when the **Configuration ➜ Settings ➜ Active Directory ➜ Allow Forms Authentication For Domain Users** setting is **false**.
 
 ## Associating users with multiple external identities {#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders}
 

@@ -2,7 +2,7 @@
 
 With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes clusters, cloud regions, or an offline package drop. Regardless of where you're deploying your software, these machines and services are known as your deployment targets.  Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/infrastructure/environments). 
 
-1. Navigate to **{{ Infrastructure, Deployment Targets }}** and click **ADD DEPLOYMENT TARGET**.
+1. Navigate to **Infrastructure ➜ Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
 1. Select the type of deployment target you are adding.
 1. Select the type of connection your deployment target will make, and follow the on-screen instructions.
 

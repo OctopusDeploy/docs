@@ -30,7 +30,7 @@ With SSDT for Visual Studio installed you can connect the project to the databas
 
 The project has been created, now we connect it to a database. This example uses a pre-existing database called OctoFXDemo:
 
-1. Right-click the project name, then click **{{ Import,Database }}**.
+1. Right-click the project name, then click **Import ➜ Database**.
 2. Click **Select Connection**.
 3. Add the **Server Name** and select the type of authentication. In this screenshot, a SQL Account is used to connect to the database server.  
 
@@ -49,7 +49,7 @@ The project is now ready for creating database schema objects (tables, views, st
 When the project has some objects, we can compare the project to the target database.
 
 1. Right-click on the project and choose **Schema Compare...**.
-2. Select the target database connection by clicking {{ Select Target, Select Connection }}, and select the connection.
+2. Select the target database connection by clicking **Select Target ➜ Select Connection**, and select the connection.
 3. Click **Compare**.
 
 Visual studio will now compare the project to the database and list the steps it will take during a deployment:
@@ -74,7 +74,7 @@ To create the build definition, take the following steps:
 Note, this example uses the classic editor without YAML.
 :::
 
-1. From the Azure DevOps repo, click {{ Pipelines, New Pipeline }}.
+1. From the Azure DevOps repo, click **Pipelines ➜ New Pipeline**.
 2. Select **Empty job** to start.
 3. Choose a build pool, then click on the **+** to add a step to the build definition.
 4. Click on the Build category and scroll down to **Visual Studio build**.

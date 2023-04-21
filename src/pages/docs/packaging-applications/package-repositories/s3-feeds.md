@@ -7,7 +7,7 @@ description: Configuring AWS S3 buckets as Octopus Feeds
 navOrder: 60
 ---
 
-If you are deploying packages located in an S3 bucket you can register them with Octopus and use as part of your deployments. Go to **{{Library,External feeds}}**.
+If you are deploying packages located in an S3 bucket you can register them with Octopus and use as part of your deployments. Go to **Library ➜ External feeds**.
 
 You can add S3 feeds by clicking the **Add feed** button.
 

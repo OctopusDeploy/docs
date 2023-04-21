@@ -13,7 +13,7 @@ This guide walks through the process of regenerating certificates to use the new
 
 For more information on why Octopus uses self-signed certificates, please see the blog post [Why Octopus uses self-signed certificates](https://octopusdeploy.com/blog/why-self-signed-certificates).
 
-You can view the algorithm used by the Server certificate on the {{Configuration,Thumbprint}} page. If the algorithm contains `sha1`, we recommend regenerating your certificate.
+You can view the algorithm used by the Server certificate on the **Configuration ➜ Thumbprint** page. If the algorithm contains `sha1`, we recommend regenerating your certificate.
 
 :::div{.warning}
 **Updating an existing Octopus Server or Tentacle**
@@ -143,7 +143,7 @@ C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe service --instance Tentacle
 
 7. Run a healthcheck, and confirm all Tentacles are healthy.
 
-8. Confirm on the {{Configuration,Thumbprint}} page that the new certificate is using the `sha256` algorithm.
+8. Confirm on the **Configuration ➜ Thumbprint** page that the new certificate is using the `sha256` algorithm.
 
 ## Configuring a Tentacle to use a new certificate {#ConfiguringATentacleToUseANewCertificate}
 
@@ -158,4 +158,4 @@ C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe service --restart
 ./Tentacle service --restart
 ```
 
-2. After this is generated on the Tentacle, it can be updated on the Octopus Server. Navigate to {{Infrastructure,Deployment Targets}} and update the Thumbprint for the updated target.
+2. After this is generated on the Tentacle, it can be updated on the Octopus Server. Navigate to **Infrastructure ➜ Deployment Targets** and update the Thumbprint for the updated target.

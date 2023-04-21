@@ -13,7 +13,7 @@ The built-in feed can only be consumed by Octopus. Octopus Server provides a wri
 
 ## Pushing packages to the built-in repository {#pushing-packages-to-the-built-in-repository}
 
-It is possible to manually upload a package file from your local machine via the Octopus Web Portal by navigating to **{{Library,Packages}}** and clicking the **Upload Package** button.
+It is possible to manually upload a package file from your local machine via the Octopus Web Portal by navigating to **Library ➜ Packages** and clicking the **Upload Package** button.
 
 However, we recommend using a [build server](/docs/packaging-applications/build-servers) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository.
 
@@ -52,7 +52,7 @@ You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api) 
 
 ## Using NuGet.exe push {#UsingNuGetexePush}
 
-To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **{{Library,Packages}}** tab of the Octopus Web Portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **Library ➜ Packages** tab of the Octopus Web Portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
 ![The Built-in Package Repository](/docs/packaging-applications/package-repositories/built-in-repository/built-in-package-repository.png "width=500")
 
@@ -106,7 +106,7 @@ Octopus automatically re-indexes the built-in repository at startup to ensure th
 
 We do not recommend manually placing packages into the package store, however in certain limited circumstances (such as restoring a backup or a big package migration) it can be useful.
 
-For most users, this will be a seamless background task. However, for some installations, this may cause performance issues. Users with `AdministerSystem` rights can disable the re-indexing task on the **{{Library,Packages}}** page.
+For most users, this will be a seamless background task. However, for some installations, this may cause performance issues. Users with `AdministerSystem` rights can disable the re-indexing task on the **Library ➜ Packages** page.
 
 Note that packages uploaded via the [recommended methods](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) will still be indexed.
 

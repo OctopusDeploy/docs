@@ -16,7 +16,7 @@ Octopus supports invalidating user sessions using a configurable timeout or expl
 
 You can configure **Session Timeouts** in Octopus to force re-authentication after a specified time. By default, session timeouts are set to 20 minutes. This timeout can be changed by a System Administrator and applies to all users in an instance.
 
-To change the Session Timeout duration, navigate to **{{ Configuration, Settings, Authentication }}** in the Octopus Web Portal, and enter the Session Timeout duration (in seconds) and click **SAVE**.
+To change the Session Timeout duration, navigate to **Configuration ➜ Settings ➜ Authentication** in the Octopus Web Portal, and enter the Session Timeout duration (in seconds) and click **SAVE**.
 
 There is also a **Maximum Session Duration**, which applies when users click the `Remember Me` option when signing into Octopus. By default, this option is set to 20 days. Enter the desired maximum session timeout duration (in seconds) and click **SAVE**.
 
@@ -43,7 +43,7 @@ To invalidate sessions of your own account, perform the following steps:
 
 To invalidate sessions of another user, perform the following steps:
 
-1. Navigate to **{{ Configuration , Users }}**.
+1. Navigate to **Configuration ➜ Users**.
 1. Select the User whose sessions you wish to revoke.
 1. Click the overflow menu (`...`) and choose **Revoke Sessions**.
 

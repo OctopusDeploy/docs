@@ -23,7 +23,7 @@ For the purpose of this guide we will only use the one deployment environment bu
 
 To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous "[Configuring Target Machine](/docs/deployments/nginx/configure-target-machine)" step this should consist of a username and password pair.
 
-- Navigate to **{{Environments,Accounts,Usernames/Passwords,Add Account}}** and add these credentials.
+- Navigate to **Environments ➜ Accounts ➜ Usernames/Passwords ➜ Add Account** and add these credentials.
 - In the **Production** environment click *Add deployment target* and select *SSH Connection*.
 - Enter the IP or DNS of the machine that is accessible to the Octopus Server. *In our case it's the public IP provided by Azure/AWS.*
 - Click *Discover* to automatically pre-populate the SSH fingerprint for the remote server.
@@ -37,8 +37,8 @@ Further details are provided throughout the rest of this documentation about [SS
 
 The next step is to create a project that will extract the package.
 
-- Navigate to the Projects page via **{{Projects,All}}** and then click the *Add Project* button.
-- Give the new project an appropriate name (for example *NGINXSampleWebApp*) and once saved, go to the project's *Process* page and click **{{Add Step,Deploy to NGINX}}**.
+- Navigate to the Projects page via **Projects ➜ All** and then click the *Add Project* button.
+- Give the new project an appropriate name (for example *NGINXSampleWebApp*) and once saved, go to the project's *Process* page and click **Add Step ➜ Deploy to NGINX**.
     * Give the step a name (for example *Deploy NginxSampleWebApp*)
     * Ensure that the target role matches that which was assigned to the machine in the previous step and
     * Select *NGINXsamplewebapp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/#package-id) documentation for more details).

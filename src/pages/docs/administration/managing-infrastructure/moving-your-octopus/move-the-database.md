@@ -30,7 +30,7 @@ Octopus.Server.exe database --connectionString="VALUE"
 When you are using [Octopus High Availability](/docs/administration/high-availability) clusters, you should generally follow the same instructions as above, but repeat certain steps for each node.
 
 1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode)
-2. Toggle the [Drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes) option for each Octopus Server node in {{ Configuration,Nodes }}
+2. Toggle the [Drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes) option for each Octopus Server node in **Configuration ➜ Nodes**
 3. Stop the service on each Octopus Server node when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --stop`
 4. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption/#Securityandencryption-YourMasterKey).
@@ -42,7 +42,7 @@ Octopus.Server.exe database --connectionString="VALUE"
 ```
 8. Start the service on each Octopus Server node. You can start the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --start`
-9. Disable the Node Drain option for each Octopus Server node in {{ Configuration,Nodes }}
+9. Disable the Node Drain option for each Octopus Server node in **Configuration ➜ Nodes**
 10. Take your Octopus instance out of Maintenance Mode.
 
 ## Moving from Azure SQL to AWS RDS

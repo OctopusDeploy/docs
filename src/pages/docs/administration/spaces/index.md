@@ -25,7 +25,7 @@ By default, every instance of Octopus Server comes with a default space. However
 
 ## Managing spaces
 
-Spaces are managed by navigating to **{{Configuration,Spaces}}**.
+Spaces are managed by navigating to **Configuration ➜ Spaces**.
 
 An Octopus administrator, or a team member with sufficient permission, can create, remove or modify spaces from this screen. It is also possible to [change or disable the default space entirely](#change-the-default-space). Each space has a logo, which is also shown in the [space switcher](#switching-between-spaces) to make it easy to identify which space is currently focused upon by the UI. There is also a search filter to quickly find the spaces that you are interested in managing.
 
@@ -45,7 +45,7 @@ Behind the scenes, a **space managers** team is created, and any users that are 
 
 New spaces are added from the configuration section of the portal.
 
-1. To create a new space navigate to **{{Configuration,Spaces}}** and select **ADD SPACE**.
+1. To create a new space navigate to **Configuration ➜ Spaces** and select **ADD SPACE**.
 2. Give the space a name.
 3. Give the space a manager. This can be individual users or teams. Either can be selected from the drop-down menu. Click **SAVE**.
 4. Provide a description for the space.
@@ -58,7 +58,7 @@ New spaces are added from the configuration section of the portal.
 
 You can rename spaces, change their description, give them new logos, change the space managers, or stop the spaces task queue from processing.
 
-1. Navigate to **{{Configuration,Spaces}}** and select the space you want to modify.
+1. Navigate to **Configuration ➜ Spaces** and select the space you want to modify.
 1. Expand the field you would like to change.
 1. Make your changes and click **SAVE**.
 
@@ -68,7 +68,7 @@ You can rename spaces, change their description, give them new logos, change the
 
 You can delete spaces when you are the **space manager**. Deleting a space cannot be undone, and the space and all of its contents, including projects, environments, releases, and deployment history will be deleted.
 
-1. Navigate to **{{Configuration,Spaces}}** and select the space you want to delete.
+1. Navigate to **Configuration ➜ Spaces** and select the space you want to delete.
 1. Expand the **Task Queue Status** section and select the *Stop task queue* check-box, and click **SAVE**.
 1. Click the overflow button and select **Delete**.
 1. Enter the name of the space and click **DELETE**.
@@ -90,7 +90,7 @@ The following carries some minor downtime for any automation that relies on the 
 :::
 
 !include <disable-default-space>
-1. Return to **{{Configuration,Spaces}}** and select the space that you wish to nominate as the default space.
+1. Return to **Configuration ➜ Spaces** and select the space that you wish to nominate as the default space.
 1. Click the overflow button and select **Enable the default space**.
 
 **Remove the default space**

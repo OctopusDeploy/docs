@@ -28,7 +28,7 @@ While the above instructions should work on common platforms like Ubuntu or Red 
 
 ## Create a username and password account {#UsernameandPassword-Creatingtheaccount}
 
-1. Navigate to **{{infrastructure,Accounts}}** and click **ADD ACCOUNT**.
+1. Navigate to **Infrastructure ➜ Accounts** and click **ADD ACCOUNT**.
 1. Select **Username/Password** from the drop-down menu.
 1. Give the account a name, for instance, **SSH backup server** or **Google**.
 1. Add a description.

@@ -32,7 +32,7 @@ A [project's variables](/docs/projects/variables) are shared between the deploym
 
 In Octopus 2020.2 and earlier, runbooks could be executed against any environment for which the user had an appropriately scoped `RunbookRunCreate` permission.
 
-From **Octopus 2020.3**, it’s also possible to choose which environments a runbook can be run in by selecting this from the *Run settings* in **{{Runbook,Settings}}**:
+From **Octopus 2020.3**, it’s also possible to choose which environments a runbook can be run in by selecting this from the *Run settings* in **Runbook ➜ Settings**:
 
 ![Runbook environments choice](/docs/runbooks/runbooks-vs-deployments/runbook-runsettings-environments.png "width=500")
 
@@ -47,7 +47,7 @@ In Octopus 2020.2 and earlier, if you need to restrict the environment that a ru
 
 ## Retention policy
 
-Project [Lifecycles](/docs/releases/lifecycles) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it’s possible to set a retention policy for a runbook by selecting this from the *Run settings* in **{{Runbook,Settings}}**:
+Project [Lifecycles](/docs/releases/lifecycles) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it’s possible to set a retention policy for a runbook by selecting this from the *Run settings* in **Runbook ➜ Settings**:
 
 ![Runbook retention policies](/docs/runbooks/runbooks-vs-deployments/runbook-runsettings-retention.png "width=500")
 

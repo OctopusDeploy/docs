@@ -19,7 +19,7 @@ In the following example, we'll use the [Lets Encrypt - Azure DNS](https://libra
 
 To create a runbook to renew your Let's Encrypt certificate:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Add a new step template from the community library called **Lets Encrypt - Azure DNS**, and give the step a name.

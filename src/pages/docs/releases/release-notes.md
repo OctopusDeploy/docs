@@ -31,7 +31,7 @@ Release notes are also rolled up into the [deployment notes](/docs/releases/depl
 
 ## Release notes templates {#Release-Notes-Templates}
 
-A release notes template can be configured in {{Project,Settings,Release Notes Template}}
+A release notes template can be configured in **Project ➜ Settings ➜ Release Notes Template**
 
 A release notes template is a convenient way to keep release notes consistent and avoid entering the same text repeatedly.   
 

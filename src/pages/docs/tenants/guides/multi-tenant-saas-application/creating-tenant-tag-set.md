@@ -10,7 +10,7 @@ hideInThisSectionHeader: true
 
 Customers who use Vet Clinic can choose to apply custom branding to the application. To designate which tenant (customer) has custom branding applied we define [Tenant Tag Sets](/docs/tenants/tenant-tags). For this scenario, we need a single tenant tag set for the custom branding.
 
-To create Tenant Tags Sets navigate to **{{Library, Tenant Tag Sets, ADD TAG SET}}**.
+To create Tenant Tags Sets navigate to **Library ➜ Tenant Tag Sets ➜ ADD TAG SET**.
 
 ![](/docs/tenants/guides/multi-tenant-saas-application/images/add-new-tenant-tag.png "width=500")
 

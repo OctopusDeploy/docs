@@ -61,4 +61,4 @@ The following versions of Octopus have a requirement for SQL Server 2017+.
 This requirement has been relaxed to SQL Server 2016+ for any patch version **later** than specified in this note. Please see [this post](https://octopus.com/blog/raising-minimum-requirements-for-octopus-server) for further details.
 :::
 
-In **{{Octopus 1.0, 2.6.5}}** it used [RavenDB](https://ravendb.net/) and we switched to SQL in **Octopus 3.0**. You can read more about it in our [blog post](https://octopus.com/blog/3.0-switching-to-sql).
+In **Octopus 1.0 ➜  2.6.5** it used [RavenDB](https://ravendb.net/) and we switched to SQL in **Octopus 3.0**. You can read more about it in our [blog post](https://octopus.com/blog/3.0-switching-to-sql).

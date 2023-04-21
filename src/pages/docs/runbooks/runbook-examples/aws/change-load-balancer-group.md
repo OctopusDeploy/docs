@@ -17,7 +17,7 @@ In this example, we'll swap out servers that are being used in an AWS Elastic lo
 This example assumes that you already have an ELB configured with a [listener](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html), and at least one [target group](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html). These resources will be needed for the runbook.
 :::
 
-1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Add a **Run an AWS CLI script** step, and give the step a name.

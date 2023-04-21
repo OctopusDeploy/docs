@@ -9,7 +9,7 @@ navOrder: 160
 
 ## Server extensions configuration {#ServerConfiguration-ServerExtensionsConfiguration}
 
-The Server Configuration screen is available from **{{Configuration,Nodes,Configuration Settings}}** and allows administrators to see which [server extensions](/docs/administration/server-extensibility/) are enabled for the Octopus Server. To learn more about customizing server extensions, please see [the documentation](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension).
+The Server Configuration screen is available from **Configuration ➜ Nodes ➜ Configuration Settings** and allows administrators to see which [server extensions](/docs/administration/server-extensibility/) are enabled for the Octopus Server. To learn more about customizing server extensions, please see [the documentation](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension).
 
 Each configuration value has properties that will determine whether it is shown on this Server Configuration screen.
 

@@ -8,7 +8,7 @@ navOrder: 10
 hideInThisSection: true
 ---
 
-Git settings are configured per project and are accessed via the **{{ Settings, Version Control }}** link in the project navigation menu. This page will walk through how to convert a project to Git.
+Git settings are configured per project and are accessed via the **Settings ➜ Version Control** link in the project navigation menu. This page will walk through how to convert a project to Git.
 
 ![Version-control configuration UI](/docs/projects/version-control/converting/version-control-configuration.png "width=500")
 
@@ -52,7 +52,7 @@ Converting a project to use Git is a one-way change. Once you convert a project 
 
 Using config-as-code, you can perform a one-way conversion of existing projects to leverage Git.
 
-Select the project you would like to convert and click on the **{{ Settings, Version Control }}** link on the project navigation menu.
+Select the project you would like to convert and click on the **Settings ➜ Version Control** link on the project navigation menu.
 Enter the connection information for your Git repository. You need to provide: 
 - The URL for your git repository
 - A Username and password / personal access token (or anonymous for a public repository)

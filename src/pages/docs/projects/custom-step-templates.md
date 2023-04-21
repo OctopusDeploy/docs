@@ -15,7 +15,7 @@ Custom step templates can be based on a built-in or installed community step tem
 
 To create your own step template, perform the following.
 
-1. Navigate to the **{{Library,Step templates}}** area and click **Add**.
+1. Navigate to the **Library ➜ Step templates** area and click **Add**.
 2. Select a built-in step to base your custom step template on.  
 3. Populate the step template. 
 
@@ -76,7 +76,7 @@ Custom step templates inherit their logo from the template that was used to crea
 
 ## Export your custom step template
 
-If you want to transport, backup, or share your custom step templates with the community, you can export a template by finding your template in **{{Library,Step templates}}**, and clicking the **Export** link.
+If you want to transport, backup, or share your custom step templates with the community, you can export a template by finding your template in **Library ➜ Step templates**, and clicking the **Export** link.
 
 ![Export step templates](/docs/projects/images/step-templates-export.png "width=500")
 
@@ -102,7 +102,7 @@ It's important to note that you can only run script based custom step templates.
 
 To run a script based step template, perform the following.
 
-1. Navigate to **{{Library,Step templates}}** area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page:
+1. Navigate to **Library ➜ Step templates** area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page:
 
    ![Run step template](/docs/projects/images/step-templates-run.png "width=500")
 

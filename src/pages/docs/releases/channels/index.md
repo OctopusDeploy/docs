@@ -149,7 +149,7 @@ The scenarios channels are used to model can be split into two categories.  In t
 
 In the second mode of use, releases deployed via different channels are different, and should be treated as such. As an example of this, imagine a company that makes a deployment tool available as both a downloadable self-hosted product and a cloud-hosted software-as-a-service product.  In this example, the `self-hosted` and `cloud` channels not only select different lifecycles and deployment steps, but it is also desirable to view them as individual versions on the dashboard. 
 
-In {{ Project, Settings }} there is an option named _Discrete Channel Releases_, designed to model this scenario.
+In **Project ➜ Settings** there is an option named _Discrete Channel Releases_, designed to model this scenario.
 
 ![Discrete channel releases project setting](/docs/releases/channels/images/discrete-channel-release.png "width=500")
 

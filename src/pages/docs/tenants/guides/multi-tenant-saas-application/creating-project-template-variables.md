@@ -12,7 +12,7 @@ Each customer has their own database for every environment with a unique name. T
 
 Project templates define variables that are required to be provided by each tenant. You can specify the variable type, just like regular variables. You can also provide a default value which the tenant can overwrite.
 
-To create a Project Template navigate to the **{{Variables, Project Templates}}** tab in your tenant connected project and click **ADD TEMPLATE**.
+To create a Project Template navigate to the **Variables ➜ Project Templates** tab in your tenant connected project and click **ADD TEMPLATE**.
 
 ![](/docs/tenants/guides/multi-tenant-saas-application/images/creating-new-project-variable-templates.png "width=500")
 

@@ -75,7 +75,7 @@ Restarting the Octopus Deploy windows service or the underlying host OS will (ev
 
 For planned outages, the recommendation is to enable drain mode.  That will tell the node to finish up all active tasks and not pick up any new ones.  That can be achieved by:
 
-1. Navigating to **{{Configuration, Nodes}}**.
+1. Navigating to **Configuration ➜ Nodes**.
 2. Clicking on the overflow menu (`...`) next to the node you plan on restarting.
 3. Selecting **Drain Node**.
 

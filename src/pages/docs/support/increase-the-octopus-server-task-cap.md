@@ -12,7 +12,7 @@ Octopus limits the number of tasks it can run in parallel to a default of five t
 If you're running [Octopus Cloud](/docs/octopus-cloud), your task cap is controlled by Octopus. To discuss changing your task cap in Octopus Cloud, [get in touch with us](https://octopus.com/company/contact).
 :::
 
-Under **{{Configuration,Nodes}}** select your Octopus Node.
+Under **Configuration ➜ Nodes** select your Octopus Node.
 
 1. Select the overflow menu (`...`).
 2. Select **Change Task Cap**:

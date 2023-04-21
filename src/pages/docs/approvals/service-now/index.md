@@ -66,7 +66,7 @@ Take note of the password assigned or generated for this user.
 
 For the ServiceNow approval checks to be performed as part of the deployment process, an [enterprise license](https://octopus.com/pricing) must be configured in your Octopus instance. This license must be requested from Octopus directly and cannot be managed through the self-service process.
 
-For Self-hosted customers, once you have received your enterprise license, you can install it by navigating to **{{Configuration, License}}**. For Octopus Cloud customers, the license will be applied automatically for you.
+For Self-hosted customers, once you have received your enterprise license, you can install it by navigating to **Configuration ➜ License**. For Octopus Cloud customers, the license will be applied automatically for you.
 
 An enabled license will include a block similar to below:
 
@@ -122,7 +122,7 @@ To enforce a deployment to require an approved CR, the **Change Controlled** set
 
 To enable a project to enforce a requirement for an approved CR:
 
-1. Navigate to the project and then **{{Settings,General}}**.
+1. Navigate to the project and then **Settings ➜ General**.
 2. Check the **Change-controlled** setting.
 3. Select your ServiceNow connection in the **Service Now Connection** setting and click **SAVE**.
 
@@ -143,7 +143,7 @@ If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Nu
 
 ### Setting up environments for CR approval
 
-To enable an environment to enforce a requirement for an approved CR, navigate to **{{Infrastructure,Environments}}**, edit the environment via the overflow menu and check the **Change Controlled** setting, and then press **SAVE**.
+To enable an environment to enforce a requirement for an approved CR, navigate to **Infrastructure ➜ Environments**, edit the environment via the overflow menu and check the **Change Controlled** setting, and then press **SAVE**.
 
 ![ServiceNow Integration Environment settings](/docs/approvals/service-now/images/servicenow-environment-settings.png "width=500")
 

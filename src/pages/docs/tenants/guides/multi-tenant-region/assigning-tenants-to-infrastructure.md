@@ -12,7 +12,7 @@ The Car Rental applications consist of a PHP web UI and a MySQL database back en
 
 ## Configuring targets for tenant deployments
 
-By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, navigate to **{{Infrastructure, Deployment Targets}}**
+By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, navigate to **Infrastructure ➜ Deployment Targets**
 
 ![](/docs/tenants/guides/multi-tenant-region/images/octopus-deployment-targets.png "width=500")
 

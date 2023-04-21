@@ -15,7 +15,7 @@ It is an unfortunate fact that web servers are under near constant attack.  Whet
 
 To create a runbook to harden your Apache web server:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.

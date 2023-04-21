@@ -31,7 +31,7 @@ The plugin is simply a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octo
 
 Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository), or it can be configured to use an external feed (such as retrieving them from TeamCity).
 
-To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint URL into the **Publish packages to http** field, and [an API key](/docs/octopus-rest-api/how-to-create-an-api-key) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the **{{Library,Packages}}** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
+To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint URL into the **Publish packages to http** field, and [an API key](/docs/octopus-rest-api/how-to-create-an-api-key) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the **Library ➜ Packages** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
 
 ## Consuming the TeamCity NuGet feed in Octopus {#TeamCity-ConsumeNuGetFeedInOctopusConsumingtheTeamCityNuGetfeedinOctopus}
 
@@ -55,7 +55,7 @@ In version **3.3.1** of the TeamCity Plugin we added a new build runner that can
 
 Support for pushing information (metadata) to Octopus about the build has been available in the TeamCity plugin since version **5.1.3**.
 
-- In versions **{{5.1.3,5.3.0}}**, the build runner was called **Octopus Deploy: Metadata**
+- In versions **5.1.3 ➜ 5.3.0**, the build runner was called **Octopus Deploy: Metadata**
 - In version **5.4.0** onwards, the build runner was renamed to **Octopus Deploy: Build Information**
 
 ![Octopus Build information](/docs/packaging-applications/build-servers/images/teamcity-build-information-step.png "width=500")

@@ -15,7 +15,7 @@ With Runbooks, you can create a runbook as part of a routine operations task to 
 
 To create a runbook to install software with Chocolatey:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a name and click **SAVE**.
 
 Next, you need to ensure Chocolatey is installed.

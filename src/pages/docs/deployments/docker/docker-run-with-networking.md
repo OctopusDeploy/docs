@@ -35,7 +35,7 @@ You should now be ready to deploy Docker containers to your Ubuntu machine using
 
 Next we are going to create a connection to the official Docker Hub registry so we can use those images for this demonstration.
 
-1. Go to **{{Library,External feeds,Add Feed}}**.
+1. Go to **Library ➜ External feeds ➜ Add Feed**.
 2. For *Feed Type*, select **Docker Container Registry**.
 3. Set the *Name* to something meaningful like **DockerHub**.
 4. Set the *URL* to the Docker Hub API url of **[https://index.docker.io](https://index.docker.io)**.
@@ -50,7 +50,7 @@ Next we are going to create a connection to the official Docker Hub registry so 
 
 ### Step 1: Docker network step {#step1-docker-network-step}
 
-In a newly created project, click **{{Add Step,Create a Docker network}}**. This step manages parameters that will be passed to the `docker network create` command.
+In a newly created project, click **Add Step ➜ Create a Docker network**. This step manages parameters that will be passed to the `docker network create` command.
 
 1. Ensure the step is set to run on the **docker-server** role (targeting the Docker host we created earlier).
 2. Set the *Name* to **Custom Network**. This name will be referenced later on in subsequent steps that will link the containers to the created network.
@@ -67,7 +67,7 @@ For detailed information about Docker networking and additional arguments you ca
 
 ### Step 2: Creating container 1 {#step2-create-container1}
 
-From the project process page, add a new step via **{{Add Step,Run a Docker Container}}**. This step helps you configure the parameters that will be passed to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
+From the project process page, add a new step via **Add Step ➜ Run a Docker Container**. This step helps you configure the parameters that will be passed to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
 1. Set the *Name* to **First Server**.
 2. Ensure the step is set to run on the **docker-server** role (targeting the Docker host and Network we created earlier).

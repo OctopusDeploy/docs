@@ -139,7 +139,7 @@ Undeployed releases will simply keep the number we have selected and no more. Wh
 
 ## Set release retention policies {#set-release-retention-policies}
 
-Under **{{Library,Lifecycles}}** you select the Lifecycle you want to define or edit your retention policy for:
+Under **Library ➜ Lifecycles** you select the Lifecycle you want to define or edit your retention policy for:
 
 ![](/docs/administration/retention-policies/images/3278063.png "width=500")
 
@@ -174,7 +174,7 @@ Phases prioritize retention policies from the latest previous phase over the lif
 
 ## Set Built-in feed retention policy {#set-builtinfeed-retentionpolicy}
 
-You can find the built-in repository retention policy settings under **{{Library,Packages}}**.
+You can find the built-in repository retention policy settings under **Library ➜ Packages**.
 
 ![](/docs/administration/retention-policies/images/3278060.png "width=500")
 

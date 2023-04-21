@@ -73,7 +73,7 @@ When applying roles to a team, you can optionally specify a scope for each role 
 
 If for some reason a user has more/fewer permissions than they should, you can use the **Test Permissions** feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.
 
-To test the permissions go to **{{Configuration,Test Permissions}}** and select a user from the drop-down.
+To test the permissions go to **Configuration ➜ Test Permissions** and select a user from the drop-down.
 
 The results will show:
 

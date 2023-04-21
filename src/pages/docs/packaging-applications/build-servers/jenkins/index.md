@@ -37,7 +37,7 @@ Once any of the above plugins are installed, you can then search and install the
 
 ## Configure the Octopus Deploy plugin
 
-After you have installed the Octopus Deploy plugin. First navigate to {{Manage Jenkins > Global Tool Configuration}} to supply the details for the Octopus CLI.
+After you have installed the Octopus Deploy plugin. First navigate to **Manage Jenkins ➜ Global Tool Configuration** to supply the details for the Octopus CLI.
 
 :::div{.success}
 **Creating API keys**
@@ -60,7 +60,7 @@ Then we can let the plugin know where it is installed.
 
 ### Configure system
 
-Next, navigate to {{Manage Jenkins > Configure System}}.
+Next, navigate to **Manage Jenkins ➜ Configure System**.
 
 #### Octopus Server settings
 

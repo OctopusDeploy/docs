@@ -1,5 +1,5 @@
 1. On the communication style screen, select **Listening Tentacle** and click **Next**.
-1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Workers** and click **{{ADD WORKER,WINDOWS}}**, and select **Listening Tentacle**.
+1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Workers** and click **ADD WORKER ➜ WINDOWS**, and select **Listening Tentacle**.
 1. Copy the **Thumbprint** (the long alphanumerical string).
 1. Back on the Tentacle server, accept the default listening port **10933** and paste the **Thumbprint** into the **Octopus Thumbprint** field and click **Next**.
 1. Click **INSTALL**, and after the installation has finished click **Finish**.

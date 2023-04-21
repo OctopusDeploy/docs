@@ -15,7 +15,7 @@ This is especially true if your VMs are in the cloud and not connected to your A
 
 To create a runbook to perform updates on your Windows machines:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
@@ -102,7 +102,7 @@ With the process defined, you can set the update to execute automatically with a
 
 ## Create the trigger
 
-1. To create a trigger, navigate to **{{Project, Operations, Triggers, Add Scheduled Trigger}}**.
+1. To create a trigger, navigate to **Project ➜ Operations ➜ Triggers ➜ Add Scheduled Trigger**.
 2. Give the trigger a name and a description.
 3. Fill in Trigger Action section:
    - Runbook: Select the runbook to execute.

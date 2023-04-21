@@ -68,7 +68,7 @@ If you had previously been using the older functionality on the Create Octopus R
 
 1. Configure the Azure DevOps Issue Tracker extension in Octopus Deploy.
 
-    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Azure DevOps Issue Tracker}}**
+    In the Octopus Web Portal, navigate to **Configuration ➜ Settings ➜ Azure DevOps Issue Tracker**
 
 1. Add a Connection, and set the following values:
 
@@ -89,7 +89,7 @@ If you had previously been using the older functionality on the Create Octopus R
 
 1. Ensure the **Is Enabled** property is enabled
 
-When configured, this integration will retrieve Azure DevOps work item details and add details about them in your Octopus releases and deployments. If you ever need to disable the Azure DevOps Issue Tracker extension you can do so under **{{Configuration,Settings,Azure DevOps Issue Tracker}}**.
+When configured, this integration will retrieve Azure DevOps work item details and add details about them in your Octopus releases and deployments. If you ever need to disable the Azure DevOps Issue Tracker extension you can do so under **Configuration ➜ Settings ➜ Azure DevOps Issue Tracker**.
 
 ## Learn more
 

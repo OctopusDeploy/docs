@@ -32,7 +32,7 @@ This next section shows how you can create runbooks to complete the following ta
 
 To create a runbook to install IIS:
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
@@ -104,7 +104,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 
 To create a runbook to start your IIS application pool:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a name and click **SAVE**.
 1. Add the community step template called [IIS AppPool - Start](https://library.octopus.com/step-templates/9db77671-0fe3-4aef-a014-551bf1e5e7ab/actiontemplate-iis-apppool-start), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
@@ -122,7 +122,7 @@ Optionally, configure any [conditions](/docs/projects/steps/conditions) for the 
 
 To create a runbook to stop your application pool:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Add the community step template called [IIS AppPool - Stop](https://library.octopus.com/step-templates/3aaf34a5-90eb-4ea1-95db-15ec93c1e54d/actiontemplate-iis-apppool-stop), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
@@ -142,7 +142,7 @@ Configure any other settings for the step and click **Save**, and you have a run
 
 To create a runbook to restart your IIS application pool:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a name and click **SAVE**.
 1. Add the community step template called [IIS AppPool - Restart](https://library.octopus.com/step-templates/de4a85ca-38cc-4a30-8244-64612e3a7921/actiontemplate-iis-apppool-restart), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
@@ -156,7 +156,7 @@ Configure any other settings for the step and click **Save**, and you have a run
 
 To create a runbook to restart your IIS websites:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a name and click **SAVE**.
 1. Add the community step template called [IIS Website - Restart](https://library.octopus.com/step-templates/6a17bd83-ef96-4c22-b212-91a89ca92fe6/actiontemplate-iis-website-restart), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
@@ -170,7 +170,7 @@ Configure any other settings for the step and click **Save**, and you have a run
 
 To create a runbook to delete your IIS websites:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a name and click **SAVE**.
 1. Add the community step template called [IIS Website - Delete](https://library.octopus.com/step-templates/a032159b-0742-4982-95f4-59877a31fba3/actiontemplate-iis-website-delete), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
@@ -194,7 +194,7 @@ Your publicly available servers need to be as secure as you can make them.  Hack
 
 To create a runbook to harden your IIS server:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Add a **Run a Script** step and past in the following example PowerShell:
 :::div{.warning}

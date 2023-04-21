@@ -59,7 +59,7 @@ For the JSM approval checks to be performed as part of the deployment process, a
 A JSM enabled Octopus license must be requested from Octopus directly, and cannot be managed 
 through the self-service process. To request a license register for the [JSM Early Access Program](https://octopusdeploy.typeform.com/jsm-eap)
 
-Once you have received your feature-enabled license, you can install it by navigating to **{{Configuration, License}}**.
+Once you have received your feature-enabled license, you can install it by navigating to **Configuration ➜ License**.
 
 An enabled license will include a block similar to below:
 
@@ -115,7 +115,7 @@ To enforce a deployment to require an approved CR, the **Change Controlled** set
 
 To enable a project to enforce a requirement for an approved CR:
 
-1. Navigate to the project and then **{{Settings,General}}**.
+1. Navigate to the project and then **Settings ➜ General**.
 2. Check the **Jira Service Management Integration ➜ Change Controlled** setting.
 3. Select your JSM connection in the **Jira Service Management Connection** setting and click 
    **SAVE**.

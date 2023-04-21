@@ -17,7 +17,7 @@ Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the
 
 To create a runbook to deploy resources to Azure using the *Deploy an Azure Resource Manager template* step:
 
-1. Navigate to your Project, then **{{Operations, Runbooks, Add Runbook}}**.
+1. Navigate to your Project, then **Operations ➜ Runbooks ➜ Add Runbook**.
 1. Give the runbook a name and click **SAVE**.
 
     :::div{.hint}
@@ -25,7 +25,7 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
     :::
 
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
-1. Add the step by clicking **{{Azure,Deploy an Azure Resource Manager template}}**, or search for the step.
+1. Add the step by clicking **Azure ➜ Deploy an Azure Resource Manager template**, or search for the step.
 
     ![Locate ARM step](/docs/runbooks/runbook-examples/azure/resource-groups/locate-arm-step.png "width=500")
 

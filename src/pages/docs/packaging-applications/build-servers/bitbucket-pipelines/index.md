@@ -44,7 +44,7 @@ However, if you need full control over integrating your Bitbucket Pipeline with 
 
 ## BitBucket Pipelines environment variables
 
-You can use [environment variables](https://confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html) in your Pipelines (available from the **{{Settings > Environment Variables}}** menu of your BitBucket repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is ideally not something you store in your source control).
+You can use [environment variables](https://confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html) in your Pipelines (available from the **Settings ➜ Environment Variables** menu of your BitBucket repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is ideally not something you store in your source control).
 
 For example:
 

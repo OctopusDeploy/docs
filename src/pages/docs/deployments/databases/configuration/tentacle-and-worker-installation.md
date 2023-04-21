@@ -46,7 +46,7 @@ A worker can be assigned to more than one pool.
 
 ![](/docs/deployments/databases/configuration/images/worker-pools-per-usage.png "width=500")
 
-To create a new worker pool, go to **{{Infrastructure,Worker Pools}}** and then click on the **Add Worker Pool** button:
+To create a new worker pool, go to **Infrastructure ➜ Worker Pools** and then click on the **Add Worker Pool** button:
 
 ![](/docs/deployments/databases/configuration/images/add-worker-pool.png "width=500")
 

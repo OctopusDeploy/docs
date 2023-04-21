@@ -1,8 +1,8 @@
-TeamCity 7 and above can act as a NuGet repository. You can enable this by navigating to **{{Administration,NuGet Settings}}** and enabling the inbuilt NuGet server. Any build artifacts ending with `.nupkg` will automatically be served as NuGet packages, which Octopus can consume.
+TeamCity 7 and above can act as a NuGet repository. You can enable this by navigating to **Administration ➜ NuGet Settings** and enabling the inbuilt NuGet server. Any build artifacts ending with `.nupkg` will automatically be served as NuGet packages, which Octopus can consume.
 
 ## Connect Octopus to your TeamCity Server
 
-1. In the Octopus Web Portal navigate to **{{Library,External Feeds}}**.
+1. In the Octopus Web Portal navigate to **Library ➜ External Feeds**.
 1. Click **ADD FEED**.
 1. Leave the feed type as **NuGet Feed**.
 1. Enter a name for the feed.

@@ -12,8 +12,8 @@ This page lists the arguments you can supply to the Octopus Jenkins Pipelines co
 The Jenkins Pipeline support requires plugin version 3.0.0 or later and Jenkins version 2.190.1 or later.
 
 :::div{.warning}
-The `toolId` parameter refers to the **Name** of the Global Tool Configuration for Octopus CLI, available at {{Manage Jenkins > Global Tool Configuration}}.
-The `serverId` parameter refers to the **Server ID** of the OctopusDeploy Plugin configuration, available at {{Manage Jenkins > Configure System}}.
+The `toolId` parameter refers to the **Name** of the Global Tool Configuration for Octopus CLI, available at **Manage Jenkins ➜ Global Tool Configuration**.
+The `serverId` parameter refers to the **Server ID** of the OctopusDeploy Plugin configuration, available at **Manage Jenkins ➜ Configure System**.
 :::
 
 ## Pack {#pack}

@@ -30,7 +30,7 @@ Take note of which region you created the repository in as this will be needed t
 ![](/docs/packaging-applications/package-repositories/guides/container-registries/images/oracle-cloud-infrastructure-region.png)
 
 ## Adding an OCI repository as an Octopus External Feed
-Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and select the `Docker Container Registry` Feed type. 
+Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and select the `Docker Container Registry` Feed type. 
 
 Give the feed a name, in the URL field, paste the URL to your OCI region repository. It should look similar to this format:
 

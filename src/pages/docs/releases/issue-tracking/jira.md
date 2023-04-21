@@ -77,13 +77,13 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
 1. Install the Octopus Deploy plugin in your Jira Cloud instance.
 
-    From the Atlassian Marketplace, add the [Octopus Deploy for Jira](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) app and click 'Get Started' to configure it. Alternately, the app is also available in Jira by navigating to **{{Jira Settings,Find new apps}}**.
+    From the Atlassian Marketplace, add the [Octopus Deploy for Jira](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) app and click 'Get Started' to configure it. Alternately, the app is also available in Jira by navigating to **Jira Settings ➜ Find new apps**.
 
     Note: Keep this configuration page open while you complete the next steps as you need to copy values between Octopus and Jira.
 
 2. Configure the Jira extension in Octopus Deploy.
 
-    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Jira Integration}}** and copy the following values from the Jira App configuration page:
+    In the Octopus Web Portal, navigate to **Configuration ➜ Settings ➜ Jira Integration** and copy the following values from the Jira App configuration page:
 
     - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., https://your-jira-instance.atlassian.net.
     - **Jira Connect App Password**.
@@ -105,16 +105,16 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
 4. Ensure the Octopus Server URL is set.
 
-    If you are using Octopus Cloud, this value is automatically set for you. If you are not using Octopus Cloud, navigate to the **{{Configuration,Nodes}}** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., https://my-company.octopus.app or https://my-company-internal-name
+    If you are using Octopus Cloud, this value is automatically set for you. If you are not using Octopus Cloud, navigate to the **Configuration ➜ Nodes** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., https://my-company.octopus.app or https://my-company-internal-name
     Note: Octopus passes this value to Jira so it can build hyperlinks back to the deployments from the Jira UI. It never actually tries to connect to this URL itself.
 
 5. Configure the Octopus plugin in Jira.
 
-    Navigate to the **{{Configuration,Settings,Jira Integration}}** page in Octopus, copy the **Octopus InstallationID**, and add it to Jira App configuration.
+    Navigate to the **Configuration ➜ Settings ➜ Jira Integration** page in Octopus, copy the **Octopus InstallationID**, and add it to Jira App configuration.
 
 6. In Octopus Deploy update your environment settings.
 
-    Navigate to **{{Infrastructure,Environments}}** to map your Octopus environments to Jira environment types. This is required so Jira can understand Octopus environments and track issue progress.
+    Navigate to **Infrastructure ➜ Environments** to map your Octopus environments to Jira environment types. This is required so Jira can understand Octopus environments and track issue progress.
 
     Note: Jira environment types are a fixed list that cannot be edited.
 
@@ -126,7 +126,7 @@ This process is for Jira Server, if you are using Jira Cloud, see [Connecting Ji
 
 1. Configure the Jira extension in Octopus Deploy.
 
-    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Jira Integration}}** and enter the following values for your Jira instance:
+    In the Octopus Web Portal, navigate to **Configuration ➜ Settings ➜ Jira Integration** and enter the following values for your Jira instance:
 
     - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., https://your-internal-jira-instance/
 
@@ -197,7 +197,7 @@ If you find a previously working Jira integration has stopped working after upgr
 
 If your deployments aren't being displayed in Jira, this likely means you will need to double check that your Octopus environments are correctly mapped to your Jira environments.
 
-Navigate to **{{Infrastructure,Environments}}**, and next to each environment click on the overflow menu (`...`) and click **Edit**. From here, you can map each Octopus environment to your corresponding Jira environment.
+Navigate to **Infrastructure ➜ Environments**, and next to each environment click on the overflow menu (`...`) and click **Edit**. From here, you can map each Octopus environment to your corresponding Jira environment.
 
 ### Ensure casing on Issue/Work Item IDs match {#troubleshooting-check-case-on-ids}
 
@@ -211,7 +211,7 @@ If you have [Automatic release creation](/docs/projects/project-triggers/automat
 
 ### Check the entire package ID {#troubleshooting-check-the-entire-package-id}
 
-If you find your work items or other build information aren't showing up in your releases, make sure your package ID as shown in the release is the exact same as it is found in the **{{Library,Build Information}}** section. Some package ID values, particularly those found in external feeds must include the repository. For example, if you were pushing build information for the docker image `octopusdeploy/worker-tools`, the value for the package ID needs to include the repository name of `octopusdeploy/` as well as the name of the docker image, not just `worker-tools`. 
+If you find your work items or other build information aren't showing up in your releases, make sure your package ID as shown in the release is the exact same as it is found in the **Library ➜ Build Information** section. Some package ID values, particularly those found in external feeds must include the repository. For example, if you were pushing build information for the docker image `octopusdeploy/worker-tools`, the value for the package ID needs to include the repository name of `octopusdeploy/` as well as the name of the docker image, not just `worker-tools`. 
 
  ## Learn more
 

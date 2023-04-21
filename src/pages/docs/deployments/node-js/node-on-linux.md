@@ -244,12 +244,12 @@ Next, you need to configure your Octopus project to deploy a Node.js application
 
 ### Configure an environment {#ConfigureOctopusDeployProject-ConfigureEnvironment}
 
-- Navigate to **{{infrastructure,Environments}}**, and create an Environment called **prod**.
+- Navigate to **Infrastructure ➜ Environments**, and create an Environment called **prod**.
 
 ### Configure account and target {#configureoctopusdeployproject-ConfigureAccount&amp;Target}
 
-1. Navigate to **{{infrastructure,Accounts}}**, click **Add Account**, select **username/password** from the drop-down menu, and add the username credentials for the Linux deployment target you configured earlier.
-2. Navigate to **{{Infrastructure,Environments}}**, select the **prod** environment, click **Add deployment target**, and select **SSH Connection**.
+1. Navigate to **Infrastructure ➜ Accounts**, click **Add Account**, select **username/password** from the drop-down menu, and add the username credentials for the Linux deployment target you configured earlier.
+2. Navigate to **Infrastructure ➜ Environments**, select the **prod** environment, click **Add deployment target**, and select **SSH Connection**.
 3. Enter the IP address of the machine that is accessible to the Octopus Server. *In our case below it's the public IP provided by Azure/AWS.*
 4. Click **Discover** to automatically pre-populate the SSH fingerprint for the remote server.
 5. Continue to fill out the rest of the details, selecting the account you created above.
@@ -260,8 +260,8 @@ More information about working with Linux deployment targets see [SSH Targets](/
 
 The next step is to create a project that will extract the package.
 
-1. Navigate to the Projects page via **{{Projects,All}}** and then click **Add Project**.
-2. Give the new project an appropriate name, save the project, and navigate to the project's *Process* page and click **{{Add Step,Deploy a Package}}**.
+1. Navigate to the Projects page via **Projects ➜ All** and then click **Add Project**.
+2. Give the new project an appropriate name, save the project, and navigate to the project's *Process* page and click **Add Step ➜ Deploy a Package**.
  
 Ensure the target role matches the target role that was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
 

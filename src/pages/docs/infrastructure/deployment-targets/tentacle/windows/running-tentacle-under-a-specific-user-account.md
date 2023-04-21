@@ -12,7 +12,7 @@ Every process within a Tentacle is executed by the user account configured on th
 - Run a script that needs to be executed by a user with higher permissions.
 - Run a process that talks to a SQL database, and you want to use integrated authentication.
 
-To change this setting, go to **{{Services,OctopusDeploy Tentacle,Properties,Log On}}**.
+To change this setting, go to **Services ➜ OctopusDeploy Tentacle ➜ Properties ➜ Log On**.
 
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/images/3277918.jpg "width=500")
 

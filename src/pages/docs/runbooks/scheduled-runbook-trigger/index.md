@@ -27,7 +27,7 @@ Scheduled runbook triggers provide a way to configure your runbooks to run on a 
 
 ## Add a scheduled runbook trigger
 
-1. From the Project's Overview page, select **{{Operations,Triggers}}**, then **Add Scheduled trigger**.
+1. From the Project's Overview page, select **Operations ➜ Triggers**, then **Add Scheduled trigger**.
 2. Give the trigger a name.
 3. Select a runbook.
 4. Specify the target environments the runbook will run against.

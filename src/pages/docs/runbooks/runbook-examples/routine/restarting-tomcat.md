@@ -13,7 +13,7 @@ Restarting a Tomcat app web application requires the user to have the correct pe
 
 To create a runbook to restart Tomcat:
 
-1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **Operations ➜ Runbooks**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Built-in steps**, and then select the **Start/Stop App in Tomcat** step.

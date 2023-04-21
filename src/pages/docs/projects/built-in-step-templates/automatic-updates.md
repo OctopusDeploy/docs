@@ -9,7 +9,7 @@ navOrder: 40
 
 From **Octopus 2022.1**, built-in step templates that use the new "step package" format can be updated automatically to the latest versions without updating Octopus Server. Octopus will check for updates to the built-in step templates every hour and automatically download them from the publicly available feed located at [steps-feed.octopus.com](https://steps-feed.octopus.com/).
 
-Optionally, the automatic version updates of built-in steps can be turned off by navigating to **{{Configuration,Features}}** and turning off the **Step Template Updates** feature.
+Optionally, the automatic version updates of built-in steps can be turned off by navigating to **Configuration ➜ Features** and turning off the **Step Template Updates** feature.
 
 ![](/docs/projects/built-in-step-templates/images/automatic-updates-configuration.png "width=500")
 

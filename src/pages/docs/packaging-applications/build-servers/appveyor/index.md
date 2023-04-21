@@ -37,7 +37,7 @@ The following environment variables are available and can be configured on the *
 
 ### Non-MSbuild projects
 
-AppVeyor have included the Octopus CLI (`octo`) into the base Windows build VM and is available via the command line. If you're running a project that is _not_ using msbuild, you can manually invoke the `octo pack` command during the build phase, by navigating to **{{build,Script}}** and adding you command to the build script section. For instance:
+AppVeyor have included the Octopus CLI (`octo`) into the base Windows build VM and is available via the command line. If you're running a project that is _not_ using msbuild, you can manually invoke the `octo pack` command during the build phase, by navigating to **Build ➜ Script** and adding you command to the build script section. For instance:
 
 ```bash
 npm Build

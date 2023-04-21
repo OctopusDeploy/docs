@@ -91,7 +91,7 @@ We offer four options for scaling your Octopus Server:
 
 An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to throttle Octopus Server automatically. In practice, this kind of approach proved to be unreliable.
 
-Instead, we decided to put this control into your hands, allowing you to control how many tasks each Octopus Server node will execute concurrently. This way, you can measure server metrics for **your own deployments**, and then increase/decrease the task cap appropriately. Administrators can change the task cap in **{{Configuration>Nodes}}**.
+Instead, we decided to put this control into your hands, allowing you to control how many tasks each Octopus Server node will execute concurrently. This way, you can measure server metrics for **your own deployments**, and then increase/decrease the task cap appropriately. Administrators can change the task cap in **Configuration ➜ Nodes**.
 
 See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availability) for more details on why we chose this approach.
 

@@ -7,7 +7,7 @@ description: Changing the location of your configuration repository.
 navOrder: 60
 ---
 
-Version-control is configured per project and is accessed via the **{{ Settings, Version Control }}** link in the project navigation menu. This page will walk you through moving an existing config as code repository to a new location.
+Version-control is configured per project and is accessed via the **Settings ➜ Version Control** link in the project navigation menu. This page will walk you through moving an existing config as code repository to a new location.
 
 ## Moving configuration as code files
 
@@ -38,10 +38,10 @@ Create the new folder under the `.octopus` directory and copy the `*.ocl` files 
 You can then update the version control settings by following the steps below:
 
 - Open the project in Octopus Deploy
-- Open **{{ Settings, Version Control }}**
+- Open **Settings ➜ Version Control**
 - Expand the **Git File Storage Directory** setting and update the folder name
 - Click **SAVE** to store the changes
-- Check your process in **{{ Deployments, Process}}**
+- Check your process in **Deployments ➜ Process**
 
 You can now delete the files from the old location.
 
@@ -58,7 +58,7 @@ Create an `.octopus` folder in the root of your repository if it doesn't already
 Copy the latest version of the `*.ocl` files into the new location. Then commit and push your changes.
 
 - Open the project in Octopus Deploy
-- Open **{{ Settings, Version Control }}**
+- Open **Settings ➜ Version Control**
 - Expand **Git Repository** and enter the new **URL**
 - Adjust the **Default Branch Name** if the new repository has a different main branch
 - Expand **Authentication**
@@ -66,7 +66,7 @@ Copy the latest version of the `*.ocl` files into the new location. Then commit 
 - - Enter a personal access token in the **Password** field
 - Click **TEST** to check your connection to the repository
 - Click **SAVE** to store the changes
-- Check your process in **{{ Deployments, Process}}**
+- Check your process in **Deployments ➜ Process**
 
 You can now delete the files from the old location.
 

@@ -37,7 +37,7 @@ The following preparation needs to be completed prior to creating and configurin
 
 This documentation assumes a Windows VM already has the Tentacle installed on it.  This guide will start with the worker pool creation and how to register that Tentacle as a worker.  
 
-1. To configure a worker pool in the Octopus Web portal, go to {{Infrastructure,Worker Pools}}, and click **Add Worker Pool**.
+1. To configure a worker pool in the Octopus Web portal, go to **Infrastructure ➜ Worker Pools**, and click **Add Worker Pool**.
 2. When the modal window appears, enter a name, and if you see the **Static** and **Dynamic** options, select **Static** as the worker pool type:
 
 ![Create worker pool modal](/docs/deployments/databases/sql-server/images/redgate-octopus-create-worker-pool-modal.png "width=500")
@@ -59,7 +59,7 @@ The server needs to access the PowerShell gallery to download the Redgate toolin
 
 Use the Octopus Web Portal to register a Listening Tentacle.  You will need to download the Tentacle onto the server and select Listening as the communication mode.
 
-Follow the wizard.  The thumbprint for the server for this form can be found on the add worker screen or in {{Configuration,Thumbprint}}.  This is the thumbprint of the server's certificate.  The server and the Tentacle will exchange the certificates to ensure a two-way trust is established.
+Follow the wizard.  The thumbprint for the server for this form can be found on the add worker screen or in **Configuration ➜ Thumbprint**.  This is the thumbprint of the server's certificate.  The server and the Tentacle will exchange the certificates to ensure a two-way trust is established.
 
 :::highlight
 The thumbprint in this screenshot is from a sample instance of Octopus Deploy.  Your thumbprint will be different.
@@ -108,7 +108,7 @@ For this guide the following step templates will be used:
 - [Redgate - Create Database Release (Worker Friendly)](https://library.octopus.com/step-templates/47d29b57-5bca-4205-ac62-ce10cdf8bab9/actiontemplate-redgate-create-database-release-(worker-friendly))
 - [Redgate - Deploy from Database Release (Worker Friendly)](https://library.octopus.com/step-templates/adf9a009-8bbb-4b82-8f3b-6fb12ef4ba18/actiontemplate-redgate-deploy-from-database-release-(worker-friendly))
 
-To install the steps from the library, navigate to {{Library,Step Templates}} and click **Browse**.
+To install the steps from the library, navigate to **Library ➜ Step Templates** and click **Browse**.
 
 The list of categories is alphabetical.  Find the **Redgate** category, and select the first template, **Redgate - Create Database Release (Worker Friendly)**.
 

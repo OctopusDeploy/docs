@@ -19,7 +19,7 @@ Once high availability is configured, the process to upgrade the host OS will be
 
 1. Create a new VM with the desired OS or .NET installed.
 2. Install Octopus Deploy on that new VM and add it as a new node.
-3. In the Octopus UI, go to **{{Configuration, Nodes}}**, click the overflow menu (`...`) next to the new node you just created, and set the task cap to 0. 
+3. In the Octopus UI, go to **Configuration ➜ Nodes**, click the overflow menu (`...`) next to the new node you just created, and set the task cap to 0. 
 
 The new node is now part of the HA cluster, but it isn't part of the load balancer, so it doesn't accept UI requests or processing tasks.  At this point, you can slowly bring this new node online.
 

@@ -10,7 +10,7 @@ navOrder: 100
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
 
 :::div{.hint}
-Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps and ECS. EAP support for AKS clusters is provided via a feature toggle in **{{Configuration, Features}}**.
+Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps and ECS. EAP support for AKS clusters is provided via a feature toggle in **Configuration ➜ Features**.
 
 **Octopus 2022.3** will include EKS cluster support.
 :::
@@ -119,7 +119,7 @@ If you have an existing project or environment, enable it with the following ste
 
 To discover targets for an environment, dynamic infrastructure needs to be enabled. To enable for an existing environment:
 
-1. Navigate to **{{Infrastructure,Environments}}**.
+1. Navigate to **Infrastructure ➜ Environments**.
 1. Click the overflow menu (`...`) for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
 1. Expand the **Dynamic infrastructure** section and tick the check-box to enable dynamic infrastructure.
 1. Click **SAVE**.
@@ -128,7 +128,7 @@ To discover targets for an environment, dynamic infrastructure needs to be enabl
 
 Using target discovery during a deployment means that there may be no existing targets at the start of a deployment. To allow deployments to start without any targets:
 
-1. Navigate to **{{Projects,Project name,Deployments,Settings}}**.
+1. Navigate to **Projects ➜ Project name ➜ Deployments ➜ Settings**.
 2. Expand the **Deployment Targets Required** and select the **Allow deployments to be created when there are no deployment targets** option.
 3. Click **SAVE**.
 

@@ -11,7 +11,7 @@ Octopus Server and Tentacles write diagnostic log messages to their local Window
 
 :::div{.success}
 **Recent Errors**
-The most recent warnings and errors can be view on the **{{Configuration,Diagnostics}}** page
+The most recent warnings and errors can be view on the **Configuration ➜ Diagnostics** page
 :::
 
 ## Finding the log files for Octopus Server and Tentacle {#Logfiles-Findingthelogfiles}

@@ -18,7 +18,7 @@ Group Id
 ![GitLab Group Id](/docs/packaging-applications/package-repositories/guides/images/gitlab-group-id.png)
 
 ## Adding a GitLab NuGet repository as an Octopus External Feed
-Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and select the `NuGet Feed` Feed type. 
+Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and select the `NuGet Feed` Feed type. 
 
 Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the feed for your GitLab Project or Group in the format:
 

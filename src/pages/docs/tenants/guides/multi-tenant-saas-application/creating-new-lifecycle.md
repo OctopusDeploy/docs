@@ -10,7 +10,7 @@ hideInThisSectionHeader: true
 
 The first step in this guide is to create a new [lifecycle](/docs/releases/lifecycles) for our project.
 
-To create a new Lifecycle, navigate to **{{Library, Lifecycles, ADD LIFECYCLE}}**.
+To create a new Lifecycle, navigate to **Library ➜ Lifecycles ➜ ADD LIFECYCLE**.
 
 ![](/docs/tenants/guides/multi-tenant-saas-application/images/add-new-lifecycle.png "width=500")
 

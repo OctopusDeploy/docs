@@ -15,7 +15,7 @@ Octopus Community step templates integration is enabled by default, but it can b
 
 ## Enable or disable community step templates integration
 
-1. Navigate to **{{Configuration,Features}}**.
+1. Navigate to **Configuration ➜ Features**.
 2. Expand the **Octopus Community Step Template** section by clicking on it.
 3. Toggle the selection to either **Enabled** or **Disabled**, and click **SAVE**.
 
@@ -47,7 +47,7 @@ After the step template has been installed, it will be available alongside the b
 
 ## Add a community step template from the Octopus library
 
-1. In the Octopus Web Portal, navigate to **{{Library, Step Templates}}**.
+1. In the Octopus Web Portal, navigate to **Library ➜ Step Templates**.
 2. Click **BROWSE LIBRARY**.
 3. Find the Community Step Template you want either by choosing from the available technologies or clicking **SHOW ALL**.
 4. Before you install the template you can click **VIEW DETAILS** to view the parameters of the step and the source code.
@@ -61,7 +61,7 @@ If the Community Step Template feature has been disabled, you can still use comm
 
 1. Navigate to the [Community Library](https://library.octopus.com/) website.
 2. Find the template you want to use, review the details, and click the **Copy to clipboard** button.
-3. Navigate to **{{Library,Step Templates}}** in the Octopus Web Portal and select **Import** from the custom step templates section.
+3. Navigate to **Library ➜ Step Templates** in the Octopus Web Portal and select **Import** from the custom step templates section.
 4. Paste in the JSON document for the Step Template into the import window and click **SAVE**.
 
 After the step template has been installed, it will be available alongside the built-in step templates.

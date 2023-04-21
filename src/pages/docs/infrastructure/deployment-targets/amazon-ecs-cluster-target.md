@@ -35,7 +35,7 @@ See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-targe
 
 ## Creating an ECS cluster target
 
-1. Navigate to **{{Infrastructure,Deployment Targets}}**, and click **ADD DEPLOYMENT TARGET**.
+1. Navigate to **Infrastructure ➜ Deployment Targets**, and click **ADD DEPLOYMENT TARGET**.
 2. Select **AWS** and click **ADD** on the Amazon ECS Cluster target type.
 3. Enter a display name for the Amazon ECS Cluster.
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.

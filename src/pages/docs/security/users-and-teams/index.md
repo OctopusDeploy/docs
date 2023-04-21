@@ -12,8 +12,8 @@ Octopus Deploy provides the most value when it is used by your whole team. Devel
 [Getting Started - Users, Roles & Teams](https://www.youtube.com/watch?v=f_JPU7sAE8M)
 
 You can manage users and teams in the Octopus Web Portal:
-- For users, navigate to **{{Configuration,Users}}**.
-- For teams, navigate to **{{Configuration,Teams}}**.
+- For users, navigate to **Configuration ➜ Users**.
+- For teams, navigate to **Configuration ➜ Teams**.
 
 ![](/docs/security/users-and-teams/images/teams.png "width=500")
 

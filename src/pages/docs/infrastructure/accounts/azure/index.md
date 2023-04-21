@@ -37,11 +37,11 @@ This step shows you how to create a Service Principal with the Azure Portal, if 
 
 [Getting Started - Azure Account](https://www.youtube.com/watch?v=QDwDi17Dkfs)
 
-1. In the Azure Portal, navigate to **{{Azure Active Directory,Properties}}** and copy the value from the **Tenant ID** field, this is your **Tenant ID**.
+1. In the Azure Portal, navigate to **Azure Active Directory ➜ Properties** and copy the value from the **Tenant ID** field, this is your **Tenant ID**.
 1. Next you need your **Application ID**.
-  - If you have created an AAD registered application, navigate to **{{Azure Active Directory,App Registrations}}**, click **View all applications**, select the app and copy the **Application ID**.  Please note, the Azure UI defaults to **Owned Applications** tab.  Click the **All Applications** tab to view all app registrations. 
-  - If you haven't created a registered app, navigate to **{{Azure Active Directory,App Registrations}}**, click on **New registration** and add the details for your app, and click **Save**. Make note of the **Application ID**.
-3. Generate a one-time password by navigating to **{{Certificates & Secrets,Certificates & Secrets}}**. Add a new **secret**, enter a description, and click **Save**. Make note of the displayed application password for use in Octopus. If you don’t want to accept the default one year expiry for the password, you can change the expiry date.
+  - If you have created an AAD registered application, navigate to **Azure Active Directory ➜ App Registrations**, click **View all applications**, select the app and copy the **Application ID**.  Please note, the Azure UI defaults to **Owned Applications** tab.  Click the **All Applications** tab to view all app registrations. 
+  - If you haven't created a registered app, navigate to **Azure Active Directory ➜ App Registrations**, click on **New registration** and add the details for your app, and click **Save**. Make note of the **Application ID**.
+3. Generate a one-time password by navigating to **Certificates & Secrets ➜ Certificates & Secrets**. Add a new **secret**, enter a description, and click **Save**. Make note of the displayed application password for use in Octopus. If you don’t want to accept the default one year expiry for the password, you can change the expiry date.
 
 You now have the following:
 
@@ -181,7 +181,7 @@ The values required for the script above are:
 
 - **Subscription ID**: The ID of the Azure subscription the account will interact with.
 - **Password**: A secret value created by you. Make sure you record it, as you will need to enter it into Octopus Deploy.
-- **Tenant ID**: The ID of the Active Directory tenant. You can find this in the Azure Portal by navigating to **{{Azure Active Directory,Properties}}** in the **Tenant ID** field.
+- **Tenant ID**: The ID of the Active Directory tenant. You can find this in the Azure Portal by navigating to **Azure Active Directory ➜ Properties** in the **Tenant ID** field.
 
 The Service Principal will default to expiring in 1 year from the time of creation.
 
@@ -201,8 +201,8 @@ Now that you have the following values, you can add your account to Octopus:
 - Tenant ID
 - Application Password/Key
 
-1. Navigate to **{{Infrastructure,Account}}**.
-1. Select **{{ADD ACCOUNT,Azure Subscriptions}}**.
+1. Navigate to **Infrastructure ➜ Account**.
+1. Select **ADD ACCOUNT ➜ Azure Subscriptions**.
 1. Give the account the name you want it to be known by in Octopus.
 1. Give the account a description.
 1. Add your Azure Subscription ID. This is found in the Azure portal under **Subscriptions**.

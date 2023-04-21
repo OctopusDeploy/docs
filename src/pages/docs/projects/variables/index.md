@@ -25,7 +25,7 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
 
 7. Save the variable by clicking **SAVE**.
 8. In this example, we'll reference this variable from a **Run a Script** step.
-9. Define your step (Click **{{Process,ADD STEP,Run A Script}}**) and in the **Script Content** section, enter the following PowerShell script into the script editor:
+9. Define your step (Click **Process ➜ ADD STEP ➜ Run A Script**) and in the **Script Content** section, enter the following PowerShell script into the script editor:
 
 ​```
 Write-Host

@@ -9,6 +9,6 @@ navOrder: 90
 
 !include <runbooks-intro>
 
-To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
+To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 
 ![Add Runbook](/docs/runbooks/runbooks-list.png "width=500")

@@ -10,11 +10,11 @@ hideInThisSectionHeader: true
 
 In this section, we need to add our infrastructure and associate it with our tenants. All external customers have a production environment, with some having the optional staging environment.   We only need to add a deployment target for each environment our tenant (customer) deploys to. Since our application is hosted on Azure Web Apps, we need to add an [Azure Web App deployment target](/docs/infrastructure/deployment-targets/azure/web-app-targets).
 
-To add a new Azure Web Target, go to **{{Infrastructure, Deployment Targets}}** and click **ADD DEPLOYMENT TARGET**.
+To add a new Azure Web Target, go to **Infrastructure ➜ Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
 
 ![](/docs/tenants/guides/multi-tenant-saas-application/images/creating-new-deployment-target.png "width=500")
 
-Next, go to **{{Azure, Azure Web App}}** and click **ADD**. Then, add a **Display Name**, **Environment** and **Target Role**.
+Next, go to **Azure ➜ Azure Web App** and click **ADD**. Then, add a **Display Name**, **Environment** and **Target Role**.
 
 ![](/docs/tenants/guides/multi-tenant-saas-application/images/adding-new-deployment-target-details-1.png "width=500")
 

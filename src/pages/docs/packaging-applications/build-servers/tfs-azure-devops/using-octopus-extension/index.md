@@ -117,7 +117,7 @@ We recommend you read the [Build Versions in Team Build](/docs/packaging-applica
 
 #### Publish package artifact {#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact}
 
-If your Package Application step is part of your Build process and your Push Packages to Octopus step is part of your Release process, then you will need to add a **{{Utility,Publish}}** Artifact step to make the package available to the Release process.
+If your Package Application step is part of your Build process and your Push Packages to Octopus step is part of your Release process, then you will need to add a **Utility ➜ Publish** Artifact step to make the package available to the Release process.
 
 ```yaml
 - task: PublishBuildArtifacts@1
