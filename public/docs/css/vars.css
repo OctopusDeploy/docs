@@ -111,6 +111,10 @@
     --header-pin: 0;
     --scroll-pad: 110px;
 
+    --box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
+    --octo-shadow-standard-box: 0 2px 6px 0 rgba(0,0,0,0.2);
+    --octo-shadow-standard-box-hover: 0 2px 6px 0 rgba(0,0,0,0.4);
+
     --content-width: 78vw;
     --content-width-mobile: calc(100vw - 2rem);
     --navigation-width: 250px;

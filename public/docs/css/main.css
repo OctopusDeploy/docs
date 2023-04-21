@@ -108,7 +108,7 @@ em {
 }
 
 h1 {
-    font-size: 2.6rem;
+    font-size: 3rem;
     line-height: 1.2;
     font-weight: 700;
     color: var(--blue-grey-dark);
@@ -143,19 +143,19 @@ h2, h3, h4, h5, h6 {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.6rem;
 }
 
 h3 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
 }
 
 h4 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 
 h5 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 h6 {
@@ -444,7 +444,39 @@ nav.skip-links a:focus {
     }
 }
 
- /* Breadcrumbs */
+/* */
+
+.docs-home {
+    text-align: center;
+    margin-block-start: 10vh;
+    margin-block-end: 10vh;
+}
+
+.docs-home > div {
+    box-shadow: var(--octo-shadow-standard-box);
+    border-radius: 0.2em;
+    padding-block-end: 1rem;
+}
+
+.docs-home > div:hover,
+.docs-home > div:focus-within {
+    box-shadow: var(--octo-shadow-standard-box-hover);
+}
+
+.docs-home > div img {
+    border-radius: 0.2em 0.2em 0 0;
+}
+
+.docs-home a {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--black);
+    display: block;
+    padding-block: 0.5rem;
+}
+
+/* Breadcrumbs */
 
 .site-breadcrumbs ol {
     font-size: 0.8rem;
@@ -877,7 +909,7 @@ nav.site-nav h2 {
     background-position: center;
     background-size: cover;
     border-radius: var(--block-radius);
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--octo-shadow-standard-box);
     color: var(--fore-link);
     font-size: 5em;
   }
@@ -900,7 +932,7 @@ nav.site-nav h2 {
 
 .octo-article-nav {
     background: var(--white);
-    box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
     margin-block-start: 4rem;
     padding: 1rem;
 }
@@ -968,7 +1000,7 @@ nav.site-nav h2 {
 }
 
 .octo-related li {
-    box-shadow: 0px 14px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
     padding: 1px;
     border-radius: var(--standard-radius);
     background: linear-gradient(to bottom, #173045 80%, #0CB0F2);
@@ -1381,6 +1413,12 @@ nav.site-nav h2 {
 .simple-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: var(--grid-gap);
+}
+
+.simple-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: var(--grid-gap);
 }
 

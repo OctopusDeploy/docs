@@ -29,5 +29,19 @@
         "last_modified": {
             "en": "Revised"
         }
+    },
+    "search": {
+        "search_for": {
+            "en": "How can we help?"
+        },
+        "submit": {
+            "en": "Go"
+        },
+        "results_title": {
+            "en": "Results"
+        },
+        "no_results_title": {
+            "en": "No Results"
+        }
     }
 }
