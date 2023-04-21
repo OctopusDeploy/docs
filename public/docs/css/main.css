@@ -201,7 +201,7 @@ header h1 em,
 
 /* Boxes */
 
-.hint, .info, .success, .warning {
+.hint, .info, .success, .warning, .problem {
     border-radius: 0 var(--standard-radius) var(--standard-radius) 0;
     margin: var(--block-gap) 0;
     padding: 1.5rem;
