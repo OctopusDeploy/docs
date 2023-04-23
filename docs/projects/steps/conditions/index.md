@@ -12,6 +12,7 @@ For each [step](/docs/projects/steps/index.md) that you define in your [deployme
 - Run steps in parallel with a previous step.
 - Specify whether the step runs before or after package acquisition.
 - Make the step a required step that cannot be skipped.
+- Retry a step upon failure.
 
 ![Conditions](images/conditions.png "width=500")
 
@@ -138,3 +139,7 @@ This option is hidden when it does not make sense, for example, when a script st
 ## Required
 
 By default, deployment steps can be skipped when creating a deployment. Marking a step as Required prevents the step from being skipped.
+
+## Retries
+
+Enabling this option gives you the ability to automatically retry a step if it fails, with up to three attempts. This feature is particularly useful when dealing with steps that commonly fail due to temporary or transient errors during deployment.
