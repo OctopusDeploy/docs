@@ -9,7 +9,6 @@ navOrder: 76
 
 Include a variable set in a project in Octopus Deploy
 
-
 ```
 Usage:
   octopus project variables include [flags]
@@ -24,7 +23,6 @@ Global Flags:
       --no-prompt              Disable prompting in interactive mode
   -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
   -s, --space string           Specify the space for operations
-
 ```
 
 ## Examples
@@ -35,8 +33,6 @@ Global Flags:
 ```
 $ octopus project variable include
 $ octopus project variable include --variable-set "Slack Variables"
-
-
 ```
 
 ## Learn more
