@@ -7,6 +7,7 @@ description: Spaces setup and configuration.
 navOrder: 30
 version: 2019.1
 ---
+import DisableDefaultSpace from './shared-content/administration/disable-default-space.include.md'
 
 With Spaces you can partition your Octopus Server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of. Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
 
@@ -41,7 +42,7 @@ The user who creates a space doesn't necessarily need to be the space manager of
 
 Behind the scenes, a **space managers** team is created, and any users that are nominated to be a space manager, are put in that team. This team cannot be created or deleted, and serves no other purpose than applying the correct space manager permissions.
 
-### Create a space {#create-a-space}
+### Create a space \{#create-a-space}
 
 New spaces are added from the configuration section of the portal.
 
@@ -81,7 +82,7 @@ We create the default space when you install or upgrade your Octopus Server. In 
 
 If you don't want to think about spaces, just leave everything in the Default space!
 
-### Change or disable the default space {#change-the-default-space}
+### Change or disable the default space \{#change-the-default-space}
 
 To change the default space, follow these steps:
 
@@ -89,9 +90,9 @@ To change the default space, follow these steps:
 The following carries some minor downtime for any automation that relies on the default space being available.
 :::
 
-!include <disable-default-space>
+<DisableDefaultSpace />
 1. Return to **Configuration ➜ Spaces** and select the space that you wish to nominate as the default space.
-1. Click the overflow button and select **Enable the default space**.
+2. Click the overflow button and select **Enable the default space**.
 
 **Remove the default space**
 
@@ -112,13 +113,13 @@ This means that by disabling the default space - **you are opting into a non-bac
 
 To disable the default space, follow these steps:
 
-!include <disable-default-space>
+<DisableDefaultSpace />
 
-## Switching between spaces {#switching-between-spaces}
+## Switching between spaces \{#switching-between-spaces}
 
 When you log into the Octopus Web Portal, the first item on the navigation menu is the spaces menu. Click this icon to access the spaces you are a member of and select the space you need.
 
-## System scoped or space scoped {#system-scope-space-scoped}
+## System scoped or space scoped \{#system-scope-space-scoped}
 
 There is a hard barrier between spaces, so, for instance, a deployment target configured for Space-A isn't available to projects in Space-B. However, there are some things that aren't scoped to a space, and are available system wide.
 
@@ -145,7 +146,7 @@ If a resource isn't listed below, then it's space-scoped.
 | Teams                 | True                        | True          |
 | Tasks                 | True                        | True          |
 
-## Automation changes to be aware of {#automation-changes}
+## Automation changes to be aware of \{#automation-changes}
 
 As always, using our client libraries offer the best chance of a successful upgrade for your existing automation, and our latest release of Octopus Client has all the changes required to inter-operate with any version of Octopus, as do most of our plugins for other build systems. However, due to the depth and breadth of the changes required to make spaces a reality, we weren't able to maintain backwards compatibility for the REST API in all cases.
 
