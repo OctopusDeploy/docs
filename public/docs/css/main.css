@@ -551,6 +551,7 @@ nav.skip-links a:focus {
         content: '\f078';
         font-family: fa-solid;
         margin-inline-start: 0.4rem;
+        float: right;
     }
 
     .octo-title a[data-open]::after {
@@ -579,10 +580,6 @@ nav.skip-links a:focus {
     top: 150px;
 }
 
-.side-nav {
-    grid-area: toc;
-}
-
 .site-nav:hover,
 .site-nav:focus-within,
 .side-nav:hover,
@@ -595,17 +592,40 @@ nav.site-nav h2 {
 }
 
 @media (max-width: 930px) {
-  nav.site-nav h2 {
-      display:none;
-  }
-  
-  .site-nav {
-    margin: 3rem 10% 0 10%;
-  }
+    .site-nav,
+    .side-nav {
+        height: auto;
+        margin-block: 0;
+        padding-inline-end: 1.5rem;
+        position: unset;
+        top: unset;
+    }
 
-  #site-nav {
+    .side-nav details {
+        margin-block: 1rem;
+        width: var(--content-width);
+        margin-inline: auto;
+    }
+    
+    .side-nav summary {
+        text-align: center;
+    }
+
+    .side-nav .octo-github-edit {
+        display: none;
+    }
+
+    nav.site-nav h2 {
+        display:none;
+    }
+
+    .site-nav {
+    margin: 3rem 10% 0 10%;
+    }
+
+    #site-nav {
     display: none;
-  }
+    }
 }
 
 .site-nav li {
@@ -718,6 +738,11 @@ nav.site-nav h2 {
 .content-group main {
     grid-area: content;
     margin: 0;
+}
+
+.content-group .side-nav {
+    grid-area: toc;
+    width: 100%;
 }
 
 .continue {

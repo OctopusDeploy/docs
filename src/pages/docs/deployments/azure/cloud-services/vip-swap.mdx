@@ -36,7 +36,7 @@ In order to enable VIP swapping, edit the process of your Cloud Service project 
 
 ![](/docs/deployments/azure/cloud-services/vip-swap.png "width=500")
 
-With this setting enabled Octopus will attempt to swap the staging and production slots but, in the example above, it is always deploying to the staging slot.  In order to perform a VIP swap we want to first deploy to Staging and then Production.  In order to do this in Octopus, edit the Cloud Service process and replace the Slot setting with a variable that resolves the environment name.  Press the square to the right of the Slot field to enable variable binding and enter #{Octopus.Environment.Name}:
+With this setting enabled Octopus will attempt to swap the staging and production slots but, in the example above, it is always deploying to the staging slot.  In order to perform a VIP swap we want to first deploy to Staging and then Production.  In order to do this in Octopus, edit the Cloud Service process and replace the Slot setting with a variable that resolves the environment name.  Press the square to the right of the Slot field to enable variable binding and enter `#{Octopus.Environment.Name}`:
 
 ![](/docs/deployments/azure/cloud-services/vip-swap-binding.png "width=500")
 
