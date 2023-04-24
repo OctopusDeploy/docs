@@ -11,7 +11,7 @@ import OctopusDeploySetupOptions from 'src/shared-content/concepts/octopus-deplo
 
 👋 Welcome to Octopus Deploy!
 
-This tutorial will help you complete your first deployment in Octopus Deploy. We’ll walk you through the steps to deploy a sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers. All you’ll need is a running Octopus Deploy instance.
+This tutorial will help you complete your first deployment in Octopus Deploy. We'll walk you through the steps to deploy a sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers. All you'll need is a running Octopus Deploy instance.
 
 :::div{.hint}
 If you are using **Octopus 2022.2** or earlier, please visit the legacy [First deployment guide](/docs/getting-started/first-deployment/legacy-guide)
@@ -21,7 +21,7 @@ Before starting the tutorial, if you haven't set up an Octopus Deploy instance, 
 
 <OctopusDeploySetupOptions />
 
-Log in to your Octopus instance to get started. You’ll be guided through the process of deploying your first application.
+Log in to your Octopus instance to get started. You'll be guided through the process of deploying your first application.
 
 Click **GET STARTED** to begin your deployment journey.
 
@@ -41,7 +41,7 @@ You will need an environment to deploy to.
 
 Environments are how you organize your infrastructure, on prem or cloud, into groups that represent the different stages of your deployment pipeline, for instance, dev, test, and production.
 
-Select the environments you’d like to create and click **SAVE**.
+Select the environments you'd like to create and click **SAVE**.
 ![Add Environments](/docs/getting-started/first-deployment/images/img-createenvironmentdialog.png "width=500")
 
 ## Project questionnaire
@@ -62,7 +62,7 @@ The next step in the journey is to create your deployment process. This is where
 2. Select the **Script** tile to filter the types of steps.
 3. Scroll down and click **ADD** on the **Run a Script** tile.
 4. Accept the default name for the script.
-5. In the Execution Location section, select **Run once on a worker** if you’re using Octopus Cloud, or **Run once on the Octopus Server** if you’re using a self-hosted Octopus instance.
+5. In the Execution Location section, select **Run once on a worker** if you're using Octopus Cloud, or **Run once on the Octopus Server** if you're using a self-hosted Octopus instance.
 6. Scroll down to the Script section, select your script language of choice, and enter the following script in the Inline Source Code section. 
 ```
 Write-Host "Hello, World!"

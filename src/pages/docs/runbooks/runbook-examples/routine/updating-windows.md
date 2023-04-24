@@ -7,7 +7,7 @@ description: With Octopus Deploy you can update and patch Windows machines with 
 navOrder: 40
 ---
 
-It’s not always possible to use products such as [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/en-us/mem/configmgr/) (formerly SCCM or Microsoft System Center Configuration Manager) to orchestrate the installation of patches for Windows.
+It's not always possible to use products such as [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/en-us/mem/configmgr/) (formerly SCCM or Microsoft System Center Configuration Manager) to orchestrate the installation of patches for Windows.
 
 This is especially true if your VMs are in the cloud and not connected to your Active Directory.  In situations like these, you can take advantage of runbooks and [scheduled runbook triggers](/docs/runbooks/scheduled-runbook-trigger) to periodically check and apply updates to your application infrastructure.
 

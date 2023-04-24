@@ -22,9 +22,9 @@ Calculating lead time can be straightforward in many scenarios, like the followi
 
 ![Lead Time Example 0](/docs/insights/images/lead-time-example-0.png) 
 
-Here, the lead time is the time from Release 1.0’s creation to the completion time of its deployment.
+Here, the lead time is the time from Release 1.0's creation to the completion time of its deployment.
 
-Lead times may also span multiple releases and deployments.  In the following example, Release 1.1 was never deployed, and Release 1.2 had a failed deployment before being successfully redeployed. Here, the lead time is from the creation of Release 1.1 through to the completion time of Release 1.2’s successful redeployment.  Release 1.1 is included in the lead time calculation because its changes were first deployed as part of Release 1.2’s deployment.
+Lead times may also span multiple releases and deployments.  In the following example, Release 1.1 was never deployed, and Release 1.2 had a failed deployment before being successfully redeployed. Here, the lead time is from the creation of Release 1.1 through to the completion time of Release 1.2's successful redeployment.  Release 1.1 is included in the lead time calculation because its changes were first deployed as part of Release 1.2's deployment.
 
 ![Lead Time Example 1](/docs/insights/images/lead-time-example-1.png)
 

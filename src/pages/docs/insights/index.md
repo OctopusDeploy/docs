@@ -7,7 +7,7 @@ description: Insights gives you better visibility into your company's DevOps per
 navOrder: 100
 ---
 
-DevOps insights in Octopus gives you better visibility into your company’s DevOps performance by surfacing the four key DORA metrics, so you can make more informed decisions on where to improve and celebrate your results.
+DevOps insights in Octopus gives you better visibility into your company's DevOps performance by surfacing the four key DORA metrics, so you can make more informed decisions on where to improve and celebrate your results.
 
 ![The Overview page of Insights Reports](/docs/insights/images/overview.png)
 
@@ -74,7 +74,7 @@ Together these metrics help you qualify the results of your DevOps performance, 
 
 Project level insights are available as a new tab in every project so you can understand the performance of your projects across Channels, Environments, and Tenants. Each metric can be seen at a summary level, and insights can also be filtered to time frames, including last month, quarter, year, channels, and environments, as well as being exported into CSV.
 
-Project level insights are available to all customers out-of-the-box, meaning you don’t have to buy or subscribe to another tool. If you’re already a user, Octopus has all the data it needs to help you uncover rich insights based on your deployment history.
+Project level insights are available to all customers out-of-the-box, meaning you don't have to buy or subscribe to another tool. If you're already a user, Octopus has all the data it needs to help you uncover rich insights based on your deployment history.
 
 ![Project Insights Deployment Frequency](/docs/insights/images/project.png)
 
@@ -93,7 +93,7 @@ With the Space level insights, you can build reports with the relevant data that
 This also allows you to easily identify contributors to a performance trend you see at the aggregated level. It provides a breakdown of the highest and lowest performing projects and releases that may significantly impact the overall performance. This enables you to identify where things are improving or declining and take action based on that.
 
 :::div{.hint}
-Users who have view permissions to Space-level Insights reports will see sanitized data on projects / environments they don’t have access to.
+Users who have view permissions to Space-level Insights reports will see sanitized data on projects / environments they don't have access to.
 :::
 
 Space level DevOps insights are available to customers with an [enterprise subscription](https://octopus.com/pricing).

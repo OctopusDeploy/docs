@@ -385,13 +385,13 @@ Returns the streams of deployments for the given report. A stream is a sequence 
 | Property | Description |
 | -------- | ----------- |
 | ProjectId   | The id of the project for this stream. | 
-| ProjectName | The name of the project for this stream.  Will be null if you don’t have access to this project. | 
+| ProjectName | The name of the project for this stream.  Will be null if you don't have access to this project. | 
 | ChannelId   | The id of the channel for this stream. | 
-| ChannelName | The name of the channel for this stream.  Will be null if you don’t have access to this channel. | 
+| ChannelName | The name of the channel for this stream.  Will be null if you don't have access to this channel. | 
 | EnvironmentId   | The id of the environment for this stream. | 
-| EnvironmentName | The name of the environment for this stream.  Will be null if you don’t have access to this environment. | 
+| EnvironmentName | The name of the environment for this stream.  Will be null if you don't have access to this environment. | 
 | TenantId    | The id of the tenant for this stream. | 
-| TenantName  | The name of the tenant for this stream.  Will be null if you don’t have access to this tenant. | 
+| TenantName  | The name of the tenant for this stream.  Will be null if you don't have access to this tenant. | 
 | Deployments | An array of the deployments in this stream.  | Deployments belong to the same stream if they have the same project, channel, environment and tenant. | 
 
 #### Deployments properties
@@ -421,10 +421,10 @@ GET: `/api/{spaceId}/insights/reports/{reportId}/metrics`
 | ---- | ----------- |
 | spaceId  | Id of the space containing the report. | 
 | reportId | The id of the Insights report to retrieve details for. | 
-| split    | How to split the metrics.  Should be ‘None’, ‘Project’, ‘ProjectGroup’, ‘Environment’, ‘EnvironmentGroup’, ‘Tenant’, ‘TenantTagSet’. | 
+| split    | How to split the metrics.  Should be 'None', 'Project', 'ProjectGroup', 'Environment', 'EnvironmentGroup', 'Tenant', 'TenantTagSet'. | 
 | tenantTagSetId | If TenantTagSet is chosen for Split, this is required, otherwise it is ignored. It is the tag set to split on. | 
-| timeRange   | The time period to get data for. Should be ‘LastMonth’, ‘LastQuarter’, or ‘LastYear’ | 
-| granularity | The data grouping granularity, defaults to weekly if not supplied.  Should be ‘Monthly’, ‘Weekly’, or ‘Daily’. | 
+| timeRange   | The time period to get data for. Should be 'LastMonth', 'LastQuarter', or 'LastYear' | 
+| granularity | The data grouping granularity, defaults to weekly if not supplied.  Should be 'Monthly', 'Weekly', or 'Daily'. | 
 
 #### Sample response
 ```json
@@ -491,7 +491,7 @@ GET: `/api/{spaceId}/insights/reports/{reportId}/metrics`
 #### Series Properties
 | Property | Description |
 | -------- | ----------- |
-| Name     |  The name of the series.  If no split is provided, this will be ‘All’  |
+| Name     |  The name of the series.  If no split is provided, this will be 'All'  |
 | Intervals |  An array of the time periods containing the data returned |
 
 #### LeadTime, TimeSincePreviousDeployment, MeanTimeToRecovery and DeploymentsUntilRecovery Properties

@@ -49,7 +49,7 @@ sudo apt-get install aspnetcore-runtime-2.1
 The best and most up-to-date guide to installing NGINX will continue to be on the [NGINX website](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
 :::
 
-### Download the key used to sign NGINX packages and the repository, and add it to the `apt` program’s key ring:
+### Download the key used to sign NGINX packages and the repository, and add it to the `apt` program's key ring:
 
 ```bash
 $ sudo wget https://nginx.org/keys/nginx_signing.key

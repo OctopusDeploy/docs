@@ -124,14 +124,14 @@ Mutually exclusive scopings can generally be avoided by duplicating variable val
 
 Variables can also be scoped to specific [target roles](/docs/infrastructure/deployment-targets/#target-roles). This means that the variable will take the specified value only when it is used on a deployment step that runs on a deployment target with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the target they are running on.
 
-Let’s say you have the following targets with their respective roles:
+Let's say you have the following targets with their respective roles:
 
 | Target   | Role       |
 | ---------- | ---------- |
 | Target 1 | app-server |
 | Target 2 | web-server |
 
-You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we’ll call it *DeployPath*) with a different value for each target role:
+You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we'll call it *DeployPath*) with a different value for each target role:
 
 ![](/docs/projects/variables/images/deploy-path-variable.png "width=500")
 

@@ -23,7 +23,7 @@ To account for issues with communicating with a Tentacle that has been 'cut off'
 The scheduled task does the following:
 
 1. Find Tentacle services.
-2. Stop all Tentacles (if they’re running).
+2. Stop all Tentacles (if they're running).
 3. Run MSI.
 4. Update configs for any polling Tentacles.
 5. Starts any Tentacles that were running when we started.

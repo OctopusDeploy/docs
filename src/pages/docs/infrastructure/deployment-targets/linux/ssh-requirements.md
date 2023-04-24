@@ -85,9 +85,9 @@ Note that [substitute variables in templates](/docs/projects/steps/configuration
 
 #### Package repository SSL certificates
 
-If you configure your deployment such that the target pulls down the package itself directly from the NuGet repository, the correct SSL certificates need to also be available to Mono. By default, Mono pre **3.12** didn’t trust any certificates and the root certs in question would need to be either manually imported, or synced with Mozilla’s list by invoking `mozroots` or `cert-sync`. Thankfully Mono's latest builds perform this step during installation so it should “just work”.
+If you configure your deployment such that the target pulls down the package itself directly from the NuGet repository, the correct SSL certificates need to also be available to Mono. By default, Mono pre **3.12** didn't trust any certificates and the root certs in question would need to be either manually imported, or synced with Mozilla's list by invoking `mozroots` or `cert-sync`. Thankfully Mono's latest builds perform this step during installation so it should “just work”.
 
-See [Mono’s security FAQ](http://www.mono-project.com/docs/faq/security/) for more details.
+See [Mono's security FAQ](http://www.mono-project.com/docs/faq/security/) for more details.
 
 #### Mono on OSX
 

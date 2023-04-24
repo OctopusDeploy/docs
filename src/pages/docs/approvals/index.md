@@ -17,7 +17,7 @@ Octopus Deploy includes ITSM integrations for ServiceNow and Jira Service Manage
 Our support focuses on:
 
 1. **Productive teams** - Automatically create change requests and associate them with Octopus deployments so you can work with the right stakeholders to ensure your changes are compliant and approved. Octopus can also prevent deployments from executing until all approvals are complete. 
-2. **Compliant DevOps** - Be sure that no one is deploying unapproved changes to production. Your audits become a smooth process as you can demonstrate your company’s processes are being adhered to with system reports.
+2. **Compliant DevOps** - Be sure that no one is deploying unapproved changes to production. Your audits become a smooth process as you can demonstrate your company's processes are being adhered to with system reports.
 
 ## ServiceNow change management without friction
 
@@ -31,7 +31,7 @@ What's included in our ServiceNow support?
 - Automatically create normal change requests at deployment time. Octopus pauses the deployment until the appropriate approvals are complete.
 - Let Octopus do the work for you by automating the transition between stages in the change request once created, leaving a deployment record in ServiceNow.
 - Use change templates to auto-create standard change requests to reduce manual work and control what information is populated.
-- Ensure “Change Windows” are honored on existing change requests so deployments won’t execute until the specified time window.
+- Ensure “Change Windows” are honored on existing change requests so deployments won't execute until the specified time window.
 - Add work notes to change requests with information about deployment start and finish time and whether it was successful or not.
 - View and export audit logs of controlled deployments for easy compliance and post-deployment reconciliation.
 

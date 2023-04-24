@@ -52,11 +52,11 @@ else {
 }
 ```
 
-The script checks to see if IIS is already installed by inspecting the `InstallState` for the `Web-Server` feature. If it’s installed it will skip the install of IIS.
+The script checks to see if IIS is already installed by inspecting the `InstallState` for the `Web-Server` feature. If it's installed it will skip the install of IIS.
 
 :::div{.hint}
 **Execution Policy:**
-It’s possible you may need to set the [Execution policy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy) to an appropriate value (as part of the script) in order for it to run successfully. 
+It's possible you may need to set the [Execution policy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy) to an appropriate value (as part of the script) in order for it to run successfully. 
 :::
 
 ### Additional IIS features {#install-additional-features}

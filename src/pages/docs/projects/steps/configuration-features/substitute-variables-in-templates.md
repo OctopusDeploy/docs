@@ -95,7 +95,7 @@ If you want to include a header with a different image or text in a shared layou
 
 ### Spring boot application properties
 
-Another common scenario is updating a Spring Boot `application.properties` file to set the web server port. In this example, we’ve used the #{WebServerPort} variable:
+Another common scenario is updating a Spring Boot `application.properties` file to set the web server port. In this example, we've used the #{WebServerPort} variable:
 
 ```java
 server.port=#{WebServerPort}

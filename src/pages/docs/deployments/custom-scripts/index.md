@@ -7,7 +7,7 @@ description: Custom scripts allows you to script anything you want using PowerSh
 navOrder: 120
 ---
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as configuring common types of applications and deploying them to popular hosting environments. For these situations, we have built everything you need into Octopus. Sometimes, however, you need to do more than the built-in conventions support, and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as configuring common types of applications and deploying them to popular hosting environments. For these situations, we have built everything you need into Octopus. Sometimes, however, you need to do more than the built-in conventions support, and that's where custom scripts come in.
 
 ## Supported script types
 
@@ -77,7 +77,7 @@ If you're executing a script contained within a package, the package contents wi
 When scripts are executed, it is in the context of the account that the Tentacle agent or SSH session is running as. Learn about [running Tentacle as a different user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account).
 
 :::div{.hint}
-On Windows, the Tentacle agent runs as **Local System** by default, which has extensive local privileges, but usually cannot access file shares, remote SQL databases, or other external resources. If you need wider permissions, you’ll need to configure Tentacle to [run under a custom user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account).
+On Windows, the Tentacle agent runs as **Local System** by default, which has extensive local privileges, but usually cannot access file shares, remote SQL databases, or other external resources. If you need wider permissions, you'll need to configure Tentacle to [run under a custom user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account).
 :::
 
 ### Script integrity

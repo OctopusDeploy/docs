@@ -91,7 +91,7 @@ After you have created a project group there are a number of ways you can add pr
 
 ### Edit or delete project groups
 
-To edit or delete a project group click the project group’s overflow menu (...) and select **edit**. From there you can edit the groups name or description. If you need to delete the group, click the overflow menu again and select **Delete**.
+To edit or delete a project group click the project group's overflow menu (...) and select **edit**. From there you can edit the groups name or description. If you need to delete the group, click the overflow menu again and select **Delete**.
 
 ## Project permissions
 

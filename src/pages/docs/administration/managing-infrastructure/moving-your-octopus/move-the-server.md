@@ -12,7 +12,7 @@ You may want to move only the Octopus Server itself, and continue using your exi
 ## Before you move your Octopus instance
 - You will need your Master Key in order for your new Octopus installation to connect to your existing database. You can retrieve and save a copy of the [Master Key](/docs/security/data-encryption) in the Octopus Manager.
 - Data that is stored in the file system needs to be moved over to the new server. These are your packages stored in the built-in package repository, your artifacts (includes project logos), and your Task Logs.
-- Tentacle thumbprints are stored in the database. If you’re using the same database, you won’t need to re-configure your Tentacles.
+- Tentacle thumbprints are stored in the database. If you're using the same database, you won't need to re-configure your Tentacles.
 
 :::div{.warning}
 **You can only move your Octopus Server installation to the same Octopus version, you cannot move to an upgraded version.** Either upgrade your existing Octopus Server version, then move the Server and files, or move and then upgrade on the new server. Please refer to our [upgrading guides](/docs/administration/upgrading) for applicable information for your scenario.

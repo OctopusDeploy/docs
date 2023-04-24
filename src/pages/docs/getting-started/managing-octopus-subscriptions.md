@@ -22,11 +22,11 @@ This page focuses on Control Center V2, our new system for managing Octopus subs
 
 In October 2022, we moved to Stripe as our payment gateway, so we needed a new system for integration with Stripe. We refer to the new system as Control Center V2, and it will replace Control Center later this year. During 2023, we'll migrate your subscriptions from V1 to V2 as you pay or renew. After the migration is complete, we'll deprecate V1.
 
-### I can’t work out how to do something in Control Center V2 that I used to do in V1
+### I can't work out how to do something in Control Center V2 that I used to do in V1
 
-There are some Control Center V1 features that we haven’t included in V2 yet. This is only temporary while we gain feature-parity for Control Center V2.
+There are some Control Center V1 features that we haven't included in V2 yet. This is only temporary while we gain feature-parity for Control Center V2.
 
-If you can’t see how to do something in V2 that you could do in V1, please email [support@octopus.com](mailto:support@octopus.com) for assistance. 
+If you can't see how to do something in V2 that you could do in V1, please email [support@octopus.com](mailto:support@octopus.com) for assistance. 
 
 ### Locating subscriptions
 
@@ -136,7 +136,7 @@ Inviting users to Subscription Group access:
 1. Navigate to the dashboard and locate your subscription group.
 2. Click **ACCESS CONTROL**.
 3. Click **INVITE USER**.
-3. Enter the user’s details and click **INVITE**.
+3. Enter the user's details and click **INVITE**.
 
 The invited user will receive an email to accept the invitation. 
 
@@ -157,7 +157,7 @@ Inviting users to Direct access:
 1. Navigate to your Cloud instance.
 2. Click **ACCESS CONTROL** in the left sidebar.
 3. Click **INVITE USER**.
-4. Enter the user’s details and click **INVITE**.
+4. Enter the user's details and click **INVITE**.
 
 The invited user will receive an email to accept the invitation. 
 
@@ -165,7 +165,7 @@ Note: The user is only added to the Octopus Deploy product after they sign into 
 
 ### Changing user roles 
 
-To change a user’s role, you must remove that user’s access and then re-invite them to the role you want them to have.
+To change a user's role, you must remove that user's access and then re-invite them to the role you want them to have.
 
 ### Deleting users
 

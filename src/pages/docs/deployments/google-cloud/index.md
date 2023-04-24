@@ -10,7 +10,7 @@ hideInThisSection: true
 
 Google Cloud Platform (GCP) is a leading provider of cloud computing services and infrastructure, including hosted virtual machines, Kubernetes clusters, and serverless environments.
 
-Building and shipping systems to Google cloud has its challenges. Different teams have different processes and there’s a raft of application and infrastructure artifacts to manage. 
+Building and shipping systems to Google cloud has its challenges. Different teams have different processes and there's a raft of application and infrastructure artifacts to manage. 
 
 ![Google Cloud Platform accounts in Octopus](/docs/deployments/google-cloud/centralized-google-cloud-accounts.png "width=500")
 

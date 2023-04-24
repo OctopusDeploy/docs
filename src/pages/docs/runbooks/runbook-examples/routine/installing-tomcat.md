@@ -121,7 +121,7 @@ fi
 echo "Process complete"
 ```
 
-The script checks to see if Tomcat is already installed by looking to see if the Tomcat `startup.sh` script exists. If the file is present it will skip the install. If it isn’t installed, then the script will:
+The script checks to see if Tomcat is already installed by looking to see if the Tomcat `startup.sh` script exists. If the file is present it will skip the install. If it isn't installed, then the script will:
 
 - Install Java.
 - Create a local user to run tomcat.

@@ -158,4 +158,4 @@ To suppress these errors and report them as informational only, use the `Octopus
 
 ## PowerShell {#Configurationfiles-PowerShell}
 
-If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deployments/custom-scripts). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](https://www.codeproject.com/Articles/61900/PowerShell-and-XML).
+If these conventions aren't enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deployments/custom-scripts). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](https://www.codeproject.com/Articles/61900/PowerShell-and-XML).

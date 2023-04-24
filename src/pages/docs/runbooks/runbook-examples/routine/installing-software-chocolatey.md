@@ -85,7 +85,7 @@ else {
 }
 ```
 
-The script will run the `choco install` command if the `dotnetfx` package isn’t already installed.
+The script will run the `choco install` command if the `dotnetfx` package isn't already installed.
 
 ### .NET Core
 
@@ -111,7 +111,7 @@ else {
 }
 ```
 
-The script will run the `choco install` command if the `dotnetcore` package isn’t already installed. Configure any other settings for the step and click **Save**, and you have a runbook step to install .NET Core.
+The script will run the `choco install` command if the `dotnetcore` package isn't already installed. Configure any other settings for the step and click **Save**, and you have a runbook step to install .NET Core.
 
 ### Windows features
 
@@ -172,7 +172,7 @@ Configure any other settings for the step and click **Save**, and you have a run
 
 The Tentacle agent can be automatically installed from the command-line. This is very useful if you're deploying to a large number of servers or you're provisioning servers automatically.
 
-In addition, it’s also possible to automate the installation of chocolatey packages at the same time as the Tentacle installation.
+In addition, it's also possible to automate the installation of chocolatey packages at the same time as the Tentacle installation.
 
 We have a number of bootstrap scripts available in our OctopusSamples [Infrastructure as Code (IaC)](https://github.com/OctopusSamples/IaC/) GitHub repository. The following scripts are available to support Chocolatey package installation as part of a Tentacle installation:
 

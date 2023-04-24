@@ -80,7 +80,7 @@ It is not possible to give a complete and definitive answer as this depends on y
 * [.NET 6 release notes](https://github.com/dotnet/core/tree/main/release-notes/6.0)
 * [.NET release types](https://learn.microsoft.com/en-us/dotnet/core/releases-and-support)
 
-### What if I experience a breaking change but I can’t remediate it in time?
+### What if I experience a breaking change but I can't remediate it in time?
 There is the option to provision your own worker with Ubuntu 18.04 and selecting its worker pool for your deployment process that experience the breaking change.
 
 ### Why is GCloud CLI part of this notification?

@@ -288,7 +288,7 @@ By default, Empty Dir Volumes resources are stored on whatever medium is backing
 
 #### Host path
 
-The [Host path volume resource](https://oc.to/KubernetesHostPathVolume) mounts a file or directory from the host node’s filesystem into your Pod. This is not something that most Pods will need, but it offers a powerful escape hatch for some applications.
+The [Host path volume resource](https://oc.to/KubernetesHostPathVolume) mounts a file or directory from the host node's filesystem into your Pod. This is not something that most Pods will need, but it offers a powerful escape hatch for some applications.
 
 For example, some uses for a Host Path Volume resource are:
 
