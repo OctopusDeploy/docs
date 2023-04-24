@@ -7,7 +7,7 @@ description: Spaces setup and configuration.
 navOrder: 30
 version: 2019.1
 ---
-import DisableDefaultSpace from './shared-content/administration/disable-default-space.include.md'
+import DisableDefaultSpace from 'src/shared-content/administration/disable-default-space.include.md'
 
 With Spaces you can partition your Octopus Server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of. Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
 
@@ -84,13 +84,16 @@ If you don't want to think about spaces, just leave everything in the Default sp
 
 ### Change or disable the default space \{#change-the-default-space}
 
-To change the default space, follow these steps:
-
 :::div{.warning}
 The following carries some minor downtime for any automation that relies on the default space being available.
 :::
 
+To change the default space, follow these steps:
+
 <DisableDefaultSpace />
+
+Once you've done this, follow these steps:
+
 1. Return to **Configuration ➜ Spaces** and select the space that you wish to nominate as the default space.
 2. Click the overflow button and select **Enable the default space**.
 
