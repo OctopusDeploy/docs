@@ -6,6 +6,7 @@ title: Maintain High Availability nodes
 description: Managing the nodes in your Octopus High Availability cluster can be done in the Octopus Web Portal.
 navOrder: 30
 ---
+import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
 
 Maintaining the nodes in your Octopus Server High Availability cluster can be done on the **Nodes** tab in the **Configuration** area:
 
@@ -47,7 +48,7 @@ The drain toggle can be used to prevent an Octopus Server node from executing an
 
 To distribute HTTP load among Octopus Server nodes with a single point of access it is recommend to use an HTTP load balancer. 
 
-!include <load-balancer-endpoint-info>
+<LoadBalancerEndpointInfo />
 
 ## Example procedure: Installing Windows updates
 
@@ -55,8 +56,8 @@ One of the great benefits of High Availability is the ability to perform mainten
 
 For example, imagine it is time to install Windows Updates on one node. The process would be:
 
-1. Use the *Drain* feature on the **Nodes** page to tell the node to continue executing any deployments that it is currently running, but not to start any new deployments (other nodes in the cluster will take over).
+1. Use the *Drain* feature on the *Nodes** page to tell the node to continue executing any deployments that it is currently running, but not to start any new deployments (other nodes in the cluster will take over).
 2. Once the node isn't executing any more deployments, remove it from the load balancer.
 3. Install updates, restart the node, etc. as required.
 4. Add the node back to the load balancer.
-5. Disable the *Drain* feature, so that the node can now execute deployments again.
+5. Disable the *Drain* feature, so that the node can now execute deployments again.

@@ -6,6 +6,17 @@ title: Designing Octopus HA in Azure
 description: Information on configuring Octopus High Availability hosted in Microsoft Azure.
 navOrder: 20
 ---
+import HighAvailabilityComputeRecommendations from 'src/shared-content/administration/high-availability-compute-recommendations.include.md';
+import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
+import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
+import HighAvailabilitySharedStorageOverview from 'src/shared-content/administration/high-availability-shared-storage-overview.include.md';
+import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
+import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
+import PollingTentaclesAndHA from 'src/shared-content/administration/polling-tentacles-and-ha.include.md';
+import PollingTentaclesAndHAConnecting from 'src/shared-content/administration/polling-tentacles-and-ha-connecting.include.md';
+import PollingTentaclesAndHARegistering from 'src/shared-content/administration/polling-tentacles-and-ha-registering.include.md';
+import PollingTentaclesConnectionDifferentPort from 'src/shared-content/administration/polling-tentacles-connection-different-ports.include.md';
+import PollingTentaclesConnectionSamePort from 'src/shared-content/administration/polling-tentacles-connection-same-port.include.md';
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/).
 
@@ -36,9 +47,9 @@ For a highly available Octopus configuration, you need a minimum of two Virtual 
 
 Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [Azure Virtual Machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-general) and select the size most suitable for your requirements.  
 
-!include <high-availability-compute-recommendations>
+<HighAvailabilityComputeRecommendations />
 
-!include <octopus-instance-mixed-os-warning>
+<OctopusInstanceMixedOSWarning />
 
 ### Database
 
@@ -47,14 +58,17 @@ Each Octopus Server node stores project, environment, and deployment-related dat
 - [SQL Server on a Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview/)
 - [Azure SQL Database as a Service](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview/)
 
-!include <high-availability-database-recommendations>
+<HighAvailabilityDatabaseRecommendations />
+
+And also:
+
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
-!include <high-availability-db-logshipping-mirroring-note>
+<HighAvailabilityDatabaseLogShippingMirroringNote />
 
 ### Shared storage
 
-!include <high-availability-shared-storage-overview>
+<HighAvailabilitySharedStorageOverview />
 
 If your Octopus Server is running in Microsoft Azure, you can use [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction); it presents a file share over SMB 3.0.
 
@@ -101,7 +115,7 @@ It's worth noting that you need to have created the folders within the Azure Fil
 
 To distribute HTTP load among Octopus Server nodes with a single point of access, we recommended using an HTTP load balancer. 
 
-!include <load-balancer-endpoint-info>
+<LoadBalancerEndpointInfo />
 
 Azure has a wide range of [load balancers](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that will work with Octopus in a highly-available configuration:
 
@@ -120,20 +134,20 @@ If you're hosting in Azure with Domain Controllers, it would be a similar setup 
 
 ## Polling Tentacles with HA
 
-!include <polling-tentacles-and-ha>
+<PollingTentaclesAndHA />
 
 ### Connecting Polling Tentacles
 
-!include <polling-tentacles-and-ha-connecting>
+<PollingTentaclesAndHAConnecting />
 
 #### Using a unique address
 
-!include <polling-tentacles-connection-same-port>
+<PollingTentaclesConnectionSamePort />
 
 #### Using a unique port
 
-!include <polling-tentacles-connection-different-ports>
+<PollingTentaclesConnectionDifferentPort />
 
 ### Registering Polling Tentacles
 
-!include <polling-tentacles-and-ha-registering>
+<PollingTentaclesAndHARegistering />

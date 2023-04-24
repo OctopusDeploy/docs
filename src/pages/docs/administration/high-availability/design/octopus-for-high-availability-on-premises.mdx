@@ -6,6 +6,16 @@ title: Designing Octopus HA On-Premises
 description: Information on configuring Octopus High Availability including database and shared storage set up for on-premises servers.
 navOrder: 10
 ---
+import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
+import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
+import HighAvailabilitySharedStorageOverview from 'src/shared-content/administration/high-availability-shared-storage-overview.include.md';
+import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
+import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md'
+import PollingTentaclesAndHA from 'src/shared-content/administration/polling-tentacles-and-ha.include.md';
+import PollingTentaclesAndHAConnecting from 'src/shared-content/administration/polling-tentacles-and-ha-connecting.include.md';
+import PollingTentaclesAndHARegistering from 'src/shared-content/administration/polling-tentacles-and-ha-registering.include.md';
+import PollingTentaclesConnectionDifferentPort from 'src/shared-content/administration/polling-tentacles-connection-different-ports.include.md';
+import PollingTentaclesConnectionSamePort from 'src/shared-content/administration/polling-tentacles-connection-same-port.include.md';
 
 This section walks through the different options and considerations for the components required when setting up Octopus High Availability for an on-premises install of Octopus Deploy.
 
@@ -25,23 +35,23 @@ While a single server Octopus installation is easy, Octopus High Availability is
 
 When running Octopus Deploy Windows Server, the underlying OS  can be installed on a bare-metal machine or on a virtual machine (VM) hosted by any popular type-1 hypervisor.  Type-2 hypervisors can work for demos and POCs, but because they are typically installed on desktop operating systems, aren't recommended.
 
-!include <high-availability-compute-recommendations>
+<HighAvailabilityComputeRecommendations />
 
-!include <octopus-instance-mixed-os-warning>
+<OctopusInstanceMixedOSWarning />
 
 ### Database
 
 Each Octopus Server node stores project, environment and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available.
 
-!include <high-availability-database-recommendations>
+<HighAvailabilityDatabaseRecommendations />
 
-!include <high-availability-db-logshipping-mirroring-note>
+<HighAvailabilityDatabaseLogShippingMirroringNote />
 
 Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database and using that account as the service account when configuring Octopus.
 
 ### Shared storage
 
-!include <high-availability-shared-storage-overview>
+<HighAvailabilitySharedStorageOverview />
 
 The simplest way to provide shared storage, assuming the Octopus Server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 
@@ -54,7 +64,7 @@ When you configured the first Octopus Server node, as well as each of the subseq
 
 Octopus can work with any load balancer technology, including hardware and software load balancers.
 
-!include <load-balancer-endpoint-info>
+<LoadBalancerEndpointInfo />
 
 #### Software load balancers
 
@@ -68,20 +78,20 @@ For more information on setting up a reverse proxy with Octopus Deploy we have t
 
 ## Polling Tentacles with HA
 
-!include <polling-tentacles-and-ha>
+<PollingTentaclesAndHA />
 
 ### Connecting Polling Tentacles
 
-!include <polling-tentacles-and-ha-connecting>
+<PollingTentaclesAndHAConnecting />
 
 #### Using a unique address
 
-!include <polling-tentacles-connection-same-port>
+<PollingTentaclesConnectionSamePort />
 
 #### Using a unique port
 
-!include <polling-tentacles-connection-different-ports>
+<PollingTentaclesConnectionDifferentPort />
 
 ### Registering Polling Tentacles
 
-!include <polling-tentacles-and-ha-registering>
+<PollingTentaclesAndHARegistering />

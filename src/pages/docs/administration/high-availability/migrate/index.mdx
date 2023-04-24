@@ -6,6 +6,7 @@ title: Migration
 description: How to migrate from a stand-alone Octopus server to a High Availability (HA) setup.
 navOrder: 30
 ---
+import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
 
 [Ask Octopus Episode #14 - Configure your HA Cluster](https://www.youtube.com/watch?v=1tXVA5pyuqQ)
 
@@ -98,7 +99,7 @@ The advantage of a new URL is:
 1. The process of redirecting users and applications to the new URL should only need to be done once.
 1. You can configure and test it before the outage window, along with working through any connection issues.
 
-!include <load-balancer-endpoint-info>
+<LoadBalancerEndpointInfo />
 
 ## Outage Windows
 

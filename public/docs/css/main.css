@@ -188,9 +188,13 @@ header h1 em,
 }
 
 .page-content > *,
-.page-content > blockquote > *,
-.page-content > div.question > *,
-.page-content > div.hint > * {
+.page-content > blockquote > *:not(:last-child),
+.page-content > div.info > *:not(:last-child),
+.page-content > div.success > *:not(:last-child),
+.page-content > div.warning > *:not(:last-child),
+.page-content > div.problem > *:not(:last-child),
+.page-content > div.question > *:not(:last-child),
+.page-content > div.hint > *:not(:last-child) {
     margin-block-end: 1rem; 
 }
 
@@ -567,19 +571,16 @@ nav.skip-links a:focus {
 .site-nav,
 .side-nav {
     align-self: start;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 260px);
     margin-block-start: 10vh;
     overflow: hidden;
     padding-inline-end: 1.5rem;
     position: sticky;
-    top: 112px;
+    top: 150px;
 }
 
 .side-nav {
     grid-area: toc;
-    position: sticky;
-    top: 112px;
-    align-self: start;
 }
 
 .site-nav:hover,

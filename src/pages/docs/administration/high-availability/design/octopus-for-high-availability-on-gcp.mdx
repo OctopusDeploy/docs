@@ -6,6 +6,17 @@ title: Designing Octopus HA in GCP
 description: Information on configuring Octopus High Availability hosted in Google Cloud Platform (GCP).
 navOrder: 40
 ---
+import HighAvailabilityComputeRecommendations from 'src/shared-content/administration/high-availability-compute-recommendations.include.md';
+import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
+import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
+import HighAvailabilitySharedStorageOverview from 'src/shared-content/administration/high-availability-shared-storage-overview.include.md';
+import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
+import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
+import PollingTentaclesAndHA from 'src/shared-content/administration/polling-tentacles-and-ha.include.md';
+import PollingTentaclesAndHAConnecting from 'src/shared-content/administration/polling-tentacles-and-ha-connecting.include.md';
+import PollingTentaclesAndHARegistering from 'src/shared-content/administration/polling-tentacles-and-ha-registering.include.md';
+import PollingTentaclesConnectionDifferentPort from 'src/shared-content/administration/polling-tentacles-connection-different-ports.include.md';
+import PollingTentaclesConnectionSamePort from 'src/shared-content/administration/polling-tentacles-connection-same-port.include.md';
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Google Cloud Platform (GCP)](https://cloud.google.com/gcp).
 
@@ -32,11 +43,11 @@ For a highly available Octopus configuration, you need a minimum of two Virtual 
 
 Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [GCP Compute instance machine families](https://cloud.google.com/compute/docs/machine-types) and select the type most suitable for your requirements. If you're still unsure the [General purpose](https://cloud.google.com/compute/docs/general-purpose-machines) machine family is a good option to start with as they are machines designed for common workloads, optimized for cost and flexibility.
 
-!include <high-availability-compute-recommendations>
+<HighAvailabilityComputeRecommendations />
 
 Google's Compute Engine also provides [machine type recommendations](https://cloud.google.com/compute/docs/instances/apply-machine-type-recommendations-for-instances). These are automatically generated based on system metrics over time from your virtual machines. Resizing your instances can allow you to use resources more efficiently.
 
-!include <octopus-instance-mixed-os-warning>
+<OctopusInstanceMixedOSWarning />
 
 ### Database
 
@@ -45,14 +56,17 @@ Each Octopus Server node stores project, environment, and deployment-related dat
 - [SQL Server Virtual Machine instances](https://cloud.google.com/compute/docs/instances/sql-server/creating-sql-server-instances)
 - [Cloud SQL PaaS](https://cloud.google.com/sql/docs/sqlserver/create-instance)
 
-!include <high-availability-database-recommendations>
+<HighAvailabilityDatabaseRecommendations />
+
+And also:
+
 - [Cloud SQL Database](https://cloud.google.com/sql/sqlserver)
 
-!include <high-availability-db-logshipping-mirroring-note>
+<HighAvailabilityDatabaseLogShippingMirroringNote />
 
 ### Shared storage
 
-!include <high-availability-shared-storage-overview>
+<HighAvailabilitySharedStorageOverview />
 
 --- 
 
@@ -342,24 +356,24 @@ With Network Load Balancers, you can configure a health check to ensure your Com
 
 ![Network Load Balancer health check](/docs/administration/high-availability/design/images/gcp-octopus-nlb-health-check.png "width=500")
 
-!include <load-balancer-endpoint-info>
+<LoadBalancerEndpointInfo />
 
 ## Polling Tentacles with HA
 
-!include <polling-tentacles-and-ha>
+<PollingTentaclesAndHA />
 
 ### Connecting Polling Tentacles
 
-!include <polling-tentacles-and-ha-connecting>
+<PollingTentaclesAndHAConnecting />
 
 #### Using a unique address
 
-!include <polling-tentacles-connection-same-port>
+<PollingTentaclesConnectionSamePort />
 
 #### Using a unique port
 
-!include <polling-tentacles-connection-different-ports>
+<PollingTentaclesConnectionDifferentPort />
 
 ### Registering Polling Tentacles
 
-!include <polling-tentacles-and-ha-registering>
+<PollingTentaclesAndHARegistering />

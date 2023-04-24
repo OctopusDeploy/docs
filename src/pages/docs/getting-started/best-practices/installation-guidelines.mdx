@@ -7,6 +7,7 @@ description: Guidelines and recommendations for installing Octopus Deploy on you
 navOrder: 10
 hideInThisSection: true
 ---
+import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md'
 
 This page will provide guidelines and recommendations for installing Octopus Deploy on your infrastructure.  If you are using Octopus Cloud, please click the button below to move onto the next section in the guide.
 
@@ -87,7 +88,7 @@ Our recommendation is to host Octopus Deploy Windows Server over the Octopus Ser
 - You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
 - You understand Octopus Deploy is a stateful, not a stateless application, requiring additional monitoring.  
 
-!include <octopus-instance-mixed-os-warning>
+<OctopusInstanceMixedOSWarning />
 
 We are confident in the Octopus Server Linux Container's reliability and performance. After all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Server Linux Container in Octopus Cloud, we made some design decisions and create custom workflows due to the above limitations.  We restrict the authentication options to Okta, AzureAD, OctopusID, Google Auth and the built-in username and password.  Octopus Cloud disables the built-in worker and uses [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools).  Finally, we have a process that injects a custom logging configuration to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
 
