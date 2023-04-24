@@ -6,6 +6,10 @@ title: Upgrading host OS or .NET
 description: A how-to guide on how to upgrade the host OS or .NET with Octopus Deploy.
 navOrder: 7
 ---
+import UpgradeDownloadSameVersion from 'src/shared-content/upgrade/upgrade-download-same-version.include.md';
+import UpgradeInstallClonedVersion from 'src/shared-content/upgrade/upgrade-install-cloned-version.include.md';
+import UpgradeCopyFilesForClonedInstance from 'src/shared-content/upgrade/upgrade-copy-files-for-cloned-instance.include.md';
+import UpgradeOctopusBackupFolders from 'src/shared-content/upgrade/upgrade-octopus-backup-folders.include.md';
 
 Eventually, the server hosting Octopus Deploy or the .NET version installed will reach the end of life.  From both a practical and security point of view, continuing to run Octopus Deploy on unsupported software is not recommended.  But upgrades take time, from configuring to testing.  And there is a risk of downtime.  
 
@@ -62,10 +66,13 @@ Creating a clone of an existing instance involves:
 
 If anything goes wrong, stop the cloned instance, and start the old instance back up.
 
-!include <upgrade-download-same-version>
-!include <upgrade-install-cloned-version>
-!include <upgrade-copy-files-for-cloned-instance>
-!include <upgrade-octopus-backup-folders>
+<UpgradeDownloadSameVersion />
+
+<UpgradeInstallClonedVersion />
+
+<UpgradeCopyFilesForClonedInstance />
+
+<UpgradeOctopusBackupFolders />
 
 ### Migrating over to a new instance
 

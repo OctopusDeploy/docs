@@ -6,6 +6,17 @@ title: Creating a test instance
 description: A guide on how to create a test instance with Octopus Deploy
 navOrder: 8
 ---
+import UpgradeOctopusBackupDatabase from 'src/shared-content/upgrade/upgrade-octopus-backup-database.include.md';
+import UpgradeTestingUpgradedInstance from 'src/shared-content/upgrade/upgrade-testing-upgraded-instance.include.md';
+import UpgradeRestoreBackup from 'src/shared-content/upgrade/upgrade-restore-backup.include.md';
+import UpgradeDownloadSameVersion from 'src/shared-content/upgrade/upgrade-download-same-version.include.md';
+import UpgradeInstallClonedVersion from 'src/shared-content/upgrade/upgrade-install-cloned-version.include.md';
+import UpgradeCopyFilesForClonedInstance from 'src/shared-content/upgrade/upgrade-copy-files-for-cloned-instance.include.md';
+import UpgradeDisableTargetsClonedInstance from 'src/shared-content/upgrade/upgrade-disable-targets-cloned-instance.include.md';
+import UpgradeInstallTestVersion from 'src/shared-content/upgrade/upgrade-install-test-version.include.md';
+import UpgradeExportImportTestProjects from 'src/shared-content/upgrade/upgrade-export-import-test-projects.include.md';
+import UpgradeDownloadLatestVersion from 'src/shared-content/upgrade/upgrade-download-latest-version.include.md';
+import UpgradeInstallLatestVersion from 'src/shared-content/upgrade/upgrade-install-latest-version.include.md';
 
 There is always a risk an in-place upgrade will fail.  The risk increases as more versions have been released between upgrades.  We do our best to test many different configurations to put downward pressure on that risk. However, we can't cover every hyper-specific scenario.  Also, there might be a new feature, or a breaking change introduced.  Creating a test instance will help you reduce the risk for you and your company.
 
@@ -37,12 +48,17 @@ The process to create an instance with a subset of projects is:
 1. Upgrade the test instance to the latest version of Octopus Deploy.
 1. Test and verify the test instance.
 
-!include <upgrade-download-same-version>
-!include <upgrade-install-test-version>
-!include <upgrade-export-import-test-projects>
-!include <upgrade-download-latest-version>
-!include <upgrade-install-latest-version>
-!include <upgrade-testing-upgraded-instance>
+<UpgradeDownloadSameVersion />
+
+<UpgradeInstallTestVersion />
+
+<UpgradeExportImportTestProjects />
+
+<UpgradeDownloadLatestVersion />
+
+<UpgradeInstallLatestVersion />
+
+<UpgradeTestingUpgradedInstance />
 
 ## Test instance is a clone
 
@@ -67,12 +83,20 @@ Creating a clone of an existing instance involves:
 1. Upgrade the test instance to the latest version of Octopus Deploy.
 1. Test and verify the test instance.
 
-!include <upgrade-octopus-backup-database>
-!include <upgrade-restore-backup>
-!include <upgrade-download-same-version>
-!include <upgrade-install-cloned-version>
-!include <upgrade-copy-files-for-cloned-instance>
-!include <upgrade-disable-targets-cloned-instance>
-!include <upgrade-download-latest-version>
-!include <upgrade-install-latest-version>
-!include <upgrade-testing-upgraded-instance>
+<UpgradeOctopusBackupDatabase />
+
+<UpgradeRestoreBackup />
+
+<UpgradeDownloadSameVersion />
+
+<UpgradeInstallClonedVersion />
+
+<UpgradeCopyFilesForClonedInstance />
+
+<UpgradeDisableTargetsClonedInstance />
+
+<UpgradeDownloadLatestVersion />
+
+<UpgradeInstallLatestVersion />
+
+<UpgradeTestingUpgradedInstance />

@@ -6,6 +6,7 @@ title: How to automate Octopus Deploy upgrades
 description: A how-to guide on how to automate Octopus Deploy upgrades
 navOrder: 4
 ---
+import OctopusBackupMasterKey from 'src/shared-content/upgrade/upgrade-octopus-backup-master-key.include.md';
 
 Automating the Octopus Deploy upgrade ensures all essential steps are executed during an upgrade and can reduce the outage window to be around 5-10 minutes.   This guide provides the steps necessary to automate the upgrade process. 
 
@@ -20,7 +21,7 @@ Before going down the automation path, it is critical to back up the master key 
 1. Backup the Master Key.
 1. Backup the License Key.
 
-!include <upgrade-octopus-backup-master-key>
+<OctopusBackupMasterKey />
 
 ## Upgrading Single Node Octopus Deploy instances
 

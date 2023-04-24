@@ -6,6 +6,15 @@ title: Upgrading major releases of Octopus Deploy
 description: Information on how to upgrade major releases of Octopus Deploy.
 navOrder: 3
 ---
+import OctopusBackupMasterKey from 'src/shared-content/upgrade/upgrade-octopus-backup-master-key.include.md';
+import UpgradeDownloadLatestVersion from 'src/shared-content/upgrade/upgrade-download-latest-version.include.md';
+import UpgradeOctopusBackupDatabase from 'src/shared-content/upgrade/upgrade-octopus-backup-database.include.md';
+import UpgradeInplaceUpgrade from 'src/shared-content/upgrade/upgrade-inplace-upgrade.include.md';
+import UpgradeTestingUpgradedInstance from 'src/shared-content/upgrade/upgrade-testing-upgraded-instance.include.md';
+import UpgradeHighAvailability from 'src/shared-content/upgrade/upgrade-high-availability.include.md';
+import UpgradeRestoreBackup from 'src/shared-content/upgrade/upgrade-restore-backup.include.md';
+import UpgradeFindPreviousVersion from 'src/shared-content/upgrade/upgrade-find-previous-version.include.md';
+import UpgradeRollbackFolders from 'src/shared-content/upgrade/upgrade-rollback-folders.include.md';
 
 A major release of Octopus Deploy is when the first number in the version is incremented.  For example, 2020.x.x to 2021.x.x.  Major releases require a bit more planning than minor or patch releases.  This guide will help minimize risk.
 
@@ -34,7 +43,7 @@ Before starting the upgrade, it is critical to back up the master key and licens
 1. Backup the Master Key.
 1. Backup the License Key.
 
-!include <upgrade-octopus-backup-master-key>
+<OctopusBackupMasterKey />
 
 ## Standard upgrade process
 
@@ -51,11 +60,15 @@ The steps for this are:
 1. Test the upgraded instance.
 1. Disable maintenance mode.
 
-!include <upgrade-download-latest-version>
-!include <upgrade-octopus-backup-database>
-!include <upgrade-inplace-upgrade>
-!include <upgrade-testing-upgraded-instance>
-!include <upgrade-high-availability>
+<UpgradeDownloadLatestVersion />
+
+<UpgradeOctopusBackupDatabase />
+
+<UpgradeInplaceUpgrade />
+
+<UpgradeTestingUpgradedInstance />
+
+<UpgradeHighAvailability />
 
 ## Rollback failed upgrade
 
@@ -67,6 +80,8 @@ While unlikely, an upgrade may fail.  It could fail on a database upgrade script
 1. Do some sanity checks.
 1. If maintenance mode is enabled, disable it.
 
-!include <upgrade-restore-backup>
-!include <upgrade-rollback-folders>
-!include <upgrade-find-previous-version>
+<UpgradeRestoreBackup />
+
+<UpgradeRollbackFolders />
+
+<UpgradeFindPreviousVersion />
