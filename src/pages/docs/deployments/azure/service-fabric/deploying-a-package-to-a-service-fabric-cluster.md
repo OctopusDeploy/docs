@@ -31,7 +31,7 @@ You will need to create a [Service Fabric Deployment Target](/docs/infrastructur
 
 ## Step 4: Create the Service Fabric application deployment step
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section. 
+Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section. 
 
 ## Step 5: Configure your Service Fabric application step
 
@@ -75,27 +75,27 @@ Please note these features run on the Octopus Server prior to deploying the Serv
 
 Deployment to a Service Fabric cluster proceeds as follows (more details provided below):
 
-1. Download the package from the [package repository](/docs/packaging-applications/package-repositories).
+1. Download the package from the [package repository](/docs/packaging-applications/package-repositories).
 1. Extract the package on the Octopus Server to a temporary location.
-1. Any configured or packaged `PreDeploy` scripts are executed.
+1. Any configured or packaged `PreDeploy` scripts are executed.
 1. [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) (if configured).
-1. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms) (if configured) are performed.
-1. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature) (if configured) are replaced.
-1. [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) (if configured) are replaced.
-1. Any configured or package `Deploy` scripts are executed.
+1. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms) (if configured) are performed.
+1. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature) (if configured) are replaced.
+1. [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) (if configured) are replaced.
+1. Any configured or package `Deploy` scripts are executed.
 1. Generic variable substitution is carried out across all `*.config` and `*.xml` files in the extracted package.
 1. Execute the Service Fabric application deployment script (see [Customizing the deployment process](#customizing-the-deployment-process) section below).
-1. Any configured or packaged `PostDeploy` scripts are executed.
+1. Any configured or packaged `PostDeploy` scripts are executed.
 
 ### Extract the Service Fabric package
 
 Service Fabric package files are extracted during deployment, as the `Publish-UpgradedServiceFabricapplication` cmdlet used by Calamari requires an `ApplicationPackagePath` parameter to the extracted package. This also allows Octopus to use available features such as .NET Configuration Transforms and Variable Substitution.
 
-Setting the `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
+Setting the `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
 ### Customizing the deployment process
 
-The deployment is performed using a PowerShell script called `DeployToServiceFabric.ps1`. If a file with this name exists within the root of your package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Sashimi.AzureServiceFabric/blob/main/source/Calamari/Scripts/DeployAzureServiceFabricApplication.ps1)**, and use it as a basis for creating your own custom deployment script.
+The deployment is performed using a PowerShell script called `DeployToServiceFabric.ps1`. If a file with this name exists within the root of your package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Sashimi.AzureServiceFabric/blob/main/source/Calamari/Scripts/DeployAzureServiceFabricApplication.ps1)**, and use it as a basis for creating your own custom deployment script.
 
 :::div{.hint}
 If you choose to override the deployment script, remember that your `DeployToServiceFabric.ps1` file must exist at **the root** of your package. It cannot be located in a subfolder. For reference, you can see how this filename is detected in your extracted package [here](https://github.com/OctopusDeploy/Sashimi.AzureServiceFabric/blob/main/source/Calamari/Behaviours/DeployAzureServiceFabricAppBehaviour.cs).
@@ -107,7 +107,7 @@ When your application is deployed to more than one geographic region, you are li
 
 Your process can be modified by using [variables scoped](/docs/projects/variables/#scoping-variables) by environment or deployment target.
 
-You can also employ an *environment-per-region* method so you can leverage [lifecycles](/docs/releases/lifecycles) to create a strict release promotion process.
+You can also employ an *environment-per-region* method so you can leverage [lifecycles](/docs/releases/lifecycles) to create a strict release promotion process.
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.
 

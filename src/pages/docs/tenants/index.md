@@ -31,7 +31,7 @@ manage separate instances of your application in multiple environments in a sing
 
 Tenants enable:
 
-1. Deploying multiple instances of your project to the same [Environment](/docs/infrastructure/environments).
+1. Deploying multiple instances of your project to the same [Environment](/docs/infrastructure/environments).
 2. Managing configuration settings unique to each tenant.
 3. Promoting releases using safe tenant-aware lifecycles.
 4. Tailoring the deployment process using tenant tags.

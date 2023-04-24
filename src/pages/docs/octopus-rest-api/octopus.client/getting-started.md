@@ -53,7 +53,7 @@ repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" 
 
 ### Creating and using the client (Asynchronous API) {#Octopus.Client-AsynchronousAPI(Octopus.Client4.0+)}
 
-The easiest way to use the client is via the `OctopusAsyncClient`:
+The easiest way to use the client is via the `OctopusAsyncClient`:
 
 ```csharp C#
 var server = "https://myoctopus.example.com/";
@@ -64,7 +64,7 @@ using (var client = await OctopusAsyncClient.Create(endpoint))
 }
 ```
 
-If you don't want to provide an API key for authentication, you can leave it out and authenticate with the `SignIn()` method instead:
+If you don't want to provide an API key for authentication, you can leave it out and authenticate with the `SignIn()` method instead:
 
 ```csharp
 await client.Repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });

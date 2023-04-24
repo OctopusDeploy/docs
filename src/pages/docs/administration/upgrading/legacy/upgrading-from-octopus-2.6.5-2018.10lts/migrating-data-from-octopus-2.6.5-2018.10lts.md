@@ -10,7 +10,7 @@ navOrder: 3
 When upgrading from **Octopus 2.6** to **Octopus 2018.10 LTS** you can migrate your data. There are some points worth noting about the data migration process:
 
 - The data migration tool has been designed to perform a **one-time** migration from **Octopus 2.6** to **Octopus 2018.10 LTS** for each backup file.
-    * Re-running the data migration will overwrite matching data. See [Importing](/docs/administration/data/data-migration) in the Data Migration page for more details on how data is imported.
+    * Re-running the data migration will overwrite matching data. See [Importing](/docs/administration/data/data-migration) in the Data Migration page for more details on how data is imported.
     * Data is matched on name. Names are unique in Octopus. This is to allow multiple backups to be run from multiple Octopus Server instances to combine into one **Octopus 2018.10 LTS** instance.
     So you can run multiple backup files into an **Octopus 2018.10 LTS** instance but if it matches names it will use the currently running backup as the source of truth.
 - The built-in Octopus NuGet package repository is not migrated automatically - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts) for more details.
@@ -45,9 +45,9 @@ If you need to use any of the options below to manage the data being imported yo
 
 ### Migrating the built-in Octopus NuGet package repository {#MigratingdatafromOctopus2.6to3.x-PackageRepositoryMigratingthebuilt-inOctopusNuGetpackagerepository}
 
-If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories) you will need to move the files from your 2.6 server to your 2018.10 LTS server. The package files are not included as part of the backup.
-In a standard **Octopus 2.6** install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
-You will need to transfer them to the new server to `C:\Octopus\Packages`. Once the files have been copied, go to **Library ➜ Packages ➜ Package Indexing** and click the `RE-INDEX NOW` button. This process runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
+If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories) you will need to move the files from your 2.6 server to your 2018.10 LTS server. The package files are not included as part of the backup.
+In a standard **Octopus 2.6** install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
+You will need to transfer them to the new server to `C:\Octopus\Packages`. Once the files have been copied, go to **Library ➜ Packages ➜ Package Indexing** and click the `RE-INDEX NOW` button. This process runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 
 ### Migrating historical data {#MigratingdatafromOctopus2.6to3.x-MaxAgeMigratinghistoricaldata}
 

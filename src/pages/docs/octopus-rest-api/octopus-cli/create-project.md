@@ -7,7 +7,7 @@ description: Using the Octopus CLI to create projects.
 navOrder: 60
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create a project inside a project group.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create a project inside a project group.
 
 ```
 Creates a project.
@@ -83,7 +83,7 @@ Common options:
 
 ## Basic example {#Creatingprojects-Basicexample}
 
-The following command creates a project called *MyWebApp* into the project group *MyProjectGroup*:
+The following command creates a project called *MyWebApp* into the project group *MyProjectGroup*:
 
 ```bash
 octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http://MyOctopusServerURL.com --apikey MyAPIKey

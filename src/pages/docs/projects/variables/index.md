@@ -56,7 +56,7 @@ Scoping the values of your variables lets you determine which values will be use
 | LogLevel | Info |  |
 | LogLevel | Warn | Production, Staging |
 
-During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and Staging, the *LogLevel* value will be *Warn*, but to any other environment, it will fall back to the less-specific variable and have a value of *Info* instead.
+During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and Staging, the *LogLevel* value will be *Warn*, but to any other environment, it will fall back to the less-specific variable and have a value of *Info* instead.
 
 ### Assigning scopes {#Scopingvariables-Assigningscopes}
 
@@ -93,7 +93,7 @@ Since variables can be scoped in many different ways, there needs to be a predic
 1. The current machine.
 1. Roles applied to the current machine and targeted by the current step.
 1. Roles applied to the current machine.
-1. The target tenant (if tenant-features are enabled).
+1. The target tenant (if tenant-features are enabled).
 1. The target tenant-tag (if tenant-features are enabled).
 1. The target environment.
 1. The target channel (if channels are enabled).
@@ -101,11 +101,11 @@ Since variables can be scoped in many different ways, there needs to be a predic
 1. The project.
 1. No scope (least specific).
 
-For example, a **LogLevel** variable with a value scoped to to a machine role is considered by Octopus to be more specific than a value scoped to an environment. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
+For example, a **LogLevel** variable with a value scoped to to a machine role is considered by Octopus to be more specific than a value scoped to an environment. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
 
 Variable scoping also works like CSS rules; a value scoped twice is more specific than a value scoped once. For example, a variable scoped to an environment and a role is more specific than a variable scoped to just a role.
 
-If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
+If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
 
 ### Mutually exclusive scopes {#Mutuallyexclusive-scopes}
 
@@ -131,11 +131,11 @@ Let’s say you have the following targets with their respective roles:
 | Target 1 | app-server |
 | Target 2 | web-server |
 
-You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we’ll call it *DeployPath*) with a different value for each target role:
+You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we’ll call it *DeployPath*) with a different value for each target role:
 
 ![](/docs/projects/variables/images/deploy-path-variable.png "width=500")
 
-Then, on your deployment step, you can set the **[Custom Install Directory](/docs/projects/steps/configuration-features/custom-installation-directory)** to `#{DeployPath}`.
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/projects/steps/configuration-features/custom-installation-directory)** to `#{DeployPath}`.
 
 ![](/docs/projects/variables/images/custom-install-path.png "width=500")
 

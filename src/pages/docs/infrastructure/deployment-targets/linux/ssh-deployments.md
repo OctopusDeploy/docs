@@ -23,7 +23,7 @@ You can execute scripts using almost any installed scripting runtime. Learn abou
 
 :::div{.hint}
 **Environment Variable Differences**
-If you are writing a cross-platform script, be aware of the differences between environment variables for each platform. For example the Windows based variable `env:USERNAME` roughly correlates to `env:USER` on an Ubuntu machine however `env:ProgramFiles(x86)` has no corollary.
+If you are writing a cross-platform script, be aware of the differences between environment variables for each platform. For example the Windows based variable `env:USERNAME` roughly correlates to `env:USER` on an Ubuntu machine however `env:ProgramFiles(x86)` has no corollary.
 :::
 
 :::div{.hint}
@@ -68,9 +68,9 @@ The package and any supporting deployment files are uploaded via SFTP.
 
 ## File footprint {#SSHTargets-Footprint}
 
-- The root directory for all Octopus work is `$HOME/.octopus`
+- The root directory for all Octopus work is `$HOME/.octopus`
 - All packages are deployed to a relative location at `$HOME/.octopus/Applications/#{instance}/#{environment}/#{package}/#{version}`.
-- When Calamari is copied across by a deployment it is extracted to `$HOME/.octopus/#{instance}/Calamari/#{version}`.
+- When Calamari is copied across by a deployment it is extracted to `$HOME/.octopus/#{instance}/Calamari/#{version}`.
 
 By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus Server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
 
@@ -80,7 +80,7 @@ Leveraging Calamari means that the deployment can obtain the package via the sam
 
 ## Calamari
 
-Calamari is the tool Octopus uses to execute deployments on a remote computer. Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not, we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a `.tar.gz` so it can be extracted with minimal dependencies. This means the server needs to be able to un-tar that package, however, this should be available by default in most distros.
+Calamari is the tool Octopus uses to execute deployments on a remote computer. Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not, we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a `.tar.gz` so it can be extracted with minimal dependencies. This means the server needs to be able to un-tar that package, however, this should be available by default in most distros.
 
 ## Learn more
 

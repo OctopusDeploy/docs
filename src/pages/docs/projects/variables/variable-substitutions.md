@@ -20,9 +20,9 @@ You can use Octopus's special binding syntax to reference a variable from within
 | Database           | TDB001 | Test |
 | ConnectionString   | Server=#\{Server\}; Database=#\{Database\} |  |
 
-In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `Database` or `Server` are defined for that environment.
+In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `Database` or `Server` are defined for that environment.
 
-If the file undergoing variable replacement includes a string that *shouldn't* be replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
+If the file undergoing variable replacement includes a string that *shouldn't* be replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
 
 | Expression            | Value                |
 | --------------------- | -------------------- |
@@ -35,7 +35,7 @@ Also read about [common mistakes for variables](/docs/projects/variables/sensiti
 
 ## Using variables in step definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
 
-Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/projects/variables/#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
+Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/projects/variables/#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
 
 Most text fields that support binding to variables will have a variable insert button:
 
@@ -47,7 +47,7 @@ For settings that support variables but aren't text (such as drop downs or check
 
 ## Extended syntax {#VariableSubstitutionSyntax-ExtendedSyntax}
 
-Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages.  It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.
+Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages.  It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.
 
 The capabilities of the extended syntax are:
 
@@ -133,7 +133,7 @@ The resulting text in the *Dev* environment will be:
 <compilation debug="true">
 ```
 
-And in *Production* it will be:
+And in *Production* it will be:
 
 ```xml
 <compilation >
@@ -151,16 +151,16 @@ You could achieve a similar result, with a different default/fallback behavior, 
 
 #### *Truthy* and *Falsy* Values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
-The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined; an empty string; or (ignoring case and any leading or trailing whitespace) `False`, `No` or `0`. All other values are considered to be *truthy*.
+The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined; an empty string; or (ignoring case and any leading or trailing whitespace) `False`, `No` or `0`. All other values are considered to be *truthy*.
 
 :::div{.warning}
 **All variables are strings**
-Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
+Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
 :::
 
 ### Complex syntax
 
-Additional conditional statements are supported, including `==` and `!=`.
+Additional conditional statements are supported, including `==` and `!=`.
 
 Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`, or:
 

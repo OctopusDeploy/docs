@@ -3,15 +3,15 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Octopus database
-description: Octopus uses a Microsoft SQL Server Database to store environments, projects, variables, releases, and deployment history.
+description: Octopus uses a Microsoft SQL Server Database to store environments, projects, variables, releases, and deployment history.
 navOrder: 150
 ---
 
-To store environments, projects, variables, releases, and deployment history, Octopus Deploy uses a Microsoft SQL Server database.
+To store environments, projects, variables, releases, and deployment history, Octopus Deploy uses a Microsoft SQL Server database.
 
 ## Install Octopus Server {#Octopusdatabase-InstallingOctopusServer}{#installing}
 
-Octopus Server requires access to a SQL Server to use for storing relational data. You can create the database ahead of time, or you can let the installer create the database on your behalf. Refer to [SQL Server Database requirements](/docs/installation/sql-server-database) for more information on the SQL Server editions supported by Octopus Deploy and installation instructions.
+Octopus Server requires access to a SQL Server to use for storing relational data. You can create the database ahead of time, or you can let the installer create the database on your behalf. Refer to [SQL Server Database requirements](/docs/installation/sql-server-database) for more information on the SQL Server editions supported by Octopus Deploy and installation instructions.
 
 ## Routine maintenance {#maintenance}
 
@@ -19,7 +19,7 @@ You are responsible for the routine maintenance of your Octopus database. Perfor
 
 ### Database backups {#Octopusdatabase-DatabaseBackups}{#backups}
 
-You are responsible for taking database backups and testing your disaster recovery plans. Refer to [Backup and restore](/docs/administration/data/backup-and-restore) for more information about backing up Octopus Deploy and recovering from failure.
+You are responsible for taking database backups and testing your disaster recovery plans. Refer to [Backup and restore](/docs/administration/data/backup-and-restore) for more information about backing up Octopus Deploy and recovering from failure.
 
 ### High availability databases {#Octopusdatabase-highavailability}{#highavailability}
 

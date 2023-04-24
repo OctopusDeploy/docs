@@ -35,7 +35,7 @@ To install the MSI silently run the following command:
 msiexec /i Octopus.Tentacle.<version>.msi /quiet
 ```
 
-By default, the Tentacle files are installed under **%programfiles(x86)%**. You can change the installation directory, with the following command:
+By default, the Tentacle files are installed under **%programfiles(x86)%**. You can change the installation directory, with the following command:
 
 ```bash
 msiexec INSTALLLOCATION=C:\YourDirectory /i Octopus.Tentacle.<version>.msi /quiet
@@ -75,7 +75,7 @@ Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" 
 Tentacle.exe service --instance "Tentacle" --install --start --console
 ```
 
-You can also register a Tentacle with the Octopus Server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the Tentacle's thumbprint):
+You can also register a Tentacle with the Octopus Server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the Tentacle's thumbprint):
 
 **Using Octopus.Client to register a Tentacle in an Octopus Server**
 
@@ -176,9 +176,9 @@ Tentacle.exe configure --instance "Tentacle" --home "C:\Octopus" --console
 
 ## Desired State Configuration
 
-Tentacles can also be installed via [Desired State Configuration](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC), you can add, remove, start and stop Tentacles in either Polling or Listening mode.
+Tentacles can also be installed via [Desired State Configuration](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC), you can add, remove, start and stop Tentacles in either Polling or Listening mode.
 
-The following PowerShell script will install a Tentacle listening on port `10933` against the Octopus Server at `https://YOUR_OCTOPUS`, add it to the `Development` environment and assign the `web-server` and `app-server` roles:
+The following PowerShell script will install a Tentacle listening on port `10933` against the Octopus Server at `https://YOUR_OCTOPUS`, add it to the `Development` environment and assign the `web-server` and `app-server` roles:
 
 **DSC Configuration**
 

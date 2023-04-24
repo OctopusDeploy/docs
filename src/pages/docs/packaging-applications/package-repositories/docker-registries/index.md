@@ -8,7 +8,7 @@ navOrder: 20
 hideInThisSectionHeader: true
 ---
 
-A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
+A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
 :::div{.success}
 See an example deployment using Docker Registries in our guide: [Docker run with networking](/docs/deployments/docker/docker-run-with-networking).
@@ -16,13 +16,13 @@ See an example deployment using Docker Registries in our guide: [Docker run with
 
 ## Using Docker registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
 
-In Octopus Deploy, Docker registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories), and Images are treated very similarly to Packages.
+In Octopus Deploy, Docker registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories), and Images are treated very similarly to Packages.
 
-Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/packaging-applications/package-repositories/docker-registries).
+Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/packaging-applications/package-repositories/docker-registries).
 
 ### How Octopus Server and deployment targets integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
-The Docker Registries you configure need to be accessed by both the Octopus Server  and your [deployment targets](/docs/infrastructure).
+The Docker Registries you configure need to be accessed by both the Octopus Server  and your [deployment targets](/docs/infrastructure).
 
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the deployment targets themselves and they will pull the Images directly from the Docker Registry.
 
@@ -35,12 +35,12 @@ Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expec
 
 :::div{.success}
 **Accessing Docker registries from different security zones**
-It is possible that the URI to the Docker Registry will be different for the Octopus Server and the deployment targets. You can use the *Registry Path* field when configuring the Docker Registry in Octopus to provide an alternative URI to use on the deployment target.
+It is possible that the URI to the Docker Registry will be different for the Octopus Server and the deployment targets. You can use the *Registry Path* field when configuring the Docker Registry in Octopus to provide an alternative URI to use on the deployment target.
 :::
 
 ### Working with Docker container images in Octopus {#DockerRegistriesasFeeds-WorkingwithDockerContainerImagesinOctopus}
 
-Docker images with the same name are grouped together and referred to (in Docker terminology) as a **repository**. This is very similar to how Octopus, and other package managers like NuGet, treat Packages with the same Name or ID. When you configure a Docker step in Octopus you choose an Image by its Name, just like you would choose a Package ID for any of the other [supported packages](/docs/packaging-applications/#supported-formats).
+Docker images with the same name are grouped together and referred to (in Docker terminology) as a **repository**. This is very similar to how Octopus, and other package managers like NuGet, treat Packages with the same Name or ID. When you configure a Docker step in Octopus you choose an Image by its Name, just like you would choose a Package ID for any of the other [supported packages](/docs/packaging-applications/#supported-formats).
 
 ![](/docs/packaging-applications/package-repositories/docker-registries/images/5865827.png "width=500")
 
@@ -50,7 +50,7 @@ When you create a release in Octopus, you need to choose the "version" of the Im
 
 :::div{.hint}
 **Container images are downloaded directly by the Deployment Target or Worker**
-Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
+Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
 :::
 
 ## Private registry {#DockerRegistriesasFeeds-PrivateRegistry}
@@ -64,7 +64,7 @@ docker run -d -p 5000:5000 --name registry registry:2
 This image supports custom storage locations, certificates for HTTPS and authentication. For more details on setting up the registry checkout the [official docs](https://docs.docker.com/registry/deploying/).
 
 ## Other registry options {#DockerRegistriesasFeeds-OtherOptions}
-There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [Cloudsmith](https://www.cloudsmith.com), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
+There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [Cloudsmith](https://www.cloudsmith.com), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
 
 We have provided further details on setting up a Octopus Feed to the following Docker Registries:
 - [Docker Hub](/docs/packaging-applications/package-repositories/guides/container-registries/docker-hub)

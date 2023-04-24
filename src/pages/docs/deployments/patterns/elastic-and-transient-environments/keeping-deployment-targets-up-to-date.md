@@ -3,19 +3,19 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Keeping deployment targets up to date
-description: Octopus can ensure that deployment targets are kept up to date with the relevant releases. This can be useful when deploying to transient targets or when new deployment targets are added to an environment.
+description: Octopus can ensure that deployment targets are kept up to date with the relevant releases. This can be useful when deploying to transient targets or when new deployment targets are added to an environment.
 navOrder: 2
 ---
 
-Octopus Deploy can ensure that deployment targets are kept up to date with the relevant releases.  This can be useful when [deploying to transient targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets) or when new deployment targets are added to an environment.
+Octopus Deploy can ensure that deployment targets are kept up to date with the relevant releases.  This can be useful when [deploying to transient targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets) or when new deployment targets are added to an environment.
 
 ## Triggers {#Keepingdeploymenttargetsuptodate-Triggers}
 
-Triggers are per-project settings that execute an action in response to an event. For this example we will create an automatic deployment trigger so that machines in the **TradingWebServer** role are automatically kept up to date with the latest releases for OctoFX.  Triggers can be found by selecting the *Triggers* menu item on the project screen.
+Triggers are per-project settings that execute an action in response to an event. For this example we will create an automatic deployment trigger so that machines in the **TradingWebServer** role are automatically kept up to date with the latest releases for OctoFX.  Triggers can be found by selecting the *Triggers* menu item on the project screen.
 
 ## Creating an automatic deployment trigger {#Keepingdeploymenttargetsuptodate-Creatinganautomaticdeploymenttrigger}
 
-1. Navigate to the project *Triggers* page.
+1. Navigate to the project *Triggers* page.
 2. Create a new trigger by selecting **Create trigger**:
 
 ![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865570.png "width=500")
@@ -33,23 +33,23 @@ Once the trigger has been created, it will ensure that any deployment targets ma
 
 ## Triggering an automatic deployment {#Keepingdeploymenttargetsuptodate-Triggeringanautomaticdeployment}
 
-To test the trigger, we will disable a deployment target, deploy to that target's environment and then re-enable the target.  Octopus should automatically deploy the release to the target when it is re-enabled.
+To test the trigger, we will disable a deployment target, deploy to that target's environment and then re-enable the target.  Octopus should automatically deploy the release to the target when it is re-enabled.
 
 1. Disable a target with the role **TradingWebServer**in the **Test A** environment:
 
 ![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865573.png "width=500")
 
-2. Create a new release of OctoFX and deploy it to the **Test A** environment.  It will skip the steps that have been scoped to the **TradingWebServer** role because no deployment targets are available in that role:
+2. Create a new release of OctoFX and deploy it to the **Test A** environment.  It will skip the steps that have been scoped to the **TradingWebServer** role because no deployment targets are available in that role:
 
 ![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865574.png "width=500")
 
-3. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed.  The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
+3. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed.  The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
 
 ![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865575.png "width=500")
 
 ## Overriding the release used for automatic deployments {#Keepingdeploymenttargetsuptodate-Overridingthereleaseusedforautomaticdeploymentsoverriderelease}
 
-Automatic deployments attempts to calculate the release to use for a project and environment (using the *current* and *successful* release that has been deployed, as shown in your Project Overview dashboard).  In some cases the calculated release may not be the release that should be automatically deployed, or Octopus may not be able to find a deployment for an environment (maybe you have a release, but have not yet deployed it anywhere).  It is possible to explicitly set the release that should be automatically deployed by overriding the automatic-deployment-release. Overrides can be configured using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) or through [Octopus.Client](/docs/octopus-rest-api/octopus.client).  Overrides define a release for a project when deploying to an environment (this can, for example, be useful for cloud-testing-automation when standing up new cloud infrastructure).  For multi-tenanted deployments, overrides may be configured for each environment/tenant combination.
+Automatic deployments attempts to calculate the release to use for a project and environment (using the *current* and *successful* release that has been deployed, as shown in your Project Overview dashboard).  In some cases the calculated release may not be the release that should be automatically deployed, or Octopus may not be able to find a deployment for an environment (maybe you have a release, but have not yet deployed it anywhere).  It is possible to explicitly set the release that should be automatically deployed by overriding the automatic-deployment-release. Overrides can be configured using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) or through [Octopus.Client](/docs/octopus-rest-api/octopus.client).  Overrides define a release for a project when deploying to an environment (this can, for example, be useful for cloud-testing-automation when standing up new cloud infrastructure).  For multi-tenanted deployments, overrides may be configured for each environment/tenant combination.
 
 **Octopus CLI**
 
@@ -77,7 +77,7 @@ $project.AddAutoDeployReleaseOverride($environment, $release)
 $repository.Projects.Modify($project)
 ```
 
-Automatic deployment overrides are cleared when a deployment is performed to the same project/environment/tenant combination as the override.  For example: if an override is set for version 1.2 of HelloWorld to the Test environment and version 1.3 of HelloWorld is deployed to the Test environment, the 1.2 override will be deleted. Release overrides will be cleared as soon as they have automated an actual deployment.
+Automatic deployment overrides are cleared when a deployment is performed to the same project/environment/tenant combination as the override.  For example: if an override is set for version 1.2 of HelloWorld to the Test environment and version 1.3 of HelloWorld is deployed to the Test environment, the 1.2 override will be deleted. Release overrides will be cleared as soon as they have automated an actual deployment.
 
 ## Troubleshooting automatic deployments {#Keepingdeploymenttargetsuptodate-TroubleshootingTroubleshootingautomaticdeployments}
 
@@ -94,7 +94,7 @@ The verbose logs usually contain the reason why a project trigger didn't take an
 
 ## Next steps {#Keepingdeploymenttargetsuptodate-Nextsteps}
 
-With machines now being kept up to date automatically you may be interested in [cleaning up environments](/docs/deployments/patterns/elastic-and-transient-environments/cleaning-up-environments) to automatically remove machines when they are terminated.
+With machines now being kept up to date automatically you may be interested in [cleaning up environments](/docs/deployments/patterns/elastic-and-transient-environments/cleaning-up-environments) to automatically remove machines when they are terminated.
 
 ## Learn more
 

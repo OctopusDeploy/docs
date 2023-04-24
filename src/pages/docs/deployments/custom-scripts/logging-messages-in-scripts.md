@@ -58,7 +58,7 @@ printwarning("Warning")
 print("This will be logged as an error", file=sys.stderr)
 ```
 
-Try these out for yourself using the [Script Console](/docs/administration/managing-infrastructure/script-console)!
+Try these out for yourself using the [Script Console](/docs/administration/managing-infrastructure/script-console)!
 
 ## Highlight log level
 

@@ -7,7 +7,7 @@ description: List environments
 navOrder: 180
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list the environments on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list the environments on your Octopus instance.
 
 ```
 Lists environments.

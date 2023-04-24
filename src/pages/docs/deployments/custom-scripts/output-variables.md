@@ -7,9 +7,9 @@ description: Your scripts can emit variables that are available in subsequent de
 navOrder: 70
 ---
 
-Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/projects/variables/output-variables) for more information.
+Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/projects/variables/output-variables) for more information.
 
-This example is from the sample project in the [Channels Walk-through](https://octopus.com/blog/channels-walkthrough#prerequisites).
+This example is from the sample project in the [Channels Walk-through](https://octopus.com/blog/channels-walkthrough#prerequisites).
 
 Step 1 calculates a name by convention, which is used by subsequent steps.
 

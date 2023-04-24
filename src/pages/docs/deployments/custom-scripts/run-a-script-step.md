@@ -3,11 +3,11 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Run a script step
-description: Standalone scripts allow you to run scripts contained in a package, or ad-hoc scripts you've saved as part of the step.
+description: Standalone scripts allow you to run scripts contained in a package, or ad-hoc scripts you've saved as part of the step.
 navOrder: 10
 ---
 
-Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/#target-roles). You can run scripts contained in a [package](/docs/deployments/packages/), or ad-hoc scripts you've saved as part of the [step](/docs/projects/steps).
+Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/#target-roles). You can run scripts contained in a [package](/docs/deployments/packages/), or ad-hoc scripts you've saved as part of the [step](/docs/projects/steps).
 
 You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables), and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 
@@ -35,7 +35,7 @@ Choosing the right combination of **Target** and **Roles** enables some really i
 
 | Target            | Roles                  | Description                              | Variables                                | Example scenarios                        |                              |
 | ----------------- | ---------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Deployment target | `web-server` `app-server` | The script will run on each deployment target with either of the `web-server` or `app-server` roles | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Apply server hardening or ensure standard pre-requisites are met on each deployment target |
+| Deployment target | `web-server` `app-server` | The script will run on each deployment target with either of the `web-server` or `app-server` roles | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Apply server hardening or ensure standard pre-requisites are met on each deployment target |
 | Octopus Server    |                        | The script will run once on the Octopus Server | Scope variables to the Step in order to customize variables for this script | Calculate some output variables to be used by other steps or run a database upgrade process |
 | Octopus Server    | `web-server`           | The script will run on the Octopus Server on behalf of the deployment targets with the `web-server` role. The script will execute once per deployment target | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Remove web servers from a load balancer as part of a [rolling deployment](/docs/deployments/patterns/rolling-deployments) where access to the load balancer API is restricted |
 
@@ -63,7 +63,7 @@ When sourcing a script from a file inside a package you cannot choose to run the
 
 ## Passing parameters to scripts {#Standalonescripts-Passingparameterstoscripts}
 
-When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts).
+When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts).
 
 ![](/docs/deployments/custom-scripts/images/5865636.png "width=500")
 

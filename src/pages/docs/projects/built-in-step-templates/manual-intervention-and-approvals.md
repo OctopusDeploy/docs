@@ -46,13 +46,13 @@ You can click **show details** to view the instructions.
 
 If you are in the team of users that can take responsibility for the interruption, you'll also be able to assign the interruption to yourself by clicking **ASSIGN TO ME**. Note: interruptions can only be assigned to one person at a time to prevent two people from accidentally performing the manual step.
 
-When the interruption has been assigned to you, you can then perform the action in the instructions, and then choose to either **Proceed** (allow the deployment to continue) or **Abort** (fail and stop the deployment from continuing):
+When the interruption has been assigned to you, you can then perform the action in the instructions, and then choose to either **Proceed** (allow the deployment to continue) or **Abort** (fail and stop the deployment from continuing):
 
 When aborting a deployment, it's a good idea to write a reason into the **Notes** field, so that the rest of the team can see why the deployment was aborted.
 
 ## Output variables
 
-When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/projects/built-in-step-templates/email-notifications) templates.
+When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/projects/built-in-step-templates/email-notifications) templates.
 
 *Step Name* below refers to the name given to the manual step, for example *Ensure traders are aware of the deployment*.
 

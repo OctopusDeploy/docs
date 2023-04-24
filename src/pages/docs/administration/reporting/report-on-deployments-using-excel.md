@@ -11,7 +11,7 @@ navOrder: 10
 Also take a look at the [Reporting features](/docs/administration/reporting) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
 :::
 
-Ever wonder how many deployments you did this month? In this page, we'll help you to answer this question by walking you through how to export your deployments to Excel, and then to view them in a pivot table.
+Ever wonder how many deployments you did this month? In this page, we'll help you to answer this question by walking you through how to export your deployments to Excel, and then to view them in a pivot table.
 
 At a high-level, the steps are:
 
@@ -83,12 +83,12 @@ This file is now ready to be imported into Excel.
 Now that we have an XML file containing our deployments, we can import it into Microsoft Excel. In this example we are using Excel 2013.
 
 1. Open Microsoft Excel, and create a new, blank workbook.
-2. On the **Data** ribbon tab, click **From Other Sources**, then choose **From XML Data Import**. 
+2. On the **Data** ribbon tab, click **From Other Sources**, then choose **From XML Data Import**. 
 
    ![](/docs/administration/reporting/images/3278132.png "width=500")
 3. Excel will prompt you that the XML file does not refer to a schema, and that one will be created. Click **OK**.
 4. Excel will ask you where to create a table. Choose the location in your workbook to put the new table, or just click **OK**.
-5. You should now have a table that lists each of the deployments you have performed with Octopus, along with the name of the environment, project and the date of the deployment. 
+5. You should now have a table that lists each of the deployments you have performed with Octopus, along with the name of the environment, project and the date of the deployment. 
 
    ![](/docs/administration/reporting/images/3278131.png "width=500")
 
@@ -96,7 +96,7 @@ Now that we have an XML file containing our deployments, we can import it into M
 
 It's easy to turn the table of deployments into a pivot table for reporting.
 
-1. Select any cell in the table, then from the **Insert** ribbon tab, click **PivotTable**. 
+1. Select any cell in the table, then from the **Insert** ribbon tab, click **PivotTable**. 
 
    ![](/docs/administration/reporting/images/3278130.png "width=500")
 

@@ -15,9 +15,9 @@ Custom step templates can be based on a built-in or installed community step tem
 
 To create your own step template, perform the following.
 
-1. Navigate to the **Library ➜ Step templates** area and click **Add**.
+1. Navigate to the **Library ➜ Step templates** area and click **Add**.
 2. Select a built-in step to base your custom step template on.  
-3. Populate the step template. 
+3. Populate the step template. 
 
 There are three parts to any step template:
 
@@ -29,11 +29,11 @@ There are three parts to any step template:
 
 The Step tab is where you fill out the details of what the step will do. This tab gives you exactly the same fields as you would see if you added the step type directly to your project, so it will be the most familiar.
 
-Any details that need to be specified at the project level can be handled using Parameters. Any parameters specified in the Parameters tab will be exposed to you as [variables](/docs/projects/variables) and can be used in the same way.
+Any details that need to be specified at the project level can be handled using Parameters. Any parameters specified in the Parameters tab will be exposed to you as [variables](/docs/projects/variables) and can be used in the same way.
 
 ## Parameters
 
-The Parameters tab allows you to specify fields that will be filled out by the users of this step.
+The Parameters tab allows you to specify fields that will be filled out by the users of this step.
 
 ![Add new step template parameter](/docs/projects/images/step-templates-new-parameter.png "width=500")
 
@@ -49,7 +49,7 @@ Any variables you configure as Parameters will be available as variables that ca
 
 ## Settings
 
-The Settings tab allows you to give your step a name and optional description.
+The Settings tab allows you to give your step a name and optional description.
 
 ## Usage
 
@@ -80,7 +80,7 @@ If you want to transport, backup, or share your custom step templates with the c
 
 ![Export step templates](/docs/projects/images/step-templates-export.png "width=500")
 
-Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopus.com/).
+Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopus.com/).
 
 :::div{.success}
 Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING/) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
@@ -88,9 +88,9 @@ Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library
 
 ## Linking custom step templates to community step templates
 
-Once a day Octopus retrieves the latest step templates from the [Community Library](https://library.octopus.com/). At the end of that process it also tries to link the community step templates to the any existing custom templates that have been imported manually in the past. Once the link is established the custom template can receive updates directly from the [Community Library](https://library.octopus.com/). If all the properties **except the version property** match the custom step template and the community step template will be linked.
+Once a day Octopus retrieves the latest step templates from the [Community Library](https://library.octopus.com/). At the end of that process it also tries to link the community step templates to the any existing custom templates that have been imported manually in the past. Once the link is established the custom template can receive updates directly from the [Community Library](https://library.octopus.com/). If all the properties **except the version property** match the custom step template and the community step template will be linked.
 
-If the linking process isn't linking a template that you believe should be linked then more than likely you don't have the very latest version of the template. The easiest way to fix this problem is to manually update the template with the data from the [Community Library](https://library.octopus.com/).
+If the linking process isn't linking a template that you believe should be linked then more than likely you don't have the very latest version of the template. The easiest way to fix this problem is to manually update the template with the data from the [Community Library](https://library.octopus.com/).
 
 ## Running script based custom step templates
 

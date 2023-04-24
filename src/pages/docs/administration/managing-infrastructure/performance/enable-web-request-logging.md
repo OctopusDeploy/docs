@@ -7,7 +7,7 @@ description: How to enable web request logging to help the Octopus team analyze 
 navOrder: 90
 ---
 
-Octopus can be configured to log HTTP requests to text files, which can be very useful for analyzing usage patterns and detecting performance problems. By default, web request logging is **turned off**. This page explains how to turn the feature on, as well as the format of the logs.
+Octopus can be configured to log HTTP requests to text files, which can be very useful for analyzing usage patterns and detecting performance problems. By default, web request logging is **turned off**. This page explains how to turn the feature on, as well as the format of the logs.
 
 ## Log file format and retention {#Enablewebrequestlogging-Logfileformatandretention}
 
@@ -40,7 +40,7 @@ Octopus.Server.exe service --stop --start
 
 Since Octopus uses the same log file format that IIS uses, tools that work with IIS logs will also work with Octopus web request logs, including:
 
-- [Log Parser](https://www.microsoft.com/en-au/download/details.aspx?id=24659) and [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765)
+- [Log Parser](https://www.microsoft.com/en-au/download/details.aspx?id=24659) and [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765)
 - [Splunk](http://www.splunk.com/)
 - [LogAnalyzer](http://www.loganalyzer.net/)
 - [AWStats](http://www.awstats.org/)
@@ -48,7 +48,7 @@ Since Octopus uses the same log file format that IIS uses, tools that work with 
 
 Different tools have different uses - WebLogExpert and AWStats can be used to build friendly HTML reports of usage which you can explore. Tools like Splunk can be used to monitor the logs in real time, look for outliers, and configure alerts.
 
-For exploratory analysis of the logs to look for performance issues or trends, the simplest way to consume the log files is with the free [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765) from Microsoft. It builds on top of the command-line LogParser tool, and lets you perform SQL-like queries over the log data.
+For exploratory analysis of the logs to look for performance issues or trends, the simplest way to consume the log files is with the free [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765) from Microsoft. It builds on top of the command-line LogParser tool, and lets you perform SQL-like queries over the log data.
 
 1. Download and extract [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765).
 2. Run **LPS.exe** to open the UI.
@@ -56,7 +56,7 @@ For exploratory analysis of the logs to look for performance issues or trends, 
 
 ![](/docs/administration/managing-infrastructure/performance/images/3278330.png "width=500")
 
-4. By default, Octopus logs are written to `C:\Octopus\Server\Logs\`, and have the `*.log` extension. 
+4. By default, Octopus logs are written to `C:\Octopus\Server\Logs\`, and have the `*.log` extension. 
 
 ![](/docs/administration/managing-infrastructure/performance/images/3278331.png "width=500")
 

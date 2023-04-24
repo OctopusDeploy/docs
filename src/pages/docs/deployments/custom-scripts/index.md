@@ -7,7 +7,7 @@ description: Custom scripts allows you to script anything you want using PowerSh
 navOrder: 120
 ---
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as configuring common types of applications and deploying them to popular hosting environments. For these situations, we have built everything you need into Octopus. Sometimes, however, you need to do more than the built-in conventions support, and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as configuring common types of applications and deploying them to popular hosting environments. For these situations, we have built everything you need into Octopus. Sometimes, however, you need to do more than the built-in conventions support, and that’s where custom scripts come in.
 
 ## Supported script types
 
@@ -84,7 +84,7 @@ On Windows, the Tentacle agent runs as **Local System** by default, which has ex
 
 Octopus does not provide support for script integrity. While this may sound alarming, there are very good reasons for this approach.
 
-For example, when Calamari invokes PowerShell.exe, it uses the `Unrestricted` execution policy for the session. You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/WindowsPowerShell/).
+For example, when Calamari invokes PowerShell.exe, it uses the `Unrestricted` execution policy for the session. You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/WindowsPowerShell/).
 
 Learn about [script integrity](/docs/security/script-integrity).
 
@@ -106,7 +106,7 @@ We recommend the following approaches for developing and testing your scripts, i
 
 ### Scripts that block deployments {#Customscripts-Scriptsthatblockdeployments}
 
-Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus process, the Octopus task will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behavior the service or application should be launched in a separate process or session, allowing the rest of the process to continue executing. For example:
+Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus process, the Octopus task will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behavior the service or application should be launched in a separate process or session, allowing the rest of the process to continue executing. For example:
 
 ```powershell PowerShell
 Start-Process MyService

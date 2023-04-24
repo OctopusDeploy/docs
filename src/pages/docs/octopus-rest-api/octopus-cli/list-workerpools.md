@@ -7,7 +7,7 @@ description: List worker pools
 navOrder: 240
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list all Worker pools.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list all Worker pools.
 
 ```
 Lists worker pools.

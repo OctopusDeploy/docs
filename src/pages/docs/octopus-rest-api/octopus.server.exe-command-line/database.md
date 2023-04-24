@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Database
-description:  Create or drop the Octopus database
+description:  Create or drop the Octopus database
 navOrder: 40
 ---
 

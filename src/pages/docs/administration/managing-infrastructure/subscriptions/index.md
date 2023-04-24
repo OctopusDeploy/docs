@@ -20,7 +20,7 @@ For earlier versions of Octopus, Subscriptions can be accessed from the **Config
 
 ## Email notifications {#Subscriptions-EmailNotifications}
 
-Email notifications can be setup to send an email periodically to the users of one or more [teams](/docs/security/users-and-teams/). Emails will be sent periodically according to the frequency you specify, and the email will include a digest of events that have occurred (up to a maximum of 100 events). For example, this can be useful if your team has setup automated deployments with the [Elastic and Transient Environment](/docs/deployments/patterns/elastic-and-transient-environments) features of Octopus and wish to be notified if an auto-deployment is ever blocked or has failed.
+Email notifications can be setup to send an email periodically to the users of one or more [teams](/docs/security/users-and-teams/). Emails will be sent periodically according to the frequency you specify, and the email will include a digest of events that have occurred (up to a maximum of 100 events). For example, this can be useful if your team has setup automated deployments with the [Elastic and Transient Environment](/docs/deployments/patterns/elastic-and-transient-environments) features of Octopus and wish to be notified if an auto-deployment is ever blocked or has failed.
 
 Emails may also include a link to your Octopus Audit screen, filtered to match the events delivered in the email. To include this link, you need to have set the publicly-accessible URL of your Octopus instance (see the **Configuration ➜ Nodes ➜ Configuration Settings** menu or the [Server Configuration](/docs/administration/managing-infrastructure/server-configuration) documentation for more details).
 
@@ -54,7 +54,7 @@ Each email will be customized based on the user's roles, so they will only be em
 
 ## Webhook notifications {#Subscriptions-WebhookNotifications}
 
-Webhook notifications allow you to receive a JSON payload, posted to a specified URL when events have occurred. Webhook notifications will be sent **per event** (unlike email notifications that send a digest of events) and will include a payload with the following structure:
+Webhook notifications allow you to receive a JSON payload, posted to a specified URL when events have occurred. Webhook notifications will be sent **per event** (unlike email notifications that send a digest of events) and will include a payload with the following structure:
 
 ```powershell
 {
@@ -86,7 +86,7 @@ The `Payload` includes:
 | TotalEventsInBatch           | \** | The total number of events, in the current batch of events being processed |
 | EventNumberInBatch           | \** | The event number of this event, in the current batch of events being processed |
 
-\* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the **Configuration ➜ Nodes ➜ Configuration Settings** menu).
+\* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the **Configuration ➜ Nodes ➜ Configuration Settings** menu).
 
 \** This property is available since version `3.12.5`
 
@@ -98,7 +98,7 @@ While we make every effort to ensure events are only ever sent *once* to a given
 
 ## Event visibility and permissions {#Subscriptions-EventVisibilityandPermissions}
 
-Because certain teams may be restricted to only see certain events, subscriptions give you the ability to scope to one or more teams. Teams may be restricted to certain criteria, such as project(s) and/or environment(s). Combine these restrictions with team roles and you can successfully control which events get seen for a given subscription. See more information on [Managing Users and Teams](/docs/security/users-and-teams/) as well as our [User Roles](/docs/security/users-and-teams/user-roles) documentation if you wish to learn more.
+Because certain teams may be restricted to only see certain events, subscriptions give you the ability to scope to one or more teams. Teams may be restricted to certain criteria, such as project(s) and/or environment(s). Combine these restrictions with team roles and you can successfully control which events get seen for a given subscription. See more information on [Managing Users and Teams](/docs/security/users-and-teams/) as well as our [User Roles](/docs/security/users-and-teams/user-roles) documentation if you wish to learn more.
 
 ## Troubleshooting
 

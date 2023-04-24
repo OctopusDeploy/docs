@@ -8,7 +8,7 @@ navOrder: 50
 hideInThisSection: true
 ---
 
-**Octopus.Server.exe** is the executable that runs the Octopus Server instance. It includes many helpful commands that allow you to manage the instance, including; authentication, configuration, diagnostics and running the service.
+**Octopus.Server.exe** is the executable that runs the Octopus Server instance. It includes many helpful commands that allow you to manage the instance, including; authentication, configuration, diagnostics and running the service.
 
 ## Commands {#octopus.server.exeCommandLine-Commands}
 

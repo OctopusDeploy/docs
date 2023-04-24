@@ -28,7 +28,7 @@ On the first Octopus Server node, [download the Octopus Server MSI](https://octo
 ![](/docs/administration/high-availability/configure/images/getting-started.png "width=500")
 
 :::div{.hint}
-The Octopus home directory is local to each specific node and **should not be shared** between nodes. This is usually located at `C:\Octopus`.
+The Octopus home directory is local to each specific node and **should not be shared** between nodes. This is usually located at `C:\Octopus`.
 :::
 
 ![](/docs/administration/high-availability/configure/images/home.png "width=500")

@@ -18,22 +18,22 @@ Pessimistic approaches to PCI compliance controls will, at first glance, make it
 PCI Compliance is primarily concerned with implementing "controls" or "practices" which help ensure the safety and security of sensitive information, and the ability to audit that those practices are being enforced and followed. In many ways, full end-to-end automation helps with that since the interaction with your secure systems is tightly controlled: everything is scripted!
 
 - In Octopus Deploy, everything is scripted which leaves less room for human error or uncontrolled activities.
-- Octopus Deploy supports authentication with Active Directory and other external identity providers which can be used to enforce multi-factor authentication. Learn about [authentication providers](/docs/security/authentication).
-- You can implement strict, fine-grained, environment-aware security permissions. Learn about [managing users and teams](/docs/security/users-and-teams).
-- Every activity is carefully audited. Learn more about [auditing](/docs/security/users-and-teams/auditing).
-- You can control how long you retain data and packages. Learn about [Retention Policies](/docs/administration/retention-policies).
+- Octopus Deploy supports authentication with Active Directory and other external identity providers which can be used to enforce multi-factor authentication. Learn about [authentication providers](/docs/security/authentication).
+- You can implement strict, fine-grained, environment-aware security permissions. Learn about [managing users and teams](/docs/security/users-and-teams).
+- Every activity is carefully audited. Learn more about [auditing](/docs/security/users-and-teams/auditing).
+- You can control how long you retain data and packages. Learn about [Retention Policies](/docs/administration/retention-policies).
 - You can use any kind of transparent networking security techniques like IPSec tunnels or VPN between your network zones.
 - If you are using our Tentacle agent, you can decide whether you want to allow network traffic inbound to your PCI zone from your Octopus Server, or outbound from your PCI zone to your Octopus Server. Learn about [Tentacle communication modes](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication).
-- You can insert an HTTP proxy server between Octopus Server and any Tentacles or SSH endpoints. This is helpful when you want to have DMZs in your network with controlled entry/exit points. Learn about [proxy support](/docs/infrastructure/deployment-targets/proxy-support).
-- If you really cannot use Tentacle or SSH, you can use offline package drops for fully disconnected deployment automation. Learn about the [offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop) deployment target.
-- If you require isolated instance of Octopus Server our licensing model is quite flexible. Each license of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Servers](/docs/installation/isolated-octopus-deploy-servers).
+- You can insert an HTTP proxy server between Octopus Server and any Tentacles or SSH endpoints. This is helpful when you want to have DMZs in your network with controlled entry/exit points. Learn about [proxy support](/docs/infrastructure/deployment-targets/proxy-support).
+- If you really cannot use Tentacle or SSH, you can use offline package drops for fully disconnected deployment automation. Learn about the [offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop) deployment target.
+- If you require isolated instance of Octopus Server our licensing model is quite flexible. Each license of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Servers](/docs/installation/isolated-octopus-deploy-servers).
 
 ## Security considerations {#PCIComplianceandOctopusDeploy-Securityconsiderations}
 
-- Learn about [Octopus - Tentacle communication](/docs/security/octopus-tentacle-communication) to understand how automation instructions are transmitted securely to maintain trust.
+- Learn about [Octopus - Tentacle communication](/docs/security/octopus-tentacle-communication) to understand how automation instructions are transmitted securely to maintain trust.
   - We recommend using the latest version of Octopus Deploy whenever possible.
-- Learn about [security and encryption](/docs/security/data-encryption) of sensitive information in Octopus Deploy.
-- Learn about how Octopus Deploy handles [sensitive variables](/docs/projects/variables/sensitive-variables).
+- Learn about [security and encryption](/docs/security/data-encryption) of sensitive information in Octopus Deploy.
+- Learn about how Octopus Deploy handles [sensitive variables](/docs/projects/variables/sensitive-variables).
 
 :::div{.success}
 We conduct independent security analysis and penetration testing for Octopus Deploy. Contact our support team for a copy of the most recent report.

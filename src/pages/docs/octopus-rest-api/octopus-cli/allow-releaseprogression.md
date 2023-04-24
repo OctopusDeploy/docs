@@ -7,7 +7,7 @@ description: Allows a release to progress to next phase
 navOrder: 5
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to allow a release to progress to next phase.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to allow a release to progress to next phase.
 
 ```
 Allows a release to progress to the next phase.

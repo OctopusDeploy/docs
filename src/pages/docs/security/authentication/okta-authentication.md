@@ -36,7 +36,7 @@ After signing up to Okta you will receive your own url to access the Okta portal
 
    ![](/docs/security/authentication/okta/okta-new-app-integration.png "width=400")
 
-3. Enter an **App integration name** like Octopus Deploy and for the **Sign-in redirect URIs** enter `https://octopus.example.com/api/users/authenticatedToken/Okta` replacing `https://octopus.example.com` with the public URL of your Octopus Server, remove any default **Sign-out redirect URIs** and click the **Save** button.
+3. Enter an **App integration name** like Octopus Deploy and for the **Sign-in redirect URIs** enter `https://octopus.example.com/api/users/authenticatedToken/Okta` replacing `https://octopus.example.com` with the public URL of your Octopus Server, remove any default **Sign-out redirect URIs** and click the **Save** button.
 
    ![](/docs/security/authentication/okta/okta-create-openid-integration.png "width=500")
 
@@ -150,7 +150,7 @@ If you already have Octopus user accounts and you want to enable external authen
 
 ## Troubleshooting {#Oktaauthentication-Troubleshooting}
 
-We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with Okta, be sure to check your [server logs](/docs/support/log-files) for warnings.
+We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with Okta, be sure to check your [server logs](/docs/support/log-files) for warnings.
 
 You can also check Okta logs by clicking the **View Logs** link on the Okta admin portal.
 
@@ -166,7 +166,7 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 
 ### Check OpenID Connect metadata is working {#Oktaauthentication-CheckOpenIDConnectmetadataisworking}
 
-You can see the OpenID Connect metadata by going to the Issuer address in your browser adding `/.well-known/openid-configuration` to the end. In our example this would have been something like `https://dev-xxxxxx.oktapreview.com/.well-known/openid-configuration`
+You can see the OpenID Connect metadata by going to the Issuer address in your browser adding `/.well-known/openid-configuration` to the end. In our example this would have been something like `https://dev-xxxxxx.oktapreview.com/.well-known/openid-configuration`
 
 ### Inspect the contents of the security token {#Oktaauthentication-Inspectthecontentsofthesecuritytoken}
 
@@ -184,8 +184,8 @@ Perhaps the contents of the security token sent back by Okta aren't exactly the 
 
    ![](/docs/security/authentication/images/5866122.png "width=500")
 
-3. Attempt to sign into Octopus using Okta and find the HTTP POST coming back to your Octopus instance from Okta on a route like `/api/users/authenticatedToken/Okta`. You should see an `id_token` field in the HTTP POST body.
-4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
+3. Attempt to sign into Octopus using Okta and find the HTTP POST coming back to your Octopus instance from Okta on a route like `/api/users/authenticatedToken/Okta`. You should see an `id_token` field in the HTTP POST body.
+4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
 
    ![](/docs/security/authentication/images/5866123.png "width=500")
 
@@ -194,7 +194,7 @@ Don't worry if jwt.io complains about the token signature, it doesn't support RS
 :::
 
 5. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
-6. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
+6. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
 
 ### Inspect the request to Okta for scope {#Oktaauthentication-Inspecttherequesttookta}
 

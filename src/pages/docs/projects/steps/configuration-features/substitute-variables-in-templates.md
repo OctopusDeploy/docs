@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Substitute variables in templates
-description: Package steps have a feature that allows you to replace variables in any file.
+description: Package steps have a feature that allows you to replace variables in any file.
 navOrder: 80
 ---
 The Substitute Variables in Files feature is one of the [configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process/). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables) into any file.

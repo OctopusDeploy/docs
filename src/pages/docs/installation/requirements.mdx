@@ -6,6 +6,8 @@ title: Installation requirements
 description: Software and hardware requirements for installing the Octopus Server.
 navOrder: 1
 ---
+import MinimumRequirements from 'src/shared-content/installation/minimum-requirements.include.md';
+import Sql from 'src/shared-content/installation/sql.include.md';
 
 If you are hosting your Octopus Server yourself, these are the minimum requirements.
 
@@ -46,7 +48,7 @@ Requirements for the [Octopus Server Linux Container](/docs/installation/octopus
 
 You can also run the Octopus Server Linux Container using a platform such as [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html).
 
-!include <sql>
+<Sql />
 
 ### Hypervisors
 
@@ -78,7 +80,7 @@ The list of hypervisors and virtual private servers include (but not limited to)
 
 Most, if not all, of those tools include documentation or pre-built images for Windows Server 2012 R2, 2016 and 2019.  Please refer to their documentation on how to install and configure a Windows Server VM.  
 
-## .NET {#dotnet-requirements}
+## .NET \{#dotnet-requirements}
 
 Octopus Server is a .NET application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained) that has all the components required to run, including the .NET runtime. Older versions of Octopus Server require the .NET Framework:
 
@@ -93,7 +95,7 @@ Octopus Server is a .NET application distributed as a [self-contained deployment
 - **Windows PowerShell 3.0 or 4.0** are recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
 - **Windows PowerShell 5.1** is required to run Azure steps.
 
-## Supported browsers {#supported-browsers}
+## Supported browsers \{#supported-browsers}
 
 The Octopus Server includes the Octopus Web Portal user interface and we try to keep this as stable as possible:
 
@@ -110,7 +112,7 @@ Our default supported browsers are:
 
 ## Hardware requirements
 
-!include <minimum-requirements>
+<MinimumRequirements />
 
 ## Learn more
 

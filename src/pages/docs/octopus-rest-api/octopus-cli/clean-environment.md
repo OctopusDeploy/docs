@@ -7,7 +7,7 @@ description: Using the Octopus CLI to delete/remove machines with a particular s
 navOrder: 15
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
 
 This is most useful when your environments can have temporary/ephemeral machines. The best example of this is in virtualized or cloud environments where new machines are created and destroyed frequently.
 

@@ -11,7 +11,7 @@ Octopus allows you to [define variables](/docs/projects/variables/) to customize
 
 :::div{.warning}
 **All variables are strings**
-Note that in scripts **all Octopus variables are strings** even if they look like numbers or other data types. You will need to cast to the appropriate type before using the value if you need something other than a string.
+Note that in scripts **all Octopus variables are strings** even if they look like numbers or other data types. You will need to cast to the appropriate type before using the value if you need something other than a string.
 :::
 
 Let's consider an example where we have defined a project variable called `MyApp.ConnectionString`.
@@ -42,7 +42,7 @@ let connectionString = Octopus.tryFindVariable "MyApp.ConnectionString"
 match connectionString with
     | Some x -> printf "Connection string is: %s" x
     | None -> printf "Connection string not found"
- 
+ 
 // Or one of the simplified versions
 
 // Throws KeyNotFoundException when variable does not exist
@@ -70,4 +70,4 @@ In PowerShell we have pre-defined some script-scoped variables for you as a conv
 - `$OctopusParameters["MyApp.ConnectionString"]`
 - `$MyAppConnectionString`
 
-In the first form the variable name appears just as they appear in the Octopus Web Portal, while in the second example special characters have been removed. The first form is the most flexible, but in some cases the second form may be more convenient.
+In the first form the variable name appears just as they appear in the Octopus Web Portal, while in the second example special characters have been removed. The first form is the most flexible, but in some cases the second form may be more convenient.

@@ -11,7 +11,7 @@ Occasionally, it may be necessary to change the location at which Octopus stores
 
 :::div{.problem}
 
-Make sure you have a **current backup** of your Octopus data before proceeding. You will also need your **Master Key** if you need to use the backup, so please copy that also!
+Make sure you have a **current backup** of your Octopus data before proceeding. You will also need your **Master Key** if you need to use the backup, so please copy that also!
 :::
 
 ## Server configuration {#ServerconfigurationandFilestorage-ConfigurationServerconfiguration}
@@ -24,11 +24,11 @@ If you need to move folders other than the Octopus Home folder, you can do that 
 
 ## File storage {#ServerconfigurationandFilestorage-FileStorageFilestorage}
 
-The Octopus Server stores files in the following folders by default:
+The Octopus Server stores files in the following folders by default:
 
 - `C:\Octopus`
     - This is where the Octopus Server config file and deployment journal is stored.
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-OctopusHome) on how to move the Octopus home folder
+    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-OctopusHome) on how to move the Octopus home folder
 - `C:\Octopus\Artifacts`
     - This is where artifacts created by deployments are stored.
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-Artifacts) on how to move the Octopus Server artifacts folder

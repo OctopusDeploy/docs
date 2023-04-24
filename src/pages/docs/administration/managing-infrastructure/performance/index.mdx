@@ -6,6 +6,7 @@ title: Performance
 description: Octopus is all about reliable and repeatable deployments, but that doesn't mean it has to be slow. This page will help you tune your Octopus installation for the best performance in your scenario.
 navOrder: 60
 ---
+import MinimumRequirements from 'src/shared-content/installation/minimum-requirements.include.md';
 
 Over the years, we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. Octopus can scale with you as you grow. Some Octopus customers are reliably deploying hundreds of projects to many thousands of deployment targets from a single [Octopus High Availability](/docs/administration/high-availability) cluster.
 
@@ -19,7 +20,7 @@ Want to tune your deployments for optimum performance? Read our [detailed guide 
 
 ## Minimum requirements
 
-!include <minimum-requirements>
+<MinimumRequirements />
 
 ## Database
 
@@ -33,7 +34,7 @@ Keep Octopus Deploy and SQL Server on separate servers.  This will keep them fro
 
 We've worked with customers who have large Production SQL Server instances with a lot of computing power (64 Cores and 512 GB of RAM).  If you count yourself amongst those users, and one of those servers is not at capacity, then hosting Octopus Deploy on a shared server should be fine.  If you don't count yourself amongst those users, then avoid hosting Octopus Deploy on a shared server.
 
-### SQL Server maintenance {#sql-maintenance}
+### SQL Server maintenance \{#sql-maintenance}
 
 You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.  At the very least you should:
 
@@ -45,7 +46,7 @@ You should implement a routine maintenance plan for your Octopus database. Here 
 Modern versions of Octopus Deploy automatically rebuild fragmented indexes during the upgrade process.  If you frequently upgrade you might not notice high index fragmentation compared to someone who upgrades once a year.
 :::
 
-## Maintenance {#maintenance}
+## Maintenance \{#maintenance}
 
 Routine maintenance can help your Octopus keep running at optimum performance and efficiency.
 
@@ -68,7 +69,7 @@ A tighter retention policy means your Octopus Server will run faster across the 
 You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/security/users-and-teams/auditing/) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
 
-## Scaling Octopus Server {#scaling}
+## Scaling Octopus Server \{#scaling}
 
 Octopus Servers do quite a lot of work during deployments, mostly around package acquisition:
 
@@ -119,7 +120,7 @@ Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/te
 
 Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/deployment-targets/machine-policies).
 
-## Packages {#package-transfer}
+## Packages \{#package-transfer}
 
 Transferring packages from your Octopus Server is a key piece of functionality when executing deployments and runbooks.  This can also have an impact on your Octopus Server's performance.
 
@@ -151,7 +152,7 @@ The package retention policy only deletes packages not referenced by a release o
 
 Octopus Deploy stores BLOB data (task logs, packages, project images, etc.) on the file system.
 
-### Task Logs {#tip-task-logs}
+### Task Logs \{#tip-task-logs}
 
 Larger task logs put the entire Octopus pipeline under more pressure.  The task log has to be transferred from the Tentacle to the server, it has to be saved to the file system, and is read when you are on the deployment or runbook screen.  We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/projects/deployment-process/artifacts).
 
@@ -222,7 +223,7 @@ Seeing the error message `System.InvalidOperationException: Timeout expired. The
 Analyzing Octopus Server log files for performance problems is much easier in a tool like [Seq](https://getseq.net). We've built a [helpful tool](https://github.com/OctopusDeploy/SeqFlatFileImport) for importing Octopus Server and Task Logs directly into Seq for analysis.
 :::
 
-## Getting help from us {#support}
+## Getting help from us \{#support}
 
 If none of the above troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details to help us debug:
 

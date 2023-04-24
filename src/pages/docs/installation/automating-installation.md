@@ -43,7 +43,7 @@ To install the MSI silently:
 msiexec /i Octopus.<version>.msi /quiet RUNMANAGERONEXIT=no
 ```
 
-By default, the Octopus files are installed under **%programfiles%**. To change the installation directory, you can specify:
+By default, the Octopus files are installed under **%programfiles%**. To change the installation directory, you can specify:
 
 ```bash
 msiexec /i Octopus.<version>.msi /quiet RUNMANAGERONEXIT=no INSTALLLOCATION="<install path>"
@@ -57,7 +57,7 @@ To run the script start an admin shell prompt and execute the script, this shoul
 
 ## Desired State Configuration
 
-Octopus can also be installed via Desired State Configuration (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC).
+Octopus can also be installed via Desired State Configuration (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC).
 
 The following PowerShell script will install an Octopus Server listening on port `80`. Make sure the OctopusDSC module is on your `$env:PSModulePath`:
 

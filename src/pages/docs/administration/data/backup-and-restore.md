@@ -23,7 +23,7 @@ Sensitive information is encrypted using AES128 with the Master Key as the encry
 
 ## Octopus SQL Database
 
-Most of the data and settings managed by Octopus - the projects, environments, deployments and so on - are stored in a [SQL Server Database](/docs/administration/data/octopus-database). You are responsible for maintaining your own backups of the SQL Server Database. Refer to [SQL Server documentation](https://msdn.microsoft.com/en-AU/library/ms187510.aspx) for more information on backing up SQL Server.
+Most of the data and settings managed by Octopus - the projects, environments, deployments and so on - are stored in a [SQL Server Database](/docs/administration/data/octopus-database). You are responsible for maintaining your own backups of the SQL Server Database. Refer to [SQL Server documentation](https://msdn.microsoft.com/en-AU/library/ms187510.aspx) for more information on backing up SQL Server.
 
 ### Which SQL Database recovery model should I choose?
 
@@ -42,7 +42,7 @@ Learn about [Octopus file storage](/docs/administration/managing-infrastructure/
 
 ## Encrypted data {#Backupandrestore-Encrypteddata}
 
-Certain sensitive information in the [Octopus database is encrypted](/docs/security/data-encryption/). This information is encrypted using your Octopus Server "Master Key", a randomly generated string. This Master Key will be needed if you ever plan to restore the database to a new server. You will be prompted for this key during the setup process when connecting to an existing database. If you have already setup the server you can [change the Master Key](/docs/octopus-rest-api/octopus.server.exe-command-line/database) so that it will work with the restored database.
+Certain sensitive information in the [Octopus database is encrypted](/docs/security/data-encryption/). This information is encrypted using your Octopus Server "Master Key", a randomly generated string. This Master Key will be needed if you ever plan to restore the database to a new server. You will be prompted for this key during the setup process when connecting to an existing database. If you have already setup the server you can [change the Master Key](/docs/octopus-rest-api/octopus.server.exe-command-line/database) so that it will work with the restored database.
 
 :::div{.problem}
 

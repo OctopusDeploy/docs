@@ -34,7 +34,7 @@ The data migration tools are not suitable for every imaginable scenario. In thes
 1. To consolidate multiple Octopus Servers into a single Octopus Server use the [Export/Import Projects feature](/docs/projects/export-import).
 1. To get auditing of your project configuration see [configuration as code](/docs/projects/version-control).
 1. To split a single space into multiple spaces see the [Export/Import Projects feature](/docs/projects/export-import).
-1. To migrate data from older versions of Octopus see [upgrading old versions of Octopus](/docs/administration/upgrading/legacy).
+1. To migrate data from older versions of Octopus see [upgrading old versions of Octopus](/docs/administration/upgrading/legacy).
 1. For general disaster recovery learn about [backup and restore for your Octopus Server](/docs/administration/data/backup-and-restore).
 1. To move your Octopus database to another database server see [moving your database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database).
 1. To move your Octopus Server and database to another server see [moving your Octopus Server and database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server).

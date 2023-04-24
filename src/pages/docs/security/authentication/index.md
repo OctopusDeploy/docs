@@ -54,19 +54,19 @@ When using an external authentication provider, you can configure Octopus to wor
 1. Make the user click a button on the Octopus login screen.
 2. Automatically sign the user in by redirecting to the external identity provider.
 
-Auto login is **disabled by default**, and you can enable it in **Configuration ➜ Settings ➜ Authentication ➜ Auto Login**.
+Auto login is **disabled by default**, and you can enable it in **Configuration ➜ Settings ➜ Authentication ➜ Auto Login**.
 
-Note that even when enabled, **this functionality is only active when there is a single, non forms-based authentication provider enabled**.  If multiple providers are enabled, which includes Guest access being enabled, this setting is overridden.
+Note that even when enabled, **this functionality is only active when there is a single, non forms-based authentication provider enabled**.  If multiple providers are enabled, which includes Guest access being enabled, this setting is overridden.
 
 ### Auto login and Active Directory
 
-When using the Active Directory provider, auto login will only be active when the **Configuration ➜ Settings ➜ Active Directory ➜ Allow Forms Authentication For Domain Users** setting is **false**.
+When using the Active Directory provider, auto login will only be active when the **Configuration ➜ Settings ➜ Active Directory ➜ Allow Forms Authentication For Domain Users** setting is **false**.
 
 ## Associating users with multiple external identities {#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders}
 
-In versions up to 3.5, only a single Authentication Provider could be enabled at a time (either Domain or UsernamePassword).  In that scenario Users were managed based on the currently enabled provider and switching providers meant re-configuring Users.  With 3.5 comes the ability to have multiple Authentication Providers enabled simultaneously and as such the User management has been adjusted to be provider agnostic.  What does that mean?  Let's consider an example scenario.
+In versions up to 3.5, only a single Authentication Provider could be enabled at a time (either Domain or UsernamePassword).  In that scenario Users were managed based on the currently enabled provider and switching providers meant re-configuring Users.  With 3.5 comes the ability to have multiple Authentication Providers enabled simultaneously and as such the User management has been adjusted to be provider agnostic.  What does that mean?  Let's consider an example scenario.
 
-Let's consider that we have UsernamePassword enabled and we create some users, and we've set their email address to their Active Directory domain email address.  The users can now log in with the username and password stored against their user record.  If we now enable the Active Directory authentication provider, then the users can authenticate using either their original username and password, or they can use a username of user@domain or domain\user along with their domain password, or they can use the Integrated authentication button.  In the first scenario they are actually logging in via the UsernamePassword provider, in the latter 2 scenarios they are using the Active Directory provider, but in all of the cases they end up logged in as the same user (this is the driver behind the fallback checks described in the next section).
+Let's consider that we have UsernamePassword enabled and we create some users, and we've set their email address to their Active Directory domain email address.  The users can now log in with the username and password stored against their user record.  If we now enable the Active Directory authentication provider, then the users can authenticate using either their original username and password, or they can use a username of user@domain or domain\user along with their domain password, or they can use the Integrated authentication button.  In the first scenario they are actually logging in via the UsernamePassword provider, in the latter 2 scenarios they are using the Active Directory provider, but in all of the cases they end up logged in as the same user (this is the driver behind the fallback checks described in the next section).
 
 This scenario would work equally with Azure AD or GoogleApps in place of Active Directory.
 

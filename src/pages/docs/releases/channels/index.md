@@ -42,7 +42,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 ## Design the version rules {#Channels-versionrules}
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation).
+Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation).
 
 :::div{.hint}
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
@@ -56,7 +56,7 @@ You can use the full semantic version as part of your version range specificatio
 
 4. Enter any pre-release tags you want to include.
 
-Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner.  The [SemVer build metadata](https://semver.org/#spec-item-10) will also be evaluated by the regex pattern. Some examples are.
+Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner.  The [SemVer build metadata](https://semver.org/#spec-item-10) will also be evaluated by the regex pattern. Some examples are.
 
 | **Pattern** | **Description** | **Example use-case** |
 | --- | --- | --- |
@@ -123,13 +123,13 @@ When you are creating a release, you can select a channel.
 
 ![](/docs/releases/channels/images/3278463.png "width=500")
 
-Selecting the channel will cause the release to use the lifecycle associated with the channel (or the project default, if the channel does not have a lifecycle).  It will also cause the deployment process and variables to be modified as specified above.
+Selecting the channel will cause the release to use the lifecycle associated with the channel (or the project default, if the channel does not have a lifecycle).  It will also cause the deployment process and variables to be modified as specified above.
 
-The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the channel (see [version rules](#Channels-versionrules) for more information).
+The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the channel (see [version rules](#Channels-versionrules) for more information).
 
 ### Using build server extensions or the Octopus CLI {#Channels-UsingBuildServerExtensionsOrTheOctopusCLI}
 
-When using one of the [build server extensions](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
+When using one of the [build server extensions](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
 
 ### Automatic release creation {#Channels-AutomaticReleaseCreation}
 

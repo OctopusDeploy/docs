@@ -7,8 +7,11 @@ navOrder: 20
 description: How to install the Octopus Server.
 hideInThisSection: true
 ---
+import OctopusReleases from 'src/shared-content/installation/octopus-releases.include.md';
+import OctopusServer from 'src/shared-content/installation/octopus-server.include.md';
+import OctopusServerInContainer from 'src/shared-content/installation/octopus-server-in-container.include.md';
 
-!include <octopus-server>
+<OctopusServer />
 
 ## Self-hosted Octopus Server
 
@@ -17,12 +20,12 @@ When installed, the self-hosted Octopus Server:
 - Runs
   - As a Windows Service called **OctopusDeploy**, installed via an MSI.
   - In a [Linux](/docs/installation/octopus-server-linux-container) container.
-- Stores its data in an [SQL Server Database](/docs/installation/sql-server-database/). ([SQL Server Express](http://downloadsqlserverexpress.com) is an easy way of getting started.)
+- Stores its data in an [SQL Server Database](/docs/installation/sql-server-database/). ([SQL Server Express](http://downloadsqlserverexpress.com) is an easy way of getting started.)
 - Includes an embedded HTTP server which serves the [Octopus REST API](/docs/octopus-rest-api/) and the  **Octopus Web Portal** that you will use to manage your [infrastructure](/docs/infrastructure/), [deployments](/docs/projects/deployment-process/), [runbooks](/docs/runbooks/), and coordinate your [releases](/docs/releases).
 
 Before you install Octopus Deploy, review the software and hardware [requirements](/docs/installation/requirements/), and make sure you have access to an instance of [SQL Server Database](/docs/installation/sql-server-database) that you can use with Octopus Deploy.
 
-## Install Octopus as a Windows Service {#install-octopus}
+## Install Octopus as a Windows Service \{#install-octopus}
 
 1. [Download](https://Octopus.com/downloads/server) the Octopus installer.
 1. Start the Octopus Installer, click **Next**, accept the **Terms in the License Agreement** and click **Next**.
@@ -69,9 +72,9 @@ Make a copy of the Master Key and save it in a **secure** location.
 If you don't have a copy of your Master Key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the **Master Key** and save it in a secure location. Hopefully you will never need it, but you'll be glad you have it if you ever do. Learn about [Recovering After Losing Your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key).
 :::
 
-## Run Octopus Server in a Container {#run-octopus-in-container}
+## Run Octopus Server in a Container \{#run-octopus-in-container}
 
-!include <octopus-server-in-container>
+<OctopusServerInContainer />
 
 This section includes information about different options to run the Octopus Server Linux Container.
 
@@ -89,7 +92,7 @@ The **Octopus Web Portal**  is where you'll manage your infrastructure, projects
 
 ## Releases of Octopus Deploy Server
 
-!include <octopus-releases>
+<OctopusReleases />
 
 ## Learn more
 

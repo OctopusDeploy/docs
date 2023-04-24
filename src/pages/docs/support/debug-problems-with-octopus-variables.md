@@ -12,17 +12,17 @@ Sometimes a variable used during deployment may have a different value from the 
 ## Check the variable snapshot for the release {#DebugproblemswithOctopusvariables-ChecktheVariableSnapshotfortheRelease}
 
 1. Open the **Project ➜ Releases ➜ Release** page for the Release you are debugging.
-2. Scroll down to find the **Variables** section and click the **Show Snapshot** link so see the snapshot of Variables being used by this Release.
+2. Scroll down to find the **Variables** section and click the **Show Snapshot** link so see the snapshot of Variables being used by this Release.
 3. If the variable is wrong in the Snapshot:
     * Update the Variable in the **Variables** section of the project, and then.
-    * Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
+    * Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
 
 ![](/docs/support/images/3278466.png "width=500")
 
 ## Check the variable value in the all variables tab {#DebugproblemswithOctopusvariables-CheckthevariablevalueintheAllVariablestab}
 
 1. Open the **Project ➜ Variables ➜ All Variables** tab.
-2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/projects/variables/library-variable-sets/), and [tenants](/docs/tenants).
+2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/projects/variables/library-variable-sets/), and [tenants](/docs/tenants).
 
 ![](/docs/support/images/5865680.png "width=500")
 
@@ -34,7 +34,7 @@ Did you know you can sort filter all of the variables grids? Click **Show Advanc
 
 This will log the variables available at the beginning of each step in the deployment as Verbose messages.
 
-1. Open the **Project ➜ Variables** page.
+1. Open the **Project ➜ Variables** page.
 2. Set the following two variables:
 
 | Name | Value |
@@ -46,9 +46,9 @@ It should look like this. You can have as many extra variables as you want besid
 
 ![](/docs/support/images/evaluatedvars.png "width=500")
 
-3. **Create a new release** of the project or **Update the variable snapshot** for the release as shown above.
+3. **Create a new release** of the project or **Update the variable snapshot** for the release as shown above.
 4. Deploy the new release.
-5. Enable **Verbose** output on the **Task log** page.
+5. Enable **Verbose** output on the **Task log** page.
 6. Expand the element corresponding to the Tentacle on which the problem is observed. Two sets of variables will be printed, first, the raw definitions before any substitutions have been performed, then the result of evaluating all variables for deployment.
 
 :::div{.warning}

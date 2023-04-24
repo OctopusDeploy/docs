@@ -8,7 +8,7 @@ description: Information on how to backup an Octopus 2.6 database.
 
 All of the data and settings managed by Octopus - the projects, environments, deployments and so on - are stored in an embedded database hosted by the Octopus Server. Out of the box, Octopus automatically creates backups of this database and any other files necessary to restore the Octopus instance every four hours. The backup files are copied to a local directory: you can easily change this to use a file share or other path that is backed up externally.
 
-You can view and change the backup settings by browsing to the *Configuration* tab in the Octopus Web Portal, and then clicking the *Backup* tab.
+You can view and change the backup settings by browsing to the *Configuration* tab in the Octopus Web Portal, and then clicking the *Backup* tab.
 
 ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3277492.png "width=500")
 
@@ -34,6 +34,6 @@ Making a copy of your Master Key is easy:
 
 ## Backup now
 
-You can take a backup of your Octopus database immediately, simply by clicking the green **Backup now** button.
+You can take a backup of your Octopus database immediately, simply by clicking the green **Backup now** button.
 
 ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3277490.png "width=500")

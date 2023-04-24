@@ -21,9 +21,9 @@ Octopus Community step templates integration is enabled by default, but it can b
 
 ## Community step template synchronization
 
-The community step templates are synchronized with the Octopus Server. The synchronization process is executed as a standard Octopus task and you can view its execution details from the **Tasks** area. The Octopus Server synchronizes with the [Octopus Library](https://library.octopus.com/) on startup and then every 24 hours over the Internet thus it requires Internet access. If there are any updates or changes, the sync process retrieves all the step templates and stores the relevant community step templates in the Octopus database. Step templates are persisted locally, but they cannot be used in a deployment process until they are explicitly installed.
+The community step templates are synchronized with the Octopus Server. The synchronization process is executed as a standard Octopus task and you can view its execution details from the **Tasks** area. The Octopus Server synchronizes with the [Octopus Library](https://library.octopus.com/) on startup and then every 24 hours over the Internet thus it requires Internet access. If there are any updates or changes, the sync process retrieves all the step templates and stores the relevant community step templates in the Octopus database. Step templates are persisted locally, but they cannot be used in a deployment process until they are explicitly installed.
 
-The Octopus Server uses a sync task to connect to [https://library.octopus.com/](https://library.octopus.com/) over https (port 443). If you don't see any Community Step Templates after enabling the feature, verify outbound traffic is enabled on port 443.
+The Octopus Server uses a sync task to connect to [https://library.octopus.com/](https://library.octopus.com/) over https (port 443). If you don't see any Community Step Templates after enabling the feature, verify outbound traffic is enabled on port 443.
 
 NOTE: The relevant permissions to install and manage step templates are ActionTemplateCreate, ActionTemplateEdit, ActionTemplateView and ActionTemplateDelete.
 
@@ -57,18 +57,18 @@ After the step template has been installed, it will be available alongside the b
 
 ## Import a community step template from the community library
 
-If the Community Step Template feature has been disabled, you can still use community step templates by manually importing the JSON file (which contains all of the information required by Octopus) from the [Community Library](https://library.octopus.com/) into the step template library in Octopus.
+If the Community Step Template feature has been disabled, you can still use community step templates by manually importing the JSON file (which contains all of the information required by Octopus) from the [Community Library](https://library.octopus.com/) into the step template library in Octopus.
 
-1. Navigate to the [Community Library](https://library.octopus.com/) website.
-2. Find the template you want to use, review the details, and click the **Copy to clipboard** button.
-3. Navigate to **Library ➜ Step Templates** in the Octopus Web Portal and select **Import** from the custom step templates section.
+1. Navigate to the [Community Library](https://library.octopus.com/) website.
+2. Find the template you want to use, review the details, and click the **Copy to clipboard** button.
+3. Navigate to **Library ➜ Step Templates** in the Octopus Web Portal and select **Import** from the custom step templates section.
 4. Paste in the JSON document for the Step Template into the import window and click **SAVE**.
 
 After the step template has been installed, it will be available alongside the built-in step templates.
 
 ## Adding an updated version of a community step template
 
-Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, you will be taken to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated from the library as needed.
+Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, you will be taken to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated from the library as needed.
 
 ## Raising issues with a community step template
 

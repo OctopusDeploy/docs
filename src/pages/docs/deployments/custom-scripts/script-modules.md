@@ -11,15 +11,15 @@ Script modules allow users to create collections of language specific functions 
 
 ## Creating a script module {#ScriptModules-CreatingaScriptmodule}
 
-1.  Navigate to **Library ➜ Script Modules ➜ Add Script Module**.
+1.  Navigate to **Library ➜ Script Modules ➜ Add Script Module**.
 
 ![](/docs/deployments/custom-scripts/images/script-modules-add.png "width=500")
 
-2.  Name your new Script Module:
+2.  Name your new Script Module:
 
 ![](/docs/deployments/custom-scripts/images/script-modules-new.png "width=500")
 
-3.  Your new script module will default to PowerShell and come with a function called *Say-Hello.* Each supported script language has a similar function. In this walk-through we will work with PowerShell and modify the provided sample function a bit with the following code for the sake of showing a better example:
+3.  Your new script module will default to PowerShell and come with a function called *Say-Hello.* Each supported script language has a similar function. In this walk-through we will work with PowerShell and modify the provided sample function a bit with the following code for the sake of showing a better example:
 
 ```powershell
 function Say-Hello($name)
@@ -32,25 +32,25 @@ After inserting the modified function, the Script Module should look like this:
 
 ![](/docs/deployments/custom-scripts/images/script-modules-new-body.png "width=500")
 
-Once this is done, click on **Save**.
+Once this is done, click on **Save**.
 
 ## Using a script module on a deployment {#ScriptModules-UsingaScriptModuleonaDeployment}
 
-Once you have created a Script Module, you can start using the functions it contains in Script Steps in your deployment processes. These steps must use the same language as the Script Module.
+Once you have created a Script Module, you can start using the functions it contains in Script Steps in your deployment processes. These steps must use the same language as the Script Module.
 
-1.  Go to your **[Deployment Process](/docs/deployments)** and click **Include.**
+1.  Go to your **[Deployment Process](/docs/deployments)** and click **Include.**
 
 ![](/docs/deployments/custom-scripts/images/script-modules-deployment.png "width=500")
 
-A new window will pop up up, prompting you to select you script module. Select the module you just created (make sure the check-box is checked) and hit **Save**.
+A new window will pop up up, prompting you to select you script module. Select the module you just created (make sure the check-box is checked) and hit **Save**.
 
 ![](/docs/deployments/custom-scripts/images/script-modules-deployment-include.png "width=500")
 
-You will now be able to see your module loaded on your Deployment Process
+You will now be able to see your module loaded on your Deployment Process
 
 ![](/docs/deployments/custom-scripts/images/script-modules-deployment-included.png "width=500")
 
-2.  Add a **[Script step](/docs/deployments/custom-scripts)**, ensure you choose PowerShell and call the *Say-Hello* function from it.
+2.  Add a **[Script step](/docs/deployments/custom-scripts)**, ensure you choose PowerShell and call the *Say-Hello* function from it.
 
 ```powershell
 Say-Hello -name "George"
@@ -64,9 +64,9 @@ Once you're done, hit **Save.**
 Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 :::
 
-3.  Create and Deploy a release.
+3.  Create and Deploy a release.
 
-4.  Check the Release task log and expand all the steps. You should be able to see the output of the *Say-Hello* function in there.
+4.  Check the Release task log and expand all the steps. You should be able to see the output of the *Say-Hello* function in there.
 
 ![](/docs/deployments/custom-scripts/images/script-modules-deployment-release.png "width=500")
 
@@ -105,7 +105,7 @@ In the example Script Module below, the first line which attempts to stop the se
 ```powershell
 # bad example - do not copy
 Stop-Service -Name ImportantService
- 
+ 
 function Say-Hello($name) {
     Write-output "Hello $name. Welcome to Octopus!"
 }

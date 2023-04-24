@@ -16,7 +16,7 @@ No, not really. Any Octopus project or environment can work with tenants. To sta
 1. Configure the project to allow tenanted deployments in **Project ➜ Settings ➜ Multi-tenant deployments** - multi-tenant deployments are disabled for your existing projects by default.
 2. Connect some tenants to the the project, including the environments where you want to deploy instances of your projects for each tenant.
 
-For more information refer to [creating your first tenant](/docs/tenants/tenant-creation/) and [deploying a multi-tenant project](/docs/tenants/tenant-creation/tenanted-deployments).
+For more information refer to [creating your first tenant](/docs/tenants/tenant-creation/) and [deploying a multi-tenant project](/docs/tenants/tenant-creation/tenanted-deployments).
 
 ## Can I deploy to multiple tenants in a single deployment? {#Multi-tenantdeploymentsFAQ-CanIdeploytomultipletenantsinasingledeployment?}
 
@@ -24,7 +24,7 @@ No. A tenant is treated like a smaller slice of an environment. Octopus creates 
 
 ## Can I deploy to multiple tenants at the same time? {#Multi-tenantdeploymentsFAQ-CanIdeploytomultipletenantsatthesametime?}
 
-Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [Tenant Tags](/docs/tenants/tenant-tags/) or all of the tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
+Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [Tenant Tags](/docs/tenants/tenant-tags/) or all of the tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
 
 ## Can I control the order in which tenanted deployments execute?
 
@@ -76,7 +76,7 @@ Yes! Each project can control its interaction with tenants. By default the multi
 
 ## What is an "Untenanted Deployment"? Don't I Have to Choose a Tenant When Deploying my Project? {#Multi-tenantdeploymentsFAQ-Whatisanun-tenanteddeploymentDontIhavetochooseatenantwhendeployingmyproject?}
 
-When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an environment-per-tenant model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not. Essentially an "untenanted deployment" is the same kind of deployment Octopus always performed: *there is no tenant for this deployment*. When you deploy using a tenant Octopus includes variables from the tenant, and the selected tenant can impact which steps are run, which variable values are used, and which deployment targets are included, at your discretion. For more information refer to our [tenated deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
+When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an environment-per-tenant model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not. Essentially an "untenanted deployment" is the same kind of deployment Octopus always performed: *there is no tenant for this deployment*. When you deploy using a tenant Octopus includes variables from the tenant, and the selected tenant can impact which steps are run, which variable values are used, and which deployment targets are included, at your discretion. For more information refer to our [tenated deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
 
 ## Can I prevent "Untenanted Deployments" of a project? {#Multi-tenantdeploymentsFAQ-CanIpreventun-tenanteddeploymentsofaproject?}
 
@@ -84,7 +84,7 @@ Yes. Choose the **Require a tenant for all deployments** option in the Project s
 
 ## Can I require a tenant for all deployments of a project? {#Multi-tenantdeploymentsFAQ-CanIrequireatenantforalldeploymentsofaproject?}
 
-Yes, see the previous question. For more information refer to our [tenated deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
+Yes, see the previous question. For more information refer to our [tenated deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
 
 ## Can I deploy a tenanted project on an untenanted machine?
 
@@ -104,7 +104,7 @@ Firstly check you can select a project for your tenant (see above for more detai
 
 ## I want to deploy my project to a tenant, but I can't see that tenant in the list? {#Multi-tenantdeploymentsFAQ-Iwanttodeploymyprojecttoatenant,butIcantseethattenantinthelist?}
 
-Granted, multi-tenant deployments can get complicated very quickly, so we've written a [troubleshooting guide](/docs/tenants/troubleshooting-multi-tenant-deployments/) to help when you get stuck. At the very least, make sure your tenant is connected to the correct project and environment(s). For more information refer to our [tenant creation](/docs/tenants/tenant-creation/) and [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments) sections.
+Granted, multi-tenant deployments can get complicated very quickly, so we've written a [troubleshooting guide](/docs/tenants/troubleshooting-multi-tenant-deployments/) to help when you get stuck. At the very least, make sure your tenant is connected to the correct project and environment(s). For more information refer to our [tenant creation](/docs/tenants/tenant-creation/) and [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments) sections.
 
 ## Is licensing affected by the number of tenants I have? {#Multi-tenantdeploymentsFAQ-IslicensingaffectedbythenumberoftenantsIhave?}
 
@@ -121,27 +121,27 @@ Octopus uses this rule to determine which deployment targets should be included 
 - Tenanted deployments will include tenanted deployment targets matching the deployment's tenant
 - Untenanted deployments will include untenanted deployment targets (just like good old Octopus)
 
-For more information refer to our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
+For more information refer to our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
 
 ## Can I configure deployment targets that are dedicated/limited to a single tenant? {#Multi-tenantdeploymentsFAQ-CanIconfiguredeploymenttargetsthatarededicated/limitedtoasingletenant?}
 
 Yes. Set the tenant filter on each of the deployment targets to a specific tenant. Octopus will ensure these deployment targets are only used in deployments for that specific tenant.
 
-For more information refer to our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
+For more information refer to our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
 
 ## Can I configure accounts that are dedicated/limited to a single tenant? {#Multi-tenantdeploymentsFAQ-CanIconfigureaccountsthatarededicated/limitedtoasingletenant?}
 
 Yes. The same logic is applied to accounts as deployment targets.
 
-For more information refer to our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
+For more information refer to our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
 
 ## Can I deploy a mixture of projects to my tenants? {#Multi-tenantdeploymentsFAQ-CanIdeployamixtureofprojectstomytenants?}
 
-Yes, you can connect your tenants to as many or as few projects as you desire. The tenant-to-project/environment connection for each tenant can be configured individually, allowing you to connect each tenant to the projects and environments they require. For more information refer to our [connecting tenants to projects](/docs/tenants/tenant-creation/connecting-projects) section.
+Yes, you can connect your tenants to as many or as few projects as you desire. The tenant-to-project/environment connection for each tenant can be configured individually, allowing you to connect each tenant to the projects and environments they require. For more information refer to our [connecting tenants to projects](/docs/tenants/tenant-creation/connecting-projects) section.
 
 ## Can I provide my tenants with a staging and production environment? {#Multi-tenantdeploymentsFAQ-CanIprovidemytenantswithastagingandproductionenvironment?}
 
-Yes, simply connect the tenant to a project and any number of environments that project can deploy into. For more information refer to our [connecting tenants to projects](/docs/tenants/tenant-creation/connecting-projects) section.
+Yes, simply connect the tenant to a project and any number of environments that project can deploy into. For more information refer to our [connecting tenants to projects](/docs/tenants/tenant-creation/connecting-projects) section.
 
 ## Can I configure a standard set of variables that are required by each tenant like an alias or contact details? {#Multi-tenantdeploymentsFAQ-CanIconfigureastandardsetofvariablesthatarerequiredbyeachtenantlikeanaliasorcontactdetails?}
 
@@ -157,7 +157,7 @@ Yes, you can apply a tenant filter to a channel as a way of expressing: "Release
 
 ## Can I pin or lock a tenant to a specific release? {#Multi-tenantdeploymentsFAQ-CanIpinorlockatenanttoaspecificrelease?}
 
-Yes, you can determine which types of releases should be deployed to a your tenants by using a combination of channels and tag sets. This is part of an advanced topic which is covered in our [Pinning tenants to a release](/docs/tenants/tenant-lifecycles/#pinning-tenants) section.
+Yes, you can determine which types of releases should be deployed to a your tenants by using a combination of channels and tag sets. This is part of an advanced topic which is covered in our [Pinning tenants to a release](/docs/tenants/tenant-lifecycles/#pinning-tenants) section.
 
 ## Are there any known limitations or problems with multi-tenant deployments? {#LimitationsAndBugs?}
 

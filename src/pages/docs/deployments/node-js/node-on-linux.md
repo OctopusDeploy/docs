@@ -16,7 +16,7 @@ Your Linux deployment target needs to be configured to accept projects being dep
  
 ### Install Mono {#ConfiguringTargetMachine-InstallMono}
 
-Starting with a fresh instance of Ubuntu 14.04, update the package repository and install **mono-complete** to get the latest stable version.
+Starting with a fresh instance of Ubuntu 14.04, update the package repository and install **mono-complete** to get the latest stable version.
 
 For the most up-to-date guide to installing mono see the [mono documentation](http://www.mono-project.com/docs/getting-started/install/linux/). 
 
@@ -60,7 +60,7 @@ sudo apt-get install nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
-To help manage the web process when it runs on the machine, we will install the [pm2 library](https://github.com/Unitech/pm2). The pm2 library is a node module and we will install it as a global module. This library is available in the **npm** repository which, if not already available,  also needs to be installed:
+To help manage the web process when it runs on the machine, we will install the [pm2 library](https://github.com/Unitech/pm2). The pm2 library is a node module and we will install it as a global module. This library is available in the **npm** repository which, if not already available,  also needs to be installed:
 
 ```bash
 sudo apt-get install npm
@@ -71,9 +71,9 @@ sudo npm install pm2 -g
 
 In this section we will package and publish a Node.js application to your Octopus Server from your development workstation.
 
-You need [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed on your development machine with an Octopus Server instance available.
+You need [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed on your development machine with an Octopus Server instance available.
 
-The sample project for this guide is a Node.js app that hosts the [expressjs](http://expressjs.com/) web server to serve some static content as well as return config variables that will be used by the client. There are several npm modules that you can use in a Node.js process to package your project and push it to an Octopus Deploy instance.
+The sample project for this guide is a Node.js app that hosts the [expressjs](http://expressjs.com/) web server to serve some static content as well as return config variables that will be used by the client. There are several npm modules that you can use in a Node.js process to package your project and push it to an Octopus Deploy instance.
 
 - [@octopusdeploy/octopackjs](https://github.com/OctopusDeploy/octopackjs): A module that packages resources into a number of package formats that can be saved to disk or returned as a stream.
 - [@octopusdeploy/gulp-octo](https://github.com/OctopusDeploy/gulp-octo): A gulp wrapper for octojs to integrate into Gulp based tasks.
@@ -121,9 +121,9 @@ Using the task runner of your choice, pick one of the following steps that you a
 
 ### Option 1 - Gulp publish task {#CreatePushNode.jsProject-Option1-Gulppublishtask}
 
-Ensure you have checked out the **gulp** branch with the initial build tasks already configured, and install the **gulp-octojs** package that will package and push the application. 
+Ensure you have checked out the **gulp** branch with the initial build tasks already configured, and install the **gulp-octojs** package that will package and push the application. 
 
-Install the external [gulp-bump](https://github.com/stevelacy/gulp-bump) library to increase the patch version number before each publish. That way the server will retain previous builds, and we can easily manage and deploy each version in Octopus Deploy independently:
+Install the external [gulp-bump](https://github.com/stevelacy/gulp-bump) library to increase the patch version number before each publish. That way the server will retain previous builds, and we can easily manage and deploy each version in Octopus Deploy independently:
 
 ```bash
 git checkout gulp
@@ -131,7 +131,7 @@ npm install
 npm install --save-dev gulp-bump @octopusdeploy/gulp-octo
 ```
 
-Modify the **gulpfile.js** file to add the following gulp tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Modify the **gulpfile.js** file to add the following gulp tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
 ```js
 var bump = require('gulp-bump');
@@ -165,11 +165,11 @@ Add the gulp publish script to the **package.json** scripts section:
 
 You can now execute the publish command directly through npm even if the task runner or arguments change.
 
-### Option 2 - Grunt publish task {#CreatePushNode.jsProject-Option2-Gruntpublishtask}
+### Option 2 - Grunt publish task {#CreatePushNode.jsProject-Option2-Gruntpublishtask}
 
-Ensure that you have checked out the **grunt** branch with the initial build tasks already configured, and install the **grunt-octojs** package that will package and push the application. 
+Ensure that you have checked out the **grunt** branch with the initial build tasks already configured, and install the **grunt-octojs** package that will package and push the application. 
 
-Install the external [grunt-bump](https://github.com/vojtajina/grunt-bump) library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently. 
+Install the external [grunt-bump](https://github.com/vojtajina/grunt-bump) library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently. 
 
 We will also install the [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) library to clean the build output directory to avoid pushing the same packages on each publish:
 
@@ -179,7 +179,7 @@ npm install
 npm install --save-dev grunt-bump grunt-contrib-clean @octopusdeploy/grunt-octo
 ```
 
-Modify the **gruntfile.js** file to add the following grunt tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Modify the **gruntfile.js** file to add the following grunt tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
 
 ```js
@@ -222,7 +222,7 @@ You can now execute the publish command directly through npm even if the task ru
 
 ### Option 3 - Bespoke {#CreatePushNode.jsProject-Option3-Bespoke}
 
-Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module you can write your own Node.js scripts to package and push your projects to the Octopus Server (both the Gulp and Grunt tasks leverage this module). Alternately, package your files into the [format of your choice](/docs/packaging-applications/#supported-formats) and push to the API over a HTTP call using whatever framework or language best suits you.
+Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module you can write your own Node.js scripts to package and push your projects to the Octopus Server (both the Gulp and Grunt tasks leverage this module). Alternately, package your files into the [format of your choice](/docs/packaging-applications/#supported-formats) and push to the API over a HTTP call using whatever framework or language best suits you.
 
 ## Publish package {#Create&amp;PushNode.jsProject-PublishPackage}
 
@@ -249,9 +249,9 @@ Next, you need to configure your Octopus project to deploy a Node.js application
 ### Configure account and target {#configureoctopusdeployproject-ConfigureAccount&amp;Target}
 
 1. Navigate to **Infrastructure ➜ Accounts**, click **Add Account**, select **username/password** from the drop-down menu, and add the username credentials for the Linux deployment target you configured earlier.
-2. Navigate to **Infrastructure ➜ Environments**, select the **prod** environment, click **Add deployment target**, and select **SSH Connection**.
+2. Navigate to **Infrastructure ➜ Environments**, select the **prod** environment, click **Add deployment target**, and select **SSH Connection**.
 3. Enter the IP address of the machine that is accessible to the Octopus Server. *In our case below it's the public IP provided by Azure/AWS.*
-4. Click **Discover** to automatically pre-populate the SSH fingerprint for the remote server.
+4. Click **Discover** to automatically pre-populate the SSH fingerprint for the remote server.
 5. Continue to fill out the rest of the details, selecting the account you created above.
 
 More information about working with Linux deployment targets see [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target/) or [Linux Tentacles](/docs/infrastructure/deployment-targets/tentacle/linux).
@@ -260,8 +260,8 @@ More information about working with Linux deployment targets see [SSH Targets](/
 
 The next step is to create a project that will extract the package.
 
-1. Navigate to the Projects page via **Projects ➜ All** and then click **Add Project**.
-2. Give the new project an appropriate name, save the project, and navigate to the project's *Process* page and click **Add Step ➜ Deploy a Package**.
+1. Navigate to the Projects page via **Projects ➜ All** and then click **Add Project**.
+2. Give the new project an appropriate name, save the project, and navigate to the project's *Process* page and click **Add Step ➜ Deploy a Package**.
  
 Ensure the target role matches the target role that was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
 
@@ -271,19 +271,19 @@ Ensure the target role matches the target role that was assigned to the machine 
 
 1. Click the *Configure features* link on the step.
 2. Disable the two configuration steps that are selected by default.
-3. Enable the *Substitute variables in templates* feature.
-4. Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file.
+3. Enable the *Substitute variables in templates* feature.
+4. Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file.
 
 ![](/docs/deployments/node-js/images/substitute-variables.png "width=500")
 
-5. Navigate to the **Variables** section and add a new variable named **projectVariable** with some text to appear underneath the title bar on the web page, but leave the variable un-scoped, and click **Save**.
+5. Navigate to the **Variables** section and add a new variable named **projectVariable** with some text to appear underneath the title bar on the web page, but leave the variable un-scoped, and click **Save**.
 
 ### Starting and managing the process
 
 To avoid having to manually start and stop the Node.js process every time you deploy a new version of the package, install and use a process manager, such as [pm2](http://pm2.keymetrics.io/), [StrongLoop](http://strong-pm.io/), or [forever](https://github.com/foreverjs/forever), which keep the process alive and provide other features, such as monitoring resource usage and clustering. For the purposes of this example we are using **pm2** to demonstrate how the web process might be hosted.
 
-1. Click the *Configure features* link in the step and enable the *Custom deployment scripts* feature.
-2. Add the following code as a **bash** script for the **post-deployment** phase:
+1. Click the *Configure features* link in the step and enable the *Custom deployment scripts* feature.
+2. Add the following code as a **bash** script for the **post-deployment** phase:
 
 ```powershell
 # Check if process is running from previous deployment

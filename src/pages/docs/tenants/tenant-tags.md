@@ -7,7 +7,7 @@ description: Tenant Tags help you to classify your tenants with custom tags so y
 navOrder: 40
 ---
 
-In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Tenant tags also make it easier to work with tenants as groups instead of individuals. Using tags you can apply meaningful metadata to tenants, to describe them using your own terminology, improve search and filtering, and tailor the deployment process to their needs.
+In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Tenant tags also make it easier to work with tenants as groups instead of individuals. Using tags you can apply meaningful metadata to tenants, to describe them using your own terminology, improve search and filtering, and tailor the deployment process to their needs.
 
 ## What can you do with tenant tags? {#what-can-you-do}
 
@@ -25,11 +25,11 @@ With tenant tags you can:
 - Scope project variables to tags.
 - Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
 - Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/#guides).
-- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles) section.
+- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles) section.
 
 ## Managing Tenant Tags {#managing-tenant-tags}
 
-Go to **Library ➜ Tenant tag sets** to create, modify and reorder tag sets and tags.
+Go to **Library ➜ Tenant tag sets** to create, modify and reorder tag sets and tags.
 
 ![](/docs/tenants/images/tenant-importance.png "width=500")
 
@@ -84,9 +84,9 @@ When paired with a well-structured tag design, this logic will enable you to tai
 
 ## Referencing tenant tags {#referencing-tenant-tags}
 
-If you want to use tenant tags to automate Octopus Deploy you should use the **Canonical Name** for the Tag which looks like this: `Tag Set Name/Tag Name`
+If you want to use tenant tags to automate Octopus Deploy you should use the **Canonical Name** for the Tag which looks like this: `Tag Set Name/Tag Name`
 
-Consider an example deploying a release to the tenants tagged with the **Alpha** tag in the **Release Ring** tag set.
+Consider an example deploying a release to the tenants tagged with the **Alpha** tag in the **Release Ring** tag set.
 
 ![](/docs/tenants/images/release-ring.png "width=500")
 
@@ -97,9 +97,9 @@ Consider an example deploying a release to the tenants tagged with the **Alpha*
 
 Some places you can use tags are:
 
-- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release).
+- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release).
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
-- When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api).
+- When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api).
 
 ## Deploying to multiple tenants using tags {#deploying-to-multiple-tenants-tags}
 

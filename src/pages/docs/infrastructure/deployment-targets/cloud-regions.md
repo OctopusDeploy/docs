@@ -20,7 +20,7 @@ Cloud region targets will enable steps which execute on the Octopus Server to ex
 >
 >
 >
-> Now when you deploy OctoFX you can create a [rolling deployment](/docs/deployments/patterns/rolling-deployments) targeting these regions one at a time, or in parallel.
+> Now when you deploy OctoFX you can create a [rolling deployment](/docs/deployments/patterns/rolling-deployments) targeting these regions one at a time, or in parallel.
 
 :::div{.success}
 We originally considered calling these _generic targets_ because they can be used as a target for any steps that run on the Octopus Server. For example if you have a script step you want to run multiple times with different variable values, without installing Tentacles, you can take advantage of cloud regions. A concrete example is running the same SQL scripts against both production and disaster-recovery database servers. Maybe cloud regions can help with your deployment design even if you aren't deploying to the cloud.
@@ -28,9 +28,9 @@ We originally considered calling these _generic targets_ because they can be use
 
 You can create cloud regions just like other deployment targets.
 
-1. Go to **Infrastructure ➜ Deployment Targets** and click **Add deployment target** in the environment where you want to create the cloud region.
+1. Go to **Infrastructure ➜ Deployment Targets** and click **Add deployment target** in the environment where you want to create the cloud region.
 
-2. Select **Cloud Region** from the list of available deployment target types.
+2. Select **Cloud Region** from the list of available deployment target types.
 
 ![](/docs/infrastructure/deployment-targets/images/adding-new-cloud-region.png "width=500")
 
@@ -38,7 +38,7 @@ You can create cloud regions just like other deployment targets.
 
 ![](/docs/infrastructure/deployment-targets/images/adding-new-cloud-region-part2.png "width=500")
 
-4. Now you can see the cloud regions in the **Infrastructure ➜ Deployment Targets** page, just like the other deployment targets.
+4. Now you can see the cloud regions in the **Infrastructure ➜ Deployment Targets** page, just like the other deployment targets.
 
 ![](/docs/infrastructure/deployment-targets/images/cloud-region-list.png "width=500")
 

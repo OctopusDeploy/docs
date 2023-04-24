@@ -53,15 +53,15 @@ To use your own version of the Azure CLI or Azure Powershell cmdlets when using 
 
 ![](/docs/deployments/custom-scripts/images/5865912.png "width=170")
 
-These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
+These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
 :::div{.hint}
-Refer to [this page](/docs/infrastructure/accounts/azure) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.
+Refer to [this page](/docs/infrastructure/accounts/azure) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.
 :::
 
 ## Example {#AzurePowerShellscripts-Example}
 
-This example uses the Service Management API to create a new Staging slot as part of the [blue/green deployment sample for Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps).
+This example uses the Service Management API to create a new Staging slot as part of the [blue/green deployment sample for Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps).
 
 ```powershell
 #Remove the staging slot if it exists

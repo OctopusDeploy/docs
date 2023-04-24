@@ -7,7 +7,7 @@ description: List the releases last-deployed in each environment
 navOrder: 190
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list the releases last deployed in each environment.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list the releases last deployed in each environment.
 
 ```
 Lists the releases last-deployed in each environment.

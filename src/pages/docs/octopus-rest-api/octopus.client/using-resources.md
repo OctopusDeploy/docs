@@ -20,7 +20,7 @@ $repository.Machines.Modify($machine);
 var machine = repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";
 repository.Machines.Modify(machine);
- 
+ 
 // Async
 var machine = await repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";

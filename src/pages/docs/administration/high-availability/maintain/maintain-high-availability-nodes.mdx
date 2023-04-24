@@ -12,7 +12,7 @@ Maintaining the nodes in your Octopus Server High Availability cluster can be do
 
 ![](/docs/administration/high-availability/maintain/images/nodes.png "width=500")
 
-Information regarding each of your nodes is displayed here.  You can see:
+Information regarding each of your nodes is displayed here.  You can see:
 
 - **Name**: the name of the node.
 - **Status**: the status of the node (e.g. Running, Drained, Offline).
@@ -23,7 +23,7 @@ Information regarding each of your nodes is displayed here.  You can see:
 
 ## Last seen
 
-Octopus Server nodes will check-in at regular intervals.  If an Octopus Server node goes offline a warning will be displayed and the time that it went offline can be determined by looking at the **last seen** field.
+Octopus Server nodes will check-in at regular intervals.  If an Octopus Server node goes offline a warning will be displayed and the time that it went offline can be determined by looking at the **last seen** field.
 
 ![](/docs/administration/high-availability/maintain/images/nodes-last-seen.png "width=500")
 
@@ -33,7 +33,7 @@ Each Octopus Server node will execute tasks as they are queued. The **tasks** fi
 
 ## Task cap
 
-Each Octopus Server node can execute a maximum number of tasks in parallel.  This is to prevent death by multi-tasking. The **task cap** allows you to configure the maximum number of tasks for each node.  If more tasks are created than the total available task cap, the tasks will queue for up to a day until an Octopus Server node is available to execute the task.
+Each Octopus Server node can execute a maximum number of tasks in parallel.  This is to prevent death by multi-tasking. The **task cap** allows you to configure the maximum number of tasks for each node.  If more tasks are created than the total available task cap, the tasks will queue for up to a day until an Octopus Server node is available to execute the task.
 
 You may consider setting a low cap for your Octopus Servers on poorer hardware or have a dedicated UI node with a low task cap to improve UI performance.
 

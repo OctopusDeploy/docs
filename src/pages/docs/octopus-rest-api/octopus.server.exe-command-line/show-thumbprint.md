@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Show thumbprint
-description:  Shows the thumbprint of the server instance
+description:  Shows the thumbprint of the server instance
 navOrder: 193
 ---
 

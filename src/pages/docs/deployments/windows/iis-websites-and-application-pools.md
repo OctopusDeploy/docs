@@ -7,7 +7,7 @@ description: Octopus has built-in support for configuring IIS web sites, applica
 navOrder: 20
 ---
 
-Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications, and Virtual Directories.
+Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications, and Virtual Directories.
 
 1. From your project's overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
 1. Click **ADD STEP**, and then select the **Deploy to IIS** step.
@@ -86,7 +86,7 @@ The Virtual Path and Physical Path do not need to match which is one of the true
 
 ## How Octopus Deploys your web site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
 
-Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering).
+Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering).
 
 :::div{.success}
 Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
@@ -94,13 +94,13 @@ Avoid using the [Custom Installation Directory](/docs/projects/steps/configurati
 
 Octopus performs the following steps:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers)).
-2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts).
-3. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers)).
+2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts).
+3. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
 4. Extract the package into the newly created folder.
-5. Execute each of your [custom scripts](/docs/deployments/custom-scripts/) and the [deployment features](/docs/projects/steps/configuration-features/) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering).
+5. Execute each of your [custom scripts](/docs/deployments/custom-scripts/) and the [deployment features](/docs/projects/steps/configuration-features/) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering).
 6. As part of this process the IIS Web Site, Web Application, or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder.
-7. [Output variables](/docs/projects/variables/output-variables/) and deployment [artifacts](/docs/projects/deployment-process/artifacts) from this step are sent back to the Octopus Server.
+7. [Output variables](/docs/projects/variables/output-variables/) and deployment [artifacts](/docs/projects/deployment-process/artifacts) from this step are sent back to the Octopus Server.
 
 :::div{.success}
 You can see exactly how Octopus integrates with IIS in the [open-source Calamari library](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1).

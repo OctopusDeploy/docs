@@ -1,9 +1,9 @@
 These samples show how to perform various tasks related to project coordination.
 
-See the [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api) repository for further API documentation and examples using the [raw REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/REST/PowerShell) or Octopus.Client in [C#](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/Csharp), [PowerShell](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/PowerShell) or [LINQPad](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/LINQPad). 
+See the [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api) repository for further API documentation and examples using the [raw REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/REST/PowerShell) or Octopus.Client in [C#](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/Csharp), [PowerShell](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/PowerShell) or [LINQPad](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/LINQPad). 
 
 :::div{.success}
-These examples use the [Octopus.Client](/docs/octopus-rest-api/octopus.client/) library, see the [Loading in an Octopus Step](/docs/octopus-rest-api/octopus.client/using-client-in-octopus/) section of the [Octopus.Client](/docs/octopus-rest-api/octopus.client) documentation for details on how to load the library from inside Octopus using PowerShell or C# Script steps.
+These examples use the [Octopus.Client](/docs/octopus-rest-api/octopus.client/) library, see the [Loading in an Octopus Step](/docs/octopus-rest-api/octopus.client/using-client-in-octopus/) section of the [Octopus.Client](/docs/octopus-rest-api/octopus.client) documentation for details on how to load the library from inside Octopus using PowerShell or C# Script steps.
 :::
 
 ## Querying the current state {#ProjectCoordinationCodeSamples-Queryingthecurrentstate}
@@ -26,7 +26,7 @@ $repository.Dashboards.GetDashboard().Items
 **Http**
 
 ```js
- http://localhost/api/dashboard
+ http://localhost/api/dashboard
 ```
 
 ## Viewing recent deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeployments}
@@ -101,7 +101,7 @@ Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 
 ## Failing a deployment if another deployment is running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
 
-This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously) what can run at the same time already.
+This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously) what can run at the same time already.
 
 ```csharp
 var otherProject = repository.Projects.FindByName("Other Project");

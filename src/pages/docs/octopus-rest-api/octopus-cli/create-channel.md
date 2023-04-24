@@ -7,7 +7,7 @@ description: Using the Octopus CLI to create channels.
 navOrder: 40
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create channels on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create channels on your Octopus instance.
 
 ```
 Creates a channel for a project.
@@ -90,7 +90,7 @@ Common options:
 
 ## Basic example {#Creatingchannels-Basicexample}
 
-The following command creates a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead:
+The following command creates a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead:
 
 ```bash
 octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey

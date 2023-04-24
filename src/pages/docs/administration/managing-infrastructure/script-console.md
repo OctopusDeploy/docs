@@ -15,7 +15,7 @@ When managing a large fleet of machines, however, it is occasionally necessary t
 - Machines need to be rebooted.
 - Information needs to be collected.
 
-For these situations, the Octopus **Script Console** can be used.
+For these situations, the Octopus **Script Console** can be used.
 
 Any machines registered with Octopus as [workers](/docs/infrastructure/workers/) or [deployment targets](/docs/infrastructure/deployment-targets) can be targeted by the Script Console. You can target an individual machine, or perform a task across an entire group of machines.
 

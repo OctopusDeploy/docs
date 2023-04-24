@@ -11,7 +11,7 @@ When deploying a package, you can hook into the deployment process at different 
 
 ## Supported scripts
 
-You can add any of the following script files in any of the scripting languages supported by Octopus to your packages:
+You can add any of the following script files in any of the scripting languages supported by Octopus to your packages:
 
 - `PreDeploy.<ext>`
 - `Deploy.<ext>`
@@ -20,7 +20,7 @@ You can add any of the following script files in any of the scripting languages 
 
 Where `<ext>` is the appropriate extension for your scripting language of choice. Also note these file names will be case sensitive on certain operating systems.
 
-Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run; see the section on [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering/) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables/) and [collecting artifacts](/docs/projects/deployment-process/artifacts).
+Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run; see the section on [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering/) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables/) and [collecting artifacts](/docs/projects/deployment-process/artifacts).
 
 ## Supported steps
 
@@ -56,7 +56,7 @@ However, not all package steps support script hooks. As a general rule, any of t
 
 ## Running a script when a step fails
 
-You can create a file named `DeployFailed.<ext>`, which will be invoked if the step fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
+You can create a file named `DeployFailed.<ext>`, which will be invoked if the step fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
 
 ## How Octopus executes your scripts
 

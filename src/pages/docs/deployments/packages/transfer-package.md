@@ -8,7 +8,7 @@ description: Transfer Package step allows you to simply transfer a package to yo
 
 ## Transferring a package to your target without extraction {#TransferPackage-Transferringapackagetoyourtargetwithoutextraction}
 
-If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deployments/packages/) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](/docs/projects/steps) section.
+If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deployments/packages/) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](/docs/projects/steps) section.
 
 ![](/docs/deployments/packages/images/5866194.png "width=500")
 
@@ -20,10 +20,10 @@ This package will be transferred to the target during the package acquisition ph
 
 ## Output variables {#TransferPackage-OutputVariables}
 
-Since the Transfer a Package step has been kept simple by-design, most deployments will probably want to use the transferred package for some further processing. For this purpose, the following [output variables](/docs/projects/variables/output-variables) are generated for access by subsequent steps.
+Since the Transfer a Package step has been kept simple by-design, most deployments will probably want to use the transferred package for some further processing. For this purpose, the following [output variables](/docs/projects/variables/output-variables) are generated for access by subsequent steps.
 
 - `Octopus.Action[StepName].Output.Package.DirectoryPath`- The directory the package was transferred to
-- `Octopus.Action[StepName].Output.Package.FileName` - The name of the package
+- `Octopus.Action[StepName].Output.Package.FileName` - The name of the package
 - `Octopus.Action[StepName].Output.Package.FilePath`- The full path to the package
 
-Note that once transferred the package file name will take the format of `<PackageId>.<PackageName>.<FileExtension>`however the expectation is that this should be the original filename to begin with.
+Note that once transferred the package file name will take the format of `<PackageId>.<PackageName>.<FileExtension>`however the expectation is that this should be the original filename to begin with.

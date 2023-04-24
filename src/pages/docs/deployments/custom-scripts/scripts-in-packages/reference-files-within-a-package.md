@@ -11,7 +11,7 @@ To reference files from the package you can use the below as a guide to where th
 
 Relative paths will depend on a couple of things, if it's in a pre- or post-deploy script and if a custom installation directory has been defined. See below sections for differences.
 
-`$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`will only be available if the **Custom installation directory** feature of the deploy step has been enabled.
+`$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`will only be available if the **Custom installation directory** feature of the deploy step has been enabled.
 
 In pre-deploy scripts:
 
@@ -23,14 +23,14 @@ In post-deploy scripts:
 
 - `$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`will be the path to where the contents of the package has been copied to.
 - `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`will be the same as the above.
-- `$OctopusParameters['OctopusOriginalPackageDirectoryPath']` will be where the contents of the package has been extracted.
-- The working directory for the Tentacle is the final destination for the contents of the package, either `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`, or if it's been specified `$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`.
+- `$OctopusParameters['OctopusOriginalPackageDirectoryPath']` will be where the contents of the package has been extracted.
+- The working directory for the Tentacle is the final destination for the contents of the package, either `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`, or if it's been specified `$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`.
 
-So if you want to reference `file.txt` in `subfolder` within the package, you could do the following:
+So if you want to reference `file.txt` in `subfolder` within the package, you could do the following:
 
 ```powershell PowerShell
 # in pre-deploy, in post-deploy if custom installation directory has not been defined
-$extractPath = $OctopusParameters['Octopus.Action.Package.InstallationDirectoryPath'] 
+$extractPath = $OctopusParameters['Octopus.Action.Package.InstallationDirectoryPath'] 
 # if a custom installation directory has been defined
 $customPath = $OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']
 # original extract path,
@@ -38,7 +38,7 @@ Get-Content "$extractPath\subfolder\file.txt"
 # or when a custom installation directory has been defined,
 Get-Content "$customPath\subfolder\file.txt"
 
-# or as a relative path from the Tentacle's working directory, 
+# or as a relative path from the Tentacle's working directory, 
 #   in pre-deploy this will be the original extract folder
 #   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 Get-Content ".\subfolder\file.txt"
@@ -53,7 +53,7 @@ Console.WriteLine(File.ReadAllText(extractPath + @"\subfolder\file.txt"));
 // or when a custom installation directory has been defined,
 Console.WriteLine(File.ReadAllText(customPath + @"\subfolder\file.txt"));
 
-// or as a relative path from the Tentacle's working directory, 
+// or as a relative path from the Tentacle's working directory, 
 //   in pre-deploy this will be the original extract folder
 //   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 Console.WriteLine(File.ReadAllText(@".\subfolder\file.txt"));
@@ -68,7 +68,7 @@ cat "$extractPath/subfolder/file.txt"
 # or when a custom installation directory has been defined,
 cat "$customPath/subfolder/file.txt"
 
-# or as a relative path from the Tentacle's working directory, 
+# or as a relative path from the Tentacle's working directory, 
 #   in pre-deploy this will be the original extract folder
 #   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 cat "./subfolder/file.txt"
@@ -86,7 +86,7 @@ printfn "%s" (File.ReadAllText(extractPath + @"\subfolder\file.txt"))
 // or when a custom installation directory has been defined,
 printfn "%s" (File.ReadAllText(customPath + @"\subfolder\file.txt"))
 
-// or as a relative path from the Tentacle's working directory, 
+// or as a relative path from the Tentacle's working directory, 
 //   in pre-deploy this will be the original extract folder
 //   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 printfn "%s" (File.ReadAllText(@".\subfolder\file.txt"))

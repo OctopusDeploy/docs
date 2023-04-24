@@ -13,7 +13,7 @@ Before you can configure your [SSH deployment targets](/docs/infrastructure/depl
 
 ## Bash startup files
 
-When connecting to a target over SSH, the Octopus Server connects then executes the script via the `/bin/bash` command to ensure it is running with a bash shell (and not the default terminal shell for that user). Any login scripts that you wish to run should therefore be put into the `.bashrc` script file since this is invoked for non-login shells.
+When connecting to a target over SSH, the Octopus Server connects then executes the script via the `/bin/bash` command to ensure it is running with a bash shell (and not the default terminal shell for that user). Any login scripts that you wish to run should therefore be put into the `.bashrc` script file since this is invoked for non-login shells.
 
 For example, with targets on a Mac the default $PATH variable may be missing `/usr/sbin`. This can be added in the `.bashrc` script with the line:
 
@@ -21,7 +21,7 @@ For example, with targets on a Mac the default $PATH variable may be missing `/u
 
 If the `.bashrc` file doesn't already exist, create it in the user folder of the user that is connecting to the Max OSX instance. If the remote user is called `octopus`, then this file will be located at `/Users/octopus/.bashrc`.
 
-See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.org/software/bash/manual/bashref.html#Bash-Startup-Files) for more information about startup scripts.
+See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.org/software/bash/manual/bashref.html#Bash-Startup-Files) for more information about startup scripts.
 
 ## .NET {#dotnet}
 
@@ -85,9 +85,9 @@ Note that [substitute variables in templates](/docs/projects/steps/configuration
 
 #### Package repository SSL certificates
 
-If you configure your deployment such that the target pulls down the package itself directly from the NuGet repository, the correct SSL certificates need to also be available to Mono. By default, Mono pre **3.12** didn’t trust any certificates and the root certs in question would need to be either manually imported, or synced with Mozilla’s list by invoking `mozroots` or `cert-sync`. Thankfully Mono's latest builds perform this step during installation so it should “just work”.
+If you configure your deployment such that the target pulls down the package itself directly from the NuGet repository, the correct SSL certificates need to also be available to Mono. By default, Mono pre **3.12** didn’t trust any certificates and the root certs in question would need to be either manually imported, or synced with Mozilla’s list by invoking `mozroots` or `cert-sync`. Thankfully Mono's latest builds perform this step during installation so it should “just work”.
 
-See [Mono’s security FAQ](http://www.mono-project.com/docs/faq/security/) for more details.
+See [Mono’s security FAQ](http://www.mono-project.com/docs/faq/security/) for more details.
 
 #### Mono on OSX
 

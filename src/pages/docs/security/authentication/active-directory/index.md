@@ -209,17 +209,17 @@ Octopus alllows users to sign in by entering their Active Directory credentials 
 **How it works**
 Using this option, the credentials are posted back to the Octopus Server, and Octopus validates them against Active Directory by invoking the Windows API `LogonUser()` function. If that is successful, Octopus will then query Active Directory for information about the user.
 
-Keep in mind that if your Octopus Server isn't [configured to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https), these are posted in plain text (just like signing in to any other website).
+Keep in mind that if your Octopus Server isn't [configured to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https), these are posted in plain text (just like signing in to any other website).
 :::
 
-If the Octopus Server and its users are on the **same domain**, it is sufficient to provide a simple username in this field, for example *paul**.*User Principal Names, of the form *user@domain.com* are also accepted in this scenario.
+If the Octopus Server and its users are on the **same domain**, it is sufficient to provide a simple username in this field, for example *paul**.*User Principal Names, of the form *user@domain.com* are also accepted in this scenario.
 
 If the server and its users are on different domains, or **many domains** are in use, the *DOMAIN\user* username format must be provided for users who are not a member of the domain the server is in.
 
 See below for more details and examples related to Trusted Domains.
 
 :::div{.hint}
-Users will receive the error "**Username not found.  UPN format may not be supported for your domain configuration."** if they have entered a UPN and their details could not be located in the domain. This could occur because the UPN really doesn't exist, or it exists in a domain other than the one the Octopus Server is in (which as stated above is not supported).
+Users will receive the error "**Username not found.  UPN format may not be supported for your domain configuration."** if they have entered a UPN and their details could not be located in the domain. This could occur because the UPN really doesn't exist, or it exists in a domain other than the one the Octopus Server is in (which as stated above is not supported).
 :::
 
 Forms-based authentication can also be disabled:
@@ -250,7 +250,7 @@ Octopus.Server.exe configure --usernamePasswordIsEnabled=false
 Octopus.Server.exe admin --username=YOURUSERNAME
 ```
 
-The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/security/authentication)).
+The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/security/authentication)).
 
 ### Select username/password authentication {#ActiveDirectoryauthentication-Toselectusernamepasswordauthentication}
 
@@ -264,9 +264,9 @@ Octopus.Server.exe configure --usernamePasswordIsEnabled=true
 Octopus.Server.exe admin --username=YOURUSERNAME
 ```
 
-### Specify a custom container {#ActiveDirectoryauthentication-Tospecifyacustomcontainer}
+### Specify a custom container {#ActiveDirectoryauthentication-Tospecifyacustomcontainer}
 
-In **Octopus 2.5.11** and newer you can specify a custom container to use for AD Authentication. This feature addresses the issue of authenticating with Active Directory where the Users container is not in default location and permissions prevent queries as a result. Specifying the container will result in the container being used as the root of the context. The container is the distinguished name of a container object. All queries are performed under this root which can be useful in a more restricted environment. This may be the solution if you see a "The specified directory service attribute or value does not exist" error when using Active Directory authentication.
+In **Octopus 2.5.11** and newer you can specify a custom container to use for AD Authentication. This feature addresses the issue of authenticating with Active Directory where the Users container is not in default location and permissions prevent queries as a result. Specifying the container will result in the container being used as the root of the context. The container is the distinguished name of a container object. All queries are performed under this root which can be useful in a more restricted environment. This may be the solution if you see a "The specified directory service attribute or value does not exist" error when using Active Directory authentication.
 
 **Setting a custom container**
 
@@ -278,7 +278,7 @@ Where `"CN=Users,DC=GPN,DC=COM"` should be replaced with your Container.
 
 ### Trusted domains {#ActiveDirectoryauthentication-TrustedDomains}
 
-Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Server is a member of will always be allowed to log in.  Users from domains that the Octopus Server's domain trusts will also be able to log in.
+Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Server is a member of will always be allowed to log in.  Users from domains that the Octopus Server's domain trusts will also be able to log in.
 
 The following diagram illustrates a typical configuration when there is a two way trust between the domains.
 

@@ -9,11 +9,11 @@ navOrder: 70
 
 The .NET Configuration Transforms feature is one of the [configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process).
 
-If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!**.
+If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!**.
 
 ![.NET Configuration Transforms screenshot](/docs/projects/steps/configuration-features/configuration-transforms/images/configuration-transforms.png "width=500")
 
-An example web.config transformation that removes the `<compilation debug="true">` attribute is below:
+An example web.config transformation that removes the `<compilation debug="true">` attribute is below:
 
 ```xml
 <?xml version="1.0"?>
@@ -26,12 +26,12 @@ An example web.config transformation that removes the `<compilation debug="true
 
 :::div{.success}
 **Testing .NET configuration transforms**
-The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test .NET configuration file transformations](https://webconfigtransformationtester.apphb.com/).
+The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test .NET configuration file transformations](https://webconfigtransformationtester.apphb.com/).
 :::
 
 ## Naming .NET configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
 
-This feature will run your .NET configuration transforms by on looking for transform files named with the following conventions. The .NET configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
+This feature will run your .NET configuration transforms by on looking for transform files named with the following conventions. The .NET configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
 
 1. `*.Release.config`
 2. `*.<Environment>.config`
@@ -44,7 +44,7 @@ For an **ASP.NET Web Application**, suppose you have the following files in your
 - `Web.Production.config`
 - `Web.Test.config`
 
-When deploying to an environment named "**Production**", Octopus will execute the transforms in this order: `Web.Release.config`, followed by `Web.Production.config`.
+When deploying to an environment named "**Production**", Octopus will execute the transforms in this order: `Web.Release.config`, followed by `Web.Production.config`.
 
 For **other applications**, like Console or Windows Service applications, suppose you have the following in your package:
 
@@ -53,7 +53,7 @@ For **other applications**, like Console or Windows Service applications, suppos
 - `YourService.exe.Production.config`
 - `YourService.exe.Test.config`
 
-When deploying to an environment named "**Test**", Octopus will execute the transforms in this order: `YourService.exe.Release.config`, followed by `YourService.exe.Test.config`.
+When deploying to an environment named "**Test**", Octopus will execute the transforms in this order: `YourService.exe.Release.config`, followed by `YourService.exe.Test.config`.
 
 :::div{.success}
 You can see how this is actually done by our [open source Calamari project](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Deployment/Conventions/ConfigurationTransformsConvention.cs).
@@ -76,7 +76,7 @@ To make sure Octopus can run the .NET configuration transforms for your Windows 
 
 ## Additional .NET configuration transforms {#Configurationfiles-AdditionalConfigurationTransforms}
 
-You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run .NET configuration transformation files` check-box.
+You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run .NET configuration transformation files` check-box.
 
 ![](/docs/projects/steps/configuration-features/configuration-transforms/images/additional-transforms.png "width=500")
 
@@ -105,7 +105,7 @@ The above transform definition will apply **Transform.config** to **Target.confi
 
 ### Wildcard {#Configurationfiles-Wildcard}
 
-Wildcards can be used to select any matching file. For example, **\*.config** will match **app.config** as well as **web.config**.
+Wildcards can be used to select any matching file. For example, **\*.config** will match **app.config** as well as **web.config**.
 
 They can be used anywhere in the transform filename (the left side), but only at the start of the destination filename (the right side).
 
@@ -158,4 +158,4 @@ To suppress these errors and report them as informational only, use the `Octopus
 
 ## PowerShell {#Configurationfiles-PowerShell}
 
-If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deployments/custom-scripts). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](https://www.codeproject.com/Articles/61900/PowerShell-and-XML).
+If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deployments/custom-scripts). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](https://www.codeproject.com/Articles/61900/PowerShell-and-XML).

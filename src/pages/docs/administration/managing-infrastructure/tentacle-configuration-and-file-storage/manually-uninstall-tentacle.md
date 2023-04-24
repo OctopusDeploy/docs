@@ -74,7 +74,7 @@ Removing entries from the registry can have serious implications. Please make su
 
 5. Find and delete any Octopus folders from:
    - **`%ProgramData%\Octopus`** - used for storing instance configuration and can be used for log files when a Home Directory cannot be discovered
-   - **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
+   - **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
 6. Find and delete any Octopus certificates from the following certificate stores:
    - **`Local Computer\Octopus`**
    - **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle windows service

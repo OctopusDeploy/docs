@@ -189,7 +189,7 @@ And the following files exist:
 ```powershell
 c:\
 └─transforms
-  └─web.mytransform.config
+  └─web.mytransform.config
 ```
 
 Then the transform **c:\transforms\web.mytransform.config** => **web.config** will:
@@ -217,7 +217,7 @@ And the following files exist:
 ```powershell
 c:\
 └─transforms
-  └─web.mytransform.config
+  └─web.mytransform.config
 ```
 
 Then the transform **c:\transforms\web.mytransform.config => .\web.config** will:
@@ -239,7 +239,7 @@ And the following files exist:
 ```powershell
 c:\
 └─transforms
-  └─web.mytransform.config
+  └─web.mytransform.config
 ```
 
 Then the **transform c:\transforms\web.mytransform.config => .\subdir\web.config** will:
@@ -284,7 +284,7 @@ And the following files exist:
 ```powershell
 c:\
 └─transforms
-  └─connstrings.mytransform.config
+  └─connstrings.mytransform.config
 ```
 
 Then the transform **c:\transforms\connstrings.mytransform.config => \*.config** will:
@@ -316,7 +316,7 @@ Acme.Core.1.0.0.nupkg
 ├─config
 | └─web.config
 └─transforms
-  └─web.mytransform.config
+  └─web.mytransform.config
 ```
 
 Then the transform **transforms\web.mytransform.config => config\web.config** will:
@@ -350,7 +350,7 @@ Acme.Core.1.0.0.nupkg
 | ├─app.config
 | └─web.config
 └─transforms
-  └─connstrings.mytransform.config
+  └─connstrings.mytransform.config
 ```
 
 Then the transform **transforms\connstrings.mytransform.config => config\\*.config** will:
@@ -401,7 +401,7 @@ Acme.Core.1.0.0.nupkg
 └─security.mytransform.config
 ```
 
-Then the transform **\*.mytransform.config => config\web.config** will:
+Then the transform **\*.mytransform.config => config\web.config** will:
 
 - Apply the transform **security.mytransform.config** to file **config\web.config**.
 - Apply the transform **connstrings.mytransform.config** to file **config\web.config**.
@@ -458,8 +458,8 @@ And the following files exist:
 ```powershell
 c:\
 └─transforms
-  ├─connstrings.mytransform.config
-  └─security.mytransform.config
+  ├─connstrings.mytransform.config
+  └─security.mytransform.config
 ```
 
 Then the transform **c:\transforms\\*.mytransform.config** => **web.config** will:
@@ -487,8 +487,8 @@ And the following files exist:
 ```powershell
 c:\
 └─transforms
-  ├─app.mytransform.config
-  └─web.mytransform.config
+  ├─app.mytransform.config
+  └─web.mytransform.config
 ```
 
 Then the transform **c:\transforms\\*.mytransform.config => \*.config** will:
@@ -505,8 +505,8 @@ Given a package which has the structure:
 ```powershell
 Acme.Core.1.0.0.nupkg
 └─config
-  ├─app.config
-  └─web.config
+  ├─app.config
+  └─web.config
 ```
 
 And the following files exist:
@@ -514,8 +514,8 @@ And the following files exist:
 ```powershell
 c:\
 └─transforms
-  ├─app.mytransform.config
-  └─web.mytransform.config
+  ├─app.mytransform.config
+  └─web.mytransform.config
 ```
 
 Then the transform **c:\transforms\\*.mytransform.config** => **config\\*.config** will:
@@ -549,8 +549,8 @@ Acme.Core.1.0.0.nupkg
 ├─config
 | └─web.config
 └─transforms
-  ├─connstrings.mytransform.config
-  └─security.mytransform.config
+  ├─connstrings.mytransform.config
+  └─security.mytransform.config
 ```
 
 Then the transform **transforms\\*.mytransform.config => config\web.config** will:
@@ -586,8 +586,8 @@ Acme.Core.1.0.0.nupkg
 | ├─app.config
 | └─web.config
 └─transforms
-  ├─app.mytransform.config
-  └─web.mytransform.config
+  ├─app.mytransform.config
+  └─web.mytransform.config
 ```
 
 Then the transform **transforms\\*.mytransform.config => config\\*.config** will:

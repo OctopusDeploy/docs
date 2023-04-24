@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Run
-description:  Starts the Octopus Server in debug mode.
+description:  Starts the Octopus Server in debug mode.
 navOrder: 181
 ---
 

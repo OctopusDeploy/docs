@@ -12,7 +12,7 @@ Octopus was designed to be a single, central point of truth for application depl
 Of course, the real world and the ideal world don't always overlap, and you might need to have separate Octopus Servers. Common examples are:
 
 - Solution providers with an internal Octopus Server for pre-production deployments while developing a solution, and then Octopus Servers managed by the client for production deployments, on different networks
-- When company policies require production and pre-production environments to be on completely isolated networks, like PCI compliant environments. Learn about [PCI Compliance and Octopus Deploy](/docs/security/pci-compliance-and-octopus-deploy).
+- When company policies require production and pre-production environments to be on completely isolated networks, like PCI compliant environments. Learn about [PCI Compliance and Octopus Deploy](/docs/security/pci-compliance-and-octopus-deploy).
 
 On this page, we discuss two different scenarios, and the features and options that exist for dealing with them.
 
@@ -37,4 +37,4 @@ Your Octopus Deploy license includes the ability to install and configure up to 
 
 > An agency manages lots of small applications on behalf of their customers, and wants to use Octopus to manage deployments. Quite often the production environment is managed by the customer and even after being convinced to allow the Tentacle agent to be installed on their servers, they want communication to be controlled by a proxy server.
 
-In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/infrastructure/deployment-targets/proxy-support) in Octopus Deploy.
+In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/infrastructure/deployment-targets/proxy-support) in Octopus Deploy.

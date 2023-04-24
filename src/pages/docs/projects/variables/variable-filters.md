@@ -3,13 +3,13 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Variable filters
-description: Octopus variable substitutions support *filters* to correctly encode values for a variety of target file types.
+description: Octopus variable substitutions support *filters* to correctly encode values for a variety of target file types.
 navOrder: 18
 ---
 
 By default, bindings are inserted into the output as-is; no consideration is given as to whether the target variable or file is XML, HTML, JSON etc. That is, the target file type is always treated as plain text.
 
-Octopus variable substitutions support *filters* to correctly encode values for a variety of target file types. These are invoked using the `|` (pipe) operator.
+Octopus variable substitutions support *filters* to correctly encode values for a variety of target file types. These are invoked using the `|` (pipe) operator.
 
 Given the variable:
 
@@ -63,7 +63,7 @@ These core filters perform common string operations.
 
 ### Format
 
-The *Format* filter allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
+The *Format* filter allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
 
 | MyVar Value                     | Filter Expression                    | Output            |
 | ------------------------------- | ------------------------------------ | ----------------- |
@@ -185,7 +185,7 @@ These filters are used to work with dates.
 
 ### NowDate and NowDateUtc
 
-The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
+The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
 
 | MyFormat Variable | Filter Expression                | Output                         |
 | ----------------- | -------------------------------- | ------------------------------ |
@@ -326,7 +326,7 @@ Numbers:
 Objects:
 #{each item in MyObjects}
 	#{item.Key}: #{item.Value.Price}
-#{/each} 
+#{/each} 
 ```
 
 The resulting text will be:
@@ -336,7 +336,7 @@ Numbers:
  - 5
  - 2
  - 4
- 
+ 
 Objects:
 Cat: 11.5
 Dog: 17.5

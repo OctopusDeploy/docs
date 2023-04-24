@@ -7,7 +7,7 @@ description: Deletes a range of releases
 navOrder: 100
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to delete a range of [releases](/docs/releases).
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to delete a range of [releases](/docs/releases).
 
 ```
 Deletes a range of releases.

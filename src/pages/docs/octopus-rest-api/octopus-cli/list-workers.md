@@ -7,7 +7,7 @@ description: Lists all workers
 navOrder: 250
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list all Workers.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list all Workers.
 
 ```
 Lists all workers.

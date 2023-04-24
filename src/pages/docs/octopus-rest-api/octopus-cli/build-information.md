@@ -7,7 +7,7 @@ description: Pushes build information to Octopus Server.
 navOrder: 10
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to push build information to the Octopus Server.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to push build information to the Octopus Server.
 
 ```
 Pushes build information to Octopus Server.

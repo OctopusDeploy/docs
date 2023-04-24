@@ -7,9 +7,9 @@ description: SSH key pair accounts allow you to securely authenticate with SSH t
 navOrder: 40
 ---
 
-An SSH key pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target).
+An SSH key pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target).
 
-## Creating an SSH key pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
+## Creating an SSH key pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
 
 Before you can configure the SSH key pair account in Octopus, you need to generate public and private keys. This can be done on either the [Linux target](#SSHKeyPair-Linux) or the [Octopus Server](#SSHKeyPair-Windows).
 
@@ -64,7 +64,7 @@ The easiest way to generate valid keys on windows is to use a tool like[ PuTTYge
 
 ![](/docs/infrastructure/accounts/ssh-key-create-putty.png "width=400")
 
-Provide your passphrase if desired and export the private key to the accepted format by going to **Conversions ➜ Export OpenSSH Key**.  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.
+Provide your passphrase if desired and export the private key to the accepted format by going to **Conversions ➜ Export OpenSSH Key**.  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.
 
 If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
 
@@ -90,10 +90,10 @@ If you are storing the private key on disk it is recommended, but not mandatory,
 
 Due to the number and configurable nature of the various Linux distributions available, there are other dedicated sites that can provide more precise information & tutorials for your specific use case.
 
-- [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) has several useful Windows tools.
+- [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) has several useful Windows tools.
 - [ssh-keygen man page](https://linux.die.net/man/1/ssh-keygen).
 - [sshd\_config man page (Ubuntu)](http://manpages.ubuntu.com/manpages/hirsute/en/man5/sshd_config.5.html).
-- Great intro SSH keygen articles from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2), [GitHub](https://help.github.com/articles/connecting-to-github-with-ssh/) or [Atlassian](https://confluence.atlassian.com/display/STASH/Creating+SSH+keys).
+- Great intro SSH keygen articles from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2), [GitHub](https://help.github.com/articles/connecting-to-github-with-ssh/) or [Atlassian](https://confluence.atlassian.com/display/STASH/Creating+SSH+keys).
 
 ## Learn more
 

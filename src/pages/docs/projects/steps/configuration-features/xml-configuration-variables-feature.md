@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: .NET XML configuration variables feature
-description: The .NET XML Configuration Variables feature updates your .NET XML configuration files with the values from matching Octopus variables.
+description: The .NET XML Configuration Variables feature updates your .NET XML configuration files with the values from matching Octopus variables.
 navOrder: 60
 ---
 
@@ -68,7 +68,7 @@ In this example, you would have variables similar to the following:
 | `WelcomeMessage` | `Hello customer!` | `No` | `Production` |
 
 :::div{.warning}
-Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the Octopus database. During deployment they are encrypted during transport, but eventually decrypted and written in clear-text to the configuration files so your application can use the value.
+Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the Octopus database. During deployment they are encrypted during transport, but eventually decrypted and written in clear-text to the configuration files so your application can use the value.
 :::
 
 4. Deploy your project to the `Test` environment, and Octopus will update the configuration file to:
@@ -113,7 +113,7 @@ Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in th
 </configuration>
 ```
 
-Values are matched based on the `key` attribute for `appSettings`, and the `name` element for `applicationSettings` and `connectionStrings`.
+Values are matched based on the `key` attribute for `appSettings`, and the `name` element for `applicationSettings` and `connectionStrings`.
 
 ## Replacing variables outside appSettings, applicationSettings and connectionStrings {#Configurationfiles-VariablesInFilesReplacingvariablesoutsideappSettings,applicationSettingsandconnectionStrings}
 

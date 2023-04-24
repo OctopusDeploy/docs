@@ -9,7 +9,7 @@ navOrder: 1
 
 When creating a container or network via one of the new Docker steps, you may wish to use details of the resulting resource in a subsequent step. All information about the networking configuration, volumes, environment variable and hardware resource allocation can be obtained for the container via the `docker inspect` command and similar information for the network via the `docker network inspect` command.
 
-To allow access to this information Octopus invokes this command right after creating a container (or network) which results in a large detailed JSON array (since you can request multiple container details from a single invocation) that will look something like the examples below. This output is then returned back to the server and processed as an [Output Variable](/docs/projects/variables/output-variables) with the format `#{Octopus.Action[<action name>].Output.Docker.Inspect}`.
+To allow access to this information Octopus invokes this command right after creating a container (or network) which results in a large detailed JSON array (since you can request multiple container details from a single invocation) that will look something like the examples below. This output is then returned back to the server and processed as an [Output Variable](/docs/projects/variables/output-variables) with the format `#{Octopus.Action[<action name>].Output.Docker.Inspect}`.
 
 :::div{.warning}
 **Inspection timing and relevance**
@@ -50,7 +50,7 @@ while this variable might look complex, you should be able to see the two aforem
 **Output variable in project variables**
 You may find that you want to access variables from the inspection output several times and find it a bit cumbersome to keep typing out their full value. To simply things, you might find it helpful to create a project variable with the value of the output variable.
 
-For instance, in the examples outlined above, the network name was needed several times. In this case It might be useful to create and use a project variable with the value (taking into consideration things like scoping)
+For instance, in the examples outlined above, the network name was needed several times. In this case It might be useful to create and use a project variable with the value (taking into consideration things like scoping)
 
 ```powershell
 #{Octopus.Action[Create Network Step Name].Output.Docker.Inspect.Name}

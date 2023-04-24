@@ -7,7 +7,7 @@ description: Considerations for selecting a versioning scheme for the applicatio
 navOrder: 10
 ---
 
-The [Package ID](/docs/packaging-applications/#package-id), version number, and [package format](/docs/packaging-applications/#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/#supported-formats), [releases](/docs/releases/), and [channels](/docs/releases/channels), which will help you design a versioning scheme that suits your needs.
+The [Package ID](/docs/packaging-applications/#package-id), version number, and [package format](/docs/packaging-applications/#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/#supported-formats), [releases](/docs/releases/), and [channels](/docs/releases/channels), which will help you design a versioning scheme that suits your needs.
 
 ## Choosing a versioning scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
@@ -26,7 +26,7 @@ Consider the following factors when deciding on the versioning scheme you'll use
 
 4. Does your tool chain support the versioning scheme?
 
-  *Octopus supports Semantic Versioning, which enables enhanced features like [Channels](/docs/releases/channels).*
+  *Octopus supports Semantic Versioning, which enables enhanced features like [Channels](/docs/releases/channels).*
 
 ## SemVer {#semver}
 
@@ -46,9 +46,9 @@ Octopus also supports versions that can be sorted alphanumerically:
 
 > `2016.09.01-beta.0001`
 
-In strict SemVer 2.0, a version like `1.5.2-rc.1` is considered a **pre-release**, and `1.5.2` is considered a **full release**.
+In strict SemVer 2.0, a version like `1.5.2-rc.1` is considered a **pre-release**, and `1.5.2` is considered a **full release**.
 
-When it comes to application versioning, we suggest the pre-release tag (the bit after the `-`) can be used however works best for you. For example, you could build version `1.5.2-rc` of your application and configure a [Channel](/docs/releases/channels) to promote packages like `*-rc` to Staging and eventually Production.
+When it comes to application versioning, we suggest the pre-release tag (the bit after the `-`) can be used however works best for you. For example, you could build version `1.5.2-rc` of your application and configure a [Channel](/docs/releases/channels) to promote packages like `*-rc` to Staging and eventually Production.
 
 If you are using the [Deployment Notes](/docs/releases/deployment-notes) features, note that pre-releases are handled differently to other releases by that feature and you may need to take that into consideration in your [versioning](/docs/releases/deployment-notes/#versioning) strategy.
 

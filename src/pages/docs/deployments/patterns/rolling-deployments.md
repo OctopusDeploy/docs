@@ -13,7 +13,7 @@ Normally, when executing a deployment process with multiple steps, Octopus runs 
 
 ![](/docs/deployments/patterns/images/normal-deployment.png "width=500")
 
-NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
+NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
 
 - Deployment steps are run in sequence
 - The actions performed by each step are performed in parallel on all deployment targets
@@ -33,7 +33,7 @@ When configuring a rolling deployment, you specify a **window size**.
 The window size controls how many deployment targets can be deployed to at once.
 
 - A window size of 1 will deploy to a single deployment target at a time. Octopus will wait for the step to finish running on deployment target A before starting on deployment target B
-- A window size of 3 will deploy to a three deployment targets at a time. Octopus will wait for the step to finish running on deployment targets A, B *or* C before starting on deployment target D
+- A window size of 3 will deploy to a three deployment targets at a time. Octopus will wait for the step to finish running on deployment targets A, B *or* C before starting on deployment target D
 
 :::div{.hint}
 **Window size with Octopus.Action.MaxParallelism**
@@ -42,7 +42,7 @@ If you include the variable `Octopus.Action.MaxParallelism` in your Project with
 
 ## Child steps {#Rollingdeployments-Childsteps}
 
-Rolling deployments allow you to wait for a step to finish on one deployment target before starting the step on the next deployment target. But what if you need to perform a series of steps on one target, before starting that series of steps on the next target? To support this, Octopus allows you to create **Child Steps**.
+Rolling deployments allow you to wait for a step to finish on one deployment target before starting the step on the next deployment target. But what if you need to perform a series of steps on one target, before starting that series of steps on the next target? To support this, Octopus allows you to create **Child Steps**.
 
 First, open the menu for an existing step, and click **Add Child Step**.
 

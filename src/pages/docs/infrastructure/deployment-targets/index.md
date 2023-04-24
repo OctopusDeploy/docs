@@ -16,7 +16,7 @@ From the **Deployment Targets** tab you can add new deployment targets, disable 
 
 ## Adding deployment targets
 
-Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Server. For instructions, see:
+Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Server. For instructions, see:
 
 - [Listening and Polling Windows Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows)
 - [Linux SSH connection](/docs/infrastructure/deployment-targets/linux/ssh-target)
@@ -45,7 +45,7 @@ Decide on the naming convention you will use before creating your first target r
 
 The role has been created and assigned to the deployment target and can be added to other deployment targets.
 
-You can check all the roles assigned to your deployment targets from the **Infrastructure** tab.
+You can check all the roles assigned to your deployment targets from the **Infrastructure** tab.
 
 ## Dynamic infrastructure
 

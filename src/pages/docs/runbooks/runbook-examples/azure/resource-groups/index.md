@@ -11,7 +11,7 @@ From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en
 
 > Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation.
 
-Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the *Deploy an Azure Resource Manager template* step type. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section. The instructions there apply equally to a runbook process too.
+Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the *Deploy an Azure Resource Manager template* step type. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section. The instructions there apply equally to a runbook process too.
 
 ## Create Azure resources runbook
 
@@ -51,13 +51,13 @@ Configure any other settings for the step such as Environment run conditions and
 
 ![Azure ARM step](/docs/runbooks/runbook-examples/azure/resource-groups/azure-arm-process-step.png "width=500")
 
-### Template entered as JSON  {#DeployusinganAzureResourceGroupTemplate-TemplateEnteredasJSON}
+### Template entered as JSON  {#DeployusinganAzureResourceGroupTemplate-TemplateEnteredasJSON}
 
 By selecting *Source Code* as the *Template Source*, you can enter your template directly as JSON.
 
 The JSON will be parsed, and your parameters will appear dynamically as fields in the *Parameters* section.
 
-The parameter fields will show text boxes or select-lists as appropriate.  You can enter values directly, or bind the parameters to Octopus Variables (e.g. see the *siteName* parameter in the image above).
+The parameter fields will show text boxes or select-lists as appropriate.  You can enter values directly, or bind the parameters to Octopus Variables (e.g. see the *siteName* parameter in the image above).
 
 :::div{.success}
 Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions) on the JSON template.
@@ -70,16 +70,16 @@ Although you can use variables directly in the template, it is more idiomatic to
 ### Sensitive data {#DeployusinganAzureResourceGroupTemplate-SensitiveData}
 
 :::div{.warning}
-Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
+Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
 :::
 
-The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter).
+The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter).
 
 ![](/docs/runbooks/runbook-examples/azure/resource-groups/arm-sensitive-data.png "width=500")
 
 ### Template contained in a package {#DeployusinganAzureResourceGroupTemplate-TemplateContainedinaPackage}
 
-By selecting *File inside a Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
+By selecting *File inside a Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
 
 ![](/docs/runbooks/runbook-examples/azure/resource-groups/arm-package-source-template.png "width=500")
 
@@ -172,7 +172,7 @@ Azure Resource Manager supports the concept of [linking templates](https://docs.
 **Linked templates must be publicly accessible via URI**
 Please be aware that the URI you configure for the linked templates and parameters files must be publicly accessible by the Azure Resource Manager. For example: [http://www.contoso.com/AzureTemplates/newStorageAccount.json](http://www.contoso.com/AzureTemplates/newStorageAccount.json)
 
-Learn more about [linked templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates) and refer to [this discussion](https://help.octopus.com/t/azure-resource-management-templates/9654) for more details.
+Learn more about [linked templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates) and refer to [this discussion](https://help.octopus.com/t/azure-resource-management-templates/9654) for more details.
 :::
 
 ## Learn more

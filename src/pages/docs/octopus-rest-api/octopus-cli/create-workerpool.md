@@ -7,7 +7,7 @@ description: Creates a pool for workers
 navOrder: 80
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create a worker pool.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create a worker pool.
 
 ```
 Creates a pool for workers.

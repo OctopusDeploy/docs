@@ -7,7 +7,7 @@ description: Octopus Server and Tentacle log file locations and details.
 navOrder: 1
 ---
 
-Octopus Server and Tentacles write diagnostic log messages to their local Windows filesystem. The files are rolled periodically to avoid consuming excessive space.
+Octopus Server and Tentacles write diagnostic log messages to their local Windows filesystem. The files are rolled periodically to avoid consuming excessive space.
 
 :::div{.success}
 **Recent Errors**
@@ -16,15 +16,15 @@ The most recent warnings and errors can be view on the **Configuration ➜ Diagn
 
 ## Finding the log files for Octopus Server and Tentacle {#Logfiles-Findingthelogfiles}
 
-When Octopus applications are installed, a "home directory" is chosen - this is usually `C:\Octopus`.
+When Octopus applications are installed, a "home directory" is chosen - this is usually `C:\Octopus`.
 
-Octopus stores its logs in the `Logs` subdirectory. Three sets of log files may be present: `OctopusServer.txt`, `OctopusTentacle.txt`. Older versions of these files will be stored with numeric suffixes in their names, e.g. the most recent archived server log file will be in `OctopusServer.0.txt`.
+Octopus stores its logs in the `Logs` subdirectory. Three sets of log files may be present: `OctopusServer.txt`, `OctopusTentacle.txt`. Older versions of these files will be stored with numeric suffixes in their names, e.g. the most recent archived server log file will be in `OctopusServer.0.txt`.
 
 When requesting support, send as much log information as possible - the repetitive nature of the files means they usually zip down well.
 
 ## Changing log retention {#Logfiles-Changinglogretention}
 
-To increase the number of log files Octopus will store, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
+To increase the number of log files Octopus will store, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
 
 The retention of the logs is controlled by the `maxArchiveFiles` property, it defaults to 7 and can be increased or decreased. The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
@@ -37,7 +37,7 @@ When you use the Octopus installer to update the version of Octopus the `octopus
 
 Occasionally it may be necessary to change the logging level of an Octopus application.
 
-First, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
+First, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
 
 The verbosity of file logging is controlled in the `octopus-log-file` section:
 
@@ -58,7 +58,7 @@ Leaving your `minlevel` too low will impact the performance of Octopus Server. W
 
 To change the logging level for Halibut as logged in the Octopus Server, we follow a similar process as described above with a few changes.
 
-First, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
+First, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
 
 The verbosity of file logging is controlled in the `octopus-log-file` section:
 
@@ -79,7 +79,7 @@ Leaving your `minlevel` too low will impact the performance of Octopus Server. W
 
 Occasionally it may be necessary to change the logging level of a Tentacle instance.
 
-First, find the `tentacle.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus/Tentacle "Program Files" folder. **Take a backup** of the file before making changes.
+First, find the `tentacle.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus/Tentacle "Program Files" folder. **Take a backup** of the file before making changes.
 
 The verbosity of file logging is controlled in the `octopus-log-file` section:
 

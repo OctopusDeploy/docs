@@ -25,7 +25,7 @@ The third line will not be executed. To change this behavior, set `$ErrorActionP
 
 At the end of the script, Calamari also checks `$LastExitCode` to see if the last Windows-based program that you invoked exited successfully. Note that some Windows programs use non-zero exit codes even when they run successfully - for example, Robocopy returns the number of files copied. This can mean that Calamari assumes your script failed even if it actually ran successfully. Best practice is to call `Exit 0` yourself if your script ran successfully.
 
-Note that you'll need to check `$LastExitCode` yourself if you run multiple Windows programs. For example, with this script, Calamari would correctly see that ping returned an exit code of 1 (the host couldn't be contacted) and will assume the script failed:
+Note that you'll need to check `$LastExitCode` yourself if you run multiple Windows programs. For example, with this script, Calamari would correctly see that ping returned an exit code of 1 (the host couldn't be contacted) and will assume the script failed:
 
 ```powershell
 & ping 255.255.255.0  # Host does not exist, will return exit code 1

@@ -72,7 +72,7 @@ To make Octopus Deploy useful to your organization it needs a high level of acce
 
 ### FIPS compliance
 
-We take every reasonable effort to make Octopus Server, Tentacle, Calamari, and any other tools we provide FIPS 140 compliant. If something is not FIPS 140 compliant we will take every reasonable effort to fix the problem, or otherwise degrade the feature gracefully.
+We take every reasonable effort to make Octopus Server, Tentacle, Calamari, and any other tools we provide FIPS 140 compliant. If something is not FIPS 140 compliant we will take every reasonable effort to fix the problem, or otherwise degrade the feature gracefully.
 
 Learn about [FIPS and Octopus Deploy](/docs/security/fips-and-octopus-deploy).
 

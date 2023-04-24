@@ -28,11 +28,11 @@ The simplest trigger is a periodic timer setup through a Windows schedules task,
 
 [Subscriptions](/docs/administration/managing-infrastructure/subscriptions) can call a web service or send an email when Octopus events occur.
 
-The event can also be a script step in a project. If the script is defined as a [step template](/docs/projects/steps) it can be shared among the related projects. However, it is difficult to ensure that two copies of the script do not run at the same time.
+The event can also be a script step in a project. If the script is defined as a [step template](/docs/projects/steps) it can be shared among the related projects. However, it is difficult to ensure that two copies of the script do not run at the same time.
 
 ## Orchestrating the deployment of multiple projects
 
-Below are two different approaches to orchestrating multiple projects. Depending on the projects and requirements, one or a combination of these two approaches may be used.  This orchestration is useful for when:
+Below are two different approaches to orchestrating multiple projects. Depending on the projects and requirements, one or a combination of these two approaches may be used.  This orchestration is useful for when:
 
 - A set of projects should always be deployed together or in a specific order.
 - A project depends on a certain version of another project.

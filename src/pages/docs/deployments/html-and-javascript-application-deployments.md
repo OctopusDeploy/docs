@@ -16,11 +16,11 @@ This example uses AngularJS but the same basic principles apply for any applicat
 
 ## Prerequisites {#DeployingHTMLandJavaScriptApplications-Prerequisites}
 
-This guide assumes some familiarity with common Octopus concepts like configuring [projects ](/docs/projects/)and [variables](/docs/projects/variables/). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deployments/windows/iis-websites-and-application-pools) deployment steps. Alternatively you could use any other web host, like Express in Node.js, since this is just a single HTML file with no other dependencies.
+This guide assumes some familiarity with common Octopus concepts like configuring [projects ](/docs/projects/)and [variables](/docs/projects/variables/). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deployments/windows/iis-websites-and-application-pools) deployment steps. Alternatively you could use any other web host, like Express in Node.js, since this is just a single HTML file with no other dependencies.
 
 ## Sample application {#DeployingHTMLandJavaScriptApplications-SampleApplication}
 
-Here is a very simple AngularJS application which uses [AngularJS Constants](https://docs.angularjs.org/api/auto/service/$provide#constant) to provide other services, controllers and directives with access to the configuration data stored in Octopus. The important part to note here is where we set the constant: we are going to use the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) feature to replace the **`#{MyApp.ConfigValue1}`** expression at deployment time.
+Here is a very simple AngularJS application which uses [AngularJS Constants](https://docs.angularjs.org/api/auto/service/$provide#constant) to provide other services, controllers and directives with access to the configuration data stored in Octopus. The important part to note here is where we set the constant: we are going to use the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) feature to replace the **`#{MyApp.ConfigValue1}`** expression at deployment time.
 
 **MyApp.html**
 
@@ -61,8 +61,8 @@ Firstly we need to make the package available for Octopus to deploy.
 We've crafted and packaged v1.0.0 of this sample application for you to try out (see the link below). Alternatively you can create your own application and [package the application](/docs/packaging-applications) yourself to try it out.
 :::
 
-1. Download [MyApp.1.0.0.zip](/docs/attachments/myapp.1.0.0.zip).
-2. [Upload it to the Octopus Built-In. repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) (you can do this by going to **{{Library,Packages}}** and clicking the **Upload package** button).
+1. Download [MyApp.1.0.0.zip](/docs/attachments/myapp.1.0.0.zip).
+2. [Upload it to the Octopus Built-In. repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) (you can do this by going to **{{Library,Packages}}** and clicking the **Upload package** button).
 
 ![](/docs/deployments/images/5866205.png "width=500")
 
@@ -105,8 +105,8 @@ And finally when we load the application in our browser we can see the results h
 This approach also works perfectly with minified sources. This is because the minifier won't change string literals like `"#{MyApp.ConfigValue1}"` and the substitution will work just like it did before. In this example we will just minify the JavaScript inline in the HTML file. You can get the same result by moving the JavaScript into an external file and minifying that.
 
 1. Unpack the MyApp.1.0.0.zip file.
-2. Minify the contents of the `<script>` tag. We used [https://jscompress.com/](https://jscompress.com/) to minify the JavaScript.
- 1. You should notice the `"#{MyApp.ConfigValue1}"` string literal has been left intact by the minifier.
+2. Minify the contents of the `<script>` tag. We used [https://jscompress.com/](https://jscompress.com/) to minify the JavaScript.
+ 1. You should notice the `"#{MyApp.ConfigValue1}"` string literal has been left intact by the minifier.
 3. Pack the HTML file into a new package and name the file MyApp.1.0.1.zip. This new version of our package has been enhanced with minified sources and will be much faster to download!
 4. Push the new package into the built-in repository, create a new release and deploy that release. You should see the same result as before, but now with minified sources!
 

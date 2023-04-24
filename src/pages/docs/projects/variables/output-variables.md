@@ -9,9 +9,9 @@ navOrder: 30
 
 As you work with [variables](/docs/projects/variables) in Octopus, there will be times when you want to use dynamic variables, for example, the value of a variable is the result of a calculation, or the output from running a command. For these scenarios, Octopus supports **output variables**.
 
-Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console/), or [package scripts and script steps](/docs/deployments/custom-scripts) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
+Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console/), or [package scripts and script steps](/docs/deployments/custom-scripts) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
 
-For example, you might have a standalone [PowerShell script step](/docs/deployments/custom-scripts) called **StepA** that does something like this:
+For example, you might have a standalone [PowerShell script step](/docs/deployments/custom-scripts) called **StepA** that does something like this:
 
 ```powershell PowerShell
 Set-OctopusVariable -name "TestResult" -value "Passed"
@@ -85,12 +85,12 @@ set_octopusvariable("Password", "correct horse battery staple", True)
 
 ## System output variables {#Outputvariables-Systemoutputvariables}
 
-After a step runs, Octopus captures the output variables, and keeps them for use in subsequent steps. In addition to variables that you create yourself using `Set-OctopusVariable`, Octopus also makes a number of built-in variables available. Here are some examples of commonly used built-in output variables:
+After a step runs, Octopus captures the output variables, and keeps them for use in subsequent steps. In addition to variables that you create yourself using `Set-OctopusVariable`, Octopus also makes a number of built-in variables available. Here are some examples of commonly used built-in output variables:
 
 - For NuGet package steps:
-  - `Octopus.Action[StepName].Output.Package.InstallationDirectoryPath` - the path that the package was deployed to
+  - `Octopus.Action[StepName].Output.Package.InstallationDirectoryPath` - the path that the package was deployed to
 - For manual intervention steps:
-  - `Octopus.Action[StepName].Output.Manual.Notes` - notes entered in response to the manual step
+  - `Octopus.Action[StepName].Output.Manual.Notes` - notes entered in response to the manual step
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.Id`
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.Username`
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.DisplayName`
@@ -132,16 +132,16 @@ To get the value of an output variable from a _Deploy a Release_ step, use the `
 
 ## Setting output variables using scripts {#Outputvariables-Settingoutputvariablesusingscripts}
 
-You can set output variables using any of the scripting languages supported by Octopus. In each case we make special functions available to your scripts by bootstrapping them with a template defined in the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari).
+You can set output variables using any of the scripting languages supported by Octopus. In each case we make special functions available to your scripts by bootstrapping them with a template defined in the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari).
 
 ### PowerShell {#Outputvariables-PowerShell}
 
 [PowerShell Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/WindowsPowerShell/)
 
-From a PowerShell script, you can use the PowerShell CmdLet `Set-OctopusVariable` to set the name and value of an output variable. The CmdLet takes two parameters:
+From a PowerShell script, you can use the PowerShell CmdLet `Set-OctopusVariable` to set the name and value of an output variable. The CmdLet takes two parameters:
 
-- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/projects/variables).
-- `[string]$value` - the value you want to give the output variable.
+- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/projects/variables).
+- `[string]$value` - the value you want to give the output variable.
 
 For example:
 
@@ -155,7 +155,7 @@ Set-OctopusVariable -name "TestResult" -value "Passed"
 
 [ScriptCS Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/ScriptCS)
 
-From a C# script, you can use the `public static void SetVariable(string name, string value)` method to set the name and value of an output variable.
+From a C# script, you can use the `public static void SetVariable(string name, string value)` method to set the name and value of an output variable.
 
 **C#**
 
@@ -167,7 +167,7 @@ Octopus.SetVariable("TestResult", "Passed");
 
 [Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/Bash)
 
-In a Bash script you can use the `set_octopusvariable` function to set the name and value of an output variable. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
+In a Bash script you can use the `set_octopusvariable` function to set the name and value of an output variable. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
 
 **Bash**
 
@@ -179,7 +179,7 @@ set_octopusvariable "TestResult" "Passed"
 
 [FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/FSharp)
 
-From a F# script, you can use the `setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
+From a F# script, you can use the `setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
 
 **F#**
 

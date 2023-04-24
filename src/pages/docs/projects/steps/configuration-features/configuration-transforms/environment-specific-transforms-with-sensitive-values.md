@@ -15,7 +15,7 @@ This can be achieved using both the [Substitute Variables in Templates](/docs/pr
 
 For example, let's assume we have a web application that's being deployed to Development, Staging, and Production environments, and you want to change your `Web.Config` file to reflect environment-specific values.
 
-To achieve this you would have a single configuration transformation file in your project. If it's named `Web.Release.Config`, the transformation will be applied to your `Web.Config` file automatically, however you can have your own filename and apply it to any config file you like.
+To achieve this you would have a single configuration transformation file in your project. If it's named `Web.Release.Config`, the transformation will be applied to your `Web.Config` file automatically, however you can have your own filename and apply it to any config file you like.
 
 This transform file can contain `#{variable}` values. Because your config will only get transformed on deployment, you can safely work with your `Web.Config` file during development, and you can keep sensitive variables like production passwords out of source control.
 
@@ -23,7 +23,7 @@ This transform file can contain `#{variable}` values. Because your config will o
 
 It's important to note that variable substitution occurs before the configuration transformation. This means you need to target your transform files for variable substitution by adding them to the **Target files** setting.
 
-For example, let's assume our `Web.Config` file has a `MyDatabaseConnection` connection string and a special `MyCustomSettingsSection` element. Something like this:
+For example, let's assume our `Web.Config` file has a `MyDatabaseConnection` connection string and a special `MyCustomSettingsSection` element. Something like this:
 
 ```xml
 <?xml version="1.0"?>
@@ -37,7 +37,7 @@ For example, let's assume our `Web.Config` file has a `MyDatabaseConnection` co
 </configuration>
 ```
 
-We also have a `Web.Release.Config` transform file with the following contents:
+We also have a `Web.Release.Config` transform file with the following contents:
 
 ```xml
 <?xml version="1.0"?>

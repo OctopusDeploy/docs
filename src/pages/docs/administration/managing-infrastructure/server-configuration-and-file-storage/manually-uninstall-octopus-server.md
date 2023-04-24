@@ -49,7 +49,7 @@ These steps will remove all traces of Octopus Server from your computer:
 4. Find and delete the Octopus registry entries from **`HKLM\SOFTWARE\Octopus`**.
 5. Find and delete any Octopus folders from:
     * **`%ProgramData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
-    * **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
+    * **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
 6. Find and delete any Octopus certificates from the following certificate stores:
     * **`Local Computer\Octopus`**
     * **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Octopus Server windows service

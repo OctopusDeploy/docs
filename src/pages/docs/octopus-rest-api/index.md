@@ -12,9 +12,9 @@ navOrder: 110
 The Octopus REST API is designed:
 
 1. To be friendly and easy to figure out.
-2. To be [hypermedia driven](http://en.wikipedia.org/wiki/HATEOAS), using links and the occasional [URI template](http://tools.ietf.org/html/rfc6570) ([read more](#api-links)).
+2. To be [hypermedia driven](http://en.wikipedia.org/wiki/HATEOAS), using links and the occasional [URI template](http://tools.ietf.org/html/rfc6570) ([read more](#api-links)).
 3. To be comprehensive - 100% of the actions that you perform via the Octopus UI can be performed via the API.
-4. To provide a great developer experience through [API clients](#api-clients) and [detailed examples](/docs/octopus-rest-api/examples).
+4. To provide a great developer experience through [API clients](#api-clients) and [detailed examples](/docs/octopus-rest-api/examples).
 
 ## API Clients
 
@@ -129,4 +129,4 @@ If you are using spaces, you need to include the `SpaceID` in your API calls. If
 
 ## REST API code samples {#api-samples}
 
-Code snippet samples for various operations in the Octopus REST API are available both in our [API examples](/docs/octopus-rest-api/examples) and on the [OctopusDeploy-API GitHub repository](https://github.com/OctopusDeploy/OctopusDeploy-Api)
+Code snippet samples for various operations in the Octopus REST API are available both in our [API examples](/docs/octopus-rest-api/examples) and on the [OctopusDeploy-API GitHub repository](https://github.com/OctopusDeploy/OctopusDeploy-Api)

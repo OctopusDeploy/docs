@@ -7,7 +7,7 @@ description: Configuring NuGet repositories as Octopus Feeds
 navOrder: 50
 ---
 
-If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to **Library ➜ External feeds**.
+If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to **Library ➜ External feeds**.
 
 You can add NuGet feeds by clicking the **Add feed** button.
 
@@ -23,7 +23,7 @@ Learn more about [hosting your own NuGet Feeds](https://docs.nuget.org/create/ho
 
 ## NuGet.Server performance {#Packagerepositories-NuGet.Serverperformance}
 
-A popular external NuGet hosting option is **NuGet.Server**. However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
+A popular external NuGet hosting option is **NuGet.Server**. However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
 
 The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't suffer from these performance issues.
 

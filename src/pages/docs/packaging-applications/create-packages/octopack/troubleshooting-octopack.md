@@ -55,7 +55,7 @@ Task "CreateOctoPackPackage"
   OctoPack: Added file: bin\MyApplication.Web.dll.config
   OctoPack: Added file: bin\MyApplication.Web.dll
   OctoPack: Added file: bin\MyApplication.Web.pdb
- 
+ 
 ...
   OctoPack: NuGet.exe path: c:\dev\MyApplication\source\packages\OctoPack.3.0.42\tools\NuGet.exe
   OctoPack: Running NuGet.exe with command line arguments: pack "c:\dev\MyApplication\source\MyApplication.Web\obj\octopacking\MyApplication.Web.nuspec"  -NoPackageAnalysis -BasePath "c:\dev\MyApplication\source\MyApplication.Web" -OutputDirectory "c:\dev\MyApplication\source\MyApplication.Web\obj\octopacked" -Version 0.0.0.0
@@ -92,9 +92,9 @@ Done building target "OctoPack" in project "MyApplication.Web.csproj".
 ```
  * If OctoPack is running but your files are not being packed correctly, see if the file is mentioned in the build log.
    * Files that are copied to the build output directory will be included in the package. Take a look at the contents of your build output directory and compare that with the messages in the build log.
-   * For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package.
-   * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
-   * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
+   * For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package.
+   * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
+   * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
 
 ## Next
 

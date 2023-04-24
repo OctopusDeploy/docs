@@ -17,7 +17,7 @@ Deploying projects over [SSH](/docs/infrastructure/deployment-targets/linux/ssh-
 
 :::div{.hint}
 **Authoritative documentation**
-The best and most up-to-date guide to installing .NET will continue to be on the [.NET website](https://www.microsoft.com/net/download/linux-package-manager/ubuntu16-04/runtime-current). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
+The best and most up-to-date guide to installing .NET will continue to be on the [.NET website](https://www.microsoft.com/net/download/linux-package-manager/ubuntu16-04/runtime-current). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
 :::
 
 ### Register Microsoft key and feed
@@ -46,7 +46,7 @@ sudo apt-get install aspnetcore-runtime-2.1
 
 :::div{.hint}
 **Authoritative Documentation**
-The best and most up-to-date guide to installing NGINX will continue to be on the [NGINX website](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
+The best and most up-to-date guide to installing NGINX will continue to be on the [NGINX website](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
 :::
 
 ### Download the key used to sign NGINX packages and the repository, and add it to the `apt` program’s key ring:
@@ -113,7 +113,7 @@ Rather than connecting and deploying your application as the root user, you shou
 Entire books have been published on the subject of security on Unix based systems. These steps are intended to serve a basic level of security, while making sure you stop and consider the role that it plays in your environment.
 :::
 
-In this case we are going to create a simple user account with a password which will be used for both the deployment process and running the application process itself. In your case you may want to use different accounts for each task. Replace **&lt;the-password-you-want&gt;** with a random password of your choice and remember this value as it will be needed later when configuring the target on the Octopus Server
+In this case we are going to create a simple user account with a password which will be used for both the deployment process and running the application process itself. In your case you may want to use different accounts for each task. Replace **&lt;the-password-you-want&gt;** with a random password of your choice and remember this value as it will be needed later when configuring the target on the Octopus Server
 
 ```bash
 sudo useradd -m octopus

@@ -189,7 +189,7 @@ Common options:
 
 ## Basic Examples {#Creatingreleases-Basicexamples}
 
-This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning) project setting: 
+This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning) project setting: 
 
 ```bash
 octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
@@ -225,7 +225,7 @@ For each step that has a package, the version is determined in the following ord
 
 ### Option --packageVersion
 
-This creates a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
+This creates a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --packageVersion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
@@ -266,7 +266,7 @@ octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packag
 
 ## Deploying a Release After Creating It {#Creatingreleases-Deployingareleaseaftercreatingit}
 
-To create a release **and** deploy it to an environment named Production:
+To create a release **and** deploy it to an environment named Production:
 
 ```bash
 octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress

@@ -73,11 +73,11 @@ Try {
 }
 ```
 
-The function *CheckDriveCapacity* informs you about how much space is available on your deployment target's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional PowerShell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behavior.
+The function *CheckDriveCapacity* informs you about how much space is available on your deployment target's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional PowerShell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behavior.
 
 ## Set the status
 
-A health check script can set the status of a target by returning a non-zero exit code or by writing a service message during the health check. PowerShell based deployment targets can use *Write-Warning*, *Write-Error* and *Fail-HealthCheck* to convey a healthy with warnings or unhealthy status:
+A health check script can set the status of a target by returning a non-zero exit code or by writing a service message during the health check. PowerShell based deployment targets can use *Write-Warning*, *Write-Error* and *Fail-HealthCheck* to convey a healthy with warnings or unhealthy status:
 
 **PowerShell health check service messages**
 
@@ -91,7 +91,7 @@ Fail-HealthCheck "This is an error"
 
 Bash targets do not include a disk space check by default like PowerShell targets do. As such, there is no default Bash script listed in your machine policy for Bash targets by default. However, you may write your own, or choose to add additional Bash script to run against your Bash targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/deployment-targets/linux/#requirements) that are included as part of the standard health check.
 
-Bash deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
+Bash deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
 
 **Bash Health Check Service Messages**
 
@@ -111,24 +111,24 @@ When using a custom health check script, the script execution through Calamari i
 
 ## Ignore machines that are unavailable during health checks {#MachinePolicies-Ignoremachinesthatareunavailableduringhealthchecks}
 
-By default, health checks fail if any deployment targets are unavailable during the health check.  Machine policies offer an option to ignore machines if they are unavailable during a health check:
+By default, health checks fail if any deployment targets are unavailable during the health check.  Machine policies offer an option to ignore machines if they are unavailable during a health check:
 
 ![](/docs/infrastructure/deployment-targets/images/5865592.png "width=500")
 
-By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (i.e., a warning will be reported or the health check will fail with an error).
+By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (i.e., a warning will be reported or the health check will fail with an error).
 
 ## Configure how Calamari and Tentacle are updated {#MachinePolicies-ConfigurehowCalamariandTentacleareupdated}
 
-Brand new Tentacle and SSH endpoints require the installation of Calamari to perform a deployment.  Also, if Calamari is updated, the Octopus Server will push the update to Tentacle and SSH endpoints. When there is a Tentacle update, Octopus can automatically update Tentacle endpoints.  Machine policies allow the customization of when Calamari and Tentacle updates occur.
+Brand new Tentacle and SSH endpoints require the installation of Calamari to perform a deployment.  Also, if Calamari is updated, the Octopus Server will push the update to Tentacle and SSH endpoints. When there is a Tentacle update, Octopus can automatically update Tentacle endpoints.  Machine policies allow the customization of when Calamari and Tentacle updates occur.
 
 ![](/docs/infrastructure/deployment-targets/images/5865594.png "width=500")
 
-By default, Calamari will be installed or updated when a machine is involved in a deployment.  The other two options will update Calamari:
+By default, Calamari will be installed or updated when a machine is involved in a deployment.  The other two options will update Calamari:
 
 - the first time a machine is added to Octopus and then subsequently when it is involved in a deployment.
 - any time Octopus detects Calamari is out of date (after health checks for example).
 
-Tentacle can be toggled to manually or automatically update.  If **Automatically** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically update Tentacle but instead will display a prompt to begin a Tentacle update on the Deployment Targets and Environments screens.
+Tentacle can be toggled to manually or automatically update.  If **Automatically** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically update Tentacle but instead will display a prompt to begin a Tentacle update on the Deployment Targets and Environments screens.
 
 ### Maximum number of concurrent upgrades {#MachinePolicies-MaxCalamariUpgrades}
 
@@ -143,13 +143,13 @@ You can select a username/password account to perform automatic Tentacle updates
 
 ## Automatically delete machines {#MachinePolicies-Automaticallydeletemachines}
 
-Machine policies can be configured to automatically remove unavailable machines after a time period.  When a health check runs, Octopus detects if machines are unavailable (cannot be contacted). When the **Automatically delete unavailable machines** option is set, Octopus checks how long a machine has been unavailable.  If the specified time period has elapsed, the machine is permanently deleted from Octopus.
+Machine policies can be configured to automatically remove unavailable machines after a time period.  When a health check runs, Octopus detects if machines are unavailable (cannot be contacted). When the **Automatically delete unavailable machines** option is set, Octopus checks how long a machine has been unavailable.  If the specified time period has elapsed, the machine is permanently deleted from Octopus.
 
 ![](/docs/infrastructure/deployment-targets/images/5865595.png "width=500")
 
 ## Assign machine policies to machines {#MachinePolicies-Assignmachinepoliciestomachines}
 
-Assign a machine policy to a machine by selecting a machine from the *Environments* screen and using the *Policy* drop down to select the machine policy:
+Assign a machine policy to a machine by selecting a machine from the *Environments* screen and using the *Policy* drop down to select the machine policy:
 
 ![](/docs/infrastructure/deployment-targets/images/5865599.png "width=500")
 

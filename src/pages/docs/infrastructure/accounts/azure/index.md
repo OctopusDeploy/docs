@@ -18,7 +18,7 @@ When you add an Azure account to Octopus, there are two ways to authenticate wit
 - [Service Principal](#azure-service-principal) (default) is used with resource manager mode (ARM), along with the `az` command line interface.
 - [Management certificate](#azure-management-certificate) is used with service management mode (ASM) or legacy mode.
 
-You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
+You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
 
 :::div{.warning}
 Management Certificates are used to authenticate with Service Management APIs, those are being deprecated by Microsoft.  See our [blog post](https://octopus.com/blog/azure-management-certs) for more details.  Instructions remain only for legacy purposes.  Please migrate to service principals as soon as possible.

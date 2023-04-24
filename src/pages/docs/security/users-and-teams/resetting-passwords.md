@@ -21,7 +21,7 @@ Enter and confirm your new password, then click **Save**:
 
 ## Resetting user passwords {#Resettingpasswords-Resettinguserpasswords}
 
-Octopus Server administrators can reset the passwords of other users from the Octopus Web Portal at **Configuration ➜ Users**.
+Octopus Server administrators can reset the passwords of other users from the Octopus Web Portal at **Configuration ➜ Users**.
 
 Select the user whose password you want to change:
 
@@ -63,7 +63,7 @@ Octopus.Server.exe service --start
 
 ## Password complexity {#Resettingpasswords-PasswordComplexity}
 
-Passwords must satisfy password complexity rules.  A password must be at least 8 characters long and satisfy three or more of the criteria:
+Passwords must satisfy password complexity rules.  A password must be at least 8 characters long and satisfy three or more of the criteria:
 
 - length of at least 12 characters
 - length of at least 16 characters

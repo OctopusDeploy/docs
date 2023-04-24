@@ -27,7 +27,7 @@ To reorder steps in a deployment or runbook process:
 
 ## Example: A simple deployment process
 
-In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/). The remaining steps both [deploy a package](/docs/deployments/packages/) and execute [custom scripts](/docs/deployments/custom-scripts/) on all of the [deployment targets](/docs/infrastructure) with the [role](/docs/infrastructure/deployment-targets/#target-roles) **web-server**.
+In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/). The remaining steps both [deploy a package](/docs/deployments/packages/) and execute [custom scripts](/docs/deployments/custom-scripts/) on all of the [deployment targets](/docs/infrastructure) with the [role](/docs/infrastructure/deployment-targets/#target-roles) **web-server**.
 
 ![A simple deployment process](/docs/projects/steps/images/simple-process.png "width=500")
 

@@ -22,8 +22,8 @@ Additional information on troubleshooting upgrades is below.
 
 To upgrade the Octopus Server, you will need to follow these steps:
 
-1. Ensure you have a recent [database backup](/docs/administration/data/backup-and-restore) that you can restore in case anything goes wrong.
-2. Download the [Octopus Deploy 2.6.5 Installer](https://octopus.com/downloads/2.6.5).
+1. Ensure you have a recent [database backup](/docs/administration/data/backup-and-restore) that you can restore in case anything goes wrong.
+2. Download the [Octopus Deploy 2.6.5 Installer](https://octopus.com/downloads/2.6.5).
 3. Run the installer and follow the prompts.
 
 :::div{.problem}
@@ -32,17 +32,17 @@ To upgrade the Octopus Server, you will need to follow these steps:
 If you change the Octopus Server installation path (e.g. *C:\Program Files\Octopus Deploy\Server*) between upgrades, you will need to reconfigure the Windows service after the installer completes. In the Octopus Server Manager, choose the "Reinstall" button to the right of the service status.
 :::
 
-When the installer finishes, Octopus Manager will appear. Make sure the Octopus service is running by clicking **Start**.
+When the installer finishes, Octopus Manager will appear. Make sure the Octopus service is running by clicking **Start**.
 
 ![](/docs/administration/upgrading/legacy/images/3277991.png "width=500")
 
 ## Upgrading Tentacles {#UpgradingfromOctopus2.0-UpgradingTentacles}
 
-After upgrading the Octopus Server, browse to the **Environments** tab in the Octopus Web Portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
+After upgrading the Octopus Server, browse to the **Environments** tab in the Octopus Web Portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
 
 ![](/docs/administration/upgrading/legacy/images/3277990.png "width=500")
 
-Click on the **Upgrade machines** button to have Octopus send the new Tentacle package to all of the machines.
+Click on the **Upgrade machines** button to have Octopus send the new Tentacle package to all of the machines.
 
 ## Troubleshooting {#UpgradingfromOctopus2.0-Troubleshooting}
 
@@ -52,7 +52,7 @@ For **Octopus 2.1**, we fixed the MSI and made it a "per machine" installation. 
 
 Instead, we added a check in **Octopus 2.1.3** that checks if a per-user installation already exists, and if so, blocks installation. The error message reads:
 
-> A previous version of **Octopus 2.0** is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [https://oc.to/UninstallFirst](https://oc.to/UninstallFirst)
+> A previous version of **Octopus 2.0** is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [https://oc.to/UninstallFirst](https://oc.to/UninstallFirst)
 
 ![](/docs/administration/upgrading/legacy/images/3278002.png "width=500")
 
@@ -65,7 +65,7 @@ Uninstalling the old Octopus MSI only removes the program files from disk and st
 When upgrading from one version of Octopus to another we actually perform an uninstall of the old version and then install the new version; the only difference in this case is that due to limitations in Windows Installer/WiX, we can't easily locate the per-user installation.
 :::
 
-You can uninstall the old version of the Octopus Deploy MSI installer and install the new version by locating the entry in **Programs and Features** in the Windows Control Panel:
+You can uninstall the old version of the Octopus Deploy MSI installer and install the new version by locating the entry in **Programs and Features** in the Windows Control Panel:
 
 ![](/docs/administration/upgrading/legacy/images/3278003.png "width=500")
 
@@ -80,7 +80,7 @@ HKEY_LOCAL_MACHINE\Software\Octopus\OctopusServer
 HKEY_LOCAL_MACHINE\Software\Octopus\Tentacle
 ```
 
-And delete the `InstallLocation` value.
+And delete the `InstallLocation` value.
 
 Depending on whether you are running the 32-bit registry editor or had previously installed 32-bit versions of Octopus on a 64-bit machine, you should also check:
 

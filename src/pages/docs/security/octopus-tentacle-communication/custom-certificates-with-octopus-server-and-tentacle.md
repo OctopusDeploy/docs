@@ -7,7 +7,7 @@ description: How to use custom certificates with Octopus Server and Tentacle.
 navOrder: 1
 ---
 
-Octopus uses self-signed certificates to securely communicate between Tentacles and the server. However, if you have a requirement to use your own certificates, you can use the import-certificate command to import your own certificate.  Octopus Server and Tentacle supports the import-certificate command.  The import command supports importing certificates in the Personal Information Exchange (PFX) files with an optional password.  Octopus requires PFX files contain the certificate private key.
+Octopus uses self-signed certificates to securely communicate between Tentacles and the server. However, if you have a requirement to use your own certificates, you can use the import-certificate command to import your own certificate.  Octopus Server and Tentacle supports the import-certificate command.  The import command supports importing certificates in the Personal Information Exchange (PFX) files with an optional password.  Octopus requires PFX files contain the certificate private key.
 
 For more information on self-signed certificates, see the [blog post](https://octopus.com/blog/why-self-signed-certificates) on the topic.
 
@@ -27,7 +27,7 @@ This assumes you have already installed Octopus on the target server.
 Octopus.Server.exe export-certificate --export-pfx="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
 ```
 
-3. Execute the following statement at a command line on the same server.  Note that the password is optional.
+3. Execute the following statement at a command line on the same server.  Note that the password is optional.
 
 ```batch
 Octopus.Server.exe import-certificate --from-file="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
@@ -67,13 +67,13 @@ Then import the new certificate (see step 2 above).
 :::
 
 3. Restart the OctopusDeploy service.
-4. The next step is to update all the associated Tentacles to trust the new certificate.  This is done by stopping the Tentacle service you wish to update and then executing the following statement with the new thumbprint from the step above.  Finally, restart the Tentacle service.
+4. The next step is to update all the associated Tentacles to trust the new certificate.  This is done by stopping the Tentacle service you wish to update and then executing the following statement with the new thumbprint from the step above.  Finally, restart the Tentacle service.
 
 ```powershell
 Tentacle.exe configure --trust NewOctopusServerCertificateThumbprint --console
 ```
 
-## Configuring Tentacle to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringTentacletousecustomcertificates}
+## Configuring Tentacle to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringTentacletousecustomcertificates}
 
 This assumes you have already installed a Tentacle on the target server.
 
@@ -127,4 +127,4 @@ The thumbprint of this Tentacle is: DE010ABF6FF8ED1B7895A31F005B8D88A3329867
 
 5. Open the Octopus Web Portal and select to the Tentacle on the Environments Page.
 6. Update the Tentacle thumbprint to use the value from Step 4 above and click the save button.
-7. Select the Connectivity tab and then click Check health to verify the connection is working.  If it's not, double check the Octopus Server and Tentacle thumbprints to ensure they are correct.
+7. Select the Connectivity tab and then click Check health to verify the connection is working.  If it's not, double check the Octopus Server and Tentacle thumbprints to ensure they are correct.

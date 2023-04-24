@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Check services
-description:  Checks the Octopus instances are running
+description:  Checks the Octopus instances are running
 navOrder: 30
 ---
 

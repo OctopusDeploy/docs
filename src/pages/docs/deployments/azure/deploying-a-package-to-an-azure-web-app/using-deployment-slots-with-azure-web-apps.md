@@ -15,7 +15,7 @@ This provides many benefits, including:
 - Roll-back can be achieved by simply swapping the slots back.
 
 :::div{.warning}
-Deployment Slots are only available to Azure Web Apps running in Standard or Premium [App Service plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
+Deployment Slots are only available to Azure Web Apps running in Standard or Premium [App Service plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 :::
 
 ## Walk-Through {#UsingDeploymentSlotswithAzureWebApps-Walk-Through}
@@ -65,7 +65,7 @@ So your step should look like:
 
 ### Step 3: Deploy Your Package {#UsingDeploymentSlotswithAzureWebApps-Step2:DeployyourPackage}
 
-The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app) step.
+The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app) step.
 
 ![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/deploy-azure-web-app-step.png "width=500")
 

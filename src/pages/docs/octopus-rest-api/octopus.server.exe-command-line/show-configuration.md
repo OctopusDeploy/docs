@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Show configuration
-description:  Outputs the server configuration
+description:  Outputs the server configuration
 navOrder: 191
 ---
 

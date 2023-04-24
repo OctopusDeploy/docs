@@ -6,12 +6,13 @@ title: SQL Server Database
 description: Information about using SQL Server Database with Octopus Deploy.
 navOrder: 2
 ---
+import Sql from 'src/shared-content/installation/sql.include.md';
 
 Octopus Deploy stores projects, environments, and deployment history in a Microsoft SQL Server Database.
 
-!include <sql>
+<Sql />
 
-## Using SQL Server Express {#SQLServerDatabaseRequirements-UsingSQLServerExpress}
+## Using SQL Server Express \{#SQLServerDatabaseRequirements-UsingSQLServerExpress}
 
 The easiest and cheapest way to get started is with [SQL Server Express](http://downloadsqlserverexpress.com/) and install the Octopus Server and SQL Server Express side-by-side on your server. This is a great way to test Octopus for a proof of concept. Depending on your needs, you might decide to use SQL Server Express, or upgrade to another supported edition.
 
@@ -21,7 +22,7 @@ The Octopus [installation](/docs/installation/) wizard can create the database f
 
 If you are using a hosted database service you will need to [create your own database](#create-your-own) and provide Octopus with the connection details.
 
-## Create your own database {#create-your-own}
+## Create your own database \{#create-your-own}
 
 If you don't want Octopus to automatically create the database for you as part of the installation process, please note the following:
 
@@ -29,7 +30,7 @@ If you don't want Octopus to automatically create the database for you as part o
 1. The default schema must be **dbo**.
 1. The database must use a **case-insensitive collation** (a collation with a name containing "\_CI\_").
 1. If you are using **Integrated Authentication** to connect to your database:
-    - The user account installing Octopus must be a member of the **db\_owner** role for that database.
+    - The user account installing Octopus must be a member of the **db\_owner** role for that database.
     - The account the Octopus Deploy windows server process runs under (by default, the `Local System` account) must be a member of the **db\_owner** role for that database.
 1. If you are using **SQL Authentication** to connect to your database, the SQL user account defined in your connection string must be a member of the **db\_owner** role for that database.
 
@@ -49,7 +50,7 @@ A typical connection string for using a SQL Server AlwaysOn availability group l
 Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetFailover=True
 ```
 
-## Using Azure Active Directory (AAD) in Azure SQL {#using-aad-in-azure-sql}
+## Using Azure Active Directory (AAD) in Azure SQL \{#using-aad-in-azure-sql}
 
 Support for [Azure Active Directory (AAD) authentication](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#setting-azure-active-directory-authentication) was added in Octopus **2021.1**. This includes the ability to use a [Managed Identity](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#using-active-directory-managed-identity-authentication) when connecting to your Octopus database hosted in Azure SQL.
 

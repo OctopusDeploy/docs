@@ -10,7 +10,7 @@ If you need to move the Octopus home folder, you can do that using the command-l
 Usage: Octopus.Server configure [<options>]
 ```
 
-Where `[<options>]` is:
+Where `[<options>]` is:
 
 **Options**
 

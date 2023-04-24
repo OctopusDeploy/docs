@@ -3,7 +3,7 @@
 This Configuration Feature was previously called JSON Configuration Variables. In version **2020.4.0**, we added support for YAML, XML, and Properties configuration file replacements and renamed the feature Structured Configuration Variables.
 :::
 
-With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables) in Octopus for use in JSON, YAML, XML, and Properties configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
+With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables) in Octopus for use in JSON, YAML, XML, and Properties configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
@@ -144,7 +144,7 @@ Given this example of a target config file:
 }
 ```
 
-If you define [variables](/docs/projects/variables) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file is updated to become:
+If you define [variables](/docs/projects/variables) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file is updated to become:
 
 ```json
 {
@@ -162,7 +162,7 @@ Note that the `tempImageFolder` setting remains untouched, and the types of `por
 
 It is common (and encouraged) to use hierarchical variables in Structured configuration files. This is supported in Octopus variables by using a nested path syntax delimited by *colon* characters.
 
-For example, to update the value of `weatherApi.url` and `weatherApi.key` in the target config file you would configure the Octopus variables `weatherApi:url` and `weatherApi:key`.
+For example, to update the value of `weatherApi.url` and `weatherApi.key` in the target config file you would configure the Octopus variables `weatherApi:url` and `weatherApi:key`.
 
 **Hierarchical JSON**
 ```json
@@ -181,7 +181,7 @@ weatherApi:
   key: DEV1234567
 ```
 
-You can also replace an entire object. For the example above, you could set Octopus variable `weatherApi` to a value of `{"url":"test.weather.com","key":"TEST7654321"}`, which will result in this:
+You can also replace an entire object. For the example above, you could set Octopus variable `weatherApi` to a value of `{"url":"test.weather.com","key":"TEST7654321"}`, which will result in this:
 
 **Replaced Hierarchical JSON**
 ```json
@@ -224,7 +224,7 @@ foo:
     - item2
 ```
 
-Variables can be set for `foo:bar:1` with a value `qux` which will update the value of the second element in the array or sequence to be `qux`, like so:
+Variables can be set for `foo:bar:1` with a value `qux` which will update the value of the second element in the array or sequence to be `qux`, like so:
 
 **Replaced Array Index Hierarchical JSON**
 ```json
@@ -492,7 +492,7 @@ port = 8080
 debug = true
 ```
 
-If you define [variables](/docs/projects/variables) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `tempImageFolder`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `D:\temp\img`, `80`, and `false`, the target properties file is updated to become:
+If you define [variables](/docs/projects/variables) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `tempImageFolder`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `D:\temp\img`, `80`, and `false`, the target properties file is updated to become:
 
 ```
 weatherApiUrl = test.weather.com

@@ -14,9 +14,9 @@ This page will show what is checked, what is deleted and why something might not
 
 The deployment journal on the Tentacle is the source of truth for what Octopus will know has been deployed to the Tentacle but more importantly what still exists on the Tentacle.
 
-If the deployment journal is deleted, on the next deployment, it will be created and contain one record. But you might have many more deployments than that on the server. If the release is not in the DeploymentJournal.xml it will not be deleted with the execution of the retention policy. Any deployments not in the deployment journal will need to be manually deleted.
+If the deployment journal is deleted, on the next deployment, it will be created and contain one record. But you might have many more deployments than that on the server. If the release is not in the DeploymentJournal.xml it will not be deleted with the execution of the retention policy. Any deployments not in the deployment journal will need to be manually deleted.
 
-By default your deployment journal is located at: `<Tentacle Home>\DeploymentJournal.xml`. 
+By default your deployment journal is located at: `<Tentacle Home>\DeploymentJournal.xml`. 
 - For Windows Tentacles, the default directory is: `C:\Octopus`
 - For Linux Tentacles, the default directory is: `/etc/octopus`
 

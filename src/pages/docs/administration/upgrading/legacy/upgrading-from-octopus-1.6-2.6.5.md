@@ -11,7 +11,7 @@ navOrder: 2
 Please read our guide for [upgrading older versions of Octopus](/docs/administration/upgrading/legacy) before continuing.
 :::
 
-A **lot** changed between **Octopus 1.6** and **Octopus 2.0**; so much that we had to to handle upgrades differently to the way we handle upgrades from, say, **Octopus 1.5** to **Octopus 1.6**. This page will walk you through the process of upgrading an **Octopus 1.6** instance to **Octopus 2.0**. Rather than being an in-place upgrade, **Octopus 2.0** is designed to be a **side-by-side** upgrade.
+A **lot** changed between **Octopus 1.6** and **Octopus 2.0**; so much that we had to to handle upgrades differently to the way we handle upgrades from, say, **Octopus 1.5** to **Octopus 1.6**. This page will walk you through the process of upgrading an **Octopus 1.6** instance to **Octopus 2.0**. Rather than being an in-place upgrade, **Octopus 2.0** is designed to be a **side-by-side** upgrade.
 
 ## Preparing {#UpgradingfromOctopus1.6-Preparing}
 
@@ -24,7 +24,7 @@ Below is the dashboard from an **Octopus 1.6** server that will be used as an ex
 
 ![](/docs/administration/upgrading/legacy/images/3278001.png "width=500")
 
-Before attempting to migrate, make sure that you don't have any projects, environments, or machines with duplicated names (this is no longer allowed in **Octopus 2.0**, and the migration wizard will report an error if it finds duplicates).
+Before attempting to migrate, make sure that you don't have any projects, environments, or machines with duplicated names (this is no longer allowed in **Octopus 2.0**, and the migration wizard will report an error if it finds duplicates).
 
 Then go to the **Storage** tab in the **Configuration** area, and make sure that you have a recent backup:
 
@@ -112,26 +112,26 @@ function Upgrade-Tentacle ($rel, $loc, $hm, $sthumb, $sxsPort)
   & .\tentacle.exe configure --instance "Tentacle" --home "$hm" --console
   & .\tentacle.exe configure --instance "Tentacle" --app "$hm\Applications" --console
   & .\tentacle.exe configure --instance "Tentacle" --trust="$sthumb"
- 
+ 
   if ($sxsPort) {
     & .\tentacle.exe configure --instance "Tentacle" --port "$sxsPort" --console
   }
- 
+ 
   if (!$sxsPort) {
     Write-Output "Stopping the 1.0 Tentacle"
     Stop-Service "Octopus Tentacle"
   }
- 
+ 
   Write-Output "Starting the 2.0 Tentacle"
   & .\tentacle.exe service --instance "Tentacle" --install --start --console
 
   if (!$sxsPort) {
     Uninstall-OldTentacle
   }
- 
+ 
   Write-Output "Tentacle commands complete"
 }
- 
+ 
 # If sxsPort ('side-by-side port') is specified, the old Tentacle will remain running
 # alongside the new one. If an sxsPort is not specified, the old Tentacle will be
 # uninstalled.

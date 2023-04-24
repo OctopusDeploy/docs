@@ -3,10 +3,10 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: User roles
-description: User roles are a critical part of the Octopus security model whereby they are assigned to Teams and they dictate what the members of those teams can do in Octopus.
+description: User roles are a critical part of the Octopus security model whereby they are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 ---
 
-User roles and group permissions play a major part in the Octopus security model. These roles are assigned to Teams and they dictate what the members of those teams can do in Octopus.
+User roles and group permissions play a major part in the Octopus security model. These roles are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 
 ## Built-in user roles {#UserRoles-Built-inUserRoles}
 
@@ -51,7 +51,7 @@ For more information regarding the _system or space level_, please see [system a
 
 ## Creating user roles {#UserRoles-CreatingUserRoles}
 
-A custom User Role can be created with any combination of permissions. To create a custom user role:
+A custom User Role can be created with any combination of permissions. To create a custom user role:
 
 1. Under the **Configuration** page, click **Roles**.
 
@@ -71,16 +71,16 @@ When applying roles to a team, you can optionally specify a scope for each role 
 
 ## Troubleshooting permissions {#UserRoles-TroubleshootingPermissions}
 
-If for some reason a user has more/fewer permissions than they should, you can use the **Test Permissions** feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.
+If for some reason a user has more/fewer permissions than they should, you can use the **Test Permissions** feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.
 
-To test the permissions go to **Configuration ➜ Test Permissions** and select a user from the drop-down.
+To test the permissions go to **Configuration ➜ Test Permissions** and select a user from the drop-down.
 
 The results will show:
 
 - The teams of which the user is a member of. There are two separate Permission context that you can check.
    - **Show System permissions** will show [System level permissions](/docs/security/users-and-teams/system-and-space-permissions)
    - **Show permissions within a specific space** will show [Space specific Permissions](/docs/security/users-and-teams/system-and-space-permissions).
-- A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
+- A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
 
 ![](/docs/security/users-and-teams/images/systempermissions.png "width=500")
 

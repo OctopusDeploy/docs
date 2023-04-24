@@ -52,7 +52,7 @@ This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-
 
 You can do either of these:
   - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool) this works great on Linux and Windows.
-  - [Download Octopus CLI](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo` or `/usr/local/bin`.
+  - [Download Octopus CLI](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo` or `/usr/local/bin`.
 
 Then we can let the plugin know where it is installed.
 

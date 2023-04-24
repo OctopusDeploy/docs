@@ -15,7 +15,7 @@ $connection = $repository.Client.Get($machine.Links["Connection"]);
 ```csharp C#
 // Sync
 var connection = repository.Client.Get(machine.Links["Connection"]);
- 
+ 
 // Async
 var connection = await client.Get(machine.Links["Connection"]);
 ```
@@ -36,7 +36,7 @@ $me = $method.invoke($repository.Client, @($link, $null))
 ```csharp C#
 // Sync
 var me = repository.Client.Get<UserResource>(repository.Client.RootDocument.Links["CurrentUser"]);
- 
+ 
 // Async
 var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"])
 ```

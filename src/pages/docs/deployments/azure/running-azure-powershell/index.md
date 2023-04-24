@@ -30,7 +30,7 @@ When executing PowerShell against Azure, Octopus Deploy will automatically use y
 This applies to:
 
 - 'Run an Azure Script' steps.
-- Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deployments/azure/cloud-services/) or [Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app) steps.
+- Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deployments/azure/cloud-services/) or [Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app) steps.
 
 This functionality requires the Azure CLI version 2.0 or above to be installed on the worker.
 
@@ -56,7 +56,7 @@ To use your own version of the Azure CLI or Azure Powershell cmdlets when using 
 
 ## Run an Azure PowerShell script step {#RunningAzurePowerShell-RunanAzurePowerShellScriptStep}
 
-Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for executing PowerShell in the context of an Azure Subscription. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
+Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for executing PowerShell in the context of an Azure Subscription. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
 ![](/docs/deployments/azure/running-azure-powershell/5865912.png "width=170")
 

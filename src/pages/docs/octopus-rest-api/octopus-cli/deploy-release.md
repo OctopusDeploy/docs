@@ -149,19 +149,19 @@ Common options:
 
 ## Basic Examples {#Deployingreleases-Basicexamples}
 
-This example deploys release 1.0.0 of the *HelloWorld* project to the Production environment:
+This example deploys release 1.0.0 of the *HelloWorld* project to the Production environment:
 
 ```bash
 octo deploy-release --project HelloWorld --releaseNumber 1.0.0 --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-This deploys the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the Production environment:
+This deploys the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the Production environment:
 
 ```bash
 octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-This deploys the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the Production environment for the Tenants tagged as *Upgrade Ring/Early Adopters*:
+This deploys the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the Production environment for the Tenants tagged as *Upgrade Ring/Early Adopters*:
 
 ```bash
 octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --tenantTag "Upgrade Ring/Early Adopters" --server http://octopus/ --apiKey API-ABCDEF123456

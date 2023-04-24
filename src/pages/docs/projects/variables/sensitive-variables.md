@@ -63,9 +63,9 @@ For variable type, select **Sensitive**.
 Learn more about [security and encryption](/docs/security/data-encryption) in Octopus Deploy.
 :::
 
-When dealing with sensitive variables, Octopus encrypts these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/projects/variables), with two notable exceptions:
+When dealing with sensitive variables, Octopus encrypts these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/projects/variables), with two notable exceptions:
 
-- Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/octopus-rest-api) or the Octopus Web Portal; and
+- Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/octopus-rest-api) or the Octopus Web Portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.
 
 ### Choosing which variables should be sensitive
@@ -89,7 +89,7 @@ You could also make `DB.Username` or any of the other components of this templat
 Here are some common pitfalls to avoid:
 
 - **Avoid logging your sensitive values**: you won't really get any benefit from logging your sensitive variables since they will be masked by Octopus. The masking is in provided in case a downstream system logs the sensitive value inadvertently logging it to the Octopus deployment logs.
-- **Avoid short values:** only sensitive variables with length **greater than 3** characters will be masked. This is done to prevent false positives causing excessive obfuscation of the logs. Consider 8-30 characters depending on the requirements of your deployment.
+- **Avoid short values:** only sensitive variables with length **greater than 3** characters will be masked. This is done to prevent false positives causing excessive obfuscation of the logs. Consider 8-30 characters depending on the requirements of your deployment.
 - **Avoid common language**: see the example below of "broke", use a password generator with high entropy [like this one](https://www.passwordsgenerators.net/).
 - **Avoid sequences that are interpreted by your scripting language of choice**: For example, certain escape sequences like `$^` will be misinterpreted by PowerShell potentially logging out your sensitive variable in clear-text.
 - **Sensitivity is not transitive/infectious**: For example, imagine you have a sensitive variable called `DB.Password` and another variable called `DB.ConnectionString` with the value `Server=#{DB.Server};...;Password=#{DB.Password}`; the `DB.ConnectionString` does not become sensitive just because `DB.Password` is sensitive. However, if you happen to write the database connection string to the task log, the password component will be masked like this `Server=db01.mycompany.com;...;Password=*****` which is probably the desired outcome.

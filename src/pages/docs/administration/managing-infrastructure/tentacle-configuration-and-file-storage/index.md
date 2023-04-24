@@ -11,7 +11,7 @@ Occasionally it may be necessary to change the location at which Tentacle stores
 
 :::div{.problem}
 
-Make sure you have a **current backup** of your Tentacle Home Directory before proceeding.
+Make sure you have a **current backup** of your Tentacle Home Directory before proceeding.
 :::
 
 ## Tentacle configuration {#Tentacleconfigurationandfilestorage-Tentacleconfiguration}
