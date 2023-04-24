@@ -7,6 +7,9 @@ description: A guide on how to rollback a .NET application hosted on Windows Ser
 navOrder: 5
 hideInThisSectionHeader: true
 ---
+import ZeroConfigRollback from 'src/shared-content/rollbacks/zero-configuration-rollback.include.md';
+import CalculateDeploymentMode from 'src/shared-content/rollbacks/calculate-deployment-mode.include.md';
+import PreventReleaseProgression from 'src/shared-content/rollbacks/prevent-release-progression.include.md';
 
 This guide will walk through rolling back .NET Windows Services and .NET Web Applications hosted on IIS.  It will use the [OctoFX Sample Application](https://github.com/OctopusSamples/OctoFX).  That application has three components:
 
@@ -34,7 +37,8 @@ View the deployment process on our [samples instance](https://samples.octopus.ap
 :::
 
 ## Zero Configuration Rollback
-!include <zero-configuration-rollback>
+
+<ZeroConfigRollback />
 
 ## Simple Rollback Process
 
@@ -59,7 +63,7 @@ View the deployment process on our [samples instance](https://samples.octopus.ap
 
 ### Calculate Deployment Mode
 
-!include <calculate-deployment-mode>
+<CalculateDeploymentMode />
 
 ### Skip Database Deployment Steps
 
@@ -77,7 +81,7 @@ We also recommend adding or updating the notes field to indicate it will only ru
 
 ### Prevent Release Progression
 
-!include <prevent-release-progression>
+<PreventReleaseProgression />
 
 ## Complex Rollback Process
 

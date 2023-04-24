@@ -7,6 +7,9 @@ description: A guide on how to rollback a Node.js application hosted on NGINX
 navOrder: 15
 hideInThisSectionHeader: true
 ---
+import ZeroConfigRollback from 'src/shared-content/rollbacks/zero-configuration-rollback.include.md';
+import CalculateDeploymentMode from 'src/shared-content/rollbacks/calculate-deployment-mode.include.md';
+import PreventReleaseProgression from 'src/shared-content/rollbacks/prevent-release-progression.include.md';
 
 [NGINX](https://nginx.org) is a popular web server for Linux deployments.  This guide will cover how to roll back a [Node.js](https://nodejs.org/en/) application accessed through NGINX.  In this example, NGINX is a reverse proxy to a Node.js service running as a [systemd service](https://wiki.debian.org/systemd/Services). The application has two components:
 
@@ -35,7 +38,8 @@ View the deployment process on our [samples instance](https://samples.octopus.ap
 :::
 
 ## Zero Configuration Rollback
-!include <zero-configuration-rollback>
+
+<ZeroConfigRollback />
 
 ## Rollback Process
 
@@ -58,7 +62,7 @@ View the deployment process on our [samples instance](https://samples.octopus.ap
 
 ### Calculate Deployment Mode
 
-!include <calculate-deployment-mode>
+<CalculateDeploymentMode />
 
 ### Skip Database Deployment Step
 
@@ -76,4 +80,4 @@ We also recommend adding or updating the notes field to indicate it will only ru
 
 ### Block Release Progression
 
-!include <prevent-release-progression>
+<PreventReleaseProgression />
