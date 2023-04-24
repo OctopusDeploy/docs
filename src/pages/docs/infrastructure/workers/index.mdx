@@ -7,12 +7,22 @@ description: External workers are machines that can execute steps that don't nee
 navOrder: 30
 hideInThisSectionHeader: true
 ---
+import ConfigureLinuxListeningWorker from 'src/shared-content/tentacle/configure-linux-listening-worker.include.md';
+import ConfigureLinuxPollingWorker from 'src/shared-content/tentacle/configure-linux-polling-worker.include.md';
+import ConfigureSshConnectionWorker from 'src/shared-content/tentacle/configure-ssh-connection-worker.include.md';
+import ConfigureWindowsListeningWorker from 'src/shared-content/tentacle/configure-windows-listening-worker.include.md';
+import ConfigureWindowsPollingWorker from 'src/shared-content/tentacle/configure-windows-polling-worker.include.md';
+import InstallTentacleManager from 'src/shared-content/tentacle/install-tentacle-manager.include.md';
+import PoweShellNamedMutex from 'src/shared-content/tentacle/powershell-named-mutex.include.md';
+import Workers from 'src/shared-content/infrastructure/workers.include.md';
+import WorkersIndividualProcessExclusively from 'src/shared-content/tentacle/workers-individual-process-exclusively.include.md';
+import WorkersMultipleSimultaneousProcesses from 'src/shared-content/tentacle/workers-multiple-simultaneous-processes.include.md';
 
 [Getting Started - Worker and Worker Pools](https://www.youtube.com/watch?v=v6621BId7fE)
 
-!include <workers>
+<Workers />
 
-## Where steps run {#where-steps-run}
+## Where steps run \{#where-steps-run}
 
 The following step types and configurations run on a worker:
 
@@ -37,17 +47,17 @@ There are two kinds of workers you can use in Octopus:
 Workers are assigned at the start of a deployment or runbook, not at the time the individual step executes.
 :::
 
-## Ignoring Workers {#ignoring-workers}
+## Ignoring Workers \{#ignoring-workers}
 
 Octopus works out-of-the-box without setting up workers.  You can run all deployment processes, run script steps on the built-in worker, deploy to Azure and run AWS and Terraform steps, without further setup.  The built-in worker is available in a default Octopus set up, and Octopus workers are designed so that, if you aren't using external workers, none of your deployment processes need to be worker aware.
 
 The choices of built-in worker, built-in worker running in a separate account, and external workers enable to you harden your Octopus Server and scale your deployments.
 
-## Migrating to Workers {#migrating-to-workers}
+## Migrating to Workers \{#migrating-to-workers}
 
 Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus Server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus Server](/docs/infrastructure/workers/worker-pools/#Using-the-default-pool-to-stop-running-scripts-on-the-server).
 
-## Built-in Worker {#built-in-worker}
+## Built-in Worker \{#built-in-worker}
 
 The Octopus Server has a built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** for the **Run steps on the Octopus Server** option.
 
@@ -57,7 +67,7 @@ Adding a worker to the default worker pool will disable the built-in worker, and
 
 Learn about the security implications and how to configure the [built-in worker](/docs/infrastructure/workers/built-in-worker).
 
-## External Workers {#external-workers}
+## External Workers \{#external-workers}
 
 An **External Worker** is either:
 - A [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux) Tentacle.
@@ -69,11 +79,11 @@ Using external workers allows delegating work to a machine other than the Octopu
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
-## Registering an External Worker {#registering-an-external-worker}
+## Registering an External Worker \{#registering-an-external-worker}
 
 Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client) or with the Tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
-### Registering Workers in the Octopus Web Portal {#registering-workers-in-the-octopus-web-portal}
+### Registering Workers in the Octopus Web Portal \{#registering-workers-in-the-octopus-web-portal}
 
 You can register workers from the Octopus Web portal if they are a Windows or Linux [Listening Tentacle](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended) or an [SSH deployment target](/docs/infrastructure/deployment-targets/linux/ssh-target).
 
@@ -85,37 +95,39 @@ You can choose between:
 
 After you have saved the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
 
-### Registering a Windows Listening Tentacle as a Worker {#registering-windows-listening-worker}
+### Registering a Windows Listening Tentacle as a Worker \{#registering-windows-listening-worker}
 
-!include <install-tentacle-manager>
-!include <configure-windows-listening-worker>
+<InstallTentacleManager />
 
-### Registering a Linux Listening Tentacle as a Worker {#registering-linux-listening-worker}
+<ConfigureWindowsListeningWorker />
 
-The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux) for more details.
-
-!include <configure-linux-listening-worker>
-
-### Registering a Worker with an SSH Connection {#registering-ssh-connection-worker}
-
-!include <configure-ssh-connection-worker>
-
-### Registering a Windows Polling Tentacle as a Worker {#registering-windows-polling-worker}
-
-!include <install-tentacle-manager>
-!include <configure-windows-polling-worker>
-
-The new Polling Tentacle will automatically show up in the Workers list.
-
-### Registering a Linux Polling Tentacle as a Worker {#registering-linux-polling-worker}
+### Registering a Linux Listening Tentacle as a Worker \{#registering-linux-listening-worker}
 
 The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux) for more details.
 
-!include <configure-linux-polling-worker>
+<ConfigureLinuxListeningWorker />
+
+### Registering a Worker with an SSH Connection \{#registering-ssh-connection-worker}
+
+<ConfigureSshConnectionWorker />
+
+### Registering a Windows Polling Tentacle as a Worker \{#registering-windows-polling-worker}
+
+<InstallTentacleManager />
+
+<ConfigureWindowsPollingWorker />
 
 The new Polling Tentacle will automatically show up in the Workers list.
 
-### Registering Workers with the Tentacle executable {#registering-workers-with-the-tentacle-executable}
+### Registering a Linux Polling Tentacle as a Worker \{#registering-linux-polling-worker}
+
+The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux) for more details.
+
+<ConfigureLinuxPollingWorker />
+
+The new Polling Tentacle will automatically show up in the Workers list.
+
+### Registering Workers with the Tentacle executable \{#registering-workers-with-the-tentacle-executable}
 
 Tentacle workers can also register with the server using the Tentacle executable (version 3.22.0 or later), for example:
 
@@ -134,7 +146,7 @@ The Tentacle executable can also be used to deregister workers, for example:
 For information on creating an API key, see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 :::
 
-## Recommendations for External Workers {#recommendations-for-external-workers}
+## Recommendations for External Workers \{#recommendations-for-external-workers}
 
 We highly recommend setting up external workers on a different machine to the Octopus Server.
 
@@ -144,15 +156,15 @@ It can be advantageous to have workers on the same local network as the server t
 
 Default pools attached to cloud targets allow co-location of workers and targets, this can help make workers specific to your targets as well as making the Octopus Server more secure by using external workers.
 
-## Run Multiple processes on Workers simultaneously {#run-multiple-processes-on-workers-simultaneously}
+## Run Multiple processes on Workers simultaneously \{#run-multiple-processes-on-workers-simultaneously}
 
-!include <workers-multiple-simultaneous-processes>
+<WorkersMultipleSimultaneousProcesses />
 
-### Run a process on a Worker exclusively {#run-process-on-worker-exclusively}
+### Run a process on a Worker exclusively \{#run-process-on-worker-exclusively}
 
-!include <workers-individual-process-exclusively>
+<WorkersIndividualProcessExclusively />
 
-!include <powershell-named-mutex>
+<PoweShellNamedMutex />
 
 ### Workers in HA setups 
 

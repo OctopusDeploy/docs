@@ -7,6 +7,7 @@ description: Software and hardware requirements for installing the latest versio
 navOrder: 10
 hideInThisSection: true
 ---
+import TentacleDownloads from 'src/shared-content/tentacle/tentacle-downloads.include.md';
 
 If you're using a version prior to **Tentacle 3.1**, refer to the [installation requirements for older versions of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements).
 
@@ -15,7 +16,7 @@ The installation requirements for the latest version of Tentacle are:
 ## Windows Server
 
 -  Windows Server 2012
--  Windows Server 2012 R2 
+-  Windows Server 2012 R2
 -  Windows Server 2016 (Both "Server Core" and "Server with a GUI" installations are supported for Tentacle).
 -  Windows Server 2019 
 -  Windows Server 2022
@@ -43,13 +44,14 @@ The table below outlines the **minimum** required version of .NET Framework for 
 
 ## Hardware requirements
 
-- Hardware minimum: 512MB RAM, 1GHz CPU, 2GB free disk space.
+- Hardware minimum: 512MB RAM, 1GHz CPU, 2GB free disk space.
 
 Tentacle uses a small amount of memory when idle, usually around 10MB (it may appear higher in task manager because memory is shared with other .NET processes that are running). When deploying, depending on what happens during the deployment, this may expand to 60-100MB, and will then go back down after the deployment is complete. Tentacle will happily run on single-core machines, and only uses about 100MB of disk space, though, of course, you'll need more than that to deploy your applications.
 
-!include <tentacle-downloads>
+<TentacleDownloads />
 
 ## Python
+
 Octopus can run Python scripts on Windows targets provided the following criteria are met:
 
 - Python version 3.4+ is installed
