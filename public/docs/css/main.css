@@ -628,6 +628,13 @@ nav.site-nav h2 {
     }
 }
 
+.side-nav li {
+    list-style: none;
+    font-size: var(--font-size-small);
+    font-weight: 400;
+    line-height: 2.8;
+}
+
 .site-nav li {
     list-style: none;
     font-size: var(--font-size-small);

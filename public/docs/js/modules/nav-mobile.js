@@ -20,6 +20,15 @@ function addMobileNav(resizedEventName) {
     for (let icon of icons) {
         addMobileNavigation(icon, resizedEventName);
     }
+
+    const details = qsa('[data-openon]');
+    for (let detail of details) {
+        const minWidth = parseInt(detail.dataset.openon, 10);
+        const width = window.innerWidth;
+        if (width > minWidth) {
+            detail.setAttribute('open', 'open');
+        }
+    }
 }
 
 /**
