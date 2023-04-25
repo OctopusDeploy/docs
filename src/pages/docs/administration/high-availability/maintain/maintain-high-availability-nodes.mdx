@@ -61,3 +61,14 @@ For example, imagine it is time to install Windows Updates on one node. The proc
 3. Install updates, restart the node, etc. as required.
 4. Add the node back to the load balancer.
 5. Disable the *Drain* feature, so that the node can now execute deployments again.
+
+## Deleting or retiring a high-availability node
+
+You can use the following steps to retire and delete a high-availability node.
+
+1. Drain the node with the [node drain command](/docs/octopus-rest-api/octopus.server.exe-command-line/node/) or in the user interface under **Configuration ➜ Nodes** and selecting **Drain Node** from the overflow menu (`...`)
+2. Wait for tasks to finish on the node
+3. Stop the service or container running the node
+4. You can now delete the node in **Configuration ➜ Nodes** by selecting **Delete** from the overflow menu (`...`)
+
+You can then decommission the resources used to run the retired node.
