@@ -54,7 +54,6 @@ export const OPEN_GRAPH = {
 
 export const HEADER_SCRIPTS = `
 <meta name="google-site-verification" content="nIbWsTU_ELqMnLNxIexH_s6ch3m-s_MaFnl5u8WoaRM" />
-  <link rel="preload" href="/docs/css/roboto-regular.woff" as="font" type="font/woff" crossorigin>
   <script defer>
   const whenActivated = new Promise((resolve) => {
 	if (document.prerendering) {

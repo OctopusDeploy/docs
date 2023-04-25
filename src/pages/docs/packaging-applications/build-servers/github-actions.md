@@ -206,7 +206,8 @@ To package your artifacts for deployment, configure your build to use the `Octop
 
 ```yaml
     - name: Install Octopus CLI
-      uses: !include <image-version-install-octopus-cli-action>
+      uses: OctopusDeploy/install-octopus-cli-action@v1
+
       with:
         version: latest
 ```
@@ -215,7 +216,8 @@ Adding this Action allows your build to use the commands from the Octopus [comma
 
 ```yaml
     - name: Install Octopus CLI
-      uses: !include <image-version-install-octopus-cli-action>
+      uses: OctopusDeploy/install-octopus-cli-action@v1
+
       with:
         version: latest
     - name: Package OctoPetShopDatabase

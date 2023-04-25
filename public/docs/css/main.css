@@ -22,7 +22,7 @@ html {
 }
 
 body {
-    font-family: robotoregular;
+    font-family: var(--body-font);
     font-style: normal;
     font-weight: 400;
     font-size: var(--font-size-medium);
@@ -110,9 +110,10 @@ em {
 h1 {
     font-size: 3rem;
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--blue-grey-dark);
     font-family: var(--heading-font);
+    letter-spacing: -0.02em;
     margin: 0 0 4vh 0;
 }
 
@@ -140,6 +141,7 @@ h2, h3, h4, h5, h6 {
     color: var(--blue-gray-darker);
     padding: 2rem 0 0.5rem 0;
     font-family: var(--heading-font);
+    letter-spacing: -0.02em;
 }
 
 h2 {

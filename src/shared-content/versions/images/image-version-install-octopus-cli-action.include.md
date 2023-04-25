@@ -1,1 +1,0 @@
-OctopusDeploy/install-octopus-cli-action@v1
