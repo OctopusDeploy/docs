@@ -1,0 +1,43 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: octopus worker-pool dynamic create
+description: Create a dynamic worker pool
+navOrder: 131
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Create a dynamic worker pool in Octopus Deploy
+
+```
+Usage:
+  octopus worker-pool dynamic create [flags]
+
+Flags:
+      --description string   Description of the worker pool.
+  -n, --name string          A short, memorable, unique name for this worker pool.
+  -w, --web                  Open in web browser
+      --worker-type string   The worker type to use for all leased workers.
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus worker-pool dynamic create
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
