@@ -3,6 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Insights
+navTitle: Overview
+navSection: Insights
 description: Insights gives you better visibility into your company's DevOps performance.
 navOrder: 100
 ---

@@ -3,6 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Administration
+navTitle: Overview
+navSection: Administration
 description: Octopus administration tasks and command reference.
 navOrder: 120
 hideInThisSectionHeader: true

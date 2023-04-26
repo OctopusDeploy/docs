@@ -3,6 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Getting started
+navTitle: Overview
+navSection: Getting started
 description: This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guide you through implementing them with Octopus Cloud or your own self-hosted Octopus Server
 navOrder: 5
 hideInThisSectionHeader: true

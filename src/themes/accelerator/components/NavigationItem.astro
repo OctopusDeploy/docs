@@ -12,10 +12,14 @@ const { lang, page } = Astro.props satisfies Props;
 
 // Logic
 const accelerator = new Accelerator(SITE);
+
+const linkTitle = (page.title === page.fullTitle)
+  ? null
+  : page.fullTitle;
 ---
 {(page.children.length == 0) && (
 <li>
-  <a href={ accelerator.urlFormatter.formatAddress(page.url) } aria-current={ page.ariaCurrent } rel={ page.rel }>{ page.title }</a>
+  <a href={ accelerator.urlFormatter.formatAddress(page.url) } aria-current={ page.ariaCurrent } rel={ page.rel } title={ linkTitle }>{ page.title }</a>
 </li>
 )}
 {(page.children.length > 0) && (

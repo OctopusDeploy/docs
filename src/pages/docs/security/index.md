@@ -3,6 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Security
+navTitle: Overview
+navSection: Security
 description: Security considerations for Octopus Administrators.
 navOrder: 130
 ---

@@ -3,6 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Packaging applications
+navTitle: Overview
+navSection: Packaging applications
 description: Packaging applications for deployment with Octopus Deploy.
 navOrder: 40
 hideInThisSection: true
