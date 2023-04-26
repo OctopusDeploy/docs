@@ -1466,6 +1466,11 @@ nav.site-nav h2 {
     .simple-grid-3 {
         display: block;
     }
+
+    .simple-grid > *,
+    .simple-grid-3 > * {
+        margin-block-end: var(--block-gap);
+    }
 }
 
 /* Reading List */
