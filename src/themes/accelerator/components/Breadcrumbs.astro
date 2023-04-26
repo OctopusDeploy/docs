@@ -21,6 +21,14 @@ const accelerator = new Accelerator(SITE);
 
 const currentUrl = new URL(Astro.request.url);
 const navPages = accelerator.navigation.breadcrumbs(currentUrl, SITE.subfolder, breadcrumbs?.length ?? 0);
+
+for (let i = 0; i < navPages.length; i++) {
+  navPages[i].title = navPages[i].section || navPages[i].title;
+}
+
+// The last breadcrumb should use the full name
+//navPages[navPages.length -1].title = navPages[navPages.length -1].fullTitle;
+
 let metaIndex = navPages.length;
 ---
 <nav class="site-breadcrumbs" aria-label={ _(Translations.aria.breadcrumbs) }>
