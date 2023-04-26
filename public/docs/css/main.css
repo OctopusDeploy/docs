@@ -1462,7 +1462,8 @@ nav.site-nav h2 {
 }
 
 @media (max-width: 860px) {
-    .simple-grid {
+    .simple-grid,
+    .simple-grid-3 {
         display: block;
     }
 }
