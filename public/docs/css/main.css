@@ -674,17 +674,14 @@ nav.site-nav h2 {
     border-radius: var(--standard-radius);
 }
 
-.site-nav li.has-children ul details {
-    width: calc(100% - var(--marker-size));
-    margin-inline-start: var(--marker-size);
+.site-nav summary {
+    padding-inline: 0.8em;
+    position: relative;
+    left: -0.8em;
 }
 
-.site-nav a {
-    padding: 0.3em 1em;
-}
-
-.site-nav li.has-children summary span {
-    padding: 0.3em 0.6em 0 1em;
+.site-nav ul {
+    padding-inline-start: 1rem;
 }
 
 .site-nav a:hover,
@@ -735,7 +732,7 @@ nav.site-nav h2 {
 }
 
 .site-nav details ul {
-    margin-inline-start: 1rem;
+    /* margin-inline-start: 1rem; */
 }
 
 /* Main content group */
