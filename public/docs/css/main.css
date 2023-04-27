@@ -615,34 +615,39 @@ nav.skip-links a:focus {
     padding-block-end: 3rem;
 }
 
-nav.site-nav h2 {
-    display: none;
+.site-nav ul {
+    padding-inline-start: 1rem;
 }
 
 .site-nav li,
 .side-nav li {
     list-style: none;
-    margin-block: 1.2em;
+    /* margin-block: 1.2em; */
+}
+
+.site-nav h2 {
+    display: none;
 }
 
 .site-nav a,
 .site-nav li.has-children summary,
 .site-nav li.has-children summary span {
     width: 100%;
-    display: inline;
+    display: block;
     text-decoration: none;
     color: var(--color-menu-link);
     border-radius: var(--standard-radius);
+}
+
+.site-nav a,
+.site-nav li.has-children summary span {
+    padding-block: 0.5em;
 }
 
 .site-nav summary {
     padding-inline: 0.8em;
     position: relative;
     left: -0.8em;
-}
-
-.site-nav ul {
-    padding-inline-start: 1rem;
 }
 
 .site-nav a:hover,
@@ -680,6 +685,7 @@ nav.site-nav h2 {
     float: right;
     color: var(--color-menu-marker);
     margin-inline-end: 0.5rem;
+    padding-block: 0.5em;
 }
 
 .site-nav details[open] > summary {
