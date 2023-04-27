@@ -43,6 +43,7 @@
     --bgcolor-menu: var(--blue-qqq);
     --bgcolor-menu-open: var(--blue-100);
     --bordercolor-menu-open: var(--navy-200);
+    --gap-menu: 0.6em;
 
     --navigation-width: 280px;
 

@@ -641,7 +641,7 @@ nav.skip-links a:focus {
 
 .site-nav a,
 .site-nav li.has-children summary span {
-    padding-block: 0.5em;
+    padding-block: var(--gap-menu);
 }
 
 .site-nav summary {
@@ -685,7 +685,7 @@ nav.skip-links a:focus {
     float: right;
     color: var(--color-menu-marker);
     margin-inline-end: 0.5rem;
-    padding-block: 0.5em;
+    padding-block: var(--gap-menu);
 }
 
 .site-nav details[open] > summary {
