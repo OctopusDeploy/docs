@@ -658,13 +658,13 @@ nav.site-nav h2 {
     font-weight: bold;
 }
 
-.site-nav details details {
+.site-nav details {
     border-inline-start: 1px solid transparent;
     position: relative;
     left: -1px;
 }
 
-.site-nav details details[open] {
+.site-nav details[open] {
     border-inline-start: 1px solid var(--bordercolor-menu-open);
 }
 
