@@ -270,15 +270,17 @@ header h1 em,
     color: var(--fore-link);
     display: block;
     float: right;
-    font-size: 0.8em;
+    font-size: 0.6em;
     height: 1.6em;
     margin-inline-start: .2em;
     opacity: .5;
     overflow: hidden;
     padding-top: 1px;
+    position: relative;
     text-decoration: none;
+    top: 0.4em;
     opacity: 0;
-    width: 1.3em;
+    width: 1.25em;
     white-space: nowrap;
 }
 
@@ -845,6 +847,8 @@ nav.skip-links a:focus {
 .page-toc li a {
     display: block;
     text-decoration: none;
+    padding-block: 0.5em;
+    margin-block: var(--gap-menu);
 }
 
 .page-toc li a.highlight {
@@ -853,19 +857,19 @@ nav.skip-links a:focus {
 }
 
 .page-toc .toc-lev-3 {
-    padding-inline-start: 1.5em;
+    padding-inline-start: 1em;
 }
 
 .page-toc .toc-lev-4 {
-    padding-inline-start: 3em;
+    padding-inline-start: 2em;
 }
 
 .page-toc .toc-lev-5 {
-    padding-inline-start: 4.5em;
+    padding-inline-start: 3em;
 }
 
 .page-toc .toc-lev-6 {
-    padding-inline-start: 6em;
+    padding-inline-start: 4em;
 }
 
 /* Author info */

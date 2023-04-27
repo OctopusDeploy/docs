@@ -71,13 +71,13 @@ const site_features = SITE.featureFlags;
                         <Feedback frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         <Authors frontmatter={ frontmatter } lang={ lang } />
                         <Taxonomy frontmatter={ frontmatter } lang={ lang } />
+                        <EditOnGithub frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         {metaImage && <meta itemprop="image" content={ metaImage.src } />}
                     </div>
                 </article>
             </main>
             <div class="side-nav">
                 <TableOfContents expanded={ 930 } frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-                <EditOnGithub frontmatter={ frontmatter } headings={ headings } lang={ lang } />
             </div>
         </div>
         <ArticleJourney frontmatter={ frontmatter } headings={ headings } lang={ lang } />
