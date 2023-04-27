@@ -26,17 +26,40 @@
     --grey: #555555FF; /* #777777 is low contrast (WCAG) */
 
     --navy-600: #3E607DFF;
-    --navy-200: #DAE2E9FF;
+    --navy-400: #7C98B4FF;
     --navy-300: #A9BBCBFF;
+    --navy-200: #DAE2E9FF;
 
     --blue-500: #1A77CA;
     --blue-200: #CDE4F7;
     --blue-100: #F2F8FD;
     --blue-qqq: #FAFDFF;
+
+    --blue-midnight-dark: #070E14FF;
+    --blue-midnight-darker: #0A202FFF;
+    --blue-midnight: #10212FFF;
+    --blue-midnight-lighter: #22425CFF;
+
+    --blue-grey-dark: #152B3DFF;
+    --blue-gray-darker: #1F2F3CFF;
+    --blue-grey-medium: #113049FF;
+    --blue-grey-light: #274B66FF;
+    --blue-grey-smoke: #C5E6FF66;
+
+    --font-size-xlarge: 24px;
+    --font-size-large: 20px;
+    --font-size-regular: 18px;
+    --font-size-medium: 16px;
+    --font-size-small: 14px;
     
-    --color-text: #10212F;
-    --color-heading: #152B3D;
+    --color-text: var(--blue-midnight);
+    --color-heading: var(--blue-grey-dark);
     
+    --color-subtitle: var(--navy-600);
+    --font-size-subtitle: var(--font-size-large);
+
+    --bordercolor-header: var(--navy-200);
+
     --color-menu-link: var(--navy-600);
     --color-menu-link-alt: var(--blue-500);
     --color-menu-marker: var(--navy-300);
@@ -69,20 +92,6 @@
 
     /* To be checked and cleaned */
 
-    --blue-midnight-dark: #070E14FF;
-    --blue-midnight-darker: #0A202FFF;
-    --blue-midnight: #10212FFF;
-    --blue-midnight-lighter: #22425CFF;
-    
-    
-    --navy-400: #7C98B4FF;
-    --light-bg: #F9FAFAFF;
-
-    --blue-grey-dark: #152B3DFF;
-    --blue-gray-darker: #1F2F3CFF;
-    --blue-grey-medium: #113049FF;
-    --blue-grey-light: #274B66FF;
-    --blue-grey-smoke: #C5E6FF66;
     
     --octo-blue: #0D79CE; /* Insufficient contrast for #0D80D8FF; */
     --lightest-blue: #E5F4FFFF;
@@ -98,11 +107,7 @@
     --body-font: Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
     --code-font: Consolas, monaco, monospace;
 
-    --font-size-xlarge: 24px;
-    --font-size-large: 20px;
-    --font-size-regular: 18px;
-    --font-size-medium: 16px;
-    --font-size-small: 14px;
+
 
     --header-bg: var(--white);
     --header-icon-stroke: var(--blue-grey-light);

@@ -114,19 +114,6 @@ h1 {
     color: var(--color-heading);
     font-family: var(--heading-font);
     letter-spacing: -0.02em;
-    margin: 0 0 4vh 0;
-}
-
-header p {
-    font-weight: 200;
-    font-size: 1.2rem;
-    line-height: 1.38;
-    text-align: center;
-    padding: 0 0 3% 0;
-    margin: 0 auto;
-    color: var(--blue-grey-dark);
-    width: 60%;
-    max-width: 580px;
 }
 
 .ruler-25 {
@@ -172,21 +159,6 @@ img {
 
 strong {
     font-weight: bold;
-}
-
-header h1 em,
-.gradient-text {
-    font-style: normal;
-    background-color: #0D80D8;
-    background-image: linear-gradient(267.6deg, #9C6ADE 23.01%, #25D284 47.44%);
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
 }
 
 .page-content > *,
@@ -278,7 +250,7 @@ header h1 em,
     padding-top: 1px;
     position: relative;
     text-decoration: none;
-    top: 0.4em;
+    top: 0.5em;
     opacity: 0;
     width: 1.25em;
     white-space: nowrap;
@@ -357,20 +329,6 @@ nav.skip-links a:focus {
 }
 
 /* Site Header */
-
-.octo-header-dramatic {
-    background-color: var(--light-bg);
-    margin-block-end: 1%;
-}
-
-.octo-header-dramatic::after {
-    content: '';
-    display: block;
-    background-color: var(--white);
-    background-image: url(/docs/img/img-bkgcurve-lightgrey-2022.png);
-    background-size: 100% 100%;
-    height: clamp(30px, 5vw, 80px);
-}
 
 .octo-header-bkg {
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
@@ -750,29 +708,15 @@ nav.skip-links a:focus {
       "menu content toc";
 }
 
+.content-group header {
+    border-block-end: 1px solid var(--bordercolor-header);
+    margin-block-end: 1.5rem;
+    padding-block-end: 1.5rem;
+}
+
 .content-group header p {
-    width: 65%;
-    margin: 0 auto;
-    font-size: 1.3em;
-    padding: 0 0 5vh 0;
-    color: var(--fore-headings);
-    font-weight: 100;
-}
-
-@media (max-width: 860px) {
-    .content-group header p {
-        width: 90%;
-        font-size: 1em;
-        padding: 1% 0 12% 0;
-    }
-}
-
-@media (max-width: 460px) {
-    .content-group header p {
-        width: 90%;
-        font-size: 1em;
-        padding: 1% 0 22% 0;
-    }
+    color: var(--color-subtitle);
+    font-size: var(--font-size-subtitle)
 }
 
 .content-group .site-nav {
@@ -847,7 +791,7 @@ nav.skip-links a:focus {
 .page-toc li a {
     display: block;
     text-decoration: none;
-    padding-block: 0.5em;
+    padding-block: 0.4em;
     margin-block: var(--gap-menu);
 }
 
