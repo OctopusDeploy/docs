@@ -27,7 +27,7 @@ body {
     font-weight: 400;
     font-size: var(--font-size-medium);
     line-height: 1.6;
-    color: var(--black);
+    color: var(--color-text);
     background-color: var(--white);
 }
 
@@ -111,7 +111,7 @@ h1 {
     font-size: 3rem;
     line-height: 1.2;
     font-weight: 600;
-    color: var(--blue-grey-dark);
+    color: var(--color-heading);
     font-family: var(--heading-font);
     letter-spacing: -0.02em;
     margin: 0 0 4vh 0;
@@ -138,7 +138,7 @@ header p {
 h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.4;
-    color: var(--blue-gray-darker);
+    color: var(--color-heading);
     padding: 2rem 0 0.5rem 0;
     font-family: var(--heading-font);
     letter-spacing: -0.02em;
@@ -215,33 +215,33 @@ header h1 em,
 }
 
 .hint {
-    color: var(--hint-color);
-    border-color: var(--hint-border-color);
-    background-color: var(--hint-bg-color);
+    color: var(--color-hint);
+    border-color: var(--bordercolor-hint);
+    background-color: var(--bgcolor-hint);
 }
 
 .info {
-    color: var(--info-color);
-    border-color: var(--info-border-color);
-    background-color: var(--info-bg-color);
+    color: var(--color-info);
+    border-color: var(--bordercolor-info);
+    background-color: var(--bgcolor-info);
 }
 
 .success {
-    color: var(--success-color);
-    border-color: var(--success-border-color);
-    background-color: var(--success-bg-color);
+    color: var(--color-success);
+    border-color: var(--bordercolor-success);
+    background-color: var(--bgcolor-success);
 }
 
 .warning {
-    color: var(--warning-color);
-    border-color: var(--warning-border-color);
-    background-color: var(--warning-bg-color);
+    color: var(--color-warning);
+    border-color: var(--bordercolor-warning);
+    background-color: var(--bgcolor-warning);
 }
 
 .problem {
-    color: var(--problem-color);
-    border-color: var(--problem-border-color);
-    background-color: var(--problem-bg-color);
+    color: var(--color-problem);
+    border-color: var(--bordercolor-problem);
+    background-color: var(--bgcolor-problem);
 }
 
 .question {
@@ -300,8 +300,8 @@ h6:hover .bookmark-link,
 /* Tables */
 
 .table-wrap {
-    max-width: var(--content-width-mobile);
     overflow: auto;
+    max-width: 100%;
 }
 
 table {
@@ -381,9 +381,7 @@ nav.skip-links a:focus {
 }
 
 .octo-header {
-    width: var(--content-width);
-    max-width: var(--grid-max-width);
-    margin: 0 auto;
+    margin-inline: 1rem;
     display: grid;
     grid-template-columns: 172px auto 172px;
     font-size: var(--font-size-medium);
@@ -418,13 +416,13 @@ nav.skip-links a:focus {
 .octo-site-nav a {
     border-radius: var(--standard-radius);
     text-decoration: none;
-    color: var(--header-link-alt);
+    color: var(--color-menu-link);
     padding: 0.6em 1.0em;
 }
   
 .octo-site-nav a:hover,
 .octo-site-nav a:focus {
-    color: var(--header-link-color);
+    color: var(--color-menu-link-alt);
 }
   
 .octo-header > a.navigation-icon {
@@ -496,7 +494,10 @@ nav.skip-links a:focus {
 }
 
 .site-breadcrumbs li::before {
-    content: '>';
+    content: '\f054';
+    color: var(--color-menu-link);
+    font-family: fa-solid;
+    font-size: 0.8em;
     padding: 0 0.2rem 0 0;
 }
 
@@ -505,11 +506,21 @@ nav.skip-links a:focus {
     padding: 0;
 }
 
+.site-breadcrumbs a {
+    color: var(--color-menu-link);
+    text-decoration: none;
+}
+
+.site-breadcrumbs a:hover,
+.site-breadcrumbs a:focus {
+    color: var(--color-menu-link-alt);
+}
+
 .site-breadcrumbs a[aria-current],
 .site-breadcrumbs a[aria-current]:hover,
 .site-breadcrumbs a[aria-current]:focus {
     text-decoration: none;
-    color: var(--body-link-alt);
+    color: var(--color-text);
 }
 
 /* Handbook Title */
@@ -524,9 +535,7 @@ nav.skip-links a:focus {
 
 .octo-title {
     margin: 0 auto;
-    max-width: var(--grid-max-width);
-    padding: 0.95rem 1rem;
-    width: var(--content-width);
+    padding: 0.925rem 1rem;
 }
 
 .octo-title > *,
@@ -574,11 +583,22 @@ nav.skip-links a:focus {
 .site-nav,
 .side-nav {
     align-self: start;
-    height: calc(100vh - 260px);
-    margin-block-start: 10vh;
     overflow: hidden;
-    padding-inline-end: 1.5rem;
     position: sticky;
+    font-size: var(--font-size-small);
+    font-weight: 400;
+    line-height: 2.8;
+}
+
+.site-nav {
+    background-color: var(--bgcolor-menu);
+    height: calc(100vh - 110px);
+    top: 110px;
+}
+
+.side-nav {
+    margin-block-start: 10vh;
+    height: calc(100vh - 260px);
     top: 150px;
 }
 
@@ -589,6 +609,12 @@ nav.skip-links a:focus {
     overflow: overlay;
 }
 
+.site-nav > ul,
+.side-nav > ul {
+    padding-inline-end: 1rem;
+    padding-block-end: 3rem;
+}
+
 nav.site-nav h2 {
     display: none;
 }
@@ -597,15 +623,15 @@ nav.site-nav h2 {
     .site-nav,
     .side-nav {
         height: auto;
-        margin-block: 0;
-        padding-inline-end: 1.5rem;
+        margin: 0;
+        padding: 0;
         position: unset;
         top: unset;
     }
 
     .side-nav details {
         margin-block: 1rem;
-        width: var(--content-width);
+        width: auto;
         margin-inline: auto;
     }
     
@@ -622,7 +648,7 @@ nav.site-nav h2 {
     }
 
     .site-nav {
-    margin: 3rem 10% 0 10%;
+        margin: 3rem 5% 0 5%;
     }
 
     #site-nav {
@@ -632,16 +658,10 @@ nav.site-nav h2 {
 
 .side-nav li {
     list-style: none;
-    font-size: var(--font-size-small);
-    font-weight: 400;
-    line-height: 2.8;
 }
 
 .site-nav li {
     list-style: none;
-    font-size: var(--font-size-small);
-    font-weight: 400;
-    line-height: 2.8;
 }
 
 .site-nav a,
@@ -650,7 +670,7 @@ nav.site-nav h2 {
     width: 100%;
     display: inline;
     text-decoration: none;
-    color: var(--body-link-alt);
+    color: var(--color-menu-link);
     border-radius: var(--standard-radius);
 }
 
@@ -673,13 +693,21 @@ nav.site-nav h2 {
 .site-nav li.has-children summary:focus,
 .site-nav li.has-children summary:hover span,
 .site-nav li.has-children summary:focus span {
-    color: var(--body-link-color);
+    color: var(--color-menu-link-alt);
 }
 
 .site-nav a[aria-current] {
     font-weight: bold;
-    color: var(--body-link-alt);
-    background-color: var(--menu-link-bg);
+}
+
+.site-nav details details {
+    border-inline-start: 1px solid transparent;
+    position: relative;
+    left: -1px;
+}
+
+.site-nav details details[open] {
+    border-inline-start: 1px solid var(--bordercolor-menu-open);
 }
 
 .site-nav details summary::-webkit-details-marker,
@@ -692,10 +720,18 @@ nav.site-nav h2 {
     content: '\f078'; /* Chevron Down */
     font-family: fa-solid;
     float: right;
+    color: var(--color-menu-marker);
+    margin-inline-end: 0.5rem;
+}
+
+.site-nav details[open] > summary {
+    background-color: var(--bgcolor-menu-open);
+    font-weight: bold;
 }
 
 .site-nav details[open] > summary::before {
     content: '\f077'; /* Chevron Up */
+    color: var(--color-menu-link-alt);
 }
 
 .site-nav details ul {
@@ -705,10 +741,11 @@ nav.site-nav h2 {
 /* Main content group */
 
 .content-group {
-    grid-template-columns: var(--navigation-width) minmax(500px, 900px) var(--toc-width);
+    grid-template-columns: var(--navigation-width) minmax(300px, 800px) var(--toc-width);
     display: grid; 
     grid-template-rows: auto; 
     gap: var(--grid-gap-main);
+    max-width: 100vw;
     justify-content: space-between;
     grid-template-areas:
       "menu content toc";
@@ -782,6 +819,7 @@ nav.site-nav h2 {
 .page-toc details summary {
     text-decoration: none;
     font-weight: bold;
+    font-size: var(--font-size-medium);
 }
 
 .page-toc details summary::marker {
@@ -809,12 +847,12 @@ nav.site-nav h2 {
 
 .page-toc li a {
     display: block;
-    padding: 0.3em 0;
     text-decoration: none;
 }
 
 .page-toc li a.highlight {
     font-weight: bold;
+    color: var(--color-menu-link-alt);
 }
 
 .page-toc .toc-lev-3 {
@@ -918,9 +956,18 @@ nav.site-nav h2 {
 
 /* GitHub Link */
 
+.octo-github-edit {
+    margin-top: var(--block-gap);
+}
+
 .octo-github-edit a {
-    color: var(--body-link-alt);
+    color: var(--color-menu-link);
     text-decoration: none;
+}
+
+.octo-github-edit a:hover,
+.octo-github-edit a:focus {
+    color: var(--color-menu-link-alt);
 }
 
 /* Video */
