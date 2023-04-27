@@ -587,7 +587,7 @@ nav.skip-links a:focus {
     position: sticky;
     font-size: var(--font-size-small);
     font-weight: 400;
-    line-height: 2.8;
+    /* line-height: 2.8; */
 }
 
 .site-nav {
@@ -619,49 +619,10 @@ nav.site-nav h2 {
     display: none;
 }
 
-@media (max-width: 930px) {
-    .site-nav,
-    .side-nav {
-        height: auto;
-        margin: 0;
-        padding: 0;
-        position: unset;
-        top: unset;
-    }
-
-    .side-nav details {
-        margin-block: 1rem;
-        width: auto;
-        margin-inline: auto;
-    }
-    
-    .side-nav summary {
-        text-align: center;
-    }
-
-    .side-nav .octo-github-edit {
-        display: none;
-    }
-
-    nav.site-nav h2 {
-        display:none;
-    }
-
-    .site-nav {
-        margin: 3rem 5% 0 5%;
-    }
-
-    #site-nav {
-    display: none;
-    }
-}
-
+.site-nav li,
 .side-nav li {
     list-style: none;
-}
-
-.site-nav li {
-    list-style: none;
+    margin-block: 1.2em;
 }
 
 .site-nav a,
@@ -731,8 +692,41 @@ nav.site-nav h2 {
     color: var(--color-menu-link-alt);
 }
 
-.site-nav details ul {
-    /* margin-inline-start: 1rem; */
+@media (max-width: 930px) {
+    .site-nav,
+    .side-nav {
+        height: auto;
+        margin: 0;
+        padding: 0;
+        position: unset;
+        top: unset;
+    }
+
+    .side-nav details {
+        margin-block: 1rem;
+        width: auto;
+        margin-inline: auto;
+    }
+    
+    .side-nav summary {
+        text-align: center;
+    }
+
+    .side-nav .octo-github-edit {
+        display: none;
+    }
+
+    nav.site-nav h2 {
+        display:none;
+    }
+
+    .site-nav {
+        margin: 3rem 5% 0 5%;
+    }
+
+    #site-nav {
+    display: none;
+    }
 }
 
 /* Main content group */
