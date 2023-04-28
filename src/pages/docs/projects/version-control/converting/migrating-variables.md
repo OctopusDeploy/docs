@@ -10,7 +10,6 @@ hideInThisSection: true
 
 Support for storing non-sensitive variables in Git will be available to everyone in an upcoming version of Octopus. All newly configured Git projects will automatically have variables migrated when converting the project to Git. For existing Git projects, you will need to migrate these manually.
 
-
 :::div{.hint}
 We recommend migrating your variables to Git as soon as practical. We will continue to support Git projects with variables that haven't been migrated for now, but we will remove support for this at some point in the future.
 :::
@@ -43,6 +42,7 @@ The migration process is simple, and we've built a helpful wizard to guide you t
 Clicking the **Migrate Variables To Git** button will open the migation wizard.
 
 ### Step 1: Getting started
+
 The first page is just informational. After opening the dialog, Octopus will validate that the project can migrate variables to Git, then you can continue.
 
 ![Screenshot of page 1 (getting started) on Git variables migration wizard](/docs/projects/version-control/converting/git-variables-migrator-page-1.png "width=400")
@@ -64,10 +64,13 @@ After selecting the branch, you can view the migration summary and start the mig
 Once the migration is complete, click **Done**. The project will reload, and your variables will now be in Git.
 
 ## Next steps
+
 ### Merge variables to the default branch
+
 If you migrated the variables to any branch other than the default, be sure merge the variables to the default branch immediately. The variables are now just like any other file in your Git respository, so follow your typical Git workflows to get this merged.
 
 ### Update any other branches
+
 If you're a frequent user of branching within Octopus, you will want to ensure you get the variables to all of your active branches as quickly as possible.
 
 Once the variables have been merged to the default branch, you can update your branches as you would with any other files in your repository - pull the latest changes into your branch, and you'll be good to go.

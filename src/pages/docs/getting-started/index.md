@@ -130,5 +130,3 @@ Learn more about [tenants](/docs/tenants).
 If you're a large organization with lots of teams working in Octopus, you can use the Spaces feature to provide each of your teams with a space for the projects, environments, and infrastructure they work with, while keeping other team's assets separate in their own spaces.
 
 Learn more about [Octopus Spaces](/docs/administration/spaces).
-
-## Next steps

@@ -83,7 +83,7 @@ blockquote::before {
 
 blockquote cite {
     display: block;
-    text-align: right;
+    text-align: end;
     margin-block-start: var(--block-gap);
     font-style: italic;
     font-size: var(--font-size-regular);
@@ -183,7 +183,7 @@ strong {
     border-radius: 0 var(--standard-radius) var(--standard-radius) 0;
     margin: var(--block-gap) 0;
     padding: 1.5rem;
-    border-left: 3px solid #000;
+    border-inline-start: 3px solid #000;
 }
 
 .hint {
@@ -266,8 +266,7 @@ h6:hover .bookmark-link,
 }
 
 .bookmark-link::before {
-    /* content: '🔗 '; */
-    content: '\f0c1 ';
+    content: '\f0c1 '; /* Link */
     font-family: fa-solid;
 }
 
@@ -370,7 +369,7 @@ nav.skip-links a:focus {
 .overlay .octo-site-nav li {
     display: block;
     margin: 1em;
-    text-align: left;
+    text-align: start;
 }
   
 .octo-site-nav a {
@@ -387,7 +386,7 @@ nav.skip-links a:focus {
   
 .octo-header > a.navigation-icon {
     display: none;
-    text-align: right;
+    text-align: end;
     stroke: var(--header-link-alt);
     width: 40px;
     height: 40px;
@@ -454,7 +453,7 @@ nav.skip-links a:focus {
 }
 
 .site-breadcrumbs li::before {
-    content: '\f054';
+    content: '\f054'; /* Chevron Right */
     color: var(--color-menu-link);
     font-family: fa-solid;
     font-size: 0.8em;
@@ -519,14 +518,14 @@ nav.skip-links a:focus {
     }
 
     .octo-title a::after {
-        content: '\f078';
+        content: '\f078'; /* Chevron Down */
         font-family: fa-solid;
         margin-inline-start: 0.4rem;
         float: right;
     }
 
     .octo-title a[data-open]::after {
-        content: '\f077';
+        content: '\f077'; /* Chevron Up */
     }
 
     .octo-title span {
@@ -771,14 +770,14 @@ nav.skip-links a:focus {
 }
 
 .page-toc details summary::after {
-    content: '\f078';
+    content: '\f078'; /* Chevron Down*/
     font-family: fa-solid;
     margin-inline-start: 0.3em;
     float: right;
 }
 
 .page-toc details[open] summary::after {
-    content: '\f077';
+    content: '\f077'; /* Chevron Up */
     font-family: fa-solid;
 }
 
@@ -865,7 +864,7 @@ nav.skip-links a:focus {
 
 .post-taxonomy div {
     margin: var(--block-gap) 0;
-    text-align: right;
+    text-align: end;
 }
 
 .post-taxonomy h2 {
@@ -895,7 +894,7 @@ nav.skip-links a:focus {
 
 @media (max-width: 860px) {
     .post-taxonomy div {
-        text-align: left;
+        text-align: start;
     }
 }
 
@@ -965,34 +964,44 @@ nav.skip-links a:focus {
 }
 
 .octo-article-nav .grid {
-    align-items: center;
     display: grid;
     grid-gap: var(--grid-gap);
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     max-width: var(--grid-max-width);
     margin: 0 auto;
     width: var(--content-width);
-}
-
-.octo-article-nav dl {
-    text-align: right;
     color: var(--blue-gray-darker);
 }
 
-.octo-article-nav dl dt {
+.octo-article-nav .grid div > div:first-child {
     text-transform: uppercase;
     font-weight: 700;
     font-size: var(--font-size-large);
 }
 
-.octo-article-nav dl dt span:after {
+.octo-article-nav .previous {
+    text-align: start;
+}
+
+.octo-article-nav .previous span:before {
+    content: '\f137'; /* Circle Chevron Left */
+    font-family: fa-solid;
+    padding-inline-end: 0.6em;
+    color: var(--octo-blue);
+}
+
+.octo-article-nav .next {
+    text-align: end;
+}
+
+.octo-article-nav .next span:after {
     content: '\f138'; /* Circle Chevron Right */
     font-family: fa-solid;
     padding-inline-start: 0.6em;
     color: var(--octo-blue);
 }
 
-.octo-article-nav dl a {
+.octo-article-nav a {
     text-decoration: none;
 }
 
@@ -1062,10 +1071,6 @@ nav.skip-links a:focus {
 
 /* Post List */
 
-.page-content > *:first-child {
-    padding-block-start: 0;
-}
-
 .page-content ul.post-list {
     list-style: none;
     margin: 0 auto;
@@ -1125,7 +1130,7 @@ nav.skip-links a:focus {
 
 .site-footer {
     color: var(--navy-200);
-    text-align: left;
+    text-align: start;
     background-color: var(--blue-midnight-dark);
     padding: 3rem 0 3rem 0;
 }
@@ -1204,7 +1209,7 @@ nav.skip-links a:focus {
     grid-area: social;
     list-style: none;
     font-size: var(--font-size-xlarge);
-    text-align: right;
+    text-align: end;
 }
 
 .octo-social ul li {
@@ -1220,7 +1225,7 @@ nav.skip-links a:focus {
 
 .octo-social p {
     grid-area: copyright;
-    text-align: left;
+    text-align: start;
 }
 
 @media (max-width: 860px) {
@@ -1317,7 +1322,7 @@ nav.skip-links a:focus {
 }
 
 .fa-share-nodes:before {
-    content: '\f1e0';
+    content: '\f1e0'; /* Share Nodes */
     font-family: fa-solid;
     margin-inline-end: 0.3em;
 }
@@ -1346,23 +1351,23 @@ nav.skip-links a:focus {
 }
 
 .fa-face-frown:before {
-    content: '\f119';
+    content: '\f119'; /* Face Frown */
 }
 
 .fa-face-frown-slight:before {
-    content: '\e376';
+    content: '\e376'; /* Face Frown Slight */
 }
 
 .fa-face-meh:before {
-    content: '\f11a';
+    content: '\f11a'; /* Face Meh */
 }
 
 .fa-face-grin:before {
-    content: '\f580';
+    content: '\f580'; /* Face Grin */
 }
 
 .fa-face-grin-stars:before {
-    content: '\f587';
+    content: '\f587';  /* Face Grin Starts */
 }
 
 
@@ -1373,31 +1378,31 @@ nav.skip-links a:focus {
 }
 
 .fa-twitter:before {
-    content: '\f099';
+    content: '\f099'; /* Twitter */
     font-family: fa-brands;
     padding-inline-end: 1em;
 }
 
 .fa-linkedin:before {
-    content: '\f08c';
+    content: '\f08c'; /* LinkedIn */
     font-family: fa-brands;
     padding-inline-end: 1em;
 }
 
 .fa-github:before {
-    content: '\f09b';
+    content: '\f09b'; /* GitHub */
     font-family: fa-brands;
     padding-inline-end: 1em;
 }
 
 .fa-youtube:before {
-    content: '\f167';
+    content: '\f167'; /* YouTube */
     font-family: fa-brands;
     padding-inline-end: 1em;
 }
 
 .fa-octopus:before {
-    content: '\e082';
+    content: '\e082'; /* Octopus */
     font-family: fa-brands;
     padding-inline-end: 1em;
 }
@@ -1412,7 +1417,7 @@ nav.skip-links a:focus {
     max-height: 0px;
     margin: 0;
     width: 100%;
-    text-align: right;
+    text-align: end;
     z-index: 1;
     position: relative;
 }
@@ -1588,7 +1593,7 @@ nav.skip-links a:focus {
     grid-column: 1 / -1;
     cursor: unset;
     padding: 1rem 2rem 2rem 2rem;
-    text-align: left;
+    text-align: start;
 }
 
 .rec-list .rec-book.rec-full-width > *,

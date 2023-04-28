@@ -70,21 +70,20 @@ const showPrevious = true;
 ---
 <div class="octo-article-nav">
   <div class="grid">
-    <div class="octo-share">
-      <button data-share><i class="fa-solid fa-share-nodes">Share</i></button>
-    </div>
-    <dl>
       {showPrevious && previous &&
-      <dt data-destination={ previous.url }><span>Previous article</span></dt>
-      <dd><a href={ previous.url } rel={ previous.rel }>{ previous.title }</a></dd>
+      <div class="previous">
+        <div data-destination={ previous.url }><span>Previous article</span></div>
+        <div><a href={ previous.url } rel={ previous.rel }>{ previous.title }</a></div>
+      </div>
       }
       {next &&
-      <dt data-destination={ next.url }><span>Next article</span></dt>
-      <dd><a href={ next.url } class="continue"rel={ next.rel }>{ next.title }</a></dd>
+      <div class="next">
+        <div data-destination={ next.url }><span>Next article</span></div>
+        <div><a href={ next.url } class="continue"rel={ next.rel }>{ next.title }</a></div>
+      </div>
       }
-    </dl>
   </div>
 </div>
 <!-- Chromium fix. See: https://www.stevefenton.co.uk/blog/2022/12/mobile-position-sticky-issue/ -->
-<div style="navOrder: fixed;"></div>
+<div style="position: fixed;"></div>
 <Fragment set:html={ getSpeculationRules(speculationList) } />
