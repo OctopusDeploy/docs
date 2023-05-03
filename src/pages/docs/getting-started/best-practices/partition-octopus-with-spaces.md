@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-05-03
 title: Partition Octopus with Spaces
 description: Guidelines and recommendations for configuring spaces in Octopus Deploy.
 navOrder: 20

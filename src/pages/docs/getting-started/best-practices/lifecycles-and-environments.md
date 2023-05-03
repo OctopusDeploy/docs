@@ -1,18 +1,18 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-05-03
 title: Lifecycles and Environments
 description: Guidelines and recommendations for configuring your lifecycles to control the flow to your environments
 navOrder: 35
 hideInThisSection: true
 ---
 
-[Lifecycles](/docs/releases/lifecycles/) control the order of promotion of a release through different stages, or environments, in your pipeline.  You can configure a lifecycle to require deployments to **development**, **test**, and **staging** prior to deployments to **production**.  They are also used to set [retention policies](/docs/administration/retention-policies) (how long releases are saved) at a per environment level.
+[Lifecycles](/docs/releases/lifecycles/) control the order of release promotion through different stages or environments in your pipeline.  You can configure a lifecycle to require deployments to **development**, **test**, and **staging** prior to deployments to **production**.  They are also used to set [retention policies](/docs/administration/retention-policies) (how long releases are saved) at a per-environment level.
 
-Lifecycles are shared across an entire space.  A project references lifecycles via [channels](/docs/releases/channels) and can reference 1 to N lifecycles.
+Octopus Deploy shares Lifecycles across an entire space.  A project references lifecycles via [channels](/docs/releases/channels) and can reference 1 to N lifecycles.
 
-Lifecycles contain 1 to N phases, which represent a stage in your deployment lifecycle.  A phase can have 0 to N environments; for example, you could have a test phase that contains both **development** and **test** environments. Or, you could have a development phase for your **development** environment and a test phase for your **test** environment.  
+Lifecycles contain 1 to N phases, representing a stage in your deployment lifecycle.  A phase can have 0 to N environments; for example, you could have a test phase that contains both **development** and **test** environments.  Or, you could have a development phase for your **development** environment and a test phase for your **test** environment.  
 
 ## Manually set your Phases
 
@@ -30,9 +30,9 @@ We recommend manually configuring the phases in your lifecycles, including the d
 
 ## Number of lifecycles
 
-Your lifecycles should match your branching strategy.  For example, you create a feature branch for new work, then once it is accepted, it is merged into main.  That specific feature branch will never make it to Production.  Your lifecycles should reflect that.
+Your lifecycles should match your branching strategy.  For example, you create a feature branch for new work; then once it is accepted, it is merged into main.  That specific feature branch will never make it to **production**.  Your lifecycles should reflect that.
 
-If you have the typical set of environments, **development**, **test** (or QA), **staging** (or Pre-prod/UAT), and **production** with a feature-branch branching style, our recommendation is to have at least two lifecycles.
+Suppose you have the typical set of environments, **development**, **test** (or QA), **staging** (or Pre-prod/UAT), and **production** with a feature-branch branching style.  In that case, our recommendation is to have at least two lifecycles.
 
 - Development or Default lifecycle for feature branches: **development ➜ test**
 - Release lifecycle for the main branch: **staging ➜ production**
@@ -42,27 +42,27 @@ Two lifecycles allow you to have your standard workflow, where all the feature b
 We **_never_** recommend having a lifecycle with only **production**.  Any deployment to **production** must deploy to at least one other environment to verify the fix.  Skipping straight to **production**, especially during an emergency, will make a bad situation worse.
 
 :::div{.hint}
-A lifecycle with a single phase is an anti-pattern.  Typically we see this when users are strictly adhering to the [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) branching strategy.  If you create a new build, that build should be deployed to at least one environment to ensure it will work in **production**.  
+A lifecycle with a single phase is an anti-pattern.  Typically we see this when users strictly adhere to the [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) branching strategy.  If you create a new build, that build should be deployed to at least one environment to ensure it will work in **production**.  
 :::
 
 ## Production Approval
 
 Do not use the [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) for business owner approvals, CAB (change approval board) approvals, or other Production approvals unless there is no other option.  There are multiple reasons for this.
 
-- The manual intervention step was designed to pause a deployment to allow a person to review something before proceeding.  For example, a DBA needs to review a database delta script before the database deployment runs, or a QA engineer needs to manually verify the new version of the code before all traffic is redirected to that version in the load balancer.
+- The manual intervention step was designed to pause a deployment to allow a person to review something before proceeding.  For example, a DBA needs to review a database delta script before the database deployment runs, or a QA engineer needs to manually verify the new code version before all traffic is redirected to that version in the load balancer.
 - The manual intervention step was not designed to handle complex approval rules.  For example, a person who triggered the deployment isn't the person approving the change, or anyone involved in the code changes cannot approve the deployment to **production**.  
 - The manual intervention step runs during a deployment.  That requires you to first start the deployment to **production** to approve the deployment in **production**.  This prevents scenarios where you can schedule a deployment at 4 PM to run at 2 AM the next day.
 
-We recommend leveraging the ITSM functionality that integrates with [ServiceNow](/docs/approvals/service-now) or [JIRA Service Management](/docs/approvals/jira-service-management).  The ITSM integration is designed for **production** approvals in mind.  You can get approval and schedule a deployment to Production at 4 PM to run at 2 AM the next day.  The deployment will not start without approval.  And the approval can follow the rules you built into the ITSM provider.
+We recommend leveraging the ITSM functionality that integrates with [ServiceNow](/docs/approvals/service-now) or [JIRA Service Management](/docs/approvals/jira-service-management).  The ITSM integration is designed with **production** approvals in mind.  You can get approval and schedule a deployment to production at 4 PM to run at 2 AM the next day.  The approval workflow must be completed prior to the deployment starting.  And the approval can follow the rules you built into the ITSM provider.
 
 :::div{.hint}
 The ITSM integration is limited to customers on the new Enterprise license tier.
 :::
 
-If you cannot leverage ITSM integration, we recommend two approaches to **production** approvals.  These are listed in order of precidence.
+If you cannot leverage ITSM integration, we recommend two approaches to **production** approvals.  These are listed in order of precedence.
 
-1. Restrict who can deploy to **production** to your operations or systems admins.  Ensure they cannot make changes to the deployment process.  When they click the deploy button that is their "approval" to deploy to **production**.  See [common RBAC scenarios](/docs/getting-started/best-practices/users-roles-and-teams) on how to set that up.  
-2. Create a **prod approval** environment and add it to your lifecycle.  An example lifecycle with a **prod approval** environment is **development ➜ test ➜ staging ➜ prod approval ➜ production**.
+1.  Restrict who can deploy to **production** to your operations or systems admins.  Ensure they cannot make changes to the deployment process.  When they click the deploy button, that is their "approval" to deploy to **production**.  See [common RBAC scenarios](/docs/getting-started/best-practices/users-roles-and-teams) on how to set that up.  
+2. Add a **prod approval** environment to your lifecycle.  An example lifecycle with a **prod approval** environment is **development ➜ test ➜ staging ➜ prod approval ➜ production**.
 
 The **prod approval** environment has all the manual intervention steps required for approval.  After the release is "deployed" to the **prod approval** environment, it can then be scheduled for a **production** deployment.  No manual intervention steps will be required in **production** as all approvals happened earlier.
 
@@ -88,7 +88,7 @@ While possible to configure, you cannot have an optional phase with automatic de
 
 ## Further reading
 
-For further reading on lifecycles and environments in Octopus Deploy please see:
+For further reading on lifecycles and environments in Octopus Deploy, please see:
 
 - [Lifecycles](/docs/releases/lifecycles)
 - [Environments](/docs/infrastructure/environments)

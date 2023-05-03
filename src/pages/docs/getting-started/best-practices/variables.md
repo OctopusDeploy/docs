@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-05-03
 title: Variable Recommendations
 description: Guidelines and recommendations for configuring variables in Octopus Deploy.
 navOrder: 60
@@ -12,30 +12,30 @@ hideInThisSection: true
 
 There are multiple levels of variables in Octopus Deploy:
 
-1. Project 
-2. Tenant 
-3. Step Templates
-4. Library Set
-5. System Variables
+1.  Project 
+2.  Tenant 
+3.  Step Templates
+4.  Library Set
+5.  System Variables
 
 Project, Tenant, and Step Template variables are associated with their specific item and cannot be shared.  Library set variables can be shared between 1 to N Projects and Tenants.  System variables are variables provided by Octopus Deploy you can use during deployments.
 
 During a deployment, Octopus will gather all the variables for the project, Tenant (when applicable), step template, associated library sets, and system variables and create a "variable manifest" for each step to use.
 
 :::div{.hint}
-Multi-tenancy is an advanced topic, with its own set of recommendations.  Tenants were mentioned here so you could see the bigger picture of variables.
+Multi-tenancy is an advanced topic with its own set of recommendations.  Tenants were mentioned here so you could see the bigger picture of variables.
 :::
 
 Octopus Deploy provides the ability to replace values in your configuration files using the [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/) or the [.NET XML configuration variables feature](/docs/projects/steps/configuration-features/xml-configuration-variables-feature/).  In addition, Octopus Deploy supports the ability to perform [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms) during deployment time.
 
 In addition to having the above levels of variables, there are also two categories of variables.
 
-1. Variables used in configuration file replacement (connection strings, version number, etc.)
-2. Variables specific to the deployment or runbook run (output variables, messages, accounts, etc.)
+1.  Variables used in configuration file replacement (connection strings, version number, etc.)
+2.  Variables specific to the deployment or runbook run (output variables, messages, accounts, etc.)
 
 ## Variable Naming
 
-Without established naming conventions, variable name collisions are possible.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/#Scopingvariables-Scopespecificity).  But sometimes the variables are scoped equally. If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
+Without established naming conventions, variable name collisions are possible.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/#Scopingvariables-Scopespecificity).  But sometimes, the variables are scoped equally.  If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
 
 The recommendation is to avoid name collisions in the first place by following these naming standards.
 
@@ -48,15 +48,15 @@ These naming conventions only apply to variables used for a deployment or runboo
 
 ## Configuration File Replacement Variables
 
-One of Octopus Deploy's most used features is the variable scoping.  And with good reason, having the same process, with only needing a specific value such as a connection string or domain name changed, ensures consistency during the deployment process.
+One of Octopus Deploy's most used features is environmental variable scoping.  And with good reason, having the same process, only needing a specific value such as a connection string or domain name changed, ensures consistency during deployment.
 
-However, that has led some of our customers to attempt to make Octopus Deploy something it is not.  Octopus Deploy is not a configuration management tool, secret store, or a feature flag provider.  Store the variables required for Octopus Deploy to successfully deploy your application along with a minimum amount of configuration variables.  
+However, that has led some customers to attempt to make Octopus Deploy something other than what it is.  Octopus Deploy is not a configuration management tool, secret store, or feature flag provider.  Store the variables required for Octopus Deploy to successfully deploy your application, along with a minimum amount of configuration variables.  
 
 :::div{.hint}
-Changing a feature flag or secret stored in Octopus Deploy, requires you to deploy or run a runbook to manually update the file.  Leverage best in breed tools for storing secrets or feature flags that were designed for that use case in mind.  Octopus Deploy should store the necessary connection information to those platforms as sensitive variables.  It should update the appropriate configuration file entries or set environmental variables to successfully connect to those tools.  
+Changing a feature flag or secret stored in Octopus Deploy requires you to deploy or run a runbook to update the file manually.  Leverage best-in-breed tools for storing secrets or feature flags that were designed with that use case in mind.  Octopus Deploy should store the necessary connection information to those platforms as sensitive variables.  It should update the appropriate configuration file entries or set environmental variables to connect successfully to those tools.  
 :::
 
-Some examples of configuration variables to include:
+Some examples of configuration variables include:
 
 - Database Connection Strings, including username and password
 - Connection details to a secret store
@@ -69,8 +69,8 @@ There are also variables only Octopus Deploy knows about.  These include the rel
 For configurations that differ per environment, our recommendation is to use a combination of Octopus Deploy and configuration files stored in source control.  You'd have three levels of configuration files:
 
 - Main configuration file (appSettings.json)
-- Environment specific configuration file (appSettings.Development.json)
-- Tenant specific configuration file (appSettings.MyTenantName.json)
+- Environment-specific configuration file (appSettings.Development.json)
+- Tenant-specific configuration file (appSettings.MyTenantName.json)
 
 Octopus Deploy can set an environment variable or configuration value during deployment to indicate which environment-specific configuration file to use.  Or, if you are using .NET Framework, you can leverage [configuration file transforms](/docs/projects/steps/configuration-features/configuration-transforms).
 
