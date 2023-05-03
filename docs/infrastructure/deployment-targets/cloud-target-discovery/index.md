@@ -161,7 +161,7 @@ We recommend not manually adding targets when using Cloud Target Discovery to av
 When targets are created via Cloud Target Discovery, they are monitored by Octopus. When the cloud resources are removed, Octopus will detect unhealthy targets and remove them periodically.
 
 :::hint
-Server will not remove unhealthy targets immediately. Once a target is found to be unhealthy, Server will perform a health check once a minute.  Targets need to fail five health checks in a row before they are removed.   
+Server will not remove unhealthy targets immediately. Once a target is found to be unhealthy, the server will perform a health check once a minute.  If a target fails five health checks in a row, it will be removed.   
 :::
 
 ## Examples
