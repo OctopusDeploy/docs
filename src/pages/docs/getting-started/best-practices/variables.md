@@ -48,17 +48,25 @@ These naming conventions only apply to variables used for a deployment or runboo
 
 ## Configuration File Replacement Variables
 
-One of Octopus Deploy's most used features is the variable scoping.  And with good reason, having the same process, with only needing a specific value such as a connection string or domain name changed, ensures consistency during the deployment process.  
+One of Octopus Deploy's most used features is the variable scoping.  And with good reason, having the same process, with only needing a specific value such as a connection string or domain name changed, ensures consistency during the deployment process.
 
-That ability to scope variables to environments and replace them in configuration files can result in some anti-patterns, which include:
+However, that has led some of our customers to attempt to make Octopus Deploy something it is not.  Octopus Deploy is not a configuration management tool, secret store, or a feature flag provider.  Store the variables required for Octopus Deploy to successfully deploy your application along with a minimum amount of configuration variables.  
 
-- Dozens or hundreds of variables being replaced in a configuration file during deployment.
-- Needing a process to automatically add variables in Octopus Deploy based on a custom structure in source control.
-- Needing the ability to only edit one library variable set associated with a specific project.
-- Desiring the ability to source control variables from Octopus Deploy.
-- Wanting to be able to loop through all project variables and add them to a file during a deployment.
+:::div{.hint}
+Changing a feature flag or secret stored in Octopus Deploy, requires you to deploy or run a runbook to manually update the file.  Leverage best in breed tools for storing secrets or feature flags that were designed for that use case in mind.  Octopus Deploy should store the necessary connection information to those platforms as sensitive variables.  It should update the appropriate configuration file entries or set environmental variables to successfully connect to those tools.  
+:::
 
-Our recommendation is to use a combination of Octopus Deploy and configuration files stored in source control.  You'd have three levels of configuration files:
+Some examples of configuration variables to include:
+
+- Database Connection Strings, including username and password
+- Connection details to a secret store
+- Domain names
+- Server ports
+- Service URLs
+
+There are also variables only Octopus Deploy knows about.  These include the release version number, environment name, and deployment date. 
+
+For configurations that differ per environment, our recommendation is to use a combination of Octopus Deploy and configuration files stored in source control.  You'd have three levels of configuration files:
 
 - Main configuration file (appSettings.json)
 - Environment specific configuration file (appSettings.Development.json)
@@ -66,24 +74,7 @@ Our recommendation is to use a combination of Octopus Deploy and configuration f
 
 Octopus Deploy can set an environment variable or configuration value during deployment to indicate which environment-specific configuration file to use.  Or, if you are using .NET Framework, you can leverage [configuration file transforms](/docs/projects/steps/configuration-features/configuration-transforms).
 
-When someone proposes storing all the configuration variables in Octopus Deploy, we will ask the following questions:
-- Which variables does Octopus require for a deployment or runbook run?
-- Which variables contain sensitive information?
-- Who should own the maintenance of these variables?
-- Which variables are the most volatile?
-
-Examples of configuration variables that should be stored in Octopus Deploy.  These variables are required for a successful deployment, and in the case of database connection strings, they shouldn't be stored in source control.  They are also unlikely to change between releases.
-- Database Connection Strings, including username and password
-- Domain names
-- Server ports
-- Service URLs
-
-There are also variables only Octopus Deploy knows about.  These include the release version number, environment name, and deployment date.  
-
-Examples of configuration variables that should be stored in the main configuration file, environment specific, or tenant-specific configuration files.  These items are typically more volatile, and you'd want a history of any changes.
-- Feature flags
-- CSS Settings
-- Log Levels
+For other items,   
 
 ## Library Variable Sets
 

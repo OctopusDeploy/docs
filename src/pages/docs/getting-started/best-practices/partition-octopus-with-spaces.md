@@ -15,6 +15,10 @@ hideInThisSection: true
 - A user can have full permissions in one space but read-only permissions in all other spaces.
 - Listening Tentacles can be registered to multiple spaces and only count against your license once.
 
+:::div{.hint}
+Think of an Octopus Deploy instance as an apartment building.  Each space is an apartment in that building, with their own kitchen, living room, and bedrooms.  There is some shared infrastructure between apartments, such as the building itself, along with other necessities such as plumbing and electricity.   
+:::
+
 ## Configuring Spaces
 
 As spaces are "hard walls," you should consider how often your users will need to switch between spaces in their usual day-to-day work.  We've found customers have the most success when spaces are decoupled from one another.  For example:
