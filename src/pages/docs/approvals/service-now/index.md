@@ -43,7 +43,7 @@ Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 1. Configure a connection from Octopus to ServiceNow.
 1. Configure which deployments require an approved CR.
 
-### Configuring Service Now
+### Configuring ServiceNow
 
 :::div{.hint}
 The instructions in this section will require a ServiceNow Administrator.
@@ -124,7 +124,7 @@ To enable a project to enforce a requirement for an approved CR:
 
 1. Navigate to the project and then **Settings ➜ General**.
 2. Check the **Change-controlled** setting.
-3. Select your ServiceNow connection in the **Service Now Connection** setting and click **SAVE**.
+3. Select your ServiceNow connection in the **ServiceNow Connection** setting and click **SAVE**.
 
 ![ServiceNow Integration Project settings](/docs/approvals/service-now/images/servicenow-project-settings.png "width=500")
 
