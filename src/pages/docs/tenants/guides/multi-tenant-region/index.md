@@ -12,7 +12,7 @@ This guide introduces the concept of using geographic locations as tenants for a
 
 The Car Rental company utilizes Azure to host the application for its stores.  To minimize latency, the application is deployed to the closest Azure datacenter known as regions; LAX uses `West US`, De Moines uses `Central US`, and the Norfolk location uses `East US`.  
 
-<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-region/creating-new-tenants">Get Started</a></span>
+<span><a class="button btn-success" href="/docs/tenants/guides/multi-tenant-region/creating-new-tenants">Get Started</a></span>
 
 ## Guide contents
 

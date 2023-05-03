@@ -71,5 +71,3 @@ For further reading on spaces in Octopus Deploy please see:
 
 - [Spaces](/docs/administration/spaces)
 - [Exporting and Importing Projects](/docs/projects/export-import)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/installation-guidelines">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Next</a></span>

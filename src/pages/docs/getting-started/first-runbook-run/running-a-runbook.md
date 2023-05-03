@@ -32,5 +32,3 @@ For further reading on running a Runbook please see:
 - [Runbook vs Deployments](/docs/runbooks/runbooks-vs-deployments)
 - [Runbook Documentation](/docs/runbooks)
 - [Runbook Examples](/docs/runbooks/runbook-examples)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/define-the-runbook-process">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/runbook-specific-variables">Next</a></span>

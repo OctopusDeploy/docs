@@ -44,5 +44,3 @@ For further reading on approvals in Octopus Deploy please see:
 - [Manual Intervention and Approvals](/docs/projects/built-in-step-templates/manual-intervention-and-approvals)
 - [Deployment Documentation](/docs/deployments)
 - [Patterns and Practices](/docs/deployments/patterns)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/define-and-use-variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/add-deployment-targets">Next</a></span>

@@ -90,4 +90,4 @@ $jsonPayload = @{
 Invoke-RestMethod -Method Post -Uri "$baseUrl/api/$spaceId/machines" -Headers @{"X-Octopus-ApiKey"="$apiKey"} -Body ($jsonPayload | ConvertTo-Json -Depth 10)
 ```
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-region/manage-tenant-and-tenant-tags">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring">Next</a></span>
+<span><a class="button btn-secondary" href="/docs/tenants/guides/multi-tenant-region/manage-tenant-and-tenant-tags">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="button btn-success" href="/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring">Next</a></span>

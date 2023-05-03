@@ -53,5 +53,3 @@ For further reading on step templates and script modules in Octopus Deploy pleas
 - [Built-in Step Templates](/docs/projects/built-in-step-templates)
 - [Community Step Templates](/docs/projects/community-step-templates)
 - [Script Modules](/docs/deployments/custom-scripts/script-modules)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/users-roles-and-teams">Next</a></span>

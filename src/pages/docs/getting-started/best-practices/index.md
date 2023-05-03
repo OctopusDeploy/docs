@@ -11,4 +11,4 @@ This guide will provide a set of best practices/recommendations you can adopt wi
 
 This guide assumes you are starting from scratch; you haven't installed Octopus Deploy on your infrastructure or configured anything in your Octopus Cloud instance.  Each section builds on the previous one, first starting with installing and configuring the infrastructure to host Octopus Deploy to Spaces to Environments and Deployment targets.  While you can jump between sections, the best approach is to read from start to finish.  
 
-<span><a class="btn btn-success" href="/docs/getting-started/best-practices/installation-guidelines">Get Started</a></span>
+<span><a class="button btn-success" href="/docs/getting-started/best-practices/installation-guidelines">Get Started</a></span>

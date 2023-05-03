@@ -98,5 +98,3 @@ For further reading on deployment and runbook processes in Octopus Deploy please
 - [Deployment Patterns](/docs/deployments/patterns)
 - [Runbooks vs Deployments](/docs/runbooks/runbooks-vs-deployments)
 - [Runbook Examples](/docs/runbooks/runbook-examples)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/users-roles-and-teams">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/releases-and-deployments">Next</a></span>

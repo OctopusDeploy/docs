@@ -62,4 +62,3 @@ For further reading on subscriptions and other notifications in Octopus Deploy p
 - [Subscriptions](/docs/administration/managing-infrastructure/subscriptions)
 - [Email Notifications](/docs/projects/built-in-step-templates/email-notifications)
 
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/releases-and-deployments">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/ongoing-maintenance">Next</a></span>

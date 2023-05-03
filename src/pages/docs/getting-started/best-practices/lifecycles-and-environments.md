@@ -93,5 +93,3 @@ For further reading on lifecycles and environments in Octopus Deploy, please see
 - [Lifecycles](/docs/releases/lifecycles)
 - [Environments](/docs/infrastructure/environments)
 - [Channels](/docs/releases/channels)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/worker-configuration">Next</a></span>

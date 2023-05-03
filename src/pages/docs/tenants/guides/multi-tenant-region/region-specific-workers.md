@@ -34,4 +34,4 @@ Because the tenants for the Car Rental application have been assigned their appr
 
 ![](/docs/tenants/guides/multi-tenant-region/images/central-us-workers.png "width=500")
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring">Previous</a></span>
+<span><a class="button btn-secondary" href="/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring">Previous</a></span>

@@ -56,5 +56,3 @@ For further reading on projects and project groups in Octopus Deploy, please see
 
 - [Projects](/docs/projects)
 - [Multi-Tenancy](/docs/tenants)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/worker-configuration">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/variables">Next</a></span>
