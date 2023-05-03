@@ -115,5 +115,3 @@ For further reading on variables in Octopus Deploy please see:
 - [.NET XML Configuration Variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature)
 - [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms)
 - [Library Variable Sets](/docs/projects/variables/library-variable-sets)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/project-and-project-groups">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Next</a></span>

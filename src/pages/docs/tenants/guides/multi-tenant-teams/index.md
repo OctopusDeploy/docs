@@ -16,7 +16,7 @@ This guide demonstrates using the tenant feature to support multiple teams devel
 
 The development teams have the ability to create and deploy releases to their specific tenant to the Development environment only.  QA is able to deploy to the QA tenant in Test, and Operations are able to deploy to Staging and Production.  Operations, in this case, is not a tenant so the Staging and Production environments are untenanted.
 
-<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-teams/creating-new-tenants">Get Started</a></span>
+<span><a class="button btn-success" href="/docs/tenants/guides/multi-tenant-teams/creating-new-tenants">Get Started</a></span>
 
 ## Guide contents
 

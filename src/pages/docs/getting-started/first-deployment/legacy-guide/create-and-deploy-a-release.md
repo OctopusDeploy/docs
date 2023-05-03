@@ -38,5 +38,3 @@ For further reading on creating releases in Octopus Deploy please see:
 - [Releases Documentation](/docs/releases)
 - [Deployment Documentation](/docs/deployments)
 - [Patterns and Practices](/docs/deployments/patterns)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/legacy-guide/define-the-deployment-process/">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/define-and-use-variables/">Next</a></span>

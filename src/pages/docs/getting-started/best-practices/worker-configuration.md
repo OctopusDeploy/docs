@@ -92,5 +92,3 @@ For further reading on workers in Octopus Deploy please see:
 - [Worker Pool Variable Type](/docs/projects/variables/worker-pool-variables)
 - [Execution Container for Workers](/docs/projects/steps/execution-containers-for-workers)
 - [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/project-and-project-groups">Next</a></span>

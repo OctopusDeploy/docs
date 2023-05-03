@@ -24,4 +24,4 @@ We also need to define the different upgrade rings that the stores participate i
 
 ![](/docs/tenants/guides/multi-tenant-region/images/tenant-tag-release-ring.png "width=500")
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-region/creating-new-tenants">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-region/manage-tenant-and-tenant-tags">Next</a></span>
+<span><a class="button btn-secondary" href="/docs/tenants/guides/multi-tenant-region/creating-new-tenants">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="button btn-success" href="/docs/tenants/guides/multi-tenant-region/manage-tenant-and-tenant-tags">Next</a></span>

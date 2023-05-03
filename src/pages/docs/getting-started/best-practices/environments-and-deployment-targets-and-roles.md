@@ -106,5 +106,3 @@ For further reading on environments, deployment targets, and roles in Octopus De
 - [Deployment Targets](/docs/infrastructure/deployment-targets)
 - [Environments](/docs/infrastructure/environments)
 - [Target Roles](/docs/infrastructure/deployment-targets/#create-target-roles)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/lifecycles-and-environments">Next</a></span>

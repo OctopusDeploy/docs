@@ -28,4 +28,4 @@ This configures the team with `Release Creator` and `Project Deployer` permissio
 
 ![](/docs/tenants/guides/multi-tenant-teams/images/octopus-teams-userroles.png "width=500")
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-teams/creating-new-tenants">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-teams/deploying-team-tenant">Next</a></span>
+<span><a class="button btn-secondary" href="/docs/tenants/guides/multi-tenant-teams/creating-new-tenants">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="button btn-success" href="/docs/tenants/guides/multi-tenant-teams/deploying-team-tenant">Next</a></span>

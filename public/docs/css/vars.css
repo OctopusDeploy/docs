@@ -90,6 +90,9 @@
     --bgcolor-problem: #fff2ee;
     --bordercolor-problem: #ff4848;
 
+    --color-trial: var(--blue-grey-medium);
+    --bgcolor-trial: var(--light-green);
+
     /* To be checked and cleaned */
 
     

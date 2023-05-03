@@ -44,5 +44,3 @@ For further reading on defining a deployment process in Octopus Deploy please se
 - [Deployment Process Documentation](/docs/projects/deployment-process)
 - [Deployment Documentation](/docs/deployments)
 - [Patterns and Practices](/docs/deployments/patterns)
-
-<span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/legacy-guide/create-projects/">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release/">Next</a></span>

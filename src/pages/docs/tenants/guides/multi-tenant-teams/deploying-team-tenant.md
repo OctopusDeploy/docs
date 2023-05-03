@@ -25,4 +25,4 @@ Depending on how you scope your team for Environment, because the `OctoPetShop-T
 
 ![](/docs/tenants/guides/multi-tenant-teams/images/team-avengers-deploy-to-test.png "width=500")
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-teams/assign-team-userrole-to-tenant">Previous</a></span>
+<span><a class="button btn-secondary" href="/docs/tenants/guides/multi-tenant-teams/assign-team-userrole-to-tenant">Previous</a></span>

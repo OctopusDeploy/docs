@@ -22,4 +22,4 @@ Norfolk will be assigned the Azure Region of `East US` with `Beta` and `Stable` 
 
 ![](/docs/tenants/guides/multi-tenant-region/images/car-rental-tenants.png "width=500")
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-region/creating-tenant-tags">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-region/assigning-tenants-to-infrastructure">Next</a></span>
+<span><a class="button btn-secondary" href="/docs/tenants/guides/multi-tenant-region/creating-tenant-tags">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="button btn-success" href="/docs/tenants/guides/multi-tenant-region/assigning-tenants-to-infrastructure">Next</a></span>

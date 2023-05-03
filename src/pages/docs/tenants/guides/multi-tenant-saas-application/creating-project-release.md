@@ -28,4 +28,4 @@ One of our tenants, `Capital Animal Hospital` has the `Branding` tenant tag [we 
 
 ![](/docs/tenants/guides/multi-tenant-saas-application/images/deploying-release-production.png "width=500")
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-deployment-process">Previous</a></span>
+<span><a class="button btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-deployment-process">Previous</a></span>
