@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-05-03
 title: Partition Octopus with Spaces
 description: Guidelines and recommendations for configuring spaces in Octopus Deploy.
 navOrder: 20
@@ -14,6 +14,10 @@ hideInThisSection: true
 - At the time of this writing, the only thing shared between spaces is users and teams.
 - A user can have full permissions in one space but read-only permissions in all other spaces.
 - Listening Tentacles can be registered to multiple spaces and only count against your license once.
+
+:::div{.hint}
+Think of an Octopus Deploy instance as an apartment building.  Each space is an apartment in that building, with their own kitchen, living room, and bedrooms.  There is some shared infrastructure between apartments, such as the building itself, along with other necessities such as plumbing and electricity.   
+:::
 
 ## Configuring Spaces
 

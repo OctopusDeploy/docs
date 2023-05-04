@@ -1,53 +1,48 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-05-03
 title: Projects and Project Groups Structure
 description: Guidelines and recommendations for configuring projects and project groups in Octopus Deploy.
 navOrder: 50
 hideInThisSection: true
 ---
 
-[Projects](/docs/projects) let you create and manage your deployment processes, releases, and runbooks from the Octopus REST API and Octopus Web Portal. For each project, you can define a deployment process, runbooks to manage your infrastructure, variables, the environments where the software will be deployed, and your software releases.  Project groups allow you to group like projects together.  
+[Projects](/docs/projects) store the deployment configuration for an application.  For each project, you can define a deployment process and runbooks to manage your infrastructure, variables, the environments where the software is deployed, and your software releases.  Project groups allow you to group like projects together.  
 
 ## Project Structure
 
 We recommend thinking of projects and project groups this way:
 
-- Project Group = Application
-- Project = Application Component
+- Project Group = Software Suite
+- Project = Application
 
-This screenshot represents the Octo Pet Shop application (project group) with all the various components (projects)
-![project and project groups](/docs/getting-started/best-practices/images/projects-and-project-groups.png "width=500")
+An application represents all the tightly coupled components required for the software to run.  Some examples of applications are:
 
-At first, it makes sense to include all the necessary steps to deploy all the components in an application into one project.  A single process works fine when you change all the components for a release.  If you a release once a quarter, chances are high you are changing every component.
+- A microservice running in a container monitoring a queue for work.
+- An N-Tier Web Application with a WebUI, WebAPI, back-end Service, and Database.
+- A back-end service that processes files from a file share based on a schedule.
+- A monolithic application with dozens of components.
 
-However, as you use Octopus Deploy, you will find yourself deploying more frequently with smaller changesets.  In the example of Octo Pet Shop, a release might only change the Database and Web API vs. all the components.  Redeploying the Web UI and the Scheduling Service introduces an outage and risk.  
+All the components in a single "solution" or built in the same configuration should be deployed together.  The deployment process should always deploy all the components.  Trying to skip a component because it "didn't change" can reduce deployment time but increases the risk of bugs or failures because something was missed.  
 
-Each component project should include:
-- All the necessary steps (including approvals) to deploy that component.
-- Any runbooks to specifically manage that component.  The Database project would have steps to back up and restore the database, while the Web UI project would have runbooks to restart the application.
-- Variables specific to that component.  The scheduling service could have cron expression variables, while the Web UI would contain the public addresses.
+If you want to have a project per component, you need to ensure each component is decoupled from one another and can be deployed on a separate schedule.  
 
-Coordinating all those component projects can become quite tedious; this is why we recommend a [release orchestration](https://octopus.com/blog/release-management-with-octopus) project.  That project will:
-
-- Select the correct version to deploy.
-- Deploy the components in a specific order.
-- Skip over components that haven't changed.
-- Run components in parallel when allowed (for example, the Web API and Scheduling Service).
-- Handle approvals from the key individuals in your company.  The release orchestration project will send the approval information to the component project.
-- Provide the ability to review changes before they are deployed.
+:::div{.hint}
+Previous versions of this guide recommended having a project per component.  Octopus Deploy now includes new features, including ITSM integration, Config as Code, and more options for variable run conditions.  There is also a logistical overhead with a project per component.  That recommendation was made in 2021.  At that time, a project per component made sense.  It is no longer applicable with the 2023 version of Octopus Deploy.
+:::
 
 ## Anti-patterns to avoid
 
-A project should deploy one component of an application (WebUI, WebAPI, Service, Database) and do it well.  Some common anti-patterns we've seen you should avoid are:
+A project should deploy all the coupled components of an application (WebUI, WebAPI, Service, Database).  Some common anti-patterns we've seen you should avoid are:
 
-- A project deploying all the components for an application.  A deployment process with more than 20 steps indicates that project is doing too much.
-- A project per application, per environment, such as `OctoPetShop_Dev`, `OctoPetShop_Test`, and so on.  This is impossible to maintain and track versions.
+- A project per component in an application.  If the components are referenced in the same "solution" or built in the same build configuration, they need to be deployed together.
+- A project per application, per environment, such as `OctoPetShop_Dev`, `OctoPetShop_Test`, and so on.  That is impossible to maintain and track versions.
+- A project per customer or physical location, such as `OctoPetShop_AustinEast`, `OctoPetShop_AustinWest`, and so on.  This is impossible to maintain, you'd need a syncing process for all projects.  Use [multi-tenancy](/docs/tenants) instead.
 
 ## Cumulative Changes
 
-Octopus Deploy expects any application component it deploys to contain everything that component needs.  If you are deploying a web application, the deployment should include all the JavaScript, CSS, binaries, HTML files, etc., that is needed to run that web application.  It shouldn't just be a delta change of a few HTML files or binaries.  Octopus Deploy expects that is for a variety of reasons.
+Octopus Deploy expects any application component it deploys to contain everything that the component needs.  If you are deploying a web application, the deployment should include all the JavaScript, CSS, binaries, HTML files, etc., needed to run that web application.  It shouldn't just be a delta change of a few HTML files or binaries.  Octopus Deploy expects that for a variety of reasons.
 
 - All releases will need to be deployed to all environments.  
 - Deploying only delta changes requires you to always deploy all versions in a specific order.  
@@ -57,7 +52,7 @@ Octopus Deploy expects any application component it deploys to contain everythin
 
 ## Further reading
 
-For further reading on projects and project groups in Octopus Deploy please see:
+For further reading on projects and project groups in Octopus Deploy, please see:
 
 - [Projects](/docs/projects)
-- [Release Orchestration](https://octopus.com/blog/release-management-with-octopus)
+- [Multi-Tenancy](/docs/tenants)
