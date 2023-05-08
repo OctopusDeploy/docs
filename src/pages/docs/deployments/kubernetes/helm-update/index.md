@@ -86,6 +86,11 @@ Helm provides [provenance](https://helm.sh/docs/topics/provenance/) tools that a
 
 Although the helm client tool can be overridden for use during the step execution as noted above, the acquisition process currently requires a version of the helm client locally to retrieve the chart. The version of helm available does not need to match the version of the tiller service.
 
+:::div{.warning}
+Helm deployments using Tar.gz Helm Charts can fail if the path is 100+ characters, to get around this problem use ZIP packages or shorter paths/filenames.
+See [https://github.com/OctopusDeploy/Issues/issues/8132](https://github.com/OctopusDeploy/Issues/issues/8132) for more info.  
+:::
+
 ## Learn more
 
 - Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes)
