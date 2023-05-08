@@ -40,7 +40,7 @@ Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 1. Configure a connection from Octopus to ServiceNow.
 1. Configure which deployments require an approved CR.
 
-### Configuring Service Now
+### Configuring ServiceNow
 
 :::hint
 The instructions in this section will require a ServiceNow Administrator.
