@@ -5,10 +5,6 @@ description: Octopus Deploy captures audit information whenever significant even
 
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
 
-:::hint
-The [Audit Retention functionality](#archived-audit-events) was introduced in **Octopus 2023.1**.
-:::
-
 ## What does Octopus capture? {#Auditing-WhatdoesOctopuscapture?}
 
 Below is a short list of just some of the things that Octopus captures:
@@ -23,8 +19,6 @@ Some general points worth noting:
 - Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action.
 - Octopus **does not** capture login and logout events for specific user accounts.
 - Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured.
-- Entries older than 90 days (default, configurable up to 365 days or 3650 days for self-hosted customers) are archived, and are no longer queryable through the user interface.
-- Archived entries are stored on the file system, and can be accessed via the [Manage archived audit logs](#accessing-archived-logs) page.
 
 If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
 
@@ -56,46 +50,44 @@ In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissi
 
 From **Octopus 2022.4** [enterprise-tier](https://octopus.com/pricing) customers have the option to [stream their audit logs](/docs/security/users-and-teams/auditing/audit-stream.md) to their chosen security information and event management (SIEM) solution.
 
-### Accessing archived logs {#accessing-archived-logs}
-
-Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days or 3650 days for self-hosted customer) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
-
-![Manage Archived Audit Logs Menu](images/manage-archived-audit-logs-menu.png "width=500")
-
-### Modifying and deleting audit logs is prevented
-
-Octopus actively prevents modifying or deleting audit logs within the configured retention period via its API. That being said, a user with the appropriate permissions to the `Events` table in your Octopus SQL Database could modify or delete records in that table. If you are concerned about this kind of tampering you should configure the permissions to the `Events` table in your Octopus SQL Database appropriately.
-
-Entries older than the retention period can be deleted by users with the appropriate permissions (typically `Octopus Manager`). An audit log entry will be created each time an archived event file is deleted. Archived files are saved at a filesystem level. So any user that has the appropriate permissions could view or delete these files. If this is a concern, you should restrict the permissions to access the configured folder appropriately.
-
-:::warning
-As a safeguard, deletion of audit log files is only allowed on files that are at least 30 days old from when they were created.
-:::
-
 ### Sensitive values in audit logs
 
 If you make a change to a sensitive value in Octopus, you will notice we write an audit log showing the fact the sensitive value changed. The value we show in the audit log is simply **an indicator the value has changed**. This is **not** the unencrypted/raw value. This is **not** even the encrypted value.
 
 We take the sensitive value and hash it using an irreversible hash algorithm. We then encrypt that hash with a new, unique, non-deterministic salt. We use this irreversible value as an indicator that the sensitive value actually changed in some way.
 
-### Archived audit logs {#archived-audit-events}
+## Archived audit logs {#archived-audit-events}
 
 :::hint
-Audit Retention functionality was introduced in **Octopus 2023.1**.
+The audit log retention functionality was gradually made available to **Cloud** customers from **Octopus 2023.1** onwards.
+
+Audit log retention will be made available to self-hosted customers later in 2023. However, from **Octopus 2022.3** onwards, self-hosted customers will be able to change the **Event retention days** configuration, allowing you to adjust to your preferred retention period prior to retention archiving audit logs. 
 :::
 
 Audit log entries can require a significant amount of database space to store, degrading overall system performance. For this reason, Octopus Server applies a retention policy to automatically archive audit log entries older than the configured number of days and remove them from the database. The retention period can be configured via **{{Configuration, Settings, Event Retention}}**. The location of the archived audit log files can be changed via **{{Configuration, Settings, Server Folders}}**.
 
-Periodically, Octopus will apply the retention policy to the existing entries and store them as [JSONL](https://jsonlines.org/) files, grouped as a single file for each day (for example, `events-2019-01-01.jsonl`). These files can be accessed through a separate page available via the overflow menu (`...`) in the top right corner of the audit page.
+Periodically, Octopus will apply the retention policy to existing entries and store them as [JSONL](https://jsonlines.org/) files, grouped as a single file for each day (for example, `events-2019-01-01.jsonl`).
 
 Users with appropriate permissions (typically `Octopus Manager`) can download or delete the archived files. The downloaded files are intended to be imported into a datalake for querying and analysis.
+
+### Accessing archived logs {#accessing-archived-logs}
+
+Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days or 3650 days for self-hosted customer) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
+
+![Manage Archived Audit Logs Menu](images/manage-archived-audit-logs-menu.png "width=500")
+
+The archived files can also be accessed via the Octopus REST API endpoints `/api/events/archives` and `/api/events/archives/{filename}`.
+
+### Modifying and deleting audit logs is restricted
+
+Octopus actively prevents modifying or deleting audit logs within the configured retention period via its API. That said, a user with the appropriate permissions to the `Events` table in your Octopus SQL Database could modify or delete records in that table. If you are concerned about this kind of tampering you should configure the permissions to the `Events` table in your Octopus SQL Database appropriately.
+
+Entries older than the retention period can be deleted by users with the appropriate permissions (typically `Octopus Manager`). An audit log entry will be created each time an archived event file is deleted. Archived files are saved at a filesystem level. So any user that has the appropriate permissions could view or delete these files. If this is a concern, you should restrict the permissions to access the configured folder appropriately.
 
 :::warning
 **Take care deleting archived files**
 Deleting the archived files will permanently erase the audit entries. As a safeguard, deletion of audit log files is only allowed on files that are at least 30 days old from when they were created.
 :::
-
-The archived files can also be accessed via the Octopus REST API endpoints `/api/events/archives` and `/api/events/archives/{filename}`.
 
 ## IP address forwarding
 
