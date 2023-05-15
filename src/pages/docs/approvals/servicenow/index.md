@@ -87,12 +87,12 @@ The instructions in this section will require an Octopus Deploy Manager or Admin
 To connect your Octopus Deploy instance to ServiceNow, navigate to **Configuration ➜ Settings ➜ ServiceNow Integration**.
 
 Check the **Enabled** option
-![ServiceNow Integration Settings page](/docs/approvals/service-now/images/servicenow-connections-1.png "width=500")
+![ServiceNow Integration Settings page](/docs/approvals/servicenow/images/servicenow-connections-1.png "width=500")
 
 Click on **ADD CONNECTION** and fill out the details.
 The ServiceNow Base Url should be the root URL and include the protocol e.g. `https://`
 
-![ServiceNow Integration Add Connection](/docs/approvals/service-now/images/servicenow-connections-2.png "width=500")
+![ServiceNow Integration Add Connection](/docs/approvals/servicenow/images/servicenow-connections-2.png "width=500")
 
 Press **TEST** to ensure that the connection details are working.
 
@@ -112,7 +112,7 @@ If enabled, this feature will result in a linked change request having one or mo
 
 To enable this feature navigate to **Configuration ➜ Settings ➜ ServiceNow Integration**, click the **Work Notes Enabled** checkbox show below then click **Save**.
 
-![ServiceNow Integration Enable Work Notes](/docs/approvals/service-now/images/servicenow-worknotes-settings.png "width=500")
+![ServiceNow Integration Enable Work Notes](/docs/approvals/servicenow/images/servicenow-worknotes-settings.png "width=500")
 
 ## Configuring deployments
 
@@ -126,7 +126,7 @@ To enable a project to enforce a requirement for an approved CR:
 2. Check the **Change-controlled** setting.
 3. Select your ServiceNow connection in the **ServiceNow Connection** setting and click **SAVE**.
 
-![ServiceNow Integration Project settings](/docs/approvals/service-now/images/servicenow-project-settings.png "width=500")
+![ServiceNow Integration Project settings](/docs/approvals/servicenow/images/servicenow-project-settings.png "width=500")
 
 ### Standard vs Normal Changes
 
@@ -145,7 +145,7 @@ If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Nu
 
 To enable an environment to enforce a requirement for an approved CR, navigate to **Infrastructure ➜ Environments**, edit the environment via the overflow menu and check the **Change Controlled** setting, and then press **SAVE**.
 
-![ServiceNow Integration Environment settings](/docs/approvals/service-now/images/servicenow-environment-settings.png "width=500")
+![ServiceNow Integration Environment settings](/docs/approvals/servicenow/images/servicenow-environment-settings.png "width=500")
 
 ### Continuous Delivery (CD) audit record
 
@@ -157,7 +157,7 @@ This feature allows a CD workflow using standard changes as audit records at the
 
 CD audit record functionality is enabled under **Project Settings**. First set a valid **Change Template Name** then turn on the **Automatic Transition** checkbox and click **Save** as per the following screenshot.
 
-![ServiceNow CD Audit Record project settings](/docs/approvals/service-now/images/servicenow-cd-project-settings.png "width=500")
+![ServiceNow CD Audit Record project settings](/docs/approvals/servicenow/images/servicenow-cd-project-settings.png "width=500")
 
 ## How it works
 
@@ -184,7 +184,7 @@ If the deployment is scheduled to execute in the future, then a CR will be creat
 
 The number of the CR created or found will appear in the Task Summary tab of the executing Octopus deployment task. Clicking on the CR number in the message will navigate you to the CR in ServiceNow.
 
-![Deployment Task Summary awaiting ServiceNow approval](/docs/approvals/service-now/images/servicenow-pending-cr-task-message.png "width=500")
+![Deployment Task Summary awaiting ServiceNow approval](/docs/approvals/servicenow/images/servicenow-pending-cr-task-message.png "width=500")
 
 ### Title text matching
 

@@ -53,7 +53,7 @@ Do not use the [manual intervention](/docs/projects/built-in-step-templates/manu
 - The manual intervention step was not designed to handle complex approval rules.  For example, a person who triggered the deployment isn't the person approving the change, or anyone involved in the code changes cannot approve the deployment to **production**.  
 - The manual intervention step runs during a deployment.  That requires you to first start the deployment to **production** to approve the deployment in **production**.  This prevents scenarios where you can schedule a deployment at 4 PM to run at 2 AM the next day.
 
-We recommend leveraging the ITSM functionality that integrates with [ServiceNow](/docs/approvals/service-now) or [JIRA Service Management](/docs/approvals/jira-service-management).  The ITSM integration is designed with **production** approvals in mind.  You can get approval and schedule a deployment to production at 4 PM to run at 2 AM the next day.  The approval workflow must be completed prior to the deployment starting.  And the approval can follow the rules you built into the ITSM provider.
+We recommend leveraging the ITSM functionality that integrates with [ServiceNow](/docs/approvals/servicenow) or [JIRA Service Management](/docs/approvals/jira-service-management).  The ITSM integration is designed with **production** approvals in mind.  You can get approval and schedule a deployment to production at 4 PM to run at 2 AM the next day.  The approval workflow must be completed prior to the deployment starting.  And the approval can follow the rules you built into the ITSM provider.
 
 :::div{.hint}
 The ITSM integration is limited to customers on the new Enterprise license tier.
