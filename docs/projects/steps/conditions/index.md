@@ -144,12 +144,13 @@ By default, deployment steps can be skipped when creating a deployment. Marking 
 
 :::warning
 With the exception of the following steps:
+
 - `Deploy a Release`
+- `Health Check`
 - `Manual Intervention Required`
 - `Send an Email`
-- `Health Check`
 
-This functionality is available on all other steps
+This functionality is available on all other steps.
 :::
 
 Enabling this option gives you the ability to automatically retry a step if it fails, with up to three attempts. This feature is particularly useful when dealing with steps that commonly fail due to temporary or transient errors during deployment.
