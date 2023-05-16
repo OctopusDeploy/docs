@@ -1265,3 +1265,4 @@ docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md
 docs/installation/octopus-tentacle-container.md -> docs/infrastructure/deployment-targets/tentacle/octopus-tentacle-container.md
 docs/control-center.md -> docs/getting-started/managing-octopus-subscriptions.md
 docs/installation/octopus-server-windows-container.md -> docs/installation/octopus-server-linux-container/index.md
+docs/approvals/service-now/index.md -> docs/approvals/servicenow/index.md

@@ -23,7 +23,7 @@ Our support focuses on:
 
 ## ServiceNow change management without friction
 
-![ServiceNow deployment waiting for approval](/docs/approvals/service-nowtask-status-with-cr.png)
+![ServiceNow deployment waiting for approval](/docs/approvals/servicenow-task-status-with-cr.png)
 
 This new integration links Octopus deployments to ServiceNow change requests and automatically creates pre-populated, normal change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulations.
 What's included in our ServiceNow support?
@@ -37,7 +37,7 @@ What's included in our ServiceNow support?
 - Add work notes to change requests with information about deployment start and finish time and whether it was successful or not.
 - View and export audit logs of controlled deployments for easy compliance and post-deployment reconciliation.
 
-Learn more about our [ServiceNow integration](https://octopus.com/docs/approvals/service-now).
+Learn more about our [ServiceNow integration](/docs/approvals/servicenow).
 
 :::div{.hint}
 ServiceNow integration is available to customers with an [enterprise subscription](https://octopus.com/pricing).
