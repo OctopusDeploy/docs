@@ -30,7 +30,7 @@ Object status is disabled for all steps added before the feature was introduced 
 
 Use the `Kubernetes Object Status Check` section on the step configuration page.
 
-![A screenshot of the Kubernetes Object Status configuration section](/public/docs/deployments/kubernetes/object-status/kubernetes-object-status-check-configuration.png "width=500")
+![A screenshot of the Kubernetes Object Status configuration section](/docs/deployments/kubernetes/object-status/kubernetes-object-status-check-configuration.png "width=500")
 
 Use the first option to enable the feature (`Check that Kubernetes objects are running successfully`). Choosing `Don't do any verification checks` will disable the feature.
 
