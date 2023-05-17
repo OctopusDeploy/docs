@@ -61,7 +61,7 @@ Octopus will change the meaning of step execution status after enabling Kubernet
 
 Users can also observe live updates from the cluster on the Kubernetes Object Status tab (Deployment page).
 
-![A screenshot of the Kubernetes Object Status tab](/public/docs/deployments/kubernetes/object-status/object-status-tab.png "width=500")
+![A screenshot of the Kubernetes Object Status tab](/docs/deployments/kubernetes/object-status/object-status-tab.png "width=500")
 
 Octopus displays recourse status in a respected table for each deployed resource. The table is live during the step execution (till the end of the stabilization period). After that, the table will not get any updates and will remain a snapshot for future reference.
 
