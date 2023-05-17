@@ -11,7 +11,7 @@ Octopus can leverage information from a Kubernetes cluster to make step executio
 
 Octopus will also show a snapshot (from the moment of deployment) of deployed object status on a deployment screen — the `KUBERNETES OBJECT STATUS` tab.
 
-![A screenshot of the Kubernetes Object Status tab](/public/docs/deployments/kubernetes/object-status/status-check-page.png "width=500")
+![A screenshot of the Kubernetes Object Status tab](/docs/deployments/kubernetes/object-status/status-check-page.png "width=500")
 
 ## Where it is available
 
