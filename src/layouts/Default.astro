@@ -20,8 +20,9 @@ import Header from '../components/Header.astro';
 import Related from '../components/Related.astro';
 import ArticleJourney from '../components/ArticleJourney.astro';
 import Title from '../components/Title.astro';
-import Feedback from 'src/components/Feedback.astro';
-import EditOnGithub from 'src/components/EditOnGithub.astro';
+import Feedback from '../components/Feedback.astro';
+import EditOnGithub from '../components/EditOnGithub.astro';
+import LastUpdated from '../components/LastUpdated.astro';
 
 type Props = {
     frontmatter: Frontmatter
@@ -67,6 +68,7 @@ const site_features = SITE.featureFlags;
                         )}
                     </header>
                     <div class="page-content anim-show-parent" itemprop="articleBody">
+                        <LastUpdated frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         <slot />
                         <Feedback frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         <Authors frontmatter={ frontmatter } lang={ lang } />

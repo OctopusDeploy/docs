@@ -435,6 +435,10 @@ nav.skip-links a:focus {
 
 /* */
 
+.last-updated {
+    color: var(--color-subtitle);
+}
+
 .docs-home {
     text-align: center;
     margin-block-start: 10vh;
