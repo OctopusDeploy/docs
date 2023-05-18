@@ -66,12 +66,13 @@ Users can also observe live updates from the cluster on the Kubernetes Object St
 Octopus displays resource status in a respected table for each deployed resource. The table is live during the step execution (till the end of the stabilization period). After that, the table will not get any updates and will remain a snapshot for future reference.
 
 At a given point in time, an object can have one of four statuses:
-| Status Icon | Label                |
-|------|:----------------------------|
-| <i class="fas fa-spinner fs-20 fa-fw" style="color:var(--cyan50);"></i>   | In progress                 |
-| <i class="fas fa-check-circle fs-20 fa-fw" style="color:var(--green60);"></i>    | Success                     |
-| <i class="fas fa-times-circle fs-20 fa-fw" style="color:var(--red60);"></i>    | Error                       |
-| <i class="fas fa-clock fs-20 fa-fw" style="color:var(--orange60);"></i>    | Timed out while in progress |
+
+| Label                       | Status Icon                              |
+|:----------------------------|:----------------------------------------:|
+| In progress                 | <i class="fa-solid fa-spinner"></i>      |
+| Success                     | <i class="fa-solid fa-circle-check"></i> |
+| Error                       | <i class="fa-solid fa-circle-xmark"></i> |
+| Timed out while in progress | <i class="fa-solid fa-clock"></i>        |
 
 If there are multiple steps in deploying Kubernetes resources, each step will have a separate section on the tab.
 
