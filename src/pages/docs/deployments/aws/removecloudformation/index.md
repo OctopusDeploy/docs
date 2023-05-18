@@ -14,17 +14,23 @@ The proceeding instructions can be followed to configure the **Delete an AWS Clo
 
 Add the **Delete an AWS CloudFormation stack** step to the project, and provide it a name.
 
+:::figure
 ![Remove a CloudFormation stack Step](/docs/deployments/aws/removecloudformation/images/deploy-cloudformation-step.png "width=500")
+:::
 
 ### AWS section
 
 Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).
 
+:::figure
 ![AWS Account](/docs/deployments/aws/removecloudformation/images/step-aws-account.png "width=500")
+:::
 
 The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
 
+:::figure
 ![AWS Role](/docs/deployments/aws/removecloudformation/images/step-aws-role.png "width=500")
+:::
 
 :::div{.hint}
 If you select **Yes** to **Execute using the AWS service role for an EC2 instance**, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.

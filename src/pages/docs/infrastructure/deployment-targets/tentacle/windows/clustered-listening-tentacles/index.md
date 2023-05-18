@@ -33,7 +33,9 @@ This guide implements shared storage using an iSCSI target with Multipath IO con
 
 On the first node, check that the shared drive is mounted and note down the drive letter.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/shared-disk-properties.jpg "width=500")
+:::
 
 Run through the Tentacle MSI Installer to install Tentacle Manager to its default location `C:\Program Files\Octopus Deploy\Tentacle`. Do not click "get started" in the Tentacle manager; instead install the Octopus Tentacle instance using the command prompt as an Administrator by opening `cmd` then run these commands (replacing relevant values as appropriate):
 
@@ -89,7 +91,9 @@ When the **Validate a Configuration Wizard** appears, select `Run all Tests` and
 
 After all validation processes successfully, you will be returned to the **Create Cluster Wizard** where the **Access Point for Administering the Cluster** page appears. At this point, choose an IP Address that is on the same Network as both Tentacles and a hostname that is 15 characters or less.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/configure-clusterhostname.jpg "width=500")
+:::
 
 :::div{.warning}
 **Access point for administering the cluster**
@@ -102,27 +106,39 @@ Now complete the wizard.
 
 Right-Click **Roles** and select **Configure Roles** then highlight **Generic Service**, click **Next**.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/cluster-newrolewizard-servicetype.jpg "width=500")
+:::
 
 Find and highlight the **OctopusDeploy Tentacle** service in the list of available services, then click **Next**.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/cluster-newrolewizard-selectservice.jpg "width=500")
+:::
 
 Under **Client Access Point** choose an appropriate NetBIOS name and IP address for this clustered role. Note down this IP address/DNS hostname, you will need it to add the Tentacle Cluster to your Octopus Server.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/cluster-newrolewizard-clientaccess.jpg "width=500")
+:::
 
 Under **Select Storage**, choose the disk that is configured as shared storage.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/cluster-newrolewizard-storage.jpg "width=500")
+:::
 
 Under **Replication Registry Settings** add a new root registry key of "Software\Octopus" and complete the wizard.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/cluster-newrolewizard-key.jpg "width=500")
+:::
 
 Complete the wizard, then navigate to the roles view to ensure the Tentacle service is `running`.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/cluster-complete.jpg "width=500")
+:::
 
 ## Connect Octopus Server to a clustered Tentacle {#ClusteringTentacles-ConnectOctopusServer}
 
@@ -132,14 +148,20 @@ For the target type, choose **Listening Tentacle**.
 
 For the hostname, enter the IP or DNS hostname you noted down earlier, then click "Discover".
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/server-discovertentacle.jpg "width=500")
+:::
 
 Type the display name in Octopus Deploy and give your new target a role.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/server-identifytarget.jpg "width=500")
+:::
 
 In a few minutes your new Tentacle cluster will appear as healthy in the Octopus Server.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/windows/clustered-listening-tentacles/images/server-targethealthy.jpg "width=500")
+:::
 
 Congratulations! You have successfully configured an active/passive server cluster using Octopus Tentacles.

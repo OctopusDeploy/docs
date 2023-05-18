@@ -40,12 +40,16 @@ This documentation assumes a Windows VM already has the Tentacle installed on it
 1. To configure a worker pool in the Octopus Web portal, go to **Infrastructure ➜ Worker Pools**, and click **Add Worker Pool**.
 2. When the modal window appears, enter a name, and if you see the **Static** and **Dynamic** options, select **Static** as the worker pool type:
 
+:::figure
 ![Create worker pool modal](/docs/deployments/databases/sql-server/images/redgate-octopus-create-worker-pool-modal.png "width=500")
+:::
 
 3. Next, add the VM the Tentacle was installed on by clicking **Add Worker**.
 4. Select **Windows** and the Tentacle communication mode you plan to use.  It is up to you on which communication mode the worker will use.  There are pros and cons to each mode:
 
+:::figure
 ![Tentacle communication mode selection in the Octopus Web Portal](/docs/deployments/databases/sql-server/images/redgate-octopus-create-worker-select-tentacle-type.png "width=500")
+:::
 
 ### Install the Tentacle on a Windows server {#install-the-tentacle-on-a-windows-server}
 
@@ -65,7 +69,9 @@ Follow the wizard.  The thumbprint for the server for this form can be found on 
 The thumbprint in this screenshot is from a sample instance of Octopus Deploy.  Your thumbprint will be different.
 :::
 
+:::figure
 ![Example thumbprint for a Listening Tentacle](/docs/deployments/databases/sql-server/images/listening-tentacle-thumbprint.png "width=500")
+:::
 
 After the Tentacle is configured, enter in the IP address or the host name.
 
@@ -75,7 +81,9 @@ If you enter the host name of a private server, the Octopus Server will need to 
 
 By default, the Listening Tentacle will listen on port `10933`.  If you configured a different port, enter the port on this form, and click **Next**.
 
+:::figure
 ![The screen to create a Listening Tentacle](/docs/deployments/databases/sql-server/images/redgate-octopus-create-listening-worker.png "width=500")
+:::
 
 The Octopus Server will attempt to connect to the Tentacle.  The listening Tentacle will only accept a connection if it the server's thumbprint matches.  After the communication is successful, provide a display name for the worker.  Depending on the screen this wizard was started from, the worker pool may or may not be pre-populated.  Click **Save** to save the worker to the database.
 
@@ -97,7 +105,9 @@ Under the covers, there is nothing different between a worker and a target.  The
 
 Select the space, give the worker a display name, and select the worker pool.
 
+:::figure
 ![The screen to register a Polling Tentacle](/docs/deployments/databases/sql-server/images/tentacle-manager-register-polling-tentacle.png "width=500")
+:::
 
 Press **Install** to create the Tentacle and register it with the Octopus Server.
 
@@ -112,7 +122,9 @@ To install the steps from the library, navigate to **Library ➜ Step Templates*
 
 The list of categories is alphabetical.  Find the **Redgate** category, and select the first template, **Redgate - Create Database Release (Worker Friendly)**.
 
+:::figure
 ![Selecting the Redgate step template](/docs/deployments/databases/sql-server/images/redgate-select-steptemplate.png "width=500")
+:::
 
 Repeat the same process for **Redgate - Deploy Database Release (Worker Friendly)**.  
 
@@ -145,7 +157,9 @@ In Azure DevOps there are three steps to this process.
 
 The first step builds the database package from source control.  The plugin provided by Redgate offers multiple operations, but for this step, select **Build a SQL Source Control project**.  The sub folder path is a relative path.  It needs to be the same directory configured in SQL Source Control.  Finally, configure the build number, we recommend specifying the build number using a **SemVer** versioning strategy.
 
+:::figure
 ![Build step in Azure DevOps](/docs/deployments/databases/sql-server/images/azure-devops-build-database-package.png "width=500")
+:::
 
 The push package to Octopus step can be a little tricky.  The folder where the package is saved is not very apparent in the previous step. In this example, the package was saved in `$(Build.Repository.Localpath)`.
 
@@ -159,29 +173,41 @@ The Octopus Server must be configured in Azure DevOps.  The steps to do that are
 
 The last step is to create a release in Octopus Deploy and deploy it to dev using the plugin.  Select the project from the drop-down list, and enter the same build number as the package.  Expand the **Deployment** section and select an environment to deploy to.  Clicking _Show Deployment Progress_ will stop the build and force it to wait for Octopus to complete.
 
+:::figure
 ![The release step in Azure DevOps](/docs/deployments/databases/sql-server/images/azure-devops-create-octopus-database-release.png "width=500")
+:::
 
 ### TeamCity
 
 The TeamCity setup is very similar to the Azure DevOps.  Only three steps are needed.
 
+:::figure
 ![Build step overview in TeamCity](/docs/deployments/databases/sql-server/images/teamcity-build-sql-automation-overview.png "width=500")
+:::
 
 The first step is the build database package step. This step has similar options to Azure DevOps; provide the folder where the database is stored as well as the package version:
 
+:::figure
 ![TeamCity build database package step](/docs/deployments/databases/sql-server/images/teamcity-redgate-build-database.png "width=500")
+:::
 
 The package version only appears in the advanced options, and not setting it could result in `Invalid package version number` errors:
 
+:::figure
 ![TeamCity build database package step advance options](/docs/deployments/databases/sql-server/images/teamcity-redgate-build-advanced-options.png "width=500")
+:::
 
 The publish package step requires all three of the options to be populated.  By default, the Redgate tool will create the NuGet package in the root working directory.
 
+:::figure
 ![TeamCity Create and Push package step](/docs/deployments/databases/sql-server/images/teamcity-publish-package.png "width=500")
+:::
 
 The final step is creating and deploying the release.  Very similar to before, provide the name of the project, the release number and the environment to deploy to:
 
+:::figure
 ![[The release step in TeamCity](/docs/deployments/databases/sql-server/images/teamcity-create-database-release.png "width=500")
+:::
 
 ## Create and configure the Octopus Deploy project
 
@@ -198,7 +224,9 @@ The deployment process will be:
 
 In Octopus Deploy, that process will look like the following screenshot.  This example uses **Slack** as the notification technology.  Octopus Deploy supports a number of different mechanisms to notify users, including email, Slack, Microsoft Teams, and Twilio to name a few.
 
+:::figure
 ![Deployment process overview in Octopus Deploy](/docs/deployments/databases/sql-server/images/redgate-octopus-deploy-deployment-process-overview.png "width=500")
+:::
 
 Before adding steps to the process, a number of variables need to be created.  We recommend namespacing the variables using [ProjectName].[Component].[Sub-component].
 
@@ -208,11 +236,15 @@ Before adding steps to the process, a number of variables need to be created.  W
 - **Project.Database.UserName**: The username of the user account who has permissions to deploy.  This is not required if you're using integrated security.
 - **Project.Redgate.ExportPath**: Where the tooling will create and export the database release to.  Because this process uses workers, you need to save the files to a file share (or have one worker).
 
+:::figure
 ![Variables in the Octopus Web Portal](/docs/deployments/databases/sql-server/images/redgate-octopus-deploy-variables.png "width=500")
+:::
 
 The first step in the deployment process, **Redgate - Create Database Release** will compare what is in the NuGet package and generate a delta script.  Only the highlighted parameters are required.  
 
+:::figure
 ![Create Database Release screen](/docs/deployments/databases/sql-server/images/redgate-octopus-create-database-release.png "width=500")
+:::
 
 Configuring the notification step is dependent on the choice of technology.  That isn't covered for the guide.  For the manual intervention step, provide instructions, as well as the teams allowed to approve this release.  
 
@@ -220,11 +252,15 @@ Configuring the notification step is dependent on the choice of technology.  Tha
 The choice of two teams in this example was intentional.  The DBAs are the ones who should approve it.  The **Octopus Manager** team is there in the event of an emergency and the **Octopus Manager** needs to fix it.  
 :::
 
+:::figure
 ![Octopus manual intervention step](/docs/deployments/databases/sql-server/images/redgate-octopus-manual-intervention-step.png "width=500")
+:::
 
 The final step for this guide is **Redgate - Deploy Database Release**.  It takes the delta script created in the first step and runs it on the specified server.  The number of options on this step are limited compared to the create release step.  
 
+:::figure
 ![Deploy from database release step](/docs/deployments/databases/sql-server/images/octopus-redgate-deploy-database-release.png "width=500")
+:::
 
 ## Working example
 

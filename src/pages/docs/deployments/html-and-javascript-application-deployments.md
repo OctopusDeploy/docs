@@ -64,7 +64,9 @@ We've crafted and packaged v1.0.0 of this sample application for you to try out 
 1. Download [MyApp.1.0.0.zip](/docs/attachments/myapp.1.0.0.zip).
 2. [Upload it to the Octopus Built-In. repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) (you can do this by going to **{{Library,Packages}}** and clicking the **Upload package** button).
 
+:::figure
 ![](/docs/deployments/images/5866205.png "width=500")
+:::
 
 ### Step 2: Create the project, variables and deployment process {#DeployingHTMLandJavaScriptApplications-Step2:Createtheproject,variablesanddeploymentprocess}
 
@@ -76,27 +78,37 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 ![](/docs/deployments/images/5866206.png "width=500")
 3. Configure the deployment process to deploy the MyApp package and host it in an IIS Web Site. Our web servers in this example belong to the **web-server** role.
 
+:::figure
 ![](/docs/deployments/images/5866207.png "width=500")
+:::
 
 4. Configure the IIS Web Site you want Octopus to set up on your behalf.
 
+:::figure
 ![](/docs/deployments/images/5866208.png "width=500")
+:::
 
 ![](/docs/deployments/images/5866209.png "width=500")
 
 5. Enable the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) feature and configure it to replace the expressions in our `MyApp.html` file with variable values we defined earlier.
 
+:::figure
 ![](/docs/deployments/images/5866210.png "width=500")
+:::
 
 ### Step 3: Deploy {#DeployingHTMLandJavaScriptApplications-Step3:Deploy}
 
 Now when we create a release for this project and deploy it we can see that Octopus has found the `MyApp.html` file and substituted the variable values into our expressions.
 
+:::figure
 ![](/docs/deployments/images/5866212.png "width=500")
+:::
 
 And finally when we load the application in our browser we can see the results have flowed all the way through from Octopus to first-class citizens in our AngularJS application!
 
+:::figure
 ![](/docs/deployments/images/5866206.png "width=500")
+:::
 
 ![](/docs/deployments/images/5866211.png "width=500")
 

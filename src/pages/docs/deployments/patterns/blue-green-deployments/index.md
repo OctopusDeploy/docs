@@ -16,7 +16,9 @@ Blue-green deployments are a pattern whereby we reduce downtime during productio
 
 In a blue-green deployment model, the production environment changes with each release:
 
+:::figure
 ![](/docs/deployments/patterns/blue-green-deployments/images/blue-green-versions.png "width=500")
+:::
 
 As well as reducing downtime, Blue-Green can be a powerful way to use extra hardware compared to having a dedicated staging environment:
 

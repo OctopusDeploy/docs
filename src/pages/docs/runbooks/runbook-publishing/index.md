@@ -39,11 +39,15 @@ To publish a snapshot, click the publish button on the task page after executing
 
 Publish from completed task:
 
+:::figure
 ![Publish runbook from task page](/docs/runbooks/runbook-publishing/runbook-publish-task.png "width=500")
+:::
 
 Publish from process:
 
+:::figure
 ![Publish runbook from process page](/docs/runbooks/runbook-publishing/runbook-publish-process.png "width=500")
+:::
 
 When a producer (anyone with an appropriately scoped `RunbookEdit` permission) executes a runbook, they will have the option between executing the published version or the current draft.
 

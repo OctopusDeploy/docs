@@ -34,13 +34,17 @@ The project has been created, now we connect it to a database. This example uses
 2. Click **Select Connection**.
 3. Add the **Server Name** and select the type of authentication. In this screenshot, a SQL Account is used to connect to the database server.  
 
+:::figure
 ![Connection details for the database](/docs/deployments/databases/sql-server/images/visual-studio-2019-connect-database.png "width=500")
+:::
 
 4. Click **Connect** and then click **Start** to import the database.
 
 Importing the database will populate your project with the existing objects from the database. You will see a summary of the importing process:
 
+:::figure
 ![Summary of the database import process](/docs/deployments/databases/sql-server/images/visual-studio-2019-connect-database-import-complete.png "width=500")
+:::
 
 The project is now ready for creating database schema objects (tables, views, stored procedures, etc...)
 
@@ -54,7 +58,9 @@ When the project has some objects, we can compare the project to the target data
 
 Visual studio will now compare the project to the database and list the steps it will take during a deployment:
 
+:::figure
 ![The results of the Schema Compare in Visual Studio](/docs/deployments/databases/sql-server/images/visual-studio-2019-project-schema-compare-results.png "width=500")
+:::
 
 :::div{.hint}
 For databases that have a dependency on other databases, it is possible to add a reference to another database project.  This should be done with caution to avoid circular dependencies with each database depending on each other, as this will result in neither database project compiling.
@@ -85,7 +91,9 @@ An MSBuild task will accomplish the same thing
 
 5. Add `/p:OutDir=$(build.stagingdirectory)` to the MSBuild Arguments so that the built artifacts are separated from the source code.
 
+:::figure
 ![MSBuild arguments](/docs/deployments/databases/sql-server/images/azure-devops-build-visual-studio-arguments.png "width=500")
+:::
 
 6. Click on the **+**, select **Package**, and select **Package Application for Octopus**.
 
@@ -115,7 +123,9 @@ For Azure DevOps, the build number can be formatted on the Options tab under Bui
 
 Queue the build to push the artifact to the Octopus Server:
 
+:::figure
 ![](/docs/deployments/databases/sql-server/images/azure-devops-build-successful.png "width=500")
+:::
 
 ## Create the Octopus Deploy project
 
@@ -141,7 +151,9 @@ It is considered best practice to namespace your variables.  Doing this helps pr
 If you're using Integrated Authentication with Windows, you do not need either of the `Project.SQLServer.Admin*` variables.
 :::
 
+:::figure
 ![The project variables in the Octopus Web Portal](/docs/deployments/databases/sql-server/images/octopus-project-variables.png "width=500")
+:::
 
 Note, both `Project.SQLServer.Admin.Password` and `Project.SQLServer.Name` have multiple variables that are scoped to different environments. Learn more about [scoping variables](/docs/projects/variables/#scoping-variables).
 
@@ -173,7 +185,9 @@ With variables defined, we can add steps to our deployment process.
 
 The deployment process should look like this:
 
+:::figure
 ![](/docs/deployments/databases/sql-server/images/octopus-project-steps.png "width=500")
+:::
 
 ### Create and deploy a release
 
@@ -184,6 +198,8 @@ The deployment process should look like this:
 
 The results will look like:
 
+:::figure
 ![](/docs/deployments/databases/sql-server/images/octopus-project-deploy-complete.png "width=500")
+:::
 
 The first part of this process gathers the changes and creates two [artifacts](/docs/projects/deployment-process/artifacts), an XML file that reports which objects will be changed and the script it will use to apply those changes.  The deployment (deploy DACPAC) uses that generated script and applies it to the target so the database matches the desired state.

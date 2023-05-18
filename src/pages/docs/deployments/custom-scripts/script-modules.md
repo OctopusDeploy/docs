@@ -13,11 +13,15 @@ Script modules allow users to create collections of language specific functions 
 
 1.  Navigate to **Library ➜ Script Modules ➜ Add Script Module**.
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-modules-add.png "width=500")
+:::
 
 2.  Name your new Script Module:
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-modules-new.png "width=500")
+:::
 
 3.  Your new script module will default to PowerShell and come with a function called *Say-Hello.* Each supported script language has a similar function. In this walk-through we will work with PowerShell and modify the provided sample function a bit with the following code for the sake of showing a better example:
 
@@ -30,7 +34,9 @@ function Say-Hello($name)
 
 After inserting the modified function, the Script Module should look like this:
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-modules-new-body.png "width=500")
+:::
 
 Once this is done, click on **Save**.
 
@@ -40,15 +46,21 @@ Once you have created a Script Module, you can start using the functions it cont
 
 1.  Go to your **[Deployment Process](/docs/deployments)** and click **Include.**
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-modules-deployment.png "width=500")
+:::
 
 A new window will pop up up, prompting you to select you script module. Select the module you just created (make sure the check-box is checked) and hit **Save**.
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-modules-deployment-include.png "width=500")
+:::
 
 You will now be able to see your module loaded on your Deployment Process
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-modules-deployment-included.png "width=500")
+:::
 
 2.  Add a **[Script step](/docs/deployments/custom-scripts)**, ensure you choose PowerShell and call the *Say-Hello* function from it.
 
@@ -56,7 +68,9 @@ You will now be able to see your module loaded on your Deployment Process
 Say-Hello -name "George"
 ```
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-modules-deployment-step.png "width=500")
+:::
 
 Once you're done, hit **Save.**
 
@@ -68,7 +82,9 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 
 4.  Check the Release task log and expand all the steps. You should be able to see the output of the *Say-Hello* function in there.
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-modules-deployment-release.png "width=500")
+:::
 
 
 ## Using script modules{#ScriptModules-using}
@@ -216,7 +232,9 @@ From the Usages tab, you can see where a Script Module is being used. This shows
 the Script Module, as well as the Releases that have a snapshot of the Script Module. This allows you to assess the
 ramifications of changing a Script Module, as well as track down where it has been used in the past.
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-modules-usage.png "width=500")
+:::
 
 ## Permissions
 

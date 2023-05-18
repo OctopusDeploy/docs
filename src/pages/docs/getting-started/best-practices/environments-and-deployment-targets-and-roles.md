@@ -15,11 +15,15 @@ Environments are how you group deployment targets in a stage in your deployment 
 
 When you register a deployment target, you must provide at least one environment and one target role.
 
+:::figure
 ![environment and roles for targets](/docs/getting-started/best-practices/images/registering-deployment-target.png "width=500")
+:::
 
 In the deployment process, you assign steps to run on specific roles.
 
+:::figure
 ![deployment process role assignment](/docs/getting-started/best-practices/images/target-roles-in-deployment-process.png "width=500")
+:::
 
 For example, imagine you have three deployment targets in the **development** environment with the following roles
 - dev-server-01: `hello-world`, `hello-world-api`, `hello-world-ui`, and `IIS-Server-2019` roles
@@ -28,7 +32,9 @@ For example, imagine you have three deployment targets in the **development** en
 
 The deployment process from above targets the `hello-world-api` role.  When a deployment to **development** is triggered, Octopus will only select the two servers assigned to **development** AND have the `hello-world-api` role.
 
+:::figure
 ![Octopus selecting deployment targets](/docs/getting-started/best-practices/images/selecting-target-roles.png "width=500")
+:::
 
 :::div{.hint}
 Assigning multiple roles to a deployment step results in an OR statement.  For example, adding `octo-petshop-api` to the deployment process and deploying to **development** will result in the filtering logic to be: 

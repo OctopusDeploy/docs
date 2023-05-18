@@ -19,13 +19,17 @@ The following instructions can be followed to configure the `Create an Amazon S3
 
 Add the `Create an Amazon S3 Bucket` step to the project, and provide it a name.
 
+:::figure
 ![Create an Amazon S3 Bucket Step](/docs/deployments/aws/aws-s3-create-bucket/images/create-an-amazon-s3-bucket-step.png "width=500")
+:::
 
 ## Provide the required configuration
 
 Provide the information required to create the bucket.
 
+:::figure
 ![Create an Amazon S3 Bucket Configuration section](/docs/deployments/aws/aws-s3-create-bucket/images/configuration-section.png "width=500")
+:::
 
 The following settings will need to be configured:
 
@@ -40,19 +44,25 @@ Note: The **S3 Bucket Name** will be automatically generated if not provided.
 
 Specify a list of tags and their values. These tags will be added to Bucket as well as the CloudFormation Stack.
 
+:::figure
 ![Create an Amazon S3 Bucket Tags section](/docs/deployments/aws/aws-s3-create-bucket/images/tags-section.png "width=500")
+:::
 
 ### Advanced section
 
 The S3 bucket is created and managed through a CloudFormation stack. You can optionally specify a CloudFormation Stack Name to use, otherwise, one will be automatically generated.
 
+:::figure
 ![Create an Amazon S3 Bucket Advanced section](/docs/deployments/aws/aws-s3-create-bucket/images/advanced-section.png "width=500")
+:::
 
 :::div{.warning}
 In April 2023 Amazon is updating their security settings for newly created S3 Buckets. Buckets will now be created with Block all public access enabled and access control lists (ACLs) disabled. For more information on these changes see [the announcement](https://aws.amazon.com/blogs/aws/heads-up-amazon-s3-security-changes-are-coming-in-april-of-2023/). Octopus Deploy is updating our defaults in line with these changes and now offers the ability to override both of these settings. Existing projects that rely on creating publicly accessible S3 buckets will need to be updated with public access enabled and ACLs enabled.
 :::
 
+:::figure
 ![Create an Amazon S3 Bucket Advanced Security section](/docs/deployments/aws/aws-s3-create-bucket/images/advanced-section-security.png "width=500")
+:::
 
 
 ## Output variables

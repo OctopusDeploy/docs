@@ -76,7 +76,9 @@ Debug-Runspace -Id 2
 
 PowerShell ISE will open a window showing the script currently executing on the remote machine.  You can step through the script using `F10` to step over and `F11` to step in.
 
+:::figure
 ![Debugging remote PowerShell scripts](/docs/deployments/custom-scripts/debugging-powershell-scripts/debugging-powershell-scripts-debug.png "width=500")
+:::
 
 When you are finished debugging, run to the end of the script and the deployment will be complete.
 

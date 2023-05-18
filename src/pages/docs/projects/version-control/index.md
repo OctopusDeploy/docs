@@ -14,7 +14,9 @@ The Configuration as Code (config-as-code) feature adds support for configuring 
 
 The Octopus UI needed to remain fully functional for version-controlled projects, and it has. You can continue to use the UI exactly as you always have, but with an additional superpower: Git branches are now exposed in the UI, allowing editing of currently supported project configuration on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes too.
 
+:::figure
 ![Branch-switcher UI](/docs/projects/version-control/branch-switcher-ui.png "width=500")
+:::
 
 Of course, there is now a text representation of the process in the Git repository, and if you prefer editing text, open your favorite editor and go for it. We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
 

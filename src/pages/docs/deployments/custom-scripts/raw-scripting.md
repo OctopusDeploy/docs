@@ -34,7 +34,9 @@ To opt out of these checks, create a custom [Machine Policy](/docs/infrastructur
 
 Targets configured with this policy will be considered healthy so long as an SSH connection can be established.
 
+:::figure
 ![Machine policy settings for connection test only](/docs/deployments/custom-scripts/images/machine-policy-connection-test-only.png "width=500")
+:::
 
 ## Deploying To SSH endpoint without Calamari (i.e., no Mono prerequisite) {#RawScripting-DeployingToSSHEndpointWithoutCalamari(i.e.noMonoprerequisite)}
 

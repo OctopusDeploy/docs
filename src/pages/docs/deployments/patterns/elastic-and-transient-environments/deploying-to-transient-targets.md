@@ -50,7 +50,9 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
 
 In this case, the machine **SWeb01** has been found and included in the rest of the deployment:
 
+:::figure
 ![](/docs/deployments/patterns/elastic-and-transient-environments/images/newtarget.png "width=500")
+:::
 
 Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date).
 

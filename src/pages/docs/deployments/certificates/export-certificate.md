@@ -9,7 +9,9 @@ navOrder: 60
 
 Certificates can be downloaded from the Octopus Portal to your local machine.  The certificate may be exported in any of the [supported file-formats](/docs/deployments/certificates), or exactly as it was originally uploaded.
 
+:::figure
 ![](/docs/deployments/certificates/images/download-certificate-btn.png "width=500")
+:::
 
 ![](/docs/deployments/certificates/images/download-certificate-dialog.png "width=500")
 

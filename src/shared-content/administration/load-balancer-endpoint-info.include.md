@@ -1,6 +1,8 @@
 Octopus Server provides a health check endpoint for your load balancer to ping: `/api/octopusservernodes/ping`.
 
+:::figure
 ![](/docs/shared-content/administration/images/load-balance-ping.png "width=500")
+:::
 
 Making a standard `HTTP GET` request to this URL on your Octopus Server nodes will return:
 

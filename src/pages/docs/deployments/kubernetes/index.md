@@ -19,7 +19,9 @@ Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're
   - Octopus [runbooks](/docs/runbooks/) and [projects](/docs/projects) share the same variables and accounts to interact with your clusters
   - Use pre-approved [kubectl](/docs/deployments/kubernetes/kubectl) scripts
 
+:::figure
 ![Three screenshots from Octopus, showing the Google Cloud account configuration, Kubernetes deployment process, and a successful deployment to production.](/docs/deployments/kubernetes/image-octopus-gcp-kubernetes-2021-q3.png "width=500")
+:::
 
 ## Get started with Kubernetes and Octopus or manage a complex setup
 

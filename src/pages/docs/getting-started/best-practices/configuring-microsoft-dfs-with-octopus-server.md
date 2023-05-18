@@ -28,7 +28,9 @@ For a single-node Octopus Server using DFS for file storage, the node must be **
 
 In the diagram, the single node is configured to use the replica `\\SVR_ONE\public` as the DFS file share and not the namespace root (`\\Contoso\public`). 
 
+:::figure
 ![A single Octopus Deploy node with DFS shared storage](/docs/getting-started/best-practices/images/single-node-od-with-dfs.png "width=500")
+:::
 
 ## Configuring DFS with a Multi-Node Octopus Server cluster (Octopus HA)
 
@@ -36,7 +38,9 @@ For a multi-node Octopus cluster using DFS for file storage, it is imperative th
 
 In the diagram below each node in the cluster is configured to use the same replica (`\\SVR_ONE\public`) as the DFS file share and not the namespace root (`\\Contoso\public`). 
 
+:::figure
 ![A multi-node (HA) Octopus Cluster with DFS shared storage](/docs/getting-started/best-practices/images/multi-node-od-with-dfs.png "width=500")
+:::
 
 ## DFS for Redundancy (Disaster Recovery)
 

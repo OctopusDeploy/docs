@@ -23,7 +23,9 @@ Any machines registered with Octopus as [workers](/docs/infrastructure/workers/)
 
 The Script Console can be found under the Tasks area:
 
+:::figure
 ![](/docs/administration/managing-infrastructure/images/tasks-script-console-button.png "width=500")
+:::
 
 Inside the Script Console, you can choose whether to run your script on:
 - One or more individual [deployment targets](/docs/infrastructure/deployment-targets).
@@ -36,15 +38,21 @@ Inside the Script Console, you can choose whether to run your script on:
 The options shown inside the Script Console may differ from the ones described here depending on the permissions assigned to your user account, or if you are using [Octopus Cloud](/docs/octopus-cloud).
 :::
 
+:::figure
 ![](/docs/administration/managing-infrastructure/images/inside-script-console.png "width=500")
+:::
 
 When you run the script, you'll be taken to the task output page which shows the progress and any output from the script:
 
+:::figure
 ![](/docs/administration/managing-infrastructure/images/script-console-task-log.png "width=500")
+:::
 
 The **Script Body** tab can be used to see the contents of the script, and you can use the **Modify and re-run** button in the ... overflow menu to change or run the script again.
 
+:::figure
 ![](/docs/administration/managing-infrastructure/images/script-console-modify-rerun.png "width=500")
+:::
 
 ## Targeting the Octopus Server
 

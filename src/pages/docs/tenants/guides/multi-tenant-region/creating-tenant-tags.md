@@ -14,14 +14,20 @@ The Car Rental company utilizes Azure to host the application for the different 
 
 Tenant Tag Sets are stored in the Library of Octopus Deploy.  To create Tenant Tag Sets, navigate to **Library ➜ Tenant Tag Sets** and click **ADD TAG SET**.
 
+:::figure
 ![](/docs/tenants/guides/multi-tenant-region/images/tenant-tagset-create.png "width=500")
+:::
 
 Give the **Tag Set** a name, an optional description, and create some Tags.  For the Car Rental application, we need to create an Azure Region Tag Set with the different Azure Regions as the Tags.
 
+:::figure
 ![](/docs/tenants/guides/multi-tenant-region/images/tenant-tag-create.png "width=500")
+:::
 
 We also need to define the different upgrade rings that the stores participate in.  Tags can be assigned different colors as a quick visual indicator as to which tag has been assigned.  In the below image, we can see that Alpha is red, Beta is blue, and Stable is green
 
+:::figure
 ![](/docs/tenants/guides/multi-tenant-region/images/tenant-tag-release-ring.png "width=500")
+:::
 
 <span><a class="button btn-secondary" href="/docs/tenants/guides/multi-tenant-region/creating-new-tenants">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="button btn-success" href="/docs/tenants/guides/multi-tenant-region/manage-tenant-and-tenant-tags">Next</a></span>

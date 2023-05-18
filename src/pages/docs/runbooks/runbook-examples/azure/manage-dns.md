@@ -26,7 +26,9 @@ The next section shows how you can create runbooks to manage DNS records:
 1. Choose the **Azure Account** to use:
 1. In the **Azure** section, select the variable that references the **Account**. If you don't have an **Azure Account** yet, check our [documentation on how to create one](/docs/infrastructure/accounts/azure).
 
+:::figure
 ![Azure Account variable](/docs/runbooks/runbook-examples/azure/images/azure-account-variable.png "width=500")
+:::
 
 :::div{.hint}
 [Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Azure account**. 

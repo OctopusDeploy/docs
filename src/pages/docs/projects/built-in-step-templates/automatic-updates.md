@@ -11,7 +11,9 @@ From **Octopus 2022.1**, built-in step templates that use the new "step package"
 
 Optionally, the automatic version updates of built-in steps can be turned off by navigating to **Configuration ➜ Features** and turning off the **Step Template Updates** feature.
 
+:::figure
 ![](/docs/projects/built-in-step-templates/images/automatic-updates-configuration.png "width=500")
+:::
 
 ## Notes
 

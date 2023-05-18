@@ -10,7 +10,9 @@ All of the data and settings managed by Octopus - the projects, environments, de
 
 You can view and change the backup settings by browsing to the *Configuration* tab in the Octopus Web Portal, and then clicking the *Backup* tab.
 
+:::figure
 ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3277492.png "width=500")
+:::
 
 ## Encrypted backups
 

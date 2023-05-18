@@ -32,7 +32,9 @@ To create an Azure Service Fabric Cluster target within Octopus:
 - Select **Azure Service Fabric Cluster** from the list of available targets and click _Next_.
 - Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Service Fabric Cluster target.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/create-azure-service-fabric-cluster-target.png "width=500")
+:::
 
 - After clicking _Save_ your deployment target will be added and a health check task will run to ensure Octopus can connect to the target.
 - If all goes well, you should see your newly created target in your **Deployment Targets** list with a status of _Healthy_.

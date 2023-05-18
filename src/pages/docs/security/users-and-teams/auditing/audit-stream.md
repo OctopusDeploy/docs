@@ -16,11 +16,15 @@ Audit streaming is only available from **Octopus 2022.4** onwards.
 
 You can configure the audit stream from the **Audit** page in the **Configuration** area. Click **Stream Audit Log** to open the configuration dialog.
 
+:::figure
 ![Audit Stream Not Configured](/docs/security/users-and-teams/auditing/images/audit-stream-not-configured.png "width=500")
+:::
 
 Currently we support streaming to **Splunk** and **Sumo Logic**.
 
+:::figure
 ![Audit Stream Configure Dialog](/docs/security/users-and-teams/auditing/images/audit-stream-configure-dialog.png "width=500")
+:::
 
 :::div{.hint}
 Looking to connect to a SIEM solution that is not currently supported? Let us know in our [feedback form](https://oc.to/AuditStreamFeedbackForm).

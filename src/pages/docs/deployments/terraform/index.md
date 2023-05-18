@@ -10,7 +10,9 @@ hideInThisSectionHeader: true
 
 Octopus Deploy provides first-class support for deploying Terraform templates.
 
+:::figure
 ![Octopus Terraform step badges](/docs/deployments/terraform/images/terraform-step-badges.png "width=500")
+:::
 
 The `Plan to apply a Terraform template` will generate a plan for the result of running `apply` on a template, while `Plan a Terraform destroy` will generate a plan for the result of running `destroy` on the template.
 

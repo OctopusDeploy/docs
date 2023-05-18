@@ -74,7 +74,9 @@ If you see a reference to `Halibut` in the server log and `Pipefish` in the clie
 
 The easiest way to fix this is to RDP into the Tentacle machine and click the Reinstall button. This will reset the Tentacle service to make sure it points to the new binaries. Be aware that this will reset the Tentacle service account to run as Local System. If you are using a custom service account, you will have to reconfigure it.
 
+:::figure
 ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278286.png "width=500")
+:::
 
 #### Symptoms #2 {#Troubleshooting-Symptoms#2}
 

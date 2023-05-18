@@ -17,31 +17,45 @@ This guide was written using Nexus OSS version 3.37.0-01
 
 From the Nexus web portal, click on the **gear icon** to get to the **Administration** screen.
 
+:::figure
 ![Administration gear Icon](/docs/packaging-applications/package-repositories/guides/images/nexus-nuget-administration.png)
+:::
 
 Click on **Repositories**
 
+:::figure
 ![Repositories](/docs/packaging-applications/package-repositories/guides/images/nexus-repositories.png)
+:::
 
 Click **Create repository**
 
+:::figure
 ![Create repository](/docs/packaging-applications/package-repositories/guides/images/nexus-create-repository.png)
+:::
 
 Choose **nuget (hosted)** from the list of repositories to create
 
+:::figure
 ![NuGet (hosted)](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/nexus-nuget-repository.png)
+:::
 
 Give the repository a name and change any applicable configuration options.  Click **Create repository** when you are done.
 
+:::figure
 ![Create repository](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/nexus-create-nuget-repository.png)
+:::
 
 When the repository has been created, click on the entry in the list to bring up the repository properties.
 
+:::figure
 ![MyNexusNugetRepo](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/nexus-mynexusnugetrepo.png)
+:::
 
 Copy the URL property, that is what you will use when adding it as an external feed
 
+:::figure
 ![Repository URL](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/nexus-nuget-url.png)
+:::
 
 Optionally upload a NuGet package to the repository so you can verify search functionality when added as an external feed.
 

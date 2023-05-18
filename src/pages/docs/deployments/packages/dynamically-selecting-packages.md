@@ -17,7 +17,9 @@ We typically recommend using a static package configuration wherever possible - 
 
 You may want to use a different package feed for each environment. This can help when you have a slow connection between your main package feed and your deployment environments. In this case you could configure a package feed in your remote environments, and instruct Octopus to use the best package feed for each deployment.
 
+:::figure
 ![Defining the feed value as a variable on the package step](/docs/deployments/packages/images/dynamic-feed.png "width=500")
+:::
 
 For example, you can bind the Package Feed to `#{FeedId}` and set the following environment-scoped variables:
 
@@ -48,7 +50,9 @@ Now you can configure Octopus to deploy your common package just like normal, bu
 
 You can now create the `3.1.6` release for the `MyApp.Web` project, but have Octopus deploy the correct styles/assets package for each tenant at deployment time.
 
+:::figure
 ![Dynamic Package ID](/docs/deployments/packages/images/dynamic-package-id.png "width=500")
+:::
 
 :::div{.info}
 

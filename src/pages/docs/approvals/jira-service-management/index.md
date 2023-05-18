@@ -86,7 +86,9 @@ Check the **Enabled** option
 Click on **ADD CONNECTION** and fill out the details.
 The JSM Base Url should be the root URL and include the protocol e.g. `https://`
 
+:::figure
 ![JSM Integration Add Connection](/docs/approvals/jira-service-management/images/jsm-connections-2.png "width=500")
+:::
 
 Press **TEST** to ensure that the connection details are working.
 
@@ -105,7 +107,9 @@ during the deployment lifecycle which record details about the deployment and it
 To enable this feature navigate to **Configuration ➜ Settings ➜ Jira Service Management 
 Integration**, click the **Customer Comments Enabled** checkbox show below then click **Save**.
 
+:::figure
 ![JSM Integration Enable Work Notes](/docs/approvals/jira-service-management/images/jsm-customer-comments-settings.png "width=500")
+:::
 
 ## Configuring deployments
 
@@ -120,7 +124,9 @@ To enable a project to enforce a requirement for an approved CR:
 3. Select your JSM connection in the **Jira Service Management Connection** setting and click 
    **SAVE**.
 
+:::figure
 ![JSM Integration Project settings](/docs/approvals/jira-service-management/images/jsm-project-settings.png "width=500")
+:::
 
 ### Default Behavior
 
@@ -139,7 +145,9 @@ To enable an environment to enforce a requirement for an approved CR, navigate t
 {Infrastructure,Environments}}**, edit the environment via the overflow menu and check the 
 **Jira Service Management Integration ➜ Change Controlled** setting, and then press **SAVE**.
 
+:::figure
 ![JSM Integration Environment settings](/docs/approvals/jira-service-management/images/jsm-environment-settings.png "width=500")
+:::
 
 ## How it works
 

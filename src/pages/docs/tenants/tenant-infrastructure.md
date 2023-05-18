@@ -27,7 +27,9 @@ Learn more about the differences between [tenanted and untenanted deployments](/
 
 By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, navigate to **Infrastructure ➜ Deployment Targets**
 
+:::figure
 ![](/docs/tenants/images/octopus-deployment-targets.png "width=500")
+:::
 
 Click on the deployment target you wish to configure for tenanted deployments. In the **Restrictions ➜ Tenanted Deployments** section, you can choose the kinds of deployments the target can be involved in
 
@@ -35,13 +37,17 @@ Click on the deployment target you wish to configure for tenanted deployments. I
 - **Include only in tenanted deployments** - the deployment target will only be included in deployments to the associated tenants. It will be excluded from untenanted deployments.
 - **Include in both tenanted and untenanted deployments** - The deployment target will be included in untenanted deployments, and deployments to the associated tenants.
 
+:::figure
 ![](/docs/tenants/images/target-restrictions-tenant-deployments.png "width=500")
+:::
 
 ### Choose tenants for target {#choose-tenants-for-target}
 
 To choose the tenants to associate with a deployment target navigate to the **Restrictions ➜ Associated Tenants** section of the deployment target. You can select the tenants to allow to deploy to individually, or you can choose from any of the configured [tenant tags](/docs/tenants/tenant-tags).
 
+:::figure
 ![](/docs/tenants/images/target-restrictions-associated-tenants.png "width=500")
+:::
 
 :::div{.hint}
 We generally recommend keeping tenanted and untenanted deployment targets separate, particularly in Production. You could use the same deployment targets for other environments but it's better to avoid this situation.
@@ -63,7 +69,9 @@ To configure deployment targets as dedicated hosts for one or more tenants:
 
 The final step is to deploy a connected project for this tenant and see the results. You will see how Octopus includes these specific deployment targets in that tenant's deployments, creating an isolated hosting environment for that tenant.
 
+:::figure
 ![](/docs/tenants/images/multi-tenant-deployment-dedicated.png "width=500")
+:::
 
 ## Shared hosting {#shared-hosting}
 
@@ -86,7 +94,9 @@ Now let's configure some shared servers in a farm:
 1. Go to **Infrastructure ➜ Deployment Targets** and find the deployment targets that will be used to host the applications for these tenants.
 1. Select the **Shared-Farm-1** tag:
 
+:::figure
 ![](/docs/tenants/images/multi-tenant-infra.png "width=500")
+:::
 
 These deployment targets will now be included in deployments for any tenants matching this filter; that is, any tenants tagged with **Hosting/Shared-Farm-1**.
 

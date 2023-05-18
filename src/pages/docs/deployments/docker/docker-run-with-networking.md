@@ -24,7 +24,9 @@ If not, you'll need to configure a host for our sample application. We recommend
 2. Configure your Ubuntu machine as either an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target/#configuring-ssh-targets) or [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux) in Octopus
     * Make sure this Deployment Target has a [target role](/docs/infrastructure/deployment-targets/#target-roles) like **docker-server**. We will configure the Docker steps to target this role.
 
+:::figure
 ![](/docs/deployments/docker/images/my-docker-host.png "width=500")
+:::
 
 3. Install and configure Docker Engine [on your Ubuntu machine](https://docs.docker.com/engine/install/ubuntu).
 4. *Optionally*, configure a Docker Group and grant Octopus the ability to [manage the Docker Daemon as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
@@ -89,7 +91,9 @@ The command itself is arbitrary. What is important is that we start a process th
 :::
 8. Save the first container configuration and move on to creating the second container step.
 
+:::figure
 ![](/docs/deployments/docker/images/add-first-server-step.png "width=500")
+:::
 
 ### Step 3: Creating container 2 {#step3-create-container2}
 
@@ -124,7 +128,9 @@ Now we need to create a single Project Variable used by the second container to 
 
 Although we could deploy a project as many times as we want with a Docker run step, increasing the number of running containers, you may want to stop containers run from previous deployments before or after creating a new container from the same Image. For this reason we have included the *Stop a Docker Resource* deployment step. This allows you to configure previous containers or networks to stop (and optionally remove them) before or after any other step in your deployment process. In this case because we are creating a network with a specific subnet, to avoid clashes with networks created as a result of a redeployment we will simply remove everything previously created from this project before the network is created. In your case however, you may want to create multiple stop steps throughout your process before or after each specific container starts. Provide the details as shown below and re-order this step to run as the first step in the deployment.
 
+:::figure
 ![](/docs/deployments/docker/images/add-clean-slate-step.png "width=500")
+:::
 
 ### Step 6: Script step - accessing container details  {#step6-access-container-details}
 
@@ -149,7 +155,9 @@ Note that to access the IP address of the two containers we are using the result
 To see the full results of the inspect command try echoing out the variable just up to the *Inspect* section (i.e. `#{Octopus.Action[First Server].Output.Docker.Inspect}` ). This will return a large JSON blob that the variable parser, [Octostache](https://github.com/OctopusDeploy/Octostache), is [now able to traverse.](https://octopus.com/blog/octostache-json-formatting)
 :::
 
+:::figure
 ![](/docs/deployments/docker/images/add-get-log-step.png "width=700")
+:::
 
 ## Creating a release of our Docker project {#create-release}
 
@@ -157,7 +165,9 @@ From this point forward, the deployment will follow the same process that you sh
 
 Go ahead and create a release of your Docker Project.
 
+:::figure
 ![](/docs/deployments/docker/images/docker-create-release.png "width=500")
+:::
 
 :::div{.hint}
 **Creating releases based on Docker images**
@@ -181,19 +191,27 @@ For steps to grant the Octopus Account the ability to manage the Docker daemon, 
 
 To identify containers and networks that need to be stopped, all resources created through an Octopus deployment are configured with [labels](https://docs.docker.com/engine/reference/builder/#label) that contain the project Id, release Id, deployment Id and if applicable, tenant Id. When the clean step is then run, the available networks and containers are then filtered based on the parameters supplied in the step configuration. When a container is flagged to be removed first all linked containers will be disconnected from that network. For containers, all relevant containers are first stopped via the [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) command and then removed. This provides your process time to gracefully end by receiving the SIGTERM signal before being killed.
 
+:::figure
 ![](/docs/deployments/docker/images/clean-slate-task-output.png "width=500")
+:::
 
 The Docker equivalent of the "Package Acquisition" phase involves retrieving the images from the registry using the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command on the target itself. This ensures that the target has the latest copy of that image however due to the nature of containers this will incur next to no bandwidth if it is already up to date. If a newer version of an image is retrieved than is available locally, then it is possibly that only a single "[layer](https://docs.docker.com/storage/storagedriver/#images-and-layers)" of the image needs to be retrieved and so again, the bandwidth usage is minimized. Note that if credentials are required for the registry, then a [docker login](https://docs.docker.com/engine/reference/commandline/login/) command is first issued. This will use either the hostname of the registry URI provided, or the *Registry Path* explicitly provided when setting up the feed. There is currently no "push to target" capability for images in Docker steps.
 
+:::figure
 ![](/docs/deployments/docker/images/acquire-package-steps.png "width=500")
+:::
 
 When creating a network or container, the name and Id as simply echoed to the standard logs. The verbose logs will show the docker version on the target, the full docker command being called and if successful, the results of the inspect command that are passed to an output variable.
 
+:::figure
 ![](/docs/deployments/docker/images/first-and-second-server-task-output.png "width=500")
+:::
 
 In the case of our simple scenario above, the final step should display the IP address of the containers, within the bound of the subnet specified by the configured network, as well as a line from the second container's ping command showing connectivity to the first container.
 
+:::figure
 ![](/docs/deployments/docker/images/get-log-task-output.png "width=500")
+:::
 
 
 ## Learn more

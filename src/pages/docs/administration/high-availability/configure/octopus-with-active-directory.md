@@ -25,29 +25,41 @@ While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus
 
 On the first Octopus Server node, [download the Octopus Server MSI](https://octopus.com/downloads), or you can install Octopus using [Chocolatey](https://community.chocolatey.org/packages/OctopusDeploy), and follow the setup wizard. Use the Getting Started wizard to configure the first Octopus node:
 
+:::figure
 ![](/docs/administration/high-availability/configure/images/getting-started.png "width=500")
+:::
 
 :::div{.hint}
 The Octopus home directory is local to each specific node and **should not be shared** between nodes. This is usually located at `C:\Octopus`.
 :::
 
+:::figure
 ![](/docs/administration/high-availability/configure/images/home.png "width=500")
+:::
 
 Since each node will use shared storage, ensure you use a custom service account that has permission to access the shared database:
 
+:::figure
 ![](/docs/administration/high-availability/configure/images/wizard-service-accunt-ad.png "width=500")
+:::
 
 Configure the shared SQL database:
 
+:::figure
 ![](/docs/administration/high-availability/configure/images/wizard-sql-service-account.png "width=500")
+:::
 
 Follow the rest of the setup guide and install the first node.
 
+:::figure
 ![](/docs/administration/high-availability/configure/images/wizard-install.png "width=500")
+:::
 
 After the Octopus Server has been configured, from Octopus Manager copy the Master Key; you will need this to set up the additional nodes.
 
+:::figure
 ![](/docs/administration/high-availability/configure/images/wizard-master-key.png "width=500")
+:::
 
 Finally, you need to tell Octopus to store artifacts, packages, task logs, and imports in the shared storage that you provisioned, that way each Octopus node can see the same files. To do this, you need to use the command-line.
 
@@ -86,15 +98,21 @@ No matter which option you choose, the configuration is stored in the database, 
 
 After the first node has been created and started, you can add the additional nodes. Again, install the Octopus Server MSI, but instead of using the Getting Started wizard, use the link to add this server as a node for the cluster:
 
+:::figure
 ![](/docs/administration/high-availability/configure/images/wizard-high-availability.png "width=500")
+:::
 
 Connect to the same shared SQL database:
 
+:::figure
 ![](/docs/administration/high-availability/configure/images/wizard-sql-service-account.png "width=500")
+:::
 
 On the Cluster details page, enter the Master Key from the original node:
 
+:::figure
 ![](/docs/administration/high-availability/configure/images/wizard-second-node.png "width=500")
+:::
 
 Complete the setup wizard. You now have a second node in the cluster!
 

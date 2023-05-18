@@ -11,7 +11,9 @@ navOrder: 100
 
 DevOps insights in Octopus gives you better visibility into your company's DevOps performance by surfacing the four key DORA metrics, so you can make more informed decisions on where to improve and celebrate your results.
 
+:::figure
 ![The Overview page of Insights Reports](/docs/insights/images/overview.png)
+:::
 
 Two levels are available for DevOps Insights:
 
@@ -78,7 +80,9 @@ Project level insights are available as a new tab in every project so you can un
 
 Project level insights are available to all customers out-of-the-box, meaning you don't have to buy or subscribe to another tool. If you're already a user, Octopus has all the data it needs to help you uncover rich insights based on your deployment history.
 
+:::figure
 ![Project Insights Deployment Frequency](/docs/insights/images/project.png)
+:::
 
 ## Gain insight across projects and teams with the Space level insights
 

@@ -20,7 +20,9 @@ To change the Session Timeout duration, navigate to **Configuration ➜ Settings
 
 There is also a **Maximum Session Duration**, which applies when users click the `Remember Me` option when signing into Octopus. By default, this option is set to 20 days. Enter the desired maximum session timeout duration (in seconds) and click **SAVE**.
 
+:::figure
 ![Configurable Timeout Image](/docs/security/users-and-teams/images/configurable-timeout.png "width=1000")
+:::
 
 ## Session Invalidation {#TimeoutsAndInvalidation-SessionInvalidation}
 
@@ -39,7 +41,9 @@ To invalidate sessions of your own account, perform the following steps:
 1. Log into the Octopus Web Portal, click your profile image and select **Profile**.
 1. Click the overflow menu (`...`) and choose **Revoke Sessions**
 
+:::figure
 ![Session invalidation of your account](/docs/security/users-and-teams/images/session-invalidation-profile.png "width=1000")
+:::
 
 To invalidate sessions of another user, perform the following steps:
 

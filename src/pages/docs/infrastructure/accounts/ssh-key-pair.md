@@ -62,7 +62,9 @@ If you need more information about generating an SSH key pair, see the [useful l
 
 The easiest way to generate valid keys on windows is to use a tool like[ PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
 
+:::figure
 ![](/docs/infrastructure/accounts/ssh-key-create-putty.png "width=400")
+:::
 
 Provide your passphrase if desired and export the private key to the accepted format by going to **Conversions ➜ Export OpenSSH Key**.  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.
 

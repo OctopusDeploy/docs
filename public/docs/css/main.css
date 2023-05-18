@@ -1472,18 +1472,13 @@ nav.skip-links a:focus {
     font-family: fa-solid;
 }
 
-.copy-container,
-.magnify-container {
+.copy-container {
     max-height: 0px;
     margin: 0;
     width: 100%;
     text-align: end;
     z-index: 1;
     position: relative;
-}
-
-.magnify-container {
-    top: -1rem;
 }
 
 .copy-button {
@@ -1493,11 +1488,49 @@ nav.skip-links a:focus {
     cursor: pointer;
 }
 
+.magnify-container {
+    max-height: 0px;
+    margin: 0;
+    width: 100%;
+    text-align: end;
+    z-index: 1;
+    position: relative;
+    top: -1rem;
+}
+
 .magnify-icon {
-    stroke: var(--icon-stroke);
-    fill: var(--icon-fill);
-    background-color: transparent;
+    opacity: 0;
+    border-radius: 0.2rem;
+    color: var(--body-link-color);
+    display: inline-block;
     cursor: pointer;
+    background-color: var(--white);
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.input-touch .magnify-icon {
+    opacity: 1;
+}
+
+.magnify-icon:before {
+    content: '\e0fc';
+    font-family: fa-solid;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+figure:hover .magnify-icon,
+figure:focus .magnify-icon {
+    opacity: 1;
+}
+
+.magnify-icon:hover,
+.magnify-icon:focus,
+.magnify-icon:focus-within {
+    stroke: var(--fore-link);
+    transform: rotate(4deg);
+    opacity: 1;
 }
 
 /* Custom Divisions */

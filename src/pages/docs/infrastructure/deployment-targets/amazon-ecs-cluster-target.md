@@ -62,13 +62,17 @@ Authentication can be configured to use credentials from the worker on which a d
 
 To configure the ECS cluster to use worker credentials select the "Use credentials provided on the worker" option in the Credentials field.
 
+:::figure
 ![ECS Cluster Worker Credentials](/docs/infrastructure/deployment-targets/images/aws-ecs-target-worker-credentials.png "width=500")
+:::
 
 #### AWS Account
 
 Authentication can be configured to use an [AWS Account](/docs/infrastructure/accounts/aws). To configure your ECS cluster to use an account select the "Use account" option in the Credentials field.
 
+:::figure
 ![ECS Cluster Account Credentials](/docs/infrastructure/deployment-targets/images/aws-ecs-target-account-credentials.png "width=500")
+:::
 
 ### Assuming an IAM role
 

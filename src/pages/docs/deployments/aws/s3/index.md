@@ -14,17 +14,23 @@ The following instructions can be used to configure the `Upload a package to an 
 
 Add the `Upload a package to an AWS S3 bucket` step to the project, and give it a name.
 
+:::figure
 ![Upload s3 step](/docs/deployments/aws/s3/upload-s3-step.png "width=500")
+:::
 
 ### AWS section
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).
 
+:::figure
 ![AWS Account](/docs/deployments/aws/s3/step-aws-account.png "width=500")
+:::
 
 The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
 
+:::figure
 ![AWS Role](/docs/deployments/aws/s3/step-aws-role.png "width=500")
+:::
 
 :::div{.hint}
 If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
@@ -44,7 +50,9 @@ The [Github feed](/docs/packaging-applications/package-repositories/github-feeds
 
 By default, the entire package will be uploaded to the S3 bucket untouched with the given bucket key, metadata, and tags.
 
+:::figure
 ![Entire package options](/docs/deployments/aws/s3/entire-package-options.png "width=500")
+:::
 
 #### Variable Substitution File Patterns
 
@@ -79,7 +87,9 @@ Target files need to be newline-seperated, relative to the package contents. Ext
 The option **Use filename with embedded content hash** for the **Upload a package to an AWS S3 bucket** was added in Octopus **2022.2**.
 :::
 
+:::figure
 ![Use filename with embedded content hash options](/docs/deployments/aws/s3/filename-with-content-hash-option.png "width=500")
+:::
 
 Select this option to allow the hash of the contents of the package to be included in the resulting bucket key. 
 
@@ -117,7 +127,9 @@ Here are a few examples to help you get those files in the right folder structur
 #### Single file selection
 The single file selection lets you upload a single file to an S3 bucket which must exist within the package. If the file is not found an associated error will be raised. This selection also allows for the bucket key to be explicit.
 
+:::figure
 ![Single file selection](/docs/deployments/aws/s3/single-file-selection.png "width=500")
+:::
 
 #### Bucket keys
 A custom key delimited with forward slash `/` characters is seen in S3 as folders.
@@ -135,7 +147,9 @@ The bucket key used for a single file selection will uniquely identify the file 
 #### Multiple file selections
 Multiple file selections allow one or more files from the package to be uploaded to the S3 bucket using globbing patterns. The behavior is slightly different from single file selections as you have less control over the bucket key which will be used while no error will be raised if *no* files matched the globbing pattern. Files uploaded will have the bucket key prefix added to the file name. That is a file matched by the globbing pattern `path/to/file/File.template` with a prefix of `templates/` will be uploaded with the bucket key `templates/File.template`.
 
+:::figure
 ![Multiple file selections](/docs/deployments/aws/s3/multiple-file-selections.png "width=500")
+:::
 
 :::div{.hint}
 Any metadata and tags provided will be applied to all files uploaded to the bucket.

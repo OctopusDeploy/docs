@@ -13,7 +13,9 @@ This example is from the sample project in the [Channels Walk-through](https://o
 
 Step 1 calculates a name by convention, which is used by subsequent steps.
 
+:::figure
 ![Deployment Process](/docs/deployments/custom-scripts/images/deployment-process.png "width=500")
+:::
 
 ## Creating an output variable
 ```powershell PowerShell

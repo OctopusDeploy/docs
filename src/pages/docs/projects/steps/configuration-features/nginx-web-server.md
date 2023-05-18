@@ -9,7 +9,9 @@ navOrder: 90
 
 The NGINX feature is one of the [configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process).
 
+:::figure
 ![NGINX Web Server screenshot](/docs/projects/steps/configuration-features/images/nginx-web-server.png "width=500")
+:::
 
 The **NGINX web server** feature is available on **deploy a package** steps, however, there is also a **Deploy to NGINX** step which you can use to configure NGINX during deployment. See [NGINX on Linux deployment](/docs/deployments/nginx) for more details.
 

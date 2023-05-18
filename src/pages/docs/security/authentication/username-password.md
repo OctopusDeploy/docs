@@ -17,7 +17,9 @@ The Username and Password provider is available out-of-the-box as one of [a numb
 
 When Username and Password authentication is enabled, the sign in page for the Octopus Web Portal will present users with the option to sign in with an Octopus account:
 
+:::figure
 ![Username and Password login screen](/docs/security/authentication/images/username-password-login.png "width=500")
+:::
 
 ## Enable username and password authentication via UI {#usernamepassword-enable-in-ui}
 
@@ -40,7 +42,9 @@ Octopus.Server.exe configure --instance=[your_instance_name] --usernamePasswordI
 
 When a new Octopus user is created, they are automatically added to the **Everyone** team. To manage Octopus users, this can be done by navigating to **Configuration ➜ Users**. 
 
+:::figure
 ![Managing users](/docs/security/authentication/images/username-password-managing-users.png "width=500")
+:::
 
 With any Octopus user, you can [assign user accounts to different teams](/docs/security/users-and-teams) to give them permissions to view projects or environments, or any additional permissions they may need:
 

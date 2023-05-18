@@ -21,7 +21,9 @@ The AWS S3 Bucket feed follows the same [package versioning conventions](/docs/p
 
 On the test page, you can check whether the feed is working by searching for packages:
 
+:::figure
 ![](/docs/packaging-applications/package-repositories/images/s3-feed-test.png "width=500")
+:::
 
 ## Troubleshooting AWS S3 Bucket feeds
 

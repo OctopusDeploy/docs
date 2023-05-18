@@ -26,7 +26,9 @@ Learn more about where Tentacle [files are stored](/docs/administration/managing
 
 An example DeploymentJournal.xml is shown below on a Windows Tentacle with the instance name set to `DWebApp01`:
 
+:::figure
 ![](/docs/administration/retention-policies/images/3278384.png "width=500")
+:::
 
 Below is a sample `DeploymentJournal.xml`:
 
@@ -67,7 +69,9 @@ It keeps a record for every package and package extraction for each project and 
 
 Defining retention policies is done within lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
 
+:::figure
 ![](/docs/administration/retention-policies/images/default-lifecycle-retention-policy.png "width=500")
+:::
 
 In this example the default for the Lifecycle is to Keep 3 releases on both Octopus Server and Tentacle.
 
@@ -77,7 +81,9 @@ Learn more about [Lifecycles](/docs/releases/lifecycles/) and [Retention Policie
 
 [Channels](/docs/releases/channels) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag under `Deployment settings` on the **Project ➜ Settings** page.
 
+:::figure
 ![Discrete Channel Release](/docs/administration/retention-policies/images/discrete-channel-release.png "width=500")
+:::
 
 ## When the retention policy is run {#retention-policies-run}
 
@@ -114,13 +120,17 @@ Tentacle instances on one machine.
 
 Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/#Tentacleconfigurationandfilestorage-Filestorage).
 
+:::figure
 ![](/docs/administration/retention-policies/images/3278387.png "width=500")
+:::
 
 By default your extracted package files can be found under `<Tentacle Home>\Applications\[environment name]\[package name]\`
 
 So if you have multiple packages you will have multiple directories.
 
+:::figure
 ![](/docs/administration/retention-policies/images/3278389.png "width=500")
+:::
 
 ![](/docs/administration/retention-policies/images/3278388.png "width=500")
 
@@ -128,7 +138,9 @@ If you have more directories than you think you should, check if they have a val
 
 You can have multiple directories for the same version of each package like the following example:
 
+:::figure
 ![](/docs/administration/retention-policies/images/3278390.png "width=500")
+:::
 
 This occurs when you have the same package in two different steps inside a single project. It has two extraction directories, and it is assumed to be a different set of files due to variables and transforms. So for a 3 package policy you will have a copy of each version leaving 6 plus the current 2 for a total of 8 directories. This can mean a lot of folders if you use the same package in multiple steps.
 
