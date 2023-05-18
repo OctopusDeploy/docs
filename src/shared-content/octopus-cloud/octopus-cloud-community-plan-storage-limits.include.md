@@ -3,6 +3,6 @@
 - Maximum size for any single package is `5 GB`.
 - [Retention policies](/docs/administration/retention-policies) can be configured up to a **maximum** of `30 Days`.
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::

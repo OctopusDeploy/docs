@@ -47,21 +47,12 @@ The Octopus Server stores files in the following folders by default:
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-Telemetry) on how to move the Octopus Server telemetry folder
 - `C:\Octopus\Imports`
     - This folder was added in **Octopus 2021.1**
-<<<<<<< HEAD:src/pages/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md
     - This is where imported zip files are stored when using the [Export/Import Projects feature](/docs/projects/export-import).
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-Imports) on how to move the Octopus Server imports folder
 - `C:\Octopus\EventExports`
     - This folder was added in **Octopus 2023.3**
     - This is where audit log archive zip files are stored when using the [Archived audit logs feature](/docs/security/users-and-teams/auditing/index.md#archived-audit-events).
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-EventExports) on how to move the Octopus Server event exports folder
-=======
-    - This is where imported zip files are stored when using the [Export/Import Projects feature](/docs/projects/export-import/index.md).
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-Imports) on how to move the Octopus Server imports folder
-- `C:\Octopus\EventExports`
-    - This folder was added in **Octopus 2023.3**
-    - This is where audit log archive zip files are stored when using the [Archived audit logs feature](/docs/docs/security/users-and-teams/auditing/index.md#archived-audit-events).
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-EventExports) on how to move the Octopus Server event exports folder
->>>>>>> 37c515d99 (First cut at adding event exports):docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md
 
 ## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}
 

@@ -75,7 +75,7 @@ Or one of the common options:
       --nologo               Don't print title or version information
 ```
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -152,7 +152,7 @@ mv $oldEventExports $newEventExports
 & "$octopus" service --start
 ```
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 

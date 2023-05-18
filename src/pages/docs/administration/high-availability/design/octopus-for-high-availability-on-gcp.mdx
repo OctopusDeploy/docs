@@ -92,7 +92,7 @@ To successfully create a NetApp Cloud SMB Volume in Google Cloud, you must have 
 
 Once you have configured your NetApp Cloud SMB Volume, the best option is to mount the SMB share and then create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\OctopusShared\` for the Artifacts, Packages, TaskLogs, Imports, and EventExports folders which need to be available to all nodes.
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -354,7 +354,7 @@ Once you've completed those steps, [install Octopus](/docs/installation/) and th
 --imports "C:\OctopusShared\Imports" `
 --eventExports "C:\OctopusShared\EventExports"
 ```
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 

@@ -36,7 +36,7 @@ The deployments will **not** include:
 - Event Exports
 :::
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 

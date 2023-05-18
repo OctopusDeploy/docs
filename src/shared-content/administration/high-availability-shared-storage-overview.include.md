@@ -6,7 +6,7 @@ Octopus stores several files that are not suitable to store in the database. The
 - Imported zip files used by the [Export/Import Projects feature](/docs/projects/export-import).
 - Archived audit logs by the [Archived audit logs feature](/docs/security/users-and-teams/auditing/index.md#archived-audit-events).
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 

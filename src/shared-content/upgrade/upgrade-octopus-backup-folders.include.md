@@ -7,7 +7,7 @@ The server folders store large binary data outside of the database.  By default,
 - **Tasklogs**: The default location is `C:\Octopus\Tasklogs`. It stores all the deployment logs.  
 - **EventExports**: The default location is `C:\Octopus\EventExports`. It stores all the exported event audit logs.  
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 

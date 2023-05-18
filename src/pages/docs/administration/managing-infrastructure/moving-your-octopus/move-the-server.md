@@ -32,7 +32,7 @@ You may want to move only the Octopus Server itself, and continue using your exi
       - This folder only needs to be moved if using the built-in package repository. External feed details are stored in the database, and they will connect automatically.
    - Event Exports
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 

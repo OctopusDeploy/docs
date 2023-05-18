@@ -103,7 +103,7 @@ Octopus Deploy stores all the BLOB data (deployment logs, runbook logs, packages
 - Packages
 - EventExports
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -149,7 +149,7 @@ For example:
 ./Octopus.Server path --instance OctopusServer --nugetRepository "/repository" --artifacts "/artifacts" --taskLogs "/taskLogs" --eventExports "/eventExports" --cacheDirectory="/cache" --skipDatabaseCompatibilityCheck --skipDatabaseSchemaUpgradeCheck
 ```
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -163,7 +163,7 @@ Just like the Octopus Server Windows Container, you will want to provide the fol
 |**/cache**|Path where cached files are stored|
 |**/eventExports**|Path where event audit logs are exported|
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 

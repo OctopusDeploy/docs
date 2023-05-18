@@ -12,7 +12,7 @@ The Windows Service is split across multiple folders to make upgrading easy and 
 - **Tentacles**: Octopus Deploy connects to deployment targets via the Tentacle service.  Each version of Octopus Deploy includes a specific Tentacle version.  Tentacle upgrades do not occur until _after_ the Octopus Deploy server is upgraded.  Tentacle upgrades are optional; any Tentacle greater than 4.x will work [with any modern version of Octopus Deploy](/docs/support/compatibility).  We recommend you upgrade them to get the latest bug fixes and security patches when convenient.  
 - **Calamari**: The Tentacles facilitate communication between Octopus Deploy and the deployment targets.  Calamari is the software that does the actual deployments.  Calamari and Octopus Deploy are coupled together.  Calamari is upgraded automatically during the first deployment to a target.components.
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 

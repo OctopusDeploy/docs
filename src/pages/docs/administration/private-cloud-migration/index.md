@@ -142,7 +142,7 @@ A complete migration involves:
     1. Pointing CI servers and external scripts to the cloud instance.
     1. Updating firewall rules to allow the cloud instance to connect to listening tentacles.
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 

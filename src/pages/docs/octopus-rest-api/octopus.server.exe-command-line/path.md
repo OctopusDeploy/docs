@@ -44,7 +44,7 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -71,6 +71,6 @@ octopus.server path --telemetry \\Octoshared\OctopusData\Telemetry
 octopus.server path --eventExports \\Octoshared\OctopusData\EventExports
 ```
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::

@@ -23,7 +23,7 @@ Whether you are running Octopus in a Container using Docker or Kubernetes, or ru
 - A [Load balancer](/docs/administration/high-availability/load-balancing) for traffic to the Octopus Web Portal 
 - Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha)
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -214,7 +214,7 @@ To share common files between the Octopus Server nodes, we need access to a mini
 - Task Logs
 - Event Exports
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -284,7 +284,7 @@ spec:
       storage: 1Gi
 ```
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -347,7 +347,7 @@ spec:
       storage: 1Gi
 ```
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -422,7 +422,7 @@ volumeMounts:
     subPath: eventExports
 ```
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
@@ -581,15 +581,11 @@ spec:
           periodSeconds: 60
 ```
 
-<<<<<<< HEAD:src/pages/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.mdx
 :::div{.hint}
-=======
-:::hint
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
-:::hint
->>>>>>> 37c515d99 (First cut at adding event exports):docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md
+:::div{.hint}
 **Change the Default values:**
 If you use the YAML definition above, remember to change the default values entered including the Admin Username, Admin Password, and the version of the `octopusdeploy/octopusdeploy` image to use. You also need to provide values for the License Key and database Master Key.
 :::
@@ -625,7 +621,7 @@ affinity:
 
 In addition to the shared folders that are mounted for Packages, Artifacts, Task Logs, and Event Exports, each Octopus Server node (Pod) also writes logs to a local folder in each running container.
 
-:::hint
+:::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
