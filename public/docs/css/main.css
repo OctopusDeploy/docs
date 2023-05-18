@@ -1357,6 +1357,30 @@ nav.skip-links a:focus {
     display: inline-block;
 }
 
+.fa-spinner:before {
+    content: '\f110';
+    color: var(--blue-500);
+    font-family: fa-solid;
+}
+
+.fa-circle-check:before {
+    content: '\f058';
+    color: var(--green-400);
+    font-family: fa-solid;
+}
+
+.fa-circle-xmark:before {
+    content: '\f057';
+    color: var(--red-500);
+    font-family: fa-solid;
+}
+
+.fa-clock:before {
+    content: '\f017';
+    color: var(--orange-400);
+    font-family: fa-solid;
+}
+
 .fa-share-nodes:before {
     content: '\f1e0'; /* Share Nodes */
     font-family: fa-solid;

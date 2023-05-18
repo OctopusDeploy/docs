@@ -35,6 +35,12 @@
     --blue-100: #F2F8FD;
     --blue-qqq: #FAFDFF;
 
+    --green-400: #00AB62;
+
+    --red-500: #D63D3D;
+
+    --orange-400: #EA7325;
+
     --blue-midnight-dark: #070E14FF;
     --blue-midnight-darker: #0A202FFF;
     --blue-midnight: #10212FFF;
@@ -72,11 +78,11 @@
 
     --color-hint: #124164;
     --bgcolor-hint: #e5f4ff;
-    --bordercolor-hint: #0d80d8;
+    --bordercolor-hint: var(--blue-500);
 
     --color-info: #124164;
     --bgcolor-info: #e5f4ff;
-    --bordercolor-info: #0d80d8;
+    --bordercolor-info: var(--blue-500);
 
     --color-success: #04502f;
     --bgcolor-success: #e8ffeb;
@@ -96,7 +102,7 @@
     /* To be checked and cleaned */
 
     
-    --octo-blue: #0D79CE; /* Insufficient contrast for #0D80D8FF; */
+    --octo-blue: var(--blue-500);
     --lightest-blue: #E5F4FFFF;
     --octo-blue-lighter: #2F95E3FF;
     --octo-blue-lightest: #1FC0FFFF;
