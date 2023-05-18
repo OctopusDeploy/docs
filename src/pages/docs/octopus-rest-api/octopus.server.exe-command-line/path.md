@@ -37,11 +37,16 @@ Where [<options>] is any of:
       --imports=VALUE        Set the path where imported zip files are stored
       --taskLogs=VALUE       Set the path where task logs are stored
       --telemetry=VALUE      Set the path where telemetry is stored
+      --eventExports=VALUE   Set the path where event audit logs are exported
 
 Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 ## Basic examples
 This example configures all paths (artifacts, task logs, packages, imports, and telemetry) to a network share:
@@ -53,6 +58,7 @@ octopus.server path --taskLogs TaskLogs
 octopus.server path --nugetRepository Packages
 octopus.server path --imports Imports
 octopus.server path --telemetry Telemetry
+octopus.server path --eventExports EventExports
 ```
 
 This example configures the paths for the different components individually:
@@ -62,4 +68,9 @@ octopus.server path --taskLogs \\Octoshared\OctopusData\TaskLogs
 octopus.server path --nugetRepository \\Octoshared\OctopusData\Packages
 octopus.server path --imports \\Octoshared\OctopusData\Imports
 octopus.server path --telemetry \\Octoshared\OctopusData\Telemetry
+octopus.server path --eventExports \\Octoshared\OctopusData\EventExports
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::

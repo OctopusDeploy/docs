@@ -146,6 +146,7 @@ services:
       - ./taskLogs:/taskLogs
       - ./artifacts:/artifacts
       - ./repository:/repository
+      - ./eventExports:/eventExports
   nginx:
     image: ${NGINX_IMAGE}
     environment:
@@ -156,6 +157,9 @@ services:
       - db
       - octopus      
 ```
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 The .env file will look something like this:
 ```

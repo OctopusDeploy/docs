@@ -133,6 +133,7 @@ A complete migration involves:
 1. Copying task logs to the cloud based file storage.
 1. Copying built-in feed packages to the cloud based file storage.
 1. Copying artifacts to the cloud based file storage.
+1. Copying archived events to the cloud based file storage.
 1. Installing Octopus on your chosen hosting platform (e.g. a virtual machine or container orchestration platform).
 1. Pointing the cloud Octopus instance to the cloud based database.
 1. Reindexing the packages in the built-in feed.
@@ -140,6 +141,10 @@ A complete migration involves:
     1. Reregistering polling tentacles to point to the cloud instance.
     1. Pointing CI servers and external scripts to the cloud instance.
     1. Updating firewall rules to allow the cloud instance to connect to listening tentacles.
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 This process is documented in more detail under [Moving your Octopus components to other servers](/docs/administration/managing-infrastructure/moving-your-octopus).
 

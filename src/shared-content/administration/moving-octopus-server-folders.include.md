@@ -66,6 +66,7 @@ Where `[<options>]` is any of:
       --artifacts=VALUE      Set the path where artifacts are stored
       --imports=VALUE        Set the path where imported zip files are stored
       --taskLogs=VALUE       Set the path where task logs are stored
+      --eventExports=VALUE   Set the path where event audit logs are exported
       --telemetry=VALUE      Set the path where telemetry is stored
 
 Or one of the common options:
@@ -73,6 +74,10 @@ Or one of the common options:
                                user is non-interactive
       --nologo               Don't print title or version information
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 ## Move NuGet repository folder {#MovingOctopusServerfolders-NuGetRepository}
 
@@ -130,6 +135,26 @@ mv $oldTaskLogs $newTaskLogs
 & "$octopus" path --taskLogs="$newTaskLogs"
 & "$octopus" service --start
 ```
+
+## Move the event exports folder {#MovingOctopusServerfolders-EventExports}
+
+A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
+
+```powershell
+$oldEventExports = "C:\Octopus\EventExports"
+$newEventExports = "C:\YourNewHomeDir\EventExports"
+$octopus = "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe"
+
+& "$octopus" service --stop
+mv $oldEventExports $newEventExports
+
+& "$octopus" path --eventExports="$newEventExports"
+& "$octopus" service --start
+```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 ## Move the telemetry folder {#MovingOctopusServerfolders-Telemetry}
 

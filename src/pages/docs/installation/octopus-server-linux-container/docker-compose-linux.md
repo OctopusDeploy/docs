@@ -53,14 +53,20 @@ services:
       - taskLogs:/taskLogs
       - cache:/cache
       - import:/import
+      - eventExports:/eventExports
 volumes:
   repository:
   artifacts:
   taskLogs:
   cache:
   import:
+  eventExports:
   sqlvolume:
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 We will provide some of the environment variables to run this container with an additional `.env` file:
 
