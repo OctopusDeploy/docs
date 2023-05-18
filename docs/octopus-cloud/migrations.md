@@ -29,6 +29,11 @@ The deployments will **not** include:
     - Guided Failure logs
     - Manual Intervention logs
 - Audit History
+- Event Exports
+:::
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
 ## Prep Work

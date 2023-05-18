@@ -15,9 +15,13 @@ Since [Octopus High Availability](/docs/administration/high-availability/index.m
 Whether you are running Octopus in a Container using Docker or Kubernetes, or running it on Windows Server, there are a number of items to consider when creating an Octopus High Availability cluster:
 
 - A Highly available [SQL Server database](/docs/installation/sql-server-database.md)
-- A shared file system for [Artifacts, Packages, and Task Logs](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md#ServerconfigurationandFilestorage-FileStorageFilestorage)
+- A shared file system for [Artifacts, Packages, Task Logs, and Event Exports](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md#ServerconfigurationandFilestorage-FileStorageFilestorage)
 - A [Load balancer](/docs/administration/high-availability/load-balancing/index.md) for traffic to the Octopus Web Portal 
 - Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md)
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 The following sections describe these in more detail.
 
@@ -204,6 +208,11 @@ To share common files between the Octopus Server nodes, we need access to a mini
 - Artifacts
 - Packages
 - Task Logs
+- Event Exports
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 These are created via [persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes) with an [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) of `ReadWriteMany` to indicate they are shared between multiple pods. 
 
@@ -219,7 +228,7 @@ The next sections describe how to create file storage for use with Octopus runni
 
 #### AKS storage {#aks-storage}
 
-The following YAML creates the shared persistent volume claims that will host the artifacts, built-in feed packages, and the task logs using the `azurefile` storage class, which is specific to Azure AKS:
+The following YAML creates the shared persistent volume claims that will host the artifacts, built-in feed packages, the task logs, and event exports using the `azurefile` storage class, which is specific to Azure AKS:
 
 ```yaml
 kind: PersistentVolumeClaim
@@ -257,11 +266,27 @@ spec:
   resources:
     requests:
       storage: 1Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: event-exports-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: azurefile
+  resources:
+    requests:
+      storage: 1Gi
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 #### GKE storage {#gke-storage}
 
-The following YAML creates the shared persistent volume claims that will host the artifacts, built-in feed packages, and the task logs using the `standard-rwx` storage class from the Google [Filestore CSI driver](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver).
+The following YAML creates the shared persistent volume claims that will host the artifacts, built-in feed packages, the task logs, and event exports using the `standard-rwx` storage class from the Google [Filestore CSI driver](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver).
 
 :::hint
 **GKE Cluster version pre-requisite:**
@@ -304,7 +329,23 @@ spec:
   resources:
     requests:
       storage: 1Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: event-exports-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: standard-rwx
+  resources:
+    requests:
+      storage: 1Gi
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 If you are running a GKE cluster in a non-default VPC network in Google Cloud, you may need to define your own storage class specifying the network name. The following YAML shows creating a storage class that can be used with a non-default VPC network in GKE called `my-custom-network-name`:
 
@@ -372,7 +413,14 @@ volumeMounts:
 - name: octopus-storage-vol
     mountPath: /taskLogs
     subPath: taskLogs
+- name: octopus-storage-vol
+    mountPath: /eventExports
+    subPath: eventExports
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 ## Deploying the Octopus Server 
 
@@ -402,7 +450,7 @@ This functionality works very nicely when deploying Octopus, as we need to ensur
 
 The following YAML below creates a Stateful Set with two pods. These pods will be called `octopus-0` and `octopus-1`, which will also be the value assigned to the `statefulset.kubernetes.io/pod-name` label. This is how we can link services exposing individual pods. 
 
-The pods then mount a single shared volume for the artifacts, built-in feed packages, task logs and the server task logs for each pod.
+The pods then mount a single shared volume for the artifacts, built-in feed packages, task logs, the server task logs, and event exports for each pod.
 
 ```yaml
 apiVersion: apps/v1
@@ -480,6 +528,9 @@ spec:
         - name: octopus-storage-vol
           mountPath: /taskLogs
           subPath: taskLogs
+        - name: octopus-storage-vol                                                  
+          mountPath: /eventExports
+          subPath: eventExports
         - name: octopus-storage-vol
           mountPath: /home/octopus/.octopus/OctopusServer/Server/Logs
           subPathExpr: serverLogs/$(OCTOPUS_SERVER_NODE_NAME)
@@ -527,6 +578,10 @@ spec:
 ```
 
 :::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
+
+:::hint
 **Change the Default values:**
 If you use the YAML definition above, remember to change the default values entered including the Admin Username, Admin Password, and the version of the `octopusdeploy/octopusdeploy` image to use. You also need to provide values for the License Key and database Master Key.
 :::
@@ -560,7 +615,11 @@ affinity:
 
 ### Octopus Server Pod logs {#server-pod-logs}
 
-In addition to the shared folders that are mounted for Packages, Artifacts and Task Logs, each Octopus Server node (Pod) also writes logs to a local folder in each running container.
+In addition to the shared folders that are mounted for Packages, Artifacts, Task Logs, and Event Exports, each Octopus Server node (Pod) also writes logs to a local folder in each running container.
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 To mount the same volume used for the shared folders for the server logs, we need a way to create a sub-folder on the external volume that's unique to each Octopus Server node running in a Pod. 
 

@@ -59,7 +59,11 @@ If your Octopus Server is running in Microsoft Azure, you can use [Azure Files](
 
 If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that can be shared across all of your Octopus servers.
 
-After you have created your File Share, the best option is to add the Azure File Share as a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\Octopus\` for the Artifacts, Packages, TaskLogs and Imports which need to be available to all nodes.
+After you have created your File Share, the best option is to add the Azure File Share as a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\Octopus\` for the Artifacts, Packages, TaskLogs, Imports and EventExports which need to be available to all nodes.
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 Run the PowerShell below before installing Octopus, substituting the placeholders with your own values:
 
@@ -78,6 +82,11 @@ New-Item -Path C:\Octopus\TaskLogs -ItemType SymbolicLink -Value \\octostorage.f
 New-Item -Path C:\Octopus\Artifacts -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Artifacts
 New-Item -Path C:\Octopus\Packages -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Packages
 New-Item -Path C:\Octopus\Imports -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Imports
+New-Item -Path C:\Octopus\EventExports -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\EventExports
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 ```
 :::hint
@@ -92,7 +101,12 @@ It's worth noting that you need to have created the folders within the Azure Fil
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --taskLogs "C:\Octopus\TaskLogs"
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --nugetRepository "C:\Octopus\Packages"
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --imports "C:\Octopus\Imports"
+& 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --eventExports "C:\Octopus\EventExports"
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 ### Load balancing in Azure
 

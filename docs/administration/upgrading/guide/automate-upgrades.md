@@ -100,6 +100,12 @@ if ($versionSplit[0] -ne $upgradeSplit[0])
     {
         Throw "Unable to copy files to $fileBackupLocation\Packages"
     }
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.EventExportsDirectory) $fileBackupLocation\EventExports /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $fileBackupLocation\EventExports"
+    }
 }
 
 # Finish any remaining tasks and stop the service
@@ -152,6 +158,10 @@ Write-Output "Server MSI installer returned exit code $msiExitCode"
 
 Remove-Item "$downloadDirectory\$msiFilename"
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 ## Upgrading High Availability Octopus Deploy instances
 
@@ -302,8 +312,18 @@ if ($versionSplit[0] -ne $upgradeSplit[1])
     {
         Throw "Unable to copy files to $filebackUpFolder\Packages"
     }
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.EventExportsDirectory) $filebackUpFolder\EventExports /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $filebackUpFolder\EventExports"
+    }
 }
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 **4. Stop all nodes (HAServer).**
 

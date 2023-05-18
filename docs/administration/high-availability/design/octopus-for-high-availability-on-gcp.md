@@ -73,7 +73,11 @@ You can see the different file server options Google Cloud has in their [File St
 To successfully create a NetApp Cloud SMB Volume in Google Cloud, you must have an Active Directory service that can be used to connect to the SMB volume. Please see the [creating and managing SMB volumes](https://cloud.google.com/architecture/partners/netapp-cloud-volumes/creating-smb-volumes) for further information. It's also worth reviewing the [security considerations for SMB access](https://cloud.google.com/architecture/partners/netapp-cloud-volumes/security-considerations) too.
 :::
 
-Once you have configured your NetApp Cloud SMB Volume, the best option is to mount the SMB share and then create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\OctopusShared\` for the Artifacts, Packages, TaskLogs, and Imports folders which need to be available to all nodes.
+Once you have configured your NetApp Cloud SMB Volume, the best option is to mount the SMB share and then create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\OctopusShared\` for the Artifacts, Packages, TaskLogs, Imports, and EventExports folders which need to be available to all nodes.
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 Before installing Octopus, follow the steps below *on each* Compute engine instance to mount your SMB share.
 
@@ -85,11 +89,11 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
 
 4. Follow the instructions in the **Mount Instructions for SMB window** that appears.
 
-5. Create folders in your **SMB share** for the Artifacts, Packages, TaskLogs, and Imports.
+5. Create folders in your **SMB share** for the Artifacts, Packages, TaskLogs, Imports, and EventExports.
 
    ![Create folders in your SMB share](images/smb-create-folders.png "width=500")
 
-6. Create the symbolic links for the Artifacts, Packages, TaskLogs, and Imports folders.
+6. Create the symbolic links for the Artifacts, Packages, TaskLogs, Imports, and EventExports folders.
 
    Run the following PowerShell script, substituting the placeholder values with your own:
 
@@ -127,7 +131,16 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    if (-not (Test-Path -Path $ImportsFolder)) {
        New-Item -Path $ImportsFolder -ItemType SymbolicLink -Value "$SmbShare\Imports"
    }
+
+   $EventExportsFolder = Join-Path -Path $LocalFolder -ChildPath "EventExports"
+   if (-not (Test-Path -Path $EventExportsFolder)) {
+       New-Item -Path $EventExportsFolder -ItemType SymbolicLink -Value "$SmbShare\EventExports"
+   }
    ```
+   :::hint
+   EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+   :::
+
    :::hint
    Remember to create the folders in the SMB share before trying to create the symbolic links.
    :::
@@ -139,8 +152,13 @@ Once you've completed those steps, [install Octopus](/docs/installation/index.md
 --artifacts "C:\OctopusShared\Artifacts" `
 --nugetRepository "C:\OctopusShared\Packages" `
 --taskLogs "C:\OctopusShared\TaskLogs" `
---imports "C:\OctopusShared\Imports"
+--imports "C:\OctopusShared\Imports" `
+--eventExports "C:\OctopusShared\EventExports"
 ```
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 :::hint
 Changing the path only needs to be done once, and not on each node as the values are stored in the database.
@@ -148,7 +166,7 @@ Changing the path only needs to be done once, and not on each node as the values
 
 #### Filestore using NFS
 
-Once you have [created a Filestore instance](https://cloud.google.com/filestore/docs/creating-instances), the best option is to mount the NFS share using the `LocalSystem` account, and then create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\OctopusShared\` for the Artifacts, Packages, TaskLogs, and Imports folders which need to be available to all nodes.
+Once you have [created a Filestore instance](https://cloud.google.com/filestore/docs/creating-instances), the best option is to mount the NFS share using the `LocalSystem` account, and then create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\OctopusShared\` for the Artifacts, Packages, TaskLogs, Imports, and EventExports folders which need to be available to all nodes.
 
 Before installing Octopus, follow the steps below *on each* Compute engine instance to mount your NFS share.
 
@@ -259,9 +277,9 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    This is in effect the same when using the [watchdog](/docs/octopus-rest-api/octopus.server.exe-command-line/watchdog.md) command to configure a scheduled task to monitor the Octopus Server service.
    :::
 
-6. Create folders in your **NFS share** for the Artifacts, Packages, TaskLogs, and Imports.
+6. Create folders in your **NFS share** for the Artifacts, Packages, TaskLogs, Imports, and EventExports.
 
-7. Create the symbolic links for the Artifacts, Packages, TaskLogs, and Imports folders.
+7. Create the symbolic links for the Artifacts, Packages, TaskLogs, Imports, and EventExports folders.
 
    Run the following PowerShell script, substituting the placeholder values with your own:
    
@@ -295,7 +313,16 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    if (-not (Test-Path -Path $ImportsFolder)) {
        New-Item -Path $ImportsFolder -ItemType SymbolicLink -Value "$NfsShare\Imports"
    }
+
+   $EventExportsFolder = Join-Path -Path $LocalFolder -ChildPath "EventExports"
+   if (-not (Test-Path -Path $EventExportsFolder)) {
+       New-Item -Path $EventExportsFolder -ItemType SymbolicLink -Value "$NfsShare\EventExports"
+   }
    ```
+   :::hint
+   EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+   :::
+
    :::hint
    Remember to create the folders in the NFS share before trying to create the symbolic links.
    :::
@@ -307,8 +334,12 @@ Once you've completed those steps, [install Octopus](/docs/installation/index.md
 --artifacts "C:\OctopusShared\Artifacts" `
 --nugetRepository "C:\OctopusShared\Packages" `
 --taskLogs "C:\OctopusShared\TaskLogs" `
---imports "C:\OctopusShared\Imports"
+--imports "C:\OctopusShared\Imports" `
+--eventExports "C:\OctopusShared\EventExports"
 ```
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 :::hint
 Changing the path only needs to be done once, and not on each node as the values are stored in the database.

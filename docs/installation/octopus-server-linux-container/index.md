@@ -97,10 +97,15 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |**/repository**| Package path for the built-in package repository | Shared storage |
 |**/artifacts**| Path where artifacts are stored | Shared storage |
 |**/taskLogs**| Path where task logs are stored | Shared storage |
+|**/eventExports**| Path where event audit logs are exported | Shared storage |
 |**/cache**| Path where cached files e.g. signature and delta files (used for package acquisition) are stored | Host filesystem or container |
 
 :::hint
-**Note:** We recommend using shared storage when mounting the volumes for files that need to be shared between multiple octopus container nodes, e.g. artifacts, packages and task logs.
+**Note:** We recommend using shared storage when mounting the volumes for files that need to be shared between multiple octopus container nodes, e.g. artifacts, packages, task logs, and event exports.
+:::
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
 :::
 
 ## Upgrading

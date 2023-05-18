@@ -172,7 +172,11 @@ If you plan on having external [polling Tentacles](/docs/infrastructure/deployme
 
 ### File Storage
 
-Octopus Deploy stores BLOB items such as task logs (generated during deployments), deployment artifacts, packages, project images on a file share instead of in the database.
+Octopus Deploy stores BLOB items such as task logs (generated during deployments), deployment artifacts, packages, project images, event exports on a file share instead of in the database.
+
+:::hint
+EventExports is available from **2023.3** onwards as part of the audit log retention feature.
+:::
 
 The kind of file storage will depend on where you are hosting Octopus Deploy.
 - On-premise data center: Any SMB-based file storage technology will work.  If running Octopus Deploy as a specific Active Directory account, limit permissions to the file share to that account and system administrators.
