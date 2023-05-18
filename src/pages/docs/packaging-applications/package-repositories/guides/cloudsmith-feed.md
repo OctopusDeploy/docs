@@ -19,11 +19,15 @@ Before setting up a Cloudsmith repository, you should create an [Organization](h
 
 You can create an Organization by clicking on the **+** dropdown on the top menu bar and selecting **New Organization**.
 
+:::figure
 ![create a new organization](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-new-org.png "width=500")
+:::
 
 This will take you to the **Create Organization** form. You are required to enter a name for your Organization and a primary email address before creating your Organization (the organization name is checked to ensure it's unique before creating it).
 
+:::figure
 ![create a new organization](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-create-org.png "width=500")
+:::
 
 Once you have created the Organization, the next step is to create a repository. For instructions on how to configure the settings for the Organization, including how to create teams and invite users, refer to the [Cloudsmith documentation](https://help.cloudsmith.io/docs/organisations).
 
@@ -40,11 +44,15 @@ For this guide we will create a repository via the Cloudsmith Website UI. To cre
 
 You can create a repository by clicking on the **+** dropdown on the top menu bar and selecting **New Repository**.
 
+:::figure
 ![create a new repository](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-new-repo.png "width=500")
+:::
 
 That will take you to the **Create Package Repository** form:
 
+:::figure
 ![create a new repository](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-create-repo.png "width=500")
+:::
 
 Here you can create a new repo by selecting a Repository Owner (the Organization you want the repo to live under) and a name. You can also specify an optional *slug* (identifier) for the repository. The slug is what will appear in the URL for the repository. The identifier can only contain lowercase alphanumeric characters, hyphens, and underscores. If you don't specify an identifier, one will be automatically generated from the repository name for you.
 
@@ -175,7 +183,9 @@ From the Octopus Web Portal, create a new external feed by navigating to **Libra
 - Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of your Cloudsmith repository. Refer to the [URLs for Feeds](#urls-for-feeds) section for more information.
 - Populate the credentials of your Cloudsmith repository if necessary. Refer to the [Adding Credentials for Private Repositories](#credentials-for-private-repos) section for more information.
 
+:::figure
 ![Select your Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus1.png "width=500")
+:::
 
 ## URLs for Feeds {#urls-for-feeds}
 
@@ -185,7 +195,9 @@ This section contains information about what Cloudsmith feed URL to use for your
 
 Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *NuGet* Feed type.
 
+:::figure
 ![NuGet Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus2.png "width=500")
+:::
 
 - Give the NuGet feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith NuGet repository using the version of NuGet that matches your configuration:
@@ -248,7 +260,9 @@ Private repositories require authentication. Refer to the [Adding Credentials fo
 
 Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *Helm* Feed type.
 
+:::figure
 ![Helm Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus5.png "width=500")
+:::
 
 - Give the feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith Helm repository from the options below that match your configuration:
@@ -286,7 +300,9 @@ Entitlement Tokens, User Credentials and API-Keys should be treated as secrets a
 
 When you are adding or editing your external feed, you can add credentials for your feed by populating the *Credentials* section. 
 
+:::figure
 ![Credentials for your external feed](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus6.png "width=500")
+:::
 
 Provide one of the following three types of credentials:
 

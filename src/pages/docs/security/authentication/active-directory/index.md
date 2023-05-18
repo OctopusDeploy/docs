@@ -46,7 +46,9 @@ Octopus.Server.exe configure --webServer=Kestrel
 The easiest way to sign in when using Active Directory is to use Integrated Authentication. 
 This allows a one-click option to *Sign in with a domain account* as pictured below.
 
+:::figure
 ![Login Screen](/docs/security/authentication/active-directory/images/activedirectory-integrated.png "width=500")
+:::
 
 This will instruct the Octopus Server to issue a browser challenge. NTLM Authentication doesn't require much configuration except for allowing NTLM to be used in your network. This is on by default.
 
@@ -175,7 +177,9 @@ To enable the option via the Internet Security Settings
 
 In the **Security Settings - Internet Zone** window, go to **User Authentication ➜ Logon** and select **Automatic logon with current username and password**.
 
+:::figure
 ![Client Security](/docs/security/authentication/active-directory/images/clientsecurity.png "width=500")
+:::
 
 ### Adding Trusted Sites via Group Policy Object {#ActiveDirectoryAuthentication-AddingtrustedSitesviaGPO}
 
@@ -203,7 +207,9 @@ That is all the is needed for kerberos to be used as the logon method when using
 ## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
 Octopus alllows users to sign in by entering their Active Directory credentials to login. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
 
+:::figure
 ![Login Screen](/docs/security/authentication/active-directory/images/activedirectory-forms.png "width=500")
+:::
 
 :::div{.hint}
 **How it works**
@@ -232,7 +238,9 @@ Octopus.Server.exe configure --allowFormsAuthenticationForDomainUsers=false
 
 This will result in integrated sign in being the only option:
 
+:::figure
 ![Integrated Sign In Only](/docs/security/authentication/active-directory/images/activedirectory-integrated-only.png "width=500")
+:::
 
 ## Switching between username/password and Active Directory Authentication {#ActiveDirectoryauthentication-SwitchingbetweenusernamepasswordandActiveDirectoryauthentication}
 
@@ -282,13 +290,17 @@ Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the
 
 The following diagram illustrates a typical configuration when there is a two way trust between the domains.
 
+:::figure
 ![Two-way Trust](/docs/security/authentication/active-directory/images/domains-twoway.png "width=500")
+:::
 
 In this configuration the Octopus Server is executing as a service account from the same domain that the machine is a member of. When logging in, users from DomainA can use their AD username or UPN whereas users from DomainB must use *DOMAIN\user* username format. This is required so that the API calls Octopus makes can locate the domain controller for the correct domain (DomainB in this example).
 
 Another common scenario is to have a one way trust between the domains. This configuration is illustrated in the following diagram
 
+:::figure
 ![One-way Trust](/docs/security/authentication/active-directory/images/domains-oneway.png "width=500")
+:::
 
 In this example, DomainA trusts DomainB. Given that both domains trust users from DomainB, the Octopus service should be configured to run as an account from DomainB. If the service was configured to run as an account from DomainA then users from DomainB wouldn't be able to log in and Octopus wouldn't be able to query group information from DomainB.
 

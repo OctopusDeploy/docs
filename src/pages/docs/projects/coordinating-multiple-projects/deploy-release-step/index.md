@@ -8,11 +8,15 @@ description: The deploy a release step allows you to trigger the deployment of a
 
 The _Deploy a Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/projects/coordinating-multiple-projects).
 
+:::figure
 ![Deploy release step card](/docs/projects/coordinating-multiple-projects/deploy-release-step/deploy-release-card.png "width=500")
+:::
 
 when you add a _Deploy a Release_ step to your deployment process, you can then select the project which will be deployed.
 
+:::figure
 ![Deploy release select project](/docs/projects/coordinating-multiple-projects/deploy-release-step/deploy-release-step-select-project.png "width=500")
+:::
 
 You can add many _Deploy a Release_ steps to your process, if you wish to deploy releases of many projects.
 
@@ -20,7 +24,9 @@ You can add many _Deploy a Release_ steps to your process, if you wish to deploy
 
 When creating a release of a project containing _Deploy a Release_ steps you can select the release version of each project, similar to the way versions of packages are selected:
 
+:::figure
 ![Create release with deploy release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step/deploy-release-create-release-screen.png "width=500")
+:::
 
 :::div{.hint}
 By default, Octopus will select the *latest* release based on the creation time of the release, and **not** the Semantic version. This means Octopus might initially select a release that has a lower version that the latest for a Project.
@@ -46,7 +52,9 @@ A _Deploy a Release_ step can be configured to:
 
 Variables can be passed to the deployment triggered by the _Deploy a Release_ step. These will be made available to steps within the child deployment's process, just like regular [project variables](/docs/projects/variables).  Variables passed in will override existing variables in the child project if the names collide.
 
+:::figure
 ![Deploy release variables](/docs/projects/coordinating-multiple-projects/deploy-release-step/deploy-release-step-variables.png "width=500")
+:::
 
 ### Output variables
 

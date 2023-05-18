@@ -11,7 +11,9 @@ Sometimes you may wish to allow users to access your Octopus Server, without req
 
 When guest login is enabled, the sign in page for the Octopus Web Portal will present users with a choice to either sign in as a guest, or to sign in with their standard account:
 
+:::figure
 ![](/docs/security/authentication/images/guest.png "width=500")
+:::
 
 ## Enable guest user via UI {#Guestlogin-Enableguestlogin}
 
@@ -26,7 +28,9 @@ The guest account will now be activated and added to your Octopus Users.
 
 The guest user is created as a standard user managed by Octopus. If you are using Active Directory authentication, you don't need a matching AD user account. The user is automatically added to the **Everyone** team. The guest user can be found in the **Users** tab in the **Configuration** area:
 
+:::figure
 ![](/docs/security/authentication/images/guestuser.png "width=500")
+:::
 
 As with any standard user, you can [assign the guest account to different teams](/docs/security/users-and-teams) to give them permissions to view projects or environments.
 

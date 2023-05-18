@@ -14,7 +14,9 @@ Octopus integrates with Jira issues. The integration includes the ability to:
 
 ## How Jira integration works {#how-jira-integration-works}
 
+:::figure
 ![Octopus Jira integration - how it works diagram](/docs/releases/issue-tracking/images/octo-jira-how-it-works.png "width=500")
+:::
 
 1.  When you commit code, add a commit message containing one or more [Jira issue references](https://confluence.atlassian.com/adminjiracloud/integrating-with-development-tools-776636216.html).
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
@@ -22,7 +24,9 @@ Octopus integrates with Jira issues. The integration includes the ability to:
 4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes).
 5. As the release is deployed to each environment, Octopus notifies Jira to update the issue.
 
+:::figure
 ![Octopus release with Jira issues](/docs/releases/issue-tracking/images/octo-jira-release-details.png "width=500")
+:::
 
 ![Octopus deployment with generated release notes](/docs/releases/issue-tracking/images/octo-jira-release-notes.png "width=500")
 
@@ -73,7 +77,9 @@ If you are using Jira Cloud, you can use the Octopus Deploy plugin for Jira, ava
 
 This process is for Jira Cloud, if you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#connecting-jira-server-and-octopus).
 
+:::figure
 ![Jira Issue with deployments](/docs/releases/issue-tracking/images/jira-issue-with-deployments.png "width=500")
+:::
 
 1. Install the Octopus Deploy plugin in your Jira Cloud instance.
 
@@ -169,7 +175,9 @@ For this connectivity test to succeed the Octopus Server must be able to connect
 
 When the Jira Integration is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
 
+:::figure
 ![Deployment task log](/docs/releases/issue-tracking/images/deploy-task-log-green.png "width=500")
+:::
 
 :::div{.hint}
 You must [configure your build server](#configure-your-build-server) to push commit information to Octopus.
@@ -178,7 +186,9 @@ Without this, Octopus will not attempt to update Jira issues.
 
 The following illustrates Octopus attempting to send an _in_progress_, and then a _successful_, state change to Jira. In this example, Octopus was unable to connect to Jira or send the state change, however, this does not impact the Octopus deployment itself, the deployment will still be considered a successful deployment.
 
+:::figure
 ![Deployment task log with warnings](/docs/releases/issue-tracking/images/deploy-task-log.png "width=500")
+:::
 
 ## Troubleshooting {#troubleshooting}
 

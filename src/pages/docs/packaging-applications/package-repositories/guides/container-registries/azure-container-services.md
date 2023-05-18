@@ -17,7 +17,9 @@ Provide the unique registry name that all your repositories (packages) will be s
 
 Make sure you select **Enable** under the **Admin user** option. This is what will expose the credentials that are needed by Octopus to connect to the API.
 
+:::figure
 ![Azure Container Services Access Key blade](/docs/packaging-applications/package-repositories/guides/container-registries/images/azure-blade.png "width=500")
+:::
 
 Azure Container Registries can be configured as an external feed in Octopus by navigation to **Library ➜ External Feeds** and adding an new feed of type `Docker`. 
 
@@ -28,6 +30,8 @@ With the Admin user toggle enabled, you will be provided with username and passw
 ## Adding an Azure Container Registry as an Octopus External Feed
 Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `Docker Container Registry` Feed type. With this selected you will need to provide the credentials configured above.
 
+:::figure
 ![Azure Container Services Registry Feed](/docs/packaging-applications/package-repositories/guides/container-registries/images/azure-feed.png "width=500")
+:::
 
 Save and test your registry to ensure that the connection is authorized successfully.

@@ -11,13 +11,17 @@ navOrder: 20
 
 Your application is deployed to multiple geographic regions (or multiple Data Centers) to provide for your end-customer's performance (think latency) or legal requirements (like data sovereignty).
 
+:::figure
 ![](/docs/deployments/patterns/images/5865791.png "width=500")
+:::
 
 ## Strict solution using environments
 
 You can use [Environments](/docs/infrastructure/environments) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
+:::figure
 ![](/docs/deployments/patterns/images/multi-tenant-region.png "width=500")
+:::
 
 By using this pattern you can:
 
@@ -37,7 +41,9 @@ Environments and Lifecycles are a really good solution if you want to enforce a 
 
 [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/) enable you to configure [Rolling deployments](/docs/deployments/patterns/rolling-deployments) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
+:::figure
 ![](/docs/deployments/patterns/images/production.png "width=500")
+:::
 
 By using this pattern you can:
 

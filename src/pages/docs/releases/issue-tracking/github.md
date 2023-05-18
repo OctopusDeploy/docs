@@ -13,14 +13,18 @@ Octopus integrates with GitHub issues. The integration includes the ability to:
 
 ## How GitHub integration works
 
+:::figure
 ![Octopus GitHub integration - how it works diagram](/docs/releases/issue-tracking/images/octo-github-how-it-works.png "width=500")
+:::
 
 1. When you commit code, add a commit message containing one or more [GitHub issue references](#commit-messages).
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The GitHub issue-tracker extension in Octopus parses the commit messages and recognizes the issue references.
 4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes).  
 
+:::figure
 ![Octopus release with GitHub issues](/docs/releases/issue-tracking/images/octo-github-release-details.png "width=500")
+:::
 
 ![Octopus deployment with generated release notes](/docs/releases/issue-tracking/images/octo-github-release-notes.png "width=500")
 

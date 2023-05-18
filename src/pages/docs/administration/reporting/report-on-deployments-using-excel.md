@@ -19,7 +19,9 @@ At a high-level, the steps are:
 2. Import the XML file in Excel.
 3. Report on the data using a pivot table.
 
+:::figure
 ![](/docs/administration/reporting/images/3278122.png "width=500")
+:::
 
 ## Export all deployments to an XML file {#ReportondeploymentsusingExcel-ExportalldeploymentstoanXMLfile}
 
@@ -105,35 +107,51 @@ It's easy to turn the table of deployments into a pivot table for reporting.
 
 For example, here's a breakdown of deployments by environment. Note that the **Id** field was dragged to the **Values** area, and **Environment** was dragged to **Rows**.
 
+:::figure
 ![](/docs/administration/reporting/images/3278129.png "width=500")
+:::
 
 Here's another example, this time using **Environment** as a column, and **Project** as the rows:
 
+:::figure
 ![](/docs/administration/reporting/images/3278128.png "width=500")
+:::
 
 You can also group the results by month or other measures of time. First, drag the **Created** field as as row.
 
+:::figure
 ![](/docs/administration/reporting/images/3278127.png "width=500")
+:::
 
 Now, right click any of the date values, and click **Group**.
 
+:::figure
 ![](/docs/administration/reporting/images/3278126.png "width=500")
+:::
 
 Choose the level of granularity that you want to group by, then click **OK**. In this example we chose Months.
 
+:::figure
 ![](/docs/administration/reporting/images/3278125.png "width=500")
+:::
 
 And the results will now be grouped by month:
 
+:::figure
 ![](/docs/administration/reporting/images/3278124.png "width=500")
+:::
 
 If you aren't happy with the order that environments or other items are shown in, you can right click and move them:
 
+:::figure
 ![](/docs/administration/reporting/images/3278123.png "width=500")
+:::
 
 Finally, don't forget to add pretty graphs!
 
+:::figure
 ![](/docs/administration/reporting/images/3278122.png "width=500")
+:::
 
 :::div{.hint}
 **Limitations**

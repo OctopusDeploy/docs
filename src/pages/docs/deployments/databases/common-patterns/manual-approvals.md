@@ -18,7 +18,9 @@ The high-level overview of the process is:
 5. Once the deployment is complete, a notification of the deployment status is sent to the team.
 6. In production, failures are sent to the DBAs.
 
+:::figure
 ![An image of the manual approval deployment process](/docs/deployments/databases/common-patterns/images/manual_approval_deployment_process.png "width=500")
+:::
 
 Each step in this process requires several decisions.  Each company we work with has their own set of business rules and regulations they must follow.  Below are recommendations to help get you going.
 
@@ -35,7 +37,9 @@ How the report is generated depends on the database tooling you chose.  Below ar
 
 The goal is to create a single file that can be uploaded as an [artifact](/docs/projects/deployment-process/artifacts) for the approvers to review.  
 
+:::figure
 ![An artifact in Octopus Deploy](/docs/deployments/databases/common-patterns/images/manual_approval_artifacts.png "width=500")
+:::
 
 ## Manual Interventions
 
@@ -49,11 +53,15 @@ We recommend you follow a crawl-walk-run approach for each team adopting databas
 
 The crawl phase is when a team starts adopting automated database deployments.  During that time, there should be, at a minimum, two manual interventions.  One for the lower environments that developers on the team approve, and another for production environments for DBAs to approve.  All of these approvals allow everyone to gain experience with the process and tooling.  That, in turn, builds trust.
 
+:::figure
 ![A deployment process with two manual interventions](/docs/deployments/databases/common-patterns/images/manual_approval_two_manual_interventions.png "width=500")
+:::
 
 The walk phase is when the team has some experience, and they feel confident they aren't going to check in anything which causes harm to the database.  It is common for the DBAs to have a separate team.  They talk to the development teams, but they are not involved with the day to day goings-on. However, they still want manual interventions for any environments they are responsible for to ensure scripts won't cause outages.
 
+:::figure
 ![A deployment process with one manual intervention](/docs/deployments/databases/common-patterns/images/manual_approval_one_manual_intervention.png "width=500")
+:::
 
 The run phase can be found in [this documentation](/docs/deployments/databases/common-patterns/automatic-approvals).  The run phase is when all the approvers trust the tooling and the process.  The approvers only want to be notified if specific commands, such as `drop table`, appear in a script.
 
@@ -69,7 +77,9 @@ We recommend a DBA review and approve scripts toward the end of the QA test effo
 
 Typically, when QA feels good about a release, they will sign off on a promotion to a `Staging` or `Pre-Prod` environment.  It makes more sense for a DBA to approve a release to `Staging` or `Pre-Prod` rather than `Production`.  Approving during a non-production deployment gives the DBA more time and less stress to approve a deployment.  At the same time, it might make sense to review changes for both `Staging` and `Production`.   We often see a new version deployed to `Staging` several times before going to `Production`.  There is a significant difference between `Staging` and `Production`.  In that case, add another *what-if* report step, but have it run in `Staging` and generate that report for `Production`.
 
+:::figure
 ![A deployment process with a delta report generated for production](/docs/deployments/databases/common-patterns/images/manual_approval_generate_delta_report_for_production.png "width=500")
+:::
 
 You might have only `Test` and `Production`.  In that case, you could add an `Approver` environment, that generates the *what-if* report for `Production` and has a manual intervention.  
 
@@ -84,7 +94,9 @@ Notifications come in many forms.  With Octopus Deploy you have many options:
 
 Regardless of your notification preference, we recommend creating a variable set to store notification values.  The variable set gives you the ability to create a standard set of messages any project can use
 
+:::figure
 ![](/docs/deployments/databases/common-patterns/images/manual_approval_notifications.png "width=500")
+:::
 
 For easier approvals, the notification messages should include a deep link back to the release.  That little change provides a nice quality of life improvement.  The deep-link to the deployment summary is:
 

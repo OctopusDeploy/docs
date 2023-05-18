@@ -67,7 +67,9 @@ Once the custom role is saved, the new role will be available to be assigned to 
 
 When applying roles to a team, you can optionally specify a scope for each role applied. This enables some complex scenarios, like granting a team [different levels of access](/docs/security/users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges) based on the environment they are authorized for.
 
+:::figure
 ![](/docs/security/users-and-teams/images/define-scope-for-user-role.png "width=500")
+:::
 
 ## Troubleshooting permissions {#UserRoles-TroubleshootingPermissions}
 
@@ -82,13 +84,17 @@ The results will show:
    - **Show permissions within a specific space** will show [Space specific Permissions](/docs/security/users-and-teams/system-and-space-permissions).
 - A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
 
+:::figure
 ![](/docs/security/users-and-teams/images/systempermissions.png "width=500")
+:::
 
 ![](/docs/security/users-and-teams/images/spacelevelpermissions.png "width=500")
 
 If a user tries to perform an action without having enough permissions to do it, an error message will pop up showing which permissions the user is lacking, and which teams actually have these permissions.
 
+:::figure
 ![](/docs/security/users-and-teams/images/errors.png "width=500")
+:::
 
 :::div{.warning}
 As further versions of Octopus are released, we might create new roles to improve our security model. These new roles will not be automatically included in any of the built-in user roles, to avoid giving users permissions they are not supposed to have. These new roles will have to be added manually to a User Role by an administrator.

@@ -9,7 +9,9 @@ navOrder: 30
 
 GitHub projects come with a built-in NuGet package registry that can be configured as an External Feed for Octopus Deploy.  The NuGet package registry is present by default and does not require any configuration on GitHub to be enabled.
 
+:::figure
 ![GitHub Project Id](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/github-nuget-package-registry.png)
+:::
 
 :::div{.info}
 
@@ -20,7 +22,9 @@ Note: The **NuGet Feed** type discussed here is different from the [GitHub Feed]
 
 The GitHub Package Registry requires authentication in order to download packages, even if the repository is marked as Public.  To configure the External Feed, you will first need to create a GitHub Personal Access Token (PAT) with the `read:packages` permission
 
+:::figure
 ![GitHub Personal Access Token](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/github-pat-permissions.png)
+:::
 
 Once the token has been created, store it in a safe place.
 
@@ -34,7 +38,9 @@ Give the feed a name and in the URL field, enter the URL of the feed for your Gi
 
 Replace `YourGitHubAccountOrOrganizationName` with your GitHub account or Organization name.
 
+:::figure
 ![GitHub NuGet Feed](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/github-octopus-add-nuget-feed.png)
+:::
 
 Enter username for the access token you created and use the token itself as the password
 

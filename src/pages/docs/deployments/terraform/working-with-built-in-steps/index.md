@@ -13,7 +13,9 @@ Octopus provides four built-in step templates for managing and interacting with 
 - `Plan to apply a Terraform template` 
 - `Plan a Terraform destroy`
 
+:::figure
 ![Built-in Terraform step badges](/docs/deployments/terraform/working-with-built-in-steps/images/terraform-step-badges.png "width=500")
+:::
 
 All four of the built-in Terraform steps provide common configuration points you can use to control how the steps execute your Terraform code.
 
@@ -37,15 +39,21 @@ The Terraform template can come from two sources: directly entered source code o
 
 The first option is to paste the template directly into the step. This is done by selecting the `Source code` option, and clicking the `ADD SOURCE CODE` button.
 
+:::figure
 ![Source Code](/docs/deployments/terraform/working-with-built-in-steps/images/step-aws-sourcecode.png "width=500")
+:::
 
 This will present a dialog in which the Terraform template can be pasted, in either JSON or HCL.
 
+:::figure
 ![Source Code Dialog](/docs/deployments/terraform/working-with-built-in-steps/images/step-aws-code-dialog.png "width=500")
+:::
 
 Once the `OK` button is clicked, the input variables defined in the template will be shown under the `Variables` section.
 
+:::figure
 ![Parameters](/docs/deployments/terraform/working-with-built-in-steps/images/step-parameters.png "width=500")
+:::
 
 Terraform variables are either strings, lists or maps.
 
@@ -65,7 +73,9 @@ You can optionally run Terraform from a subdirectory in the package by specifyin
 Given that Terraform templates and variable files are plain text, you may find it convenient to use the GitHub Repository Feed to provide the packages used by Terraform steps. Using GitHub releases means you do not have to manually create and upload a package, and can instead tag a release and download it directly from GitHub.
 :::
 
+:::figure
 ![Package](/docs/deployments/terraform/working-with-built-in-steps/images/step-aws-package.png "width=500")
+:::
 
 ### Variable replacements
 

@@ -50,7 +50,9 @@ You may also select the source of the script, either:
 - An ad-hoc or inline script, saved as part of the step itself, or:
 - A script file inside a package (shown below).
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/script-file-in-package.png "width=500")
+:::
 
 :::div{.success}
 **Scripts from packages, versioning and source control**
@@ -65,7 +67,9 @@ When sourcing a script from a file inside a package you cannot choose to run the
 
 When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts).
 
+:::figure
 ![](/docs/deployments/custom-scripts/images/5865636.png "width=500")
+:::
 
 ## Referencing packages
 
@@ -77,7 +81,9 @@ In addition to being able to [source the custom script from a package](#Standalo
     - Executing `NuGet.exe` to push another package (e.g. `Acme.Web`)
     - Referencing multiple container images and performing `docker compose`
 
+:::figure
 ![Script Step Package References](/docs/deployments/custom-scripts/images/script-step-package-references.png "width=500")
+:::
 
 Package references can be added regardless of whether the script is sourced inline or from a package.
 
@@ -101,7 +107,9 @@ A unique identifier for the package-reference. In general the Package ID is a go
 Whether the package should be extracted. See [below](#referencing-packages-package-files) for information on the package file locations.
 This will not be displayed for certain package-types (i.e. container images). This may also be bound to a variable-expression.
 
+:::figure
 ![Script Step Package References](/docs/deployments/custom-scripts/images/script-step-package-reference-add.png "width=500")
+:::
 
 ### Accessing package references from a custom script
 

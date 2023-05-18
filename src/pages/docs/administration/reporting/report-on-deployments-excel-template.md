@@ -9,7 +9,9 @@ navOrder: 100
 
 To help you get started, we provide a sample Excel spreadsheet that you can connect to your own Octopus Server.
 
+:::figure
 ![](/docs/administration/reporting/images/3278354.png "width=500")
+:::
 
 ## Getting started {#Reporting-Gettingstarted}
 
@@ -43,7 +45,9 @@ To change the source of the data:
 
 Once you have set up your connection, you can refresh the data from the source whenever you like. If you make your own customizations to the spreadsheet, you can save them, and simply refresh the data in the sheet whenever you like.
 
+:::figure
 ![](/docs/administration/reporting/images/3278361.png "width=500")
+:::
 
 ## Using the XML feed {#Reporting-UsingtheXMLFeed}
 

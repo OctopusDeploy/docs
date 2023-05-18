@@ -30,7 +30,9 @@ In most cases the `FeedUri` that you will need to provide is the standard public
 
 For authorization, it is recommended that you create a [Personal access tokens](https://github.com/blog/1509-personal-api-tokens) for your account and use this token as the password. Tokens can be created for your GitHub account by logging in to GitHub and navigating to  **Settings ➜ Developer Settings ➜ Personal access tokens** and click **Generate new token**.
 
+:::figure
 ![GitHub Personal Access Token](/docs/packaging-applications/package-repositories/images/github-personalaccesstoken1.png "width=500")
+:::
 
 ![GitHub Personal Access Token](/docs/packaging-applications/package-repositories/images/github-personalaccesstoken2.png "width=500")
 
@@ -42,7 +44,9 @@ Copy the token that is generated and use this value as the password for the GitH
 
 You can check whether the GitHub feed is working by searching for packages. Click the **TEST** button, and you'll be taken to the test page:
 
+:::figure
 ![GitHub Feed Test search](/docs/packaging-applications/package-repositories/images/github-feed-test.png "width=500")
+:::
 
 :::div{.hint}
 **Note:** When testing a GitHub Feed, the **Version** field will not be displayed. This is due to the way Octopus queries the GitHub [repository search API](https://docs.github.com/en/rest/reference/search#search-repositories) which doesn't return release tags. This was an intentional decision implemented for performance reasons.
@@ -60,7 +64,9 @@ git push --tags
 2. Optionally add release notes to the tagged commit from within GitHub.
 (Note additional resources currently do not get included in the Octopus deployment). The pre-release state of a release is also tied to the pre-release component of the tag name.
 
+:::figure
 ![GitHub release notes](/docs/packaging-applications/package-repositories/images/github-releasenotes.png "width=500")
+:::
 
 If Octopus can link a particular version (which in the context of GitHub feeds refers to a tag) to a release, then the release notes will be exposed through the Octopus Deploy portal. At this point in time the `This is a pre-release` check-box on the GitHub Release will be ignored in favor of the pre-release state indicated in the version itself. Additionally, artifacts are not currently retrieved as part of an Octopus deployment, however this may become available in the future.
 

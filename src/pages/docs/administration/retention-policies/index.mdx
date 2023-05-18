@@ -45,7 +45,9 @@ We talk about Tentacles here, but the same process and logic applies to [SSH Tar
 
 A retention policy can be applied to packages in the built-in Octopus package repository. By default, the policy is set to keep all packages indefinitely. This policy is *separate* from the [release retention policy](#releases-whats-deleted) described above.
 
+:::figure
 ![](/docs/administration/retention-policies/images/3278059.png "width=500")
+:::
 
 When a package retention policy is applied, Octopus will delete packages that meet *both* of the following criteria:
 1. The time span from the package's initial publish date exceeds the configured time period in the policy
@@ -88,7 +90,9 @@ If you have an Octopus Server retention policy for a project that has a final ph
 
 In this section we walk through what's deleted for an example project when the lifecycle retention policy task runs. Consider a project that has the following lifecycle defined:
 
+:::figure
 ![Release retention task example lifecycle](/docs/administration/retention-policies/images/retention-lifecycle-example.png "width=500")
+:::
 
 It contains two phases, both are set to keep the last 3 releases. 
 
@@ -142,11 +146,15 @@ Undeployed releases will simply keep the number we have selected and no more. Wh
 
 Under **Library ➜ Lifecycles** you select the Lifecycle you want to define or edit your retention policy for:
 
+:::figure
 ![](/docs/administration/retention-policies/images/3278063.png "width=500")
+:::
 
 Each phase will inherit the retention policy from the above phase, but this is something you can change by expanding the Retention Policy panel.
 
+:::figure
 ![](/docs/administration/retention-policies/images/3278062.png "width=500")
+:::
 
 Releases determines what is kept on the Octopus Server, and Files on Tentacle determines what files are kept on the Tentacle.
 
@@ -177,13 +185,17 @@ Phases prioritize retention policies from the latest previous phase over the lif
 
 You can find the built-in repository retention policy settings under **Library ➜ Packages**.
 
+:::figure
 ![](/docs/administration/retention-policies/images/3278060.png "width=500")
+:::
 
 In Octopus Server, this can be set to keep packages forever, or for a set number of days.
 
 <OctopusCloudStorageLimits />
 
+:::figure
 ![](/docs/administration/retention-policies/images/3278059.png "width=500")
+:::
 
 Choosing the *A limited time* option will allow you to select the number of days to keep a package in the repository. The default value is 30, but you can choose something shorter or longer based on your needs.
 

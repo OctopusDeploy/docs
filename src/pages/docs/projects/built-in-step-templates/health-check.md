@@ -13,7 +13,9 @@ However, often it can be useful to check the health of deployment targets when e
 
 This can be achieved using the _Health Check_ step.
 
+:::figure
 ![Health check step search](/docs/projects/built-in-step-templates/images/health-check-step-search.png "width=500")
+:::
 
 This step allows a deployment target that was created in the currently executing deployment to be confirmed as healthy and then added to the running deployment for subsequent steps.
 

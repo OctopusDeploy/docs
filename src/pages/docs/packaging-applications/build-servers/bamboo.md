@@ -78,7 +78,9 @@ For .NET applications you would typically be packing all application files like 
 
 Selecting the `Overwrite existing package` option means that any existing local packages will be overwritten. It is useful to select this option because it means that packages can be repacked without error if the Bamboo build plan is rerun.
 
+:::figure
 ![Create a package](/docs/packaging-applications/build-servers/images/create-package.png "width=500")
+:::
 
 ## 3. Push the packages
 
@@ -98,7 +100,9 @@ Note that it is recommended that the package paths defined here are specific to 
 
 The `Overwrite mode` option can be used to control what should happen if the package already exists in the repository; the default behavior is to reject the new package being pushed (`FailIfExists`). You can override this behavior by using either the `OverwriteExisting` or `IgnoreIfExists` overwrite mode.
 
+:::figure
 ![Push Package](/docs/packaging-applications/build-servers/images/push-package.png "width=500")
+:::
 
 ## 4. Create a release
 
@@ -128,7 +132,9 @@ The `Ignore existing releases` option can be selected to skip the create release
 
 Tick this option, as it allows builds to be rebuilt. Otherwise rebuilds will attempt to recreate an existing environment and the step will fail.
 
+:::figure
 ![Create Release](/docs/packaging-applications/build-servers/images/create-release.png "width=500")
+:::
 
 ## 5. Deploy a release
 
@@ -148,7 +154,9 @@ The `Environment(s)` field defines the [Octopus Deploy environments](/docs/infra
 
 The `Release Number` field defines the release version number to deploy. This should match the release number from the create release step i.e. `0.0.${bamboo.buildNumber}`.
 
+:::figure
 ![Deploy release](/docs/packaging-applications/build-servers/images/deploy-release.png "width=500")
+:::
 
 ## Promote a release (optional, and not recommended) 
 
@@ -191,7 +199,9 @@ The `Octopus CLI` field references a [Bamboo capability](https://confluence.atla
 
 Click the `Add new executable` link to specify the location of the command line tool. The `Executable label` can be anything you want, and the `Path` is the full path to the command line tool executable file.
 
+:::figure
 ![Add new executable](/docs/packaging-applications/build-servers/images/executable.png "width=500")
+:::
 
 ### Enable debug logging
 

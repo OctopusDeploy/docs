@@ -69,7 +69,9 @@ Start-Process java PressAnyKey
 screen -d -m -S "PressAnyKey" java PressAnyKey
 ```
 
+:::figure
 ![](/docs/deployments/java/5866219.png "width=500")
+:::
 
 :::div{.hint}
 The application must be launched in a new process or session so that control returns to the shell. Otherwise the deployment will wait until the application is terminated.

@@ -24,7 +24,9 @@ In general, try to keep the number of environments under ten. Having fewer envir
 
 We recommend creating a standard set of environments. For example, Dev, Test, Staging, and Production. If you have [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure), you might also need SpinUp, TearDown, and Maintenance.
 
+:::figure
 ![The Environment overview](/docs/shared-content/octopus-recommendations/images/environment-list.png "width=500")
+:::
 
 If you need to change the order of your environments later, you can use the [sort](/docs/infrastructure/environments/#sort-your-environments) option.
 
@@ -50,11 +52,15 @@ Unfortunately, this doesn't scale very well. Every time you add a new data cente
 
 One scenario we've seen is customers deploy to an on-premises data center for dev and test. Separate data centers host staging and production environments in say Illinois and Texas. Before promoting code to production, they perform sanity checks in the staging environment. If you create an environment per data center, you'd have seven environments when you actually only need four.
 
+:::figure
 ![Multi-tenancy Environments](/docs/shared-content/octopus-recommendations/images/multi-tenancy-environments.png "width=500")
+:::
 
 Creating seven environments like this doesn't scale. A better solution is using the [multi-tenancy](/docs/tenants/) feature in Octopus. With multi-tenancy, each data center is modeled as a tenant. To add a new tenant, follow our instructions on how to [create a tenant](/docs/tenants/tenant-creation).
 
+:::figure
 ![Data Center tenants](/docs/shared-content/octopus-recommendations/images/data-center-tenants.png "width=500")
+:::
 
 :::div{.hint}
 **Tip:** Adding images to your tenants makes them easier to find. You can do this by clicking on the tenant and choosing **Settings**, and you can choose an image to upload in the **Logo** section.
@@ -88,7 +94,9 @@ If you create an environment per tenant, you'd have fourteen environments. And t
 
 This is where the [multi-tenancy](/docs/tenants) feature in Octopus again shines. It allows you to keep the number of environments low while creating a unique workflow per client.
 
+:::figure
 ![Tenants as Customers](/docs/shared-content/octopus-recommendations/images/multi-tenancy-customers.png "width=500")
+:::
 
 ## Conclusion
 

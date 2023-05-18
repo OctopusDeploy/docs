@@ -54,7 +54,9 @@ You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api) - 
 
 To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **Library ➜ Packages** tab of the Octopus Web Portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
+:::figure
 ![The Built-in Package Repository](/docs/packaging-applications/package-repositories/built-in-repository/built-in-package-repository.png "width=500")
+:::
 
 :::div{.success}
 If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) when prompted for the feed details.

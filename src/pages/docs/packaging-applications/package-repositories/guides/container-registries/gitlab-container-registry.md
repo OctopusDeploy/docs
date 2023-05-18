@@ -15,6 +15,8 @@ Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the GitLa
 
 `https://your.gitlab.url:[GitLab container registry port]`
 
+:::figure
 ![GitLab NuGet Feed](/docs/packaging-applications/package-repositories/guides/container-registries/images/gitlab-container-feed.png)
+:::
 
 Optionally add Credentials if they are required.

@@ -40,7 +40,9 @@ Manual intervention steps are added to deployment processes in the same way as o
 
 When a deployment is executing and a manual step is encountered, the deployment will show a status of **Waiting**. An interruption will appear at the top of the deployment summary.
 
+:::figure
 ![Waiting Status](/docs/projects/built-in-step-templates/images/waiting-status.png "width=500")
+:::
 
 You can click **show details** to view the instructions.
 

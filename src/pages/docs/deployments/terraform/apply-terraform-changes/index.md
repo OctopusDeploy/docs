@@ -15,7 +15,9 @@ Octopus has two steps that execute plan information:
 
 As their names suggest, the `Apply a Terraform template` step will execute the additions indicated by the execution plan, while the `Destroy Terraform resources` step will destroy the resources marked for removal by the execution plan.
 
+:::figure
 ![Octopus Steps](/docs/deployments/terraform/apply-terraform-changes/images/octopus-terraform-apply-step.png "width=500")
+:::
 
 :::div{.warning}
 The plan steps do not support saving the plan to a file and applying that file at a later date. This means the plan information only makes sense when the same values are used in the plan and apply/destroy steps. Configuring shared variables for the step fields ensures that the same values will be used.

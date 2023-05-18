@@ -11,11 +11,15 @@ Uploaded PFX or PEM files may contain a certificate-chain. i.e. A certificate wi
 
 Certificates which contain a chain are indicated by a chain icon on the certificate card, as shown below:
 
+:::figure
 ![](/docs/deployments/certificates/images/certificate-chain-card.png "width=500")
+:::
 
 The details page will show the details of all certificates in the chain:
 
+:::figure
 ![](/docs/deployments/certificates/images/certificate-chain-details.png "width=500")
+:::
 
 ## Importing certificate chains
 

@@ -62,13 +62,17 @@ There are two values you will need from the Okta configuration to complete the O
 
 Select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus Server.
 
+:::figure
 ![](/docs/security/authentication/okta/okta-openid-token.png "width=500")
+:::
 
 #### Okta group integration \{#Oktaauthentication-OpenIDConnectSettings-OktaGroups}
 
 If you want Okta groups to flow through to Octopus, you'll need to change the _Groups claim_ fields as follows:
 
+:::figure
 ![Okta Groups claim](/docs/security/authentication/okta/okta-groups-claimtype.png "width=500")
+:::
 
 Note that the Regex is ```.*```, the period is important!
 
@@ -120,7 +124,9 @@ Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=Issuer --OktaClie
 
 Alternatively these settings can be defined through the user interface by selecting **Configuration ➜ Settings ➜ Okta** and populating the fields `Issuer`, `ClientId`, `ClientSecret` and `IsEnabled`.
 
+:::figure
 ![Settings](/docs/security/authentication/okta/okta-settings.png "width=500")
+:::
 
 :::div{.hint}
 The request to Okta from Octopus will need to include the required scopes. See the [Inspect the request to Okta for scope](#Oktaauthentication-Inspecttherequesttookta) section for information about how to inspect the scope of the current request.
@@ -155,7 +161,9 @@ We do our best to log warnings to your Octopus Server log whenever possible. If 
 
 You can also check Okta logs by clicking the **View Logs** link on the Okta admin portal.
 
+:::figure
 ![](/docs/security/authentication/okta/okta-view-logs.png "width=500")
+:::
 
 ### Double and triple check your configuration \{#Oktaauthentication-DoubleandTriplecheckyourconfiguration}
 

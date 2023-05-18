@@ -47,13 +47,17 @@ To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint 
 In version **4.38.0** of the TeamCity Plugin we have added a new build runner that can be used to package your applications as either a NuGet or Zip formatted package.
 :::
 
+:::figure
 ![Octopus Pack](/docs/packaging-applications/build-servers/images/teamcity-pack-step.png "width=500")
+:::
 
 :::div{.hint}
 In version **3.3.1** of the TeamCity Plugin we added a new build runner that can be used to package and push your applications from TeamCity to Octopus.
 :::
 
+:::figure
 ![Octopus Push](/docs/packaging-applications/build-servers/images/5275665.png "width=500")
+:::
 
 ## Pushing build information from TeamCity to Octopus \{#TeamCity-pushing-build-info-from-teamcity-to-octopus}
 
@@ -62,7 +66,9 @@ Support for pushing information (metadata) to Octopus about the build has been a
 - In versions **5.1.3 ➜ 5.3.0**, the build runner was called **Octopus Deploy: Metadata**
 - In version **5.4.0** onwards, the build runner was renamed to **Octopus Deploy: Build Information**
 
+:::figure
 ![Octopus Build information](/docs/packaging-applications/build-servers/images/teamcity-build-information-step.png "width=500")
+:::
 
 :::div{.hint}
 A **Branch specification** is required on the TeamCity VCS configuration to populate the `Branch` field for Build Information in Octopus Deploy.  For example, `+:*`

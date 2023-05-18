@@ -14,7 +14,9 @@ Octopus Deploy is made up of a number of different configuration sets and managi
 
 In the Octopus Web Portal, you can access configuration by navigating to **Configuration ➜ Settings**, this will show which configuration items are available.
 
+:::figure
 ![Web Portal Configuration](/docs/administration/managing-infrastructure/server-configuration/octopus-v4-config-webportal.png "width=500")
+:::
 
 ## Octopus.Client
 

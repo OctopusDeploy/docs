@@ -24,11 +24,15 @@ In Octopus, you can [scope](/docs/projects/variables/#scoping-variables) worker 
 
 1. Enter the variable name and select **Open Editor** select the **Change Type** drop-down and select **worker pool**.
 
+:::figure
 ![Add worker pool variable](/docs/projects/variables/images/workerpoolvariable-add.png "width=500")
+:::
 
 2. In the **Add Variable** window, it lists all the available worker pools. Select the worker pool and then define the scope of the worker pool.
 
+:::figure
 ![Add worker pool variable type](/docs/projects/variables/images/workerpoolvariable-changetype.png "width=500")
+:::
 
 3. If required, add multiple values, binding each to the required scope. Worker pool variables can not be scoped to roles or targets as the pool is resolved during the planning phase of the deployment.
 
@@ -44,7 +48,9 @@ By default, deployment steps are not configured to run on a worker pool set by a
 2. Select **Runs on a worker from a pool selected via a variable**.
 3. Pick the worker pool variable.
 
+:::figure
 ![Select the worker pool variable](/docs/projects/variables/images/workerpoolvariable-selection.png "width=500")
+:::
 
 4. Save the step.
 
@@ -56,7 +62,9 @@ Worker pool variables have multiple use cases for consideration during set up. T
 
 The most common would be to use environment-specific worker pools to separate this for development, test, and production. Often these sit in different network segments, and often production is in the cloud or in a DMZ, which would help with Security.
 
+:::figure
 ![addworkerpoolvariable](/docs/projects/variables/images/workerpoolvariable-environments.png "width=500")
+:::
 
 ### Performance & Role separation
 
@@ -66,13 +74,17 @@ Running deployment tasks in parallel using different worker pools can enable bet
 
 Licensing requirements of software installed on workers may mean that the software can't be justified on all workers. You may choose to install the software on a small subsection of workers.
 
+:::figure
 ![Separation of roles for worker pool variables](/docs/projects/variables/images/workerpoolvariable-roleseparation.png "width=500")
+:::
 
 ### Network and security
 
 [Network isolation](https://en.wikipedia.org/wiki/Network_segmentation) or [DMZ or a perimeter network](https://en.wikipedia.org/wiki/DMZ_(computing)) are common for most companies. They are considered best practices for most scenarios to control and manage the flow of your network and keep items separated. Using worker pool variables will allow you to control where your deployment or scripts run, which will ensure scripts or deployments can't access networks they may not be permitted to access.
 
+:::figure
 ![Worker pool variable network isolation](/docs/projects/variables/images/workerpoolvariable-networkisolation.png "width=500")
+:::
 
 ### Multi-Cloud and Multi-Region workers
 
@@ -84,7 +96,9 @@ Licensing requirements of software installed on workers may mean that the softwa
 - On-Premises
 - Private Cloud
 
+:::figure
 ![multi-cloud worker pool variable](/docs/projects/variables/images/workerpoolvariable-multicloud.png "width=500")
+:::
 
 ## Learn more
 

@@ -102,7 +102,9 @@ When you conduct these checks:
 
 The page shown should look like the one below.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/images/3278074.png "width=500")
+:::
 
 :::div{.hint}
 **If you can't browse to the page...**
@@ -127,7 +129,9 @@ Remember to check both the built-in Windows Firewall, and any other firewalls (i
 
 The page shown should look like the one below.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/images/3277906.png "width=500")
+:::
 
 If you've made it this far, good news! Your Octopus Server is running and ready to accept inbound connections from Polling Tentacles.
 
@@ -220,7 +224,9 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 
 To do this open **Control Panel ➜ Internet Options ➜ Advanced**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/images/3278077.png "width=500")
+:::
 
 ### Check Octopus.Server.exe load time (Polling Tentacle)
 
@@ -234,7 +240,9 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 
 To do this open **Control Panel ➜ Internet Options ➜ Advanced**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
+:::figure
 ![](/docs/infrastructure/deployment-targets/tentacle/images/5865771.png "width=500")
+:::
 
 ## Schannel and TLS configuration mismatches
 

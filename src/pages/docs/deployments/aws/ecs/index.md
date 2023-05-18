@@ -45,7 +45,9 @@ The `Deploy Amazon ECS Service` step requires [a deployment target](/docs/infras
 
 Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws).
 
+:::figure
 ![ECS Cluster Deployment Target Settings](/docs/deployments/aws/ecs/images/target.png "width=500")
+:::
 
 :::div{.hint}
 The benefits of using deployment targets for ECS are outlined in the [ECS RFC blog post](https://octopus.com/blog/rfc-ecs-integration-with-octopus#why-use-targets).
@@ -57,7 +59,9 @@ Add the `Deploy Amazon ECS Service` step to the project, and provide it a name.
 
 As the step is using a deployment target a target role will also need to be specified. The role will be used to determine which ECS cluster to deploy to. Use the same role that you applied to your deployment target in Step 2.
 
+:::figure
 ![ECS Step General Settings](/docs/deployments/aws/ecs/images/ecs-step-1.png "width=500")
+:::
 
 :::div{.hint}
 CloudFormation stack and service names will be automatically generated and cannot be changed manually.
@@ -69,7 +73,9 @@ Specify a name for your task definition. Up to 255 letters (uppercase and lowerc
 
 The task role controls access from within the task running the container. For example, task role can be used to control access to other AWS resources such as S3 buckets.
 
+:::figure
 ![ECS Step Configuration Section](/docs/deployments/aws/ecs/images/ecs-configuration.png "width=500")
+:::
 
 ### Task Execution IAM Role section
 
@@ -81,19 +87,25 @@ Task Execution Role is used by ecs-agent which runs on ECS to access AWS resourc
 Additional permissions might need to be assigned to the task execution role if your tasks pull container images from private repositories. For more information, refer to the [AWS documentation](https://oc.to/ECSContainerDefinitionRegistryAuth).
 :::
 
+:::figure
 ![ECS Step Task Execution IAM Role](/docs/deployments/aws/ecs/images/ecs-task-execution-role.png "width=500")
+:::
 
 ### Task Size section
 
 Specify the total memory and CPU limits for the task definition. The sum of each individual containers' limits cannot exceed the total limit defined here.
 
+:::figure
 ![ECS Step Task Size](/docs/deployments/aws/ecs/images/ecs-task-size.png "width=500")
+:::
 
 ### Network Configuration section
 
 Specify the Security Groups and Subnets in the clusters VPC that will be attached to the resulting service.
 
+:::figure
 ![ECS Step Network Configuration](/docs/deployments/aws/ecs/images/ecs-network-configuration.png "width=500")
+:::
 
 ### Tags section
 
@@ -105,13 +117,17 @@ Octopus automatically adds stack-level tags that propagate to the task definitio
 
 No more than 20 additional tags can be provided.
 
+:::figure
 ![ECS Step Tags](/docs/deployments/aws/ecs/images/ecs-tags.png "width=500")
+:::
 
 ### Container Definitions section
 
 At least one container definition must be specified when registering a task definition.
 
+:::figure
 ![ECS Step Container Definitions Section](/docs/deployments/aws/ecs/images/ecs-container-section.png "width=500")
+:::
 
 Specify the container name that will be used to reference the particular container definition within your task, and select a feed and image that will be run by your task. The specific image version will be specified later, when creating a release.
 
@@ -119,19 +135,25 @@ To authenticate with private repositories you can either rely on the default IAM
 
 Specify the ports exposed by the container here. These can be referenced in the overall step configuration in the **Load Balancer Mappings** section if you wish to publicly expose the ports.
 
+:::figure
 ![ECS Step Container Definition Parameters](/docs/deployments/aws/ecs/images/ecs-container-definition.png "width=500")
+:::
 
 #### Health Check section
 
 This section directly corresponds to Docker health check parameters. Specifying these settings will override the values built into the container image. For more information, refer to the [Docker documentation](https://docs.docker.com/engine/reference/builder/#healthcheck).
 
+:::figure
 ![ECS Step Container Definition Health Check](/docs/deployments/aws/ecs/images/ecs-health-check.png "width=500")
+:::
 
 #### Environment section
 
 Specify additional options for the running container, such as `Entry Point`, `Working Directory` and `Environment Variables`.
 
+:::figure
 ![ECS Step Container Definition Environment](/docs/deployments/aws/ecs/images/ecs-container-environment.png "width=500")
+:::
 
 #### Container Storage and Logging section
 
@@ -139,7 +161,9 @@ In this section, you can specify mount points for the running container. Mount p
 
 For container logging the step can either auto-configure CloudWatch logs, or you can provide logging configuration manually. If you choose to have CloudWatch logs auto-configured, please ensure that you have specified a Task Execution Role ARN for this step. 
 
+:::figure
 ![ECS Step Container Definition Storage and Logging](/docs/deployments/aws/ecs/images/ecs-container-storage-and-logging.png "width=500")
+:::
 
 #### FireLens Configuration section
 
@@ -149,19 +173,25 @@ In this section, you can enable a container to act as a log router using AWS Fir
 To enable FireLens configuration, your Deploy Amazon ECS Service step needs to be upgraded to use version 2. See [Automatic Step Template Updates](/docs/projects/built-in-step-templates/automatic-updates) for more information on automatic updates to steps and updating to new major versions of steps.
 :::
 
+:::figure
 ![ECS Step Container Definition FireLens Configuration](/docs/deployments/aws/ecs/images/ecs-container-firelens.png "width=500")
+:::
 
 ### Deployment section
 
 Specify the minimum and maximum health percentages for the resulting service. These settings enable scenarios such as [Rolling deployments](/docs/deployments/patterns/rolling-deployments). When the maximum health percentage is set above 100% ECS will attempt to start new tasks before bringing down old ones. On the other hand, the minimum health percentage will allow ECS to bring down tasks when the cluster does not have enough capacity to handle the load.
 
+:::figure
 ![ECS Step Deployment section](/docs/deployments/aws/ecs/images/ecs-deployment.png "width=500")
+:::
 
 ### Deployment Options section
 
 You can optionally change whether the step should wait until the CloudFormation stack fully deploys by changing the `Wait Option` selection. By default, the step will wait until the CloudFormation stack deployment is complete and the resulting ECS Task is running (or failed to run).
 
+:::figure
 ![ECS Step Deployment Options section](/docs/deployments/aws/ecs/images/ecs-deployment-options.png "width=500")
+:::
 
 :::div{.hint}
 Selecting the `Don't wait` option means that the step will not fail if the CloudFormation deployment fails.
@@ -173,13 +203,17 @@ A snippet of the deployment verification logic we have implemented can be seen i
 
 Specify how exposed container ports map to Target Groups attached to your Load Balancer. `Container Name` and `Container Port` fields must match the values specified in the `Container Definitions` section of the same task definition. For more information refer to the [AWS Documentation](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html).
 
+:::figure
 ![ECS Step Load Balancer Mappings](/docs/deployments/aws/ecs/images/ecs-load-balancer.png "width=500")
+:::
 
 ### Volumes section
 
 Specify volumes that can be referenced by each individual container within the task definition. `Bind` and `EFS` volume types are supported.
 
+:::figure
 ![ECS Step Volumes](/docs/deployments/aws/ecs/images/ecs-volumes.png "width=500")
+:::
 
 ### Export to CloudFormation template
 
@@ -195,11 +229,15 @@ Some values cannot be resolved until deployment time and will be replaced with t
 
 To access the `Export to CloudFormation template` use the step's overflow menu in the top right-hand corner directly below the dotted menu for the overall deployment process.
 
+:::figure
 ![Export to CloudFormation Menu](/docs/deployments/aws/ecs/images/ecs-cf-export-menu.png "width=500")
+:::
 
 The dialog window will appear, showing the complete CloudFormation template and an option to copy it.
 
+:::figure
 ![Export to CloudFormation Dialog](/docs/deployments/aws/ecs/images/ecs-cf-export-dialog.png "width=500")
+:::
 
 #### Variable replacements
 
@@ -227,7 +265,9 @@ The following states are those that require the stack to be deleted before it ca
 
 The [AWS documentation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#w2ab2c15c15c17c11) contains more details on the CloudFormation state states.
 
+:::figure
 ![ECS Stack Creation Strategy Flowchart](/docs/deployments/aws/ecs/images/ecs-stack-creation-strategy.png)
+:::
 
 ## Error messages
 

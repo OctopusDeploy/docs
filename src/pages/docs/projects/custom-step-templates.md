@@ -35,13 +35,17 @@ Any details that need to be specified at the project level can be handled using 
 
 The Parameters tab allows you to specify fields that will be filled out by the users of this step.
 
+:::figure
 ![Add new step template parameter](/docs/projects/images/step-templates-new-parameter.png "width=500")
+:::
 
 You're required to give the parameter a variable name and label to use, as well as some optional help text and a default value.
 
 Finally, you can choose the way the field will appear to a user with the **Control type** field. There are a number of options available, however keep in mind the end result will be a variable with a string value.
 
+:::figure
 ![Step template parameter type](/docs/projects/images/step-templates-parameter-type.png "width=500")
+:::
 
 **2019.10.0** introduced a new **Package** control type. This new control type allows the selection of a **Feed** and **Package** to use as part of the step to be deferred until the step template is added to a project.
 
@@ -57,7 +61,9 @@ After saving your step, you'll notice another tab called Usage. This tab shows w
 
 You'll also see a handy counter next to the Usage tab so you can see at a glance how many projects are out-of-date. You have the ability to filter database-backed usages by project, process type, and whether they are on the latest version of the step template or not.
 
+:::figure
 ![Step templates usage](/docs/projects/images/step-templates-usage.png "width=500")
+:::
 
 If you have [version-controlled](/docs/projects/version-control) projects that use step templates, you will be able to see a tab with version-controlled usages from up to twenty recent releases. You can filter this list to search for usage in a specific branch or use the advanced filters. 
 
@@ -67,7 +73,9 @@ Note: The list of version-controlled usages will only include processes that hav
 
 :::
 
+:::figure
 ![Step templates usage 2](/docs/projects/images/step-templates-usage-2.png "width=500")
+:::
 
 
 ## Custom logo
@@ -78,7 +86,9 @@ Custom step templates inherit their logo from the template that was used to crea
 
 If you want to transport, backup, or share your custom step templates with the community, you can export a template by finding your template in **Library ➜ Step templates**, and clicking the **Export** link.
 
+:::figure
 ![Export step templates](/docs/projects/images/step-templates-export.png "width=500")
+:::
 
 Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopus.com/).
 

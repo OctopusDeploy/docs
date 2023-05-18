@@ -46,7 +46,9 @@ However, not all package steps support script hooks. As a general rule, any of t
 **Note:** The `Custom Deployment Scripts` feature only needs to be enabled if you want to [define your scripts inline](#scripts-in-package-steps) instead of executing scripts at the root of a package.
 :::
 
+:::figure
 ![Custom Deployment scripts features screenshot](/docs/deployments/custom-scripts/scripts-in-packages/custom-deployment-scripts-feature.png "width=500")
+:::
 
 ## Including the scripts in the package
 
@@ -100,11 +102,15 @@ Make sure the scripts are located in the root of your package.
 
 Make sure the scripts are actually included in your package. Extract your package and inspect the contents to make sure the scripts are included as you expect. For example, if you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action = Content**.
 
+:::figure
 ![](/docs/deployments/custom-scripts/scripts-in-packages/3277766.png "width=500")
+:::
 
 If you are using OctoPack to package a Windows Service or console application, set **Copy to Output Directory** = **Copy if newer**.
 
+:::figure
 ![](/docs/deployments/custom-scripts/scripts-in-packages/3277765.png "width=500")
+:::
 
 Read more about [using OctoPack](/docs/packaging-applications/create-packages/octopack).
 

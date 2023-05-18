@@ -77,7 +77,9 @@ If adding a pre-release tag to Channels, you will also need to add the tag `^$` 
 
 The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
 
+:::figure
 ![](/docs/releases/channels/images/5865686.png "width=500")
+:::
 
 6. Click **SAVE**.
 
@@ -91,7 +93,9 @@ Each Channel defines which [Lifecycle](/docs/releases/lifecycles) to use when pr
 
 For instance, when you ship pre-release software to your early access users, you can use an early access (or beta) channel which uses a Lifecycle that deploys the software to an environment your early access users have access to.
 
+:::figure
 ![](/docs/releases/channels/images/5865685.png "width=500")
+:::
 
 ### Modifying deployment process {#Channels-ModifyingDeploymentProcess}
 
@@ -99,19 +103,25 @@ Deployment Steps can be restricted to only run on specific Channels.
 
 For instance, you might decide you'd like to notify your early access users by email when an update version of the software is available. This can be achieved by adding an email step to your deployment process and scoping the step to the early access channel. That way the step will only run when a release is deployed to the early access channel and your early access users will only receive emails about relevant releases.
 
+:::figure
 ![](/docs/releases/channels/images/3278459.png "width=500")
+:::
 
 ### Variables {#Channels-Variables}
 
 As you release software to different Channels, it's likely that some of the variables in those Channels will need to be different. [Variables](/docs/projects/variables) can be scoped to specific Channels.
 
+:::figure
 ![](/docs/releases/channels/images/3278460.png "width=500")
+:::
 
 ### Deploying to tenants {#Channels-DeployingtoTenants}
 
 You can control which Releases will be deployed to certain Tenants using Channels. In this example, Releases in this Channel will only be deployed to Tenants tagged with `Early access program/2.x Beta`.
 
+:::figure
 ![](/docs/releases/channels/images/5865683.png "width=500")
+:::
 
 ## Creating releases {#Channels-CreatingReleases}
 
@@ -121,7 +131,9 @@ Every Release in Octopus Deploy must be placed into a Channel. Wherever possible
 
 When you are creating a release, you can select a channel.
 
+:::figure
 ![](/docs/releases/channels/images/3278463.png "width=500")
+:::
 
 Selecting the channel will cause the release to use the lifecycle associated with the channel (or the project default, if the channel does not have a lifecycle).  It will also cause the deployment process and variables to be modified as specified above.
 
@@ -135,13 +147,17 @@ When using one of the [build server extensions](/docs/octopus-rest-api/) or the 
 
 When enabling [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) for your project, you are required to select a Channel (if the project has more than one).
 
+:::figure
 ![](/docs/releases/channels/images/3278462.png "width=500")
+:::
 
 Any releases created automatically will use the configured channel. Additionally, any version rules configured for the channel will be used to decide whether a release is automatically created.
 
 For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the channel selected for automatic release creation has a version rule range that doesn't include 3.1.0, then no release will be created.
 
+:::figure
 ![](/docs/releases/channels/images/3278461.png "width=500")
+:::
 
 ## Discrete Channel Releases {#discrete-channel-releases}
 
@@ -151,7 +167,9 @@ In the second mode of use, releases deployed via different channels are differen
 
 In **Project ➜ Settings** there is an option named _Discrete Channel Releases_, designed to model this scenario.
 
+:::figure
 ![Discrete channel releases project setting](/docs/releases/channels/images/discrete-channel-release.png "width=500")
+:::
 
 Setting this to `Treat independently from other channels` will cause: 
 

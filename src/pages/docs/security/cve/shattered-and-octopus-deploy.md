@@ -7,7 +7,9 @@ description: How the SHA1 "Shattered" Collision impacts Octopus Deploy
 navOrder: 1
 ---
 
+:::figure
 ![Shattered logo](/docs/security/cve/shattered-logo.png "width=500")
+:::
 
 _Extracted from our [blog post in 2017](https://octopus.com/blog/shattered)._
 

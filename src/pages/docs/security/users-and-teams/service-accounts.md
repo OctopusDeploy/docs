@@ -32,13 +32,17 @@ Creating a new Service account is very similar to creating a new User account:
 3. Enter a unique **Username** and **Display name** so you can distinguish this Service account.
 4. Save the user to create the Service account.
 
+:::figure
 ![Create service account](/docs/security/users-and-teams/images/create-service-acount.png "width=500")
+:::
 
 :::div{.hint}
 This Service account is not very useful until it [belongs to one or more teams](/docs/security/users-and-teams/), and has one or more [Octopus API keys](/docs/octopus-rest-api/how-to-create-an-api-key) associated with it
 :::
 
+:::figure
 ![Service account API Key](/docs/security/users-and-teams/images/service-account-apikey.png "width=500")
+:::
 
 Once you have created an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) and [added this Service account to a team](/docs/security/users-and-teams), you can start using this Service account to automate Octopus with another service.
 
