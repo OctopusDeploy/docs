@@ -23,18 +23,18 @@ Deprecations are subject to change in detail or timeframe. If you need help asse
 
 ## Deprecations for 2023.2
 
-### Project Level `/git/branches` API endpoint
+### Project level `/git/branches` API endpoint
 
 The `POST` method on the `/projects/{projectId}/git/branches` endpoint for version controlled projects is being removed in future versions of Octopus. The same functionality is available using the `/projects/{projectId}/git/branches/v2` endpoint, however, a minor change will need to be made to the request payload.
 The `CurrentBranchName` field has been replaced with `BaseGitRef`. The value of this field should be a fully-qualified git ref (E.g: `refs/heads/main` for the `main` branch, `refs/tags/v1.2.3` for the `v1.2.3` tag, or a commit hash).
 
 ## Deprecations for 2023.1
 
-### Space Level `/useronboarding` API endpoint
+### Space level `/useronboarding` API endpoint
 
 The Space level `/useronboarding` API endpoint is being removed in future versions of Octopus. It was used internally to improve the user onboarding experience. We have since reworked the new user experience and removed the old endpoint. There is no replacement for this endpoint. We do not expect that anyone outside our internal teams has used this endpoint. If you believe this could negatively affect you, please get in touch with our [support team](https://octopus.com/support).
 
-### Unsupported Microsoft DFS Configurations
+### Unsupported Microsoft DFS configurations
 
 We are updating the supported configurations of Microsoft DFS as shared storage for Octopus Server instances using a High Availability setup. We will continue to support DFS for disaster recovery scenarios, but only in the recommended configuration. You can find more details in our [documentation](https://octopus.com/docs/getting-started/best-practices/configuring-microsoft-dfs-with-octopus-server).
 
