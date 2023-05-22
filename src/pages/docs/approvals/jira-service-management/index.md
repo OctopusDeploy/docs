@@ -35,6 +35,7 @@ JSM Integration feature enabled.
 Before you can use the Octopus Deploy/JSM integration, you'll need to:
 
 1. Create a service account in JSM for use by Octopus
+1. In Jira, create or use an existing project of the _IT service management_ type.
 1. Request and install a new Octopus license required to enable the JSM feature.
 1. Configure a connection from Octopus to JSM.
 1. Configure which deployments require an approved CR.
