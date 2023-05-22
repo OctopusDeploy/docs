@@ -101,7 +101,7 @@ Octopus Deploy stores all the BLOB data (deployment logs, runbook logs, packages
 - TaskLogs
 - Artifacts
 - Packages
-- EventExports
+- EventExports (available from Octopus **2023.3**)
 
 :::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
