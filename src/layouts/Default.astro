@@ -68,11 +68,11 @@ const site_features = SITE.featureFlags;
                         )}
                     </header>
                     <div class="page-content anim-show-parent" itemprop="articleBody">
-                        <LastUpdated frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         <slot />
                         <Feedback frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         <Authors frontmatter={ frontmatter } lang={ lang } />
                         <Taxonomy frontmatter={ frontmatter } lang={ lang } />
+                        <LastUpdated frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         <EditOnGithub frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         {metaImage && <meta itemprop="image" content={ metaImage.src } />}
                     </div>
