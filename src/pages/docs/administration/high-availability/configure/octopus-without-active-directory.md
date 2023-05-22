@@ -63,10 +63,6 @@ After the Octopus Server has been configured, from Octopus Manager copy the Mast
 
 Finally, you need to tell Octopus to store artifacts, packages, task logs, imports, and event exports in the shared storage that you provisioned, that way each Octopus node can see the same files. To do this, you need to use the command-line:
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 ### Configure shared storage
 
 There are two options for configuring shared storage: 

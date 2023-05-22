@@ -78,10 +78,6 @@ If your Octopus Server is running in Microsoft Azure, there is only one solution
 
 After you have created your File Share, the best option is to add the Azure File Share as a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\Octopus\` for the Artifacts, Packages, TaskLogs, Imports and EventExports which need to be available to all nodes.
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 Run the PowerShell below before installing Octopus, substituting the placeholders with your own values:
 
 ```powershell

@@ -14,10 +14,6 @@ You may need to move your Octopus installation of Server and database. The follo
 - Data that is stored in the file system needs to be moved over to the new server. These are your packages stored in the built-in package repository, your artifacts (includes project logos), your Task Logs, and your Event Exports.
 - Tentacle thumbprints are stored in the database. If you're using the same database, you won't need to re-configure your Tentacles.
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 :::div{.warning}
 **You can only move your Octopus Server installation to the same Octopus version, you cannot move to an upgraded version.** Either upgrade your existing Octopus Server version, then move the Server and files, or move and then upgrade on the new server. Please refer to our [upgrading guides](/docs/administration/upgrading) for applicable information for your scenario.
 :::
