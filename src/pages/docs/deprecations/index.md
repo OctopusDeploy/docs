@@ -26,7 +26,7 @@ Deprecations are subject to change in detail or timeframe. If you need help asse
 ### Project level `/git/branches` API endpoint
 
 The `POST` method on the `/projects/{projectId}/git/branches` endpoint for version controlled projects is being removed in future versions of Octopus. The same functionality is available using the `/projects/{projectId}/git/branches/v2` endpoint, however, a minor change will need to be made to the request payload.
-The `CurrentBranchName` field has been replaced with `BaseGitRef`. The value of this field should be a fully-qualified git ref (E.g: `refs/heads/main` for the `main` branch, `refs/tags/v1.2.3` for the `v1.2.3` tag, or a commit hash).
+The `CurrentBranchName` field has been replaced with `BaseGitRef`. The value of this field should be a fully-qualified git ref (e.g: `refs/heads/main` for the `main` branch, `refs/tags/v1.2.3` for the `v1.2.3` tag, or a commit hash).
 
 ## Deprecations for 2023.1
 
