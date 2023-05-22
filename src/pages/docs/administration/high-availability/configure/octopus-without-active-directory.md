@@ -90,8 +90,8 @@ Octopus.Server.exe path --artifacts \\Octoshared\OctopusData\Artifacts
 Octopus.Server.exe path --taskLogs \\Octoshared\OctopusData\TaskLogs
 Octopus.Server.exe path --nugetRepository \\Octoshared\OctopusData\Packages
 Octopus.Server.exe path --imports \\Octoshared\OctopusData\Imports
-Octopus.Server.exe path --telemetry \\Octoshared\OctopusData\Telemetry
 Octopus.Server.exe path --eventExports \\Octoshared\OctopusData\EventExports
+Octopus.Server.exe path --telemetry \\Octoshared\OctopusData\Telemetry
 ```
 :::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.

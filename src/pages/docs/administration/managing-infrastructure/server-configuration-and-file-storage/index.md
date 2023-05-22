@@ -51,7 +51,7 @@ The Octopus Server stores files in the following folders by default:
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-Imports) on how to move the Octopus Server imports folder
 - `C:\Octopus\EventExports`
     - This folder was added in **Octopus 2023.3**
-    - This is where audit log archive zip files are stored when using the [Archived audit logs feature](/docs/security/users-and-teams/auditing/index.md#archived-audit-events).
+    - This is where audit log archive zip files are stored when using the [Archived audit logs feature](/docs/security/users-and-teams/auditing/#archived-audit-events).
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-EventExports) on how to move the Octopus Server event exports folder
 
 ## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}

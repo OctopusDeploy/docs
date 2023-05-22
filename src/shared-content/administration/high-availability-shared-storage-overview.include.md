@@ -4,7 +4,7 @@ Octopus stores several files that are not suitable to store in the database. The
 - [Artifacts](/docs/projects/deployment-process/artifacts) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
 - Task logs are text files that store all of the log output from deployments and other tasks.
 - Imported zip files used by the [Export/Import Projects feature](/docs/projects/export-import).
-- Archived audit logs by the [Archived audit logs feature](/docs/security/users-and-teams/auditing/index.md#archived-audit-events).
+- Archived audit logs by the [Archived audit logs feature](/docs/security/users-and-teams/auditing/#archived-audit-events).
 
 :::div{.hint}
 EventExports is available from **2023.3** onwards as part of the audit log retention feature.
