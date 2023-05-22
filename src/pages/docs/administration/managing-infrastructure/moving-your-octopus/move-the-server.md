@@ -31,11 +31,6 @@ You may want to move only the Octopus Server itself, and continue using your exi
    - Packages
       - This folder only needs to be moved if using the built-in package repository. External feed details are stored in the database, and they will connect automatically.
    - Event Exports (available from Octopus **2023.3**)
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 6. Finally, restart your new Octopus instance to index the packages. You can restart either in your Octopus Manager, or via the command line with the following command.
 ```
 Octopus.Server.exe service --stop

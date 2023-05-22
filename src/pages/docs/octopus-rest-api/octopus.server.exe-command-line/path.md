@@ -70,7 +70,3 @@ octopus.server path --imports \\Octoshared\OctopusData\Imports
 octopus.server path --eventExports \\Octoshared\OctopusData\EventExports
 octopus.server path --telemetry \\Octoshared\OctopusData\Telemetry
 ```
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
