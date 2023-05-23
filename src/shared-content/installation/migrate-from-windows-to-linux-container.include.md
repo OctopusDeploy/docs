@@ -103,10 +103,6 @@ Octopus Deploy stores all the BLOB data (deployment logs, runbook logs, packages
 - Packages
 - EventExports (available from Octopus **2023.3**)
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 If you are moving from a Windows VM, the default path for those folders is: `C:\Octopus`.  For example, the task logs folder would be `C:\Octopus\TaskLogs`.  If you are unsure of the path, you can find it in the Octopus Deploy UI by navigating to **Configuration ➜ Settings ➜ Server Folders**.
 
 :::div{.warning}
