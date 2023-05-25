@@ -150,10 +150,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
        New-Item -Path $EventExportsFolder -ItemType SymbolicLink -Value "$SmbShare\EventExports"
    }
    ```
-   :::div{.hint}
-   EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-   :::
-
+   
    :::div{.hint}
    Remember to create the folders in the SMB share before trying to create the symbolic links.
    :::
@@ -168,10 +165,6 @@ Once you've completed those steps, [install Octopus](/docs/installation/) and th
 --imports "C:\OctopusShared\Imports" `
 --eventExports "C:\OctopusShared\EventExports"
 ```
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 :::div{.hint}
 Changing the path only needs to be done once, and not on each node as the values are stored in the database.
@@ -332,10 +325,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
        New-Item -Path $EventExportsFolder -ItemType SymbolicLink -Value "$NfsShare\EventExports"
    }
    ```
-   :::div{.hint}
-   EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-   :::
-
+   
    :::div{.hint}
    Remember to create the folders in the NFS share before trying to create the symbolic links.
    :::
@@ -350,9 +340,6 @@ Once you've completed those steps, [install Octopus](/docs/installation/) and th
 --imports "C:\OctopusShared\Imports" `
 --eventExports "C:\OctopusShared\EventExports"
 ```
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 :::div{.hint}
 Changing the path only needs to be done once, and not on each node as the values are stored in the database.

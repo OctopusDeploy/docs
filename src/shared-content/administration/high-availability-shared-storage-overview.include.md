@@ -6,10 +6,6 @@ Octopus stores several files that are not suitable to store in the database. The
 - Imported zip files used by the [Export/Import Projects feature](/docs/projects/export-import).
 - Archived audit logs by the [Archived audit logs feature](/docs/security/users-and-teams/auditing/#archived-audit-events).
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 As with the database, you'll tell the Octopus Servers where to store them as a file path within your operating system. The shared storage needs to be accessible by all Octopus nodes. Each of these three types of data can be stored in a different location.
 
 Whichever way you provide the shared storage, there are a few considerations to keep in mind:

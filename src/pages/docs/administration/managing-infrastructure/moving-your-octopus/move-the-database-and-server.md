@@ -34,7 +34,7 @@ Below are instructions on how to move your Octopus Server and SQL Database.
    - Task Logs
    - Packages
       - This folder only needs to be moved if using the built-in package repository. External feed details are stored in the database, and they will connect automatically.
-   - Event Exports (available from Octopus **2023.3**)
+   - Event Exports
 
 :::div{.warning}
 The database stores the locations for these directories. After you connect to the database, your settings will be the same as they were in your original server. You can change the locations for these directories, but we recommend first moving the directories to there original location and then pointing to the new location. This process is outlined in the [moving the home directory](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory) page.

@@ -23,10 +23,6 @@ Whether you are running Octopus in a Container using Docker or Kubernetes, or ru
 - A [Load balancer](/docs/administration/high-availability/load-balancing) for traffic to the Octopus Web Portal 
 - Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha)
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 The following sections describe these in more detail.
 
 ### SQL Server Database \{#sql-database}
@@ -214,10 +210,6 @@ To share common files between the Octopus Server nodes, we need access to a mini
 - Task Logs
 - Event Exports
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 These are created via [persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes) with an [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) of `ReadWriteMany` to indicate they are shared between multiple pods. 
 
 Most of the YAML in this guide can be used with any Kubernetes provider. However, the YAML describing file storage can have differences between each Kubernetes provider as they typically expose different names for their shared filesystems via the `storageClassName` property. 
@@ -284,10 +276,6 @@ spec:
       storage: 1Gi
 ```
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 #### GKE storage \{#gke-storage}
 
 The following YAML creates the shared persistent volume claims that will host the artifacts, built-in feed packages, the task logs, and event exports using the `standard-rwx` storage class from the Google [Filestore CSI driver](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver).
@@ -346,10 +334,6 @@ spec:
     requests:
       storage: 1Gi
 ```
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 If you are running a GKE cluster in a non-default VPC network in Google Cloud, you may need to define your own storage class specifying the network name. The following YAML shows creating a storage class that can be used with a non-default VPC network in GKE called `my-custom-network-name`:
 
@@ -421,10 +405,6 @@ volumeMounts:
     mountPath: /eventExports
     subPath: eventExports
 ```
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 ## Deploying the Octopus Server 
 
@@ -582,10 +562,6 @@ spec:
 ```
 
 :::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
-:::div{.hint}
 **Change the Default values:**
 If you use the YAML definition above, remember to change the default values entered including the Admin Username, Admin Password, and the version of the `octopusdeploy/octopusdeploy` image to use. You also need to provide values for the License Key and database Master Key.
 :::
@@ -620,10 +596,6 @@ affinity:
 ### Octopus Server Pod logs \{#server-pod-logs}
 
 In addition to the shared folders that are mounted for Packages, Artifacts, Task Logs, and Event Exports, each Octopus Server node (Pod) also writes logs to a local folder in each running container.
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 To mount the same volume used for the shared folders for the server logs, we need a way to create a sub-folder on the external volume that's unique to each Octopus Server node running in a Pod. 
 

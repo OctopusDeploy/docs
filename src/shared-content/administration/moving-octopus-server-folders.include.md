@@ -75,10 +75,6 @@ Or one of the common options:
       --nologo               Don't print title or version information
 ```
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 ## Move NuGet repository folder {#MovingOctopusServerfolders-NuGetRepository}
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files. The new path will apply to existing packages in the repository, so it is important to move the packages.
@@ -151,10 +147,6 @@ mv $oldEventExports $newEventExports
 & "$octopus" path --eventExports="$newEventExports"
 & "$octopus" service --start
 ```
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 ## Move the telemetry folder {#MovingOctopusServerfolders-Telemetry}
 

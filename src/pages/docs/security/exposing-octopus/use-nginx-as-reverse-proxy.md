@@ -157,9 +157,6 @@ services:
       - db
       - octopus      
 ```
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 The .env file will look something like this:
 ```

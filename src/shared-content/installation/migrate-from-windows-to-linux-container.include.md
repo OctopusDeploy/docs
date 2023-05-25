@@ -101,7 +101,7 @@ Octopus Deploy stores all the BLOB data (deployment logs, runbook logs, packages
 - TaskLogs
 - Artifacts
 - Packages
-- EventExports (available from Octopus **2023.3**)
+- EventExports
 
 If you are moving from a Windows VM, the default path for those folders is: `C:\Octopus`.  For example, the task logs folder would be `C:\Octopus\TaskLogs`.  If you are unsure of the path, you can find it in the Octopus Deploy UI by navigating to **Configuration ➜ Settings ➜ Server Folders**.
 
@@ -145,10 +145,6 @@ For example:
 ./Octopus.Server path --instance OctopusServer --nugetRepository "/repository" --artifacts "/artifacts" --taskLogs "/taskLogs" --eventExports "/eventExports" --cacheDirectory="/cache" --skipDatabaseCompatibilityCheck --skipDatabaseSchemaUpgradeCheck
 ```
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 Just like the Octopus Server Windows Container, you will want to provide the following volume mounts.
 
 |  Name       |    |
@@ -158,10 +154,6 @@ Just like the Octopus Server Windows Container, you will want to provide the fol
 |**/taskLogs**|Path where task logs are stored|
 |**/cache**|Path where cached files are stored|
 |**/eventExports**|Path where event audit logs are exported|
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 If you are running Octopus Server directly on Docker, read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volumes.  You will need to update your Docker compose or Docker run command to point your existing folders to the new volume mounts.  
 

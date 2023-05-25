@@ -163,10 +163,6 @@ Write-Output "Server MSI installer returned exit code $msiExitCode"
 Remove-Item "$downloadDirectory\$msiFilename"
 ```
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 ## Upgrading High Availability Octopus Deploy instances
 
 Automating the upgrade of a Highly Available Octopus Deploy instance requires more than a single script.  A degree of coordination is required to update all the nodes.  In addition, specific actions, backing up the database, upgrading the database, enabling / disabling maintenance mode should only happen once.   
@@ -328,10 +324,6 @@ if ($versionSplit[0] -ne $upgradeSplit[1])
     }
 }
 ```
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 **4. Stop all nodes (HAServer).**
 

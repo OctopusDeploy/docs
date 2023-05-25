@@ -97,10 +97,6 @@ New-Item -Path C:\Octopus\Packages -ItemType SymbolicLink -Value \\octostorage.f
 New-Item -Path C:\Octopus\Imports -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Imports
 New-Item -Path C:\Octopus\EventExports -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\EventExports
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 ```
 :::div{.hint}
 It's worth noting that you need to have created the folders within the Azure File Share first before trying to create the Symbolic Links. 
@@ -116,10 +112,6 @@ It's worth noting that you need to have created the folders within the Azure Fil
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --imports "C:\Octopus\Imports"
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --eventExports "C:\Octopus\EventExports"
 ```
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 ### Load balancing in Azure
 

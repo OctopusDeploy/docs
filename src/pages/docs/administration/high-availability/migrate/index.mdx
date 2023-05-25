@@ -90,9 +90,6 @@ robocopy C:\Octopus\Packages \\YOURFILESHARE\OctopusHA\Packages /mir /r:5
 robocopy C:\Octopus\Imports \\YOURFILESHARE\OctopusHA\Imports /mir /r:5
 robocopy C:\Octopus\EventExports \\YOURFILESHARE\OctopusHA\EventExports /mir /r:5
 ```
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 ### Configure load balancer
 
@@ -144,10 +141,6 @@ $filePath = "YOUR ROOT DIRECTORY"
 & .\Octopus.Server.exe path --eventExports "$filePath\EventExports"
 & .\Octopus.Server.exe path --telemetry "$filePath\Telemetry"
 ```
-
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
 
 :::div{.hint}
 Your version might not have all the above paths.  Remove them from the script if you are running an older version of Octopus.

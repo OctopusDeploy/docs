@@ -46,11 +46,9 @@ The Octopus Server stores files in the following folders by default:
     - This is where all performance and other temporal telemetry files are stored.
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-Telemetry) on how to move the Octopus Server telemetry folder
 - `C:\Octopus\Imports`
-    - This folder was added in **Octopus 2021.1**
     - This is where imported zip files are stored when using the [Export/Import Projects feature](/docs/projects/export-import).
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-Imports) on how to move the Octopus Server imports folder
 - `C:\Octopus\EventExports`
-    - This folder was added in **Octopus 2023.3**
     - This is where audit log archive zip files are stored when using the [Archived audit logs feature](/docs/security/users-and-teams/auditing/#archived-audit-events).
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-EventExports) on how to move the Octopus Server event exports folder
 

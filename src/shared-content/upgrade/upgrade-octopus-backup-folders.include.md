@@ -7,8 +7,4 @@ The server folders store large binary data outside of the database.  By default,
 - **Tasklogs**: The default location is `C:\Octopus\Tasklogs`. It stores all the deployment logs.  
 - **EventExports**: The default location is `C:\Octopus\EventExports`. It stores all the exported event audit logs.  
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 Any standard file-backup tool will work, even [RoboCopy](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy).  Very rarely will an upgrade change these folders.  The release notes will indicate if these folders are going to be modified.

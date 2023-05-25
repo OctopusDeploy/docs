@@ -44,10 +44,6 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
-:::div{.hint}
-EventExports is available from **2023.3** onwards as part of the audit log retention feature.
-:::
-
 ## Basic examples
 This example configures all paths (artifacts, task logs, packages, imports, and telemetry) to a network share:
 ```
