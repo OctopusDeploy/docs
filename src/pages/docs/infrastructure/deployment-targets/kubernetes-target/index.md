@@ -86,7 +86,8 @@ users:
       The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
 
       :::div{.hint}
-      Available from **Octopus 2020.6**, the **Login with administrator credentials** option may be required to authenticate with an AKS cluster with Azure Active Directory integration, as performing a non-interactive login with `kubectl` is not currently available. See this <a href="https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks/suggestions/35146387-support-non-interactive-login-for-aad-integrated-c">Azure UserVoice</a> suggestion for more details on this limitation.
+      For clusters targeting Kubernetes 1.26+ with [Local Account Access disabled](https://oc.to/AKSDisableLocalAccount) the worker or execution container will require access to the [kubelogin](https://oc.to/Kubelogin) CLI tool and **Login with administrator credentials** turned off.
+      This requires **Octopus 2023.3*.
       :::
 
     - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/accounts/aws) allow IAM accounts and roles to be used.
@@ -95,7 +96,7 @@ users:
 
       :::div{.hint}
       **Common issues:**
-      From version 2022.4 Octopus can use the `aws cli` to authenticate to an EKS cluster, earlier versions rely on the `aws-iam-authenticator`. If using the AWS account type, the Octopus Server or worker must have either the `aws cli` (1.16.156 or later) or `aws-iam-authenticator` executable on the path. If both are present the `aws cli` will be used. The EKS api version is selected based on the kubectl version. For Octopus 2022.3 and earlier `kubectl` `1.23.6` and `aws-iam-authenticator` version `0.5.3` or earlier must be used, these target `v1alpha1` endpoints. For `kubectl` `1.24.0` and later `v1beta1` endpoints are used and versions `0.5.5` and later of the `aws-iam-authenticator` are required. See the [AWS documentation](https://oc.to/AWSEKSKubectl) for download links.
+      From **Octopus 2022.4**, you can use the `aws cli` to authenticate to an EKS cluster, earlier versions rely on the `aws-iam-authenticator`. If using the AWS account type, the Octopus Server or worker must have either the `aws cli` (1.16.156 or later) or `aws-iam-authenticator` executable on the path. If both are present the `aws cli` will be used. The EKS api version is selected based on the kubectl version. For Octopus 2022.3 and earlier `kubectl` `1.23.6` and `aws-iam-authenticator` version `0.5.3` or earlier must be used, these target `v1alpha1` endpoints. For `kubectl` `1.24.0` and later `v1beta1` endpoints are used and versions `0.5.5` and later of the `aws-iam-authenticator` are required. See the [AWS documentation](https://oc.to/AWSEKSKubectl) for download links.
 
       The error `You must be logged into the server (the server has asked for the client to provide credentials)` generally indicates the AWS account does not have permissions in the Kubernetes cluster.
 
@@ -275,6 +276,7 @@ What this means for your deployments:
 
 * Amazon Elastic Container Services (ECS): No change required. Octopus already supports using either the AWS CLI or the `aws-iam-authenticator` plugin.
 * Azure Kubernetes Services (AKS): No change required. The way Octopus authenticates against AKS clusters never used the in-tree Azure authentication code, and will continue to function as normal.
+    - From **Octopus 2023.3**, you will need to ensure that the [kubelogin](https://oc.to/Kubelogin) CLI tool is also available if you have disabled local Kubernetes accounts.
 * Google Kubernetes Engine (GKE): If you upgrade to `kubectl` 1.26 or higher, you will need to ensure that the `gke-gcloud-auth-plugin` tool is also available. More information can be found on [Google's announcement about this change](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke).
 
 ## Helm
@@ -330,7 +332,7 @@ Write-Host "NO_PROXY: $($env:NO_PROXY)"
 
 # Execute the same command that the target health check runs.
 Write-Host "Simulating a health check"
-kubectl version --short
+kubectl version
 
 # Write a custom kube config. This is useful when you have a config that works, and you want to confirm it works in Octopus.
 Write-Host "Health check with custom config file"
