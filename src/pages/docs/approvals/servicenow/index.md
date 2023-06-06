@@ -218,7 +218,7 @@ This feature is only available for version 2022.3.3026 and later
 
 In addition to a change request being approved, a change must also be in its schedule change window in order for the deployment to execute.  The change window is controlled by the `Planned start date` and `Planned end date` on the linked change request.
 
-::: info
+:::div{.info}
 The following list assumes the linked change is in an **approved** state.
 :::
 
