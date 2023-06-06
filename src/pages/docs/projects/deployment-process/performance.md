@@ -133,7 +133,7 @@ Alternatively if you constrain your process to a single deployment target at a t
 
 Consider using a [rolling deployment](/docs/deployments/patterns/rolling-deployments) to deploy to a subset of these deployment targets at any one time. Rolling deployments allow you to define a "window" which is the maximum number of deployment targets which will run the step at any one time.
 
-::: info
+:::div{.info}
 This default behavior makes a lot of sense for smaller installations, but it is an unsafe default for larger installations. We are looking to [change this default behavior in a future version of Octopus](https://github.com/OctopusDeploy/Issues/issues/3305).
 :::
 

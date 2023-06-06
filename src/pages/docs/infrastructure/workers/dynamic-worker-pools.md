@@ -13,7 +13,7 @@ Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/wo
 
 Dynamic workers are created on demand and leased to an Octopus Cloud instance for a limited time before being destroyed.  
 
-::: info
+:::div{.info}
 Octopus Cloud will automatically destroy dynamic workers as soon as one of these conditions is met:
 
 - The worker has been idle for 60 minutes.

@@ -202,7 +202,7 @@ In addition to a change request being approved, a change must also be in its sch
 window in order for the deployment to execute.  The change window is controlled by the `Planned 
 star` and `Planned end` on the linked Issue.
 
-::: info
+:::div{.info}
 The following list assumes the linked change is in an **approved** state.
 :::
 
