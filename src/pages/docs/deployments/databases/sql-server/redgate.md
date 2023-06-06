@@ -55,7 +55,7 @@ This documentation assumes a Windows VM already has the Tentacle installed on it
 
 Next, install the Tentacle on a Windows server.  Aside from the latest version of .NET, no other software is required.  The Redgate tooling will be automatically downloaded during the deployment.  
 
-:::highlight
+:::div{.info}
 The server needs to access the PowerShell gallery to download the Redgate tooling.  
 :::
 
@@ -65,7 +65,7 @@ Use the Octopus Web Portal to register a Listening Tentacle.  You will need to d
 
 Follow the wizard.  The thumbprint for the server for this form can be found on the add worker screen or in **Configuration ➜ Thumbprint**.  This is the thumbprint of the server's certificate.  The server and the Tentacle will exchange the certificates to ensure a two-way trust is established.
 
-:::highlight
+:::div{.info}
 The thumbprint in this screenshot is from a sample instance of Octopus Deploy.  Your thumbprint will be different.
 :::
 
@@ -75,7 +75,7 @@ The thumbprint in this screenshot is from a sample instance of Octopus Deploy.  
 
 After the Tentacle is configured, enter in the IP address or the host name.
 
-:::highlight
+:::div{.info}
 If you enter the host name of a private server, the Octopus Server will need to connect to your DNS server to find that host.  
 :::
 
@@ -93,13 +93,13 @@ The process to register Polling Tentacles as workers takes place in the **Tentac
 
 On the credentials screen enter a username and password or the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) of a user who has permissions to add worker pools.  This account will only be used for registration.  
 
-:::highlight
+:::div{.info}
 The registration process will connect to the RESTful API of the Octopus Server.  It will connect over port 80 or 443 using the http/https protocol.  After registration the default port the Tentacle will connect to is port 10943.
 :::
 
 After the credentials have been verified, select the worker option on the next screen.
 
-:::highlight
+:::div{.info}
 Under the covers, there is nothing different between a worker and a target.  They are both Tentacles.  The difference is in how the Tentacle is registered with Octopus.  The Octopus Server treats workers differently than targets.
 :::
 
@@ -128,7 +128,7 @@ The list of categories is alphabetical.  Find the **Redgate** category, and sele
 
 Repeat the same process for **Redgate - Deploy Database Release (Worker Friendly)**.  
 
-:::highlight
+:::div{.info}
 The non-worker friendly version of these step templates are there for customers using a version of Octopus Deploy older than **2019.10.0**.  That version added the ability to provide a package variable in a step template.
 :::
 
@@ -248,7 +248,7 @@ The first step in the deployment process, **Redgate - Create Database Release** 
 
 Configuring the notification step is dependent on the choice of technology.  That isn't covered for the guide.  For the manual intervention step, provide instructions, as well as the teams allowed to approve this release.  
 
-:::highlight
+:::div{.info}
 The choice of two teams in this example was intentional.  The DBAs are the ones who should approve it.  The **Octopus Manager** team is there in the event of an emergency and the **Octopus Manager** needs to fix it.  
 :::
 
