@@ -7,8 +7,19 @@
  * @param {string} search 
  * @returns 
  */
- function contains(string, search) {
+function contains(string, search) {
     return string.indexOf(search) > -1;
+}
+
+/**
+ * Looks for a search within a string
+ * 
+ * @param {string} string 
+ * @param {string} search 
+ * @returns 
+ */
+function containsWord(string, search) {
+    return string.split(' ').indexOf(search) > -1;
 }
 
 /**
@@ -63,4 +74,4 @@ function explode(string) {
     return string.split(' ').filter(isLongEnough).map(sanitise);
 }
 
-export { contains, sanitise, explode, highlight };
+export { contains, containsWord, sanitise, explode, highlight };

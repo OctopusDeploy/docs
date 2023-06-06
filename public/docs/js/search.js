@@ -2,7 +2,7 @@
 
 import { qs } from './modules/query.js';
 import { raiseEvent } from './modules/events.js';
-import { contains, sanitise, explode, highlight } from './modules/string.js';
+import { contains, containsWord, sanitise, explode, highlight } from './modules/string.js';
 
 /**
 type Heading = {
@@ -60,6 +60,13 @@ function search(s) {
         // Imagine the user searched for "Kitchen Sink"
         // The scores are arranged below from highest to lowest relevance
 
+        // If the title contains a whole word match
+        queryTerms.forEach(t => {
+            if (containsWord(item.safeTitle, t)) {
+                item.score = item.score + 120;
+            }
+        });
+
         // If the title contains "Kitchen Sink"
         if (contains(item.safeTitle, currentQuery)) {
             item.score = item.score + 60;
@@ -67,8 +74,14 @@ function search(s) {
 
         // If a heading contains "Kitchen Sink"
         item.headings.forEach(c => {
+            queryTerms.forEach(t => {
+                if (containsWord(c.safeText, t)) {
+                    item.score = item.score + 40;
+                }
+            });
+
             if (contains(c.safeText, currentQuery)) {
-                item.score = item.score + 25;
+                item.score = item.score + 20;
                 item.matchedHeadings.push(c);
             }
         });
