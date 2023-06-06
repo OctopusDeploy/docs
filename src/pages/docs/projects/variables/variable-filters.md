@@ -65,59 +65,59 @@ These core filters perform common string operations.
 
 The *Format* filter allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
 
-| MyVar Value                     | Filter Expression                    | Output            |
-| ------------------------------- | ------------------------------------ | ----------------- |
-| `4.3`                           | `#{MyVar | Format C}`                | $4.30             |
-| `2030/05/22 09:05:00`           | `#{MyVar | Format yyyy}`             | 2030              |
-|                                 | `#{ | NowDate | Format Date MMM}`    | Nov               |
-| `#{Octopus.Deployment.Created}` | `#{MyVar | Format "MM/dd/yyyy"}`     | `01/01/2020`      |
-| `#{Octopus.Deployment.Created}` | `#{MyVar | Format "hh:mm:ss tt zz"}` | `11:09:38 AM +01` |
+| MyVar Value                     | Filter Expression                     | Output            |
+| ------------------------------- | ------------------------------------- | ----------------- |
+| `4.3`                           | `#{MyVar \| Format C}`                | $4.30             |
+| `2030/05/22 09:05:00`           | `#{MyVar \| Format yyyy}`             | 2030              |
+|                                 | `#{ \| NowDate \| Format Date MMM}`   | Nov               |
+| `#{Octopus.Deployment.Created}` | `#{MyVar \| Format "MM/dd/yyyy"}`     | `01/01/2020`      |
+| `#{Octopus.Deployment.Created}` | `#{MyVar \| Format "hh:mm:ss tt zz"}` | `11:09:38 AM +01` |
 
 ### Replace
 
 The *Replace* filter performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions. For using Replace on special characters, you should escape the first parameter which will be the regex but the second parameter can be left as a string - see last example below. 
 
-| MyVar Value | Filter Expression                        | Output                                     |
-| ----------- | ---------------------------------------- | ------------------------------------------ |
-| `abc`       | `#{MyVar | Replace b}`                   | `ac`                                       |
-| `abc`       | `#{MyVar | Replace b X}`                 | `aXc`                                      |
-| `a b c`     | `#{MyVar | Replace "a b" X}`             | `X c`                                      |
-| `ab12c3`    | `#{MyVar | Replace "[0-9]+" X}`          | `abXcX`                                    |
-| `abc`       | `#{MyVar | Replace "(.)b(.)" "$2X$1" }`  | `cXa`                                      |
-| `abc`       | `#{MyVar | Replace #{match} #{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
-| `abc`       | `#{MyVar | Replace #{match} _}`          | `a_c` (when `match`=`b`)                   |
-| `a\b`       | `#{MyVar | Replace "\\" "\\"}`           | `a\\b`                                     |
+| MyVar Value | Filter Expression                         | Output                                     |
+| ----------- | ----------------------------------------- | ------------------------------------------ |
+| `abc`       | `#{MyVar \| Replace b}`                   | `ac`                                       |
+| `abc`       | `#{MyVar \| Replace b X}`                 | `aXc`                                      |
+| `a b c`     | `#{MyVar \| Replace "a b" X}`             | `X c`                                      |
+| `ab12c3`    | `#{MyVar \| Replace "[0-9]+" X}`          | `abXcX`                                    |
+| `abc`       | `#{MyVar \| Replace "(.)b(.)" "$2X$1" }`  | `cXa`                                      |
+| `abc`       | `#{MyVar \| Replace #{match} #{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
+| `abc`       | `#{MyVar \| Replace #{match} _}`          | `a_c` (when `match`=`b`)                   |
+| `a\b`       | `#{MyVar \| Replace "\\" "\\"}`           | `a\\b`                                     |
 
 
 ### Substring
 
 The *Substring* filter extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
 
-| MyVar Value      | Filter Expression          | Output    |
-| ---------------- | -------------------------- | --------- |
-| `Octopus Deploy` | `#{MyVar | Substring 8 6}` | `Deploy`  |
-| `Octopus Deploy` | `#{MyVar | Substring 7}`   | `Octopus` |
-| `Octopus Deploy` | `#{MyVar | Substring 2 3}` | `top`     |
+| MyVar Value      | Filter Expression           | Output    |
+| ---------------- | --------------------------- | --------- |
+| `Octopus Deploy` | `#{MyVar \| Substring 8 6}` | `Deploy`  |
+| `Octopus Deploy` | `#{MyVar \| Substring 7}`   | `Octopus` |
+| `Octopus Deploy` | `#{MyVar \| Substring 2 3}` | `top`     |
 
 
 ### Trim
 
 The *Trim* filter removes any whitespace from the ends of the input. Both ends are trimmed unless an optional argument of `start` or `end` is provided.
 
-| MyVar Value | Filter Expression       | Output   |
-| ----------- | ----------------------- | -------- |
-| `···Bar···` | `#{MyVar | Trim}`       | `Bar`    |
-| `···Bar···` | `#{MyVar | Trim start}` | `Bar···` |
-| `···Bar···` | `#{MyVar | Trim end}`   | `···Bar` |
+| MyVar Value | Filter Expression        | Output   |
+| ----------- | ------------------------ | -------- |
+| `···Bar···` | `#{MyVar \| Trim}`       | `Bar`    |
+| `···Bar···` | `#{MyVar \| Trim start}` | `Bar···` |
+| `···Bar···` | `#{MyVar \| Trim end}`   | `···Bar` |
 
 ### Truncate
 
 The *Truncate* filter limits the length of the input. If the input is longer than the length specified by the argument, the rest is replaced with an ellipsis.
 
-| MyVar Value      | Filter Expression       | Output       |
-| ---------------- | ----------------------- | ------------ |
-| `Octopus Deploy` | `#{MyVar | Truncate 7}` | `Octopus...` |
-| `abc`            | `#{MyVar | Truncate 7}` | `abc`        |
+| MyVar Value      | Filter Expression        | Output       |
+| ---------------- | ------------------------ | ------------ |
+| `Octopus Deploy` | `#{MyVar \| Truncate 7}` | `Octopus...` |
+| `abc`            | `#{MyVar \| Truncate 7}` | `abc`        |
 
 ## Comparison filters {#VariableSubstitutionSyntax-ComparisonFilters}
 
@@ -138,31 +138,31 @@ These filters return `true` or `false` depending on the result of a comparison. 
 
 The *Match* filter searches the input for an occurrence of a given regular expression pattern. It returns `true` if an occurrence is found, and `false` otherwise. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables.
 
-| MyVar Value | Filter Expression             | Output                      |
-| ----------- | ----------------------------- | --------------------------- |
-| `abc`       | `#{MyVar | Match abc}`        | `true`                      |
-| `abc`       | `#{MyVar | Match def}`        | `false`                     |
-| `a b c`     | `#{MyVar | Match "a b"}`      | `true`                      |
-| `ab12c3`    | `#{MyVar | Match "ab[0-9]+"}` | `true`                      |
-| `abc`       | `#{MyVar | Match #{pattern}}` | `true` (when `match`=`abc`) |
+| MyVar Value | Filter Expression              | Output                      |
+| ----------- | ------------------------------ | --------------------------- |
+| `abc`       | `#{MyVar \| Match abc}`        | `true`                      |
+| `abc`       | `#{MyVar \| Match def}`        | `false`                     |
+| `a b c`     | `#{MyVar \| Match "a b"}`      | `true`                      |
+| `ab12c3`    | `#{MyVar \| Match "ab[0-9]+"}` | `true`                      |
+| `abc`       | `#{MyVar \| Match #{pattern}}` | `true` (when `match`=`abc`) |
 
 ### StartsWith, EndsWith and Contains
 
 The *StartsWith*, *EndsWith* and *Contains* filters compare the input to a given string argument. They return `true` if the argument matches, and `false` otherwise. The comparison is case-sensitive. Strings are compared as [Ordinals](https://docs.microsoft.com/en-us/dotnet/api/system.stringcomparison). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables.
 
-| MyVar Value | Filter Expression            | Output                    |
-| ----------- | ---------------------------- | ------------------------- |
-| `abc`       | `#{MyVar | StartsWith ab}`   | `true`                    |
-| `abc`       | `#{MyVar | StartsWith bc}`   | `false`                   |
-| `abc`       | `#{MyVar | StartsWith Ab}`   | `false`                   |
-| `abc`       | `#{MyVar | EndsWith bc}`     | `true`                    |
-| `abc`       | `#{MyVar | EndsWith ab}`     | `false`                   |
-| `abc`       | `#{MyVar | EndsWith bC}`     | `false`                   |
-| `abc`       | `#{MyVar | Contains bc}`     | `true`                    |
-| `abc`       | `#{MyVar | Contains ab}`     | `true`                    |
-| `abc`       | `#{MyVar | Contains AbC}`    | `false`                   |
-| `a b(c`     | `#{MyVar | Contains " b("}`  | `true`                    |
-| `a"b"c`     | `#{MyVar | Contains #{str}}` | `true` (when `str`=`"b"`) |
+| MyVar Value | Filter Expression             | Output                    |
+| ----------- | ----------------------------- | ------------------------- |
+| `abc`       | `#{MyVar \| StartsWith ab}`   | `true`                    |
+| `abc`       | `#{MyVar \| StartsWith bc}`   | `false`                   |
+| `abc`       | `#{MyVar \| StartsWith Ab}`   | `false`                   |
+| `abc`       | `#{MyVar \| EndsWith bc}`     | `true`                    |
+| `abc`       | `#{MyVar \| EndsWith ab}`     | `false`                   |
+| `abc`       | `#{MyVar \| EndsWith bC}`     | `false`                   |
+| `abc`       | `#{MyVar \| Contains bc}`     | `true`                    |
+| `abc`       | `#{MyVar \| Contains ab}`     | `true`                    |
+| `abc`       | `#{MyVar \| Contains AbC}`    | `false`                   |
+| `a b(c`     | `#{MyVar \| Contains " b("}`  | `true`                    |
+| `a"b"c`     | `#{MyVar \| Contains #{str}}` | `true` (when `str`=`"b"`) |
 
 ## Conversion filters {#VariableSubstitutionSyntax-ConversionFilters}
 
@@ -187,13 +187,13 @@ These filters are used to work with dates.
 
 The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
 
-| MyFormat Variable | Filter Expression                | Output                         |
-| ----------------- | -------------------------------- | ------------------------------ |
-|                   | `#{ | NowDate }`                 | `2016-11-03T08:53:11.0946448`  |
-|                   | `#{ | NowDateUtc}`               | `2016-11-02T23:01:46.9441479Z` |
-|                   | `#{ | NowDate "HH dd-MMM-yyyy"}` | `09 03-Nov-2016`               |
-|                   | `#{ | NowDateUtc zz}`            | `+00`                          |
-| dd-MM-yyyy        | `#{ | NowDate #{MyFormat}}`      | `03-Nov-2016`                  |
+| MyFormat Variable | Filter Expression                 | Output                         |
+| ----------------- | --------------------------------- | ------------------------------ |
+|                   | `#{ \| NowDate }`                 | `2016-11-03T08:53:11.0946448`  |
+|                   | `#{ \| NowDateUtc}`               | `2016-11-02T23:01:46.9441479Z` |
+|                   | `#{ \| NowDate "HH dd-MMM-yyyy"}` | `09 03-Nov-2016`               |
+|                   | `#{ \| NowDateUtc zz}`            | `+00`                          |
+| dd-MM-yyyy        | `#{ \| NowDate #{MyFormat}}`      | `03-Nov-2016`                  |
 
 ## Escaping filters {#VariableSubstitutionSyntax-EscapingFilters}
 
@@ -239,28 +239,28 @@ These filters extract a part of value.
 
 The *UriPart* filter parses the input as a URI and extracts a specified part of it. A helpful error will be written to the output if there is an error in the input or the filter expression.
 
-| MyVar Value                             | Filter Expression                    | Output                     |
-| --------------------------------------- | ------------------------------------ | -------------------------- |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart AbsolutePath}`    | `/docs`                    |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart AbsoluteUri}`     | `https://octopus.com/docs` |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart Authority}`       | `octopus.com`              |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart DnsSafeHost}`     | `octopus.com`              |
-| `https://octopus.com/docs#filters`      | `#{MyVar | UriPart Fragment}`        | `#filters`                 |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart Host}`            | `octopus.com`              |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart HostAndPort}`     | `octopus.com:443`          |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart HostNameType}`    | `Dns`                      |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart IsAbsoluteUri}`   | `true`                     |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart IsDefaultPort}`   | `true`                     |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart IsFile}`          | `false`                    |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart IsLoopback}`      | `false`                    |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart IsUnc}`           | `false`                    |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart Path}`            | `/docs`                    |
-| `https://octopus.com/docs?filter=faq`   | `#{MyVar | UriPart PathAndQuery}`    | `/docs?filter=faq`         |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart Port}`            | `443`                      |
-| `https://octopus.com/docs?filter=faq`   | `#{MyVar | UriPart Query}`           | `?filter=faq`              |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart Scheme}`          | `https`                    |
-| `https://octopus.com/docs`              | `#{MyVar | UriPart SchemeAndServer}` | `https://octopus.com`      |
-| `https://username:password@octopus.com` | `#{MyVar | UriPart UserInfo}`        | `username:password`        |
+| MyVar Value                             | Filter Expression                     | Output                     |
+| --------------------------------------- | ------------------------------------- | -------------------------- |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart AbsolutePath}`    | `/docs`                    |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart AbsoluteUri}`     | `https://octopus.com/docs` |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart Authority}`       | `octopus.com`              |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart DnsSafeHost}`     | `octopus.com`              |
+| `https://octopus.com/docs#filters`      | `#{MyVar \| UriPart Fragment}`        | `#filters`                 |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart Host}`            | `octopus.com`              |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart HostAndPort}`     | `octopus.com:443`          |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart HostNameType}`    | `Dns`                      |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart IsAbsoluteUri}`   | `true`                     |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart IsDefaultPort}`   | `true`                     |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart IsFile}`          | `false`                    |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart IsLoopback}`      | `false`                    |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart IsUnc}`           | `false`                    |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart Path}`            | `/docs`                    |
+| `https://octopus.com/docs?filter=faq`   | `#{MyVar \| UriPart PathAndQuery}`    | `/docs?filter=faq`         |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart Port}`            | `443`                      |
+| `https://octopus.com/docs?filter=faq`   | `#{MyVar \| UriPart Query}`           | `?filter=faq`              |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart Scheme}`          | `https`                    |
+| `https://octopus.com/docs`              | `#{MyVar \| UriPart SchemeAndServer}` | `https://octopus.com`      |
+| `https://username:password@octopus.com` | `#{MyVar \| UriPart UserInfo}`        | `username:password`        |
 
 ## Differences from regular variable bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
 
