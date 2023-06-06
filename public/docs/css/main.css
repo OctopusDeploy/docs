@@ -298,6 +298,10 @@ table tr td:first-child {
     background-color: var(--lightest-blue)
 }
 
+table th {
+    padding: 0.3rem;
+}
+
 .credits table, 
 .credits thead,
 .credits tbody, 
@@ -1760,6 +1764,11 @@ a.button.trial:focus {
 
 .octo-header a.button {
     width: 100px;
+}
+
+.inline-note {
+    position: absolute;
+    padding-left: 0.5rem;
 }
 
 /* Animation */
