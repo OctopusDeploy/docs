@@ -299,7 +299,7 @@ table tr td:first-child {
 }
 
 table th {
-    padding: 0.3rem;
+    padding: 0.8rem 1rem;
 }
 
 .credits table, 
