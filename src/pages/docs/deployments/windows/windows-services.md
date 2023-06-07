@@ -20,11 +20,11 @@ To deploy a Windows Service, add a *Deploy a Windows Service* step. For informat
 ![Windows service configuration](/docs/deployments/windows/images/windows-service-configuration.png "width=500")
 :::
 
-### Step 1: Select a package {#WindowsServices-Step1:SelectaPackage}
+### Step 1: Select a package {#WindowsServices-Step1-SelectaPackage}
 
 Use the Package Feed and Package ID fields to select the [package](/docs/packaging-applications) containing the executable (.exe) to be installed as a Windows Service.
 
-### Step 2: Configure Windows Service options {#WindowsServices-Step2:ConfigureWindowsServiceoptions}
+### Step 2: Configure Windows Service options {#WindowsServices-Step2-ConfigureWindowsServiceoptions}
 
 | Field               | Meaning                                  |
 | ------------------- | ---------------------------------------- |

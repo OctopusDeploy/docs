@@ -53,7 +53,7 @@ angular
 </html>
 ```
 
-### Step 1: Upload the package to the built-in repository {#DeployingHTMLandJavaScriptApplications-Step1:Uploadthepackagetothebuilt-inrepository}
+### Step 1: Upload the package to the built-in repository {#DeployingHTMLandJavaScriptApplications-Step1-Uploadthepackagetothebuilt-inrepository}
 
 Firstly we need to make the package available for Octopus to deploy.
 
@@ -68,7 +68,7 @@ We've crafted and packaged v1.0.0 of this sample application for you to try out 
 ![](/docs/deployments/images/5866205.png "width=500")
 :::
 
-### Step 2: Create the project, variables and deployment process {#DeployingHTMLandJavaScriptApplications-Step2:Createtheproject,variablesanddeploymentprocess}
+### Step 2: Create the project, variables and deployment process {#DeployingHTMLandJavaScriptApplications-Step2-Createtheproject,variablesanddeploymentprocess}
 
 Now we need to create the project and configure it ready to deploy our JavaScript application.
 
@@ -96,7 +96,7 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 ![](/docs/deployments/images/5866210.png "width=500")
 :::
 
-### Step 3: Deploy {#DeployingHTMLandJavaScriptApplications-Step3:Deploy}
+### Step 3: Deploy {#DeployingHTMLandJavaScriptApplications-Step3-Deploy}
 
 Now when we create a release for this project and deploy it we can see that Octopus has found the `MyApp.html` file and substituted the variable values into our expressions.
 
@@ -112,7 +112,7 @@ And finally when we load the application in our browser we can see the results h
 
 ![](/docs/deployments/images/5866211.png "width=500")
 
-### Step 4: Minify the JavaScript and deploy again {#DeployingHTMLandJavaScriptApplications-Step4:MinifytheJavaScriptanddeployagain!}
+### Step 4: Minify the JavaScript and deploy again {#DeployingHTMLandJavaScriptApplications-Step4-MinifytheJavaScriptanddeployagain!}
 
 This approach also works perfectly with minified sources. This is because the minifier won't change string literals like `"#{MyApp.ConfigValue1}"` and the substitution will work just like it did before. In this example we will just minify the JavaScript inline in the HTML file. You can get the same result by moving the JavaScript into an external file and minifying that.
 

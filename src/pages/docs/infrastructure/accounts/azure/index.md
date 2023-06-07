@@ -224,7 +224,7 @@ The Azure Service Management APIs are being deprecated by Microsoft.  See [this 
 
 To create an Azure Management Certificate account as part of adding an [Azure subscription](#adding-azure-subscription), select Management Certificate as the Authentication Method.
 
-### Step 1: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2:ManagementCertificate}
+### Step 1: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2-ManagementCertificate}
 
 When using **Management Certificate**, Octopus authenticates with Azure using an X.509 certificate.  You can either upload an existing certificate (`.pfx`), or leave the field blank and Octopus will generate a certificate. Keep in mind that since Octopus securely stores the certificate internally, there is no need to upload a password protected `.pfx` file. If you would like to use one that is password protected, you will need to first remove the password. This can be done with the following commands.
 
@@ -242,7 +242,7 @@ Uploaded certificates can be viewed on the 'Management Certificates' tab of the 
 
 The certificate will be named **Octopus Deploy -``{Your Account Name}**.
 
-### Step 2: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3:SaveandTest}
+### Step 2: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3-SaveandTest}
 
 Click **Save and Test**, and Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure) for more details.
 

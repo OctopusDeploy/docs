@@ -40,7 +40,7 @@ The X.509 certificates used by Octopus and Tentacle are generated on installatio
 Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation/#export-and-import-tentacle-certificates-without-a-profile) which is helpful when [automating Tentacle installation](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation).
 :::
 
-### Scenario: Listening Tentacles {#Octopus-Tentaclecommunication-Scenario:ListeningTentacles}
+### Scenario: Listening Tentacles {#Octopus-Tentaclecommunication-Scenario-ListeningTentacles}
 
 Tentacle plays the role of server and Octopus as the client:
 
@@ -49,7 +49,7 @@ Tentacle plays the role of server and Octopus as the client:
 3. Octopus presents its certificate as a client certificate so the Tentacle can verify the identity of Octopus.
 4. Once the identity of the Octopus and Tentacle have been established the connection is held open and Octopus will start issuing commands to the Tentacle.
 
-### Scenario: Polling Tentacles {#Octopus-Tentaclecommunication-Scenario:PollingTentacles}
+### Scenario: Polling Tentacles {#Octopus-Tentaclecommunication-Scenario-PollingTentacles}
 
 Octopus plays the role of server and Tentacle as the client:
 

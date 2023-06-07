@@ -12,7 +12,7 @@ import AzureCloudServicesDeprecated from 'src/shared-content/deprecated-items/az
 
 Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/). This page will walk you through, step by step, setting up a deployment using the Octopus built-in **Deploy an Azure Cloud Service** step.
 
-## Step 1: Packaging \{#DeployingapackagetoanAzureCloudService-Step1:Packaging}
+## Step 1: Packaging \{#DeployingapackagetoanAzureCloudService-Step1-Packaging}
 
 An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference). For example, the resulting NuGet package will look like this:
 
@@ -28,11 +28,11 @@ In order to make the NuGet package accessible to Octopus it needs to be uploaded
 ![Package feed](package-feed.png "width=500")
 :::
 
-## Step 2: Create an Azure account \{#DeployingapackagetoanAzureCloudService-Step2:CreateanAzureAccount}
+## Step 2: Create an Azure account \{#DeployingapackagetoanAzureCloudService-Step2-CreateanAzureAccount}
 
 If you haven't already, create an [Azure Management Certificate Account](/docs/infrastructure/accounts/azure) to grant Octopus Deploy access to your Azure Subscription.
 
-## Step 3: Create the Azure Cloud Service deployment step \{#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
+## Step 3: Create the Azure Cloud Service deployment step \{#DeployingapackagetoanAzureCloudService-Step3-CreatetheAzureCloudServicedeploymentstep}
 
 Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
@@ -40,7 +40,7 @@ Add a new Azure Cloud Service Deployment Step to your project. For information a
 ![](/docs/deployments/azure/cloud-services/5865904.png "width=170")
 :::
 
-## Step 4: Configure your Azure Cloud Service step \{#DeployingapackagetoanAzureCloudService-Step4:ConfigureyourAzureCloudServicestep}
+## Step 4: Configure your Azure Cloud Service step \{#DeployingapackagetoanAzureCloudService-Step4-ConfigureyourAzureCloudServicestep}
 
 Once an Account is selected, the list of Cloud Services and Storage Accounts available to the Azure subscription associated with the chosen Account will be populated for you to choose from.
 
