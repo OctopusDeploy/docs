@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="find-events-by-date-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -73,7 +76,12 @@ foreach ($event in $events)
     $event
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="find-events-by-date-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path:\to\Octopus.Client.dll"
 
@@ -115,7 +123,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="find-events-by-date-scripts">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 using Octopus.Client;
 using Octopus.Client.Model;
@@ -161,7 +174,12 @@ foreach (var octopusEvent in events.Items)
     Console.WriteLine(octopusEvent.Message);
 }
 ```
-```python Python3
+
+</details>
+<details data-group="find-events-by-date-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -216,7 +234,12 @@ events = get_octopus_resource(uri, headers)
 for event in events:
     print (event)
 ```
-```go Go
+
+</details>
+<details data-group="find-events-by-date-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -350,3 +373,5 @@ func GetEvents(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, e
 	return returnedItems
 }
 ```
+
+</details>

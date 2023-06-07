@@ -72,26 +72,51 @@ Wait log messages will be show in a different color in the log. Their primary us
 
 Progress messages will display and update a progress bar on your deployment tasks while they are running, on the Task Log tab. You can provide the percentage complete and an optional message to display with the progress bar.
 
+<details data-group="deployments-custom-scripts-logging-messages">
+<summary>PowerShell</summary>
+
 ```ps PowerShell
 Update-Progress 10
 Update-Progress 50 "Woah, we're halfway there!"
 ```
-```csharp C#
+
+</details>
+<details data-group="deployments-custom-scripts-logging-messages">
+<summary>C#</summary>
+
+```csharp
 Octopus.UpdateProgress(10);
 Octopus.UpdateProgress(50, "Woah, we're halfway there!");
 ```
-```bash Bash
+
+</details>
+<details data-group="deployments-custom-scripts-logging-messages">
+<summary>Bash</summary>
+
+```bash
 update_progress 10
 update_progress 50 "Woah, we're halfway there!"
 ```
-```fsharp F#
+
+</details>
+<details data-group="deployments-custom-scripts-logging-messages">
+<summary>F#</summary>
+
+```fsharp
 Octopus.updateProgress 10
 Octopus.updateProgress 50 "Woah, we're halfway there!"
 ```
-```python Python3
+
+</details>
+<details data-group="deployments-custom-scripts-logging-messages">
+<summary>Python3</summary>
+
+```python
 updateprogress(10)
 updateprogress(50, 'Woah, we\'re halfway there!')
 ```
+
+</details>
 
 ## Service message
 

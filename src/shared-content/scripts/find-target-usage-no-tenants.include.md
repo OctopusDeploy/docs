@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="find-target-usage-no-tenants">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
@@ -383,7 +386,12 @@ else
     }
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="find-target-usage-no-tenants">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
@@ -671,7 +679,12 @@ else
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="find-target-usage-no-tenants">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -963,7 +976,12 @@ static bool GetTargetIsScopedToProcess(Octopus.Client.Model.IProcessResource pro
     return false;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="find-target-usage-no-tenants">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -1179,7 +1197,12 @@ else:
     for result in target_results:
         print('\t{0}'.format(result))
 ```
-```go Go
+
+</details>
+<details data-group="find-target-usage-no-tenants">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -1636,3 +1659,5 @@ func GetRunbooks(client *octopusdeploy.Client, project *octopusdeploy.Project) [
 	return projectRunbooks
 }
 ```
+
+</details>

@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="register-ssh-target-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -77,3 +80,5 @@ $sshTarget = @{
 $machine = Invoke-RestMethod "$OctopusUrl/api/$($space.Id)/machines" -Headers $header -Method Post -Body ($sshTarget | ConvertTo-Json -Depth 10)
 Write-Host "Created machine $($machine.Id)"
 ```
+
+</details>

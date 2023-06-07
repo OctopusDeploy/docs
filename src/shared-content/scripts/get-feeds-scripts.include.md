@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="get-feeds-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -19,7 +22,12 @@ foreach($feed in $feeds)
     $feed
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="get-feeds-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 Add-Type -Path "C:\Octo\Octopus.Client.dll"
 
 # Octopus variables
@@ -53,7 +61,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="get-feeds-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -94,7 +107,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="get-feeds-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -121,7 +139,12 @@ for feed in feeds:
     uri = feed.get('FeedUri', feed['FeedType'])
     print('{0} - {1} - {2}'.format(feed['Id'], feed['Name'], uri))
 ```
-```go Go
+
+</details>
+<details data-group="get-feeds-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -194,3 +217,5 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
+
+</details>

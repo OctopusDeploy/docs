@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-aws-account-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 function Get-OctopusItems
 {
 	# Define parameters
@@ -82,7 +85,12 @@ else
 # Call API to create account
 Invoke-RestMethod -Method Post -Uri "$OctopusUrl/api/$spaceId/accounts" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $headers
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-aws-account-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'C:\Octopus.Client\Octopus.Client.dll'
 $octopusURL = "https://youroctourl"
@@ -131,7 +139,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-aws-account-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -184,7 +197,12 @@ catch (Exception ex)
 	return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-aws-account-scripts">
+<summary>Python3</summary>
+
+```python
 
 import json
 import requests
@@ -224,7 +242,12 @@ uri = '{0}/{1}/accounts'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=account)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-aws-account-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -300,3 +323,5 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
+
+</details>

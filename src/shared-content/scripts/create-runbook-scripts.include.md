@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-runbook-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -29,7 +32,12 @@ $jsonPayload = @{
 # Create the runbook
 Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/runbooks" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-runbook-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -73,7 +81,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-runbook-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -122,7 +135,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-runbook-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -162,7 +180,12 @@ uri = '{0}/{1}/runbooks'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=runbook)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-runbook-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -259,7 +282,12 @@ func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, 
 	return nil
 }
 ```
-```java Java
+
+</details>
+<details data-group="create-runbook-scripts">
+<summary>Java</summary>
+
+```java
 import com.octopus.openapi.model.RunbookEnvironmentScope;
 import com.octopus.sdk.Repository;
 import com.octopus.sdk.domain.Project;
@@ -320,3 +348,5 @@ public class CreateRunbook {
 }
 
 ```
+
+</details>

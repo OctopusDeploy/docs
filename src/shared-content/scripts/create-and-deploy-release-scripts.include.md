@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-and-deploy-release-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -49,7 +52,12 @@ Write-Host "Creating deployment with these values: $deploymentBody"
 $deploymentResponse = Invoke-WebRequest -Uri $octopusSpaceUrl/deployments/create/untenanted/v1 -Method POST -Headers $headers -Body $deploymentBody -ErrorVariable octoError
 
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-and-deploy-release-scripts">
+<summary>PowerShell</summary>
+
+```powershell
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusBaseURL = "https://youroctourl/"
@@ -130,7 +138,12 @@ catch {
     exit
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-and-deploy-release-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -219,7 +232,12 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-and-deploy-release-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -346,7 +364,12 @@ uri = '{0}/api/{1}/deployments'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=deploymentJson)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-and-deploy-release-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -642,7 +665,12 @@ func GetPackageVersion(octopusURL *url.URL, APIKey string, space *octopusdeploy.
 	return mostRecentPackageVersion["Version"].(string)
 }
 ```
-```ts TypeScript
+
+</details>
+<details data-group="create-and-deploy-release-scripts">
+<summary>TypeScript</summary>
+
+```typescript
 import { Client, CreateDeploymentUntenantedCommandV1, CreateReleaseCommandV1, DeploymentRepository, ReleaseRepository } from '@octopusdeploy/api-client'
 
 const configuration: ClientConfiguration = {
@@ -674,3 +702,5 @@ const createDeploymentCommandV1: CreateDeploymentTenantedCommandV1 = {
 const deploymentResponse = await deploymentRepository.create(createDeploymentCommandV1)
 
 ```
+
+</details>

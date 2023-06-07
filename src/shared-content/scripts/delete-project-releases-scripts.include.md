@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="delete-project-releases-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -24,7 +27,12 @@ foreach ($release in $releases.Items)
     Invoke-RestMethod -Method Delete -Uri "$octopusURL/api/$($space.Id)/releases/$($release.Id)" -Headers $header
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="delete-project-releases-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -62,7 +70,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="delete-project-releases-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -105,7 +118,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="delete-project-releases-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -167,7 +185,12 @@ for release in releases:
     response = requests.delete(uri, headers=headers)
     response.raise_for_status()        
 ```
-```go Go
+
+</details>
+<details data-group="delete-project-releases-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -331,3 +354,5 @@ func GetProjectReleases(octopusURL *url.URL, APIKey string, space *octopusdeploy
 	return returnedItems
 }
 ```
+
+</details>

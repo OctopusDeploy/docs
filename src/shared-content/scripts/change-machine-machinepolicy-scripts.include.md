@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="change-machine-machinepolicy-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -22,7 +25,12 @@ $machinePolicy = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.I
 $machine.MachinePolicyId = $machinePolicy.Id
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/machines/$($machine.Id)" -Body ($machine | ConvertTo-Json -Depth 10) -Headers $header
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="change-machine-machinepolicy-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
@@ -58,7 +66,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="change-machine-machinepolicy-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -99,7 +112,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="change-machine-machinepolicy-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -133,7 +151,12 @@ uri = '{0}/{1}/machines/{2}'.format(octopus_server_uri, space['Id'], target['Id'
 response = requests.put(uri, headers=headers, json=target)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="change-machine-machinepolicy-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -260,3 +283,5 @@ func GetTarget(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, t
 	return nil
 }
 ```
+
+</details>

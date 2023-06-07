@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="switch-users-ad-domain-to-ldap-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop"
 
 $octopusURL = "https://your.octopus.app" # Replace with your instance URL
@@ -205,3 +208,5 @@ while ($True) {
     }
 }
 ```
+
+</details>

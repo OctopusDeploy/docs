@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="find-unused-projects">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 $octopusUrl = "https://local.octopusdemos.app" ## Octopus URL to look at
@@ -151,7 +154,12 @@ foreach ($project in $oldProjectList)
     Write-Host "    $project"
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="find-unused-projects">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 $octopusURL = "https://YourURL"
@@ -215,7 +223,12 @@ foreach ($project in $oldProjects)
     Write-Host "`t$project"
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="find-unused-projects">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -279,7 +292,12 @@ foreach(var project in oldProjects)
     Console.WriteLine(string.Format("\t {0}", project));
 }
 ```
-```python Python3
+
+</details>
+<details data-group="find-unused-projects">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -366,7 +384,12 @@ print('The following projects were found to have no releases created in the last
 for project in old_projects:
     print('\t{0}'.format(project))
 ```
-```go Go
+
+</details>
+<details data-group="find-unused-projects">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -503,3 +526,5 @@ func GetUserRole(client *octopusdeploy.Client, userRoleName string) *octopusdepl
 	return nil
 }
 ```
+
+</details>

@@ -31,19 +31,29 @@ Not all steps can run on deployment targets.  A step missing the option **On Tar
 
 11. Scroll down to the **Script**, select your script language of choice and enter the following script in the **Inline Source Code** section:
 
-```powershell PowerShell
+<details data-group="getting-started-first-runbook-run-define-the-runbook-process-for-targets">
+<summary>PowerShell</summary>
+
+```powershell
 Write-Host $OctopusParameters["Helloworld.Greeting"]
 Write-Host $OctopusParameters["Octopus.Machine.Name"]
 ```
-```bash Bash
+
+</details>
+<details data-group="getting-started-first-runbook-run-define-the-runbook-process-for-targets">
+<summary>Bash</summary>
+
+```bash
 greeting=$(get_octopusvariable "Helloworld.Greeting")
 echo $greeting
 machineName=$(get_octopusvariable "Octopus.Machine.Name")
 echo $machineName
 ```
 
-12. Click **SAVE**
-13. Click **RUN...** and select an environment to run on.
+</details>
+
+1.  Click **SAVE**
+2.  Click **RUN...** and select an environment to run on.
 
 :::figure
 ![Running the runbook script on a deployment target](/docs/getting-started/first-runbook-run/images/run-deployment-target-results.png "width=500")

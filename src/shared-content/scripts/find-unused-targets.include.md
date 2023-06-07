@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="find-unused-targets">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 $octopusUrl = "https://local.octopusdemos.app" ## Octopus URL to look at
@@ -205,7 +208,12 @@ if ($includeMachineLists -eq $true){
     }
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="find-unused-targets">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 $octopusURL = "https://YourURL"
@@ -340,7 +348,12 @@ if ($includeMachineLists -eq $true){
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="find-unused-targets">
+<summary>C#</summary>
+
+```csharp
 class CategorizedMachines
 {
     // Define private variables
@@ -594,7 +607,12 @@ if (includeMachineLists)
     }
 }
 ```
-```python Python3
+
+</details>
+<details data-group="find-unused-targets">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -750,7 +768,12 @@ if include_machine_lists:
     for target in categorized_machines['OldMachines']:
         print("\t{0}".format(target['Name']))
 ```
-```go Go
+
+</details>
+<details data-group="find-unused-targets">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -998,3 +1021,5 @@ func GetMachineTasks(octopusURL *url.URL, APIKey string, space *octopusdeploy.Sp
 	return returnedItems
 }
 ```
+
+</details>

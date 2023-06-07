@@ -1,4 +1,7 @@
-```powershell (REST API)
+<details data-group="rerun-deployments-and-runbooks-after-node-failure">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $octopusUrl = "YOUR URL"
 $octopusApiKey = "API KEY"
 $maxAgeInMinutes = 240
@@ -321,3 +324,5 @@ foreach ($item in $changeReport)
     Write-OctopusInformation "  $item"
 }
 ```
+
+</details>

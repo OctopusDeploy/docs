@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="list-users-with-editing-roles-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = 'Stop';
 
 # Define working variables
@@ -55,7 +58,12 @@ if (![string]::IsNullOrWhiteSpace($csvExportPath)) {
 
 $usersWithEditPermissions | Format-Table
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="list-users-with-editing-roles-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Load assembly
@@ -115,8 +123,12 @@ if (![string]::IsNullOrWhiteSpace($csvExportPath))
     }
 }
 ```
-```csharp C#
 
+</details>
+<details data-group="list-users-with-editing-roles-scripts">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
@@ -249,7 +261,12 @@ if (usersList.Count > 0)
     }
 }
 ```
-```python Python3
+
+</details>
+<details data-group="list-users-with-editing-roles-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -327,7 +344,12 @@ for user in users:
             for user in users_list:
                 writer.writerow(user)
 ```
-```go Go
+
+</details>
+<details data-group="list-users-with-editing-roles-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -473,3 +495,5 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceId string) *octopusdeploy
 	return space
 }
 ```
+
+</details>

@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="run-a-runbook-with-prompted-variables">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 $runbookBaseUrl = "" ## The base url, IE https://samples.octopus.app
@@ -226,7 +229,12 @@ if ($runbookWaitForFinish -eq $true)
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="run-a-runbook-with-prompted-variables">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -304,3 +312,5 @@ catch (Exception ex)
     return;
 }
 ```
+
+</details>

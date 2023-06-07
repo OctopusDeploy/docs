@@ -1,4 +1,7 @@
-```powershell (Rest API)
+<details data-group="deployments-per-target-role-report">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $octopusUrl = "https://YOURURL"
 $octopusApiKey = "YOUR API KEY"
 $reportPath = "./Report.csv"
@@ -285,3 +288,5 @@ Foreach ($deployedToMachine in $deploymentTargetsDeployments)
     Add-Content -Path $reportPath -Value "$($deployedToMachine.DeploymentTargetName),$($deployedToMachine.Environment),$($deployedToMachine.Project),$($deployedToMachine.ReleaseVersion),$($deployedToMachine.DeploymentState),$($deployedToMachine.QueuedTime),$($deployedToMachine.DeploymentTargetId)"
 }
 ```
+
+</details>

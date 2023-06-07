@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="update-tenant-variable-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -81,7 +84,12 @@ foreach ($projectKey in $projects)
 # Update the variables with the new value
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/tenants/$($tenant.Id)/variables" -Headers $header -Body ($variables | ConvertTo-Json -Depth 10)
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="update-tenant-variable-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # You can get this dll from your Octopus Server/Tentacle installation directory or from
 # https://www.nuget.org/packages/Octopus.Client/
 Add-Type -Path 'Octopus.Client.dll' 
@@ -170,7 +178,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="update-tenant-variable-scripts">
+<summary>C#</summary>
+    
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -261,7 +274,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="update-tenant-variable-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -352,7 +370,12 @@ uri = '{0}/api/{1}/tenants/{2}/variables'.format(octopus_server_uri, space['Id']
 response = requests.put(uri, headers=headers, json=tenant_variables)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="update-tenant-variable-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -482,3 +505,5 @@ func GetTenant(client *octopusdeploy.Client, tenantName string, skip int) *octop
 	return nil
 }
 ```
+
+</details>

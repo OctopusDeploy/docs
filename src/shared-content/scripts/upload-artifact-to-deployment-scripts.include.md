@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="upload-artifact-to-deployment-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 Add-Type -AssemblyName System.Net.Http
@@ -83,3 +86,5 @@ $uploadUrl = "$OctopusUrl/api/$spaceId/artifacts/$artifactId/content"
 Write-Host "Uploading file $filePathToUpload to $uploadUrl"
 $httpClient.PutAsync($uploadUrl, $content).Result
 ```
+
+</details>

@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="get-steps-using-role-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -38,7 +41,12 @@ foreach ($project in $projectList)
     }
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="get-steps-using-role-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
@@ -74,7 +82,12 @@ foreach($project in $projectList)
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="get-steps-using-role-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -128,7 +141,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="get-steps-using-role-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 octopus_server_uri = 'https://your.octopus.app/'
@@ -159,7 +177,12 @@ for project in projects:
         if role_name in roles:
             print('Step \'{0}\' of project \'{1}\' is using role \'{2}\''.format(step['Name'], project['Name'], role_name))
 ```
-```go Go
+
+</details>
+<details data-group="get-steps-using-role-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -261,3 +284,5 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
+
+</details>

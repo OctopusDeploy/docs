@@ -9,16 +9,26 @@ navOrder: 30
 
 For some operations not available through [repositories](/docs/octopus-rest-api/octopus.client/using-resources), it will be necessary to use the `IOctopusClient` type:
 
-```powershell PowerShell
+<details data-group="using-client-directly">
+<summary>PowerShell</summary>
+
+```powershell
 $connection = $repository.Client.Get($machine.Links["Connection"]);
 ```
-```csharp C#
+
+</details>
+<details data-group="using-client-directly">
+<summary>C#</summary>
+
+```csharp
 // Sync
 var connection = repository.Client.Get(machine.Links["Connection"]);
  
 // Async
 var connection = await client.Get(machine.Links["Connection"]);
 ```
+
+</details>
 
 The entire API is accessible by traversing links - each resource carries a collection of links, like the `Connection` link on `MachineResource` shown above.
 
@@ -28,16 +38,27 @@ Always access objects by traversing the links; avoid using direct url segments, 
 
 To start traversing links, the `IOctopusClient.RootDocument` is provided:
 
-```powershell PowerShell
+<details data-group="using-client-directly-traversing">
+<summary>PowerShell</summary>
+
+```powershell
 $link = $repository.Client.RootDocument.Links["CurrentUser"].ToString()
 $method = $repository.Client.GetType().GetMethod("Get").MakeGenericMethod([Octopus.Client.Model.UserResource])
 $me = $method.invoke($repository.Client, @($link, $null))
 ```
-```csharp C#
+
+</details>
+<details data-group="using-client-directly-traversing">
+<summary>C#</summary>
+
+```csharp
 // Sync
 var me = repository.Client.Get<UserResource>(repository.Client.RootDocument.Links["CurrentUser"]);
  
 // Async
 var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"])
 ```
+
+</details>
+
 *(This is only an example. This common operation is also available via `repository.Users.GetCurrent()`.)*

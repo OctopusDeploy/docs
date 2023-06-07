@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-and-publish-runbook-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -60,7 +63,12 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/runbooks/$($run
 
 Write-Host "Published runbook snapshot: $($runbookPublishedSnapshot.Id) ($($runbookPublishedSnapshot.Name))"
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-and-publish-runbook-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 $octopusURL = "https://YourURL"
@@ -116,7 +124,12 @@ $runbookSnapshot = $repositoryForSpace.RunbookSnapshots.Create($runbookSnapshot)
 $runbook.PublishedRunbookSnapshotId = $runbookSnapshot.Id
 $repositoryForSpace.Runbooks.Modify($runbook)
 ```
-```csharp C#
+
+</details>
+<details data-group="create-and-publish-runbook-scripts">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 using Octopus.Client;
 using Octopus.Client.Model;
@@ -174,7 +187,12 @@ runbookSnapshot = spaceRepository.RunbookSnapshots.Create(runbookSnapshot);
 runbook.PublishedRunbookSnapshotId = runbookSnapshot.Id;
 spaceRepository.Runbooks.Modify(runbook); 
 ```
-```python Python3
+
+</details>
+<details data-group="create-and-publish-runbook-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -272,7 +290,12 @@ uri = '{0}/api/{1}/runbooks/{2}'.format(octopus_server_uri, space['Id'], runbook
 response = requests.put(uri, headers=headers, json=runbook)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-and-publish-runbook-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -524,3 +547,5 @@ func CreateRunbookSnapshot(octopusURL *url.URL, APIKey string, space *octopusdep
 	return runbookMap["Id"].(string)
 }
 ```
+
+</details>

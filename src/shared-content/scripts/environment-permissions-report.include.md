@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="environment-permissions-report">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $octopusUrl = "https://YOURURL"
 $octopusApiKey = "YOUR API KEY"
 $reportPath = "./Report.csv"
@@ -572,7 +575,12 @@ foreach ($permission in $permissionsReport)
     Write-PermissionList -permissionName $permissionToCheck -permissionList $permission.Permissions -permission $permission -reportPath $reportPath    
 }
 ```
-```powershell Powershell (Octopus.Client)
+
+</details>
+<details data-group="environment-permissions-report">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 
@@ -1045,7 +1053,12 @@ foreach ($permission in $permissionsReport)
     Write-PermissionList -permissionName $permissionToCheck -permissionList $permission.Permissions -permission $permission -reportPath $reportPath    
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="environment-permissions-report">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -1551,7 +1564,12 @@ foreach (var permission in permissionsReport)
     WritePermissionList(permissionToCheck, permission.Permissions, permission, reportPath);
 }
 ```
-```python Python3
+
+</details>
+<details data-group="environment-permissions-report">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -1846,7 +1864,12 @@ report.close()
 for permission in permissions_report:
     write_permission_list(permission_to_check, permission['Permissions'], permission, report_path)
 ```
-```go Go
+
+</details>
+<details data-group="environment-permissions-report">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -2452,3 +2475,5 @@ func FileExists(filename string) bool {
 	return !info.IsDir()
 }
 ```
+
+</details>

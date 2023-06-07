@@ -19,7 +19,10 @@ navOrder: 80
 1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, select the appropriate language and add the following code:
 
-```bash Ubuntu
+<details data-group="apache-create-runbook">
+<summary>Ubuntu</summary>
+
+```bash
 # Update repos
 sudo apt-get update
 
@@ -32,7 +35,12 @@ sudo systemctl enable apache2
 # Start the service
 sudo systemctl start apache2
 ```
-```bash CentOS
+
+</details>
+<details data-group="apache-create-runbook">
+<summary>CentOS</summary>
+
+```bash
 # Update repos
 sudo yum check-update
 
@@ -53,7 +61,12 @@ sudo firewall-cmd --permanent --zone=public --add-service=http --add-service=htt
 sudo firewall-cmd --reload
 
 ```
-```powershell Windows
+
+</details>
+<details data-group="apache-create-runbook">
+<summary>Windows</summary>
+
+```powershell
 # Check for chocolatey
 try{
     choco config get cacheLocation
@@ -70,6 +83,8 @@ choco install apache-httpd -y --params '"/installLocation:C:\apache /port:80"'
 New-NetFirewallRule -DisplayName "Apache-HTTP" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 80
 #New-NetFirewallRule -DisplayName "Apache-HTTPS" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 443
 ```
+
+</details>
 
 This will add a basic installation of the Apache HTTP web server.
 

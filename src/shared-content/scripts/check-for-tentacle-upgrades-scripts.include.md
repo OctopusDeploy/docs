@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="check-for-tentacle-upgrades-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -31,7 +34,12 @@ $workers = Invoke-RestMethod -Method Get -Uri "$octopusSpaceUrl/workers/all" -He
     Write-Host "`tUpgrade required: $($details.UpgradeRequired)"
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="check-for-tentacle-upgrades-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path 'C:\path\to\Octopus.Client.dll'
 
@@ -69,7 +77,12 @@ catch {
     exit
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="check-for-tentacle-upgrades-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "C:\path\to\Octopus.Client.dll"
 
@@ -125,7 +138,12 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
 }
 ```
-```python Python3
+
+</details>
+<details data-group="check-for-tentacle-upgrades-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -165,7 +183,12 @@ for tentacle in tentacles:
     print('\tUpgrade suggested: {0}'.format(details['UpgradeSuggested']))
     print('\tUpgrade required: {0}'.format(details['UpgradeRequired']))
 ```
-```go Go
+
+</details>
+<details data-group="check-for-tentacle-upgrades-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -246,3 +269,5 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
+
+</details>

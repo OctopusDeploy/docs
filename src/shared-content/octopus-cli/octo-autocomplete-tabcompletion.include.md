@@ -28,15 +28,30 @@ octo install-autocomplete --shell powershell --dryRun
 
 3. Either restart your shell environment or 'dot source' your profile:
 
-```bash Bash
+<details data-group="restart-shell-environment">
+<summary>Bash</summary>
+
+```bash
 . ~/.bashrc
 ```
-```bash Zsh
+
+</details>
+<details data-group="restart-shell-environment">
+<summary>Zsh</summary>
+
+```bash
 . ~/.zshrc
 ```
-```powershell PowerShell
+
+</details>
+<details data-group="restart-shell-environment">
+<summary>PowerShell</summary>
+
+```powershell
 . $PROFILE
 ```
+
+</details>
 
 4. You can now discover sub-commands by typing `octo [searchterm]` and hitting the [tab] key. If you don't provide a search term, the full list of available sub-commands will be shown.
 

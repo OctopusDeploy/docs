@@ -47,13 +47,23 @@ At deploy-time, certificate variables are expanded. For example, a variable _MyC
 
 Given the certificate variable `MyCertificate`, you can access the certificate thumbprint in a script like this:
 
+<details data-group="project-variables-certificate-variables">
+<summary>PowerShell</summary>
+
 ```powershell PowerShell
 Write-Host $OctopusParameters["MyCertificate.Thumbprint"]
 ```
-```bash Bash
+
+</details>
+<details data-group="project-variables-certificate-variables">
+<summary>Bash</summary>
+
+```bash
 thumbprint=$(get_octopusvariable "MyCertificate.Thumbprint")
 echo "$thumbprint"
 ```
+
+</details>
 
 It's possible to write the PEM representation of the certificate to a file for use directly with a web server e.g. Apache, or a reverse proxy like NGINX. In bash, the script looks like this:
 

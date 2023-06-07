@@ -21,6 +21,9 @@ To create a runbook to install NGINX on an Ubuntu machine:
 1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, select **Bash** and add the following code:
 
+<details data-group="runbook-routine-installing-nginx">
+<summary>Ubuntu</summary>
+
 ```bash Ubuntu
 # Update repositories
 sudo apt-get update
@@ -37,6 +40,11 @@ sudo ufw allow 'Nginx Full' # both ports 80 and 443
 # Uncomment to disable default virtual host
 #unlink /etc/nginx/sites-enabled/default
 ```
+
+</details>
+<details data-group="runbook-routine-installing-nginx">
+<summary>CentOS</summary>
+
 ```bash CentOS
 # Update repositories
 sudo yum check-update
@@ -54,5 +62,7 @@ sudo firewall-cmd --reload
 # Start the service
 sudo systemctl start nginx
 ```
+
+</details>
 
 With a small script, you can include the installation of NGINX with your infrastructure provisioning.

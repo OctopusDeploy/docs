@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-channel-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -24,7 +27,12 @@ $jsonPayload = @{
 # Create channel
 Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/channels" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header -ContentType "application/json"
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-channel-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'C:\Octopus.Client\Octopus.Client.dll'
 $octopusURL = "https://YourUrl"
@@ -53,7 +61,12 @@ $channel.SpaceId = $space.Id
 # Add channel
 $repositoryForSpace.Channels.Create($channel)
 ```
-```csharp C#
+
+</details>
+<details data-group="create-channel-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -86,7 +99,12 @@ channel.SpaceId = space.Id;
 
 spaceRepository.Channels.Create(channel);
 ```
-```python Python3
+
+</details>
+<details data-group="create-channel-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -152,7 +170,12 @@ uri = '{0}/api/{1}/channels'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=channel)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-channel-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -246,7 +269,12 @@ func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, 
 	return nil
 }
 ```
-```java Java
+
+</details>
+<details data-group="create-channel-scripts">
+<summary>Java</summary>
+
+```java
 import com.octopus.sdk.Repository;
 import com.octopus.sdk.domain.Channel;
 import com.octopus.sdk.domain.Project;
@@ -308,3 +336,5 @@ public class CreateChannel {
 }
 
 ```
+
+</details>

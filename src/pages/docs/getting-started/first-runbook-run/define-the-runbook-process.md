@@ -22,18 +22,28 @@ The runbook process is the steps the Octopus Server orchestrates to perform vari
 1. In the **Execution Location** section, select **Run once on a worker** (if you are on self-hosted Octopus, select **Run once on the Octopus Server**).  If you are using Octopus Cloud and want to use Bash scripts change the worker pool from **Default Worker Pool** to **Hosted Ubuntu**.
 1. Scroll down to the **Script**, select your script language of choice, and enter the following script in the **Inline Source Code** section:
 
-```powershell PowerShell
+<details data-group="getting-started-first-runbook-run-define-the-runbook-process">
+<summary>PowerShell</summary>
+
+```powershell
 Write-Host "Hello, World!"
 ```
-```bash Bash
+
+</details>
+<details data-group="getting-started-first-runbook-run-define-the-runbook-process">
+<summary>Bash</summary>
+
+```bash
 echo "Hello, World!"
 ```
+
+</details>
 
 :::div{.hint}
 If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
 :::
 
-8. Click **SAVE**.
+1. Click **SAVE**.
 
 The next step will [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook).
 

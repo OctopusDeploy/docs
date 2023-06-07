@@ -1,4 +1,7 @@
-```powershell (Rest API)
+<details data-group="project-deployment-targets-report">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $octopusUrl = "https://YOURURL"
 $octopusApiKey = "YOUR API KEY"
 $reportPath = "./Report.csv"
@@ -262,3 +265,5 @@ Foreach ($deployedToMachine in $deployedToMachineList)
     }
 }
 ```
+
+</details>

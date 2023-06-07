@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="find-variableset-variables-usage-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -161,7 +164,12 @@ if($variableTracking.Count -gt 0) {
     }
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="find-variableset-variables-usage-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Load assembly
@@ -333,7 +341,12 @@ if($variableTracking.Count -gt 0) {
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="find-variableset-variables-usage-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -579,7 +592,12 @@ if (variableTracking.Count > 0)
     }
 }
 ```
-```python Python3
+
+</details>
+<details data-group="find-variableset-variables-usage-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 import csv
@@ -716,7 +734,12 @@ if results_count > 0:
             for tracked_variable in variable_tracker:
                 writer.writerow(tracked_variable)
 ```
-```go Go
+
+</details>
+<details data-group="find-variableset-variables-usage-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -1021,3 +1044,5 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
+
+</details>

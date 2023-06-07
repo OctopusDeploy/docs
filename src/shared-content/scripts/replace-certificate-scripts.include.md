@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="replace-certificate-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -37,7 +40,12 @@ $jsonPayload = @{
 # Submit request
 Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/certificates/$($certificate.Id)/replace" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="replace-certificate-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load Octopus Client assembly
 Add-Type -Path 'path\to\Octopus.Client.dll' 
 
@@ -81,7 +89,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="replace-certificate-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -129,7 +142,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="replace-certificate-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 from os import replace
 import requests
@@ -202,7 +220,12 @@ uri = '{0}/api/{1}/certificates/{2}/replace'.format(octopus_server_uri, space['I
 response = requests.post(uri, headers=headers, json=replacement_certificate)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="replace-certificate-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -305,3 +328,5 @@ func GetCertificate(client *octopusdeploy.Client, certificateName string) *octop
 	return nil
 }
 ```
+
+</details>

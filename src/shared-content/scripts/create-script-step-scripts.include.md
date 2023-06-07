@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-script-step-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -70,7 +73,12 @@ $jsonPayload = $deploymentProcess | ConvertTo-Json -Depth 10
 # Submit request
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header -Body $jsonPayload
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-script-step-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load Octopous Client assembly
 Add-Type -Path 'c:\octopus.client\Octopus.Client.dll'
 
@@ -122,7 +130,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-script-step-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -180,7 +193,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-script-step-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -241,7 +259,12 @@ process['Steps'].append({
 response = requests.put(uri, headers=headers, json=process)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-script-step-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -382,3 +405,5 @@ func GetDeploymentProcess(client *octopusdeploy.Client, project *octopusdeploy.P
 	return deploymentProcess
 }
 ```
+
+</details>

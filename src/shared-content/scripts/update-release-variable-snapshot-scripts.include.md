@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="update-release-variable-snapshot-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -25,7 +28,12 @@ $release = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/pro
 # Update the variable snapshot
 Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/releases/$($release.Id)/snapshot-variables" -Headers $header
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="update-release-variable-snapshot-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -64,7 +72,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="update-release-variable-snapshot-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -107,3 +120,5 @@ catch (Exception ex)
     return;
 }
 ```
+
+</details>

@@ -76,6 +76,10 @@
 
     --navigation-width: 280px;
 
+    --bgcolor-tab: var(--navy-200);
+    --border-color-tab: var(--navy-200);
+    --border-color-tab-active: var(--navy-400);
+
     --color-hint: #124164;
     --bgcolor-hint: #e5f4ff;
     --bordercolor-hint: var(--blue-500);

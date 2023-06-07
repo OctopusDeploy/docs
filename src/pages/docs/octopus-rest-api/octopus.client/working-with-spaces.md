@@ -11,7 +11,10 @@ Working with anything other than the default space in the Octopus.Client library
 
 The first is the `OctopusClient.ForSpace` method:
 
-```powershell PowerShell
+<details data-group="octopus-client-working-with-spaces">
+<summary>PowerShell</summary>
+
+```powershell
 # Create endpoint and client
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY")
 $client = New-Object Octopus.Client.OctopusClient($endpoint)
@@ -24,6 +27,11 @@ $space = $repository.Spaces.FindByName("Space Name")
 $repositoryForSpace = $client.ForSpace($space)
 $projects = $repositoryForSpace.Projects.GetAll()
 ```
+
+</details>
+<details data-group="octopus-client-working-with-spaces">
+<summary>C#</summary>
+
 ```csharp C#
 // Create endpoint and client
 var endpoint = new OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY");
@@ -38,9 +46,14 @@ var repositoryForSpace = client.ForSpace(space);
 var projects = repositoryForSpace.Projects.GetAll();
 ```
 
+</details>
+
 The other method is `OctopusRepositoryExtensions.ForSpace`:
 
-```powershell PowerShell
+<details data-group="octopus-client-working-with-spaces-for-space">
+<summary>PowerShell</summary>
+
+```powershell
 # Create endpoint and repository
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY")
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
@@ -52,7 +65,12 @@ $space = $repository.Spaces.FindByName("Space Name")
 $repositoryForSpace = [Octopus.Client.OctopusRepositoryExtensions]::ForSpace($repository, $space)
 $projects = $repositoryForSpace.Projects.GetAll()
 ```
-```csharp C#
+
+</details>
+<details data-group="octopus-client-working-with-spaces-for-space">
+<summary>C#</summary>
+
+```csharp
 // Create endpoint and repository
 var endpoint = new OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY");
 var repository = new OctopusRepository(endpoint);
@@ -64,3 +82,5 @@ var space = repository.Spaces.FindByName("Space Name");
 var repositoryForSpace = repository.ForSpace(space);
 var projects = repositoryForSpace.Projects.GetAll();
 ```
+
+</details>

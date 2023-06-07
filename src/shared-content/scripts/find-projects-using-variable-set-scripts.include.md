@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="find-projects-using-variable-set-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -28,7 +31,12 @@ foreach ($project in $projects)
     }
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="find-projects-using-variable-set-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -69,7 +77,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="find-projects-using-variable-set-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -115,7 +128,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="find-projects-using-variable-set-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -147,7 +165,12 @@ for project in projects:
     if library_variable_set_id in project_variable_sets:
         print('Project \'{0}\' is using library variable set \'{1}\''.format(project['Name'], libraryset_name))
 ```
-```go Go
+
+</details>
+<details data-group="find-projects-using-variable-set-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -268,3 +291,5 @@ func GetLibrarySet(octopusURL *url.URL, APIKey string, space *octopusdeploy.Spac
 	return nil
 }
 ```
+
+</details>

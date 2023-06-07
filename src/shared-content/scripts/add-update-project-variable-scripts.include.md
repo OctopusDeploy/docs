@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="add-update-project-variable-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -46,7 +49,12 @@ $variableToUpdate.Value = $variable.Value
 # Update the collection
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/variables/$($project.VariableSetId)" -Headers $header -Body ($projectVariables | ConvertTo-Json -Depth 10)
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="add-update-project-variable-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
@@ -106,7 +114,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="add-update-project-variable-scripts">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
@@ -171,7 +184,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="add-update-project-variable-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -236,7 +254,12 @@ if project != None:
     response = requests.put(uri, headers=headers, json=projectVariables)
     response.raise_for_status
 ```
-```go Go
+
+</details>
+<details data-group="add-update-project-variable-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -362,3 +385,5 @@ func GetProjectVariables(octopusURL *url.URL, APIKey string, space *octopusdeplo
 	return projectVariables
 }
 ```
+
+</details>

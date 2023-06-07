@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="export-step-templates-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -22,7 +25,12 @@ $templates.Items | ForEach-Object {
     ($template | ConvertTo-Json) | Out-File -FilePath "$PSScriptRoot/step-templates/$name.json"
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="export-step-templates-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 $octopusURL = "https://YourURL"
@@ -56,7 +64,12 @@ foreach ($template in $templates)
     $template | ConvertTo-Json | Out-File -FilePath "$exportPath/$fileName.json"
 }
 ```
-```python Python3
+
+</details>
+<details data-group="export-step-templates-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -121,7 +134,12 @@ for action_template in action_templates:
     with open("{0}\\{1}.json".format(export_path, fileName), "w") as outfile: 
         json.dump(action_template, outfile)
 ```
-```go Go
+
+</details>
+<details data-group="export-step-templates-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -232,3 +250,5 @@ func FolderExists(folderPath string) bool {
 	return info.IsDir()
 }
 ```
+
+</details>

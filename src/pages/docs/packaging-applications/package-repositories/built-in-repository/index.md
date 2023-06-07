@@ -36,12 +36,22 @@ To push packages using these methods, you will need:
 
 You can push one or more packages using the [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli), the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
 
-```powershell PowerShell
+<details data-group="packaging-built-in-repository">
+<summary>PowerShell</summary>
+
+```powershell
 C:\> octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server https://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
-```bash Bash
+
+</details>
+<details data-group="packaging-built-in-repository">
+<summary>Bash</summary>
+
+```bash
 $ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server https://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
+
+</details>
 
 ## Using the Octopus API (HTTP POST) {#UsingtheOctopusAPI(HTTPPOST)}
 

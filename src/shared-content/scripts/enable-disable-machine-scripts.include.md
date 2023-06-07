@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="enable-disable-machine-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -20,7 +23,12 @@ $machine.IsDisabled = !$machineEnabled
 # Update machine
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/machines/$($machine.Id)" -Headers $header -Body ($machine | ConvertTo-Json -Depth 10)
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="enable-disable-machine-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
@@ -55,7 +63,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="enable-disable-machine-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -95,7 +108,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="enable-disable-machine-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -129,7 +147,12 @@ uri = '{0}/{1}/machines/{2}'.format(octopus_server_uri, space['Id'], target['Id'
 response = requests.put(uri, headers=headers, json=target)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="enable-disable-machine-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -225,5 +248,6 @@ func GetTarget(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, t
 
 	return nil
 }
-
 ```
+
+</details>

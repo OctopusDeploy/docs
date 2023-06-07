@@ -1,4 +1,5 @@
-**PowerShell (REST API):**
+<details data-group="add-target-role-scripts">
+<summary>PowerShell (REST API)</summary>
 
 ```powershell
 $ErrorActionPreference = "Stop";
@@ -23,7 +24,9 @@ $machine.roles += ($targetRole)
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/machines/$($machine.Id)" -Body ($machine | ConvertTo-Json -Depth 10) -Headers $header
 ```
 
-**PowerShell (Octopus.Client):**
+</details>
+<details data-group="add-target-role-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
 # Load octopus.client assembly
@@ -59,7 +62,9 @@ catch
 }
 ```
 
-**C#:**
+</details>
+<details data-group="add-target-role-scripts">
+<summary>C#</summary>
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
@@ -100,7 +105,9 @@ catch (Exception ex)
 }
 ```
 
-**Python3:**
+</details>
+<details data-group="add-target-role-scripts">
+<summary>Python3</summary>
 
 ```python
 import json
@@ -137,7 +144,9 @@ response = requests.put(uri, headers=headers, json=target)
 response.raise_for_status()
 ```
 
-**Go:**
+</details>
+<details data-group="add-target-role-scripts">
+<summary>Go</summary>
 
 ```go
 package main
@@ -232,3 +241,5 @@ func GetTarget(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, t
 	return nil
 }
 ```
+
+</details>

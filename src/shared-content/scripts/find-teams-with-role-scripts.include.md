@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="find-teams-with-role-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -39,7 +42,12 @@ foreach ($teamName in $teamNames)
     Write-Host "$teamName"
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="find-teams-with-role-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
@@ -93,7 +101,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="find-teams-with-role-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -151,7 +164,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="find-teams-with-role-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -223,7 +241,12 @@ print("The following teams are using role {0}".format(user_role['Name']))
 for team in teams_with_role:
     print (team['Name'])
 ```
-```go Go
+
+</details>
+<details data-group="find-teams-with-role-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -339,3 +362,5 @@ func GetUserRole(client *octopusdeploy.Client, userRoleName string) *octopusdepl
 	return nil
 }
 ```
+
+</details>

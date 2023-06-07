@@ -93,27 +93,55 @@ Uploading a Helm package requires the Cloudsmith CLI to be installed. To install
 
 Before you can upload, you need to generate a package first. You can do this with one of the following commands (click on the Tab that matches your package-specific CLI):
 
-```shell NuGet
+<details data-group="generate-package">
+<summary>NuGet</summary>
+
+```shell
 nuget pack
 ```
-```shell Maven
+
+</details>
+<details data-group="generate-package">
+<summary>Maven</summary>
+
+```shell
 mvn package
 ```
-```shell Helm
+
+</details>
+<details data-group="generate-package">
+<summary>Helm</summary>
+
+```shell
 helm package .
 ```
-```shell Docker
+
+</details>
+<details data-group="generate-package">
+<summary>Docker</summary>
+
+```shell
 docker save -o your-image.docker your-image:latest
 ```
+
+</detail>
 
 ### Add Cloudsmith as a Source {#add-cloudsmith-source}
 
 Once you have generated a package, you need to add Cloudsmith as a Source in one of the following ways:
 
-```shell NuGet
+<details data-group="add-cloudsmith-source">
+<summary>NuGet</summary>
+
+```shell
 nuget sources add -Name example-repo -Source https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
 ```
-```xml Maven
+
+</details>
+<details data-group="add-cloudsmith-source">
+<summary>Maven</summary>
+
+```xml
 # The distribution repositories define where to push your artifacts. 
 # In this case it will be a single repository, but you can configure alternatives. 
 # Add the following to your project pom.xml file:
@@ -143,11 +171,18 @@ nuget sources add -Name example-repo -Source https://nuget.cloudsmith.io/OWNER/R
   </servers>
 </settings>
 ```
-```shell Docker
+
+</details>
+<details data-group="add-cloudsmith-source">
+<summary>Docker</summary>
+
+```shell
 docker login docker.cloudsmith.io
 # You will be prompted for your Username and Password. 
 # Enter your Cloudsmith username and your Cloudsmith API Key.
 ```
+
+</details>
 
 :::div{.hint}
 **Note:** There are no steps required to add Cloudsmith as a Source for Helm.
@@ -157,21 +192,41 @@ docker login docker.cloudsmith.io
 
 Finally you can publish (or upload) your package to Cloudsmith using one of the following commands:
 
-```shell NuGet
+<details data-group="publish-package">
+<summary>NuGet</summary>
+
+```shell
 nuget push PACKAGE_NAME-PACKAGE_VERSION.nupkg -Source example-repo -ApiKey API-KEY
 ```
-```shell Maven
+
+</details>
+<details data-group="publish-package">
+<summary>Maven</summary>
+
+```shell
 mvn deploy
 ```
-```shell Helm
+
+</details>
+<details data-group="publish-package">
+<summary>Helm</summary>
+
+```shell
 # The command to upload a Helm chart via the Cloudsmith CLI is:
 cloudsmith push helm OWNER/REPOSITORY CHART_NAME-CHART_VERSION.tgz
 ```
-```shell Docker
+
+</details>
+<details data-group="publish-package">
+<summary>Docker</summary>
+
+```shell
 # To publish an image to a Cloudsmith-based Docker registry, you first need to tag your image:\ndocker tag IMAGE_NAME:TAG docker.cloudsmith.io/OWNER/REGISTRY/IMAGE_NAME:TAG
 # You can then publish the tagged image using docker push:
 docker push docker.cloudsmith.io/OWNER/REGISTRY/IMAGE_NAME:TAG
 ```
+
+</details>
 
 ## Adding Cloudsmith as an External Feed to Octopus {#add-cloudsmith-feed-to-octopus}
 
