@@ -27,11 +27,11 @@ To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information about
 ![](/docs/deployments/windows/images/deploying-virtual-hard-drives-configure-step.png "width=500")
 :::
 
-### Step 1: Select a package {#DeployingVirtualHardDrives-Step1:SelectaPackage}
+### Step 1: Select a package {#DeployingVirtualHardDrives-Step1-SelectaPackage}
 
 Use the Package Feed and Package ID fields to select the [package](/docs/packaging-applications) containing the Virtual Hard Drive (\*.vhd or \*.vhdx) to be installed. There must be a single VHD in the root of the package. The package may contain deployment scripts and other artifacts required by those scripts, but only a single VHD.
 
-### Step 2: Configure VHD options {#DeployingVirtualHardDrives-Step2:ConfigureVHDoptions}
+### Step 2: Configure VHD options {#DeployingVirtualHardDrives-Step2-ConfigureVHDoptions}
 
 +--------------------------+-----------------------------------------------------------------------------+
 | Field                    | Meaning                                                                     |

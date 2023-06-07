@@ -22,17 +22,17 @@ Deploying an Azure Web App with Octopus Deploy behaves very similarly to the Vis
 The default values for these variables were chosen to match Visual Studio following the principle of least surprise. You will typically need to adjust these values depending on your specific circumstances.
 :::
 
-## Step 1: Packaging {#DeployingapackagetoanAzureWebApp-Step1:Packaging}
+## Step 1: Packaging {#DeployingapackagetoanAzureWebApp-Step1-Packaging}
 
 See the [packaging application docs](/docs/packaging-applications)
 
-## Step 2: Create an Azure account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
+## Step 2: Create an Azure account {#DeployingapackagetoanAzureWebApp-Step2-CreateanAzureAccount}
 
 If you haven't already, create an [Azure Account](/docs/infrastructure/accounts/azure) to grant Octopus Deploy access to your Azure Subscription.
 
 If instead you want to **dynamically** create you account during your deployment, check our [documentation on how to do so](/docs/infrastructure/deployment-targets/dynamic-infrastructure)
 
-## Step 3: Configure your Azure web app step {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
+## Step 3: Configure your Azure web app step {#DeployingapackagetoanAzureWebApp-Step4-ConfigureyourAzureWebAppstep}
 
 1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/projects/steps).
 
