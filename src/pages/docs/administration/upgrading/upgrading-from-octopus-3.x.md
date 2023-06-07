@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/administration/upgrading/guide/index
+redirect: https://octopus.com/docs/administration/upgrading/guide
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

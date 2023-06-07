@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/packaging-applications/build-servers/jenkins/index
+redirect: https://octopus.com/docs/packaging-applications/build-servers/jenkins
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false
