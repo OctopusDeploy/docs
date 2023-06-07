@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/infrastructure/deployment-targets/linux/index
+redirect: https://octopus.com/docs/infrastructure/deployment-targets/linux
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/deployments/aws/cloudformation/index
+redirect: https://octopus.com/docs/deployments/aws/cloudformation
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

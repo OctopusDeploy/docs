@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/security/users-and-teams/auditing/index
+redirect: https://octopus.com/docs/security/users-and-teams/auditing
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false
