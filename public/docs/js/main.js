@@ -35,6 +35,11 @@ function enabled(settings, option) {
         && settings.includes(option);
 }
 
+if (enabled(f.details, 'tabs')) {
+    const tabs = await import('./modules/detail-tabs.js');
+    tabs.enhanceDetailGroups();
+}
+
 if (enabled(f.youTubeLinks, 'embed')) {
     const youTube = await import('./modules/youtube.js');
     youTube.enhanceYoutubeLinks();
@@ -53,9 +58,4 @@ if (enabled(f.figures, 'enlarge')) {
 if (enabled(f.headers, 'link')) {
     const headers = await import('./modules/headers.js');
     headers.enhanceHeaders();
-}
-
-if (enabled(f.details, 'tabs')) {
-    const tabs = await import('./modules/detail-tabs.js');
-    tabs.enhanceDetailGroups();
 }
