@@ -8,6 +8,7 @@ type Props = {
 };
 const { lang, page } = Astro.props satisfies Props;
 ---
+{page.children.length > 0 && (
 <div class="footer-column">
   <h2><Fragment set:html={page.title} /></h2>
   <ul>
@@ -18,3 +19,4 @@ const { lang, page } = Astro.props satisfies Props;
   ))}
   </ul>
 </div>
+)}

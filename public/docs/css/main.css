@@ -1794,6 +1794,7 @@ a.button.trial:focus {
     border-radius: var(--standard-radius) var(--standard-radius) 0 0;
     background: var(--bgcolor-tab);
     outline: none;
+    font-size: var(--font-size-small);
     font-weight: bold;
     text-align: left;
     cursor: pointer;
@@ -1832,8 +1833,8 @@ a.button.trial:focus {
     border: 2px solid var(--border-color-tab-active);
     border-radius: 0 var(--standard-radius) var(--standard-radius);
     background: var(--aft);
-    min-height: 10em;
     width: 100%;
+    max-width: calc(100% - 2rem);
     overflow: auto;
 }
 

@@ -124,7 +124,7 @@ helm package .
 docker save -o your-image.docker your-image:latest
 ```
 
-</detail>
+</details>
 
 ### Add Cloudsmith as a Source {#add-cloudsmith-source}
 
