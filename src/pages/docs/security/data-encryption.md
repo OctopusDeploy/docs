@@ -43,11 +43,20 @@ When Octopus is installed, it generates a random string which will be used as th
 
 Depending on the version of Octopus Server you are using you may need to use a slightly different parsing:
 
+</details>
+<details data-group="data-encryption">
+<summary>Using text</summary>
 
-```powershell using text
+```powershell
 $MasterKey = .\Octopus.Server.exe show-master-key
 ```
+
+</details>
+<details data-group="data-encryption">
+<summary>Using JSON</summary>
 
 ```powershell using JSON (if you're in the mood)
 $MasterKey = (.\Octopus.Server.exe show-master-key --format=json | ConvertFrom-Json).MasterKey
 ```
+
+</details>

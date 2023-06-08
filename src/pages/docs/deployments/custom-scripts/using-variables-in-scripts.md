@@ -16,25 +16,40 @@ Note that in scripts **all Octopus variables are strings** even if they look lik
 
 Let's consider an example where we have defined a project variable called `MyApp.ConnectionString`.
 
-```powershell PowerShell
+<details data-group="using-variables-in-scripts">
+<summary>PowerShell</summary>
+
+```powershell
 # It's a good idea to copy the value into a local variable to avoid quoting issues
 $connectionString = $OctopusParameters["MyApp.ConnectionString"]
 Write-Host "Connection string is: $connectionString"
 ```
 
-```csharp C#
+</details>
+<details data-group="using-variables-in-scripts">
+<summary>C#</summary>
+
+```csharp
 // It's a good idea to copy the value into a local variable to avoid quoting issues
 var connectionString = Octopus.Parameters["MyApp.ConnectionString"];
 Console.WriteLine("MyApp.ConnectionString: " + connectionString);
 ```
 
-```bash Bash
+</details>
+<details data-group="using-variables-in-scripts">
+<summary>Bash</summary>
+
+```bash
 # It's a good idea to copy the value into a variable to avoid quoting issues
 connectionString=$(get_octopusvariable "MyApp.ConnectionString")
 echo "Connection string is: $connectionString"
 ```
 
-```fsharp F#
+</details>
+<details data-group="using-variables-in-scripts">
+<summary>F#</summary>
+
+```fsharp
 // It's a good idea to copy the value into a variable to avoid quoting issues
 
 // tryFindVariable : name:string -> string option
@@ -54,10 +69,16 @@ let connectionString = Octopus.findVariable "MyApp.ConnectionString"
 let connectionString = Octopus.findVariableOrDefault "Default Value" "MyApp.ConnectionString"
 ```
 
-```python Python3
+</details>
+<details data-group="using-variables-in-scripts">
+<summary>Python3</summary>
+
+```python
 connectionString = get_octopusvariable("MyApp.ConnectionString")
 print(connectionString)
 ```
+
+</details>
 
 :::div{.success}
 To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/FSharp/Bootstrap.fsi).

@@ -1,6 +1,9 @@
 ### CentOS/Fedora/RedHat
 
-```bash Listening deployment target
+<details data-group="quickstart-fedora">
+<summary>Listening deployment target</summary>
+
+```bash
 serverUrl="https://my-octopus"   # The url of your Octous server
 thumbprint=""       # The thumbprint of your Octopus Server
 apiKey=""           # An Octopus Server api key with permission to add machines
@@ -23,7 +26,11 @@ echo "Registering the Tentacle $name with server $serverUrl in environment $envi
 /opt/octopus/tentacle/Tentacle service --install --start
 ```
 
-```bash Polling deployment target
+</details>
+<details data-group="quickstart-fedora">
+<summary>Polling deployment target</summary>
+
+```bash
 serverUrl="https://my-octopus"   # The url of your Octous server
 serverCommsPort=10943            # The communication port the Octopus Server is listening on (10943 by default)
 apiKey=""           # An Octopus Server api key with permission to add machines
@@ -45,7 +52,11 @@ echo "Registering the Tentacle $name with server $serverUrl in environment $envi
 /opt/octopus/tentacle/Tentacle service --install --start
 ```
 
-```bash Listening worker
+</details>
+<details data-group="quickstart-fedora">
+<summary>Listening worker</summary>
+
+```bash
 serverUrl="https://my-octopus"   # The url of your Octous server
 thumbprint=""       # The thumbprint of your Octopus Server
 apiKey=""           # An Octopus Server api key with permission to add machines
@@ -67,7 +78,11 @@ echo "Registering the Tentacle $name with server $serverUrl in worker pool $work
 /opt/octopus/tentacle/Tentacle service --install --start
 ```
 
-```bash Polling worker
+</details>
+<details data-group="quickstart-fedora">
+<summary>Polling worker</summary>
+
+```bash
 serverUrl="https://my-octopus"   # The url of your Octous server
 serverCommsPort=10943            # The communication port the Octopus Server is listening on (10943 by default)
 apiKey=""           # An Octopus Server api key with permission to add machines
@@ -87,3 +102,5 @@ echo "Registering the Tentacle $name with server $serverUrl in worker pool $work
 /opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --space "$spaceName" --name "$name" --workerPool "$workerPool" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
 /opt/octopus/tentacle/Tentacle service --install --start
 ```
+
+</details>

@@ -91,7 +91,7 @@ cat "./subfolder/file.txt"
 <details data-group="deployments-custom-scripts-reference-files-within-package">
 <summary>F#</summary>
 
-```fsharp F#
+```fsharp
 open System
 open System.IO
 

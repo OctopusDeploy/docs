@@ -9,7 +9,10 @@ navOrder: 50
 
 When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message. For example:
 
-```powershell PowerShell
+<details data-group="logging-messages-in-scripts">
+<summary>PowerShell</summary>
+
+```powershell
 Write-Verbose "This will be logged as a Verbose message - verbose messages are hidden by default"
 Write-Host "This will be logged as Information"
 Write-Output "This will be logged as Information too!"
@@ -19,7 +22,11 @@ Write-Warning "This will be logged as a Warning"
 Write-Error "This will be logged as an Error and may cause your script to stop running - take a look at the section on Error Handling"
 ```
 
-```csharp C#
+</details>
+<details data-group="logging-messages-in-scripts">
+<summary>C#</summary>
+
+```csharp
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
@@ -29,7 +36,11 @@ Octopus.WriteWait("Deployment is waiting on something");
 Octopus.WriteWarning("Warning");
 ```
 
-```bash Bash
+</details>
+<details data-group="logging-messages-in-scripts">
+<summary>Bash</summary>
+
+```bash
 echo "This will be logged as Information"
 write_verbose "Verbose!!"
 write_highlight "This is a highlight"
@@ -40,7 +51,11 @@ echoerror() { echo "$@" 1>&2; }
 echoerror "You can even define your own function to echo an error!"
 ```
 
-```fsharp F#
+</details>
+<details data-group="logging-messages-in-scripts">
+<summary>F#</summary>
+
+```fsharp
 printfn "This will be logged as Information"
 writeVerbose "Verbose!!"
 writeHighlight "This is a highlight"
@@ -49,7 +64,11 @@ writeWarning "Warning"
 eprintfn "This will be logged as Error"
 ```
 
-```python Python3
+</details>
+<details data-group="logging-messages-in-scripts">
+<summary>Python3</summary>
+
+```python
 print("This will be logged as Information")
 printverbose("Verbose!")
 printhighlight("This is a highlight")
@@ -57,6 +76,8 @@ printwait("Deployment is waiting on something")
 printwarning("Warning")
 print("This will be logged as an error", file=sys.stderr)
 ```
+
+</details>
 
 Try these out for yourself using the [Script Console](/docs/administration/managing-infrastructure/script-console)!
 

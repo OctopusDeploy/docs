@@ -18,41 +18,78 @@ Step 1 calculates a name by convention, which is used by subsequent steps.
 :::
 
 ## Creating an output variable
-```powershell PowerShell
+
+<details data-group="creating-an-output-variable">
+<summary>PowerShell</summary>
+
+```powershell
 Set-OctopusVariable -name "AppInstanceName" -value "MyAppInstance"
 ```
 
-```csharp C#
+</details>
+<details data-group="creating-an-output-variable">
+<summary>C#</summary>
+
+```csharp
 Octopus.SetVariable("AppInstanceName", "MyAppInstance");
 ```
 
-```bash Bash
+</details>
+<details data-group="creating-an-output-variable">
+<summary>Bash</summary>
+
+```bash
 set_octopusvariable "AppInstanceName" "MyAppInstance"
 ```
 
-```fsharp F#
+</details>
+<details data-group="creating-an-output-variable">
+<summary>F#</summary>
+
+```fsharp
 Octopus.setVariable "AppInstanceName" "MyAppInstance"
 ```
 
-```python Python3
+</details>
+<details data-group="creating-an-output-variable">
+<summary>Python3</summary>
+
+```python
 set_octopusvariable("AppInstanceName", "MyAppInstance")
 ```
 
+</details>
+
 ## Using the variable in another step
 
-```powershell PowerShell
+<details data-group="using-variable-in-another-step">
+<summary>PowerShell</summary>
+
+```powershell
 $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
 ```
 
-```csharp C#
+</details>
+<details data-group="using-variable-in-another-step">
+<summary>C#</summary>
+
+```csharp
 var appInstanceName = Octopus.Parameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
 ```
 
-```bash Bash
+</details>
+<details data-group="using-variable-in-another-step">
+<summary>Bash</summary>
+
+```bash
 appInstanceName=$(get_octopusvariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
 ```
 
-```fsharp F#
+</details>
+<details data-group="using-variable-in-another-step">
+<summary>F#</summary>
+
+```fsharp
 //throw if not found
 let appInstanceName1 = Octopus.findVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
 
@@ -63,9 +100,15 @@ let appInstanceName2 = Octopus.findVariableOrDefault "Value if not found" "Octop
 let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
 ```
 
+</details>
+<details data-group="using-variable-in-another-step">
+<summary>Python3</summary>
+
 ```python Python3
 appInstanceName = get_octopusvariable("Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
 ```
+
+</details>
 
 ## Service message
 
