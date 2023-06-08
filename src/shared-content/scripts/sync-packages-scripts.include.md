@@ -1,4 +1,7 @@
-```powershell (REST API)
+<details data-group="sync-packages-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 [CmdletBinding()]
@@ -240,3 +243,5 @@ foreach ($package in $packages) {
 
 Write-Host "Sync complete.  $totalSyncedPackageCount packages ($("{0:n2}" -f ($totalSyncedPackageSize/1MB)) megabytes) were copied." -ForegroundColor Green
 ```
+
+</details>

@@ -1,4 +1,5 @@
-**C#:**
+<details data-group="add-script-step-to-runbook-scripts">
+<summary>C#</summary>
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
@@ -88,3 +89,5 @@ catch (Exception ex)
     return;
 }
 ```
+
+</details>

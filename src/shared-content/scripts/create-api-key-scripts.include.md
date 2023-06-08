@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-api-key-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -29,7 +32,12 @@ $CreateAPIKeyResponse = (Invoke-WebRequest "$OctopusURL/api/users/$($User.id)/ap
 # Printing new API Key
 Write-Output "API Key created: $($CreateAPIKeyResponse.apikey)"
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-api-key-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "C:\octo\Octopus.Client.dll"
 
@@ -59,7 +67,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-api-key-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 
 // Reference Octopus.Client
@@ -94,7 +107,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-api-key-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -157,7 +175,12 @@ uri = '{0}/api/users/{1}/apikeys'.format(octopus_server_uri, user['Id'])
 response = requests.post(uri, headers=headers, json=apiKey)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-api-key-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -221,7 +244,12 @@ func GetUser(client *octopusdeploy.Client, OctopusUserName string) *octopusdeplo
 	return nil
 }
 ```
-```java Java
+
+</details>
+<details data-group="create-api-key-scripts">
+<summary>Java</summary>
+
+```java
 import com.octopus.sdk.Repository;
 import com.octopus.sdk.api.ApiKeyApi;
 import com.octopus.sdk.domain.User;
@@ -272,3 +300,5 @@ public class CreateApiKey {
 }
 
 ```
+
+</details>

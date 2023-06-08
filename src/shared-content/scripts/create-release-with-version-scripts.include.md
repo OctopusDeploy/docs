@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-release-with-version-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -49,7 +52,12 @@ $release = Invoke-RestMethod -Uri "$octopusURL/api/$($space.id)/releases" -Metho
 # Display created release
 $release
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-release-with-version-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -116,7 +124,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-release-with-version-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -188,7 +201,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-release-with-version-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -285,7 +303,12 @@ response.raise_for_status()
 # Get results of API call
 release = json.loads(response.content.decode('utf-8'))
 ```
-```go Go
+
+</details>
+<details data-group="create-release-with-version-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -575,7 +598,12 @@ func GetPackageVersion(octopusURL *url.URL, APIKey string, space *octopusdeploy.
 	return mostRecentPackageVersion["Version"].(string)
 }
 ```
-```java Java
+
+</details>
+<details data-group="create-release-with-version-scripts">
+<summary>Java</summary>
+
+```java
 import com.octopus.sdk.Repository;
 import com.octopus.sdk.domain.Project;
 import com.octopus.sdk.domain.Release;
@@ -629,3 +657,5 @@ public class CreateReleaseWithVersion {
   }
 }
 ```
+
+</details>

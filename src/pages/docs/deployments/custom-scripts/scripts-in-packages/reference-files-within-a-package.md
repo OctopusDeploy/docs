@@ -28,7 +28,10 @@ In post-deploy scripts:
 
 So if you want to reference `file.txt` in `subfolder` within the package, you could do the following:
 
-```powershell PowerShell
+<details data-group="deployments-custom-scripts-reference-files-within-package">
+<summary>PowerShell</summary>
+
+```powershell
 # in pre-deploy, in post-deploy if custom installation directory has not been defined
 $extractPath = $OctopusParameters['Octopus.Action.Package.InstallationDirectoryPath'] 
 # if a custom installation directory has been defined
@@ -43,6 +46,11 @@ Get-Content "$customPath\subfolder\file.txt"
 #   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 Get-Content ".\subfolder\file.txt"
 ```
+
+</details>
+<details data-group="deployments-custom-scripts-reference-files-within-package">
+<summary>C#</summary>
+
 ```csharp C#
 // in pre-deploy, in post-deploy if custom installation directory has not been defined
 var extractPath = Octopus.Parameters["Octopus.Action.Package.InstallationDirectoryPath"];
@@ -58,7 +66,12 @@ Console.WriteLine(File.ReadAllText(customPath + @"\subfolder\file.txt"));
 //   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 Console.WriteLine(File.ReadAllText(@".\subfolder\file.txt"));
 ```
-```bash Bash
+
+</details>
+<details data-group="deployments-custom-scripts-reference-files-within-package">
+<summary>Bash<summary>
+
+```bash
 # in pre-deploy, in post-deploy if custom installation directory has not been defined
 extractPath="$(get_octopusvariable "Octopus.Action.Package.InstallationDirectoryPath")"
 # if a custom installation directory has been defined
@@ -73,7 +86,12 @@ cat "$customPath/subfolder/file.txt"
 #   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 cat "./subfolder/file.txt"
 ```
-```fsharp F#
+
+</details>
+<details data-group="deployments-custom-scripts-reference-files-within-package">
+<summary>F#</summary>
+
+```fsharp
 open System
 open System.IO
 
@@ -91,3 +109,5 @@ printfn "%s" (File.ReadAllText(customPath + @"\subfolder\file.txt"))
 //   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 printfn "%s" (File.ReadAllText(@".\subfolder\file.txt"))
 ```
+
+</details>

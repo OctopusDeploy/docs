@@ -20,7 +20,10 @@ Tentacles set up this way will run *inside a container* and script execution wil
 
 When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command to connect and add itself as a machine to that server with the provided roles and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies) to remove the duplicated targets.
 
-```powershell Deployment Target
+<details data-group="deployment-targets-tentacle-container">
+<summary>Deployment Target</summary>
+
+```powershell
 docker run --interactive --detach `
  --name OctopusTentacle `
  --publish 10933:10933 `
@@ -32,7 +35,12 @@ docker run --interactive --detach `
  --env ServerUrl="http://10.0.0.1:8080" `
  !docker-image <octopusdeploy/tentacle>
 ```
-```powershell Worker
+
+</details>
+<details data-group="deployment-targets-tentacle-container">
+<summary>Worker</summary>
+
+```powershell
 docker run --interactive --detach `
  --name OctopusWorker `
  --publish 10933:10933 `
@@ -43,6 +51,8 @@ docker run --interactive --detach `
  --env ServerUrl="http://10.0.0.1:8080" `
  !docker-image <octopusdeploy/tentacle>
 ```
+
+</details>
 
 ## Configuration
 When running an Octopus Tentacle Image, the following values can be provided to configure the running Octopus Tentacle instance.

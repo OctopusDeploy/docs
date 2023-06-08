@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="add-domain-teams-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop"
 
 $octopusURL = "https://yoururl.com" # Replace with your instance URL
@@ -96,3 +99,5 @@ while (1 -eq 1) #Continue until we reach the end of the user list or until we go
     }
 }
 ```
+
+</details>

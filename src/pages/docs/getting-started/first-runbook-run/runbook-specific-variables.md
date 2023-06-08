@@ -36,13 +36,23 @@ Steps in the runbook process can reference the variables.
 1. Select the script step.
 1. Change the script in the script step based on your language of choice:
 
-```powershell PowerShell
+<details data-group="getting-started-first-runbook-run-runbook-specific-variables">
+<summary>PowerShell</summary>
+
+```powershell
 Write-Host $OctopusParameters["Helloworld.Greeting"]
 ```
-```bash Bash
+
+</details>
+<details data-group="getting-started-first-runbook-run-runbook-specific-variables">
+<summary>Bash</summary>
+
+```bash
 greeting=$(get_octopusvariable "Helloworld.Greeting")
 echo $greeting
 ```
+
+</details>
 
 :::div{.hint}
 If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.

@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-and-deploy-release-with-tenants-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -85,7 +88,12 @@ $tenantNames | ForEach-Object {
     $deployment = Invoke-WebRequest -Uri $octopusSpaceUrl/deployments -Method POST -Headers $headers -Body $deploymentBody -ErrorVariable octoError
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-and-deploy-release-with-tenants-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusBaseURL = "https://youroctourl/"
@@ -174,7 +182,12 @@ catch {
     exit
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-and-deploy-release-with-tenants-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -271,7 +284,12 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-and-deploy-release-with-tenants-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -409,7 +427,12 @@ for tenant in tenants:
     response = requests.post(uri, headers=headers, json=deploymentJson)
     response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-and-deploy-release-with-tenants-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -763,3 +786,5 @@ func GetTenantByPartialName(client *octopusdeploy.Client, TenantName string, ski
 	return nil
 }
 ```
+
+</details>

@@ -19,12 +19,21 @@ Unlike most other runbooks, this type of operation needs to run on a [worker](/d
 4. Add a **Run a script** step
 5. Change the Execution Location to `Run on a worker on behalf of each deployment target`
 6. Select the role from the `On Targets in Roles` drop-down list.
-7. Select the radio button that corresponds with the language you're using:
+7. Select the radio button that corresponds with the language you're using and enter the inline source code:
 
-```powershell Inline Source Code
+<details data-group="runbook-examples-restart-server">
+<summary>PowerShell</summary>
+
+```powershell
 Invoke-Command -ScriptBlock { Restart-Computer } -ComputerName #{Octopus.Machine.Name}
 ```
-```bash Inline Source Code
+
+</details>
+<details data-group="runbook-examples-restart-server">
+<summary>Bash</summary>
+
+```bash
 ssh #{Octopus.Machine.Name} sudo reboot
 ```
 
+</details>

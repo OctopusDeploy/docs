@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-scheduled-runbook-trigger-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -79,7 +82,12 @@ $runbookScheduledTrigger = Invoke-RestMethod -Method Post -Uri "$octopusURL/api/
 
 Write-Host "Created runbook trigger: $($runbookScheduledTrigger.Id) ($runbookTriggerName)"
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-scheduled-runbook-trigger-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # You can get this dll from your Octopus Server/Tentacle installation directory or from
 # https://www.nuget.org/packages/Octopus.Client/
 # Load octopus.client assembly
@@ -156,7 +164,12 @@ $runbookScheduledTrigger.Action = $runbookScheduledTriggerAction
 $createdRunbookTrigger = $repositoryForSpace.ProjectTriggers.Create($runbookScheduledTrigger);
 Write-Host "Created runbook trigger: $($createdRunbookTrigger.Id) ($runbookTriggerName)"
 ```
-```csharp C#
+
+</details>
+<details data-group="create-scheduled-runbook-trigger-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -248,7 +261,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-scheduled-runbook-trigger-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -310,3 +328,5 @@ uri = '{0}/{1}/projecttriggers'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=scheduled_runbook_trigger)
 response.raise_for_status()
 ```
+
+</details>

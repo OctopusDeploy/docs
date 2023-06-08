@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="add-environment-to-team-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -35,7 +38,12 @@ $scopedUserRole.EnvironmentIds += $environmentIds
 
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/scopeduserroles/$($scopedUserRole.Id)" -Headers $header -Body ($scopedUserRole | ConvertTo-Json -Depth 10)
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="add-environment-to-team-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -83,7 +91,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="add-environment-to-team-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -133,7 +146,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="add-environment-to-team-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -191,7 +209,12 @@ uri = '{0}/{1}/scopeduserroles/{2}'.format(octopus_server_uri, space['Id'], scop
 response = requests.put(uri, headers=headers, json=scopeduserrole)
 response.raise_for_status
 ```
-```go Go
+
+</details>
+<details data-group="add-environment-to-team-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -390,3 +413,5 @@ func contains(s []string, str string) bool {
 	return false
 }
 ```
+
+</details>

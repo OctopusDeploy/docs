@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="add-environments-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -34,7 +37,12 @@ foreach ($environment in $environments) {
     }
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="add-environments-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # You can get this dll from your Octopus Server/Tentacle installation directory or from
@@ -73,7 +81,11 @@ foreach ($environmentName in $environments) {
 }
 ```
 
-```csharp C#
+</details>
+<details data-group="add-environments-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -121,7 +133,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="add-environments-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from urllib.parse import quote
@@ -163,7 +180,12 @@ for environment_name in environment_names:
     else:
         print('Environment \'{0}\' already exists. Nothing to create :)'.format(environment_name))
 ```
-```go Go
+
+</details>
+<details data-group="add-environments-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -256,3 +278,5 @@ func GetEnvironment(octopusURL *url.URL, APIKey string, space *octopusdeploy.Spa
 	return nil
 }
 ```
+
+</details>

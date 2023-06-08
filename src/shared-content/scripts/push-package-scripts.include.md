@@ -1,4 +1,8 @@
-```powershell PowerShell (REST API)
+</details>
+<details data-group="push-package-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -44,7 +48,12 @@ if ($null -ne $fileStream)
     $fileStream.Close()
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="push-package-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -86,7 +95,12 @@ finally
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="push-package-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -131,7 +145,12 @@ finally
     }
 }
 ```
-```python Python3
+
+</details>
+<details data-group="push-package-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -159,7 +178,12 @@ with open('{0}{1}'.format(package_folder, package_name), 'rb') as package:
     response = requests.post(uri, headers=headers, files=files)
     response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="push-package-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -271,3 +295,5 @@ func UploadPackage(filePath string, url string, APIKey string) {
 	defer response.Body.Close()
 }
 ```
+
+</details>

@@ -56,6 +56,9 @@ The below examples demonstrate creating a new AWS ECS Cluster target, evidenced 
 
 Below is an example of creating an AWS ECS Cluster target with [account credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target/#aws-account).
 
+<details data-group="account-credentials">
+<summary>PowerShell</summary>
+
 ```powershell PowerShell
 $inputs = @"
 {
@@ -76,7 +79,11 @@ $inputs = @"
 New-OctopusTarget -Name "$($OctopusParameters["target_name"])" -TargetId "aws-ecs-target" -Inputs $inputs -Roles "$($OctopusParameters["role"])"
 ```
 
-```bash Bash
+</details>
+<details data-group="account-credentials">
+<summary>Bash</summary>
+
+```bash
 read -r -d '' INPUTS <<EOT
 {
     "clusterName": "$(get_octopusvariable "clusterName")",
@@ -96,11 +103,14 @@ EOT
 new_octopustarget -n "$(get_octopusvariable "target_name")" -t "aws-ecs-target" --inputs "$INPUTS" --roles "$(get_octopusvariable "role")"
 ```
 
+</details>
+
 #### Worker credentials
 
 Below is an example of creating an AWS ECS Cluster target with [worker credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target/#worker-credentials).
 
-PowerShell:
+<details data-group="worker-credentials">
+<summary>PowerShell</summary>
 
 ```powershell
 $inputs = @"
@@ -121,7 +131,9 @@ $inputs = @"
 New-OctopusTarget -Name "$($OctopusParameters["target_name"])" -TargetId "aws-ecs-target" -Inputs $inputs -Roles "$($OctopusParameters["role"])"
 ```
 
-Bash:
+</details>
+<details data-group="worker-credentials">
+<summary>Bash</summary>
 
 ```bash Bash
 read -r -d '' INPUTS <<EOT
@@ -142,11 +154,14 @@ EOT
 new_octopustarget -n "$(get_octopusvariable "target_name")" -t "aws-ecs-target" --inputs "$INPUTS" --roles "$(get_octopusvariable "role")"
 ```
 
+</details>
+
 #### Assuming an IAM role
 
 Below is an example of creating an AWS ECS Cluster target using an [assumed role](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target/#assuming-an-iam-role). Assuming a role can be used with either worker or account credentials, the example below uses worker credentials.
 
-PowerShell:
+<details data-group="assuming-iam-role">
+<summary>PowerShell</summary>
 
 ```powershell
 $inputs = @"
@@ -171,7 +186,9 @@ $inputs = @"
 New-OctopusTarget -Name "$($OctopusParameters["target_name"])" -TargetId "aws-ecs-target" -Inputs $inputs -Roles "$($OctopusParameters["role"])"
 ```
 
-Bash:
+</details>
+<details data-group="assuming-iam-role">
+<summary>Bash</summary>
 
 ```bash
 read -r -d '' INPUTS <<EOT
@@ -195,5 +212,7 @@ EOT
 
 new_octopustarget -n "$(get_octopusvariable "target_name")" -t "aws-ecs-target" --inputs "$INPUTS" --roles "$(get_octopusvariable "role")"
 ```
+
+</details>
 
 <CreateDeploymentTargetsHint />

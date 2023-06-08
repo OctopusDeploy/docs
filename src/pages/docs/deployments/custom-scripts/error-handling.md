@@ -56,22 +56,43 @@ if ($LastExitCode -ne 0) {
 The fail step function will stop your script execution and return a non-zero error code. An optional message can be supplied. If supplied, the message replaces
 the `The remote script failed with exit code <code>` text in the deployment process overview page.
 
-```powershell PowerShell
+<details data-group="error-handling">
+<summary>PowerShell</summary>
+
+```powershell
 Fail-Step "A friendly message"
 ```
 
-```csharp C#
+</details>
+<details data-group="error-handling">
+<summary>C#</summary>
+
+```csharp
 Octopus.FailStep("A friendly message");
 ```
 
-```bash Bash
+</details>
+<details data-group="error-handling">
+<summary>Bash</summary>
+
+```bash
 fail_step "A friendly message"
 ```
 
-```fsharp F#
+</details>
+<details data-group="error-handling">
+<summary>F#</summary>
+
+```fsharp
 Octopus.failStep "A friendly message"
 ```
 
-```python Python3
+</details>
+<details data-group="error-handling">
+<summary>Python3</summary>
+
+```python
 failstep("A friendly message")
 ```
+
+</details>

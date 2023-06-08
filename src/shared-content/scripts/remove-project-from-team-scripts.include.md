@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="remove-project-from-team-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -31,7 +34,12 @@ foreach ($scopedUserRole in $scopedUserRoles)
     Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/scopeduserroles/$($scopedUserRole.Id)" -Body ($scopedUserRole | ConvertTo-Json -Depth 10) -Headers $header
 }
 ```
-```powershell Powershell (Octopus.Client)
+
+</details>
+<details data-group="remove-project-from-team-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -73,7 +81,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="remove-project-from-team-scripts">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
@@ -119,7 +132,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="remove-project-from-team-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -192,7 +210,12 @@ for scoped_user_role in scoped_user_roles:
         response = requests.put(uri, headers=headers, json=scoped_user_role)
         response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="remove-project-from-team-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -354,3 +377,5 @@ func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, 
 	return nil
 }
 ```
+
+</details>

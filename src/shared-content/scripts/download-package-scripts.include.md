@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="download-package-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -21,7 +24,12 @@ $filePath = [System.IO.Path]::Combine($outputFolder, "$($package.PackageId).$($p
 Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/packages/$packageName.$packageVersion/raw" -Headers $header -OutFile $filePath
 Write-Host "Downloaded file to $filePath"
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="download-package-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -56,7 +64,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="download-package-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -103,7 +116,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="download-package-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -138,7 +156,12 @@ f.write(response.content)
 f.close()
 print('Downloaded package to \'{0}\''.format(package_output_file_path))
 ```
-```go Go
+
+</details>
+<details data-group="download-package-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -257,3 +280,5 @@ func DownloadPackage(octopusURL *url.URL, APIKey string, octoPackage *octopusdep
 
 }
 ```
+
+</details>

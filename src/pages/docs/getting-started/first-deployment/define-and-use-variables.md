@@ -32,13 +32,23 @@ Steps in the deployment process can reference the variables.
 1. Select the previously created Run a Script step.
 1. Replace the inline source code script based on your selected language:
 
-```powershell PowerShell
+<details data-group="getting-started-first-deployment-define-and-use-variables">
+<summary>PowerShell</summary>
+
+```powershell
 Write-Host $OctopusParameters["Helloworld.Greeting"]
 ```
-```bash Bash
+
+</details>
+<details data-group="getting-started-first-deployment-define-and-use-variables">
+<summary>Bash</summary>
+
+```bash
 greeting=$(get_octopusvariable "Helloworld.Greeting")
 echo $greeting
 ```
+
+</details>
 
 :::div{.hint}
 If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.

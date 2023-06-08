@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-a-lifecycle-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 function Get-OctopusItems
 {
 	# Define parameters
@@ -99,7 +102,12 @@ else
     Write-Host "$lifecycleName already exists."
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="create-a-lifecycle-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 $octopusURL = "https://YourURL"
@@ -128,7 +136,12 @@ else
     Write-Host "$lifecycleName already exists."
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-a-lifecycle-scripts">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 using Octopus.Client;
 using Octopus.Client.Model;
@@ -162,7 +175,12 @@ else
 	Console.Write(string.Format("{0} already exists.", lifecycleName));
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-a-lifecycle-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -241,7 +259,12 @@ if None == lifecycle:
 else:
     print ('{0} already exists.'.format(lifecycle_name))
 ```
-```go Go
+
+</details>
+<details data-group="create-a-lifecycle-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -348,7 +371,12 @@ func CreateLifecycle(octopusURL *url.URL, APIKey string, space *octopusdeploy.Sp
 	return lifecycle
 }
 ```
-```java Java
+
+</details>
+<details data-group="create-a-lifecycle-scripts">
+<summary>Java</summary>
+
+```java
 import com.octopus.sdk.Repository;
 import com.octopus.sdk.domain.Lifecycle;
 import com.octopus.sdk.domain.Space;
@@ -400,3 +428,5 @@ public class CreateLifecycle {
   }
 }
 ```
+
+</details>

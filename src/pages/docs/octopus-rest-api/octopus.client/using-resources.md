@@ -10,12 +10,20 @@ navOrder: 20
 You can load, modify and save resources using the different `Repository` classes provided in the Octopus.Client library.
 The following example retrieves a [deployment target](/docs/infrastructure/deployment-targets), names it `Test Server 1` and then saves it:
 
-```powershell PowerShell
+<details data-group="octopus-client-using-resources">
+<summary>PowerShell</summary>
+
+```powershell
 $machine = $repository.Machines.Get("machines-1");
 $machine.Name = "Test Server 1";
 $repository.Machines.Modify($machine);
 ```
-```csharp C#
+
+</details>
+<details data-group="octopus-client-using-resources">
+<summary>C#</summary>
+
+```csharp
 // Sync
 var machine = repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";
@@ -26,5 +34,7 @@ var machine = await repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";
 await repository.Machines.Modify(machine);
 ```
+
+</details>
 
 The repository methods all make direct HTTP requests. There's no "session" abstraction or transaction support.

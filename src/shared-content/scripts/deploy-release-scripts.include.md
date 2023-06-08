@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="deploy-release-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -40,7 +43,12 @@ $deploymentBody = @{
 Write-Host "Creating deployment with these values: $deploymentBody"
 $deployment = Invoke-RestMethod -Uri $octopusURL/api/$($space.Id)/deployments -Method POST -Headers $headers -Body $deploymentBody
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="deploy-release-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusURL = "https://youroctourl/"
@@ -87,7 +95,12 @@ catch {
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="deploy-release-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -136,7 +149,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="deploy-release-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -177,7 +195,12 @@ uri = '{0}/{1}/deployments'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=deployment)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="deploy-release-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -375,3 +398,5 @@ func GetEnvironment(octopusURL *url.URL, APIKey string, space *octopusdeploy.Spa
 	return nil
 }
 ```
+
+</details>

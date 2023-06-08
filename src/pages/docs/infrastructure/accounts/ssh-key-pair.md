@@ -20,16 +20,29 @@ From **Octopus 2021.1.7466**, Octopus supports newer ED25519 SSH keys. For older
 :::
 
 1. Run the following command on your Linux server:
-```bash ED25519
+
+<details data-group="generate-key-pair-linux">
+<summary>ED25519</summary>
+
+```bash
 ssh-keygen -t ed25519
 ```
-```bash RSA
+
+</details>
+<details data-group="generate-key-pair-linux">
+<summary>RSA</summary>
+
+```bash
 ssh-keygen -t rsa -m PEM
 ```
+
+</details>
+
 This will bring up an interactive dialog, prompting for:
-1. The folder that the generated will be placed, defaulting to `~/.ssh/id_ed25519` or `~/.ssh/id_rsa`, depending on your selection above.
-1. Enter a passphrase (or press enter for no passphrase).
-1. If you entered a passphrase, re-enter the passphrase.
+
+2. The folder that the generated will be placed, defaulting to `~/.ssh/id_ed25519` or `~/.ssh/id_rsa`, depending on your selection above.
+3. Enter a passphrase (or press enter for no passphrase).
+4. If you entered a passphrase, re-enter the passphrase.
 
 You now have two files:
 - `id_ed25519` or `id_rsa` (the private key)
@@ -39,12 +52,22 @@ The public key will be stored on this (the Linux) server and the private key wil
 
 5. Copy the public key to the `authorized_keys` file that is used during authentication:
 
+<details data-group="copy-key-to-authorized-keys">
+<summary>ED25519</summary>
+
 ```bash ED25519
 cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
 ```
+
+</details>
+<details data-group="copy-key-to-authorized-keys">
+<summary>RSA</summary>
+
 ```bash RSA
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
+
+</details>
 
 6. Modify the permissions of the `authorized_keys` file:
 

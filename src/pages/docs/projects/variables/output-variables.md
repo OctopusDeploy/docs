@@ -13,25 +13,46 @@ Output variables can be set anywhere that Octopus runs scripts - for example, th
 
 For example, you might have a standalone [PowerShell script step](/docs/deployments/custom-scripts) called **StepA** that does something like this:
 
-```powershell PowerShell
+<details data-group="output-variables">
+<summary>PowerShell</summary>
+
+```powershell
 Set-OctopusVariable -name "TestResult" -value "Passed"
 ```
 
-```csharp C#
+</details>
+<details data-group="output-variables">
+<summary>C#</summary>
+
+```csharp
 Octopus.SetVariable("TestResult", "Passed");
 ```
 
-```bash Bash
+</details>
+<details data-group="output-variables">
+<summary>Bash</summary>
+
+```bash
 set_octopusvariable "TestResult" "Passed"
 ```
 
-```fsharp F#
+</details>
+<details data-group="output-variables">
+<summary>F#</summary>
+
+```fsharp
 Octopus.setVariable "TestResult" "Passed"
 ```
 
-```python Python3
+</details>
+<details data-group="output-variables">
+<summary>Python3</summary>
+
+```python
 set_octopusvariable("TestResult", "Passed")
 ```
+
+</details>
 
 You can then use the variable from other steps, either in [variable binding syntax](/docs/projects/variables/variable-substitutions):
 
@@ -41,47 +62,89 @@ You can then use the variable from other steps, either in [variable binding synt
 
 Or other scripts:
 
-```powershell PowerShell
+<details data-group="output-variables-use-in-other-steps">
+<summary>PowerShell</summary>
+
+```powershell
 $TestResult  = $OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
 ```
 
-```csharp C#
+</details>
+<details data-group="output-variables-use-in-other-steps">
+<summary>C#</summary>
+
+```csharp
 var testResult = Octopus.Parameters["Octopus.Action[StepA].Output.TestResult"]
 ```
 
-```bash Bash
+</details>
+<details data-group="output-variables-use-in-other-steps">
+<summary>Bash</summary>
+
+```bash
 testResult=$(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
 ```
 
-```fsharp F#
+</details>
+<details data-group="output-variables-use-in-other-steps">
+<summary>F#</summary>
+
+```fsharp
 let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 ```
 
-```python Python3
+</details>
+<details data-group="output-variables-use-in-other-steps">
+<summary>Python3</summary>
+
+```python
 testResult = get_octopusvariable("Octopus.Action[StepA].Output.TestResult")
 ```
 
+</details>
+
 ## Sensitive output variables
+
+<details data-group="sensitive-output-variables">
+<summary>PowerShell</summary>
 
 ```powershell PowerShell
 Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive
 ```
 
-```csharp C#
+</details>
+<details data-group="sensitive-output-variables">
+<summary>C#</summary>
+
+```csharp
 Octopus.SetVariable("Password", "correct horse battery staple", true);
 ```
 
-```bash Bash
+</details>
+<details data-group="sensitive-output-variables">
+<summary>Bash</summary>
+
+```bash
 set_octopusvariable "Password" "correct horse battery staple" -sensitive
 ```
 
-```fsharp F#
+</details>
+<details data-group="sensitive-output-variables">
+<summary>F#</summary>
+
+```fsharp
 Octopus.setSensitiveVariable "Password" "correct horse battery staple"
 ```
 
-```python Python3
+</details>
+<details data-group="sensitive-output-variables">
+<summary>Python3</summary>
+
+```python
 set_octopusvariable("Password", "correct horse battery staple", True)
 ```
+
+</details>
 
 ## System output variables {#Outputvariables-Systemoutputvariables}
 

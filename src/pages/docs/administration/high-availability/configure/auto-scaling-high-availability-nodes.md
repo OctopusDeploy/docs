@@ -35,7 +35,10 @@ Once you have the version, you can then download that from the Octopus Deploy we
 
 Below is a sample script to download and install Octopus Deploy.
 
-```powershell (MSI)
+<details data-group="auto-scaling-high-availability-nodes">
+<summary>PowerShell (MSI)</summary>
+
+```powershell
 $yourInstanceUrl = "https://samples.octopus.app"
 $downloadLocation = "C:\Temp"
 
@@ -53,7 +56,12 @@ Start-BitsTransfer -source $downloadUrl -destination $outfile
 $msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $downloadFileNam /quiet" -Wait -Passthru).ExitCode 
 Write-Output "Server MSI installer returned exit code $msiExitCode" 
 ```
-```powershell (Chocolatey)
+
+</details>
+<details data-group="auto-scaling-high-availability-nodes">
+<summary>PowerShell (Chocolatey)</summary>
+
+```powershell
 $yourInstanceUrl = "https://samples.octopus.app"
 
 $apiInfo = Invoke-RestMethod "$yourInstanceUrl/api" 
@@ -61,6 +69,8 @@ $versionToDownload = $apiInfo.Version
 
 choco install octopusdeploy --version=$versionToDownload -y
 ```
+
+</details>
 
 ### Configuring the new node
 
@@ -76,7 +86,10 @@ The shared folder settings for BLOB storage are stored in the database.
 If you are using a mapped network drive, you'll need to configure that prior to configuring Octopus Deploy.
 :::
 
-```powershell (With Active Directory)
+<details data-group="auto-scaling-high-availability-nodes-new-node">
+<summary>PowerShell (With Active Directory)</summary>
+
+```powershell
 $masterKey = "YOUR MASTER KEY"
 $databaseServer = "YOUR DATABASE SERVER"
 $databaseName = "YOUR DATABASE NAME"
@@ -94,7 +107,12 @@ $taskCapSize = "5" ##set this to 0 for UI-only nodes!
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" node --instance "Default" --taskCap=$taskCapSize
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --restart
 ```
-```powershell (No Active Directory)
+
+</details>
+<details data-group="auto-scaling-high-availability-nodes-new-node">
+<summary>PowerShell (No Active Directory)</summary>
+
+```powershell
 $masterKey = "YOUR MASTER KEY"
 $databaseServer = "YOUR DATABASE SERVER"
 $databaseName = "YOUR DATABASE NAME"
@@ -112,6 +130,8 @@ $taskCapSize = "5" ##set this to 0 for UI-only nodes!
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" node --instance "Default" --taskCap=$taskCapSize
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --restart
 ```
+
+</details>
 
 ### Potential pitfalls
 

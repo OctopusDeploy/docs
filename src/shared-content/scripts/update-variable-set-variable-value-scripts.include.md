@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="update-variable-set-variable-value-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 # Define working variables
 $octopusURL = "http://your.octopus.app/"
@@ -42,7 +45,12 @@ $existingVariable = $LibraryVariableSetVariables.Variables  | Where-Object {$_.n
 
 $UpdatedLibraryVariableSet = Invoke-RestMethod -Method Put -Uri "$OctopusURL/api/$($Space.Id)/variables/$($LibraryVariableSetVariables.Id)" -Headers $Header -Body ($LibraryVariableSetVariables | ConvertTo-Json -Depth 10)   
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="update-variable-set-variable-value-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Load assembly
@@ -83,7 +91,12 @@ $variableSet = $repositoryForSpace.VariableSets.Get($librarySet.VariableSetId)
 # Update
 $repositoryForSpace.VariableSets.Modify($variableSet)
 ```
-```csharp C#
+
+</details>
+<details data-group="update-variable-set-variable-value-scripts">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
@@ -121,7 +134,12 @@ var variableSet = repositoryForSpace.VariableSets.Get(librarySet.VariableSetId);
 variableSet.Variables.FirstOrDefault(v => v.Name == variableName).Value = variableValue;
 repositoryForSpace.VariableSets.Modify(variableSet);
 ```
-```python Python3
+
+</details>
+<details data-group="update-variable-set-variable-value-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -195,7 +213,12 @@ for variable in library_variables['Variables']:
 response = requests.put(uri, headers=headers, json=library_variables)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="update-variable-set-variable-value-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -311,3 +334,5 @@ func GetLibrarySet(client *octopusdeploy.Client, space *octopusdeploy.Space, lib
 	return nil
 }
 ```
+
+</details>

@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="promote-releases-not-in-destination">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $octopusUrl = "https://local.octopusdemos.app" 
 $apiKey = "YOUR API KEY"
 $projectNameList = "WebAPI,Web UI"
@@ -160,7 +163,12 @@ foreach ($projectName in $splitProjectList)
     $newDeployment = Invoke-OctopusApi -octopusUrl $octopusurl -apiKey $apiKey -method "POST" -spaceId $spaceId -item $newDeployment -endPoint "deployments"
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="promote-releases-not-in-destination">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Load assembly
@@ -260,7 +268,12 @@ foreach ($name in $projectNameList)
     $repositoryForSpace.Deployments.Create($deployment)
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="promote-releases-not-in-destination">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
@@ -356,7 +369,12 @@ foreach (string projectName in projectList)
     repositoryForSpace.Deployments.Create(deployment);
 }
 ```
-```python Python3
+
+</details>
+<details data-group="promote-releases-not-in-destination">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -489,7 +507,12 @@ for project_name in project_name_list:
     response = requests.post(uri, headers=headers, json=new_deployment)
     response.raise_for_status()    
 ```
-```go Go
+
+</details>
+<details data-group="promote-releases-not-in-destination">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -700,3 +723,5 @@ func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, 
 	return nil
 }
 ```
+
+</details>

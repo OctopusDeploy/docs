@@ -36,12 +36,22 @@ At present, this process is more manual than we would prefer, and we are aiming 
 
 1. Backup your existing certificate by executing the following statement at an elevated command-line on the server, from the directory where Octopus Deploy is installed (`C:\Program Files\Octopus Deploy\Octopus` by default):
 
-```powershell Windows
+<details data-group="regenerate-certificate-configure-new">
+<summary>Windows</summary>
+
+```powershell
 Octopus.Server.exe export-certificate --instance OctopusServer --export-pfx="C:\PathToCertificate\oldcert.pfx" --pfx-password MySecretPassword
 ```
+
+</details>
+<details data-group="regenerate-certificate-configure-new">
+<summary>Linux</summary>
+
 ```bash Linux
 ./Octopus.Server export-certificate --instance OctopusServer --export-pfx="/tmp/oldcert.pfx" --pfx-password MySecretPassword
 ```
+
+</details>
 
 This will display output similar to the following:
 
@@ -60,12 +70,22 @@ If you see a warning message about `The X509 certificate CN=Octopus Portal was l
 
 2. Execute the following statement at a command-line on the same server:
 
-```powershell Windows
+<details data-group="regenerate-certificate-export-pfx">
+<summary>Windows</summary>
+
+```powershell
 Octopus.Server.exe new-certificate --instance OctopusServer --export-pfx="C:\PathToCertificate\newcert.pfx" --pfx-password MySecretPassword
 ```
-```bash Linux
+
+</details>
+<details data-group="regenerate-certificate-export-pfx">
+<summary>Linux</summary>
+
+```bash
 ./Octopus.Server new-certificate --instance OctopusServer --export-pfx="/tmp/newcert.pfx" --pfx-password MySecretPassword
 ```
+
+</details>
 
 This will display output similar to the following:
 
@@ -86,37 +106,69 @@ Take a note of the thumbprint of the new certificate (`1234567890123456789012345
 
 On each Tentacle machine, execute the following command to trust the thumbprint of the newly-created certificate in the directory that the Tentacle agent is installed (`C:\Program Files\OctopusDeploy\Tentacle\` by default):
 
-```powershell Windows
+<details data-group="regenerate-certificate-tentacle-trust">
+<summary>Windows</summary>
+
+```powershell
 Tentacle.exe configure --trust="1234567890123456789012345678901234567890"
 ```
-```bash Linux
+
+</details>
+<details data-group="regenerate-certificate-tentacle-trust">
+<summary>Linux</summary>
+
+```bash
 ./Tentacle configure --trust="1234567890123456789012345678901234567890"
 ```
 
+</details>
+
 This will display output similar to the following:
+
 ```
 Adding 1 trusted Octopus Servers
 These changes require a restart of the Tentacle.
 ```
+
 You will need to restart each Tentacle at this point: 
-```powershell Windows
+
+<details data-group="regenerate-certificate-restart-tentacle">
+<summary>Windows</summary>
+
+```powershell
 tentacle.exe service --restart
 ```
-```bash Linux
+
+</details>
+<details data-group="regenerate-certificate-restart-tentacle">
+<summary>Linux</summary>
+
+```bash
 ./Tentacle service --restart
 ```
 
+</details>
 
 4. Now that the Tentacles all trust the new certificate, we can update the Octopus Server certificate to the new one we created earlier. In the command prompt on the Octopus Server run:
 
-```powershell Windows
+<details data-group="regenerate-certificate-update-server">
+<summary>Windows</summary>
+
+```powershell
 Octopus.Server.exe import-certificate --instance OctopusServer --from-file="C:\PathToCertificate\newcert.pfx" --pfx-password MySecretPassword
 Octopus.Server.exe service --instance OctopusServer --restart
 ```
-```bash Linux
+
+</details>
+<details data-group="regenerate-certificate-update-server">
+<summary>Linux</summary>
+
+```bash
 ./Octopus.Server import-certificate --instance OctopusServer --from-file="/tmp/newcert.pfx" --pfx-password MySecretPassword
 ./Octopus.Server service --instance OctopusServer --restart
 ```
+
+</details>
 
 This will display something like the following:
 
@@ -128,18 +180,29 @@ The certificate CN=Octopus Portal was updated; old thumbprint = 1111111111111111
 Certificate imported successfully.
 These changes require a restart of the Octopus Server.
 ```
+
 5. Run a healthcheck on the associated Tentacles and confirm they are all healthy.
 
 6. Now we are trusting the new certificate, we can now stop the Tentacles trusting the old certificate. On each of the Tentacle machines run:
 
-```powershell Windows
+<details data-group="regenerate-certificate-remove-trust">
+<summary>Windows</summary>
+
+```powershell
 C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe configure --instance Tentacle --remove-trust <oldthumbprint>
 C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe service --instance Tentacle --restart
 ```
-```bash Linux
+
+</details>
+<details data-group="regenerate-certificate-remove-trust">
+<summary>Linux</summary>
+
+```bash
 ./Tentacle configure --instance Tentacle --remove-trust <oldthumbprint>
 ./Tentacle service --instance Tentacle --restart
 ```
+
+</details>
 
 7. Run a healthcheck, and confirm all Tentacles are healthy.
 
@@ -149,13 +212,23 @@ C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe service --instance Tentacle
 
 1. To update the certificate that is used by a Tentacle, run the following commands on the Tentacle machine:
 
-```powershell Windows
+<details data-group="regenerate-certificate-update-tentacle-certificate">
+<summary>Windows</summary>
+
+```powershell
 C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe new-certificate
 C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe service --restart
 ```
-```bash Linux
+
+</details>
+<details data-group="regenerate-certificate-update-tentacle-certificate">
+<summary>Linux</summary>
+
+```bash
 ./Tentacle new-certificate
 ./Tentacle service --restart
 ```
+
+</details>
 
 2. After this is generated on the Tentacle, it can be updated on the Octopus Server. Navigate to **Infrastructure ➜ Deployment Targets** and update the Thumbprint for the updated target.

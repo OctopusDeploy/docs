@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="import-projects-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -102,7 +105,12 @@ if ($importTaskWaitForFinish -eq $true)
     exit 1
 }
 ```
-```python Python3
+
+</details>
+<details data-group="import-projects-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -227,7 +235,12 @@ if importTaskWaitForFinish:
     response = requests.get(uri, headers=headers)
     response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="import-projects-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -424,3 +437,5 @@ func ImportProjects(octopusURL *url.URL, APIKey string, space *octopusdeploy.Spa
 	}
 }
 ```
+
+</details>

@@ -6,11 +6,21 @@ Once the artifact has been collected, the directory and its contents will be rem
 
 The following script would collect an artifact called `foo.txt` from the temporary working directory using the `$PWD` environment variable:
 
+<details data-group="collect-artifact-in-execution-container">
+<summary>Bash</summary>
+
 ```bash Bash
 echo "Hello" > $PWD/foo.txt
 new_octopusartifact $PWD/foo.txt
 ```
+
+</details>
+<details data-group="collect-artifact-in-execution-container">
+<summary>PowerShell</summary>
+
 ```powershell PowerShell
 "Hello" > "$($PWD)/foo.txt"
 New-OctopusArtifact "$($PWD)/foo.txt"
 ```
+
+</details>

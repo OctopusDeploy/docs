@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="enable-disable-project-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -23,7 +26,12 @@ $project.IsDisabled = !$projectEnabled
 # Save project changes
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)" -Headers $header -Body ($project | ConvertTo-Json -Depth 10)
 ```
-```python Python3
+
+</details>
+<details data-group="enable-disable-project-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 import sys
@@ -66,7 +74,12 @@ if change.status_code == 200:
 else:
 	print("Error - Request Code: {code}".format(code=change.status_code))
 ```
-```go Go
+
+</details>
+<details data-group="enable-disable-project-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -158,3 +171,5 @@ func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, 
 	return nil
 }
 ```
+
+</details>

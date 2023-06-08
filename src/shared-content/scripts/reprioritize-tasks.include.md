@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="reprioritize-tasks">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 $octopusUrl = "https://local.octopusdemos.app" ## Octopus URL to look at
@@ -620,3 +623,5 @@ foreach ($task in $queuedTasks)
     }
 }
 ```
+
+</details>

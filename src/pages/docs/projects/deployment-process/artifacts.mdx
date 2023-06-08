@@ -25,7 +25,8 @@ After the script runs the files will be uploaded to Octopus Server and made avai
 
 You can collect artifacts using any of the scripting languages supported by Octopus. In each scripting language you can specify the path to the file you want to collect as an artifact as an absolute path, or a path relative to the current working directory. By default, the file name will be used as the artifact name, but you can provide a custom name for the artifact as an alternative.
 
-PowerShell:
+<details data-group="deployment-process-artifacts">
+<summary>PowerShell</summary>
 
 ```powershell
 # Collect a custom log file from the current working directory using the file name as the name of the artifact
@@ -39,7 +40,9 @@ Get-ChildItem . -Recurse -Include *.xml | New-OctopusArtifact
 New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt"
 ```
 
-C#:
+</details>
+<details data-group="deployment-process-artifacts">
+<summary>C#</summary>
 
 ```csharp
 // Collect a custom log file from the current working directory using the file name as the name of the artifact
@@ -50,7 +53,11 @@ Octopus.CreateArtifact("output.log");
 Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environment.MachineName + "-hosts.txt");
 ```
 
-```bash Bash
+</details>
+<details data-group="deployment-process-artifacts">
+<summary>Bash</summary>
+
+```bash
 # Collect a custom log file from the current working directory using the file name as the name of the artifact
 new_octopusartifact output.log
 
@@ -59,7 +66,9 @@ new_octopusartifact output.log
 new_octopusartifact /etc/hosts $(hostname)-hosts.txt
 ```
 
-F#:
+</details>
+<details data-group="deployment-process-artifacts">
+<summary>F#</summary>
 
 ```fsharp
 // Collect a custom log file from the current working directory using the file name as the name of the artifact
@@ -70,7 +79,9 @@ Octopus.createArtifact "output.log"
 Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (Some (System.Environment.MachineName + "-hosts.txt"))
 ```
 
-Python3:
+</details>
+<details data-group="deployment-process-artifacts">
+<summary>Python3</summary>
 
 ```python
 # Collect a custom log file from the current working directory using the file name as the name of the artifact
@@ -81,6 +92,8 @@ createartifact("output.log")
 import os
 createartifact("C:\Windows\System32\drivers\etc\hosts", "{}-hosts.txt".format(os.environ["COMPUTERNAME"]))
 ```
+
+</details>
 
 ### Collecting artifacts with execution containers
 

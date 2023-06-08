@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="list-deployments-to-environment-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -32,7 +35,12 @@ do {
 
 Write-Output "Retrieved $($deployments.Count) deployments to environment $($environmentName)"
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="list-deployments-to-environment-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 Add-Type -Path "path\to\Octopus.Client.dll"
 $octopusURL = "https://your.octopus.app"
 $octopusAPIKey = "API-KEY"
@@ -68,7 +76,12 @@ $repositoryForSpace.Deployments.Paginate($projects, $environments, {param($page)
 Write-Host "Retrieved $($deployments.Count) deployments to environment $($environmentName)"
 
 ```
-```csharp C#
+
+</details>
+<details data-group="list-deployments-to-environment-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -109,3 +122,5 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
 }
 ```
+
+</details>

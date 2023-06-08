@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="list-users-with-role-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -87,7 +90,12 @@ foreach ($team in $teams)
     }   
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="list-users-with-role-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Define working variables
 $octopusBaseURL = "https://youroctourl/api"
 $octopusAPIKey = "API-YOURAPIKEY"
@@ -169,7 +177,12 @@ catch
     Write-Output "An error occurred: $($_.Exception.Message)"
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="list-users-with-role-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 var octopusBaseURL = "https://youroctourl/api";
 var octopusAPIKey = "API-YOURAPIKEY";
@@ -249,7 +262,12 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
 }
 ```
-```python Python3
+
+</details>
+<details data-group="list-users-with-role-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -335,7 +353,12 @@ for team in teams:
             for group in team['ExternalSecurityGroups']:
                 print(group['Id'])
 ```
-```go Go
+
+</details>
+<details data-group="list-users-with-role-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -453,3 +476,5 @@ func GetUserRole(roles []*octopusdeploy.ScopedUserRole, role *octopusdeploy.User
 	return nil
 }
 ```
+
+</details>

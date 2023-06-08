@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="upgrade-machines-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -35,7 +38,12 @@ $jsonPayload = @{
 # Initiate upgrade
 Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/tasks" -Headers $header -Body ($jsonPayload | ConvertTo-Json -Depth 10)
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="upgrade-machines-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
@@ -78,7 +86,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="upgrade-machines-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -127,7 +140,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="upgrade-machines-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -167,7 +185,12 @@ uri = '{0}/{1}/tasks'.format(octopus_server_uri,
 response = requests.post(uri, headers=headers, json=task)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="upgrade-machines-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -301,3 +324,5 @@ func GetMachines(client *octopusdeploy.Client, machineNames []string, environmen
 	return machines
 }
 ```
+
+</details>

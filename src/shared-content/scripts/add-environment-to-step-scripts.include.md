@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="add-environment-to-step-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -36,7 +39,12 @@ foreach ($action in $step.Actions)
 # Update the deployment process
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header -Body ($deploymentProcess | ConvertTo-Json -Depth 10)
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="add-environment-to-step-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 $apikey = "API-YOURAPIKEY"
@@ -83,7 +91,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="add-environment-to-step-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -143,7 +156,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="add-environment-to-step-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -185,7 +203,12 @@ for action in step['Actions']:
 response = requests.put(uri, headers=headers, json=process)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="add-environment-to-step-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -348,3 +371,5 @@ func contains(s []string, str string) bool {
 	return false
 }
 ```
+
+</details>

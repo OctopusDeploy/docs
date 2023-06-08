@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="add-library-set-to-project-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -23,7 +26,12 @@ $project.IncludedLibraryVariableSetIds += $librarySet.Id
 # Update the project
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)" -Headers $header -Body ($project | ConvertTo-Json -Depth 10)
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="add-library-set-to-project-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
@@ -61,7 +69,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="add-library-set-to-project-scripts">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
@@ -103,7 +116,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="add-library-set-to-project-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import head
@@ -169,7 +187,12 @@ if project != None:
 else:
     print ("Project {0} not found!".format(project_name))
 ```
-```go Go
+
+</details>
+<details data-group="add-library-set-to-project-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -301,3 +324,5 @@ func GetLibrarySet(octopusURL *url.URL, APIKey string, space *octopusdeploy.Spac
 	return nil
 }
 ```
+
+</details>

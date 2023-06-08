@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="add-azuread-identity-to-users-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 function AddAzureADLogins(
     [Parameter(Mandatory=$True)]
     [String]$OctopusURL,
@@ -178,7 +181,12 @@ function AddAzureADLogins(
     Write-Host "Updated $($recordsUpdated) user records."
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="add-azuread-identity-to-users-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 
@@ -362,7 +370,12 @@ function AddAzureLogins
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="add-azuread-identity-to-users-scripts">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
@@ -550,7 +563,12 @@ public static void AddAzureLogins(string OctopusUrl, string ApiKey, string Path 
     }
 }
 ```
-```python Python3
+
+</details>
+<details data-group="add-azuread-identity-to-users-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 import csv
@@ -686,7 +704,12 @@ WhatIf=False):
 
 AddAzureLogins(octopus_server_uri, octopus_api_key, OctopusUsername='some.email@microsoft.com', AzureDisplayName='DisplayName', AzureEmailAddress='some.email@microsoft.com', Force=True )
 ```
-```go Go
+
+</details>
+<details data-group="add-azuread-identity-to-users-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -846,3 +869,5 @@ func GetCSVData(Path string) []User {
 	return Users
 }
 ```
+
+</details>

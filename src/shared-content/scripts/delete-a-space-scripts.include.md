@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="delete-a-space-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -29,7 +32,12 @@ Write-Host "Deleting space"
 
 Write-Host "Action Complete"
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="delete-a-space-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusURL = "https://youroctourl"
@@ -56,7 +64,12 @@ try {
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="delete-a-space-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -96,7 +109,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="delete-a-space-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -128,7 +146,12 @@ response.raise_for_status()
 response = requests.delete(uri, headers=headers)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="delete-a-space-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -196,7 +219,12 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
-```java Java
+
+</details>
+<details data-group="delete-a-space-scripts">
+<summary>Java</summary>
+
+```java
 import com.octopus.sdk.Repository;
 import com.octopus.sdk.domain.Space;
 import com.octopus.sdk.http.ConnectData;
@@ -240,3 +268,5 @@ public class DeleteSpace {
   }
 }
 ```
+
+</details>

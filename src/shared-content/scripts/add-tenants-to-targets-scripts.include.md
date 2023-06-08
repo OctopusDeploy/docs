@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="add-tenants-to-targets-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -40,3 +43,5 @@ foreach ($machineName in $machineNames) {
     Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/machines/$($machine.Id)" -Body ($machine | ConvertTo-Json -Depth 10) -Headers $header
 }
 ```
+
+</details>

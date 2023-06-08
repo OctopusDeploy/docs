@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="run-runbook-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -31,7 +34,12 @@ $createRunbookRunCommandV1 = @{
 Invoke-RestMethod -Method POST -Uri "$octopusSpaceUrl/runbook-runs/create/v1" -Body $createRunbookRunCommandV1 -Headers $header
 
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="run-runbook-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
@@ -92,7 +100,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="run-runbook-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -158,7 +171,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="run-runbook-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -214,7 +232,12 @@ for environmentId in environments:
     response = requests.post(uri, headers=headers, json=runbook_run)
     response.raise_for_status()
 ```
-```ts TypeScript
+
+</details>
+<details data-group="run-runbook-scripts">
+<summary>TypeScript</summary>
+
+```typescript
 import { Client, CreateRunbookRunCommandV1, ReleaseRepository } from '@octopusdeploy/api-client'
 
 const configuration: ClientConfiguration = {
@@ -236,3 +259,5 @@ const repository = new ReleaseRepository(client, parameters.space)
 const allocatedReleaseNumber = await repository.create(command)
 
 ```
+
+</details>

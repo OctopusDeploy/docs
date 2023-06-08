@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="project-permissions-report">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $octopusUrl = "YOUR OCTOPUS URL"
 $octopusApiKey = "YOUR API KEY" # User associated with API key must be system manager or higher to view all users
 $reportPath = "./Report.csv"
@@ -654,3 +657,5 @@ foreach ($permission in $permissionsReport)
     
 }
 ```
+
+</details>

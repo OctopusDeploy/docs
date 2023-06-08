@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-google-cloud-account-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 # Note: This script will only work with Octopus 2021.2 and higher.
 $ErrorActionPreference = "Stop";
 
@@ -59,7 +62,12 @@ $jsonPayload = @{
 $accountResponse = Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/accounts" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
 $accountResponse
 ```
-```powershell (Octopus.Client)
+
+</details>
+<details data-group="create-google-cloud-account-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Note: This script will only work with Octopus 2021.2 and higher.
 # It also requires version 11.3.3355 or higher of the Octopus.Client library
 
@@ -131,7 +139,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-google-cloud-account-scripts">
+<summary>C#</summary>
+
+```csharp
 // Note: This script will only work with Octopus 2021.2 and higher.
 // It also requires version 11.3.3355 or higher of the Octopus.Client library
 
@@ -209,7 +222,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-google-cloud-account-scripts">
+<summary>Python3</summary>
+
+```python
 # Note: This script will only work with Octopus 2021.2 and higher.
 import json
 import requests
@@ -255,7 +273,12 @@ uri = '{0}/{1}/accounts'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=account)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-google-cloud-account-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -343,3 +366,5 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
+
+</details>

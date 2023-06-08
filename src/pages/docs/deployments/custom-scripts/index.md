@@ -108,13 +108,23 @@ We recommend the following approaches for developing and testing your scripts, i
 
 Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus process, the Octopus task will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behavior the service or application should be launched in a separate process or session, allowing the rest of the process to continue executing. For example:
 
+<details data-group="deployments-custom-scripts">
+<summary>PowerShell</summary>
+
 ```powershell PowerShell
 Start-Process MyService
 ```
 
+</details>
+<details data-group="deployments-custom-scripts">
+<summary>Bash</summary>
+
 ```bash Bash
 screen -d -m -S "MyService" MyService
 ```
+
+</details>
+
 
 ### Scripts that restart the target operating system
 

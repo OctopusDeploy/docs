@@ -57,7 +57,10 @@ Many of the steps described below require elevated permissions, or must be run a
 
 ### Installing Tentacle
 
-```bash Debian/Ubuntu repository
+<details data-group="deployment-targets-tentacle-linux">
+<summary>Debian/Ubuntu repository</summary>
+
+```bash
 apt-key adv --fetch-keys https://apt.octopus.com/public.key
 
 add-apt-repository "deb https://apt.octopus.com/ stretch main"
@@ -68,12 +71,20 @@ apt-get update
 apt-get install tentacle
 ```
 
-```bash Redhat/CentOS/Fedora repository
+</details>
+<details data-group="deployment-targets-tentacle-linux">
+<summary>Redhat/CentOS/Fedora repository</summary>
+
+```bash
 wget https://rpm.octopus.com/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
 yum install tentacle -y
 ```
 
-```bash Archive
+</details>
+<details data-group="deployment-targets-tentacle-linux">
+<summary>Archive</summary>
+
+```bash
 arch="x64"
 # arch="arm" # for Raspbian 32-bit
 # arch="arm64" # for 64-bit OS on ARM v7+ hardware
@@ -85,6 +96,8 @@ curl -L https://octopus.com/downloads/latest/Linux_$($arch)TarGz/OctopusTentacle
 mkdir /opt/octopus
 tar xvzf tentacle-linux_$($arch).tar.gz -C /opt/octopus
 ```
+
+</details>
 
 ### Setting up a Tentacle instance
 

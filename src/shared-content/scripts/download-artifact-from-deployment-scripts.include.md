@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="download-artifact-from-deployment-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -55,7 +58,12 @@ Write-Host "Getting file content"
 Invoke-RestMethod -Method Get -Uri "$OctopusUrl/api/$spaceId/artifacts/$artifactId/content" -Headers $header -OutFile $fileDownloadPath
 Write-Host "File content written to $fileDownloadPath"
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="download-artifact-from-deployment-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 $octopusURL = "https://YourURL"
@@ -113,7 +121,12 @@ foreach ($artifact in $artifacts.Items)
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="download-artifact-from-deployment-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -174,7 +187,12 @@ foreach (var artifact in artifacts.Items)
     }
 }
 ```
-```python Python3
+
+</details>
+<details data-group="download-artifact-from-deployment-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -256,7 +274,12 @@ for artifact in artifacts:
     filePath = '{0}\\{1}'.format(download_path, artifact['Filename'])
     open(filePath, 'wb').write(response.content)
 ```
-```go Go
+
+</details>
+<details data-group="download-artifact-from-deployment-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -463,3 +486,5 @@ func DownloadArtifact(octopusURL *url.URL, APIKey string, artifacts *octopusdepl
 	}
 }
 ```
+
+</details>

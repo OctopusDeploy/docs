@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="download-artifact-from-runbook-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 # Define working variables
 $octopusURL = "https://your.octopus.app"
@@ -40,7 +43,12 @@ Write-Host "Getting file content"
 Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/artifacts/$($artifact.Id)/content" -Headers $header -OutFile $fileDownloadPath
 Write-Host "File content written to $fileDownloadPath"
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="download-artifact-from-runbook-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 $octopusURL = "https://YourURL"
@@ -90,7 +98,12 @@ foreach ($runbookRun in $runbookRuns.Items)
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="download-artifact-from-runbook-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -159,7 +172,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="download-artifact-from-runbook-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -241,7 +259,12 @@ for runbookRun in runbookRuns:
         filePath = '{0}\\{1}-{2}'.format(download_path, runbookRun['Id'], artifact['Filename'])
         open(filePath, 'wb').write(response.content)
 ```
-```go Go
+
+</details>
+<details data-group="download-artifact-from-runbook-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -491,3 +514,5 @@ func DownloadArtifact(octopusURL *url.URL, APIKey string, artifacts *octopusdepl
 	}
 }
 ```
+
+</details>

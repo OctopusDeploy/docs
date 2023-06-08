@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="deploy-release-with-prompted-variables-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -81,7 +84,12 @@ $DeploymentBody = @{
 Write-Host "Creating deployment with these values: $deploymentBody"
 Invoke-RestMethod -Uri "$OctopusURL/api/$spaceId/deployments" -Method Post -Headers $Header -Body $DeploymentBody
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="deploy-release-with-prompted-variables-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 $octopusURL = "https://YourURL"
@@ -142,8 +150,12 @@ foreach ($element in $preview.Form.Elements)
 # Execute deployment
 $deployment = $repositoryForSpace.Deployments.Create($deployment)
 ```
-```csharp C#
 
+</details>
+<details data-group="deploy-release-with-prompted-variables-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -208,7 +220,12 @@ foreach (var element in preview.Form.Elements)
 // Execute deployment
 spaceRepository.Deployments.Create(deployment);
 ```
-```python Python3
+
+</details>
+<details data-group="deploy-release-with-prompted-variables-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -300,7 +317,12 @@ uri = '{0}/api/{1}/deployments'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=deploymentJson)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="deploy-release-with-prompted-variables-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -563,3 +585,5 @@ func GetDeploymentPreview(octopusURL *url.URL, APIKey string, ReleaseId string, 
 	return returnedPreview
 }
 ```
+
+</details>

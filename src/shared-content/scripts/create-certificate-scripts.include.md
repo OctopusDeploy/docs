@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="create-certificate-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -46,7 +49,11 @@ $jsonPayload = @{
 Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/certificates" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
 ```
 
-```powershell PowerShell (Octopus.Client)
+</details>
+<details data-group="create-certificate-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load Octopus Client assembly
 Add-Type -Path 'path\to\Octopus.Client.dll' 
 
@@ -80,7 +87,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="create-certificate-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -119,7 +131,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="create-certificate-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 import base64
@@ -184,7 +201,12 @@ uri = '{0}/{1}/certificates'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=certificate)
 response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="create-certificate-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -279,3 +301,5 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
+
+</details>

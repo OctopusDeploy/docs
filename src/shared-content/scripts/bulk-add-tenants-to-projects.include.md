@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="bulk-add-tenants-to-projects">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $octopusUrl = "YOUR URL"
 $octopusApiKey = "YOUR API KEY"
 $spaceName = "YOUR SPACE NAME"
@@ -294,7 +297,12 @@ foreach ($item in $changeReport)
     Write-OctopusInformation "  $item"
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="bulk-add-tenants-to-projects">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load assembly
 Add-Type -Path 'C:\Octopus.Client\Octopus.Client.dll'
 
@@ -390,7 +398,12 @@ foreach ($tenant in $tenants)
     }
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="bulk-add-tenants-to-projects">
+<summary>C#</summary>
+
+```csharp
 #r "path\to\Octopus.Client.dll"
 using Octopus.Client;
 using Octopus.Client.Model;
@@ -490,7 +503,12 @@ foreach (var tenant in tenants)
     }
 }
 ```
-```python Python3
+
+</details>
+<details data-group="bulk-add-tenants-to-projects">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 from requests.api import get, head
@@ -598,7 +616,12 @@ for tenant in tenants:
     if tenants_updated == max_number_tenants:
         break
 ```
-```go Go
+
+</details>
+<details data-group="bulk-add-tenants-to-projects">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -795,3 +818,5 @@ func contains(s []string, str string) bool {
 	return false
 }
 ```
+
+</details>

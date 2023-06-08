@@ -84,7 +84,10 @@ This step shows you how to create a Service Principal with the PowerShell script
 During the script, you will be prompted to authenticate with Azure. The authenticated user must have administrator permissions in the Active Directory in which the Service Principal is being created.
 :::
 
-```powershell Az PowerShell
+<details data-group="infrastructure-accounts-azure">
+<summary>Az PowerShell</summary>
+
+```powershell
 # This script will create a new service principal for you to use in Octopus Deploy using the Az PowerShell modules.  This will work with both PowerShell and PowerShell Core.
 
 $AzureTenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982" # Replace with your Tenant Id
@@ -142,7 +145,12 @@ Write-Host "    2) The Azure Subscription Id: $($azureSubscription.SubscriptionI
 Write-Host "    3) The Azure Application Id: $AzureApplicationId"
 Write-Host "    4) The new password is: $AzurePassword - this is the only time you'll see this password, please store it in a safe location."
 ```
-```powershell AzureRM PowerShell
+
+</details>
+<details data-group="infrastructure-accounts-azure">
+<summary>AzureRM PowerShell</summary>
+
+```powershell
 # Obviously, replace the following with your own values
 Write-Host "This script requires Azure PowerShell 1.0 or greater which can be downloaded here: https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/"
 $subscriptionId = "cd21dc34-73dc-4c7d-bd86-041284e0bc45"
@@ -176,6 +184,8 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 # The Application ID (aka Client ID) will be Required When Creating the Account in Octopus Deploy
 Write-Output "Client ID: $($azureAdApplication.ApplicationId)"
 ```
+
+</details>
 
 The values required for the script above are:
 

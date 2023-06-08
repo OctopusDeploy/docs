@@ -1,4 +1,7 @@
-```powershell PowerShell (REST API)
+<details data-group="switch-ad-domain-group-to-ldap-group-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop"
 
 $octopusURL = "https://your.octopus.app" # Replace with your instance URL
@@ -140,3 +143,5 @@ foreach ($team in $teams) {
 
 Write-Host "Updated $recordsUpdated team(s)."
 ```
+
+</details>

@@ -1,4 +1,7 @@
-```powershell PowerShell (REST-API)
+<details data-group="disable-project-triggers-scripts">
+<summary>PowerShell (REST API)</summary>
+
+```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
@@ -25,7 +28,12 @@ foreach ($projectTrigger in $projectTriggers.Items)
     Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/projecttriggers/$($projectTrigger.Id)" -Body ($projectTrigger | ConvertTo-Json -Depth 10) -Headers $header
 }
 ```
-```powershell PowerShell (Octopus.Client)
+
+</details>
+<details data-group="disable-project-triggers-scripts">
+<summary>PowerShell (Octopus.Client)</summary>
+
+```powershell
 # Load octopus.client assembly
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
@@ -64,7 +72,12 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C#
+
+</details>
+<details data-group="disable-project-triggers-scripts">
+<summary>C#</summary>
+
+```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -107,7 +120,12 @@ catch (Exception ex)
     return;
 }
 ```
-```python Python3
+
+</details>
+<details data-group="disable-project-triggers-scripts">
+<summary>Python3</summary>
+
+```python
 import json
 import requests
 
@@ -139,7 +157,12 @@ for trigger in project_triggers['Items']:
     response = requests.put(uri, headers=headers, json=trigger)
     response.raise_for_status()
 ```
-```go Go
+
+</details>
+<details data-group="disable-project-triggers-scripts">
+<summary>Go</summary>
+
+```go
 package main
 
 import (
@@ -240,3 +263,5 @@ func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, 
 	return nil
 }
 ```
+
+</details>
