@@ -10,19 +10,24 @@ import OctopusClientShippedWithServerAndTentacle from 'src/shared-content/octopu
 
 You can use Octopus.Client from inside Octopus (for example in a script step or a package install script) by referencing it as a package. You can configure [nuget.org](https://api.nuget.org/v3/index.json) as an [External Feed](/docs/packaging-applications/package-repositories/nuget-feeds) that provides this package. Octopus will automatically extract this package for you, allowing your script to reference the .dll file it contains using a relative path. For example:
 
-PowerShell:
+<details data-group="octopus-client-in-octopus-step">
+<summary>PowerShell</summary>
 
 ```powershell
 Add-Type -Path 'Octopus.Client/lib/netstandard2.0/Octopus.Client.dll'
 ```
 
-C#:
+</details>
+<details data-group="octopus-client-in-octopus-step">
+<summary>C#</summary>
 
 ```csharp 
 #r "Octopus.Client/lib/netstandard2.0/Octopus.Client.dll"
 using Octopus.Client;
 using Octopus.Client.Model;
 ```
+
+</details>
 
 The credentials would still need to be supplied to establish the connection. 
 

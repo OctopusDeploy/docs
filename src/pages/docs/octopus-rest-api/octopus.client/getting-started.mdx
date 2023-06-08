@@ -88,7 +88,8 @@ await client.Repository.Users.SignIn(new LoginCommand { Username = "me", Passwor
 
 To get started with the Octopus Client library from PowerShell, use the `Install-Package` command from the Microsoft [PackageManagement](https://docs.microsoft.com/en-us/powershell/module/packagemanagement) module:
 
-Windows PowerShell:
+<details data-group="octopus-client-getting-started">
+<summary>Windows PowerShell</summary>
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -97,13 +98,18 @@ $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.Ful
 Add-Type -Path $path
 ```
 
-PowerShell Core:
+</details>
+<details data-group="octopus-client-getting-started">
+<summary>PowerShell Core</summary>
 
 ```powershell 
 Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDependencies
 $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/netstandard2.0/Octopus.Client.dll"
 Add-Type -Path $path
 ```
+
+</details>
+
 :::div{.hint}
 Note: The `PowerShell Core` example above needs the path to be slightly different than the one for `Windows PowerShell`.
 :::
