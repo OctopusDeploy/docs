@@ -23,6 +23,12 @@ Deprecations are subject to change in detail or timeframe. If you need help asse
 
 ## Deprecations for 2023.2
 
+### Reporting `/reporting/deployments-counted-by-week` API endpoint
+
+The /reporting/deployments-counted-by-week API endpoint is being removed in future versions of Octopus.
+It is an old endpoint that is no longer used by any of our supported clients.
+While there is no direct replacement for this endpoint, much more detailed reporting is available via the [Insights feature](https://octopus.com/docs/insights).
+
 ### Project level `/git/branches` API endpoint
 
 The `POST` method on the `/projects/{projectId}/git/branches` endpoint for version controlled projects is being removed in future versions of Octopus. The same functionality is available using the `/projects/{projectId}/git/branches/v2` endpoint, however, a minor change will need to be made to the request payload.
