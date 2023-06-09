@@ -7,6 +7,10 @@ description: Kubernetes Object Status guide.
 navOrder: 5
 ---
 
+:::div{.hint}
+The Kubernetes Object Status feature was added in Octopus **2023.2**.
+:::
+
 Octopus can leverage information from a Kubernetes cluster to make step execution status more informative. With this feature enabled, Octopus will compare deployed resources' status with the desired state (applied configuration). The step will only be completed if the actual state meets the desired state. In other cases, the step will fail.
 
 Octopus will also show a snapshot (from the moment of deployment) of deployed object status on a deployment screen — the `KUBERNETES OBJECT STATUS` tab.
