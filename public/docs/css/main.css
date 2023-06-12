@@ -371,7 +371,7 @@ nav.skip-links a:focus {
 }
 
 .octo-header {
-    margin-inline: 1rem;
+    margin-inline: var(--page-inline-margin);
     display: grid;
     grid-template-columns: 172px auto 172px;
     font-size: var(--font-size-medium);
@@ -530,6 +530,7 @@ nav.skip-links a:focus {
 .octo-title {
     margin: 0 auto;
     padding: 0.925rem 1rem;
+    margin-inline: var(--page-inline-margin);
 }
 
 .octo-title > *,
@@ -732,6 +733,7 @@ nav.skip-links a:focus {
 /* Main content group */
 
 .content-group {
+    margin-inline: var(--page-inline-margin);
     grid-template-columns: var(--navigation-width) minmax(300px, 800px) var(--toc-width);
     display: grid; 
     grid-template-rows: auto; 

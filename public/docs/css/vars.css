@@ -20,6 +20,8 @@
 }
 
 :root {
+    --page-inline-margin: 2rem;
+
     /* Theme colors */
     --black: #000000FF;
     --white: #FFFFFFFF;
@@ -157,6 +159,12 @@
     --grid-gap-main: 1rem;
 
     --standard-radius: 0.5rem;
+}
+
+@media (max-width: 860px) {
+    :root {
+        --page-inline-margin: 1rem;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
