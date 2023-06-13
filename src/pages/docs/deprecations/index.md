@@ -30,7 +30,7 @@ The same functionality is available via the `GET /runbooks/all` API endpoint, pa
 
 ### Reporting `/reporting/deployments-counted-by-week` API endpoint
 
-The /reporting/deployments-counted-by-week API endpoint is being removed in future versions of Octopus.
+The `GET /reporting/deployments-counted-by-week` API endpoint is being removed in future versions of Octopus.
 It is an old endpoint that is no longer used by any of our supported clients.
 While there is no direct replacement for this endpoint, much more detailed reporting is available via the [Insights feature](https://octopus.com/docs/insights).
 
