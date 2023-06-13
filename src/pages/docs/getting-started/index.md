@@ -61,7 +61,7 @@ Learn more about managing your [infrastructure](/docs/infrastructure).
 
 ## Packaging Applications
 
-Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. You can configure you build server to push packages automatically to Octopus's built-in repository or to your existing [package repository](/docs/packaging-applications/package-repositories).
+Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run in a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. You can configure your build server to push packages automatically to Octopus's built-in repository or to your existing [package repository](/docs/packaging-applications/package-repositories).
 
 Learn more about [packaging your applications](/docs/packaging-applications).
 
@@ -87,7 +87,7 @@ Learn more about the [deployment process](/docs/projects/deployment-process/) an
 
 ### Variables
 
-As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. For instance, your test environment shouldn't have access to your production database. Using variables, you can specify a different database for each environment, ensuring your production data won't be impacted by codes changes that are still in review.
+As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advanced support for managing and scoping variables. For instance, your test environment shouldn't have access to your production database. Using variables, you can specify a different database for each environment, ensuring your production data won't be impacted by codes changes that are still in review.
 
 Learn more about [variables](/docs/projects/variables/) and advanced [configuration features](/docs/projects/steps/configuration-features).
 
@@ -113,7 +113,7 @@ Learn more about [deploying releases](/docs/releases).
 
 ## Runbook automation {#octopus-runbooks}
 
-A deployment is only one phase in the life of an application. There are many other tasks that are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where runbooks helps.
+A deployment is only one phase in the life of an application. There are many other tasks that are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where runbooks help.
 
 Octopus Runbooks automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.
 
@@ -133,6 +133,6 @@ Learn more about [tenants](/docs/tenants).
 
 ## Spaces
 
-If you're a large organization with lots of teams working in Octopus, you can use the Spaces feature to provide each of your teams with a space for the projects, environments, and infrastructure they work with, while keeping other team's assets separate in their own spaces.
+If you're a large organization with lots of teams working in Octopus, you can use the Spaces feature to provide each of your teams with a space for the projects, environments, and infrastructure they work with, while keeping other teams' assets separate in their own spaces.
 
 Learn more about [Octopus Spaces](/docs/administration/spaces).
