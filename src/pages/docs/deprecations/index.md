@@ -21,7 +21,7 @@ Deprecations have the following lifecycle:
 Deprecations are subject to change in detail or timeframe. If you need help assessing the impact of deprecation of a feature on your particular Octopus Server configuration, please contact our [support team](https://octopus.com/support).
 :::
 
-## Deprecations for 2023.2
+## Deprecations for 2023.3
 
 ### Project level `/runbooks/all` API endpoint
 
