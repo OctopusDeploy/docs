@@ -21,7 +21,18 @@ Deprecations have the following lifecycle:
 Deprecations are subject to change in detail or timeframe. If you need help assessing the impact of deprecation of a feature on your particular Octopus Server configuration, please contact our [support team](https://octopus.com/support).
 :::
 
-## Deprecations for 2023.2
+## Deprecations for 2023.3
+
+### Project level `/runbooks/all` API endpoint
+
+The `GET /projects/{projectId}/runbooks/all` API endpoint is being replaced by a new version that omits the ProjectIds query string parameter in future versions of Octopus. It was adopted from an earlier version of the product and is now redundant and potentially confusing.
+The same functionality is available via the `GET /runbooks/all` API endpoint, passing relevant Project IDs via the `ProjectIds` query parameter. If the `ProjectIds` parameter is not required, the `GET /projects/{projectId}/runbooks/all/v2` endpoint should be used instead.
+
+### Reporting `/reporting/deployments-counted-by-week` API endpoint
+
+The `GET /reporting/deployments-counted-by-week` API endpoint is being removed in future versions of Octopus.
+It is an old endpoint that is no longer used by any of our supported clients.
+While there is no direct replacement for this endpoint, much more detailed reporting is available via the [Insights feature](https://octopus.com/docs/insights).
 
 ### Project level `/git/branches` API endpoint
 
