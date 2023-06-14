@@ -32,7 +32,7 @@ function enhanceDetailGroups() {
             // Create the tab panel
 
             const tabPanel = document.createElement('div');
-            tabPanel.role = 'tabpanel';
+            tabPanel.setAttribute('role', 'tabpanel');
             tabPanel.setAttribute('aria-labelledby', `aatb_${ g }_${ i }`);
             tabPanel.id = `aatb_panel_${ g }_${ i }`;
 
@@ -50,8 +50,8 @@ function enhanceDetailGroups() {
             const tabButton = document.createElement('button');
             tabButton.id = `aatb_${ g }_${ i }`;
             tabButton.type = 'button';
-            tabButton.role = 'tab';
-            tabButton.ariaSelected = i == 0 ? 'true' : 'false';
+            tabButton.setAttribute('role', 'tab');
+            tabButton.setAttribute('aria-selected', i == 0 ? 'true' : 'false');
             tabButton.setAttribute('aria-controls', tabPanel.id);
 
             const tabHeading = document.createElement('span');
@@ -60,8 +60,6 @@ function enhanceDetailGroups() {
             
             tabButton.appendChild(tabHeading);
             tablist.appendChild(tabButton);
-            
-            console.log(heading.innerText, content)
         });
 
         new TabsManual(tablist);

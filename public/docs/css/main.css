@@ -1830,13 +1830,11 @@ a.button.trial:focus {
 }
 
 [role="tabpanel"] {
-    position:relative;
+    position: relative;
     padding: 1rem;
     border: 2px solid var(--border-color-tab-active);
     border-radius: 0 var(--standard-radius) var(--standard-radius);
     background: var(--aft);
-    width: 100%;
-    max-width: calc(100% - 2rem);
     overflow: auto;
 }
 
