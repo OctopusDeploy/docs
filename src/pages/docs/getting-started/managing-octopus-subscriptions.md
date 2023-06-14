@@ -131,14 +131,14 @@ Below are the roles for Subscription Group access, the permissions they provide 
 | Cloud: Manage Access Control   | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Instance access                | <i class="fa-circle-check"></i> Admin       | <i class="fa-circle-check"></i> Octopus Manager | <i class="fa-solid fa-circle-xmark"></i>           |
 
-Inviting users to Subscription Group access:
+#### Inviting users to Subscription Group access
 
 1. Navigate to the dashboard and locate your subscription group.
 2. Click **ACCESS CONTROL**.
 3. Click **INVITE USER**.
-3. Enter the user's details and click **INVITE**.
+4. Enter the user's details and click **INVITE**.
 
-The invited user will receive an email to accept the invitation. 
+The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Octopus instance. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
 
 ### Direct access (Cloud only)
 
@@ -152,16 +152,18 @@ Below are the roles available for Direct access:
 | Cloud: Manage Access Control | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
 | Instance access              | <i class="fa-circle-check"></i> Admin     | <i class="fa-circle-check"></i> User     |
 
-Inviting users to Direct access:
+#### Inviting users to Direct access
 
 1. Navigate to your Cloud instance.
 2. Click **ACCESS CONTROL** in the left sidebar.
 3. Click **INVITE USER**.
 4. Enter the user's details and click **INVITE**.
 
-The invited user will receive an email to accept the invitation. 
+The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Octopus instance. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
 
-Note: The user is only added to the Octopus Deploy product after they sign into Octopus for the first time. After signing in, that user gets assigned to the "Everyone" group (if they're a Cloud User) or the "Octopus Managers" group (if they're a Cloud Owner). 
+:::div{.hint}
+**Note:** The user is only added to the Octopus Cloud instance after they sign in for the first time. After signing in, that user gets assigned to the **“Everyone”** team (if they’re a Cloud User) or the **“Octopus Managers”** team (if they’re a Cloud Owner).
+:::
 
 ### Changing user roles 
 
