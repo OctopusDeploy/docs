@@ -241,15 +241,12 @@ strong {
 .bookmark-link {
     border-radius: var(--block-radius);
     color: var(--fore-link);
-    display: block;
-    float: right;
-    font-size: 0.6em;
-    height: 1.6em;
-    margin-inline-start: .2em;
+    display: inline-block;
+    font-size: 1.2rem;
+    height: 1.2em;
+    margin-inline-start: 0.3rem;
     opacity: .5;
     overflow: hidden;
-    padding-top: 1px;
-    position: relative;
     text-decoration: none;
     top: 0.5em;
     opacity: 0;
