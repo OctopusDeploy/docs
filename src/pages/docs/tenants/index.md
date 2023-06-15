@@ -34,7 +34,7 @@ To solve this, Octopus provides first-class support for modeling tenants.
 ![](/docs/tenants/images/multiple-tenants.png "width=500")
 :::
 
-Tenants in Octopus allow you to easily create customer specific deployment pipelines without duplicating project configuration. You can
+[Tenants](https://octopus.com/use-case/tenanted-deployments) in Octopus allow you to easily create customer specific deployment pipelines without duplicating project configuration. You can
 manage separate instances of your application in multiple environments in a single Octopus project.
 
 Tenants enable:
