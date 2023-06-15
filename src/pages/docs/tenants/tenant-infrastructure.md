@@ -16,7 +16,7 @@ You can design and implement both **dedicated** and **shared** multi-tenant host
 
 ## Tenanted and untenanted deployments {#tenanted-and-untenanted-deploys}
 
-Although we focus on tenanted deployments in this section, untenanted deployments deserve some explanation with regards to hosting. Untenanted deployments provide a way for you to start introducing tenants into your existing Octopus configuration. An untenanted deployment is the default in Octopus; a deployment to an environment *without* a tenant. Octopus decides which deployment targets to include in a deployment like this:
+Although we focus on (tenanted deployments)[https://octopus.com/use-case/tenanted-deployments] in this section, untenanted deployments deserve some explanation with regards to hosting. Untenanted deployments provide a way for you to start introducing tenants into your existing Octopus configuration. An untenanted deployment is the default in Octopus; a deployment to an environment *without* a tenant. Octopus decides which deployment targets to include in a deployment like this:
 
 - **Tenanted deployments** will use **matching tenanted deployment targets**.
 - **Untenanted deployments** will only use **untenanted deployment targets**.
