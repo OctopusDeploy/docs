@@ -33,7 +33,7 @@ docker run --interactive --detach `
  --env TargetEnvironment="Development" `
  --env TargetRole="container-server" `
  --env ServerUrl="http://10.0.0.1:8080" `
- !docker-image <octopusdeploy/tentacle>
+ octopusdeploy/tentacle
 ```
 
 </details>
@@ -49,7 +49,7 @@ docker run --interactive --detach `
  --env ServerApiKey="API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
  --env TargetWorkerPool="LinuxWorkers" `
  --env ServerUrl="http://10.0.0.1:8080" `
- !docker-image <octopusdeploy/tentacle>
+ octopusdeploy/tentacle
 ```
 
 </details>
@@ -116,7 +116,7 @@ If you plan to host Octopus Tentacle in Kubernetes, you should set the `privileg
 ```yaml
 containers:
 - name: octopus_tentacle
-  image: !docker-image <octopusdeploy/tentacle>
+  image: octopusdeploy/tentacle
   securityContext:
     privileged: true
 ```

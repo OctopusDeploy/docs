@@ -49,26 +49,12 @@ To update to the latest set of Worker Tools select the "Use latest Distro-based 
 ![](/docs/infrastructure/workers/images/container-selector.png "width=500")
 :::
 
-
 ## Currently Cached Worker Tools
 
 **Octopus worker-tools cached on Dynamic Workers**
 The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic Worker.
 
-The following Worker Tools images are cached:
-
-**On Linux Workers**:
-
-- `!docker-image <octopusdeploy/worker-tools:ubuntu.22.04>` ([Latest Linux-based image](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04))
-- `!docker-image <octopusdeploy/worker-tools:ubuntu.18.04>` ([Latest Linux-based image](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.18.04))
-- `!docker-image <octopusdeploy/worker-tools:ubuntu.18.04>-1`
-- `!docker-image <octopusdeploy/worker-tools:ubuntu.18.04>-2`
-- `!docker-image <octopusdeploy/worker-tools:ubuntu.18.04>-3`
-
-**On Windows Workers**:
-
-- `!docker-image <octopusdeploy/worker-tools:windows.ltsc2019>` ([Latest Windows-based image](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019))
-- `!docker-image <octopusdeploy/worker-tools:windows.ltsc2019>-1`
+[View the latest versions of worker tools on DockerHub](https://hub.docker.com/r/octopusdeploy/worker-tools).
 
 Using non-cached versions of these worker-tools can result in long downloads.
 
