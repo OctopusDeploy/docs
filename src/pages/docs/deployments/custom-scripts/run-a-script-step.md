@@ -33,7 +33,7 @@ If you choose to run the step on a worker, you will also need to select which [w
 
 Choosing the right combination of **Target** and **Roles** enables some really interesting scenarios. See below for some common examples:
 
-| Target            | Roles                  | Description                              | Variables                                | Example scenarios                        |                              |
+| Target            | Roles                  | Description                              | Variables                                | Example scenarios                        |
 | ----------------- | ---------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Deployment target | `web-server` `app-server` | The script will run on each deployment target with either of the `web-server` or `app-server` roles | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Apply server hardening or ensure standard pre-requisites are met on each deployment target |
 | Octopus Server    |                        | The script will run once on the Octopus Server | Scope variables to the Step in order to customize variables for this script | Calculate some output variables to be used by other steps or run a database upgrade process |
