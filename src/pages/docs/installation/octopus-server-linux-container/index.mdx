@@ -33,7 +33,7 @@ $ docker run --interactive --detach --name OctopusDeploy --publish 1322:8080 --e
 - Using `--publish 1322:8080` maps the _container port_ `8080` to `1322` on the host so that the Octopus instance is accessible outside this sever.
 - To set the connection string we provide an _environment variable_ `DB_CONNECTION_STRING` (this can be to a local database or an external database).
 
-In this example, we are running the image `octopusdeploy/octopusdeploy`. The tag maps directly to the Octopus Server version that is bundled inside the image.
+In this example, we run the image `octopusdeploy/octopusdeploy` without an explicit tag, running the `latest` version of Octopus Server that's been published to DockerHub.
 
 ## Running Octopus Server in a Container
 
