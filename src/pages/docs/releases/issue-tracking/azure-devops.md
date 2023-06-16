@@ -19,7 +19,7 @@ Octopus integrates with Azure DevOps work items. The integration includes the ab
 :::
 
 :::div{.warning}
-Azure Workitems aren't currently supported by BuildEnvironments other than AzureDevops 
+Azure work items aren't currently supported unless the `BuildEnvironment` is Azure DevOps.
 :::
 
 1. Associate code changes with their relevant work items in any of the following ways:
