@@ -13,7 +13,7 @@ Worker pools are groups of [workers](/docs/infrastructure/workers), when a task 
 
 There is always a default worker pool, and the default Pool can't be deleted, but you can swap which pool is the default. Worker pools are global resources which can be scoped using [worker pool variables](/docs/projects/variables/worker-pool-variables).  All users can see what pools are available and if there are workers in the pools. Only a user with the `ConfigureServer` permission can see the worker machines or edit workers or pools.
 
-Using multiple workers pools allows you to configure the workers in your  pools for the tasks they will be assigned. For instance, depending on your teams needs you might configure worker pools in the following ways:
+Using multiple worker pools allows you to configure the workers in your  pools for the tasks they will be assigned. For instance, depending on your teams needs you might configure worker pools in the following ways:
 
 - Pools for scripts that expect different operating systems (Linux vs. Windows).
 - Pools for scripts that rely on different versions of cloud CLI tools: Azure CLI, AWS CLI, Terraform CLI, Kubernetes CLI (kubectl) etc.
