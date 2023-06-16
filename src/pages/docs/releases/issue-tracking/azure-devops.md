@@ -18,6 +18,10 @@ Octopus integrates with Azure DevOps work items. The integration includes the ab
 ![Octopus Azure DevOps integration - how it works diagram](/docs/releases/issue-tracking/images/octo-azure-devops-how-it-works.png "width=500")
 :::
 
+:::div{.warning}
+Azure work items aren't currently supported unless the `BuildEnvironment` is Azure DevOps.
+:::
+
 1. Associate code changes with their relevant work items in any of the following ways:
     - Edit a pull request in Azure DevOps, and use the **Work Items** panel to select a work item.
     - Edit a work item in Azure DevOps, and use the **Development** panel to add a pull request link (before build), or a commit link, or a build link.
