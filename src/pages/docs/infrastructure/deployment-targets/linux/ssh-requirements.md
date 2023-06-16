@@ -62,9 +62,15 @@ Self-contained Calamari is built as a [.NET Core self-contained distributable](h
 
 ## Calamari on Mono {#mono-calamari}
 
+:::div{.warning}
+ 
+Mono is [being deprecated](https://octopus.com/blog/deprecating-mono) and may no longer be available in future versions of Octopus Server. We reccomend upgrading your SSH Target to make use of [Self-contained Calamari](#self-contained-calamari)
+
+:::
+
 [Calamari](/docs/octopus-rest-api/calamari/) can execute on the [Mono framework](http://www.mono-project.com).
 
-Version **5.14.0** or greater of Mono is supported. Version **3.10** or greater may work, however we strongly recommend using a supported version.
+Version **5.14.0** or greater of Mono is supported, however **5.18.0** is the latest version that we currently test against. Version **3.10** or greater may work, however we strongly recommend using a supported version.
 
 You can find instructions for installing Mono in the [Mono documentation](http://www.mono-project.com/docs/getting-started/install/linux/).
 
