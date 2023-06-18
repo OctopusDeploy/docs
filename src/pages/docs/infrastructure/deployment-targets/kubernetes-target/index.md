@@ -325,14 +325,14 @@ Write-Host "KUBECONFIG is $($env:KUBECONFIG)"
 # and run it outside of octopus.
 # New-OctopusArtifact $env:KUBECONFIG
 
-# List any proxies. Failure to connect to the cluster when a proxy is configured may be casued by the proxy.
+# List any proxies. Failure to connect to the cluster when a proxy is configured may be caused by the proxy.
 Write-Host "HTTP_PROXY: $($env:HTTP_PROXY)"
 Write-Host "HTTPS_PROXY: $($env:HTTPS_PROXY)"
 Write-Host "NO_PROXY: $($env:NO_PROXY)"
 
 # Execute the same command that the target health check runs.
 Write-Host "Simulating a health check"
-kubectl version
+kubectl version --client --output=yaml
 
 # Write a custom kube config. This is useful when you have a config that works, and you want to confirm it works in Octopus.
 Write-Host "Health check with custom config file"
