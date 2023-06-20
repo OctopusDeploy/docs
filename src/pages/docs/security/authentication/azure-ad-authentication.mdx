@@ -254,11 +254,11 @@ When the security token is returned from the external identity provider, Octopus
 :::div{.hint}
 **Existing Octopus user accounts**
 
-If you already have Octopus user accounts and you want to enable external authentication:
-- Make sure the Octopus **Email Address** matches the value configured in the external identity provider. 
-- If the Octopus **Username** is an email address, make sure that value matches the one configured in the external identity provider.
+If you already have Octopus user accounts and you want to enable Azure Active Directory (AAD) authentication:
+- Make sure the **Email Address** and **Username** values for Octopus user accounts are both identical.
+- Confirm the Octopus user **Email Address** and **Username** are matched to the email address configured in Azure Active Directory (AAD).
 
-This will maximize the chance for your existing users to sign in using an external identity provider and still belong to the same teams in Octopus.
+This will maximize the chance for your existing users to sign in using Azure Active Directory (AAD) and prevent duplicate Octopus user accounts from being created.
 :::
 
 ### Getting permissions
