@@ -55,7 +55,7 @@ The choices of built-in worker, built-in worker running in a separate account, a
 
 ## Migrating to Workers \{#migrating-to-workers}
 
-Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus Server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus Server](/docs/infrastructure/workers/worker-pools/#Using-the-default-pool-to-stop-running-scripts-on-the-server).
+Octopus workers provide a way to move work off the built-in worker. This lets you move the work away from the Octopus Server and onto external workers without the need to update the deployment process. Learn [how to use the default worker pool to move steps off the Octopus Server](/docs/infrastructure/workers/worker-pools/#Using-the-default-pool-to-stop-running-scripts-on-the-server).
 
 ## Built-in Worker \{#built-in-worker}
 
@@ -75,7 +75,7 @@ An **External Worker** is either:
 
 The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/tentacle/windows/) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target), except that instead of being added to an environment, a worker is added to a worker pool.
 
-Using external workers allows delegating work to a machine other than the Octopus Server.  This can make the server more secure and allow scaling.  When Octopus executes a step on an external worker, it's the external worker that executes Calamari and no user-provided script executes on the Octopus Server itself.
+Using external workers allows delegating work to a machine other than the Octopus Server.  This can make the server more secure and allow scaling.  When Octopus executes a step on an external worker, it's the external worker that executes Calamari; no user-provided script executes on the Octopus Server itself.
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
