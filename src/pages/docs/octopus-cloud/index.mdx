@@ -77,18 +77,15 @@ If you forget your username or password for your Octopus account or Octopus inst
 
 ## Invite users to your Octopus Cloud instance \{#OctopusCloud-Invitingusers}
 
-You can add new users to your Octopus Cloud instance from within your Octopus.com account. This feature is being rolled out gradually. If you have access to the invites feature, you will see invites in your instance panel. If you do not have access to this feature and would like access, please [contact support](https://Octopus.com/support).
+### Inviting users via Control Center
 
-1. Log into your account at [Octopus.com/signin](https://Octopus.com/signin).
-1. Select **Manage** on your instance panel.
-1. Click **Invite a user**, enter their name and email address.
-1. Click **Submit**.
+You can invite users to your Octopus Cloud instance from Control Center. To learn about how to invite users and the levels of access you can give them, head to the [Managing Octopus subscriptions](/docs/getting-started/managing-octopus-subscriptions#access-control) page.
 
-If the user already has an [Octopus ID](/docs/security/authentication/octopusid-authentication), they can **Sign in** to view their newly accessible instance within the correct Organization. Otherwise, they can **Register** for a new account with the email address the invitation was sent to.  All invitees will be set with the **Instance User** role. Users with the **User Instance** role will not be able to change any instance account settings or invite other users.
+### Managing User Permissions in Octopus Cloud
 
-By default, all invitees will be added to the **Everyone** team within the Octopus instance and will not have any permissions. After they have signed in for the first time, you will need to add them to a team with more permissions.
+Users are only added to the Octopus Cloud instance after they sign in for the first time. After the first sign in, users get assigned to the **“Everyone”** team (if they’re a Cloud User) or the **“Octopus Managers”** team (if they’re a Cloud Owner). You can add users to different teams to give them appropriate permissions.
 
-1. Go to **Configuration**
+1. In the product, go to **Configuration**
 1. Select **Teams**
 1. Create or select an existing team such as **Space Managers**
 1. Select **Add Member**
