@@ -56,25 +56,53 @@ The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud) inst
 
 ## Self-hosted
 
-For self-hosted installations of Octopus Server, you will require additional network configuration and/or services to support the use of Polling Tentacles, Octopus Web Portal and REST API all over port 443. 
+For self-hosted installations of Octopus Server, you will require specific network configuration and/or services to support the use of Polling Tentacles over port 443. This may be in addition to any existing configuration to support making the Octopus Web Portal and REST API available over port 443. 
 
-A reverse proxy (e.g. NGINX) can be set up either on the machine or a machine/appliance that fronts it. The reverse proxy would inspect connections coming in on the same port and decide which backend port to forward them to.
+A reverse proxy specific to Polling Tentacles (e.g. NGINX) can be set up either on the Octopus Server or a machine/appliance that fronts it. The reverse proxy would inspect connections coming in on the desired port (in this case 443) and forward to the configured port in Octopus Server for Polling Tentacles (defaults to 10943).
 
-The proxy could differentiate the connections based on:
-- Hostname (TLS SNI)
-- IP Address
+:::div{.hint}
+During registration with Octopus Server as a [Worker](/docs/infrastructure/workers) or [Deployment Target](/docs/infrastructure/deployment-targets), Polling Tentacles use HTTPS to communicate with the Octopus REST API. Once a Tentacle is registered with Octopus Server, it uses a secure TCP connection to communicate with Octopus Server, and doesn't make HTTP calls. 
 
-This reverse proxy must pass-through all Tentacle traffic as [SSL offloading is not supported](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#ssl-offloading-is-not-supported).
+As such, the reverse proxy configuration you use for Polling Tentacles may need to be different to the configuration you use to make the Octopus Web Portal and REST API available over port 443 and may require using an additional machine to achieve. Depending on the reverse proxy being used, this could be a TCP reverse proxy as opposed to a HTTP reverse proxy. For example when using NGINX you should use a [stream](https://docs.nginx.com/nginx/admin-guide/load-balancer/tcp-udp-load-balancer/) reverse proxy and not a http reverse proxy for the polling connection.
+:::
 
-For example, using TLS SNI you will require:
-- A new DNS record dedicated for Polling Tentacle traffic. 
+For example:
+- Configure a new DNS record dedicated for Polling Tentacle traffic. 
   - This will be used when registering your Workers and Tentacles (i.e. `--server-comms-address https://<your-polling-url>`) 
-- A reverse proxy rule to redirect inbound traffic on port 443 on the new DNS record to port 10943 on your Octopus Server.
+- Configure a reverse proxy rule to redirect inbound traffic on port 443 on the new DNS record to port 10943 on your Octopus Server.
 
 The setup of a Polling Tentacle for your self-hosted instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
  - Omit the `--server-comms-port` parameter.
  - Specify the `--server-comms-address <address>` parameter.
    - The address to use is your new DNS record (e.g. `https://<your-polling-url>/`).
+
+### Registering a new Tentacle
+
+```powershell
+.\Tentacle register-with --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOURKEY" --environment "Test" --role "Web"
+```
+
+### Changing an existing Tentacle
+
+```powershell
+.\Tentacle service --instance MyInstance --stop
+.\Tentacle configure --reset-trust
+.\Tentacle register-with --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOURKEY" --environment "Test" --role "Web"
+.\Tentacle service --instance MyInstance --start
+```
+
+### Registering a new Worker
+```powershell
+.\Tentacle register-worker --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOURKEY" --workerpool MyWorkerPool
+```
+
+### Changing an existing Worker
+```powershell
+.\Tentacle service --instance MyInstance --stop
+.\Tentacle configure --reset-trust
+.\Tentacle register-worker --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOURKEY" --workerpool MyWorkerPool
+.\Tentacle service --instance MyInstance --start
+```
 
 ## Learn more
 
