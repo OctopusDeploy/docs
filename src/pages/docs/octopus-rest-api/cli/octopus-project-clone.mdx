@@ -2,24 +2,24 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-06-19
-title: octopus project-group create
-description: Create a project group
-navOrder: 83
+title: octopus project clone
+description: Clone a project
+navOrder: 66
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-Create a project group in Octopus Deploy
+Clone a project in Octopus Deploy
 
 ```
 Usage:
-  octopus project-group create [flags]
-
-Aliases:
-  create, new
+  octopus project clone [flags]
 
 Flags:
-  -n, --name string          Name of the project group
-  -d, --description string   Description of the project group
+  -n, --name string          Name of the project
+  -d, --description string   Description of the project
+      --source string        Name of the source project
+  -g, --group string         Project group of the project
+  -l, --lifecycle string     Lifecycle of the project
 
 
 Global Flags:
@@ -35,7 +35,10 @@ Global Flags:
 <SamplesInstance />
 
 ```
-$ octopus project-group create
+$ octopus project clone
+$ octopus project clone --name 'New Project' --source 'Old Project'
+$ octopus project clone --name 'Deploy web app 2' --source 'Deploy web app' --lifecycle 'Test Only Lifecycle' --group 'Web App Project Group'
+
 
 ```
 

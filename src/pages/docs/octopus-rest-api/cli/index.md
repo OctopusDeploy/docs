@@ -10,7 +10,7 @@ hideInThisSection: true
 
 The Octopus CLI is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/octopus-rest-api). With the Octopus CLI you can push your application packages for deployment as either Zip or NuGet packages, and manage your environments, deployments, projects, and workers.
 
-The Octopus CLI can be used on Windows, Mac, Linux and Docker. For installation options and direct downloads, visit the [CLI Readme](https://github.com/OctopusDeploy/cli/blob/main/README/).
+The Octopus CLI can be used on Windows, Mac, Linux and Docker. For installation options and direct downloads, visit the [CLI Readme](https://github.com/OctopusDeploy/cli/blob/main/README.md).
 
 :::div{.hint}
 The Octopus CLI is built and maintained by the Octopus Deploy team, but it is also open source. You can [view the Octopus CLI project on GitHub](https://github.com/OctopusDeploy/cli), which leans heavily on the [go-octopusdeploy library](https://github.com/OctopusDeploy/go-octopusdeploy).
@@ -88,6 +88,7 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus package zip](/docs/octopus-rest-api/cli/octopus-package-zip)**:  Package as zip.
 - **[octopus package zip create](/docs/octopus-rest-api/cli/octopus-package-zip-create)**:  Create zip.
 - **[octopus project](/docs/octopus-rest-api/cli/octopus-project)**:  Manage projects.
+- **[octopus project clone](/docs/octopus-rest-api/cli/octopus-project-clone)**:  Clone a project.
 - **[octopus project connect](/docs/octopus-rest-api/cli/octopus-project-connect)**:  Connect a tenant to a project.
 - **[octopus project convert](/docs/octopus-rest-api/cli/octopus-project-convert)**:  Convert a project to use Config As Code.
 - **[octopus project create](/docs/octopus-rest-api/cli/octopus-project-create)**:  Create a project.
@@ -131,6 +132,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus tenant disconnect](/docs/octopus-rest-api/cli/octopus-tenant-disconnect)**:  Disconnect a tenant from a project.
 - **[octopus tenant list](/docs/octopus-rest-api/cli/octopus-tenant-list)**:  List tenants.
 - **[octopus tenant tag](/docs/octopus-rest-api/cli/octopus-tenant-tag)**:  Override tags for a tenant.
+- **[octopus tenant variables](/docs/octopus-rest-api/cli/octopus-tenant-variables)**:  Manage tenant variables.
+- **[octopus tenant variables list](/docs/octopus-rest-api/cli/octopus-tenant-variables-list)**:  List tenant variables.
+- **[octopus tenant variables update](/docs/octopus-rest-api/cli/octopus-tenant-variables-update)**:  Update the value of a tenant variable.
 - **[octopus tenant view](/docs/octopus-rest-api/cli/octopus-tenant-view)**:  View a tenant.
 - **[octopus user](/docs/octopus-rest-api/cli/octopus-user)**:  Manage users.
 - **[octopus user delete](/docs/octopus-rest-api/cli/octopus-user-delete)**:  Delete a user.

@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-06-19
 title: octopus package upload
 description: upload one or more packages to Octopus Deploy
 navOrder: 61
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-Upload one or more packages to Octopus Deploy. Glob patterns are supported.
+upload one or more packages to Octopus Deploy. Glob patterns are supported.
 
 ```
 Usage:
@@ -41,6 +41,8 @@ $ octopus package upload SomePackage.1.0.0.tar.gz --overwrite-mode overwrite
 $ octopus package push SomePackage.1.0.0.zip	
 $ octopus package upload bin/**/*.zip --continue-on-error
 $ octopus package upload PkgA.1.0.0.zip PkgB.2.0.0.tar.gz PkgC.1.0.0.nupkg
+
+
 ```
 
 ## Learn more

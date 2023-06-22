@@ -1,24 +1,38 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: octopus config set
-description: Set will write the value for given key to Octopus CLI config file
-navOrder: 26
+modDate: 2023-06-19
+title: octopus tenant variables list
+description: List tenant variables
+navOrder: 111
 ---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-
-
+List tenant variables in Octopus Deploy
 
 ```
 Usage:
-  octopus config set [key] [value] [flags]
+  octopus tenant variables list [flags]
+
+Aliases:
+  list, ls
 
 Global Flags:
   -h, --help                   Show help for a command
       --no-prompt              Disable prompting in interactive mode
   -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
   -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus tenant variable list
+$ octopus tenant variable ls
+
 
 ```
 
