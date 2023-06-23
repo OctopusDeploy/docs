@@ -65,7 +65,7 @@ During registration with Octopus Server as a [Worker](/docs/infrastructure/worke
 
 Once a Tentacle is registered with Octopus Server, it uses a secure TCP connection to communicate with Octopus Server, and doesn't make HTTP calls. 
 
-This means that you will need to use a TCP reverse proxy for Polling Tentacles as opposed to a HTTP reverse proxy for the Octopus Web Portal and REST API and may require using an additional machine to achieve. For example when using NGINX you should use a [stream](https://docs.nginx.com/nginx/admin-guide/load-balancer/tcp-udp-load-balancer/) reverse proxy and not a http reverse proxy for the polling connection.
+This means that you will need to use a TCP reverse proxy for Polling Tentacles as opposed to a HTTP reverse proxy for the Octopus Web Portal and REST API and may require using an additional machine to achieve. For example when using NGINX you should use a [stream](https://docs.nginx.com/nginx/admin-guide/load-balancer/tcp-udp-load-balancer/) reverse proxy and not a [http](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/) reverse proxy for the polling connection.
 :::
 
 For example:
