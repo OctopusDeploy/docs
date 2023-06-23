@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-06-23
 title: Polling Tentacles over port 443
 description: Octopus Polling Tentacles open a connection to the Octopus Server over port 443 to ask the Server if there is any work to do.
 navOrder: 50
@@ -58,12 +58,14 @@ The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud) inst
 
 For self-hosted installations of Octopus Server, you will require specific network configuration and/or services to support the use of Polling Tentacles over port 443. This may be in addition to any existing configuration to support making the Octopus Web Portal and REST API available over port 443. 
 
-A reverse proxy specific to Polling Tentacles (e.g. NGINX) can be set up either on the Octopus Server or a machine/appliance that fronts it. The reverse proxy would inspect connections coming in on the desired port (in this case 443) and forward to the configured port in Octopus Server for Polling Tentacles (defaults to 10943).
+A reverse proxy specific to Polling Tentacles (e.g. NGINX) could be set up on the Octopus Server or a machine/appliance that fronts it. The reverse proxy would inspect connections coming in on the desired port (in this case 443) and forward to the configured port in Octopus Server for Polling Tentacles (defaults to 10943).
 
 :::div{.hint}
-During registration with Octopus Server as a [Worker](/docs/infrastructure/workers) or [Deployment Target](/docs/infrastructure/deployment-targets), Polling Tentacles use HTTPS to communicate with the Octopus REST API. Once a Tentacle is registered with Octopus Server, it uses a secure TCP connection to communicate with Octopus Server, and doesn't make HTTP calls. 
+During registration with Octopus Server as a [Worker](/docs/infrastructure/workers) or [Deployment Target](/docs/infrastructure/deployment-targets), Polling Tentacles use HTTPS to communicate with the Octopus REST API. 
 
-As such, the reverse proxy configuration you use for Polling Tentacles may need to be different to the configuration you use to make the Octopus Web Portal and REST API available over port 443 and may require using an additional machine to achieve. Depending on the reverse proxy being used, this could be a TCP reverse proxy as opposed to a HTTP reverse proxy. For example when using NGINX you should use a [stream](https://docs.nginx.com/nginx/admin-guide/load-balancer/tcp-udp-load-balancer/) reverse proxy and not a http reverse proxy for the polling connection.
+Once a Tentacle is registered with Octopus Server, it uses a secure TCP connection to communicate with Octopus Server, and doesn't make HTTP calls. 
+
+This means that you will need to use a TCP reverse proxy for Polling Tentacles as opposed to a HTTP reverse proxy for the Octopus Web Portal and REST API and may require using an additional machine to achieve. For example when using NGINX you should use a [stream](https://docs.nginx.com/nginx/admin-guide/load-balancer/tcp-udp-load-balancer/) reverse proxy and not a http reverse proxy for the polling connection.
 :::
 
 For example:
