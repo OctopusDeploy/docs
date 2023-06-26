@@ -1,5 +1,5 @@
 ---
-title: Polling Tentacles over port 443
+title: Polling Tentacles over Standard HTTPS Port
 description: Octopus Polling Tentacles open a connection to the Octopus Server over port 443 to ask the Server if there is any work to do.
 position: 50
 ---
