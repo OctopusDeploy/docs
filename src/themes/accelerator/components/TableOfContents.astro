@@ -1,0 +1,40 @@
+---
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { Translations, Lang } from '@util/Languages';
+import { Accelerator } from 'astro-accelerator-utils';
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string; }[];
+  expanded?: boolean | number;
+};
+const { lang, frontmatter, headings, expanded } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+let openAttribute = null; 
+let openInteraction = null;
+
+if (typeof expanded === 'number') {
+  openInteraction = expanded;
+} else if (expanded === true) {
+  openAttribute = 'open';
+}
+---
+{headings?.length > 0 &&
+<nav class="page-toc" aria-label={ _(Translations.aria.toc) }>
+  <details open={ openAttribute } data-openon={ openInteraction }>
+    <summary>{ _(Translations.toc.title) }</summary>
+    <ol>
+      {headings.map((heading) =>(
+        <li class={ 'toc-lev-' + heading.depth }><a href={ '#' + heading.slug }>{ heading.text }</a></li>
+      ))}
+    </ol>
+  </details>
+</nav>
+}

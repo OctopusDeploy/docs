@@ -1,0 +1,47 @@
+{
+    "toc": {
+        "title":{
+            "en": "On this page"
+        }
+    },
+    "octopus_aria": {
+        "parent_site_navigation": {
+            "en": "Parent Site Navigation"
+        }
+    },
+    "octopus_related": {
+        "related_title": {
+            "en": "More resources"
+        },
+        "read_more": {
+            "en": "Read more"
+        }
+    },
+    "octopus_github": {
+        "edit_on_github": {
+            "en": "Edit on GitHub"
+        }
+    },
+    "post": {
+        "written_by": {
+            "en": ""
+        },
+        "last_modified": {
+            "en": "Last updated"
+        }
+    },
+    "search": {
+        "search_for": {
+            "en": "How can we help?"
+        },
+        "submit": {
+            "en": "Go"
+        },
+        "results_title": {
+            "en": "Results"
+        },
+        "no_results_title": {
+            "en": "No Results"
+        }
+    }
+}

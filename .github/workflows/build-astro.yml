@@ -1,0 +1,97 @@
+name: Deploy
+
+on:
+  # Disable on push temporarily while we're doing the migration
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
+      OCTOPUS_API_KEY: ${{ secrets.OCTOPUSSERVERAPIKEY }}
+      OCTOPUS_SPACE: "DevOps Microsite"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: NPM and Playwright install
+        run: |
+          echo; echo "cd to workspace"
+          cd $GITHUB_WORKSPACE
+          echo; echo "listing"
+          ls
+          echo; echo "NPM install"
+          npm ci
+          npx playwright install --with-deps
+
+      - name: Astro build and test
+        run: |
+          npm run test
+
+      - name: Set Version
+        run: |
+          echo "PACKAGE_VERSION=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
+
+      - name: Check output
+        run: |
+          echo; echo "cd to workspace"
+          cd $GITHUB_WORKSPACE
+          echo; echo "listing"
+          ls
+
+      - name: Create a Zip package 🐙
+        id: package
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: 'DocsMicrosite'
+          version: "${{ env.PACKAGE_VERSION  }}"
+          base_path: "./dist"
+          output_folder: "./artifacts"
+          files: |
+            **/*.*
+
+      - name: Push a package to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-package-action@v3.0.2
+        with:
+          packages: ${{ steps.package.outputs.package_file_path }}
+
+      - name: Push build information to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-build-information-action@v3
+        with:
+          version: "${{ env.PACKAGE_VERSION }}"
+          packages: "Docs Microsite"
+
+      - name: Create a release in Octopus Deploy 🐙
+        uses: OctopusDeploy/create-release-action@v3
+        id: "create_release"
+        with:
+          project: "Docs Microsite"
+          package_version: "${{ env.PACKAGE_VERSION }}"
+          git_ref: ${{ github.ref }}
+
+      - name: Deploy the release in Octopus Deploy 🐙
+        uses: OctopusDeploy/deploy-release-action@v3
+        id: "queue_deployments"
+        with:
+          project: "Docs Microsite"
+          release_number: ${{ steps.create_release.outputs.release_number }}
+          environments: |
+            Test

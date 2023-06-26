@@ -1,0 +1,174 @@
+/* Recommended Tools
+    Check accessibility for colour combinations
+    https://toolness.github.io/accessible-color-matrix/
+*/
+
+@font-face {
+    font-family: 'fa-solid';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url("fa/webfonts/fa-solid-900.woff2") format("woff2"), url("fa/webfonts/fa-solid-900.ttf") format("truetype");
+}
+ 
+@font-face {
+    font-family: 'fa-brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("fa/webfonts/fa-brands-400.woff2") format("woff2"), url("fa/webfonts/fa-brands-400.ttf") format("truetype");
+}
+
+:root {
+    --page-inline-margin: 2rem;
+
+    /* Theme colors */
+    --black: #000000FF;
+    --white: #FFFFFFFF;
+    --grey: #555555FF; /* #777777 is low contrast (WCAG) */
+
+    --navy-600: #3E607DFF;
+    --navy-400: #7C98B4FF;
+    --navy-300: #A9BBCBFF;
+    --navy-200: #DAE2E9FF;
+
+    --blue-500: #1A77CA;
+    --blue-200: #CDE4F7;
+    --blue-100: #F2F8FD;
+    --blue-qqq: #FAFDFF;
+
+    --green-400: #00AB62;
+
+    --red-500: #D63D3D;
+
+    --orange-400: #EA7325;
+
+    --blue-midnight-dark: #070E14FF;
+    --blue-midnight-darker: #0A202FFF;
+    --blue-midnight: #10212FFF;
+    --blue-midnight-lighter: #22425CFF;
+
+    --blue-grey-dark: #152B3DFF;
+    --blue-gray-darker: #1F2F3CFF;
+    --blue-grey-medium: #113049FF;
+    --blue-grey-light: #274B66FF;
+    --blue-grey-smoke: #C5E6FF66;
+
+    --font-size-xlarge: 24px;
+    --font-size-large: 20px;
+    --font-size-regular: 18px;
+    --font-size-medium: 16px;
+    --font-size-small: 14px;
+    
+    --color-text: var(--blue-midnight);
+    --color-heading: var(--blue-grey-dark);
+    
+    --color-subtitle: var(--navy-600);
+    --font-size-subtitle: var(--font-size-large);
+
+    --bordercolor-header: var(--navy-200);
+
+    --color-menu-link: var(--navy-600);
+    --color-menu-link-alt: var(--blue-500);
+    --color-menu-marker: var(--navy-300);
+    --bgcolor-menu: var(--blue-qqq);
+    --bgcolor-menu-open: var(--blue-100);
+    --bordercolor-menu-open: var(--navy-200);
+    --gap-menu: 0.6em;
+
+    --navigation-width: 280px;
+
+    --bgcolor-tab: var(--navy-200);
+    --border-color-tab: var(--navy-200);
+    --border-color-tab-active: var(--navy-400);
+
+    --color-hint: #124164;
+    --bgcolor-hint: #e5f4ff;
+    --bordercolor-hint: var(--blue-500);
+
+    --color-info: #124164;
+    --bgcolor-info: #e5f4ff;
+    --bordercolor-info: var(--blue-500);
+
+    --color-success: #04502f;
+    --bgcolor-success: #e8ffeb;
+    --bordercolor-success: #00b065;
+
+    --color-warning: #a23623;
+    --bgcolor-warning: #fefae9;
+    --bordercolor-warning: #fc8431;
+
+    --color-problem: #931919;
+    --bgcolor-problem: #fff2ee;
+    --bordercolor-problem: #ff4848;
+
+    --color-trial: var(--blue-grey-medium);
+    --bgcolor-trial: var(--light-green);
+
+    /* To be checked and cleaned */
+
+    
+    --octo-blue: var(--blue-500);
+    --lightest-blue: #E5F4FFFF;
+    --octo-blue-lighter: #2F95E3FF;
+    --octo-blue-lightest: #1FC0FFFF;
+    --lilac: #9C6ADEFF;
+    --green: #25D284FF;
+    --light-green: #00FFA3FF;
+
+
+
+    --heading-font: Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    --body-font: Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    --code-font: Consolas, monaco, monospace;
+
+
+    --header-bg: var(--white);
+    --header-icon-stroke: var(--blue-grey-light);
+    --header-link-color: var(--octo-blue);
+    --header-link-alt: var(--blue-gray-darker);
+    --header-link-alt-bg: var(--blue-grey-smoke);
+
+    --image-bg: var(--blue-grey-smoke);
+    --content-bg: var(--white);
+    
+    --body-link-color: var(--octo-blue);
+    --body-link-alt: var(--blue-grey-light);
+    --menu-link-bg: var(--blue-grey-smoke);
+
+    --gradient-start: var(--lilac);
+    --gradient-end: var(--green);
+
+    --icon-stroke: var(--white);
+    --icon-fill: var(--blue-grey-light);
+
+    --block-gap: 2rem;
+
+    --header-pin: 0;
+    --scroll-pad: 110px;
+
+    --box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
+    --octo-shadow-standard-box: 0 2px 6px 0 rgba(0,0,0,0.2);
+    --octo-shadow-standard-box-hover: 0 2px 6px 0 rgba(0,0,0,0.4);
+
+    --content-width: 78vw;
+    --content-width-mobile: calc(100vw - 2rem);
+    --toc-width: 250px;
+    --grid-max-width: 1250px;
+    --grid-gap: 1rem;
+    --grid-gap-main: 1rem;
+
+    --standard-radius: 0.5rem;
+}
+
+@media (max-width: 860px) {
+    :root {
+        --page-inline-margin: 1rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        
+    }
+}

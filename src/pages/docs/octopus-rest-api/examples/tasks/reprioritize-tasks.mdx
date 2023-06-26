@@ -1,0 +1,69 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Reprioritize Tasks
+description: An example script to find deployments or runbook runs for a specific environment, project, or tenant and move them to the top of the queue.
+---
+import ReprioritizeTasks from 'src/shared-content/scripts/reprioritize-tasks.include.md';
+
+This script can be used to move critical deployments from the bottom of the queue to the top of the queue.  
+
+How it works:
+
+1. Look at all the pending tasks in the queue.  All in-process items are left as is.
+2. If there are any deployments or runbook runs, it will check to see if they match specified criteria.
+3. If any matching runbook runs or deployment tasks are found, it will loop through the queue and cancel all the items before them.
+4. If the script cancels any runbook runs or deployments, it will resubmit them using the same values.
+
+For example, you have this in your pending queue:
+
+1. Deployment to Dev
+2. Runbook run on Maintenance
+3. Retention policy run
+4. Deployment to Production
+
+It will cancel the deployment to `Dev`, the runbook run on `Maintenance`, and the retention policy run.  It will then resubmit the deployment to `Dev,` and the runbook run on `Maintenance` using the same parameters. The user who appears in the audit log will be the one attached to the API key.
+
+## Usage
+
+Provide values for:
+
+- Octopus URL (required)
+- Octopus API Key (required)
+
+The script looks for tasks one of two ways:
+
+1. Task Id List - comma separated list of task ids to move to the top of the queue
+2. Matching based on critera, see below
+
+Matching based on criteria
+- Space List - comma separated list of spaces to look for (optional)
+- Environment List - comma separated list of environments to look for (optional)
+    - Options: 
+        - `EnvironmentName` - eg `Production` - looks for the `Production` environment in any space from the space list.
+        - `EnvironmentName::SpaceName` - eg `Production::Default` - looks for the `Production` environment in the `Default` space only.
+- Project List - comma separated list of projects to look for (optional)
+    - Options: 
+        - `ProjectName` - eg `Hello World` - looks for the `Hello World` project in any space from the space list.
+        - `ProjectName::SpaceName` - eg `Hello World::Default` - looks for the `Hello World` project in the `Default` space only.
+- Tenant List - comma separated list of tenants to look for (optional)
+    - Options: 
+        - `TenantName` - eg `My Tenant` - looks for the `My Tenant` tenant in any space from the space list.
+        - `TenantName::SpaceName` - eg `My Tenant::Default` - looks for the `My Tenant` tenant in the `Default` space only.
+- Match Type - how the match will happen
+    - Options:
+        - `Or` - will look for runbook run or deployment that matches any of the filters - eg `Production` OR `Hello World` OR `My Tenant`
+        - `And` - will look for runbook run or deployment that matches all of the filters - eg `Production` AND `Hello World` AND `My Tenant`
+    - If a filter isn't supplied it is excluded from the check
+- Task Type - what task type to look for
+    - Options:
+        - `Deploy` - looks for deployments only
+        - `RunbookRun` - looks for runbook runs only
+        - `Both` - looks for both deployments and runbooks runs
+
+You must supply at least one task id OR at least one filter for environments OR projects OR tenants must be supplied.
+
+## Script
+
+<ReprioritizeTasks />

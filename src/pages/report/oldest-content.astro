@@ -1,0 +1,44 @@
+---
+import { PostOrdering, PostFiltering, Accelerator } from 'astro-accelerator-utils';
+import { SITE } from '@config';
+
+// Logic
+const accelerator = new Accelerator(SITE);
+
+const allPages = accelerator.posts.all();
+const pageCount = allPages.length;
+const pages = allPages.sort(PostOrdering.sortByModDate).slice(0, Math.min(50, pageCount));
+---
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Oldest content</title>
+    </head>
+    <body>
+        <h2>Report: Oldest content</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Published</th>
+                    <th>Modified</th>
+                </tr>
+            </thead>
+        {pages.map(p => 
+        <tr>
+            <td>
+                {PostFiltering.isListable(p) && (
+                    <a href={ accelerator.urlFormatter.formatAddress(p.url) }>{ p.frontmatter.title }</a>
+                )}
+                {PostFiltering.isListable(p) == false && (
+                    <span>{ p.frontmatter.title }</span>
+                )}
+            </td>
+            <td>{ p.frontmatter.pubDate }</td>
+            <td>{ p.frontmatter.modDate }</td>
+        </tr>
+        )}
+        </table>
+    </body>
+</html>

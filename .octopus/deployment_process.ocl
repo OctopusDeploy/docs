@@ -1,0 +1,32 @@
+step "upload-microsite-to-aws-s3" {
+    name = "Upload Microsite to AWS S3"
+
+    action {
+        action_type = "Octopus.AwsUploadS3"
+        is_required = true
+        properties = {
+            Octopus.Action.Aws.AssumeRole = "False"
+            Octopus.Action.Aws.Region = "#{AWS.Region.Docs}"
+            Octopus.Action.Aws.S3.BucketName = "#{AWS.BucketName.Docs}"
+            Octopus.Action.Aws.S3.FileSelections = "[{\"type\":\"MultipleFiles\",\"tags\":[],\"metadata\":[],\"cannedAcl\":\"public-read\",\"path\":\"\",\"storageClass\":\"STANDARD\",\"bucketKey\":\"\",\"bucketKeyPrefix\":\"\",\"bucketKeyBehaviour\":\"Custom\",\"performVariableSubstitution\":\"False\",\"performStructuredVariableSubstitution\":\"False\",\"autoFocus\":true,\"pattern\":\"**/*\"}]"
+            Octopus.Action.Aws.S3.PackageOptions = "{\"bucketKey\":\"#{Project.AWS.BucketKey}\",\"bucketKeyBehaviour\":\"Custom\",\"bucketKeyPrefix\":\"\",\"storageClass\":\"STANDARD\",\"cannedAcl\":\"private\",\"variableSubstitutionPatterns\":\"\",\"structuredVariableSubstitutionPatterns\":\"\",\"metadata\":[],\"tags\":[]}"
+            Octopus.Action.Aws.S3.TargetMode = "FileSelections"
+            Octopus.Action.AwsAccount.UseInstanceRole = "False"
+            Octopus.Action.AwsAccount.Variable = "AWS.Account"
+            Octopus.Action.Package.DownloadOnTentacle = "False"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
+            Octopus.Action.Package.PackageId = "DocsMicrosite"
+            Octopus.Action.RunOnServer = "true"
+        }
+        worker_pool = "hosted-ubuntu"
+
+        packages {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "DocsMicrosite"
+            properties = {
+                SelectionMode = "immediate"
+            }
+        }
+    }
+}

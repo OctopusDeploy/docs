@@ -1,0 +1,49 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { Translations, Lang } from '@util/Languages';
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter
+  headings: { depth: number; slug: string; text: string; }[];
+  breadcrumbs?: { url: string; title: string; ariaCurrent?: string; }[] | null;
+};
+const { lang, breadcrumbs } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const accelerator = new Accelerator(SITE);
+
+const currentUrl = new URL(Astro.request.url);
+const navPages = accelerator.navigation.breadcrumbs(currentUrl, SITE.subfolder, breadcrumbs?.length ?? 0);
+
+for (let i = 0; i < navPages.length; i++) {
+  navPages[i].title = navPages[i].section || navPages[i].title;
+}
+
+// The last breadcrumb should use the full name
+//navPages[navPages.length -1].title = navPages[navPages.length -1].fullTitle;
+
+let metaIndex = navPages.length;
+---
+<nav class="site-breadcrumbs" aria-label={ _(Translations.aria.breadcrumbs) }>
+  <ol vocab="http://schema.org/" typeof="BreadcrumbList">
+    {navPages.map((page, index) => (
+    <li property="itemListElement" typeof="ListItem">
+      <meta property="position" content={ index.toString() } />
+      <a property="item" typeof="WebPage" href={ accelerator.urlFormatter.formatAddress(page.url) } aria-current={ page.ariaCurrent } rel={ page.rel }><span property="name">{ page.title }</span></a>
+    </li>
+    ))}
+    {breadcrumbs && breadcrumbs.map( (crumb) => (
+    <li property="itemListElement" typeof="ListItem">
+      <meta property="position" content={ (metaIndex++).toString() } />
+      <a property="item" typeof="WebPage" href={ accelerator.urlFormatter.formatAddress(crumb.url) } aria-current={ crumb.ariaCurrent }><span property="name">{ crumb.title }</span></a>
+    </li>
+    ))}
+  </ol>
+</nav>

@@ -1,0 +1,15 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "types": ["astro/client"],
+  "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@config": ["src/config"],
+        // Layouts and components for the theme
+        "@data/*": ["src/data/*"],
+        "@util/*": ["src/themes/accelerator/utilities/*"],
+        "@layouts/*": ["src/themes/accelerator/layouts/*"],
+        "@components/*": ["src/themes/accelerator/components/*"],
+      }
+  }
+}

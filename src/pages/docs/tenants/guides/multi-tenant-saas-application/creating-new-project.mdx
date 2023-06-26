@@ -1,0 +1,22 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Creating the project
+description: Create the project used as part of a multi-tenant SaaS setup in Octopus Deploy.
+navOrder: 20
+hideInThisSectionHeader: true
+---
+import TenantsCreateProject from 'src/shared-content/tenants/tenants-create-project.include.md';
+
+In this section, we need to create a new project that will be deployed to our tenants.
+
+<TenantsCreateProject />
+
+3. Next, you need to make sure the project has [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments) enabled
+
+    ![](/docs/tenants/guides/multi-tenant-saas-application/images/enable-tenanted-deployments.png "width=500")
+
+In the next step, we'll define the [Tenant Tag Set](/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set) needed for this scenario.
+
+<span><a class="button btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-lifecycle">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="button btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Next</a></span>

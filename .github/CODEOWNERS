@@ -4,8 +4,9 @@
 # These owners will be the default owners for everything in the repo. Unless a later match takes precedence,
 
 # credits updates get reviewed by michaelnoonan and jburger for open source license compliance
+
 /docs/credits.md @michaelnoonan @jburger
 
-# updates to the getting started page are reviewed by terence-octo and steve-fenton-octopus
+# updates to the getting started page are reviewed by steve-fenton-octopus
 
 /docs/getting-started/index.md @steve-fenton-octopus

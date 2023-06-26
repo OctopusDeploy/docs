@@ -1,0 +1,25 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Clear sensitive variables
+description: An example script that clears all sensitive variables.
+---
+import ClearSensitiveVariablesScripts from 'src/shared-content/scripts/clear-sensitive-variables-scripts.include.md';
+
+This script demonstrates how to programmatically clear all sensitive variables in Projects and Library variable sets in an Octopus instance.
+
+## Usage
+
+Provide values for the following:
+
+- Octopus URL
+- Octopus API Key
+
+:::div{.warning}
+**This script will clear all sensitive variable values from an Octopus instance. Take care when running this script or one based on it.**
+:::
+
+## Script
+
+<ClearSensitiveVariablesScripts />

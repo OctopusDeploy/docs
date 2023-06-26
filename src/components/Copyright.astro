@@ -1,0 +1,32 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { Translations, Lang } from '@util/Languages';
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter
+  headings: { depth: number; slug: string; text: string; }[];
+};
+const { lang } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const accelerator = new Accelerator(SITE);
+---
+  <div class="octo-social">
+    <ul>
+      <li><a href="https://twitter.com/OctopusDeploy" target="_blank"><i class="fa-brands fa-twitter">Twitter</i></a></li>
+      <li><a href="https://www.linkedin.com/company/octopus-deploy" target="_blank"><i class="fa-brands fa-linkedin">LinkedIn</i></a></li>
+      <li><a href="https://github.com/OctopusDeploy" target="_blank"><i class="fa-brands fa-github">GitHub</i></a></li>
+      <li><a href="https://www.youtube.com/c/OctopusDeploy" target="_blank"><i class="fa-brands fa-youtube">YouTube</i></a></li>
+    </ul>
+    <p>{ _(Translations.footer.copyright) } &copy; { new Date().getFullYear() } { SITE.owner }</p>
+  </div>
+  <nav aria-label={ _(Translations.aria.back_to_top) }>
+    <a href="#site-top">{ _(Translations.skiplinks.skip_to_top) }</a>
+  </nav>
