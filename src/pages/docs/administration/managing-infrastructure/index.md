@@ -13,7 +13,7 @@ This section provides details about managing your Octopus infrastructure.
 - [Applying Operating System upgrades](/docs/administration/managing-infrastructure/applying-operating-system-upgrades)
 - [Recovering after losing your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key)
 - [Rotating the Master Key](/docs/administration/managing-infrastructure/rotate-master-key)
-- [Performance](Performance)
+- [Performance](/docs/administration/managing-infrastructure/performance)
 - [Run multiple processes on a target simultaneously](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously)
 - [Managing multiple instances](/docs/administration/managing-infrastructure/managing-multiple-instances)
 - [Automating infrastructure with DSC](/docs/administration/managing-infrastructure/octopus-dsc)
