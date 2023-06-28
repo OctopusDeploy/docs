@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-06-28
 title: Packages
 description: Package steps allow you to deploy your applications and services that you have packaged and configured with Octopus.
 navOrder: 110
@@ -34,7 +34,7 @@ When multiple machines are in the role you select, Octopus deploys to all of the
 
 ## Configuring features
 
-Octopus is built to make it easy to deploy .NET applications, and contains a number of useful built in *features* that can be enabled on NuGet package steps. See [Configuration Features](/docs/projects/steps/configuration-features) for more details.
+Octopus is built to make it easy to deploy your software to multi-cloud, hybrid, and on-premises environments with ease. It contains a number of useful features that can be enabled on package steps. See [Configuration Features](/docs/projects/steps/configuration-features) for more details.
 
 ## How packages are deployed
 
