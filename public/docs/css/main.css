@@ -1076,16 +1076,12 @@ nav.skip-links a:focus {
 }
 
 .octo-related li {
-    box-shadow: var(--box-shadow);
+    box-shadow: 0px 14px 20px rgba(0, 0, 0, 0.25);
     padding: 1px;
     border-radius: var(--standard-radius);
-    background: linear-gradient(to bottom, #173045 80%, #0CB0F2);
-}
-
-.octo-related li > article {
-    padding: 0.5rem;
-    border-radius: var(--standard-radius);
-    background-color: var(--blue-midnight);
+    background: linear-gradient(var(--blue-midnight),  var(--blue-midnight)) padding-box,
+                linear-gradient(to bottom, #173045 80%, #0CB0F2) border-box;
+    border: 0.1rem solid transparent;
 }
 
 .octo-related img {
