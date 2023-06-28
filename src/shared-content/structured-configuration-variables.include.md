@@ -75,10 +75,10 @@ An example for each supported file type can be found in the following table:
 
 | Format | Input file | Octopus variable name | Octopus variable value | Output file |
 | ------ | ---------- | ---- | ----- | ----------- |
-| JSON   | {"app": {"port": 80 }} | app:port | 4444 | {"app": {"port": 4444}} |
-| YAML   | app:<br/>&nbsp;&nbsp;port: 80 | app:port | 4444 | app:<br/>&nbsp;&nbsp;port: 4444 |
-| XML    | &lt;app&gt;&lt;port&gt;80&lt;/port&gt;&lt;/app&gt; | /app/port | 4444 | &lt;app&gt;&lt;port&gt;4444&lt;/port&gt;&lt;/app&gt; |
-| Java Properties | app_port: 80 | app_port | 4444 | app_port: 4444 |
+| JSON   | {"app": {"port": 80 }} | `app:port` | 4444 | {"app": {"port": 4444}} |
+| YAML   | app:<br/>&nbsp;&nbsp;port: 80 | `app:port` | 4444 | app:<br/>&nbsp;&nbsp;port: 4444 |
+| XML    | &lt;app&gt;&lt;port&gt;80&lt;/port&gt;&lt;/app&gt; | `/app/port` | 4444 | &lt;app&gt;&lt;port&gt;4444&lt;/port&gt;&lt;/app&gt; |
+| Java Properties | app_port: 80 | `app_port` | 4444 | app_port: 4444 |
 
 #### Variable names starting with the word Octopus
 

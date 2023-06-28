@@ -107,7 +107,7 @@ npm run build
 npm start
 ```
 
-If the site runs correctly, when you navigate to http://localhost:8081 you should see a page with words that appear to be missing. These will be populated in the config files during the deployment.
+If the site runs correctly, when you navigate to [http://localhost:8081](http://localhost:8081) you should see a page with words that appear to be missing. These will be populated in the config files during the deployment.
 
 :::figure
 ![App with missing variables](/docs/deployments/node-js/images/missing-variables.png "width=500")
