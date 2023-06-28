@@ -234,6 +234,16 @@ Add a step to your Build or Release process,search for **Deploy Octopus Release*
     Project: "OctoFX"
     ReleaseNumber: "$(create_release.release_number)"
     Environment: "Test"
+```
+
+```yaml
+- task: OctopusDeployReleaseTenanted@6
+  inputs:
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    Project: "OctoFX"
+    ReleaseNumber: "$(create_release.release_number)"
+    Environment: "Test"
     DeployForTenants: |
       Customer A
       Customer B
