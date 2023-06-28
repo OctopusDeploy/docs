@@ -193,12 +193,23 @@ Add a step to your Build or Release process, search for **Create Octopus Release
     ProjectName: "OctoFX"
 ```
 
+```yaml
+- task: OctopusCreateRelease@6
+  name: create_release
+  inputs:
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    ProjectName: "OctoFX"
+```
+
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/create-release) for more details).
 
 ### Add a deploy Octopus release step \{#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep}
 
 :::div{.warning}
 Version 6 of the **Octopus Deploy Release** task has been split into two steps, **OctopusDeployRelease@6** no longer supports deploying to Tenants. For Tenant deployments use **OctopusDeployReleaseTenanted@6**
+
+The deployment steps no longer support specifying `latest` for `ReleaseNumber` as this is risky in an automation context and can cause the incorrect version being selected, instead the `release_number` output value from the v6 version of ourcreate release step should be used.
 
 The deployment steps no longer support waiting on a deployment to complete, see [Await Task](#UsetheTeamFoundationBuildCustomTask-AwaitTask) to await the result of deployments or runbooks
 :::
@@ -221,7 +232,7 @@ Add a step to your Build or Release process,search for **Deploy Octopus Release*
     OctoConnectedServiceName: "Octopus Server"
     Space: "Default"
     Project: "OctoFX"
-    ReleaseNumber: "latest"
+    ReleaseNumber: "$(create_release.release_number)"
     Environment: "Test"
     DeployForTenants: |
       Customer A
