@@ -59,7 +59,7 @@ To configure NGINX to send traffic to your application you need to fill in a few
 | **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the NGINX virtual server. |                                          |                                          |
 | **Locations**             | Specify any number of locations that NGINX should test request URIs against to send traffic to your application. |                                          |                                          |
 
-When defining **locations** you can configure NGINX to deliver files from the file system , or proxy requests to another server. For our sample application we want requests to `http://<IPorDNSofServer>/` to deliver the `index.html` file from the `wwwroot` folder of our ASP.NET Core project and requests to `http://<IPorDNSofServer>/api/` to be proxied to our ASP.NET Core project running on http://localhost:5000.
+When defining **locations** you can configure NGINX to deliver files from the file system , or proxy requests to another server. For our sample application we want requests to `http://<IPorDNSofServer>/` to deliver the `index.html` file from the `wwwroot` folder of our ASP.NET Core project and requests to `http://<IPorDNSofServer>/api/` to be proxied to our ASP.NET Core project running on [http://localhost:5000](http://localhost:5000).
 
 :::figure
 ![](/docs/deployments/nginx/images/deployment_process_nginx_feature.png "width=500")

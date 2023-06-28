@@ -192,6 +192,7 @@ For example, in the screenshot below you can see that the specified instance typ
 The AWS account used to perform the operation does not have the required permissions to query the current state of the CloudFormation stack. This step will complete without waiting for the stack to complete, and will not fail if the stack finishes in an error state.
 
 The error message will include the error from AWS, which looks like this:
+
 ```
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStackEvents on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
@@ -212,6 +213,7 @@ This is logged as a warning as Octopus will make some assumptions about the stat
 * If the step was configured to delete the stack, it is assumed that the stack does exist and it will attempt to be deleted.
 
 The error message will include the error from AWS, which looks like this:
+
 ```
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStacks on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
@@ -238,6 +240,7 @@ An unrecognized exception was thrown while checking to see if the CloudFormation
 The AWS account used to perform the operation does not have the required permissions to create the CloudFormation stack.
 
 The error message will include the error from AWS, which looks like this:
+
 ```
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:CreateStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
@@ -257,6 +260,7 @@ If the text `Requires capabilities : [CAPABILITY_NAMED_IAM]` or `Requires capabi
 The AWS account used to perform the operation does not have the required permissions to delete the CloudFormation stack.
 
 The error message will include the error from AWS, which looks like this:
+
 ```
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DeleteStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
@@ -270,6 +274,7 @@ An unrecognized exception was thrown while deleting a CloudFormation stack.
 The AWS account used to perform the operation does not have the required permissions to update the CloudFormation stack.
 
 The error message will include the error from AWS, which looks like this:
+
 ```
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:UpdateStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
