@@ -143,7 +143,7 @@ If a previous Octopus deployment was performed, there will be both a Deployment 
 This existing Deployment resource is considered to be the green half of the blue/green deployment.
 
 :::figure
-![Phase 1](phase1.svg "width=500")
+![Phase 1](/docs/deployments/kubernetes/deploy-container/phase1.svg "width=500")
 :::
 
 #### Phase 2
@@ -155,7 +155,7 @@ Because the names of distinct resources must be unique in Kubernetes, Octopus wi
 At the end of Phase 2 there are three resources in Kubernetes: the green Deployment resource, the Blue Deployment resource, and the Service resource which is still pointing at the green Deployment resource.
 
 :::figure
-![Phase 2](phase2.svg "width=500")
+![Phase 2](/docs/deployments/kubernetes/deploy-container/phase2.svg "width=500")
 :::
 
 #### Phase 3
@@ -171,7 +171,7 @@ The [progression deadline](#progression-deadline) field can be used to limit how
 If the Deployment resource was successfully created, we move to phase 4. If the Deployment resource was not successfully created, the deployment process stops with an error and leaves the service pointing to the green Deployment resource.
 
 :::figure
-![Phase 3](phase3.svg "width=500")
+![Phase 3](/docs/deployments/kubernetes/deploy-container/phase3.svg "width=500")
 :::
 
 #### Phase 4
@@ -191,7 +191,7 @@ This means failed deployments can be retried, and once successful, all previous 
 :::
 
 :::figure
-![Phase 4](phase4.svg "width=500")
+![Phase 4](/docs/deployments/kubernetes/deploy-container/phase4.svg "width=500")
 :::
 
 #### Deployment strategy summary
@@ -719,7 +719,7 @@ The `Pod Annotations` section defines the annotations that are added to the Depl
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
 :::figure
-![](pod-annotations.png "width=500")
+![](/docs/deployments/kubernetes/deploy-container/pod-annotations.png "width=500")
 :::
 
 This will result in a Deployment resource YAML file something like this following.
@@ -777,7 +777,7 @@ spec:
 When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
 
 :::figure
-![](pod-annotation-deployed.png "width=500")
+![](/docs/deployments/kubernetes/deploy-container/pod-annotation-deployed.png "width=500")
 :::
 
 #### Deployment annotations
