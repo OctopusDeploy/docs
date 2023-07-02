@@ -45,7 +45,7 @@ The verbosity of file logging is controlled in the `octopus-log-file` section:
     <logger name="*" minlevel="Info" writeTo="octopus-log-file" />
 ```
 
-The `minlevel` attribute is most useful for configuring the logging level. Change this value to `Trace` to gather more information.
+The `minlevel` attribute is most useful for configuring the logging level. Change this value to `Trace` and set `OCTOPUS__Logging__File__LogEventLevel` environment variable to `Verbose` to gather more information.
 
 The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
@@ -66,7 +66,7 @@ The verbosity of file logging is controlled in the `octopus-log-file` section:
     <logger name="Halibut" minlevel="Info" writeTo="octopus-log-file" />
 ```
 
-The `minlevel` attribute is most useful for configuring the logging level. Change this value to `Trace` to gather more information.
+The `minlevel` attribute is most useful for configuring the logging level. Change this value to `Trace` and set `OCTOPUS__Logging__File__LogEventLevel` environment variable to `Verbose` to gather more information.
 
 The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
