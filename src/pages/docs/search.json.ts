@@ -3,6 +3,9 @@
 import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
 import type { MarkdownInstance } from 'astro';
 import { SITE } from '@config';
+import { htmlToText } from 'html-to-text';
+import keywordExtractor from 'keyword-extractor';
+
 
 const getData = async () => {
     //@ts-ignore
@@ -26,13 +29,33 @@ const getData = async () => {
 
         const headings = await page.getHeadings();
         const title = await accelerator.markdown.getTextFrom(page.frontmatter.title ?? '');
-              
+        const content = page.compiledContent ? page.compiledContent() : '';
+        let counted: { word: string, count: number }[] = [];
+
+        if (content) {
+            const text = htmlToText(content, { wordwrap: false });
+
+            const words = keywordExtractor.extract(text, {
+                language: 'english',
+                return_changed_case: true
+            });
+
+            function unique (value: string, index: number, array: string[]) {
+                return array.indexOf(value) === index;
+            }
+            const uniques = words.filter(unique);
+            counted = uniques.map((w) => {
+                return { word: w, count: words.filter(wd => wd === w).length };
+            }).filter(e => e.word.replace(/[^a-z]+/g, '').length > 1 && e.count > 1);
+        }
+
         items.push({
             title: title,
             headings: headings.map(h => {
                 return {text: h.text, slug: h.slug }
             }),
             description: page.frontmatter.description ?? '',
+            keywords: counted.map(c => c.word).join(' '),
             tags: page.frontmatter.tags ?? [],
             url: SITE.url + accelerator.urlFormatter.formatAddress(url),
             date: page.frontmatter.pubDate ?? ''
