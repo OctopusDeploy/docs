@@ -12,6 +12,7 @@ import { qs } from './query.js';
  * @param {string} headerSelector 
  * @param {string} navigationSelector 
  * @param {string} navigationListSelector 
+ * @param {string} resizedEventName
  */
 function addStickyNavigation(headerSelector, navigationSelector, navigationListSelector, resizedEventName) {
     function setNavigationMode() {
