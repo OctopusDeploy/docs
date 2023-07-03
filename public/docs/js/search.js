@@ -188,25 +188,30 @@ function search(s, r) {
         markers.className = 'result-text';
         markers.innerHTML = highlight(needle.description, queryTerms);
 
-        const headings = document.createElement('ul');
-        markers.className = 'result-headings';
-
-        needle.matchedHeadings
-            .forEach(h => {
-                const item = document.createElement('li');
-                const link = document.createElement('a');
-                link.href = url + '#' + h.slug;
-                link.innerHTML = highlight(h.text, queryTerms);
-                item.appendChild(link);
-                headings.append(item);
-            });
-
         const li = document.createElement('li');
+        li.dataset.score = (Math.round((needle.score/ total) * 100)).toString();
         li.appendChild(a);
         li.appendChild(path);
         li.appendChild(markers);
-        li.append(headings);
-        li.dataset.score = (Math.round((needle.score/ total) * 100)).toString();
+
+        if (needle.matchedHeadings.length > 0) {
+            const headings = document.createElement('ul');
+            headings.className = 'result-headings';
+
+            headings.tabIndex = 0;
+
+            needle.matchedHeadings
+                .forEach(h => {
+                    const item = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = url + '#' + h.slug;
+                    link.innerHTML = highlight(h.text, queryTerms);
+                    item.appendChild(link);
+                    headings.append(item);
+                });
+
+            li.appendChild(headings);
+        }
 
         ol.appendChild(li);
     }

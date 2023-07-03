@@ -159,8 +159,9 @@ img {
 }
 
 mark {
-    color: var(--color-hint);
-    background-color: var(--bgcolor-hint);
+    color: unset;
+    background-color: transparent;
+    font-weight: bold;
 }
 
 strong {
@@ -1335,6 +1336,38 @@ nav.skip-links a:focus {
 
 .site-search-results .result-path {
     font-family: var(--code-font);
+}
+
+.result-headings li {
+    display: none;
+}
+
+.result-headings li:nth-child(-n+3) {
+    display: block;
+}
+
+.result-headings:has(li:nth-child(n+4))::after {
+    content: 'See more >';
+    color: var(--octo-blue);
+    text-decoration: underline;
+  }
+
+.result-headings:focus-within li {
+    display: block;
+}
+
+.result-headings:focus-within::after {
+    display: none;
+}
+
+.show-more {
+    display: inline-block;
+    border-radius: 100px;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.2em 1.6em 0.3em 1.6em;
+    color: var(--color-hint);
+    background-color: var(--bgcolor-hint);
 }
 
 @media (max-width: 860px) {
