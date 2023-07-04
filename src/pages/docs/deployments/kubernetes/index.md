@@ -40,12 +40,6 @@ All three methods:
 
 If you're getting started with Kubernetes, we recommend the structured UI step. Octopus prompts you for the required properties and provides deep links to the official Kubernetes documentation so you can learn how Kubernetes works.
 
-### Raw YAML step
-
-The raw YAML step allows you to configure Kubernetes manually, leveraging the full power of Octopus features to support your setup. This approach is more flexible and gives you complete control over the YAML but requires deeper knowledge of Kubernetes configuration.
-
-You can also edit the YAML underlying the UI step if you find it faster or more convenient. This also makes it easy to upgrade to the raw YAML step if you outgrow the UI approach.
-
 ### Helm chart automation steps
 
 Helm is the de facto Kubernetes package manager, so our [Helm chart steps](/docs/deployments/kubernetes/helm-update) are a popular option. Again, you have the full power of Octopus at your disposal, but there's less raw YAML to configure.
