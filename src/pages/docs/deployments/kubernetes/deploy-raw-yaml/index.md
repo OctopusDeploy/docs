@@ -90,7 +90,7 @@ There are a few different ways to take advantage of this feature:
 
 `\ ` should only be used to escape any of the special characters below. Use `/` as the directory separator on all platforms.
 
-Directory traversal structures such as `../` are not supported in Octopus. `./` is supported at the state of a path, but it is not required.
+Directory traversal structures such as `../` are not supported. `./` is supported at the state of a path, but it is not required.
 
 `*` is used to denote any number of characters in a file or folder name:
 ```
