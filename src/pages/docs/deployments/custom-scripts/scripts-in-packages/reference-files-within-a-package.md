@@ -69,7 +69,7 @@ Console.WriteLine(File.ReadAllText(@".\subfolder\file.txt"));
 
 </details>
 <details data-group="deployments-custom-scripts-reference-files-within-package">
-<summary>Bash<summary>
+<summary>Bash</summary>
 
 ```bash
 # in pre-deploy, in post-deploy if custom installation directory has not been defined
