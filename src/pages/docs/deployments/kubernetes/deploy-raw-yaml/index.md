@@ -90,51 +90,34 @@ There are a few different ways to take advantage of this feature:
 
 ### Glob Expression Cheat Sheet
 
-`\ ` should only be used to escape any of the special characters below. Use `/` as the directory separator on all platforms.
-
 Directory traversal structures such as `../` are not supported. `./` is supported at the start of a path, but it is not required.
 
-`*` is used to denote any number of characters in a file or folder name:
+`?` matches any single character in a file or directory name:
+```
+deployments/resource-?.yaml => deployments/resource-1.yaml, deployments/resource-g.yaml
+```
+
+`*` matches zero or more characters in a file or directory name.
 ```
 deployments/*.yaml => deployments/anything-here.yaml, deployments/123-another-file.yaml
 */resource.yaml => deployments/resource.yaml, services/resource.yaml
 ```
 
-`**` is used to denote zero or more directories:
+`**` matches zero or more recursive directories.
 ```
 **/resource.yaml => deployments/resource.yaml, services/resource.yaml, deployments/child-folder/resource.yaml
 ```
 
-`?` is used to denote any single character in a file or folder name:
-```
-deployments/resource-?.yaml => deployments/resource-1.yaml, deployments/resource-g.yaml
-```
-
-`[abc]` is used to denote that a single character can match any of the characters in the brackets:
+`[...]` matches a set of characters in a name. Syntax is equivalent to character groups in Regex.:
 ```
 deployments/resource-[123].yaml => deployments/resource-1.yaml, deployments/resource-2.yaml, deployments/resource-3.yaml
 "deployments/resource-g.yaml" would not match the example glob expression.
-```
 
-`[a-z]` is used to denote that a single character can match any of the characters in the range indicated in the brackets.
-```
 deployments/resource-[1-3].yaml => deployments/resource-1.yaml, deployments/resource-2.yaml, deployments/resource-3.yaml
 "deployments/resource-g.yaml" would not match the example glob expression.
 ```
 
-`[!abc]` is used to denote that a single character can match any character except those in the brackets:
-```
-deployments/resource-[!123].yaml => deployments/resource-a.yaml, deployments/resource-b.yaml
-"deployments/resource-1.yaml" would not match the example glob expression.
-```
-
-`[!a-c]` is used to denote that a single character can match any character except those in the range indicated in the brackets.
-```
-deployments/resource-[!1-3].yaml => deployments/resource-a.yaml, deployments/resource-b.yaml
-"deployments/resource-2.yaml" would not match the example glob expression.
-```
-
-`{abc,123}` is used to denote that either any of the comma separated strings between the brackets can be in the file name:
+`{abc,123,...}` matches any of the pattern groups. Groups can contain groups and patterns.:
 ```
 deployments/resource-{123,abc}.yaml => deployments/resource-123.yaml, deployments/resource-abc.yaml
 ```
