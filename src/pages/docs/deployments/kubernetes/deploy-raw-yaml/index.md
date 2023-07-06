@@ -31,7 +31,9 @@ In Octopus, when YAML is sourced from a Git repository, we call it a Git Manifes
 
 To configure a Git Repository source, select the `Git Repository` option as your YAML Source.
 
-//TODO: Add photo here when UI is finalised
+:::figure
+![Deploy Raw Kubernetes YAML with a Git Manifest](/docs/deployments/kubernetes/deploy-raw-yaml/git-repository.png "width=500")
+:::
 
 :::div{.hint}
 If a user chooses to use the tip of a branch for their Git Manifest in a Release, the specific hash for that commit is saved to the Release. This means if the release will only ever use that specific commit and any new tip of the branch.
@@ -40,15 +42,15 @@ If a user chooses to use the tip of a branch for their Git Manifest in a Release
 ## Package
 
 Sourcing from a Package is the traditional way to load data from external sources. 
-You can specify the Package Feed and Package ID as well as a path or paths^ to the file(s) in the package that you want to deploy.
+You can specify the Package Feed and Package ID as well as a path or paths† to the file(s) in the package that you want to deploy.
 
 To configure a Git Repository source, select the `Package` option as your YAML Source.
 
 :::figure
-![Deploy Raw Kubernetes YAML with an Inline Script](/docs/deployments/kubernetes/deploy-raw-yaml/package.png "width=500")
+![Deploy Raw Kubernetes YAML with a Package](/docs/deployments/kubernetes/deploy-raw-yaml/package.png "width=500")
 :::
 
-^In 2023.3, sourcing from packages can take advantage of [Glob Expressions and Multiple Paths](/docs/deployments/kubernetes/deploy-raw-yaml#glob-expressions-and-multiple-paths).
+†In 2023.3, sourcing from packages can take advantage of [Glob Expressions and Multiple Paths](/docs/deployments/kubernetes/deploy-raw-yaml#glob-expressions-and-multiple-paths).
 
 ## Inline YAML
 
