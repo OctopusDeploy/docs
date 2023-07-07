@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-07-07
 title: Telemetry
 description: Telemetry from Octopus Server and what is included
 navOrder: 25
 ---
 
-Telemetry reporting is enabled by default. We use the data we receive to inform our decisions and to help us make a better product. You can opt-out of sending telemetry by navigating to **Configuration ➜ Telemetry** in Octopus.
+Telemetry reporting is enabled by default and transmits once per day. We use the data we receive to inform our decisions and to help us make a better product. You can opt-out of sending telemetry by navigating to **Configuration ➜ Telemetry** in Octopus.
 
 When the **Telemetry Reporting** option is enabled, Octopus will make an HTTPS request, this request includes:
 
