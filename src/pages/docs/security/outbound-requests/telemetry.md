@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-07-07
 title: Telemetry
 description: Telemetry from Octopus Server and what is included
 navOrder: 25
