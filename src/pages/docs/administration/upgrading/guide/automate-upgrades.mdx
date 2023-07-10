@@ -393,6 +393,34 @@ $serverExe = "$installPath\Octopus.Server.exe"
 & $serverExe database --instance="OctopusServer" --upgrade
 ```
 
+As of **2023.2.9755**, Octopus will terminate a database upgrade if running nodes are detected. Sometimes the nodes simply haven't exited cleanly.
+And it might take a few seconds for Octopus to recognize this. It's possible to use a simple retry loop to handle this automatically.
+
+```
+$installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"
+$serverExe = "$installPath\Octopus.Server.exe"
+
+$maxRetry = 3
+$retryInterval = 10
+$attempts = 0
+
+While ($true) {
+    $attempts++
+
+    if ($attempts -gt $maxRetry) {
+        Write-Error "Upgrade failed after $maxRetry retries"
+        exit 1
+    }
+
+    # OctopusServer is the default instance name.  If you have multiple instances, or are not using the default instance name, change the --instance parameter.
+    & $serverExe database --instance="OctopusServer" --upgrade
+    if ($LASTEXITCODE -ne 0) {
+        Write-Warning "Upgrade failed. Retrying in $retryInterval seconds..."
+        Start-Sleep -Seconds $retryInterval
+    }
+}
+```
+
 **8. Restart all nodes (HAServer).**
 ```powershell
 # A server could have multiple instances, as we shut them all down earlier, start them all back up

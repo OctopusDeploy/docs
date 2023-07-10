@@ -44,6 +44,10 @@ If you are using the [Service Watchdog](/docs/administration/managing-infrastruc
 You are required to install the same MSI on all servers or nodes in your highly available Octopus Deploy instance.  The MSI installs the updated binaries, which include the latest database upgrade scripts.  Unlike the binaries, the database upgrade only needs to happen once.
 
 :::div{.warning}
+As of **2023.2.9755**, a database upgrade will abort if Octopus detects there are nodes still running. Ensure all nodes are properly shutdown and try again.
+:::
+
+:::div{.warning}
 A small outage window will occur when upgrading a highly available Octopus Deploy instance.  The outage window will happen between when you shut down all the nodes and upgrade the first node.  The window duration depends on the number of database changes, the size of the database, and compute resources.  It is highly recommended to [automate your upgrade process](/docs/administration/upgrading/guide/automate-upgrades) to reduce that outage window.
 :::
 
