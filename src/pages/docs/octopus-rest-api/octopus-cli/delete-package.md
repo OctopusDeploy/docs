@@ -10,7 +10,7 @@ Deletes a package from the built-in NuGet repository in an Octopus Server.
 
 **delete-package options**
 
-```
+```text
 Deletes a package from the built-in NuGet repository in an Octopus Server.
 
 Usage: octo delete-package [<options>]

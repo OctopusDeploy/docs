@@ -9,7 +9,7 @@ navOrder: 210
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list the project in your Octopus instance.
 
-```
+```text
 Lists all projects.
 
 Usage: octo list-projects [<options>]
