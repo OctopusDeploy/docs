@@ -396,7 +396,7 @@ $serverExe = "$installPath\Octopus.Server.exe"
 As of **2023.2.9755**, Octopus will terminate a database upgrade if running nodes are detected. Sometimes the nodes simply haven't exited cleanly.
 And it might take a few seconds for Octopus to recognize this. It's possible to use a simple retry loop to handle this automatically.
 
-```
+```powershell
 $installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"
 $serverExe = "$installPath\Octopus.Server.exe"
 
