@@ -12,7 +12,7 @@ The export must have been made from an Octopus Server running the same release v
 
 Usage:
 
-```
+```text
 Usage: octopus.migrator import [<options>]
 
 Where [<options>] is any of:

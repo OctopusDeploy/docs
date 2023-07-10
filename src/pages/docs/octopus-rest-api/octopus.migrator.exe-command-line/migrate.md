@@ -10,7 +10,7 @@ Imports data from an Octopus 2.6 backup
 
 **migrate options**
 
-```
+```text
 Usage: octopus.migrator migrate [<options>]
 
 Where [<options>] is any of:
