@@ -11,7 +11,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to automate th
 
 This command creates a release, and optionally deploy it to one or more environments:
 
-```
+```text
 Creates (and, optionally, deploys) a release.
 
 Usage: octo create-release [<options>]

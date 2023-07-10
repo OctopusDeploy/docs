@@ -1,35 +1,22 @@
 ---
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Build information
-description: Pushes build information to Octopus Server.
-navOrder: 10
+title: disable-project
+description: Disables a project.
 ---
-import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to push build information to the Octopus Server.
+Disables a project.
+
+**disable-project options**
 
 ```text
-Pushes build information to Octopus Server.
+Disables a project.
 
-Usage: octo build-information [<options>]
+Usage: octo disable-project [<options>]
 
 Where [<options>] is any of:
 
-Build information pushing:
+Project disablement:
 
-      --package-id=VALUE     The ID of the package. Specify multiple packages
-                             by specifying this argument multiple times:
-                             --package-id 'MyCompany.MyApp' --package-id
-                             'MyCompany.MyApp2'.
-      --version=VALUE        The version of the package; defaults to a
-                             timestamp-based version.
-      --file=VALUE           Octopus Build Information Json file.
-      --overwrite-mode=VALUE Determines behavior if the package already
-                             exists in the repository. Valid values are
-                             FailIfExists, OverwriteExisting and
-                             IgnoreIfExists. Default is FailIfExists.
+      --name=VALUE           The name of the project.
 
 Common options:
 
@@ -85,36 +72,3 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example
-
-<SamplesInstance />
-
-This example uploads [build information](/docs/packaging-applications/build-servers/build-information) contained in buildInfo.json to Octopus Deploy for the specified package and version.
-
-```json
-{
-  "BuildEnvironment":"BitBucket",
-  "Branch":"main",
-  "BuildNumber":"288",
-  "BuildUrl":"https://bitbucket.org/octopussamples/petclinic/addon/pipelines/home#!/results/288",
-  "VcsType":"Git",
-  "VcsRoot":"http://bitbucket.org/octopussamples/petclinic",
-  "VcsCommitNumber":"314cf2c3ee916c92a384c2796a6abe332d678e4f",
-  "Commits":[
-      {
-         "Id":"314cf2c3ee916c92a384c2796a6abe332d678e4f",
-         "Comment":"PET-1 - test runbook with 0.15.0 of pipe"
-      }
-   ]
-}
-```
-
-```
-octo build-information --package-id="PetClinic.web" --version="1.0.200803.1002" --file="buildInfo.json" --server="http://samples.octopus.app" --apiKey="API-MyKey" --space="Target - Wildfly"
-```
-
-## Learn more
-
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
-- [Build information](/docs/packaging-applications/build-servers/build-information)

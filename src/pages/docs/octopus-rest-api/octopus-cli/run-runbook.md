@@ -9,7 +9,7 @@ navOrder: 287
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to run runbooks that have already been created.
 
-```
+```text
 Runs a Runbook.
 
 Usage: octo run-runbook [<options>]
