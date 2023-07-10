@@ -11,7 +11,7 @@ This command has been deprecated. Please use the [build-information](/docs/octop
 
 Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/build-information)) to your Octopus Server.
 
-```
+```text
 Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.
 
 Usage: octo push-metadata [<options>]

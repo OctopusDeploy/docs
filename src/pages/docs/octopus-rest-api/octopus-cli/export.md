@@ -15,7 +15,7 @@ If you are running an earlier version of Octopus, please see our [data migration
 
 When you try to run **export**, you'll now receive the following error:
 
-```
+```text
 The octo import/export commands have been deprecated. See [https://g.octopushq.com/DataMigration](https://g.octopushq.com/DataMigration) for alternative options.
 Exit code: -1
 ```

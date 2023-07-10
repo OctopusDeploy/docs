@@ -9,7 +9,7 @@ navOrder: 290
 
 This command returns the version of the Octopus CLI tool version.
 
-```
+```text
 Outputs Octopus CLI version.
 
 Usage: octo version [<options>]
