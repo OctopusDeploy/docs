@@ -10,7 +10,7 @@ Registers this machine as a Worker with an Octopus Server.
 
 **Register with options**
 
-```
+```text
 Usage: tentacle register-worker [<options>]
 
 Where [<options>] is any of:

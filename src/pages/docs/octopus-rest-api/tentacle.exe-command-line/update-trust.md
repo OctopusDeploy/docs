@@ -10,7 +10,7 @@ Replaces the trusted Octopus Server thumbprint of any matching polling or listen
 
 **update-trust options**
 
-```
+```text
 Usage: tentacle update-trust [<options>]
 
 Where [<options>] is any of:

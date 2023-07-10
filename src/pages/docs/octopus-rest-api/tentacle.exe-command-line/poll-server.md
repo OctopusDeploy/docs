@@ -10,7 +10,7 @@ Configures an Octopus Server that this Tentacle will poll.
 
 **Poll server options**
 
-```
+```text
 Usage: tentacle poll-server [<options>]
 
 Where [<options>] is any of:

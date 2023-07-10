@@ -10,7 +10,7 @@ Configure the HTTP proxy used by Polling Tentacles to reach the Octopus Server
 
 **Polling proxy options**
 
-```
+```text
 Usage: tentacle polling-proxy [<options>]
 
 Where [<options>] is any of:

@@ -10,7 +10,7 @@ Registers a new instance of the Tentacle service.
 
 **Create instance options**
 
-```
+```text
 Usage: tentacle create-instance [<options>]
 
 Where [<options>] is any of:

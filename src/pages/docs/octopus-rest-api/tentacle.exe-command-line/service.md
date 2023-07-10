@@ -10,7 +10,7 @@ Start, stop, install and configure the Tentacle service.
 
 **Service options**
 
-```
+```text
 Usage: tentacle service [<options>]
 
 Where [<options>] is any of:

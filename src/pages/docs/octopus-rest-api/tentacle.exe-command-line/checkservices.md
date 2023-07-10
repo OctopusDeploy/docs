@@ -10,7 +10,7 @@ The checkservices command checks the Octopus Tentacle instances to see if they a
 
 **checkservices options**
 
-```
+```text
 Usage: tentacle checkservices [<options>]
 
 Where [<options>] is any of:

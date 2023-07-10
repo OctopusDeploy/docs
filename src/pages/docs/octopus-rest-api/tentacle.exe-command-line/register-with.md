@@ -10,7 +10,7 @@ Registers this machine as a deployment target with an Octopus Server.
 
 **Register with options**
 
-```
+```text
 Usage: tentacle register-with [<options>]
 
 Where [<options>] is any of:

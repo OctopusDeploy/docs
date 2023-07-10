@@ -11,7 +11,7 @@ Lists all installed Octopus Tentacle instances.
 
 **List instances options**
 
-```
+```text
 Usage: tentacle list-instances [<options>]
 
 Where [<options>] is any of:

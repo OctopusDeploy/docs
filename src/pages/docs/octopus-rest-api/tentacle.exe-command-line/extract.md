@@ -10,7 +10,7 @@ Extracts a NuGet package.
 
 **extract options**
 
-```
+```text
 Usage: tentacle extract [<options>]
 
 Where [<options>] is any of:

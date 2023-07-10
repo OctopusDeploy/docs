@@ -13,7 +13,7 @@ For Workers, the server-side configuration includes the associated worker pools,
 
 **Show configuration options**
 
-```
+```text
 Usage: tentacle show-configuration [<options>]
 
 Where [<options>] is any of:

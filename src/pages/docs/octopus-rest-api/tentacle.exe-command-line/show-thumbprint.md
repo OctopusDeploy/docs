@@ -10,7 +10,7 @@ Show the thumbprint of the Tentacle's certificate.
 
 **New certificate options**
 
-```
+```text
 Usage: tentacle show-thumbprint [<options>]
 
 Where [<options>] is any of:

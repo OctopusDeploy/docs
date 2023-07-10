@@ -10,7 +10,7 @@ Configure the HTTP proxy used by Octopus.
 
 **Proxy options**
 
-```
+```text
 Usage: tentacle proxy [<options>]
 
 Where [<options>] is any of:

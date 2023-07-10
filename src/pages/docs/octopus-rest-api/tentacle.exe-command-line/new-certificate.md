@@ -10,7 +10,7 @@ Creates and installs a new certificate for this Tentacle.
 
 **New certificate options**
 
-```
+```text
 Usage: tentacle new-certificate [<options>]
 
 Where [<options>] is any of:

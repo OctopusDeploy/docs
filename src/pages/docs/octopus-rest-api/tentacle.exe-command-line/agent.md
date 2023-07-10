@@ -10,7 +10,7 @@ Starts the Tentacle Agent in debug mode.
 
 **agent options**
 
-```
+```text
 Usage: tentacle agent [<options>]
 
 Where [<options>] is any of:

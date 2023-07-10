@@ -10,7 +10,7 @@ Replace the certificate that Tentacle uses to authenticate itself.
 
 **Import certificate options**
 
-```
+```text
 Usage: tentacle import-certificate [<options>]
 
 Where [<options>] is any of:
