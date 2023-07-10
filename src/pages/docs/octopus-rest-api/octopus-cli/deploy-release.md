@@ -9,7 +9,7 @@ navOrder: 110
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to deploy releases that have [already been created](/docs/octopus-rest-api/octopus-cli/create-release).
 
-```
+```text
 Deploys a release.
 
 Usage: octo deploy-release [<options>]

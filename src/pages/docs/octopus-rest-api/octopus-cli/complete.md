@@ -11,7 +11,7 @@ Supports command line auto completion.
 
 **complete options**
 
-```
+```text
 Supports command line auto completion.
 
 Usage: octo complete <command> [<options>]

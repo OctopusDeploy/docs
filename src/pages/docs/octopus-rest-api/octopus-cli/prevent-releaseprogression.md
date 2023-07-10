@@ -9,7 +9,7 @@ navOrder: 265
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to prevent a release from progressing to next phase.
 
-```
+```text
 Prevents a release from progressing to the next phase.
 
 Usage: octo prevent-releaseprogression [<options>]

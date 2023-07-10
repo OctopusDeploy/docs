@@ -1,35 +1,18 @@
 ---
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Delete auto deploy override
-description: Using the Octopus CLI to delete automatic deployment release overrides.
-navOrder: 90
+title: list-tenants
+description: Lists tenants.
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to delete automatic deployment release overrides.
+Lists tenants.
+
+**list-tenants options**
 
 ```text
-Deletes auto deploy release overrides.
+Lists tenants.
 
-Usage: octo delete-autodeployoverride [<options>]
+Usage: octo list-tenants [<options>]
 
 Where [<options>] is any of:
-
-Delete auto deploy release override:
-
-      --project=VALUE        Name of the project.
-      --environment=VALUE    Name of an environment the override will apply
-                             to. Specify this argument multiple times to add
-                             multiple environments.
-      --tenant=VALUE         [Optional] Name of a tenant the override will
-                             apply to. Specify this argument multiple times
-                             to add multiple tenants or use `*` wildcard for
-                             all tenants.
-      --tenantTag=VALUE      [Optional] A tenant tag used to match tenants
-                             that the override will apply to. Specify this
-                             argument multiple times to add multiple tenant
-                             tags
 
 Common options:
 
@@ -85,32 +68,3 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example {#Deletingautodeployoverrides-Basicexample}
-
-The following deletes an automatic deployment release override for the project *HelloWorld* to the environment Development:
-
-```bash
-octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
-```
-
-## Tenanted example (by name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
-
-The following deletes an automatic deployment release override for the project *HelloWorld* to the environment Development for the tenant *Acme*:
-
-```bash
-octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
-```
-
-## tenanted example (by tags) {#deletingautodeployoverrides-tenantedexample(bytags)}
-
-The following deletes an automatic deployment release override for the project *HelloWorld* to the environment Development for all tenants with the *Hosting/Cloud* tag:
-
-```bash
-octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456
-```
-
-## Learn more
-
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
-- [Automatic deployments](/docs/projects/project-triggers/deployment-target-triggers)

@@ -9,7 +9,7 @@ navOrder: 50
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create environments on your Octopus instance.
 
-```
+```text
 Creates a deployment environment.
 
 Usage: octo create-environment [<options>]
