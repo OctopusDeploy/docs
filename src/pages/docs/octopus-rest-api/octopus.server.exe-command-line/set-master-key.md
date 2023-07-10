@@ -15,7 +15,7 @@ This command only updates the config file and does not mutate any data. Make sur
 
 **set-master-key options**
 
-```
+```text
 Usage: octopus.server set-master-key [<options>]
 
 Where [<options>] is any of:

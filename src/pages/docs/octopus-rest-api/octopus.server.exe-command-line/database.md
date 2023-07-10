@@ -11,7 +11,7 @@ Use the database command to create or drop the Octopus database.
 
 **Database options**
 
-```
+```text
 Usage: octopus.server database [<options>]
 
 Where [<options>] is any of:

@@ -11,7 +11,7 @@ Use the builtin-worker command to configure the user context that the [built-in 
 
 **builtin-worker options**
 
-```
+```text
 Usage: octopus.server builtin-worker [<options>]
 
 Where [<options>] is any of:

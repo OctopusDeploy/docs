@@ -11,7 +11,7 @@ Show the Octopus Server version information
 
 **version options**
 
-```
+```text
 Usage: octopus.server version [<options>]
 
 Where [<options>] is any of:

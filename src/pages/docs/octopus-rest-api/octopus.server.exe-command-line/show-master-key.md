@@ -11,7 +11,7 @@ Use the show Master Key command to print the server's Master Encryption Key, so 
 
 **Show Master Key options**
 
-```
+```text
 Usage: octopus.server show-master-key [<options>]
 
 Where [<options>] is any of:

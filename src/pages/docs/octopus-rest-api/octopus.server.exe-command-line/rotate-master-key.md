@@ -16,7 +16,7 @@ Before using this command, we recommend taking a look at our [guide on rotating 
 
 **rotate-master-key options**
 
-```
+```text
 Usage: octopus.server rotate-master-key [<options>]
 
 Where [<options>] is any of:

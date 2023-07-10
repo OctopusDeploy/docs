@@ -11,7 +11,7 @@ Use the admin command to reset admin user passwords, re-enable them, and ensure 
 
 **Admin options**
 
-```
+```text
 Usage: octopus.server admin [<options>]
 
 Where [<options>] is any of:

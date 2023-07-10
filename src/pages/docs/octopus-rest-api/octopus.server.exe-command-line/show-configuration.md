@@ -11,7 +11,7 @@ Use the show configuration command to output the server configuration.
 
 **Show configuration options**
 
-```
+```text
 Usage: octopus.server show-configuration [<options>]
 
 Where [<options>] is any of:

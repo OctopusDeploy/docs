@@ -15,7 +15,7 @@ Before using this command, we recommend taking a look at our [guide on recoverin
 
 **lost-master-key options**
 
-```
+```text
 Usage: octopus.server lost-master-key [<options>]
 
 Where [<options>] is any of:

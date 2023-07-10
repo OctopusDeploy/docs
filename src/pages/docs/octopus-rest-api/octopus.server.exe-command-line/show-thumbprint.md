@@ -11,7 +11,7 @@ Use the show thumbprint command to show the thumbprint of the server instance.
 
 **Show thumbprint options**
 
-```
+```text
 Usage: octopus.server show-thumbprint [<options>]
 
 Where [<options>] is any of:

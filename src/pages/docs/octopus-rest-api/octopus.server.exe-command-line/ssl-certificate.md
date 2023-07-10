@@ -11,7 +11,7 @@ Binds the SSL/TLS certificate used by the portal to the specified address/port.
 
 **ssl-certificate options**
 
-```
+```text
 Usage: octopus.server ssl-certificate [<options>]
 
 Where [<options>] is any of:

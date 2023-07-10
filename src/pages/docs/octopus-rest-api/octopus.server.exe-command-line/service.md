@@ -11,7 +11,7 @@ Use this to configure and manage your Octopus service.
 
 **Service options**
 
-```
+```text
 Usage: octopus.server service [<options>]
 
 Where [<options>] is any of:

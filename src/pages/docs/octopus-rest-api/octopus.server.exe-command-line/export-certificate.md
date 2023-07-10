@@ -11,7 +11,7 @@ Use the export certificate command to backup the certificate that Octopus Server
 
 **Export certificate options**
 
-```
+```text
 Usage: octopus.server export-certificate [<options>]
 
 Where [<options>] is any of:

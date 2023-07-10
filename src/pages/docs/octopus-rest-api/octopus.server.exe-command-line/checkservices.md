@@ -11,7 +11,7 @@ The `checkservices` command checks the Octopus Server instances to see if they a
 
 **Check Services options**
 
-```
+```text
 Usage: octopus.server checkservices [<options>]
 
 Where [<options>] is any of:

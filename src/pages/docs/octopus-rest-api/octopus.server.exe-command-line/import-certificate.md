@@ -11,7 +11,7 @@ Use the import certificate command to replace the certificate that Octopus Serve
 
 **Import certificate options**
 
-```
+```text
 Usage: octopus.server import-certificate [<options>]
 
 Where [<options>] is any of:

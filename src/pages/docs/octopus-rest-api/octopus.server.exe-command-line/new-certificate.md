@@ -11,7 +11,7 @@ Use the new certificate command to create a new certificate that Octopus Server 
 
 **New certificate options**
 
-```
+```text
 Usage: octopus.server new-certificate [<options>]
 
 Where [<options>] is any of:

@@ -11,7 +11,7 @@ Configure settings related to this Octopus Server node
 
 **node options**
 
-```
+```text
 Usage: octopus.server node [<options>]
 
 Where [<options>] is any of:

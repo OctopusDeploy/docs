@@ -11,7 +11,7 @@ Set the file paths that Octopus will use for storage
 
 **path options**
 
-```
+```text
 Usage: octopus.server path [<options>]
 
 Where [<options>] is any of:

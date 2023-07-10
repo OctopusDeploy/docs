@@ -11,7 +11,7 @@ Use the configure command to configure this Octopus instance.
 
 **Configure options**
 
-```
+```text
 Usage: octopus.server configure [<options>]
 
 Where [<options>] is any of:

@@ -11,7 +11,7 @@ Use the license command to import a license key.
 
 **License options**
 
-```
+```text
 Usage: octopus.server license [<options>]
 
 Where [<options>] is any of:

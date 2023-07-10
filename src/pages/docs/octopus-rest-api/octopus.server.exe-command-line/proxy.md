@@ -11,7 +11,7 @@ Use the proxy command to configure the HTTP proxy used by Octopus.
 
 **Proxy options**
 
-```
+```text
 Usage: octopus.server proxy [<options>]
 
 Where [<options>] is any of:
