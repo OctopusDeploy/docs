@@ -97,18 +97,18 @@ Directory traversal structures such as `../` are not supported. `./` is supporte
 deployments/resource-?.yaml => deployments/resource-1.yaml, deployments/resource-g.yaml
 ```
 
-`*` matches zero or more characters in a file or directory name.
+`*` matches zero or more characters in a file or directory name:
 ```
 deployments/*.yaml => deployments/anything-here.yaml, deployments/123-another-file.yaml
 */resource.yaml => deployments/resource.yaml, services/resource.yaml
 ```
 
-`**` matches zero or more recursive directories.
+`**` matches zero or more recursive directories:
 ```
 **/resource.yaml => deployments/resource.yaml, services/resource.yaml, deployments/child-folder/resource.yaml
 ```
 
-`[...]` matches a set of characters in a name. Syntax is equivalent to character groups in Regex.:
+`[...]` matches a set of characters in a name. Syntax is equivalent to character groups in Regex:
 ```
 deployments/resource-[123].yaml => deployments/resource-1.yaml, deployments/resource-2.yaml, deployments/resource-3.yaml
 "deployments/resource-g.yaml" would not match the example glob expression.
@@ -117,7 +117,7 @@ deployments/resource-[1-3].yaml => deployments/resource-1.yaml, deployments/reso
 "deployments/resource-g.yaml" would not match the example glob expression.
 ```
 
-`{abc,123,...}` matches any of the pattern groups. Groups can contain groups and patterns.:
+`{abc,123,...}` matches any of the pattern groups. Groups can contain groups and patterns:
 ```
 deployments/resource-{123,abc}.yaml => deployments/resource-123.yaml, deployments/resource-abc.yaml
 ```
