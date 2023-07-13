@@ -88,7 +88,7 @@ For packages pushed to the Octopus built-in repository, the build information ca
 ![Build information on package version page](/docs/packaging-applications/build-servers/build-information/images/build-information-package-version-2.png "width=500")
 :::
 
-## Using build information in release notes #{build-info-in-release-notes}
+## Using build information in release notes {#build-info-in-release-notes}
 
 The build information associated with packages is available for use in [release notes](/docs/releases/release-notes) (and [release notes templates](/docs/releases/release-notes/#Release-Notes-Templates)) as Octopus variables.
 
