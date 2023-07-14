@@ -43,7 +43,7 @@ function highlight(string, terms) {
  * Simplifies a string to plain lower case, removing diacritic characters and hyphens
  * This means a search for "co-op" will be found in "COOP" and "Café" will be found in "cafe"
  * @param {string} string 
- * @returns 
+ * @returns {string}
  */
  function sanitise(string) {
     // @ts-ignore
