@@ -32,10 +32,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: Set NODE_OPTIONS
-        run: |
-          export NODE_OPTIONS="--max_old_space_size=4096"
-
       - name: NPM and Playwright install
         run: |
           echo; echo "cd to workspace"
@@ -48,7 +44,7 @@ jobs:
 
       - name: Astro build and test
         run: |
-          npm run test
+          node --max-old-space-size=8192 --heapsnapshot-near-heap-limit=3 `which npm` run test
 
       - name: Set Version
         run: |
