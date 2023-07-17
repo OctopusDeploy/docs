@@ -35,7 +35,6 @@ jobs:
       - name: Set NODE_OPTIONS
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
-          npm start
 
       - name: NPM and Playwright install
         run: |
