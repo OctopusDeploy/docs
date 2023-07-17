@@ -20,4 +20,6 @@ const accelerator = new Accelerator(SITE);
 
 const date = frontmatter.modDate ?? frontmatter.pubDate;
 ---
+{date &&
 <p class="last-updated"><time datetime={ date.toString() } itemprop="dateModified"></time>{ _(Translations.post.last_modified) } { accelerator.dateFormatter.formatDate(date, lang) }</time></p>
+}

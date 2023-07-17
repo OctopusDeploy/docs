@@ -1,5 +1,7 @@
 ---
 title: delete-project
+pubDate: 2023-07-17
+modDate: 2023-07-17
 description: Deletes a project.
 ---
 
