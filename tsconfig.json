@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "types": ["astro/client"],
+  "exclude": ["npm_modules"],
   "compilerOptions": {
       "baseUrl": ".",
       "paths": {
