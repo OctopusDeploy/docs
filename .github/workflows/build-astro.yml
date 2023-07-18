@@ -44,7 +44,7 @@ jobs:
 
       - name: Astro build and test
         run: |
-          node --max_old_space_size=8192 --optimize_for_size --stack_size=4096 `which npm` astro build
+          node --max_old_space_size=8192 --optimize_for_size --stack_size=4096 `which npm` run build
 
       - name: Set Version
         run: |
