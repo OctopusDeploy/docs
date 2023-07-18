@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Create project
 description: Using the Octopus CLI to create projects.
-navOrder: 60
+navOrder: 100
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create a project inside a project group.

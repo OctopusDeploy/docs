@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Pack
 description: Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj
-navOrder: 260
+navOrder: 100
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create packages (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj file.

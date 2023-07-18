@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
-title: disable-project
+title: Disable project
 pubDate: 2023-07-17
 modDate: 2023-07-17
 description: Disables a project.
+navOrder: 100
 ---
 
 Disables a project.

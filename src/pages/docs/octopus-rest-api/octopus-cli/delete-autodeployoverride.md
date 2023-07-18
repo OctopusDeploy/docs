@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Delete auto deploy override
 description: Using the Octopus CLI to delete automatic deployment release overrides.
-navOrder: 90
+navOrder: 100
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to delete automatic deployment release overrides.

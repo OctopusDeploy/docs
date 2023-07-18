@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
-title: delete-project
+title: Delete project
 pubDate: 2023-07-17
 modDate: 2023-07-17
 description: Deletes a project.
+navOrder: 100
 ---
 
 Deletes a project.

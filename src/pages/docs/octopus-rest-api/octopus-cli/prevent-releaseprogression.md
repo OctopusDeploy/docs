@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Prevent release progression
 description: Prevents a release from progressing to next phase
-navOrder: 265
+navOrder: 100
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to prevent a release from progressing to next phase.

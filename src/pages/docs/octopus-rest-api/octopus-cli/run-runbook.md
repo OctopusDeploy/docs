@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Run a runbook
 description: Using the Octopus CLI to run a runbook.
-navOrder: 287
+navOrder: 100
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to run runbooks that have already been created.
