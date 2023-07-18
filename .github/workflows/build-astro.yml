@@ -2,9 +2,9 @@ name: Deploy
 
 on:
   # Disable on push temporarily while we're doing the migration
+  workflow_dispatch:
   push:
     branches: [ main ]
-  workflow_dispatch:
 
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   
@@ -44,7 +44,8 @@ jobs:
 
       - name: Astro build and test
         run: |
-          node --max-old-space-size=8192 --heapsnapshot-near-heap-limit=3 `which npm` run test
+          export NODE_OPTIONS=--max_old_space_size=4096
+          npm run test
 
       - name: Set Version
         run: |
