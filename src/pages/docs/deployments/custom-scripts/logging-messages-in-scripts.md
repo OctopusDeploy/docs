@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-07-18
 title: Logging messages from scripts
 description: When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message.
 navOrder: 50
@@ -135,6 +135,65 @@ Octopus.updateProgress 50 "Woah, we're halfway there!"
 ```python
 updateprogress(10)
 updateprogress(50, 'Woah, we\'re halfway there!')
+```
+
+</details>
+
+Sometimes you might want to display progress from an external application that's called by Octopus during a deployment or runbook. This can be achieved using the `##octopus[progress]` service message written directly to standard output:
+
+<details data-group="deployments-custom-scripts-progress-service-message">
+<summary>C#</summary>
+
+```csharp
+private static string EncodeServiceMessageValue(string value)
+{
+    var valueBytes = System.Text.Encoding.UTF8.GetBytes(value);
+    return Convert.ToBase64String(valueBytes);
+}
+
+Console.WriteLine("##octopus[progress percentage='{0}' message='{1}']", EncodeServiceMessageValue(percentage.ToString()), EncodeServiceMessageValue(message));
+```
+
+</details>
+<details data-group="deployments-custom-scripts-progress-service-message">
+<summary>F#</summary>
+
+```fsharp
+let private encode (value:string) = System.Text.Encoding.UTF8.GetBytes(value) |> Convert.ToBase64String
+let private writeServiceMessage name content =  printfn "##octopus[%s %s]" name content
+let updateProgress (percentage: int) message =
+    let encodedMessage = message |> encode
+    let encodedPercentage = percentage.ToString() |> encode
+    let content = sprintf "percentage='%s' message='%s'" encodedPercentage encodedMessage
+    writeServiceMessage "progress" content
+```
+
+</details>
+<details data-group="deployments-custom-scripts-progress-service-message">
+<summary>Python3</summary>
+
+```python
+def encode(value):
+    return base64.b64encode(value.encode('utf-8')).decode('utf-8')
+
+def updateprogress(progress, message=None):
+    encodedProgress = encode(str(progress))
+    encodedMessage = encode(message)
+
+    print("##octopus[progress percentage='{0}' message='{1}']".format(encodedProgress, encodedMessage))
+```
+
+</details>
+<details data-group="deployments-custom-scripts-progress-service-message">
+<summary>Bash</summary>
+
+```bash
+function encode_servicemessagevalue
+{
+	echo -n "$1" | openssl enc -base64 -A
+}
+
+echo "##octopus[progress percentage='$(encode_servicemessagevalue "$1")' message='$(encode_servicemessagevalue "$2")']"
 ```
 
 </details>
