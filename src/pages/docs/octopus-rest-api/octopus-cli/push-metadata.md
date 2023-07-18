@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Push metadata
 description: Pushes package metadata to Octopus Server.
-navOrder: 285
+navOrder: 100
 ---
 
 This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octopus-cli/build-information) command for Octopus Server 2019.10.0 and above.

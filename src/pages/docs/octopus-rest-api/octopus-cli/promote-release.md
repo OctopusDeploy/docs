@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Promote release
 description: Using the Octopus CLI to promote releases between environments.
-navOrder: 270
+navOrder: 100
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to promote a release from one environment to another.

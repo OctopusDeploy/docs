@@ -2,8 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: delete-package
+title: Delete package
 description: Deletes a package from the built-in NuGet repository in an Octopus Server.
+navOrder: 100
 ---
 
 Deletes a package from the built-in NuGet repository in an Octopus Server.

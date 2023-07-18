@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Create environment
 description: Using the Octopus CLI to create environments.
-navOrder: 50
+navOrder: 100
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create environments on your Octopus instance.

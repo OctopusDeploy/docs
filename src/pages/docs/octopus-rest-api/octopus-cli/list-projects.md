@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: List projects
 description: Lists all projects
-navOrder: 210
+navOrder: 100
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list the project in your Octopus instance.

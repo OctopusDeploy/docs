@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Version
 description: Output the Octopus CLI command line tool version.
-navOrder: 290
+navOrder: 100
 ---
 
 This command returns the version of the Octopus CLI tool version.
