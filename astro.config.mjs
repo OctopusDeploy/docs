@@ -1,7 +1,6 @@
 import remarkDirective from 'remark-directive';
 import remarkHeading from 'remark-heading-id';
 import { defineConfig } from 'astro/config';
-import { defaultLayout } from '/src/themes/accelerator/utilities/default-layout.mjs';
 import mdx from '@astrojs/mdx';
 import { attributeMarkdown, wrapTables } from '/src/themes/accelerator/utilities/custom-markdown.mjs';
 
@@ -16,7 +15,6 @@ export default defineConfig({
             theme: 'nord'
         },
         remarkPlugins: [
-            defaultLayout,
             remarkDirective,
             remarkHeading,
             attributeMarkdown,
