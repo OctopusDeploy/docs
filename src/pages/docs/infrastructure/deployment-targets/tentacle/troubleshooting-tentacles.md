@@ -1,13 +1,18 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-07-19
 title: Troubleshooting Tentacles
 description: How to troubleshoot problems with Octopus Tentacles.
 navOrder: 60
 ---
 
 All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues, and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" (Listening Tentacles) or "Registered" (Polling Tentacles) with the Octopus Server, or a previously working machine fails a health-check with errors from the networking stack.
+
+:::div{.problem}
+**WARNING** 
+A breaking change in Tentacle releases with version 6.3+ means that all versions above 6.2.277 will require .NET 4.8 or above to run. This is a Microsoft dependency due to EOL for older .NET versions.
+:::
 
 ## Restart the Octopus and Tentacle services
 
