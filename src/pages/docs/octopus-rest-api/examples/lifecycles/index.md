@@ -9,3 +9,5 @@ hideInThisSectionHeader: true
 ---
 
 You can use the REST API to create and manage your [lifecycles](/docs/releases/lifecycles) in Octopus. Typical tasks can include:
+
+- [Create a lifecycle](/docs/octopus-rest-api/examples/lifecycles/create-lifecycle)

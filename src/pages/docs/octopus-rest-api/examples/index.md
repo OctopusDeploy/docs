@@ -63,3 +63,28 @@ To help with this, we've included examples of [bulk operations](/docs/octopus-re
 ## Explore examples
 
 Explore the REST API examples further in this section:
+
+- [Accounts](/docs/octopus-rest-api/examples/accounts)
+- [Artifacts](/docs/octopus-rest-api/examples/artifacts)
+- [Certficates](/docs/octopus-rest-api/examples/certificates)
+- [Channels](/docs/octopus-rest-api/examples/channels)
+- [Deployment process](/docs/octopus-rest-api/examples/deployment-process)
+- [Deployment targets](/docs/octopus-rest-api/examples/deployment-targets)
+- [Deployments](/docs/octopus-rest-api/examples/deployments)
+- [Environments](/docs/octopus-rest-api/examples/environments)
+- [Events](/docs/octopus-rest-api/examples/events)
+- [Feeds](/docs/octopus-rest-api/examples/feeds)
+- [Lifecycles](/docs/octopus-rest-api/examples/lifecycles)
+- [Project Groups](/docs/octopus-rest-api/examples/project-groups)
+- [Projects](/docs/octopus-rest-api/examples/projects)
+- [Releases](/docs/octopus-rest-api/examples/releases)
+- [Reports](/docs/octopus-rest-api/examples/reports)
+- [Runbooks](/docs/octopus-rest-api/examples/runbooks)
+- [Spaces](/docs/octopus-rest-api/examples/spaces)
+- [Step Templates](/docs/octopus-rest-api/examples/step-templates)
+- [Tag sets](/docs/octopus-rest-api/examples/tagsets)
+- [Tasks](/docs/octopus-rest-api/examples/tasks)
+- [Tenants](/docs/octopus-rest-api/examples/tenants)
+- [Users and Teams](/docs/octopus-rest-api/examples/users-and-teams)
+- [Variables](/docs/octopus-rest-api/examples/variables)
+- [Bulk Operations](/docs/octopus-rest-api/examples/bulk-operations)

@@ -23,3 +23,12 @@ The following resources have been preconfigured in Octopus
 ## Guide contents
 
 The following sections make up the guide:
+
+- [Creating a lifecycle](/docs/tenants/guides/multi-tenant-saas-application/creating-new-lifecycle)
+- [Creating the project](/docs/tenants/guides/multi-tenant-saas-application/creating-new-project)
+- [Creating new tenant tags](/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set)
+- [Creating new tenants](/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants)
+- [Creating project template variables](/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables)
+- [Creating new infrastructure](/docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure)
+- [Creating project deployment process](/docs/tenants/guides/multi-tenant-saas-application/creating-project-deployment-process)
+- [Creating and deploying a release](/docs/tenants/guides/multi-tenant-saas-application/creating-project-release)

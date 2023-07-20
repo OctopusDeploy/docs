@@ -21,3 +21,7 @@ If you want to take a look at the examples used in the guides, we have published
 ## Guides
 
 The following guides are explained further in this section:
+
+- [Multi-tenant regions](/docs/tenants/guides/multi-tenant-region)
+- [Multi-tenant SaaS applications](/docs/tenants/guides/multi-tenant-saas-application)
+- [Multi-tenant teams](/docs/tenants/guides/multi-tenant-teams)

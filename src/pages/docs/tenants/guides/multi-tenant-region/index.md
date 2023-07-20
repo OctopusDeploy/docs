@@ -17,3 +17,10 @@ The Car Rental company utilizes Azure to host the application for its stores.  T
 ## Guide contents
 
 The following sections make up the guide:
+
+- [Creating new tenants](/docs/tenants/guides/multi-tenant-region/creating-new-tenants)
+- [Creating tenant tags](/docs/tenants/guides/multi-tenant-region/creating-tenant-tags)
+- [Manage Tenants and Tag sets](/docs/tenants/guides/multi-tenant-region/manage-tenant-and-tenant-tags)
+- [Tenant infrastructure](/docs/tenants/guides/multi-tenant-region/assigning-tenants-to-infrastructure)
+- [Deploying to a Release Ring](/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring)
+- [Region specific workers](/docs/tenants/guides/multi-tenant-region/region-specific-workers)
