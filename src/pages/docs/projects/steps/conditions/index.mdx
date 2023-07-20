@@ -17,6 +17,7 @@ For each [step](/docs/projects/steps/) that you define in your [deployment proce
 - Specify whether the step runs before or after package acquisition.
 - Make the step a required step that cannot be skipped.
 - Retry a step upon failure.
+- Cancel the step if specified duration elapses.
 
 :::figure
 ![Conditions](/docs/projects/steps/conditions/images/conditions.png "width=500")
@@ -159,5 +160,11 @@ With the exception of the following steps:
 This functionality is available on all other steps.
 :::
 
+### Retries
 Enabling Retries gives you the ability to automatically retry a step if it fails, with up to three attempts. This feature is particularly useful when dealing with steps that commonly fail due to temporary or transient errors during deployment.
-When the configured Execution Timeout has lapsed, the action will be cancelled. It's important to note that Execution Timeouts encompass all processes involved in step execution. This includes connecting to a target, bootstrapper scripts, execution container start-up, and package cache clean-ups. We recommend setting a slightly longer timeout than expected, in most cases, an additional minute should account for this. We recommend using this option in conjunction with retries.
+
+### Timeouts
+When the configured Execution Timeout period has lapsed, the action will be cancelled.    
+It’s important to note that Execution Timeouts encompass all processes involved in step execution. This includes connecting to a target, bootstrapper scripts, execution container start-up, and package cache clean-ups. We recommend setting a slightly longer timeout than expected, in most cases, an additional minute should account for this.
+
+We recommend using both features on steps that are likely to experience transient errors to increase your chances of a successful deployment.
