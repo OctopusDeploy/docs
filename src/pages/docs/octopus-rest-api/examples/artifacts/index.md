@@ -9,3 +9,7 @@ hideInThisSectionHeader: true
 ---
 
 You can use the REST API to create and download [artifacts](/docs/projects/deployment-process/artifacts) in Octopus. Typical tasks can include:
+
+- [Upload Artifact to Existing Deployment](/docs/octopus-rest-api/examples/artifacts/create-and-upload-artifacts)
+- [Download Deployment Artifact](/docs/octopus-rest-api/examples/artifacts/download-deployment-artifacts)
+- [Download Runbook Artifact](/docs/octopus-rest-api/examples/artifacts/download-runbook-artifacts)

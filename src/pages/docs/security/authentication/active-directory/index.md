@@ -309,3 +309,7 @@ Learn about [configuring Teams to utilize Trusted Domains](/docs/security/users-
 ## Learn more
 
 The following topics are explained further in this section:
+
+- [Moving your Octopus Server to another Active Directory domain](/docs/security/authentication/active-directory/moving-active-directory-domains)
+- [Specify a custom container for AD authentication](/docs/security/authentication/active-directory/custom-containers-for-ad-authentication)
+- [Troubleshooting Active Directory integration](/docs/security/authentication/active-directory/troubleshooting-active-directory-integration)

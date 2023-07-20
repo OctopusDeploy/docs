@@ -21,3 +21,7 @@ The development teams have the ability to create and deploy releases to their sp
 ## Guide contents
 
 The following sections make up the guide:
+
+- [Creating new tenants](/docs/tenants/guides/multi-tenant-teams/creating-new-tenants)
+- [Assigning a team to a tenant](/docs/tenants/guides/multi-tenant-teams/assign-team-userrole-to-tenant)
+- [Deploying to a team tenant](/docs/tenants/guides/multi-tenant-teams/deploying-team-tenant)

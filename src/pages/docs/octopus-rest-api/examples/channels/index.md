@@ -9,3 +9,5 @@ hideInThisSectionHeader: true
 ---
 
 You can use the REST API to create and manage your [channels](/docs/releases/channels) in Octopus. Typical tasks can include:
+
+- [Create a channel](/docs/octopus-rest-api/examples/channels/create-channel)
