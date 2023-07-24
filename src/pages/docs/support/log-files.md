@@ -58,7 +58,7 @@ Leaving your `minlevel` too low will impact the performance of Octopus Server. W
 
 To change the logging level for Halibut as logged in the Octopus Server, we follow a similar process as described above with a few changes.
 
-First, ensure the environment variable `OCTOPUS__Logging__File__LogEventLevel` is set to `Verbose` or an other log level that you want Octopus Server to write to Octopus log file.
+First, ensure the environment variable `OCTOPUS__Logging__File__LogEventLevel` is set to `Verbose` or any other desired log level.
 
 Then, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
 
