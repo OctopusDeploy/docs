@@ -49,9 +49,11 @@ $ octopus release deploy --project MyProject --version 1.0 --environment Dev
 $ octopus release deploy --project MyProject --version 1.0 --tenant-tag Regions/East --tenant-tag Regions/South
 $ octopus release deploy -p MyProject --version 1.0 -e Dev --skip InstallStep --variable VarName:VarValue
 $ octopus release deploy -p MyProject --version 1.0 -e Dev --force-package-download --guided-failure true -f basic
-
-
 ```
+
+:::div{.warning}
+The new CLI does not support specifying `latest` for `version` as this is risky in an automation context and may cause the wrong version to be selected. 
+:::
 
 ## Learn more
 
