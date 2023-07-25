@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-07-04
+modDate: 2023-07-25
 title: Log files
 description: Octopus Server and Tentacle logs, log file locations, with information about retention and logging levels.
 navOrder: 1
@@ -37,7 +37,14 @@ When you use the Octopus installer to update the version of Octopus the `octopus
 
 Occasionally it may be necessary to change the logging level of an Octopus application.
 
-First, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
+First, ensure the environment variable `OCTOPUS__Logging__File__LogEventLevel` is set to `Verbose` or any other desired log level.
+
+:::div{.warning}
+**A restart of Octopus Server is required**
+A server restart is required in order to apply the changes to envrionment variables.
+:::
+
+Then, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
 
 The verbosity of file logging is controlled in the `octopus-log-file` section:
 
@@ -45,7 +52,7 @@ The verbosity of file logging is controlled in the `octopus-log-file` section:
     <logger name="*" minlevel="Info" writeTo="octopus-log-file" />
 ```
 
-The `minlevel` attribute is most useful for configuring the logging level. Change this value to `Trace` and set `OCTOPUS__Logging__File__LogEventLevel` environment variable to `Verbose` to gather more information.
+The `minlevel` attribute is most useful for configuring the logging level. Change this value to `Trace` to gather more information.
 
 The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
@@ -58,7 +65,16 @@ Leaving your `minlevel` too low will impact the performance of Octopus Server. W
 
 To change the logging level for Halibut as logged in the Octopus Server, we follow a similar process as described above with a few changes.
 
-First, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
+First, ensure the environment variable `OCTOPUS__Logging__File__LogEventLevel` is set to `Verbose` or any other desired log level.
+
+Next, change the minimum Halibut log level value by setting the environment variable `OCTOPUS__Logging__Context__Halibut__LogEventLevel` to `Verbose`. This change ensures all logs from Halibut will be processed by Octopus Server.
+
+:::div{.warning}
+**A restart of Octopus Server is required**
+A server restart is required in order to apply the changes to envrionment variables.
+:::
+
+Then, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
 
 The verbosity of file logging is controlled in the `octopus-log-file` section:
 
@@ -66,7 +82,7 @@ The verbosity of file logging is controlled in the `octopus-log-file` section:
     <logger name="Halibut" minlevel="Info" writeTo="octopus-log-file" />
 ```
 
-The `minlevel` attribute is most useful for configuring the logging level. Change this value to `Trace` and set `OCTOPUS__Logging__File__LogEventLevel` environment variable to `Verbose` to gather more information.
+The `minlevel` attribute is most useful for configuring the logging level. Change this value to `Trace` to gather more information.
 
 The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
