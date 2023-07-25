@@ -85,9 +85,10 @@ users:
 
       The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
 
-      :::div{.hint}
-      For clusters targeting Kubernetes 1.26+ with [Local Account Access disabled](https://oc.to/AKSDisableLocalAccount) the worker or execution container will require access to the [kubelogin](https://oc.to/Kubelogin) CLI tool and **Login with administrator credentials** turned off.
-      This requires **Octopus 2023.3*.
+      :::div{.hint}      
+      From Kubernetes 1.26, [the default azure auth plugin has been removed from kubectl](https://github.com/kubernetes/kubernetes/blob/ad18954259eae3db51bac2274ed4ca7304b923c4/CHANGELOG/CHANGELOG-1.26.md#deprecation) so clusters targeting Kubernetes 1.26+ that have [Local Account Access disabled](https://oc.to/AKSDisableLocalAccount) in Azure, will require the worker or execution container to have access to the [kubelogin](https://oc.to/Kubelogin) CLI tool, as well as the Octopus Deployment Target setting **Login with administrator credentials** disabled. This requires **Octopus 2023.3*.
+
+      If Local Account access is enabled on the AKS cluster, the Octopus Deployment Target setting Login with administrator credentials will also need to be enabled so that the Local Accounts are used instead of the default auth plugin.
       :::
 
     - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/accounts/aws) allow IAM accounts and roles to be used.
