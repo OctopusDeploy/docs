@@ -40,9 +40,22 @@ Consider the following example:
 
 We can select the _Deployment-critical events_ group, which will automatically filter all deployment-critical events for us.
 
-We can then select just the projects/environments we want to monitor. In this case: our _Infrastructure_ and _Code_ projects. Also, we only want to get notified when these critical events occur in our _Production_ environment.
+We can then select just the projects/environments we want to monitor. In this case: our _Infrastructure_ or _Code_ projects. Also, we only want to get notified when these critical events occur in our _Production_ environment.
 
-So in this example, all users in the _Octopus Administrators_ team (with a valid email address) will receive an email notification for _Deployment-critical events_, in the _Infrastructure_ and _Code_ projects, that occurred in our _Production_ environment.
+So in this example, all users in the _Octopus Administrators_ team (with a valid email address) will receive an email notification for _Deployment-critical events_, in the _Infrastructure_ or _Code_ projects, that occurred in our _Production_ environment.
+
+:::div{.hint}
+Each filter you add is an "AND," while each option you add to the filter is an "OR."
+
+A subscription with the filters:
+- Event Categories: Deployment Started
+- Environments: Staging, Production
+- Projects: Hello World
+
+That filter is translated to look for events where the category is Deployment Started AND for the environments Staging OR Production AND for the project Hello World.  
+:::
+
+You can read more about getting started with notifications in our [Getting Started guide](docs/getting-started/best-practices/notifications).
 
 :::div{.hint}
 **Dates and Timezone**
