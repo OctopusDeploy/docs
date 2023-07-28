@@ -27,6 +27,10 @@ Sourcing from Git Repositories was added in Octopus **2023.3**.
 You can find more information about this feature in [this blog post](https://octopus.com/blog/manifests-from-git).
 :::
 
+:::div{.warning}
+Sourcing from a Git repository clones the whole repository onto Octopus Server during a deployment. Ensure that you **do not have any sensitive data** in your git repository.
+:::
+
 Sourcing from a Git Repository can streamline your deployment process by reducing the amount of steps required to get your YAML into Octopus.
 In Octopus, when YAML is sourced from a Git repository, we call it a Git Manifest.
 
