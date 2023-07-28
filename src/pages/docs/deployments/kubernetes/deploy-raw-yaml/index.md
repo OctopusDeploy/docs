@@ -103,7 +103,7 @@ There are a few different ways to take advantage of this feature:
 Patterns are always relative so start them with a file or folder name. eg: `my/folder/*.yml` and `**/dep.yml`.
 
 :::div{.warning}
-Directory separators should be forward slashes `/` for all platforms. Backslashes `\` only work when the server and worker are running Windows.
+Directory separators should be forward slashes `/` for all platforms. Backslashes `\` only work when the server and worker are running on Windows.
 :::
 
 :::div{.hint}
