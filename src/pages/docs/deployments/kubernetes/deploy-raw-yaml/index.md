@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-07-04
-modDate: 2023-07-04
+pubDate: 2023-07-28
+modDate: 2023-07-28
 title: Deploy Raw Yaml
 description: Deploy Raw Yaml to a Kubernetes cluster.
 navOrder: 8
