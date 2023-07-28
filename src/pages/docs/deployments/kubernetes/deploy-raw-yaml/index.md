@@ -124,6 +124,7 @@ deployments/*.yaml => deployments/anything-here.yaml, deployments/123-another-fi
 
 :::div{.hint}
 Group pattern matching is **coming soon**!
+<span style="font-size:14pt;">**Group pattern matching is coming soon**!</span>
 
 `[123]` matches a set of characters in a name. Syntax is similar to character groups in Regex:
 ```
