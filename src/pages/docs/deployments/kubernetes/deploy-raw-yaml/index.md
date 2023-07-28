@@ -96,7 +96,11 @@ There are a few different ways to take advantage of this feature:
 
 ### Glob Pattern Cheat Sheet
 
-Patterns are always relative so start them with a file or folder name. eg: `my/folder/*.yml` and `**/dep.yml`
+Patterns are always relative so start them with a file or folder name. eg: `my/folder/*.yml` and `**/dep.yml`.
+
+:::div{.warning}
+Directory separators should be forward slashes `/` for all platforms. Backslashes `\` only work when the server and worker are running Windows.
+:::
 
 :::div{.hint}
 Glob patterns cannot contain folders stemming from a root directory. eg: `/` and `C:\`
