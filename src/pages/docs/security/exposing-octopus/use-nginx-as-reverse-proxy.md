@@ -146,6 +146,7 @@ services:
       - ./taskLogs:/taskLogs
       - ./artifacts:/artifacts
       - ./repository:/repository
+      - ./eventExports:/eventExports
   nginx:
     image: ${NGINX_IMAGE}
     environment:

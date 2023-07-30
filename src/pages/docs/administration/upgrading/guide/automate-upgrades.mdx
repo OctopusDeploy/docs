@@ -104,6 +104,12 @@ if ($versionSplit[0] -ne $upgradeSplit[0])
     {
         Throw "Unable to copy files to $fileBackupLocation\Packages"
     }
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.EventExportsDirectory) $fileBackupLocation\EventExports /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $fileBackupLocation\EventExports"
+    }
 }
 
 # Finish any remaining tasks and stop the service
@@ -309,6 +315,12 @@ if ($versionSplit[0] -ne $upgradeSplit[1])
     if ($msiExitCode -ge 8) 
     {
         Throw "Unable to copy files to $filebackUpFolder\Packages"
+    }
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.EventExportsDirectory) $filebackUpFolder\EventExports /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $filebackUpFolder\EventExports"
     }
 }
 ```

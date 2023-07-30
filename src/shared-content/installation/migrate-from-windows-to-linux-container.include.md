@@ -96,11 +96,12 @@ Our recommendation is to keep that risk to a minimum.
 
 ### Copy Files
 
-Octopus Deploy stores all the BLOB data (deployment logs, runbook logs, packages, artifacts, etc.) on a file share.  If you are moving from a single server, be it hosting Octopus in a Windows Container or directly on a Windows VM, you will need to copy files to your new storage provider.  Once your shared storage provider has been created, you'll want to copy files over from these folders:
+Octopus Deploy stores all the BLOB data (deployment logs, runbook logs, packages, artifacts, event exports etc.) on a file share.  If you are moving from a single server, be it hosting Octopus in a Windows Container or directly on a Windows VM, you will need to copy files to your new storage provider.  Once your shared storage provider has been created, you'll want to copy files over from these folders:
 
 - TaskLogs
 - Artifacts
 - Packages
+- EventExports
 
 If you are moving from a Windows VM, the default path for those folders is: `C:\Octopus`.  For example, the task logs folder would be `C:\Octopus\TaskLogs`.  If you are unsure of the path, you can find it in the Octopus Deploy UI by navigating to **Configuration ➜ Settings ➜ Server Folders**.
 
@@ -141,7 +142,7 @@ The Dockerfile runs the Octopus Server installer each time the Octopus Server Wi
 For example:
 
 ```
-./Octopus.Server path --instance OctopusServer --nugetRepository "/repository" --artifacts "/artifacts" --taskLogs "/taskLogs" --cacheDirectory="/cache" --skipDatabaseCompatibilityCheck --skipDatabaseSchemaUpgradeCheck
+./Octopus.Server path --instance OctopusServer --nugetRepository "/repository" --artifacts "/artifacts" --taskLogs "/taskLogs" --eventExports "/eventExports" --cacheDirectory="/cache" --skipDatabaseCompatibilityCheck --skipDatabaseSchemaUpgradeCheck
 ```
 
 Just like the Octopus Server Windows Container, you will want to provide the following volume mounts.
@@ -152,6 +153,7 @@ Just like the Octopus Server Windows Container, you will want to provide the fol
 |**/artifacts**|Path where artifacts are stored|
 |**/taskLogs**|Path where task logs are stored|
 |**/cache**|Path where cached files are stored|
+|**/eventExports**|Path where event audit logs are exported|
 
 If you are running Octopus Server directly on Docker, read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volumes.  You will need to update your Docker compose or Docker run command to point your existing folders to the new volume mounts.  
 

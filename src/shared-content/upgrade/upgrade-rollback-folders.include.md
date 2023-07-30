@@ -1,6 +1,6 @@
 ### Restore Octopus Folders
 
-Octopus Deploy expects the artifacts, packages, and tasklog folders to be in a specific format.  The best chance of success is to:
+Octopus Deploy expects the artifacts, packages, tasklog, and event export folders to be in a specific format.  The best chance of success is to:
 
 1. Copy the existing folders to a safe location.
 2. Delete the contents of the existing folders.

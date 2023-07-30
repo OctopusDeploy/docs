@@ -53,12 +53,14 @@ services:
       - taskLogs:/taskLogs
       - cache:/cache
       - import:/import
+      - eventExports:/eventExports
 volumes:
   repository:
   artifacts:
   taskLogs:
   cache:
   import:
+  eventExports:
   sqlvolume:
 ```
 

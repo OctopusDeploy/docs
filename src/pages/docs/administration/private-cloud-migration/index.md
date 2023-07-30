@@ -133,6 +133,7 @@ A complete migration involves:
 1. Copying task logs to the cloud based file storage.
 1. Copying built-in feed packages to the cloud based file storage.
 1. Copying artifacts to the cloud based file storage.
+1. Copying archived events to the cloud based file storage.
 1. Installing Octopus on your chosen hosting platform (e.g. a virtual machine or container orchestration platform).
 1. Pointing the cloud Octopus instance to the cloud based database.
 1. Reindexing the packages in the built-in feed.

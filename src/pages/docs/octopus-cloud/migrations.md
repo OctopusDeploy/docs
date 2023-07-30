@@ -33,6 +33,7 @@ The deployments will **not** include:
     - Guided Failure logs
     - Manual Intervention logs
 - Audit History
+- Event Exports
 :::
 
 ## Prep Work
