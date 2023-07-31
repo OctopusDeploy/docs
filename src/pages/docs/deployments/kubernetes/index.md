@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-07-28
 title: Kubernetes
 description: Octopus Deploy provides support for deploying Kubernetes resources.
 navOrder: 80
@@ -39,12 +39,6 @@ All three methods:
 ### Structured UI step without YAML input
 
 If you're getting started with Kubernetes, we recommend the structured UI step. Octopus prompts you for the required properties and provides deep links to the official Kubernetes documentation so you can learn how Kubernetes works.
-
-### Raw YAML step
-
-The raw YAML step allows you to configure Kubernetes manually, leveraging the full power of Octopus features to support your setup. This approach is more flexible and gives you complete control over the YAML but requires deeper knowledge of Kubernetes configuration.
-
-You can also edit the YAML underlying the UI step if you find it faster or more convenient. This also makes it easy to upgrade to the raw YAML step if you outgrow the UI approach.
 
 ### Helm chart automation steps
 
