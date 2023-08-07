@@ -74,7 +74,13 @@ function addMobileNav(resizedEventName) {
     }
 
     function openMobileMenu(){
+        const w1 = document.body.getBoundingClientRect().width;
         document.body.style.overflow = 'hidden';
+        const w2 = document.body.getBoundingClientRect().width;
+        document.documentElement.style.color = 'red';
+        document.documentElement.style.paddingInlineEnd = (w2 - w1) + 'px';
+
+        console.log(w1, w2, w1 - w2);
         const menuElement = qs('#' + navigationSelector);
         
         overlay.innerHTML = menuElement.outerHTML;
@@ -118,6 +124,7 @@ function addMobileNav(resizedEventName) {
 
     function closeMobileMenu() {
         document.body.style.overflow = 'auto';
+        document.documentElement.style.paddingInlineEnd = '0';
 
         if (icon.getAttribute(dataOpen) === dataOpen) {
             overlay.innerHTML = '';

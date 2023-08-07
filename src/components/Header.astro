@@ -4,6 +4,10 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { Translations, Lang } from '@util/Languages';
 import { SITE } from '@config';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('components/Header.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -16,9 +20,9 @@ const { lang } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
+const search = accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null; // Used to determine whether to show the search icon
 
-const search = accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
+stats.stop();
 ---
 <header class="octo-header-bkg site-header header-default">
 <div class="octo-header">

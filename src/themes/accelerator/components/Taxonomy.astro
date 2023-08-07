@@ -4,6 +4,10 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { Translations, Lang } from '@util/Languages';
 import { SITE } from '@config';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/Taxonomy.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -15,13 +19,13 @@ const { lang, frontmatter } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 const categories = frontmatter.categories ?? [];
 const tags = frontmatter.tags ?? [];
 
 const links = accelerator.taxonomy.links(Translations, _, SITE.subfolder);
 const hasTaxonomy = (categories.length + tags.length) > 0;
+
+stats.stop();
 ---
 {hasTaxonomy && (
   <div class="post-taxonomy">

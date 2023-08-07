@@ -4,6 +4,10 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import Redirect from './Redirect.astro';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/layouts/Author.astro');
+stats.start();
+
 // Properties
 type Props = {
     frontmatter: Frontmatter
@@ -13,10 +17,11 @@ const { frontmatter, headings } = Astro.props satisfies Props;
 const lang = frontmatter.lang ?? SITE.default.lang;
 
 // Logic
-const accelerator = new Accelerator(SITE);
 const redirectFrontmatter = { 
     ...frontmatter,
     redirect: accelerator.urlFormatter.formatAddress(Astro.request.url) + '1/'
 };
+
+stats.stop();
 ---
 <Redirect frontmatter={ redirectFrontmatter } headings={ headings } />

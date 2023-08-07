@@ -3,6 +3,10 @@ import { Accelerator } from 'astro-accelerator-utils';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('components/Feedback.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -12,10 +16,10 @@ type Props = {
 const { lang, frontmatter, headings } = Astro.props satisfies Props;
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 const heading = await accelerator.markdown.getTextFrom(frontmatter.title);
 const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSehVdN2w6tgSvp5QX7lHGnHDmgKi2Yfvko7bM2izgWQaqg-Wg/viewform?usp=pp_url&entry.336432709=${encodeURIComponent(heading)}`;
+
+stats.stop();
 ---
 <h2>Help us continuously improve</h2>
 <p>Please let us know if you have any feedback about this page.</p>

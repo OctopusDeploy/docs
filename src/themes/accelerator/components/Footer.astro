@@ -6,6 +6,10 @@ import { Translations, Lang } from '@util/Languages';
 import { menu } from 'src/data/footer';
 import FooterItem from '@components/FooterItem.astro';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/Footer.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -18,10 +22,10 @@ const { lang } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 const currentUrl = new URL(Astro.request.url);
 const pages = accelerator.navigation.footer(currentUrl, _, Translations, SITE.subfolder, menu);
+
+stats.stop();
 ---
 <footer class="site-footer" id="site-footer">
   <div class="footer-columns">

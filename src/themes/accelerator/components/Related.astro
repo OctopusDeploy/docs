@@ -7,6 +7,10 @@ import { getImageInfo } from '@util/custom-markdown.mjs'
 
 import AuthorsMini from '@components/AuthorsMini.astro';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/Related.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -16,8 +20,6 @@ type Props = {
 const { lang, frontmatter, headings } = Astro.props satisfies Props;
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 let relatedPosts: MarkdownInstance<Record<string, any>>[] = [];
 const parentCagory = (frontmatter.categories ?? [null])[0];
 
@@ -51,6 +53,8 @@ const articles = relatedPosts.map(p => {
       : null
   };
 });
+
+stats.stop();
 ---
 {articles.length > 0 &&
 <ul class="post-list anim-show-parent">

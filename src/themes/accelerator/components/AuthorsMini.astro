@@ -4,6 +4,10 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';;
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/AuthorsMini.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -15,9 +19,9 @@ const { lang, frontmatter } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 const authorList = accelerator.authors.forPost(frontmatter);
+
+stats.stop();
 ---
 {authorList.writers.length > 0 && 
 <div class="post-meta">
