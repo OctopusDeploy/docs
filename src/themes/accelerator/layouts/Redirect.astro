@@ -1,5 +1,11 @@
 ---
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { Accelerator } from 'astro-accelerator-utils';
+import { SITE } from '@config';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/layouts/Redirect.astro');
+stats.start();
 
 // Properties
 type Props = {
@@ -8,8 +14,12 @@ type Props = {
 }
 const { frontmatter, headings } = Astro.props satisfies Props;
 
+
+// Logic
 const destination = frontmatter.redirect;
 const metaContent = `0; URL=${ destination }`;
+
+stats.stop();
 ---
 <html>
     <meta charset="utf-8">

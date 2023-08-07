@@ -4,6 +4,10 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/Breadcrumbs.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -17,8 +21,6 @@ const { lang, breadcrumbs } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 const currentUrl = new URL(Astro.request.url);
 const navPages = accelerator.navigation.breadcrumbs(currentUrl, SITE.subfolder, breadcrumbs?.length ?? 0);
 
@@ -30,6 +32,8 @@ for (let i = 0; i < navPages.length; i++) {
 //navPages[navPages.length -1].title = navPages[navPages.length -1].fullTitle;
 
 let metaIndex = navPages.length;
+
+stats.stop();
 ---
 <nav class="site-breadcrumbs" aria-label={ _(Translations.aria.breadcrumbs) }>
   <ol vocab="http://schema.org/" typeof="BreadcrumbList">

@@ -5,6 +5,10 @@ import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
 import { getImageInfo } from '@util/custom-markdown.mjs';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/Authors.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -16,14 +20,14 @@ const { lang, frontmatter } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 const authorList = accelerator.authors.forPost(frontmatter);
 
 // Get image info
 const authorImage = authorList?.image?.src 
   ? getImageInfo(authorList.image.src, 'author-image', SITE.images.authorSize)
   : null;
+
+stats.stop();
 ---
 {authorList.writers.length > 0 && 
 <div class="post-meta">

@@ -5,6 +5,10 @@ import NavigationItem from '@components/NavigationItem.astro';
 import { SITE } from '@config';
 import { menu } from '@data/navigation';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/Navigation.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -15,10 +19,10 @@ const { lang } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 const currentUrl = new URL(Astro.request.url);
 const pages = accelerator.navigation.menu(currentUrl, SITE.subfolder, menu);
+
+stats.stop();
 ---
 <nav class="site-nav" id="site-nav" aria-label={ _(Translations.aria.site_navigation) }>
   <h2 class="site-nav-title">{ _(Translations.navigation.title) }</h2>

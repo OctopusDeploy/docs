@@ -5,6 +5,10 @@ import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
 import { SITE } from '@config';
 import { Lang } from '@util/Languages';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('components/ArticleJourney.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -17,8 +21,6 @@ const { lang, frontmatter, headings } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 const articles: NavPage[] = [];
 
 function flatten(pageTree: NavPage[]) {
@@ -67,6 +69,7 @@ return `<script type="speculationrules">
 }
 
 const showPrevious = true;
+stats.stop();
 ---
 <div class="octo-article-nav">
   <div class="grid">

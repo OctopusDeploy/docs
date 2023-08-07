@@ -3,6 +3,11 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
 import Default from './Default.astro';
+import { Accelerator } from 'astro-accelerator-utils';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/layouts/Search.astro');
+stats.start();
 
 // Properties
 type Props = {
@@ -17,6 +22,8 @@ const _ = Lang(lang);
 
 // Logic
 const siteUrl = Astro.site ? Astro.site.href : '';
+
+stats.stop();
 ---
 <Default frontmatter={ frontmatter } headings={ headings }>
     <slot />

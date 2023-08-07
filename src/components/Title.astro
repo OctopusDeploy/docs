@@ -1,4 +1,5 @@
 ---
+import { Accelerator } from 'astro-accelerator-utils';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 
@@ -9,6 +10,13 @@ type Props = {
   headings: { depth: number; slug: string; text: string; }[];
 };
 const { lang } = Astro.props satisfies Props;
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('components/Title.astro');
+stats.start();
+
+
+stats.stop();
 ---
 <div class="octo-title-bkg">
   <div class="octo-title">

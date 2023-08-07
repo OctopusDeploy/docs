@@ -1,6 +1,12 @@
 ---
+import { Accelerator } from 'astro-accelerator-utils';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
 import { Lang, Translations } from '@util/Languages';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/ArticleList.astro');
+stats.start();
 
 // Properties
 type Props = {
@@ -24,6 +30,8 @@ if (pos < 0) {
   const path = frontmatter.file.substring(pos);
   gitHubUrl += path;
 }
+
+stats.stop();
 ---
 {gitHubUrl && (
 <div class="octo-github-edit">

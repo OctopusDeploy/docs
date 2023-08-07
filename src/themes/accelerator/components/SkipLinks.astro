@@ -1,6 +1,12 @@
 ---
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { Translations, Lang } from '@util/Languages';
+import { Accelerator } from 'astro-accelerator-utils';
+import { SITE } from '@config';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/SkipLinks.astro');
+stats.start();
 
 // Properties
 type Props = {
@@ -12,6 +18,9 @@ const { lang } = Astro.props satisfies Props;
 
 // Language
 const _ = Lang(lang);
+
+// Logic
+stats.stop();
 ---
 <nav class="skip-links" aria-label={ _(Translations.aria.skiplinks) } id="site-top">
   <a href="#site-nav">{ _(Translations.skiplinks.skip_to_navigation) }</a>

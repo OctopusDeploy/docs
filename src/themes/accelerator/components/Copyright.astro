@@ -4,6 +4,10 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/Copyright.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -16,7 +20,7 @@ const { lang } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
+stats.stop();
 ---
 <p>{ _(Translations.footer.copyright) } &copy; { new Date().getFullYear() } { SITE.owner }</p>
 <nav aria-label={ _(Translations.aria.back_to_top) }>

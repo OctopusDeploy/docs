@@ -4,6 +4,10 @@ import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
 import { Accelerator } from 'astro-accelerator-utils';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/TableOfContents.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -25,6 +29,8 @@ if (typeof expanded === 'number') {
 } else if (expanded === true) {
   openAttribute = 'open';
 }
+
+stats.stop();
 ---
 {headings?.length > 0 &&
 <nav class="page-toc" aria-label={ _(Translations.aria.toc) }>

@@ -15,14 +15,14 @@
     },
     "dependencies": {
         "@astrojs/mdx": "^0.19.7",
-        "astro": "^2.7.2",
-        "astro-accelerator": "^0.0.106",
-        "astro-accelerator-utils": "^0.2.33",
-        "hast-util-from-selector": "^2.0.1",
+        "astro": "^2.10.1",
+        "astro-accelerator": "^0.0.111",
+        "astro-accelerator-utils": "^0.2.38",
+        "hast-util-from-selector": "^3.0.0",
         "remark-directive": "^2.0.1",
         "remark-heading-id": "^1.0.0"
     },
     "devDependencies": {
-        "@playwright/test": "^1.35.1"
+        "@playwright/test": "^1.36.2"
     }
 }

@@ -6,6 +6,10 @@ import { SITE } from '@config';
 import { getImageInfo } from '@util/custom-markdown.mjs';
 import AuthorsMini from '@components/AuthorsMini.astro';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/ArticleList.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -14,8 +18,6 @@ type Props = {
 const { lang, posts } = Astro.props satisfies Props;
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 type ImageInfo = {
   src: string;
   srcset: string;
@@ -56,6 +58,8 @@ function getLoadingAttribute() {
     ? 'lazy'
     : 'eager';
 }
+
+stats.stop();
 ---
 <ul class="post-list anim-show-parent">
   {articles.map((post) => (

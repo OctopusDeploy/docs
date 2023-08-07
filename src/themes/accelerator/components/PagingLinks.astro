@@ -5,6 +5,10 @@ import { SITE } from '@config';
 import type { MarkdownInstance, Page } from 'astro';
 import { Translations, Lang } from '@util/Languages';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('accelerator/components/PagingLinks.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -17,7 +21,7 @@ const { lang, page, pageLinks } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
+stats.stop();
 ---
 <nav class="post-paging" aria-label={ _(Translations.aria.paging) }>
   {page.url.prev

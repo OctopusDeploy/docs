@@ -8,6 +8,9 @@ import { getImageInfo } from '@util/custom-markdown.mjs'
 
 import AuthorsMini from '@components/AuthorsMini.astro';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('components/Related.astro');
+stats.start();
 
 // Properties
 type Props = {
@@ -21,8 +24,6 @@ const { lang, frontmatter, headings } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 let relatedPosts: MarkdownInstance<Record<string, any>>[] = [];
 const parentCagory = (frontmatter.categories ?? [null])[0];
 
@@ -76,6 +77,8 @@ for (let p of relatedPosts) {
   
   articles.push(item);
 }
+
+stats.stop();
 ---
 {articles.length > 0 &&
 <div class="octo-related">
