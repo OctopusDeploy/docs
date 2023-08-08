@@ -4,6 +4,22 @@
 */
 
 @font-face {
+    font-family: 'RobotoRegular';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("roboto-regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'RobotoBold';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("roboto-bold.woff2") format("woff2");
+}
+
+@font-face {
     font-family: 'fa-solid';
     font-style: normal;
     font-weight: 900;
@@ -117,9 +133,8 @@
     --light-green: #00FFA3FF;
 
 
-
-    --heading-font: Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
-    --body-font: Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    --heading-font: RobotoBold,Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    --body-font: RobotoRegular,Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
     --code-font: Consolas, monaco, monospace;
 
 
