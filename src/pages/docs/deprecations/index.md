@@ -21,6 +21,12 @@ Deprecations have the following lifecycle:
 Deprecations are subject to change in detail or timeframe. If you need help assessing the impact of deprecation of a feature on your particular Octopus Server configuration, please contact our [support team](https://octopus.com/support).
 :::
 
+## Deprecations coming in 2024.1
+
+### Mono based SSH Deployment Targets
+
+From `2024.1` SSH deployments will no longer support running tasks via Mono. Instead, Linux workers and targets will only execute using .NET Core compiled tooling, which for most cases can be enabled via a simple configuration change on the machine configuration page. Further details on the background for this update as well as the reasoning behind it are available on the [Deprecating Mono](https://octopus.com/blog/deprecating-mono) blog post.
+
 ## Deprecations for 2023.3
 
 ### Project level `/runbooks/all` API endpoint
