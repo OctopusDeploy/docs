@@ -37,6 +37,22 @@ If the `.tgz` does not have a `chart.yaml` file, the PackageID and version are i
 
 For more information about Helm Chart repositories and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/chart_repository/).
 
+## OCI-based registry feed
+
+:::div{.info}
+Octopus version `2023.3.4127` added support for Helm repositories stored in OCI-based registries.
+:::
+
+The Open Container Initiative (OCI) is a lightweight, open governance structure (project), formed under the auspices of the Linux Foundation, for the express purpose of creating open industry standards around container formats and runtimes
+
+An OCI-based registry can contain zero or more Helm repositories and each of those repositories can contain zero or more packaged Helm charts.
+
+:::figure
+![OCI Registry Feed](/docs/deployments/kubernetes/helm-update/oci-registry-feed.png "width=500")
+:::
+
+For more information about using OCI-based registries and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/registries/).
+
 ## Helm upgrade step
 Since the [helm upgrade](https://docs.helm.sh/helm/#helm-upgrade) command provides the ability to ensure that the chart is installed when it runs for the first time (by using the `--install` argument), this upgrade command is the most practical step to provide.
 

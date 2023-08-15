@@ -18,6 +18,7 @@ The Octopus Server includes a [built-in repository](/docs/packaging-applications
  - [AWS S3 Bucket feeds](/docs/packaging-applications/package-repositories/s3-feeds).
  - Helm feeds.
  - AWS ECR feeds.
+ - OCI-based registry feeds.
  
 Octopus can consume packages from multiple feeds at once if necessary.
 
