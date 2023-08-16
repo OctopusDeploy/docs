@@ -1,0 +1,12 @@
+---
+/**
+ * Add custom Plausible code here
+ */
+---
+<script>
+    document.addEventListener('searched', (e) => {
+        if (typeof plausible != 'undefined') {
+            plausible('Search', {props: e.detail});
+        }
+    });
+</script>

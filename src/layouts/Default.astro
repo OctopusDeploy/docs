@@ -23,6 +23,7 @@ import Title from '../components/Title.astro';
 import Feedback from '../components/Feedback.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import LastUpdated from '../components/LastUpdated.astro';
+import Plausible from 'src/components/Plausible.astro';
 
 type Props = {
     frontmatter: Frontmatter
@@ -92,5 +93,6 @@ const site_features = SITE.featureFlags;
             window.site_features = site_features;
         </script>
         <script src={ SITE.subfolder + '/js/main.js' } type="module" async></script>
+        <Plausible />
     </body>
 </html>

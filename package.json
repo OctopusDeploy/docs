@@ -16,7 +16,7 @@
     "dependencies": {
         "@astrojs/mdx": "^0.19.7",
         "astro": "^2.10.1",
-        "astro-accelerator": "^0.0.111",
+        "astro-accelerator": "^0.0.112",
         "astro-accelerator-utils": "^0.2.38",
         "hast-util-from-selector": "^3.0.0",
         "remark-directive": "^2.0.1",

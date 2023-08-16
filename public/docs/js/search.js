@@ -247,8 +247,6 @@ function search(s, r) {
         return;
     }
 
-    raiseEvent('searched', { search: s });
-
     currentQuery = cleanQuery;
     /** @type {string[]} */
     const stemmedTerms = [];
@@ -447,6 +445,7 @@ function search(s, r) {
 
     const address = window.location.href.split('?')[0];
     window.history.pushState({}, '', address + '?q=' + encodeURIComponent(cleanQuery));
+    raiseEvent('searched', { search: s });
 }
 
 /** @type {Number} */
