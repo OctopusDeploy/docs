@@ -64,7 +64,7 @@ As the step is using a deployment target a target role will also need to be spec
 :::
 
 :::div{.hint}
-CloudFormation stack and service names will be automatically generated and cannot be changed manually.
+CloudFormation service names will be automatically generated and cannot be changed manually.
 :::
 
 ### Configuration section
