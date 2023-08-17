@@ -7,6 +7,10 @@ description: You can put Octopus Server into maintenance mode so you can safely 
 navOrder: 1
 ---
 
+:::div{.hint}
+Maintenance Mode is only available for self-hosted customers. [Octopus Cloud](/docs/octopus-cloud) instances will be updated in their specified [maintenance window](/docs/octopus-cloud/#set-the-outage-window).
+:::
+
 From time to time you will need to perform certain administrative activities on your Octopus Server, like [upgrading Octopus](/docs/administration/upgrading/) or [applying operating system patches](/docs/administration/managing-infrastructure/applying-operating-system-upgrades). Typically you will want to schedule a maintenance window where you perform these activities, and Octopus Server helps with this by switching to **Maintenance Mode**.
 
 ## How does it work?
