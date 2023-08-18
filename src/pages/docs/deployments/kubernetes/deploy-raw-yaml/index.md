@@ -98,52 +98,5 @@ There are a few different ways to take advantage of this feature:
 
     **Note:** *If multiple glob patterns find the same file, the file will be applied twice.*
 
-### Glob Pattern Cheat Sheet
 
-Patterns are always relative so start them with a file or folder name. eg: `my/folder/*.yml` and `**/dep.yml`.
-
-:::div{.warning}
-Directory separators should be forward slashes `/` for all platforms. Backslashes `\` only work when the server and worker are running on Windows.
-:::
-
-:::div{.hint}
-Glob patterns cannot contain folders stemming from a root directory. eg: `/` and `C:\`
-
-Glob patterns cannot start with a relative path indicator. eg: `./` and `.\`
-
-The directory traversal path `../` is not supported.
-:::
-
-`?` matches any single character in a file or directory name:
-```
-deployments/resource-?.yaml => deployments/resource-1.yaml, deployments/resource-g.yaml
-```
-
-`*` matches zero or more characters in a file or directory name:
-```
-deployments/*.yaml => deployments/anything-here.yaml, deployments/123-another-file.yaml
-*/resource.yaml => deployments/resource.yaml, services/resource.yaml
-```
-
-`**` matches zero or more recursive directories:
-```
-**/resource.yaml => deployments/resource.yaml, services/resource.yaml, deployments/child-folder/resource.yaml
-```
-
-:::div{.hint}
-<span style="font-size:14pt;">**Group pattern matching is coming soon**!</span>
-
-`[123]` matches a set of characters in a name. Syntax is similar to character groups in Regex:
-```
-deployments/resource-[123].yaml => deployments/resource-1.yaml, deployments/resource-2.yaml, deployments/resource-3.yaml
-"deployments/resource-g.yaml" would not match the example glob pattern.
-
-deployments/resource-[1-3].yaml => deployments/resource-1.yaml, deployments/resource-2.yaml, deployments/resource-3.yaml
-"deployments/resource-g.yaml" would not match the example glob pattern.
-```
-
-`{abc,123,xyz}` matches any of the comma separated strings:
-```
-deployments/resource-{123,abc}.yaml => deployments/resource-123.yaml, deployments/resource-abc.yaml
-```
-:::
+[Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns.md).
