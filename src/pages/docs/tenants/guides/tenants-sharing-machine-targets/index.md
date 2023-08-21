@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
+pubDate: 2023-08-21
+modDate: 2023-08-21
 title: Tenants sharing machine targets
 description: A guide showing you how to handle tenanted deployments to shared machine infrastructure.
 navOrder: 10

@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
+pubDate: 2023-08-21
+modDate: 2023-08-21
 title: Assign tags to tenants
 description: Assign hosting tags to tenants to map them to a hosting group.
-navOrder: 10
+navOrder: 30
 hideInThisSectionHeader: true
 ---
 

@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
+pubDate: 2023-08-21
+modDate: 2023-08-21
 title: Creating the tenant tag set
 description: Create tenant tags as part of a shared machine target setup in Octopus Deploy.
-navOrder: 10
+navOrder: 20
 hideInThisSectionHeader: true
 ---
 

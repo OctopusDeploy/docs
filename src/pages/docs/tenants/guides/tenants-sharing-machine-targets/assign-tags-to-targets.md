@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
+pubDate: 2023-08-21
+modDate: 2023-08-21
 title: Assign tags to targets
 description: Assign hosting tags to targets to map tenants to those targets.
-navOrder: 10
+navOrder: 40
 hideInThisSectionHeader: true
 ---
 
