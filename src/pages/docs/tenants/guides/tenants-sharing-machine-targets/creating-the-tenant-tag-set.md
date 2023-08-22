@@ -17,7 +17,7 @@ Tenant Tag Sets are stored in the Library of Octopus Deploy.  To create Tenant T
 Give the **Tag Set** a name, an optional description, and create some tags.  In this scenario, we are creating a tag set named Hosting Group, with tags Hosting Group 1, Hosting Group 2, and Hosting Group 3. These groups could also represent different regions where the infrastructure is hosted.
 
 :::figure
-![](/docs/tenants/guides/tenants-sharing-machine-targets/images/tag-set.png "width=500")
+![](/docs/tenants/guides/tenants-sharing-machine-targets/tag-set.png "width=500")
 :::
 
 <span><a class="button btn-secondary" href="/docs/tenants/guides/tenants-sharing-machine-targets">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="button btn-success" href="/docs/tenants/guides/tenants-sharing-machine-targets/assign-tags-to-tenants">Next</a></span>
