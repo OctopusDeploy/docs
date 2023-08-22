@@ -19,17 +19,17 @@ We list a few different scenarios below to help you figure out what is the best 
 
 *When you use Kustomize for one application configuration*
 
-1. **The kustomize way**  
+1. **Multiple overlays**  
    This is the recommended usage if you are already using Kustomize and just want Octopus to orchestrate the deployment.
    In this scenario, our recommendation is to use `.env` files with Octopus [variable substitution syntax](/docs/projects/variables/variable-substitutions), so we can replace secrets and any other data managed via Octopus variables. These `.env` files are then used by [secretGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_secretgenerator_) and/or [configMapGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_configmapgenerator_).
    Everything else is defined in the `kustomization.yaml` files directly, and overlays should match the same environment structure defined in Octopus itself. 
 
-2. **No overlays**  
+2. **Single overlay for Octopus**  
    In this scenario, you may define two overlays, one being for local use outside Octopus, so you can test your `yaml` files. The other overlay is used exclusively by Octopus.
    In the Octopus overlay, you add [variable substitution syntax](/docs/projects/variables/variable-substitutions) directly into `kustomization.yaml` and any other `yaml` files in the overlay folder, as well as `.env` files.
    This scenario is better suited for customers with many environments and/or tenants, where customisations are needed for each target.
 
-3. **A mix of both!**  
+3. **A mix of both**  
    This would be the ideal scenario when you have a small number of environments and many tenants.
    In this scenario, you model your overlays based on the environments, with the different settings hardcoded in the `kustomization.yaml` file, and you use Octopus [substitution syntax](/docs/projects/variables/variable-substitutions) to define the different tenant properties in `kustomization.yaml` file.
    Again as in the previous scenarios, we would use `.env` files for secrets via [secretGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_secretgenerator_).
