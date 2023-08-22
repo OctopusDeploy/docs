@@ -17,7 +17,7 @@ This step allows you to source your kustomize files from git, perform variable s
 
 We list a few different scenarios below to help you figure out what is the best setup for you to deploy your applications to a Kubernetes cluster with Octopus.
 
-*When you use Kustomize for one application configuration*
+### When you use Kustomize for one application configuration
 
 1. **Multiple overlays**  
    This is the recommended usage if you are already using Kustomize and just want Octopus to orchestrate the deployment.
@@ -34,9 +34,9 @@ We list a few different scenarios below to help you figure out what is the best 
    In this scenario, you model your overlays based on the environments, with the different settings hardcoded in the `kustomization.yaml` file, and you use Octopus [substitution syntax](/docs/projects/variables/variable-substitutions) to define the different tenant properties in `kustomization.yaml` file.
    Again as in the previous scenarios, we would use `.env` files for secrets via [secretGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_secretgenerator_).
 
-*When you use Kustomize to template configurations for many applications*
+### When you use Kustomize to template configurations for many applications
 
-4. **A mix of both — templates**  
+1. **A mix of both — templates**  
    You can go beyond configuration for a single application with Octopus and Kustomize. Imagine you have a hundred applications you deploy to Kubernetes. Some of them might have universal traits, like a group of API applications or a group of databases. Therefore, parts of the configuration will be universal for all the apps or a group of apps. There likely be app-unique parameters (like a container image).  
    You can combine overlays and Octopus variables to create and use one template for all the apps. In this scenario, you would have a set of base files same for all the apps. One or more levels of overlays to add customizations for an app group. You can introduce another layer of overlays for environments. Finally, app-specific parameters (e.g. container images, tags and labels) can be defined in Octopus variables.  
    In this scenario, tenant or environment-specific parameters can be added to any overlay. For example, you can add prefixes for tenants; also consider using [system variables](https://octopus.com/docs/projects/variables/system-variables).
