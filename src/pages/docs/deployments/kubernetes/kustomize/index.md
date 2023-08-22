@@ -44,12 +44,14 @@ We list a few different scenarios below to help you figure out what is the best 
 ## Kustomization file directory
 
 This field must be a path to a directory containing the `kustomization.yaml` file.
+During deployment, `Kustomize` reads the `kustomization.yaml` file located at this path to perform manifest yaml transforms.
 The path is relative to the root of the git repository.
 When using overlays, ensure the path is to the overlay directory containing `kustomization.yaml` file.
 Also, remember that in Linux workers, the paths are case-sensitive, so it is always good practice to check this. 
 
 ## Substitute Variables in Files
 
+This setting is useful, for example, when you want to put your application specific configuration settings in a `.env` file and also have the value scoped per environment and/or tenant, see more information regarding [variable scoping](/docs/projects/variables#scoping-variables).
 The target file paths are relative to the root of the git repository.
 Again remember that in Linux workers, paths are case-sensitive, so it is always good practice to check this.
 You can use glob patterns to target multiple files. [Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns.md).
