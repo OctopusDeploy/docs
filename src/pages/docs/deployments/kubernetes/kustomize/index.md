@@ -7,9 +7,9 @@ description: Use kustomize to deploy resources to a Kubernetes cluster.
 navOrder: 9
 ---
 
-Octopus supports the deployment of Kubernetes resources through the `kustomize` step.
+Octopus supports the deployment of Kubernetes resources through the **kustomize** step.
 
-This step allows you to source your kustomize files from git, perform variable substitutions based on your environment and/or tenant and finally apply the changes to your Kubernetes clusters.
+This step allows you to source your **kustomize** files from git, perform variable substitutions based on your environment and/or tenant and finally apply the changes to your Kubernetes clusters.
 
 [Kustomize](https://kustomize.io) introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications.
 
@@ -44,7 +44,7 @@ We list a few different scenarios below to help you figure out what is the best 
 ## Kustomization file directory
 
 This field must be a path to a directory containing the `kustomization.yaml` file.
-During deployment, `Kustomize` reads the `kustomization.yaml` file located at this path to perform manifest yaml transforms.  
+During deployment, **Kustomize** reads the `kustomization.yaml` file located at this path to perform manifest yaml transforms.  
 The path is relative to the root of the git repository.
 When using overlays, ensure the path is to the overlay directory containing `kustomization.yaml` file.  
 Also, remember that in Linux workers, the paths are case-sensitive, so it is always good practice to check this. 
