@@ -39,7 +39,7 @@ We list a few different scenarios below to help you figure out what is the best 
 1. **A mix of both — templates**  
    You can go beyond configuration for a single application with Octopus and Kustomize. Imagine you have a hundred applications you deploy to Kubernetes. Some of them might have universal traits, like a group of API applications or a group of databases. Therefore, parts of the configuration will be universal for all the apps or a group of apps. There likely be app-unique parameters (like a container image).  
    You can combine overlays and Octopus variables to create and use one template for all the apps. In this scenario, you would have a set of base files same for all the apps. One or more levels of overlays to add customizations for an app group. You can introduce another layer of overlays for environments. Finally, app-specific parameters (e.g. container images, tags and labels) can be defined in Octopus variables.  
-   In this scenario, tenant or environment-specific parameters can be added to any overlay. For example, you can add prefixes for tenants; also consider using [system variables](https://octopus.com/docs/projects/variables/system-variables).
+   In this scenario, tenant or environment-specific parameters can be added to any overlay. For example, you can add prefixes for tenants; also consider using [system variables](/docs/projects/variables/system-variables).
 
 ## Kustomization file directory
 
@@ -54,4 +54,4 @@ Also, remember that in Linux workers, the paths are case-sensitive, so it is alw
 This setting is useful, for example, when you want to put your application specific configuration settings in a `.env` file and also have the value scoped per environment and/or tenant, see more information regarding [variable scoping](/docs/projects/variables#scoping-variables).  
 The target file paths are relative to the root of the git repository.
 Again remember that in Linux workers, paths are case-sensitive, so it is always good practice to check this.  
-You can use glob patterns to target multiple files. [Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns.md).
+You can use glob patterns to target multiple files. [Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns).

@@ -99,4 +99,4 @@ There are a few different ways to take advantage of this feature:
     **Note:** *If multiple glob patterns find the same file, the file will be applied twice.*
 
 
-[Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns.md).
+[Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns).
