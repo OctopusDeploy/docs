@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-08-24
 title: High Availability
 description: Octopus High Availability (HA) enables you to run multiple Octopus Server nodes, distributing load and tasks between them.
 hideInThisSection: true
@@ -29,13 +29,10 @@ An Octopus High Availability configuration requires four main components:
 
 Each Octopus Deploy SQL Server database is a unique **Instance**.  Nodes are the Octopus Server service that connects to the database.  High Availability occurs when two or more nodes connect to the same Octopus Deploy database.  An HA Cluster refers to all components, the load balancer, nodes, database, and shared storage.
 
-For self-hosted customers, High Availability is available to the following licenses type:
+For self-hosted customers, High Availability is available for the following license types:
 
-- High Avalability (discontinued license type): limited to 2, 3, or 4 nodes.
-- Data Center (discontinued license type): unlimited nodes
-- Server: unlimited nodes
-
-All other license types, such as Standard, Enterprise, Team, and Professional, are limited to a single node and cannot be used for High Availablity.
+- Professional: limited to 2 nodes
+- Enterprise: unlimited nodes
 
 The node limit is included in the license key in the NodeLimit node.
 
