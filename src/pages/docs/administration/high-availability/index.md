@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-08-24
 title: High Availability
 description: Octopus High Availability (HA) enables you to run multiple Octopus Server nodes, distributing load and tasks between them.
 hideInThisSection: true
