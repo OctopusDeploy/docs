@@ -2,14 +2,18 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: kustomize  
-description: Use kustomize to deploy resources to a Kubernetes cluster.
+title: Kustomize  
+description: Use Kustomize to deploy resources to a Kubernetes cluster.
 navOrder: 9
 ---
 
-Octopus supports the deployment of Kubernetes resources through the **kustomize** step.
+Octopus supports the deployment of Kubernetes resources through the **Kustomize** step.
 
-This step allows you to source your **kustomize** files from git, perform variable substitutions based on your environment and/or tenant and finally apply the changes to your Kubernetes clusters.
+This step allows you to source your **Kustomize** files from git, perform variable substitutions based on your environment and/or tenant and finally apply the changes to your Kubernetes clusters.
+
+:::figure
+![Kustomize step](/docs/deployments/kubernetes/kustomize/kustomise-step.png "width=500")
+:::
 
 [Kustomize](https://kustomize.io) introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications.
 
