@@ -73,12 +73,19 @@ Octopus.Server.exe service --start
 
 ## Password complexity {#Resettingpasswords-PasswordComplexity}
 
-Passwords must satisfy password complexity rules.  A password must be at least 8 characters long and satisfy three or more of the criteria:
+Passwords in Octopus must meet password complexity rules. Octopus applies a scoring system to a new password to decide if it meets the complexity rules.
 
-- length of at least 12 characters
-- length of at least 16 characters
-- contains a number
-- contains whitespace
-- contains an uppercase letter
-- contains a lowercase letter
-- contains punctuation
+A password must be:
+- Minimum 8 characters long
+
+It also needs to meet 3 (or more) of the following scoring criteria:
+
+- Contains a number
+- Contains whitespace
+- Contains an uppercase letter
+- Contains a lowercase letter
+- Contains punctuation or symbols
+- At least 12 characters long
+- At least 16 characters long
+
+The more scoring criteria a new password meets, the higher its score and derived complexity.
