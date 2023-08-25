@@ -189,4 +189,20 @@ Including one of these directives will result in the step failing.
 
 You can collect Octopus [artifacts](/docs/projects/deployment-process/artifacts) from steps used with the execution containers feature. 
 
-<CollectArtifactInExecutionContainer />
+<CollectArtifactInExecutionContainer/>
+
+## Supplying arguments to the container runtime 
+
+Specifying a variable named `Octopus.Action.Container.Options` allows configuring the options supplied to the container runtime (i.e. Docker).  
+
+For example:
+
+| Name | Value | 
+| --- | --- | 
+| Octopus.Action.Container.Options | `--security-opt label:level:TopSecret` |
+
+For the list of available options see the [Docker run options](https://docs.docker.com/engine/reference/commandline/run/#options). 
+
+The `Octopus.Action.Container.Options` variable can be [scoped](/docs/projects/variables#scoping-variables).
+
+Support for `Octopus.Action.Container.Options` was introduced in Octopus version **2023.2.13224** 
