@@ -8,9 +8,7 @@ navOrder: 60
 hideInThisSectionHeader: true
 ---
 
-## Setting the Concurrency Tag
-
-There is a system variable that gives us finer control over how tasks run concurrently in Octopus. Like the variable that allows you to bypass the deployment mutex, this variable should be handled with care.
+The `Octopus.Task.ConcurrencyTag` system variable gives us finer control over how tasks run concurrently in Octopus. Like the variable that allows you to bypass the deployment mutex, this variable should be handled with care.
 
 Octopus uses this variable to determine which tasks can run concurrently. For non-tenanted deployments, it has the value `#{Octopus.Project.Id}/#{Project.Environment.Id}`. Tenanted deployments use the value `#{Octopus.Deployment.Tenant.Id}/#{Octopus.Project.Id}/#{Octopus.Environment.Id}`.
 

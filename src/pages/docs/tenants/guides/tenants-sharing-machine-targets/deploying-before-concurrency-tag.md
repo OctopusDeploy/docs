@@ -8,8 +8,6 @@ navOrder: 50
 hideInThisSectionHeader: true
 ---
 
-## Deploying Before the Concurrency Tag is Changed
-
 If we deploy a release to all tenants at the same time, we see that all tasks are running concurrently. This will depend on your task cap and number of other tasks running at the same time.
 
 :::figure

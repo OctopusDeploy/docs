@@ -8,8 +8,6 @@ navOrder: 40
 hideInThisSectionHeader: true
 ---
 
-## Mapping Tenants to Infrastructure with Tags
-
 In the Infrastructure section, we can see three tentacle targets in the Production environment used to host these tenants. Each target is currently hosting five tenants. By associating a Hosting Group tag to each target, the tenants with those tags are automatically associated to the targets. This makes adding or removing a tenant from a target very easy.
 
 :::figure
