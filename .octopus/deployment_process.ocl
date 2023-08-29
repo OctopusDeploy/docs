@@ -8,7 +8,7 @@ step "upload-microsite-to-aws-s3" {
             Octopus.Action.Aws.AssumeRole = "False"
             Octopus.Action.Aws.Region = "#{AWS.Region.Docs}"
             Octopus.Action.Aws.S3.BucketName = "#{AWS.BucketName.Docs}"
-            Octopus.Action.Aws.S3.FileSelections = "[{\"type\":\"MultipleFiles\",\"tags\":[],\"metadata\":[],\"cannedAcl\":\"public-read\",\"path\":\"\",\"storageClass\":\"STANDARD\",\"bucketKey\":\"\",\"bucketKeyPrefix\":\"\",\"bucketKeyBehaviour\":\"Custom\",\"performVariableSubstitution\":\"False\",\"performStructuredVariableSubstitution\":\"False\",\"autoFocus\":true,\"pattern\":\"**/*\"}]"
+            Octopus.Action.Aws.S3.FileSelections = "[{\"type\":\"MultipleFiles\",\"tags\":[],\"metadata\":[{\"key\":\"Cache-Control\",\"value\":\"604800\"}],\"cannedAcl\":\"public-read\",\"path\":\"\",\"storageClass\":\"STANDARD\",\"bucketKey\":\"\",\"bucketKeyPrefix\":\"\",\"bucketKeyBehaviour\":\"Custom\",\"performVariableSubstitution\":\"False\",\"performStructuredVariableSubstitution\":\"False\",\"autoFocus\":true,\"pattern\":\"**/*\"}]"
             Octopus.Action.Aws.S3.PackageOptions = "{\"bucketKey\":\"#{Project.AWS.BucketKey}\",\"bucketKeyBehaviour\":\"Custom\",\"bucketKeyPrefix\":\"\",\"storageClass\":\"STANDARD\",\"cannedAcl\":\"private\",\"variableSubstitutionPatterns\":\"\",\"structuredVariableSubstitutionPatterns\":\"\",\"metadata\":[],\"tags\":[]}"
             Octopus.Action.Aws.S3.TargetMode = "FileSelections"
             Octopus.Action.AwsAccount.UseInstanceRole = "False"
