@@ -55,8 +55,8 @@ export const OPEN_GRAPH = {
 };
 
 export const HEADER_SCRIPTS = `
-<link rel="preload" href="/css/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/css/roboto-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/docs/css/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/docs/css/roboto-bold.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="google-site-verification" content="nIbWsTU_ELqMnLNxIexH_s6ch3m-s_MaFnl5u8WoaRM" />
   <script defer>
   const whenActivated = new Promise((resolve) => {
