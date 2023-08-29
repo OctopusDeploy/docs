@@ -8,9 +8,7 @@ navOrder: 20
 hideInThisSectionHeader: true
 ---
 
-In this scenario, each tenant's application is hosted on one of three groups of infrastructure. We will define a [tenant tag sets](/docs/tenants/tenant-tags) to represent each group. The tag set can be used to easily map tenants to the correct infrastructure.
-
-## Creating Tenant Tag Sets
+In this scenario, each tenant's application is hosted on one of three groups of infrastructure. We will define a [tenant tag set](/docs/tenants/tenant-tags) to represent each group. The tag set can be used to easily map tenants to the correct infrastructure.
 
 Tenant Tag Sets are stored in the Library of Octopus Deploy.  To create Tenant Tag Sets, navigate to **Library ➜ Tenant Tag Sets** and click **ADD TAG SET**.
 

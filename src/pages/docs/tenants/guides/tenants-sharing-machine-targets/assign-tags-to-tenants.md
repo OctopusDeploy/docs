@@ -8,11 +8,9 @@ navOrder: 30
 hideInThisSectionHeader: true
 ---
 
-## Mapping Tenants to Hosting Groups with Tags
-
 We have included the hosting group name in the tenant name to help illustrate the pattern. In the screenshot below, you can see that the tenants have been assigned a Hosting Group tag based on which group they belong to.
 
-This tag will make it easy to choose to deploy to all tenants in a group easily and also map those tenants to the correct infrastucture easily.
+This tag will make it easy to choose to deploy to all tenants in a group and also map those tenants to the correct infrastucture.
 
 :::figure
 ![](/docs/tenants/guides/tenants-sharing-machine-targets/tenant-list.png "width=500")

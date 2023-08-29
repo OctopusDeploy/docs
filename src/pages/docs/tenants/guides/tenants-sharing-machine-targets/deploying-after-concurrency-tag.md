@@ -8,8 +8,6 @@ navOrder: 70
 hideInThisSectionHeader: true
 ---
 
-## Deploying Before the Concurrency Tag is Changed
-
 If we deploy a release to all tenants at the same time now, we see that three tasks are running while the others are queued. That is one task per hosting group. While the other tasks are queued, tasks from other projects are able to run. Before making the change to the concurrency tag, all of these tasks would run concurrently and potentially block tasks from other projects from running.
 
 :::figure

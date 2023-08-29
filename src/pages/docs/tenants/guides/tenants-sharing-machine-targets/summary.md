@@ -8,8 +8,6 @@ navOrder: 80
 hideInThisSectionHeader: true
 ---
 
-## Summary
-
 When deploying multiple tenants to same machine-based targets, we may see longer than expected deployment times due to the deployment mutex. While bypassing the mutex is possible, it is often not the best solution, especially for deployments that will be updating or using the same resources on a machine.
 
 By updating the `Octopus.Task.ConcurrencyTag` variable, we can run tenanted deployments to shared machines sequentially. This process provides a more consistent deployment duration per task, efficient use of task cap, and a potentially shorter deployment duration overall.
