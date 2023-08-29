@@ -87,7 +87,7 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 :::
 
 
-## Using script modules{#ScriptModules-using}
+## Using script modules {#ScriptModules-using}
 
 Each language has a slightly different syntax for using the Script Module. Please see the language specific section below.
 
@@ -97,7 +97,7 @@ Each language has a slightly different syntax for using the Script Module. Pleas
 * [F#](#ScriptModules-FSharp)
 * [Python](#ScriptModules-Python)
 
-## PowerShell script modules{#ScriptModules-PowerShell}
+## PowerShell script modules {#ScriptModules-PowerShell}
 
 PowerShell script modules get automatically loaded once for every PowerShell script step in your deployment process - the functions and cmdlets will automatically be in scope for your script.
 
@@ -127,7 +127,7 @@ function Say-Hello($name) {
 }
 ```
 
-## Bash script modules{#ScriptModules-Bash}
+## Bash script modules {#ScriptModules-Bash}
 
 Bash Script Modules are written as a `.sh` file next to your script. Import them
 via `source MyScriptModule.sh`, where `MyScriptModule` is the name of your Script
@@ -147,7 +147,7 @@ source BashScriptModule.sh
 say_hello George
 ```
 
-## C# script modules{#ScriptModules-CSharp}
+## C# script modules {#ScriptModules-CSharp}
 
 C# Script Modules are written as a `.csx` file next to your script. Import them
 via `#load "MyScriptModule.csx"`, where `MyScriptModule` is the name of your Script
@@ -169,7 +169,7 @@ Call it from your Script Step with:
 SayHello("George");
 ```
 
-## F# script modules{#ScriptModules-FSharp}
+## F# script modules {#ScriptModules-FSharp}
 
 F# Script Modules are written as an `.fsx` file next to your script. Import them
 via `#load "MyScriptModule.fsx"`, where `MyScriptModule` is the name of your Script
@@ -205,7 +205,7 @@ open MyFSharpScriptModule
 sayhello "George";
 ```
 
-## Python script modules{#ScriptModules-Python}
+## Python script modules {#ScriptModules-Python}
 
 Python Script Modules are written as a `.py` file next to your script. Import them
 via `import MyScriptModule`, where `MyScriptModule` is the name of your Script

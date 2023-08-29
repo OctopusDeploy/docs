@@ -9,7 +9,7 @@ navOrder: 150
 
 To store environments, projects, variables, releases, and deployment history, Octopus Deploy uses a Microsoft SQL Server database.
 
-## Install Octopus Server {#Octopusdatabase-InstallingOctopusServer}{#installing}
+## Install Octopus Server {#installing}
 
 Octopus Server requires access to a SQL Server to use for storing relational data. You can create the database ahead of time, or you can let the installer create the database on your behalf. Refer to [SQL Server Database requirements](/docs/installation/sql-server-database) for more information on the SQL Server editions supported by Octopus Deploy and installation instructions.
 
@@ -17,11 +17,11 @@ Octopus Server requires access to a SQL Server to use for storing relational dat
 
 You are responsible for the routine maintenance of your Octopus database. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server. Our [Performance](/docs/administration/managing-infrastructure/performance/#sql-maintenance) section has some general recommendations that may help get you started.
 
-### Database backups {#Octopusdatabase-DatabaseBackups}{#backups}
+### Database backups {#backups}
 
 You are responsible for taking database backups and testing your disaster recovery plans. Refer to [Backup and restore](/docs/administration/data/backup-and-restore) for more information about backing up Octopus Deploy and recovering from failure.
 
-### High availability databases {#Octopusdatabase-highavailability}{#highavailability}
+### High availability databases {#highavailability}
 
 If you are looking for a highly-available database solution, we recommend using [Always On Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017). Unfortunately, Octopus Server does not support running against a SQL database with Database Mirroring or SQL Replication enabled.  
 
