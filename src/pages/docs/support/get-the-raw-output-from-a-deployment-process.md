@@ -11,11 +11,11 @@ When you contact Octopus Deploy support with a deployment related issue, we'll s
 
 1. Navigate to the deployment process screen.  
 
-  ![](/docs/support/images/deploymentprocess.png "width=500")
+  ![](/docs/support/images/deploymentprocess.png)
 
 2. Click `Download as JSON` from the ... overflow menu  
 
-  ![](/docs/support/images/deploymentprocessjson.png "width=500")
+  ![](/docs/support/images/deploymentprocessjson.png)
 
 Send this file to us, or attach it to your support request.
 

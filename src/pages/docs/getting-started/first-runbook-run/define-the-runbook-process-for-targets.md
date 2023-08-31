@@ -22,7 +22,7 @@ A runbook process can run steps, which include scripts, on the Octopus Server, a
 1. In the **On Target In Roles** section change the role to be `Hello-World`.
 
 :::figure
-![Changing the script step to run on a deployment target](/docs/getting-started/first-runbook-run/images/run-script-on-deployment-target.png "width=500")
+![Changing the script step to run on a deployment target](/docs/getting-started/first-runbook-run/images/run-script-on-deployment-target.png)
 :::
 
 :::div{.hint}
@@ -56,7 +56,7 @@ echo $machineName
 2.  Click **RUN...** and select an environment to run on.
 
 :::figure
-![Running the runbook script on a deployment target](/docs/getting-started/first-runbook-run/images/run-deployment-target-results.png "width=500")
+![Running the runbook script on a deployment target](/docs/getting-started/first-runbook-run/images/run-deployment-target-results.png)
 :::
 
 :::div{.hint}

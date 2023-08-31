@@ -62,7 +62,7 @@ In a web browser, navigate to <https://servername> (note the 's').
 You should see the IIS default page displayed in your browser.
 
 :::figure
-![IIS Default Page](/docs/security/exposing-octopus/images/default-page.png "width=500")
+![IIS Default Page](/docs/security/exposing-octopus/images/default-page.png)
 :::
 
 ## Configure URLRewrite
@@ -81,7 +81,7 @@ In the action pane, click on "Add Rule(s)".
 
 Under "Select a Rule Template", choose "Reverse Proxy".
 
-![Adding a Reverse Proxy Rule in URL Rewrite](/docs/security/exposing-octopus/images/addrules.png "width=500").
+![Adding a Reverse Proxy Rule in URL Rewrite](/docs/security/exposing-octopus/images/addrules.png).
 
 If you have never enabled reverse proxy functionality before, you'll be prompted to enable it.
 
@@ -92,7 +92,7 @@ Select "Enable SSL offloading".
 Click OK.
 
 :::figure
-![Configuring a Reverse Proxy Rule](/docs/security/exposing-octopus/images/rprules.png "width=500")
+![Configuring a Reverse Proxy Rule](/docs/security/exposing-octopus/images/rprules.png)
 :::
 
 :::div{.success}

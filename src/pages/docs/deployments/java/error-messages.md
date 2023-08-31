@@ -81,7 +81,7 @@ Either supply credentials to be used, or ensure that the user performing the dep
 Also ensure that the hostname and port are correct. You should be able to open the admin console using these details.
 
 :::figure
-![Wildfly Admin Console](/docs/deployments/java/wildfly-admin-console.png "width=500")
+![Wildfly Admin Console](/docs/deployments/java/wildfly-admin-console.png)
 :::
 
 ## WILDFLY-DEPLOY-ERROR-0014

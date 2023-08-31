@@ -4,4 +4,4 @@ Organizing your deployment targets into environments lets you define your deploy
 
 You can manage your environments by navigating to **Infrastructure ➜ Environments** in the Octopus Web Portal:
 
-![The environments area of Octopus Deploy](/docs/shared-content/concepts/images/environments.png "width=500")
+![The environments area of Octopus Deploy](/docs/shared-content/concepts/images/environments.png)

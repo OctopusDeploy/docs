@@ -6,8 +6,6 @@ on:
   push:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
-  
 # Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
@@ -32,20 +30,39 @@ jobs:
         with:
           node-version: 18
 
-      - name: NPM and Playwright install
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.7.0
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: PNPM and Playwright install
         run: |
           echo; echo "cd to workspace"
           cd $GITHUB_WORKSPACE
           echo; echo "listing"
           ls
           echo; echo "NPM install"
-          npm ci
-          npx playwright install --with-deps
+          pnpm install
 
       - name: Astro build and test
         run: |
           export NODE_OPTIONS=--max_old_space_size=4096
-          npm run test
+          pnpm img
+          pnpm test
 
       - name: Set Version
         run: |

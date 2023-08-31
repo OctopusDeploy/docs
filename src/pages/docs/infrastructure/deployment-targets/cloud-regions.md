@@ -33,27 +33,27 @@ You can create cloud regions just like other deployment targets.
 2. Select **Cloud Region** from the list of available deployment target types.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/images/adding-new-cloud-region.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/adding-new-cloud-region.png)
 :::
 
 3. Give the cloud region a name and select the roles for the cloud region.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/images/adding-new-cloud-region-part2.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/adding-new-cloud-region-part2.png)
 :::
 
 4. Now you can see the cloud regions in the **Infrastructure ➜ Deployment Targets** page, just like the other deployment targets.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/images/cloud-region-list.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/cloud-region-list.png)
 :::
 
 5. To make use of your cloud regions you should scope region-specific variables to them appropriately.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/images/project-with-cloud-region-scoped-variables.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/project-with-cloud-region-scoped-variables.png)
 :::
 
 6. Now when you deploy your application, the appropriate steps will run once per region.
 
-![](/docs/infrastructure/deployment-targets/images/cloud-region-deployment-complete.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/cloud-region-deployment-complete.png)

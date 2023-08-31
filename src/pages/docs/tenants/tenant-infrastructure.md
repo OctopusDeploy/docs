@@ -28,7 +28,7 @@ Learn more about the differences between [tenanted and untenanted deployments](/
 By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, navigate to **Infrastructure ➜ Deployment Targets**
 
 :::figure
-![](/docs/tenants/images/octopus-deployment-targets.png "width=500")
+![](/docs/tenants/images/octopus-deployment-targets.png)
 :::
 
 Click on the deployment target you wish to configure for tenanted deployments. In the **Restrictions ➜ Tenanted Deployments** section, you can choose the kinds of deployments the target can be involved in
@@ -38,7 +38,7 @@ Click on the deployment target you wish to configure for tenanted deployments. I
 - **Include in both tenanted and untenanted deployments** - The deployment target will be included in untenanted deployments, and deployments to the associated tenants.
 
 :::figure
-![](/docs/tenants/images/target-restrictions-tenant-deployments.png "width=500")
+![](/docs/tenants/images/target-restrictions-tenant-deployments.png)
 :::
 
 ### Choose tenants for target {#choose-tenants-for-target}
@@ -46,7 +46,7 @@ Click on the deployment target you wish to configure for tenanted deployments. I
 To choose the tenants to associate with a deployment target navigate to the **Restrictions ➜ Associated Tenants** section of the deployment target. You can select the tenants to allow to deploy to individually, or you can choose from any of the configured [tenant tags](/docs/tenants/tenant-tags).
 
 :::figure
-![](/docs/tenants/images/target-restrictions-associated-tenants.png "width=500")
+![](/docs/tenants/images/target-restrictions-associated-tenants.png)
 :::
 
 :::div{.hint}
@@ -63,14 +63,14 @@ To configure deployment targets as dedicated hosts for one or more tenants:
 
 1. Go to **Infrastructure ➜ Deployment Targets** and find the deployment targets that will be used to host the applications for the tenant. 
 1. Configure each deployment target as a dedicated host for the tenant:
-   ![](/docs/tenants/images/multi-tenant-dedicated-deployment-target.png "width=500")
+   ![](/docs/tenants/images/multi-tenant-dedicated-deployment-target.png)
 
 ### Step 2: Deploy {#dedicated-hosting-deploy}
 
 The final step is to deploy a connected project for this tenant and see the results. You will see how Octopus includes these specific deployment targets in that tenant's deployments, creating an isolated hosting environment for that tenant.
 
 :::figure
-![](/docs/tenants/images/multi-tenant-deployment-dedicated.png "width=500")
+![](/docs/tenants/images/multi-tenant-deployment-dedicated.png)
 :::
 
 ## Shared hosting {#shared-hosting}
@@ -85,7 +85,7 @@ Firstly let's create a tag set to identify which tenants should be hosted on whi
 
 1. Go to **Library ➜ Tenant Tag Sets** and create a new tag set called **Hosting**.
 1. Add a tag called **Shared-Farm-1** and set the color to green to help identify tenants on shared hosting more quickly:
-   ![](/docs/tenants/images/multi-tenant-shared-tag.png "width=500")
+   ![](/docs/tenants/images/multi-tenant-shared-tag.png)
 
 ### Step 2: Configure the shared server farm {#shared-hosting-configure-shared-farm}
 
@@ -95,7 +95,7 @@ Now let's configure some shared servers in a farm:
 1. Select the **Shared-Farm-1** tag:
 
 :::figure
-![](/docs/tenants/images/multi-tenant-infra.png "width=500")
+![](/docs/tenants/images/multi-tenant-infra.png)
 :::
 
 These deployment targets will now be included in deployments for any tenants matching this filter; that is, any tenants tagged with **Hosting/Shared-Farm-1**.
@@ -105,10 +105,10 @@ These deployment targets will now be included in deployments for any tenants mat
 Now let's select some tenants that should be hosted on **Shared-Farm-1**:
 
 1. Create some new tenants (or find existing ones) and tag them with **Shared-Farm-1**:
-![](/docs/tenants/images/multi-tenant-shared-server.png "width=500")
+![](/docs/tenants/images/multi-tenant-shared-server.png)
 
 ### Step 4: Deploy {#shared-hosting-deploy}
 
 The final step is to deploy a connected project for one of these tenants and see the results. You will see how Octopus includes any matching deployment targets in that tenant's deployments, creating a shared hosting environment for your tenants.
 
-![](/docs/tenants/images/multi-tenant-shared-deployment.png "width=500")
+![](/docs/tenants/images/multi-tenant-shared-deployment.png)

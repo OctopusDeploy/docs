@@ -57,10 +57,10 @@ Octopus relies on Active Directory users being configured with enough informatio
 3. Email Address
 
 :::figure
-![](/docs/security/authentication/active-directory/images/5866202.png "width=500")
+![](/docs/security/authentication/active-directory/images/5866202.png)
 :::
 
-![](/docs/security/authentication/active-directory/images/5866203.png "width=500")
+![](/docs/security/authentication/active-directory/images/5866203.png)
 
 These values can be used by Octopus to uniquely identify which Octopus User Account should be associated with each Active Directory User.
 
@@ -163,7 +163,7 @@ For more information on diagnostic logging, see the following Microsoft TechNet 
 The diagnostic logs can be viewed in the Event Viewer.
 
 :::figure
-![](/docs/security/authentication/active-directory/images/5865632.png "width=500")
+![](/docs/security/authentication/active-directory/images/5865632.png)
 :::
 
 :::div{.hint}

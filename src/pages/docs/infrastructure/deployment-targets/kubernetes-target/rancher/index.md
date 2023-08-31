@@ -32,13 +32,13 @@ As previously mentioned, you can proxy communication to your clusters through Ra
 A quick way to find the correct URL is to grab it from the provided Kubeconfig file information.  For each cluster you define, Rancher provides a *Kubeconfig file* that can be downloaded directly from the UI.  To find it, select the cluster you need from the Global dashboard, and click the **Kubeconfig File** button:
 
 :::figure
-![Rancher Kubeconfig file](/docs/infrastructure/deployment-targets/kubernetes-target/rancher/rancher-kubeconfig-file.png "width=500")
+![Rancher Kubeconfig file](/docs/infrastructure/deployment-targets/kubernetes-target/rancher/rancher-kubeconfig-file.png)
 :::
 
 The next screen has the Kubeconfig file which contains the specific URL you need to use to connect your cluster to Octopus Deploy:
 
 :::figure
-![Rancher cluster URL](/docs/infrastructure/deployment-targets/kubernetes-target/rancher/rancher-cluster-url.png "width=500")
+![Rancher cluster URL](/docs/infrastructure/deployment-targets/kubernetes-target/rancher/rancher-cluster-url.png)
 :::
 
 ## Add the account to Octopus Deploy

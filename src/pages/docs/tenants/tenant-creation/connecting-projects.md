@@ -12,15 +12,15 @@ By connecting tenants to projects, you can control which projects will be deploy
 1. Navigate to your tenant.
 2. Click on the **CONNECT PROJECT** button.
 
-   ![](/docs/tenants/tenant-creation/images/multi-tenant-connect-project.png "width=500")
+   ![](/docs/tenants/tenant-creation/images/multi-tenant-connect-project.png)
 
 3. Select the project you want to connect to the tenant. If a warning is shown, click the **ENABLE TENANTED DEPLOYMENTS** button, which will enable the multi-tenant deployment features for the project. This will configure the project to allow deployments *with* or *without* a tenant.
 
-   ![](/docs/tenants/tenant-creation/images/multi-tenant-project.png "width=500")
+   ![](/docs/tenants/tenant-creation/images/multi-tenant-project.png)
 
 4. Now select the environments to allow tenanted deployments to, and click the **ADD CONNECTION** button.
 
-   ![](/docs/tenants/tenant-creation/images/multi-tenant-connect-environments.png "width=500")
+   ![](/docs/tenants/tenant-creation/images/multi-tenant-connect-environments.png)
 
 You can connect each tenant to any number of projects and for each project, any combination of environments that can be targeted by each project. This gives you the most flexibility when designing your multi-tenant deployments.
 

@@ -11,4 +11,4 @@ For instance, when you deploy software into your test environment, you may need 
 
 You can manage the variables for your projects, by navigating to your project in the **Project** tab of the Octopus Web Portal and selecting **Variables**:
 
-![Project variables](/docs/shared-content/concepts/images/variables.png "width=500")
+![Project variables](/docs/shared-content/concepts/images/variables.png)

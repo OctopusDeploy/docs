@@ -15,7 +15,7 @@ Deploying software with Octopus Deploy involves [packaging your applications](/d
 When you deploy a release, you execute the deployment process with all the included assets as they existed when the release was created.
 
 :::figure
-![Deploy release screen in the Octopus Web Portal](/docs/deployments/images/deploy-release.png "width=500")
+![Deploy release screen in the Octopus Web Portal](/docs/deployments/images/deploy-release.png)
 :::
 
 ## Learn more

@@ -16,7 +16,7 @@ Octopus has two steps that generate plan information:
 As their names suggest, the `Plan to apply a Terraform template` step will generate a plan for the result of running `apply` on the template, while the `Plan a Terraform destroy` step will generate a plan for the result of running `destroy` on the template.
 
 :::figure
-![Octopus Steps](/docs/deployments/terraform/plan-terraform/images/octopus-terraform-plan-step.png "width=500")
+![Octopus Steps](/docs/deployments/terraform/plan-terraform/images/octopus-terraform-plan-step.png)
 :::
 
 ## Step options
@@ -70,13 +70,13 @@ Typically the result of a plan will be displayed in a Manual Intervention step. 
 ````
 
 :::figure
-![Terraform manual intervention](/docs/deployments/terraform/plan-terraform/images/terraform-manual-intervention.png "width=500")
+![Terraform manual intervention](/docs/deployments/terraform/plan-terraform/images/terraform-manual-intervention.png)
 :::
 
 When run as part of a deployment, the plan output will be displayed like the image below.
 
 :::figure
-![Manual Intervention Message](/docs/deployments/terraform/plan-terraform/images/manual-intervention-message.png "width=500")
+![Manual Intervention Message](/docs/deployments/terraform/plan-terraform/images/manual-intervention-message.png)
 :::
 
 ## Advanced options section
@@ -93,4 +93,4 @@ You can optionally control how Terraform downloads plugins and where the plugins
 
 - The `Custom terraform plan parameters` option can be optionally set to include any parameters to pass to the `terraform plan` action.
 
-![Terraform Advanced Options](/docs/deployments/terraform/images/terraform-advanced.png "width=500")
+![Terraform Advanced Options](/docs/deployments/terraform/images/terraform-advanced.png)

@@ -18,13 +18,13 @@ Editing via the Octopus Deploy UI works the same whether you are saving to a git
 The first difference is the addition of a branch-switcher. When editing the deployment process via the Octopus UI, the branch is selected in the branch-switcher in the left-hand navigation. 
 
 :::figure
-![Branch-switcher user-interface](/docs/projects/version-control/branch-switcher-ui.png "width=500")
+![Branch-switcher user-interface](/docs/projects/version-control/branch-switcher-ui.png)
 :::
 
 You can only switch branches on a version-controlled page (Process, Variables, etc.). If you have set up Protected branches in the Version Control Settings, you will see a padlock 🔒 next to the relevant branch in the Branch switcher.
 
 :::figure
-![branch-switcher protected-branches user-interface](/docs/projects/version-control/branch-switcher-protected-branches.png "width=500")
+![branch-switcher protected-branches user-interface](/docs/projects/version-control/branch-switcher-protected-branches.png)
 :::
 
 Each branch can have a different deployment process. For example, if you decide to move from running web applications on VMs to PaaS, you could create a branch to hold all your code changes and your deployment process changes. You can make the necessary updates to your deployment process to deploy to a PaaS target. The deployment process currently being used to deploy to **Production** can be left alone until you are ready to merge in both the code changes and the deployment process changes.

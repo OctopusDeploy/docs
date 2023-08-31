@@ -16,7 +16,7 @@ Octopus can leverage information from a Kubernetes cluster to make step executio
 Octopus will also show a snapshot (from the moment of deployment) of deployed object status on a deployment screen — the `KUBERNETES OBJECT STATUS` tab.
 
 :::figure
-![A screenshot of the Kubernetes Object Status tab](/docs/deployments/kubernetes/object-status/status-check-page.png "width=500")
+![A screenshot of the Kubernetes Object Status tab](/docs/deployments/kubernetes/object-status/status-check-page.png)
 :::
 
 ## Where it is available
@@ -37,7 +37,7 @@ Object status is disabled for all steps added before the feature was introduced 
 Use the `Kubernetes Object Status Check` section on the step configuration page.
 
 :::figure
-![A screenshot of the Kubernetes Object Status configuration section](/docs/deployments/kubernetes/object-status/kubernetes-object-status-check-configuration.png "width=500")
+![A screenshot of the Kubernetes Object Status configuration section](/docs/deployments/kubernetes/object-status/kubernetes-object-status-check-configuration.png)
 :::
 
 Use the first option to enable the feature (`Check that Kubernetes objects are running successfully`). Choosing `Don't do any verification checks` will disable the feature.
@@ -62,7 +62,7 @@ When the step timeout has been set, the step will fail if Kubernetes doesn't ach
 The only exception to this rule is for a stand-alone pod (without a ReplicaSet about it) or a job. The step will fail early if these resources achieve an unrecoverable state.
 
 :::figure
-![A K8s object status disgram](/docs/deployments/kubernetes/object-status/K8s-object-status-logics.jpg "width=500")
+![A K8s object status disgram](/docs/deployments/kubernetes/object-status/K8s-object-status-logics.jpg)
 :::
 
 ## How to use
@@ -72,7 +72,7 @@ Octopus will change the meaning of step execution status after enabling Kubernet
 Users can also observe live updates from the cluster on the Kubernetes Object Status tab (Deployment page).
 
 :::figure
-![A screenshot of the Kubernetes Object Status tab](/docs/deployments/kubernetes/object-status/object-status-tab.png "width=500")
+![A screenshot of the Kubernetes Object Status tab](/docs/deployments/kubernetes/object-status/object-status-tab.png)
 :::
 
 Octopus displays resource status in a respected table for each deployed resource. The table is live during the step execution (till the end of the stabilization period). After that, the table will not get any updates and will remain a snapshot for future reference.

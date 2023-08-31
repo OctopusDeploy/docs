@@ -13,7 +13,7 @@ hideInThisSection: true
 The deployment process is the steps the Octopus Server orchestrates to deploy your software. For our simple hello world script, we will only have one step.
 
 :::figure
-![The Hello world deployment process](/docs/getting-started/first-deployment/legacy-guide/images/deployment-process.png "width=500")
+![The Hello world deployment process](/docs/getting-started/first-deployment/legacy-guide/images/deployment-process.png)
 :::
 
 1. From the *Hello world* project you created on the previous page, click **DEFINE YOUR DEPLOYMENT PROCESS**.

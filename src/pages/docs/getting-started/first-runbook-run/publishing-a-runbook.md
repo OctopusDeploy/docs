@@ -18,7 +18,7 @@ Publishing a runbook will snapshot the runbook process and the associated assets
 If anyone changes the runbook process or its associated assets after it has been published, you can either run the most recent published Runbook, or run the current draft.
 
 :::figure
-![Running a runbook after it was published and changes were detected](/docs/getting-started/first-runbook-run/images/run-runbook-post-publish-changes.png "width=500")
+![Running a runbook after it was published and changes were detected](/docs/getting-started/first-runbook-run/images/run-runbook-post-publish-changes.png)
 :::
 
 :::div{.hint}

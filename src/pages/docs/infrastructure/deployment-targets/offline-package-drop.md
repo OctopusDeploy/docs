@@ -16,10 +16,10 @@ You can treat the offline package drop just like any other target, but instead o
 Offline package drop is available as a deployment target.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/images/adding-new-offline-package-drop-target.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/adding-new-offline-package-drop-target.png)
 :::
 
-![](/docs/infrastructure/deployment-targets/images/create-new-offline-package-drop-target-part2.png "width=500")
+![](/docs/infrastructure/deployment-targets/images/create-new-offline-package-drop-target-part2.png)
 
 ### Destination
 

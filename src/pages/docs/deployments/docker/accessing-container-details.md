@@ -35,7 +35,7 @@ A typical project may involve one step that first creates a network, and then cr
 ```
 
 :::figure
-![](/docs/deployments/docker/images/5865817.png "width=500")
+![](/docs/deployments/docker/images/5865817.png)
 :::
 
 ### Obtain container IP address inside custom network {#AccessingContainerDetails-ObtainContainerIPaddressinsidecustomnetwork}

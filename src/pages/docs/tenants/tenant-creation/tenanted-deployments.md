@@ -12,13 +12,13 @@ Each project can control its interaction with tenants. By default the multi-tena
 You can change the setting for tenanted deployments for a project by navigating to the project's settings and changing the selected option under **Multi-tenant Deployments**:
 
 :::figure
-![](/docs/tenants/tenant-creation/images/multi-tenant-project-settings.png "width=500")
+![](/docs/tenants/tenant-creation/images/multi-tenant-project-settings.png)
 :::
 
 It's also possible to enable tenanted deployments when [connecting a tenant to a project](/docs/tenants/tenant-creation/connecting-projects) from the tenant screen:
 
 :::figure
-![](/docs/tenants/tenant-creation/images/multi-tenant-project.png "width=500")
+![](/docs/tenants/tenant-creation/images/multi-tenant-project.png)
 :::
 
 ## Tenanted and Untenanted deployments {#tenanted-and-untenanted-deployments}
@@ -26,7 +26,7 @@ It's also possible to enable tenanted deployments when [connecting a tenant to a
 On the deployment screen, if you you choose **Tenanted** from the **Tenants** option, you are performing a [**tenanted deployment**](https://octopus.com/use-case/tenanted-deployments) - deploying a release of a project to an environment for one or more tenants. 
 
 :::figure
-![](/docs/tenants/tenant-creation/images/multi-tenant-deploy-to-tenants.png "width=500")
+![](/docs/tenants/tenant-creation/images/multi-tenant-deploy-to-tenants.png)
 :::
 
 When you perform a tenanted deployment, the selected tenant can impact the entire process, including which steps are run, which variable values are used, and which deployment targets are included, all depending on your deployment design.
@@ -36,7 +36,7 @@ Also, note Octopus will create a deployment per-tenant. This means if you select
 When you choose **one or more environments** to deploy to, you are performing an **untenanted deployment** - this is the same kind of deployment Octopus has always performed where you deploy a release of a project to an environment there is no tenant for the deployment. There will be no tenant influence on the deployment process.
 
 :::figure
-![](/docs/tenants/tenant-creation/images/multi-tenant-deploy-multiple-environments.png "width=500")
+![](/docs/tenants/tenant-creation/images/multi-tenant-deploy-multiple-environments.png)
 :::
 
 When you first enable multi-tenant deployments, you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an environment-per-tenant model and will migrate to tenants over some time, so some deployments will start to have a tenant while others do not.

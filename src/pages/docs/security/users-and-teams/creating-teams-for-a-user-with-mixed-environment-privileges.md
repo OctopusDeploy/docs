@@ -16,7 +16,7 @@ A common scenario some users may face, is the desire to provide full access to o
 Start by clicking the **Teams** tab under **Configuration** in the Octopus Web Portal.  Then click **Add team**.
 
 :::figure
-![](/docs/security/users-and-teams/images/add-team.png "width=500")
+![](/docs/security/users-and-teams/images/add-team.png)
 :::
 
 When you create the team, it is possible to change the visibility of the team to either:
@@ -26,7 +26,7 @@ When you create the team, it is possible to change the visibility of the team to
 
 For this example, we'll choose this team to only be visible in the space we are currently in.
 
-![](/docs/security/users-and-teams/images/add-team-detail.png "width=500")
+![](/docs/security/users-and-teams/images/add-team-detail.png)
 project viewer role for all environments
 Give the team an appropriate name like *Developers* and click **Save**.
 
@@ -36,7 +36,7 @@ We can now add the **Project viewer** role to all environments by clicking **Inc
 for this team in any scope.
 
 :::figure
-![](/docs/security/users-and-teams/images/add-unscoped-role.png "width=500")
+![](/docs/security/users-and-teams/images/add-unscoped-role.png)
 :::
 
 ### Adding additional roles for a subset of environments
@@ -44,13 +44,13 @@ for this team in any scope.
 Since our goal is to give members of the Developers team the ability to create and deploy releases _in the Development and Staging environments only_, we can click **Include user role** again, this time adding the **Project lead** role. This role provides all the permissions of the **Project viewer** role as well as allowing a team member to create and deploy releases. This time, we will click on **Define Scope** and choose the environments that we would like to scope the role to, before hitting the **Apply** button.
 
 :::figure
-![](/docs/security/users-and-teams/images/define-scope-for-user-role.png "width=500")
+![](/docs/security/users-and-teams/images/define-scope-for-user-role.png)
 :::
 
 We can repeat this process as many times as necessary to configure the team to your needs. The resulting team configuration screen should now display all of the different roles and their scopes so that you can review them.
 
 :::figure
-![](/docs/security/users-and-teams/images/add-team-with-scoped-roles.png "width=500")
+![](/docs/security/users-and-teams/images/add-team-with-scoped-roles.png)
 :::
 
 When you are happy with these changes hit **Save** to make them effective.

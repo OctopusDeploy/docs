@@ -52,7 +52,7 @@ To use your own version of the Azure CLI or Azure Powershell cmdlets when using 
 - Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
 
 :::figure
-![](/docs/deployments/custom-scripts/images/5865912.png "width=170")
+![](/docs/deployments/custom-scripts/images/5865912.png)
 :::
 
 These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
@@ -73,4 +73,4 @@ Remove-AzureWebsite -Name #{WebSite} -Slot Staging -Force
 New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```
 
-![](/docs/deployments/custom-scripts/images/5865518.png "width=500")
+![](/docs/deployments/custom-scripts/images/5865518.png)

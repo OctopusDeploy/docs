@@ -12,7 +12,7 @@ The .NET Configuration Transforms feature is one of the [configuration features]
 If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!**.
 
 :::figure
-![.NET Configuration Transforms screenshot](/docs/projects/steps/configuration-features/configuration-transforms/images/configuration-transforms.png "width=500")
+![.NET Configuration Transforms screenshot](/docs/projects/steps/configuration-features/configuration-transforms/images/configuration-transforms.png)
 :::
 
 An example web.config transformation that removes the `<compilation debug="true">` attribute is below:
@@ -74,7 +74,7 @@ To make sure Octopus can run the .NET configuration transforms for your Windows 
 3. Double-check the package you build for deployment actually contains the **`YourService.exe.config`** and all of the expected configuration transform files.
 
 :::figure
-![](/docs/projects/steps/configuration-features/configuration-transforms/images/console-support.png "width=500")
+![](/docs/projects/steps/configuration-features/configuration-transforms/images/console-support.png)
 :::
 
 
@@ -83,7 +83,7 @@ To make sure Octopus can run the .NET configuration transforms for your Windows 
 You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run .NET configuration transformation files` check-box.
 
 :::figure
-![](/docs/projects/steps/configuration-features/configuration-transforms/images/additional-transforms.png "width=500")
+![](/docs/projects/steps/configuration-features/configuration-transforms/images/additional-transforms.png)
 :::
 
 Octopus supports explicit, wildcard and relative path configuration transform definitions on any XML file with any file extension. Octopus will iterate through all files in all directories (ie, recursively) of your deployed application to find any matching files. Your target file also must exist; it will not be created by Octopus.

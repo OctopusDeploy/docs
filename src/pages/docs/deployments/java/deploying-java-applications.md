@@ -70,7 +70,7 @@ screen -d -m -S "PressAnyKey" java PressAnyKey
 ```
 
 :::figure
-![](/docs/deployments/java/5866219.png "width=500")
+![](/docs/deployments/java/5866219.png)
 :::
 
 :::div{.hint}

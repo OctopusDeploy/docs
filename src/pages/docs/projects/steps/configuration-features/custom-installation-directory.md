@@ -21,7 +21,7 @@ The standard convention for deploying packages is often the best and simplest wa
 2. Check the **Custom Installation Directory** check-box and click **Ok**.
 
 :::figure
-![Custom Installation Directory option](/docs/projects/steps/configuration-features/images/custom-installation-directory.png "width=500")
+![Custom Installation Directory option](/docs/projects/steps/configuration-features/images/custom-installation-directory.png)
 :::
 
 When you return to your deployment process, you will see the **Custom Install Directory** option has been added to the **Features** section of the deployment process.

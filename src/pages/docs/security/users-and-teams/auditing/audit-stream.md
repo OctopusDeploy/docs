@@ -17,13 +17,13 @@ Audit streaming is only available from **Octopus 2022.4** onwards.
 You can configure the audit stream from the **Audit** page in the **Configuration** area. Click **Stream Audit Log** to open the configuration dialog.
 
 :::figure
-![Audit Stream Not Configured](/docs/security/users-and-teams/auditing/images/audit-stream-not-configured.png "width=500")
+![Audit Stream Not Configured](/docs/security/users-and-teams/auditing/images/audit-stream-not-configured.png)
 :::
 
 Currently we support streaming to **Splunk** and **Sumo Logic**.
 
 :::figure
-![Audit Stream Configure Dialog](/docs/security/users-and-teams/auditing/images/audit-stream-configure-dialog.png "width=500")
+![Audit Stream Configure Dialog](/docs/security/users-and-teams/auditing/images/audit-stream-configure-dialog.png)
 :::
 
 :::div{.hint}
@@ -53,4 +53,4 @@ You can change the audit stream configuration by clicking **Stream Audit Log** a
 - **Pause/Resume**: You can pause audit streaming, preventing any new audit events from being streamed to the configured endpoint. This will show as **Resume** if the audit stream is already paused.
 - **Delete**: You can delete the audit stream configuration, which will clear any data relating to the audit stream and prevent any new audit events from being streamed.
 
-![Update Audit Stream](/docs/security/users-and-teams/auditing/images/audit-stream-update.png "width=500")
+![Update Audit Stream](/docs/security/users-and-teams/auditing/images/audit-stream-update.png)

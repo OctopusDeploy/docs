@@ -16,7 +16,7 @@ You can manage users and teams in the Octopus Web Portal:
 - For teams, navigate to **Configuration ➜ Teams**.
 
 :::figure
-![](/docs/security/users-and-teams/images/teams.png "width=500")
+![](/docs/security/users-and-teams/images/teams.png)
 :::
 
 ## User and service accounts {#Managingusersandteams-UserandServiceaccounts}
@@ -45,7 +45,7 @@ This feature is being deprecated for Cloud users. You can follow these instructi
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
 :::figure
-![](/docs/security/users-and-teams/images/user-invites.png "width=500")
+![](/docs/security/users-and-teams/images/user-invites.png)
 :::
 
 :::div{.hint}
@@ -67,7 +67,7 @@ For example, we can create a team that gives Anne and Bob access to view project
 We limit which projects and environments these permissions apply to by adding specific projects and environments to the team.
 
 :::figure
-![](/docs/security/users-and-teams/images/devdeployerteam.png "width=500")
+![](/docs/security/users-and-teams/images/devdeployerteam.png)
 :::
 
 ### Restricting project and project group access

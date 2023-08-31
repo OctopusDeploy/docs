@@ -45,7 +45,7 @@ For example:
 | `OCTOPUSSERVER_SPACE` | The Space to push packages to |
 
 :::figure
-![GitHub Actions Secrets](/docs/packaging-applications/build-servers/images/github-actions-secrets.png "width=500")
+![GitHub Actions Secrets](/docs/packaging-applications/build-servers/images/github-actions-secrets.png)
 :::
 
 ## GitHub Actions configuration
@@ -116,7 +116,7 @@ on:
 Adding `workflow_dispatch` will enable the `Run workflow` button that will allow manual runs.
 
 :::figure
-![GitHub Actions Run Workflow](/docs/packaging-applications/build-servers/images/github-actions-run-workflow.png "width=500")
+![GitHub Actions Run Workflow](/docs/packaging-applications/build-servers/images/github-actions-run-workflow.png)
 :::
 
 ### Building with GitHub Actions

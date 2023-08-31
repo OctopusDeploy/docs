@@ -33,19 +33,19 @@ External package repositories **cannot be used to automatically create releases*
 From the project's trigger tab, under the section called **Automatic Release Creation**, click **Setup**, and then select the package that will trigger the release:
 
 :::figure
-![Automatic release creation](/docs/projects/project-triggers/images/automatic-release-creation.png "width=500")
+![Automatic release creation](/docs/projects/project-triggers/images/automatic-release-creation.png)
 :::
 
 As a project can contain multiple packages you need to select the package that will upload LAST in your build and push CI process. If you have multiple packages, make sure you select the package that is always uploaded last.
 
 :::figure
-![Automatic release creation last package option](/docs/projects/project-triggers/images/automatic-release-creation-last-package.png "width=500")
+![Automatic release creation last package option](/docs/projects/project-triggers/images/automatic-release-creation-last-package.png)
 :::
 
 When a release is set to be created this way, the audit will tell you that is how the release was created.
 
 :::figure
-![Release history](/docs/projects/project-triggers/images/history.png "width=500")
+![Release history](/docs/projects/project-triggers/images/history.png)
 :::
 
 If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/releases/lifecycles/#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.

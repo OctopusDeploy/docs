@@ -44,7 +44,7 @@ The [installation documentation](/docs/installation) provides instructions for d
 Whether you're self-hosting the Octopus Server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments and runbooks.
 
 :::figure
-![Octopus Dashboard](/docs/getting-started/dashboard.png "width=500")
+![Octopus Dashboard](/docs/getting-started/dashboard.png)
 :::
 
 ## Infrastructure
@@ -52,7 +52,7 @@ Whether you're self-hosting the Octopus Server, or using Octopus Cloud, the Octo
 Octopus Deploy organizes your deployment targets (the machines and services you deploy software to) into groups called environments. Typical environments are **Dev**, **Test**, and **Production**.
 
 :::figure
-![The infrastructure tab of Octopus Deploy](/docs/getting-started/images/infrastructure.png "width=500")
+![The infrastructure tab of Octopus Deploy](/docs/getting-started/images/infrastructure.png)
 :::
 
 Organizing your infrastructure into environments lets you define your deployment processes (no matter how many deployment targets are involved) and have Octopus deploy the right versions of your software, with the right configuration, to the right environments at the right time.
@@ -104,7 +104,7 @@ Learn more about [lifecycles](/docs/releases/lifecycles).
 A release in Octopus, is a snapshot of the packaged software, variables, and the deployment process.
 
 :::figure
-![Deploy release screen in the Octopus Web Portal](/docs/getting-started/deploy-release.png "width=500")
+![Deploy release screen in the Octopus Web Portal](/docs/getting-started/deploy-release.png)
 :::
 
 A release is deployed to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to the next environment when they are successful. Releases can be deployed manually each time or set up to deploy automatically, depending on your needs.

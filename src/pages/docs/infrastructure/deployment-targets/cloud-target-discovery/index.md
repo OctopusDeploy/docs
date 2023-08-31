@@ -48,7 +48,7 @@ From **Octopus 2022.3**, Azure steps that support target discovery will allow yo
 1. Click **Ok**. This will save the well-known variables above into your project.
 
 :::figure
-![Configuring Cloud Connections for an Azure step](/docs/infrastructure/deployment-targets/cloud-target-discovery/configure-azure-target-discovery.png "width=500")
+![Configuring Cloud Connections for an Azure step](/docs/infrastructure/deployment-targets/cloud-target-discovery/configure-azure-target-discovery.png)
 :::
 
 Once the variables for target discovery have been configured the **Azure** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.
@@ -76,7 +76,7 @@ From **Octopus 2022.3**, AWS steps that support target discovery will allow you 
 1. Click **Ok**. This will save the well-known variables above into your project.
 
 :::figure
-![Configuring Cloud Connections for an AWS step](/docs/infrastructure/deployment-targets/cloud-target-discovery/configure-aws-target-discovery.png "width=500")
+![Configuring Cloud Connections for an AWS step](/docs/infrastructure/deployment-targets/cloud-target-discovery/configure-aws-target-discovery.png)
 :::
 
 Once the variables for target discovery have been configured the **Amazon Web Services** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.

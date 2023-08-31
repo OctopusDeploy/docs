@@ -30,16 +30,16 @@ If you are concerned that Octopus does not capture a specific action of interest
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
 :::figure
-![Audit Configuration](/docs/security/users-and-teams/auditing/images/audit-configuration.png "width=500")
+![Audit Configuration](/docs/security/users-and-teams/auditing/images/audit-configuration.png)
 :::
 
 Some audit events will also include details, which you can see by clicking the **show details** link. For example:
 
 :::figure
-![Audit Event Details](/docs/security/users-and-teams/auditing/images/audit-event-details.png "width=500")
+![Audit Event Details](/docs/security/users-and-teams/auditing/images/audit-event-details.png)
 :::
 
-![Audit Event Details extended](/docs/security/users-and-teams/auditing/images/audit-event-details-extended.png "width=500")
+![Audit Event Details extended](/docs/security/users-and-teams/auditing/images/audit-event-details-extended.png)
 
 This feature makes it extremely easy to see who made what changes on the Octopus Server.
 
@@ -82,7 +82,7 @@ Users with appropriate permissions (typically `Octopus Manager`) can download or
 Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days or 3650 days for self-hosted customer) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
 
 :::figure
-![Manage Archived Audit Logs Menu](/docs/security/users-and-teams/auditing/images/manage-archived-audit-logs-menu.png "width=500")
+![Manage Archived Audit Logs Menu](/docs/security/users-and-teams/auditing/images/manage-archived-audit-logs-menu.png)
 :::
 
 The archived files can also be accessed via the Octopus REST API endpoints `/api/events/archives` and `/api/events/archives/{filename}`.

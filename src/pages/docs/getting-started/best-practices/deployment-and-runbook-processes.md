@@ -18,7 +18,7 @@ Aside from the intended usage, there is little difference between a deployment p
 When you run a runbook or do a deployment, all the output is written to the Task Log.  
 
 :::figure
-![task log after a deployment](/docs/getting-started/best-practices/images/task-log.png "width=500")
+![task log after a deployment](/docs/getting-started/best-practices/images/task-log.png)
 :::
 
 The top of the task log allows you to change the information shown.  
@@ -30,7 +30,7 @@ The top of the task log allows you to change the information shown.
 The task log represents the deployment or runbook run details but is typically useful when debugging. The majority of the time will be spent in the Task Summary as it provides an overview of the deployment or runbook run.
 
 :::figure
-![task summary after a deployment](/docs/getting-started/best-practices/images/task-summary.png "width=500")
+![task summary after a deployment](/docs/getting-started/best-practices/images/task-summary.png)
 :::
 
 The summary includes:
@@ -75,7 +75,7 @@ Starting in **Octopus Deploy 2020.5**, you can add a description field to each s
 An example representing the deployment process is:
 
 :::figure
-![recommended deployment process](/docs/getting-started/best-practices/images/deployment-process.png "width=500")
+![recommended deployment process](/docs/getting-started/best-practices/images/deployment-process.png)
 :::
 
 ## Running a runbook from a deployment

@@ -46,7 +46,7 @@ If any of the below occurs the full package will be uploaded:
 When running a deployment that creates and applies a delta file, you will see the following in the logs under the `Acquire packages` section
 
 :::figure
-![Package Logs](/docs/deployments/packages/images/package-logs.png "width=500")
+![Package Logs](/docs/deployments/packages/images/package-logs.png)
 :::
 
 :::div{.hint}

@@ -19,7 +19,7 @@ In this part of the guide, we'll create our deployment process to deploy our pac
 * Send Slack message on failed deployment
 
 :::figure
-![](/docs/tenants/guides/multi-tenant-saas-application/images/creating-new-deployment-process.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/creating-new-deployment-process.png)
 :::
 
 The step named **Apply Custom Branding** only needs to run for tenants that have a tenant tag of `Branding` associated with them. 
@@ -27,7 +27,7 @@ The step named **Apply Custom Branding** only needs to run for tenants that have
 To configure this, go into your step, under **Conditions**, expand the **Tenants** option and select the `Branding` tag from the `Custom Feature` Tag set.
 
 :::figure
-![](/docs/tenants/guides/multi-tenant-saas-application/images/apply-custom-branding-step.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/apply-custom-branding-step.png)
 :::
 
 This will ensure this step only runs for tenants that have the `Branding` tag applied.

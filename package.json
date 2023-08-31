@@ -3,6 +3,11 @@
     "type": "module",
     "version": "0.0.1",
     "private": true,
+    "packageManager": "pnpm@8.7.0",
+    "engines": {
+        "node": ">=18.14.1",
+        "pnpm": ">=8.6.12"
+    },
     "scripts": {
         "img": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs",
         "dev": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs && astro dev",
@@ -11,18 +16,18 @@
         "preview": "astro preview",
         "astro": "astro",
         "css": "robocopy ./public/docs/css/ ./dist/docs/css/ /mir && robocopy ./public/docs/js/ ./dist/docs/js/ /mir",
-        "theme": "npm install --save astro-accelerator@latest && npm install --save astro-accelerator-utils@latest && node ./accelerator.js"
+        "theme": "pnpm install --save astro-accelerator@latest && pnpm install --save astro-accelerator-utils@latest && node ./accelerator.js"
     },
     "dependencies": {
-        "@astrojs/mdx": "^0.19.7",
-        "astro": "^2.10.1",
-        "astro-accelerator": "^0.0.112",
-        "astro-accelerator-utils": "^0.2.38",
+        "@astrojs/mdx": "^1.0.0",
+        "astro": "^3.0.3",
+        "astro-accelerator": "^0.3.0",
+        "astro-accelerator-utils": "^0.2.39",
         "hast-util-from-selector": "^3.0.0",
         "remark-directive": "^2.0.1",
-        "remark-heading-id": "^1.0.0"
+        "remark-heading-id": "^1.0.1"
     },
     "devDependencies": {
-        "@playwright/test": "^1.36.2"
+        "@playwright/test": "^1.37.1"
     }
 }

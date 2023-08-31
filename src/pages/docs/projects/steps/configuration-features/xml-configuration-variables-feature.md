@@ -12,7 +12,7 @@ The .NET XML configuration variables feature is one of the [.NET configuration f
 This feature can be enabled for package deploy steps.
 
 :::figure
-![.NET XML configuration variables screenshot](/docs/projects/steps/configuration-features/images/dotnet-xml-configuration-variables-feature.png "width=500")
+![.NET XML configuration variables screenshot](/docs/projects/steps/configuration-features/images/dotnet-xml-configuration-variables-feature.png)
 :::
 
 Octopus will extract your package and parse your `*.config` files looking for any `appSettings`, `connectionStrings`, and `applicationSettings` elements where the name matches one of your [variables](/docs/projects/variables).

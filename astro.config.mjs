@@ -23,4 +23,7 @@ export default defineConfig({
         trailingSlash: 'never',
         extendDefaultPlugins: true,
     },
+    server: {
+        port: 3000
+    },
 });
