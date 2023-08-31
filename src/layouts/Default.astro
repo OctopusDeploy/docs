@@ -58,7 +58,6 @@ const site_features = SITE.featureFlags;
         <Header frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         <Title frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         <div class="content-group">
-            <Navigation lang={ lang } />
             <main id="site-main">
                 <Breadcrumbs frontmatter={ frontmatter } headings={ headings } lang={ lang } breadcrumbs={ breadcrumbs } />
                 <article itemscope itemtype="https://schema.org/Article">
@@ -79,6 +78,7 @@ const site_features = SITE.featureFlags;
                     </div>
                 </article>
             </main>
+            <Navigation lang={ lang } />
             <div class="side-nav">
                 <TableOfContents expanded={ 930 } frontmatter={ frontmatter } headings={ headings } lang={ lang } />
             </div>
