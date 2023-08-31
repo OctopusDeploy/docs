@@ -23,6 +23,8 @@ See the [Octopus style guide](https://style.octopus.com) for information includi
 Before merging to `main` it's possible you'd like to see your changes in a preview environment. It's simple to do this:
 
 1. You need [Node.js](https://nodejs.org/en) installed to run the site locally
-2. Run `npm install` to obtain the dependencies
-3. Run `npm run dev` to run a local preview of the site
+2. Run `pnpm install` to obtain the dependencies
+3. Run `pnpm dev` to run a local preview of the site
 4. Open `localhost:3000` to view the site, the first page load usually takes a little time
+
+You can generate a static copy of the site using `pnpm build` and run it in a browser with `pnpm preview`.
