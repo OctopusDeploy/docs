@@ -62,9 +62,12 @@ const getData = async () => {
         });
     }
 
-    return {
-        body: JSON.stringify(items)
-    }
+    return new Response(JSON.stringify(items), {
+        status: 200,
+        headers: {
+        'Content-Type': "application/json"
+        }
+    });
 }
 
-export const get = getData;
+export const GET = getData;
