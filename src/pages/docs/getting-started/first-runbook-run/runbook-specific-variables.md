@@ -21,7 +21,7 @@ Octopus allows you to define variables and scope them for use in different envir
 1. Click the **SAVE** button.
 
 :::figure
-![The hello world variables](/docs/getting-started/first-runbook-run/images/variables.png "width=500")
+![The hello world variables](/docs/getting-started/first-runbook-run/images/variables.png)
 :::
 
 :::div{.hint}
@@ -62,7 +62,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 7. Click the **RUN...** button, select and environment, and run the Runbook.
 
 :::figure
-![The results of the hello world runbook run with variables](/docs/getting-started/first-runbook-run/images/runbook-run-with-variables.png "width=500")
+![The results of the hello world runbook run with variables](/docs/getting-started/first-runbook-run/images/runbook-run-with-variables.png)
 :::
 
 The next step will [add deployment targets to run runbooks on](/docs/getting-started/first-runbook-run/add-runbook-deployment-targets).

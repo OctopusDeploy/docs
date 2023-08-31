@@ -59,4 +59,4 @@ This approach consists of each project taking on the role of checking that the o
 
 The [Deploy Release step](/docs/projects/coordinating-multiple-projects/deploy-release-step) is helpful when implementing the _Parent Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
 
-![Deploy Release Step Example Process](/docs/projects/coordinating-multiple-projects/voltron-project-process.png "width=500")
+![Deploy Release Step Example Process](/docs/projects/coordinating-multiple-projects/voltron-project-process.png)

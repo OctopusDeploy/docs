@@ -51,7 +51,7 @@ az network dns record-set a remove-record --resource-group $resourceGroup --zone
 ```
 
 :::figure
-![](/docs/runbooks/runbook-examples/emergency/octopus-runbook-app-monitoring.png "width=500")
+![](/docs/runbooks/runbook-examples/emergency/octopus-runbook-app-monitoring.png)
 :::
 
 ## Create the trigger
@@ -67,7 +67,7 @@ az network dns record-set a remove-record --resource-group $resourceGroup --zone
    - Select timezone: Select the timezone to use when evaluating when to run.
 
 :::figure
-![](/docs/runbooks/runbook-examples/emergency/octopus-runbook-trigger.png "width=500")
+![](/docs/runbooks/runbook-examples/emergency/octopus-runbook-trigger.png)
 :::
 
 

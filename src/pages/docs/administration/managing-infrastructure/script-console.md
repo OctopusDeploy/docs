@@ -24,7 +24,7 @@ Any machines registered with Octopus as [workers](/docs/infrastructure/workers/)
 The Script Console can be found under the Tasks area:
 
 :::figure
-![](/docs/administration/managing-infrastructure/images/tasks-script-console-button.png "width=500")
+![](/docs/administration/managing-infrastructure/images/tasks-script-console-button.png)
 :::
 
 Inside the Script Console, you can choose whether to run your script on:
@@ -39,19 +39,19 @@ The options shown inside the Script Console may differ from the ones described h
 :::
 
 :::figure
-![](/docs/administration/managing-infrastructure/images/inside-script-console.png "width=500")
+![](/docs/administration/managing-infrastructure/images/inside-script-console.png)
 :::
 
 When you run the script, you'll be taken to the task output page which shows the progress and any output from the script:
 
 :::figure
-![](/docs/administration/managing-infrastructure/images/script-console-task-log.png "width=500")
+![](/docs/administration/managing-infrastructure/images/script-console-task-log.png)
 :::
 
 The **Script Body** tab can be used to see the contents of the script, and you can use the **Modify and re-run** button in the ... overflow menu to change or run the script again.
 
 :::figure
-![](/docs/administration/managing-infrastructure/images/script-console-modify-rerun.png "width=500")
+![](/docs/administration/managing-infrastructure/images/script-console-modify-rerun.png)
 :::
 
 ## Targeting the Octopus Server
@@ -89,4 +89,4 @@ Sometimes you might like to collect files from each of the machines as part of y
 
 Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/security/users-and-teams/auditing) tab in the Configuration area.
 
-![](/docs/administration/managing-infrastructure/images/script-console-audit.png "width=500")
+![](/docs/administration/managing-infrastructure/images/script-console-audit.png)

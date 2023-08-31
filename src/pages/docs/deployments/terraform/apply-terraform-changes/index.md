@@ -16,7 +16,7 @@ Octopus has two steps that execute plan information:
 As their names suggest, the `Apply a Terraform template` step will execute the additions indicated by the execution plan, while the `Destroy Terraform resources` step will destroy the resources marked for removal by the execution plan.
 
 :::figure
-![Octopus Steps](/docs/deployments/terraform/apply-terraform-changes/images/octopus-terraform-apply-step.png "width=500")
+![Octopus Steps](/docs/deployments/terraform/apply-terraform-changes/images/octopus-terraform-apply-step.png)
 :::
 
 :::div{.warning}
@@ -41,4 +41,4 @@ You can optionally control how Terraform downloads plugins and where the plugins
 
 - The `Custom terraform apply parameters` option can be optionally set to include any parameters to pass to the `terraform apply` action.
 
-![Terraform Advanced Options](/docs/deployments/terraform/images/terraform-advanced.png "width=500")
+![Terraform Advanced Options](/docs/deployments/terraform/images/terraform-advanced.png)

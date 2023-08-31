@@ -12,7 +12,7 @@ navOrder: 70
 The [Azure PowerShell](/docs/deployments/azure/running-azure-powershell) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions).
 
 :::figure
-![AWS Account variable](/docs/projects/variables/images/azure-account-variable.png "width=500")
+![AWS Account variable](/docs/projects/variables/images/azure-account-variable.png)
 :::
 
 The **Add Variable** window is then displayed and lists all the Azure accounts.
@@ -20,7 +20,7 @@ The **Add Variable** window is then displayed and lists all the Azure accounts.
 Select the account that was created in the previous step to assign it to the variable.
 
 :::figure
-![Azure account variable selection](/docs/projects/variables/images/azure-account-variable-selection.png "width=500")
+![Azure account variable selection](/docs/projects/variables/images/azure-account-variable-selection.png)
 :::
 
 ## Azure account variable properties

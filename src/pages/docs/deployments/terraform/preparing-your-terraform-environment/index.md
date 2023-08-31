@@ -63,4 +63,5 @@ As with any other data source, it must exist remotely first. To achieve this, yo
 
 Terraform has the concept of enhanced backends which enable both storage and execution of remote operations such as plan and apply. Octopus does not prevent you from using backends such as these, however the execution of actions remotely may not
 always work as intended. It is for this reason that we recommend using remote state and keep execution of actions local. Terraform Cloud / Enterprise provides an option as part of the workspace settings which makes this rather trivial.
-![Terraform cloud execution mode](terraform-cloud-execution-mode.png "width=500")
+
+![Terraform cloud execution mode](/docs/deployments/terraform/preparing-your-terraform-environment/terraform-cloud-execution-mode.png)

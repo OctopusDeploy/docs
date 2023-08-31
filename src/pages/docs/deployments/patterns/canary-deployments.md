@@ -16,7 +16,7 @@ Canary deployments are a pattern for rolling out releases to a subset of users o
 As an example, imagine an environment that has four web servers. Rather than simply deploying to all deployment targets in the environment, a canary deployment would look like this:
 
 :::figure
-![](/docs/deployments/patterns/images/3278255.png "width=500")
+![](/docs/deployments/patterns/images/3278255.png)
 :::
 
 The basic steps of a canary deployment are:

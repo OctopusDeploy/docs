@@ -21,7 +21,7 @@ The proceeding instructions can be followed to configure the Delete an AWS Cloud
 1. Choose the **Delete an AWS CloudFormation stack** step:
 
 :::figure
-![Delete Stack](/docs/runbooks/runbook-examples/aws/images/deploy-cloudformation-step.png "width=500")
+![Delete Stack](/docs/runbooks/runbook-examples/aws/images/deploy-cloudformation-step.png)
 :::
 
 5. Fill in the parameters for the step:
@@ -36,13 +36,13 @@ The proceeding instructions can be followed to configure the Delete an AWS Cloud
 Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).
 
 :::figure
-![AWS Account](/docs/runbooks/runbook-examples/aws/images/step-aws-account.png "width=500")
+![AWS Account](/docs/runbooks/runbook-examples/aws/images/step-aws-account.png)
 :::
 
 The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
 
 :::figure
-![AWS Role](/docs/runbooks/runbook-examples/aws/images/step-aws-role.png "width=500")
+![AWS Role](/docs/runbooks/runbook-examples/aws/images/step-aws-role.png)
 :::
 
 :::div{.hint}
@@ -64,7 +64,7 @@ Unselecting the **Wait for completion** check-box will allow the step to complet
 :::
 
 :::figure
-![AWS Region](/docs/runbooks/runbook-examples/aws/images/step-aws-region.png "width=500")
+![AWS Region](/docs/runbooks/runbook-examples/aws/images/step-aws-region.png)
 :::
 
 In a single step, you can delete all the resources created within a CloudFormation stack.

@@ -19,7 +19,7 @@ Triggers are per-project settings that execute an action in response to an event
 2. Create a new trigger by selecting **Create trigger**:
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865570.png "width=500")
+![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865570.png)
 :::
 
 3. Add events to the trigger.
@@ -30,7 +30,7 @@ Triggers are per-project settings that execute an action in response to an event
 5. Select the deployment target roles (**TradingWebServer**) that this trigger applies to.
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865705.png "width=500")
+![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865705.png)
 :::
 
 Once the trigger has been created, it will ensure that any deployment targets matching the trigger criteria will be kept up to date with the latest release of the project.
@@ -42,19 +42,19 @@ To test the trigger, we will disable a deployment target, deploy to that target'
 1. Disable a target with the role **TradingWebServer**in the **Test A** environment:
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865573.png "width=500")
+![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865573.png)
 :::
 
 2. Create a new release of OctoFX and deploy it to the **Test A** environment.  It will skip the steps that have been scoped to the **TradingWebServer** role because no deployment targets are available in that role:
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865574.png "width=500")
+![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865574.png)
 :::
 
 3. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed.  The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865575.png "width=500")
+![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865575.png)
 :::
 
 ## Overriding the release used for automatic deployments {#Keepingdeploymenttargetsuptodate-Overridingthereleaseusedforautomaticdeploymentsoverriderelease}

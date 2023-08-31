@@ -4,6 +4,10 @@
     "version": "0.0.1",
     "private": true,
     "packageManager": "pnpm@8.7.0",
+    "engines": {
+        "node": ">=18.14.1",
+        "pnpm": ">=8.6.12"
+    },
     "scripts": {
         "img": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs",
         "dev": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs && astro dev",

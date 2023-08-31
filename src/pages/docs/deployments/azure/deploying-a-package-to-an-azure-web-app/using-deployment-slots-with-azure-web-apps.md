@@ -32,7 +32,7 @@ Follow the steps for [Azure Web App targets](/docs/infrastructure/deployment-tar
 Create a [Run an Azure PowerShell Script](/docs/deployments/azure/running-azure-powershell) step.
 
 :::figure
-![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-powershell-script-step.png "width=500")
+![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-powershell-script-step.png)
 :::
 
 Your script should be:
@@ -64,7 +64,7 @@ The first line of the script removes the Staging Slot to ensure we are deploying
 So your step should look like:
 
 :::figure
-![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-remove-staging-slot-script.png "width=500")
+![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-remove-staging-slot-script.png)
 :::
 
 ### Step 3: Deploy Your Package {#UsingDeploymentSlotswithAzureWebApps-Step2-DeployyourPackage}
@@ -72,10 +72,10 @@ So your step should look like:
 The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app) step.
 
 :::figure
-![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/deploy-azure-web-app-step.png "width=500")
+![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/deploy-azure-web-app-step.png)
 :::
 
-![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-selector-with-slot.png "width=500")
+![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-selector-with-slot.png)
 
 You can enter the name of deployment slot in the **Deployment Slot** field, or to use a variable for the Slot name, click the "Bind" button, and enter
 
@@ -86,7 +86,7 @@ You can enter the name of deployment slot in the **Deployment Slot** field, or t
 As shown below:
 
 :::figure
-![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-slot-binding.png "width=500")
+![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-slot-binding.png)
 :::
 
 :::div{.info}
@@ -117,13 +117,13 @@ Switch-AzureRmWebAppSlot -ResourceGroupName #{ResourceGroup} -Name #{Website} -S
 So your step will appear as:
 
 :::figure
-![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-swap-slots-script.png "width=500")
+![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-swap-slots-script.png)
 :::
 
 At this point you should have a working Blue-Green deployment process for your Azure Web App.
 
 :::figure
-![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-with-slots-process.png "width=500")
+![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-with-slots-process.png)
 :::
 
 ## Learn more

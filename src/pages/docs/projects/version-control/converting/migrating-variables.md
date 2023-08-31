@@ -38,7 +38,7 @@ The migration process only writes the variables to a single branch. To continue 
 The migration process is simple, and we've built a helpful wizard to guide you through it. If this feature is available in your instance and you have a project that does not yet have variables in Git, you will see this banner on the project variables page.
 
 :::figure
-![Screenshot of banner on Octopus project variables page with title Store variables in Git, and a migrate variables to Git button](/docs/projects/version-control/converting/git-variables-migrator-banner.png "width=400")
+![Screenshot of banner on Octopus project variables page with title Store variables in Git, and a migrate variables to Git button](/docs/projects/version-control/converting/git-variables-migrator-banner.png)
 :::
 
 Clicking the **Migrate Variables To Git** button will open the migation wizard.
@@ -48,7 +48,7 @@ Clicking the **Migrate Variables To Git** button will open the migation wizard.
 The first page is just informational. After opening the dialog, Octopus will validate that the project can migrate variables to Git, then you can continue.
 
 :::figure
-![Screenshot of page 1 (getting started) on Git variables migration wizard](/docs/projects/version-control/converting/git-variables-migrator-page-1.png "width=400")
+![Screenshot of page 1 (getting started) on Git variables migration wizard](/docs/projects/version-control/converting/git-variables-migrator-page-1.png)
 :::
 
 ### Step 2: Select a branch
@@ -56,7 +56,7 @@ The first page is just informational. After opening the dialog, Octopus will val
 Always use the default branch if possible. The default branch is the first branch shown when new users view the project, and Octopus only snapshots variables from the default branch for Runbooks. You always want to have a valid variables file on the default branch, so migrate directly there _if you can_.
 
 :::figure
-![Screenshot of page 2 (branch selection) on Git variables migration wizard, with existing branch 'main' selected](/docs/projects/version-control/converting/git-variables-migrator-page-2-existing.png "width=400")
+![Screenshot of page 2 (branch selection) on Git variables migration wizard, with existing branch 'main' selected](/docs/projects/version-control/converting/git-variables-migrator-page-2-existing.png)
 :::
 
 If you are unable to migrate to the default branch (for example, it's protected), you can select any other branch or get Octopus to create a new branch from the default when migrating. _Once the migration is finished, merge the variables to the default branch as soon as possible._
@@ -66,7 +66,7 @@ If you are unable to migrate to the default branch (for example, it's protected)
 After selecting the branch, you can view the migration summary and start the migration. The migration is typically completed in a few seconds.
 
 :::figure
-![Screenshot of page 3 (review and migrate) on Git variables migration wizard, showing 9 values will be migrated to a new variables.ocl file on the main branch, and 3 sensitive values will remain in the database. Commit message populated with 'Migrate project variables'](/docs/projects/version-control/converting/git-variables-migrator-page-3.png "width=400")
+![Screenshot of page 3 (review and migrate) on Git variables migration wizard, showing 9 values will be migrated to a new variables.ocl file on the main branch, and 3 sensitive values will remain in the database. Commit message populated with 'Migrate project variables'](/docs/projects/version-control/converting/git-variables-migrator-page-3.png)
 :::
 
 Once the migration is complete, click **Done**. The project will reload, and your variables will now be in Git.

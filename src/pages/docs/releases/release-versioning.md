@@ -11,7 +11,7 @@ You can define how the next release number will be generated when creating a rel
 Navigate to the **Project** tab, select the project and click **Deployments ➜ Settings ➜ Release Versioning**:
 
 :::figure
-![Release Versioning](/docs/releases/images/release-versioning.png "width=500")
+![Release Versioning](/docs/releases/images/release-versioning.png)
 :::
 
 You can use variables from the project (un-scoped or scoped only to a channel). In addition, some special variables are provided - example:

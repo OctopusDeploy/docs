@@ -22,7 +22,7 @@ For this, there are a number of Secret Manager and Key Vault tools available. Th
 Octopus supports the retrieval of sensitive values from a number of Secret Manager/Key Vaults through the use of [Community step templates](/docs/projects/community-step-templates) that extend the functionality of Octopus to integrate with them.
 
 :::figure
-![Aure Key Vault Retrieve Secrets step template](/docs/projects/variables/images/azure-keyvault-retrieve-secrets-step-in-process.png "width=500")
+![Aure Key Vault Retrieve Secrets step template](/docs/projects/variables/images/azure-keyvault-retrieve-secrets-step-in-process.png)
 :::
 
 Each of the community step templates work by retrieving secrets from the Secret Manager/Key Vault and create [sensitive output variables](/docs/projects/variables/output-variables/#sensitive-output-variables) for use in your executing deployments and runbooks.
@@ -54,13 +54,13 @@ To make a variable a **sensitive variable**, either select **Change Type** when 
 If using the variable editor, on any of the variable fields, click **OPEN EDITOR**:
 
 :::figure
-![Open Variable Editor](/docs/projects/variables/images/open-variable-editor.png "width=500")
+![Open Variable Editor](/docs/projects/variables/images/open-variable-editor.png)
 :::
 
 For variable type, select **Sensitive**.
 
 :::figure
-![Variable editor](/docs/projects/variables/images/variable-editor.png "width=500")
+![Variable editor](/docs/projects/variables/images/variable-editor.png)
 :::
 
 ### How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}

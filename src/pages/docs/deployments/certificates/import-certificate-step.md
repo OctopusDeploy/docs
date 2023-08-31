@@ -10,7 +10,7 @@ navOrder: 30
 The *Import Certificate* step can be used to import a certificate managed by Octopus into a Windows Certificate Store.
 
 :::figure
-![](/docs/deployments/certificates/images/import-certificate-step-select.png "width=500")
+![](/docs/deployments/certificates/images/import-certificate-step-select.png)
 :::
 
 ## Import details
@@ -26,7 +26,7 @@ If the certificate has a private-key, it can be marked as exportable, and access
 The Administrators group on the target machine will always be granted access to the private-key.
 
 :::figure
-![](/docs/deployments/certificates/images/import-certificate-step-edit.png "width=500")
+![](/docs/deployments/certificates/images/import-certificate-step-edit.png)
 :::
 
 ## Recommended practice

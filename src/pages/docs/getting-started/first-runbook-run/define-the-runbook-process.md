@@ -11,7 +11,7 @@ hideInThisSection: true
 The runbook process is the steps the Octopus Server orchestrates to perform various tasks on your infrastructure.  To first understand how runbook proccesses work, we will add a single step to run on the Octopus Server (if self-hosted) or on a worker (if Octopus Cloud).  Future steps in this tutorial will configure additional steps to run on your servers.
 
 :::figure
-![The Hello world deployment process](/docs/getting-started/first-runbook-run/images/runbook-process.png "width=500")
+![The Hello world deployment process](/docs/getting-started/first-runbook-run/images/runbook-process.png)
 :::
 
 1. From the *Hello Runbook* runbook you created on the previous page, click **DEFINE YOUR RUNBOOK PROCESS**.

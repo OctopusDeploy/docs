@@ -65,19 +65,19 @@ Now we will create a team for all the Account Managers and add the role we creat
 1. In **Configuration ➜ Teams** click Add team and call it **Toby's clients**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces) and then select **Save**.
 
 :::figure
-![](/docs/tenants/images/add-account-manager-team.png "width=500")
+![](/docs/tenants/images/add-account-manager-team.png)
 :::
 
 2. Under **User Roles** select **Include User Role** button.
 
 :::figure
-![](/docs/tenants/images/multi-tenant-include-user-role.png "width=500")
+![](/docs/tenants/images/multi-tenant-include-user-role.png)
 :::
 
 3. From the dropdown, select the **Tenant project deployer role**.
 
 :::figure
-![](/docs/tenants/images/multi-tenant-select-user-role.png "width=500")
+![](/docs/tenants/images/multi-tenant-select-user-role.png)
 :::
 
 4. Under **Members ➜ Add member**  and add any user accounts that will form part of this team.
@@ -87,13 +87,13 @@ Now we will create a team for all the Account Managers and add the role we creat
 After adding the **Tenant project deployer** role, we'll see that Toby has access to all tenants.  Toby only needs access to the accounts that he's responsible for; Midland Veterinary and Valley Veterinary Clinic.  To limit Toby to his accounts, click on the **elipses ➜ Edit**
 
 :::figure
-![](/docs/tenants/images/edit-tenant-team.png "width=500")
+![](/docs/tenants/images/edit-tenant-team.png)
 :::
 
 Select the tenants and click **APPLY**
 
 :::figure
-![](/docs/tenants/images/scope-tenant-user-role.png "width=500")
+![](/docs/tenants/images/scope-tenant-user-role.png)
 :::
 
 :::div{.hint}
@@ -117,7 +117,7 @@ In this example, we will create a new team and combine multiple roles to achieve
 
 1. Create a new team called Tenant Environment Managers.
 2. Add the Tenant viewer and Environment manager roles to the team:
-   ![](/docs/tenants/images/multi-tenant-environment-managers-team.png "width=500")
+   ![](/docs/tenants/images/multi-tenant-environment-managers-team.png)
 3. Add any specific tenant/environment scoping that makes sense.
 4. Add any specific members
 
@@ -133,4 +133,4 @@ Firstly we need to create a team with a scope limited to the single tenant.
 2. Add any roles you desire. In our example, we're providing the tenant with the **Tenant project deployer** role.
 3. Scope the team to a single tenant:
 
-![](/docs/tenants/images/multi-tenant-self-service-team.png "width=500")
+![](/docs/tenants/images/multi-tenant-self-service-team.png)

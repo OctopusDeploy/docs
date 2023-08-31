@@ -13,19 +13,19 @@ As you work with [variables](/docs/projects/variables) in Octopus, there may be 
 To make a variable a **prompted variable**, enter the variable editor when creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
 
 :::figure
-![Open variable editor](/docs/projects/variables/images/open-variable-editor.png "width=500")
+![Open variable editor](/docs/projects/variables/images/open-variable-editor.png)
 :::
 
 When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required. A required variable must be supplied when the deployment is created and must not be empty or white space.
 
 :::figure
-![Prompted variable](/docs/projects/variables/images/prompted-variable.png "width=500")
+![Prompted variable](/docs/projects/variables/images/prompted-variable.png)
 :::
 
 You can identify prompted variables by looking for the icon next to the value:
 
 :::figure
-![](/docs/projects/variables/images/prompted-variable-icon.png "width=500")
+![](/docs/projects/variables/images/prompted-variable-icon.png)
 :::
 
 :::div{.hint}
@@ -41,7 +41,7 @@ You can select one of several different data types. This controls the user inter
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:
 
 :::figure
-![Required prompted variable](/docs/projects/variables/images/3278301.png "width=500")
+![Required prompted variable](/docs/projects/variables/images/3278301.png)
 :::
 
 These variables will be ordered alphabetically by label (or name, if the variable label is not provided).
@@ -67,7 +67,7 @@ Prompted variables can be [scoped to specific processes](/docs/runbooks/runbook-
 When Octopus renders prompted variables for a deployment or runbook, they are sorted alphabetically by the prompted variable label. If you want to customize the order in which the variables appear, one option is to include a numerical prefix in the label:
 
 :::figure
-![](/docs/projects/variables/images/prompted-variable-custom-sort.png "width=500")
+![](/docs/projects/variables/images/prompted-variable-custom-sort.png)
 :::
 
 ## Learn more

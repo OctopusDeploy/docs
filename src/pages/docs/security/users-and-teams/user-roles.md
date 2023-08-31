@@ -55,20 +55,20 @@ A custom User Role can be created with any combination of permissions. To create
 
 1. Under the **Configuration** page, click **Roles**.
 
-   ![](/docs/security/users-and-teams/images/roles-link.png "width=500")
+   ![](/docs/security/users-and-teams/images/roles-link.png)
 
 2. Click **Add custom role**.
 
 3. Select the set of permissions you'd like this new User Role to contain, and give the role a name and description. These can be system or space level permissions.
 
-   ![](/docs/security/users-and-teams/images/select-permissions.png "width=500")
+   ![](/docs/security/users-and-teams/images/select-permissions.png)
 
 Once the custom role is saved, the new role will be available to be assigned to teams in Octopus. [Some rules apply](/docs/security/users-and-teams/system-and-space-permissions/#SystemAndSpacePermissions-RulesOfTheRoad), depending on the mix of system or space level permissions you chose.
 
 When applying roles to a team, you can optionally specify a scope for each role applied. This enables some complex scenarios, like granting a team [different levels of access](/docs/security/users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges) based on the environment they are authorized for.
 
 :::figure
-![](/docs/security/users-and-teams/images/define-scope-for-user-role.png "width=500")
+![](/docs/security/users-and-teams/images/define-scope-for-user-role.png)
 :::
 
 ## Troubleshooting permissions {#UserRoles-TroubleshootingPermissions}
@@ -85,15 +85,15 @@ The results will show:
 - A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
 
 :::figure
-![](/docs/security/users-and-teams/images/systempermissions.png "width=500")
+![](/docs/security/users-and-teams/images/systempermissions.png)
 :::
 
-![](/docs/security/users-and-teams/images/spacelevelpermissions.png "width=500")
+![](/docs/security/users-and-teams/images/spacelevelpermissions.png)
 
 If a user tries to perform an action without having enough permissions to do it, an error message will pop up showing which permissions the user is lacking, and which teams actually have these permissions.
 
 :::figure
-![](/docs/security/users-and-teams/images/errors.png "width=500")
+![](/docs/security/users-and-teams/images/errors.png)
 :::
 
 :::div{.warning}

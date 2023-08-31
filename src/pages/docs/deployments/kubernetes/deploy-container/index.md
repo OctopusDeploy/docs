@@ -14,7 +14,7 @@ Octopus supports the deployment of Kubernetes resources through the `Deploy Kube
 To begin, add the `Deploy Kubernetes containers` step to a project.
 
 :::figure
-![Deploy Container Step](/docs/deployments/kubernetes/deploy-container/deploy-container-step.png "width=500")
+![Deploy Container Step](/docs/deployments/kubernetes/deploy-container/deploy-container-step.png)
 :::
 
 This step has three important sections that make up the combined objects that are deployed to Kubernetes.
@@ -26,7 +26,7 @@ The second feature is the `Service`. This feature is used to build a [Service re
 The third feature is the `Ingress`. This feature is used to build a [Ingress resource](https://oc.to/KubernetesIngressResource).
 
 :::figure
-![Deploy Container Resources](/docs/deployments/kubernetes/deploy-container/deploy-container.svg "width=500")
+![Deploy Container Resources](/docs/deployments/kubernetes/deploy-container/deploy-container.svg)
 :::
 
 :::div{.hint}
@@ -143,7 +143,7 @@ If a previous Octopus deployment was performed, there will be both a Deployment 
 This existing Deployment resource is considered to be the green half of the blue/green deployment.
 
 :::figure
-![Phase 1](/docs/deployments/kubernetes/deploy-container/phase1.svg "width=500")
+![Phase 1](/docs/deployments/kubernetes/deploy-container/phase1.svg)
 :::
 
 #### Phase 2
@@ -155,7 +155,7 @@ Because the names of distinct resources must be unique in Kubernetes, Octopus wi
 At the end of Phase 2 there are three resources in Kubernetes: the green Deployment resource, the Blue Deployment resource, and the Service resource which is still pointing at the green Deployment resource.
 
 :::figure
-![Phase 2](/docs/deployments/kubernetes/deploy-container/phase2.svg "width=500")
+![Phase 2](/docs/deployments/kubernetes/deploy-container/phase2.svg)
 :::
 
 #### Phase 3
@@ -171,7 +171,7 @@ The [progression deadline](#progression-deadline) field can be used to limit how
 If the Deployment resource was successfully created, we move to phase 4. If the Deployment resource was not successfully created, the deployment process stops with an error and leaves the service pointing to the green Deployment resource.
 
 :::figure
-![Phase 3](/docs/deployments/kubernetes/deploy-container/phase3.svg "width=500")
+![Phase 3](/docs/deployments/kubernetes/deploy-container/phase3.svg)
 :::
 
 #### Phase 4
@@ -191,7 +191,7 @@ This means failed deployments can be retried, and once successful, all previous 
 :::
 
 :::figure
-![Phase 4](/docs/deployments/kubernetes/deploy-container/phase4.svg "width=500")
+![Phase 4](/docs/deployments/kubernetes/deploy-container/phase4.svg)
 :::
 
 #### Deployment strategy summary
@@ -719,7 +719,7 @@ The `Pod Annotations` section defines the annotations that are added to the Depl
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
 :::figure
-![](/docs/deployments/kubernetes/deploy-container/pod-annotations.png "width=500")
+![](/docs/deployments/kubernetes/deploy-container/pod-annotations.png)
 :::
 
 This will result in a Deployment resource YAML file something like this following.
@@ -777,7 +777,7 @@ spec:
 When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
 
 :::figure
-![](/docs/deployments/kubernetes/deploy-container/pod-annotation-deployed.png "width=500")
+![](/docs/deployments/kubernetes/deploy-container/pod-annotation-deployed.png)
 :::
 
 #### Deployment annotations
@@ -787,7 +787,7 @@ The `Deployment Annotations` section defines the annotations that are added to t
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
 :::figure
-![](/docs/deployments/kubernetes/deploy-container/deployment-annotation.png "width=500")
+![](/docs/deployments/kubernetes/deploy-container/deployment-annotation.png)
 :::
 
 This will result in a Deployment resource YAML file something like this following.
@@ -928,14 +928,14 @@ A Service resource can be one of three different types:
 A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other Pod resources.
 
 :::figure
-![Cluster IP](/docs/deployments/kubernetes/cluster-ip.svg "width=500")
+![Cluster IP](/docs/deployments/kubernetes/cluster-ip.svg)
 :::
 
 #### Node port
 A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publicly accessible.
 
 :::figure
-![Node Port](/docs/deployments/kubernetes/node-port.svg "width=500")
+![Node Port](/docs/deployments/kubernetes/node-port.svg)
 :::
 
 #### Load balancer
@@ -944,7 +944,7 @@ A Load Balancer Service resource provides the same Cluster IP and Node Ports tha
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
 :::figure
-![Loadbalancer](/docs/deployments/kubernetes/loadbalancer.svg "width=500")
+![Loadbalancer](/docs/deployments/kubernetes/loadbalancer.svg)
 :::
 
 #### Cluster IP address
@@ -966,7 +966,7 @@ The `Protocol` field defines the protocol exposed by the port. It can be `TCP` o
 If the Service resource is a NodePort or LoadBalancer, then there is an additional optional `Node Port` field that defines the port exposed on the nodes that direct traffic to the Service resource. If not defined, a port number will be automatically assigned.
 
 :::figure
-![Service ports](/docs/deployments/kubernetes/ports.svg "width=500")
+![Service ports](/docs/deployments/kubernetes/ports.svg)
 :::
 
 ### Ingress
@@ -1002,7 +1002,7 @@ There are many Ingress Controller resources available. [NGINX](https://oc.to/Ngi
 The diagram below shows a typical configuration with Ingress and Ingress Controller resources.
 
 :::figure
-![Ingress](/docs/deployments/kubernetes/ingress.svg "width=500")
+![Ingress](/docs/deployments/kubernetes/ingress.svg)
 :::
 
 :::div{.hint}

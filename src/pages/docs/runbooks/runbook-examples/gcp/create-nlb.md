@@ -45,8 +45,7 @@ We'll use project [variables](/docs/projects/variables/) to authorize the gcloud
 
 Create two [sensitive variables](/docs/projects/variables/sensitive-variables), one for the service account email, and the other will contain the service account key. This is a JSON payload you obtain when creating the service account in Google Cloud:
 
-![Google Cloud Project variables](/docs/runbooks/runbook-examples/gcp/images/gcp-auth-project-variables.png
- "width=500")
+![Google Cloud Project variables](/docs/runbooks/runbook-examples/gcp/images/gcp-auth-project-variables.png)
 
 #### Create authorization function in script module
 
@@ -91,8 +90,7 @@ This script defines a function named `Set-GCPAuth` which uses the `auth activate
 
 Add the script module into your runbook process following [these instructions](/docs/deployments/custom-scripts/script-modules/#ScriptModules-UsingaScriptModuleonaDeployment):
 
-![Google Cloud Project variables](/docs/runbooks/runbook-examples/gcp/images/gcp-runbook-include-script-module.png
- "width=500")
+![Google Cloud Project variables](/docs/runbooks/runbook-examples/gcp/images/gcp-runbook-include-script-module.png)
 
 ## Create the runbook {#create-runbook}
 

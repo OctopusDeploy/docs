@@ -15,7 +15,7 @@ If your reporting tool of choice can't consume the XML feed, you can query the S
 ::::
 
 :::figure
-![](/docs/administration/reporting/images/sql.png "width=500")
+![](/docs/administration/reporting/images/sql.png)
 :::
 
 A few notes about accessing the table directly:

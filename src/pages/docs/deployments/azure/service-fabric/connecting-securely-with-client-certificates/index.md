@@ -101,7 +101,7 @@ The client certificate should now be setup for your Octopus Server machine to co
 In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter the Server Certificate thumbprint and select the Client Certificate variable.
 
 :::figure
-![](/docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/secure-client-certs-template-b.png "width=300")
+![](/docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/secure-client-certs-template-b.png)
 :::
 
 ## Connection troubleshooting

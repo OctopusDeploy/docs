@@ -13,7 +13,7 @@ Google Cloud Platform (GCP) is a leading provider of cloud computing services an
 Building and shipping systems to Google cloud has its challenges. Different teams have different processes and there's a raft of application and infrastructure artifacts to manage. 
 
 :::figure
-![Google Cloud Platform accounts in Octopus](/docs/deployments/google-cloud/centralized-google-cloud-accounts.png "width=500")
+![Google Cloud Platform accounts in Octopus](/docs/deployments/google-cloud/centralized-google-cloud-accounts.png)
 :::
 
 Octopus makes it easier to ship to Google cloud by helping you to:

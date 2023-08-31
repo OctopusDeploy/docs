@@ -3,7 +3,7 @@
 Projects are used to collect all the assets that make up your deployment processes. To deploy our simple hello world script, we first need a project. 
 
 :::figure
-![The projects page in the Octopus Web Portal](/docs/shared-content/concepts/images/projects.png "width=500")
+![The projects page in the Octopus Web Portal](/docs/shared-content/concepts/images/projects.png)
 :::
 
 1. Navigate to the **Projects** tab, and click **ADD PROJECT**.

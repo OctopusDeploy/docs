@@ -3,13 +3,13 @@
 Run the MSI you downloaded to install Octopus Deploy.  Once the MSI is finished, the **Octopus Manager** will automatically launch.  Follow the wizard, and on the section where you configure the database, select the pre-existing database.
 
 :::figure
-![](/docs/shared-content/upgrade/images/select-existing-database.png "width=500")
+![](/docs/shared-content/upgrade/images/select-existing-database.png)
 :::
 
 Selecting an existing database will ask you to enter the Master Key.
 
 :::figure
-![](/docs/shared-content/upgrade/images/enter-master-key.png "width=500")
+![](/docs/shared-content/upgrade/images/enter-master-key.png)
 :::
 
 Enter the Master Key you backed up earlier, and the manager will verify the connection works.  

@@ -18,4 +18,4 @@ Deployment targets are defined as:
 
 You can manage your deployment targets by navigating to **Infrastructure ➜ Deployment Targets** in the Octopus Web Portal:
 
-![The deployment targets area of Octopus Deploy](/docs/shared-content/concepts/images/deployment-targets.png "width=500")
+![The deployment targets area of Octopus Deploy](/docs/shared-content/concepts/images/deployment-targets.png)

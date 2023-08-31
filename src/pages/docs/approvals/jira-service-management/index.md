@@ -82,13 +82,13 @@ To connect your Octopus Deploy instance to JSM, navigate to **Configuration ➜ 
 Jira Service Management Integration**.
 
 Check the **Enabled** option
-![JSM Integration Settings page](/docs/approvals/jira-service-management/images/jsm-connections-1.png "width=500")
+![JSM Integration Settings page](/docs/approvals/jira-service-management/images/jsm-connections-1.png)
 
 Click on **ADD CONNECTION** and fill out the details.
 The JSM Base Url should be the root URL and include the protocol e.g. `https://`
 
 :::figure
-![JSM Integration Add Connection](/docs/approvals/jira-service-management/images/jsm-connections-2.png "width=500")
+![JSM Integration Add Connection](/docs/approvals/jira-service-management/images/jsm-connections-2.png)
 :::
 
 Press **TEST** to ensure that the connection details are working.
@@ -109,7 +109,7 @@ To enable this feature navigate to **Configuration ➜ Settings ➜ Jira Service
 Integration**, click the **Customer Comments Enabled** checkbox show below then click **Save**.
 
 :::figure
-![JSM Integration Enable Work Notes](/docs/approvals/jira-service-management/images/jsm-customer-comments-settings.png "width=500")
+![JSM Integration Enable Work Notes](/docs/approvals/jira-service-management/images/jsm-customer-comments-settings.png)
 :::
 
 ## Configuring deployments
@@ -126,7 +126,7 @@ To enable a project to enforce a requirement for an approved CR:
    **SAVE**.
 
 :::figure
-![JSM Integration Project settings](/docs/approvals/jira-service-management/images/jsm-project-settings.png "width=500")
+![JSM Integration Project settings](/docs/approvals/jira-service-management/images/jsm-project-settings.png)
 :::
 
 ### Default Behavior
@@ -147,7 +147,7 @@ To enable an environment to enforce a requirement for an approved CR, navigate t
 **Jira Service Management Integration ➜ Change Controlled** setting, and then press **SAVE**.
 
 :::figure
-![JSM Integration Environment settings](/docs/approvals/jira-service-management/images/jsm-environment-settings.png "width=500")
+![JSM Integration Environment settings](/docs/approvals/jira-service-management/images/jsm-environment-settings.png)
 :::
 
 ## How it works
@@ -181,8 +181,7 @@ The number of the Issue created or found will appear in the Task Summary tab of 
 Octopus deployment task. Clicking on the CR number in the message will navigate you to the CR in 
 JSM.
 
-![Deployment Task Summary awaiting JSM approval](/docs/approvals/jira-service-management/images/jsm-pending-issue-task-message.png 
-"width=500")
+![Deployment Task Summary awaiting JSM approval](/docs/approvals/jira-service-management/images/jsm-pending-issue-task-message.png)
 
 ### Title text matching
 

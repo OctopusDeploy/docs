@@ -30,13 +30,13 @@ Right now, the step is configured to execute after the hello world script runs. 
 1. Click on **DONE** and then click on **SAVE**.
 
 :::figure
-![Reorder steps](/docs/getting-started/first-deployment/images/img-reordersteps.png "width=500")
+![Reorder steps](/docs/getting-started/first-deployment/images/img-reordersteps.png)
 :::
 
 Please create a new release and deploy it through to **Production**.  You will see the approval step being skipped in *Development* and *Testing*.  When you deploy to **Production**, the deployment will pause, and you will need to approve it before continuing.
 
 :::figure
-![Manual intervention is required in production](/docs/getting-started/first-deployment/images/img-manualintervention.png "width=500")
+![Manual intervention is required in production](/docs/getting-started/first-deployment/images/img-manualintervention.png)
 :::
 
 The next step will [add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets).

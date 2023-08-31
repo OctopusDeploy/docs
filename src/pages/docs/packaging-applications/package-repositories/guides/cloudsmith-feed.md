@@ -20,13 +20,13 @@ Before setting up a Cloudsmith repository, you should create an [Organization](h
 You can create an Organization by clicking on the **+** dropdown on the top menu bar and selecting **New Organization**.
 
 :::figure
-![create a new organization](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-new-org.png "width=500")
+![create a new organization](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-new-org.png)
 :::
 
 This will take you to the **Create Organization** form. You are required to enter a name for your Organization and a primary email address before creating your Organization (the organization name is checked to ensure it's unique before creating it).
 
 :::figure
-![create a new organization](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-create-org.png "width=500")
+![create a new organization](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-create-org.png)
 :::
 
 Once you have created the Organization, the next step is to create a repository. For instructions on how to configure the settings for the Organization, including how to create teams and invite users, refer to the [Cloudsmith documentation](https://help.cloudsmith.io/docs/organisations).
@@ -45,13 +45,13 @@ For this guide we will create a repository via the Cloudsmith Website UI. To cre
 You can create a repository by clicking on the **+** dropdown on the top menu bar and selecting **New Repository**.
 
 :::figure
-![create a new repository](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-new-repo.png "width=500")
+![create a new repository](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-new-repo.png)
 :::
 
 That will take you to the **Create Package Repository** form:
 
 :::figure
-![create a new repository](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-create-repo.png "width=500")
+![create a new repository](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-create-repo.png)
 :::
 
 Here you can create a new repo by selecting a Repository Owner (the Organization you want the repo to live under) and a name. You can also specify an optional *slug* (identifier) for the repository. The slug is what will appear in the URL for the repository. The identifier can only contain lowercase alphanumeric characters, hyphens, and underscores. If you don't specify an identifier, one will be automatically generated from the repository name for you.
@@ -68,7 +68,7 @@ Cloudsmith provides three ways to push your packages/files/assets into your repo
 - Upload directly via the website.
 
 Documentation for package-specific native CLI and tooling is available on the website within each repository.  For example, after selecting `NuGet` as the package format to upload, a new form will pop up, click the link **upload setup documentation** and the following documentation is available: 
-![contextual documentation for uploading NuGet packages](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-new-package-native.png "width=500")
+![contextual documentation for uploading NuGet packages](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-new-package-native.png)
 
 The next section will give an of overview uploading your package using the package-specific native CLI for NuGet, Docker and Maven. For Helm we will use the Cloudsmith CLI. See the [Cloudsmith supported formats documentation](https://help.cloudsmith.io/docs/supported-formats) for more information.
 
@@ -239,7 +239,7 @@ From the Octopus Web Portal, create a new external feed by navigating to **Libra
 - Populate the credentials of your Cloudsmith repository if necessary. Refer to the [Adding Credentials for Private Repositories](#credentials-for-private-repos) section for more information.
 
 :::figure
-![Select your Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus1.png "width=500")
+![Select your Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus1.png)
 :::
 
 ## URLs for Feeds {#urls-for-feeds}
@@ -251,7 +251,7 @@ This section contains information about what Cloudsmith feed URL to use for your
 Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *NuGet* Feed type.
 
 :::figure
-![NuGet Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus2.png "width=500")
+![NuGet Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus2.png)
 :::
 
 - Give the NuGet feed a name
@@ -276,7 +276,7 @@ Private repositories require authentication. Refer to the [Adding Credentials fo
 ### Docker {#cloudsmith-docker}
 
 Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *Docker Container Registry* Feed type.
-![Docker Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus3.png "width=500")
+![Docker Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus3.png)
 
 - Give the Docker feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith Docker repository in the following format: 
@@ -290,7 +290,7 @@ Private repositories require authentication. Refer to the [Adding Credentials fo
 ### Maven {#cloudsmith-maven}
 
 Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *Maven* Feed type.
-![Maven Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus4.png "width=500")
+![Maven Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus4.png)
 
 - Give the feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith Maven repository from the options below that match your configuration:
@@ -316,7 +316,7 @@ Private repositories require authentication. Refer to the [Adding Credentials fo
 Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *Helm* Feed type.
 
 :::figure
-![Helm Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus5.png "width=500")
+![Helm Feed Type](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus5.png)
 :::
 
 - Give the feed a name
@@ -356,7 +356,7 @@ Entitlement Tokens, User Credentials and API-Keys should be treated as secrets a
 When you are adding or editing your external feed, you can add credentials for your feed by populating the *Credentials* section. 
 
 :::figure
-![Credentials for your external feed](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus6.png "width=500")
+![Credentials for your external feed](/docs/packaging-applications/package-repositories/guides/images/cloudsmith-octopus6.png)
 :::
 
 Provide one of the following three types of credentials:

@@ -38,19 +38,19 @@ See the [Installing Octopus 2018.10 LTS](/docs/installation) page for instructio
 After installing the MSI, you will be presented with an upgrade page.
 
 :::figure
-![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278008.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278008.png)
 :::
 
 Click "Get started..." and set up your database connection. You may need to grant permission to the NT AUTHORITY\SYSTEM account at this stage.
 
 :::figure
-![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278007.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278007.png)
 :::
 
 Click Next, and then Install to install the **Octopus 2018.10 LTS** server over the **Octopus 2.6.5** instance.
 
 :::figure
-![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278006.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278006.png)
 :::
 
 ### 3. Restore the Octopus 2.6.5 database using the Migration Tool {#Manualupgrade-3.RestoretheOctopus2.6databaseusingthemigrationtool}
@@ -58,7 +58,7 @@ Click Next, and then Install to install the **Octopus 2018.10 LTS** server over 
 After upgrading, the Octopus Manager will prompt to import your **Octopus 2.6.5** database. Click the "Import data..." button and follow the prompts to import your **Octopus 2.6.5** data.
 
 :::figure
-![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278005.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278005.png)
 :::
 
 See the [Migrating data from Octopus 2.6.5 to 2018.10 LTS](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts) page for more detailed instructions on importing your **Octopus 2.6.5** database backup into **Octopus 2018.10 LTS**.
@@ -88,7 +88,7 @@ On each machine that ran **Tentacle 2.6**, connect to the machine, and install t
 Log in to your new **Octopus 2018.10 LTS** server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.
 
 :::figure
-![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278009.png "width=500")
+![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278009.png)
 :::
 
 If one or more health checks do not succeed after a few attempts, see the Troubleshooting section to identify possible issues.

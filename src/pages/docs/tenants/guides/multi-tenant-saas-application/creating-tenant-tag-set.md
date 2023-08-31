@@ -13,13 +13,13 @@ Customers who use Vet Clinic can choose to apply custom branding to the applicat
 To create Tenant Tags Sets navigate to **Library ➜ Tenant Tag Sets ➜ ADD TAG SET**.
 
 :::figure
-![](/docs/tenants/guides/multi-tenant-saas-application/images/add-new-tenant-tag.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/add-new-tenant-tag.png)
 :::
 
 Give the **Tag Set** a name, an optional description, and create some Tags.  For the Vet Clinic application, we need to create a Custom Features Tag Set with a tag called **Branding**
 
 :::figure
-![](/docs/tenants/guides/multi-tenant-saas-application/images/creating-new-tenant-tag.png "width=500")
+![](/docs/tenants/guides/multi-tenant-saas-application/images/creating-new-tenant-tag.png)
 :::
 
 In the next step, we'll [create the tenants](/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants) needed for this scenario.

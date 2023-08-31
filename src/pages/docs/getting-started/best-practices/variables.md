@@ -95,7 +95,7 @@ Our recommendations for variable edit permissions are:
 - Use [composite variables](/docs/projects/variables/variable-substitutions/#binding-variables) to combine sensitive and non-sensitive values.  A typical use case is database connection strings.  Each language has a specific syntax.  In the screenshot below `Project.Database.ConnectionString` is the composite variable, with the username and password referenced by the composite variable, but they are separate sensitive variables. 
 
 :::figure
-![composite variables](/docs/getting-started/best-practices/images/composite-variables.png "width=500")
+![composite variables](/docs/getting-started/best-practices/images/composite-variables.png)
 :::
 
 ## Further reading

@@ -40,7 +40,7 @@ Get-AzResourceGroup
 If everything is working as expected, you will see output showing all the Azure Resource Groups you have access to:
 
 :::figure
-![Screenshot of Azure Resource Groups](/docs/deployments/azure/deploying-to-azure-via-a-firewall/image.png "width=500")
+![Screenshot of Azure Resource Groups](/docs/deployments/azure/deploying-to-azure-via-a-firewall/image.png)
 :::
 
 If you need to add firewall exclusions to an allow list, here are a few things to take into consideration:
