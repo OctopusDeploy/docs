@@ -581,7 +581,7 @@ nav.skip-links a:focus {
 .site-nav,
 .side-nav {
     align-self: start;
-    overflow: hidden;
+    overflow: overlay;
     position: sticky;
     font-size: var(--font-size-small);
     font-weight: 400;
@@ -598,13 +598,6 @@ nav.skip-links a:focus {
     margin-block-start: 10vh;
     height: calc(100vh - 260px);
     top: 150px;
-}
-
-.site-nav:hover,
-.site-nav:focus-within,
-.side-nav:hover,
-.side-nav:focus-within {
-    overflow: overlay;
 }
 
 .site-nav > ul,
