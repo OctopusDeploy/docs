@@ -43,7 +43,7 @@ stats.stop();
     />
   }
   <div class="author-info">
-    <span class="author-list">{ _(Translations.post.written_by) }
+    <span class="author-list">{ _(Translations.post.written_by) + ' ' }
       {authorList.mainAuthor &&
         <span itemprop="author" itemscope itemtype="https://schema.org/Person"><a href={ accelerator.urlFormatter.formatAddress(authorList.mainAuthor.url) + '1/' } itemprop="url"><span itemprop="name">{ authorList.mainAuthor.frontmatter.title }</span></a></span>
       }{authorList.contributors.map((writer) => (

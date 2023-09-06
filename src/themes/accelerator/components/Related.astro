@@ -78,7 +78,7 @@ stats.stop();
         <h3>
           <a href={ accelerator.urlFormatter.formatAddress(post.url) }>{ post.frontmatter.title }</a>
         </h3>
-        <AuthorsMini lang={ lang } frontmatter={ post.frontmatter satisfies Frontmatter } />
+        <AuthorsMini lang={ lang } frontmatter={ post.frontmatter as Frontmatter } />
       </div>
     </article>
   </li>

@@ -22,7 +22,7 @@ function enhanceDetailGroups() {
 
         const tablist = document.createElement('div');
         tablist.role = 'tablist';
-        tablist.className = 'tablist';
+        tablist.className = 'tab-list';
         participants[0].parentNode.insertBefore(tablist, participants[0]);
         
         participants.forEach((p, i) => {
@@ -32,6 +32,7 @@ function enhanceDetailGroups() {
             // Create the tab panel
 
             const tabPanel = document.createElement('div');
+            tabPanel.setAttribute('tabindex', '0');
             tabPanel.setAttribute('role', 'tabpanel');
             tabPanel.setAttribute('aria-labelledby', `aatb_${ g }_${ i }`);
             tabPanel.id = `aatb_panel_${ g }_${ i }`;
@@ -122,6 +123,7 @@ class TabsManual {
   
     moveFocusToTab(currentTab) {
       currentTab.focus();
+      this.setSelectedTab(currentTab);
     }
   
     moveFocusToPreviousTab(currentTab) {
@@ -183,8 +185,6 @@ class TabsManual {
       }
     }
   
-    // Since this example uses buttons for the tabs, the click onr also is activated
-    // with the space and enter keys
     onClick(event) {
       this.setSelectedTab(event.currentTarget);
     }

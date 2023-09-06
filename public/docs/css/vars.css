@@ -167,7 +167,7 @@
     --octo-shadow-standard-box-hover: 0 2px 6px 0 rgba(0,0,0,0.4);
 
     --content-width: 78vw;
-    --content-width-mobile: calc(100vw - 2rem);
+    --content-width-mobile: calc(100vw - 4rem);
     --toc-width: 250px;
     --grid-max-width: 1250px;
     --grid-gap: 1rem;

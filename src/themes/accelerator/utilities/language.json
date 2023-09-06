@@ -4,7 +4,7 @@
             "en": "Breadcrumb"
         },
         "site_navigation": {
-            "en": "Site Navigation"
+            "en": "Site"
         },
         "toc": {
             "en": "Table of contents"
@@ -34,11 +34,11 @@
         }
     },
     "header": {
-      "open_menu": {
-          "en": "Open menu"
+      "toggle_menu": {
+          "en": "Toggle menu"
       },
-      "open_search": {
-          "en": "Open site search"
+      "toggle_search": {
+          "en": "Toggle site search"
       }
     },
     "navigation": {

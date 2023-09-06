@@ -51,7 +51,6 @@ stats.stop();
         <Header frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         <Breadcrumbs frontmatter={ frontmatter } headings={ headings } lang={ lang } breadcrumbs={ breadcrumbs } />
         <div class="content-group">
-            <Navigation lang={ lang } />
             <main id="site-main">
                 <article itemscope itemtype="https://schema.org/Article">
                     <header>
@@ -70,6 +69,7 @@ stats.stop();
                     </div>
                 </article>
             </main>
+            <Navigation lang={ lang } />
         </div>
         <Footer frontmatter={ frontmatter } headings={ headings } lang={ lang }>
             <Copyright frontmatter={ frontmatter } headings={ headings } lang={ lang } />

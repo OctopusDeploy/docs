@@ -25,7 +25,7 @@ const search = accelerator.posts.all().filter(PostFiltering.isSearch).shift() ??
 stats.stop();
 ---
 <header class="site-header">
-  <a href="#site-nav" data-navigationid="site-nav" class="navigation-icon" title={ _(Translations.header.open_menu) }><svg xmlns="http://www.w3.org/2000/svg" 
+  <a href="#site-nav" data-navigationid="site-nav" class="navigation-icon" title={ _(Translations.header.toggle_menu) }><svg xmlns="http://www.w3.org/2000/svg" 
     width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" 
     fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -35,7 +35,7 @@ stats.stop();
   </svg></a>
   <a href={ (SITE.subfolder ?? '') + '/' } class="site-title" translate="no">{ SITE.title }</a>
   {search != null &&
-  <a href={ accelerator.urlFormatter.formatAddress(search.url) } class="search-icon" title={ _(Translations.header.open_search) }><svg xmlns="http://www.w3.org/2000/svg" 
+  <a href={ accelerator.urlFormatter.formatAddress(search.url) } class="search-icon" title={ _(Translations.header.toggle_search) }><svg xmlns="http://www.w3.org/2000/svg" 
     width="40" height="40" viewBox="0 0 24 24" stroke-width="1" 
     fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
