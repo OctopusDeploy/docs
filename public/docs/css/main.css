@@ -1851,7 +1851,6 @@ a.button.trial:focus {
     border: 2px solid var(--border-color-tab-active);
     border-radius: var(--standard-radius);
     background: var(--aft);
-	
     overflow: auto;
 }
 
