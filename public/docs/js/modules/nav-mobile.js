@@ -128,7 +128,7 @@ function addMobileNav(resizedEventName) {
 
     function closeMobileMenu() {
         const menuElement = qs('#' + navigationSelector);
-        menuElement.style.display = 'block';
+        menuElement.style.display = '';
         document.body.style.overflow = 'auto';
         document.documentElement.style.paddingInlineEnd = '0';
 
