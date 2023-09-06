@@ -26,7 +26,7 @@ stats.stop();
 {authorList.writers.length > 0 && 
 <div class="post-meta">
   <div class="author-info">
-    <span>{ _(Translations.post.written_by) }
+    <span>{ _(Translations.post.written_by) + ' ' }
       {authorList.mainAuthor &&
         <span>{ authorList.mainAuthor.frontmatter.title }</span>
       }{authorList.contributors.map((writer) => (

@@ -16,7 +16,7 @@ import { getFocusableElement, trapFocusForward, trapReverseFocus } from './focus
  * @param {string} resizedEventName
  */
 function addMobileNav(resizedEventName) {
-    const icons = qsa('[data-navigationid');
+    const icons = qsa('[data-navigationid]');
     for (let icon of icons) {
         addMobileNavigation(icon, resizedEventName);
     }
@@ -36,8 +36,7 @@ function addMobileNav(resizedEventName) {
  * @param {string} resizedEventName
  */
  function addMobileNavigation(icon, resizedEventName) {
-    icon.tabIndex = 0;
-    const navigationSelector = icon.dataset.navigationid;
+    const navigationSelector = icon.dataset.navigationid || '';
     const iconType = icon.firstElementChild && icon.firstElementChild.tagName == 'svg'
         ? 'svg'
         : 'element';
@@ -45,6 +44,9 @@ function addMobileNav(resizedEventName) {
     const originalIcon = icon.innerHTML;
     const overlay = document.createElement('div');
     const dataOpen = 'data-open';
+
+    icon.setAttribute('aria-expanded', 'false');
+    icon.setAttribute('aria-controls', navigationSelector);
 
     // Focus trap (forwards the tab / shift-tab back to the menu)
     icon.addEventListener('keydown', function(e) { 
@@ -86,6 +88,7 @@ function addMobileNav(resizedEventName) {
         overlay.innerHTML = menuElement.outerHTML;
         overlay.className = 'overlay overlay-menu';
         overlay.style.display = 'block';
+        menuElement.style.display = 'none';
 
         qsa('[id]', overlay).forEach((elem) => {
             elem.id = 'overlay__' + elem.id
@@ -119,10 +122,13 @@ function addMobileNav(resizedEventName) {
 
         document.body.appendChild(overlay);
         icon.setAttribute(dataOpen, dataOpen);
+        icon.setAttribute('aria-expanded', 'true');
         focusElements.first.focus();
     }
 
     function closeMobileMenu() {
+        const menuElement = qs('#' + navigationSelector);
+        menuElement.style.display = 'block';
         document.body.style.overflow = 'auto';
         document.documentElement.style.paddingInlineEnd = '0';
 
@@ -134,6 +140,7 @@ function addMobileNav(resizedEventName) {
 
         icon.innerHTML = originalIcon;
         icon.removeAttribute(dataOpen);
+        icon.setAttribute('aria-expanded', 'false');
     }
 
     icon.addEventListener('click', function (e) {

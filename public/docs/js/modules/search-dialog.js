@@ -13,7 +13,7 @@ function enhanceSearchIcon() {
                     const form = doc.querySelector('#site-search');
                     const input = form.querySelector('#site-search-query');
                     const results = doc.querySelector('#site-search-results');
-
+                    icon.setAttribute('aria-expanded', 'false');
                     
                     input?.setAttribute('autofocus', 'autofocus');
 
@@ -26,8 +26,7 @@ function enhanceSearchIcon() {
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>`;
-                    close.addEventListener('click', () => dialog.close());
-
+                    
                     const script = doc.querySelector('script[src*="/search.js"]');
                     const scr = document.createElement('script');
                     for (let att, i = 0, atts = script.attributes, n = atts.length; i < n; i++){
@@ -45,8 +44,12 @@ function enhanceSearchIcon() {
                     icon.addEventListener('click', (e) => {
                         e.preventDefault();
                         dialog.showModal();
+                        icon.setAttribute('aria-expanded', 'true');
                         return false;
-                    })
+                    });
+
+                    close.addEventListener('click', () => dialog.close());
+                    dialog.addEventListener('close', () => icon.setAttribute('aria-expanded', 'false'));
                 });
         }
     }
