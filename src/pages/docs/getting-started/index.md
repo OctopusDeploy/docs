@@ -11,7 +11,7 @@ navOrder: 5
 hideInThisSectionHeader: true
 ---
 
-This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guide you through implementing them with [Octopus Cloud](#octopus-cloud) or your own [self-hosted Octopus Server](#self-hosted-octopus). When you are ready, you can start a free trial and explore.
+This page provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guide you through implementing them with [Octopus Cloud](#octopus-cloud) or your own [self-hosted Octopus Server](#self-hosted-octopus). When you are ready, you can start a free trial and explore.
 
 <span><a class="button trial" href="https://octopus.com/start">Start a Trial</a></span>
 
