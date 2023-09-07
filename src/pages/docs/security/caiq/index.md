@@ -351,33 +351,232 @@ CAIQ ID: **IAM-10.1**
 
 Yes.
 
+### User Access Revocation
 
-**User Access Revocation**               | **IAM-11.1** | Is timely deprovisioning, revocation, or modification of user access to the organizations systems, information assets, and data implemented upon any change in status of employees, contractors, customers, business partners, or involved third parties?                                                                                                                           | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Infrastructure & Virtualization Security**                                                                                                                                                                                                                                                   | **Audit Logging / Intrusion Detection**  | **IVS-01.1** | Are file integrity (host) and network intrusion detection (IDS) tools implemented to help facilitate timely detection, investigation by root cause analysis, and response to incidents?                                                                                                                                                                                             | Not Applicable | The majority of our cloud infrastructure is provided by PaaS applications so this doesn't apply. Our dynamic workers are built on IaaS which will alert us to anomalous network or egress traffic behavior. Our website is protected by a web application firewall.                                                                                                                                                                                                   |
-|                                                                                                                                                                                                                                                                                                |                                          | **IVS-01.2** | Is physical and logical user access to audit logs restricted to authorized personnel?                                                                                                                                                                                                                                                                                               | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                |                                          | **IVS-01.5** | Are audit logs reviewed on a regular basis for security events (e.g., with automated tools)?                                                                                                                                                                                                                                                                                        | Yes            | The cloud services we use provide alerting for anomalous access & failed access attempts, these are human reviewed as required. Application error and uptime notifications are also reviewed as needed.                                                                                                                                                                                                                                                                  |
-|                                                                                                                                                                                                                                                                                                | **Clock Synchronization**                | **IVS-03.1** | Do you use a synchronized time-service protocol (e.g., NTP) to ensure all systems have a common time reference?                                                                                                                                                                                                                                                                     | Not Applicable | The majority of our cloud infrastructure are Azure PaaS resources                                                                                                                                                                                                                                                                                                                                                                                                       |
-|                                                                                                                                                                                                                                                                                                | **OS Hardening and Base Controls**       | **IVS-07.1** | Are operating systems hardened to provide only the necessary ports, protocols, and services to meet business needs using technical controls (e.g., antivirus, file integrity monitoring, and logging) as part of their baseline build standard or template?                                                                                                                         | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                | Production / Non-Production Environments | **IVS-08.1** | For your SaaS or PaaS offering, do you provide tenants with separate environments for production and test processes?                                                                                                                                                                                                                                                                | Yes            | Customers are able to start multiple, separate  Octopus instances for testing and production, or they can use our internal environment modeling features.                                                                                                                                                                                                                                                                                                               |
-|                                                                                                                                                                                                                                                                                                |                                          | **IVS-08.3** | Do you logically and physically segregate production and non-production environments?                                                                                                                                                                                                                                                                                               | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                | **Segmentation**                         | **IVS-09.1** | Are system and network environments protected by a firewall or virtual firewall to ensure business and customer security requirements?                                                                                                                                                                                                                                              | Yes            | Our public facing websites are protected with a WAF service.                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                                                                                                                                                                                                                                                                                                | **VMM Security - Hypervisor Hardening**  | **IVS-11.1** | Do you restrict personnel access to all hypervisor management functions or administrative consoles for systems hosting virtualized systems based on the principle of least privilege and supported through technical controls (e.g., two-factor authentication, audit trails, IP address filtering, firewalls and TLS-encapsulated communications to the administrative consoles)?  | Yes            | Access to infrastructure virtualization portals is restricted to authorized engineers only using IAM, MFA and TLS. Login anomaly detection is alerted and actioned by operations or security team members.                                                                                                                                                                                                                                                               |
-|                                                                                                                                                                                                                                                                                                | **Wireless Security**                    | **IVS-12.1** | Are policies and procedures established and mechanisms configured and implemented to protect the wireless network environment perimeter and to restrict unauthorized wireless traffic?                                                                                                                                                                                              | Yes            | Most of the time our staff work remotely, however our HQ does offer authorized devices wifi access to allow internet access which is used on an occasional  basis. There is no data or critical infrastructure stored at our HQ. Wifi access is granted according to our wifi policy.                                                                                                                                                                                   |
-|                                                                                                                                                                                                                                                                                                |                                          | **IVS-12.2** | Are policies and procedures established and mechanisms implemented to ensure wireless security settings are enabled with strong encryption for authentication and transmission, replacing vendor default settings (e.g., encryption keys, passwords, SNMP community strings)?                                                                                                       | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                |                                          | **IVS-12.3** | Are policies and procedures established and mechanisms implemented to protect wireless network environments and detect the presence of unauthorized (rogue) network devices for a timely disconnect from the network?                                                                                                                                                               | Not Applicable | Being a remote first company, we don't own wireless networks to provide or support our products, there is no 'corporate intranet' or in house data center. All access to our production environments requires authentication using two factor authentication over HTTPS connections.                                                                                                                                                                                     |
-| **Interoperability & Portability**                                                                                                                                                                                                                                                             | **APIs**                                 | **IPY-01.1** | Do you publish a list of all APIs available in the service and indicate which are standard and which are customized?                                                                                                                                                                                                                                                                | Yes            | Our product is built 'API first' We provide usage examples on GitHub and have extensive user documentation on our website. We have .NET based client libraries available for interoprating with our API.                                                                                                                                                                                                                                                                                                         |
-| **Mobile Security**                                                                                                                                                                                                                                                                            | **Approved Applications**                | **MOS-03.1** | Do you have a policy enforcement capability (e.g., XACML) to ensure that only approved applications and those from approved application stores can be loaded onto a mobile device?                                                                                                                                                                                                  | No             | We haven't implemented an MDM solution, for a few reasons: our size, the fact that we discourage our employees from using their mobile devices for work and that most of our systems require a full size screen in order to be useful. However this is an area that we're looking to make improvements on. We'll review the status of this at our next security compliance review.                                                                                     |
-| **Security Incident Management, E-Discovery, & Cloud Forensics**                                                                                                                                                                                                                               | **Incident Management**                  | **SEF-02.1** | Do you have a documented security incident response plan?                                                                                                                                                                                                                                                                                                                           | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                |                                          | **SEF-02.4** | Have you tested your security incident response plans in the last year?                                                                                                                                                                                                                                                                                                             | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                | **Incident Reporting**                   | **SEF-03.1** | Are workforce personnel and external business relationships adequately informed of their responsibility, and, if required, consent and/or contractually required to report all information security events in a timely manner?                                                                                                                                                      | Yes            | Our employees are trained in how to communicate incidents internally and our customers are kept informed of incidents that affect their service via our status page. In cases that affect a small subset of our customers we may reach out directly to those affected customers.                                                                                                                                                                                        |
-|                                                                                                                                                                                                                                                                                                |                                          | **SEF-03.2** | Do you have predefined communication channels for workforce personnel and external business partners to report incidents in a timely manner adhering to applicable legal, statutory, or regulatory compliance obligations?                                                                                                                                                          | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                | **Incident Response Legal Preparation**  | **SEF-04.4** | Do you enforce and attest to tenant data separation when producing data in response to legal subpoenas?                                                                                                                                                                                                                                                                             | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Supply Chain Management, Transparency, and Accountability**                                                                                                                                                                                                                                  | **Incident Reporting**                   | **STA-02.1** | Do you make security incident information available to all affected customers and providers periodically through electronic methods (e.g., portals)?                                                                                                                                                                                                                                | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                | **Network / Infrastructure Services**    | **STA-03.1** | Do you collect capacity and use data for all relevant components of your cloud service offering?                                                                                                                                                                                                                                                                                    | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                | **Third Party Agreements**               | **STA-05.4** | Do third-party agreements include provision for the security and protection of information and assets?                                                                                                                                                                                                                                                                              | No             | All new third party agreements will be reviewed for such provisions, and we're in the process of reviewing existing contracts. We will review the status of this at our next security compliance review.                                                                                                                                                                                                                                                                |
-|                                                                                                                                                                                                                                                                                                |                                          | **STA-05.5** | Do you have the capability to recover data for a specific customer in the case of a failure or data loss?                                                                                                                                                                                                                                                                           | Yes            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                | **Supply Chain Metrics**                 | **STA-07.4** | Do you provide tenants with ongoing visibility and reporting of your operational Service Level Agreement (SLA) performance?                                                                                                                                                                                                                                                         | Not Applicable | Octopus Deploy doesn't offer an SLA or SLA Performance monitoring, however we do communicate service disruptions to our status page                                                                                                                                                                                                                                                                                                                                     |
-|                                                                                                                                                                                                                                                                                                | **Third Party Audits**                   | **STA-09.1** | Do you mandate annual information security reviews and audits of your third party providers to ensure that all agreed upon security requirements are met?                                                                                                                                                                                                                           | No             | All new third party agreements will be reviewed for such commitments, and we're in the process of reviewing existing contracts. We will review the status of this at our next security compliance review.                                                                                                                                                                                                                                                               |
-| **Threat and Vulnerability Management**                                                                                                                                                                                                                                                        | **Antivirus / Malicious Software**       | **TVM-01.1** | Do you have anti-malware programs that support or connect to your cloud service offerings installed on all of your IT infrastructure network and systems components?                                                                                                                                                                                                                | No             | A large majority of our system components are provisioned using PaaS services, whose infrastructure we don't own. Threat & vulnerability management for those applications is tackled via automated tools that review our source code, and ultimately human review. The production components that do use IaaS use real time anti-virus. Employees are required to use default operating system anti-virus applications running when using company provisioned hardware. |
-|                                                                                                                                                                                                                                                                                                | **Vulnerability / Patch Management**     | **TVM-02.5** | Do you have a capability to patch vulnerabilities across all of your computing devices, applications, and systems?                                                                                                                                                                                                                                                                  | Yes            | Employees are required to use automatic updates on their company provisioned hardware. We don't issue employees with mobile technology such as mobile phones or tablets. Our applications are automatically patched and deployed where compatible libraries exist, and this is done manually otherwise.                                                                                                                                                                 |
-|                                                                                                                                                                                                                                                                                                | **Mobile Code**                          | **TVM-03.1** | Is mobile code authorized before its installation and use, and the code configuration checked, to ensure that the authorized mobile code operates according to a clearly defined security policy?                                                                                                                                                                                   | Not Applicable | We don't issue employees with mobile technology such as mobile phones or tablets.                                                                                                                                                                                                                                                                                                                                                                                       |
+CAIQ ID: **IAM-11.1**
+
+> Is timely deprovisioning, revocation, or modification of user access to the organizations systems, information assets, and data implemented upon any change in status of employees, contractors, customers, business partners, or involved third parties?
+
+Yes
+
+## Infrastructure & Virtualization Security
+
+### Audit Logging / Intrusion Detection
+
+CAIQ ID: **IVS-01.1**
+
+> Are file integrity (host) and network intrusion detection (IDS) tools implemented to help facilitate timely detection, investigation by root cause analysis, and response to incidents?
+
+Not Applicable. The majority of our cloud infrastructure is provided by PaaS applications so this doesn't apply. Our dynamic workers are built on IaaS which will alert us to anomalous network or egress traffic behavior. Our website is protected by a web application firewall.
+
+CAIQ ID: **IVS-01.2**
+
+> Is physical and logical user access to audit logs restricted to authorized personnel?
+
+Yes
+
+CAIQ ID: **IVS-01.5**
+
+> Are audit logs reviewed on a regular basis for security events (e.g., with automated tools)?
+
+Yes. The cloud services we use provide alerting for anomalous access & failed access attempts, these are human reviewed as required. Application error and uptime notifications are also reviewed as needed.
+
+### Clock Synchronization
+
+CAIQ ID: **IVS-03.1**
+
+> Do you use a synchronized time-service protocol (e.g., NTP) to ensure all systems have a common time reference?
+
+Not Applicable. The majority of our cloud infrastructure are Azure PaaS resources.
+
+### OS Hardening and Base Controls
+
+CAIQ ID: **IVS-07.1**
+
+> Are operating systems hardened to provide only the necessary ports, protocols, and services to meet business needs using technical controls (e.g., antivirus, file integrity monitoring, and logging) as part of their baseline build standard or template?
+
+Yes.
+
+### Production / Non-Production Environments
+
+CAIQ ID: **IVS-08.1**
+
+> For your SaaS or PaaS offering, do you provide tenants with separate environments for production and test processes?
+
+Yes. Customers are able to start multiple, separate  Octopus instances for testing and production, or they can use our internal environment modeling features.
+
+CAIQ ID: **IVS-08.3**
+
+> Do you logically and physically segregate production and non-production environments?
+
+Yes
+
+### Segmentation
+
+CAIQ ID: **IVS-09.1**
+
+> Are system and network environments protected by a firewall or virtual firewall to ensure business and customer security requirements?
+
+Yes. Our public facing websites are protected with a WAF service.
+
+### VMM Security - Hypervisor Hardening
+
+CAIQ ID: **IVS-11.1**
+
+> Do you restrict personnel access to all hypervisor management functions or administrative consoles for systems hosting virtualized systems based on the principle of least privilege and supported through technical controls (e.g., two-factor authentication, audit trails, IP address filtering, firewalls and TLS-encapsulated communications to the administrative consoles)?
+
+Yes. Access to infrastructure virtualization portals is restricted to authorized engineers only using IAM, MFA and TLS. Login anomaly detection is alerted and actioned by operations or security team members. 
+
+### Wireless Security
+
+CAIQ ID: **IVS-12.1**
+
+> Are policies and procedures established and mechanisms configured and implemented to protect the wireless network environment perimeter and to restrict unauthorized wireless traffic?
+
+Yes. Most of the time our staff work remotely, however our HQ does offer authorized devices wifi access to allow internet access which is used on an occasional  basis. There is no data or critical infrastructure stored at our HQ. Wifi access is granted according to our wifi policy.
+
+CAIQ ID: **IVS-12.2**
+
+> Are policies and procedures established and mechanisms implemented to ensure wireless security settings are enabled with strong encryption for authentication and transmission, replacing vendor default settings (e.g., encryption keys, passwords, SNMP community strings)?
+
+Yes.
+
+CAIQ ID: **IVS-12.3**
+
+> Are policies and procedures established and mechanisms implemented to protect wireless network environments and detect the presence of unauthorized (rogue) network devices for a timely disconnect from the network?
+
+Not Applicable. Being a remote first company, we don't own wireless networks to provide or support our products, there is no 'corporate intranet' or in house data center. All access to our production environments requires authentication using two factor authentication over HTTPS connections.
+
+## Interoperability & Portability
+
+### APIs
+
+CAIQ ID: **IPY-01.1**
+
+> Do you publish a list of all APIs available in the service and indicate which are standard and which are customized?
+
+Yes. Our product is built 'API first' We provide usage examples on GitHub and have extensive user documentation on our website. We have .NET based client libraries available for interoprating with our API.
+
+## Mobile Security
+
+### Approved Applications
+
+CAIQ ID: **MOS-03.1**
+
+> Do you have a policy enforcement capability (e.g., XACML) to ensure that only approved applications and those from approved application stores can be loaded onto a mobile device?
+
+No. We haven't implemented an MDM solution, for a few reasons: our size, the fact that we discourage our employees from using their mobile devices for work and that most of our systems require a full size screen in order to be useful. However this is an area that we're looking to make improvements on. We'll review the status of this at our next security compliance review.
+
+## Security Incident Management, E-Discovery, & Cloud Forensics
+
+### Incident Management
+
+CAIQ ID: **SEF-02.1**
+
+> Do you have a documented security incident response plan?
+
+Yes.
+
+CAIQ ID: **SEF-02.4**
+
+> Have you tested your security incident response plans in the last year?
+
+Yes.
+
+### Incident Reporting
+
+CAIQ ID: **SEF-03.1**
+
+> Are workforce personnel and external business relationships adequately informed of their responsibility, and, if required, consent and/or contractually required to report all information security events in a timely manner?
+
+Yes.
+
+Our employees are trained in how to communicate incidents internally and our customers are kept informed of incidents that affect their service via our status page. In cases that affect a small subset of our customers we may reach out directly to those affected customers.
+
+CAIQ ID: **SEF-03.2**
+
+> Do you have predefined communication channels for workforce personnel and external business partners to report incidents in a timely manner adhering to applicable legal, statutory, or regulatory compliance obligations?
+
+Yes.
+
+### Incident Response Legal Preparation
+
+CAIQ ID: **SEF-04.4**
+
+> Do you enforce and attest to tenant data separation when producing data in response to legal subpoenas?
+
+Yes.
+
+## Supply Chain Management, Transparency, and Accountability
+
+### Incident Reporting
+
+CAIQ ID: **STA-02.1**
+
+> Do you make security incident information available to all affected customers and providers periodically through electronic methods (e.g., portals)?
+
+Yes.
+
+### Network / Infrastructure Services
+
+CAIQ ID: **STA-03.1**
+
+> Do you collect capacity and use data for all relevant components of your cloud service offering?
+
+Yes
+
+### Third Party Agreements
+
+CAIQ ID: **STA-05.4**
+
+> Do third-party agreements include provision for the security and protection of information and assets?
+
+No. All new third party agreements will be reviewed for such provisions, and we're in the process of reviewing existing contracts. We will review the status of this at our next security compliance review.
+
+CAIQ ID: **STA-05.5**
+
+> Do you have the capability to recover data for a specific customer in the case of a failure or data loss?
+
+Yes.
+
+### Supply Chain Metrics
+
+CAIQ ID: **STA-07.4**
+
+> Do you provide tenants with ongoing visibility and reporting of your operational Service Level Agreement (SLA) performance?
+
+Not Applicable | Octopus Deploy doesn't offer an SLA or SLA Performance monitoring, however we do communicate service disruptions to our status page.
+
+### Third Party Audits
+
+CAIQ ID: **STA-09.1**
+
+> Do you mandate annual information security reviews and audits of your third party providers to ensure that all agreed upon security requirements are met?
+
+No. All new third party agreements will be reviewed for such commitments, and we're in the process of reviewing existing contracts. We will review the status of this at our next security compliance review.
+
+## Threat and Vulnerability Management
+
+### Antivirus / Malicious Software
+
+CAIQ ID: **TVM-01.1**
+
+> Do you have anti-malware programs that support or connect to your cloud service offerings installed on all of your IT infrastructure network and systems components?
+
+No. A large majority of our system components are provisioned using PaaS services, whose infrastructure we don't own. Threat & vulnerability management for those applications is tackled via automated tools that review our source code, and ultimately human review. The production components that do use IaaS use real time anti-virus. Employees are required to use default operating system anti-virus applications running when using company provisioned hardware.
+
+### Vulnerability / Patch Management
+
+CAIQ ID: **TVM-02.5**
+
+> Do you have a capability to patch vulnerabilities across all of your computing devices, applications, and systems?
+
+Yes. Employees are required to use automatic updates on their company provisioned hardware. We don't issue employees with mobile technology such as mobile phones or tablets. Our applications are automatically patched and deployed where compatible libraries exist, and this is done manually otherwise.
+
+### Mobile Code
+
+CAIQ ID: **TVM-03.1**
+
+> Is mobile code authorized before its installation and use, and the code configuration checked, to ensure that the authorized mobile code operates according to a clearly defined security policy?
+
+Not Applicable. We don't issue employees with mobile technology such as mobile phones or tablets.
