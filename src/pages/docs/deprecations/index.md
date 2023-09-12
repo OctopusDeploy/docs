@@ -27,6 +27,16 @@ Deprecations are subject to change in detail or timeframe. If you need help asse
 
 From `2024.1` SSH deployments will no longer support running tasks via Mono. Instead, Linux workers and targets will only execute using .NET Core compiled tooling, which for most cases can be enabled via a simple configuration change on the machine configuration page. Further details on the background for this update as well as the reasoning behind it are available on the [Deprecating Mono](https://octopus.com/blog/deprecating-mono) blog post.
 
+### Dropped support for Windows Server 2003 Workers and Targets
+
+Windows Server 2003 Workers and Targets will no longer execute Octopus workloads from `2024.1`. It is highly reccomended that you upgrade your targets to a later version of Windows Server before updating your Octopus Server instance to this release as deployments and runbooks using these machines are unlikely to run.
+
+Further details on the background for this update are available on the [Dropping support for Windows Server 2003 machines](https://octopus.com/blog/deprecating-win2003) blog post.
+
+### F# Script Steps
+
+Due to the low uptake of F# script steps and the work required to upgrade them for continued use in our modern codebase, we will no longer be supporting F# script steps from `2024.1`. Customers who continue to need F# scripts in later Octopus versions should use standard shell scripting (powershell or bash) and invoke their scripts via their own F# tools included in additional [referenced packages](https://octopus.com/docs/deployments/custom-scripts/run-a-script-step#referencing-packages).
+
 ## Deprecations for 2023.3
 
 ### Project level `/runbooks/all` API endpoint
