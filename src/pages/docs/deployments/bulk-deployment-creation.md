@@ -11,7 +11,7 @@ navOrder: 160
 Bulk deployment creation will be available from Octopus Deploy **2023.4**
 :::
 
-When deploying a release to multiple environments or tenants through the Octopus Portal, the bulk deployment creation feature will immediately take you to a new server task which will create a deployment for each environment or tenant you are deploying to.
+With bulk deployment creation, you will be redirected to a new server task upon deploying a release to multiple environments or tenants through Octopus Portal. There you will find each requested deployment as task summary items, which will display progress and any errors.
 
 In the bulk deployment creation server task, you can see the progress of deployments being created and any errors during creation.
 
@@ -21,24 +21,24 @@ In the bulk deployment creation server task, you can see the progress of deploym
 
 You can also navigate away from the server task and it will continue creating deployments in the background.
 
-If you need to return to a bulk deployment creation server task, you can go to the **Tasks** page and filter down to **Bulk deployment creation** task types.
+If you need to return to a bulk deployment creation server task, you can navigate to the **Tasks** page and use the task filter to select **Bulk deployment creation** task types.
 
 # Retrying deployment creation failures
-If a deployment to an environment or tenant fails to create, you can **Re-run** the bulk deployment creation server task. This will create a new server task that reattempts creating deployments for the environments or tenants that failed.
+To retry failed requested deployments, navigate to the bulk deployment server task with the failed requested deployments and click **Re-run**. This will create a new server task that attempts to recreate only those deployments that failed to create previously.
 
 :::figure
 ![](/docs/deployments/bulk-deployment-creation-retry.png)
 :::
 
 # Permissions
-To create, view or re-run a bulk deployment creation server task, your permissions will need to be scoped to at least all the environments and tenants that a bulk deployment creation server task is creating deployments for.
+Permissions will need to be scoped to all requested environments and tenants when creating, viewing, or re-running a bulk deployment server task.
 
 For example, imagine a bulk deployment creation server task that creates deployments in the 
 * Car Rental project 
 * To the Development environment 
 * For tenants Norfolk and Des Moines
 
-You'll only be able to perform operations against this server task if your permissions are scoped to *at least* the Car Rental project, the Development environment and Norfolk and Des Moines tenants.
+You will only be allowed to view, retry, cancel or edit the server task if your user has permissions scoped to the Car Rental project, Development environment, and both Norfolk and Des Moines tenants. However, you only need permissions scoped to the project to view the server task on the **Tasks** page.
 
 There is one exception to the above. You only need sufficient project scoping on your permissions to view a bulk deployment server task on the **Tasks** page.
 
