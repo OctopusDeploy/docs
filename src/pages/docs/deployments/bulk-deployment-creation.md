@@ -40,7 +40,5 @@ For example, imagine a bulk deployment creation server task that creates deploym
 
 You will only be allowed to view, retry, cancel or edit the server task if your user has permissions scoped to the Car Rental project, Development environment, and both Norfolk and Des Moines tenants. However, you only need permissions scoped to the project to view the server task on the **Tasks** page.
 
-There is one exception to the above. You only need sufficient project scoping on your permissions to view a bulk deployment server task on the **Tasks** page.
-
 # Retention
 Bulk deployment creation server tasks older than 90 days become eligible for retention and will automatically be removed by Octopus Server.
