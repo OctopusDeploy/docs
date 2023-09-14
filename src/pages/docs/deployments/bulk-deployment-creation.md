@@ -13,8 +13,6 @@ Bulk deployment creation will be available from Octopus Deploy **2023.4**
 
 With bulk deployment creation, you will be redirected to a new server task upon deploying a release to multiple environments or tenants through Octopus Portal. There you will find each requested deployment as task summary items, which will display progress and any errors.
 
-In the bulk deployment creation server task, you can see the progress of deployments being created and any errors during creation.
-
 :::figure
 ![](/docs/deployments/bulk-deployment-creation.png)
 :::
