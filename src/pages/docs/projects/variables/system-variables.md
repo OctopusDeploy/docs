@@ -434,6 +434,14 @@ The name of the Trigger that created the deployment. It is possible for a deploy
 
 *Nightly Deploy to Dev*
 
+`Octopus.Deployment.WorkerLeaseCap`
+
+This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evently. By default this behaviour is disabled,
+and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
+
+Example: 1 - this achieves a similar effect to round robin.  
+Example: 5 - a balance between avoiding unnecessary package transfer and overloading a single worker.
+
 `Octopus.Endpoint.\_type\_.\_property\_`
 
 Properties describing the endpoint being deployed.
@@ -1450,6 +1458,14 @@ Example: True
 Set to a file-path and the Calamari working directory will be copied to the configured location. **Copied files include the one-time key to decrypt sensitive variables** [More details.](/docs/support/copy-working-directory).
 
 Example: `c:\temp\octopus-debug`
+
+`Octopus.Deployment.WorkerLeaseCap`
+
+This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evently. By default this behaviour is disabled,
+and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
+
+Example: 1 - this achieves a similar effect to round robin.  
+Example: 5 - a balance between avoiding unnecessary package transfer and overloading a single worker.
 
 `Octopus.Task.ConcurrencyTag`
 
