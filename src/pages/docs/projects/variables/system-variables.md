@@ -442,6 +442,8 @@ and the same worker will be reused for all steps referencing the same package. O
 Example: 1 - achieves a similar effect to round robin.  
 Example: 5 - a balance between avoiding unnecessary package transfer and overloading a single worker.
 
+Note: This value applies to both deployment processes and runbooks, as long as it's scoped to the particular scenario.
+
 `Octopus.Endpoint.\_type\_.\_property\_`
 
 Properties describing the endpoint being deployed.
@@ -1466,6 +1468,8 @@ and the same worker will be reused for all steps referencing the same package. O
 
 Example: 1 - achieves a similar effect to round robin.  
 Example: 5 - a balance between avoiding unnecessary package transfer and overloading a single worker.
+
+Note: This value applies to both deployment processes and runbooks, as long as it's scoped to the particular scenario.
 
 `Octopus.Task.ConcurrencyTag`
 
