@@ -155,10 +155,10 @@ Configure whether Octopus Deploy should re-attempt failed communication with a T
 
 With this setting, if a network error occurs while Octopus Deploy is communicating with a Tentacle,
 - **When disabled** the deployment, runbook run or health check will fail.
-- **When enabled** it will re-attempt communication with the Tentacle for the amount of time configured. However, after that, continued network errors will cause a failure.
+- **When enabled** it will re-attempt communication with the Tentacle for the configured duration. However, continued network errors will cause a failure.
 
 :::div{.warning}
-Using this setting with a Tentacle that runs on ephemeral storage (e.g. running Tentacle in Docker without a mount) will introduce the possability that a script could run twice.
+Using this setting with a Tentacle that runs on ephemeral storage (e.g. running Tentacle in Docker without a mount) will introduce the possibility that a script could run twice.
 
 It is recommended to run Tentacle on a file system that is persistent.
 :::
