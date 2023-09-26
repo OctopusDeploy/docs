@@ -59,4 +59,4 @@ The CRON expression must consist of all 6 fields, there is an optional 7th field
 | Day of month  | 1-31                 | * , - / ? L W               | Y        |
 | Month         | 1-12 or JAN-DEC      | * , - /                     | Y        |
 | Day of week   | 0-6 or SUN-SAT       | * , - / ? L #               | Y        |
-| Year          | 0001–9999            | * , - /                     | N        |
+| Year          | 1970–2099            | * , - /                     | N        |
