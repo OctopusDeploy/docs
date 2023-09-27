@@ -40,7 +40,11 @@ https://<your-octopus-url>/api
 
 Replacing `<your-octopus-url>` with the URL that you host your Octopus instance on.
 
-You'll need an API key to access the API. You can get your API key from your profile page on the Octopus Web Portal. 
+The API supports two methods of authentication.
+
+### API Key
+
+You can get your API key from your profile page on the Octopus Web Portal. 
 
 Once you have a key, you can provide it to the API in the following ways:
 
@@ -50,6 +54,14 @@ Once you have a key, you can provide it to the API in the following ways:
 :::div{.hint}
 Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 :::
+
+### OpenID Connect
+
+Octopus supports using OpenID Connect (OIDC) for service accounts to obtain an access token which can then be used to authenticate API requests. 
+
+Any issuer that can generate signed OIDC tokens which can be validated anonymously is supported, however first-class support for GitHub Actions is provided with the [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) action.
+
+For more information see [Using OpenId Connect with the Octopus API](/docs/octopus-rest-api/openid-connect).
 
 ## REST API Swagger Documentation \{#api-swagger-docs}
 
