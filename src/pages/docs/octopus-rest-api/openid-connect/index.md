@@ -44,6 +44,10 @@ The first step is to create an OIDC identity for your GitHub repository to allow
 5. Enter the details of your repository and how you want to filter the workflow runs that can authenticate using OIDC.
 6. Click Save.
 
+:::div{.hint}
+Multiple OIDC identities can be added for a service account, these could be for workflow runs from the same repository, or separate repositories depending on your needs.
+:::
+
 :::figure
 ![OIDC Identity for GitHub Actions](/docs/octopus-rest-api/images/oidc-identity-github-actions.png "width=500")
 :::
@@ -72,9 +76,32 @@ For more information see [Assigning permissions to jobs](https://docs.github.com
 
 When the workflow runs the `OctopusDeploy/login` action will authenticate with Octopus using OIDC and configure the remainder of the workflow job to work without needing to provide the `server` or `api_key` values.
 
-:::figure
-![Using 'OctopusDeploy/login' in a workflow](/docs/octopus-rest-api/images/oidc-github-actions-example.png "width=500")
-:::
+```yaml
+name: Create a release in Octopus
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    name: Create a release in Octopus
+    permissions:
+      id-token: write # This is required to obtain the ID token from GitHub Actions
+    steps:
+      - name: Login to Octopus
+        uses: OctopusDeploy/login@v1
+        with:
+          server: https://my.octopus.app
+          service_account_id: 5be4ac10-2679-4041-a8b0-7b05b445e19e
+
+      - name: Create Octopus release
+        uses: OctopusDeploy/create-release-action@v3
+        with:
+          space: Default
+          project: MyOctopusProject
+```
 
 ## Getting started with other issuers
 
@@ -93,6 +120,10 @@ The first step is to create an OIDC identity for your issuer to access the Octop
    2. The URL should be the base where the OIDC Discovery endpoint (`/.well-known/openid-configuration`) endpoint can be found. For example if the discovery endpoint is `https://my-oidc-issuer.com/.well-known/openid-configuration` then the issuer should be set to `https://my-oidc-issuer.com`.
 6. Enter the subject of the identity. This must match exactly the subject that is provided in the OIDC token and is _case-sensitive_. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
 7. Click Save.
+
+:::div{.hint}
+Multiple OIDC identities can be added for a service account.
+:::
 
 :::figure
 ![OIDC Identity for other issuer](/docs/octopus-rest-api/images/oidc-identity-other-issuer.png "width=500")
