@@ -10,11 +10,18 @@ hideInThisSection: true
 
 Octopus supports using [OpenID Connect (OIDC)](https://openid.net/) to access the Octopus API without needing to provision API keys.
 
-Some of the benefits of using OIDC include:
+## What is OpenID Connect and how is it used in Octopus?
+
+OpenID Connect is a set of identity specifications that build on OAuth 2.0 to allow software systems to connect to each other in a way that promotes security best practices.
+
+When using OIDC, Octopus will validate an identity token coming from a trusted external system using [public key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) and issue a short-lived access token which can then be used to interact with the Octopus API.
+
+Some of the benefits of using OIDC in Octopus include:
 
 - API keys do not need to be provisioned and stored in external systems, reducing the risk of unauthorized access to the Octopus API from exposed keys.
-- Access tokens granted by Octopus are short-lived, reducing the risk of unauthorized access to the Octopus API.
 - API keys do not need to be rotated manually by administrators, reducing the risk of disruption when updating to newer keys in external systems.
+- Access tokens issued by Octopus are short-lived, reducing the risk of unauthorized access to the Octopus API.
+- Access tokens are only issued for requests from trusted external systems, allowing for controlled access to service accounts and promoting using the principle of least access.
 
 :::div{.hint}
 Using OIDC to access the Octopus API is only supported for service accounts, to access the API for a user account please use [an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
@@ -52,7 +59,15 @@ After the OIDC identity for GitHub Actions has been created a snippet of the `Oc
 1. Click the Copy to clipboard to copy the `OctopusDeploy/login` step.
 2. Paste the `OctopusDeploy/login` step into your workflow job.
 3. Add `id-token: write` to the `permissions` on the workflow job. This is required to allow the `OctopusDeploy/login` action to request an OIDC token from GitHub to use.
-   1. Depending on the other steps you have in your workflow, you may need to add additional permissions such as `contents: read`.
+
+:::div{.hint}
+When `permissions` are specified on a workflow job, any built-in permissions for the job are reset. This means that some existing steps in your workflow may now require setting explicit permissions in order to work correctly.
+
+For example to checkout source code using the `actions/checkout` action you will need to add `contents: read` to the permissions.
+
+For more information see [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs/).
+:::
+
 4. Add any additional Octopus provided GitHub Actions that you require e.g. [`OctopusDeploy/create-release-action`](https://github.com/OctopusDeploy/create-release-action). These actions will automatically work with OIDC. Any script steps that use the `octopus` cli will also automatically work with OIDC.
 
 When the workflow runs the `OctopusDeploy/login` action will authenticate with Octopus using OIDC and configure the remainder of the workflow job to work without needing to provide the `server` or `api_key` values.
@@ -102,10 +117,28 @@ A Service Account Id will be shown, this will be a GUID which must be supplied a
 
 The access token obtained from the token exchange must be supplied in the `Authorization` header of API requests, using the `Bearer` scheme, for example `Authorization: Bearer {the-access-token}`.
 
-## What is OpenId Connect?
+## Validation of OIDC tokens
 
 ## Access tokens
 
+When an OIDC token from a trusted external system is validated, Octopus will issue an access token. This token is a Json Web Token (JWT) which is cryptographically signed by the Octopus server, allowing it to be validated to ensure it is a legitimate token that was issued from the correct system and hasn't been tampered with. The token is short-lived (1 hour) and cannot be used after it has expired, reducing the impact that stolen credentials could have.
+
 ### How tokens are signed
 
+Access tokens are signed using [public key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography). Octopus securely maintains a private and public key pair, and signs the token using the private key, which only the Octopus Server can use. The token can then be validated using the public key to ensure that it is legitimate.
+
+Access tokens are signed with [RSA keys](<https://en.wikipedia.org/wiki/RSA_(cryptosystem)>) with a key length of 2048 bits, using the [RSASSA-PSS (PS256) algorithm](https://www.rfc-editor.org/rfc/rfc8017#section-8.1).
+
+The keys used to sign access tokens are automatically rotated every 90 days, and a new key is used to sign tokens. Once a key has been rotated it is no longer used to sign new tokens, however continues to be used to validate existing tokens, in order to minimize disruption to the use of existing tokens. Keys will be removed after another 90 days and no longer used for validation.
+
 ### Validating tokens
+
+Octopus Server exposes well-known endpoints from the [OpenID discovery specification](https://openid.net/specs/openid-connect-discovery-1_0.html) to make available the public keys that are used to sign access tokens, which can then be used to validate access tokens that the Octopus Server issues.
+
+The discovery endpoint can be found at `{OctopusServerUrl}/.well-known/openid-configuration` e.g. `https://my.octopus.app/.well-known/openid-configuration`. The response from this endpoint will contain a `jwks_uri` property which contains the URL at which the public keys can be found. The jwks endpoint uses the [JWK specification](https://datatracker.ietf.org/doc/html/rfc7517).
+
+:::div{.hint}
+Public sites such as [jwt.io](https://jwt.io/) can be used to inspect and validate access tokens.
+
+IMPORTANT: Access tokens are credentials to your Octopus Server in the same way that API keys are, be careful where you paste them!
+:::
