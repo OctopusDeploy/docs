@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-09-28
 title: Telemetry
-description: Telemetry from Octopus Server and what is included
+description: Find out about Octopus telemetry reporting and how it helps us make a better product.
 navOrder: 25
 ---
 
