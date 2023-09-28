@@ -1,11 +1,11 @@
-name: Deploy
+name: Tests
 
 on:
   # Disable on push temporarily while we're doing the migration
   workflow_dispatch:
-    push:
-        branches-ignore:
-        - master
+  push:
+      branches-ignore:
+      - master
 
 # Allow this job to clone the repo
 permissions:
