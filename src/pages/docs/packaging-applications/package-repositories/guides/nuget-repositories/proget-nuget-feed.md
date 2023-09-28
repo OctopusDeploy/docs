@@ -38,7 +38,7 @@ Enter a name for your Feed, eg: ProGet-NuGet, then click **Create Feed**
 The next screen allows you to set optional features for your feed, configure these features or click **Close**.  Once the feed has been created, ProGet will display the `API endpoint URL` to push packages.  In this example it's `https://proget.octopusdemos.app/nuget/ProGet-NuGet/v3/index.json`
 
 :::figure
-![API endpoint URL](/docs/packaging-applications/package-repositories/guides/nuget-repository/images/proget-nuget-api-endpoint.png)
+![API endpoint URL](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/proget-nuget-api-endpoint.png)
 :::
 
 ## Adding a ProGet NuGet as an Octopus External Feed
