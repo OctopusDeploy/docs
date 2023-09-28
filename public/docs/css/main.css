@@ -158,6 +158,11 @@ img {
     background-color: var(--white);
 }
 
+input {
+    padding: 0.5em;
+    border-radius: 0.3em;
+}
+
 mark {
     color: unset;
     background-color: transparent;
@@ -334,7 +339,8 @@ table th {
 
 /* Skip Links */
 nav.skip-links {
-    position: absolute;
+    position: fixed;
+    z-index: 2;
 }
 
 nav.skip-links a {
@@ -343,7 +349,7 @@ nav.skip-links a {
     min-width: 20vw;
     overflow: hidden;
     padding: 1em;
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 15;
     text-align: center;
@@ -369,8 +375,7 @@ nav.skip-links a:focus {
     min-height: 55px;
     position: sticky;
     top: 0;
-    /* Due to issue with HotJar widget */
-    z-index: 2147483647;
+    z-index: 1;
 }
 
 .octo-header {
@@ -445,6 +450,7 @@ nav.skip-links a:focus {
 
 .last-updated {
     color: var(--color-subtitle);
+    margin-block-start: var(--block-gap);
 }
 
 .docs-home {
@@ -526,8 +532,7 @@ nav.skip-links a:focus {
     background: linear-gradient(269.9deg, #11181D 47.17%, #124164 72.68%, #07121A 96.54%);
     position: sticky;
     top: 55px;
-    /* Due to issue with HotJar widget */
-    z-index: 2147483647;
+    z-index: 1;
 }
 
 .octo-title {
@@ -893,6 +898,49 @@ nav.skip-links a:focus {
     }
 }
 
+/* Search dialog */
+
+.search-dialog {
+    margin: auto;
+    padding: 2rem 3rem;
+    border-radius: var(--block-radius);
+    box-shadow: var(--box-shadow);
+    height: calc(90vh - 4em);
+    width: calc(80vw - 6em);
+    max-width: 860px;
+}
+
+.search-dialog::backdrop {
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.search-dialog form {
+    margin-top: 2rem;
+}
+
+#site-search-close {
+    float: right;
+    position: relative;
+    top: -1rem;
+    left: 2.5rem;
+    background: none;
+    cursor: pointer;
+    font-size: 2rem;
+    stroke: var(--color-menu-link);
+}
+
+@media (max-width: 860px) {
+    .search-dialog {
+        /* Fallback */
+        height: calc(100vh - 4rem);
+        width: calc(100vw - 6rem);
+        /* Ideal units */
+        height: calc(100dvh - 4rem);
+        width: calc(100dvw - 6rem);
+    }
+}
+
 /* Taxonomy Links */
 
 .post-taxonomy div {
@@ -934,7 +982,7 @@ nav.skip-links a:focus {
 /* GitHub Link */
 
 .octo-github-edit {
-    margin-top: var(--block-gap);
+    margin-block-start: var(--block-gap);
 }
 
 .octo-github-edit a {
@@ -1292,19 +1340,31 @@ nav.skip-links a:focus {
     padding : 110px 1em 2rem 1em;
     max-height: 100vh;
     overflow-y: auto;
-    z-index: 1;
+    z-index: 0;
 }
 
 /* Site Search */
 
 .site-search div {
     display: grid;
-    grid-template-columns: fit-content(400px) auto 30px;
+    grid-template-columns: fit-content(400px) auto 40px;
     gap: 1em;
+    align-items: center;
 }
 
 .site-search input {
     border: 1px solid var(--blue-grey-dark);
+}
+
+.site-search button {
+    display: inline-block;
+    font-size: var(--font-size-small);
+    border-radius: 100px;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.2em 0.6em 0.3em 0.6em;
+    color: var(--color-hint);
+    background-color: var(--bgcolor-hint);
 }
 
 .site-search-results > li {
@@ -1416,6 +1476,11 @@ nav.skip-links a:focus {
     content: '\f1e0'; /* Share Nodes */
     font-family: fa-solid;
     margin-inline-end: 0.3em;
+}
+
+.fa-search:before {
+    content: '\f002'; /* Magnifying Glass */
+    font-family: fa-solid;
 }
 
 .fa-face {
@@ -1813,7 +1878,7 @@ a.button.trial:focus {
     z-index: 2;
     top: 2px;
     margin: 0;
-    margin-top: 4px;
+    margin-block-start: 4px;
     border: 2px solid var(--border-color-tab);
     border-radius: var(--standard-radius) var(--standard-radius) 0 0;
     background: var(--bgcolor-tab);
@@ -1825,7 +1890,7 @@ a.button.trial:focus {
 }
 
 .tab-list button[aria-selected="true"] {
-    margin-top: 0;
+    margin-block-start: 0;
     border-width: 2px;
     border-top-width: 6px;
     border-top-color: var(--border-color-tab-active);
