@@ -27,7 +27,7 @@ From the Package Type selection screen, choose **Maven**:
 Give the repository a name in the **Repository Key** field, and fill out any other settings for the repository.
 
 :::figure
-![Artifactory local repository settings](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-maven-repo-configure.png)
+![Artifactory local repository settings](/docs/packaging-applications/package-repositories/guides/maven-repositories/images/artifactory-local-maven-repo-configure.png)
 :::
 
 When you've entered all of the settings, click **Save & Finish**.

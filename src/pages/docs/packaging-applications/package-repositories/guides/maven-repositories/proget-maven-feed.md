@@ -31,10 +31,6 @@ Select **No Connectors (private artifacts only)** from the wizard
 
 Enter a name for your Feed, eg: ProGet-Docker, then click **Create Feed**
 
-:::figure
-![Feed Name](/docs/packaging-applications/package-repositories/guides/maven-repositories/images/proget-maven-repositories.png)
-:::
-
 The next screen allows you to set optional features for your registry, configure these features or click **Close**.  Once the feed has been created, ProGet will display the `API endpoint URL` to push packages.  In this example it's `https://proget.octopusdemos.app/maven2/ProGet-Maven/`
 
 :::figure
