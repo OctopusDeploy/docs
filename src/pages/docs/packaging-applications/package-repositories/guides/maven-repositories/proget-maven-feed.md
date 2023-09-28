@@ -14,7 +14,7 @@ ProGet from Inedo is an package repository technology which contains a number of
 From the ProGet web portal, click on **Feeds ➜ Create New Feed** 
 
 :::figure
-![Create New Feed](/docs/packaging-applications/package-repositories/guides/images/proget-create-feed.png)
+![Create New Feed](/docs/packaging-applications/package-repositories/images/proget-create-feed.png)
 :::
 
 Select the **Maven Artifacts** option from the `Developer Libraries` category
@@ -30,10 +30,6 @@ Select **No Connectors (private artifacts only)** from the wizard
 :::
 
 Enter a name for your Feed, eg: ProGet-Docker, then click **Create Feed**
-
-:::figure
-![Feed Name](/docs/packaging-applications/package-repositories/guides/maven-repositories/images/proget-maven-repositories.png)
-:::
 
 The next screen allows you to set optional features for your registry, configure these features or click **Close**.  Once the feed has been created, ProGet will display the `API endpoint URL` to push packages.  In this example it's `https://proget.octopusdemos.app/maven2/ProGet-Maven/`
 

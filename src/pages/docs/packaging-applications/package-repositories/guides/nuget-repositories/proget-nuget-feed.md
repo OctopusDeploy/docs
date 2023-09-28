@@ -14,7 +14,7 @@ ProGet from Inedo is an package repository technology which contains a number of
 From the ProGet web portal, click on **Feeds ➜ Create New Feed** 
 
 :::figure
-![Create New Feed](/docs/packaging-applications/package-repositories/guides/images/proget-create-feed.png)
+![Create New Feed](/docs/packaging-applications/package-repositories/images/proget-create-feed.png)
 :::
 
 Select the **NuGet (.NET) Packages** option from the `Developer Libraries` category
@@ -26,7 +26,7 @@ Select the **NuGet (.NET) Packages** option from the `Developer Libraries` categ
 Select **No Connectors (private container packages only)** from the wizard
 
 :::figure
-![No Connectors](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/proget-connect-proget-feed.png)
+![No Connectors](/docs/packaging-applications/package-repositories/guides/container-registries/images/proget-connect-proget-feed.png)
 :::
 
 Enter a name for your Feed, eg: ProGet-NuGet, then click **Create Feed**
@@ -38,7 +38,7 @@ Enter a name for your Feed, eg: ProGet-NuGet, then click **Create Feed**
 The next screen allows you to set optional features for your feed, configure these features or click **Close**.  Once the feed has been created, ProGet will display the `API endpoint URL` to push packages.  In this example it's `https://proget.octopusdemos.app/nuget/ProGet-NuGet/v3/index.json`
 
 :::figure
-![API endpoint URL](/docs/packaging-applications/package-repositories/guides/nuget-repository/images/proget-nuget-api-endpoint.png)
+![API endpoint URL](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/proget-nuget-api-endpoint.png)
 :::
 
 ## Adding a ProGet NuGet as an Octopus External Feed
