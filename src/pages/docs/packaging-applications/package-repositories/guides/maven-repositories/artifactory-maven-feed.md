@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-09-28
 title: Artifactory Maven repository
 description: Configuring an Artifactory Maven repository as an Octopus feed.
 navOrder: 40

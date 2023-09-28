@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-09-28
 title: ProGet Maven repository
 description: Configuring a ProGet Maven repository as an Octopus feed.
 navOrder: 30
