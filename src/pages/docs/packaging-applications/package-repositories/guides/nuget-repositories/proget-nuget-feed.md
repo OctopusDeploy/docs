@@ -26,7 +26,7 @@ Select the **NuGet (.NET) Packages** option from the `Developer Libraries` categ
 Select **No Connectors (private container packages only)** from the wizard
 
 :::figure
-![No Connectors](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/proget-connect-proget-feed.png)
+![No Connectors](/docs/packaging-applications/package-repositories/guides/container-registries/images/proget-connect-proget-feed.png)
 :::
 
 Enter a name for your Feed, eg: ProGet-NuGet, then click **Create Feed**
