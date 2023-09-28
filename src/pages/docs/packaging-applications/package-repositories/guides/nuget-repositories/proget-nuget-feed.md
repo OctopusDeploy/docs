@@ -14,7 +14,7 @@ ProGet from Inedo is an package repository technology which contains a number of
 From the ProGet web portal, click on **Feeds ➜ Create New Feed** 
 
 :::figure
-![Create New Feed](/docs/packaging-applications/package-repositories/guides/images/proget-create-feed.png)
+![Create New Feed](/docs/packaging-applications/package-repositories/images/proget-create-feed.png)
 :::
 
 Select the **NuGet (.NET) Packages** option from the `Developer Libraries` category
