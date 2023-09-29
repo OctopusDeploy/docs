@@ -220,7 +220,7 @@ foreach ($project in $projects)
 {
     Write-Host "Checking $($project.Name)"
     
-    # Get varaible set
+    # Get variable set
     $projectVariableSet = $repositoryForSpace.VariableSets.Get($project.VariableSetId)
     
     # Find any name matches
