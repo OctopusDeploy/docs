@@ -42,7 +42,7 @@ The next screen allows you to set optional features for your registry, configure
 :::
 
 
-## Adding a ProGet container tegistry as an Octopus External Feed
+## Adding a ProGet container registry as an Octopus External Feed
 
 Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and select the `Docker Container Registry` Feed type. 
 
