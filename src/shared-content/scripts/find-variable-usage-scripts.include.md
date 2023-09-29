@@ -878,7 +878,7 @@ func main() {
 								result.Context = step.Name
 								result.Property = property
 								result.AdditionalContext = ""
-								result.Link = apiURL.String() + project.Links["Web"] + "/deployments/process/stesp?actionId=" + action.ID
+								result.Link = apiURL.String() + project.Links["Web"] + "/deployments/process/steps?actionId=" + action.ID
 
 								if !arrayContains(variableTracking, result) {
 									variableTracking = append(variableTracking, result)
