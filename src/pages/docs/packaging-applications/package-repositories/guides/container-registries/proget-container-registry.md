@@ -7,7 +7,7 @@ description: How to add a ProGet Docker Registry as an Octopus feed
 navOrder: 100
 ---
 
-ProGet from Inedo is an package repository technology which contains a number of differnet feed types.  This guide provides instructions on how to create a private container registry in ProGet and connect it to Octopus Deploy as an External Feed.
+ProGet from Inedo is an package repository technology which contains a number of different feed types.  This guide provides instructions on how to create a private container registry in ProGet and connect it to Octopus Deploy as an External Feed.
 
 ## Configuring a ProGet Registry
 
