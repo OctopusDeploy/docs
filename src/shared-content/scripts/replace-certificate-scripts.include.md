@@ -203,7 +203,7 @@ certificate_data = open(certificate_file_path, 'rb').read()
 certificate_base64 = base64.b64encode(certificate_data)
 
 
-# Get current certificiate
+# Get current certificate
 uri = '{0}/api/{1}/certificates'.format(octopus_server_uri, space['Id'])
 certificates = get_octopus_resource(uri, headers)
 certificate = next((c for c in certificates if c['Name'] == certificate_name), None)
