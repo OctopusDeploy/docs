@@ -62,7 +62,7 @@ try
         # Get deployment process
         $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
 
-        # Check for emtpy process
+        # Check for empty process
         if (($null -eq $deploymentProcess.Steps) -or ($deploymentProcess.Steps.Count -eq 0))
         {
             # Delete project
