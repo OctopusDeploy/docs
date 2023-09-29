@@ -108,7 +108,7 @@ Where [<options>] is any of:
       --trustedProxies=VALUE Comma-separated list of IP addresses of trusted
                                proxies
       --webTrustedRedirectUrls=VALUE
-                             Comma-seperated list of URLs that are trusted
+                             Comma-separated list of URLs that are trusted
                                for redirection
       --autoLoginEnabled=VALUE
                              Enable/disable automatic user login.
