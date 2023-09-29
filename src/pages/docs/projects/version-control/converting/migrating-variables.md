@@ -41,7 +41,7 @@ The migration process is simple, and we've built a helpful wizard to guide you t
 ![Screenshot of banner on Octopus project variables page with title Store variables in Git, and a migrate variables to Git button](/docs/projects/version-control/converting/git-variables-migrator-banner.png)
 :::
 
-Clicking the **Migrate Variables To Git** button will open the migation wizard.
+Clicking the **Migrate Variables To Git** button will open the migration wizard.
 
 ### Step 1: Getting started
 
