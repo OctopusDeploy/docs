@@ -406,7 +406,7 @@ Alternatively, to replace an element *based on its attribute*, you can apply the
 </configuration>
 ```
 
-Similar to the examples above, you can can also replace other attribute values.  With a variable named `/configuration/email[@role='admin']/@address` with the value `chief@example.org`, the output will look like:
+Similar to the examples above, you can also replace other attribute values.  With a variable named `/configuration/email[@role='admin']/@address` with the value `chief@example.org`, the output will look like:
 
 ```xml
 <configuration>
