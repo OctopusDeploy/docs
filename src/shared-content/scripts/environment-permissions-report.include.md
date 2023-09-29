@@ -1523,7 +1523,7 @@ foreach (var spaceName in spaceList)
 
                     if ((scopedRole.ProjectIds.Count > 0) && (!scopedRole.ProjectIds.Contains(project.Id) && scopedRole.ProjectGroupIds.Count == 0))
                     {
-                        Console.WriteLine(string.Format("The scoped role is associates wiht projects, but not {0}, moving on to next role", project.Name));
+                        Console.WriteLine(string.Format("The scoped role is associates with projects, but not {0}, moving on to next role", project.Name));
                         continue;
                     }
 
