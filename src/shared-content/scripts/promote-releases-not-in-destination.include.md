@@ -182,7 +182,7 @@ $destinationEnvironmentName = "Test"
 $projectNameList = @("MyProject")
  
 
-# Establish a conneciton0
+# Establish a connection
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 $client = New-Object Octopus.Client.OctopusClient($endpoint)
