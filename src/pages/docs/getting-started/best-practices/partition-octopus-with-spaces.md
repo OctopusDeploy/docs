@@ -39,8 +39,8 @@ Internally we have opted for a space per application suite.
 We've also found several anti-patterns with the Spaces feature you should avoid.
 
 - A space per team (Team A Space, Team B space, etc.).  Typically in larger corporations, applications move between teams; a space per team would require you to move projects between spaces. The project export/import makes this easier, but it doesn't copy everything.  You'd need to move packages, deployment targets, and workers.  Release and Deployment history is not moved either.
-- A space per environment (Development Space, Production Space, Test Space, etc.).  Spaces were not designed, nor do they support this scenario.  You would need a way to keep the deployment process in sync across multiple spaces.  Such a syncing process is [difficult to create and maintain](/docs/administration/sync-instances).
-- A space per tenant.  Just like the environments per space scenario, spaces were not designed, nor do they support this scenario.  You would need a way to keep the deployment process in sync across multiple spaces.
+- A space per environment (Development Space, Production Space, Test Space, etc.).  Spaces were not designed for, nor do they support this scenario.  You would need a way to keep the deployment process in sync across multiple spaces.  Such a syncing process is [difficult to create and maintain](/docs/administration/sync-instances).
+- A space per tenant.  Just like the environments per space scenario, spaces were not designed for, nor do they support this scenario.  You would need a way to keep the deployment process in sync across multiple spaces.
 - A space per application component.  You would need to track a single application across multiple spaces.
 - Sharing deployment targets across spaces.  It is possible to register the same Tentacle, Azure Web App, or K8s cluster across spaces, but that indicates a space is too fine-grained.  Sharing deployment targets across spaces only lead to confusion as deployments in one space will appear "locked" because of deployment in another space.
 
