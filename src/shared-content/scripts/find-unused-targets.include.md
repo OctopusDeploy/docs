@@ -833,7 +833,7 @@ func main() {
 	fmt.Printf("There are %[1]s disabled machines which are not counted \n", strconv.Itoa(len(categorizedMachines.DisabledMachines)))
 	fmt.Printf("There are %[1]s duplicate listening tentacles that are not counted (assuming you are using 2019.7.3+)\n", strconv.Itoa(len(categorizedMachines.DuplicateTenatcles)))
 	fmt.Println("")
-	fmt.Printf("This leaves you with %[1]s active targets being counted against your license (this process is excuding %[2]s duplicates in that active count) \n", strconv.Itoa(categorizedMachines.ActiveMachines), strconv.Itoa(len(categorizedMachines.DuplicateTenatcles)))
+	fmt.Printf("This leaves you with %[1]s active targets being counted against your license (this process is excluding %[2]s duplicates in that active count) \n", strconv.Itoa(categorizedMachines.ActiveMachines), strconv.Itoa(len(categorizedMachines.DuplicateTenatcles)))
 	fmt.Printf("Of that combined number, %[1]s are showing up as offline\n", strconv.Itoa(len(categorizedMachines.OfflineMachines)))
 	fmt.Printf("Of that combined number, %[1]s have never had a deployment\n", strconv.Itoa(len(categorizedMachines.UnusedMachines)))
 	fmt.Printf("Of that combined number, %[1]s have not done a deployment in over %[2]s days\n", strconv.Itoa(len(categorizedMachines.OldMachines)), strconv.Itoa(daysSinceLastDeployment))
