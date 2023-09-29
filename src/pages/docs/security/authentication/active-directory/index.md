@@ -205,7 +205,7 @@ That is all the is needed for kerberos to be used as the logon method when using
 
 
 ## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
-Octopus alllows users to sign in by entering their Active Directory credentials to login. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
+Octopus allows users to sign in by entering their Active Directory credentials to login. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
 
 :::figure
 ![Login Screen](/docs/security/authentication/active-directory/images/activedirectory-forms.png)
