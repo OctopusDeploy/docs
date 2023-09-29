@@ -176,7 +176,7 @@ Write-Host "Created runbook trigger: $($createdRunbookTrigger.Id) ($runbookTrigg
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://your.octopus.app";
 var octopusAPIKey = "API-YOURAPIKEY";
 
