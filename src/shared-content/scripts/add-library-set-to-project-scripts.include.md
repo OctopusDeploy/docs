@@ -20,7 +20,7 @@ $project = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/pro
 # Get library set
 $librarySet = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header) | Where-Object {$_.Name -eq $librarySetName}
 
-# Add the libarary set
+# Add the library set
 $project.IncludedLibraryVariableSetIds += $librarySet.Id
 
 # Update the project
@@ -40,7 +40,7 @@ $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $spaceName = "default"
 $projectName = "MyProject"
-$libararySetName = "MyLibrarySet"
+$librarySetName = "MyLibrarySet"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
@@ -56,7 +56,7 @@ try
     $project = $repositoryForSpace.Projects.FindByName($projectName)
 
     # Get library set
-    $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($libararySetName)
+    $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($librarySetName)
 
     # Add set to project
     $project.IncludedLibraryVariableSetIds += $librarySet.Id
@@ -101,7 +101,7 @@ try
     // Get project
     var project = repositoryForSpace.Projects.FindByName(projectName);
 
-    // Get libarary set
+    // Get library set
     var librarySet = repositoryForSpace.LibraryVariableSets.FindByName(librarySetName);
 
     // Include library set to project

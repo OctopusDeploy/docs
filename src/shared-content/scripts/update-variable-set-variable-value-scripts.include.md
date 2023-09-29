@@ -250,7 +250,7 @@ func main() {
 
 	fmt.Printf("Looking for library variable set '%[1]s", libraryVariableSetName)
 
-	// Get the library library set
+	// Get the library set
 	librarySet := GetLibrarySet(client, space, libraryVariableSetName, 0)
 
 	// Get the variable set

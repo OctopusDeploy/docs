@@ -50,7 +50,7 @@ foreach ($project in $projects)
     }
 }
 
-# Get all libarary sets
+# Get all library sets
 $variableSets = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header
 
 # Loop through variablesets
@@ -123,10 +123,10 @@ try
     }
     
     # Loop through library variable sets
-    foreach ($libararySet in $repositoryForSpace.LibraryVariableSets.GetAll())
+    foreach ($librarySet in $repositoryForSpace.LibraryVariableSets.GetAll())
     {
         # Clear sensitive ones
-        Clear-SensitiveVariables -VariableSetId $libararySet.VariableSetId
+        Clear-SensitiveVariables -VariableSetId $librarySet.VariableSetId
     }
 
 }
