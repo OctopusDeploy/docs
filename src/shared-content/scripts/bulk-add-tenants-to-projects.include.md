@@ -667,7 +667,7 @@ func main() {
 	// Get tenants
 	tenants := GetTenantsByTag(apiURL, APIKey, space, tenantTag)
 
-	// Loop through teneants
+	// Loop through tenants
 	for i := 0; i < len(tenants); i++ {
 		tenantUpdated := false
 		if len(tenants[i].ProjectEnvironments) == 0 {
