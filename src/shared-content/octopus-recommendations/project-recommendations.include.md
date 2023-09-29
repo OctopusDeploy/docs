@@ -66,7 +66,7 @@ Changes made on feature or short-lived branches are not ready for Production.  T
 For the packages / docker containers built from branches, append a pre-release tag to the release version.  Leverage channel version rules to only allow packages / docker containers with a pre-release tag for the Development lifecycle.  At the same time, only allow packages / docker containers **without** a pre-release tag for the release lifecycle.
 
 :::div{.hint}
-This section is another reason we recommend deploying all tightly coupled components stored in the same source control repository within the same project.  Attempting to coordinate different lifecycles and releases across multiple projects can add aditional overhead, which runs the risk of something needing to be fixed.
+This section is another reason we recommend deploying all tightly coupled components stored in the same source control repository within the same project.  Attempting to coordinate different lifecycles and releases across multiple projects can add additional overhead, which runs the risk of something needing to be fixed.
 :::
 
 ## Include everything required to deploy
