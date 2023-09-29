@@ -40,7 +40,7 @@ The Octopus home directory is local to each specific node and **should not be sh
 Since each node will use shared storage, ensure you use a custom service account that has permission to access the shared database:
 
 :::figure
-![](/docs/administration/high-availability/configure/images/wizard-service-accunt-ad.png)
+![](/docs/administration/high-availability/configure/images/wizard-service-account-ad.png)
 :::
 
 Configure the shared SQL database:

@@ -994,7 +994,7 @@ func GetMachineTasks(octopusURL *url.URL, APIKey string, space *octopusdeploy.Sp
 		itemsPerPage := int(fltItemsPerPage)
 
 		if len(returnedTasks["Items"].([]interface{})) == itemsPerPage {
-			// Increment skip accoumt
+			// Increment skip account
 			skipAmount += len(returnedTasks["Items"].([]interface{}))
 
 			// Make request

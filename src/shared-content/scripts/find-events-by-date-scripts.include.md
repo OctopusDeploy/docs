@@ -346,7 +346,7 @@ func GetEvents(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, e
 		itemsPerPage := int(fltItemsPerPage)
 
 		if len(returnedEvents["Items"].([]interface{})) == itemsPerPage {
-			// Increment skip accoumt
+			// Increment skip account
 			skipAmount += len(returnedEvents["Items"].([]interface{}))
 
 			// Make request

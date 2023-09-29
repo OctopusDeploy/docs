@@ -324,7 +324,7 @@ func GetProjectReleases(octopusURL *url.URL, APIKey string, space *octopusdeploy
 		itemsPerPage := int(fltItemsPerPage)
 
 		if len(returnedReleases["Items"].([]interface{})) == itemsPerPage {
-			// Increment skip accoumt
+			// Increment skip account
 			skipAmount += len(returnedReleases["Items"].([]interface{}))
 
 			// Make request

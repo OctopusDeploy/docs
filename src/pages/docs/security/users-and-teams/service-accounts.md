@@ -33,7 +33,7 @@ Creating a new Service account is very similar to creating a new User account:
 4. Save the user to create the Service account.
 
 :::figure
-![Create service account](/docs/security/users-and-teams/images/create-service-acount.png)
+![Create service account](/docs/security/users-and-teams/images/create-service-account.png)
 :::
 
 :::div{.hint}
