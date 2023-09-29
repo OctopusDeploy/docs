@@ -415,7 +415,7 @@ function Get-OctopusSpaceInformation
         $OctopusSpaceName
     )
 
-    Write-OctopusVerbose "Testing the API crendentials of the credentials supplied by pulling the space information"
+    Write-OctopusVerbose "Testing the API credentials of the credentials supplied by pulling the space information"
     $spaceResults = Invoke-OctopusApi -EndPoint "spaces?skip=0&take=100000" -SpaceId $null -OctopusURL $OctopusURL -apiKey $OctopusApiKey -method "Get" -item $null
     $spaceInfo = Get-OctopusItemByName -ItemList $spaceResults.Items -ItemName $OctopusSpaceName
 
