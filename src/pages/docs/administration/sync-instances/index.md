@@ -22,7 +22,7 @@ TL;DR; copying projects between instances should be done when all other options 
 Split and sync instances only when Octopus lacks a critical feature to satisfy a company policy, industry regulation, or a business contract.  The use cases we've seen in the past are:
 
 - A separate **Dev/Test** instance and a **Staging/Production** instance so developers can have unlimited access to make changes, but **Production** must be locked down because of a business contract.
-- A primary **Dev/Test/Staging/Production** instance with an isolated **Production** only instance for a set of targets to satisify a contract requiring an instance hosted in Azure Gov.
+- A primary **Dev/Test/Staging/Production** instance with an isolated **Production** only instance for a set of targets to satisfy a contract requiring an instance hosted in Azure Gov.
 - A separate instance for a specific set of tenants.  Like the above use case, except all the environments are the same, only the tenants are different.
 
 The expectation is the source instance is the the source of truth and the destination instance(s) contain copies of that data.  The syncing process will run periodically to ensure changes made on the source instance are added to the destination instance.
