@@ -495,7 +495,7 @@ function Get-TargetIsScopedToProcess
             $hasEnvironmentScoping = $action.Environments.Count -gt 0
             if ($hasEnvironmentScoping -eq $true)
             {
-                foreach ($environment in $action.Envrionments)
+                foreach ($environment in $action.Environments)
                 {
                     if ($target.EnvironmentIds -contains $environment)
                     {
