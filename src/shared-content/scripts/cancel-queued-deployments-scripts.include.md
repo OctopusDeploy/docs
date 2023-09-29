@@ -63,7 +63,7 @@ try
     
     while (canContinue == true)
     {
-        // Get queued deployemnts
+        // Get queued deployments
         var queuedDeployments = client.List<TaskResource>(repositoryForSpace.Link("Tasks"), new { states = "Queued", name = "Deploy", take = "50", skip = "0"});
 
         // Loop through results
