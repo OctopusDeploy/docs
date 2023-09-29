@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Users and teams
-description: Octopus users can be organized in to teams and given various permissions via roles based security.  Teams can be further restricted to specific projects, environments and more.
+description: Octopus users can be organized into teams and given various permissions via roles based security.  Teams can be further restricted to specific projects, environments and more.
 navOrder: 60
 ---
 
