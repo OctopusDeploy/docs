@@ -1564,7 +1564,7 @@ func GetTargetIsScopedToDeploymentProcess(process *octopusdeploy.DeploymentProce
 				}
 
 				if hasExcludedEnvironmentScoping && !allEnvironmentsExcluded {
-					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were exucluded.  The target is associated with the process. \n")
+					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were excluded.  The target is associated with the process. \n")
 					return true
 				}
 			}
@@ -1632,7 +1632,7 @@ func GetTargetIsScopedToRunbookProcess(process *octopusdeploy.RunbookProcess, ta
 				}
 
 				if hasExcludedEnvironmentScoping && !allEnvironmentsExcluded {
-					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were exucluded.  The target is associated with the process. \n")
+					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were excluded.  The target is associated with the process. \n")
 					return true
 				}
 			}
