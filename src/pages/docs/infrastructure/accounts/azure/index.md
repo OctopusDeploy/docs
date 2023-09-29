@@ -133,7 +133,7 @@ if ($null -eq $ExistingApplication)
 }
 else 
 {
-    Write-Host "The azue service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
+    Write-Host "The azure service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
     New-AzADAppCredential -DisplayName "$AzureApplicationName" -Password $securePassword -EndDate $endDate     
     Write-Host "Azure Service Principal successfully password successfully created."
     $AzureApplicationId = $ExistingApplication.ApplicationId
@@ -614,7 +614,7 @@ if ($null -eq $ExistingApplication)
 }
 else 
 {
-    Write-OctopusVerbose "The azue service principal $AzureServicePrincipalName already exists, creating a new password for Octopus Deploy to use."        
+    Write-OctopusVerbose "The azure service principal $AzureServicePrincipalName already exists, creating a new password for Octopus Deploy to use."        
     New-AzADAppCredential -DisplayName "$AzureServicePrincipalName" -Password $securePassword -EndDate $endDate     
     Write-OctopusSuccess "Azure Service Principal successfully password successfully created."
     $AzureApplicationId = $ExistingApplication.ApplicationId
