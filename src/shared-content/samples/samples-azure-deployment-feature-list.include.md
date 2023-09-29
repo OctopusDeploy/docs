@@ -51,7 +51,7 @@
 **Target - PostgreSQL**
 
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1084/deployments/process" target="_blank">Flyway - Azure PaaS</a>: <i>Demonstrates how to perform automated database updates using Flyway against PostgreSQL. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
-- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1085/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a PosgreSQL container hosted in Azure using Liquibase. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildLiquibase)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1085/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a PostgreSQL container hosted in Azure using Liquibase. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildLiquibase)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-2144/deployments/process" target="_blank">Grate - Azure PaaS</a>
     
 **Target - Serverless**
