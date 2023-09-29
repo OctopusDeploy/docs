@@ -822,7 +822,7 @@ foreach (var project in projects)
 
 if(targetResults.Count == 0)
 {
-    Console.WriteLine(string.Format("The target {0} is not associated with any projects or runboks", target.Name));
+    Console.WriteLine(string.Format("The target {0} is not associated with any projects or runbooks", target.Name));
 }
 else
 {
