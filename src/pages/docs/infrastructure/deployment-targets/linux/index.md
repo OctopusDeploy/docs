@@ -38,7 +38,7 @@ The following platforms are explicitly supported (we run automated tests against
 
 - Ubuntu 18.04 LTS
 - Ubuntu 16.04 LTS
-- Redhat (RHEL) 7.2
+- Red Hat (RHEL) 7.2
 - Centos 7.7
 - Amazon Linux 2
 - Debian 9.12
