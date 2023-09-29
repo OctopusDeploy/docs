@@ -25,7 +25,7 @@ To add your SMTP configuration navigate to **Configuration ➜ SMTP** and set th
 | ------------------ | ------------------------------------   | ----------- |
 | SMTP Host          | The DNS hostname for your SMTP server. | smtp.yourmailserver.com |
 | SMTP Port          | The TCP port for your SMTP server.     | 25 |
-| Timeout            | The timeout for SMTP operations. Value is in miliseconds. | 12000 (12 seconds) |
+| Timeout            | The timeout for SMTP operations. Value is in milliseconds. | 12000 (12 seconds) |
 | Use SSL/TLS        | This option controls whether or not Octopus enforces using an SSL/TLS-wrapped connection. | True |
 | From Address       | The address which all emails will be sent 'From'. | octopus@mydomain.com |
 | Credentials        | Optional SMTP login / password if your SMTP server requires authentication. | mylogin@mydomain.com / SuperSecretPa$$word |
