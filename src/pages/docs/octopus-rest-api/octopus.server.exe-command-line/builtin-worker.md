@@ -30,7 +30,7 @@ Where [<options>] is any of:
                              The username for a user account the built-in
                                worker should use when executing custom scripts,
                                like 'octopus-worker' or 'octopus-
-                               worker@mycomany.com'. Default is to use the same
+                               worker@mycompany.com'. Default is to use the same
                                user account as the Octopus Server itself.
       --password=VALUE       The password for the custom account.
       --domain=VALUE         The domain for the custom account. This works
