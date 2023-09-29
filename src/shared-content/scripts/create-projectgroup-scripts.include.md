@@ -18,7 +18,7 @@ function Get-OctopusItems
     $skipQueryString = ""
     $headers = @{"X-Octopus-ApiKey"="$ApiKey"}
 
-    # Check to see if there there is already a querystring
+    # Check to see if there is already a querystring
     if ($octopusUri.Contains("?"))
     {
         $skipQueryString = "&skip="
