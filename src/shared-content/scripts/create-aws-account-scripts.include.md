@@ -15,7 +15,7 @@ function Get-OctopusItems
     $items = @()
     $headers = @{"X-Octopus-ApiKey"="$ApiKey"}
     
-    # Get intial set
+    # Get initial set
     $resultSet = Invoke-RestMethod -Uri "$($OctopusUri)?skip=$SkipCount" -Method GET -Headers $headers
 
     # Store call results

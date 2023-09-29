@@ -34,7 +34,7 @@ function Get-OctopusItems
 
     $skipQueryString += $SkipCount
     
-    # Get intial set
+    # Get initial set
     $resultSet = Invoke-RestMethod -Uri "$($OctopusUri)$skipQueryString" -Method GET -Headers $headers
 
     # Check to see if it returned an item collection
