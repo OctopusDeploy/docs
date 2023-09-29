@@ -46,7 +46,7 @@ When first setting up a POC or Hello World project you will become familiar with
 
 ## Pilot Phase Terms
 
-As you move on from the POC phase to the Pilot phase you should familarize yourself with these terms and concepts.
+As you move on from the POC phase to the Pilot phase you should familiarize yourself with these terms and concepts.
 
 - **Octopus Server**
     - **Task**: A unit of work performed by the Octopus Server.  A task can be a deployment, a machine health check, a runbook run, and more.  All tasks are dropped onto the task queue and picked up in a FIFO order (unless the task is scheduled to run at a specific time).
