@@ -1709,7 +1709,7 @@ def get_user_permission (space, project, user_role, project_permission_list, per
         return project_permission_list
 
     if len(existing_permission['Environments']) == 0 and len(existing_permission['Tenants']) == 0:
-        print ('{0} has no scoping for environments or tenants for this project, they have the highest level, no need to impove it.'.format(user['DisplayName']))
+        print ('{0} has no scoping for environments or tenants for this project, they have the highest level, no need to improve it.'.format(user['DisplayName']))
         return project_permission_list
 
     if len(existing_permission['Environments']) > 0 and len(new_permission['Environments']) == 0:
