@@ -142,11 +142,11 @@ Following this approach, you will have a time period with both an Octopus Server
 
 ### Export / Import the project
 
-Follow the instructions on [exporting and importing page](/docs/projects/export-import) to export and import a project.  Make a note of what is _not_ exported.  Releases and deployments are exported, but only "shells" (not the full deployment) to ensure any pre-existing releases can be promoted.
+Follow the instructions on [exporting and importing page](/docs/projects/export-import) to export and import a project.  Make a note of what is _not_ exported.  Releases and deployments are exported, but only "shells" (not the full deployment) to ensure any preexisting releases can be promoted.
 
 ### Upload any packages, project images, and reconfigure triggers
 
-As stated on the [export and import page](/docs/projects/export-import/#what-is-imported), packages, project images, and project triggers are **not exported**.  If you have any pre-existing releases you intend to promote and use the internal package feed; you'll need to manually upload packages associated with those releases.  You will also have to upload project images and reconfigure any triggers.
+As stated on the [export and import page](/docs/projects/export-import/#what-is-imported), packages, project images, and project triggers are **not exported**.  If you have any preexisting releases you intend to promote and use the internal package feed; you'll need to manually upload packages associated with those releases.  You will also have to upload project images and reconfigure any triggers.
 
 ### Copy or Create Deployment Targets
 

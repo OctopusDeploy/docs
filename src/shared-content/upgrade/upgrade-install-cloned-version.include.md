@@ -1,6 +1,6 @@
 ### Installing Octopus Deploy
 
-Run the MSI you downloaded to install Octopus Deploy.  Once the MSI is finished, the **Octopus Manager** will automatically launch.  Follow the wizard, and on the section where you configure the database, select the pre-existing database.
+Run the MSI you downloaded to install Octopus Deploy.  Once the MSI is finished, the **Octopus Manager** will automatically launch.  Follow the wizard, and on the section where you configure the database, select the preexisting database.
 
 :::figure
 ![](/docs/shared-content/upgrade/images/select-existing-database.png)

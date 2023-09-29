@@ -99,7 +99,7 @@ By default, Octopus Deploy will keep all releases on your Windows Server (this c
 2. If it hasn't been installed, then it will proceed with the deployment.
 3. If it is installed, it will skip the deployment but still set the output variable `Octopus.Action[STEP NAME].Output.Package.InstallationDirectoryPath`.
 
-The rollback process in this section will use that functionality to update IIS and the Windows Service registration to point to those older (pre-existing) folders.
+The rollback process in this section will use that functionality to update IIS and the Windows Service registration to point to those older (preexisting) folders.
 
 The resulting process will be:
 
@@ -132,7 +132,7 @@ The complex rollback process and simple rollback process have some overlap.  Ple
 1. Update Deploy OctoFX database to skip during rollback
 1. Add Block Release Progression step
 
-The primary difference between the simple and complex rollback process is the complex rollback process reuses the pre-existing extracted application.
+The primary difference between the simple and complex rollback process is the complex rollback process reuses the preexisting extracted application.
 
 ### Add System Variable to Skip Package Deployment
 

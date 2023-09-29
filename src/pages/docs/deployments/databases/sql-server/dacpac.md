@@ -28,7 +28,7 @@ With SSDT for Visual Studio installed you can connect the project to the databas
 3. Select **SQL Server Database Project** and click **Next**.
 4. Enter the project name and click **Create**.
 
-The project has been created, now we connect it to a database. This example uses a pre-existing database called OctoFXDemo:
+The project has been created, now we connect it to a database. This example uses a preexisting database called OctoFXDemo:
 
 1. Right-click the project name, then click **Import ➜ Database**.
 2. Click **Select Connection**.

@@ -84,7 +84,7 @@ Under the covers, the Octopus Server includes a [built-in worker](/docs/security
 
 Instead of running directly on the Octopus Server's built-in worker, you will need to offload that work onto Windows [workers](/docs/infrastructure/workers).  
 
-When you create your first worker, you will notice a pre-existing worker pool, `Default Worker Pool`.  When the `Default Worker Pool` does not have any workers, all tasks run configured to run on the Octopus Server run on the built-in worker.  The fastest way to change all the steps configured to run on the Octopus Server to run on a worker is to add a worker to the `Default Worker Pool`.  However, doing so is also the riskiest as you cause a lot of deployments to fail.
+When you create your first worker, you will notice a preexisting worker pool, `Default Worker Pool`.  When the `Default Worker Pool` does not have any workers, all tasks run configured to run on the Octopus Server run on the built-in worker.  The fastest way to change all the steps configured to run on the Octopus Server to run on a worker is to add a worker to the `Default Worker Pool`.  However, doing so is also the riskiest as you cause a lot of deployments to fail.
 
 Our recommendation is to keep that risk to a minimum.
 
@@ -180,6 +180,6 @@ Migrating to the Octopus Server Linux Container will require an outage window.  
 1. Shut down the existing Octopus Deploy instance.
 1. Perform a final file copy to pick up any new files.
 1. Start up the Octopus Server Linux Container.
-1. Perform some test deployments, verify you can view pre-existing deployment logs and runbook runs.  Verify all images appear.
+1. Perform some test deployments, verify you can view preexisting deployment logs and runbook runs.  Verify all images appear.
 1. Update any Octopus Server DNS entries.
 1. Disable Maintenance Mode.

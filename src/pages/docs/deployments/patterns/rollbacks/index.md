@@ -162,7 +162,7 @@ Generally, unless a showstopping bug is found, limit rollbacks to outage windows
 
 ## Staging Your Deployments
 
-In our experience, deployments (and rollbacks) have the highest chance of success when deployed to the target environment in a "staging" area on your production servers.  The deployment is then verified, and assuming verification passes, the "staging" area becomes live.  If there is a problem, the deployment is aborted, and all the pre-existing configuration remains untouched.
+In our experience, deployments (and rollbacks) have the highest chance of success when deployed to the target environment in a "staging" area on your production servers.  The deployment is then verified, and assuming verification passes, the "staging" area becomes live.  If there is a problem, the deployment is aborted, and all the preexisting configuration remains untouched.
 
 That is the core concept around deployment patterns:
 
