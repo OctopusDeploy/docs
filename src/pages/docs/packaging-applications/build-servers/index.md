@@ -37,7 +37,7 @@ The following tools are available to integrate your continuous integration/build
  - [Bamboo](/docs/packaging-applications/build-servers/bamboo)
  - [BitBucket Pipelines](/docs/packaging-applications/build-servers/bitbucket-pipelines)
  - [Continua CI](/docs/packaging-applications/build-servers/continua-ci)
- - [Github Actions](/docs/packaging-applications/build-servers/github-actions)
+ - [GitHub Actions](/docs/packaging-applications/build-servers/github-actions)
  - [Jenkins](/docs/packaging-applications/build-servers/jenkins)
  - [TeamCity](/docs/packaging-applications/build-servers/teamcity)
 

@@ -43,7 +43,7 @@ Under the `Package section`, define how the target package and the associated fi
  ![S3 target options](/docs/deployments/aws/s3/upload-s3-target-options.png)
 
 :::div{.hint}
-The [Github feed](/docs/packaging-applications/package-repositories/github-feeds) works well with the upload to S3 step when no build process is involved and content needs to be pushed to S3 and versioned separately.
+The [GitHub feed](/docs/packaging-applications/package-repositories/github-feeds) works well with the upload to S3 step when no build process is involved and content needs to be pushed to S3 and versioned separately.
 :::
 
 ### Entire package

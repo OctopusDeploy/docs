@@ -322,7 +322,7 @@ If this is configured correctly, it will return `200 OK`, and the message will a
 
 ### Build the Azure App Function
 
-This example uses [Github Actions](https://github.com/features/actions) to build the function code, package it, and push it to Octopus, which deploys it to Azure. 
+This example uses [GitHub Actions](https://github.com/features/actions) to build the function code, package it, and push it to Octopus, which deploys it to Azure. 
 
 :::figure
 ![Build output](/docs/administration/managing-infrastructure/subscriptions/images/github-action-build-output.png)

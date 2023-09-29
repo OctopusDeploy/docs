@@ -420,7 +420,7 @@ Migrations guides can be found on each [GitHub Action Integration Repo](https://
 
 ### New GitHub Actions
 
-The following GitHub actions have been created in collaboration with Github Action v3.
+The following GitHub actions have been created in collaboration with GitHub Action v3.
 
 ### Deploy Release
 

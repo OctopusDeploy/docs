@@ -1016,7 +1016,7 @@ On the other hand, the [NGINX Ingress Controller resource installation procedure
 Each of these different implementations is configured through the Ingress resource annotations. Annotations are key value pairs, and the values assigned to them depend on the Ingress resource that is being configured. The list below links to the documentation that describes the supported annotations.
 
 * [NGINX](https://oc.to/NginxIngressControllerAnnotations)
-* [Google Cloud](https://oc.to/GoogleCloudIngressControllerGithub)
+* [Google Cloud](https://oc.to/GoogleCloudIngressControllerGitHub)
 * [AWS](https://oc.to/AwsAlbAnnotations)
 
 A new annotation is defined by clicking the `Add Annotation` button.

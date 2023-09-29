@@ -21,7 +21,7 @@ import Related from '../components/Related.astro';
 import ArticleJourney from '../components/ArticleJourney.astro';
 import Title from '../components/Title.astro';
 import Feedback from '../components/Feedback.astro';
-import EditOnGithub from '../components/EditOnGithub.astro';
+import EditOnGitHub from '../components/EditOnGitHub.astro';
 import LastUpdated from '../components/LastUpdated.astro';
 import Plausible from 'src/components/Plausible.astro';
 
@@ -73,7 +73,7 @@ const site_features = SITE.featureFlags;
                         <Authors frontmatter={ frontmatter } lang={ lang } />
                         <Taxonomy frontmatter={ frontmatter } lang={ lang } />
                         <LastUpdated frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-                        <EditOnGithub frontmatter={ frontmatter } headings={ headings } lang={ lang } />
+                        <EditOnGitHub frontmatter={ frontmatter } headings={ headings } lang={ lang } />
                         {metaImage && <meta itemprop="image" content={ metaImage.src } />}
                     </div>
                 </article>
