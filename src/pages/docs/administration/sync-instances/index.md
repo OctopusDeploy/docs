@@ -25,7 +25,7 @@ Split and sync instances only when Octopus lacks a critical feature to satisfy a
 - A primary **Dev/Test/Staging/Production** instance with an isolated **Production** only instance for a set of targets to satisfy a contract requiring an instance hosted in Azure Gov.
 - A separate instance for a specific set of tenants.  Like the above use case, except all the environments are the same, only the tenants are different.
 
-The expectation is the source instance is the the source of truth and the destination instance(s) contain copies of that data.  The syncing process will run periodically to ensure changes made on the source instance are added to the destination instance.
+The expectation is the source instance is the source of truth and the destination instance(s) contain copies of that data.  The syncing process will run periodically to ensure changes made on the source instance are added to the destination instance.
 
 :::div{.hint}
 If you wish to do a one-time split of an instance and have no desire to keep anything in sync afterwards, then we recommend the [Export/Import Projects](/docs/projects/export-import) feature.  

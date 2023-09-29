@@ -124,7 +124,7 @@ else {
 Write-Host "Completed deletion of existing DNS for $dnsTag"
 ```
 
-The script will check to see if the DNS A record specified in the `Project.Azure.DNS.Tag` variable exists. If it does, it will proceed to delete the record using the the Azure CLI `remove-record` command. If it doesn't, it skips deleting any records.
+The script will check to see if the DNS A record specified in the `Project.Azure.DNS.Tag` variable exists. If it does, it will proceed to delete the record using the Azure CLI `remove-record` command. If it doesn't, it skips deleting any records.
 
 Configure any other settings for the step and click **Save**, and in just a few steps, we've created a runbook to automate the deletion of a DNS A record hosted in Azure.
 

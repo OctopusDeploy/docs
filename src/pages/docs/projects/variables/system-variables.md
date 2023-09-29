@@ -418,7 +418,7 @@ Example: *Acme Corp*
 
 `Octopus.Deployment.Tenant.Tags`
 
-Comma delimited list of tags that belong the the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present.
+Comma delimited list of tags that belong the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present.
 
 Example: *Tenant type/External, Upgrade ring/Early adopter*
 
