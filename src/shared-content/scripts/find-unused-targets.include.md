@@ -581,7 +581,7 @@ Console.WriteLine(string.Format("There are {0} cloud regions which are not count
 Console.WriteLine(string.Format("There are {0} disabled machines which are not counted", categorizedMachines.DisabledMachines.Count.ToString()));
 Console.WriteLine(string.Format("There are {0} duplicate listening Tentacles that are not counted (assuming you are using 2019.7.3+", categorizedMachines.DuplicateTentacles.Count.ToString()));
 Console.WriteLine(string.Empty);
-Console.WriteLine(string.Format("This leaves you with {0} active targets being counted against your licese (this process is excluding the {1} duplicates in that active count)", categorizedMachines.ActiveMachines.ToString(), categorizedMachines.DuplicateTentacles.Count.ToString()));
+Console.WriteLine(string.Format("This leaves you with {0} active targets being counted against your license (this process is excluding the {1} duplicates in that active count)", categorizedMachines.ActiveMachines.ToString(), categorizedMachines.DuplicateTentacles.Count.ToString()));
 Console.WriteLine(string.Format("Of that combined number, {0} are showing up as offline", categorizedMachines.OfflineMachines.Count.ToString()));
 Console.WriteLine(string.Format("Of that combined number, {0} have never had a deployment", categorizedMachines.UnusedMachines.Count.ToString()));
 Console.WriteLine(string.Format("Of that combined number, {0} haven't done a deployment in over {1} days", categorizedMachines.OldMachines.Count.ToString(), daysSinceLastDeployment));
