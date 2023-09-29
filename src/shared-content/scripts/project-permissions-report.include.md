@@ -406,7 +406,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -415,7 +415,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }

@@ -1280,7 +1280,7 @@ static System.Collections.Generic.List<string> GetEnvironmentsScopedToProject (P
             {
                 if (!scopedEnvironments.Contains(environmentId))
                 {
-                    Console.WriteLine(string.Format("Adding {0} to {1} environemnt list", environmentId, Project.Name));
+                    Console.WriteLine(string.Format("Adding {0} to {1} environment list", environmentId, Project.Name));
                     scopedEnvironments.Add(environmentId);
                 }
             }

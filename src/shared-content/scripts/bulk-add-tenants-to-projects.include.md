@@ -654,7 +654,7 @@ func main() {
 	// Get project reference
 	project := GetProject(apiURL, APIKey, space, projectName)
 
-	// Get envrionment ids
+	// Get environment ids
 	environments := []string{}
 	for i := 0; i < len(environmentNameList); i++ {
 		environment := GetEnvironment(apiURL, APIKey, space, environmentNameList[i])

@@ -436,7 +436,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-Host "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-Host "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -445,7 +445,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-Host "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-Host "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -583,9 +583,9 @@ foreach ($project in $projects)
     $targetHasMatchingEnvironment = $false
     
     # Loop through environments
-    foreach ($envronmentId in $projectEnvironments)
+    foreach ($environmentId in $projectEnvironments)
     {
-        if ($target.EnvironmentIds -contains $envronmentId)
+        if ($target.EnvironmentIds -contains $environmentId)
         {
             $targetHasMatchingEnvironment = $true
             break
@@ -876,7 +876,7 @@ static System.Collections.Generic.List<string> GetEnvironmentsScopedToProject(Pr
             {
                 if (!scopedEnvironments.Contains(environmentId))
                 {
-                    Console.WriteLine(string.Format("Adding {0} to {1} environemnt list", environmentId, Project.Name));
+                    Console.WriteLine(string.Format("Adding {0} to {1} environment list", environmentId, Project.Name));
                     scopedEnvironments.Add(environmentId);
                 }
             }
@@ -946,11 +946,11 @@ static bool GetTargetIsScopedToProcess(Octopus.Client.Model.IProcessResource pro
                     if(hasExcludedEnvironmentScoping)
                     {
                         System.Collections.Generic.List<string> environmentsTargetCanStillDeployTo = new System.Collections.Generic.List<string>();
-                        foreach (var environmetnId in target.EnvironmentIds)
+                        foreach (var environmentId in target.EnvironmentIds)
                         {
-                            if ((!action.ExcludedEnvironments.Contains(environmetnId)) && (projectEnvironmentList.Contains(environmetnId)))
+                            if ((!action.ExcludedEnvironments.Contains(environmentId)) && (projectEnvironmentList.Contains(environmentId)))
                             {
-                                environmentsTargetCanStillDeployTo.Add(environmetnId);
+                                environmentsTargetCanStillDeployTo.Add(environmentId);
                             }
                         }
 
