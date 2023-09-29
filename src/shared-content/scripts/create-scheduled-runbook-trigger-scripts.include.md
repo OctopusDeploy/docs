@@ -180,7 +180,7 @@ using Octopus.Client.Model;
 var octopusURL = "https://your.octopus.app";
 var octopusAPIKey = "API-YOURAPIKEY";
 
-// Define workig variables
+// Define working variables
 string spaceName = "default";
 string projectName = "MyProject";
 string runbookName = "MyRunbook";
