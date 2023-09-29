@@ -316,7 +316,7 @@ foreach ($project in $projects)
             {
                 foreach ($action in $step.Actions)
                 {
-                    foreach ($proprety in $action.Properties.Keys)
+                    foreach ($property in $action.Properties.Keys)
                     {
                         if ($action.Properties[$property].Value -like "*$variableToFind*")
                         {
