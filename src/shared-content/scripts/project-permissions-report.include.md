@@ -239,7 +239,7 @@ function Get-UserPermission
         {
             if ($projectEnvironmentList -notcontains $environmentId)
             {
-                Write-OctopusVerbose "The role is scoped to environment $environmentId, but the environment is not asigned to $($project.Name), excluding from this project's report"
+                Write-OctopusVerbose "The role is scoped to environment $environmentId, but the environment is not assigned to $($project.Name), excluding from this project's report"
                 continue
             }
 
