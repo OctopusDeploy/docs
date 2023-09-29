@@ -960,7 +960,7 @@ static bool GetTargetIsScopedToProcess(Octopus.Client.Model.IProcessResource pro
 
                 if (!hasEnvironmentScoping && !hasExcludedEnvironmentScoping)
                 {
-                    Console.WriteLine(string.Format("Target role matches the step and no step scopoing was configured, target is associated with process."));
+                    Console.WriteLine(string.Format("Target role matches the step and no step scoping was configured, target is associated with process."));
                     return true;
                 }
 
