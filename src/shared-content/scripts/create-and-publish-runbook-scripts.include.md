@@ -159,7 +159,7 @@ var project = spaceRepository.Projects.FindByName(projectName);
 // Get runbook
 var runbook = spaceRepository.Runbooks.FindByName(project, runbookName);
 
-// Get runbook snapshot tempalte
+// Get runbook snapshot template
 var runbookSnapshotTemplate = spaceRepository.Runbooks.GetRunbookSnapshotTemplate(runbook);
 
 // Create runbook snapshot
