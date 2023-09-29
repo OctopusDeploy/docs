@@ -117,7 +117,7 @@ Sensitive values are always encrypted at rest.
 
 When you export data you will be asked to provide a password, and your secrets will be decrypted using the source server's Master Key, then re-encrypted into the exported files using the password you provided as the key.
 
-Now when you import data you will be asked to provide the same password so your secrets can be decrypted from the files and imported into the target server to be re-encypted using its Master Key.
+Now when you import data you will be asked to provide the same password so your secrets can be decrypted from the files and imported into the target server to be re-encrypted using its Master Key.
 
 ### Can I track my Octopus configuration using source control?
 
