@@ -76,7 +76,7 @@ The login was not completed in a reasonable amount of time.
 
 This can happen if no credentials where supplied with the step, and silent authentication failed.
 
-Either supply credentials to be used, or ensure that the user performing the deployment (the Tentacle service user in Windows or the SSH user in Linux and MacOS) has access to the application server `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory.
+Either supply credentials to be used, or ensure that the user performing the deployment (the Tentacle service user in Windows or the SSH user in Linux and macOS) has access to the application server `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory.
 
 Also ensure that the hostname and port are correct. You should be able to open the admin console using these details.
 
@@ -225,29 +225,29 @@ Failed to generate a unique file.
 ## TOMCAT-HTTPS-ERROR-0013
 The server.xml file was not valid XML, or was not accessible.
 
-Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to read the server.xml file.
+Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/macOS has permissions to read the server.xml file.
 
 ## TOMCAT-HTTPS-ERROR-0014
 Failed to save the server.xml file.
 
-Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to write to the server.xml file.
+Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/macOS has permissions to write to the server.xml file.
 
 ## TOMCAT-HTTPS-ERROR-0016
 The private key could not be created.
 
-Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to create files in the Tomcat `conf` directory.
+Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/macOS has permissions to create files in the Tomcat `conf` directory.
 
 ## TOMCAT-HTTPS-ERROR-0017
 The public key could not be created.
 
-Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to create files in the Tomcat `conf` directory.
+Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/macOS has permissions to create files in the Tomcat `conf` directory.
 
 ## TOMCAT-HTTPS-ERROR-0018
 Failed to find the `lib/catalina.jar` file in the Tomcat directory.
 
 Make sure the Tomcat installation path is correct.
 
-Also check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions list the Tomcat `lib` directory, and has read access to the `lib/catalina.jar` file.
+Also check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/macOS has permissions list the Tomcat `lib` directory, and has read access to the `lib/catalina.jar` file.
 
 ## TOMCAT-HTTPS-ERROR-0019
 The path defined to hold the keys does not exist.
@@ -408,7 +408,7 @@ The path supplied as the location of a unique file does not exist.
 ## JAVA-HTTPS-ERROR-0005
 Failed to create the keystore file.
 
-Ensure that the user running the Tentacle service for a Windows target or the SSH account Octopus uses to connect to the Linux or MacOS target has permissions to create a new file, or overwrite the existing file, at the configured path.
+Ensure that the user running the Tentacle service for a Windows target or the SSH account Octopus uses to connect to the Linux or macOS target has permissions to create a new file, or overwrite the existing file, at the configured path.
 
 ## KEYSTORE-ERROR-0001
 An exception was thrown during the deployment of the Java keystore.

@@ -158,7 +158,7 @@ You have two options for authenticating with WildFly and JBoss EAP servers.
 
 The easiest solution is to use [silent authentication](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/how_to_configure_server_security/securing_the_server_and_its_interfaces#silent-auth). Silent authentication allows local users to log into the management API without supplying any credentials, and because Octopus typically executes a deployment from the same machine that is hosting the application server, it is treated as a local user.
 
-To take advantage of silent authentication, the user running the Octopus deployment on the target machine (i.e the user assigned to the Tentacle service in Windows or the SSH user in Linux or MacOS) must have access to the `auth`  directory inside the directory defined by the `jboss.server.temp.dir` variable. By default this directory will be located at `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth`.
+To take advantage of silent authentication, the user running the Octopus deployment on the target machine (i.e the user assigned to the Tentacle service in Windows or the SSH user in Linux or macOS) must have access to the `auth`  directory inside the directory defined by the `jboss.server.temp.dir` variable. By default this directory will be located at `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth`.
 
 The second option is to use the application server `add-user` script to create a new user, and use these credentials in the Octopus deployment steps.
 

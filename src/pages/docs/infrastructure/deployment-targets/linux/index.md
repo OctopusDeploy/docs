@@ -43,7 +43,7 @@ The following platforms are explicitly supported (we run automated tests against
 - Amazon Linux 2
 - Debian 9.12
 - Fedora 23
-- MacOS 12.6.3
+- macOS 12.6.3
 - openSUSE 15.1
 - SUSE LES 12 SP5
 - FreeBSD 11.3

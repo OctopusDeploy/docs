@@ -27,7 +27,7 @@ Octopus Deploy has several custom GitHub Actions available:
 All of the Actions are compatible with following runner types:
 
 - Windows
-- MacOS
+- macOS
 - Linux
 - Self-Hosted Runners
 
