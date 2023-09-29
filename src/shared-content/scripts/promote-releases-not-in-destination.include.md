@@ -477,8 +477,8 @@ for project_name in project_name_list:
         print('The destination has no releases, promoting')
         can_promote = True
 
-    last_destination_depoloyment_task = destination_task_list[0]
-    last_destination_deployment_id = last_destination_depoloyment_task['Arguments']['DeploymentId']
+    last_destination_deployment_task = destination_task_list[0]
+    last_destination_deployment_id = last_destination_deployment_task['Arguments']['DeploymentId']
 
     print('The deployment Id of the last deployment for {0} to {1} is {2}'.format(project['Name'], destination_environment['Name'], last_destination_deployment_id))
 
