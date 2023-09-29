@@ -901,7 +901,7 @@ Example: *PowerShell*
 
 `Octopus.Action.SkipRemainingConventions`
 
-If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables). e.g. <br /> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'`
+If set by the user, completes processing of the action without running further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables). e.g. <br /> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'`
 
 Example: *True*
 
