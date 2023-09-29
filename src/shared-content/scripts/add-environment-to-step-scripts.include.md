@@ -32,7 +32,7 @@ $step = $deploymentProcess.Steps | Where-Object {$_.Name -eq $stepName}
 # Loop through the actions of the step and apply environment(s)
 foreach ($action in $step.Actions)
 {
-    # Add/upate environment(s)
+    # Add/update environment(s)
     $action.Environments += $environments.Id
 }
 
