@@ -12,7 +12,7 @@ Octopus supports the deployment of Kubernetes resources through the **Kustomize*
 This step allows you to source your **Kustomize** files from git, perform variable substitutions based on your environment and/or tenant and finally apply the changes to your Kubernetes clusters.
 
 :::figure
-![Kustomize step](/docs/deployments/kubernetes/kustomize/kustomise-step.png)
+![Kustomize step](/docs/deployments/kubernetes/kustomize/kustomize-step.png)
 :::
 
 [Kustomize](https://kustomize.io) introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications.
