@@ -28,7 +28,7 @@ $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Heade
 # Open file stream
 $fileStream = New-Object System.IO.FileStream($packageFile, [System.IO.FileMode]::Open)
 
-# Create dispositon object
+# Create disposition object
 $contentDispositionHeaderValue = New-Object System.Net.Http.Headers.ContentDispositionHeaderValue "form-data"
 $contentDispositionHeaderValue.Name = "fileData"
 $contentDispositionHeaderValue.FileName = [System.IO.Path]::GetFileName($packageFile)
