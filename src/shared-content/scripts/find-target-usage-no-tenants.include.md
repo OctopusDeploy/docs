@@ -1092,7 +1092,7 @@ def get_target_is_scoped_to_process (process, target, project_environment_list):
                     all_environments_excluded = len(environments_target_can_still_deploy_to) == 0
 
             if has_environment_scoping == False and has_excluded_environment_scoping == False:
-                print("Target role matches the step and no step scoping was configurd, target is associated with process")
+                print("Target role matches the step and no step scoping was configured, target is associated with process")
                 return True
 
             if has_excluded_environment_scoping == True and all_environments_excluded == False:
