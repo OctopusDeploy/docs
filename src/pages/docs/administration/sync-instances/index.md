@@ -51,7 +51,7 @@ In talking to users, the primary reason for splitting an instance is due to perm
 Another reason we hear about is needing an approval process for changes to the deployment process.  Please see our [config as code feature](/docs/projects/version-control) as that integrates with git, which allows for branching and pull requests.  
 
 ### Performance improvement
-The final reason reason we hear about is to "speed up the deployment."  Typically we hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
+The final reason we hear about is to "speed up the deployment."  Typically we hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
 
 - If package acquisition is taking a long time to transfer to the targets, consider:
     - Enabling [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers) to reduce the amount of data to transfer.  
