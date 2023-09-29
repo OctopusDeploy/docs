@@ -75,7 +75,7 @@ Once the migration is complete, click **Done**. The project will reload, and you
 
 ### Merge variables to the default branch
 
-If you migrated the variables to any branch other than the default, be sure merge the variables to the default branch immediately. The variables are now just like any other file in your Git respository, so follow your typical Git workflows to get this merged.
+If you migrated the variables to any branch other than the default, be sure merge the variables to the default branch immediately. The variables are now just like any other file in your Git repository, so follow your typical Git workflows to get this merged.
 
 ### Update any other branches
 
