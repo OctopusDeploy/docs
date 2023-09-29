@@ -383,7 +383,7 @@ foreach ($tenant in $tenants)
         }
         else
         {
-            # Update tenenat
+            # Update tenant
             $client.Tenants.Modify($tenant)
         }
 
