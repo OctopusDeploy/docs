@@ -198,6 +198,6 @@ To resolve this issue, open Active Directory Administrative Center for the domai
 
 ## Integrated authentication across domains not working {#Integrated}
 
-Octopus Server `2020.1.x` has a known issue with users signing in across domains. The underlying cause relates to server moving from .NET Framework (HttpListener) to .NET Core (HttpSys). For more information about the issue, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/6265). For confguration guidelines and troubleshooting integrated authentication, see our [Active Directory authentication](/docs/security/authentication/active-directory) guide.
+Octopus Server `2020.1.x` has a known issue with users signing in across domains. The underlying cause relates to server moving from .NET Framework (HttpListener) to .NET Core (HttpSys). For more information about the issue, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/6265). For configuration guidelines and troubleshooting integrated authentication, see our [Active Directory authentication](/docs/security/authentication/active-directory) guide.
 
 For users on a different domain to the domain the Octopus Server is a member of, the workaround is to use forms authentication instead of the `Sign in with a domain account` button. As of `2020.1.7` the server will detect this issue when users attempt to sign in across domains, and it will provide guidance to those users who are impacted.
