@@ -218,10 +218,10 @@ func main() {
 	// Get reference to space
 	space := GetSpace(apiURL, APIKey, spaceName)
 
-	// Get referece to project
+	// Get reference to project
 	project := GetProject(apiURL, APIKey, space, projectName)
 
-	// Get referece to libraryset
+	// Get reference to libraryset
 	librarySet := GetLibrarySet(apiURL, APIKey, space, librarySetName, 0)
 
 	// Add set to project
