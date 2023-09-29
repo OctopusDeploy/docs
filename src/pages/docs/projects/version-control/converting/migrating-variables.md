@@ -29,7 +29,7 @@ If you can view a value on the variables page (and it's not shown as a password 
 
 ### Coordinate with your team
 
-After you have run the migration, you will be unable to read variables from any Git reference (branch, tag, or commit) that does not contain a valid `variables.ocl` file. This will cause failues when viewing and editing variables, creating releases, and running runbooks using those references until they're updated.
+After you have run the migration, you will be unable to read variables from any Git reference (branch, tag, or commit) that does not contain a valid `variables.ocl` file. This will cause failures when viewing and editing variables, creating releases, and running runbooks using those references until they're updated.
 
 The migration process only writes the variables to a single branch. To continue using variables in any other branches, you will need to merge that migration branch with your other branches to continue using them in Octopus. If this may disrupt your team, plan ahead and find a suitable time to migrate and merge.
 
