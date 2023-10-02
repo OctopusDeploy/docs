@@ -1,0 +1,16 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "astro"
+    ],
+    "flagWords": [
+        "hte"
+    ],
+    "ignorePaths": [
+        "package.json",
+        "package-lock.yaml",
+        "pnpm-lock.yaml",
+        "node_modules/**"
+    ]
+}
