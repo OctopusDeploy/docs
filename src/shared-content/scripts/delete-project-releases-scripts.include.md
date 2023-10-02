@@ -82,7 +82,7 @@ catch
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-YOURAPIKEY";
 string spaceName = "default";
@@ -327,7 +327,7 @@ func GetProjectReleases(octopusURL *url.URL, APIKey string, space *octopusdeploy
 		itemsPerPage := int(fltItemsPerPage)
 
 		if len(returnedReleases["Items"].([]interface{})) == itemsPerPage {
-			// Increment skip accoumt
+			// Increment skip amount
 			skipAmount += len(returnedReleases["Items"].([]interface{}))
 
 			// Make request

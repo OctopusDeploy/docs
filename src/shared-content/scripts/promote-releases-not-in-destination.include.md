@@ -95,7 +95,7 @@ foreach ($projectName in $splitProjectList)
     $projectId = $project.Id
     Write-Host "The project id for project name $projectName is $projectId"
 
-    Write-Host "I have all the Ids I need, I am going to find the most recent sucesseful deployment now to $sourceEnvironmentName"
+    Write-Host "I have all the Ids I need, I am going to find the most recent successful deployment now to $sourceEnvironmentName"
     $taskList = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $apiKey -method "GET" -spaceId $null -item $null -endPoint "tasks?skip=0&environment=$($sourceEnvironmentId)&project=$($projectId)&name=Deploy&states=Success&spaces=$spaceId&includeSystem=false"
     if ($taskList.Items.Count -eq 0)
     {
@@ -112,7 +112,7 @@ foreach ($projectName in $splitProjectList)
     Write-Host "The release id for $deploymentId is $releaseId"
 
     $canPromote = $false
-    Write-Host "I have all the Ids I need, I am going to find the most recent sucesseful deployment now to $destinationEnvironmentName"
+    Write-Host "I have all the Ids I need, I am going to find the most recent successful deployment now to $destinationEnvironmentName"
     $destinationTaskList = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $apiKey -method "GET" -spaceId $null -item $null -endPoint "tasks?skip=0&environment=$($destinationEnvironmentId)&project=$($projectId)&name=Deploy&states=Success&spaces=$spaceId&includeSystem=false"
     
     if ($destinationTaskList.Items.Count -eq 0)
@@ -182,7 +182,7 @@ $destinationEnvironmentName = "Test"
 $projectNameList = @("MyProject")
  
 
-# Establish a conneciton0
+# Establish a connection
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 $client = New-Object Octopus.Client.OctopusClient($endpoint)
@@ -204,7 +204,7 @@ foreach ($name in $projectNameList)
     $project = $repositoryForSpace.Projects.FindByName($name)
 
     Write-Host "The project Id for project name $name is $($project.Id)"
-    Write-Host "I have all the Ids I need, I am going to find the most recent sucesseful deployment now to $sourceEnvironmentName"
+    Write-Host "I have all the Ids I need, I am going to find the most recent successful deployment now to $sourceEnvironmentName"
 
     # Get the deployment tasks associated with this space, project, and environment
     $taskList = $repositoryForSpace.Deployments.FindBy(@($project.Id), @($sourceEnvironment.Id), 0, $null).Items | Where-Object {$repositoryForSpace.Tasks.Get($_.TaskId).State -eq [Octopus.Client.Model.TaskState]::Success}
@@ -245,7 +245,7 @@ foreach ($name in $projectNameList)
 
     if ($lastDestinationDeploymentTask.ReleaseId -ne $lastDeploymentTask.ReleaseId)
     {
-        Write-Host "The releases on teh source and destination don't match, promoting"
+        Write-Host "The releases on the source and destination don't match, promoting"
         $canPromote = $true
     }
     else
@@ -468,7 +468,7 @@ for project_name in project_name_list:
 
     can_promote = False
 
-    print ('I have all the Ids I need, I am going to find the most recent successfule deployment to {0}'.format(destination_environment['Name']))
+    print ('I have all the Ids I need, I am going to find the most recent successful deployment to {0}'.format(destination_environment['Name']))
 
     uri = '{0}/api/tasks?environment={1}&project={2}&name=Deploy&states=Success&spaces={3}&includesystem=false'.format(octopus_server_uri, destination_environment['Id'], project['Id'], space['Id'])
     destination_task_list = get_octopus_resource(uri, headers)
@@ -477,8 +477,8 @@ for project_name in project_name_list:
         print('The destination has no releases, promoting')
         can_promote = True
 
-    last_destination_depoloyment_task = destination_task_list[0]
-    last_destination_deployment_id = last_destination_depoloyment_task['Arguments']['DeploymentId']
+    last_destination_deployment_task = destination_task_list[0]
+    last_destination_deployment_id = last_destination_deployment_task['Arguments']['DeploymentId']
 
     print('The deployment Id of the last deployment for {0} to {1} is {2}'.format(project['Name'], destination_environment['Name'], last_destination_deployment_id))
 
@@ -490,7 +490,7 @@ for project_name in project_name_list:
     print('The release Id for the last deployment to the destination is {0}'.format(last_destination_release_id))
 
     if last_destination_release_id != last_source_release_id:
-        print('The releases on teh source and destination do not match, promoting')
+        print('The releases on the source and destination do not match, promoting')
         can_promote = True
     else:
         print('Nothing to promote for {0}'.format(project['Name']))

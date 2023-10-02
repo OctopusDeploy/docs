@@ -416,7 +416,7 @@ public static void AddAzureLogins(string OctopusUrl, string ApiKey, string Path 
     Console.WriteLine(string.Format("Force: {0}", Force.ToString()));
     Console.WriteLine(string.Format("WhatIf: {0}", WhatIf.ToString()));
 
-    // Check to see url is emtpy
+    // Check to see url is empty
     if (!string.IsNullOrWhiteSpace(OctopusUrl))
     {
         // Remove trailing /

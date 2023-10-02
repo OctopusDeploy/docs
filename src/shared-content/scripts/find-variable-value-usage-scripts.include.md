@@ -46,7 +46,7 @@ foreach ($variableSet in $variableSets.Items)
                 MatchType = "Value in Library Set"
                 Context = $match.Value
                 Property = $null
-                AddtionalContext = $match.Name
+                AdditionalContext = $match.Name
             }
             $variableTracking += $result
         }
@@ -141,7 +141,7 @@ foreach ($variableSet in $variableSets)
                 MatchType = "Value in Library Set"
                 Context = $match.Value
                 Property = $null
-                AddtionalContext = $match.Name
+                AdditionalContext = $match.Name
             }
             $variableTracking += $result
         }
@@ -584,13 +584,13 @@ func main() {
 		}
 	}
 
-	// Get variablesets
+	// Get variable sets
 	variableSets, err := client.LibraryVariableSets.GetAll()
 	if err != nil {
 		log.Println(err)
 	}
 
-	// Loop through variablesets
+	// Loop through variable sets
 	for _, variableSet := range variableSets {
 		fmt.Printf("Checking library set: %[1]s \n", variableSet.Name)
 		// Get variables for set

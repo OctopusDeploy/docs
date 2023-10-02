@@ -41,7 +41,7 @@ The next sections explains how to configure a service account to be authorized t
 
 #### Create project variables {#gcp-project-variables}
 
-We'll use project [variables](/docs/projects/variables/) to authorize the gcloud CLI with Google Cloud with the the help of a Powershell function included in a [Script module](/docs/deployments/custom-scripts/script-modules).
+We'll use project [variables](/docs/projects/variables/) to authorize the gcloud CLI with Google Cloud with the help of a Powershell function included in a [Script module](/docs/deployments/custom-scripts/script-modules).
 
 Create two [sensitive variables](/docs/projects/variables/sensitive-variables), one for the service account email, and the other will contain the service account key. This is a JSON payload you obtain when creating the service account in Google Cloud:
 

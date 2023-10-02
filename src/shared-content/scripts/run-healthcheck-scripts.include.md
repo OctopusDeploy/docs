@@ -115,7 +115,7 @@ catch
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-YOURAPIKEY";
 var spaceName = "Default";

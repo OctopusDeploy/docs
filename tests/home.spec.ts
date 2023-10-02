@@ -27,7 +27,7 @@ test('Crawl for bad URIs', async () => {
       const text = await response.text();
       await handleHtmlDocument(text);
     } catch(error) {
-      expect(`Failed to featch ${url} due to ${error}`).toBe('');
+      expect(`Failed to fetch ${url} due to ${error}`).toBe('');
     }
 
     await crawlImages(url);

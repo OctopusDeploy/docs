@@ -220,7 +220,7 @@ foreach ($project in $projects)
 {
     Write-Host "Checking $($project.Name)"
     
-    # Get varaible set
+    # Get variable set
     $projectVariableSet = $repositoryForSpace.VariableSets.Get($project.VariableSetId)
     
     # Find any name matches
@@ -316,7 +316,7 @@ foreach ($project in $projects)
             {
                 foreach ($action in $step.Actions)
                 {
-                    foreach ($proprety in $action.Properties.Keys)
+                    foreach ($property in $action.Properties.Keys)
                     {
                         if ($action.Properties[$property].Value -like "*$variableToFind*")
                         {
@@ -878,7 +878,7 @@ func main() {
 								result.Context = step.Name
 								result.Property = property
 								result.AdditionalContext = ""
-								result.Link = apiURL.String() + project.Links["Web"] + "/deployments/process/stesp?actionId=" + action.ID
+								result.Link = apiURL.String() + project.Links["Web"] + "/deployments/process/steps?actionId=" + action.ID
 
 								if !arrayContains(variableTracking, result) {
 									variableTracking = append(variableTracking, result)

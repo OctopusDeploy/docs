@@ -72,7 +72,7 @@ Write-Host "Published runbook snapshot: $($runbookPublishedSnapshot.Id) ($($runb
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 $octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKeyu"
+$octopusAPIKey = "API-YourAPIKey"
 $spaceName = "Default"
 $projectName = "MyProject"
 $runbook = "MyRunbook"
@@ -159,7 +159,7 @@ var project = spaceRepository.Projects.FindByName(projectName);
 // Get runbook
 var runbook = spaceRepository.Runbooks.FindByName(project, runbookName);
 
-// Get runbook snapshot tempalte
+// Get runbook snapshot template
 var runbookSnapshotTemplate = spaceRepository.Runbooks.GetRunbookSnapshotTemplate(runbook);
 
 // Create runbook snapshot
@@ -367,7 +367,7 @@ func main() {
 		runbookSnapshot.SelectedPackages = append(runbookSnapshot.SelectedPackages, selectedPackage)
 	}
 
-	// Create new snapshop
+	// Create new snapshot
 	runbookSnapshotId := CreateRunbookSnapshot(apiURL, APIKey, space, runbookSnapshot)
 
 	// Publish snapshot

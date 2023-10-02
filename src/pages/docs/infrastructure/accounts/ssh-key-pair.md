@@ -77,7 +77,7 @@ chmod 600 ~/.ssh/authorized_keys
 
 7. Copy the private key to the machine your Octopus Server is installed on.
 
-Proceed to [creating the the SSH key pair account](#SSHKeyPair-Creatingtheaccount).
+Proceed to [creating the SSH key pair account](#SSHKeyPair-Creatingtheaccount).
 
 If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
 

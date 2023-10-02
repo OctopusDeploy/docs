@@ -383,7 +383,7 @@ foreach ($tenant in $tenants)
         }
         else
         {
-            # Update tenenat
+            # Update tenant
             $client.Tenants.Modify($tenant)
         }
 
@@ -654,7 +654,7 @@ func main() {
 	// Get project reference
 	project := GetProject(apiURL, APIKey, space, projectName)
 
-	// Get envrionment ids
+	// Get environment ids
 	environments := []string{}
 	for i := 0; i < len(environmentNameList); i++ {
 		environment := GetEnvironment(apiURL, APIKey, space, environmentNameList[i])
@@ -667,7 +667,7 @@ func main() {
 	// Get tenants
 	tenants := GetTenantsByTag(apiURL, APIKey, space, tenantTag)
 
-	// Loop through teneants
+	// Loop through tenants
 	for i := 0; i < len(tenants); i++ {
 		tenantUpdated := false
 		if len(tenants[i].ProjectEnvironments) == 0 {

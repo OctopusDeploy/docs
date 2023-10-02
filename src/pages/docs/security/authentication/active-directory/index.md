@@ -201,11 +201,11 @@ To set trusted sites via GPO:
 1. Select **Automatic logon with current username and password**.
 1. Click **OK** 
 
-That is all the is needed for kerberos to be used as the logon method when using intergrated sign-in or Forms-based authentication.
+That is all the is needed for kerberos to be used as the logon method when using integrated sign-in or Forms-based authentication.
 
 
 ## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
-Octopus alllows users to sign in by entering their Active Directory credentials to login. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
+Octopus allows users to sign in by entering their Active Directory credentials to login. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
 
 :::figure
 ![Login Screen](/docs/security/authentication/active-directory/images/activedirectory-forms.png)

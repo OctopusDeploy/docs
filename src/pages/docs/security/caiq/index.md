@@ -341,7 +341,7 @@ CAIQ ID: **IAM-08.1**
 
 > Do you document how you grant, approve and enforce access restrictions to tenant/customer credentials following the rules of least privilege?
 
-Yes. We do not grant access to customer credentials. In support scenarios we have automated processes that grant authorized engineers access to a tenant. In these cases access is stricly audited and visible to our customer.
+Yes. We do not grant access to customer credentials. In support scenarios we have automated processes that grant authorized engineers access to a tenant. In these cases access is strictly audited and visible to our customer.
 
 ### User Access Reviews
 

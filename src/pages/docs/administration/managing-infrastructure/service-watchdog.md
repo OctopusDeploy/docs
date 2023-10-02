@@ -71,7 +71,7 @@ Octopus Server and Tentacle will generally endeavor to write all log entries to 
 The default log file location is therefore **C:\Windows\System32\config\systemprofile\AppData\Local\Octopus\Logs**
 :::
 
-This is only for information related to which instances the the watchdog attempted to start, and any errors it received while trying to start the windows services.  Any instance specific errors will still be located in the instance's log file.
+This is only for information related to which instances the watchdog attempted to start, and any errors it received while trying to start the windows services.  Any instance specific errors will still be located in the instance's log file.
 
 ### Tentacle vs Octopus Server {#ServiceWatchdog-TentaclevsOctopusServer}
 

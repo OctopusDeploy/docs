@@ -92,7 +92,7 @@ foreach ($environmentName in $environments) {
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://youroctopus.octopus.app";
 var octopusAPIKey = "API-YOURAPIKEY";
 

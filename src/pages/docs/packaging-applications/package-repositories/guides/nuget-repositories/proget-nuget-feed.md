@@ -7,7 +7,7 @@ description: Configuring a ProGet NuGet repository as an Octopus feed.
 navOrder: 60
 ---
 
-ProGet from Inedo is an package repository technology which contains a number of differnet feed types.  This guide provides instructions on how to create a NuGet feed in ProGet and connect it to Octopus Deploy as an External Feed.
+ProGet from Inedo is an package repository technology which contains a number of different feed types.  This guide provides instructions on how to create a NuGet feed in ProGet and connect it to Octopus Deploy as an External Feed.
 
 ## Configuring a ProGet NuGet feed
 
