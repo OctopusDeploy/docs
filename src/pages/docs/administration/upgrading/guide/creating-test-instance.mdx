@@ -6,6 +6,7 @@ title: Creating a test instance
 description: A guide on how to create a test instance with Octopus Deploy
 navOrder: 8
 ---
+import UpgradeFindAndBackupMasterKey from 'src/shared-content/upgrade/upgrade-find-and-backup-master-key.md';
 import UpgradeOctopusBackupDatabase from 'src/shared-content/upgrade/upgrade-octopus-backup-database.include.md';
 import UpgradeTestingUpgradedInstance from 'src/shared-content/upgrade/upgrade-testing-upgraded-instance.include.md';
 import UpgradeRestoreBackup from 'src/shared-content/upgrade/upgrade-restore-backup.include.md';
@@ -71,6 +72,7 @@ Configuring a clone typically takes much more time and compute resources.  There
 
 Creating a clone of an existing instance involves:
 
+1. Finding and backing up your Master Key.
 1. Enabling maintenance mode on the main instance.
 1. Backing up the database of the main instance.
 1. Disabling maintenance mode on the main instance.
@@ -82,6 +84,8 @@ Creating a clone of an existing instance involves:
 1. Download the latest version of Octopus Deploy.
 1. Upgrade the test instance to the latest version of Octopus Deploy.
 1. Test and verify the test instance.
+
+<UpgradeFindAndBackupMasterKey />
 
 <UpgradeOctopusBackupDatabase />
 
