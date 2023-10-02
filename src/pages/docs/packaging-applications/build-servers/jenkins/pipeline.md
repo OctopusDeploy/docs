@@ -96,7 +96,7 @@ The package selection can also be done using ANT glob patterns.
 
 ### Multiple paths
 
-The `packagePaths` parameter also supports multiple values from the above options seperated by a `\n` character.
+The `packagePaths` parameter also supports multiple values from the above options separated by a `\n` character.
  - `packagePaths: "artifacts/package1/Package1.0.0.${BUILD_NUMBER}.zip\nartifacts/package2/Package2.0.0.${BUILD_NUMBER}.zip"`
 
 ## Push package info {#build-information}

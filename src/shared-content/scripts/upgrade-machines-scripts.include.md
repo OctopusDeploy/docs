@@ -301,7 +301,7 @@ func GetMachines(client *octopusdeploy.Client, machineNames []string, environmen
 
 	machines := []*octopusdeploy.DeploymentTarget{}
 
-	// Chech to see if array is emtpy
+	// Check to see if array is empty
 	if len(machineNames) == 0 {
 		results, err := client.Machines.Get(machineQuery)
 		if err != nil {

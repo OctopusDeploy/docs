@@ -22,10 +22,10 @@ TL;DR; copying projects between instances should be done when all other options 
 Split and sync instances only when Octopus lacks a critical feature to satisfy a company policy, industry regulation, or a business contract.  The use cases we've seen in the past are:
 
 - A separate **Dev/Test** instance and a **Staging/Production** instance so developers can have unlimited access to make changes, but **Production** must be locked down because of a business contract.
-- A primary **Dev/Test/Staging/Production** instance with an isolated **Production** only instance for a set of targets to satisify a contract requiring an instance hosted in Azure Gov.
+- A primary **Dev/Test/Staging/Production** instance with an isolated **Production** only instance for a set of targets to satisfy a contract requiring an instance hosted in Azure Gov.
 - A separate instance for a specific set of tenants.  Like the above use case, except all the environments are the same, only the tenants are different.
 
-The expectation is the source instance is the the source of truth and the destination instance(s) contain copies of that data.  The syncing process will run periodically to ensure changes made on the source instance are added to the destination instance.
+The expectation is the source instance is the source of truth and the destination instance(s) contain copies of that data.  The syncing process will run periodically to ensure changes made on the source instance are added to the destination instance.
 
 :::div{.hint}
 If you wish to do a one-time split of an instance and have no desire to keep anything in sync afterwards, then we recommend the [Export/Import Projects](/docs/projects/export-import) feature.  
@@ -51,7 +51,7 @@ In talking to users, the primary reason for splitting an instance is due to perm
 Another reason we hear about is needing an approval process for changes to the deployment process.  Please see our [config as code feature](/docs/projects/version-control) as that integrates with git, which allows for branching and pull requests.  
 
 ### Performance improvement
-The final reason reason we hear about is to "speed up the deployment."  Typically we hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
+The final reason we hear about is to "speed up the deployment."  Typically we hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
 
 - If package acquisition is taking a long time to transfer to the targets, consider:
     - Enabling [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers) to reduce the amount of data to transfer.  

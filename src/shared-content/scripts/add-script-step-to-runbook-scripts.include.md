@@ -8,7 +8,7 @@
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-YOURAPIKEY";
 var spaceName = "default";
@@ -63,7 +63,7 @@ try
     }
 
     // Add step action properties
-    stepAction.Properties.Add("Octopus.Actiom.RunOnServer", new Octopus.Client.Model.PropertyValueResource(runOnServer.ToString()));
+    stepAction.Properties.Add("Octopus.Action.RunOnServer", new Octopus.Client.Model.PropertyValueResource(runOnServer.ToString()));
     stepAction.Properties.Add("Octopus.Action.Script.ScriptSource", new Octopus.Client.Model.PropertyValueResource("Inline"));
     stepAction.Properties.Add("Octopus.Action.Script.ScriptBody", new Octopus.Client.Model.PropertyValueResource(scriptToRun));
     stepAction.Properties.Add("Octopus.Action.Script.Syntax", new Octopus.Client.Model.PropertyValueResource("PowerShell"));

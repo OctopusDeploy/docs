@@ -305,7 +305,7 @@ func main() {
 	// Create client object
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
-	// Loop throuhgh projects
+	// Loop through projects
 	exportProjectIds := []string{}
 
 	for i := 0; i < len(projectNames); i++ {

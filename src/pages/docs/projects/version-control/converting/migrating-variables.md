@@ -29,7 +29,7 @@ If you can view a value on the variables page (and it's not shown as a password 
 
 ### Coordinate with your team
 
-After you have run the migration, you will be unable to read variables from any Git reference (branch, tag, or commit) that does not contain a valid `variables.ocl` file. This will cause failues when viewing and editing variables, creating releases, and running runbooks using those references until they're updated.
+After you have run the migration, you will be unable to read variables from any Git reference (branch, tag, or commit) that does not contain a valid `variables.ocl` file. This will cause failures when viewing and editing variables, creating releases, and running runbooks using those references until they're updated.
 
 The migration process only writes the variables to a single branch. To continue using variables in any other branches, you will need to merge that migration branch with your other branches to continue using them in Octopus. If this may disrupt your team, plan ahead and find a suitable time to migrate and merge.
 
@@ -41,7 +41,7 @@ The migration process is simple, and we've built a helpful wizard to guide you t
 ![Screenshot of banner on Octopus project variables page with title Store variables in Git, and a migrate variables to Git button](/docs/projects/version-control/converting/git-variables-migrator-banner.png)
 :::
 
-Clicking the **Migrate Variables To Git** button will open the migation wizard.
+Clicking the **Migrate Variables To Git** button will open the migration wizard.
 
 ### Step 1: Getting started
 
@@ -75,7 +75,7 @@ Once the migration is complete, click **Done**. The project will reload, and you
 
 ### Merge variables to the default branch
 
-If you migrated the variables to any branch other than the default, be sure merge the variables to the default branch immediately. The variables are now just like any other file in your Git respository, so follow your typical Git workflows to get this merged.
+If you migrated the variables to any branch other than the default, be sure merge the variables to the default branch immediately. The variables are now just like any other file in your Git repository, so follow your typical Git workflows to get this merged.
 
 ### Update any other branches
 

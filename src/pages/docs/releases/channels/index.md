@@ -64,7 +64,7 @@ Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release 
 | ^(\|\\+.*)$ | matches any non pre-release, but allows build metadata | Ensure a script step only runs for non pre-release packages |
 | ^$ | matches versions with no pre-release or metadata components| Official releases are filtered to have nothing other than core version components (e.g. 1.0.0 )|
 | ^beta | matches pre-releases like `beta` and `beta0003` | Deploy pre-releases using a Lifecycle that goes directly to a pre-release Environment |
-| beta | matches pre-releases with beta anwhere in the tag like `beta` and `mybeta` | Deploy pre-releases using a Lifecycle that goes directly to a pre-release Environment |
+| beta | matches pre-releases with beta anywhere in the tag like `beta` and `mybeta` | Deploy pre-releases using a Lifecycle that goes directly to a pre-release Environment |
 | ^(?!beta).+ | matches pre-releases that don't start with beta | Consider anything other than 'beta' to be a feature branch package so you can provision short-term infrastructure and deploy to it |
 | ^bugfix- | matches any with `*bugfix-*` prefix (e.g. `bugfix-syscrash`) | Bypass Dev & UAT environments when urgent bug fixes are made to the mainline branch and to be released straight from Staging to Production |
 | ^beta | matches pre-releases which begin with `beta` but _not_ metadata containing `beta` | Prevent SemVer metadata from inadvertently matching the rule|

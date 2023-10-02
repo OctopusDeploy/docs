@@ -72,7 +72,7 @@ try
     # Get user role
     $userRole = $repositoryForSpace.UserRoles.FindByName($userRoleName)
     
-    # Get scopeduserrole
+    # Get scoped user role
     $scopedUserRole = $repositoryForSpace.Teams.GetScopedUserRoles($team) | Where-Object {$_.UserRoleId -eq $userRole.Id}
 
     # Get environments
@@ -103,7 +103,7 @@ catch
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-YOURAPIKEY";
 string spaceName = "default";
@@ -179,14 +179,14 @@ response.raise_for_status
 teams = json.loads(response.content.decode('utf-8'))
 team = next((x for x in teams['Items'] if x['Name'] == team_name), None)
 
-# Get userrole
+# Get user role
 uri = '{0}/userroles'.format(octopus_server_uri)
 response = requests.get(uri, headers=headers)
 response.raise_for_status
 userroles = json.loads(response.content.decode('utf-8'))
 userrole = next((x for x in userroles['Items'] if x['Name'] == user_role_name), None)
 
-# Get scopeduserrole
+# Get scoped user role
 uri = '{0}/{1}/teams/{2}/scopeduserroles'.format(octopus_server_uri, space['Id'], team['Id'])
 response = requests.get(uri, headers=headers)
 response.raise_for_status
@@ -244,7 +244,7 @@ func main() {
 	// Get reference to team
 	team := GetTeam(apiURL, APIKey, space, teamName, 0)
 
-	// Get reference to userrole
+	// Get reference to user role
 	userRole := GetRole(apiURL, APIKey, space, userRoleName)
 
 	// Get scoped user role
