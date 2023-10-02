@@ -48,6 +48,6 @@ jobs:
           echo; echo "NPM install"
           pnpm install
 
-      - name: Astro build and test
+      - name: Check spellings
         run: |
           pnpm spellcheck
