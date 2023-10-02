@@ -8,6 +8,7 @@
         "hte"
     ],
     "ignorePaths": [
+        "cspell.json",
         "package.json",
         "package-lock.yaml",
         "pnpm-lock.yaml",
