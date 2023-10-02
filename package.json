@@ -12,7 +12,7 @@
         "img": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs",
         "dev": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs && astro dev",
         "test": "astro build && npx playwright install --with-deps && npx playwright test",
-        "spellcheck": "git diff origin/main --name-only | cspell --file-list stdin",
+        "spellcheck": "git fetch origin main:refs/remotes/origin/main && git diff origin/main --name-only | cspell --file-list stdin",
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
