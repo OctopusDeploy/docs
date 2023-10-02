@@ -23,7 +23,7 @@ It's also possible to enable tenanted deployments when [connecting a tenant to a
 
 ## Tenanted and Untenanted deployments {#tenanted-and-untenanted-deployments}
 
-On the deployment screen, if you you choose **Tenanted** from the **Tenants** option, you are performing a [**tenanted deployment**](https://octopus.com/use-case/tenanted-deployments) - deploying a release of a project to an environment for one or more tenants. 
+On the deployment screen, if you choose **Tenanted** from the **Tenants** option, you are performing a [**tenanted deployment**](https://octopus.com/use-case/tenanted-deployments) - deploying a release of a project to an environment for one or more tenants. 
 
 :::figure
 ![](/docs/tenants/tenant-creation/images/multi-tenant-deploy-to-tenants.png)

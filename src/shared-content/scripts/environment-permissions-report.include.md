@@ -1302,7 +1302,7 @@ static System.Collections.Generic.List<Permission> GetUserPermission (SpaceResou
     var newPermission = new Permission();
     newPermission.DisplayName = User.DisplayName;
     newPermission.UserId = User.Id;
-    newPermission.IncludScope = IncludeScope;
+    newPermission.IncludeScope = IncludeScope;
     
     if (IncludeScope)
     {
@@ -1420,7 +1420,7 @@ static void WritePermissionList (string PermissionName, System.Collections.Gener
             row.Add(PermissionName);
             row.Add(permissionScope.DisplayName);
 
-            if (permissionScope.IncludScope == false)
+            if (permissionScope.IncludeScope == false)
             {
                 row.Add("N/A");
                 row.Add("N/A");
@@ -1523,7 +1523,7 @@ foreach (var spaceName in spaceList)
 
                     if ((scopedRole.ProjectIds.Count > 0) && (!scopedRole.ProjectIds.Contains(project.Id) && scopedRole.ProjectGroupIds.Count == 0))
                     {
-                        Console.WriteLine(string.Format("The scoped role is associates wiht projects, but not {0}, moving on to next role", project.Name));
+                        Console.WriteLine(string.Format("The scoped role is associates with projects, but not {0}, moving on to next role", project.Name));
                         continue;
                     }
 
@@ -1731,7 +1731,7 @@ def get_user_permission (space, project, user_role, project_permission_list, per
             existing_item = next((x for x in existing_permission['Tenants'] if x['Id'] == item['Id']), None)
 
             if existing_item == None:
-                print ('{0} is not yet scoped to the tenant {1}, adding it.'.format(user['DisplayNane'], item['Name']))
+                print ('{0} is not yet scoped to the tenant {1}, adding it.'.format(user['DisplayName'], item['Name']))
                 existing_permission['Tenants'] += item
 
     return project_permission_list
