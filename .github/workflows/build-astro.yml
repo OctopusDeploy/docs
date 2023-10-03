@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SHOULD_DEPLOY: ${{ secrets.OCTOPUSSERVERURL != '' }}
+      SHOULD_DEPLOY: ${{ secrets.OCTOPUSSERVERURL != '' || '' }}
       OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
       OCTOPUS_API_KEY: ${{ secrets.OCTOPUSSERVERAPIKEY }}
       OCTOPUS_SPACE: "DevOps Microsite"
