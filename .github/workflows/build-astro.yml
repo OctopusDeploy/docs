@@ -93,6 +93,13 @@ jobs:
         with:
           packages: ${{ steps.package.outputs.package_file_path }}
 
+      - name: Let people download package
+        uses: actions/upload-artifact@v3
+        if: ${{ ! env.SHOULD_DEPLOY }}
+        with:
+          name: docs-microsite
+          path: ${{ steps.package.outputs.package_file_path }}
+
       - name: Push build information to Octopus Deploy 🐙
         uses: OctopusDeploy/push-build-information-action@v3
         if: ${{ env.SHOULD_DEPLOY }}
