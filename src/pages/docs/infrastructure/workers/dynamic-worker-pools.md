@@ -64,6 +64,28 @@ The Worker Type can be modified by editing the Worker Pool and changing the Work
 
 Worker images are rebuilt on a regular basis, so that the operating system is up to date with the latest security patches.
 
+### Ubuntu 22.04
+
+This is the default for the Ubuntu operating system, referenced as `Ubuntu (default)`.
+
+Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
+
+- .NET 6
+- Docker (latest)
+- Powershell Core (latest)
+- Python 3 (latest)
+- GCloud CLI (367.0.0)
+
+:::div{.hint}
+Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
+:::
+
+### Ubuntu 18.04
+
+:::div{.warning}
+Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to [Ubuntu 18.04 End-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life) for further details.
+:::
+
 ### Windows Server Core 2019
 
 This is the default for the Windows operating system, referenced as `Windows (default)`.
@@ -91,28 +113,6 @@ Windows 2019 workers are capable of running [execution worker containers](/docs/
 
 :::div{.hint}
 We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
-:::
-
-### Ubuntu 18.04
-
-:::div{.warning}
-Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to [Ubuntu 18.04 End-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life) for further details.
-:::
-
-### Ubuntu 22.04
-
-This is the default for the Ubuntu operating system, referenced as `Ubuntu (default)`.
-
-Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
-
-- .NET 6
-- Docker (latest)
-- Powershell Core (latest)
-- Python 3 (latest)
-- GCloud CLI (367.0.0)
-
-:::div{.hint}
-Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
 :::
 
 ## kubectl on Windows Images
@@ -144,7 +144,7 @@ By default, every dynamic worker is destroyed after it has been allocated for ov
 For deployments and runbook runs that require additional software dependencies on a Dynamic worker, our recommendation is to leverage [execution containers for workers](/docs/projects/steps/execution-containers-for-workers).  Octopus provides execution containers with a baseline of tools (`octopusdeploy/worker-tools`) pre-installed. These tools won't include every possible software combination you might need. If you require a specific set of software and tooling we recommend [building your own custom docker images for use with execution containers](/docs/projects/steps/execution-containers-for-workers/#custom-docker-images).
 
 :::div{.hint}
-**Octopus worker-tools cached on Dynamic Workers**
+**Octopus worker-tools are cached on Dynamic Workers**  
 The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows [Worker Tool](/docs/infrastructure/workers/worker-tools-versioning-and-caching) images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic Worker.
 
 :::
