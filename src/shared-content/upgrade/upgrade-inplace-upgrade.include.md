@@ -16,7 +16,7 @@ The Windows Service is split across multiple folders to make upgrading easy and 
 
 Installing a newer version of Octopus Deploy is as simple as running MSI and following the wizard.  The MSI will copy all the binaries to the install location.  Once the MSI is complete, it will automatically launch the `Octopus Manager`.
 
-### Validation Checks
+### Validation checks
 
 Octopus Deploy will perform validation checks before upgrading the database.  These validation checks include (but are not limited to):
 
@@ -25,6 +25,6 @@ Octopus Deploy will perform validation checks before upgrading the database.  Th
 
 If the validation checks fail, don't worry, install the [previously installed version of Octopus Deploy](https://octopus.com/downloads/previous), and you will be back up and running quickly.
 
-### Database Upgrades
+### Database upgrades
 
 Each release of Octopus Deploy contains 0 to N database scripts to upgrade the database.  The scripts are run in a transaction; when an error occurs, the transaction is rolled back.  If a rollback does happen, gather the logs and send them to [support@octopus.com](mailto:support@octopus.com) for troubleshooting.  You can install the previous version to get your CI/CD pipeline back up and running.

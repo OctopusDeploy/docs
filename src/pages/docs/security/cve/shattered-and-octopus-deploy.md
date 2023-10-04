@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: SHA1 "Shattered" collision and Octopus Deploy
 description: How the SHA1 "Shattered" Collision impacts Octopus Deploy
 navOrder: 1
@@ -37,7 +37,7 @@ You'll want to check whether SHA1 is being used in other places. Common examples
 - Certificates used for authenticating with third party services, like Azure management certificates.
 - Certificates used to provide HTTPS for web sites that you deploy.
 
-## Detecting SHA1 Certificates With PowerShell
+## Detecting SHA1 certificates with PowerShell
 
 Given an `X509Certificate2` object, here's a PowerShell function that checks whether it uses SHA1:
 

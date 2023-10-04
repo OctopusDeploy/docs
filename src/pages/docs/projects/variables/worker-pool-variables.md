@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Worker Pool variables
 description: Create a worker pool variable and use it in deployment steps
 navOrder: 60
@@ -66,7 +66,7 @@ The most common would be to use environment-specific worker pools to separate th
 ![addworkerpoolvariable](/docs/projects/variables/images/workerpoolvariable-environments.png)
 :::
 
-### Performance & Role separation
+### Performance and role separation
 
 Worker pool variables enable different worker pools for different steps, for example, you could use a separate worker pool for application deployments and a different worker pool for database deployments.
 
@@ -86,7 +86,7 @@ Licensing requirements of software installed on workers may mean that the softwa
 ![Worker pool variable network isolation](/docs/projects/variables/images/workerpoolvariable-networkisolation.png)
 :::
 
-### Multi-Cloud and Multi-Region workers
+### Multi-cloud and multi-region workers
 
 [Multi-cloud](https://en.wikipedia.org/wiki/Multicloud) and Multi-Region strategies are commonplace. It's common to have workloads spread over multiple clouds and locations such as:
 

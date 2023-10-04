@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Installation Guidelines
 description: Guidelines and recommendations for installing Octopus Deploy on your infrastructure.
 navOrder: 10
@@ -54,7 +54,7 @@ Here are some items to consider when installing Octopus Deploy:
 - Configuring high availability mode provides multiple benefits, the most important being removing a single point of failure.  
 - It is trivial to add additional high availability nodes after the initial configuration.
 
-## Calculating Concurrent Tasks
+## Calculating concurrent Tasks
 
 Except in extreme cases, you will be processing between 5-10 concurrent tasks for quite some time.  There might be one or two times when you go over that limit, but those tasks will queue for a few minutes before being processed.  In our experience, most deployments take between 20-30 minutes.  With a task cap of 5 to 10, that enables:
 
@@ -102,7 +102,7 @@ Below is the default configuration for Octopus Cloud.  We've found this provides
 
 We are currently working with our existing customers on what best practices look like to self-host the Octopus Server Linux Container.  If you'd like further recommendations please [contact us](https://octopus.com/support).
 
-## Small-Medium Scale Configuration
+## Small-medium scale configuration
 
 Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure) from the start, even if you only plan on running one node.  
 
@@ -189,7 +189,7 @@ The kind of file storage will depend on where you are hosting Octopus Deploy.
 
 You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  Any monitoring tool that allows you to make HTTP calls to test health will work.  Internally we use the tool [Better Uptime](https://betteruptime.com) to track Octopus Deploy status and alert us when it is down.  
 
-## Large-Scale Configuration
+## Large-Scale configuration
 
 The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps during an initial pilot of 4-7 teams.  The recommendation below is for a large Octopus Deploy configuration designed to handle close to 1000 deployments a day.  If you follow the advice in the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server, will be in place.
 
@@ -274,7 +274,7 @@ If you are hosting Octopus Deploy on a Windows server, you will need to install 
 3. Restart the server and wait for it to come back online.
 4. Remove the drain mode from the node.
 
-## Create a single Production instance
+## Create a single production instance
 
 One question we get asked a lot is "should we have a single instance to deploy to all environments or have an Octopus Deploy instance per environment?"  Unless there is a business requirement, our recommendation is to have a single instance to deploy to all environments and use Octopus Deploy's RBAC controls to manage permissions.  We recommend this to avoid the maintenance overhead involved with having an instance per environment.  
 

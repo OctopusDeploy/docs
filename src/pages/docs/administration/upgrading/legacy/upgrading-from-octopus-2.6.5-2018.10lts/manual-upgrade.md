@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Manual upgrade
 description: Information on how to manually upgrade to Octopus 2018.10 LTS from Octopus 2.6.5.
 navOrder: 1
@@ -22,7 +22,7 @@ You can upgrade from **Octopus 2.6.5** to **Octopus 2018.10 LTS** by downloading
 
 To perform an in-place upgrade, follow these steps:
 
-### 1. Back up Your Octopus 2.6.5 database and Master Key {#Manualupgrade-1.BackupyourOctopus2.6databaseandmasterkey}
+### 1. Back up your Octopus 2.6.5 database and Master Key {#Manualupgrade-1.BackupyourOctopus2.6databaseandmasterkey}
 
 See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6/)[ page for instructions on backing up your database.](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6)
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Backup RDS SQL database to S3
 description: This section shows you how to perform a native SQL backup for an RDS SQL database and store in an S3 bucket.
 navOrder: 90
@@ -11,7 +11,7 @@ You can perform native backups of Amazon Relational Database instances running S
 
 In the following example, we'll use the [AWS RDS SQL Server - Backup to S3 Bucket](https://library.octopus.com/step-templates/3dd60fea-b98a-4760-8867-cbd049f7aa31/actiontemplate-aws-rds-sql-server-backup-to-s3-bucket) community step template.
 
-## AWS Prerequisites
+## AWS prerequisites
 
 * An AWS RDS SQL Server instance.
 * An Amazon S3 Bucket.

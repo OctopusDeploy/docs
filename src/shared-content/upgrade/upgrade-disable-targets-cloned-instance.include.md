@@ -1,4 +1,4 @@
-### Disabling All Targets/Workers/Triggers/Subscriptions - Optional
+### Disabling all Targets/Workers/Triggers/Subscriptions - optional
 
 Cloning an instance includes cloning all certificates.  Assuming you are not using polling Tentacles, all the deployments will "just work."  That is by design if the VM hosting Octopus Deploy is lost and you have to restore Octopus Deploy from a backup.  
 

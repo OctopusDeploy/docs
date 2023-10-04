@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-05-03
+modDate: 2023-10-04
 title: Projects and Project Groups Structure
 description: Guidelines and recommendations for configuring projects and project groups in Octopus Deploy.
 navOrder: 50
@@ -10,7 +10,7 @@ hideInThisSection: true
 
 [Projects](/docs/projects) store the deployment configuration for an application.  For each project, you can define a deployment process and runbooks to manage your infrastructure, variables, the environments where the software is deployed, and your software releases.  Project groups allow you to group like projects together.  
 
-## Project Structure
+## Project structure
 
 We recommend thinking of projects and project groups this way:
 
@@ -40,7 +40,7 @@ A project should deploy all the coupled components of an application (WebUI, Web
 - A project per application, per environment, such as `OctoPetShop_Dev`, `OctoPetShop_Test`, and so on.  That is impossible to maintain and track versions.
 - A project per customer or physical location, such as `OctoPetShop_AustinEast`, `OctoPetShop_AustinWest`, and so on.  This is impossible to maintain, you'd need a syncing process for all projects.  Use [multi-tenancy](/docs/tenants) instead.
 
-## Cumulative Changes
+## Cumulative changes
 
 Octopus Deploy expects any application component it deploys to contain everything that the component needs.  If you are deploying a web application, the deployment should include all the JavaScript, CSS, binaries, HTML files, etc., needed to run that web application.  It shouldn't just be a delta change of a few HTML files or binaries.  Octopus Deploy expects that for a variety of reasons.
 

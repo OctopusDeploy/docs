@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Release versioning
 description: Select how the next release number is generated when creating a release.
 navOrder: 125
@@ -63,7 +63,7 @@ Octopus.Date.(Day|Month|Year|DayOfYear)
 Octopus.Time.(Hour|Minute|Second)
 ```
 
-## Complex Expressions
+## Complex expressions
 
 The full power of the [Octopus variable syntax](/docs/projects/variables/variable-substitutions/#complex-syntax) (powered by [Octostache](https://github.com/OctopusDeploy/Octostache)) is available in version templates.  In particular, [conditional expressions](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-Conditionalsconditionals) can be used to model some complex scenarios. 
 

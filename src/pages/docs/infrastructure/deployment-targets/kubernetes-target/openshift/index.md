@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: OpenShift Kubernetes cluster
 description: How to configure an OpenShift Kubernetes cluster as a deployment target in Octopus.
 navOrder: 40
@@ -17,15 +17,15 @@ To connect your OpenShift K8s cluster to Octopus Deploy, you must first create a
 Service Accounts in OpenShift are project specific.  You will need to create a Service Account per project (namespace) for Octopus Deploy in OpenShift.
 :::
 
-### Create Service Account
+### Create service account
 
-Each project within OpenShift has a section where you can define Service Accounts.  After your project has been created:
+Each project within OpenShift has a section where you can define service accounts.  After your project has been created:
 
 - Expand **User Management**.
 - Click **Service Accounts**.
 - Click **Create Service Account**.
 
-### Create Role Binding
+### Create role binding
 
 The Service Account will need to have a role so it can create resources on the cluster.
 

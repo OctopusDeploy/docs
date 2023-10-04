@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Java applications
 description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deploy
 navOrder: 70
@@ -46,7 +46,7 @@ See the section [Building SemVer Compatible Artifacts](#building_semver_compatib
 
 Valid packages can then be added to the library using the [web based interface, or using the CLI tool](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository).
 
-#### <a name="building_semver_compatible_artifacts"></a>Building SemVer Compatible Artifacts
+#### Building SemVer Compatible Artifacts {#building_semver_compatible_artifacts}
 The most common incompatibility between Maven and SemVer formatting comes from the use of a dash to separate the package name from the version.
 
 For example, by default Maven will build artifacts with names like `myapplication-1.0.0-SNAPSHOT.war`. To be managed by the built in Octopus library, this filename needs to be in the format `myapplication.1.0.0-SNAPSHOT.war`.
@@ -89,7 +89,7 @@ The target machine must have Java 1.8 installed, and the `java` executable must 
 
 The `Deploy to Tomcat via Manager` step takes advantage of the [Manager application](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html) shipped with Tomcat to deploy Java applications. The following steps describe the process of deploying a web application (a WAR package) to Tomcat through Octopus Deploy.
 
-### <a name="configure_tomcat"></a>1. Configure Tomcat
+### 1. Configure Tomcat{#configure_tomcat}
 
 Tomcat needs to be configured with a user that Octopus can use to log into the Manager API.
 
@@ -176,7 +176,7 @@ The `Deploy to WildFly or Red Hat JBoss EAP` step is used to deploy a package fr
 * If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
 
 <a name="context_path"></a>
-#### Defining Context Paths
+#### Defining context paths
 
 There are multiple ways that the context of an application deployed to WildFly and JBoss EAP is defined.
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Using Deployment Slots with Azure Web Apps
 description: Deploying Slots provide a nice way to implement Blue-Green deployments for Azure Web Apps.
 ---
@@ -27,7 +27,7 @@ The scripts below assume you have a variable named 'WebSite' that contains the n
 
 Follow the steps for [Azure Web App targets](/docs/infrastructure/deployment-targets/azure/web-app-targets).
 
-### Step 2: Create Staging Slot {#UsingDeploymentSlotswithAzureWebApps-Step1-CreateStagingSlot}
+### Step 2: Create a staging slot {#UsingDeploymentSlotswithAzureWebApps-Step1-CreateStagingSlot}
 
 Create a [Run an Azure PowerShell Script](/docs/deployments/azure/running-azure-powershell) step.
 
@@ -67,7 +67,7 @@ So your step should look like:
 ![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-remove-staging-slot-script.png)
 :::
 
-### Step 3: Deploy Your Package {#UsingDeploymentSlotswithAzureWebApps-Step2-DeployyourPackage}
+### Step 3: Deploy your package {#UsingDeploymentSlotswithAzureWebApps-Step2-DeployyourPackage}
 
 The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app) step.
 
@@ -94,7 +94,7 @@ As shown below:
 You can choose to specify the slot directly on the deployment target, or directly on the step (if you wish to deploy to multiple different slots on the same Web App Service, for example), however, the slot on the target will take priority.
 :::
 
-### Step 4: Swap the Staging and Production Slots {#UsingDeploymentSlotswithAzureWebApps-Step3-SwaptheStagingandProductionSlots}
+### Step 4: Swap the Staging and Production slots {#UsingDeploymentSlotswithAzureWebApps-Step3-SwaptheStagingandProductionSlots}
 
 The final step is to create another Azure PowerShell step to swap the Staging and Production slots.
 

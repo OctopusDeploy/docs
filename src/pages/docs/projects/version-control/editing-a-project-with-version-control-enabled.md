@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Editing a project with version control enabled
 description: What to expect when using the Configuration as Code feature in Octopus Deploy
 navOrder: 30 
@@ -13,7 +13,7 @@ Once an Octopus Project is configured to be version-controlled, your experience 
 
 Editing via the Octopus Deploy UI works the same whether you are saving to a git repository or to SQL Server. You can add steps, update processes, remove steps, just like before. When you enable version control on a project, you get additional functionality.
 
-### Branch Switcher 
+### Branch switcher 
 
 The first difference is the addition of a branch-switcher. When editing the deployment process via the Octopus UI, the branch is selected in the branch-switcher in the left-hand navigation. 
 
@@ -37,7 +37,7 @@ Before enabling version control on the project, clicking save updated a record i
 ![committing a change to version control](/docs/projects/version-control/commit-process.png)
 :::
 
-### Commits to Protected branches
+### Commits to protected branches
 
 If you are making changes on a protected branch, the quick save option will be disabled. When you click the **Commit** button, you will always be asked to Commit to a new branch. The option to commit to this branch will be disabled.
 
@@ -45,7 +45,7 @@ If you are making changes on a protected branch, the quick save option will be d
 ![committing a change on a protected branch](/docs/projects/version-control/commit-process-protected.png)
 :::
 
-### Viewing and Editing OCL
+### Viewing and editing OCL
 
 Enabling version control also enables you to edit the OCL (Octopus Configuration Language) file directly. We suggest using your favorite text editor or IDE to make changes, commit and push them just as you would any other code change. 
 
@@ -64,11 +64,11 @@ Octopus will periodically fetch from the remote, so you might have to wait a sho
 The Octopus Deploy Web Portal will only add non-default properties to the OCL files. For example, if a step isn't scoped to run for a specific environment(s), that property will not show up when you view the deployment process there.
 :::
 
-### OCL vs. Octopus Terraform Provider
+### OCL versus Octopus Terraform Provider
 
 While OCL is similar to HCL, it is not the exact same. In addition, there is not a 1:1 match between the resources generated for OCL and the resources for the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs). That means you cannot copy resources between OCL files and TF files.
 
-## Version Control features
+## Version control features
 
 Storing the deployment process in the same repository as your source code has many benefits. But don't forget to take advantage of all the version control features, including:
 
