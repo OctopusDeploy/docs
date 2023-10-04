@@ -28,7 +28,7 @@ Each worker is provisioned exclusively to a specific customer, and is completely
 
 ## Dynamic Worker Images
 
-Each dynamic worker pool can specify the worker image used. Windows Server Core 2019 is the default. Ubuntu Linux 22.04 worker images are also available.
+Each dynamic worker pool can specify the worker image used. Ubuntu Linux 22.04 is the default. Windows Server Core 2019 worker images are also available.
 
 Editing a dynamic worker pool allows you to modify the image used. 
 
