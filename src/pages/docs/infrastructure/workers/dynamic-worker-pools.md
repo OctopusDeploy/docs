@@ -7,7 +7,9 @@ description: Dynamic Worker pools are used in our cloud product to dynamically c
 navOrder: 50
 ---
 
-Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools/) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers) provided by Octopus, and they don't require users to configure any infrastructure.  
+Dynamic Worker Pools provide a quick and easy way to use [workers](/docs/infrastructure/workers) for your deployments. They are a special type of [worker pool](/docs/infrastructure/workers/worker-pools) available on [Octopus Cloud](/docs/octopus-cloud).
+
+Dynamic Workers are isolated virtual machines, created on-demand to run your deployments and runbook steps. They run on Azure and are created and managed by Octopus Cloud, which means you don't need to configure or maintain additional infrastructure.
 
 ## On demand
 
@@ -24,24 +26,42 @@ Please reach out to [support@octopus.com](mailto:support@octopus.com) if you nee
 
 ## Isolated
 
-Each worker is provisioned exclusively to a specific customer, and is completely isolated from other customers.
+Each worker VM is provisioned exclusively to a specific customer, and is completely isolated from other customers.
 
 ## Dynamic Worker Images
 
-Each dynamic worker pool can specify the worker image used. Ubuntu Linux 22.04 is the default. Windows Server Core 2019 and 2022 worker images are also available.
+Each dynamic worker pool uses a specific worker image. This is a VM image which determines the operating system (and OS version) running on the worker. You can edit a dynamic worker pool to change which image is used.
 
-Editing a dynamic worker pool allows you to modify the image used. 
+When you sign up to [Octopus Cloud](/docs/octopus-cloud) (or create a new [space](/docs/administration/spaces)), you automatically receive a worker pool for the `Ubuntu (default)` image, and a worker pool for the `Windows (default)` image.
 
-The available worker images list specific operating system versions (e.g., `Ubuntu Linux 22.04`) but also generic "default" options such as `Ubuntu (default)`. Choosing the default option means that your worker will get the latest stable worker image released. This is a good option to choose if you're running a basic script that doesn't have any dependencies on specific tool or operating system versions.
+The full list of available worker images includes both specific operating system versions (e.g., `Ubuntu Linux 22.04`), and also generic "default" options such as `Ubuntu (default)`. Choosing the default option means that your worker will use the latest stable worker image when it is released. 
 
-If you're writing a script that relies on a specific version of tooling (e.g., helm), then we recommend choosing a specific worker image, instead of the "default" options, to prevent worker image upgrades from impacting your deployments.
+The current default images are:
+
+- `Ubuntu (default)` ➜ `Ubuntu Linux 22.04`
+- `Windows (default)` ➜ `Windows Server Core 2019`
+
+:::div{.warning}
+The `Windows (default)` image will change to Windows 2022 on 4 December 2023, and Windows 2019 images will be deprecated on 9 January 2024. You are advised to test your deployment processes with our Windows 2022 images. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
+:::
+
+### Choosing an Image
+
+The default image is a good option to choose if you are:
+
+- Running a simple script that doesn't require specific tools or operating system versions
+- Running a step [inside a container](/docs/projects/steps/execution-containers-for-workers)
+
+If you're writing a script that relies on a specific version of tooling (e.g., helm), then we recommend using [execution containers for workers](/docs/projects/steps/execution-containers-for-workers) to run the script in a Docker container with the tool versions you need. 
+
+Alternatively, you can choose a specific worker image, instead of the "default" options, to prevent worker image upgrades from impacting your deployments.
 
 |Type | Pros | Cons |
 |-----|------|------|
-| Default (eg `Ubuntu (default)`) | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned.| The versions of dependencies (e.g., helm) are not fixed. Deployments that rely on specific versions of dependencies or operating system specific features may break during upgrades. |
+| Default (eg `Ubuntu (default)`) | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned.| The versions of dependencies (e.g. helm) are not fixed. Deployments that rely on specific versions of dependencies or operating system specific features may break during upgrades. |
 | Specific (e.g., `Ubuntu Linux 22.04`) | The version of the operating system and dependencies are fixed and can be relied upon. | When a worker image is marked as deprecated, warnings will start to appear in your deployment logs. When a worker image is decommissioned, you will need to take action to update your worker pool or deployments will fail. |
 
-## Deprecation
+### Deprecation
 
 When an image is marked as deprecated, you will see warnings in the Octopus UI, and in the deployment log. After a suitable deprecation period, deployments will start to fail if they target an image that has hit end-of-life.
 
