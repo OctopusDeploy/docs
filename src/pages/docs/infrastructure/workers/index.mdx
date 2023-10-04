@@ -38,13 +38,17 @@ The following steps always run inside the Octopus Server process (and do not run
 
 A worker receives instruction from the Octopus Server to execute a step, it executes the step using Calamari and returns the logs and any collected artifacts to the Octopus Server.
 
-There are two kinds of workers you can use in Octopus:
-
-1. [The built-in worker](#built-in-worker) (default)
-1. [External workers](#external-workers)
-
 :::div{.hint}
 Workers are assigned at the start of a deployment or runbook, not at the time the individual step executes.
+:::
+
+There are two kinds of workers you can use in Octopus:
+
+1. [The built-in worker](#built-in-worker) (default for self-hosted Octopus)
+1. [External workers](#external-workers)
+
+:::div{.success}
+[Octopus Cloud](/docs/octopus-cloud) uses [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools) by default, which provides External Workers running on `Ubuntu` or `Windows` VMs. Dynamic Workers are managed by Octopus Cloud, and are included with your Octopus Cloud subscription.
 :::
 
 ## Ignoring Workers \{#ignoring-workers}
@@ -67,17 +71,27 @@ Adding a worker to the default worker pool will disable the built-in worker, and
 
 Learn about the security implications and how to configure the [built-in worker](/docs/infrastructure/workers/built-in-worker).
 
+:::div{.warning}
+The built-in worker is disabled on [Octopus Cloud](/docs/octopus-cloud) for security reasons. We recommend using one of the pre-configured [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools).
+:::
+
 ## External Workers \{#external-workers}
 
 An **External Worker** is either:
 - A [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux) Tentacle.
 - An [SSH machine](/docs/infrastructure/deployment-targets/linux/ssh-target) that has been registered with the Octopus Server as a worker.  
 
-The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/tentacle/windows/) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target), except that instead of being added to an environment, a worker is added to a worker pool.
+The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/tentacle/windows/) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target), except that instead of being added to an environment, a worker is added to a [worker pool](/docs/infrastructure/workers/worker-pools/).
 
 Using external workers allows delegating work to a machine other than the Octopus Server.  This can make the server more secure and allow scaling.  When Octopus executes a step on an external worker, it's the external worker that executes Calamari; no user-provided script executes on the Octopus Server itself.
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
+
+:::div{.success}
+[Octopus Cloud](/docs/octopus-cloud) customers can choose to use the included [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools) (enabled by default), and/or register their own external workers.
+
+Dynamic Workers are on-demand external workers managed by Octopus Cloud, which means you don't need to configure or maintain additional infrastructure. Dynamic Workers provide `Ubuntu` or `Windows` VMs running as pre-configured tentacles.
+:::
 
 ## Registering an External Worker \{#registering-an-external-worker}
 
