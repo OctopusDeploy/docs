@@ -11,6 +11,10 @@ Octopus Server comes with a built-in worker which enables you to conveniently ru
 
 This page describes how to configure the built-in worker for a variety of scenarios.
 
+:::div{.warning}
+The built-in worker is disabled on [Octopus Cloud](/docs/octopus-cloud) for security reasons. We recommend using one of the pre-configured [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools).
+:::
+
 ## Built-in Worker
 
 When the built-in Worker is executed, the Octopus Server spawns a new process for Calamari.  This conveniently allows a default Octopus set up to enable features like running script steps on the server and Azure deployments.  However, this convenience comes at a cost: **security**.
