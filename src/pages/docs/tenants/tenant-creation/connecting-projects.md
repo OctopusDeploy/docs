@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-05
 title: Connecting projects
 description: By connecting tenants to projects, you can control which projects will be deployed into which environments for each tenant.
 navOrder: 20
