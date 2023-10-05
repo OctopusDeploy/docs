@@ -21,7 +21,7 @@
     "dependencies": {
         "@astrojs/mdx": "^1.0.0",
         "astro": "^3.0.3",
-        "astro-accelerator": "^0.3.10",
+        "astro-accelerator": "^0.3.11",
         "astro-accelerator-utils": "^0.3.0",
         "hast-util-from-selector": "^3.0.0",
         "remark-directive": "^2.0.1",
@@ -29,5 +29,11 @@
     },
     "devDependencies": {
         "@playwright/test": "^1.37.1"
+    },
+    "pnpm": {
+        "overrides": {
+            "postcss@<8.4.31": ">=8.4.31",
+            "zod@<=3.22.2": ">=3.22.3"
+        }
     }
 }
