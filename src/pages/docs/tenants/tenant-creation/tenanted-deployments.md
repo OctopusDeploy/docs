@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-05
 title: Tenanted deployments
 description: Control how the multi-tenancy feature in Octopus is used in your Projects.
 navOrder: 10
@@ -15,11 +15,7 @@ You can change the setting for tenanted deployments for a project by navigating 
 ![](/docs/tenants/tenant-creation/images/multi-tenant-project-settings.png)
 :::
 
-It's also possible to enable tenanted deployments when [connecting a tenant to a project](/docs/tenants/tenant-creation/connecting-projects) from the tenant screen:
-
-:::figure
-![](/docs/tenants/tenant-creation/images/multi-tenant-project.png)
-:::
+Tenanted deployments will be enabled when [connecting tenants to a project](/docs/projects/tenants/bulk-connection).
 
 ## Tenanted and Untenanted deployments {#tenanted-and-untenanted-deployments}
 
