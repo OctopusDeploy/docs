@@ -48,7 +48,7 @@ There are two kinds of workers you can use in Octopus:
 1. [External workers](#external-workers)
 
 :::div{.success}
-[Octopus Cloud](/docs/octopus-cloud) uses [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools) by default, which provides External Workers running on `Ubuntu` or `Windows` VMs. Dynamic Workers are managed by Octopus Cloud, and are included with your Octopus Cloud subscription.
+[Octopus Cloud](/docs/octopus-cloud) uses [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools) by default, which provides External Workers running on Ubuntu and Windows VMs. Dynamic Workers are managed by Octopus Cloud, and are included with your Octopus Cloud subscription.
 :::
 
 ## Ignoring Workers \{#ignoring-workers}
@@ -72,7 +72,7 @@ Adding a worker to the default worker pool will disable the built-in worker, and
 Learn about the security implications and how to configure the [built-in worker](/docs/infrastructure/workers/built-in-worker).
 
 :::div{.warning}
-The built-in worker is disabled on [Octopus Cloud](/docs/octopus-cloud) for security reasons. We recommend using one of the pre-configured [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools).
+The built-in worker is only available on [self-hosted Octopus](/docs/getting-started#self-hosted-octopus) instances. [Octopus Cloud](/docs/octopus-cloud) customers have access to [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools), which provide pre-configured Tentacle workers on-demand.
 :::
 
 ## External Workers \{#external-workers}
@@ -90,7 +90,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 :::div{.success}
 [Octopus Cloud](/docs/octopus-cloud) customers can choose to use the included [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools) (enabled by default), and/or register their own external workers.
 
-Dynamic Workers are on-demand external workers managed by Octopus Cloud, which means you don't need to configure or maintain additional infrastructure. Dynamic Workers provide `Ubuntu` or `Windows` VMs running as pre-configured tentacles.
+Dynamic Workers are on-demand external workers managed by Octopus Cloud, which means you don't need to configure or maintain additional infrastructure. Dynamic Workers provide Ubuntu and Windows VMs running as pre-configured tentacles.
 :::
 
 ## Registering an External Worker \{#registering-an-external-worker}
