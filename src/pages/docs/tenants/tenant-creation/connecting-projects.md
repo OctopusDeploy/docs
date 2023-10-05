@@ -10,17 +10,17 @@ navOrder: 20
 By connecting tenants to projects, you can control which projects will be deployed into which environments for each tenant.
 
 :::div{.info}
-The project connection feature was improved to allow bulk selection in Octopus Deploy **2023.4**. If you are running an older version of Octopus you will see a different dialog which will only allow you to select a single project.
+The project connection feature was updated to allow bulk selection in Octopus Deploy **2023.4**. If you are running an older version of Octopus the dialog will only allow selecting a single project at a time.
 :::
 
 1. Navigate to your tenant.
 2. Click on the **CONNECT PROJECTS** button.
 
-   ![](/docs/tenants/tenant-creation/images/multi-tenant-connect-project.png)
+   ![](/docs/tenants/tenant-creation/images/multi-tenant-connect-projects.png)
 
 3. Choose the projects you want to connect to your tenant, by clicking any project in the left-hand panel of the wizard. Click the - button of a project in the right-hand panel to deselect that project.
 
-   ![](/docs/tenants/tenant-creation/images/multi-tenant-project.png)
+   ![](/docs/tenants/tenant-creation/images/multi-tenant-connect-projects-dialog.png)
 
 4. Once you have selected the projects you want to connect, click **NEXT**.
 5. Choose the [environments](/docs/infrastructure/environments) you want the tenant to be connected to for each project. You can select just one or two from the drop-down menu, or click **Assign all available environments** to select all available environments.
