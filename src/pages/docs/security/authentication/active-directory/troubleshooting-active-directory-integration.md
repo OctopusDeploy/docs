@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Troubleshooting Active Directory integration
 description: Information on troubleshooting common Active Directory integration issues.
 navOrder: 30
@@ -29,7 +29,7 @@ Octopus integrates with Active Directory to authenticate users as well as author
 Whilst you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/administration/managing-infrastructure/subscriptions) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group, email address will require setting up a user with that email address and assigning them to the appropriate Octopus team.
 :::
 
-## How Active Directory Authentication Works
+## How Active Directory authentication works
 
 Before troubleshooting Active Directory within Octopus Deploy, it is critical to understand how that integration works.
 
@@ -170,7 +170,7 @@ The diagnostic logs can be viewed in the Event Viewer.
 Remember to reset the registry values once you're finished troubleshooting.
 :::
 
-## Read-Only domain controllers are not supported {#TroubleshootingActiveDirectoryintegration-Read-OnlyDomainControllersarenotsupported}
+## Read-only domain controllers are not supported {#TroubleshootingActiveDirectoryintegration-Read-OnlyDomainControllersarenotsupported}
 
 Read-only Domain Controllers are not currently supported by Octopus. The .NET API we're using ignores read-only DCs.
 

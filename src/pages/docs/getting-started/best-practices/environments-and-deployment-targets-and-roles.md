@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Environments, Deployment Targets, and Roles
 description: Guidelines and recommendations for configuring environments, deployment targets, and lifecycles in Octopus Deploy.
 navOrder: 30
@@ -10,7 +10,7 @@ hideInThisSection: true
 
 [Deployment targets](/docs/infrastructure/deployment-targets/) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more.  Please refer to the [Deployment targets](/docs/infrastructure/deployment-targets/) for an up to date list on deployment targets.  [Environments](/docs/infrastructure/environments) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  Target roles, or tags, are a filter to select specific deployment targets in an environment.
 
-## Deployment Target Environment and Role Relationship
+## Deployment Target, Environment, and Role relationship
 Environments are how you group deployment targets in a stage in your deployment pipeline.  Target roles, or tags, are how you identify which deployment targets you wish to deploy to in that specific stage.
 
 When you register a deployment target, you must provide at least one environment and one target role.
@@ -48,7 +48,7 @@ For the software developers you can rewrite that sentence as:
 Using the example from above, Octopus would select all three servers.
 :::
 
-## Environment and Role Usage Differences
+## Environment and Role usage differences
 
 Environments are designed as a macro grouping of deployment targets meant for use across multiple projects, library sets, and more.  Below is a list of items where environments are used:
 

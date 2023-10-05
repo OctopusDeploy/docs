@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Rollback .NET Application on Windows Server
 description: A guide on how to rollback a .NET application hosted on Windows Servers.
 navOrder: 5
@@ -19,7 +19,7 @@ This guide will walk through rolling back .NET Windows Services and .NET Web App
 
 Rolling back a database is out of the scope of this guide.  As stated in this [article](https://octopus.com/blog/database-rollbacks-pitfalls), rolling back a database schema change could result in wrong or deleted data.  This guide focuses on scenarios where there were no database changes or the database changes are backward compatible.  Because the database changes are out of scope for rollbacks, the database packages will be "skipped" during the rollback process.
 
-## Existing Deployment Process
+## Existing deployment process
 
 For this guide, we will start with the following deployment process for the OctoFX application:
 
@@ -38,11 +38,11 @@ For this guide, we will start with the following deployment process for the Octo
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
 :::
 
-## Zero Configuration Rollback
+## Zero configuration rollback
 
 <ZeroConfigRollback />
 
-## Simple Rollback Process
+## Simple rollback process
 
 The typical rollback strategy is to skip specific steps and run additional ones during a rollback.  In this example, the database steps will be skipped with another step to [prevent that release from progressing](/docs/releases/prevent-release-progression) will run during a rollback.
 
@@ -65,11 +65,11 @@ The updated deployment process will be:
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please login as a guest.
 :::
 
-### Calculate Deployment Mode
+### Calculate deployment mode
 
 <CalculateDeploymentMode />
 
-### Skip Database Deployment Steps
+### Skip database deployment steps
 
 The two steps related to database deployments, Run Database Creation Runbook and Deploy OctoFX Database, should be skipped during a rollback.  Unlike code, databases cannot easily be rolled back without risking data loss.  For most rollbacks, you won't have database changes.  However, a rollback could accidentally be triggered with a database change.  For example, rolling back a change in **Test** to unblock the QA team.   Skipping these steps during the rollback reduces the chance of accidental data loss.  
 
@@ -85,11 +85,11 @@ We also recommend adding or updating the notes field to indicate it will only ru
 ![windows updating notes field](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-updating-notes-field.png)
 :::
 
-### Prevent Release Progression
+### Prevent release progression
 
 <PreventReleaseProgression />
 
-## Complex Rollback Process
+## Complex rollback process
 
 As mentioned earlier, re-deploying the website and windows service involves re-extracting the package, running configuration transforms, and any embedded scripts.  Generally, those steps will finish within 60 seconds.  However, re-deploying those packages carries a small amount of risk because variable snapshots can be updated.  Or, the embedded scripts are complex and take time to finish.  
 
@@ -123,7 +123,7 @@ The resulting process will be:
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please login as a guest.
 :::
 
-### Comparison to Simple Rollback Process
+### Comparison to simple rollback process
 
 The complex rollback process and simple rollback process have some overlap.  Please refer to the earlier section on how to configure these steps.
 
@@ -134,7 +134,7 @@ The complex rollback process and simple rollback process have some overlap.  Ple
 
 The primary difference between the simple and complex rollback process is the complex rollback process reuses the pre-existing extracted application.
 
-### Add System Variable to Skip Package Deployment
+### Add system variable to skip package deployment
 
 Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will skip already installed packages.  That makes a lot of sense for rollbacks but less sense for regular deployments.  To _only_ skip package installation for rollbacks, set the variable value to be:
 
@@ -146,7 +146,7 @@ Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will 
 ![windows skip if already installed](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-skip-if-already-installed.png)
 :::
 
-### Windows Service Rollback
+### Windows Service rollback
 
 Updating the existing Windows Service to point to an earlier version of the application involves two steps.
 
@@ -165,7 +165,7 @@ Set the run condition for this step to:
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
-### Website Rollback
+### Website rollback
 
 In modern versions of IIS, updating the physical path is an instantaneous action.  All traffic is routed to that new path.  To do that, use the [IIS Website - Update Property](https://library.octopus.com/step-templates/34118a0e-f872-435a-8522-d3c7f8515cb8/actiontemplate-iis-website-update-property) step template. 
 
@@ -184,6 +184,6 @@ Set the run condition for this step to:
 If you are using application pools instead of websites, use [IIS AppPool - Update Property](https://library.octopus.com/step-templates/183c1676-cb8e-44e8-a348-bbcb2b77536e/actiontemplate-iis-apppool-update-property) step template.
 :::
 
-## Simple or Complex Rollback Process
+## Simple or complex rollback process
 
 We recommend starting with the simple rollback process first.  That requires the least amount of changes while at the same time gives you the rollback functionality.  Only move to the complex rollback process if you determine the simple rollback process isn't meeting a specific need.

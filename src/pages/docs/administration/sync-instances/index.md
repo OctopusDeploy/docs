@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Sync multiple instances
 description: How to keep two or more Octopus Deploy instances in sync.
 navOrder: 45
@@ -17,7 +17,7 @@ Keeping multiple instances in sync is a complex task involving dozens if not hun
 TL;DR; copying projects between instances should be done when all other options have been exhausted.  There is no provided tooling to support syncing instances with different environments, tenants, or variable values.  Due to the number of decisions and business rules, you will have to create and maintain a custom syncing process.  Before making this decision, reach out to [customersuccess@octopus.com](mailto:customersuccess@octopus.com) to see if there are alternatives.
 :::
 
-## Suitable Scenarios
+## Suitable scenarios
 
 Split and sync instances only when Octopus lacks a critical feature to satisfy a company policy, industry regulation, or a business contract.  The use cases we've seen in the past are:
 
@@ -104,7 +104,7 @@ We make that recommendation because, as you'll soon see, there are a lot of busi
 
 The Octopus team has written a sample PowerShell tool, [SpaceCloner](https://github.com/OctopusDeployLabs/SpaceCloner), you can use as a reference or example for your syncing process.  A lot of this documentation used lessons from writing that tool.  While the SpaceCloner supports syncing instances with a known delta, we recommend using that tool as a guide.  It was created with specific use cases in mind and probably won't support your hyper-specific use case.
 
-## Syncing Process
+## Syncing process
 
 If you do determine the best course of action is to sync projects across multiple Octopus Deploy instances, then you will need to start designing a syncing process.  While the actual business rules and decisions will vary between implementations, the core rules for any syncing process will remain the same.
 
@@ -130,7 +130,7 @@ It will be nearly impossible to know which instance is "right" and whether the c
 
 It's okay to have known differences between the instances, such as different environments, lifecycles, variable values, tenants, deployment targets, channels, and more.  But when something new is added, such as a new variable or step, it should be done on one instance and synced to the other instance.  It is hard enough to detect when something is "new". A one-way sync will help keep conflicts to a minimum, and reduce complexity.
 
-### Data to Sync
+### Data to sync
 
 Octopus Deploy is more than a deployment process and variables.  A lot of scaffolding data is needed for everything to work correctly.  The syncing process should allow for the syncing of the following data:
 
@@ -258,7 +258,7 @@ A deployment, and runbook run, have the same limitation.  Issuing a `POST` comma
 
 What this comes back to is auditability.  If that data can be modified by any outside process then it is not auditable.
 
-### Syncing Order
+### Syncing order
 
 In our experience, it is far easier to group data by type and sync them all together.  For example, sync all the Project Groups before syncing Projects.  That requires an order of precedence in syncing due to data dependencies.  That order of precedence is:
 
@@ -383,7 +383,7 @@ In most cases, it doesn't make much sense to sync Accounts and Certificates.  Bu
 - Create an Account or Certificate with the same name on each instance but different details.  You don't have to modify any variables.
 - Re-use the same variable name but associate it to different Accounts or Certificates.  The syncing process will only create new variables and insert dummy data.
 
-### Variable Scoping
+### Variable scoping
 Syncing variables between instances with different environments is very complex due to scoping and variable types.
 
 For all the examples below, the source instance has **Development** and **Test** while the destination instance has **Staging** and **Production**.  The source instance has the following variables.
@@ -493,7 +493,7 @@ Both Accounts and Certificates are referenced by variables in either projects or
 
 In most cases, it doesn't make much sense to sync Accounts and Certificates.  But the variables referencing the Accounts and Certificates are used in Deployment and Runbook processes.  In this case, the best option is to re-use the same variable name but associate it with different Accounts or Certificates.
 
-### Team User Role Scoping
+### Team User Role scoping
 
 The Team user role scoping is used for permissions.  For example, a team has access to edit a specific set of Tenants.  In this case, it makes sense to exclude any Tenants not found on the destination instance from the team user role scope.  It won't hurt anything as that Tenant doesn't exist.  Most likely, the list of Tenants that particular team has permission to edit will be very different.
 

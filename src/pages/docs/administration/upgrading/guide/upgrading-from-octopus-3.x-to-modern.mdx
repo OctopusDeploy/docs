@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Upgrading from Octopus 3.x to the latest version
 description: Information on how to upgrade from Octopus Deploy 3.x to the latest version
 navOrder: 6
@@ -37,7 +37,7 @@ You should be safe doing an in-place upgrade of 3.x to the latest version of Oct
 - Raised the [minimum requirements for hosting and using Octopus Server](https://octopus.com/blog/raising-minimum-requirements-for-octopus-server) (both Windows and SQL Server).
 - Execution containers running on docker on workers were introduced.
 
-## Prep Work
+## Prep work
 
 Before starting the upgrade, it is critical to back up the master key and license key.  If anything goes wrong, you might need these keys to do a restore.  It is better to have the backup and not need it than need the backup and not have it.  The master key doesn't change, while your license key changes, at most, once a year.  Back them up once to a secure location and move onto the next steps.
 

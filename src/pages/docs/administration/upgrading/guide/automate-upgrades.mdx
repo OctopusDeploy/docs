@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-07-10
+modDate: 2023-10-04
 title: How to automate Octopus Deploy upgrades
 description: A how-to guide on how to automate Octopus Deploy upgrades
 navOrder: 4
@@ -14,7 +14,7 @@ Automating the Octopus Deploy upgrade ensures all essential steps are executed d
 
 This guide was written for upgrading Octopus Deploy on Windows. 
 
-## Prep Work
+## Prep work
 
 Before going down the automation path, it is critical to back up the master key and license key.  If anything goes wrong, you might need these keys to do a restore.  It is better to have the backup and not need it than need the backup and not have it.  The master key doesn't change, while your license key changes, at most, once a year.  Back them up once to a secure location and move on.
 
@@ -23,7 +23,7 @@ Before going down the automation path, it is critical to back up the master key 
 
 <OctopusBackupMasterKey />
 
-## Upgrading Single Node Octopus Deploy instances
+## Upgrading single node Octopus Deploy instances
 
 A single node Octopus Deploy instance is an instance not configured for [high availability](/docs/administration/high-availability).  The instance is running on a single Windows Server, and as such, you can run this script to:
 

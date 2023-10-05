@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Jira issue tracking
 description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 navOrder: 20
@@ -209,7 +209,7 @@ If your deployments aren't being displayed in Jira, this likely means you will n
 
 Navigate to **Infrastructure ➜ Environments**, and next to each environment click on the overflow menu (`...`) and click **Edit**. From here, you can map each Octopus environment to your corresponding Jira environment.
 
-### Ensure casing on Issue/Work Item IDs match {#troubleshooting-check-case-on-ids}
+### Ensure casing on issue/work item IDs match {#troubleshooting-check-case-on-ids}
 
 The commits that are pushed to Octopus as build information need to have the exact same case as the issue/work item found in Jira. For example, if the work item in Jira is `OBJ-123`, but your commit message includes the work item as `obj-123` (notice the lower-case value) you will need to remediate the case in your commits. This will allow the deployment status update to appear in Jira successfully.
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Rollbacks
 description: Rolling back to a previous version of code is entirely possible, but there is quite a bit to consider.  This guide will walk you through the patterns and pitfalls for a successful rollback.
 navOrder: 10
@@ -10,7 +10,7 @@ hideInThisSectionHeader: false
 
 Being able to roll back to a known good state of code is often just as important as deploying software.  In our experience, rolling back to a previous release is rarely as simple as "re-deploying the last successful deployment."  This section will walk you through the patterns and pitfalls you'll encounter when configuring a rollback process.
 
-## Built-In Rollback Support
+## Built-in rollback support
 
 Octopus Deploy supports rollbacks out of the box.  It always keeps the two most successful releases in any given environment, making it easy to roll back to the previous version.  In addition, you can configure [retention policies](/docs/administration/retention-policies) to keep more releases on your target machines.
 
@@ -20,7 +20,7 @@ For example, Imagine you just deployed `1.1.21` to your **QA** servers.  For wha
 Doing that will re-run the previous deployment process as it existed at release creation.  It will re-extract any packages, re-run all the configuration transforms, re-run any manual intervention steps, etc.  If it took an hour before, it would most likely retake an hour on re-deployment.
 :::
 
-## Ideal Rollback Scenarios
+## Ideal rollback scenarios
 
 It would be impossible to list every scenario in which a rollback will be successful, as each application is different.  That being said, we have found rollbacks are most likely to succeed when one or more of the following is true.
 
@@ -32,7 +32,7 @@ It would be impossible to list every scenario in which a rollback will be succes
 
 Rollbacks are much more complicated (if not impossible) when you have tightly coupled database and code changes, are doing a once-a-quarter release with 100s of changes, or the changes are tightly coupled with other applications.  In those scenarios, we recommend **rolling forward**.
 
-## Designing a Rollback Process
+## Designing a rollback process
 
 Having the ability to roll back, even if rarely used, is a valuable option.  What you don't want is to make up your rollback process in the middle of an emergency.  If you want to have the ability to roll back, start thinking about what that process should look like now.  Below are some questions to help get you started.
 
@@ -62,7 +62,7 @@ Re-running that deployment process as-is for a rollback could lead to data loss 
 1. Pause deployment for manual verification of application.
 1. Notify stakeholders of deployment.
 
-### Calculating Deployment Mode
+### Calculating deployment mode
 
 When a release is deployed to an environment, there are three possible "Deployment Mode" scenarios.
 
@@ -78,7 +78,7 @@ Calculating deployment mode is done by comparing the system variable `Octopus.Re
 
 We have created the step template [Calculate Deployment Mode](https://library.octopus.com/step-templates/d166457a-1421-4731-b143-dd6766fb95d5/actiontemplate-calculate-deployment-mode) to do that for you.
 
-### Enabling and Disabling Steps based on Deployment Mode
+### Enabling and disabling steps based on deployment mode
 
 Once you know the deployment mode, you can enable or disable steps using [output variables](/docs/projects/variables/output-variables) and [variable run conditions](/docs/projects/steps/conditions/#variable-expressions).  You can have steps run only on **Rollback**, only on **Deploy**, only on **Deploy** or **Redeployment**, or any other combination.  
 
@@ -108,13 +108,13 @@ The usage will be:
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
-## Automatic Trigger of Rollbacks
+## Automatic trigger of rollbacks
 
 Using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release), or [one of our step templates](https://library.octopus.com/step-templates/0dac2fe6-91d5-4c05-bdfb-1b97adf1e12e/actiontemplate-deploy-child-octopus-deploy-project) it is possible to automatically trigger a rollback process.  
 
 While it is possible to automatically trigger a rollback, this is not something we recommend unless you have a robust testing suite and you've tested your rollback process multiple times.  We recommend first manually triggering the rollback.  Once you are confident in your rollback process, look into updating your process to be automatically triggered.
 
-## Rollback Considerations
+## Rollback considerations
 
 Once a rollback process is in place, you'll need to decide when to use it.  Specifically, when an issue occurs, you must decide to roll forward or rollback.  When making that decision, here are a few questions to ask.
 
@@ -123,13 +123,13 @@ Once a rollback process is in place, you'll need to decide when to use it.  Spec
 - Are there any external components/applications depending on this deployment?  
 - How long have the changes "been live" for users to use?  Will they notice if a rollback were to occur?
 
-### Large Changeset
+### Large changeset
 
 Rolling back a large changeset is much, much harder than rolling back a small changeset.  When you roll back, you cannot pick a specific change in a specific application's binaries to roll back.  Everything goes, or none of it goes.  If you have made dozens and dozens of changes, attempting to untangle the web of what to roll back could take just as long as rolling forward.
 
 If it has been a month or more since the last release to **Production**, we recommend **rolling forward**.  If it has been a few hours since the last release, for example, deploying to a **Test** or **QA** environment, then a **rollback** is suitable.
 
-### Database Rollbacks
+### Database rollbacks
 
 Rolling back code is much easier than rolling back a database **without data loss**.  It becomes nearly impossible to roll back a database schema change once users start manipulating data.  
 
@@ -144,7 +144,7 @@ Restoring a backup will also result in data loss; any data changed by users sinc
 
 In the event you have a schema change in your database, we recommend **rolling forward**. 
 
-### Dependent Applications
+### Dependent applications
 
 In a perfect world, every service and project would be loosely coupled.  While great in theory, the real world is often messy, and coupling exists.  Services and their clients have an implied or explicit data contract and can be tightly coupled together.  If either the service or the client violates that contract, a failure will occur.
 
@@ -160,7 +160,7 @@ That is due to user perception.  If a release with a new feature and several bug
 
 Generally, unless a showstopping bug is found, limit rollbacks to outage windows.  Once the userbase starts using the new release, we recommend **rolling forward**.  
 
-## Staging Your Deployments
+## Staging your deployments
 
 In our experience, deployments (and rollbacks) have the highest chance of success when deployed to the target environment in a "staging" area on your production servers.  The deployment is then verified, and assuming verification passes, the "staging" area becomes live.  If there is a problem, the deployment is aborted, and all the pre-existing configuration remains untouched.
 

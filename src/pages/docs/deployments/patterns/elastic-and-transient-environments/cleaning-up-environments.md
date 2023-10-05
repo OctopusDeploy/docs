@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Cleaning up Environments
 description: Octopus can automatically remove unwanted machines from environments based on their health status.  
 navOrder: 3
@@ -9,13 +9,13 @@ navOrder: 3
 
 Octopus can automatically remove unwanted machines from environments based on their health status.  This is useful when an environment is scaled down and orphaned deployment targets remain in Octopus.  Automatic environment clean up can be configured through machine policies.
 
-## Machine Policies {#Cleaningupenvironments-Machinepolicies}
+## Machine policies {#Cleaningupenvironments-Machinepolicies}
 
 Machine policies are machine related settings that can be applied per-machine. They can be accessed at **Infrastructure ➜ Machine policies**.
 
 In this example we will create a machine policy to automatically delete machines when they become unavailable.
 
-## Creating a Machine Policy for Environment Cleanup {#Cleaningupenvironments-Creatingamachinepolicyforenvironmentcleanup}
+## Creating a machine policy for environment cleanup {#Cleaningupenvironments-Creatingamachinepolicyforenvironmentcleanup}
 
 1. Navigate to the *Machine policies* screen.
 2. Create a new machine policy by selecting **Add machine policy**:
@@ -48,7 +48,7 @@ Machine deletion happens as part of health checks.
 Read more about [machine policies](/docs/infrastructure/deployment-targets/machine-policies)
 :::
 
-## Troubleshooting Automatic Environment Clean Up {#Cleaningupenvironments-Troubleshootingautomaticenvironmentcleanup}
+## Troubleshooting automatic environment clean up {#Cleaningupenvironments-Troubleshootingautomaticenvironmentcleanup}
 
 Machine clean up is part of health checks and machine clean up logs are not stored.  Machine clean up logging is written to the log of the health check task that performed the deletion.  Audit events recording the automatic clean up of machines can be accessed via the **Configuration ➜ Diagnostics** page by selecting **Machine clean up events**, which redirects to the audit log of automatic machine removals.
 

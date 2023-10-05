@@ -15,7 +15,7 @@ We previously recommended creating a project for each component.  We have found 
 
 Like any recommendation, we have seen the extreme end of the spectrum, projects with 200+ steps deploying 80+ packages that take over an hour to deploy.  That might be a good candidate to split up into smaller projects.  However, you should ensure components are decoupled before making changes to the deployment process.  Don't change how you deploy the application when components need to be deployed in a specific order, and failure to do so will cause showstopping bugs.  First, focus on decoupling the components, then change how you deploy them.
 
-## Leverage the Project Per Component pattern with decoupled components
+## Leverage the project per component pattern with decoupled components
 
 We recommend the project per component pattern when those components are decoupled from one another.  Returning to the previous web application example, adding a column to the database can still require changing the back-end and front-end.  However, the back-end and front-end have the appropriate code to continue processing without errors when the column is not present.  And the column isn't required to be populated in the database.
 

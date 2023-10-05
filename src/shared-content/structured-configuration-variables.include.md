@@ -1,6 +1,7 @@
 :::div{.info}
 
 This Configuration Feature was previously called JSON Configuration Variables. In version **2020.4.0**, we added support for YAML, XML, and Properties configuration file replacements and renamed the feature Structured Configuration Variables.
+
 :::
 
 With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables) in Octopus for use in JSON, YAML, XML, and Properties configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
@@ -63,7 +64,7 @@ If the file doesn't parse as JSON, Octopus refers to its file extension. If it i
 
 If the file extension is not recognized (for example, a file with a `config` file extension), Octopus will try to parse the files using each of the supported formats until a matching format is found.
 
-### Variable Replacement {#StructuredConfigurationVariablesFeature-VariableReplacement}
+### Variable replacement {#StructuredConfigurationVariablesFeature-VariableReplacement}
 
 Octopus uses variable names to identify the structures that should be replaced within the target files. If a structure within a target file has a hierarchical location that matches a variable name, its content will be replaced with the variable's value. The hierarchical location is identified differently depending on the type of target file:
 
@@ -377,7 +378,7 @@ Another option is to match and replace individual text nodes. A variable named `
 <document>just &lt;text&gt;<b>mixed</b> content</document>
 ```
 
-### Replacing Attributes
+### Replacing attributes
 
 Matching and replacing attribute values is supported with XPath. For example, assume the target file contains the following:
 
@@ -434,7 +435,7 @@ CDATA sections can be replaced just like any other node by selecting them with t
 </document>
 ```
 
-### Processing Instructions
+### Processing instructions
 
 Processing instructions can be replaced using the XPath processing instruction selector like so: `/document/processing-instruction('xml-stylesheet')`. When replacing a processing instruction, it's not possible to replace the individual attributes. The whole processing instruction gets replaced with the supplied value. Take the following example:
 
@@ -479,7 +480,7 @@ Given the following xml:
 ```
 If you wanted to replace the value `localhost`, you could use the XPath expression of: `/*:server/*:properties/*:property[@name='host.name']/@value`
 
-## Java Properties 
+## Java properties 
 
 Given this example of a target properties file:
 

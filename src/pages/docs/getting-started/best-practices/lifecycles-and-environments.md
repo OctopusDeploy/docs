@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-05-03
+modDate: 2023-10-04
 title: Lifecycles and Environments
 description: Guidelines and recommendations for configuring your lifecycles to control the flow to your environments
 navOrder: 35
@@ -14,7 +14,7 @@ Octopus Deploy shares Lifecycles across an entire space.  A project references l
 
 Lifecycles contain 1 to N phases, representing a stage in your deployment lifecycle.  A phase can have 0 to N environments; for example, you could have a test phase that contains both **development** and **test** environments.  Or, you could have a development phase for your **development** environment and a test phase for your **test** environment.  
 
-## Manually set your Phases
+## Manually set your phases
 
 A lifecycle with no phases will result in Octopus calculating the phases automatically for you containing all environments.  The order of the phases is dependent on the order of the environments on the environment page.    
 
@@ -45,7 +45,7 @@ We **_never_** recommend having a lifecycle with only **production**.  Any deplo
 A lifecycle with a single phase is an anti-pattern.  Typically we see this when users strictly adhere to the [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) branching strategy.  If you create a new build, that build should be deployed to at least one environment to ensure it will work in **production**.  
 :::
 
-## Production Approval
+## Production approval
 
 Do not use the [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) for business owner approvals, CAB (change approval board) approvals, or other Production approvals unless there is no other option.  There are multiple reasons for this.
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-05-03
+modDate: 2023-10-04
 title: Variable Recommendations
 description: Guidelines and recommendations for configuring variables in Octopus Deploy.
 navOrder: 60
@@ -33,7 +33,7 @@ In addition to having the above levels of variables, there are also two categori
 1.  Variables used in configuration file replacement (connection strings, version number, etc.)
 2.  Variables specific to the deployment or runbook run (output variables, messages, accounts, etc.)
 
-## Variable Naming
+## Variable naming
 
 Without established naming conventions, variable name collisions are possible.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/#Scopingvariables-Scopespecificity).  But sometimes, the variables are scoped equally.  If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
 
@@ -46,7 +46,7 @@ The recommendation is to avoid name collisions in the first place by following t
 
 These naming conventions only apply to variables used for a deployment or runbook run.  Variables used for configuration file replacement have a specific naming convention to follow.  The above naming convention makes it easier to distinguish between the two.
 
-## Configuration File Replacement Variables
+## Configuration file replacement variables
 
 One of Octopus Deploy's most used features is environmental variable scoping.  And with good reason, having the same process, only needing a specific value such as a connection string or domain name changed, ensures consistency during deployment.
 

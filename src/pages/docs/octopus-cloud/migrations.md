@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Migrating from Octopus Server to Octopus Cloud
 navOrder: 30
 description:  Migrating from Octopus Server to Octopus Cloud.
@@ -113,7 +113,7 @@ If you use an external package repository, such as a self-hosted Artifactory ins
 
 Set up a couple of sample projects to deploy to your servers.  That will be a final "plugs-out" test to ensure you are ready to start your migration.
 
-### User Migration
+### User migration
 
 The project export/import feature does not include users.  All users must be created from scratch.  If you are using an external authentication provider, such as Azure AD, or Okta, you can turn on "auto-create users" feature.
 
@@ -140,7 +140,7 @@ We recommend choosing an "off-cycle" or "slow time" whenever possible to keep an
 Following this approach, you will have a time period with both an Octopus Server instance and an Octopus Cloud instance.  
 :::
 
-### Export / Import the project
+### Export / import the project
 
 Follow the instructions on [exporting and importing page](/docs/projects/export-import) to export and import a project.  Make a note of what is _not_ exported.  Releases and deployments are exported, but only "shells" (not the full deployment) to ensure any pre-existing releases can be promoted.
 
@@ -201,7 +201,7 @@ At this point, we recommend deleting all the tentacle instances still pointing t
 
 In our experience, most people turn off their Octopus Server in about three to six months.  When you decide to turn off your Octopus server, first take a full backup of the database and delete all the appropriate resources.
 
-## No Longer Offered or Supported
+## No longer offered or supported
 
 Before the **Export/Import Projects** feature, we offered a manual migration process.  With the release of that feature, we no longer offer manual migrations from a self-hosted Octopus Server to Octopus Cloud and vice-versa. 
 

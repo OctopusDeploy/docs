@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Create MySQL database
 description: With Octopus Deploy you can create a MySQL database with a Runbook.
 navOrder: 40
@@ -11,7 +11,7 @@ The ability to create a database in MySQL requires that the user account have el
 
 In the following example, we'll use the [MySQL - Create Database If Not Exists](https://library.octopus.com/step-templates/4a222ac3-ff4b-4328-8778-1c44eebdedde/actiontemplate-mysql-create-database-if-not-exists) community step template.
 
-## Create the Runbook
+## Create the runbook
 
 1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the Runbook a name and click **SAVE**.

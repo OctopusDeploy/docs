@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Getting started
 subtitle: An overview of Octopus Deploy concepts
 navTitle: Overview
@@ -15,7 +15,7 @@ This section provides an overview of Octopus Deploy concepts and links to the re
 
 <span><a class="button trial" href="https://octopus.com/start">Start a Trial</a></span>
 
-## Consistent Releases
+## Consistent releases
 
 Octopus Deploy simplifies complex deployments.
 
@@ -59,7 +59,7 @@ Organizing your infrastructure into environments lets you define your deployment
 
 Learn more about managing your [infrastructure](/docs/infrastructure).
 
-## Packaging Applications
+## Packaging applications
 
 Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run in a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. You can configure your build server to push packages automatically to Octopus's built-in repository or to your existing [package repository](/docs/packaging-applications/package-repositories).
 
@@ -75,7 +75,7 @@ For each project, you can define a deployment process, runbooks to manage your i
 
 Learn more about [projects](/docs/projects).
 
-## Deploying Applications
+## Deploying applications
 
 Octopus Deploy is designed to work with teams following modern DevOps methodologies, that is, continuously deploying software, getting feedback, making changes, and redeploying.
 

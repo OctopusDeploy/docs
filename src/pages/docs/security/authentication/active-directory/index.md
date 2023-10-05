@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Active Directory authentication
 description: Octopus Deploy can use Windows credentials to identify users.
 navOrder: 5
@@ -17,13 +17,13 @@ Octopus Deploy can authenticate users using Windows credentials. Windows AD auth
 **Domain user required during setup**
 When setting AD Authentication, either via the Octopus setup wizard or running the commands outlined below to switch to AD authentication mode, make sure you are signed in to Windows as a domain user. If you are signed in as a local user account on the machine (a non-domain user) you won't be able to query Active Directory, so setup will fail.
 
-## Active Directory Sign-In options {#ActiveDirectoryauthentication-ActiveDirectorysigninoptions}
+## Active Directory sign-in options {#ActiveDirectoryauthentication-ActiveDirectorysigninoptions}
 If you are using Active Directory Authentication with Octopus, there are two ways to sign in.
 
 1. Integrated authentication
 2. Forms-based
 
-## Authentication Schemes
+## Authentication schemes
 By default, Active Directory Authentication will use NTLM as the Authentication Scheme. In many circumstances, you can also configure Octopus to use Kerberos for authentication.
 
 If you would like to use Kerberos for authentication, you should consider if you require User Mode authentication. User Mode is required for Kerberos authentication when Octopus is in a [High Availability](/docs/administration/high-availability) configuration. By default, Kerberos authentication for Octopus Deploy runs in Kernel Mode. The mode is dictated by the web server running Octopus Deploy, which can be configured using the `configure` command. Select HTTP.sys for Kernel Mode, or Kestrel for User Mode:
@@ -71,7 +71,7 @@ When the link is clicked, it redirects to a page which is configured to tell HTT
 :::
 
 
-### Kerberos vs NTLM security for AD Authentication {#ActiveDirectoryAuthentication-NTLMvKerberos}
+### Kerberos vs NTLM security for AD authentication {#ActiveDirectoryAuthentication-NTLMvKerberos}
 
 It is possible to use explicitly select either `NTLM`, `Negotiate` or `IntegratedWindowsAuthentication` authentication for Active Directory authentication. Using `Negotiate` or `IntegratedWindowsAuthentication` will use Kerberos authentication. In some cases this may result in `NTLM` connections based on the nature of the connecting client.
 
@@ -85,9 +85,9 @@ This table describes the options you can choose in Octopus, and the protocols th
 
 Without some additional configuration, AD authentication, whether forms-based or integrated, will usually fail to negotiate the use of `kerberos` authentication and instead choose `NTLM`.
 
-### Supported Setups for Active Directory Authentication {#ActiveDirectoryAuthentication-SupportedAuthentication}
+### Supported setups for Active Directory authentication {#ActiveDirectoryAuthentication-SupportedAuthentication}
 
-Octopus Deploy supports various options for Active Directory Authentication.
+Octopus Deploy supports various options for Active Directory authentication.
 
 :::div{.hint}
 Not all high availability and Active Directory configurations are supported. There are limitations on the use of Kerberos in high availability scenarios. This is due to a requirement to [use a machine level SPN in order to allow Kerberos to work](#ActiveDirectoryAuthentication-ConfiguringKerberos) with our web server.
@@ -104,7 +104,7 @@ Not all high availability and Active Directory configurations are supported. The
 From Octopus version 2020.1.0 and above, an upgrade to .Net Core 3.1 and usage of the HTTP.sys library, the Octopus Deploy Service running with Domain Service Account credentials, does not have the ability to read the HttpContext.User.Identity.Name property which is used for Kerberos authentication. There is a requirement to run the Octopus Deploy Service as Local System in order to allow for Kerberos to successfully Authenticate. You can read more about this here: https://github.com/OctopusDeploy/Issues/issues/6602
 :::
 
-### Configuring Kerberos Authentication for Active Directory {#ActiveDirectoryAuthentication-ConfiguringKerberos}
+### Configuring Kerberos authentication for Active Directory {#ActiveDirectoryAuthentication-ConfiguringKerberos}
 
 Here's a simple checklist to help you on your way to allowing Kerberos Authentication.
 
@@ -192,7 +192,7 @@ To set trusted sites via GPO:
 1. Click **OK** then **Apply** and **OK**.
 
 
-### Allowing Auto Logon via Group Policy Object {#ActiveDirectoryAuthentication-AllowingAutoLogon}
+### Allowing auto logon via Group Policy Object {#ActiveDirectoryAuthentication-AllowingAutoLogon}
 
 1. Open the **Group Policy Management Editor**.
 1. Go to **User Configuration ➜ Policies ➜ Administrative Templates ➜ Windows Components ➜ Internet Explorer ➜ Internet Control Panel ➜ Security Page**.

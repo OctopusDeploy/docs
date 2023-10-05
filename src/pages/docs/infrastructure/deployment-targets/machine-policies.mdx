@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Machine policies
 description: Machine Policies allow you to customize the behavior of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
 navOrder: 110
@@ -168,7 +168,7 @@ Using this setting with a Tentacle that runs on ephemeral storage (e.g., running
 It is recommended to run Tentacle on a persistent file system.
 :::
 
-### Retry Durations
+### Retry durations
 There are two configurable durations for setting the maximum amount of time allowed to re-attempt failed communication with a Tentacle:
 
 - **Deployment or Runbook Run**
@@ -178,7 +178,7 @@ There are two configurable durations for setting the maximum amount of time allo
 ![](/docs/infrastructure/deployment-targets/images/recover-from-communication-errors-with-tentacle-durations.png "width=500")
 :::
 
-### Step Retries and Execution Timeouts
+### Step Retries and execution timeouts
 If you would like to retry a particular step within the deployment process for other types of temporary or transient errors, that can be [configured separately](/docs/projects/steps/conditions/#retries-and-execution-timeouts).
 
 ## Automatically delete machines \{#MachinePolicies-Automaticallydeletemachines}

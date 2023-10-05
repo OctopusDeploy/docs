@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Rolling back a Tomcat deployment
 description: This guide covers the topic of rolling back an application deployed to a Tomcat Java application server.
 navOrder: 10
@@ -44,11 +44,11 @@ For this guide, we'll start with an existing deployment process for deploying th
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-petclinic-original/deployments/process).  Please login as a guest.
 :::
 
-## Zero Configuration Rollback
+## Zero-configuration rollback
 
 <ZeroConfigRollback />
 
-## Simple Rollback Process
+## Simple rollback process
 
 While doing a rollback can be an operational exercise, the most typical reason for a rollback is something is wrong with the release, and you need to back out the changes.  A bad release should also be [prevented from moving forward](/docs/releases/prevent-release-progression).
 
@@ -70,11 +70,11 @@ The updated deployment process for a simple rollback would look like this:
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-petclinic-simplerollback/deployments/process).  Please login as a guest.
 :::
 
-### Calculate Deployment Mode
+### Calculate deployment mode
 
 <CalculateDeploymentMode />
 
-### Skipping Database Steps
+### Skipping database steps
 
 The two database steps, `Create Database If Not Exists` and `Deploy Database Changes` should be skipped for a rollback scenario.  Rolling back database changes could result in data loss or interrupt testing operations.  To skip these steps, we'll use one of the Variable Run Condition output variables from Calculate Deployment Mode step:
 
@@ -88,11 +88,11 @@ When looking at the deployment process from the Process tab, there isn't a quick
 ![](/docs/deployments/patterns/rollbacks/tomcat/octopus-step-notes.png)
 :::
 
-### Block Release Progression
+### Block release progression
 
 <PreventReleaseProgression />
 
-## Complex Rollback Process
+## Complex rollback process
 
 In the simple rollback scenario, the `.war` file is redeployed, extracted, variable replacement is executed, the `.war` is repackaged before finally being sent to the Tomcat server webapps location.  In cases where the `.war` is very large, the extraction and repackaging of the `.war` could take quite some time, making the rollback process lengthy.  This is where the parallel deployments feature of Tomcat can benefit us as all the processes have already occurred during the initial deployment of that release.  
 
@@ -123,7 +123,7 @@ Next, we'll go through the newly added and altered steps:
 
 The Rollback Reason is a [Manual Intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that prompts the user for the reason they are rolling back.  The text entered is stored in an output variable which will be used in the Block Release Progression step further down the process.
 
-### Stop App in Tomcat
+### Stop app in Tomcat
 
 Before we deploy a new version of our application, we first must stop the existing one.  The Advanced Options section of the `Start/Stop App in Tomcat` step is where we specify which version of the application we're going to stop.  For this guide, the version is identified as the previous release number, which is represented by the following variable.
 
@@ -163,7 +163,7 @@ For this guide, we only want the Deploy step to occur on a Deployment or a Redep
 ![](/docs/deployments/patterns/rollbacks/tomcat/octopus-deploy-tomcat-run-condition.png)
 :::
 
-### Start App in Tomcat
+### Start app in Tomcat
 
 When executing the rollback, we'll need to start the previous version.
 
@@ -173,7 +173,7 @@ This step is only required during a rollback scenario, so you'll need to add the
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
-### Block Release Progression
+### Block release progression
 
 The `Rollback Reason` step captures the reason for the rollback.  We can pass the text entered in this step to the `Reason` field of this step by using the following output variable.
 

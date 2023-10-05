@@ -1,5 +1,5 @@
 
-## Setting Up the Project
+## Setting Up the project
 
 Let's configure a project using our recommended principles.  We are going to be deploying a sample application called **OctoFX**.  It's a small ASP.NET application with a database and a user interface.  When we've completed this setup, we will have three projects:
 
@@ -27,7 +27,7 @@ That group looks a little empty.  Let's add in the three projects we discussed e
 Adding an image to your project is a useful way to set them apart from other projects visually.  In addition to supporting .jpg and .png files, we also support .gif files; this means you can have an animated icon to add a little flair to your Octopus Deploy instance!
 :::
 
-### Sharing Variables Between Projects
+### Sharing variables between projects
 
 We have the three projects set up, but we need to share some common variables between them.  The SQL Server that we are deploying to, the database name and the application name are variables that come to mind.  To accomplish this, we are going to create a library set for this specific application.
 
@@ -45,7 +45,7 @@ It's also good to have a couple of other library variable sets to handle some no
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-globalvariables.png)
 :::
 
-### OctoFX-Database Project
+### OctoFX-Database project
 
 The first project we are going to configure is the **OctoFX-Database** project.  If we follow the recommendations from earlier in this guide, we will assume that the SQL Server is running, but this database and the required user do not exist.  We will add steps to check to see if the database and the user for the environment exist.  If they don't, then we'll need to create them.  Also, we want to build some trust in the process; we can do this by having a manual intervention for a DBA to approve.
 
@@ -107,7 +107,7 @@ Finally, the database deployment process is complete.  The process is relatively
 
 Don't spend too much time on the actual steps in the process.  The major takeaways from this are that the database project is responsible for everything required to create, configure, and deploy a database.  You might be using a different tool (like Redgate or RoundhousE) to do your deployments, which include some additional features.
 
-### OctoFX-WebUI Project
+### OctoFX-WebUI project
 
 Now it's time to move onto deploying the UI.  Unlike the previous section, we won't walk through all the necessary steps you need to configure your project.  We will follow the same rules as before; the project will do all the work required to deploy the web application as if it were for the first time.  
 
@@ -141,7 +141,7 @@ Take a look at our documentation on how to [configure a rolling deployment](/doc
 
 Just like with the database project, don't worry about the individual steps used.  This is just an example to show you how we would configure a simple IIS web application deployment.  The most important thing to take away from this section is the **WebUI** project is only concerned with deploying the **WebUI**, and it will work if it's being deployed for the first time, or the 100th time.
 
-### OctoFX-TrafficCop Project
+### OctoFX-TrafficCop project
 
 The traffic cop project is the coordinator.  It knows the order to deploy the **OctoFX-Database** and **OctoFX-WebUI** projects.  This project is useful for times when the entire **OctoFX** application needs to be deployed.  This way, you can still have a single project to schedule and deploy later.
 

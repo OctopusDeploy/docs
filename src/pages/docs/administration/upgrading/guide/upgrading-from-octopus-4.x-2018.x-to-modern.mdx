@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Upgrading from Octopus 4.x / 2018.x to latest version
 description: Information on how to upgrade from Octopus Deploy 4.x or 2018.x to the latest version
 navOrder: 5
@@ -34,7 +34,7 @@ It is generally safe to do an in-place upgrade from Octopus Deploy 4.x/2018.x to
 
 The upgrade should work without error, but there are integration concerns to consider.  This guide will step through the steps to mitigate those concerns.
 
-## Prep Work
+## Prep work
 
 Before starting the upgrade, it is critical to back up the master key and license key.  If anything goes wrong, you might need these keys to do a restore.  It is better to have the backup and not need it than need the backup and not have it.  The master key doesn't change, while your license key changes, at most, once a year.  Back them up once to a secure location and move onto the next steps.
 
@@ -160,7 +160,7 @@ Creating a clone of an existing instance involves:
 
 <UpgradeHighAvailability />
 
-## Rollback Failed Upgrade
+## Rollback failed upgrade
 
 While unlikely, an upgrade may fail.  It could fail on a database upgrade script, SQL Server version is no longer supported, license check validation, or plain old bad luck.  Depending on what failed, you have a decision to make.  If the cloned instance upgrade failed, it might make sense to start all over again.  Or, it might make sense to roll back to a previous version.  In either case, if you decide to roll back the process will be:
 

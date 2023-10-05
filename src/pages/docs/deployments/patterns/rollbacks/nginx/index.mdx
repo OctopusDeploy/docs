@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Rolling back an NGINX deployment
 description: A guide on how to rollback a Node.js application hosted on NGINX
 navOrder: 15
@@ -22,7 +22,7 @@ Rolling back the database is out of scope for this guide.  This [article](https:
 While this guide is for Node.js, the same process can be used for any framework, language or platform NGINX supports.  
 :::
 
-## Existing Deployment Process
+## Existing deployment process
 
 The existing deployment process is:
 
@@ -39,11 +39,11 @@ The existing deployment process is:
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
 :::
 
-## Zero Configuration Rollback
+## Zero-configuration rollback
 
 <ZeroConfigRollback />
 
-## Rollback Process
+## Rollback process
 
 For most rollbacks, the typical strategy is to skip the database step while re-deploying the Node.js application website.  In addition, a rollback indicates something is wrong with a release, so we'd want to [prevent that release from progressing](/docs/releases/prevent-release-progression).
 
@@ -64,11 +64,11 @@ The updated deployment process will be:
 View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/bestbags-rollback/deployments/process).  Please login as a guest.
 :::
 
-### Calculate Deployment Mode
+### calculate deployment mode
 
 <CalculateDeploymentMode />
 
-### Skip Database Deployment Step
+### Skip database deployment step
 
 The database deployment step should be skipped during a rollback.  Unlike code, databases cannot easily be rolled back without risking data loss.  For most rollbacks, you won't have database changes.  However, a rollback could accidentally be triggered with a database change.  For example, rolling back a change in **Test** to unblock the QA team.   Skipping these steps during the rollback reduces the chance of accidental data loss.  
 
@@ -84,6 +84,6 @@ We also recommend adding or updating the notes field to indicate it will only ru
 ![windows updating notes field](/docs/deployments/patterns/rollbacks/nginx/images/rollback-nginx-notes-field.png)
 :::
 
-### Block Release Progression
+### Block release progression
 
 <PreventReleaseProgression />
