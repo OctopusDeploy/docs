@@ -92,6 +92,12 @@ Basic mathematical calculations are supported in Octopus using the `calc` statem
 - Multiplication - `*`
 - Division - `/`
 
+:::div{.warning}
+When using a variable on the right-hand-side of a divide (`/`) or subtraction (`-`) calc operation,
+the variable name must be enclosed in *{...}* to ensure correct parsing, this ensures the operator symbol is recognised
+as an operation, rather than part of the variable name. 
+:::
+
 Given the variables:
 
 | Name                  | Value            | Scope |
@@ -100,12 +106,16 @@ Given the variables:
 | `IPOffset[Secondary]` | `180`            |       |
 | `ScaleFactor`         | `12`             |       |
 | `Numbers`             | `10,20,30,40,50` |       |
+| `My/Var`              | `15`             |       |
 
-`192.168.0.#{calc IPOffset[Primary] + 1}` would evaluate to `192.168.0.1`
-`192.168.0.#{calc IPOffset[Secondary] + 1}` would evaluate to `192.168.0.181`
-`#{calc 22 * ScaleFactor}` would evaluate to `264`
-`#{each i in Numbers}#{calc i + 5} #{each}` would evaluate to `15 25 35 45 55 `
-
+`192.168.0.#{calc IPOffset[Primary] + 1}` would evaluate to `192.168.0.1`\
+`192.168.0.#{calc IPOffset[Secondary] + 1}` would evaluate to `192.168.0.181`\
+`#{calc 22 * ScaleFactor}` would evaluate to `264`\
+`#{each i in Numbers}#{calc i + 5} #{each}` would evaluate to `15 25 35 45 55 `\
+`#{calc {My/Var} / 3}` would evaluate to `5`
+`#{calc 2 * My/Var}` would evaluate to `30`
+`#{calc {My/Var} - 4}`  would evaluate to `11`
+`#{calc 22 - My/Var}`  would evaluate to `7`
 :::div{.info}
 
 The `calc` operator is available from version 2023.2
