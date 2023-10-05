@@ -89,7 +89,7 @@ The target machine must have Java 1.8 installed, and the `java` executable must 
 
 The `Deploy to Tomcat via Manager` step takes advantage of the [Manager application](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html) shipped with Tomcat to deploy Java applications. The following steps describe the process of deploying a web application (a WAR package) to Tomcat through Octopus Deploy.
 
-### 1. Configure Tomcat{#configure_tomcat}
+### 1. Configure Tomcat {#configure_tomcat}
 
 Tomcat needs to be configured with a user that Octopus can use to log into the Manager API.
 
