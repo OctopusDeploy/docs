@@ -9,11 +9,11 @@ navOrder: 50
 
 Dynamic Worker Pools provide a quick and easy way to use [workers](/docs/infrastructure/workers) for your deployments. They are a special type of [worker pool](/docs/infrastructure/workers/worker-pools) available on [Octopus Cloud](/docs/octopus-cloud).
 
-Dynamic Workers are isolated virtual machines, created on-demand to run your deployments and runbook steps. They run on Azure and are created and managed by Octopus Cloud, which means you don't need to configure or maintain additional infrastructure.
+Dynamic workers are isolated virtual machines, created on-demand to run your deployments and runbook steps. They run on Azure and are created and managed by Octopus Cloud, which means you don't need to configure or maintain additional infrastructure.
 
 ## On demand
 
-Dynamic workers are created on demand and leased to an Octopus Cloud instance for a limited time before being destroyed.  
+A dynamic worker is created on demand and leased to an Octopus Cloud instance for a limited time before being destroyed.  
 
 :::div{.info}
 Octopus Cloud will automatically destroy dynamic workers as soon as one of these conditions is met:

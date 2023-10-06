@@ -12,7 +12,7 @@ Octopus Server comes with a built-in worker which enables you to conveniently ru
 This page describes how to configure the built-in worker for a variety of scenarios.
 
 :::div{.hint}
-The built-in worker is only available on [self-hosted Octopus](/docs/getting-started#self-hosted-octopus) instances. [Octopus Cloud](/docs/octopus-cloud) customers have access to [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools), which provide pre-configured Tentacle workers on-demand.
+The built-in worker is only available on [self-hosted Octopus](/docs/getting-started#self-hosted-octopus) instances. [Octopus Cloud](/docs/octopus-cloud) customers have access to [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools), which provides a pre-configured worker on-demand.
 :::
 
 ## Built-in Worker
