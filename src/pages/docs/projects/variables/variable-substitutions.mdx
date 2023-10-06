@@ -112,10 +112,11 @@ Given the variables:
 `192.168.0.#{calc IPOffset[Secondary] + 1}` would evaluate to `192.168.0.181`\
 `#{calc 22 * ScaleFactor}` would evaluate to `264`\
 `#{each i in Numbers}#{calc i + 5} #{each}` would evaluate to `15 25 35 45 55 `\
-`#{calc {My/Var} / 3}` would evaluate to `5`
-`#{calc 2 * My/Var}` would evaluate to `30`
-`#{calc {My/Var} - 4}`  would evaluate to `11`
-`#{calc 22 - My/Var}`  would evaluate to `7`
+`#{calc {My/Var} / 3}` would evaluate to `5` \
+`#{calc 2 * My/Var}` would evaluate to `30` \
+`#{calc {My/Var} - 4}`  would evaluate to `11` \
+`#{calc 22 - My/Var}`  would evaluate to `7` \
+
 :::div{.info}
 
 The `calc` operator is available from version 2023.2
