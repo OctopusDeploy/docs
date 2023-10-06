@@ -42,13 +42,14 @@ A worker receives instruction from the Octopus Server to execute a step, it exec
 Workers are assigned at the start of a deployment or runbook, not at the time the individual step executes.
 :::
 
-There are two kinds of workers you can use in Octopus:
+There are three kinds of workers you can use in Octopus:
 
-1. [The built-in worker](#built-in-worker) (default for self-hosted Octopus)
-1. [External workers](#external-workers)
+1. [The built-in worker](#built-in-worker) - available on self-hosted Octopus
+1. [Dynamic workers](#dynamic-workers) - available on Octopus Cloud
+1. [External workers](#external-workers) - manually configured
 
 :::div{.success}
-[Octopus Cloud](/docs/octopus-cloud) uses [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools) by default, which provides External Workers running on Ubuntu and Windows VMs. Dynamic Workers are managed by Octopus Cloud, and are included with your Octopus Cloud subscription.
+[Octopus Cloud](/docs/octopus-cloud) uses [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools) by default, which provides an on-demand worker running on an Ubuntu or Windows VM. Dynamic workers are managed by Octopus Cloud, and are included with your Octopus Cloud subscription.
 :::
 
 ## Ignoring Workers \{#ignoring-workers}
@@ -59,7 +60,7 @@ The choices of built-in worker, built-in worker running in a separate account, a
 
 ## Migrating to Workers \{#migrating-to-workers}
 
-Octopus workers provide a way to move work off the built-in worker. This lets you move the work away from the Octopus Server and onto external workers without the need to update the deployment process. Learn [how to use the default worker pool to move steps off the Octopus Server](/docs/infrastructure/workers/worker-pools/#Using-the-default-pool-to-stop-running-scripts-on-the-server).
+Octopus workers provide a way to move work off the built-in worker. This lets you move the work away from the Octopus Server and onto external workers without the need to update the deployment process. Learn [how to use the default worker pool to move steps off the Octopus Server](/docs/infrastructure/workers/worker-pools/#default-worker-pool).
 
 ## Built-in Worker \{#built-in-worker}
 
@@ -72,8 +73,14 @@ Adding a worker to the default worker pool will disable the built-in worker, and
 Learn about the security implications and how to configure the [built-in worker](/docs/infrastructure/workers/built-in-worker).
 
 :::div{.hint}
-The built-in worker is only available on [self-hosted Octopus](/docs/getting-started#self-hosted-octopus) instances. [Octopus Cloud](/docs/octopus-cloud) customers have access to [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools), which provide pre-configured Tentacle workers on-demand.
+The built-in worker is only available on [self-hosted Octopus](/docs/getting-started#self-hosted-octopus) instances. [Octopus Cloud](/docs/octopus-cloud) customers have access to [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools), which provide pre-configured workers on-demand.
 :::
+
+## Dynamic Workers \{#dynamic-workers}
+
+**Dynamic workers** are on-demand external workers managed by [Octopus Cloud](/docs/octopus-cloud), which means you don't need to configure or maintain additional infrastructure. Dynamic workers provides an Ubuntu or Windows VM running as a pre-configured tentacle worker.
+
+Learn more about configuring and using [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools) and selecting an OS image for your worker tasks.
 
 ## External Workers \{#external-workers}
 
@@ -88,9 +95,7 @@ Using external workers allows delegating work to a machine other than the Octopu
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
 :::div{.success}
-[Octopus Cloud](/docs/octopus-cloud) customers can choose to use the included [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools) (enabled by default), and/or register their own external workers.
-
-Dynamic Workers are on-demand external workers managed by Octopus Cloud, which means you don't need to configure or maintain additional infrastructure. Dynamic Workers provide Ubuntu and Windows VMs running as pre-configured tentacles.
+[Octopus Cloud](/docs/octopus-cloud) customers can choose to use the included [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools) (enabled by default), and/or register their own external workers.
 :::
 
 ## Registering an External Worker \{#registering-an-external-worker}
