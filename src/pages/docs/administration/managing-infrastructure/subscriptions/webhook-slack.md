@@ -21,13 +21,15 @@ A number of technologies can be used to consume the webhook from Octopus.  This 
 
 ## Configure an Octopus subscription to send a webhook
 
-Configure a subscription in Octopus to send any events that occur against the `User`, `User Role`, and `Scoped User Role` documents:
+Event subscriptions in Octopus Deploy allow you to stay in the loop about changes to critical documents like 'User,' 'User Role,' and 'Scoped User Role'. Using webhooks, you can seamlessly trigger internal workflows within your tech-stack. Follow these steps to configure your subscription:
+
+1. To begin, you'll need a place for Octopus to send event data. As a starting point, the Payload URL is set to [RequestBin](https://requestbin.com/) endpoint. You should create a new bin and use the URL here. Alternatively, if you prefer more control over webhook requests, consider using [Beeceptor](https://beeceptor.com/). Beeceptor offers greater flexibility in responding to webhook requests by customizing HTTP status code, response payload etc.
+2. Optionally, you can configure additional HTTP headers. These headers are used to set up authentication and provide static data that your endpoint may require. Use this field if necessary to enhance security or pass specific information to your endpoint.
+3. By default, the webhook timeout is set to 10 seconds. This means that the webhook endpoint should respond with a 200 OK status within this timeframe. If your endpoint requires more time to process requests, you can adjust this timeout setting accordingly.
 
 :::figure
 ![Copy webhook URL](/docs/administration/managing-infrastructure/subscriptions/images/subscriptions-user-webhook-2.png)
 :::
-
-As a starting point, the Payload URL is set to a value on  [RequestBin](https://requestbin.com/), which provides access to the JSON being sent by Octopus before the function is built.
 
 ## Configure your Slack app
 
