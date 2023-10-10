@@ -33,7 +33,7 @@ Windows containers can only run when the container base image OS version matches
 - [Hyper-V isolation](https://learn.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2022%2Cwindows-11#hyper-v-isolation-for-containers) - has performance penalties and not supported by Octopus, and 
 - [Process isolation](https://learn.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2022%2Cwindows-11#windows-server-host-os-compatibility)  - only supported from Windows 2022 onwards
 
-This means the Windows 2019 container image you are currently using will fail to run on a Windows 2022 Dynamic Worker. To make the transition as smooth as possible, we recommend creating a new Windows 2022 Worker Pool and migrating each project’s deployment process one by one. You can find the instructions in the appendix below.
+This means the Windows 2019 container image you are currently using will fail to run on a Windows 2022 Dynamic Worker. To make the transition as smooth as possible, we recommend creating a new Windows 2022 Worker Pool and migrating each project’s deployment process one by one. You can find the migration guide below.
 
 
 ## Timeline
@@ -60,30 +60,6 @@ The `Ubuntu 22.04` image can be found within the configuration of a worker pool:
 | 30&nbsp;Oct&nbsp;2023 | Windows 2022 dynamic worker will be made available for customers.<br><ul><li>Customers should test their impacted deployments and runbooks on a Windows 2022 worker with the aim of completing testing by the 4th of December 2023</ul>                                                                       |
 | 4&nbsp;Dec&nbsp;2023 | Octopus will switch over the default "Hosted Windows" worker pool to use the Windows 2022 workers.<br><ul><li>If customers experience failed deployments or runbooks, they will be able to select the Windows 2019 worker until 1 January 2024 while they resolve any issues with running on a Windows 2022 worker |
 | 9&nbsp;Jan&nbsp;2024  | Windows 2019 dynamic workers will no longer be available on Octopus Cloud.                                                                                                                                                                                                                                      |
-
-
-## FAQ
-
-### Why the deadline of 9 January 2024?
-Windows 2019 exits LTSC support and will not be patched including any security vulnerability. Consequently, Octopus will not provide an unsupported Dynamic worker image.
-
-### What are the breaking changes between Windows 2019 and Windows 2022 releases?
-It is not possible to give a complete and definitive answer as this depends on your use cases. Therefore, please refer to the following documents:
-- [Comparison of Standard, Datacenter, and Datacenter: Azure Edition editions of Windows Server 2022](https://learn.microsoft.com/en-us/windows-server/get-started/editions-comparison-windows-server-2022?tabs=full-comparison)
-- [What's new in Windows Server 2019](https://learn.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-2019)
-- [What's new in Windows Server 2022](https://learn.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-2022)
-- [Features removed or no longer developed starting with Windows Server 2022](https://learn.microsoft.com/en-us/windows-server/get-started/removed-deprecated-features-windows-server-2022)
-
-### What if I experience a breaking change but I can’t remediate it in time?
-There is the option to provision your own worker with Windows server 2019 and selecting its worker pool for your deployment processes that experience the breaking change.
-
-### Are the Ubuntu 22.04 dynamic workers affected in any way?
-This change does not impact the Ubuntu 22.04 dynamic workers.
-
-### How does this affect Execution Containers?
-Although Ubuntu 18.04 docker images, along with [Worker Tools](/docs/infrastructure/workers/worker-tools-versioning-and-caching), can still operate on Ubuntu 22.04 dynamic workers, we will no longer provide support for the ubuntu.18.04 Worker Tools. Instead, we have introduced a new [ubuntu.22.04](https://hub.docker.com/r/octopusdeploy/worker-tools/tags?page=1&name=22.04) image, which is recommended moving forward.
-
-
 
 
 
@@ -123,3 +99,27 @@ First check if you are using Windows execution containers running on Dynamic Wor
 To avoid having two Worker Pools that both yield the same Workers, you can restore the steps back to using the original Windows Dynamic Worker Pool:
 1. For each step that you migrated, change the Worker Pool back to the original Windows Dynamic Worker Pool, which should be running Windows 2022 Workers
 1. Once no steps are using the temporary Windows 2022 Worker Pool, you can delete the temporary Worker Pool
+
+
+## FAQ
+
+### Why the deadline of 9 January 2024?
+Windows 2019 exits LTSC support and will not be patched including any security vulnerability. Consequently, Octopus will not provide an unsupported Dynamic worker image.
+
+### What are the breaking changes between Windows 2019 and Windows 2022 releases?
+It is not possible to give a complete and definitive answer as this depends on your use cases. Therefore, please refer to the following documents:
+- [Comparison of Standard, Datacenter, and Datacenter: Azure Edition editions of Windows Server 2022](https://learn.microsoft.com/en-us/windows-server/get-started/editions-comparison-windows-server-2022?tabs=full-comparison)
+- [What's new in Windows Server 2019](https://learn.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-2019)
+- [What's new in Windows Server 2022](https://learn.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-2022)
+- [Features removed or no longer developed starting with Windows Server 2022](https://learn.microsoft.com/en-us/windows-server/get-started/removed-deprecated-features-windows-server-2022)
+
+### What if I experience a breaking change but I can’t remediate it in time?
+There is the option to provision your own worker with Windows server 2019 and selecting its worker pool for your deployment processes that experience the breaking change.
+
+### How does this affect Execution Containers?
+Windows containers can generally only run when the container base image OS version matches the host OS version. You should follow the migration guide to make the transition as smooth as possible.
+
+### Are the Ubuntu 22.04 dynamic workers affected in any way?
+This change does not impact the Ubuntu 22.04 dynamic workers.
+
+
