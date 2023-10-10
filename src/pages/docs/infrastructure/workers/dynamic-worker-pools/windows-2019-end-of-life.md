@@ -9,12 +9,8 @@ hideInThisSection: true
 hideInThisSectionHeader: true
 ---
 
-:::div{.warning}
-Ubuntu 18.04 images are no longer available as of 3 April 2023. The details below are provided for historical reference.
-:::
+Our Windows Server 2019 Dynamic Workers are being upgraded to use Windows Server 2022, this may result in breaking changes for users of community steps and/or custom scripts.
 
-
-Our Ubuntu dynamic workers are being upgraded to use Ubuntu 22.04, this upgrade will result in breaking changes for users of gcloud CLI and users of .NET Core 2.1/3.1 and Ubuntu 18.04 capabilities that are not offered by the updated replacements.
 
 ## What is changing?
 
@@ -94,3 +90,28 @@ This change does not impact the Windows dynamic workers.
 ### How does this affect Execution Containers?
 Although Ubuntu 18.04 docker images, along with [Worker Tools](/docs/infrastructure/workers/worker-tools-versioning-and-caching), can still operate on Ubuntu 22.04 dynamic workers, we will no longer provide support for the ubuntu.18.04 Worker Tools. Instead, we have introduced a new [ubuntu.22.04](https://hub.docker.com/r/octopusdeploy/worker-tools/tags?page=1&name=22.04) image, which is recommended moving forward.
 
+
+
+
+
+
+## Migration guide for projects using execution containers
+
+### Check if you need to apply the migration
+First check if you are using Windows execution containers running on Dynamic Workers. If you don’t, then you can skip this migration process.
+
+1. For each Space on your Cloud instance, find the Windows Dynamic Worker Pool. The Worker Pool name is usually either “Hosted Windows” or “Default Worker Pool”. Make a note of the Worker Pool name
+   :::figure
+   ![Windows Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-windows-pool.png)
+   :::
+2. Open the deployment process for your project as well as any Runbooks. Any steps using execution containers will display a `Runs in a container` chip
+   :::figure
+   ![Deployment Process](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-deployment-process.png)
+   :::
+3. For each step using execution containers, check whether it runs on the Windows Dynamic Worker Pool you noted in Step 1.  If you find at least one step that matches this criteria, then you will need to apply the migration steps listed below
+   :::figure
+   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-step-worker-pool.png)
+   :::
+
+### Migration steps
+1. Create a temporary Windows 2022 Dynamic Worker Pool
