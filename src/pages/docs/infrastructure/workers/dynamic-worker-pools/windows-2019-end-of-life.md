@@ -119,7 +119,7 @@ First check if you are using Windows execution containers running on Dynamic Wor
    :::
 1. Test your deployment by deploying a new Release of your project, or Snapshot for a Runbook
 
-### Optional cleanup after 9th January 2024
+### Optional cleanup after 9 January 2024
 To avoid having two Worker Pools that both yield the same Workers, you can restore the steps back to using the original Windows Dynamic Worker Pool:
 1. For each step that you migrated, change the Worker Pool back to the original Windows Dynamic Worker Pool, which should be running Windows 2022 Workers
 1. Once no steps are using the temporary Windows 2022 Worker Pool, you can delete the temporary Worker Pool
