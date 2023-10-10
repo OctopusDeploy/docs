@@ -38,14 +38,6 @@ This means the Windows 2019 container image you are currently using will fail to
 
 ## Timeline
 
-**Update 7 February 2023**
-
-The `Ubuntu 22.04` image can be found within the configuration of a worker pool:
-
-:::figure
-![Ubuntu 22.04 in worker image list](/docs/infrastructure/workers/dynamic-worker-pools/images/ubuntu-2204-worker-image-list.png)
-:::
-
 **Octopus preparation**
 
 | Date          |   Details                                                     |
