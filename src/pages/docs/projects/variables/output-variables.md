@@ -25,7 +25,7 @@ Set-OctopusVariable -name "TestResult" -value "Passed"
 <summary>C#</summary>
 
 ```csharp
-Octopus.SetVariable("TestResult", "Passed");
+SetVariable("TestResult", "Passed");
 ```
 
 </details>
@@ -74,7 +74,7 @@ $TestResult  = $OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
 <summary>C#</summary>
 
 ```csharp
-var testResult = Octopus.Parameters["Octopus.Action[StepA].Output.TestResult"]
+var testResult = OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
 ```
 
 </details>
@@ -117,7 +117,7 @@ Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sens
 <summary>C#</summary>
 
 ```csharp
-Octopus.SetVariable("Password", "correct horse battery staple", true);
+SetVariable("Password", "correct horse battery staple", true);
 ```
 
 </details>
@@ -216,14 +216,14 @@ Set-OctopusVariable -name "TestResult" -value "Passed"
 
 ### C# {#Outputvariables-C#}
 
-[ScriptCS Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/ScriptCS)
+[Dotnet Script Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/DotnetScript)
 
 From a C# script, you can use the `public static void SetVariable(string name, string value)` method to set the name and value of an output variable.
 
 **C#**
 
 ```csharp
-Octopus.SetVariable("TestResult", "Passed");
+SetVariable("TestResult", "Passed");
 ```
 
 ### Bash {#Outputvariables-Bash}

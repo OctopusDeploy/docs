@@ -30,10 +30,10 @@ Write-Error "This will be logged as an Error and may cause your script to stop r
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
-Octopus.WriteVerbose("Verbose!!!");
-Octopus.WriteHighlight("This is a highlight");
-Octopus.WriteWait("Deployment is waiting on something");
-Octopus.WriteWarning("Warning");
+WriteVerbose("Verbose!!!");
+WriteHighlight("This is a highlight");
+WriteWait("Deployment is waiting on something");
+WriteWarning("Warning");
 ```
 
 </details>
@@ -106,8 +106,8 @@ Update-Progress 50 "Woah, we're halfway there!"
 <summary>C#</summary>
 
 ```csharp
-Octopus.UpdateProgress(10);
-Octopus.UpdateProgress(50, "Woah, we're halfway there!");
+UpdateProgress(10);
+UpdateProgress(50, "Woah, we're halfway there!");
 ```
 
 </details>

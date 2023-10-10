@@ -53,9 +53,9 @@ Get-Content ".\subfolder\file.txt"
 
 ```csharp C#
 // in pre-deploy, in post-deploy if custom installation directory has not been defined
-var extractPath = Octopus.Parameters["Octopus.Action.Package.InstallationDirectoryPath"];
+var extractPath = OctopusParameters["Octopus.Action.Package.InstallationDirectoryPath"];
 // if a custom installation directory has been defined
-var customPath = Octopus.Parameters["Octopus.Action.Package.CustomInstallationDirectory"];
+var customPath = OctopusParameters["Octopus.Action.Package.CustomInstallationDirectory"];
 // original extract path,
 Console.WriteLine(File.ReadAllText(extractPath + @"\subfolder\file.txt"));
 // or when a custom installation directory has been defined,

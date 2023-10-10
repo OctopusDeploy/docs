@@ -68,7 +68,7 @@ Write-Host "$Environment storage path: $StoragePath"
 
 ## Passing parameters to C# scripts {#Customscripts-PassingparameterstoC#scripts}
 
-You can pass parameters to C# scripts [as described here for the ScriptCS engine](https://github.com/scriptcs/scriptcs/wiki/Pass-arguments-to-scripts). ScriptCS only supports positional parameters.
+You can pass parameters to C# scripts [as described here for the dotnet-script engine](https://github.com/dotnet-script/dotnet-script#passing-arguments-to-scripts).
 
 **Script Parameters in Octopus**
 
@@ -79,8 +79,8 @@ You can pass parameters to C# scripts [as described here for the ScriptCS engine
 **Usage in C# script**
 
 ```csharp
-var environment = Env.ScriptArgs[0]
-var storagePath = Env.ScriptArgs[1]
+var environment = Args[0]
+var storagePath = Args[1]
 Console.WriteLine("{0} storage path: {1}", environment, storagePath);
 ```
 

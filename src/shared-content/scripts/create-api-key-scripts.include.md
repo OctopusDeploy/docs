@@ -76,7 +76,7 @@ catch
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 
 // Reference Octopus.Client
-//#r "path\to\Octopus.Client.dll"
+//#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;
