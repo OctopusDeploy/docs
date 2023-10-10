@@ -109,7 +109,7 @@ First check if you are using Windows execution containers running on Dynamic Wor
 ### Migration steps
 1. Create a temporary Windows 2022 Dynamic Worker Pool
    :::figure
-   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-windows-pool.png)
+   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-windows-2022-pool.png)
    :::
 1. For each step that runs execution containers on a Windows Dynamic Worker Pool
    - Change its Worker Pool to the new Windows 2022 Pool you created in Step 1
@@ -118,6 +118,8 @@ First check if you are using Windows execution containers running on Dynamic Wor
    ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-step-container-image.png)
    :::
 1. Test your deployment by deploying a new Release of your project, or Snapshot for a Runbook
-1. Wait until the Windows 2019 reaches End of Life in January 2024
+
+### Optional cleanup after 9th January 2024
+To avoid having two Worker Pools that both yield the same Workers, you can restore the steps back to using the original Windows Dynamic Worker Pool:
 1. For each step that you migrated, change the Worker Pool back to the original Windows Dynamic Worker Pool, which should be running Windows 2022 Workers
-1. Once no steps are using the temporary Windows 2022 Worker Pool, you can delete the Worker Pool
+1. Once no steps are using the temporary Windows 2022 Worker Pool, you can delete the temporary Worker Pool
