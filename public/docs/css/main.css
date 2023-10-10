@@ -375,7 +375,7 @@ nav.skip-links a:focus {
     min-height: 55px;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 10;
 }
 
 .octo-header {
@@ -532,7 +532,7 @@ nav.skip-links a:focus {
     background: linear-gradient(269.9deg, #11181D 47.17%, #124164 72.68%, #07121A 96.54%);
     position: sticky;
     top: 55px;
-    z-index: 1;
+    z-index: 10;
 }
 
 .octo-title {
