@@ -56,7 +56,7 @@ This means the Windows 2019 container image you are currently using will likely 
 
 
 
-## Migration guide for projects using execution containers
+## Migration guide (for projects using execution containers)
 
 ### Check if you need to apply the migration
 First check if you are using Windows execution containers running on Dynamic Workers. If you don’t, then you can skip this migration process.
@@ -75,16 +75,17 @@ First check if you are using Windows execution containers running on Dynamic Wor
    :::
 
 ### Migration steps
-1. Create a temporary Windows 2022 Dynamic Worker Pool
+1. Create a temporary Dynamic Worker Pool targeting the `Windows Server Core 2022` image
    :::figure
    ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-windows-2022-pool.png)
    :::
 1. For each step that runs execution containers on a Windows Dynamic Worker Pool
    - Change its Worker Pool to the new Windows 2022 Pool you created in Step 1
-   - Change the container image to the Windows 2022 image that corresponds to your current Windows 2019 image. If your image is [multi-platform](https://docs.docker.com/build/building/multi-platform/) and contains both Windows 2019 and 2022 variants, then it's still prudent to check that the image still works as expected under Windows 2022
-   :::figure
-   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-step-container-image.png)
-   :::
+   - Change the container image to the Windows 2022 image that corresponds to your current Windows 2019 image. If your image is [multi-platform](https://docs.docker.com/build/building/multi-platform/), it's still prudent to check that the image still works as expected under Windows 2022
+   - Your step should look something like this:
+      :::figure
+      ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-step-container-image.png)
+      :::
 1. Test your deployment by deploying a new Release of your project (Snapshot for a Runbook)
 
 ### Optional cleanup after 9 January 2024
@@ -109,7 +110,7 @@ It is not possible to give a complete and definitive answer as this depends on y
 There is the option to provision your own worker with Windows server 2019 and selecting its worker pool for your deployment processes that experience the breaking change.
 
 ### How does this affect Execution Containers?
-Windows containers can generally only run when the container base image OS version matches the host OS version. You should follow the migration guide to make the transition as smooth as possible.
+Windows containers can generally only run when the container base image OS version matches the host OS version. Please follow the migration guide to make the transition as smooth as possible.
 
 ### Are the Ubuntu 22.04 dynamic workers affected in any way?
 This change does not impact the Ubuntu 22.04 dynamic workers.
