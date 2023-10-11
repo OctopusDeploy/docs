@@ -30,7 +30,7 @@ Calamari deploy-package --package MyPackage.nupkg --variables Variables.json
 Calamari has commands to support:
 
 - Deploying NuGet packages.
-- Running scripts (PowerShell, ScriptCS, Bash, F#).
+- Running scripts (PowerShell, Dotnet Script, Bash, F#).
 - Deploying packages to Azure targets (Cloud Services, WebApps).
 - Various other deployment related activities.
 

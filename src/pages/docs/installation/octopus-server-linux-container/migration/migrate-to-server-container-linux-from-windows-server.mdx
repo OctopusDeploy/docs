@@ -24,7 +24,7 @@ The differences between running Octopus Server on Windows Server and Linux Conta
 
 - **Folder Paths:** Windows uses a folder structure with `\` slashes, for example, `C:\Octopus\Tasklogs`.  Linux Containers follow a Linux folder structure, including `/` slashes.
 - **Pre-installed software:** Linux Containers typically include PowerShell Core and Bash but not .NET.  You cannot pre-install any other software on the Octopus Linux Container.
-- **Software support:** The Linux Container doesn't support running ScriptCS or F# scripts directly on the server.
+- **Software support:** The Linux Container doesn't support running F# scripts directly on the server.
 - **Authentication:** The Octopus Server Linux Container doesn't support Active Directory authentication.  If you want to use Active Directory, you must connect to it via the [LDAP authentication provider](/docs/security/authentication/ldap).
 
 :::div{.hint}
