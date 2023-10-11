@@ -25,16 +25,11 @@ Any impacted custom scripts will need to be updated to use Windows 2022 and test
 
 **Note:** All Octopus Deploy steps  will work under Windows 2022 but some community and custom steps may be impacted.
 
+### Considerations if running execution containers
+Windows containers can generally only run when the container base image OS version matches the host OS version. This means the Windows 2019 container image you are currently using will likely fail to run on a Windows 2022 Dynamic Worker. To make the transition as smooth as possible, we recommend creating a new Windows 2022 Worker Pool and migrating each project’s deployment process one by one. You can find the migration guide below.
+
 ## Alternate (recommended) course of action
 Unless you have a specific need for a Windows worker we recommend considering a change to an Ubuntu 22.04 based worker. Ubuntu 22.04 workers are more performant. Other than Windows specific steps there are  equivalent Ubuntu 22.04 built in steps. Community steps and custom step templates would need testing.
-
-## Considerations if running execution containers
-Windows containers can only run when the container base image OS version matches the host OS version. There are two exceptions being:
-- [Hyper-V isolation](https://learn.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2022%2Cwindows-11#hyper-v-isolation-for-containers) - has performance penalties and not supported by Octopus, and 
-- [Process isolation](https://learn.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2022%2Cwindows-11#windows-server-host-os-compatibility)  - only supported from Windows 2022 onwards
-
-This means the Windows 2019 container image you are currently using will likely fail to run on a Windows 2022 Dynamic Worker. To make the transition as smooth as possible, we recommend creating a new Windows 2022 Worker Pool and migrating each project’s deployment process one by one. You can find the migration guide below.
-
 
 ## Timeline
 
@@ -54,37 +49,33 @@ This means the Windows 2019 container image you are currently using will likely 
 | 9&nbsp;Jan&nbsp;2024  | Windows 2019 dynamic workers will no longer be available on Octopus Cloud.                                                                                                                                                                                                                                      |
 
 
-
-
-## Migration guide (for projects using execution containers)
-
-### Check if you need to apply the migration
+## Confirm if you are using Windows execution containers running on Dynamic Workers
 First check if you are using Windows execution containers running on Dynamic Workers. If you don’t, then you can skip this migration process.
 
 1. For each Space on your Cloud instance, find the Windows Dynamic Worker Pool. The Worker Pool name is usually either “Hosted Windows” or “Default Worker Pool”. Make a note of the Worker Pool name
    :::figure
-   ![Windows Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-windows-pool.png)
+   ![Windows Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-windows-pool.png)
    :::
 1. Open the deployment process for your project as well as any Runbooks. Any steps using execution containers will display a `Runs in a container` chip
    :::figure
-   ![Deployment Process](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-deployment-process.png)
+   ![Deployment Process](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-deployment-process.png)
    :::
 1. For each step using execution containers, check whether it runs on the Windows Dynamic Worker Pool you noted in Step 1.  If you find at least one step that matches this criteria, then please follow the migration steps listed below
    :::figure
-   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-step-worker-pool.png)
+   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-step-worker-pool.png)
    :::
 
-### Migration steps
+## Migration guide for Windows execution containers running on Dynamic Workers
 1. Create a temporary Dynamic Worker Pool targeting the `Windows Server Core 2022` image
    :::figure
-   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-windows-2022-pool.png)
+   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-windows-2022-pool.png)
    :::
 1. For each step that runs execution containers on a Windows Dynamic Worker Pool
    - Change its Worker Pool to the new Windows 2022 Pool you created in Step 1
    - Change the container image to the Windows 2022 image that corresponds to your current Windows 2019 image. If your image is [multi-platform](https://docs.docker.com/build/building/multi-platform/), it's still prudent to check that the image still works as expected under Windows 2022
    - Your step should look something like this:
       :::figure
-      ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2022-eol-step-container-image.png)
+      ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-step-container-image.png)
       :::
 1. Test your deployment by deploying a new Release of your project (Snapshot for a Runbook)
 
