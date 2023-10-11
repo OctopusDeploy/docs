@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-11
 title: Reference files within a package
 description: How to reference files within a package.
 navOrder: 80

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-11
 title: Output variables
 description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
 navOrder: 30
