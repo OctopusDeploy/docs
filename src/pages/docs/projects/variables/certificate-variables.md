@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-12
 title: Certificate variables
 description: Variables in Octopus Deploy can have a certificate as the value
 navOrder: 60
