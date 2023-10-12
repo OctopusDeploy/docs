@@ -7,7 +7,7 @@ description: Find out about Octopus telemetry reporting and how it helps us make
 navOrder: 25
 ---
 
-Telemetry reporting is enabled by default and transmits once per day. We use the data we receive to inform our decisions and to help us make a better product. Self-hosted customers can opt-out of sending telemetry by navigating to **Configuration ➜ Telemetry** in Octopus.
+Telemetry reporting is enabled by default. We use the data we receive to inform our decisions and to help us make a better product. Self-hosted customers can opt-out of sending telemetry by navigating to **Configuration ➜ Telemetry** in Octopus.
 
 When the **Telemetry Reporting** option is enabled, Octopus will make a secure HTTPS request containing the following data.
 
