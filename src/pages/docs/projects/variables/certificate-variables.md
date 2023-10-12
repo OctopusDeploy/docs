@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-12
 title: Certificate variables
 description: Variables in Octopus Deploy can have a certificate as the value
 navOrder: 60
@@ -31,7 +31,7 @@ At deploy-time, certificate variables are expanded. For example, a variable _MyC
 | `MyCertificate.Thumbprint`        | Thumbprint                                             | A163E39F59560E6FE33A0299D19124B242D9B37E
 | `MyCertificate.RawOriginal`       | The base64 encoded original file, exactly as it was uploaded. |
 | `MyCertificate.Password`          | The password specified when the file was uploaded. |
-| `MyCertificate.Pfx`               | The base64 encoded certificate in PKCS#12 format, including the private-key if present.  |
+| `MyCertificate.Pfx`               | The base64 encoded certificate in [PKCS#12](https://datatracker.ietf.org/doc/html/rfc7292#page-9) format, including the private-key if present. If the originally uploaded certificate was password-protected (i.e. `MyCertificate.Password` is not empty), then this value will also be a password-protected PFX (PKCS#12) format. 
 | `MyCertificate.Certificate`       | The base64 encoded DER ASN.1 certificate.              |
 | `MyCertificate.PrivateKey`        | The base64 encoded DER ASN.1 private key. This will be stored and transmitted as a [sensitive variable](/docs/projects/variables/sensitive-variables).                |
 | `MyCertificate.CertificatePem`    | The PEM representation of the certificate (i.e. the PublicKey with header\footer).  |
