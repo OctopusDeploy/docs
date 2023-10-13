@@ -28,7 +28,7 @@ Each worker is provisioned exclusively to a specific customer, and is completely
 
 ## Dynamic Worker Images
 
-Each dynamic worker pool can specify the worker image used. Ubuntu Linux 22.04 is the default. Windows Server Core 2019 worker images are also available.
+Each dynamic worker pool can specify the worker image used. Ubuntu Linux 22.04 is the default. Windows Server Core 2019 and 2022 worker images are also available.
 
 Editing a dynamic worker pool allows you to modify the image used. 
 
@@ -88,23 +88,25 @@ Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to 
 
 ### Windows Server Core 2019
 
-This is the default for the Windows operating system, referenced as `Windows (default)`.
+:::warning
+Windows 2019 is currently the `Windows (default)` image. Windows 2019 images will be deprecated on 1 January 2024. You are advised to test your deployment processes with our Windows 2022 images. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life.md) for further details.
+:::
 
 Each `Windows Server Core 2019` worker is provisioned with a baseline of tools including (but not limited to):
 
 - .NET Core (2.1, 3.1)
 - .NET Framework 3.5
 - .NET Framework 4.8
-- AWS IAM Authenticator (0.5.1)
+- AWS IAM Authenticator (0.5.3)
 - Chocolatey (latest)
-- Docker (19.03.5)
+- Docker (latest)
 - Helm (2.9.1)
-- Kubectl (1.16.10)
+- Kubectl (multiple versions)
 - Microsoft Service Fabric (6.1.480.9494)
 - Microsoft Service Fabric SDK (3.0.480)
 - Nuget CLI (latest)
 - Octopus Client (latest)
-- Pip (20.1.1)
+- Pip (latest)
 - Powershell Core (latest)
 - Python (3.7.4)
 - GCloud CLI (339.0.0)
@@ -115,9 +117,36 @@ Windows 2019 workers are capable of running [execution worker containers](/docs/
 We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
 :::
 
+### Windows Server Core 2022
+
+Each `Windows Server Core 2022` worker is provisioned with a baseline of tools including (but not limited to):
+
+- .NET Core (2.1, 3.1)
+- .NET Framework 3.5
+- .NET Framework 4.8
+- AWS IAM Authenticator (0.5.3)
+- Chocolatey (latest)
+- Docker (latest)
+- Helm (2.9.1)
+- Kubectl (multiple versions)
+- Microsoft Service Fabric (6.1.480.9494)
+- Microsoft Service Fabric SDK (3.0.480)
+- Nuget CLI (latest)
+- Octopus Client (latest)
+- Pip (latest)
+- Powershell Core (latest)
+- Python (3.7.4)
+- GCloud CLI (339.0.0)
+
+Windows 2022 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers). 
+
+:::div{.hint}
+We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
+:::
+
 ## kubectl on Windows Images
 
-Windows 2019 dynamic worker images come with many versions of `kubectl` available.
+Windows dynamic worker images come with many versions of `kubectl` available.
 
 A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
 
