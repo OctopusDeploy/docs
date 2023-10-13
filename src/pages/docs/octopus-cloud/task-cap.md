@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
+pubDate: 2023-10-13
+modDate: 2023-10-13
 title: Octopus Cloud Task Cap
 navOrder: 60
 description: How to increase the task cap on an Octopus Cloud Instance.
