@@ -44,7 +44,7 @@ Deployments and runbook runs are computationally expensive.  More concurrent dep
 
 You can increase the task cap on your instance by contacting sales@octopus.com.  They will provide you with the latest fees and discuss options.
 
-**Important:** For task cap below 160, those are the only options we offer.  We won't allow an instance to have a task cap between the above options.  For example, no Octopus Cloud instance can have a task cap of 15, 34, 45, or 68.  
+**Important:** 5, 10, 20, 40, 80, and 160 are the only options we offer.  If you want an instance with a task cap above 160, again, reach out to sales@octopus.com.  There are no options between those tiers.  For example, no Octopus Cloud instance can have a task cap of 15, 34, 45, or 68.  
 
 ## How to choose a task cap
 We recommend the number of deployments required for a production deployment.  Deployments and runbook runs are the most common tasks.  Deployments typically take longer than runbook runs.  Production deployments are time constrained.  They are done off-hours during an outage window.
