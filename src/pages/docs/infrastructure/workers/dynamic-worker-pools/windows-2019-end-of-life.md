@@ -9,7 +9,7 @@ hideInThisSection: true
 hideInThisSectionHeader: true
 ---
 
-Our Windows Server 2019 Dynamic Workers are being upgraded to use Windows Server 2022, this may result in breaking changes for users of community steps and/or custom scripts.
+Our Windows Server 2019 Dynamic Workers are being upgraded to use Windows Server 2022, this may result in breaking changes for users of community steps or custom scripts.
 
 
 ## What is changing?
@@ -26,10 +26,12 @@ Steps running execution containers on Windows Dynamic Workers may also be impact
 ## What do I need to do?
 To mitigate the risk in this process we will be releasing Windows 2022 Dynamic Workers before the deprecation date so users can test against the new workers prior to deprecation.  Please see the timeline below for the details.
 
-If you are running custom scripts, using community steps, and/or using execution containers on Windows workers, we recommend following the [migration guide](#migration-guide) below to test your deployments on Windows 2022 Dynamic Workers.
+If you are running custom scripts, using community steps, or using execution containers on Windows workers, we recommend following the [migration guide](#migration-guide) below to test your deployments on Windows 2022 Dynamic Workers.
 
 ## Alternate (recommended) course of action
-Unless you have a specific need for a Windows Dynamic Worker we recommend considering a change to an Ubuntu 22.04 based Dynamic Worker. Ubuntu 22.04 Dynamic Workers are more performant. Other than Windows specific steps there are equivalent Ubuntu 22.04 built in steps. Community steps and custom step templates would need testing.
+Unless you have a specific need for a Windows Dynamic Worker we recommend considering a change to an Ubuntu 22.04 based Dynamic Worker as Ubuntu 22.04 Dynamic Workers are more performant.
+
+Built in steps work on both Ubuntu and Windows Dynamic Workers with the exception of Windows specific steps. Community steps and custom step templates would also need testing.
 
 ## Timeline
 
