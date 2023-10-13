@@ -38,7 +38,7 @@ Octopus Cloud provides the following Task Cap options:
 - Professional: 5, 10, 20
 - Enterprise: 20, 40, 80, 160
 
-**Please note:** If you need a task cap higher than 160 please reach out to sales@octopus.com to discuss your use case.  These options are meant to cover 99% of common use cases.  
+**Please note:** If you need a task cap higher than 160 please reach out to sales@octopus.com to discuss your use case.  These options are meant to cover the majority of use cases.  
 
 Deployments and runbook runs are computationally expensive.  More concurrent deployments and runbook runs requires more resources from the Cloud Platform.  As such, increasing the task cap increases your platform fee.  
 
