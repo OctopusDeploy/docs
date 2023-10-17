@@ -88,7 +88,7 @@ Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to 
 
 ### Windows Server Core 2019
 
-:::warning
+:::div{.warning}
 Windows 2019 is currently the `Windows (default)` image. Windows 2019 images will be deprecated on 9 January 2024. You are advised to test your deployment processes with our Windows 2022 images. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life.md) for further details.
 :::
 
