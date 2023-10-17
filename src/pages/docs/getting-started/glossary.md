@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Glossary
 description: A page containing the definitions of terms used in Octopus Deploy.
 navOrder: 60
@@ -17,7 +17,7 @@ We do our best to make Octopus Deploy as user friendly as possible.  However, it
 
 As you proceed through each phase you will need to learn new terms and concepts.  This page breaks down those terms and concepts into each phase we think it is useful to learn.
 
-## POC Phase Terms
+## POC phase terms
 
 When first setting up a POC or Hello World project you will become familiar with the following terms and concepts.  
 
@@ -44,7 +44,7 @@ When first setting up a POC or Hello World project you will become familiar with
     - **Task Log**: The raw log formatted so it is easier to read on a web page.
     - **Task History**: The audit history of the deployment.  Includes who and when a deployment was triggered, who and when a manual intervention was approved, and more.
 
-## Pilot Phase Terms
+## Pilot phase terms
 
 As you move on from the POC phase to the Pilot phase you should familiarize yourself with these terms and concepts.
 
@@ -67,7 +67,7 @@ As you move on from the POC phase to the Pilot phase you should familiarize your
     - [**Deployment Notes**](/docs/releases/deployment-notes): The summarization of all the releases rolled up and included since the previous deployment to the deployment environment.  
     - [**Artifacts**](/docs/projects/deployment-process/artifacts): Files collected from remote machines during the deployment which can be downloaded from the Octopus Web Portal for review.
 
-## General Adoption Phase Terms
+## General adoption phase terms
 
 After the pilot phase is successful it is time to start bringing other projects on board.  As you do that you should familiarize yourself with these terms and concepts.
 

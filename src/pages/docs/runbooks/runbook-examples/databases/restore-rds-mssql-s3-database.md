@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Restore RDS SQL database from S3
 description: An example that demonstrates restoring a database backup file from an S3 bucket.
 navOrder: 100
@@ -11,7 +11,7 @@ You can perform native restores of Amazon Relational Database instances running 
 
 In the following example, we'll use the [AWS RDS SQL Server - Restore from S3 Bucket](https://library.octopus.com/step-templates/55848421-44b9-403c-b1f0-ba8a84b1f177/actiontemplate-aws-rds-sql-server-restore-from-s3-bucket) community step template.
 
-## AWS Prerequisites
+## AWS prerequisites
 
 * An AWS RDS SQL Server instance.
 * A SQL backup stored in an S3 bucket.

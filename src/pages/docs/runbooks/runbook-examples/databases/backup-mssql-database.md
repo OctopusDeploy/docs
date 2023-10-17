@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Backup SQL database
 description: With Octopus Deploy you can backup a MSSQL database with a Runbook.
 navOrder: 10
@@ -17,7 +17,7 @@ In this example, you will be backing up a Microsoft SQL Server database using a 
 
 In this example, we'll use SQL Authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information on this [here](/docs/deployments/databases/sql-server/permissions).
 
-## Create the Runbook
+## Create the runbook
 
 1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the Runbook a name and click **SAVE**.

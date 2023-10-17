@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Amazon ECS cluster
 description: How to configure an Amazon ECS cluster target in Octopus Deploy
 navOrder: 30
@@ -56,7 +56,7 @@ See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-targe
 
 There are multiple authentication options supported for ECS clusters.
 
-#### Worker Credentials
+#### Worker credentials
 
 Authentication can be configured to use credentials from the worker on which a deployment or cluster health check runs. AWS supports sourcing these credentials in several different ways, including environment variables and EC2 instance roles. See [Setting credentials in node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials-node.html) for more information on the different ways credentials can be provided.
 

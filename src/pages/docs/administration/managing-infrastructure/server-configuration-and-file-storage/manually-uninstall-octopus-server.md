@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Manually uninstall Octopus Server
 description: Information on how to manually uninstall the Octopus Server.
 navOrder: 1
@@ -9,7 +9,7 @@ navOrder: 1
 
 When you uninstall the Octopus Server MSI, it automatically removes the application files from the installation folder, but that's it. This page describes how to manually clean up Octopus Server in part, or completely remove it from your server.
 
-## Why Would I Want To Clean Up? {#ManuallyuninstallOctopusServer-WhywouldIwanttocleanupinthefirstplace?}
+## Why would I want to clean up? {#ManuallyuninstallOctopusServer-WhywouldIwanttocleanupinthefirstplace?}
 
 :::div{.problem}
 

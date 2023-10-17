@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Recovering after losing your Octopus Server and Master Key
 description: A guide to recovering if the machine hosting Octopus Server dies irrecoverably, and you don't have the Master Key.
 navOrder: 40
@@ -24,7 +24,7 @@ Octopus [encrypts important and sensitive data](/docs/security/data-encryption) 
 - Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account.
 - Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/deployment-targets/offline-package-drop).
 
-## Recovering with a New Master Key
+## Recovering with a new Master Key
 
 If you are confident with Octopus you can follow these steps to get back up and going. Otherwise, please get in contact with our [support team](https://octopus.com/support) so we can be available to help get you up and going.
 

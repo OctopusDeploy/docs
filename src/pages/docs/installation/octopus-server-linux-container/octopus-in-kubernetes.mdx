@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Octopus Server in Kubernetes
 description: Octopus can be installed into a Kubernetes cluster running the Octopus Server Linux container, optionally leveraging High Availability (HA).
 navOrder: 40
@@ -637,7 +637,7 @@ You can then mount the folder for the server logs, with each Octopus Server Node
 
 The `preStop` hook is used to drain an Octopus Server node before it is stopped. This gives the node time to complete any running tasks and prevents it from starting new tasks. The `postStart` start hook does the reverse and disables drain mode when the Octopus Server node is up and running.
 
-### Readiness, Start up and Liveness probes \{#container-probes}
+### Readiness, start up, and liveness probes \{#container-probes}
 
 The `readinessProbe` is used to ensure the Octopus Server node is responding to network traffic before the pod is marked as ready. The `startupProbe` is used to delay the livenessProbe until such time as the node is started, and the `livenessProbe` runs continuously to ensure the Octopus Server node is functioning correctly.
 

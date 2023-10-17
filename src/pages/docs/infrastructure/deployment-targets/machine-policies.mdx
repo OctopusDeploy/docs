@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Machine policies
 description: Machine Policies allow you to customize the behavior of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
 navOrder: 110
@@ -153,32 +153,31 @@ You can select a username/password account to perform automatic Tentacle updates
 ## Recover from communication errors with Tentacle \{#MachinePolicies-Recoverfromcommunicationerrorswithtentacle}
 
 :::div{.hint}
-Recovering from communication errors with Tentacle was gradually made available to **Cloud** customers from **Octopus 2023.3** onwards and will be made available to self-hosted customers in either 2023.4 or 2024.
+Recovering from communication errors with Tentacle is available to **Cloud** customers from **Octopus 2023.3** onwards and will be made available to self-hosted customers in a future release.
 :::
 
-Configure whether Octopus Deploy should re-attempt failed communication with a Tentacle for a set duration.
+You can configure whether Octopus Deploy should re-attempt failed communications with a Tentacle for a set duration when a network error occurs. This is particularly useful to reduce deployment failures that occur when Tentacle is on an unstable network connection.
 
-With this setting, if a network error occurs while Octopus Deploy is communicating with a Tentacle,
-- **When disabled**, the deployment, runbook run, or health check will fail.
-- **When enabled**, it will re-attempt communication with the Tentacle for the configured duration. However, continued network errors will cause a failure.
+- With this setting **Disabled**, if a network error occurs while Octopus Deploy is communicating with a Tentacle, the deployment, runbook run, or health check will fail.
+
+- With this setting **Enabled**, if a network error occurs, Octopus will re-attempt communication with the Tentacle for the amount of time configured. However, continued network errors will cause a failure.
+
 
 :::div{.warning}
-Using this setting with a Tentacle that runs on ephemeral storage (e.g., running Tentacle in Docker without a mount) will introduce the possibility that a script could run twice.
-
-It is recommended to run Tentacle on a persistent file system.
+Using this setting with a Tentacle that runs on ephemeral storage will introduce the possibility that a script could run twice. For example, when running Tentacle in Docker without a mount. It is recommended to run Tentacle on a persistent file system.
 :::
 
-### Retry Durations
-There are two configurable durations for setting the maximum amount of time allowed to re-attempt failed communication with a Tentacle:
+### Retry durations
+You can configure the amount of time allowed for Octopus to re-attempt failed communication with Tentacle. There are two duration configurations available:
 
 - **Deployment or Runbook Run**
-- **Health Check**
+- **Health Check** 
 
 :::figure
 ![](/docs/infrastructure/deployment-targets/images/recover-from-communication-errors-with-tentacle-durations.png "width=500")
 :::
 
-### Step Retries and Execution Timeouts
+### Step Retries and execution timeouts
 If you would like to retry a particular step within the deployment process for other types of temporary or transient errors, that can be [configured separately](/docs/projects/steps/conditions/#retries-and-execution-timeouts).
 
 ## Automatically delete machines \{#MachinePolicies-Automaticallydeletemachines}

@@ -1,4 +1,4 @@
-### Maintenance Mode
+### Maintenance mode
 
 Maintenance mode prevents non-Octopus Administrators from doing deployments or making changes.  To enable maintenance mode go to **Configuration ➜ Maintenance** and click the button `Enable Maintenance Mode`.  To disable maintenance mode, go back to the same page and click on `Disable Maintenance Mode`. 
 

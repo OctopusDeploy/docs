@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Creating releases from a build server plugin on a version-controlled project
 description: Examples of how to ensure that the right branch is used to create the release when using a build server plugin.
 navOrder: 45 
@@ -50,7 +50,7 @@ ${{ github.event.push.after || github.event.pull_request.head.sha }}
 
 TeamCity provides different data based on if the build is triggered by a branch push versus via a Pull Request (PR). There is no easy way to automate selecting the right one. Based on your process, we suggest using one of the following options. 
 
-### Git Reference
+### Git reference
 
 If the build is triggered by a branch push, use 
 ```
@@ -62,7 +62,7 @@ If the build is triggered via a PR, use
 ```
 
 
-### Git Commit
+### Git commit
 
 This is the same for both scenarios.
 ```

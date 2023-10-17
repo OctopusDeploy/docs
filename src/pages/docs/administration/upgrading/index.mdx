@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-07-10
+modDate: 2023-10-04
 title: Upgrading Octopus
 description: Everything you need to know about upgrading Octopus to a newer version.
 navOrder: 40
@@ -22,7 +22,7 @@ Octopus Deploy connects to a SQL Server database, and can be hosted:
 - As a Windows Service, installed via an MSI.
 - In a [Linux](/docs/installation/octopus-server-linux-container) container.
 
-### Upgrade Process
+### Upgrade process
 
 When running on Windows, the typical (manual) upgrade process is:
 - Run the MSI to install the latest binaries.
@@ -107,7 +107,7 @@ Please pick from one of these upgrade scenarios.  Any version 3.x or higher is c
 Since Octopus Deploy 3.x, the backing database is SQL Server.  Prior to Octopus Deploy 3.x, the backing database was RavenDB.  That is why we consider any version released before 3.x a legacy upgrade.
 :::
 
-## Mitigating Risk
+## Mitigating risk
 
 The best way to mitigate risk is to automate the upgrade and/or create a test instance.  Automation ensures all steps, including backups, are followed for every upgrade.  A test instance allows you to test out upgrades and new features without affecting your main instance.
 

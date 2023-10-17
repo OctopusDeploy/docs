@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Deploying to Transient Targets
 description: Transient deployment targets are targets that are intermittently available for a deployment.
 navOrder: 0
@@ -15,7 +15,7 @@ Transient deployment targets are targets that are intermittently available for a
 
 A typical Octopus deployment requires that all deployment targets are available when the deployment starts and will remain available while the deployment is in progress.  Elastic Environments provides mechanisms for deploying to targets that may become unavailable while a deployment is in progress. You can also run a [health check](/docs/projects/built-in-step-templates/health-check) during a deployment, and based on those results opt to add or remove machines from the deployment.
 
-## Deploying to Targets That Become Unavailable During a Deployment {#Deployingtotransienttargets-Deployingtotargetsthatbecomeunavailableduringadeployment}
+## Deploying to Targets that become unavailable during a deployment {#Deployingtotransienttargets-Deployingtotargetsthatbecomeunavailableduringadeployment}
 
 This example uses the OctoFX project that does a deployment to two roles: **RateServer** and **TradingWebServer**. We have decided to auto-scale the machines in the **TradingWebServer** role and want to continue deploying the web site to the available machines, ignoring any machines that are no longer available, perhaps due to being scaled down.
 
@@ -28,7 +28,7 @@ This example uses the OctoFX project that does a deployment to two roles: **Rate
 To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date).
 :::
 
-## Including and Excluding Targets During a Deployment {#Deployingtotransienttargets-Includingandexcludingtargetsduringadeployment}
+## Including and excluding targets during a deployment {#Deployingtotransienttargets-Includingandexcludingtargetsduringadeployment}
 
 In this example, OctoFX will deploy to **RateServer** and then run a Health Check step before it deploys to **TradingWebServer**, ensuring that only currently available targets are involved in the deployment.
 

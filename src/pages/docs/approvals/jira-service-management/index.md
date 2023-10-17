@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Jira Service Management Integration
 description: Octopus Deploy can integrate with your Jira Service Management instance for deployment control using Change Requests/Issues
 navOrder: 10
@@ -129,7 +129,7 @@ To enable a project to enforce a requirement for an approved CR:
 ![JSM Integration Project settings](/docs/approvals/jira-service-management/images/jsm-project-settings.png)
 :::
 
-### Default Behavior
+### Default behavior
 
 Deployments resulting in a CR creation will produce an issue with a Request Type of **Request a 
 change**
@@ -195,7 +195,7 @@ e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
 The title must match the format **exactly**, including the double-quotes.
 :::
 
-### Respecting Change Windows
+### Respecting change windows
 
 In addition to a change request being approved, a change must also be in its schedule change 
 window in order for the deployment to execute.  The change window is controlled by the `Planned 
@@ -212,7 +212,7 @@ The following list assumes the linked change is in an **approved** state.
 
 **If at any time a `Planned end` is exceeded and the linked change request is not approved, the deployment will be terminated.**
 
-## Known Issues and limitations
+## Known issues and limitations
 
 - Once an Issue is deemed to be related to a deployment, then only this Issue will be evaluated for 
   the deployment to proceed. If the Issue is incorrect, you will need to cancel the deployment, 
