@@ -17,7 +17,7 @@ This page is not shown on the production site.
 
 - [View the docs site](/docs)
 
-Reports
+Reports:
 
 - [Missing banners](/report/missing-banner)
 - [Missing metadata](/report/missing-meta)
