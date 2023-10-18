@@ -7,7 +7,9 @@ navOrder: 60
 description: How to increase the task cap on an Octopus Cloud Instance.
 ---
 
-Every Octopus Deploy instance has a task cap.  The task cap is the number of concurrent tasks an instance can run.  A task can be:
+Every Octopus Deploy instance has set number of concurrent tasks it can process.  That number of concurrent tasks is known as the Octopus Task Cap.  
+
+A task can be:
 
 - Deployments
 - Runbook run
@@ -30,19 +32,21 @@ The default task cap for Octopus Cloud instances is based on the license tier:
 - Professional: 5
 - Enterprise: 20
 
-## Increasing the Task Cap
-Self-hosted customers can change their instance's task cap via the Octopus Deploy UI.  That is because self-hosted customers take on the responsibility of hosting their instance and allocating resources.  They pay any additional hosting fees to their cloud providers.  
+Self-hosted customers have more control over their task cap.  As such, every self-hosted instance starts out with a task cap of 5.  A higher task cap requires more hosting resources.  Self-hosted customers can change their instance's task cap via the Octopus Deploy UI.  That is because self-hosted customers take on the responsibility of allocating resources, and paying any additional Azure, AWS, or GCP fees.  
+
+## Increasing the Task Cap for Octopus Cloud
+Octopus Cloud customers must reach out to sales@octopus.com to increase the task cap.  
 
 Octopus Cloud provides the following Task Cap options:
 - Community: 5
 - Professional: 5, 10, 20
 - Enterprise: 20, 40, 80, 160
 
+Increasing the task cap will incur a corresponding increase in platform fees.  Deployments and runbook runs are computationally expensive.  More concurrent deployments and runbook runs requires more resources from the Cloud Platform.
+
+We assign resources to the instance based on the task cap.  Changing the task cap changes those resources.  That requires a small outage as the instance and database are reprovisioned.  We will wait until your next maintenance window to perform that reprovisioning.  You might not see a change in the task cap until the next day.
+
 **Please note:** If you need a task cap higher than 160 please reach out to sales@octopus.com to discuss your use case.  These options are meant to cover the majority of use cases.  
-
-Deployments and runbook runs are computationally expensive.  More concurrent deployments and runbook runs requires more resources from the Cloud Platform.  As such, increasing the task cap increases your platform fee.  
-
-You can increase the task cap on your instance by contacting sales@octopus.com.  They will provide you with the latest fees and discuss options.
 
 **Important:** 5, 10, 20, 40, 80, and 160 are the only options we offer.  If you want an instance with a task cap above 160, again, reach out to sales@octopus.com.  There are no options between those tiers.  For example, no Octopus Cloud instance can have a task cap of 15, 34, 45, or 68.  
 
