@@ -28,7 +28,6 @@ log/
 obj/
 _site/
 .vs/
-.vscode/
 .idea
 *.iml
 **/*.dia~
