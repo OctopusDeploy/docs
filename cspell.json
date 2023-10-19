@@ -1,13 +1,12 @@
 {
     "version": "0.2",
     "language": "en",
-    "words": [
-        "astro",
-        "cutover",
-        "octopusdeploy",
-        "runbook",
-        "runbooks"
-    ],
+    "dictionaries": ["dictionary-octopus"],
+    "dictionaryDefinitions": [{
+            "name": "dictionary-octopus",
+            "path": "./dictionary-octopus.txt",
+            "addWords": false
+    }],
     "flagWords": [
         "hte"
     ],
