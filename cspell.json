@@ -2,7 +2,11 @@
     "version": "0.2",
     "language": "en",
     "words": [
-        "astro"
+        "astro",
+        "cutover",
+        "octopusdeploy",
+        "runbook",
+        "runbooks"
     ],
     "flagWords": [
         "hte"
