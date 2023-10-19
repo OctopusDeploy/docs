@@ -37,9 +37,9 @@ The most common failures are:
 - A new image is referenced with the wrong path
 - An internal link has a bad address
 
-### Spell-check
+### Spell check
 
-You can run the spell-check locally using:
+You can run the spell check locally using:
 
 ```
 pnpm spellcheck
@@ -52,9 +52,9 @@ For each error detected, you'll need to decide whether to:
 - Correct your spelling, or
 - Propose an addition to the custom dictionary
 
-For example, if you added `MySQL` to an article and it was flagged as an unknown word, you could propose the addition of `MySQL` by adding it word list in the file `cspell.json`.
+For example, if you added `MySQL` to an article and it was flagged as an unknown word, you could propose the addition of `MySQL` by adding it word list in the file `dictionary-octopus.txt`.
 
-Some consideration should be given as to whether it should be `MySQL` or `MySql` and just a single entry should be added to `cspell.json` to promote consistency.
+Some consideration should be given as to whether it should be `MySQL` or `MySql` and just a single entry should be added to `dictionary-octopus.txt` to promote consistency.
 
 ## Deploying to preview environment (Octopus Developers)
 
