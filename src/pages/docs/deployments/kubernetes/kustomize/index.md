@@ -59,3 +59,30 @@ This setting is useful, for example, when you want to put your application speci
 The target file paths are relative to the root of the git repository.
 Again remember that in Linux workers, paths are case-sensitive, so it is always good practice to check this.  
 You can use glob patterns to target multiple files. [Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns).
+
+## Referencing Container images
+
+Since v2.0.1, you are able to add container images as package references directly from the Kustomize step. Image references added in this way can be used via [variable substitutions](/docs/projects/variables/variable-substitutions).
+
+:::figure
+![Add package references](/docs/deployments/kubernetes/kustomize/referenced-packages.png)
+:::
+
+For example, if you add a container image reference for `nginx`:
+
+:::figure
+![Reference a package](/docs/deployments/kubernetes/kustomize/reference-a-package.png)
+:::
+
+You will then be able to select the version of this container image at release creation time. You can use the referenced `nginx` container image in a YAML file as a variable:
+
+```yaml
+...
+containers:
+   - name: nginx 
+      image: nginx:#{Octopus.Action.Package[nginx].PackageVersion}
+...
+```
+
+The "`#{Octopus.Action.Package[nginx].PackageVersion}`" Octostache expression will be resolved to the selected image version during the deployment.
+
