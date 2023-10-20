@@ -1,6 +1,8 @@
 astro
 runbook
+runbooks
 hotfix
+hotfixes
 ITSM
 FIPS
 NTLM
@@ -8,3 +10,5 @@ OIDC
 HSTS
 MTTR
 swaggerui
+apikey
+reprioritize
