@@ -12,6 +12,7 @@
         "img": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs",
         "dev": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs && astro dev",
         "test": "astro build && npx playwright install --with-deps && npx playwright test",
+        "spellcheck": "git fetch origin main:refs/remotes/origin/main && git diff origin/main --name-only | cspell --file-list stdin",
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
@@ -21,6 +22,7 @@
     "dependencies": {
         "@astrojs/mdx": "^1.0.0",
         "astro": "^3.0.3",
+        "cspell": "^7.3.7",
         "astro-accelerator": "^0.3.12",
         "astro-accelerator-utils": "^0.3.2",
         "hast-util-from-selector": "^3.0.0",

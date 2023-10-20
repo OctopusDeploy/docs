@@ -1,0 +1,6 @@
+{
+    "markdown.validate.enabled": false,
+    "files.associations": {
+        "*.mdx": "markdown"
+    },
+}
