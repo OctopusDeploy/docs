@@ -31,7 +31,7 @@ We list a few different scenarios below to help you figure out what is the best 
 2. **Single overlay for Octopus**  
    In this scenario, you may define two overlays, one being for local use outside Octopus, so you can test your `yaml` files. The other overlay is used exclusively by Octopus.  
    In the Octopus overlay, you add [variable substitution syntax](/docs/projects/variables/variable-substitutions) directly into `kustomization.yaml` and any other `yaml` files in the overlay folder, as well as `.env` files.  
-   This scenario is better suited for customers with many environments and/or tenants, where customisations are needed for each target.
+   This scenario is better suited for customers with many environments and/or tenants, where customizations are needed for each target.
 
 3. **A mix of both**  
    This would be the ideal scenario when you have a small number of environments and many tenants.  
