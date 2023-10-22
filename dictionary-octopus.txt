@@ -12,3 +12,5 @@ MTTR
 swaggerui
 apikey
 reprioritize
+reprovisioned
+reprovisioning
