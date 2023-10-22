@@ -14,7 +14,7 @@ Deployments are more than the sum of their parts, with well architected deployme
 The reference architecture steps are typically run from a runbook. The runbook requires a small number of external resources to be defined:
 
 1. A `Docker Container Registry` [feed](/docs/packaging-applications/package-repositories/guides/container-registries/docker-hub) called `Container Images` with the URL `https://index.docker.io`. This feed is used to access the [execution container for workers](/docs/projects/steps/execution-containers-for-workers) exposing a recent version of Terraform.
-2. An [environment](/docs/infrastructure/environments) to execute runbook in. This documentation assumes the environment is called `Admin`.
+2. An [environment](/docs/infrastructure/environments) to execute runbooks in. This documentation assumes the environment is called `Admin`.
 3. A [project](/docs/projects) to hold the runbooks. This documentation assumes the project is called `Reference Architecture`.
 
 ## EKS reference architecture
@@ -23,7 +23,7 @@ The [Octopus - EKS Reference Architecture](https://library.octopus.com/step-temp
 
 ### Supporting Videos
 
-The webinar [Deploying to Kubernetes at scale with Octopus](https://www.youtube.com/watch?v=5q7s3vaGUN8) demonstrates the reference architecture step. 
+[Deploying to Kubernetes at scale with Octopus](https://www.youtube.com/watch?v=5q7s3vaGUN8)
 
 ### Configuring the step
 
