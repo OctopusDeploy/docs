@@ -31,8 +31,8 @@ Hosted Octopus users should use the `Hosted Ubuntu` worker pool and run the step
 
 The step exposes a number of options, typically requesting credentials to the various platforms that are configured to support EKS deployments:
 
-* `AWS Access Key` and `AWS Secret Key` require the [AWS access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) of the user that will create the EKS cluster.
-* `Docker Hub Username` and `Docker Hub Password` require the credentials of a [Docker Hub user](https://docs.docker.com/docker-id/) that is used to access sample Docker images from public DockerHub repositories, and also used by a sample GitHub Actions workflow that publishes Docker images.
+* `AWS Access Key` and `AWS Secret Key` require the [access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) of the user that will create the EKS cluster.
+* `Docker Hub Username` and `Docker Hub Password` require the credentials of a [Docker Hub user](https://docs.docker.com/docker-id/) that is used to access sample Docker images from public DockerHub repositories. These credentials are also used by a sample GitHub Actions workflow that publishes Docker images.
 * `GitHub Access Token` requires the [GitHub access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) of a user that is used to create a new GitHub repository holding a sample application.
 * `Octopus API Key` requires an [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) to the Octopus instance where the reference architecture projects and supporting resources are created.
 * `Octopus Space ID` requires the space ID where the reference architecture projects and supporting resources are created. Leave the default value to populate the same space as the runbook.
