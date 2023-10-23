@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-31
-modDate: 2023-10-23
+modDate: 2023-10-31
 title: Reference architectures
 description: Populate an Octopus space with example projects and supporting resources demonstrating reference architectures
 navOrder: 55
