@@ -2,6 +2,7 @@ apikey
 astro
 deallocate
 deallocated
+DONTVALIDATEPATH
 FIPS
 HKEY
 HKLM
@@ -14,7 +15,9 @@ msiexec
 MTTR
 nologs
 NTLM
+Octo
 octobak
+octopusid
 OIDC
 onlylogs
 reprioritize
@@ -22,13 +25,10 @@ reprovisioned
 reprovisioning
 runbook
 runbooks
+Schannel
 sthumb
 swaggerui
 systemprofile
 upgradelog
-xmark
 WIXUI
-DONTVALIDATEPATH
-Octo
-octopusid
-Schannel
+xmark
