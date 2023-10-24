@@ -5,6 +5,7 @@ modDate: 2023-01-01
 title: Migrating data from Octopus 2.6.5 to 2018.10 LTS
 description: Information on how to migrate your data from Octopus 2.6.5 to 2018.10 LTS.
 navOrder: 3
+navSearch: false
 ---
 
 When upgrading from **Octopus 2.6** to **Octopus 2018.10 LTS** you can migrate your data. There are some points worth noting about the data migration process:
@@ -21,7 +22,7 @@ When upgrading from **Octopus 2.6** to **Octopus 2018.10 LTS** you can migrate y
 Please see our [tips for minimizing the migration duration](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time).
 :::
 
-## Importing your 2.6 backup into 2018.10 LTS {#MigratingdatafromOctopus2.6to3.x-Importingyour2.6Backupinto3.x}
+## Importing your 2.6 backup into 2018.10 LTS
 
 To import your 2.6 Raven data into a 2018.10 LTS installation (generally this is run after a side-by-side upgrade) you need to select import from the Octopus Manager.
 
@@ -53,12 +54,12 @@ If you need to use any of the options below to manage the data being imported yo
 ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964996.png)
 :::
 
-### Migrating the built-in Octopus NuGet package repository {#MigratingdatafromOctopus2.6to3.x-PackageRepositoryMigratingthebuilt-inOctopusNuGetpackagerepository}
+### Migrating the built-in Octopus NuGet package repository
 
 If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories) you will need to move the files from your 2.6 server to your 2018.10 LTS server. The package files are not included as part of the backup.
 In a standard **Octopus 2.6** install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
 You will need to transfer them to the new server to `C:\Octopus\Packages`. Once the files have been copied, go to **Library ➜ Packages ➜ Package Indexing** and click the `RE-INDEX NOW` button. This process runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 
-### Migrating historical data {#MigratingdatafromOctopus2.6to3.x-MaxAgeMigratinghistoricaldata}
+### Migrating historical data
 
 By default we migrate everything from your backup including all historical data. Learn about [minimizing migration time](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time).
