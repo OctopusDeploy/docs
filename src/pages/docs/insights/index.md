@@ -6,7 +6,7 @@ title: Insights
 navTitle: Overview
 navSection: Insights
 description: Insights gives you better visibility into your company's DevOps performance.
-navOrder: 100
+navOrder: 120
 ---
 
 DevOps insights in Octopus gives you better visibility into your company's DevOps performance by surfacing the four key DORA metrics, so you can make more informed decisions on where to improve and celebrate your results.
