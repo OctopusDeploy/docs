@@ -5,6 +5,7 @@ modDate: 2023-01-01
 title: Minimize the data-migration time
 description: Tips to minimize the time taken to migrate your data from Octopus 2.6 to 2018.10 LTS
 navOrder: 5
+navSearch: false
 ---
 
 Migrating data from an **Octopus 2.6** backup file into an **Octopus 2018.10 LTS** instance can take a significant time to run (hours or even days in some cases).  
