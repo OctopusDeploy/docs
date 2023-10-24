@@ -21,7 +21,7 @@ Due to LTSC Windows Server 2019 ending on 9 January 2024 , we are upgrading our 
 
 
 ## Who will be impacted?
-Users of Octopus Cloud utilising Windows Dynamic Workers (`Windows (default)` and `Windows Server Core 2019` images) and running custom scripts or community steps may be impacted as there are **breaking changes between Windows 2019 and Windows 2022**. Should any additional components be identified as having breaking changes we will endeavour to inform you via email and Octopus community Slack.
+Users of Octopus Cloud utilizing Windows Dynamic Workers (`Windows (default)` and `Windows Server Core 2019` images) and running custom scripts or community steps may be impacted as there are **breaking changes between Windows 2019 and Windows 2022**. Should any additional components be identified as having breaking changes we will endeavour to inform you via email and Octopus community Slack.
 
 Steps running execution containers on Windows Dynamic Workers may also be impacted as Windows containers can generally only run when the container base image OS version matches the host OS version. This means the Windows 2019 container image you are currently using will likely fail to run on a Windows 2022 Dynamic Worker.
 
