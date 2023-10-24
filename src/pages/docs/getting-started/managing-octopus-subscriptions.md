@@ -114,6 +114,8 @@ There are 2 levels of access you can provide users in Control Center. Each level
 1. **Subscription Group access** provides management of a group of subscriptions plus access to all current and future subscriptions in the group. 
 2. **Direct access** provides access to individual subscriptions.
 
+Changes to access control in Control Center V1 will only affect subscriptions located in Control Center V1 and changes in Control Center V2 will only affect subscriptions located in Control Center V2.
+
 ### Subscription Group access
 
 Below are the roles for Subscription Group access, the permissions they provide for the group, and the subscriptions in the group:
@@ -140,6 +142,8 @@ Below are the roles for Subscription Group access, the permissions they provide 
 
 The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Octopus instance. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
 
+If the invited user already has an Octopus ID, they must still accept the invite sent via email to complete the process.
+
 ### Direct access (Cloud only)
 
 Below are the roles available for Direct access:
@@ -160,6 +164,8 @@ Below are the roles available for Direct access:
 4. Enter the user's details and click **INVITE**.
 
 The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Octopus instance. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
+
+If the invited user already has an Octopus ID, they must still accept the invite sent via email to complete the process.
 
 :::div{.hint}
 **Note:** The user is only added to the Octopus Cloud instance after they sign in for the first time. After signing in, that user gets assigned to the **“Everyone”** team (if they’re a Cloud User) or the **“Octopus Managers”** team (if they’re a Cloud Owner).

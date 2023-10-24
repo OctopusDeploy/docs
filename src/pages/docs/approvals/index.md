@@ -6,7 +6,7 @@ title: Approvals
 navTitle: Overview
 navSection: Approvals
 description: Octopus Deploy can integrate with supported ITSM tools for deployment control using Change Request approvals
-navOrder: 95
+navOrder: 110
 hideInThisSection: true
 ---
 
