@@ -39,3 +39,6 @@ upgradelog
 WIXUI
 workertools
 xmark
+kustomize
+Octostache
+kustomization
