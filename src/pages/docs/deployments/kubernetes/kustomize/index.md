@@ -62,7 +62,7 @@ You can use glob patterns to target multiple files. [Learn more about glob patte
 
 ## Referencing Container images
 
-Since v2.0.1, you are able to add container images as package references directly from the Kustomize step. Image references added in this way can be used via [variable substitutions](/docs/projects/variables/variable-substitutions).
+From v2.0.2, you are able to add container images as package references directly from the Kustomize step. Image references added in this way can be used via [reference package variables](/docs/projects/variables/system-variables#reference-package-variables).
 
 :::figure
 ![Add package references](/docs/deployments/kubernetes/kustomize/referenced-packages.png)
@@ -74,14 +74,17 @@ For example, if you add a container image reference for `nginx`:
 ![Reference a package](/docs/deployments/kubernetes/kustomize/reference-a-package.png)
 :::
 
-You will then be able to select the version of this container image at release creation time. You can use the referenced `nginx` container image in a YAML file as a variable:
+You will then be able to select the version of this container image at release creation time. You can use the referenced `nginx` container image in your `kustomization.yaml` file using the following syntax:
 
 ```yaml
-...
-containers:
-   - name: nginx 
-      image: nginx:#{Octopus.Action.Package[nginx].PackageVersion}
-...
+# ~/myApp/kustomization.yaml
+
+resources:
+- deployment.yaml
+
+images:
+- name: nginx
+   newTag: #{Octopus.Action.Package[nginx].PackageVersion}
 ```
 
 The "`#{Octopus.Action.Package[nginx].PackageVersion}`" Octostache expression will be resolved to the selected image version during the deployment.
