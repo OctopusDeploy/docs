@@ -9,11 +9,15 @@ hideInThisSection: true
 hideInThisSectionHeader: true
 ---
 
+:::div{.warning}
+Windows Server 2019 images are no longer available as of 9 January 2024. The details below are provided for historical reference.
+:::
+
 Our Windows Server 2019 Dynamic Workers are being upgraded to use Windows Server 2022, this may result in breaking changes for users of community steps or custom scripts.
 
 
 ## What is changing?
-Due to LTSC Windows Server 2019 ending on 9th January 2024 , we are upgrading our dynamic workers to use Windows Server 2022.  
+Due to LTSC Windows Server 2019 ending on 9 January 2024 , we are upgrading our dynamic workers to use Windows Server 2022.  
 
 
 ## Who will be impacted?
