@@ -10,7 +10,7 @@ navSearch: false
 import OctopusBackupMasterKey from 'src/shared-content/upgrade/upgrade-octopus-backup-master-key.include.md';
 import UpgradeDownloadLatestVersion from 'src/shared-content/upgrade/upgrade-download-latest-version.include.md';
 import UpgradeOctopusBackupDatabase from 'src/shared-content/upgrade/upgrade-octopus-backup-database.include.md';
-import UpgradeInplaceUpgrade from 'src/shared-content/upgrade/upgrade-inplace-upgrade.include.md';
+import UpgradeInPlaceUpgrade from 'src/shared-content/upgrade/upgrade-in-place-upgrade.include.md';
 import UpgradeTestingUpgradedInstance from 'src/shared-content/upgrade/upgrade-testing-upgraded-instance.include.md';
 import UpgradeHighAvailability from 'src/shared-content/upgrade/upgrade-high-availability.include.md';
 import UpgradeRestoreBackup from 'src/shared-content/upgrade/upgrade-restore-backup.include.md';
@@ -71,7 +71,7 @@ The steps for this are:
 
 <UpgradeOctopusBackupDatabase />
 
-<UpgradeInplaceUpgrade />
+<UpgradeInPlaceUpgrade />
 
 <UpgradeTestingUpgradedInstance />
 
@@ -129,7 +129,7 @@ DELETE FROM ExtensionConfiguration WHERE Id in ('authentication-octopusid', 'jir
 Remember to replace `OctopusDeploy` with the name of your database.
 :::
 
-<UpgradeInplaceUpgrade />
+<UpgradeInPlaceUpgrade />
 
 <UpgradeTestingUpgradedInstance />
 
@@ -172,7 +172,7 @@ The steps for this are:
 
 <UpgradeOctopusBackupDatabase />
 
-<UpgradeInplaceUpgrade />
+<UpgradeInPlaceUpgrade />
 
 <UpgradeTestingUpgradedInstance />
 
@@ -204,7 +204,7 @@ While unlikely, an upgrade may fail.  It could fail on a database upgrade script
 
 Earlier versions of 3.x, including 3.1, 3.4, and 3.5, also carry some additional caveats to make a note of.  Before upgrading to a modern version of Octopus Deploy, please keep these in mind.
 
-###  Upgrading to Octopus 3.1 or greater \{#UpgradingfromOctopus3.x-UpgradingTo31UpgradingtoOctopus3.1orgreater}
+###  Upgrading to Octopus 3.1 or greater
 
 Summary: Tentacle was upgraded from .NET 4.0 to .NET 4.5 to enable TLS 1.2.
 
@@ -243,7 +243,7 @@ No, from **Octopus 3.1** onward, we are dropping official support for Octopus Se
 Read more about the [Octopus - Tentacle communication](/docs/security/octopus-tentacle-communication/) protocol and [Troubleshooting Schannel and TLS](/docs/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls).
 :::
 
-### Upgrading to Octopus 3.4 or greater \{#UpgradingfromOctopus3.x-UpgradingtoOctopus3.4orgreater}
+### Upgrading to Octopus 3.4 or greater
 
 See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to=3.4.0) for breaking changes and more information.
 
@@ -251,13 +251,13 @@ See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to
 
 **Want to use SemVer 2 for packages or releases?** You will need to upgrade OctoPack and/or Octopus CLI to 3.4 or newer.
 
-### Upgrading to Octopus 3.5 or greater \{#UpgradingfromOctopus3.x-UpgradingtoOctopus3.5orgreater}
+### Upgrading to Octopus 3.5 or greater
 
 Some server configuration values are moved from the config file into the database in 3.5+.
 
 If you are upgrading to a 3.5+ version, please backup your server config file prior to upgrading. If you need to downgrade, then replace the config with the original file after the downgrade and restart the Octopus Server.
 
-## Troubleshooting \{#UpgradingfromOctopus3.x-Troubleshooting}
+## Troubleshooting
 
 In a few cases, a bug in a 3rd party component causes the installer to display a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using):
 
