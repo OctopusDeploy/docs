@@ -5,6 +5,7 @@ modDate: 2023-01-01
 title: Upgrading from Octopus 2.x to 2.6.5
 description: Information on how to upgrade from Octopus 2.x to 2.6.5.
 navOrder: 3
+navSearch: false
 ---
 
 :::div{.success}
@@ -18,7 +19,7 @@ Upgrading **Octopus 2.0** involves two major steps.
 
 Additional information on troubleshooting upgrades is below.
 
-## Upgrading the Octopus Server {#UpgradingfromOctopus2.0-UpgradingtheOctopusserver}
+## Upgrading the Octopus Server
 
 To upgrade the Octopus Server, you will need to follow these steps:
 
@@ -38,7 +39,7 @@ When the installer finishes, Octopus Manager will appear. Make sure the Octopus 
 ![](/docs/administration/upgrading/legacy/images/3277991.png)
 :::
 
-## Upgrading Tentacles {#UpgradingfromOctopus2.0-UpgradingTentacles}
+## Upgrading Tentacles
 
 After upgrading the Octopus Server, browse to the **Environments** tab in the Octopus Web Portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
 
@@ -48,7 +49,7 @@ After upgrading the Octopus Server, browse to the **Environments** tab in the Oc
 
 Click on the **Upgrade machines** button to have Octopus send the new Tentacle package to all of the machines.
 
-## Troubleshooting {#UpgradingfromOctopus2.0-Troubleshooting}
+## Troubleshooting
 
 When **Octopus 2.0** was first released, the MSI was set as a "per user" install. This means that if Joe installed Octopus, Mary would not see the start menu entries.
 
@@ -62,7 +63,7 @@ Instead, we added a check in **Octopus 2.1.3** that checks if a per-user install
 ![](/docs/administration/upgrading/legacy/images/3278002.png)
 :::
 
-### Uninstall Octopus 2.0 {#UpgradingfromOctopus2.0-UninstallingOctopus2.0}
+### Uninstall Octopus 2.0
 
 :::div{.success}
 **Your data is safe**
@@ -79,7 +80,7 @@ You can uninstall the old version of the Octopus Deploy MSI installer and instal
 
 After you have uninstalled the old version of Octopus, you can install the new version.
 
-### If you are still getting this error {#UpgradingfromOctopus2.0-Ifyouarestillgettingthiserror}
+### If you are still getting this error
 
 After uninstalling the old version of Octopus and restarting, if you still receive this error, please navigate to the following registry keys:
 
@@ -103,9 +104,9 @@ $RegServer = 'HKLM:\Software\Octopus\OctopusServer'
 $RegTentacle = 'HKLM:\Software\Octopus\Tentacle'
 $RegServer64 = 'HKLM:\SOFTWARE\Wow6432Node\Octopus\OctopusServer'
 $RegTentacle64 = 'HKLM:\SOFTWARE\Wow6432Node\Octopus\Tentacle'
-$Regs = @($RegServer,$RegTentacle, $RegServer64, $RegTentacle64)
+$Entries = @($RegServer,$RegTentacle, $RegServer64, $RegTentacle64)
 
-foreach ($reg in $Regs) {
+foreach ($reg in $Entries) {
 if (Test-Path $reg) { Remove-ItemProperty -Path $reg -Name InstallLocation }
 }
 ```
