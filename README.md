@@ -56,6 +56,10 @@ For example, if you added `MySQL` to an article and it was flagged as an unknown
 
 Some consideration should be given as to whether it should be `MySQL` or `MySql` and just a single entry should be added to `dictionary-octopus.txt` to promote consistency.
 
+### Exclusions
+
+You can see files excluded from the spell check in `cspell.json`.
+
 ## Deploying to preview environment (Octopus Developers)
 
 Before merging to `main` it's possible you'd like to see your changes in a preview environment. It's simple to do this:
