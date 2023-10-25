@@ -31,7 +31,7 @@ We list a few different scenarios below to help you figure out what is the best 
 2. **Single overlay for Octopus**  
    In this scenario, you may define two overlays, one being for local use outside Octopus, so you can test your `yaml` files. The other overlay is used exclusively by Octopus.  
    In the Octopus overlay, you add [variable substitution syntax](/docs/projects/variables/variable-substitutions) directly into `kustomization.yaml` and any other `yaml` files in the overlay folder, as well as `.env` files.  
-   This scenario is better suited for customers with many environments and/or tenants, where customisations are needed for each target.
+   This scenario is better suited for customers with many environments and/or tenants, where customizations are needed for each target.
 
 3. **A mix of both**  
    This would be the ideal scenario when you have a small number of environments and many tenants.  
@@ -59,3 +59,33 @@ This setting is useful, for example, when you want to put your application speci
 The target file paths are relative to the root of the git repository.
 Again remember that in Linux workers, paths are case-sensitive, so it is always good practice to check this.  
 You can use glob patterns to target multiple files. [Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns).
+
+## Referencing Container images
+
+From v2.0.2, you are able to add container images as package references directly from the Kustomize step. Image references added in this way can be used via [reference package variables](/docs/projects/variables/system-variables#reference-package-variables).
+
+:::figure
+![Add package references](/docs/deployments/kubernetes/kustomize/referenced-packages.png)
+:::
+
+For example, if you add a container image reference for `nginx`:
+
+:::figure
+![Reference a package](/docs/deployments/kubernetes/kustomize/reference-a-package.png)
+:::
+
+You will then be able to select the version of this container image at release creation time. You can use the referenced `nginx` container image in your `kustomization.yaml` file using the following syntax:
+
+```yaml
+# ~/myApp/kustomization.yaml
+
+resources:
+- deployment.yaml
+
+images:
+- name: nginx
+   newTag: #{Octopus.Action.Package[nginx].PackageVersion}
+```
+
+The "`#{Octopus.Action.Package[nginx].PackageVersion}`" Octostache expression will be resolved to the selected image version during the deployment.
+

@@ -5,6 +5,7 @@ modDate: 2023-01-01
 title: Upgrading from Octopus 1.6 to 2.6.5
 description: Information on how to upgrade from Octopus 1.6 tp 2.6.5.
 navOrder: 2
+navSearch: false
 ---
 
 :::div{.success}
@@ -13,7 +14,7 @@ Please read our guide for [upgrading older versions of Octopus](/docs/administra
 
 A **lot** changed between **Octopus 1.6** and **Octopus 2.0**; so much that we had to to handle upgrades differently to the way we handle upgrades from, say, **Octopus 1.5** to **Octopus 1.6**. This page will walk you through the process of upgrading an **Octopus 1.6** instance to **Octopus 2.0**. Rather than being an in-place upgrade, **Octopus 2.0** is designed to be a **side-by-side** upgrade.
 
-## Preparing {#UpgradingfromOctopus1.6-Preparing}
+## Preparing
 
 :::div{.problem}
 
@@ -34,7 +35,7 @@ Then go to the **Storage** tab in the **Configuration** area, and make sure that
 ![](/docs/administration/upgrading/legacy/images/3277999.png)
 :::
 
-## Install Octopus 2.0 {#UpgradingfromOctopus1.6-InstallOctopus2.0}
+## Install Octopus 2.0
 
 Next, install **Octopus 2.0**, either on the same server as your current **Octopus 1.6** server, or on a new server (ideal). **Octopus 2.0** uses different paths, ports and service names to **Octopus 1.0** so there should not be any conflicts between them.
 
@@ -42,7 +43,7 @@ Next, install **Octopus 2.0**, either on the same server as your current **Octop
 View our [guide to installing an Octopus 2.0](/docs/installation), which includes a video walk-through.
 :::
 
-## Importing {#UpgradingfromOctopus1.6-Importing}
+## Importing
 
 On the **Octopus 2.0** server, open the Octopus Manager from your start menu/start screen.
 
@@ -86,11 +87,11 @@ At this point, you should be able to view the imported projects, environments an
 ![](/docs/administration/upgrading/legacy/images/3277992.png)
 :::
 
-## Permissions {#UpgradingfromOctopus1.6-Permissions}
+## Permissions
 
 The **Octopus 2.x** migrator will not import permission settings from **Octopus 1.6**, due to changes made between the permission models. After you upgrade to **Octopus 2.x**, you will need to configure [Teams](/docs/security/users-and-teams) to assign permissions.
 
-## Upgrading Tentacles {#UpgradingfromOctopus1.6-UpgradingTentacles}
+## Upgrading Tentacles
 
 **Octopus 2.x** changed the communication stack between Octopus and Tentacle, meaning that your **Octopus 2.x** server can no longer communicate with **Tentacle 1.6**. So in addition to upgrading Octopus, you'll also need to upgrade any Tentacles.
 
@@ -112,7 +113,7 @@ function Upgrade-Tentacle ($rel, $loc, $hm, $sthumb, $sxsPort)
   $downloader.DownloadFile("http://download.octopus.com/octopus/Octopus.Tentacle.$rel.msi", [System.IO.Path]::GetFullPath(".\Tentacle.msi"))
 
   Write-Output "Installing MSI"
-  $msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i Tentacle.msi /quiet" -Wait -Passthru).ExitCode
+  $msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i Tentacle.msi /quiet" -Wait -PassThru).ExitCode
   Write-Output "Tentacle MSI installer returned exit code $msiExitCode"
   if ($msiExitCode -ne 0) {
     throw "Installation aborted"
