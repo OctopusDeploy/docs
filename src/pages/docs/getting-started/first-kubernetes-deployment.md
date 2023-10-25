@@ -413,4 +413,3 @@ As you continue to explore Octopus Deploy, consider diving deeper into powerful 
 * [Deploy with the Kustomize step](https://octopus.com/docs/deployments/kubernetes/kustomize)
 * [Deploy a Helm chart](https://octopus.com/docs/deployments/kubernetes/helm-update)
 * [Using variables for Kubernetes without breaking YAML](https://octopus.com/blog/structured-variables-raw-kubernetes-yaml)
-* [Continuous Deployment configuration for Kubernetes](https://www.youtube.com/watch?v=MHYaQoGmnfU)
