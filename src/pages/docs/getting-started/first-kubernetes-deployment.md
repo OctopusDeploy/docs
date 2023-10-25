@@ -315,6 +315,7 @@ Octopus provides multiple methods for authenticating your Kubernetes cluster dep
 | EKS         | [AWS Account](https://octopus.com/docs/infrastructure/accounts/aws)                                                                                                                                                                                                                                    | When using an EKS cluster, AWS accounts allow IAM accounts and roles to be used.<br><br>   Learn more in the [AWS docs](https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html)                                                                                                                         |
 | Other       | [Tokens](https://octopus.com/docs/infrastructure/accounts/tokens) <br> [Username and password](https://octopus.com/docs/infrastructure/accounts/username-and-password) <br> [Client certificate](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target) | Learn more in the [Kubernetes cluster docs](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target)                                                                                                                                                                   |
 
+
 Here are brief instructions on how to configure your cluster authentication in Octopus, since it will depend on your specific situation:
 
 1. Select the appropriate authentication method from the list.
