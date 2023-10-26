@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Performance
 description: Octopus is all about reliable and repeatable deployments, but that doesn't mean it has to be slow. This page will help you tune your Octopus installation for the best performance in your scenario.
 navOrder: 60
@@ -136,31 +136,31 @@ Delta compression doesn't always result in smaller package transfers.  The algor
 
 If your packages have a lot of static data, consider creating a package containing only that static data and deploying it only when it changes.  
 
-### Custom Package Feed
+### Custom package feed
 
 Consider using a custom package feed close to your deployment targets, and download the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 
-### Retention Policy
+### Retention policy
 
 The built-in package feed has its own [retention policy](/docs/administration/retention-policies/#set-builtinfeed-retentionpolicy).  Ensure that is enabled to keep the amount of packages to store and index down.
 
 :::div{.hint}
-The package retention policy only deletes packages not referenced by a release or runbook.  Setting the retetion policy to 1 day means the package will be deleted 1 day after the release is deleted.
+The package retention policy only deletes packages not referenced by a release or runbook.  Setting the retention policy to 1 day means the package will be deleted 1 day after the release is deleted.
 :::
 
-## File Storage 
+## File storage 
 
 Octopus Deploy stores BLOB data (task logs, packages, project images, etc.) on the file system.
 
-### Task Logs \{#tip-task-logs}
+### Task logs \{#tip-task-logs}
 
 Larger task logs put the entire Octopus pipeline under more pressure.  The task log has to be transferred from the Tentacle to the server, it has to be saved to the file system, and is read when you are on the deployment or runbook screen.  We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/projects/deployment-process/artifacts).
 
-### Image Size
+### Image size
 
 While it is fun to have gifs and fancy images for your projects consider the size of each image.  Keep them under 100x100 pixels.  This will reduce the amount of data you have to download from the Octopus Server. 
 
-## Deployment Parallelism
+## Deployment parallelism
 
 By default, Octopus will only run one process on each [deployment target](/docs/infrastructure/deployment-targets) at a time, queuing the rest. There may be times that you want to run multiple processes at a time. In those situations, there are three special variables that can be used to control the way Octopus runs steps in parallel:
 
@@ -228,7 +228,7 @@ Analyzing Octopus Server log files for performance problems is much easier in a 
 If none of the above troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details to help us debug:
 
 1. An overview of the problem and when it occurs (page load, during a deployment, only when doing lots of deployments, etc.)
-1. Frequency of the problem happenening (on every deploymenet, on initial startup, etc.)
+1. Frequency of the problem happening (on every deployment, on initial startup, etc.)
 1. Observed correlations (during a deployment the dashboard is slow to load, during active directory sync unable for users to login, etc.)
 1. A high level overview of your Octopus Deploy instance:
     - Version of Octopus Deploy installed

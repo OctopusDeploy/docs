@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: ServiceNow Integration
 description: Octopus Deploy can integrate with your ServiceNow instance for deployment control using Change Request approvals
 navOrder: 10
@@ -210,7 +210,7 @@ e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
 The title must match the format **exactly**, including the double-quotes.
 :::
 
-### Respecting Change Windows
+### Respecting change windows
 
 :::div{.warning}
 This feature is only available for version 2022.3.3026 and later

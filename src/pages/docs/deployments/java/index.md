@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Java applications
 description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deploy
 navOrder: 70
@@ -46,7 +46,7 @@ See the section [Building SemVer Compatible Artifacts](#building_semver_compatib
 
 Valid packages can then be added to the library using the [web based interface, or using the CLI tool](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository).
 
-#### <a name="building_semver_compatible_artifacts"></a>Building SemVer Compatible Artifacts
+#### Building SemVer Compatible Artifacts {#building_semver_compatible_artifacts}
 The most common incompatibility between Maven and SemVer formatting comes from the use of a dash to separate the package name from the version.
 
 For example, by default Maven will build artifacts with names like `myapplication-1.0.0-SNAPSHOT.war`. To be managed by the built in Octopus library, this filename needs to be in the format `myapplication.1.0.0-SNAPSHOT.war`.
@@ -89,7 +89,7 @@ The target machine must have Java 1.8 installed, and the `java` executable must 
 
 The `Deploy to Tomcat via Manager` step takes advantage of the [Manager application](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html) shipped with Tomcat to deploy Java applications. The following steps describe the process of deploying a web application (a WAR package) to Tomcat through Octopus Deploy.
 
-### <a name="configure_tomcat"></a>1. Configure Tomcat
+### 1. Configure Tomcat {#configure_tomcat}
 
 Tomcat needs to be configured with a user that Octopus can use to log into the Manager API.
 
@@ -141,7 +141,7 @@ The `Deploy to Tomcat via Manager` step is used to deploy a package from the Oct
 |-|-|-|-|
 | Package feed | Yes | | The feed to use to source the Java package from. |
 | Package ID | Yes | | The Java package to deploy. |
-| Context Path | No | Defaults to the deployment file name e.g. `mayapplication.1.0.0`. | The context path that the application will be deployed to. Set this value to `/` to deploy to the root context. Set it to a value like `myapplication` to deploy to the `/myapplication` context. Nested contexts are also allowed, such as `myapplication/v1.0`.<br/><br/>Leading slashes are optional;  `/myapplication` and  `myapplication` will both deploy to the  `/myapplication` context path.  |
+| Context Path | No | Defaults to the deployment file name e.g. `myapplication.1.0.0`. | The context path that the application will be deployed to. Set this value to `/` to deploy to the root context. Set it to a value like `myapplication` to deploy to the `/myapplication` context. Nested contexts are also allowed, such as `myapplication/v1.0`.<br/><br/>Leading slashes are optional;  `/myapplication` and  `myapplication` will both deploy to the  `/myapplication` context path.  |
 | Deployment Version | No | By default no Tomcat version is assigned to the deployment. | An optional field that defines the Tomcat version that the deployment will be assigned when deployed. Versions are most often used with [Tomcat parallel deployments](https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment). The version can be set to match the version of the package from Octopus, can be set to a custom version, or the deployment can have no version.<br/><br/>It is common to use either the Octopus release number as the Tomcat version using the variable `#{Octopus.Release.Number}`, or to use the version number of the package with the variable `#{Octopus.Action.Package.NuGetPackageVersion}`.|
 | Tomcat Manager URL | Yes | | This field defines the URL of the Tomcat manager application. This is relative to the target machine performing the deployment. When the Tentacle is on the same machine as the Tomcat instance, this URL will typically reference localhost i.e. `http://localhost:8080/manager`. |
 | Management User | Yes | | The user that is supplied when logging into the Tomcat manager API. Note that this user is required to be part of the `manager-script` group. See the [Tomcat documentation](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html#Configuring_Manager_Application_Access) for more details on the groups used by the manager application.|
@@ -176,7 +176,7 @@ The `Deploy to WildFly or Red Hat JBoss EAP` step is used to deploy a package fr
 * If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
 
 <a name="context_path"></a>
-#### Defining Context Paths
+#### Defining context paths
 
 There are multiple ways that the context of an application deployed to WildFly and JBoss EAP is defined.
 
@@ -292,7 +292,7 @@ The following steps can be used to deploy an application via a file copy to an a
 * Set the `Deploy Directory` field to the location within the application server where deployments are located. For WildFly or JBoss EAP, this will be a directory like `$JBOSS_HOME/standalone/deployments`, and for Tomcat it will be `$CATALINA_HOME/webapps`.
 * Set the `Deployed Package File Name` field to a filename that reflects the desired context path.
   *  For WildFly or JBoss EAP, the filename will be used for the context. For example, setting `Package file name` to `myapplication.war` will result in the application being deployed under the `/myapplication` context. See [Defining Context Paths](#context_path) for more information.
-  * For Tomcat the filename takes the form `context#subcontext##version.war`. For example, setting `Package file name` to `myapplication#v1##10.war` will result in the application being deployed under the context `myapplication/v1` with a Tomcat version of `10`. The version and sub-context are optional, so you could set `Package file name` to `myapplication.war`, in which case Tomcat would deploy the application under the `/mayapplication` context with no version information.
+  * For Tomcat the filename takes the form `context#subcontext##version.war`. For example, setting `Package file name` to `myapplication#v1##10.war` will result in the application being deployed under the context `myapplication/v1` with a Tomcat version of `10`. The version and sub-context are optional, so you could set `Package file name` to `myapplication.war`, in which case Tomcat would deploy the application under the `/myapplication` context with no version information.
 * Unselect the `Purge` option because we don't want to uninstall any existing applications in the deployment directories.
 
 ## Deploy Java archive step details

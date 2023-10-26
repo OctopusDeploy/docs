@@ -3,6 +3,10 @@
 
 # These owners will be the default owners for everything in the repo. Unless a later match takes precedence,
 
+# Owners of the CODEOWNERS file
+
+/.github/CODEOWNERS @steve-fenton-octopus @tonykelly-octopus
+
 # credits updates get reviewed by michaelnoonan and jburger for open source license compliance
 
 /docs/credits.md @michaelnoonan @jburger

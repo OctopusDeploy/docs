@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Restore SQL database
 description: With Octopus Deploy you can restore a MSSQL database with a runbook.
 navOrder: 20
@@ -17,7 +17,7 @@ In this example, you will restore a Microsoft SQL Server database using a step t
 
 In this example, we'll use SQL authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information about this in the [permissions documentation](/docs/deployments/databases/sql-server/permissions).
 
-## Create the Runbook
+## Create the runbook
 
 1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the Runbook a name and click **SAVE**.
@@ -48,6 +48,6 @@ After adding all of the required parameters, click **Save**, and you have a basi
 
 We have a [Target - Windows](https://oc.to/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
 
-## Learn More
+## Learn more
 
 - [SQL Backup - Community Step template](https://library.octopus.com/step-templates/34b4fa10-329f-4c50-ab7c-d6b047264b83/actiontemplate-sql-backup-database)

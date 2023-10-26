@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Disaster recovery
 navOrder: 40
 description: How to work with your data and disaster recovery in an Octopus Cloud instance.
@@ -39,7 +39,7 @@ Note: The portal is hosted in a separate Azure region from customer instances an
 
 For further information, customers should refer to [Microsoft's disaster recovery](https://docs.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql#recover-a-database-to-the-existing-server) documentation.
 
-### Azure Region Failure
+### Azure region failure
 
 In the case of an Azure region wide disaster the time to restore services will vary depending on the nature of the disaster. For short duration outages the best strategy may be to wait for Microsoft to restore services within the region. In the case of region wide disasters affecting customer instances, for longer duration disasters restoration of services will entail provisioning a new customer instance in a new Azure region (in the same PII jurisdiction) and restoring the customer's database from the geo-redundant backup. For customer instances and the Octopus Cloud portal the time to restore operations is estimated to be 24 hrs once a new region is made available by Microsoft. The RPO in is 1 hr or to the customer specified restore point, as applicable. Note that there is not a geo-redundant copy of the Octopus Cloud File store, and the customer will need to re-build, upload, and/or regenerate any required packages and artifacts, as required by their deployments. 
 

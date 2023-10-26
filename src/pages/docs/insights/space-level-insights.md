@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Space Level Insights
 description: Space level insights
 navOrder: 140
@@ -24,12 +24,12 @@ If there are many unrelated projects and environments in a report, it will be ha
 
 ## Settings
 
-### Time Zone
+### Time zone
 
 The time zone of a report affects which day's data is counted when aggregating. The time zone should be chosen to reflect the most
 common understanding of what constitutes "midnight" for the team.
 
-### Release Selection
+### Release selection
 
 The releases that contribute to the report are determined via the channel that they belong to. The channel is used instead of the project itself to avoid pre-release and prior-version channels from skewing the data for the main release.
 

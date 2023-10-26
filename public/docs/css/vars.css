@@ -8,7 +8,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url("roboto-regular.woff2") format("woff2");
+    src: url("/docs/css/roboto-regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -16,7 +16,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url("roboto-bold.woff2") format("woff2");
+    src: url("/docs/css/roboto-bold.woff2") format("woff2");
 }
 
 @font-face {

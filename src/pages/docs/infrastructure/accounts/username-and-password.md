@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Username and password accounts
 description: Username and Password Accounts allow you securely authenticate with different services.
 navOrder: 60
@@ -9,7 +9,7 @@ navOrder: 60
 
 A username/password account can be used to connect [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target/) and services like Google Cloud Platform if you are using the [Kubernetes](/docs/deployments/kubernetes) functionality in Octopus.
 
-## Enabling username & password authentication on Linux {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
+## Enabling username and password authentication on Linux {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
 
 Depending on your SSH target machine's distribution you may need to enable password authentication.
 

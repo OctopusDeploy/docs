@@ -50,13 +50,13 @@ foreach ($project in $projects)
     }
 }
 
-# Get all libarary sets
+# Get all library sets
 $variableSets = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header
 
-# Loop through variablesets
+# Loop through variable sets
 foreach ($variableSet in $variableSets)
 {
-    # Get the variableset
+    # Get the variable set
     $variableSet = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/$($variableSet.Id)" -Headers $header
     
     # Check for variables
@@ -123,10 +123,10 @@ try
     }
     
     # Loop through library variable sets
-    foreach ($libararySet in $repositoryForSpace.LibraryVariableSets.GetAll())
+    foreach ($librarySet in $repositoryForSpace.LibraryVariableSets.GetAll())
     {
         # Clear sensitive ones
-        Clear-SensitiveVariables -VariableSetId $libararySet.VariableSetId
+        Clear-SensitiveVariables -VariableSetId $librarySet.VariableSetId
     }
 
 }
@@ -285,7 +285,7 @@ for variableSet in variableSets:
             variablesUpdated = True
 
     if variablesUpdated:
-        print ('Clearing senitive variables for library set {0}'.format(variableSet['Name']))
+        print ('Clearing sensitive variables for library set {0}'.format(variableSet['Name']))
         uri = '{0}{1}'.format(octopus_server_uri, variableSet['Links']['Variables'])
         response = requests.put(uri, headers=headers, json=libraryVariables)
         response.raise_for_status

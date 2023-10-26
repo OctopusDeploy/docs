@@ -84,7 +84,7 @@ Now we will create a team for all the Account Managers and add the role we creat
 
 ### Step 3: Reduce the scope of the team {#step-3-reduce-team-scope}
 
-After adding the **Tenant project deployer** role, we'll see that Toby has access to all tenants.  Toby only needs access to the accounts that he's responsible for; Midland Veterinary and Valley Veterinary Clinic.  To limit Toby to his accounts, click on the **elipses ➜ Edit**
+After adding the **Tenant project deployer** role, we'll see that Toby has access to all tenants.  Toby only needs access to the accounts that he's responsible for; Midland Veterinary and Valley Veterinary Clinic.  To limit Toby to his accounts, click on the **ellipses ➜ Edit**
 
 :::figure
 ![](/docs/tenants/images/edit-tenant-team.png)

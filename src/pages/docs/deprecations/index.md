@@ -29,7 +29,7 @@ From `2024.1` SSH deployments will no longer support running tasks via Mono. Ins
 
 ### Dropped support for Windows Server 2003 Workers and Targets
 
-Windows Server 2003 Workers and Targets will no longer execute Octopus workloads from `2024.1`. It is highly reccomended that you upgrade your targets to a later version of Windows Server before updating your Octopus Server instance to this release as deployments and runbooks using these machines are unlikely to run.
+Windows Server 2003 Workers and Targets will no longer execute Octopus workloads from `2024.1`. It is highly recommended that you upgrade your targets to a later version of Windows Server before updating your Octopus Server instance to this release as deployments and runbooks using these machines are unlikely to run.
 
 Further details on the background for this update are available on the [Dropping support for Windows Server 2003 machines](https://octopus.com/blog/deprecating-win2003) blog post.
 

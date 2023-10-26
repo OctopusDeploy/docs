@@ -41,7 +41,7 @@ First, ensure the environment variable `OCTOPUS__Logging__File__LogEventLevel` i
 
 :::div{.warning}
 **A restart of Octopus Server is required**
-A server restart is required in order to apply the changes to envrionment variables.
+A server restart is required in order to apply the changes to environment variables.
 :::
 
 Then, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
@@ -71,7 +71,7 @@ Next, change the minimum Halibut log level value by setting the environment vari
 
 :::div{.warning}
 **A restart of Octopus Server is required**
-A server restart is required in order to apply the changes to envrionment variables.
+A server restart is required in order to apply the changes to environment variables.
 :::
 
 Then, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.

@@ -79,7 +79,7 @@ The **Structured Variable File Patterns** field for the **Upload a package to an
 
 A list of files to perform structured variable substitution on. 
 
-Target files need to be newline-seperated, relative to the package contents. Extended wildcard syntax is supported. E.g., `appsettings.json`, `Config\*.xml`, `**\specific-folder\*.yaml`. Learn more about the [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) feature and view [Structured Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/#StructuredConfigurationVariablesFeature-VariableReplacement) examples.
+Target files need to be newline-separated, relative to the package contents. Extended wildcard syntax is supported. E.g., `appsettings.json`, `Config\*.xml`, `**\specific-folder\*.yaml`. Learn more about the [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) feature and view [Structured Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/#StructuredConfigurationVariablesFeature-VariableReplacement) examples.
 
 #### Use filename with embedded content hash
 
@@ -135,10 +135,10 @@ The single file selection lets you upload a single file to an S3 bucket which mu
 A custom key delimited with forward slash `/` characters is seen in S3 as folders.
 Here are a few examples to help you get those files in the right structure:
 
-| Package file | S3 destination             | Custom key                  |
-| ------------ | -------------------------- | --------------------------- |
-| Logo.gif     | /Images/Logos/Logo.gif     | `Images/Logos/Logo.gif`     |
-| xyz.gif      | /Images/Animals/Girafe.gif | `Images/Animals/Girafe.gif` |
+| Package file | S3 destination              | Custom key                   |
+|--------------|-----------------------------|------------------------------|
+| Logo.gif     | /Images/Logos/Logo.gif      | `Images/Logos/Logo.gif`      |
+| xyz.gif      | /Images/Animals/Giraffe.gif | `Images/Animals/Giraffe.gif` |
 
 :::div{.hint}
 The bucket key used for a single file selection will uniquely identify the file within the bucket and will be used verbatim. That is, if you wish for the file to have an extension you should provide it as part of the bucket key as it is effectively renaming the file as part of the upload.

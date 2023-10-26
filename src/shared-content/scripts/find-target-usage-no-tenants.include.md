@@ -495,7 +495,7 @@ function Get-TargetIsScopedToProcess
             $hasEnvironmentScoping = $action.Environments.Count -gt 0
             if ($hasEnvironmentScoping -eq $true)
             {
-                foreach ($environment in $action.Envrionments)
+                foreach ($environment in $action.Environment)
                 {
                     if ($target.EnvironmentIds -contains $environment)
                     {
@@ -822,7 +822,7 @@ foreach (var project in projects)
 
 if(targetResults.Count == 0)
 {
-    Console.WriteLine(string.Format("The target {0} is not associated with any projects or runboks", target.Name));
+    Console.WriteLine(string.Format("The target {0} is not associated with any projects or runbooks", target.Name));
 }
 else
 {
@@ -960,13 +960,13 @@ static bool GetTargetIsScopedToProcess(Octopus.Client.Model.IProcessResource pro
 
                 if (!hasEnvironmentScoping && !hasExcludedEnvironmentScoping)
                 {
-                    Console.WriteLine(string.Format("Target role matches the step and no step scopoing was configured, target is associated with process."));
+                    Console.WriteLine(string.Format("Target role matches the step and no step scoping was configured, target is associated with process."));
                     return true;
                 }
 
                 if (hasExcludedEnvironmentScoping && !allEnvironmentsExcluded)
                 {
-                    Console.WriteLine(string.Format("The step role matches the target, and exclusion environments were found, but not all environments associated with teh target were excluded.  The target is associated with the process."));
+                    Console.WriteLine(string.Format("The step role matches the target, and exclusion environments were found, but not all environments associated with the target were excluded.  The target is associated with the process."));
                     return true;
                 }
             }
@@ -1092,7 +1092,7 @@ def get_target_is_scoped_to_process (process, target, project_environment_list):
                     all_environments_excluded = len(environments_target_can_still_deploy_to) == 0
 
             if has_environment_scoping == False and has_excluded_environment_scoping == False:
-                print("Target role matches the step and no step scoping was configurd, target is associated with process")
+                print("Target role matches the step and no step scoping was configured, target is associated with process")
                 return True
 
             if has_excluded_environment_scoping == True and all_environments_excluded == False:
@@ -1291,7 +1291,7 @@ func main() {
 			targetIsScopedToDeploymentProcess := GetTargetIsScopedToDeploymentProcess(deploymentProcess, target, projectEnvironmentList)
 
 			if targetIsScopedToDeploymentProcess {
-				targetResults = append(targetResults, (project.Name + " - DepolymentProcess"))
+				targetResults = append(targetResults, (project.Name + " - DeploymentProcess"))
 			}
 
 			// Get all runbooks
@@ -1533,7 +1533,7 @@ func GetTargetIsScopedToDeploymentProcess(process *octopusdeploy.DeploymentProce
 				if hasEnvironmentScoping {
 					for _, environmentId := range action.Environments {
 						if contains(target.EnvironmentIDs, environmentId) {
-							fmt.Printf("The environments the step was assigned to and teh target roles match the target, target is associated with process \n")
+							fmt.Printf("The environments the step was assigned to and the target roles match the target, target is associated with process \n")
 							return true
 						}
 					}
@@ -1564,7 +1564,7 @@ func GetTargetIsScopedToDeploymentProcess(process *octopusdeploy.DeploymentProce
 				}
 
 				if hasExcludedEnvironmentScoping && !allEnvironmentsExcluded {
-					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were exucluded.  The target is associated with the process. \n")
+					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were excluded.  The target is associated with the process. \n")
 					return true
 				}
 			}
@@ -1601,7 +1601,7 @@ func GetTargetIsScopedToRunbookProcess(process *octopusdeploy.RunbookProcess, ta
 				if hasEnvironmentScoping {
 					for _, environmentId := range action.Environments {
 						if contains(target.EnvironmentIDs, environmentId) {
-							fmt.Printf("The environments the step was assigned to and teh target roles match the target, target is associated with process \n")
+							fmt.Printf("The environments the step was assigned to and the target roles match the target, target is associated with process \n")
 							return true
 						}
 					}
@@ -1632,7 +1632,7 @@ func GetTargetIsScopedToRunbookProcess(process *octopusdeploy.RunbookProcess, ta
 				}
 
 				if hasExcludedEnvironmentScoping && !allEnvironmentsExcluded {
-					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were exucluded.  The target is associated with the process. \n")
+					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were excluded.  The target is associated with the process. \n")
 					return true
 				}
 			}

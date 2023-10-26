@@ -273,7 +273,7 @@ The variable **PACKAGE_VERSION** must be referenced like **${{ env.PACKAGE_VERSI
 :::
 
 ### Complete build example
-The previous sections displayed only the portions relavent to the topic being discussed.  The entire build YAML for the Octo Pet Shop is located below:
+The previous sections displayed only the portions relevant to the topic being discussed.  The entire build YAML for the Octo Pet Shop is located below:
 
 <details>
   <summary>Click here to view the entire example build YAML</summary>

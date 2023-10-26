@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-08-24
+modDate: 2023-10-04
 title: High Availability
 description: Octopus High Availability (HA) enables you to run multiple Octopus Server nodes, distributing load and tasks between them.
 hideInThisSection: true
@@ -42,7 +42,7 @@ The node limit is included in the license key in the NodeLimit node.
 
 If you do not have that node in your license key then you are limited to a single node.  If you recently purchased a license key and it is missing that node then reach out to [sales@octopus.com](mailto:sales@octopus.com).
 
-## How High Availablity Works
+## How High Availablity works
 
 In broad terms, HA allows for load to be distributed between multiple Octopus Server nodes.  How that load is distributed, specifically tasks, is more complex than "it's load balanced."
 

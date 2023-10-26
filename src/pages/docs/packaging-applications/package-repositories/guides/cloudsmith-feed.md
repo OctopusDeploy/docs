@@ -375,7 +375,7 @@ For more information about credentials refer to the [Cloudsmith documentation](h
 
 For Basic authentication, add your Username and Password into the External feed:
 
-- Feed psername: `USERNAME`
+- Feed username: `USERNAME`
 - Feed password: `PASSWORD`
 
 ### API Key {#credentials-api-key}

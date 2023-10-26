@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-05-03
+modDate: 2023-10-04
 title: Partition Octopus with Spaces
 description: Guidelines and recommendations for configuring spaces in Octopus Deploy.
 navOrder: 20
@@ -34,7 +34,7 @@ Internally we have opted for a space per application suite.
 - Integrations Space (build servers, issue trackers, etc.)
 - And so on
 
-## Anti-Patterns
+## Anti-patterns
 
 We've also found several anti-patterns with the Spaces feature you should avoid.
 
@@ -44,7 +44,7 @@ We've also found several anti-patterns with the Spaces feature you should avoid.
 - A space per application component.  You would need to track a single application across multiple spaces.
 - Sharing deployment targets across spaces.  It is possible to register the same Tentacle, Azure Web App, or K8s cluster across spaces, but that indicates a space is too fine-grained.  Sharing deployment targets across spaces only lead to confusion as deployments in one space will appear "locked" because of deployment in another space.
 
-## Prevent Sharing of Deployment Targets
+## Prevent sharing of Deployment Targets
 
 A tentacle trusts the entire Octopus Server, not a specific space.  It is not possible to prevent a tentacle from being shared across multiple spaces.  Polling tentacles are harder to configure, but possible.
 
@@ -59,7 +59,7 @@ There are some considerations when sharing workers.
 - The Tentacle agent could be running on an EC2 instance with a specific IAM role attached.
 - When workers download packages, they require a mutex; no other task can be running on that worker.  99% of the time, this isn't noticed.  However, if a worker runs a 10-hour integration test, you run the risk of getting stuck behind that test waiting for the mutex to be created.  Have a separate set of workers to run these long-running tasks.
 
-## Moving Projects Between Spaces
+## Moving Projects between Spaces
 
 Don't worry if you don't get your space configuration right the first time.  It is a high bar to expect perfection the first time.
 

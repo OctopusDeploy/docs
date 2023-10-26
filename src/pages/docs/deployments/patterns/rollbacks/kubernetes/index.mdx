@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Rollback Kubernetes deployment
 description: A guide on how to rollback a Kubernetes deployment
 navOrder: 5
@@ -37,11 +37,11 @@ For this guide, we'll start with an existing deployment process for deploying Pe
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-kubernetes-original/deployments/process).  Please login as a guest.
 :::
 
-## Zero Configuration Rollback
+## Zero-configuration Rollback
 
 <ZeroConfigRollback />
 
-## Simple Rollback Process
+## Simple rollback process
 
 The most common reason for a rollback is something is wrong with the release.  In these cases, you'll want to block the bad release from [moving forward](/docs/releases/prevent-release-progression).
 
@@ -63,7 +63,7 @@ The updated deployment process for a simple rollback would look like this:
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-kubernetes-simple-rollback/deployments/process).  Please login as a guest.
 :::
 
-### Calculate Deployment Mode
+### Calculate deployment mode
 
 <CalculateDeploymentMode />
 
@@ -81,11 +81,11 @@ To ensure that both of those steps are not run during a rollback, use the follow
 When viewing the deployment process at a glance, it is not readily apparent that a step has a run condition associated with it.  Octopus Deploy provides a `Notes` field for each step where you can add information such as in which conditions the step will run as a way of self-documentation.
 :::
 
-### Block Release Progression
+### Block release Progression
 
 <PreventReleaseProgression />
 
-## Complex Rollback Process
+## Complex rollback process
 
 A feature of Kubernetes is the revision history of the cluster components.  The command `kubectl rollout history deployment.v1.apps/<deploymentname>` lists all deployment revisions.
 
@@ -188,7 +188,7 @@ else
     Write-Error "Version $rollbackVersion not found in the cluster revision history."
 }
 ```
-### Block Release Progression
+### Block release progression
 
 The `Rollback Reason` step captures the reason for the rollback.  We can pass the text entered in this step to the `Reason` field of this step by using the following output variable.
 

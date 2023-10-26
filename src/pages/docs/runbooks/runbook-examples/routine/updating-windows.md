@@ -63,7 +63,7 @@ if ((Get-NugetPackageProviderNotInstalled) -ne $false)
   # Install Nuget package provider
   Install-PackageProvider -Name Nuget -Force
 
-  Write-Output "Nuget package provider succesfully installed ..."
+  Write-Output "Nuget package provider successfully installed ..."
 }
 
 

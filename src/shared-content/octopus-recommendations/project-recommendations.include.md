@@ -15,7 +15,7 @@ We previously recommended creating a project for each component.  We have found 
 
 Like any recommendation, we have seen the extreme end of the spectrum, projects with 200+ steps deploying 80+ packages that take over an hour to deploy.  That might be a good candidate to split up into smaller projects.  However, you should ensure components are decoupled before making changes to the deployment process.  Don't change how you deploy the application when components need to be deployed in a specific order, and failure to do so will cause showstopping bugs.  First, focus on decoupling the components, then change how you deploy them.
 
-## Leverage the Project Per Component pattern with decoupled components
+## Leverage the project per component pattern with decoupled components
 
 We recommend the project per component pattern when those components are decoupled from one another.  Returning to the previous web application example, adding a column to the database can still require changing the back-end and front-end.  However, the back-end and front-end have the appropriate code to continue processing without errors when the column is not present.  And the column isn't required to be populated in the database.
 
@@ -66,14 +66,14 @@ Changes made on feature or short-lived branches are not ready for Production.  T
 For the packages / docker containers built from branches, append a pre-release tag to the release version.  Leverage channel version rules to only allow packages / docker containers with a pre-release tag for the Development lifecycle.  At the same time, only allow packages / docker containers **without** a pre-release tag for the release lifecycle.
 
 :::div{.hint}
-This section is another reason we recommend deploying all tightly coupled components stored in the same source control repository within the same project.  Attempting to coordinate different lifecycles and releases across multiple projects can add aditional overhead, which runs the risk of something needing to be fixed.
+This section is another reason we recommend deploying all tightly coupled components stored in the same source control repository within the same project.  Attempting to coordinate different lifecycles and releases across multiple projects can add additional overhead, which runs the risk of something needing to be fixed.
 :::
 
 ## Include everything required to deploy
 
 Imagine you are working on a greenfield application for six months. It only exists in your development and testing environments, now it's time to deploy to staging.  The web admins have set up a web server running IIS for you using a base image.  The DBAs have created an account for the application to use.  What about the configuration?  What should the database name be?  
 
-When you set up a project's processes, work under the assumption the base applications are present (.NET Framework, IIS, SQL Server, WildFly server, Oracle Database, etcs).  With that in mind, also assume that those base applications have never been configured for your application.  Assume SQL Server is there, but the database has never been created.  Assume IIS is there, but the web application has never been configured.
+When you set up a project's processes, work under the assumption the base applications are present (.NET Framework, IIS, SQL Server, WildFly server, Oracle Database, etc.)  With that in mind, also assume that those base applications have never been configured for your application.  Assume SQL Server is there, but the database has never been created.  Assume IIS is there, but the web application has never been configured.
 
 When it is time to deploy a project to an environment for the first time, you should only need to verify the servers are there and hit the deploy button.  The project deployment process will take care of the rest.  As a bonus, if a new server is added, you can deploy to that new server without worrying about the configuration.
 

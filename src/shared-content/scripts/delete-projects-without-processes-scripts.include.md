@@ -62,7 +62,7 @@ try
         # Get deployment process
         $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
 
-        # Check for emtpy process
+        # Check for empty process
         if (($null -eq $deploymentProcess.Steps) -or ($deploymentProcess.Steps.Count -eq 0))
         {
             # Delete project
@@ -87,7 +87,7 @@ catch
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-YOURAPIKEY";
 var spaceName = "default";

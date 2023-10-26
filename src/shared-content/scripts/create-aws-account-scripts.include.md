@@ -15,13 +15,13 @@ function Get-OctopusItems
     $items = @()
     $headers = @{"X-Octopus-ApiKey"="$ApiKey"}
     
-    # Get intial set
+    # Get initial set
     $resultSet = Invoke-RestMethod -Uri "$($OctopusUri)?skip=$SkipCount" -Method GET -Headers $headers
 
     # Store call results
     $items += $resultSet.Items
     
-    # Check to see if resultset is bigger than page amount
+    # Check to see if result set is bigger than page amount
     if (($resultSet.Items.Count -gt 0) -and ($resultSet.Items.Count -eq $resultSet.ItemsPerPage))
     {
         # Increment skip count

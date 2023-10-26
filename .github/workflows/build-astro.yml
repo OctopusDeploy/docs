@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      SHOULD_DEPLOY: ${{ secrets.OCTOPUSSERVERURL != '' || '' }}
       OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
       OCTOPUS_API_KEY: ${{ secrets.OCTOPUSSERVERAPIKEY }}
       OCTOPUS_SPACE: "DevOps Microsite"
@@ -88,26 +89,37 @@ jobs:
 
       - name: Push a package to Octopus Deploy 🐙
         uses: OctopusDeploy/push-package-action@v3.0.2
+        if: ${{ env.SHOULD_DEPLOY }}
         with:
           packages: ${{ steps.package.outputs.package_file_path }}
 
+      - name: Let people download package
+        uses: actions/upload-artifact@v3
+        if: ${{ ! env.SHOULD_DEPLOY }}
+        with:
+          name: docs-microsite
+          path: ${{ steps.package.outputs.package_file_path }}
+
       - name: Push build information to Octopus Deploy 🐙
         uses: OctopusDeploy/push-build-information-action@v3
+        if: ${{ env.SHOULD_DEPLOY }}
         with:
           version: "${{ env.PACKAGE_VERSION }}"
           packages: "Docs Microsite"
 
       - name: Create a release in Octopus Deploy 🐙
-        uses: OctopusDeploy/create-release-action@v3
         id: "create_release"
+        uses: OctopusDeploy/create-release-action@v3
+        if: ${{ env.SHOULD_DEPLOY }}
         with:
           project: "Docs Microsite"
           package_version: "${{ env.PACKAGE_VERSION }}"
           git_ref: ${{ github.ref }}
 
       - name: Deploy the release in Octopus Deploy 🐙
-        uses: OctopusDeploy/deploy-release-action@v3
         id: "queue_deployments"
+        uses: OctopusDeploy/deploy-release-action@v3
+        if: ${{ env.SHOULD_DEPLOY }}
         with:
           project: "Docs Microsite"
           release_number: ${{ steps.create_release.outputs.release_number }}

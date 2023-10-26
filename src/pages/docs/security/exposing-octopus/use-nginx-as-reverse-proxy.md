@@ -119,7 +119,7 @@ services:
     environment:
       SA_PASSWORD: ${SA_PASSWORD}
       ACCEPT_EULA: ${ACCEPT_EULA}
-      # Prevent SQL Server from consuming the defult of 80% physical memory.
+      # Prevent SQL Server from consuming the default of 80% physical memory.
       MSSQL_MEMORY_LIMIT_MB: 4096
     ports:
       - 1401:1433

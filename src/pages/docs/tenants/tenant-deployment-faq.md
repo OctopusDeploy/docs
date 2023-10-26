@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Multi-tenant deployments FAQ
 description: Questions we are often asked relating to multi-tenant deployments.
 navOrder: 90
@@ -14,7 +14,7 @@ This page contains some of the questions we are often asked relating to multi-te
 No, not really. Any Octopus project or environment can work with tenants. To start deploying a project using tenants:
 
 1. Configure the project to allow tenanted deployments in **Project ➜ Settings ➜ Multi-tenant deployments** - multi-tenant deployments are disabled for your existing projects by default.
-2. Connect some tenants to the the project, including the environments where you want to deploy instances of your projects for each tenant.
+2. Connect some tenants to the project, including the environments where you want to deploy instances of your projects for each tenant.
 
 For more information refer to [creating your first tenant](/docs/tenants/tenant-creation/) and [deploying a multi-tenant project](/docs/tenants/tenant-creation/tenanted-deployments).
 
@@ -76,11 +76,11 @@ Yes! Each project can control its interaction with tenants. By default the multi
 ![](/docs/tenants/images/multi-tenant-project-settings.png)
 :::
 
-## What is an "Untenanted Deployment"? Don't I Have to Choose a Tenant When Deploying my Project? {#Multi-tenantdeploymentsFAQ-Whatisanun-tenanteddeploymentDontIhavetochooseatenantwhendeployingmyproject?}
+## What is an "untenanted deployment"? Don't I have to choose a Tenant when deploying my project? {#Multi-tenantdeploymentsFAQ-Whatisanun-tenanteddeploymentDontIhavetochooseatenantwhendeployingmyproject?}
 
 When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an environment-per-tenant model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not. Essentially an "untenanted deployment" is the same kind of deployment Octopus always performed: *there is no tenant for this deployment*. When you deploy using a tenant Octopus includes variables from the tenant, and the selected tenant can impact which steps are run, which variable values are used, and which deployment targets are included, at your discretion. For more information refer to our [tenated deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
 
-## Can I prevent "Untenanted Deployments" of a project? {#Multi-tenantdeploymentsFAQ-CanIpreventun-tenanteddeploymentsofaproject?}
+## Can I prevent "untenanted deployments" of a project? {#Multi-tenantdeploymentsFAQ-CanIpreventun-tenanteddeploymentsofaproject?}
 
 Yes. Choose the **Require a tenant for all deployments** option in the Project settings. For more information refer to our [tenated deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
 

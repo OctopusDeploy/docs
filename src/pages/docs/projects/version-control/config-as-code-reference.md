@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Configuration as Code reference
 description: Details about the configuration as code feature.
 navOrder: 20 
@@ -52,7 +52,7 @@ Currently, the Project level resources saved to SQL Server when version control 
 Runbooks and Sensitive Variables are planned for future releases of config-as-code.
 :::
 
-### Resources NOT version controlled by config-as-code
+### Resources **not** version controlled by config-as-code
 
 The config-as-code feature manages project-level resources. However, it is worth explicitly mentioning some things that are **not included**:
 
@@ -92,11 +92,11 @@ Currently, there are no plans to include these resources in the config-as-code f
 Resources managed by the Octopus Terraform Provider will have their state managed by Terraform. Resources managed by the Octopus config-as-code feature will have the state managed by Octopus Deploy. The two are not the same and shouldn't be treated as such.
 :::
 
-## Git Configuration Options
+## Git configuration options
 
 Project version control settings can be accessed by clicking on the **Settings ➜ Version Control** link on the project navigation menu.
 
-### Git Repository
+### Git repository
 
 The _Git Repository_ field should contain the URL for the repository you wish the Octopus configuration to be persisted to. e.g. `https://github.com/OctopusSamples/OctoFX.git`  
 
@@ -125,14 +125,14 @@ Git providers allow you to create an access token in different ways. The recomme
 Some VCS providers require that you use only a username and personal access token for authentication, not an email address (i.e. BitBucket).
 :::
 
-#### BitBucket Repository Access Tokens
+#### BitBucket repository access tokens
 BitBucket's repository access tokens allow you to create repository-specific access tokens. For these to work with your Git repositories in Octopus, you must set the username to `x-token-auth`, and the password to the token.
 
 :::figure
 ![Screenshot of Octopus Version Control Settings page with Authentication section expanded. Username/password auth method is selected, the Username input field is highlighted with a bold red box, and contains the value x-token-auth](/docs/projects/version-control/octopus-bitbucket-repository-access-tokens.png)
 :::
 
-### File Storage
+### File storage
 
 _Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored. The default directory is `.octopus`, but that can be changed. If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory.
 
@@ -142,9 +142,9 @@ If multiple projects will be persisted to the repository, adding the project nam
 
 We recommend storing projects alongside the application code. While it is possible to store all your deployment projects in a single central repository with folders for each project, it will be challenging to manage as you add more projects. For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository. If you move the application code later, you can also [move the deployment configuration](/docs/projects/version-control/moving-version-control) to keep it with the application.
 
-### Branch Settings
+### Branch settings
 
-#### Default Branch Name
+#### Default branch name
 
 The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is also the default branch that will be used in various situations, for example:
 
@@ -158,19 +158,19 @@ For existing initialized repositories, the default branch must exist. If the rep
 When snapshotting a Runbook in a Git project, the variables will always be taken from the default branch.
 :::
 
-#### Initial Commit Branch
+#### Initial commit branch
 
 If the default branch is protected in your repository, select the *Is the default branch protected?* checkbox. This will allow you to use a different _Initial Commit Branch_. If this branch does not exist, Octopus will create the branch automatically. 
 
 The Octopus configurations will be written to the initial commit branch instead of the default branch. You will need to merge the changes from this branch into the default branch outside of Octopus. 
 
-#### Protected Branches Pattern
+#### Protected branches pattern
 
 You can also nominate protected branches for your Project. This will prevent users from making direct commits to the nominated branches from the Octopus UI and encourage them to create a new branch instead. To nominate protected branches, type in the name or a wildcard pattern in the Protected Branches Pattern field under Branch Settings. This will apply to all existing and future branches.
 
 
 
-## OCL Files
+## OCL files
 
 After successfully configuring a project to be version controlled, the specified Git repository will be populated with a set of Octopus Configuration Language (OCL) files. These files are created in the directory you define during setup. E.g. `./octopus/acme`
 

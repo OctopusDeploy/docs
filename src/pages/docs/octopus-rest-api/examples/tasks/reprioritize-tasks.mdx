@@ -1,11 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-20
 title: Reprioritize Tasks
 description: An example script to find deployments or runbook runs for a specific environment, project, or tenant and move them to the top of the queue.
 ---
 import ReprioritizeTasks from 'src/shared-content/scripts/reprioritize-tasks.include.md';
+
+:::div{.hint}
+Support for [prioritizing tasks](/docs/tasks/prioritize-tasks) directly in Octopus is available from **2023.4**.
+:::
 
 This script can be used to move critical deployments from the bottom of the queue to the top of the queue.  
 
@@ -35,7 +39,7 @@ Provide values for:
 The script looks for tasks one of two ways:
 
 1. Task Id List - comma separated list of task ids to move to the top of the queue
-2. Matching based on critera, see below
+2. Matching based on criteria, see below
 
 Matching based on criteria
 - Space List - comma separated list of spaces to look for (optional)

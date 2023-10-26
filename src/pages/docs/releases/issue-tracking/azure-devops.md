@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Azure DevOps work item tracking integration
 description: Configure Azure DevOps work item tracking with Octopus.
 navOrder: 40
@@ -52,7 +52,7 @@ The ability to push the build information to Octopus, which is required for Azur
 
 The Azure DevOps integration does **not support** the ability to have Octopus release and deployment information displayed within Azure DevOps work items.
 
-## Configuring Azure DevOps Integration
+## Configuring Azure DevOps integration
 
 The following steps explain how to integrate Octopus with Azure DevOps:
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Octopus Server in Kubernetes
 description: Octopus can be installed into a Kubernetes cluster running the Octopus Server Linux container, optionally leveraging High Availability (HA).
 navOrder: 40
@@ -637,7 +637,7 @@ You can then mount the folder for the server logs, with each Octopus Server Node
 
 The `preStop` hook is used to drain an Octopus Server node before it is stopped. This gives the node time to complete any running tasks and prevents it from starting new tasks. The `postStart` start hook does the reverse and disables drain mode when the Octopus Server node is up and running.
 
-### Readiness, Start up and Liveness probes \{#container-probes}
+### Readiness, start up, and liveness probes \{#container-probes}
 
 The `readinessProbe` is used to ensure the Octopus Server node is responding to network traffic before the pod is marked as ready. The `startupProbe` is used to delay the livenessProbe until such time as the node is started, and the `livenessProbe` runs continuously to ensure the Octopus Server node is functioning correctly.
 
@@ -724,7 +724,7 @@ sudo tail /mnt/octo-ha-nfs/serverLogs/OctopusServer.txt
 
 ## Upgrading Octopus in Kubernetes \{#upgrading-octopus-in-kubernetes}
 
-An initial deployment of the [Stateful Set decribed above](#octopus-server-nodes) works exactly as Octopus requires; one pod at a time is successfully started before the next. This gives the first node a chance to update the SQL schema with any required changes, and all other nodes start-up and share the already configured database.
+An initial deployment of the [Stateful Set described above](#octopus-server-nodes) works exactly as Octopus requires; one pod at a time is successfully started before the next. This gives the first node a chance to update the SQL schema with any required changes, and all other nodes start-up and share the already configured database.
 
 One limitation with Stateful Sets is how they process updates. For example, if the Docker image version was updated, by default the [rolling update strategy](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#updating-statefulsets) is used. A rolling update deletes and recreates each pod, which means that during the update there will be a mix of old and new versions of Octopus. This won't work, as the new version may apply schema updates that the old version can not use, leading to unpredictable results at best, and could result in corrupted data.
 

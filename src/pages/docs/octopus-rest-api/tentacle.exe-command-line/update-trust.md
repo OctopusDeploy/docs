@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Update trust
 description: Replaces the trusted Octopus Server thumbprint of any matching polling or listening registrations with a new thumbprint to trust
 ---
@@ -34,7 +34,7 @@ This example replaces the trusted thumbprint value `3FAFA8E1EE6A1133701190306E2C
 Tentacle update-trust --oldThumbprint="3FAFA8E1EE6A1133701190306E2CBAFA39C30C8D" --newThumbprint="5FAEA8E1EE6A4535701190536E2CBAFA39C30C8F"
 ```
 
-## Automated Update Of Trust
+## Automated update of trust
 
 This example will query the Octopus Server endpoint and pull the certificate.  If the endpoint's certificate thumbprint is different than the Tentacle it will find the matching Tentacles installed and update them.
 

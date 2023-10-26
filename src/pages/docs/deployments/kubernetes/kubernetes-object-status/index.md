@@ -47,7 +47,7 @@ One can configure two extra parameters.
 * **Step timeout** refers to the maximum time a deployment step can run before termination (determined in seconds).
 This setting is intended to prevent a step from running indefinitely or causing delays in the overall deployment process. If one disables the parameter (checkbox), you allow the step to run indefinitely.
 
-* **Wait for Jobs to complete during deployment** determins if Octopus should wait for the successful completion of the jobs deployed at this step. If unchecked, Octopus considers a step execution successful once Jobs are created without waiting for their execution.
+* **Wait for Jobs to complete during deployment** determines if Octopus should wait for the successful completion of the jobs deployed at this step. If unchecked, Octopus considers a step execution successful once Jobs are created without waiting for their execution.
 
 A user needs to create and deploy a new release after one saves the new configuration to see the changes.
 
@@ -62,7 +62,7 @@ When the step timeout has been set, the step will fail if Kubernetes doesn't ach
 The only exception to this rule is for a stand-alone pod (without a ReplicaSet about it) or a job. The step will fail early if these resources achieve an unrecoverable state.
 
 :::figure
-![A K8s object status disgram](/docs/deployments/kubernetes/object-status/K8s-object-status-logics.jpg)
+![A K8s object status diagram](/docs/deployments/kubernetes/object-status/K8s-object-status-logics.jpg)
 :::
 
 ## How to use

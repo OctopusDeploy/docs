@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Tentacle.exe command line
 description: Tentacle.exe is the command line executable that runs the Octopus Tentacle instance.
 navOrder: 60
@@ -38,7 +38,7 @@ hideInThisSection: true
 - **[version](/docs/octopus-rest-api/tentacle.exe-command-line/version)**:  Show the Tentacle version information.
 - **[watchdog](/docs/octopus-rest-api/tentacle.exe-command-line/watchdog)**:  Configure a scheduled task to monitor the Tentacle service(s).
 
-## General Usage {#Tentacle.exeCommandLine-Generalusage}
+## General usage {#Tentacle.exeCommandLine-Generalusage}
 
 All commands take the form of:
 
