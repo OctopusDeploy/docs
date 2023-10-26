@@ -13,6 +13,8 @@ This tutorial will help you complete your first deployment to Kubernetes with Oc
 
 ## Prerequisites
 
+To follow this tutorial, you need:
+
 * [Octopus Deploy cloud instance](https://octopus.com/start)
 * Kubernetes cluster
 * [Docker Hub account](https://hub.docker.com/)
@@ -29,12 +31,12 @@ To start quickly, you can fork our sample GitHub repository, which includes pre-
 :::
 
 2. In the top-right corner of the page, click **FORK**.
-3. Provide an **Owner and repository name**, e.g. **OctoPetShop**.
+3. Provide an **Owner and repository name**, for example `OctoPetShop`.
 4. Keep the **Copy the master branch only** checkbox selected.
 5. Click **CREATE FORK**.
 6. Wait for the process to complete (this should only take a few seconds).
 
-With the prerequisites ready, let’s begin deploying your first application to Kubernetes. 
+Now you're ready, let’s begin deploying your first application to Kubernetes. 
 
 ## Log in to Octopus
 
