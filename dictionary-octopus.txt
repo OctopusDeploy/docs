@@ -11,6 +11,8 @@ hotfix
 hotfixes
 HSTS
 ITSM
+kustomization
+kustomize
 lifecycles
 maxage
 msiexec
@@ -22,6 +24,8 @@ octobak
 Octopub
 octopusid
 octopuslabs
+octopusvariable
+Octostache
 OIDC
 onlylogs
 reprioritize
@@ -39,6 +43,3 @@ upgradelog
 WIXUI
 workertools
 xmark
-kustomize
-Octostache
-kustomization
