@@ -60,7 +60,7 @@ Projects let you manage software applications and services, each with its deploy
 
 You will need an environment to deploy to.
 
-Environments are how you organize your infrastructure into groups representing the different stages of your deployment pipeline, e.g. dev, test, and production.
+Environments are how you organize your infrastructure into groups representing the different stages of your deployment pipeline. For example, Dev, Test, and Production.
 
 3. Select the environments you’d like to create and click **SAVE**.
 
@@ -72,14 +72,14 @@ Environments are how you organize your infrastructure into groups representing t
 
 You have the option to fill out a short survey. This helps our team learn about the technologies our customers are using, which guides the future direction of Octopus. It should only take about 30 seconds to complete.
 
-4. Click **SUBMIT**, and you will be taken to your project.
+4. Click **SUBMIT**, and you'll be taken to your project.
 
 :::figure
 ![Octopus Deploy interface displaying a questionnaire](/docs/getting-started/first-kubernetes-deployment/survey.png)
 :::
 
 ## Create deployment process
-The next step in the journey is to create your deployment process. This is where you define the steps that Octopus uses to deploy your software.
+The next step is creating your deployment process. This is where you define the steps that Octopus uses to deploy your software.
 
 1. Click **CREATE PROCESS** to see the available deployment steps.
 
@@ -89,7 +89,7 @@ The next step in the journey is to create your deployment process. This is where
 
 ### Configure Deploy raw Kubernetes YAML step
 
-2. Select the **KUBERNETES** filter and then click on the **DEPLOY RAW KUBERNETES YAML** card.
+2. Select the **KUBERNETES** filter and then click the **DEPLOY RAW KUBERNETES YAML** card.
 
 :::figure
 ![Kubernetes steps in the Octopus Deploy process editor.](/docs/getting-started/first-kubernetes-deployment/kubernetes-step.png)
@@ -105,20 +105,20 @@ Workers are machines that can execute tasks that don’t need to be run on the O
 
 You’ll learn more about deployment targets later in this tutorial.
 
-#### Worker pool
-Worker pools are groups of workers. When a task is assigned to a worker, the task will be executed by one of the workers in the pools you’ve configured.
+#### Worker Pool
+Worker Pools are groups of Workers. When a task is assigned to a Worker, the task will be executed by one of the Workers in the pools you’ve configured.
 
 3. Select **RUNS ON A WORKER FROM A SPECIFIC POOL**. 
 4. Select **HOSTED UBUNTU** from the dropdown menu.
 
 :::figure
-![Worker pool expander with 'Hosted Ubuntu' selected.](/docs/getting-started/first-kubernetes-deployment/worker-pool.png)
+![Worker Pool expander with 'Hosted Ubuntu' selected.](/docs/getting-started/first-kubernetes-deployment/worker-pool.png)
 :::
 
 #### On behalf of
 Target roles select specific deployment targets in an environment. This step will run on all deployment targets with the roles you specify in this field.
 
-5. Add a new target role by typing it into the field. For this example, we will use **k8s**.
+5. Add a new target role by typing it into the field. For this example, we'll use `k8s`.
 
 :::figure
 ![Role selection expander with 'k8s' role currently added.](/docs/getting-started/first-kubernetes-deployment/on-behalf-of.png)
@@ -127,7 +127,7 @@ Target roles select specific deployment targets in an environment. This step wil
 After configuring your deployment process, you’ll assign deployment targets to this target role. 
 
 #### Container image
-Next, you’ll configure this step to run inside an execution container. 
+Next, you configure this step to run inside an execution container. 
 
 6. Select **Runs INSIDE A CONTAINER, ON A WORKER**.
 
@@ -138,7 +138,7 @@ Next, you’ll configure this step to run inside an execution container.
 ### Add container image registry feed
 For a step running on a worker, you can select a Docker image to execute the step inside of.
 
-Since you don’t have a Docker Container Registry available yet, you’ll need to add one following the steps below:
+Since you don’t have a Docker Container Registry available yet, you need to add one following the steps below:
 1. Click the **EXTERNAL FEEDS** link (this action will open a new window).
 1. Click the **ADD FEED** button and select Docker Container Registry from the Feed Type dropdown.
 
@@ -146,8 +146,8 @@ Since you don’t have a Docker Container Registry available yet, you’ll need 
 ![Library section in Octopus with options to add external feeds.](/docs/getting-started/first-kubernetes-deployment/external-feeds.png)
 :::
 
-1. Provide a name for your feed, e.g. Docker Hub.
-1. Enter the feed URL to the public Docker Hub registry, e.g. https://index.docker.io.
+1. Provide a name for your feed, for example `Docker Hub`.
+1. Enter the feed URL to the public Docker Hub registry, for example `https://index.docker.io`.
 1. You can leave the registry path blank for this example.
 
 :::figure
@@ -155,7 +155,7 @@ Since you don’t have a Docker Container Registry available yet, you’ll need 
 :::
 
 1. Provide your credentials for Docker Hub.
-1. Click **SAVE AND TEST**, and then type **nginx** into the package name field to test your external feed.
+1. Click **SAVE AND TEST**, and then type `nginx` into the package name field to test your external feed.
 
 :::figure
 ![A search interface in Octopus to test the Docker Hub repository.](/docs/getting-started/first-kubernetes-deployment/test-docker-feed.png)
@@ -172,7 +172,8 @@ Close the window and return to configuring the **Deploy raw Kubernetes YAML** st
 :::
 
 #### YAML source
-This step lets you to get your YAML from three different sources:
+This step lets you get your YAML from 3 different sources:
+
 * Git repository (default)
 * Package
 * Inline script
@@ -189,25 +190,26 @@ Sourcing from a Git Repository can streamline your deployment process by reducin
 10. Select **Library** and add a new Git credential by clicking the **+** icon.
 1. Click the **ADD GIT CREDENTIAL** button.
 1. Enter a name for your Git credential.
-1. Provide your Github username.
+1. Provide your GitHub username.
 
 :::figure
-![A section in the library interface that allows users to create and manage Git credentials.](/docs/getting-started/first-kubernetes-deployment/git-credential.png)
+![A section in the library interface that lets users create and manage Git credentials.](/docs/getting-started/first-kubernetes-deployment/git-credential.png)
 :::
 
 ### Generate GitHub personal access token
 Github.com now requires token-based authentication (this excludes GitHub Enterprise Server). Create a personal access token following the steps below or learn more in the [GitHub documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+
 1. Navigate to [github.com](https://github.com) and log in to your account.
-1. Click on your profile picture in the top right corner. 
-1. Click on **SETTINGS**.
-1. Scroll down to the bottom of the page and click on **DEVELOPER SETTINGS**.
+1. Click your profile picture in the top right corner. 
+1. Click **SETTINGS**.
+1. Scroll down to the bottom of the page and click **DEVELOPER SETTINGS**.
 1. Under Personal access tokens, click **FINE-GRAINED TOKENS**.
 1. Click **GENERATE NEW TOKEN**.
-1. Under Token name, enter a name for the token.
-1. Under Expiration, provide an expiration for the token.
+1. Under **Token name**, enter a name for the token.
+1. Under **Expiration**, provide an expiration for the token.
 1. Select a Resource Owner.
-1. Under Repository Access, choose **Only select repositories** and select the **OctoPetShop** repository from the dropdown.
-1. Click on **REPOSITORY PERMISSIONS**, scroll down to **Contents** and select **Read-only**.
+1. Under **Repository Access**, choose **Only select repositories** and select the **OctoPetShop** repository from the dropdown.
+1. Click **REPOSITORY PERMISSIONS**, scroll down to **Contents** and select **Read-only**.
 1. Scroll down to the **Overview**, and you should have 2 permissions for 1 of your repositories (contents and metadata).
 1. Click **GENERATE TOKEN** and copy the token.
 
@@ -217,7 +219,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 
 #### Git repository details
 14. Paste the token into Octopus's personal access token field.
-1. **Save** your Git credential and return to the Deploy raw Kubernetes YAML step.
+1. **Save** your Git credential and return to the **Deploy raw Kubernetes YAML** step.
 1. Click the refresh icon next to the **select Git credential** dropdown.
 1. Select the Git credential you created earlier.
 
@@ -226,17 +228,17 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 :::
 
 #### Repository URL
-18. Enter the full URL to the Git repository where you store the YAML files you want to deploy, e.g. **https://github.com/your-user/OctoPetShop.git**
+18. Enter the full URL to the Git repository where you store the YAML files you want to deploy, for example, `https://github.com/your-user/OctoPetShop.git`.
 
 :::figure
 ![Repository URL expander where the user's YAML files are stored.](/docs/getting-started/first-kubernetes-deployment/repository-url.png)
 :::
 
 #### Branch settings
-19. Provide the default branch you want to use, e.g. **master** if you’re using the sample repo.
+19. Provide the default branch you want to use, for example **master** if you’re using the sample repo.
 
 #### Paths
-20. Enter the relative path(s) to the YAML files you want to deploy to your cluster. If you’re using the sample repo, the path will be **k8s/*.yaml**
+20. Enter the relative path(s) to the YAML files you want to deploy to your cluster. If you’re using the sample repo, the path will be `k8s/*.yaml`.
 
 :::figure
 ![The Paths expander that lets users specify the paths to their YAML files using glob patterns.](/docs/getting-started/first-kubernetes-deployment/paths.png)
@@ -244,6 +246,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 
 #### Kubernetes object status check
 This feature gives you live status updates during deployment for all the Kubernetes objects you're deploying. 
+
 21. Keep the default **Check that Kubernetes objects are running successfully** option selected with the default timeout of **180** seconds.
 
 :::figure
@@ -251,13 +254,13 @@ This feature gives you live status updates during deployment for all the Kuberne
 :::
 
 #### Structured configuration variables
-This is an advanced feature that you can skip for this tutorial. Learn more about it [here](https://octopus.com/docs/projects/steps/configuration-features/structured-configuration-variables-feature).
+This is an advanced feature that you can skip for this tutorial. Learn more about [structured configuration variables in our docs](https://octopus.com/docs/projects/steps/configuration-features/structured-configuration-variables-feature).
 
 #### Referenced packages
-This is an advanced feature that you can skip for this tutorial. Learn more about it [here](https://octopus.com/docs/infrastructure/deployment-targets/cloud-target-discovery).
+This is an advanced feature that you can skip for this tutorial. Learn more about [references packages and Cloud Target Discovery in our docs](https://octopus.com/docs/infrastructure/deployment-targets/cloud-target-discovery).
 
 #### Namespace
-22. Specify the namespace in the cluster where you want to deploy your YAML files, e.g. **demo-namespace**.
+22. Specify the namespace in the cluster where you want to deploy your YAML files, for example, `demo-namespace`.
 
 If the namespace doesn’t exist yet, Octopus will create it during the deployment.
 
