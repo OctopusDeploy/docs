@@ -11,7 +11,7 @@ navOrder: 10
 
 This tutorial will help you complete your first deployment to Kubernetes with Octopus Deploy. We’ll walk you through the steps to deploy YAML files to your Kubernetes cluster. 
 
-## Prerequisites
+## Before you start
 
 To follow this tutorial, you need:
 
@@ -273,17 +273,18 @@ You can skip all the fields under this section for your first deployment.
 
 ## Add a deployment target
 With Octopus Deploy, you can deploy software to:
+
 * Kubernetes clusters
 * Microsoft Azure
 * AWS
 * Cloud regions
 * Windows servers
-* Linux servers,
-* Offline package drop
+* Linux servers
+* Offline package drops
 
-Regardless of where you’re deploying your software, these machines and services are known as your deployment targets.
+Wherever you’re deploying your software, these machines and services are known as your deployment targets.
 
-1. Navigate to Infrastructure ➜ Deployment Targets, and click **ADD DEPLOYMENT TARGET**.
+1. Navigate to **Infrastructure** ➜ **Deployment Targets**, and click **ADD DEPLOYMENT TARGET**.
 
 :::figure
 ![Deployment targets page with no targets added.](/docs/getting-started/first-kubernetes-deployment/deployment-targets.png)
@@ -296,15 +297,15 @@ Regardless of where you’re deploying your software, these machines and service
 :::
 
 #### Display name
-3. Enter **k8s-demo** in the Display Name field.
+3. Enter `k8s-demo` in the Display Name field.
 
 #### Environments
 4. Select **Development, Staging and Production** from the dropdown list.
 
 #### Target roles
-5. Type in the same target role you provided while configuring the Deploy raw Kubernetes YAML step, e.g. **k8s**.
+5. Type in the same target role you provided while configuring the **Deploy raw Kubernetes YAML** step, for example, `k8s`.
 
-The target role won’t be available to select from the dropdown list yet, since it gets created during this step.
+The target role won’t be available to select from the dropdown list yet, because it gets created during this step.
 
 :::figure
 ![User interface for setting up a Kubernetes Cluster deployment target.](/docs/getting-started/first-kubernetes-deployment/create-k8s-cluster.png)
@@ -315,10 +316,10 @@ Octopus provides multiple methods for authenticating your Kubernetes cluster dep
 
 | **Service** | **Octopus Authentication Method**                                                                                                                                                                                                                                                                      | **Notes**                                                                                                                                                                                                                                                                                                           |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AKS         | [Azure Service Principal](https://octopus.com/docs/infrastructure/accounts/azure)                                                                                                                                                                                                                      | The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.<br><br>  Learn more in the [Azure docs](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-identity) |
-| GKE         | [Google Cloud Account](https://octopus.com/docs/infrastructure/accounts/google-cloud)                                                                                                                                                                                                                  | When using a GKE cluster, Google Cloud accounts allow you to authenticate using a Google Cloud IAM service account.<br><br>  Learn more in the [GKE docs](https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication)                                                                         |
-| EKS         | [AWS Account](https://octopus.com/docs/infrastructure/accounts/aws)                                                                                                                                                                                                                                    | When using an EKS cluster, AWS accounts allow IAM accounts and roles to be used.<br><br>   Learn more in the [AWS docs](https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html)                                                                                                                         |
-| Other       | [Tokens](https://octopus.com/docs/infrastructure/accounts/tokens) <br> [Username and password](https://octopus.com/docs/infrastructure/accounts/username-and-password) <br> [Client certificate](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target) | Learn more in the [Kubernetes cluster docs](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target)                                                                                                                                                                   |
+| AKS         | [Azure Service Principal](https://octopus.com/docs/infrastructure/accounts/azure)                                                                                                                                                                                                                      | The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.<br><br>  Learn more in the [Azure docs](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-identity). |
+| GKE         | [Google Cloud Account](https://octopus.com/docs/infrastructure/accounts/google-cloud)                                                                                                                                                                                                                  | When using a GKE cluster, Google Cloud accounts allow you to authenticate using a Google Cloud IAM service account.<br><br>  Learn more in the [GKE docs](https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication).                                                                         |
+| EKS         | [AWS Account](https://octopus.com/docs/infrastructure/accounts/aws)                                                                                                                                                                                                                                    | When using an EKS cluster, AWS accounts allow IAM accounts and roles to be used.<br><br>   Learn more in the [AWS docs](https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html).                                                                                                                         |
+| Other       | [Tokens](https://octopus.com/docs/infrastructure/accounts/tokens) <br> [Username and password](https://octopus.com/docs/infrastructure/accounts/username-and-password) <br> [Client certificate](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target) | Learn more in the [Kubernetes cluster docs](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target).                                                                                                                                                                   |
 
 
 Here are brief instructions on how to configure your cluster authentication in Octopus, since it will depend on your specific situation:
@@ -329,7 +330,7 @@ Here are brief instructions on how to configure your cluster authentication in O
 ![Authentication methods for a Kubernetes Cluster deployment with various account options.](/docs/getting-started/first-kubernetes-deployment/target-authentication-methods.png)
 :::
 
-2. Add a new account with the authentication details required to access your cluster (more detailed instructions are linked in the table above).
+2. Add a new account with the authentication details needed to access your cluster (more detailed instructions are linked in the table above).
 
 :::figure
 ![Create Account page with form in Octopus Deploy.](/docs/getting-started/first-kubernetes-deployment/create-account.png)
@@ -344,25 +345,25 @@ Here are brief instructions on how to configure your cluster authentication in O
 Need more details on how to configure various authentication methods? Read the [Kubernetes cluster docs](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target).
 
 #### Kubernetes namespace
-6. Specify the namespace for this deployment target, e.g. **default**.
+6. Specify the namespace for this deployment target, for example, `default`.
 
-#### Worker pool
-7. Select **Hosted Ubuntu** as the default worker pool.
+#### Worker Pool
+7. Select **Hosted Ubuntu** as the default Worker Pool.
 
 #### Health check container image
-8. Select runs inside a container, on a worker
+8. Select **Runs inside a container, on a Worker**.
 1. Select **Docker Hub** as the container registry.
 1. Copy the **Ubuntu-based image** and paste it into the container image field.
-1. **Save** your deployment target.
+1. **SAVE** your deployment target.
 
 :::figure
 ![Health check container image expander with the latest Ubuntu-based image.](/docs/getting-started/first-kubernetes-deployment/health-check-container-image.png)
 :::
 
 #### Health check
-Octopus runs health checks on deployment targets and workers to ensure they are available and running the latest version of Calamari.
+Octopus runs health checks on deployment targets and Workers to ensure they're available and running the latest version of Calamari.
 
-This process may take a few minutes since it’s acquiring the worker and it needs to download the worker tools image. 
+This process may take a few minutes since it’s acquiring the Worker and it needs to download the Worker Tools image.
 
 1. After saving, navigate to **Connectivity** in the left sidebar menu.
 1. Click the **CHECK HEALTH** button.
@@ -389,7 +390,7 @@ A release is a snapshot of the deployment process and the associated assets (Git
 ![Deployment overview page with no deployments.](/docs/getting-started/first-kubernetes-deployment/deployment-overview.png)
 :::
 
-You’ll see a summary of the Git resources you provided in the Deploy raw YAML step. 
+You’ll see a summary of the Git resources you provided in the **Deploy raw YAML** step. 
 
 :::figure
 ![Release summary showing Git resources](/docs/getting-started/first-kubernetes-deployment/release-summary.png)
@@ -415,7 +416,8 @@ You’ve successfully completed your first deployment to Kubernetes! 🎉
 
 As you continue to explore Octopus Deploy, consider diving deeper into powerful features like [variables](https://octopus.com/docs/projects/variables), joining our [Slack community](http://octopususergroup.slack.com), or checking out our other tutorials to expand your knowledge. 
 
-## Additional Kubernetes resources
+## More Kubernetes resources
+
 * [Deploy with the Kustomize step](https://octopus.com/docs/deployments/kubernetes/kustomize)
 * [Deploy a Helm chart](https://octopus.com/docs/deployments/kubernetes/helm-update)
 * [Using variables for Kubernetes without breaking YAML](https://octopus.com/blog/structured-variables-raw-kubernetes-yaml)
