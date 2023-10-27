@@ -15,7 +15,7 @@ This tutorial will help you complete your first deployment to Kubernetes with Oc
 
 To follow this tutorial, you need:
 
-* [Octopus Deploy cloud instance](https://octopus.com/start)
+* [Octopus Cloud instance](https://octopus.com/start)
 * Kubernetes cluster
 * [Docker Hub account](https://hub.docker.com/)
 * [GitHub account](https://github.com/)
@@ -89,7 +89,7 @@ The next step is creating your deployment process. This is where you define the 
 
 ### Configure Deploy raw Kubernetes YAML step
 
-2. Select the **KUBERNETES** filter and then click the **DEPLOY RAW KUBERNETES YAML** card.
+2. Select the **Kubernetes** filter and then click the **Deploy raw Kubernetes YAML** card.
 
 :::figure
 ![Kubernetes steps in the Octopus Deploy process editor.](/docs/getting-started/first-kubernetes-deployment/kubernetes-step.png)
@@ -108,8 +108,8 @@ You’ll learn more about deployment targets later in this tutorial.
 #### Worker Pool
 Worker Pools are groups of Workers. When a task is assigned to a Worker, the task will be executed by one of the Workers in the pools you’ve configured.
 
-3. Select **RUNS ON A WORKER FROM A SPECIFIC POOL**. 
-4. Select **HOSTED UBUNTU** from the dropdown menu.
+3. Select **Runs on a worker from a specific pool**. 
+4. Select **Hosted Ubuntu** from the dropdown menu.
 
 :::figure
 ![Worker Pool expander with 'Hosted Ubuntu' selected.](/docs/getting-started/first-kubernetes-deployment/worker-pool.png)
@@ -129,7 +129,7 @@ After configuring your deployment process, you’ll assign deployment targets to
 #### Container image
 Next, you configure this step to run inside an execution container. 
 
-6. Select **Runs INSIDE A CONTAINER, ON A WORKER**.
+6. Select **Runs inside a container, on a worker**.
 
 :::figure
 ![Container image expander with 'Runs inside a container, on a worker selected'.](/docs/getting-started/first-kubernetes-deployment/container-image.png)
@@ -139,8 +139,8 @@ Next, you configure this step to run inside an execution container.
 For a step running on a worker, you can select a Docker image to execute the step inside of.
 
 Since you don’t have a Docker Container Registry available yet, you need to add one following the steps below:
-1. Click the **EXTERNAL FEEDS** link (this action will open a new window).
-1. Click the **ADD FEED** button and select Docker Container Registry from the Feed Type dropdown.
+1. Click the **External Feeds** link (this will open a new window).
+1. Click the **ADD FEED** button and select **Docker Container Registry** from the **Feed Type** dropdown.
 
 :::figure
 ![Library section in Octopus with options to add external feeds.](/docs/getting-started/first-kubernetes-deployment/external-feeds.png)
@@ -211,7 +211,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 1. Under **Repository Access**, choose **Only select repositories** and select the **OctoPetShop** repository from the dropdown.
 1. Click **REPOSITORY PERMISSIONS**, scroll down to **Contents** and select **Read-only**.
 1. Scroll down to the **Overview**, and you should have 2 permissions for 1 of your repositories (contents and metadata).
-1. Click **GENERATE TOKEN** and copy the token.
+1. Click **Generate token** and copy the token.
 
 :::figure
 ![A GitHub settings page where users can manage permissions for fine-grained tokens.](/docs/getting-started/first-kubernetes-deployment/generate-token.png)
@@ -220,7 +220,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 #### Git repository details
 14. Paste the token into Octopus's personal access token field.
 1. **Save** your Git credential and return to the **Deploy raw Kubernetes YAML** step.
-1. Click the refresh icon next to the **select Git credential** dropdown.
+1. Click the refresh icon next to the **Select Git credential** dropdown.
 1. Select the Git credential you created earlier.
 
 :::figure
@@ -257,7 +257,7 @@ This feature gives you live status updates during deployment for all the Kuberne
 This is an advanced feature that you can skip for this tutorial. Learn more about [structured configuration variables in our docs](https://octopus.com/docs/projects/steps/configuration-features/structured-configuration-variables-feature).
 
 #### Referenced packages
-This is an advanced feature that you can skip for this tutorial. Learn more about [references packages and Cloud Target Discovery in our docs](https://octopus.com/docs/infrastructure/deployment-targets/cloud-target-discovery).
+This is an advanced feature that you can skip for this tutorial. Learn more about [references packages in our docs](https://octopus.com/docs/deployments/custom-scripts/run-a-script-step#referencing-packages).
 
 #### Namespace
 22. Specify the namespace in the cluster where you want to deploy your YAML files, for example, `demo-namespace`.
@@ -300,7 +300,7 @@ Wherever you’re deploying your software, these machines and services are known
 3. Enter `k8s-demo` in the Display Name field.
 
 #### Environments
-4. Select **Development, Staging and Production** from the dropdown list.
+4. Select **Development**, **Staging**, and **Production** from the dropdown list.
 
 #### Target roles
 5. Type in the same target role you provided while configuring the **Deploy raw Kubernetes YAML** step, for example, `k8s`.
@@ -383,7 +383,7 @@ You can create and deploy a release now that you have a healthy deployment targe
 ### Create release
 A release is a snapshot of the deployment process and the associated assets (Git resources, variables, etc.) as they exist when the release is created.
 
-1. Navigate to **Projects** in the top navigation and select your **first K8s deployment** project.
+1. Navigate to **Projects** in the top navigation and select your **First K8s deployment** project.
 1. Click the **CREATE RELEASE** button.
 
 :::figure
@@ -406,7 +406,7 @@ When you created this project, you selected the default lifecycle (Development �
 
 Your first deployment may take slightly longer because your Docker image won’t be cached yet. 
 
-3. Navigate to the **Kubernetes Object Status** tab to see the live status of your Kubernetes objects as the deployment progresses.
+3. Navigate to the **KUBERNETES OBJECT STATUS** tab to see the live status of your Kubernetes objects as the deployment progresses.
 
 :::figure
 ![Kubernetes Object Status dashboard showing a successful deployment.](/docs/getting-started/first-kubernetes-deployment/deployment-success.png)
