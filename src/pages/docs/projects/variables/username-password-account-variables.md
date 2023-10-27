@@ -4,7 +4,7 @@ pubDate: 2023-10-27
 modDate: 2023-10-27
 title: Username and password account variables
 description: Create a Username and password account variable to use in any deployment step
-navOrder: 70
+navOrder: 90
 ---
 
 [Username and password accounts](/docs/infrastructure/accounts/username-and-password/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **UsernamePassword account**. Before you create a Username and Password account Variable, you need to create a Username and Password account in Octopus:
