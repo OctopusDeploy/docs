@@ -18,7 +18,7 @@ It is best to create **Service accounts** for this purpose to provide each servi
 :::div{.hint}
 **Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus Web Portal.
 
-Service accounts authenticate with the Octopus API using their [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Service accounts authenticate with the Octopus API using [OpenID Connect](/docs/octopus-rest-api/open-id-connect) or an [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
 :::
 
 ## Creating a service account {#ServiceAccounts-Creatingaserviceaccount}
@@ -42,7 +42,7 @@ This Service account is not very useful until it [belongs to one or more teams](
 
 ## OpenID Connect (OIDC)
 
-You can use [OpenID Connect (OIDC)](/docs/octopus-rest-api/open-id-connect) to automate Octopus with another service without needing to provision or manage API Keys. To do this you configure a specific *OIDC Identity* for the external system which allows it to connect to Octopus securely.
+You can use [OpenID Connect (OIDC)](/docs/octopus-rest-api/open-id-connect) to automate Octopus with another service without needing to provision or manage API Keys. To do this you configure a specific *OIDC Identity* for the service which allows it to connect to Octopus securely. The service then exchanges an ID token with Octopus for a short-lived access token which it can then use for API requests.
 
 ## API Keys
 
