@@ -37,8 +37,14 @@ Creating a new Service account is very similar to creating a new User account:
 :::
 
 :::div{.hint}
-This Service account is not very useful until it [belongs to one or more teams](/docs/security/users-and-teams/), and has one or more [Octopus API keys](/docs/octopus-rest-api/how-to-create-an-api-key) associated with it
+This Service account is not very useful until it [belongs to one or more teams](/docs/security/users-and-teams/), and has one or more [OpenID Connect Identities](/docs/octopus-rest-api/open-id-connect) or [Octopus API keys](/docs/octopus-rest-api/how-to-create-an-api-key) associated with it.
 :::
+
+## OpenID Connect (OIDC)
+
+You can use [OpenID Connect (OIDC)](/docs/octopus-rest-api/open-id-connect) to automate Octopus with another service without needing to provision or manage API Keys. To do this you configure a specific *OIDC Identity* for the external system which allows it to connect to Octopus securely.
+
+## API Keys
 
 :::figure
 ![Service account API Key](/docs/security/users-and-teams/images/service-account-apikey.png)
