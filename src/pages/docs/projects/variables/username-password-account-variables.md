@@ -10,7 +10,7 @@ navOrder: 90
 [Username and password accounts](/docs/infrastructure/accounts/username-and-password/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **UsernamePassword account**. Before you create a Username and Password account Variable, you need to create a Username and Password account in Octopus:
 
 :::figure
-![Username Password account variable](/docs/projects/variables/images/usernamepassword-account-variable.png)
+![Username Password account variable](/docs/projects/variables/images/username-password-account-variable.png)
 :::
 
 The **Add Variable** window is then displayed and lists all the Username and Password accounts.
@@ -18,7 +18,7 @@ The **Add Variable** window is then displayed and lists all the Username and Pas
 Select the Username and Password account you want to access from the project to assign it to the variable:
 
 :::figure
-![Username Password account variable selection](/docs/projects/variables/images/usernamepassword-account-variable-selection.png)
+![Username Password account variable selection](/docs/projects/variables/images/username-password-account-variable-selection.png)
 :::
 
 
