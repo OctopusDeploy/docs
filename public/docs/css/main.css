@@ -171,6 +171,7 @@ mark {
 
 strong {
     font-weight: bold;
+    font-family: var(--bold-font);
 }
 
 .page-content > *,
