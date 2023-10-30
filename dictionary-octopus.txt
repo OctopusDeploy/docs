@@ -12,6 +12,8 @@ hotfix
 hotfixes
 HSTS
 ITSM
+kustomization
+kustomize
 lifecycles
 maxage
 msiexec
@@ -24,6 +26,7 @@ Octopub
 octopusdeploy
 octopusid
 octopuslabs
+Octostache
 OIDC
 onlylogs
 reprioritize
@@ -36,11 +39,12 @@ Schannel
 sthumb
 swaggerui
 systemprofile
+tabpanel
 Trivy
 upgradelog
+WCAG
+webfonts
 WIXUI
 workertools
+xlarge
 xmark
-kustomize
-Octostache
-kustomization
