@@ -6,7 +6,7 @@ title: Security
 navTitle: Overview
 navSection: Security
 description: Security considerations for Octopus Administrators.
-navOrder: 130
+navOrder: 150
 ---
 
 We pride ourselves on making Octopus Deploy a secure product. The security and integrity of your Octopus Deploy installation is the result of a partnership between us as the software vendor, and you as the host and administrators of your installation.
