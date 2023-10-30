@@ -58,7 +58,7 @@ Projects let you manage software applications and services, each with its deploy
 
 ## Add environments
 
-You will need an environment to deploy to.
+You'll need an environment to deploy to.
 
 Environments are how you organize your infrastructure into groups representing the different stages of your deployment pipeline. For example, Dev, Test, and Production.
 
@@ -136,9 +136,10 @@ Next, you configure this step to run inside an execution container.
 :::
 
 ### Add container image registry feed
-For a step running on a worker, you can select a Docker image to execute the step inside of.
+For a step running on a Worker, you can select a Docker image to execute the step inside of.
 
-Since you don’t have a Docker Container Registry available yet, you need to add one following the steps below:
+Since you don’t have a Docker Container Registry available yet, you need to add one by following the steps below:
+
 1. Click the **External Feeds** link (this will open a new window).
 1. Click the **ADD FEED** button and select **Docker Container Registry** from the **Feed Type** dropdown.
 
@@ -178,7 +179,7 @@ This step lets you get your YAML from 3 different sources:
 * Package
 * Inline script
 
-Sourcing from a Git Repository can streamline your deployment process by reducing the steps required to get your YAML into Octopus.
+Sourcing from a Git repository can streamline your deployment process by reducing the steps required to get your YAML into Octopus.
 
 9. Select **Git Repository** as your YAML source.
 
@@ -203,14 +204,14 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 1. Click your profile picture in the top right corner. 
 1. Click **SETTINGS**.
 1. Scroll down to the bottom of the page and click **DEVELOPER SETTINGS**.
-1. Under Personal access tokens, click **FINE-GRAINED TOKENS**.
+1. Under **Personal access tokens**, click **FINE-GRAINED TOKENS**.
 1. Click **GENERATE NEW TOKEN**.
 1. Under **Token name**, enter a name for the token.
 1. Under **Expiration**, provide an expiration for the token.
 1. Select a Resource Owner.
 1. Under **Repository Access**, choose **Only select repositories** and select the **OctoPetShop** repository from the dropdown.
 1. Click **REPOSITORY PERMISSIONS**, scroll down to **Contents** and select **Read-only**.
-1. Scroll down to the **Overview**, and you should have 2 permissions for 1 of your repositories (contents and metadata).
+1. Scroll down to the **Overview**, and you should have 2 permissions for one of your repositories (contents and metadata).
 1. Click **Generate token** and copy the token.
 
 :::figure
@@ -228,7 +229,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 :::
 
 #### Repository URL
-18. Enter the full URL to the Git repository where you store the YAML files you want to deploy, for example, `https://github.com/your-user/OctoPetShop.git`.
+18. Enter the full URL to the Git repository where you store the YAML files you want to deploy, for example `https://github.com/your-user/OctoPetShop.git`.
 
 :::figure
 ![Repository URL expander where the user's YAML files are stored.](/docs/getting-started/first-kubernetes-deployment/repository-url.png)
@@ -260,7 +261,7 @@ This is an advanced feature that you can skip for this tutorial. Learn more abou
 This is an advanced feature that you can skip for this tutorial. Learn more about [references packages in our docs](https://octopus.com/docs/deployments/custom-scripts/run-a-script-step#referencing-packages).
 
 #### Namespace
-22. Specify the namespace in the cluster where you want to deploy your YAML files, for example, `demo-namespace`.
+22. Specify the namespace in the cluster where you want to deploy your YAML files, for example `demo-namespace`.
 
 If the namespace doesn’t exist yet, Octopus will create it during the deployment.
 
@@ -297,13 +298,13 @@ Wherever you’re deploying your software, these machines and services are known
 :::
 
 #### Display name
-3. Enter `k8s-demo` in the Display Name field.
+3. Enter `k8s-demo` in the **Display Name** field.
 
 #### Environments
 4. Select **Development**, **Staging**, and **Production** from the dropdown list.
 
 #### Target roles
-5. Type in the same target role you provided while configuring the **Deploy raw Kubernetes YAML** step, for example, `k8s`.
+5. Type in the same target role you provided while configuring the **Deploy raw Kubernetes YAML** step, for example `k8s`.
 
 The target role won’t be available to select from the dropdown list yet, because it gets created during this step.
 
@@ -316,9 +317,9 @@ Octopus provides multiple methods for authenticating your Kubernetes cluster dep
 
 | **Service** | **Octopus Authentication Method**                                                                                                                                                                                                                                                                      | **Notes**                                                                                                                                                                                                                                                                                                           |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AKS         | [Azure Service Principal](https://octopus.com/docs/infrastructure/accounts/azure)                                                                                                                                                                                                                      | The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.<br><br>  Learn more in the [Azure docs](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-identity). |
-| GKE         | [Google Cloud Account](https://octopus.com/docs/infrastructure/accounts/google-cloud)                                                                                                                                                                                                                  | When using a GKE cluster, Google Cloud accounts allow you to authenticate using a Google Cloud IAM service account.<br><br>  Learn more in the [GKE docs](https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication).                                                                         |
-| EKS         | [AWS Account](https://octopus.com/docs/infrastructure/accounts/aws)                                                                                                                                                                                                                                    | When using an EKS cluster, AWS accounts allow IAM accounts and roles to be used.<br><br>   Learn more in the [AWS docs](https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html).                                                                                                                         |
+| AKS         | [Azure Service Principal](https://octopus.com/docs/infrastructure/accounts/azure)                                                                                                                                                                                                                      | The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, you must use standard Kubernetes credentials like certificates or service account tokens.<br><br>  Learn more in the [Azure docs](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-identity). |
+| GKE         | [Google Cloud Account](https://octopus.com/docs/infrastructure/accounts/google-cloud)                                                                                                                                                                                                                  | When using a GKE cluster, Google Cloud accounts let you authenticate using a Google Cloud IAM service account.<br><br>  Learn more in the [GKE docs](https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication).                                                                         |
+| EKS         | [AWS Account](https://octopus.com/docs/infrastructure/accounts/aws)                                                                                                                                                                                                                                    | When using an EKS cluster, AWS accounts let you use IAM accounts and roles.<br><br>   Learn more in the [AWS docs](https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html).                                                                                                                         |
 | Other       | [Tokens](https://octopus.com/docs/infrastructure/accounts/tokens) <br> [Username and password](https://octopus.com/docs/infrastructure/accounts/username-and-password) <br> [Client certificate](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target) | Learn more in the [Kubernetes cluster docs](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target).                                                                                                                                                                   |
 
 
@@ -345,7 +346,7 @@ Here are brief instructions on how to configure your cluster authentication in O
 Need more details on how to configure various authentication methods? Read the [Kubernetes cluster docs](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target).
 
 #### Kubernetes namespace
-6. Specify the namespace for this deployment target, for example, `default`.
+6. Specify the namespace for this deployment target, for example `default`.
 
 #### Worker Pool
 7. Select **Hosted Ubuntu** as the default Worker Pool.
