@@ -48,3 +48,5 @@ WIXUI
 workertools
 xlarge
 xmark
+RSASSA
+jwks

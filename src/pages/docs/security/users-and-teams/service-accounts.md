@@ -21,7 +21,7 @@ It is best to create **Service accounts** for this purpose to provide each servi
 Service accounts authenticate with the Octopus API using [OpenID Connect](/docs/octopus-rest-api/openid-connect) or an [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
 :::
 
-## Creating a service account {#ServiceAccounts-Creatingaserviceaccount}
+## Creating a service account {#ServiceAccounts-CreatingAServiceAccount}
 
 [Getting Started - Service Accounts](https://www.youtube.com/watch?v=SMsZMpUwCZc)
 
