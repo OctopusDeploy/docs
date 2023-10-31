@@ -28,6 +28,7 @@ octopusdeploy
 octopusid
 octopuslabs
 octopusservernodes
+octopusvariable
 Octostache
 OIDC
 onlylogs
