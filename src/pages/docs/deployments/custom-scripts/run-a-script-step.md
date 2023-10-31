@@ -11,7 +11,7 @@ Octopus also allows you to run standalone scripts as part of your deployment pro
 
 You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables), and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 
-## Choosing where the script will run {#Standalonescripts-Choosingwherethescriptwillrun}
+## Choosing where the script will run
 
 When adding a script you choose where the script will run, and in which context the script will run.
 
@@ -43,7 +43,7 @@ Choosing the right combination of **Target** and **Roles** enables some really i
 Bash scripts are not able to be run on the Octopus Server, even if Bash is installed on that server
 :::
 
-## Choosing where to source the script {#Standalonescripts-Choosingwheretosourcethescript}
+## Choosing where to source the script {#choosing-where-to-source-scripts}
 
 You may also select the source of the script, either:
 
@@ -64,7 +64,7 @@ Using scripts from inside a package or a git repository are a great way to versi
 When sourcing a script from a file inside a package you cannot choose to run the step before packages are acquired.
 :::
 
-## Passing parameters to scripts {#Standalonescripts-Passingparameterstoscripts}
+## Passing parameters to scripts
 
 When you call external scripts (sourced from a file inside a package or git repository) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts).
 
@@ -74,7 +74,7 @@ When you call external scripts (sourced from a file inside a package or git repo
 
 ## Referencing packages
 
-In addition to being able to [source the custom script from a package](#Standalonescripts-Choosingwheretosourcethescript), it is often desirable to reference other packages.  Scenarios where this can be useful include:
+In addition to being able to [source the custom script from a package](#choosing-where-to-source-scripts), it is often desirable to reference other packages.  Scenarios where this can be useful include:
 
 - Executing a utility contained in a package
 - Deploying a package in a manner for which there is no built-in steps available; for example pushing a package to a Content-Management-System
