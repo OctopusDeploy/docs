@@ -55,6 +55,7 @@ Octopus can execute scripts from a variety of locations, all with different bene
   2. You can author your scripts and publish them as step templates for other projects to use. Learn about [step templates](/docs/projects/custom-step-templates).
   3. You can develop your scripts and store them in a source control repository, like git, and Octopus can execute these scripts from within a package. Learn about [deployment process as code](/docs/deployments/patterns/deployment-process-as-code/) and [running scripts in packages](/docs/deployments/custom-scripts/scripts-in-packages).
   4. You can develop your scripts and store them in GitHub, then publish them as a release, which can be consumed by Octopus. Learn about [using the GitHub feed](/docs/packaging-applications/package-repositories/github-feeds).
+  5. And finally you can also store your scripts in git, and source them directly from the git repository. Learn about [run a script step](/docs/deployments/custom-scripts/run-a-script-step#choosing-where-to-source-scripts)
 
 ## How your scripts are executed by Octopus
 
