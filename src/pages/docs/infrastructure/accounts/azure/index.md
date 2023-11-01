@@ -160,7 +160,7 @@ if ($null -eq $ExistingApplication)
 }
 else 
 {
-    Write-Host "The azue service principal $AzureApplicationName already exists"        
+    Write-Host "The Azure service principal $AzureApplicationName already exists"        
     $AzureApplication = $ExistingApplication
 }
 
