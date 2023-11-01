@@ -61,7 +61,7 @@ These scripts are executed on the Octopus Server and will be pre-authenticated u
 Refer to [this page](/docs/infrastructure/accounts/azure) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.
 :::
 
-## Example {#AzurePowerShellscripts-Example}
+## Example {#AzurePowerShellScripts-Example}
 
 This example uses the Service Management API to create a new Staging slot as part of the [blue/green deployment sample for Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps).
 
