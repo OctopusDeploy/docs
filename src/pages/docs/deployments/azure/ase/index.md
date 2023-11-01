@@ -26,7 +26,7 @@ Given that you can't access the app, or its management endpoint (Kudu), from the
 
 Contained in the publish profile is the URI of the deployment endpoint (Kudu) for the web app. This is the critical piece here.
 
-For an external ASE that URI will be publicly accessible (e.g. https://yourapp.scm.aseName.p.azurewebsites.net).
+For an external ASE that URI will be publicly accessible (e.g. https://your-app.scm.aseName.p.azurewebsites.net).
 
 For an internal ASE the URI will not be publicly accessible, it will be something like `https://your-app.scm.your-domain`  This is where the deployments will fail, they will be able to see all of the other Urls required but when they get to step 6 Octopus won't be able to resolve the address for the URI.
 
