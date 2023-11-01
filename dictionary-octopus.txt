@@ -18,6 +18,7 @@ lifecycles
 maxage
 msiexec
 MTTR
+Netscaler
 nologs
 NTLM
 Octo
@@ -26,6 +27,7 @@ Octopub
 octopusdeploy
 octopusid
 octopuslabs
+octopusservernodes
 Octostache
 OIDC
 onlylogs
