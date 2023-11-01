@@ -11,7 +11,7 @@ You can deploy software to the Azure cloud by adding your Azure subscription to 
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy.
 
-## Azure account authentication method {#CreatinganAzureAccount-AuthenticationMethod}
+## Azure account authentication method {#CreatingAnAzureAccount-AuthenticationMethod}
 
 When you add an Azure account to Octopus, there are two ways to authenticate with Azure in Octopus. These represent the different interfaces in Azure, and the interface you need will dictate which authentication method you use.
 
