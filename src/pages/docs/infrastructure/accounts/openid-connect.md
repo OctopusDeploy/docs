@@ -2,10 +2,27 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-22-09
 modDate: 2023-22-09
-title: OpenID Connnect Subject configuration
+title: OpenID Connnect 
 description: How to customize the Subject Claim for OpenID Connect authentication
 navOrder: 70
 ---
+
+## Configuration
+
+:::div{.info}
+If you are using Octopus Cloud, you will not need to do anything to expose the instance to the public internet, this is already configured for you.
+:::
+
+To use federated credentials, your Octopus instance will need to have two anonymous URLs exposed to the public internet. 
+
+- `https://server-host/.well-known/openid-configuration`
+- `https://server-host/.well-known/jwks`
+
+These must be exposed with anonymous access on HTTPS. Without this, the OpenID Connect protocol will not be able to complete the authentication flow.
+
+The hostname of the URL that these two endpoints are available on must either be configured under **Configuration->Nodes->Server Uri** or set as the first ListenPrefix in the server configuration. 
+
+## Subject Keys
 
 When using OpenID Connect to authenticate to with external services, the Subject claim can have its contents customised.
 
@@ -17,7 +34,7 @@ The subject can be modified for the three different uses within Octopus:
 - [Health Checks](#health-checks)
 - [Account Test](#account-test)
 
-## Subject key parts
+### Subject key parts
 
 - Only the requested keys for a **Subject** claim will be include in the generated **Subject** claim
 - Any resource types include in the **Subject** claim will use the slug value for the resource. The slug value is generated from the name of the resource when it was created, it can be edited on the edit page of resource type.
@@ -32,7 +49,7 @@ The subject can be modified for the three different uses within Octopus:
     - **Type**
 
 
-## Deployments and Runbooks {#deployments-and-runbooks}
+### Deployments and Runbooks {#deployments-and-runbooks}
 
 The **Subject** claim for a deployment or a runbook supports the following parts:
 
