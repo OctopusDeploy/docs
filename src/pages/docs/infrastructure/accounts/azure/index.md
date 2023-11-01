@@ -78,7 +78,7 @@ To support OpenID Connect authentication, you will need to ensure it is supporte
 
 - az CLI requires 2.30+
 - az PowerShell modules requires 7.0+
-- azurerm terraform provider required 3.22+ 
+- AzureRM terraform provider required 3.22+ 
 
 ## Resource permissions {#resource-permissions}
 

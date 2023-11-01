@@ -28,9 +28,9 @@ Contained in the publish profile is the URI of the deployment endpoint (Kudu) fo
 
 For an external ASE that URI will be publicly accessible (e.g. https://yourapp.scm.aseName.p.azurewebsites.net).
 
-For an internal ASE the URI will not be publicly accessible, it will be something like https://yourapp.scm.yourdomain  This is where the deployments will fail, they will be able to see all of the other Urls required but when they get to step 6 Octopus won't be able to resolve the address for the URI.
+For an internal ASE the URI will not be publicly accessible, it will be something like `https://your-app.scm.your-domain`  This is where the deployments will fail, they will be able to see all of the other Urls required but when they get to step 6 Octopus won't be able to resolve the address for the URI.
 
-To fix that you need 2 things to happen. First, the network the Octopus Server is on has to be connected to the ASE's VNet, e.g. using ExpressRoute or a VPN. Second, the Octopus Server needs to be able to resolve `yourapp.scm.yourdomain` to the Internal Load Balancer IP address of your Azure ILB (found in the **IP addresses** for the ASE in the Azure portal), e.g. through DNS configuration.
+To fix that you need 2 things to happen. First, the network the Octopus Server is on has to be connected to the ASE's VNet, e.g. using ExpressRoute or a VPN. Second, the Octopus Server needs to be able to resolve `your-app.scm.your-domain` to the Internal Load Balancer IP address of your Azure ILB (found in the **IP addresses** for the ASE in the Azure portal), e.g. through DNS configuration.
 
 Exactly how to do those 2 things will depend on your organization, what infrastructure you might already have in place and is beyond the scope of this guide.
 
