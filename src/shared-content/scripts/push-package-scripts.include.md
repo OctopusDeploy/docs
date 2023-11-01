@@ -28,12 +28,12 @@ $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Heade
 # Open file stream
 $fileStream = New-Object System.IO.FileStream($packageFile, [System.IO.FileMode]::Open)
 
-# Create dispositon object
+# Create disposition object
 $contentDispositionHeaderValue = New-Object System.Net.Http.Headers.ContentDispositionHeaderValue "form-data"
 $contentDispositionHeaderValue.Name = "fileData"
 $contentDispositionHeaderValue.FileName = [System.IO.Path]::GetFileName($packageFile)
 
-# Creat steam content
+# Create steam content
 $streamContent = New-Object System.Net.Http.StreamContent $fileStream
 $streamContent.Headers.ContentDisposition = $contentDispositionHeaderValue
 $contentType = "multipart/form-data"
@@ -109,7 +109,7 @@ finally
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-APIKEY";
 var spaceName = "default";

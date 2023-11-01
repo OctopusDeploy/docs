@@ -1,0 +1,21 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "dictionaries": ["dictionary-octopus"],
+    "dictionaryDefinitions": [{
+            "name": "dictionary-octopus",
+            "path": "./dictionary-octopus.txt",
+            "addWords": false
+    }],
+    "flagWords": [
+        "hte"
+    ],
+    "ignorePaths": [
+        "cspell.json",
+        "package.json",
+        "package-lock.yaml",
+        "pnpm-lock.yaml",
+        "docs/credits.md",
+        "node_modules/**"
+    ]
+}

@@ -1,12 +1,12 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Octopus REST API
 navTitle: Overview
 navSection: Octopus REST API
 description: Octopus integrates with build servers, scripts, external applications and anything else with its REST API.
-navOrder: 110
+navOrder: 130
 ---
 import RestApi from 'src/shared-content/concepts/rest-api.include.md';
 
@@ -19,7 +19,7 @@ The Octopus REST API is designed:
 3. To be comprehensive - 100% of the actions that you perform via the Octopus UI can be performed via the API.
 4. To provide a great developer experience through [API clients](#api-clients) and [detailed examples](/docs/octopus-rest-api/examples).
 
-## API Clients
+## API clients
 
 Octopus provides API clients for popular programming languages and runtime environments. The source code for these clients is hosted on GitHub:
 
@@ -30,7 +30,7 @@ Octopus provides API clients for popular programming languages and runtime envir
 
 Code snippets using these clients for various operations in the Octopus REST API are available in our [API examples](/docs/octopus-rest-api/examples) documentation.
 
-## REST API Authentication \{#authentication}
+## REST API authentication \{#authentication}
 
 The Octopus Deploy API is available at:
 
@@ -51,7 +51,7 @@ Once you have a key, you can provide it to the API in the following ways:
 Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 :::
 
-## REST API Swagger Documentation \{#api-swagger-docs}
+## REST API Swagger documentation \{#api-swagger-docs}
 
 Octopus includes the default Swagger UI for displaying the API documentation in a nice human readable way. To browse that UI just open your browser and go to `https://<your-octopus-url>/swaggerui/`. The original Non-Swagger API page is still available and can always be accessed via `https://<your-octopus-url>/api/`.
 
@@ -61,7 +61,7 @@ Octopus includes the default Swagger UI for displaying the API documentation in 
 
 You can view the API through the Octopus Demo server at [demo.octopus.app/swaggerui/index.html](https://demo.octopus.app/swaggerui/index.html).
 
-## REST API Links \{#api-links}
+## REST API links \{#api-links}
 
 All resources returned by the REST API contain links to other resources. The idea is that instead of memorizing or hard-coding URL's when using the API, you should start with the root API resource and use links to navigate. 
 
@@ -99,7 +99,7 @@ You can follow the links in the result to navigate around the API; for example, 
 
 Since the format and structure of links may change, it's essential that clients avoid hardcoding URL's to resources, and instead rely on starting at `/api` and navigating from there. 
 
-### URI Templates
+### URI templates
 
 Some links (mainly to collections) use URI templates as defined in [RFC 6570](http://tools.ietf.org/html/rfc6570). If in doubt, a client should assume that any link is a URI template.
 
@@ -111,7 +111,7 @@ Collections of resources also include links. For example, following the `Environ
 {
     "ItemType": "Environment",
     "TotalResults": 20,
-    "ItemserPage": 10,
+    "ItemsPerPage": 10,
     "NumberOfPages": 2,
     "LastPageNumber": 1,
     "Items": [

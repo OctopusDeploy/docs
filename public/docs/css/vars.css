@@ -1,5 +1,5 @@
 /* Recommended Tools
-    Check accessibility for colour combinations
+    Check accessibility for color combinations
     https://toolness.github.io/accessible-color-matrix/
 */
 
@@ -8,7 +8,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url("roboto-regular.woff2") format("woff2");
+    src: url("/docs/css/roboto-regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -16,7 +16,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url("roboto-bold.woff2") format("woff2");
+    src: url("/docs/css/roboto-bold.woff2") format("woff2");
 }
 
 @font-face {
@@ -82,44 +82,44 @@
     --color-subtitle: var(--navy-600);
     --font-size-subtitle: var(--font-size-large);
 
-    --bordercolor-header: var(--navy-200);
+    --border-color-header: var(--navy-200);
 
     --color-menu-link: var(--navy-600);
     --color-menu-link-alt: var(--blue-500);
     --color-menu-marker: var(--navy-300);
-    --bgcolor-menu: var(--blue-qqq);
-    --bgcolor-menu-open: var(--blue-100);
-    --bordercolor-menu-open: var(--navy-200);
+    --bg-color-menu: var(--blue-qqq);
+    --bg-color-menu-open: var(--blue-100);
+    --border-color-menu-open: var(--navy-200);
     --gap-menu: 0.6em;
 
     --navigation-width: 280px;
 
-    --bgcolor-tab: var(--navy-200);
+    --bg-color-tab: var(--navy-200);
     --border-color-tab: var(--navy-200);
     --border-color-tab-active: var(--navy-400);
 
     --color-hint: #124164;
-    --bgcolor-hint: #e5f4ff;
-    --bordercolor-hint: var(--blue-500);
+    --bg-color-hint: #e5f4ff;
+    --border-color-hint: var(--blue-500);
 
     --color-info: #124164;
-    --bgcolor-info: #e5f4ff;
-    --bordercolor-info: var(--blue-500);
+    --bg-color-info: #e5f4ff;
+    --border-color-info: var(--blue-500);
 
     --color-success: #04502f;
-    --bgcolor-success: #e8ffeb;
-    --bordercolor-success: #00b065;
+    --bg-color-success: #e8ffeb;
+    --border-color-success: #00b065;
 
     --color-warning: #a23623;
-    --bgcolor-warning: #fefae9;
-    --bordercolor-warning: #fc8431;
+    --bg-color-warning: #fefae9;
+    --border-color-warning: #fc8431;
 
     --color-problem: #931919;
-    --bgcolor-problem: #fff2ee;
-    --bordercolor-problem: #ff4848;
+    --bg-color-problem: #fff2ee;
+    --border-color-problem: #ff4848;
 
     --color-trial: var(--blue-grey-medium);
-    --bgcolor-trial: var(--light-green);
+    --bg-color-trial: var(--light-green);
 
     /* To be checked and cleaned */
 
@@ -135,6 +135,7 @@
 
     --heading-font: RobotoBold,Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
     --body-font: RobotoRegular,Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    --bold-font: RobotoBold,'Helvetica Neue',Helvetica,Arial,sans-serif;
     --code-font: Consolas, monaco, monospace;
 
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-07-10
+modDate: 2023-10-04
 title: Upgrading Octopus
 description: Everything you need to know about upgrading Octopus to a newer version.
 navOrder: 40
@@ -22,7 +22,7 @@ Octopus Deploy connects to a SQL Server database, and can be hosted:
 - As a Windows Service, installed via an MSI.
 - In a [Linux](/docs/installation/octopus-server-linux-container) container.
 
-### Upgrade Process
+### Upgrade process
 
 When running on Windows, the typical (manual) upgrade process is:
 - Run the MSI to install the latest binaries.
@@ -36,7 +36,7 @@ Once the **Octopus Manager** starts the upgrade process, downtime _will_ occur. 
 
 **Upgrades and the Service Watchdog**
 
-If you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog), you will need to cancel it before you start your upgrade and recreate it after the upgrade is finished. Documentation on canceling the watchdog can be found [here](/docs/administration/managing-infrastructure/service-watchdog/#ServiceWatchdog-CancelingtheWatchdog).
+If you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog), you will need to cancel it before you start your upgrade and recreate it after the upgrade is finished. Documentation on canceling the watchdog can be found [here](/docs/administration/managing-infrastructure/service-watchdog/#ServiceWatchdog-CancelingTheWatchdog).
 
 
 ### Upgrading a highly available Octopus Deploy instance
@@ -59,7 +59,7 @@ The Windows Service is split across multiple folders to make upgrading easy and 
 - **SQL Server Database**: Since `Octopus Deploy 3.x`, the back-end database has been SQL Server.  Each update can contain 0 to N database scripts embedded in a .dll in the install location.  The **Octopus Manager** invokes those database scripts automatically.
 - **Home Folder**: The home folder stores configuration, logs, and other items unique to your instance.  The home folder is separate from the install location to make it easier to upgrade, downgrade, uninstall/reinstall without affecting your instance.  The default location of the home folder is `C:\Octopus`.  Except in rare cases, this folder is left unchanged by the upgrade process.
 - **Instance Information**: The Octopus Deploy Manager allows you to configure 1 to N instances per Windows Server.  The **Octopus Manager** stores a list of all the instances in the `C:\ProgramData\Octopus\OctopusServer\Instances` folder.   Except in rare cases, this folder is left unchanged by the upgrade process.  
-- **Server Folders**: Logs, artifacts, packages, and event exports are too big for Octopus Deploy to store in a SQL Server database.  The server folders are subfolders in `C:\Octopus\`.  Except in rare cases, these folders are left unchanged by an upgrade.  
+- **Server Folders**: Logs, artifacts, packages, and event exports are too big for Octopus Deploy to store in a SQL Server database.  The server folders are sub-folders in `C:\Octopus\`.  Except in rare cases, these folders are left unchanged by an upgrade.  
 - **Tentacles**: Octopus Deploy connects to deployment targets via the Tentacle service.  Each version of Octopus Deploy includes a specific Tentacle version.  Tentacle upgrades do not occur until _after_ the Octopus Deploy server is upgraded.  Tentacle upgrades are optional; any Tentacle greater than 4.x will work [with any modern version of Octopus Deploy](/docs/support/compatibility).  We recommend you upgrade them to get the latest bug fixes and security patches when convenient.  
 - **Calamari**: The Tentacles facilitate communication between Octopus Deploy and the deployment targets.  Calamari is the software that does the actual deployments.  Calamari and Octopus Deploy are coupled together.  Calamari is upgraded automatically during the first deployment to a target.
 
@@ -67,7 +67,7 @@ The Windows Service is split across multiple folders to make upgrading easy and 
 
 <OctopusReleases />
 
-## How we version Octopus Deploy \{#Upgrading-HowweversionOctopusDeploy}
+## How we version Octopus Deploy
 
 We use our version numbering scheme to help you understand the type of changes we have introduced between two versions of Octopus Deploy:
 
@@ -91,14 +91,14 @@ If you're interested in more details about versioning Octopus, check out the blo
 
 ## Scenarios
 
-Please pick from one of these upgrade scenarios.  Any version 3.x or higher is considered modern; any version before that is considered legacy.
+Please pick from one of these upgrade scenarios:
 
 - [Upgrading minor and patch releases](/docs/administration/upgrading/guide/upgrading-minor-and-patch-releases)
 - [Upgrading major releases](/docs/administration/upgrading/guide/upgrading-major-releases)
-- [Upgrading from Octopus 4.x or 2018.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-4.x-2018.x-to-modern)
-- [Upgrading from Octopus 3.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-3.x-to-modern)
 - [Upgrading host OS or .NET version](/docs/administration/upgrading/guide/upgrade-host-os-or-net)
 - Legacy Upgrades
+  - [Upgrading from Octopus 4.x or 2018.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-4.x-2018.x-to-modern)
+  - [Upgrading from Octopus 3.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-3.x-to-modern)
   - [Upgrade from 2.6.5 to 2018.10.x](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts)
   - [Upgrade from 2.x to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.x-2.6.5)
   - [Upgrade from 1.6 to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-1.6-2.6.5)
@@ -107,7 +107,7 @@ Please pick from one of these upgrade scenarios.  Any version 3.x or higher is c
 Since Octopus Deploy 3.x, the backing database is SQL Server.  Prior to Octopus Deploy 3.x, the backing database was RavenDB.  That is why we consider any version released before 3.x a legacy upgrade.
 :::
 
-## Mitigating Risk
+## Mitigating risk
 
 The best way to mitigate risk is to automate the upgrade and/or create a test instance.  Automation ensures all steps, including backups, are followed for every upgrade.  A test instance allows you to test out upgrades and new features without affecting your main instance.
 

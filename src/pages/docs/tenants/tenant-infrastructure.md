@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Tenant Infrastructure
 description: Tenant infrastructure can be modeled in both a dedicated or shared way in Octopus using environments, deployment targets, and tenant tags.
 navOrder: 50
@@ -79,7 +79,7 @@ Shared hosting allows you to host the applications of multiple tenants on the sa
 
 This is very similar to the dedicated hosting scenario. Instead of choosing a single-tenant, you use a tenant tag to indicate these servers will be hosting applications for multiple tenants.
 
-### Step 1: Create a Hosting tag set {#shared-hosting-create-tagset}
+### Step 1: Create a hosting tag set {#shared-hosting-create-tagset}
 
 Firstly let's create a tag set to identify which tenants should be hosted on which shared server farms:
 

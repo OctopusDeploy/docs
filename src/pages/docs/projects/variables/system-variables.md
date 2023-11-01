@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-09-01
+modDate: 2023-09-20
 title: System variables
 description: System variables are variables provided by Octopus that can be used in your deployments.
 navOrder: 20
@@ -418,7 +418,7 @@ Example: *Acme Corp*
 
 `Octopus.Deployment.Tenant.Tags`
 
-Comma delimited list of tags that belong the the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present.
+Comma delimited list of tags that belong the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present.
 
 Example: *Tenant type/External, Upgrade ring/Early adopter*
 
@@ -433,6 +433,15 @@ Example: *ProjectTriggers-522*
 The name of the Trigger that created the deployment. It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the name of _one_ of the triggers.
 
 *Nightly Deploy to Dev*
+
+`Octopus.Deployment.WorkerLeaseCap`
+
+This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evenly. By default this behavior is disabled, and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
+
+Example: `1` - achieves a similar effect to round robin.  
+Example: `5` - a balance between reducing package transfer and distributing load.
+
+Note: This value applies to both deployment processes and runbooks, as long as it's scoped to the particular scenario.
 
 `Octopus.Endpoint.\_type\_.\_property\_`
 
@@ -892,7 +901,7 @@ Example: *PowerShell*
 
 `Octopus.Action.SkipRemainingConventions`
 
-If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables). e.g. <br /> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'`
+If set by the user, completes processing of the action without running further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables). e.g. <br /> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'`
 
 Example: *True*
 
@@ -1450,6 +1459,15 @@ Example: True
 Set to a file-path and the Calamari working directory will be copied to the configured location. **Copied files include the one-time key to decrypt sensitive variables** [More details.](/docs/support/copy-working-directory).
 
 Example: `c:\temp\octopus-debug`
+
+`Octopus.Deployment.WorkerLeaseCap`
+
+This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evenly. By default this behavior is disabled, and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
+
+Example: `1` - achieves a similar effect to round robin.  
+Example: `5` - a balance between reducing package transfer and distributing load.
+
+Note: This value applies to both deployment processes and runbooks, as long as it's scoped to the particular scenario.
 
 `Octopus.Task.ConcurrencyTag`
 

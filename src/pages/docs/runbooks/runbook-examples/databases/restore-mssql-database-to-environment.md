@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Restore SQL database to another environment
 description: With Octopus Deploy you can restore a MSSQL database to another environment with a runbook.
 navOrder: 30
@@ -13,7 +13,7 @@ This section shows you how to restore a database to a different environment, for
 
 Using the runbook means developers don't need any extra permissions to the database server itself, eliminating the time normal spent filling out a support ticket or tracking down a DBA to perform the restore.
 
-## Create the Runbook
+## Create the runbook
 
 1. To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 2. Give the runbook a name and click **SAVE**.
@@ -53,7 +53,7 @@ You can also add additional steps to add security to your runbooks, such as a [m
 
 We have a [Target - Windows](https://oc.to/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
 
-## Learn More
+## Learn more
 
 - [SQL Backup - Community Step template](https://library.octopus.com/step-templates/34b4fa10-329f-4c50-ab7c-d6b047264b83/actiontemplate-sql-backup-database)
 - [SQL Fix Orphaned User - Community Step Template](https://library.octopus.com/step-templates/e56e9b28-1cf2-4646-af70-93e31bcdb86b/actiontemplate-sql-fix-orphaned-user)

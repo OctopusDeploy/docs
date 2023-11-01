@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Migration
 description: How to migrate from a stand-alone Octopus server to a High Availability (HA) setup.
 navOrder: 30
@@ -102,7 +102,7 @@ The advantage of a new URL is:
 
 <LoadBalancerEndpointInfo />
 
-## Outage Windows
+## Outage windows
 
 The below steps will cause an outage in Octopus Deploy.  With all the prep work, the outage window should be small.  If possible, we recommend making these change off-hours.  In addition, you don't have to do them all in one outage window.  You can move the database in one outage window, and the file system in the other outage window.  
 
@@ -161,7 +161,7 @@ After you finish moving the database and file storage, it is time to turn back o
 1. Assuming all goes well, disable maintenance mode.
 1. Notify everyone of the new URL (if there is one).
 
-## Adding Additional Nodes
+## Adding additional nodes
 
 After configuring a load balancer and moving the database and files, adding a new node is trivial.  
 

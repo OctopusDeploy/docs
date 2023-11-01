@@ -581,7 +581,7 @@ Console.WriteLine(string.Format("There are {0} cloud regions which are not count
 Console.WriteLine(string.Format("There are {0} disabled machines which are not counted", categorizedMachines.DisabledMachines.Count.ToString()));
 Console.WriteLine(string.Format("There are {0} duplicate listening Tentacles that are not counted (assuming you are using 2019.7.3+", categorizedMachines.DuplicateTentacles.Count.ToString()));
 Console.WriteLine(string.Empty);
-Console.WriteLine(string.Format("This leaves you with {0} active targets being counted against your licese (this process is excluding the {1} duplicates in that active count)", categorizedMachines.ActiveMachines.ToString(), categorizedMachines.DuplicateTentacles.Count.ToString()));
+Console.WriteLine(string.Format("This leaves you with {0} active targets being counted against your license (this process is excluding the {1} duplicates in that active count)", categorizedMachines.ActiveMachines.ToString(), categorizedMachines.DuplicateTentacles.Count.ToString()));
 Console.WriteLine(string.Format("Of that combined number, {0} are showing up as offline", categorizedMachines.OfflineMachines.Count.ToString()));
 Console.WriteLine(string.Format("Of that combined number, {0} have never had a deployment", categorizedMachines.UnusedMachines.Count.ToString()));
 Console.WriteLine(string.Format("Of that combined number, {0} haven't done a deployment in over {1} days", categorizedMachines.OldMachines.Count.ToString(), daysSinceLastDeployment));
@@ -682,7 +682,7 @@ def update_categorized_machines(categorized_machines, space, octopus_server_uri,
                 # Search for duplicate
                 duplicate_machine = find_duplicate_entry(categorized_machines, machine)
                 if duplicate_machine != None:
-                    categorized_machines['DuplicateTenatacles'].append(machine)
+                    categorized_machines['DuplicateTentacles'].append(machine)
                     categorized_machines['ActiveMachines'] -= 1
 
                 categorized_machines['ListeningTentacles'].append(machine)
@@ -728,7 +728,7 @@ categorized_machines = {
     'OldMachines': [],
     'TotalMachines': 0,
     'ListeningTentacles': [],
-    'DuplicateTenatacles': [],
+    'DuplicateTentacles': [],
     'UnusedMachines': []
 }
 unsupported_communication_styles = ['None']
@@ -748,9 +748,9 @@ for space in spaces:
 print('This instance has a total of {0} targets across all spaces'.format(categorized_machines['TotalMachines']))
 print('There are {0} cloud regions which are not counted'.format(len(categorized_machines['NotCountedMachines'])))
 print('There are {0} disabled machines that are not counted'.format(len(categorized_machines['DisabledMachines'])))
-print('There are {0} duplicate listening tentacles that are not counted (assuming youare using 2019.7.3+)'.format(len(categorized_machines['DuplicateTenatacles'])))
+print('There are {0} duplicate listening tentacles that are not counted (assuming you are using 2019.7.3+)'.format(len(categorized_machines['DuplicateTentacles'])))
 print('\n')
-print('This leaves you with {0} active targets being counted against your license (this script is excluding the {1} duplicates in that active count'.format(categorized_machines['ActiveMachines'], len(categorized_machines['DuplicateTenatacles'])))
+print('This leaves you with {0} active targets being counted against your license (this script is excluding the {1} duplicates in that active count'.format(categorized_machines['ActiveMachines'], len(categorized_machines['DuplicateTentacles'])))
 print('Of that combined number, {0} are showing up as offline'.format(len(categorized_machines['OfflineMachines'])))
 print('Of that combined number, {0} have never had a deployment'.format(len(categorized_machines['UnusedMachines'])))
 print('Of that combined number, {0} have not done a deployment in over {1} days'.format(len(categorized_machines['OldMachines']), days_since_last_deployment))
@@ -798,7 +798,7 @@ type CategorizedMachines struct {
 	OldMachines        []*octopusdeploy.DeploymentTarget
 	TotalMachines      int
 	ListeningTentacles []*octopusdeploy.DeploymentTarget
-	DuplicateTenatcles []*octopusdeploy.DeploymentTarget
+	DuplicateTentacles []*octopusdeploy.DeploymentTarget
 }
 
 func main() {
@@ -831,9 +831,9 @@ func main() {
 	fmt.Printf("This instance has a total of %[1]s targets across all spaces \n", strconv.Itoa(categorizedMachines.TotalMachines))
 	fmt.Printf("There are %[1]s cloud regions which are not counted \n", strconv.Itoa(len(categorizedMachines.NotCountedMachines)))
 	fmt.Printf("There are %[1]s disabled machines which are not counted \n", strconv.Itoa(len(categorizedMachines.DisabledMachines)))
-	fmt.Printf("There are %[1]s duplicate listening tentacles that are not counted (assuming you are using 2019.7.3+)\n", strconv.Itoa(len(categorizedMachines.DuplicateTenatcles)))
+	fmt.Printf("There are %[1]s duplicate listening tentacles that are not counted (assuming you are using 2019.7.3+)\n", strconv.Itoa(len(categorizedMachines.DuplicateTentacles)))
 	fmt.Println("")
-	fmt.Printf("This leaves you with %[1]s active targets being counted against your license (this process is excuding %[2]s duplicates in that active count) \n", strconv.Itoa(categorizedMachines.ActiveMachines), strconv.Itoa(len(categorizedMachines.DuplicateTenatcles)))
+	fmt.Printf("This leaves you with %[1]s active targets being counted against your license (this process is excluding %[2]s duplicates in that active count) \n", strconv.Itoa(categorizedMachines.ActiveMachines), strconv.Itoa(len(categorizedMachines.DuplicateTentacles)))
 	fmt.Printf("Of that combined number, %[1]s are showing up as offline\n", strconv.Itoa(len(categorizedMachines.OfflineMachines)))
 	fmt.Printf("Of that combined number, %[1]s have never had a deployment\n", strconv.Itoa(len(categorizedMachines.UnusedMachines)))
 	fmt.Printf("Of that combined number, %[1]s have not done a deployment in over %[2]s days\n", strconv.Itoa(len(categorizedMachines.OldMachines)), strconv.Itoa(daysSinceLastDeployment))
@@ -855,7 +855,7 @@ func main() {
 		}
 
 		fmt.Printf("Duplicates\n")
-		for _, target := range categorizedMachines.DuplicateTenatcles {
+		for _, target := range categorizedMachines.DuplicateTentacles {
 			fmt.Printf("\t%[1]s\n", target.Name)
 		}
 	}
@@ -907,7 +907,7 @@ func updateCategorizedMachines(octopusURL *url.URL, APIKey string, space *octopu
 				duplicateEntry := searchForDuplicateListening(categorizedMachines, machine)
 
 				if duplicateEntry != nil {
-					categorizedMachines.DuplicateTenatcles = append(categorizedMachines.DuplicateTenatcles, machine)
+					categorizedMachines.DuplicateTentacles = append(categorizedMachines.DuplicateTentacles, machine)
 					categorizedMachines.ActiveMachines--
 				}
 
@@ -994,7 +994,7 @@ func GetMachineTasks(octopusURL *url.URL, APIKey string, space *octopusdeploy.Sp
 		itemsPerPage := int(fltItemsPerPage)
 
 		if len(returnedTasks["Items"].([]interface{})) == itemsPerPage {
-			// Increment skip accoumt
+			// Increment skip amount
 			skipAmount += len(returnedTasks["Items"].([]interface{}))
 
 			// Make request

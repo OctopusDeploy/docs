@@ -58,8 +58,8 @@ Suppose you have this `web.config` or `MyApp.exe.config` file in your package wh
 
 In this example, you would have variables similar to the following:
 
-| Variable Name    | Value     | Sensitive    | Scope    |
-| ----------------------- | --------------- | -------- |
+| Variable Name    | Value     | Sensitive    | Scope |
+| ----------------------- | --------------- | -------- | -------- |
 | `AWSAccessKey` | `ABCDEFG` | `No` | `Test` |
 | `AWSAccessKey` | `HIJKLMN` | `No` | `Production` |
 | `AWSSecretKey` | `1111111` | `Yes` | `Test` |

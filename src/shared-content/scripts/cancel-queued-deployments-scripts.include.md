@@ -43,7 +43,7 @@ while ($canContinue -eq $true)
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "http://octotemp";
 var octopusAPIKey = "API-YOURAPIKEY";
 string spaceName = "default";
@@ -63,7 +63,7 @@ try
     
     while (canContinue == true)
     {
-        // Get queued deployemnts
+        // Get queued deployments
         var queuedDeployments = client.List<TaskResource>(repositoryForSpace.Link("Tasks"), new { states = "Queued", name = "Deploy", take = "50", skip = "0"});
 
         // Loop through results

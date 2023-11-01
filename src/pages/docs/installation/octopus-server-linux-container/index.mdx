@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Octopus Server Linux Container
 description: Running the Octopus Server in the official Docker Linux container
 navOrder: 8
@@ -68,7 +68,7 @@ Master keys must be a 128 bit string that is then base 64 encoded. You can gener
 openssl rand 16 | base64
 ```
 
-### Environment Variables
+### Environment variables
 
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) about setting environment variables.
 
@@ -82,7 +82,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |**ADMIN_EMAIL**|The email associated with the admin user account|
 |**DISABLE_DIND**|The Linux image will by default attempt to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers). This requires the image be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). Setting `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted.|
 
-### Exposed Container Ports
+### Exposed container ports
 
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
 
@@ -93,7 +93,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#pub
 |**10943**|Port for Polling Tentacles to contact the server|
 
 
-### Volume Mounts
+### Volume mounts
 
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volumes.
 

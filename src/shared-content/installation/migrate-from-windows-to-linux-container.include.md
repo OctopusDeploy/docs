@@ -135,7 +135,7 @@ Linux:
 /opt/octopus/tentacle/Tentacle poll-server --server=httpa://your.octopus.server --apikey=API-MyApiKey --server-comms-port=10943
 ```
 
-## Folder Paths
+## Folder paths
 
 The Dockerfile runs the Octopus Server installer each time the Octopus Server Windows Container or Octopus Server Linux Container starts up.  The installer runs a series of commands to configure Octopus Deploy.  The installer will run the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path) command to update the paths to leverage the different folder structure.
 
@@ -163,15 +163,15 @@ If you are running Octopus Server on Kubernetes, you will want to configure [per
 Due to how paths are stored, you cannot run an Octopus Server Windows Container and Octopus Server Linux Container simultaneously.  It has to be all Windows or all Linux.
 :::
 
-## Database Connection String and Master Key
+## Database connection string and master key
 
 Just as it is with Octopus Server running on Windows (VM or Container), you will need to provide the database connection string and master key to the Octopus Server Linux Container.  The underlying database technology Octopus Deploy relies upon, SQL Server, has not changed.  The connection string format is the same, so you shouldn't need to change anything.
 
-## Server Thumbprint
+## Server thumbprint
 
 The certificate backing the server thumbprint is stored in the database.  Any tentacles that trust your existing server thumbprint will continue to work as-is when you move to the Octopus Server Linux Container.
 
-## Outage Window
+## Outage window
 
 Migrating to the Octopus Server Linux Container will require an outage window.  The steps to perform during the outage window are:
 

@@ -1,12 +1,12 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Insights
 navTitle: Overview
 navSection: Insights
 description: Insights gives you better visibility into your company's DevOps performance.
-navOrder: 100
+navOrder: 120
 ---
 
 DevOps insights in Octopus gives you better visibility into your company's DevOps performance by surfacing the four key DORA metrics, so you can make more informed decisions on where to improve and celebrate your results.
@@ -22,11 +22,11 @@ Two levels are available for DevOps Insights:
 
 ## What are DORA metrics?
 
-[DORA](https://www.devops-research.com/) (DevOps Research and Assessment) is the team behind the Accelerate State of DevOps Report 2, a survey of more than 32,000 professionals from around the world. Their research has linked the technical and cultural capabilities that drive software delivery and organizational performance.
+[DORA](https://dora.dev/) (DevOps Research and Assessment) is the team behind the Accelerate State of DevOps Report 2, a survey of more than 32,000 professionals from around the world. Their research has linked the technical and cultural capabilities that drive software delivery and organizational performance.
 
 DORA recommends an approach to measuring software delivery that relies on five metrics:
 
-_Tempo_
+_Throughput_
 
 - Lead time for changes (LT)
 - Deployment frequency (DF)
@@ -36,13 +36,13 @@ _Stability_
 - Change failure rate (CFR)
 - Mean time to recovery (MTTR)
 
-_Operation_
+_Operations_
 
 - Reliability
 
 Throughput metrics measure the health of your deployment pipeline, while the stability indicators help you understand the quality of your software and delivery pipeline. In addition to the four classic DORA metrics that measure software delivery performance, DORA added a new measure in 2021 for operational performance.
 
-## Octopus built-in DORA metrics with DevOps Insights
+## Octopus built-in DORA metrics with Insights
 
 Octopus **2022.3** adds out-of-the-box support for the following DevOps metrics:
 
@@ -74,7 +74,7 @@ Together these metrics help you qualify the results of your DevOps performance, 
 - Help introduce change with data and collaboration to make a business case
 - Share successes and learn from failures to continuously improve
 
-## Understand performance of your projects with Project level Insights
+## Understand performance of your projects with project-level Insights
 
 Project level insights are available as a new tab in every project so you can understand the performance of your projects across Channels, Environments, and Tenants. Each metric can be seen at a summary level, and insights can also be filtered to time frames, including last month, quarter, year, channels, and environments, as well as being exported into CSV.
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Offload Work to Workers
 description: Guidelines and recommendations for configuring workers in Octopus Deploy.
 navOrder: 40
@@ -45,7 +45,7 @@ The built-in worker and [dynamic workers](/docs/infrastructure/workers/dynamic-w
 - Dynamic workers are assigned to an entire instance, not just a space.  We have seen cases where a deployment blocks on one space, blocking a deployment on another space because they both used the same dynamic worker.
 - There is only one dynamic worker per pool.  Workers have some blocking tasks (install Calamari and downloading a package).  If a process needs to acquire a mutex for that blocking task, it has to wait until other tasks are done.
 
-## Workers for Octopus at Scale
+## Workers for Octopus at scale
 
 If you plan on using Octopus Deploy at scale, [disable the built-in worker](/docs/infrastructure/workers/built-in-worker/#switching-off-the-built-in-worker) for self-hosted or stop using the dynamic workers and host your own workers and worker pools.
 
@@ -56,7 +56,7 @@ If you plan on using Octopus Deploy at scale, [disable the built-in worker](/doc
 - For redundancy, have at least two workers per pool.
 - Whenever possible, leverage [execution container for workers](/docs/projects/steps/execution-containers-for-workers) to limit the amount of software to install and maintain on the workers.
 
-## Compute Resources Required
+## Compute resources required
 
 Workers don't need a lot of compute resources.  Our recommendations are:
 

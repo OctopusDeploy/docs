@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Retention policies
 description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
 navOrder: 70
@@ -204,7 +204,7 @@ Choosing the *A limited time* option will allow you to select the number of days
 Only packages that are not associated with releases will be cleaned up. That means even if a package is older than the value you choose, if it's attached to an existing release, it won't be cleaned up until that release is also cleaned up.
 :::
 
-## External Feeds
+## External feeds
 
 Octopus does not apply any retention policies to external feeds. However the packages that are currently in-use can be retrieved from the API ([example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/LINQPad/GetInUsePackages.linq)) and those results then used to remove packages from those feeds.
 

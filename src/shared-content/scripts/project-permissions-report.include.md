@@ -239,7 +239,7 @@ function Get-UserPermission
         {
             if ($projectEnvironmentList -notcontains $environmentId)
             {
-                Write-OctopusVerbose "The role is scoped to environment $environmentId, but the environment is not asigned to $($project.Name), excluding from this project's report"
+                Write-OctopusVerbose "The role is scoped to environment $environmentId, but the environment is not assigned to $($project.Name), excluding from this project's report"
                 continue
             }
 
@@ -519,7 +519,7 @@ foreach ($space in $spaceList)
             RunbookRunViewPermissions = @()
             RunbookRunCreatePermissions = @()
             ManualInterventionViewPermissions = @()
-            ManualInterventionApprovePermisions = @()
+            ManualInterventionApprovePermissions = @()
             TenantViewPermissions = @()
             TenantEditPermissions = @()
             TenantDeletePermissions = @()
@@ -586,7 +586,7 @@ foreach ($space in $spaceList)
                     $projectPermission.ArtifactViewPermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.ArtifactViewPermissions -permissionToCheck "ArtifactView" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $true -projectEnvironmentList $projectEnvironmentList)
 
                     $projectPermission.ManualInterventionViewPermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.ManualInterventionViewPermissions -permissionToCheck "InterruptionView" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $true -projectEnvironmentList $projectEnvironmentList)
-                    $projectPermission.ManualInterventionApprovePermisions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.ManualInterventionApprovePermisions -permissionToCheck "InterruptionViewSubmitResponsible" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $true -projectEnvironmentList $projectEnvironmentList)
+                    $projectPermission.ManualInterventionApprovePermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.ManualInterventionApprovePermissions -permissionToCheck "InterruptionViewSubmitResponsible" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $true -projectEnvironmentList $projectEnvironmentList)
                     
                     $projectPermission.RunbookViewPermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.RunbookViewPermissions -permissionToCheck "RunbookView" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $false -projectEnvironmentList $projectEnvironmentList)
                     $projectPermission.RunbookEditPermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.RunbookEditPermissions -permissionToCheck "RunbookEdit" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $false -projectEnvironmentList $projectEnvironmentList)
@@ -652,7 +652,7 @@ foreach ($permission in $permissionsReport)
     Write-PermissionList -permissionName "Artifact View" -permissionList $permission.ArtifactViewPermissions -permission $permission -reportPath $reportPath
 
     Write-PermissionList -permissionName "Manual Intervention View" -permissionList $permission.ManualInterventionViewPermissions -permission $permission -reportPath $reportPath
-    Write-PermissionList -permissionName "Manual Intervention Approve (when assigned to team)" -permissionList $permission.ManualInterventionApprovePermisions -permission $permission -reportPath $reportPath
+    Write-PermissionList -permissionName "Manual Intervention Approve (when assigned to team)" -permissionList $permission.ManualInterventionApprovePermissions -permission $permission -reportPath $reportPath
 
     
 }

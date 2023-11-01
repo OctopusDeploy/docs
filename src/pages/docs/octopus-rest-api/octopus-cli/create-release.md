@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Create release
 description: Using the Octopus CLI to create releases.
 navOrder: 100
@@ -264,7 +264,7 @@ This creates a release for a project with multiple packages, by taking the versi
 octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packages --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-## Deploying a Release After Creating It {#Creatingreleases-Deployingareleaseaftercreatingit}
+## Deploying a release after creating it {#Creatingreleases-Deployingareleaseaftercreatingit}
 
 To create a release **and** deploy it to an environment named Production:
 
@@ -277,7 +277,7 @@ octo create-release --project HelloWorld --deployto Production --server http://o
 If the `--deployTo` parameter is specified and the [lifecycle](/docs/releases/lifecycles) of the project you are deploying to is set to *Deploy automatically* when a release is created, it's possible multiple deployments to the same environment will be triggered.
 :::
 
-## Release Notes Supported Syntax
+## Release notes supported syntax
 
 We use [showdownjs](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
 Showdownjs supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.

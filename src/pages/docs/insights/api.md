@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: API
 description: The Insights API
 navOrder: 160
@@ -304,7 +304,7 @@ The request body is in JSON format.
 | EnvironmentGroups | Optional | An array of the environment groups to be  included in this report. | 
 | TimeZone | Optional | The timezone to be used in the report. Must be either a Windows or IANA (Tzdb) timezone. | 
 
-### Delete an Insights report
+### Delete an insights report
 DELETE: `/api/{spaceId}/insights/reports/{reportId}`
 Deletes an existing Insights report.
 

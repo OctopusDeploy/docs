@@ -161,4 +161,16 @@ Usually the reason you need to use offline package drop is for some kind of secu
 
 ## Deploying the offline package drop {#OfflinePackageDrop-DeployingtheOfflinePackageDrop}
 
+:::div{.warning}
+**PowerShell 7.3 breaking change**
+
+**PSNativeCommandArgumentPassing**
+
+When this experimental feature is enabled PowerShell uses the `ArgumentList` property of the `StartProcessInfo` object rather than our current mechanism of reconstructing a string when invoking a native executable.
+
+The new behavior is a **breaking change** from current behavior. This will break the `ps1` script we create as part of the offline drop package, setting `$PSNativeCommandArgumentPassing` to `Legacy` will revert the behavior to the historic behavior and let our `ps1` script to work again.
+
+To learn more, please see the Microsoft [documentation](https://learn.microsoft.com/en-us/powershell/scripting/learn/experimental-features?view=powershell-7.3#psnativecommandargumentpassing).
+:::
+
 To Deploy the offline package drop simply copy the entire folder for that release to the target server and execute the batch file. This will actually execute the deployment on the target server just like Tentacle would.

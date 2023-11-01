@@ -283,7 +283,7 @@ try
 
     var formValues = new Dictionary<string, string>();
     
-    // Associate variable vaelues for the runbook
+    // Associate variable values for the runbook
     foreach (var variableName in promptedVariables.Keys)
     {
         var element = runbookPreview.Form.Elements.FirstOrDefault(e => (e.Control as Octopus.Client.Model.Forms.VariableValue).Name == variableName);

@@ -176,11 +176,11 @@ Write-Host "Created runbook trigger: $($createdRunbookTrigger.Id) ($runbookTrigg
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://your.octopus.app";
 var octopusAPIKey = "API-YOURAPIKEY";
 
-// Define workig variables
+// Define working variables
 string spaceName = "default";
 string projectName = "MyProject";
 string runbookName = "MyRunbook";

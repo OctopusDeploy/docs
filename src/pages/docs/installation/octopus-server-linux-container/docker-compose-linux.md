@@ -100,7 +100,7 @@ DB_CONNECTION_STRING=Server=db,1433;Database=OctopusDeploy;User=sa;Password=THE_
 # Your License key for Octopus Deploy. If left empty, it will try and create a free license key for you
 OCTOPUS_SERVER_BASE64_LICENSE=
 
-# Octopus Deploy uses a master key for encryption of your databse. If you're using an external database that's already been setup for Octopus Deploy, 
+# Octopus Deploy uses a master key for encryption of your database. If you're using an external database that's already been setup for Octopus Deploy, 
 # you can supply the master key to use it. 
 # If left blank, a new master key will be generated with the database creation.
 # Create a new master key with the command: openssl rand 16 | base64

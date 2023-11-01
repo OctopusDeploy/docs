@@ -313,7 +313,7 @@ func main() {
 
 	// Loop through the runbook runs
 	for i := 0; i < len(runbookRuns); i++ {
-		// Map teh runbook run object
+		// Map the runbook run object
 		runbookRun := runbookRuns[i].(map[string]interface{})
 
 		// Get the artifacts from the run

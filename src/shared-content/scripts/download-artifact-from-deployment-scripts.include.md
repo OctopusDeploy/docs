@@ -302,7 +302,7 @@ func main() {
 	APIKey := "API-YourAPIKey"
 	spaceName := "Default"
 	projectName := "MyProject"
-	relaseVersion := "1.0.0"
+	releaseVersion := "1.0.0"
 	environmentName := "Development"
 	downloadPath := "c:\\temp"
 
@@ -316,7 +316,7 @@ func main() {
 	project := GetProject(apiURL, APIKey, space, projectName)
 
 	// Get the release
-	release := GetProjectReleaseByVersion(client, project, relaseVersion)
+	release := GetProjectReleaseByVersion(client, project, releaseVersion)
 
 	// Get the deployments for the release
 	deployments, err := client.Deployments.GetDeployments(release)

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-04
 title: Users, Roles, and Teams
 description: Guidelines and recommendations for managing RBAC in Octopus Deploy.
 navOrder: 80
@@ -16,11 +16,11 @@ There are two kinds of users in Octopus Deploy:
 - User Account: allowed to log in to both the Octopus Web Portal and Octopus API.  Can be authenticated with external auth providers, username and password, or an Octopus API Key.
 - [Service Accounts](/docs/security/users-and-teams/service-accounts) are API-only accounts used for automated services that integrate with Octopus Deploy.  It can only be authenticated with an Octopus API Key.
 
-## User Accounts
+## User accounts
 
 Our recommendation is each user has their own account in Octopus Deploy.  Every action a person performs is audited.  When sharing accounts, the audit log is unusable as it is impossible to know what action each person performed.
 
-## Service Accounts
+## Service accounts
 
 Our recommendation is only to use service accounts when external tools, such as build servers, JIRA, ServiceNow, etc., need to communicate with Octopus Deploy.  This is preferred over user accounts for a few reasons:
 
@@ -29,7 +29,7 @@ Our recommendation is only to use service accounts when external tools, such as 
 
 We also recommend creating a unique service account per integration.  For example, if you had two build servers, such as GitHub Actions and TeamCity, then at the very least, you should have two service accounts.  You should also have individual service accounts per space per integration.  Going back to the GitHub Actions example, if you had GitHub Actions pushing to three spaces, then you should have three service accounts.  Limit the permissions of each service account. If the API key is ever compromised then that user is isolated to a single space for a set of projects.
 
-## API Keys
+## API keys
 
 [API Keys](/docs/octopus-rest-api/how-to-create-an-api-key/) allow you, or the service account, to access the [Octopus Deploy REST API](/docs/octopus-rest-api).  API keys for users should be kept to a minimum, if a key was ever shared, then anyone can impersonate that user.  Only use API keys for service accounts for any external integrations.  
 
@@ -73,7 +73,7 @@ By default, no one has any permissions outside of members of Octopus Administrat
 
 Teams can either be a system team, meaning it can be used across all spaces, or a space team, meaning a specific space can only access it.  We recommend creating space-specific teams whenever possible.  That will allow you to manage the membership and permissions on a smaller scale.  
 
-## Common RBAC Scenarios
+## Common RBAC scenarios
 
 Here are some of the more common scenarios we get asked about, along with the associated user roles and scope.  For this example, our instance has four environments, **development**, **test**, **staging**, and **production**.  
 

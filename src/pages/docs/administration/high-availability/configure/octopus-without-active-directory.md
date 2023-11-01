@@ -116,7 +116,7 @@ On the Cluster details page, enter the Master Key from the original node:
 
 Complete the setup wizard. You now have a second node in the cluster!
 
-### Automate configuration of second and addtional nodes
+### Automate configuration of second and additional nodes
 
 After installing the Octopus Server MSI, you can use the [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line) command line executable to automate the configuration of any additional Octopus Server nodes. Here is an example of what the script might look like:
 

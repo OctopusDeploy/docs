@@ -200,7 +200,7 @@ if library_variable_set == None:
     print('Library variable set not found with name "{0}"'.format(library_variable_set_name))
     exit
 
-# Get the the variables
+# Get the variables
 uri = '{0}/api/{1}/variables/{2}'.format(octopus_server_uri, space['Id'], library_variable_set['VariableSetId'])
 library_variables = get_octopus_resource(uri, headers)
 
@@ -250,7 +250,7 @@ func main() {
 
 	fmt.Printf("Looking for library variable set '%[1]s", libraryVariableSetName)
 
-	// Get the library library set
+	// Get the library set
 	librarySet := GetLibrarySet(client, space, libraryVariableSetName, 0)
 
 	// Get the variable set
