@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-22-09
 modDate: 2023-22-09
-title: OpenID Connnect 
+title: OpenID Connect 
 description: How to customize the Subject Claim for OpenID Connect authentication
 navOrder: 70
 ---
@@ -22,9 +22,13 @@ These must be exposed with anonymous access on HTTPS. Without this, the OpenID C
 
 The hostname of the URL that these two endpoints are available on must either be configured under **Configuration->Nodes->Server Uri** or set as the first ListenPrefix in the server configuration. 
 
+## Authenticating using OpenID Connect with third party services and tools
+
+If you have a third-party service or tool that supports OpenID Connect, you can add any OIDC account variable into your projects variable set and use the `Octopus.OpenIDConnect.Jwt` variable to get access to the request token that can be used for authenticating. 
+
 ## Subject Keys
 
-When using OpenID Connect to authenticate to with external services, the Subject claim can have its contents customised.
+When using OpenID Connect to authenticate to with external services, the Subject claim can have its contents customized.
 
 This allows you to grant resource access at a fine or coarse grained level in your Cloud host, depending on your requirements.
 

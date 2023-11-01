@@ -10,7 +10,7 @@ hideInThisSection: true
 
 Octopus uses a Signing Key to sign the generated authorization request tokens used in the authentication flow for OpenID Connect. The public signing key is used by the resource server to validate the token supplied by Octopus.
 
-The signing keys by default have a 90 day expiry and will be rotated when they expire.
+The signing keys by default have a 90-day expiry and will be rotated when they expire.
 
 :::div{.warning}
 Since OpenID Connect authentication is still an EAP feature, there is no User Interface to manage or view the Signing Keys.

@@ -28,7 +28,7 @@ Management Certificates are used to authenticate with Service Management APIs, t
 
 ## Creating an Azure Service Principal account {#azure-service-principal}
 
-Before creating an Octopus Azure Service Principal account, you will need an Azure App Registration. If do not currently have an Azure App Registration follow the [App Registration](https://oc.to/create-azure-app-registration) guide, or create it with a [script](#create-app-registration-via-script).
+Before creating an Octopus Azure Service Principal account, you will need an Azure App Registration. If you do not currently have an Azure App Registration follow the [App Registration](https://oc.to/create-azure-app-registration) guide, or create it with a [script](#create-app-registration-via-script).
 
 After creating the App Registration, make a note of the following:
 
@@ -36,13 +36,13 @@ After creating the App Registration, make a note of the following:
 - **Tenant ID**
 - **Application ID**
 
-There are two supported types of credentials to allow your Octopus instance to autheticate with an Azure Service Principal: Client Secrets and Federated Credentials.
+There are two supported types of credentials to allow your Octopus instance to authenticate with an Azure Service Principal: Client Secrets and Federated Credentials.
 
 ### Create a client secret credential for an Azure Service Principal
 
-To manually create a client secret follow the [Add a client secret](https://oc.to/create-azure-credentials) section in the Azure AD documentation, or create it with a [script](#create-client-secret-via-script).
+To manually create a client secret follow the [Add a client secret](https://oc.to/create-azure-credentials) section in the Azure AD documentation, or create it with a [script](#create-a-client-secret-via-script).
 
-Following this process you will be given the client secret, make a note of this as you cannot retrieve it afterwards.
+Following this process you will be given the client secret, make a note of this as you cannot retrieve it afterward.
 
 Next, you need to configure your [resource permissions](#resource-permissions).
 
@@ -66,11 +66,19 @@ The hostname of the URL that these two endpoints are available on must either be
 
 To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-credentials) section in the Azure AD documentation, or create it with a [script](#create-federated-credential-via-script).
 
-The federated credential will need the **Issuer** value set to the publically accessible Octopus Server URI configured in the previous step, this value must also not have a trailing slash (/), for example `https://samples.octopus.app`.
+The federated credential will need the **Issuer** value set to the publicly accessible Octopus Server URI configured in the previous step, this value must also not have a trailing slash (/), for example `https://samples.octopus.app`.
 
-Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect) on how to customise the **Subject** value.
+Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect) on how to customize the **Subject** value.
 
-The **Audiance** value can be left at the default, or set to a custom value if needed.
+The **Audience** value can be left at the default, or set to a custom value if needed.
+
+#### Azure Tool support for OpenID Connect
+
+To support OpenID Connect authentication, you will need to ensure it is supported in the versions of the tooling:
+
+- az CLI requires 2.30+
+- az PowerShell modules requires 7.0+
+- azurerm terraform provider required 3.22+ 
 
 ## Resource permissions {#resource-permissions}
 
@@ -172,7 +180,7 @@ Write-Host "    3) The Azure Application Id: $(AzureApplication.AppId)"
 ```
 </details>
 
-### Create an Service Principal Client Secret with PowerShell {#create-create-client-secret-via-script}
+### Create a Service Principal Client Secret with PowerShell {#create-a-client-secret-via-script}
 
 This step shows you how to create a Service Principal Client Secret with the script below.
 
@@ -199,7 +207,7 @@ az ad app credential reset --append --id $appId --years $expiryYears
 <summary>Az PowerShell</summary>
 
 ```powershell
-# This script will create a new client secrty for you to use in Octopus Deploy using the Az PowerShell modules.  This will work with both PowerShell and PowerShell Core.
+# This script will create a new client secret for you to use in Octopus Deploy using the Az PowerShell modules.  This will work with both PowerShell and PowerShell Core.
 
 $AzureTenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982" # Replace with your Tenant Id
 $AzureSubscriptionName = "YOUR SUBSCRIPTION NAME" # Replace with your subscription name
@@ -230,7 +238,7 @@ $ExistingApplication = Get-AzADApplication -DisplayName "$AzureApplicationName"
 if ($null -eq $ExistingApplication) {
     Write-host "Unable to find application with name '$AzureApplicationName'"
 } else {
-    Write-Host "The azue service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
+    Write-Host "The Azure service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
     $credential = New-Object Microsoft.Azure.PowerShell.Cmdlets.Resources.MSGraph.Models.ApiV10.MicrosoftGraphPasswordCredential
     $credential.EndDateTime = $endDate 
     $credential.DisplayName = "$AzureApplicationName"
@@ -262,7 +270,7 @@ You can specify the expiry date by adding the *-EndDate* parameter to the *New-A
 Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account). Consider reading our [note on least privilege first](#note_on_least_privilege).
 
 
-### Create an Service Principal Client Secret with PowerShell {#create-create-client-secret-via-script}
+### Create a Service Principal Client Secret with PowerShell {#create-a-client-secret-via-script}
 
 This step shows you how to create a Service Principal Client Secret with the script below.
 
@@ -298,7 +306,7 @@ az ad app federated-credential create --id $appId --parameters "$credential"
 <summary>Az PowerShell</summary>
 
 ```powershell
-# This script will create a new client secrty for you to use in Octopus Deploy using the Az PowerShell modules.  This will work with both PowerShell and PowerShell Core.
+# This script will create a new client secret for you to use in Octopus Deploy using the Az PowerShell modules.  This will work with both PowerShell and PowerShell Core.
 
 $AzureTenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982" # Replace with your Tenant Id
 $AzureSubscriptionName = "YOUR SUBSCRIPTION NAME" # Replace with your subscription name
@@ -329,7 +337,7 @@ $ExistingApplication = Get-AzADApplication -DisplayName "$AzureApplicationName"
 if ($null -eq $ExistingApplication) {
     Write-host "Unable to find application with name '$AzureApplicationName'"
 } else {
-    Write-Host "The azue service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
+    Write-Host "The Azure service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
     $credential = New-Object Microsoft.Azure.PowerShell.Cmdlets.Resources.MSGraph.Models.ApiV10.MicrosoftGraphPasswordCredential
     $credential.EndDateTime = $endDate 
     $credential.DisplayName = "$AzureApplicationName"
@@ -382,7 +390,7 @@ Now that you have the following values, you can add your account to Octopus:
 Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure) for more details.
 
 :::div{.hint}
-A newly created Service Principal may take several minutes before the credential test passes. If you have double checked your credential values, wait 15 minutes and try again.
+A newly created Service Principal may take several minutes before the credential test passes. If you have double-checked your credential values, wait 15 minutes and try again.
 :::
 
 ## Creating an Azure Management Certificate account {#azure-management-certificate}
@@ -395,7 +403,7 @@ The Azure Service Management APIs are being deprecated by Microsoft.  See [this 
 
 To create an Azure Management Certificate account as part of adding an [Azure subscription](#adding-azure-subscription), select Management Certificate as the Authentication Method.
 
-### Step 1: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2-ManagementCertificate}
+### Step 1: Management Certificate {#CreatingAnAzureManagementCertificateAccount-Step2-ManagementCertificate}
 
 When using **Management Certificate**, Octopus authenticates with Azure using an X.509 certificate.  You can either upload an existing certificate (`.pfx`), or leave the field blank and Octopus will generate a certificate. Keep in mind that since Octopus securely stores the certificate internally, there is no need to upload a password protected `.pfx` file. If you would like to use one that is password protected, you will need to first remove the password. This can be done with the following commands.
 
@@ -413,7 +421,7 @@ Uploaded certificates can be viewed on the 'Management Certificates' tab of the 
 
 The certificate will be named **Octopus Deploy -``{Your Account Name}**.
 
-### Step 2: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3-SaveandTest}
+### Step 2: Save and Test {#CreatingAnAzureManagementCertificateAccount-Step3-SaveAndTest}
 
 Click **Save and Test**, and Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure) for more details.
 
