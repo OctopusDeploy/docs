@@ -17,9 +17,9 @@ Since OpenID Connect authentication is still an EAP feature, there is no User In
 
 The following API endpoints can be used to manage the Signing Keys:
 
-List all keys: GET `/api/signingkeys/v1`
+List all keys: `GET` `/api/signingkeys/v1`
 
-Rotate the active key: POST `/api/signingkeys/rotate/v1`
+Rotate the active key: `POST` `/api/signingkeys/rotate/v1`
 
-Revoke a signing key: POST `/api/signingkeys/{id}/revoke/v1`
+Revoke a signing key: `POST` `/api/signingkeys/{id}/revoke/v1`
 :::
