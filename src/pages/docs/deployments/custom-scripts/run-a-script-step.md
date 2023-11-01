@@ -39,10 +39,6 @@ Choosing the right combination of **Target** and **Roles** enables some really i
 | Octopus Server    |                        | The script will run once on the Octopus Server | Scope variables to the Step in order to customize variables for this script | Calculate some output variables to be used by other steps or run a database upgrade process |
 | Octopus Server    | `web-server`           | The script will run on the Octopus Server on behalf of the deployment targets with the `web-server` role. The script will execute once per deployment target | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Remove web servers from a load balancer as part of a [rolling deployment](/docs/deployments/patterns/rolling-deployments) where access to the load balancer API is restricted |
 
-:::div{.hint}
-Bash scripts are not able to be run on the Octopus Server, even if Bash is installed on that server
-:::
-
 ## Choosing where to source the script {#choosing-where-to-source-scripts}
 
 You may also select the source of the script, either:
