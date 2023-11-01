@@ -110,7 +110,7 @@ The first option is to add the script source code to the step directly. This is 
 
 ### Git repository
 
-The second option is to run a script from a git repositoryThis is done by selecting the `Git repository` option, configuring the repository details, and entering the path name of the script file to run.
+The second option is to run a script from a git repository. This is done by selecting the `Git repository` option, configuring the repository details, and entering the path name of the script file to run.
 
 :::figure
 ![AWS script git repository](/docs/deployments/custom-scripts/images/step-aws-git.png)
