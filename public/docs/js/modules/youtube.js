@@ -6,6 +6,11 @@ function enhanceYoutubeLinks() {
     const videos = qsa('a[href^="https://www.youtube.com/watch?v="]');
 
     for (var video of videos) {
+        if (video.parentNode.childNodes.length > 1) {
+            // Don't turn video into embed if it's part of a longer paragraph, for example.
+            continue;
+        }
+
         const id = new URL(video.href).searchParams.get('v');
         video.setAttribute('data-youtube', id);
         video.classList.add('init');
