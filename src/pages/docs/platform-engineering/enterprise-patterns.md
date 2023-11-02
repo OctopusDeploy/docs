@@ -25,7 +25,7 @@ This sections describes the enterprise patterns and notes how you can use them t
 
 ## Independent space per business unit/application
 
-![Separate Spaces diagram](separate-spaces.png "width=500")
+![Separate Spaces diagram](/docs/platform-engineering/separate-spaces.png "width=500")
 
 The most common pattern is to partition a single Octopus installation into [separate spaces](https://octopus.com/blog/best-practices-spaces). Octopus is fairly agnostic about what individual spaces represent, but it's common to provide a space for business units or application stacks. If the space represents a stable context for the projects it holds (meaning Octopus projects are unlikely to move between spaces, even as people move between teams or security requirements change), spaces are a convenient way to split projects and define security boundaries.
 
@@ -44,7 +44,7 @@ However, spaces do have some limitations. Because spaces belong to a single Octo
 
 ## Independent instance per business unit/region
 
-![Separate Instances diagram](seperate-instances.png "width=500")
+![Separate Instances diagram](/docs/platform-engineering/seperate-instances.png "width=500")
 
 Independent instances let geographically dispersed teams deploy a local Octopus instance. This provides better performance and greater reliability due to the reduced networking distance. Independent instances also grant each business unit an isolated task queue so deployments and management tasks aren't held up by other teams.
 
@@ -69,7 +69,7 @@ Like the independent space pattern, the independent instance pattern is easy to 
 
 ## Tenant per customer
 
-![Tenant per customer diagram](tenants.png "width=500")
+![Tenant per customer diagram](/docs/platform-engineering/tenants.png "width=500")
 
 Octopus has long supported partitioning deployment processes across multiple tenants, allowing each tenant to progress their own deployments independently. You can scope the RBAC rules in Octopus to tenants. This allows fine-grained access to resources like targets, accounts, and certificates.
 
@@ -90,7 +90,7 @@ You can find more information about [tenants in our documentation](https://octop
 
 ## Managed space per business unit/application
 
-![Managed spaces diagram](managed-spaces.png "width=500")
+![Managed spaces diagram](/docs/platform-engineering/managed-spaces.png "width=500")
 
 This solution represents a typical "hub and spoke", or [platform engineering](https://octopus.com/devops/platform-engineering/), approach. Each application stack or business unit has its own space, and some or all of the space configuration is centrally managed.
 
@@ -108,7 +108,7 @@ A tenant represents each space in the management space. And deployment projects 
 
 ## Managed instance per business unit/region
 
-![Managed instances diagram](managed-instances.png "width=500")
+![Managed instances diagram](/docs/platform-engineering/managed-instances.png "width=500")
 
 Like the "managed space per business unit/application" pattern, this represents a typical "hub and spoke", or [platform engineering](https://octopus.com/devops/platform-engineering/), approach. However, each business unit or region gets its own Octopus installation.
 
@@ -125,7 +125,7 @@ A tenant represents each managed Octopus instance in the management space. And d
 
 ## Facade space per customer
 
-![Facade diagram](facade.png "width=500")
+![Facade diagram](/docs/platform-engineering/facade.png "width=500")
 
 This pattern provides each customer with their own space. Each customer space has deployment projects or runbooks with a single step to call the associated project in the management space. These projects, therefore, act as a facade over the projects in the management space.
 
@@ -142,7 +142,7 @@ This approach has the benefit of only requiring you to create very simple projec
 
 ## Custom UI over Octopus Installation
 
-![Custom UI diagram](custom-ui.png "width=500")
+![Custom UI diagram](/docs/platform-engineering/custom-ui.png "width=500")
 
 This is the most advanced pattern of all. It requires the development of a custom web user interface to orchestrate deployments with a back-end Octopus installation.
 

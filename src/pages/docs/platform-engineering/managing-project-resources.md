@@ -39,7 +39,7 @@ Projects can be defined in a Terraform module by hand. The Terraform provider ha
 
 However, Octopus steps are typically defined as key/value pairs defined in a property bag. These values are not documented, and the only way to find which combination of values work for a step is to first created the step in the Octopus UI and export the step to JSON:
 
-![Download as JSON](export-to-json.png)
+![Download as JSON](/docs/platform-engineering/export-to-json.png)
 
 The resulting JSON file looks something like this, where the `Steps[].Actions[].Properties` field defines the property bag:
 
