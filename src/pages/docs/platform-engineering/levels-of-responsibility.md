@@ -31,9 +31,9 @@ This is also called the eventual consistency model because the upstream and down
 
 ## Centralized responsibility model
 
-The centralized responsibility model provides mostly read-only projects and spaces to customers. Customers can create and deploy releases, but are mostly restricted from editing any settings.
+The centralized responsibility model provides mostly read-only projects and spaces to customers. Customers can create and deploy releases, but are restricted from editing any settings.
 
-This model makes it easy to push out new changes because the platform team knows the state of all the downtstream resources.
+This model makes it easy to push out new changes because the platform team knows the state of all the downstream resources.
 
 This is also called the enforced consistency model because customers have little ability to edit projects or spaces.
 
