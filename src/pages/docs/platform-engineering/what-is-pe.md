@@ -7,7 +7,7 @@ description: A brief overview of what platform engineering is.
 navOrder: 1
 ---
 
-Platform engineering is: 
+[Platform engineering](https://octopus.com/devops/platform-engineering/) is: 
 
 * A central repository of architectural decisions made by DevOps teams
 * An Internal Developer Platform (IDP) that allows those decisions to be implemented throughout DevOps teams at scale
