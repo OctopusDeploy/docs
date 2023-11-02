@@ -27,7 +27,7 @@ Space level resources are best managed with the [Octopus Terraform provider](htt
 
 Space level resources can be defined in a Terraform module in two ways:
 
-* Write the modul eby hand
+* Write the module by hand
 * Serialize an existing space to a Terraform module with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport)
 
 ## Writing by hand
