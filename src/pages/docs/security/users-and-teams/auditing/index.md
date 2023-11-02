@@ -66,9 +66,7 @@ We take the sensitive value and hash it using an irreversible hash algorithm. We
 ## Archived audit logs {#archived-audit-events}
 
 :::div{.hint}
-The audit log retention functionality was gradually made available to **Cloud** customers from **Octopus 2023.1** onwards.
-
-Audit log retention will be made available to self-hosted customers later in 2023. However, from **Octopus 2022.3** onwards, self-hosted customers will be able to change the **Event retention days** configuration, allowing you to adjust to your preferred retention period prior to retention archiving audit logs. 
+The audit log retention functionality is available from **Octopus 2023.3** onwards.
 :::
 
 Audit log entries can require a significant amount of database space to store, degrading overall system performance. For this reason, Octopus Server applies a retention policy to automatically archive audit log entries older than the configured number of days and remove them from the database. The retention period can be configured via **Configuration ➜ Settings ➜ Event Retention**. The location of the archived audit log files can be changed via **Configuration ➜ Settings ➜ Server Folders**.
