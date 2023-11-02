@@ -10,11 +10,11 @@ navOrder: 5
 Octopus is conceptually split into two types of resources:
 
 1. Space level resources such as environments, feeds, accounts, lifecycles, certificates, workers, worker pools, and library variable sets
-2. Project level resources such as the projects themselves, the project deployment process, runbooks, project environments, and project triggers
+2. Project level resources such as the projects themselves, the project deployment process, runbooks, project variables, and project triggers
 
 Space level resources are shared by projects and do not tend to change as frequently as projects.
 
-Managed, or downstream, spaces (i.e. spaces with centrally managed resources) are implemented by deploying space and project level resources as separate process:
+Managed, or downstream, spaces (i.e. spaces with centrally managed resources) are implemented by deploying space and project level resources as separate processes:
 
 * Space level resources are deployed first to support one or more projects
 * Project level resources are deployed second referencing the space level resources
