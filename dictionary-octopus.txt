@@ -36,6 +36,8 @@ Octostache
 octoterra
 OIDC
 onlylogs
+passout
+pkcs
 reprioritize
 reprovisioned
 reprovisioning
@@ -44,6 +46,7 @@ Runbook
 runbook
 runbooks
 Schannel
+signingkeys
 sthumb
 swaggerui
 systemprofile
