@@ -150,6 +150,7 @@ Octopus includes a number of steps to help you serialize a project with octoterr
 
 1. Create a project with a runbook called `__ 1. Serialize Project`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in export.
 2. Add the `Octopus - Serialize Project to Terraform` step.
+3. Tick the `Ignore All Changes` option to instruct Terraform to ignore any changes made to a project outside of Terraform. This option is most useful when RBAC controls are used to allow customers to edit the variables of a project managed by Terraform but not edit the project steps or other settings. This allows platform teams to treat entire projects much like step templates where end users can edit parameters but not touch the main step configuration, but in this case the project variables can be edited but the project steps can not.
 3. Define the `Terraform Backend` field to the [backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) configured in the exported module. The step defaults to `s3`, which uses an S3 bucket to store Terraform state. However, any backend provider can be defined here.
 4. Set the `Octopus Server URL` field to the URL of the Octopus server to export a space from. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
 5. Set the `Octopus API Key` field to the API key used when accessing the instance defined in the `Octopus Server URL` field.
@@ -161,3 +162,9 @@ Octopus includes a number of steps to help you serialize a project with octoterr
 Executing the runbook will export the project to a Terraform module, zip the resulting files, and upload the zip file to the built-in feed of the current space or the space defined in the `Octopus Upload Space ID` field.
 
 The zip file has one directory called `space_population` which contains a Terraform module to populate a space with the exported resources.
+
+:::div{.hint}
+Many of the exported resources expose values, like resource names, as Terraform variables with default values. You can override these variables when applying the module to customize the resources, or leave the Terraform variables with their default value to recreate the resources with their original names.
+:::
+
+### Importing a project
