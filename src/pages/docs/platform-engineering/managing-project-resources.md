@@ -148,6 +148,10 @@ You are free to edit the Terraform module created by octoterra as you see fit on
 
 Octopus includes a number of steps to help you serialize a project with octoterra and apply the module to a new space.
 
+:::div{.hint}
+The steps documented below are best run on the `Hosted Ubuntu` worker pools for hosted Octopus users.
+:::
+
 1. Create a project with a runbook called `__ 1. Serialize Project`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in export.
 2. Add the `Octopus - Serialize Project to Terraform` step.
 3. Tick the `Ignore All Changes` option to instruct Terraform to ignore any changes made to a project outside of Terraform. This option is most useful when RBAC controls are used to allow customers to edit the variables of a project managed by Terraform but not edit the project steps or other settings. This allows platform teams to treat entire projects much like step templates where end users can edit parameters but not touch the main step configuration, but in this case the project variables can be edited but the project steps can not.
@@ -168,3 +172,17 @@ Many of the exported resources expose values, like resource names, as Terraform 
 :::
 
 ### Importing a project
+
+The following steps create a project in an existing space with the Terraform module exported using the instructions from the previous step:
+
+1. Create a project with a runbook called `__ 2. Deploy Project`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in export.
+2. Add one of the steps called `Octopus - Populate Octoterra Space`. Each step indicates the Terraform backend it supports. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step configures a S3 Terraform backend.
+    1. Configure the step to run on a worker with a recent version of Terraform installed, or use the `octopuslabs/terraform-workertools` container image.
+    2. Set the `Terraform Workspace` field to a [workspace](https://developer.hashicorp.com/terraform/language/state/workspaces) that tracks the new space. The default value of `#{OctoterraApply.Octopus.SpaceID}` creates a workspace name based on the ID of the space that is being populated. Leave the default value unless you have a specific reason to change it.
+    3. Select the package created by the export process in the previous section in the `Terraform Module Package` field. The package name is the same as the exported space name, with all non-alphanumeric characters replaced with an underscore.
+    4. Set the `Octopus Server URL` field to the URL of the Octopus server to create the new space in. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
+    5. Set the `Octopus API Key` field to the API key used when accessing the instance defined in the `Octopus Server URL` field.
+    6. Set the `Octopus Space ID` field to the ID of the space created by the previous step. The ID is an output variable that can be access with an octostache template like `#{Octopus.Action[Octopus - Create Octoterra Space (S3 Backend)].Output.TerraformValueOutputs[octopus_space_id]}`. Note that the name of the previous step may need to be changed from `Octopus - Create Octoterra Space (S3 Backend)` if your step has a different name.
+    7. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to define the value of secrets such as secret variables e.g. `-var=eks_octopub_frontend_mysecret_1=TheSecretValue`.
+    8. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terafrom init` command.
+    9. Each `Octopus - Populate Octoterra Space` step exposes values relating to their specific Terraform backend. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
