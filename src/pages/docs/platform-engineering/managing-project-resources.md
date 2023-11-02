@@ -22,11 +22,11 @@ Managed, or downstream, spaces (i.e. spaces with centrally managed resources) ar
 There are two ways to manage project level resources:
 
 * Define database backed projects, complete with all deployment steps, with Terraform
-* Define the configuration of a [Config-as-code](/docs/projects/version-control) (CaC) project with Terraform, while deferring the configuration of CaC managed settings like the deployment process, non-secret variables, and some project settings to those stored in Git
+* Define the configuration of a [Config-as-code](/docs/projects/version-control) (CaC) project with Terraform, while deferring the configuration of CaC managed settings like the deployment process, non-secret variables, and some project settings to configuration stored in Git
 
-Defining database backed projects in Terraform is useful for [centralized responsibility](levels-of-responsibility.md) projects where the customer has little or no ability to modify the project, or [customer responsibility](levels-of-responsibility.md) projects where projects will not be updated after they are created.
+Defining database backed projects in Terraform is useful for [centralized responsibility](levels-of-responsibility) projects where the customer has little or no ability to modify the project, or [customer responsibility](levels-of-responsibility) projects where projects are not centrally updated after they are created.
 
-Defining CaC projects is useful for [shared responsibility](levels-of-responsibility.md) projects where deployment processes can be modified by customers and the platform team, with differences reconciled with Git merges.
+Defining CaC projects is useful for [shared responsibility](levels-of-responsibility) projects where deployment processes can be modified by customers and the platform team, with differences reconciled with Git merges.
 
 Project level resources can be defined in a Terraform module in two ways:
 
@@ -37,7 +37,7 @@ Project level resources can be defined in a Terraform module in two ways:
 
 Projects can be defined in a Terraform module by hand. The Terraform provider has [tests](https://github.com/OctopusDeployLabs/terraform-provider-octopusdeploy/tree/main/terraform) that can be used as examples for creating your own Terraform module.
 
-However, Octopus steps are typically configured with key/value pairs defined in a property bag. These values are not documented, and the only way to find which combination of values work for a step is to first created the step in the Octopus UI and export the step to JSON:
+However, Octopus steps are configured with key/value pairs defined in a property bag. These values are not documented, and the only way to find which combination of values work for a step is to first create the step in the Octopus UI and export the step to JSON:
 
 ![Download as JSON](/docs/platform-engineering/export-to-json.png)
 
@@ -152,9 +152,9 @@ Octopus includes a number of steps to help you serialize a project with octoterr
 The steps documented below are best run on the `Hosted Ubuntu` worker pools for hosted Octopus users.
 :::
 
-1. Create a project with a runbook called `__ 1. Serialize Project`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in export.
+1. Create a project with a runbook called `__ 1. Serialize Project`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
 2. Add the `Octopus - Serialize Project to Terraform` step from the [community step template library](/docs/projects/community-step-templates).
-3. Tick the `Ignore All Changes` option to instruct Terraform to ignore any changes made to a project outside of Terraform suing the [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle). This option is most useful when [RBAC controls](/docs/getting-started/best-practices/users-roles-and-teams) are used to allow customers to edit the variables of a project managed by Terraform but not edit the project steps or other settings. This allows platform teams to treat entire projects much like [step templates](/docs/projects/custom-step-templates), where end users can edit parameters but not touch the main step configuration, but in this case the project variables can be edited but the project steps can not.
+3. Tick the `Ignore All Changes` option to instruct Terraform to ignore any changes made to a project outside of Terraform suing the [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle). This option is most useful when [RBAC controls](/docs/getting-started/best-practices/users-roles-and-teams) allow customers to edit the variables of a project managed by Terraform but not edit the project steps or other settings. This allows platform teams to treat entire projects much like [step templates](/docs/projects/custom-step-templates), where end users can edit parameters but not touch the configuration of the steps, but in this case the project variables can be edited but the project steps can not.
 4. Define the `Terraform Backend` field to the [backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) configured in the exported module. The step defaults to `s3`, which uses an S3 bucket to store Terraform state. However, any backend provider can be defined here.
 5. Set the `Octopus Server URL` field to the URL of the Octopus server to export a space from. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
 6. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used when accessing the instance defined in the `Octopus Server URL` field.
