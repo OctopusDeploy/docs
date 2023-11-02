@@ -147,3 +147,17 @@ You are free to edit the Terraform module created by octoterra as you see fit on
 :::
 
 Octopus includes a number of steps to help you serialize a project with octoterra and apply the module to a new space.
+
+1. Create a project with a runbook called `__ 1. Serialize Project`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in export.
+2. Add the `Octopus - Serialize Project to Terraform` step.
+3. Define the `Terraform Backend` field to the [backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) configured in the exported module. The step defaults to `s3`, which uses an S3 bucket to store Terraform state. However, any backend provider can be defined here.
+4. Set the `Octopus Server URL` field to the URL of the Octopus server to export a space from. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
+5. Set the `Octopus API Key` field to the API key used when accessing the instance defined in the `Octopus Server URL` field.
+6. Set the `Octopus Space ID` field to the ID of the space to be exported. The default value of `#{Octopus.Space.Id}` references the current space.
+7. Set the `Octopus Project Name` field to the name of the project to serialize. The default value of `#{Octopus.Project.Name}` assumes the runbook has been defined in the same project that is being exported.
+8. Set the `Octopus Upload Space ID` field to the ID of another space to upload the resulting Terraform module zip file to the built-in feed of that that space. Leave this field blank to upload the zip file to the built-in feed of the current space. 
+9. Set the `Ignored Library Variables Sets` field to a comma separated list of library variable sets to exclude from the Terraform module. Typically, this field is used when the values of the previous fields were sourced from a library variable set that should not be exported.
+
+Executing the runbook will export the project to a Terraform module, zip the resulting files, and upload the zip file to the built-in feed of the current space or the space defined in the `Octopus Upload Space ID` field.
+
+The zip file has one directory called `space_population` which contains a Terraform module to populate a space with the exported resources.

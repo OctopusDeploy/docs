@@ -65,7 +65,7 @@ Executing the runbook will export space level resources (i.e. everything but pro
 
 The zip file has two directories:
 * `space_creation`, which contains a Terraform module to create a new space
-* `space_population`, which contains a Terraform module to populate a space with the exported resources
+* `space_population`, which contains a Terraform module to populate a space with the exported resources.
 
 :::div{.hint}
 Many of the exported resources expose values, like resource names, as Terraform variables with default values. You can override these variables when applying the module to customize the resources, or leave the Terraform variables with their default value to recreate the resources with their original names.
