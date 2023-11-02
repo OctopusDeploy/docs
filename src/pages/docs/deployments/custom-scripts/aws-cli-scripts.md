@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-11-01
 title: AWS CLI and PowerShell scripts
 description: AWS CLI and PowerShell Scripts allow you to manage your AWS resources as part of your deployment process.
 navOrder: 90

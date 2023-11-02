@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-11-01
 title: Run a script step
 description: Standalone scripts allow you to run scripts contained in a package, in a git repository, or ad-hoc scripts you've saved as part of the step.
 navOrder: 10
