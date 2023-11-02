@@ -2,9 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Managing project resources
-description: This section documents how to manage project level resources as code.
-navOrder: 5
+title: Managing space resources
+description: This section documents how to manage space level resources as code.
+navOrder: 4
 ---
 
 Octopus is conceptually split into two types of resources:
@@ -32,11 +32,11 @@ Space level resources can be defined in a Terraform module in two ways:
 
 ## Writing by hand
 
-You can write a Terraform module that manages Octopus space level resources by hand if you wish to do so. The Terraform provide source code contains a [suite of tests](https://github.com/OctopusDeployLabs/terraform-provider-octopusdeploy/tree/main/terraform) that can be used as examples for creating your own Terraform module.
+You can write a Terraform module that manages Octopus space level resources by hand if you wish to do so. The Terraform provider source code contains a [suite of tests](https://github.com/OctopusDeployLabs/terraform-provider-octopusdeploy/tree/main/terraform) that can be used as examples for creating your own Terraform module.
 
 ## Serializing with octoterra
 
-The second approach is to create a management space using the Octopus UI and then export the space to a Terraform module with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport). This allows you to rely on the UI for convenience and validation and then serialize the space to a Terraform module.
+The second approach is to create a management, or upstream, space using the Octopus UI and then export the space to a Terraform module with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport). This allows you to rely on the UI for convenience and validation and then serialize the space to a Terraform module.
 
 :::div{.hint}
 You are free to edit the Terraform module created by octoterra as you see fit once it is exported.
@@ -52,23 +52,23 @@ The steps documented below are best run on the `Hosted Ubuntu` worker pools for 
 
 The following process serializes a space to a Terraform module:
 
-1. Create a project with a runbook called `__ 1. Serialize Space`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in export.
+1. Create a project with a runbook called `__ 1. Serialize Space`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
 2. Add the `Octopus - Serialize Space to Terraform` step from the [community step template library](/docs/projects/community-step-templates).
-3. Set the `Terraform Backend` field to the [backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) configured in the exported module. The step defaults to `s3`, which uses an S3 bucket to store Terraform state. However, any backend provider can be defined here.
-4. Set the `Octopus Server URL` field to the URL of the Octopus server to export a space from. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
-5. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used when accessing the instance defined in the `Octopus Server URL` field.
-6. Set the `Octopus Space ID` field to the ID of the space to be exported. The default value of `#{Octopus.Space.Id}` references the current space.
-7. Set the `Octopus Upload Space ID` field to the ID of another space to upload the resulting Terraform module zip file to the built-in feed of that that space. Leave this field blank to upload the zip file to the built-in feed of the current space.
-8. Set the `Ignored Library Variables Sets` field to a comma separated list of library variable sets to exclude from the Terraform module. Typically, this field is used when the values of the previous fields were sourced from a library variable set that should not be exported.
-9. Set the `Ignored Tenants` field to a comma separated list of tenants to exclude from the Terraform module. Typically, this is used to exclude tenants that are used to run this export step but do not make sense to reimport in a new space.
-10. Tick the `Ignore All Targets` to exclude all [targets](/docs/infrastructure/deployment-targets) from the exported Terraform module. Targets are typically space specific and should not be shared between spaces.
-11. Tick the `Default Secrets to Dummy Values` to set all secret values, such as account and feed passwords, to dummy values. This setting allows you to apply the resulting Terraform module without specifying any secret values, after which you can manually update the values in the new space as needed. If this value is not ticked, the resulting Terraform module exposes Terraform variables for every Octopus secret, and you must supply the secret values when applying the Terraform module.
-12. Set the `Ignore Tenants with Tag` field to a tag, in the format `tag-set/tag-name`, which when applied to a tenant results in the tenant being excluded from the export. This is similar to the `Ignored Tenants` field, but allows you to ignore tenants based on their tags rather than by name.
+   1. Set the `Terraform Backend` field to the [backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) configured in the exported module. The step defaults to `s3`, which uses an S3 bucket to store Terraform state. However, any backend provider can be defined here.
+   2. Set the `Octopus Server URL` field to the URL of the Octopus server to export a space from. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
+   3. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used when accessing the instance defined in the `Octopus Server URL` field.
+   4. Set the `Octopus Space ID` field to the ID of the space to be exported. The default value of `#{Octopus.Space.Id}` references the current space.
+   5. Set the `Octopus Upload Space ID` field to the ID of another space to upload the resulting Terraform module zip file to the built-in feed of that space. Leave this field blank to upload the zip file to the built-in feed of the current space.
+   6. Set the `Ignored Library Variables Sets` field to a comma separated list of library variable sets to exclude from the Terraform module. Typically, this field is used when the values of the previous fields were sourced from a library variable set that should not be exported.
+   7. Set the `Ignored Tenants` field to a comma separated list of tenants to exclude from the Terraform module. Typically, this is used to exclude tenants that are used to run this export step but do not make sense to reimport in a new space.
+   8. Tick the `Ignore All Targets` to exclude all [targets](/docs/infrastructure/deployment-targets) from the exported Terraform module. Targets are typically space specific and should not be shared between spaces.
+   9. Tick the `Default Secrets to Dummy Values` to set all secret values, such as account and feed passwords, to dummy values. This setting allows you to apply the resulting Terraform module without specifying any secret values, after which you can manually update the values in the new space as needed. If this value is not ticked, the resulting Terraform module exposes Terraform variables for every Octopus secret, and you must supply the secret values when applying the Terraform module.
+   10. Set the `Ignore Tenants with Tag` field to a tag, in the format `tag-set/tag-name`, which when applied to a tenant results in the tenant being excluded from the export. This is similar to the `Ignored Tenants` field, but allows you to ignore tenants based on their tags rather than by name.
 
 Executing the runbook will:
 
 * Export space level resources (i.e. everything but projects) to a Terraform module
-* Zip the resulting Terraform configuration files into a package named after the current space
+* Zip the resulting Terraform module files into a package named after the current space
 * Upload the zip file to the built-in feed of the current space, or the space defined in the `Octopus Upload Space ID` field
 
 The package has two directories:
@@ -83,7 +83,7 @@ Many of the exported resources expose values, like resource names, as Terraform 
 
 The following process creates and populates a space with the Terraform module exported using the process documented in the previous section:
 
-1. Create a project with a runbook called `__ 2. Deploy Space`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in export.
+1. Create a project with a runbook called `__ 2. Deploy Space`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
 2. Add one of the steps called `Octopus - Create Octoterra Space` from the [community step template library](/docs/projects/community-step-templates). Each step indicates the Terraform backend it supports. For example, the `Octopus - Create Octoterra Space (S3 Backend)` step configures a S3 Terraform backend.
    1. Configure the step to run on a worker with a recent version of Terraform installed, or use the `octopuslabs/terraform-workertools` [container image](/docs/projects/steps/execution-containers-for-workers).
    2. Set the `Octopus Space Name` field to the name of the new space. The default value of `#{Octopus.Deployment.Tenant.Name}` assumes the step is run against a tenant, and the name of the tenant is the name of the new space.
@@ -114,4 +114,4 @@ If you ticked the `Default Secrets to Dummy Values` option when exporting a spac
 
 ### Updating space level resources
 
-The runbooks `__ 1. Serialize Space` and `__ 2. Deploy Space` can be run as needed to serialize any changes to the template space and deploy the changes to managed spaces. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus spaces using the same processes you use Octopus to deploy applications.
+The runbooks `__ 1. Serialize Space` and `__ 2. Deploy Space` can be run as needed to serialize any changes to the upstream space and deploy the changes to downstream spaces. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus spaces using the same processes you use Octopus to deploy applications.

@@ -2,9 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Managing space resources
+title: Managing project resources
 description: This section documents how to manage space level resources as code.
-navOrder: 4
+navOrder: 5
 ---
 
 Octopus is conceptually split into two types of resources:
@@ -199,4 +199,4 @@ Executing the runbook will create a new project in an existing space. Any space 
 
 ### Updating project resources
 
-The runbooks `__ 1. Serialize Project` and `__ 2. Deploy Project` can be run as needed to serialize any changes to the template project and deploy the changes to existing spaces. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus spaces using the same processes you use Octopus to deploy applications.
+The runbooks `__ 1. Serialize Project` and `__ 2. Deploy Project` can be run as needed to serialize any changes to the upstream project and deploy the changes to downstream projects. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus spaces using the same processes you use Octopus to deploy applications.
