@@ -182,10 +182,14 @@ The following steps create a project in an existing space with the Terraform mod
     3. Select the package created by the export process in the previous section in the `Terraform Module Package` field. The package name is the same as the exported project name, with all non-alphanumeric characters replaced with an underscore.
     4. Set the `Octopus Server URL` field to the URL of the Octopus server to create the new space in. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
     5. Set the `Octopus API Key` field to the API key used when accessing the instance defined in the `Octopus Server URL` field.
-    6. Set the `Octopus Space ID` field to the ID of the space created by the previous step. The ID is an output variable that can be access with an octostache template like `#{Octopus.Action[Octopus - Create Octoterra Space (S3 Backend)].Output.TerraformValueOutputs[octopus_space_id]}`. Note that the name of the previous step may need to be changed from `Octopus - Create Octoterra Space (S3 Backend)` if your step has a different name.
+    6. Set the `Octopus Space ID` field to the ID of an existing space where the project will be created.
     7. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to define the value of secrets such as secret variables e.g. `-var=eks_octopub_frontend_mysecret_1=TheSecretValue`. It is also useful to override the Git repository for a CaC enabled project, as projects can not share Git repositories e.g. `-var=project_frontend_webapp_git_url=http://github.com/username/project`.
     8. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terafrom init` command.
     9. Each `Octopus - Populate Octoterra Space` step exposes values relating to their specific Terraform backend. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
+
+:::div{.hint}
+The `Octopus - Lookup Space ID` step may be used to resolve a space name to an ID. To use the `Octopus - Lookup Space ID` step, add it before the `Octopus - Populate Octoterra Space` step and then reference the space ID as an output variable with an octostache template like `#{Octopus.Action[Lookup Space Id].Output.SpaceID}`.
+:::
 
 Executing the runbook will create a new project in an existing space. Any space level resources referenced by the project are resolved by the resource name using Terraform [data sources](https://developer.hashicorp.com/terraform/language/data-sources), so the project can be imported into any space with the correctly named space level resources.
 
