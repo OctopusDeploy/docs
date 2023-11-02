@@ -191,9 +191,9 @@ The following steps create a project in an existing space with the Terraform mod
     8. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terraform init` command. Leave this field blank unless you have a specific reason to pass an argument to Terraform.
     9. Each `Octopus - Populate Octoterra Space` step exposes values relating to their specific Terraform backend that must be configured. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
 
-:::div{.hint}
-The `Octopus - Lookup Space ID` step from the [community step template library](/docs/projects/community-step-templates) may be used to resolve a space name to an ID. To use the `Octopus - Lookup Space ID` step, add it before the `Octopus - Populate Octoterra Space` step and then reference the space ID as an output variable with an octostache template like `#{Octopus.Action[Lookup Space Id].Output.SpaceID}`.
-:::
+Typically, downstream spaces are represented by tenants in the upstream space. For example, the space called `Acme` is represented by a tenant wth the same name. Configuring the `__ 2. Deploy Project` runbook to run against a tenant allows you to manage the creation and updates of downstream projects with a typical tenant based deployment process.
+
+To resolve a downstream space with the name of a tenant to its ID, as required by the `Octopus - Populate Octoterra Space` step, you can use the `Octopus - Lookup Space ID` step from the [community step template library](/docs/projects/community-step-templates). To use the `Octopus - Lookup Space ID` step, add it before the `Octopus - Populate Octoterra Space` step and then reference the space ID as an output variable with an octostache template like `#{Octopus.Action[Lookup Space Id].Output.SpaceID}`.
 
 Executing the runbook will create a new project in an existing space. Any space level resources referenced by the project are resolved by the resource name using Terraform [data sources](https://developer.hashicorp.com/terraform/language/data-sources), so the project can be imported into any space with the correctly named space level resources.
 

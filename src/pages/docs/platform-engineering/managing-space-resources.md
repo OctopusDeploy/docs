@@ -108,6 +108,8 @@ The following process creates and populates a space with the Terraform module ex
 
 Executing the runbook will create a new space and populate it with the space level resources defined in the Terraform module zip file created in the previous section.
 
+Typically, downstream spaces are represented by tenants in the upstream space. For example, the space called `Acme` is represented by a tenant wth the same name. Configuring the `__ 2. Deploy Space` runbook to run against a tenant allows you to manage the creation and updates of downstream spaces with a typical tenant based deployment process. This is why the `Octopus - Create Octoterra Space` step defaults the `Octopus Space Name` field to the name of the current tenant.
+
 :::div{.hint}
 If you ticked the `Default Secrets to Dummy Values` option when exporting a space, all resources with secret values like accounts, feeds, certificates, library variables sets, and git credentials will have dummy values set for the passwords or secret values. You must manually update these values after the new space has been created to allow deployments and runbooks to work correctly.
 :::
