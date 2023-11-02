@@ -96,3 +96,12 @@ The following steps create and populate a space with the Terraform module export
     7. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terafrom init` command.
     8. Each `Octopus - Populate Octoterra Space` step exposes values relating to their specific Terraform backend. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
 
+Executing the runbook will create a new space and populate it with the space level resources defined in the Terraform module zip file created in the previous section.
+
+:::div{.hint}
+If you ticked the `Default Secrets to Dummy Values` option when exporting a space, all resources with secret values like accounts, feeds, certificates, library variables sets, and git credentials will have dummy values set for the passwords or secret values. You must manually update these values after the new space has been created to allow deployments and runbooks to work correctly.
+:::
+
+### Updating space level resources
+
+The runbooks `__ 1. Serialize Space` and `__ 2. Deploy Space` can be run as needed to serialize any changes to the template space and deploy the changes to managed spaces. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus spaces in much the same way as you use Octopus to deploy applications.
