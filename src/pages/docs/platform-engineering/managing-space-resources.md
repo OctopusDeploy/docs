@@ -114,4 +114,4 @@ If you ticked the `Default Secrets to Dummy Values` option when exporting a spac
 
 ### Updating space level resources
 
-The runbooks `__ 1. Serialize Space` and `__ 2. Deploy Space` can be run as needed to serialize any changes to the template space and deploy the changes to managed spaces. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus spaces in much the same way as you use Octopus to deploy applications.
+The runbooks `__ 1. Serialize Space` and `__ 2. Deploy Space` can be run as needed to serialize any changes to the template space and deploy the changes to managed spaces. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus spaces using the same processes you use Octopus to deploy applications.
