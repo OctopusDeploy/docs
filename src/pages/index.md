@@ -52,3 +52,13 @@ This is a warning box
 This is a problem box
 :::
 
+### Images
+
+Use the toolbar to "Add Media", which will automatically offer these snippets:
+
+Front Matter snippet:
+
+- Standard image (above the fold)
+  Adds an image based on metadata stored
+- Standard image (below the fold)
+  As above, but additionally lazy loads the image
