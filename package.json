@@ -22,9 +22,9 @@
     "dependencies": {
         "@astrojs/mdx": "^1.0.0",
         "astro": "^3.0.3",
-        "cspell": "^7.3.7",
-        "astro-accelerator": "^0.3.12",
+        "astro-accelerator": "^0.3.13",
         "astro-accelerator-utils": "^0.3.2",
+        "cspell": "^7.3.7",
         "hast-util-from-selector": "^3.0.0",
         "remark-directive": "^2.0.1",
         "remark-heading-id": "^1.0.1"
