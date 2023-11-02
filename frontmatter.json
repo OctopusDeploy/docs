@@ -1,0 +1,125 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:3000",
+  "frontMatter.content.publicFolder": "public/docs",
+  "frontMatter.content.supportedFileTypes": [
+    "md",
+    "mdx"
+  ],
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "docs",
+      "path": "[[workspace]]"
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": "",
+      "filePrefix": null,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "title": "layout",
+          "name": "layout",
+          "type": "string"
+        },
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "subtitle",
+          "name": "subtitle",
+          "type": "string"
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "pubDate",
+          "name": "pubDate",
+          "type": "datetime"
+        },
+        {
+          "title": "modDate",
+          "name": "modDate",
+          "type": "datetime"
+        },
+        {
+          "title": "navTitle",
+          "name": "navTitle",
+          "type": "string"
+        },
+        {
+          "title": "navSection",
+          "name": "navSection",
+          "type": "string"
+        },
+        {
+          "title": "navOrder",
+          "name": "navOrder",
+          "type": "number"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.startCommand": "pnpm dev",
+  "frontMatter.snippets.wrapper.enabled": false,
+  "frontMatter.content.snippets": {
+    "Image figure (above the fold)": {
+      "description": "Creates an image within a figure",
+      "body": [
+        ":::figure",
+        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" height=\"[[mediaHeight]]\" width=\"[[mediaWidth]]\" />",
+        ":::"
+      ],
+      "isMediaSnippet": true
+    },
+    "Image figure (below the fold)": {
+      "description": "Creates an image within a figure",
+      "body": [
+        ":::figure",
+        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" height=\"[[mediaHeight]]\" width=\"[[mediaWidth]]\" loading=\"lazy\" />",
+        ":::"
+      ],
+      "isMediaSnippet": true
+    },
+    "Information box": {
+      "description": "Inserts a box for hints, errors, or warnings.",
+      "body": [
+        ":::div{.[[type]]}",
+        "[[message]]",
+        ":::"
+      ],
+      "fields": [
+        {
+          "name": "type",
+          "title": "type",
+          "type": "choice",
+          "choices": [
+            "hint",
+            "info",
+            "success",
+            "warning",
+            "problem"
+          ],
+          "single": true,
+          "default": ""
+        },
+        {
+          "name": "message",
+          "title": "message",
+          "type": "string",
+          "single": true,
+          "default": ""
+        }
+      ]
+    }
+  }
+}
