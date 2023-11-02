@@ -164,7 +164,7 @@ You can find more information about the [Octopus REST API in our documentation](
 
 ## Managed instance per environment
 
-![Multiple environments diagram](multiple-environments.png "width=500")
+![Multiple environments diagram](/docs/platform-engineering/multiple-environments.png "width=500")
 
 This solution creates Octopus installations in each environment. It treats Octopus upgrades and other maintenance tasks in the same manner as a regular application deployment by promoting the changes through environments like development, test, and production.
 
