@@ -70,12 +70,13 @@
     }
   ],
   "frontMatter.framework.startCommand": "pnpm dev",
+  "frontMatter.snippets.wrapper.enabled": false,
   "frontMatter.content.snippets": {
     "Image figure (above the fold)": {
       "description": "Creates an image within a figure",
       "body": [
         ":::figure",
-        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" />",
+        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" height=\"[[mediaHeight]]\" width=\"[[mediaWidth]]\" />",
         ":::"
       ],
       "isMediaSnippet": true
@@ -84,10 +85,41 @@
       "description": "Creates an image within a figure",
       "body": [
         ":::figure",
-        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" loading=\"lazy\" />",
+        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" height=\"[[mediaHeight]]\" width=\"[[mediaWidth]]\" loading=\"lazy\" />",
         ":::"
       ],
       "isMediaSnippet": true
+    },
+    "Information box": {
+      "description": "Inserts a box for hints, errors, or warnings.",
+      "body": [
+        ":::div{.[[type]]}",
+        "[[message]]",
+        ":::"
+      ],
+      "fields": [
+        {
+          "name": "type",
+          "title": "type",
+          "type": "choice",
+          "choices": [
+            "hint",
+            "info",
+            "success",
+            "warning",
+            "problem"
+          ],
+          "single": true,
+          "default": ""
+        },
+        {
+          "name": "message",
+          "title": "message",
+          "type": "string",
+          "single": true,
+          "default": ""
+        }
+      ]
     }
   }
 }
