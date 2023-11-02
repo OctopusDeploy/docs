@@ -140,7 +140,7 @@ It is up to you to copy each of the properties into the Terraform resource that 
 
 ## Serializing with octoterra
 
-The second approach is to create a management space using the Octopus UI and then export projects to Terraform modules with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport). This allows you to rely on the UI for convenience and validation and then serialize the project to a Terraform module.
+The second approach is to create a management, or upstream, space using the Octopus UI and then export projects to Terraform modules with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport). This allows you to rely on the UI for convenience and validation and then serialize the project to a Terraform module.
 
 :::div{.hint}
 You are free to edit the Terraform module created by octoterra as you see fit once it is exported.

@@ -21,6 +21,8 @@ This responsibility model is like providing a template PowerPoint presentation. 
 
 This is also called the eventual inconsistency model because the upstream and downstream projects and spaces are expected to drift over time.
 
+![Customer Responsibility model](/docs/platform-engineering/customer-responsibility-model.png "width=500")
+
 ## Shared responsibility model
 
 The shared responsibility model relies on Git based workflows to merge changes between forked Git repositories backing Config-as-Code (CaC) projects.
@@ -28,6 +30,8 @@ The shared responsibility model relies on Git based workflows to merge changes b
 Because the two CaC repos are forks of each other, they share the same Git history, and processes like Git merges can be used to synchronize changes between these repositories over time.
 
 This is also called the eventual consistency model because the upstream and downstream artifacts are expected to drift but have the option to incorporate any important changes.
+
+![Shared Responsibility model](/docs/platform-engineering/shared-responsibility-model.png "width=500")
 
 ## Centralized responsibility model
 
@@ -40,3 +44,5 @@ This is also called the enforced consistency model because customers have little
 ## Further reading
 
 The chapter "Platform Engineering Responsibility Models" from the book [DevEx as a Service with Platform Engineering](https://github.com/OctopusSolutionsEngineering/PlatformEngineeringBook/) discusses the responsibility models in greater detail, with recommendations on when to use one model over another, and the advantages and disadvantages of each.
+
+![Shared Responsibility model](/docs/platform-engineering/central-responsibility-model.png "width=500")

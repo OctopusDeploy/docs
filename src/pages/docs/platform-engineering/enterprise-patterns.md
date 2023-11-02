@@ -94,7 +94,7 @@ You can find more information about [tenants in our documentation](https://octop
 
 This solution represents a typical "hub and spoke", or [platform engineering](https://octopus.com/devops/platform-engineering/), approach. Each application stack or business unit has its own space, and some or all of the space configuration is centrally managed.
 
-A tenant represents each space in the management space. And deployment projects or runbooks configure the managed spaces. You can use the Terraform provider or raw API scripting to push configuration for shared resources, like template projects, to the managed spaces.
+A tenant represents each space in the management space, also known as the upstream space. And deployment projects or runbooks configure the managed spaces, also known as downstream spaces. You can use the Terraform provider or raw API scripting to push configuration for shared resources, like template projects, to the managed spaces.
 
 
 | Feature  | Solves  |
@@ -112,7 +112,7 @@ A tenant represents each space in the management space. And deployment projects 
 
 Like the "managed space per business unit/application" pattern, this represents a typical "hub and spoke", or [platform engineering](https://octopus.com/devops/platform-engineering/), approach. However, each business unit or region gets its own Octopus installation.
 
-A tenant represents each managed Octopus instance in the management space. And deployment projects or runbooks configure the managed Octopus instances. You can use the Terraform provider or raw API scripting to push configuration for shared resources, like template projects, to the managed instances.
+A tenant represents each managed Octopus instance in the management (or upstream) space. And deployment projects or runbooks configure the managed (or downstream) Octopus instances. You can use the Terraform provider or raw API scripting to push configuration for shared resources, like template projects, to the managed instances.
 
 | Feature  | Solves  |
 |---|---|
