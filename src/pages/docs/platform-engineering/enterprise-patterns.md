@@ -194,7 +194,7 @@ Some of these patterns require little effort to deploy or are deeply embedded in
 
 The "custom UI over Octopus installation" is an advanced pattern that requires a dedicated development team to build a web application that consumes the Octopus REST API. You can refer to the [API documentation](https://octopus.com/docs/octopus-rest-api) for more information if you're interested in this pattern.
 
-The following patterns are implemented using the strategies documented in the [managing space resources](managing-space-resources.md) and [managing project resources](managing-project-resources.md) sections:
+The following patterns are implemented using the strategies documented in the [managing space resources](managing-space-resources) and [managing project resources](managing-project-resources) sections:
 
 - Managed space per business unit/application
 - Managed instance per business unit/region
