@@ -6,6 +6,7 @@ navSearch: false
 navSitemap: false
 navMenu: false
 pubDate: 2022-10-02
+modDate: 2023-11-02
 keywords: index
 description: This index page is not part of the production site.
 bannerImage:
@@ -29,6 +30,8 @@ This page is not shown on the production site.
 
 ### Boxes
 
+Front Matter snippet: "Information box".
+
 :::div{.hint}
 This is a hint box
 :::
@@ -47,9 +50,5 @@ This is a warning box
 
 :::div{.problem}
 This is a problem box
-:::
-
-:::div{.info}
-This is an info box
 :::
 

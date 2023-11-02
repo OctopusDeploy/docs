@@ -73,21 +73,25 @@
   "frontMatter.snippets.wrapper.enabled": false,
   "frontMatter.content.snippets": {
     "Image figure (above the fold)": {
-      "description": "Creates an image within a figure",
+      "description": "Standard image (above the fold)",
       "body": [
         ":::figure",
-        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" height=\"[[mediaHeight]]\" width=\"[[mediaWidth]]\" />",
+        "![{{alt}}]({{&mediaUrl}}){ height=\"{{mediaHeight}}\" width=\"{{mediaWidth}}\" }",
         ":::"
       ],
+      "openingTags": "{{",
+      "closingTags": "}}",
       "isMediaSnippet": true
     },
     "Image figure (below the fold)": {
-      "description": "Creates an image within a figure",
+      "description": "Standard image (below the fold)",
       "body": [
         ":::figure",
-        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" height=\"[[mediaHeight]]\" width=\"[[mediaWidth]]\" loading=\"lazy\" />",
+        "![{{alt}}]({{&mediaUrl}}){ height=\"{{mediaHeight}}\" width=\"{{mediaWidth}}\" loading=\"lazy\" }",
         ":::"
       ],
+      "openingTags": "{{",
+      "closingTags": "}}",
       "isMediaSnippet": true
     },
     "Information box": {
