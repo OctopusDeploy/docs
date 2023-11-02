@@ -160,7 +160,7 @@ The steps documented below are best run on the `Hosted Ubuntu` worker pools for 
    4. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used to access the instance defined in the `Octopus Server URL` field.
    5. Set the `Octopus Space ID` field to the ID of the space to be exported. The default value of `#{Octopus.Space.Id}` references the current space.
    6. Set the `Octopus Project Name` field to the name of the project to serialize. The default value of `#{Octopus.Project.Name}` assumes the runbook has been defined in the same project that is being exported.
-   7. Set the `Octopus Upload Space ID` field to the ID of another space to upload the resulting Terraform module zip file to the built-in feed of that that space. Leave this field blank to upload the zip file to the built-in feed of the current space. 
+   7. Set the `Octopus Upload Space ID` field to the ID of another space to upload the resulting Terraform module zip file to the built-in feed of that space. Leave this field blank to upload the zip file to the built-in feed of the current space. 
    8. Set the `Ignored Library Variables Sets` field to a comma separated list of library variable sets to exclude from the Terraform module. Typically, this field is used when the values of the previous fields were sourced from a library variable set that should not be exported.
 
 Executing the runbook will:
@@ -179,10 +179,10 @@ Many of the exported resources expose values, like resource names, as Terraform 
 
 The following steps create a project in an existing space with the Terraform module exported using the instructions from the previous step:
 
-1. Create a project with a runbook called `__ 2. Deploy Project`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in export.
+1. Create a project with a runbook called `__ 2. Deploy Project`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
 2. Add one of the steps called `Octopus - Populate Octoterra Space` from the [community step template library](/docs/projects/community-step-templates). Each step indicates the Terraform backend it supports. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step configures a S3 Terraform backend.
     1. Configure the step to run on a worker with a recent version of Terraform installed, or use the `octopuslabs/terraform-workertools` container image.
-    2. Set the `Terraform Workspace` field to a [workspace](https://developer.hashicorp.com/terraform/language/state/workspaces) that tracks the new space. The default value of `#{OctoterraApply.Octopus.SpaceID}` creates a workspace name based on the ID of the space that is being populated. Leave the default value unless you have a specific reason to change it.
+    2. Set the `Terraform Workspace` field to a [workspace](https://developer.hashicorp.com/terraform/language/state/workspaces) that maintains the state of Octopus resources created by Terraform. The default value of `#{OctoterraApply.Octopus.SpaceID}` uses a workspace based on the ID of the space that is being populated. Leave the default value unless you have a specific reason to change it.
     3. Select the package created by the export process in the previous section in the `Terraform Module Package` field. The package name is the same as the exported project name, with all non-alphanumeric characters replaced with an underscore.
     4. Set the `Octopus Server URL` field to the URL of the Octopus server to create the new space in. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
     5. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used when accessing the instance defined in the `Octopus Server URL` field.
