@@ -3,6 +3,8 @@ astro
 cutover
 deallocate
 deallocated
+deploymentprocess
+deploymentprocesses
 DONTVALIDATEPATH
 Fargate
 FIPS
@@ -12,6 +14,7 @@ hotfix
 hotfixes
 HSTS
 ITSM
+jwks
 kustomization
 kustomize
 lifecycles
@@ -30,11 +33,13 @@ octopuslabs
 octopusservernodes
 octopusvariable
 Octostache
+octoterra
 OIDC
 onlylogs
 reprioritize
 reprovisioned
 reprovisioning
+RSASSA
 Runbook
 runbook
 runbooks
@@ -51,5 +56,3 @@ WIXUI
 workertools
 xlarge
 xmark
-RSASSA
-jwks

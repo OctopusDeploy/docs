@@ -63,7 +63,7 @@ The following steps serialize a space to a Terraform module:
 9. Set the `Ignored Tenants` field to a comma separated list of tenants to exclude from the Terraform module. Typically, this is used to exclude tenants that are used to run this export step but do not make sense to reimport in a new space.
 10. Tick the `Ignore All Targets` to exclude all targets from the exported Terraform module. Targets are typically space specific and should not be shared between spaces.
 11. Tick the `Default Secrets to Dummy Values` to set all secret values, such as account and feed passwords, to dummy values. This setting allows you to apply the resulting Terraform module without specifying any secret values, after which you can update the values in the new space manually as needed. If this value is not ticked, the resulting Terraform module exposes Terraform variables for every Octopus secret, and you must supply the secret values when applying the Terraform module.
-12. Set the `Ignore Tenants with Tag` field to a tag, in the format `tagset/tagname`, which when applied to a tenant results in the tenant being excluded from the export. This is similar to the `Ignored Tenants` field, but allows you to ignore tenants based on their tags rather than by name.
+12. Set the `Ignore Tenants with Tag` field to a tag, in the format `tag-set/tag-name`, which when applied to a tenant results in the tenant being excluded from the export. This is similar to the `Ignored Tenants` field, but allows you to ignore tenants based on their tags rather than by name.
 
 Executing the runbook will export space level resources (i.e. everything but projects) to a Terraform module, zip the resulting files, and upload the zip file to the built-in feed of the current space or the space defined in the `Octopus Upload Space ID` field.
 
@@ -89,7 +89,7 @@ The following steps create and populate a space with the Terraform module export
    6. Set the `Octopus Server URL` field to the URL of the Octopus server to create the new space in. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
    7. Set the `Octopus API Key` field to the API key used when accessing the instance defined in the `Octopus Server URL` field.
    8. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to define the value of any Terraform variables. However, there are typically no variables that need to be defined when creating a space, so leave this field blank unless you have a specific reason to pass an argument to Terraform.
-   9. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terafrom init` command.
+   9. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terraform init` command.
    10. Each `Octopus - Create Octoterra Space` step exposes values relating to their specific Terraform backend. For example, the `Octopus - Create Octoterra Space (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
 3. Add one of the steps called `Octopus - Populate Octoterra Space`. Each step indicates the Terraform backend it supports. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step configures a S3 Terraform backend.
     1. Configure the step to run on a worker with a recent version of Terraform installed, or use the `octopuslabs/terraform-workertools` container image. 
@@ -99,7 +99,7 @@ The following steps create and populate a space with the Terraform module export
     5. Set the `Octopus API Key` field to the API key used when accessing the instance defined in the `Octopus Server URL` field.
     6. Set the `Octopus Space ID` field to the ID of the space created by the previous step. The ID is an output variable that can be access with an octostache template like `#{Octopus.Action[Octopus - Create Octoterra Space (S3 Backend)].Output.TerraformValueOutputs[octopus_space_id]}`. Note that the name of the previous step may need to be changed from `Octopus - Create Octoterra Space (S3 Backend)` if your step has a different name.
     7. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to define the value of secrets such as account or feed passwords e.g. `-var=account_aws_account=TheAwsSecretKey`.
-    8. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terafrom init` command.
+    8. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terraform init` command.
     9. Each `Octopus - Populate Octoterra Space` step exposes values relating to their specific Terraform backend. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
 
 Executing the runbook will create a new space and populate it with the space level resources defined in the Terraform module zip file created in the previous section.

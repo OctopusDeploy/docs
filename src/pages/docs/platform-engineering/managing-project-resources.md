@@ -183,8 +183,8 @@ The following steps create a project in an existing space with the Terraform mod
     4. Set the `Octopus Server URL` field to the URL of the Octopus server to create the new space in. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
     5. Set the `Octopus API Key` field to the API key used when accessing the instance defined in the `Octopus Server URL` field.
     6. Set the `Octopus Space ID` field to the ID of an existing space where the project will be created.
-    7. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to define the value of secrets such as secret variables e.g. `-var=eks_octopub_frontend_mysecret_1=TheSecretValue`. It is also useful to override the Git repository for a CaC enabled project, as projects can not share Git repositories e.g. `-var=project_frontend_webapp_git_url=http://github.com/username/project`.
-    8. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terafrom init` command.
+    7. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to define the value of secrets such as secret variables e.g. `-var=eks_octopub_frontend_my_secret_1=TheSecretValue`. It is also useful to override the Git repository for a CaC enabled project, as projects can not share Git repositories e.g. `-var=project_frontend_webapp_git_url=http://github.com/username/project`.
+    8. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terraform init` command.
     9. Each `Octopus - Populate Octoterra Space` step exposes values relating to their specific Terraform backend. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
 
 :::div{.hint}
