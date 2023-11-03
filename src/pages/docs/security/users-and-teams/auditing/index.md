@@ -8,7 +8,7 @@ description: Octopus Deploy captures audit information whenever significant even
 
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
 
-## What does Octopus capture? {#Auditing-WhatdoesOctopuscapture?}
+## What does Octopus capture?
 
 Below is a short list of just some of the things that Octopus captures:
 
@@ -25,7 +25,7 @@ Some general points worth noting:
 
 If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
 
-## Viewing the audit history {#Auditing-Viewingtheaudithistory}
+## Viewing the audit history
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
@@ -73,7 +73,7 @@ Audit log entries can require a significant amount of database space to store, d
 
 Periodically, Octopus will apply the retention policy to existing entries and store them as [JSONL](https://jsonlines.org/) files, grouped as a single file for each day (for example, `events-2019-01-01.jsonl`).
 
-Users with appropriate permissions (typically `Octopus Manager`) can download or delete the archived files. The downloaded files are intended to be imported into a datalake for querying and analysis.
+Users with appropriate permissions (typically `Octopus Manager`) can download or delete the archived files. The downloaded files are intended to be imported into a data lake for querying and analysis.
 
 ### Accessing archived logs {#accessing-archived-logs}
 
