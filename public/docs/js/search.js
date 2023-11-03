@@ -2,7 +2,7 @@
 
 import { qs } from './modules/query.js';
 import { raiseEvent } from './modules/events.js';
-import { contains, containsWord, sanitise, explode, highlight } from './modules/string.js';
+import { contains, sanitise, explode, highlight } from './modules/string.js';
 
 /**
 @typedef {
@@ -227,6 +227,44 @@ var dataUrl = qs('#site-search').dataset.sourcedata;
 var ready = false;
 var scrolled = false;
 
+var _synonyms = null;
+
+/**
+ * Gets the list of synonyms if they exist
+ * @returns { [ix: string]: string }
+ */
+async function getSynonyms() {
+    if (_synonyms != null) {
+        return _synonyms;
+    }
+
+    try {
+        const synonymsModule = await import('./synonyms.js');
+        _synonyms =synonymsModule.synonyms;
+    } catch {
+        _synonyms = {};
+    }
+
+    return _synonyms;
+}
+
+/**
+ * Replaces synonyms
+ * @param {string[]} queryTerms 
+ */
+function replaceSynonyms(queryTerms) {
+    const synonyms = getSynonyms();
+    
+    for (let i = 0; i < queryTerms.length; i++) {
+        const term = queryTerms[i];
+        if (synonyms[term] != null) {
+            queryTerms.push(synonyms[term]);
+        }
+    }
+
+    return queryTerms;
+}
+
 /**
  * Search term `s` and number of results `r`
  * @param {string} s 
@@ -250,7 +288,7 @@ function search(s, r) {
     currentQuery = cleanQuery;
     /** @type {string[]} */
     const stemmedTerms = [];
-    const queryTerms = explode(currentQuery);
+    const queryTerms = replaceSynonyms(explode(currentQuery));
 
     for (const term of queryTerms) {
         const stemmed = stemmer(term);
