@@ -16,8 +16,8 @@ dependencies:
     specifier: ^3.0.3
     version: 3.0.3
   astro-accelerator:
-    specifier: ^0.3.13
-    version: 0.3.13
+    specifier: ^0.3.15
+    version: 0.3.15
   astro-accelerator-utils:
     specifier: ^0.3.2
     version: 0.3.2
@@ -1403,13 +1403,14 @@ packages:
     resolution: {integrity: sha512-34L9rFyjFpTCpn7qj2p3Gl8tO2TxvzBuoHUTKzfoP6Jh/aiecYDpKaxjwOj4tnr627PKU33qL9xCL8eqv/WLRg==}
     dev: false
 
-  /astro-accelerator@0.3.13:
-    resolution: {integrity: sha512-9YCp4ty+OUnYfYKetaFSqXkz32XQ+oPtetVZ1BKd8Aze6dE+D5+MFW6170p9RSDieHeG0gkl6dis7/KVTg7ZIw==}
+  /astro-accelerator@0.3.15:
+    resolution: {integrity: sha512-TaQ0mQwLYi2MqfWZrHS+dGE+CTO9VBePqTecqMEQTn1o3DphRJ6bDqU/aOwQ8IXvXMadU7CwrNVZcXkMlO+FgQ==}
     engines: {node: '>=18.14.1', pnpm: '>=8.6.12'}
     dependencies:
       '@astrojs/mdx': 1.1.1(astro@3.2.4)
       astro: 3.2.4
       astro-accelerator-utils: 0.3.2
+      cspell: 7.3.8
       csv: 6.3.5
       hast-util-from-selector: 3.0.0
       html-to-text: 9.0.5
@@ -1418,6 +1419,7 @@ packages:
       sharp: 0.32.6
     transitivePeerDependencies:
       - '@types/node'
+      - encoding
       - less
       - lightningcss
       - sass
