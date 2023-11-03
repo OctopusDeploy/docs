@@ -2,15 +2,16 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:3000",
-  "frontMatter.content.publicFolder": "public/docs",
+  "frontMatter.content.publicFolder": "public",
   "frontMatter.content.supportedFileTypes": [
     "md",
     "mdx"
   ],
   "frontMatter.content.pageFolders": [
     {
-      "title": "docs",
-      "path": "[[workspace]]"
+      "title": "pages",
+      "path": "[[workspace]]/src/pages",
+      "previewPath": "{{pathToken.3}}"
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
