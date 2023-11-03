@@ -31,7 +31,7 @@ Any issuer that can generate signed OIDC tokens which can be validated anonymous
 
 ## Getting started with GitHub Actions
 
-To get started using OIDC with GitHub Actions use the below instructions. For more information see [Using OpenID Connect with Octopus and GitHub Actions](/docs/octopus-rest-api/openid-connect/github-actions).
+Follow the guide below to get started using OIDC with GitHub Actions. For more complex scenarios, or for a full list of available options, see [Using OpenID Connect with Octopus and GitHub Actions](/docs/octopus-rest-api/openid-connect/github-actions).
 
 ### Create an OIDC identity for a service account
 
@@ -105,7 +105,7 @@ jobs:
 
 ## Getting started with other issuers
 
-To get started using OIDC with other issuers use the below instructions. For more information see [Using OpenID Connect with Other Issuers](/docs/octopus-rest-api/openid-connect/other-issuers).
+Follow the guide below to get started using OIDC with other issuers. For more complex scenarios, or for a full list of available options, see [Using OpenID Connect with Other Issuers](/docs/octopus-rest-api/openid-connect/other-issuers).
 
 ### Create an OIDC identity for a service account
 
