@@ -2,15 +2,16 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:3000",
-  "frontMatter.content.publicFolder": "public/docs",
+  "frontMatter.content.publicFolder": "public",
   "frontMatter.content.supportedFileTypes": [
     "md",
     "mdx"
   ],
   "frontMatter.content.pageFolders": [
     {
-      "title": "docs",
-      "path": "[[workspace]]"
+      "title": "pages",
+      "path": "[[workspace]]/src/pages",
+      "previewPath": "{{pathToken.3}}"
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
@@ -34,7 +35,8 @@
         {
           "title": "subtitle",
           "name": "subtitle",
-          "type": "string"
+          "type": "string",
+          "required": false
         },
         {
           "title": "description",
@@ -44,22 +46,26 @@
         {
           "title": "pubDate",
           "name": "pubDate",
-          "type": "datetime"
+          "type": "datetime",
+          "isPublishDate": true
         },
         {
           "title": "modDate",
           "name": "modDate",
-          "type": "datetime"
+          "type": "datetime",
+          "isModifiedDate": true
         },
         {
           "title": "navTitle",
           "name": "navTitle",
-          "type": "string"
+          "type": "string",
+          "required": false
         },
         {
           "title": "navSection",
           "name": "navSection",
-          "type": "string"
+          "type": "string",
+          "required": false
         },
         {
           "title": "navOrder",
@@ -73,21 +79,25 @@
   "frontMatter.snippets.wrapper.enabled": false,
   "frontMatter.content.snippets": {
     "Image figure (above the fold)": {
-      "description": "Creates an image within a figure",
+      "description": "Standard image (above the fold)",
       "body": [
         ":::figure",
-        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" height=\"[[mediaHeight]]\" width=\"[[mediaWidth]]\" />",
+        "![{{alt}}]({{&mediaUrl}}){ height=\"{{mediaHeight}}\" width=\"{{mediaWidth}}\" }",
         ":::"
       ],
+      "openingTags": "{{",
+      "closingTags": "}}",
       "isMediaSnippet": true
     },
     "Image figure (below the fold)": {
-      "description": "Creates an image within a figure",
+      "description": "Standard image (below the fold)",
       "body": [
         ":::figure",
-        "<img src=\"&mediaUrl\" alt=\"[[alt]]\" height=\"[[mediaHeight]]\" width=\"[[mediaWidth]]\" loading=\"lazy\" />",
+        "![{{alt}}]({{&mediaUrl}}){ height=\"{{mediaHeight}}\" width=\"{{mediaWidth}}\" loading=\"lazy\" }",
         ":::"
       ],
+      "openingTags": "{{",
+      "closingTags": "}}",
       "isMediaSnippet": true
     },
     "Information box": {
