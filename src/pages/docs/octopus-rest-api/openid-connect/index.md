@@ -152,7 +152,7 @@ The access token obtained from the token exchange must be supplied in the `Autho
 
 When an OIDC identity token from an external system is received as part of a token exchange request, Octopus will validate this token before issuing an access token. It does this by:
 
-- Matching the details of the token to an OIDC identity on an Octopus [service account](/docs/security/users-and-teams/service-accounts) using the audience (`aud`), issuer (`iss`) and subject (`sub`).
+- Matches the details of the token to an OIDC identity on an Octopus [service account](/docs/security/users-and-teams/service-accounts) using the audience (`aud`), issuer (`iss`) and subject (`sub`).
 - Obtains the public keys that can used to verify the signed token using the OIDC Discovery endpoint (`/.well-known/openid-configuration`) of the issuer. For example an issuer URL `https://my-oidc-issuer.com` will use the `https://my-oidc-issuer.com/.well-known/openid-configuration` endpoint to locate the URL for signing keys.
 - Verifies the token is signed correctly using public key cryptography to ensure that it has not been tampered with in transit and comes from the expected issuer.
 
