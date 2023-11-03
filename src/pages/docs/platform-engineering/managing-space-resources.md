@@ -45,7 +45,7 @@ You are free to edit the Terraform module created by octoterra as you see fit on
 Octopus includes a number of steps to help you serialize a space with octoterra and apply the module to a new space.
 
 :::div{.hint}
-The steps documented below are best run on the `Hosted Ubuntu` worker pools for hosted Octopus users.
+The steps documented below are best run on the `Hosted Ubuntu` worker pools for Octopus Cloud customers.
 :::
 
 ### Exporting space level resources
