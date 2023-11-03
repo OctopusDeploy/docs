@@ -18,6 +18,7 @@ hotfix
 hotfixes
 HSTS
 ITSM
+jwks
 kustomization
 kustomize
 lifecycles
@@ -45,6 +46,7 @@ PROGRAMFILES
 reprioritize
 reprovisioned
 reprovisioning
+RSASSA
 Runbook
 runbook
 runbooks
@@ -64,5 +66,3 @@ WIXUI
 workertools
 xlarge
 xmark
-RSASSA
-jwks
