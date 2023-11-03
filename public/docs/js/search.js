@@ -229,6 +229,10 @@ var scrolled = false;
 
 var _synonyms = null;
 
+/**
+ * Gets the list of synonyms if they exist
+ * @returns { [ix: string]: string }
+ */
 async function getSynonyms() {
     if (_synonyms != null) {
         return _synonyms;
@@ -254,7 +258,7 @@ function replaceSynonyms(queryTerms) {
     for (let i = 0; i < queryTerms.length; i++) {
         const term = queryTerms[i];
         if (synonyms[term] != null) {
-            queryTerms[i] = synonyms[term];
+            queryTerms.push(synonyms[term]);
         }
     }
 
