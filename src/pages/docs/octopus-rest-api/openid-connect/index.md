@@ -31,7 +31,7 @@ Any issuer that can generate signed OIDC tokens which can be validated anonymous
 
 ## Getting started with GitHub Actions
 
-To get started using OIDC with GitHub Actions use the below instructions. For more information see [Using OpenID Connect with Octopus and GitHub Actions](/docs/octopus-rest-api/openid-connect/github-actions).
+Follow the guide below to get started using OIDC with GitHub Actions. For more complex scenarios, or for a full list of available options, see [Using OpenID Connect with Octopus and GitHub Actions](/docs/octopus-rest-api/openid-connect/github-actions).
 
 ### Create an OIDC identity for a service account
 
@@ -105,7 +105,7 @@ jobs:
 
 ## Getting started with other issuers
 
-To get started using OIDC with other issuers use the below instructions. For more information see [Using OpenID Connect with Other Issuers](/docs/octopus-rest-api/openid-connect/other-issuers).
+Follow the guide below to get started using OIDC with other issuers. For more complex scenarios, or for a full list of available options, see [Using OpenID Connect with Other Issuers](/docs/octopus-rest-api/openid-connect/other-issuers).
 
 ### Create an OIDC identity for a service account
 
@@ -148,7 +148,35 @@ A Service Account Id will be shown, this will be a GUID which must be supplied a
 
 The access token obtained from the token exchange must be supplied in the `Authorization` header of API requests, using the `Bearer` scheme, for example `Authorization: Bearer {the-access-token}`.
 
-## Validation of OIDC tokens
+## Validation of OIDC identity tokens
+
+When an OIDC identity token from an external system is received as part of a token exchange request, Octopus will validate this token before issuing an access token. It does this by:
+
+- Matches the details of the token to an OIDC identity on an Octopus [service account](/docs/security/users-and-teams/service-accounts) using the audience (`aud`), issuer (`iss`) and subject (`sub`).
+- Obtains the public keys that can used to verify the signed token using the OIDC Discovery endpoint (`/.well-known/openid-configuration`) of the issuer. For example an issuer URL `https://my-oidc-issuer.com` will use the `https://my-oidc-issuer.com/.well-known/openid-configuration` endpoint to locate the URL for signing keys.
+- Verifies the token is signed correctly using public key cryptography to ensure that it has not been tampered with in transit and comes from the expected issuer.
+
+### Debugging validation issues
+
+If you are encountering issues using OIDC validating identity tokens from your OIDC provider as part of a token exchange request, you can use the following to help diagnose the issue:
+
+- Check the audience (`aud`), issuer (`iss`) and subject (`sub`) of the token match the configured OIDC identity on the Octopus service account.
+  - The audience must be the id of the service account and will be a GUID.
+  - The issuer must be a URL using the HTTPS scheme.
+  - The subject must match exactly the configured subject on the OIDC identity and is _case-sensitive_.
+- If you are making the token exchange request manually (e.g. using an [issuer other than GitHub Actions](/docs/octopus-rest-api/openid-connect/other-issuers)), check that the required fields are set correctly. See [Exchanging an OIDC token for an Octopus access token](/docs/octopus-rest-api/openid-connect/other-issuers#OidcOtherIssuers-TokenExchange) for more information on the request format.
+- Check that the token has not expired (`exp`). Often identity tokens created by OIDC providers will have a short lifetime.
+- Check that the token is signed by a valid key from the issuer. Signing keys may be invalidated by providers under some circumstances.
+- Check that the public key used to sign the token are available using [OpenID discovery](https://openid.net/specs/openid-connect-discovery-1_0.html).
+  - The OpenID discovery endpoint must be available at `{Issuer}/.well-known/openid-configuration`
+  - This endpoint must return a `jwks_uri` property with a URL where the public key used to sign the token can be obtained. There could be multiple keys returned by this endpoint, each key can be identified using the `kid` property.
+  - Both of these endpoints must be publicly accessible without requiring authorization.
+
+:::div{.hint}
+Public sites such as [jwt.io](https://jwt.io/) can be used to inspect and validate identity tokens.
+
+IMPORTANT: Identity tokens can be exchanged with your Octopus Server for an access token, be careful where you paste them!
+:::
 
 ## Access tokens
 
