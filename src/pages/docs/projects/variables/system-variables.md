@@ -16,7 +16,7 @@ Most of the variables listed here are available in modern versions of Octopus an
 Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
 :::
 
-## Release {#Systemvariables-Release}
+## Release {#release}
 
 Release-level variables are drawn from the project and release being created.
 
@@ -298,7 +298,7 @@ For projects that have [version control](/docs/projects/version-control) enabled
  
  Example: *Version 1*
 
-## Deployment {#Systemvariables-Deployment}
+## Deployment
 
 Deployment-level variables are drawn from the project and release being deployed.
 
@@ -511,13 +511,13 @@ Example: *OctoFx*
 
 `Octopus.ProjectGroup.Id`
 
-The ID of the projectgroup.
+The ID of the project group.
 
-Example: *projectgroups-123*
+Example: *project-groups-123*
 
 `Octopus.ProjectGroup.Name`
 
-The name of the projectgroup.
+The name of the project group.
 
 Example: *Public Web Properties*
 
@@ -609,7 +609,7 @@ Example: *deployments-123*
 
 The ID of the task.
 
-Example: *servertasks-123*
+Example: *server-tasks-123*
 
 `Octopus.Task.Name`
 
@@ -765,7 +765,7 @@ The distinct targets being deployed to.
 
 This provides a dictionary of objects with ID and Name properties, keyed on ID. This is a distinct list across all steps in the deployment process.
 
-## Action {#Systemvariables-Action}
+## Action {#action}
 
 Action-level variables are available during execution of an action. Indexer notion such as `Octopus.Action[Website].TargetRoles` can be used to refer to values for different actions.
 
@@ -915,7 +915,7 @@ Example: *web-server,frontend*
 
 If the action is based on a step template, the ID of the template.
 
-Example: *actiontemplates-123*
+Example: *action-templates-123*
 
 `Octopus.Action.Template.Version`
 
@@ -987,7 +987,7 @@ The name of the package file (if the package has been configured to not be extra
 
 Example: *Acme.zip*
 
-## Azure {#Systemvariables-Azure}
+## Azure
 
 `Octopus.Action.Azure.CertificateThumbprint`
 
@@ -1011,9 +1011,9 @@ Example: *8affaa7d-3d74-427c-93c5-2d7f6a16e754*
 
 Override the auto-generated resource group deployment name when deploying a resource group.
 
-Example: my-resourcegroupdeployment-name
+Example: my-resource-group-deployment-name
 
-## Azure Cloud Service {#Systemvariables-AzureCloudService}
+## Azure Cloud Service
 
 `Octopus.Action.Azure.CloudServiceConfigurationFileRelativePath`
 
@@ -1025,7 +1025,7 @@ Example: *ServiceConfiguration.Custom.cscfg*
 
 The name of the Cloud Service being targeted by this action.
 
-Example: *my-cloudservice-web*
+Example: *my-cloud-service-web*
 
 `Octopus.Action.Azure.CloudServicePackageExtractionDisabled`
 
@@ -1037,7 +1037,7 @@ Example: True
 
 The path of the \*.cspkg file used by this action.
 
-Example: *Z:\Temp\packages\my-cloudservice-web.cspkg*
+Example: *Z:\Temp\packages\my-cloud-service-web.cspkg*
 
 `Octopus.Action.Azure.LogExtractedCspkg`
 
@@ -1081,7 +1081,7 @@ If set, the custom deployment label will be used for the Azure cloud service dep
 
 Example: my custom label for build 3.x.x
 
-## Azure Web Apps {#Systemvariables-AzureWebApps}
+## Azure Web Apps
 
 `Octopus.Action.Azure.WebAppName`
 
@@ -1099,7 +1099,7 @@ Example: *staging*
 
 The name of the resource group being targeted by this deployment.
 
-Example: myresourcegroup
+Example: MyResourceGroup
 
 `Octopus.Action.Azure.RemoveAdditionalFiles`
 
@@ -1119,7 +1119,7 @@ When *True* instructs Web Deploy to safely bring down the app domain by adding a
 
 Example: *True*
 
-## Output {#Systemvariables-Output}
+## Output
 
 Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/projects/variables/output-variables).
 
@@ -1177,7 +1177,7 @@ The Url of the completed Azure Cloud Service deployment. **Introduced in Calamar
 
 Example: *http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/*
 
-## Step {#Systemvariables-Step}
+## Step
 
 Step-level variables are available during execution of a step. Indexer notion such as `Octopus.Step[Website].Number` can be used to refer to values for different steps.
 
@@ -1218,7 +1218,7 @@ If the step failed because of an error, a full description of the error.
 Example: *System.Net.SocketException: The server could not be contacted (at ...)*
 
 
-## Agent {#Systemvariables-Agent}
+## Agent
 
 Agent-level variables describe the deployment agent or Tentacle on which the deployment is executing.
 
@@ -1246,7 +1246,7 @@ The directory containing either the server or Tentacle's executables depending o
 
 Example: *C:\Program Files\Octopus Deploy\Octopus*
 
-## Worker Pool {#Systemvariables-WorkerPool}
+## Worker Pool
 
 When a step is run on a worker, the following variables are available:
 
@@ -1262,7 +1262,7 @@ The name of the pool.
 
 Example: Default Worker Pool
 
-## Server {#Systemvariables-Server}
+## Server
 
 Server-level variables describe the Octopus Server on which the deployment is running.
 
@@ -1278,7 +1278,7 @@ The default URL at which the server portal can be accessed, as configured in the
 
 *[https://my-octopus](https://my-octopus)*
 
-## Tracking deployment status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
+## Tracking deployment status {#tracking-deployment-status}
 
 During deployment, Octopus provides variables describing the status of each step.
 
@@ -1310,7 +1310,7 @@ Octopus.Deployment.ErrorDetail
 Octopus.Deployment.Error and Octopus.Deployment.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 :::
 
-## Runbook {#Systemvariables-Runbook}
+## Runbook
 
 `Octopus.Runbook.Id`
 
@@ -1358,7 +1358,7 @@ Example: *RunbookSnapshots-123*
 
 The name of the snapshot.
 
-*Snapshot SGKSPY3*
+*Snapshot EXAMPLE3*
 
 `Octopus.RunbookSnapshot.Notes`
 
@@ -1378,7 +1378,7 @@ A path relative to the Octopus Server URL at which the runbook run can be viewed
 
 Example: */app/runs/runbookRuns-123*
 
-## User-modifiable settings {#Systemvariables-User-modifiablesettings}
+## User-modifiable settings {#user-modifiable-settings}
 
 The following variables can be defined as variables in your project to modify the way Octopus behaves.
 

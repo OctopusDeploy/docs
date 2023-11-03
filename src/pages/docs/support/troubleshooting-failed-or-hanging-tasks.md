@@ -79,4 +79,4 @@ We recommend including sub-directories in any allow list for the directories lis
 
 ## Steps are slow to start
 
-If you notice that your PowerShell script or built-in steps take a while to begin execution, and the time is consistent across your steps, then you may have something in your Tentacle user's PowerShell profile which is causing PowerShell to take a long time to initialize. Add the `Octopus.Action.PowerShell.ExecuteWithoutProfile` variable to your deployment to help diagnose this problem. See [System Variables](/docs/projects/variables/system-variables/#Systemvariables-User-modifiablesettings) for more information.
+If you notice that your PowerShell script or built-in steps take a while to begin execution, and the time is consistent across your steps, then you may have something in your Tentacle user's PowerShell profile which is causing PowerShell to take a long time to initialize. Add the `Octopus.Action.PowerShell.ExecuteWithoutProfile` variable to your deployment to help diagnose this problem. See [System Variables](/docs/projects/variables/system-variables/#user-modifiable-settings) for more information.

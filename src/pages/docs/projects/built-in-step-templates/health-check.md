@@ -31,7 +31,7 @@ Health check steps are added to deployment and runbook processes in the same way
 2. In the **On Behalf Of** section, select the [target roles](/docs/infrastructure/deployment-targets/#target-roles) that match the deployment targets you want to run a health check against. 
 
 3. In the **Health check** section select an option for **Health check type**:
-    - Perform a full health check - this will run the [health check script](/docs/infrastructure/deployment-targets/machine-policies/#MachinePolicies-Customhealthcheckscripts) defined by the machine policy.
+    - Perform a full health check - this will run the [health check script](/docs/infrastructure/deployment-targets/machine-policies/#custom-health-check-scripts) defined by the machine policy.
     - Perform a connection-only test - this only checks the machine is available (connected).
 
    For **Health check errors**, select which action to take on a health check error:
