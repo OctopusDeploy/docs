@@ -11,6 +11,190 @@
 
 /docs/credits.md @michaelnoonan @jburger
 
+# updates to the glossary page are reviewed by team-marketing
+
+/docs/getting-started/glossary.md @team-marketing
+
 # updates to the getting started page are reviewed by steve-fenton-octopus
 
 /docs/getting-started/index.md @steve-fenton-octopus
+
+# updates to the projects overview page are reviewed by team-marketing
+
+/docs/projects/index.mdx @team-marketing
+
+# updates to the built in step templates page are reviewed by team-modelling-at-scale
+
+/docs/projects/built-in-step-templates/index.mdx @team-modelling-at-scale
+
+# updates to the exporting and importing projects page are reviewed by team-productive-engineering
+
+/docs/projects/export-import/index.mdx @team-productive-engineering
+
+# updates to the variables page are reviewed by team-modelling-at-scale
+
+/docs/projects/variables/index.mdx @team-modelling-at-scale
+
+# updates to the tenants page are reviewed by team-modelling-at-scale
+
+/docs/projects/tenants/index.mdx @team-modelling-at-scale
+
+# updates to the project triggers page are reviewed by team-modelling-at-scale
+
+/docs/projects/project-triggers/index.md @team-modelling-at-scale
+
+# updates to the tenants section are reviewed by team-modelling-at-scale
+
+/docs/tenants/ @team-modelling-at-scale
+
+# updates to the tenants overview page are reviewed by team-marketing
+
+/docs/tenants/index.md @team-marketing
+
+# updates to the octopus cloud overview page are reviewed by team-marketing
+
+/docs/octopus-cloud/index.mdx @team-marketing
+
+# updates to the installation overview page are reviewed by team-marketing
+
+/docs/installation/index.mdx @team-marketing
+
+# updates to the infrastructure overview page are reviewed by team-marketing
+
+/docs/infrastructure/index.mdx @team-marketing
+
+# updates to the packaging applications overview page are reviewed by team-marketing
+
+/docs/packaging-applications/index.md @team-marketing
+
+# updates to the releases overview page are reviewed by team-marketing
+
+/docs/releases/index.mdx @team-marketing
+
+# updates to the lifecycles page are reviewed by team-modelling-at-scale
+
+/docs/releases/lifecycles/index.mdx @team-modelling-at-scale
+
+# updates to the channels page are reviewed by team-modelling-at-scale
+
+/docs/releases/channels/index.md @team-modelling-at-scale
+
+# updates to the release versioning page are reviewed by team-modelling-at-scale
+
+/docs/releases/release-versioning.md @team-modelling-at-scale
+
+# updates to the release notes page are reviewed by team-modelling-at-scale
+
+/docs/releases/release-notes.md @team-modelling-at-scale
+
+# updates to the deployments overview page are reviewed by team-marketing
+
+/docs/deployments/index.md @team-marketing
+
+# updates to the bulk deployment creation page are reviewed by team-modelling-at-scale
+
+/docs/deployments/bulk-deployment-creation.md @team-modelling-at-scale
+
+# updates to the runbooks overview page are reviewed by team-marketing
+
+/docs/runbooks/index.mdx @team-marketing
+
+# updates to the tasks section are reviewed by team-productive-engineering
+
+/docs/tasks/ @team-productive-engineering
+
+# updates to the tasks overview page are reviewed by team-marketing
+
+/docs/tasks/index.md @team-marketing
+
+# updates to the approvals overview page are reviewed by team-marketing
+
+/docs/approvals/index.md @team-marketing
+
+# updates to the insights sections are reviewed by team-modelling-at-scale
+
+/docs/insights/ @team-modelling-at-scale
+
+# updates to the insights overview page are reviewed by team-marketing
+
+/docs/insights/index.md @team-marketing
+
+# updates to the octopus rest api overview page are reviewed by team-marketing
+
+/docs/octopus-rest-api/index.mdx @team-marketing
+
+# updates to the how to create an api key page are reviewed by team-productive-engineering
+
+/docs/octopus-rest-api/how-to-create-an-api-key.md @team-productive-engineering
+
+# updates to the octopus client page are reviewed by team-productive-engineering
+
+/docs/octopus-rest-api/octopus.client/index.md @team-productive-engineering
+
+# updates to the API examples page are reviewed by team-productive-engineering
+
+/docs/octopus-rest-api/examples/index.md @team-productive-engineering
+
+# updates to the octopus server command line page are reviewed by team-productive-engineering
+
+/docs/octopus-rest-api/octopus.server.exe-command-line/index.md @team-productive-engineering
+
+# updates to the octopus migrator command line page are reviewed by team-productive-engineering
+
+/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md @team-productive-engineering
+
+# updates to the migration api page are reviewed by team-productive-engineering
+
+/docs/octopus-rest-api/migration-api/index.md @team-productive-engineering
+
+# updates to the openid connect page are reviewed by team-github
+
+/docs/octopus-rest-api/openid-connect/index.md @team-github
+
+# updates to the administration section are reviewed by team-productive-engineering
+
+/docs/administration/ @team-productive-engineering
+
+# updates to the administration overview page are reviewed by team-marketing
+
+/docs/administration/index.md @team-marketing
+
+# updates to the retention policies page are reviewed by team-modelling-at-scale
+
+/docs/administration/retention-policies/index.mdx @team-modelling-at-scale
+
+# updates to the security overview page are reviewed by team-marketing
+
+/docs/security/index.md @team-marketing
+
+# updates to the exposing octopus page are reviewed by team-productive-engineering
+
+/docs/security/exposing-octopus/index.md @team-productive-engineering
+
+# updates to the outbound requests page are reviewed by team-productive-engineering
+
+/docs/security/outbound-requests/index.md @team-productive-engineering
+
+# updates to the http security headers page are reviewed by team-productive-engineering
+
+/docs/security/http-security-headers.md @team-productive-engineering
+
+# updates to the data encryption page are reviewed by team-productive-engineering
+
+/docs/security/data-encryption.md @team-productive-engineering
+
+# updates to the users and teams page are reviewed by team-productive-engineering
+
+/docs/security/users-and-teams/index.md @team-productive-engineering
+
+# updates to the fips and octopus deploy page are reviewed by team-productive-engineering
+
+/docs/security/fips-and-octopus-deploy.md @team-productive-engineering
+
+# updates to the support overview page are reviewed by team-marketing
+
+/docs/support/index.md @team-marketing
+
+# updates to the deprecations page are reviewed by michaelnoonan and alexrolleyoctopus
+
+/docs/deprecations/index.md @michaelnoonan @alexrolleyoctopus
