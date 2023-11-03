@@ -29,7 +29,7 @@ Only variables in scope when the release is created will be available for use in
 
 ## Accessing release notes during a deployment
 
-The release notes may be accessed during a deployment using the [Octopus.Release.Notes](/docs/projects/variables/system-variables/#Systemvariables-Release) variable.  
+The release notes may be accessed during a deployment using the [Octopus.Release.Notes](/docs/projects/variables/system-variables/#release) variable.  
 
 Release notes are also rolled up into the [deployment notes](/docs/releases/deployment-notes).
 
@@ -97,7 +97,7 @@ Build and version control details are exposed by the `Octopus.Release.Builds` va
 #{/each}
 ```
 
-The `Octopus.Release.Builds[].Packages` variable is a JSON array containing the packages produced by a build. An example of this variable's value is `[{"PackageId":"randomquotes","Version":"0.1.247"}]`.
+The `Octopus.Release.Builds[].Packages` variable is a JSON array containing the packages produced by a build. An example of this variable's value is `[{"PackageId":"RandomQuotes","Version":"0.1.247"}]`.
 
 The package ID can be used as an index for the `Octopus.Release.Package` variable with a nested Octostache expression:
 

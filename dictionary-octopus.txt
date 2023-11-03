@@ -1,5 +1,10 @@
 apikey
 astro
+bootstrap
+bootstrapped
+bootstrapper
+cscfg
+cspkg
 cutover
 datetime
 deallocate
@@ -22,6 +27,7 @@ MTTR
 Netscaler
 nologs
 NTLM
+nupkg
 Octo
 octobak
 Octopub
@@ -35,6 +41,7 @@ OIDC
 onlylogs
 passout
 pkcs
+PROGRAMFILES
 reprioritize
 reprovisioned
 reprovisioning
@@ -42,6 +49,7 @@ Runbook
 runbook
 runbooks
 Schannel
+SIEM
 signingkeys
 sthumb
 swaggerui
@@ -51,6 +59,7 @@ Trivy
 upgradelog
 WCAG
 webfonts
+WEBSVR
 WIXUI
 workertools
 xlarge
