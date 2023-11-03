@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Managing project resources
-description: This section documents how to manage space level resources as code.
+description: This section documents how to manage project level resources as code.
 navOrder: 5
 ---
 
@@ -149,7 +149,7 @@ You are free to edit the Terraform module created by octoterra as you see fit on
 Octopus includes a number of steps to help you serialize a project with octoterra and apply the module to a new space.
 
 :::div{.hint}
-The steps documented below are best run on the `Hosted Ubuntu` worker pools for hosted Octopus users.
+The steps documented below are best run on the `Hosted Ubuntu` worker pools for Octopus Cloud customers.
 :::
 
 1. Create a project with a runbook called `__ 1. Serialize Project`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
