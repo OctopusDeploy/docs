@@ -34,7 +34,8 @@
         {
           "title": "subtitle",
           "name": "subtitle",
-          "type": "string"
+          "type": "string",
+          "required": false
         },
         {
           "title": "description",
@@ -44,22 +45,26 @@
         {
           "title": "pubDate",
           "name": "pubDate",
-          "type": "datetime"
+          "type": "datetime",
+          "isPublishDate": true
         },
         {
           "title": "modDate",
           "name": "modDate",
-          "type": "datetime"
+          "type": "datetime",
+          "isModifiedDate": true
         },
         {
           "title": "navTitle",
           "name": "navTitle",
-          "type": "string"
+          "type": "string",
+          "required": false
         },
         {
           "title": "navSection",
           "name": "navSection",
-          "type": "string"
+          "type": "string",
+          "required": false
         },
         {
           "title": "navOrder",
