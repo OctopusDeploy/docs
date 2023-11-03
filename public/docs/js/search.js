@@ -252,8 +252,8 @@ async function getSynonyms() {
  * Replaces synonyms
  * @param {string[]} queryTerms 
  */
-function replaceSynonyms(queryTerms) {
-    const synonyms = getSynonyms();
+async function replaceSynonyms(queryTerms) {
+    const synonyms = await getSynonyms();
     
     for (let i = 0; i < queryTerms.length; i++) {
         const term = queryTerms[i];
@@ -271,7 +271,7 @@ function replaceSynonyms(queryTerms) {
  * @param {number|null} [r=12]
  * @returns 
  */
-function search(s, r) {
+async function search(s, r) {
     const numberOfResults = r ?? 12;
     console.log('search', s, numberOfResults);
 
@@ -288,7 +288,7 @@ function search(s, r) {
     currentQuery = cleanQuery;
     /** @type {string[]} */
     const stemmedTerms = [];
-    const queryTerms = replaceSynonyms(explode(currentQuery));
+    const queryTerms = await replaceSynonyms(explode(currentQuery));
 
     for (const term of queryTerms) {
         const stemmed = stemmer(term);
