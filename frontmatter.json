@@ -1,0 +1,135 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:3000",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.supportedFileTypes": [
+    "md",
+    "mdx"
+  ],
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "pages",
+      "path": "[[workspace]]/src/pages",
+      "previewPath": "{{pathToken.3}}"
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": "",
+      "filePrefix": null,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "title": "layout",
+          "name": "layout",
+          "type": "string"
+        },
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "subtitle",
+          "name": "subtitle",
+          "type": "string",
+          "required": false
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "pubDate",
+          "name": "pubDate",
+          "type": "datetime",
+          "isPublishDate": true
+        },
+        {
+          "title": "modDate",
+          "name": "modDate",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "navTitle",
+          "name": "navTitle",
+          "type": "string",
+          "required": false
+        },
+        {
+          "title": "navSection",
+          "name": "navSection",
+          "type": "string",
+          "required": false
+        },
+        {
+          "title": "navOrder",
+          "name": "navOrder",
+          "type": "number"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.startCommand": "pnpm dev",
+  "frontMatter.snippets.wrapper.enabled": false,
+  "frontMatter.content.snippets": {
+    "Image figure (above the fold)": {
+      "description": "Standard image (above the fold)",
+      "body": [
+        ":::figure",
+        "![{{alt}}]({{&mediaUrl}}){ height=\"{{mediaHeight}}\" width=\"{{mediaWidth}}\" }",
+        ":::"
+      ],
+      "openingTags": "{{",
+      "closingTags": "}}",
+      "isMediaSnippet": true
+    },
+    "Image figure (below the fold)": {
+      "description": "Standard image (below the fold)",
+      "body": [
+        ":::figure",
+        "![{{alt}}]({{&mediaUrl}}){ height=\"{{mediaHeight}}\" width=\"{{mediaWidth}}\" loading=\"lazy\" }",
+        ":::"
+      ],
+      "openingTags": "{{",
+      "closingTags": "}}",
+      "isMediaSnippet": true
+    },
+    "Information box": {
+      "description": "Inserts a box for hints, errors, or warnings.",
+      "body": [
+        ":::div{.[[type]]}",
+        "[[message]]",
+        ":::"
+      ],
+      "fields": [
+        {
+          "name": "type",
+          "title": "type",
+          "type": "choice",
+          "choices": [
+            "hint",
+            "info",
+            "success",
+            "warning",
+            "problem"
+          ],
+          "single": true,
+          "default": ""
+        },
+        {
+          "name": "message",
+          "title": "message",
+          "type": "string",
+          "single": true,
+          "default": ""
+        }
+      ]
+    }
+  }
+}

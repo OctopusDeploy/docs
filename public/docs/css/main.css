@@ -171,6 +171,7 @@ mark {
 
 strong {
     font-weight: bold;
+    font-family: var(--bold-font);
 }
 
 .page-content > *,
@@ -200,32 +201,32 @@ strong {
 
 .hint {
     color: var(--color-hint);
-    border-color: var(--bordercolor-hint);
-    background-color: var(--bgcolor-hint);
+    border-color: var(--border-color-hint);
+    background-color: var(--bg-color-hint);
 }
 
 .info {
     color: var(--color-info);
-    border-color: var(--bordercolor-info);
-    background-color: var(--bgcolor-info);
+    border-color: var(--border-color-info);
+    background-color: var(--bg-color-info);
 }
 
 .success {
     color: var(--color-success);
-    border-color: var(--bordercolor-success);
-    background-color: var(--bgcolor-success);
+    border-color: var(--border-color-success);
+    background-color: var(--bg-color-success);
 }
 
 .warning {
     color: var(--color-warning);
-    border-color: var(--bordercolor-warning);
-    background-color: var(--bgcolor-warning);
+    border-color: var(--border-color-warning);
+    background-color: var(--bg-color-warning);
 }
 
 .problem {
     color: var(--color-problem);
-    border-color: var(--bordercolor-problem);
-    background-color: var(--bgcolor-problem);
+    border-color: var(--border-color-problem);
+    background-color: var(--bg-color-problem);
 }
 
 .question {
@@ -375,7 +376,7 @@ nav.skip-links a:focus {
     min-height: 55px;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 10;
 }
 
 .octo-header {
@@ -532,7 +533,7 @@ nav.skip-links a:focus {
     background: linear-gradient(269.9deg, #11181D 47.17%, #124164 72.68%, #07121A 96.54%);
     position: sticky;
     top: 55px;
-    z-index: 1;
+    z-index: 10;
 }
 
 .octo-title {
@@ -594,7 +595,7 @@ nav.skip-links a:focus {
 }
 
 .site-nav {
-    background-color: var(--bgcolor-menu);
+    background-color: var(--bg-color-menu);
     height: calc(100vh - 110px);
     top: 110px;
 }
@@ -666,7 +667,7 @@ nav.skip-links a:focus {
 }
 
 .site-nav details[open] {
-    border-inline-start: 1px solid var(--bordercolor-menu-open);
+    border-inline-start: 1px solid var(--border-color-menu-open);
 }
 
 .site-nav details summary::-webkit-details-marker,
@@ -685,7 +686,7 @@ nav.skip-links a:focus {
 }
 
 .site-nav details[open] > summary {
-    background-color: var(--bgcolor-menu-open);
+    background-color: var(--bg-color-menu-open);
     font-weight: bold;
 }
 
@@ -746,7 +747,7 @@ nav.skip-links a:focus {
 }
 
 .content-group header {
-    border-block-end: 1px solid var(--bordercolor-header);
+    border-block-end: 1px solid var(--border-color-header);
     margin-block-end: 1.5rem;
     padding-block-end: 1.5rem;
 }
@@ -1364,7 +1365,7 @@ nav.skip-links a:focus {
     text-align: center;
     padding: 0.2em 0.6em 0.3em 0.6em;
     color: var(--color-hint);
-    background-color: var(--bgcolor-hint);
+    background-color: var(--bg-color-hint);
 }
 
 .site-search-results > li {
@@ -1413,7 +1414,7 @@ nav.skip-links a:focus {
     text-align: center;
     padding: 0.2em 1.6em 0.3em 1.6em;
     color: var(--color-hint);
-    background-color: var(--bgcolor-hint);
+    background-color: var(--bg-color-hint);
 }
 
 @media (max-width: 860px) {
@@ -1834,18 +1835,18 @@ a.button {
     text-align: center;
     padding: 0.2em 1.6em 0.3em 1.6em;
     color: var(--color-hint);
-    background-color: var(--bgcolor-hint);
+    background-color: var(--bg-color-hint);
 }
   
 a.button:hover,
 a.button:focus {
-    color: var(--bgcolor-hint);
+    color: var(--bg-color-hint);
     background-color: var(--color-hint);
 }
 
 a.button.trial {
     color: var(--color-trial);
-    background-color: var(--bgcolor-trial);
+    background-color: var(--bg-color-trial);
 }
 
 a.button.trial:hover,
@@ -1881,7 +1882,7 @@ a.button.trial:focus {
     margin-block-start: 4px;
     border: 2px solid var(--border-color-tab);
     border-radius: var(--standard-radius) var(--standard-radius) 0 0;
-    background: var(--bgcolor-tab);
+    background: var(--bg-color-tab);
     outline: none;
     font-size: var(--font-size-small);
     font-weight: bold;

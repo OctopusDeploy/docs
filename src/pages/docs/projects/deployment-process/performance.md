@@ -109,7 +109,7 @@ Each option provides different performance benefits, depending on your specific 
 
 Imagine if you keep every package you've ever built or deployed. Over time your package feed will get slower and slower to index, query, and stream packages for your deployments.
 
-If you are using the [built-in feed](/docs/packaging-applications/package-repositories/#Packagerepositories-Choosingtherightrepository), you can configure [retention policies](/docs/administration/retention-policies) to keep it running fast.
+If you are using the [built-in feed](/docs/packaging-applications/package-repositories/#choose-right-repository), you can configure [retention policies](/docs/administration/retention-policies) to keep it running fast.
 
 If you are using another feed, you should configure its retention policies yourself, making sure to cater for packages you may want to deploy.
 

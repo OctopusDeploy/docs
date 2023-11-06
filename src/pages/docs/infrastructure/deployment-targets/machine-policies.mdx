@@ -49,7 +49,7 @@ Octopus will automatically push the latest version of Calamari with your first d
 1. From the Infrastructure tab, select deployment targets.
 2. Click the ... overflow menu and select **Upgrade Calamari on Deployment Targets**.
 
-### Health check interval \{#MachinePolicies-Healthcheckinterval}
+### Health check interval
 
 You can set the "Time between checks" to control how frequently automatic health checks run.
 
@@ -57,11 +57,11 @@ You can set the "Time between checks" to control how frequently automatic health
 ![](/docs/infrastructure/deployment-targets/images/5865585.png "width=500")
 :::
 
-### Health check type \{#MachinePolicies-Healthchecktype}
+### Health check type
 
 You can configure health checks to run scripts on deployment targets, or just check that a connection can be established with the deployment target. When the "Run health check scripts" option is selected you will also have the opportunity to customize the PowerShell and Bash scripts that will be executed during the health check. The "Only perform connection test" option is recommended if you are using the raw scripting feature.
 
-### Custom health check scripts \{#MachinePolicies-Customhealthcheckscripts}
+### Custom health check scripts \{#custom-health-check-scripts}
 
 Machine policies allow the configuration of custom health check scripts for Tentacle and SSH deployment targets. While we do not expose the full underlying script that runs during health checks, we give you an entry point to inject your own custom scripts. For example, here is the default custom health check script for PowerShell that checks disk space:
 
@@ -113,7 +113,7 @@ fail_healthcheck "This is an error"
 When using a custom health check script, the script execution through Calamari is bypassed. This results in some behavioral differences compared with the normal scripting in Octopus that you would be accustomed to. You can still use the standard `#` variable substitution syntax, however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
 :::
 
-## Ignore machines that are unavailable during health checks \{#MachinePolicies-Ignoremachinesthatareunavailableduringhealthchecks}
+## Ignore machines that are unavailable during health checks
 
 By default, health checks fail if any deployment targets are unavailable during the health check.  Machine policies offer an option to ignore machines if they are unavailable during a health check:
 
@@ -123,7 +123,7 @@ By default, health checks fail if any deployment targets are unavailable during 
 
 By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (i.e., a warning will be reported or the health check will fail with an error).
 
-## Configure how Calamari and Tentacle are updated \{#MachinePolicies-ConfigurehowCalamariandTentacleareupdated}
+## Configure how Calamari and Tentacle are updated
 
 Brand new Tentacle and SSH endpoints require the installation of Calamari to perform a deployment.  Also, if Calamari is updated, the Octopus Server will push the update to Tentacle and SSH endpoints. When there is a Tentacle update, Octopus can automatically update Tentacle endpoints.  Machine policies allow the customization of when Calamari and Tentacle updates occur.
 
@@ -138,7 +138,7 @@ By default, Calamari will be installed or updated when a machine is involved in 
 
 Tentacle can be toggled to manually or automatically update.  If **Automatically** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically update Tentacle but instead will display a prompt to begin a Tentacle update on the Deployment Targets and Environments screens.
 
-### Maximum number of concurrent upgrades \{#MachinePolicies-MaxCalamariUpgrades}
+### Maximum number of concurrent upgrades
 
 There is a limit to the number of concurrent upgrades possible when choosing `Always keep Calamari up to date`. This ensures that upgrades do not adversely effect the performance of your Octopus Server.
 
@@ -150,29 +150,28 @@ You can select a username/password account to perform automatic Tentacle updates
 
 **Note:** This option can not be used when Tentacle is running as Local System.
 
-## Recover from communication errors with Tentacle \{#MachinePolicies-Recoverfromcommunicationerrorswithtentacle}
+## Recover from communication errors with Tentacle \{#recover-from-communication-errors}
 
 :::div{.hint}
-Recovering from communication errors with Tentacle was gradually made available to **Cloud** customers from **Octopus 2023.3** onwards and will be made available to self-hosted customers in either 2023.4 or 2024.
+Recovering from communication errors with Tentacle is available from **Octopus 2023.4** onwards.
 :::
 
-Configure whether Octopus Deploy should re-attempt failed communication with a Tentacle for a set duration.
+You can configure whether Octopus Deploy should re-attempt failed communications with a Tentacle for a set duration when a network error occurs. This is particularly useful to reduce deployment failures that occur when Tentacle is on an unstable network connection.
 
-With this setting, if a network error occurs while Octopus Deploy is communicating with a Tentacle,
-- **When disabled**, the deployment, runbook run, or health check will fail.
-- **When enabled**, it will re-attempt communication with the Tentacle for the configured duration. However, continued network errors will cause a failure.
+- With this setting **Disabled**, if a network error occurs while Octopus Deploy is communicating with a Tentacle, the deployment, runbook run, or health check will fail.
+
+- With this setting **Enabled**, if a network error occurs, Octopus will re-attempt communication with the Tentacle for the amount of time configured. However, continued network errors will cause a failure.
+
 
 :::div{.warning}
-Using this setting with a Tentacle that runs on ephemeral storage (e.g., running Tentacle in Docker without a mount) will introduce the possibility that a script could run twice.
-
-It is recommended to run Tentacle on a persistent file system.
+Using this setting with a Tentacle that runs on ephemeral storage will introduce the possibility that a script could run twice. For example, when running Tentacle in Docker without a mount. It is recommended to run Tentacle on a persistent file system.
 :::
 
 ### Retry durations
-There are two configurable durations for setting the maximum amount of time allowed to re-attempt failed communication with a Tentacle:
+You can configure the amount of time allowed for Octopus to re-attempt failed communication with Tentacle. There are two duration configurations available:
 
 - **Deployment or Runbook Run**
-- **Health Check**
+- **Health Check** 
 
 :::figure
 ![](/docs/infrastructure/deployment-targets/images/recover-from-communication-errors-with-tentacle-durations.png "width=500")
@@ -181,7 +180,7 @@ There are two configurable durations for setting the maximum amount of time allo
 ### Step Retries and execution timeouts
 If you would like to retry a particular step within the deployment process for other types of temporary or transient errors, that can be [configured separately](/docs/projects/steps/conditions/#retries-and-execution-timeouts).
 
-## Automatically delete machines \{#MachinePolicies-Automaticallydeletemachines}
+## Automatically delete machines
 
 Machine policies can be configured to automatically remove unavailable machines after a time period.  When a health check runs, Octopus detects if machines are unavailable (cannot be contacted). When the **Automatically delete unavailable machines** option is set, Octopus checks how long a machine has been unavailable.  If the specified time period has elapsed, the machine is permanently deleted from Octopus.
 
@@ -189,7 +188,7 @@ Machine policies can be configured to automatically remove unavailable machines 
 ![](/docs/infrastructure/deployment-targets/images/5865595.png "width=500")
 :::
 
-## Assign machine policies to machines \{#MachinePolicies-Assignmachinepoliciestomachines}
+## Assign machine policies to machines
 
 Assign a machine policy to a machine by selecting a machine from the *Environments* screen and using the *Policy* drop down to select the machine policy:
 
