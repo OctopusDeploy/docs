@@ -7,12 +7,12 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $projectName = "MyProject"
 $runbookName = "MyRunbook"
-$snapshotName = "Snapshot 9PNENH6"
+$snapshotName = "Snapshot XXXXX"
 
 # Get space
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
@@ -41,11 +41,11 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $projectName = "MyProject"
 $runbookName = "MyRunbook"
-$snapshotName = "Snapshot 9PNENH7"
+$snapshotName = "Snapshot XXXXX"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
@@ -93,7 +93,7 @@ var octopusAPIKey = "API-APIKEY";
 string spaceName = "default";
 string projectName = "MyProject";
 string runbookName = "MyRunbook";
-string snapshotName = "Snapshot 7PNENH8";
+string snapshotName = "Snapshot XXXXX";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
@@ -135,7 +135,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -154,7 +154,7 @@ def get_item_by_name(uri, name):
 space_name = 'Default'
 project_name = 'Your project'
 runbook_name = 'Your runbook'
-snapshot_name = 'Snapshot YVVCRLF'
+snapshot_name = 'Snapshot XXXXX'
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
 project = get_by_name('{0}/{1}/projects/all'.format(octopus_server_uri, space['Id']), project_name)

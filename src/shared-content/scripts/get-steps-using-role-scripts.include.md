@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $roleName = "My role"
@@ -34,7 +34,7 @@ foreach ($project in $projectList)
     # Get steps
     foreach ($step in $deploymentProcess.Steps)
     {
-        if (($null -ne $step.Properties.'Octopus.Action.TargetRoles') -and ($step.properties.'Octopus.Action.TargetRoles'.Split(',') -Icontains $roleName ))
+        if (($null -ne $step.Properties.'Octopus.Action.TargetRoles') -and ($step.properties.'Octopus.Action.TargetRoles'.Split(',') -icontains $roleName ))
         {
             Write-Host "Step $($step.Name) of $($project.Name) is using role $roleName"
         }
@@ -51,7 +51,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $roleName = "My role"
 
@@ -75,7 +75,7 @@ foreach($project in $projectList)
     # Loop through steps
     foreach ($step in $deploymentProcess.Steps)
     {
-        if($step.properties.'Octopus.Action.TargetRoles' -and ($step.Properties.'Octopus.Action.TargetRoles'.Value.Split(',') -Icontains $roleName))
+        if($step.properties.'Octopus.Action.TargetRoles' -and ($step.Properties.'Octopus.Action.TargetRoles'.Value.Split(',') -icontains $roleName))
         {
             "Step [$($step.Name)] from project [$($project.Name)] is using the role [$($roleName )]"
         }
@@ -96,7 +96,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string roleName = "My role";
 
@@ -150,7 +150,7 @@ catch (Exception ex)
 import json
 import requests
 octopus_server_uri = 'https://your.octopus.app/'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 def get_octopus_resource(uri):
     response = requests.get(uri, headers=headers)

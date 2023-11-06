@@ -37,7 +37,7 @@ function Get-OctopusItems
         # Store call results
         $items += $resultSet.Items
     
-        # Check to see if resultset is bigger than page amount
+        # Check to see if result set is bigger than page amount
         if (($resultSet.Items.Count -gt 0) -and ($resultSet.Items.Count -eq $resultSet.ItemsPerPage))
         {
             # Increment skip count
@@ -126,7 +126,7 @@ $repositoryForSpace = $client.ForSpace($space)
 # Check to see if lifecycle already exists
 if ($null -eq $repositoryForSpace.Lifecycles.FindByName($lifecycleName))
 {
-    # Create new lifecyle
+    # Create new lifecycle
     $lifecycle = New-Object Octopus.Client.Model.LifecycleResource
     $lifecycle.Name = $lifecycleName
     $repositoryForSpace.Lifecycles.Create($lifecycle)

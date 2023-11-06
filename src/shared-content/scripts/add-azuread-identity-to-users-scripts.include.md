@@ -1,4 +1,4 @@
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-ad-identity-to-users-scripts">
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
@@ -139,13 +139,13 @@ function AddAzureADLogins(
                     $existingOctopusUser.Identities += $newAzureADIdentity
                 }
 
-                # Update user's email address if set AND the value isnt empty.
+                # Update user's email address if set AND the value isn't empty.
                 if($UpdateOctopusEmailAddress -eq $True -and -not([string]::IsNullOrWhiteSpace($User.AzureEmailAddress) -eq $true)) {
                     Write-Debug "Setting Octopus email address to: $($User.AzureEmailAddress)"
                     $existingOctopusUser.EmailAddress = $User.AzureEmailAddress
                 }
 
-                 # Update user's display name if set AND the value isnt empty.
+                 # Update user's display name if set AND the value isn't empty.
                  if($UpdateOctopusDisplayName -eq $True -and -not([string]::IsNullOrWhiteSpace($User.AzureDisplayName) -eq $true)) {
                     Write-Debug "Setting Octopus display name to: $($User.AzureDisplayName)"
                     $existingOctopusUser.DisplayName = $User.AzureDisplayName
@@ -183,7 +183,7 @@ function AddAzureADLogins(
 ```
 
 </details>
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-ad-identity-to-users-scripts">
 <summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
@@ -329,14 +329,14 @@ function AddAzureLogins
                     $existingOctopusUser.Identities += $newAzureADIdentity # Identities is an array
                 }
 
-                # Update user's email address if set AND the value isnt empty.
+                # Update user's email address if set AND the value isn't empty.
                 if($UpdateOctopusEmailAddress -eq $True -and -not([string]::IsNullOrWhiteSpace($User.AzureEmailAddress) -eq $true)) 
                 {
                     Write-Debug "Setting Octopus email address to: $($User.AzureEmailAddress)"
                     $existingOctopusUser.EmailAddress = $User.AzureEmailAddress
                 }
 
-                # Update user's display name if set AND the value isnt empty.
+                # Update user's display name if set AND the value isn't empty.
                 if($UpdateOctopusDisplayName -eq $True -and -not([string]::IsNullOrWhiteSpace($User.AzureDisplayName) -eq $true)) 
                 {
                     Write-Debug "Setting Octopus display name to: $($User.AzureDisplayName)"
@@ -372,7 +372,7 @@ function AddAzureLogins
 ```
 
 </details>
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-ad-identity-to-users-scripts">
 <summary>C#</summary>
 
 ```csharp
@@ -565,7 +565,7 @@ public static void AddAzureLogins(string OctopusUrl, string ApiKey, string Path 
 ```
 
 </details>
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-ad-identity-to-users-scripts">
 <summary>Python3</summary>
 
 ```python
@@ -706,7 +706,7 @@ AddAzureLogins(octopus_server_uri, octopus_api_key, OctopusUsername='some.email@
 ```
 
 </details>
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-ad-identity-to-users-scripts">
 <summary>Go</summary>
 
 ```go

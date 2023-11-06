@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Optional: include user role details?
@@ -35,7 +35,7 @@ do {
 
 # Filter non-active users
 if($includeNonActiveUsers -eq $False) {
-    Write-Host "Filtering users who arent active from results"
+    Write-Host "Filtering users who aren't active from results"
     $usersList = $usersList | Where-Object {$_.IsActive -eq $True}
 }
 
@@ -181,7 +181,7 @@ $usersList = @()
 if ($includeNonActiveUsers -eq $true)
 {
     # Filter out inactive users
-    Write-Host "Filtering users who arent active from results"
+    Write-Host "Filtering users who aren't active from results"
     $users = $users | Where-Object {$_.IsActive -eq $True}
 }
 

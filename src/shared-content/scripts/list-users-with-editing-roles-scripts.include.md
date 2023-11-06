@@ -71,7 +71,7 @@ Add-Type -Path 'path:\to\Octopus.Client.dll'
 # Define working variables
 $octopusURL = "https://YourURL"
 $octopusAPIKey = "API-YourAPIKey"
-$csvExportPath = "path:\to\editpermissions.csv"
+$csvExportPath = "path:\to\edit-permissions.csv"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
@@ -179,7 +179,7 @@ class UserDetails
 
 var octopusURL = "https://YourURL";
 var octopusAPIKey = "API-YourAPIKey";
-string csvExportPath = "path:\\to\\editpermissions.csv";
+string csvExportPath = "path:\\to\\edit-permissions.csv";
 
 System.Collections.Generic.List<UserDetails> usersList = new System.Collections.Generic.List<UserDetails>();
 
@@ -306,7 +306,7 @@ def get_octopus_resource(uri, headers, skip_count = 0):
 octopus_server_uri = 'https://YourURL'
 octopus_api_key = 'API-YourAPIKey'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
-csv_export_path = "path:\\to\\editpermissions.csv"
+csv_export_path = "path:\\to\\edit-permissions.csv"
 
 # Get users
 uri = '{0}/api/users'.format(octopus_server_uri)
@@ -382,7 +382,7 @@ func main() {
 		log.Println(err)
 	}
 	APIKey := "API-YourAPIKey"
-	csvExportPath := "path:\\to\\editpermissions.csv"
+	csvExportPath := "path:\\to\\edit-permissions.csv"
 
 	usersList := []UserDetails{}
 

@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusBaseURL = "https://youroctourl/api"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $headers = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 $spaceName = "Default"
@@ -61,7 +61,7 @@ $deploymentResponse = Invoke-WebRequest -Uri $octopusSpaceUrl/deployments/create
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusBaseURL = "https://youroctourl/"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusBaseURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
@@ -151,7 +151,7 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
 var repository = new OctopusRepository(endpoint);
@@ -417,7 +417,7 @@ func main() {
 
     releaseVersion := ""
 
-	// Check to see if the nexversionincrement property is nil
+	// Check to see if the next version increment property is nil
 	if nil == template["NextVersionIncrement"] {
 		// Project uses a package instead of a template, get the latest version of the package
 		deploymentProcess, err := client.DeploymentProcesses.GetByID(project.DeploymentProcessID)

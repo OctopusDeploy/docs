@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $projectName = "MyProject"
@@ -47,7 +47,7 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/deploymentproce
 ```powershell
 Add-Type -Path "path\to\Octopus.Client.dll"
 
-$apikey = "API-YOURAPIKEY"
+$apikey = "API-YOUR-KEY"
 $octopusURL = "https://youroctourl"
 $spaceName = "default"
 $stepName = "Run a script"
@@ -105,7 +105,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string projectName = "MyProject";
 string[] environmentNames = { "Development", "Test" };
@@ -166,7 +166,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 

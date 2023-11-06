@@ -5,7 +5,7 @@
 $ErrorActionPreference = "Stop";
 # Define working variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $projectName = "My Project"
@@ -112,7 +112,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "Default";
 string projectName = "My Project";
 string runbookName = "My Runbook";

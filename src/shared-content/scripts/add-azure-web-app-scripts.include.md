@@ -6,13 +6,13 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $azureServicePrincipalName = "MyAzureAccount"
 $azureResourceGroupName = "MyResourceGroup"
 $environmentNames = @("Development", "Production")
-$roles = @("Myrole")
+$roles = @("MyRole")
 $environmentIds = @()
 $azureWebAppName = "MyAzureWebAppName"
 
@@ -56,7 +56,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $azureServicePrincipalName = "MyAzureAccount"
 $azureResourceGroupName = "MyResourceGroup"
 $azureWebAppName = "MyAzureWebApp"
@@ -128,7 +128,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string[] environmentNames = { "Development", "Production" };
 string[] roles = { "MyRole" };
@@ -199,7 +199,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 
@@ -270,7 +270,7 @@ func main() {
 		log.Println(err)
 	}
 
-	APIKey := "API-YOURKEY"
+	APIKey := "API-YOUR-KEY"
 
 	// Get space to work with
 	space := GetSpace(apiURL, APIKey, spaceName)

@@ -6,14 +6,14 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 
 # Certificate details
 $certificateName = "MyCertificate"
 $certificateNotes = ""
-$certificateFilePath = "path\to\pfxfile.pfx"
+$certificateFilePath = "path\to\pfx-file.pfx"
 $certificatePfxPassword = "PFX-file-password"
 $certificateEnvironmentIds = @()
 $certificateTenantIds = @()
@@ -58,7 +58,7 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/certificates" 
 Add-Type -Path 'path\to\Octopus.Client.dll' 
 
 # Declare working variables
-$apikey = 'API-YOURAPIKEY' # Get this from your profile
+$apikey = 'API-YOUR-KEY' # Get this from your profile
 $octopusURI = 'https://youroctourl' # Your server address
 $spaceName = 'default'
 
@@ -73,7 +73,7 @@ try
     $repositoryForSpace = $client.ForSpace($space)
     
     # Fill in certificate details
-    $pfxFilePath = "path\to\pfxfile.pfx" # note: other file formats are supported https://octopus.com/docs/deploying-applications/certificates/file-formats  
+    $pfxFilePath = "path\to\pfx-file.pfx" # note: other file formats are supported https://octopus.com/docs/deploying-applications/certificates/file-formats  
     $pfxBase64 = [Convert]::ToBase64String((Get-Content -Path $pfxFilePath -Encoding Byte)) 
     $pfxPassword = "PFX-file-password"
     $certificateName = "MyCertificate" # The display name in Octopus
@@ -101,8 +101,8 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
-string pfxFilePath = "path\\to\\pfxfile.pfx";
+var octopusAPIKey = "API-YOUR-KEY";
+string pfxFilePath = "path\\to\\pfx-file.pfx";
 string pfxFilePassword = "PFX-file-password";
 string certificateName = "MyCertificate";
 string spaceName = "default";
@@ -142,7 +142,7 @@ import requests
 import base64
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):

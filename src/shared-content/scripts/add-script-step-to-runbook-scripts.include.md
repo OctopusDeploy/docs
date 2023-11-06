@@ -10,7 +10,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "default";
 var runbookName = "MyRunbook";
 var stepName = "My new step";

@@ -100,7 +100,7 @@ function Invoke-OctopusApi
             Write-OctopusVerbose "Ignoring cache."    
         }
 
-        Write-OctopusVerbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-OctopusVerbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         if ($cachedResults.ContainsKey($url) -eq $true)
@@ -1136,7 +1136,7 @@ class Permission
         }
     }
 
-    public bool IncludScope
+    public bool IncludeScope
     {
         get;
         set;
@@ -1280,7 +1280,7 @@ static System.Collections.Generic.List<string> GetEnvironmentsScopedToProject (P
             {
                 if (!scopedEnvironments.Contains(environmentId))
                 {
-                    Console.WriteLine(string.Format("Adding {0} to {1} environemnt list", environmentId, Project.Name));
+                    Console.WriteLine(string.Format("Adding {0} to {1} environment list", environmentId, Project.Name));
                     scopedEnvironments.Add(environmentId);
                 }
             }
@@ -1454,7 +1454,7 @@ static void WritePermissionList (string PermissionName, System.Collections.Gener
 var octopusURL = "https://YourURL";
 var octopusAPIKey = "API-YourAPIKey";
 string spaceFilter = "all";
-string environmentfilter = "Development";
+string environmentFilter = "Development";
 string permissionToCheck = "DeploymentCreate";
 string reportPath = "path:\\to\\csv.file";
 string userFilter = "all";
@@ -1481,7 +1481,7 @@ foreach (var spaceName in spaceList)
     var projectList = repositoryForSpace.Projects.GetAll();
     var environmentList = repositoryForSpace.Environments.GetAll();
 
-    environmentList = FilterEnvironmentList(environmentList, environmentfilter);
+    environmentList = FilterEnvironmentList(environmentList, environmentFilter);
 
     var tenantList = repositoryForSpace.Tenants.GetAll();
 

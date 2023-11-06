@@ -35,7 +35,7 @@ function Get-OctopusItems
     return $items
 }
 
-$apikey = 'API-YOURAPIKEY' # Get this from your profile
+$apikey = 'API-YOUR-KEY' # Get this from your profile
 $OctopusUrl = 'https://youroctourl' # Your Octopus Server address
 $spaceName = "default"
 $spaceId = ""
@@ -65,7 +65,7 @@ $jsonPayload = @{
     }
     Name = $accountName
     Description = $accountDescription
-    TenantedDeploymentparticipation = $accountTenantParticipation
+    TenantedDeploymentParticipation = $accountTenantParticipation
     TenantTags = $accountTenantTags
     TenantIds = $accountTenantIds
     EnvironmentIds = $accountEnvironmentIds
@@ -94,7 +94,7 @@ Invoke-RestMethod -Method Post -Uri "$OctopusUrl/api/$spaceId/accounts" -Body ($
 # Load assembly
 Add-Type -Path 'C:\Octopus.Client\Octopus.Client.dll'
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 
 # AWS Credentials
 $awsAccessKey = "AWSAccessKey"
@@ -152,7 +152,7 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 var OctopusURL = "https://youroctourl";
-var OctopusAPIKey = "API-YOURAPIKEY";
+var OctopusAPIKey = "API-YOUR-KEY";
 
 // Azure specific details
 string awsAccessKey = "AWS Access Key";
@@ -208,7 +208,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 space_name = 'Default'

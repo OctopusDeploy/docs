@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
@@ -15,7 +15,7 @@ $spaceName = "Default"
 
 # Specify the Variable Value to find, without OctoStache syntax 
 
-$variableValueToFind = "mytestvalue"
+$variableValueToFind = "MyTestValue"
 
 # Optional: set a path to export to csv
 $csvExportPath = ""
@@ -68,7 +68,7 @@ foreach ($project in $projects)
     $ProjectMatchingNamedVariables = $projectVariableSet.Variables | Where-Object {$_.Value -like "*$variableValueToFind*"}
     if($null -ne $ProjectMatchingNamedVariables) {
         foreach($match in $ProjectMatchingNamedVariables) {
-            $result = [pscustomobject]@{
+            $result = [PSCustomObject]@{
                 Project = $project.Name
                 VariableSet = $null
                 MatchType = "Named Project Variable"
@@ -162,7 +162,7 @@ foreach ($project in $projects)
     $ProjectMatchingNamedVariables = $projectVariableSet.Variables | Where-Object {$_.Value -like "*$variableValueToFind*"}
     if($null -ne $ProjectMatchingNamedVariables) {
         foreach($match in $ProjectMatchingNamedVariables) {
-            $result = [pscustomobject]@{
+            $result = [PSCustomObject]@{
                 Project = $project.Name
                 VariableSet = $null
                 MatchType = "Named Project Variable"
@@ -238,7 +238,7 @@ class VariableResult
 }
 
 var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 string variableValueToFind = "MyValue";
 string csvExportPath = "path:\\to\\variable.csv";

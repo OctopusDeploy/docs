@@ -96,7 +96,7 @@ Progress messages will display and update a progress bar on your deployment task
 <details data-group="deployments-custom-scripts-logging-messages">
 <summary>PowerShell</summary>
 
-```ps PowerShell
+```powershell
 Update-Progress 10
 Update-Progress 50 "Woah, we're halfway there!"
 ```
@@ -133,8 +133,8 @@ Octopus.updateProgress 50 "Woah, we're halfway there!"
 <summary>Python3</summary>
 
 ```python
-updateprogress(10)
-updateprogress(50, 'Woah, we\'re halfway there!')
+update_progress(10)
+update_progress(50, 'Woah, we\'re halfway there!')
 ```
 
 </details>
@@ -176,7 +176,7 @@ let updateProgress (percentage: int) message =
 def encode(value):
     return base64.b64encode(value.encode('utf-8')).decode('utf-8')
 
-def updateprogress(progress, message=None):
+def update_progress(progress, message=None):
     encodedProgress = encode(str(progress))
     encodedMessage = encode(message)
 
@@ -188,12 +188,12 @@ def updateprogress(progress, message=None):
 <summary>Bash</summary>
 
 ```bash
-function encode_servicemessagevalue
+function encode_service_message_value
 {
 	echo -n "$1" | openssl enc -base64 -A
 }
 
-echo "##octopus[progress percentage='$(encode_servicemessagevalue "$1")' message='$(encode_servicemessagevalue "$2")']"
+echo "##octopus[progress percentage='$(encode_service_message_value "$1")' message='$(encode_service_message_value "$2")']"
 ```
 
 </details>

@@ -7,7 +7,7 @@ $ErrorActionPreference = "Stop";
 # Define working variables
 $OctopusURL = "YOUR INSTANCE URL"
 $SpaceName = "YOUR SPACE NAME" 
-$APIKey = "API-YOURAPIKEY"
+$APIKey = "API-YOUR-KEY"
 $projectName = "YOUR PROJECT NAME"
 $releaseVersion = "YOUR RELEASE VERSION"
 $environmentName = "YOUR ENVIRONMENT NAME"

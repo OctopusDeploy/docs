@@ -50,7 +50,7 @@ function Invoke-OctopusApi
             return Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -Body $body -ContentType 'application/json; charset=utf-8' 
         }
 
-        Write-Verbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-Verbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         return $result               
@@ -718,7 +718,7 @@ def update_categorized_machines(categorized_machines, space, octopus_server_uri,
 
 
 octopus_server_uri = 'https://your.octopus.app'
-octopus_api_key = 'API-YOURKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 categorized_machines = {
     'NotCountedMachines': [],

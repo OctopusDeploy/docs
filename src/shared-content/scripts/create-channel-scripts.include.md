@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $projectId = "Projects-101"
@@ -52,7 +52,7 @@ $repositoryForSpace = $client.ForSpace($space)
 # Get project
 $project = $repositoryForSpace.Projects.FindByName($projectName)
 
-# Createw new channel object
+# Create new channel object
 $channel = New-Object Octopus.Client.Model.ChannelResource
 $channel.Name = $channelName
 $channel.ProjectId = $project.Id

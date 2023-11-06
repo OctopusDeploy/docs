@@ -102,7 +102,7 @@ function Invoke-OctopusApi
             Write-OctopusVerbose "Ignoring cache."    
         }
 
-        Write-OctopusVerbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-OctopusVerbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         if ($cachedResults.ContainsKey($url) -eq $true)
@@ -229,9 +229,9 @@ $spaceId = $space.Id
 $project = Get-OctopusItemByName -itemName $projectName -itemType "Project" -endpoint "projects" -spaceId $spaceId -defaultUrl $octopusUrl -octopusApiKey $octopusApiKey
 $projectId = $project.Id
 
-$splitEnvironmentlist = $environmentNameList -split ","
+$splitEnvironmentList = $environmentNameList -split ","
 $environmentList = @()
-foreach ($environmentName in $splitEnvironmentlist)
+foreach ($environmentName in $splitEnvironmentList)
 {
     $environment = Get-OctopusItemByName -itemName $environmentName -itemType "Environment" -endpoint "environments" -spaceId $spaceId -defaultUrl $octopusUrl -octopusApiKey $octopusApiKey
     $environmentList += $environment.Id

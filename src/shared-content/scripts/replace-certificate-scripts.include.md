@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 
@@ -50,7 +50,7 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/certificates/$
 Add-Type -Path 'path\to\Octopus.Client.dll' 
 
 # Provide credentials for Octopus
-$apikey = 'API-YOURAPIKEY' 
+$apikey = 'API-YOUR-KEY' 
 $octopusURI = 'https://youroctourl' 
 $spaceName = "default"
 
@@ -104,7 +104,7 @@ using Octopus.Client.Model;
 // Declare working variables
 var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-APIKEY";
-string pfxFilePath = "C:\\path\\to\\thecert.pfx";
+string pfxFilePath = "C:\\path\\to\\the-cert.pfx";
 string pfxFilePassword = "PFX-file-password";
 string certificateName = "MyCertificate";
 string spaceName = "default";
@@ -245,7 +245,7 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIEKey"
+	APIKey := "API-YourAPIKey"
 
 	spaceName := "Default"
 	certificateName := "MyCertificate"
@@ -255,7 +255,7 @@ func main() {
 	// Get the space object
 	space := GetSpace(apiURL, APIKey, spaceName)
 
-	// Creat client for space
+	// Create client for space
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	rawData, err := ioutil.ReadFile(certificateFilePath)

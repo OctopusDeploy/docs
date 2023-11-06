@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $userRoleName = "Deployment creator"
@@ -53,7 +53,7 @@ Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $userRoleName = "Deployment creator"
 
@@ -77,7 +77,7 @@ try
     $teamNames = @()
     foreach ($team in $teams)
     {
-        # Get scopeduserrole
+        # Get scoped user role
         $scopedUserRole = $repositoryForSpace.Teams.GetScopedUserRoles($team) | Where-Object {$_.UserRoleId -eq $userRole.Id}
 
         # Check for null
@@ -115,7 +115,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string userRoleName = "Deployment creator";
 
@@ -216,7 +216,7 @@ uri = '{0}/api/spaces'.format(octopus_server_uri)
 spaces = get_octopus_resource(uri, headers)
 space = next((x for x in spaces if x['Name'] == space_name), None)
 
-# Get userrole
+# Get user role
 uri = '{0}/api/userroles'.format(octopus_server_uri)
 user_roles = get_octopus_resource(uri, headers)
 user_role = next((x for x in user_roles if x['Name'] == role_name), None)

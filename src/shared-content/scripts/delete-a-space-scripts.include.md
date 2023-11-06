@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 $spaceName = "New Space"
@@ -41,7 +41,7 @@ Write-Host "Action Complete"
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
@@ -77,7 +77,7 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 var OctopusURL = "https://youroctourl";
-var OctopusAPIKey = "API-YOURAPIKEY";
+var OctopusAPIKey = "API-YOUR-KEY";
 
 var endpoint = new OctopusServerEndpoint(OctopusURL, OctopusAPIKey);
 var repository = new OctopusRepository(endpoint);
@@ -119,7 +119,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 space_name = "Your Space name"

@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $projectName = "MyProject"
 $releaseVersion = "1.0.0.0"
@@ -63,7 +63,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $projectName = "MyProject"
 $channelName = "default"
@@ -356,7 +356,7 @@ func main() {
 
     releaseVersion := ""
 
-	// Check to see if the nexversionincrement property is nil
+	// Check to see if the NextVersionIncrement property is nil
 	if nil == template["NextVersionIncrement"] {
 		// Project uses a package instead of a template, get the latest version of the package
 		deploymentProcess, err := client.DeploymentProcesses.GetByID(project.DeploymentProcessID)

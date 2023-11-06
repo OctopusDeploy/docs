@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Specify the Space to search in
@@ -49,7 +49,7 @@ foreach ($project in $projects) {
     $matchingNamedVariables = $projectVariableSet.Variables | Where-Object { $_.Name -ieq "$variableToFind" }
     if ($null -ne $matchingNamedVariables) {
         foreach ($match in $matchingNamedVariables) {
-            $result = [pscustomobject]@{
+            $result = [PSCustomObject]@{
                 Project           = $project.Name
                 VariableSet       = $null
                 MatchType         = "Named Project Variable"
@@ -68,7 +68,7 @@ foreach ($project in $projects) {
     $matchingValueVariables = $projectVariableSet.Variables | Where-Object { $_.Value -like "*#{$variableToFind}*" }
     if ($null -ne $matchingValueVariables) {
         foreach ($match in $matchingValueVariables) {
-            $result = [pscustomobject]@{
+            $result = [PSCustomObject]@{
                 Project           = $project.Name
                 VariableSet       = $null
                 MatchType         = "Referenced Project Variable"
@@ -94,7 +94,7 @@ foreach ($project in $projects) {
                 $propName = $prop.Name
                 $json = $step.$propName | ConvertTo-Json -Compress -Depth 10
                 if ($null -ne $json -and ($json -like "*$variableToFind*")) {
-                    $result = [pscustomobject]@{
+                    $result = [PSCustomObject]@{
                         Project           = $project.Name
                         VariableSet       = $null
                         MatchType         = "Step"
@@ -128,7 +128,7 @@ foreach ($project in $projects) {
                     $propName = $prop.Name
                     $json = $step.$propName | ConvertTo-Json -Compress -Depth 10
                     if ($null -ne $json -and ($json -like "*$variableToFind*")) {
-                        $result = [pscustomobject]@{
+                        $result = [PSCustomObject]@{
                             Project           = $project.Name
                             VariableSet       = $null
                             MatchType         = "Runbook Step"
@@ -154,7 +154,7 @@ if ($searchVariableSets -eq $True) {
         $variables = (Invoke-RestMethod -Method Get "$OctopusURL/$($VariableSet.Links.Variables)" -Headers $header).Variables | Where-Object { $_.Value -like "*#{$variableToFind}*" }
         $link = ($VariableSet.Links.Self -replace "/api", "app#") -replace "/libraryvariablesets/", "/library/variables/"
         foreach ($variable in $variables) {
-            $result = [pscustomobject]@{
+            $result = [PSCustomObject]@{
                 Project           = $null
                 VariableSet       = $VariableSet.Name
                 MatchType         = "Variable Set"
@@ -230,8 +230,8 @@ foreach ($project in $projects)
     {
         foreach ($match in $matchingNamedVariable)
         {
-            # Create new hashtable
-            $result = [pscustomobject]@{
+            # Create new hash table
+            $result = [PSCustomObject]@{
                 Project = $project.Name
                 MatchType = "Named Project Variable"
                 Context = $match.Name
@@ -251,7 +251,7 @@ foreach ($project in $projects)
     {
         foreach ($match in $matchingValueVariables)
         {
-            $result = [pscustomobject]@{
+            $result = [PSCustomObject]@{
                 Project = $project.Name
                 MatchType = "Referenced Project Variable"
                 Context = $match.Name
@@ -280,7 +280,7 @@ foreach ($project in $projects)
                     {
                         if ($action.Properties[$property].Value -like "*$variableToFind*")
                         {
-                            $result = [pscustomobject]@{
+                            $result = [PSCustomObject]@{
                                 Project = $project.Name
                                 MatchType = "Step"
                                 Context = $step.Name
@@ -320,7 +320,7 @@ foreach ($project in $projects)
                     {
                         if ($action.Properties[$property].Value -like "*$variableToFind*")
                         {
-                            $result = [pscustomobject]@{
+                            $result = [PSCustomObject]@{
                                 Project = $project.Name
                                 MatchType = "Runbook Step"
                                 Context = $runbook.Name
@@ -613,7 +613,7 @@ import requests
 import csv
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -644,7 +644,7 @@ csv_export_path = ''
 
 variable_tracker = []
 octopus_server_uri = octopus_server_uri.rstrip('/')
-octopus_server_baselink_uri = octopus_server_uri.rstrip('api')
+octopus_server_base_link_uri = octopus_server_uri.rstrip('api')
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
 print('Looking for usages of variable named \'{0}\' in space \'{1}\''.format(variable_name, space_name))
@@ -667,7 +667,7 @@ for project in projects:
                 'Context': variable['Name'],
                 'AdditionalContext': None,
                 'Property': None,
-                'Link': '{0}{1}/variables'.format(octopus_server_baselink_uri, project_web_uri)
+                'Link': '{0}{1}/variables'.format(octopus_server_base_link_uri, project_web_uri)
             }
             if tracked_variable not in variable_tracker:
                 variable_tracker.append(tracked_variable)
@@ -682,7 +682,7 @@ for project in projects:
                 'Context': variable['Name'],
                 'AdditionalContext': variable['Value'],
                 'Property': None,
-                'Link': '{0}{1}/variables'.format(octopus_server_baselink_uri, project_web_uri)
+                'Link': '{0}{1}/variables'.format(octopus_server_base_link_uri, project_web_uri)
             }
             if tracked_variable not in variable_tracker:
                 variable_tracker.append(tracked_variable)
@@ -700,7 +700,7 @@ for project in projects:
                         'Context': step['Name'],
                         'Property': step_key,
                         'AdditionalContext': None,
-                        'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_baselink_uri, project_web_uri, step['Actions'][0]['Id'])
+                        'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_base_link_uri, project_web_uri, step['Actions'][0]['Id'])
                     }
                     if tracked_variable not in variable_tracker:
                         variable_tracker.append(tracked_variable)
@@ -711,7 +711,7 @@ for project in projects:
         runbooks = runbooks_resource['Items']
         for runbook in runbooks:
             runbook_processes_link = runbook['Links']['RunbookProcesses']
-            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_baselink_uri, runbook_processes_link))
+            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_base_link_uri, runbook_processes_link))
             for step in runbook_process['Steps']:
                 for step_key in step.keys():
                     step_property_value = str(step[step_key])
@@ -722,7 +722,7 @@ for project in projects:
                             'Context': runbook['Name'],
                             'Property': step_key,
                             'AdditionalContext': step['Name'],
-                            'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_baselink_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
+                            'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_base_link_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
                         }
                         if tracked_variable not in variable_tracker:
                             variable_tracker.append(tracked_variable)               

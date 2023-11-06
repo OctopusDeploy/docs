@@ -1,4 +1,4 @@
-<details data-group="run-healthcheck-scripts">
+<details data-group="run-health-check-scripts">
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "http://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $Description = "Health check started from Powershell script"
@@ -52,7 +52,7 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/tasks" -Body (
 ```
 
 </details>
-<details data-group="run-healthcheck-scripts">
+<details data-group="run-health-check-scripts">
 <summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
@@ -61,7 +61,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $Description = "Health check started from Powershell script"
 $TimeOutAfterMinutes = 5
@@ -105,7 +105,7 @@ catch
 ```
 
 </details>
-<details data-group="run-healthcheck-scripts">
+<details data-group="run-health-check-scripts">
 <summary>C#</summary>
 
 ```csharp
@@ -117,7 +117,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var description = "Health check started from C# script";
 var timeoutAfterMinutes = 5;
@@ -160,7 +160,7 @@ catch (Exception ex)
 ```
 
 </details>
-<details data-group="run-healthcheck-scripts">
+<details data-group="run-health-check-scripts">
 <summary>Python3</summary>
 
 ```python

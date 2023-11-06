@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 
@@ -45,7 +45,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "http://octotemp";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 
 // Create repository object
@@ -92,7 +92,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 
@@ -152,7 +152,7 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YOURAPIKEY"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 
 	// Get reference to space

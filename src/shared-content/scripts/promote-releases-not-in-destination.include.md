@@ -41,7 +41,7 @@ function Invoke-OctopusApi
             return Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -Body $body -ContentType 'application/json; charset=utf-8' 
         }
 
-        Write-Host "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-Host "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         return $result               
@@ -160,7 +160,7 @@ foreach ($projectName in $splitProjectList)
         TenantId = $null
         UseGuidedFailure = $false
     }
-    $newDeployment = Invoke-OctopusApi -octopusUrl $octopusurl -apiKey $apiKey -method "POST" -spaceId $spaceId -item $newDeployment -endPoint "deployments"
+    $newDeployment = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $apiKey -method "POST" -spaceId $spaceId -item $newDeployment -endPoint "deployments"
 }
 ```
 

@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $headers = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 $spaceName = "Default"
@@ -52,7 +52,7 @@ $deployment = Invoke-RestMethod -Uri $octopusURL/api/$($space.Id)/deployments -M
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusURL = "https://youroctourl/"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $spaceName = "Default"
 $projectName = "Your Project Name"
@@ -159,7 +159,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 
@@ -291,14 +291,14 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 
 func GetProjectReleases(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, project *octopusdeploy.Project) []interface{} {
 	// Define api endpoint
-	projectReleasesEndoint := octopusURL.String() + "/api/" + space.ID + "/projects/" + project.ID + "/releases"
+	projectReleasesEndpoint := octopusURL.String() + "/api/" + space.ID + "/projects/" + project.ID + "/releases"
 
 	// Create http client
 	httpClient := &http.Client{}
 	skipAmount := 0
 
 	// Make request
-	request, _ := http.NewRequest("GET", projectReleasesEndoint, nil)
+	request, _ := http.NewRequest("GET", projectReleasesEndpoint, nil)
 	request.Header.Set("X-Octopus-ApiKey", APIKey)
 	response, err := httpClient.Do(request)
 

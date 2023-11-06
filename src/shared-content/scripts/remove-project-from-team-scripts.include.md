@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $projectName = "MyProject"
 $spaceName = "default"
@@ -45,7 +45,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $projectName = "MyProject"
 $teamName = "MyTeam"
@@ -94,7 +94,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "default";
 string projectName = "MyProject";
 string teamName = "MyTeam";
@@ -241,7 +241,7 @@ func main() {
 	// Get the space object
 	space := GetSpace(apiURL, APIKey, spaceName)
 
-	// Creat client for space
+	// Create client for space
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get team

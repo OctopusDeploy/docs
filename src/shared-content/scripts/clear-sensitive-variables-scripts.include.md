@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 Function Clear-SensitiveVariables
@@ -80,7 +80,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
@@ -146,7 +146,7 @@ catch
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "default";
 
 // Create repository object
@@ -314,7 +314,7 @@ func main() {
 		log.Println(err)
 	}
 	APIKey := "API-YourAPIKey"
-	spaceName := "MySace"
+	spaceName := "YourSpace"
 
 	// Get reference to space
 	space := GetSpace(apiURL, APIKey, spaceName)
@@ -345,18 +345,18 @@ func main() {
 
 	// Loop through sets
 	for i := 0; i < len(librarySets); i++ {
-		librarysetVariables := GetVariables(apiURL, APIKey, space, librarySets[i].ID)
+		librarySetVariables := GetVariables(apiURL, APIKey, space, librarySets[i].ID)
 		variablesUpdated := false
-		for j := 0; j < len(librarysetVariables.Variables); j++ {
-			if librarysetVariables.Variables[j].IsSensitive {
-				librarysetVariables.Variables[j].Value = ""
+		for j := 0; j < len(librarySetVariables.Variables); j++ {
+			if librarySetVariables.Variables[j].IsSensitive {
+				librarySetVariables.Variables[j].Value = ""
 				variablesUpdated = true
 			}
 		}
 
 		if variablesUpdated {
 			println("Variables for " + librarySets[i].Name + " have been updated")
-			UpdateVariables(apiURL, APIKey, space, librarysetVariables.OwnerID, librarysetVariables)
+			UpdateVariables(apiURL, APIKey, space, librarySetVariables.OwnerID, librarySetVariables)
 		}
 	}
 }

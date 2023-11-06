@@ -61,7 +61,7 @@ function Invoke-OctopusApi
             return Invoke-RestMethod -Method $methodToUse -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -Body $body -ContentType 'application/json; charset=utf-8' 
         }
 
-        Write-Verbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-Verbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $methodToUse -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         return $result               
@@ -132,7 +132,7 @@ function Get-ProjectEnvironmentIds
     $environmentIds = @()
     foreach ($lifecycleId in $lifeCycleIds)
     {
-        $lifecycle = Invoke-OctopusApi -octopusUrl $octopusUrl -spaceId $spaceid -apiKey $octopusApiKey -endPoint "lifecycles/$lifecycleId"
+        $lifecycle = Invoke-OctopusApi -octopusUrl $octopusUrl -spaceId $spaceId -apiKey $octopusApiKey -endPoint "lifecycles/$lifecycleId"
 
         $phases = $lifecycle.Phases
 
@@ -293,7 +293,7 @@ if ($null -eq $target)
 
 Write-Host "The id for $targetName is $($target.Id)"
 
-$environmentList = Invoke-OctopusApi -octopusUrl $octopusurl -endPoint "environments?skip=0&take=10000" -spaceId $spaceId -apiKey $octopusApiKey
+$environmentList = Invoke-OctopusApi -octopusUrl $octopusUrl -endPoint "environments?skip=0&take=10000" -spaceId $spaceId -apiKey $octopusApiKey
 $allEnvironmentIds = @($environmentList.Items |Select-Object -ExpandProperty Id)
 
 $targetResults = @()
@@ -436,7 +436,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-Host "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-Host "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -445,7 +445,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-Host "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-Host "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -512,7 +512,7 @@ function Get-TargetIsScopedToProcess
             if (($null -ne $action.ExcludedEnvironments))
             {
                 $hasExcludedEnvironmentScoping = $action.ExcludedEnvironments.Count -gt 0
-                if ($hasExcludedEnvironmentScopint -eq $true)
+                if ($hasExcludedEnvironmentScoping -eq $true)
                 {
                     $environmentsTargetCanStillDeployTo = @()
                     foreach ($environmentId in $target.EnvironmentIds)
@@ -583,9 +583,9 @@ foreach ($project in $projects)
     $targetHasMatchingEnvironment = $false
     
     # Loop through environments
-    foreach ($envronmentId in $projectEnvironments)
+    foreach ($environmentId in $projectEnvironments)
     {
-        if ($target.EnvironmentIds -contains $envronmentId)
+        if ($target.EnvironmentIds -contains $environmentId)
         {
             $targetHasMatchingEnvironment = $true
             break
@@ -876,7 +876,7 @@ static System.Collections.Generic.List<string> GetEnvironmentsScopedToProject(Pr
             {
                 if (!scopedEnvironments.Contains(environmentId))
                 {
-                    Console.WriteLine(string.Format("Adding {0} to {1} environemnt list", environmentId, Project.Name));
+                    Console.WriteLine(string.Format("Adding {0} to {1} environment list", environmentId, Project.Name));
                     scopedEnvironments.Add(environmentId);
                 }
             }
@@ -946,11 +946,11 @@ static bool GetTargetIsScopedToProcess(Octopus.Client.Model.IProcessResource pro
                     if(hasExcludedEnvironmentScoping)
                     {
                         System.Collections.Generic.List<string> environmentsTargetCanStillDeployTo = new System.Collections.Generic.List<string>();
-                        foreach (var environmetnId in target.EnvironmentIds)
+                        foreach (var environmentId in target.EnvironmentIds)
                         {
-                            if ((!action.ExcludedEnvironments.Contains(environmetnId)) && (projectEnvironmentList.Contains(environmetnId)))
+                            if ((!action.ExcludedEnvironments.Contains(environmentId)) && (projectEnvironmentList.Contains(environmentId)))
                             {
-                                environmentsTargetCanStillDeployTo.Add(environmetnId);
+                                environmentsTargetCanStillDeployTo.Add(environmentId);
                             }
                         }
 

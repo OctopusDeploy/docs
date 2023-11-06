@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 # Provide the space name
 $spaceName = "Default"
@@ -89,7 +89,7 @@ try
     # Get projects
     $projects = $repositoryForSpace.Projects.GetAll() | Where-Object {$projectNames -contains $_.Name}
     
-    # Create projectenvironments
+    # Create project environments
     $projectEnvironments = New-Object Octopus.Client.Model.ReferenceCollection
     foreach ($environment in $environments)
     {
@@ -134,7 +134,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string tenantName = "MyTenant";
 string[] projectNames = { "MyProject" };
@@ -158,7 +158,7 @@ try
     // Get environments
     var environments = repositoryForSpace.Environments.FindByNames(environmentNames);
 
-    // Create projectenvironments
+    // Create project environments
     Octopus.Client.Model.ReferenceCollection projectEnvironments = new ReferenceCollection();
     foreach (var environment in environments)
     {

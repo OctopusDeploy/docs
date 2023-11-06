@@ -7,7 +7,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $packageFile = "path\to\package"
@@ -61,7 +61,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $packageFile = "path\to\package"
 
@@ -79,7 +79,7 @@ try
     # Create new package resource
     $package = New-Object Octopus.Client.Model.PackageResource
 
-    # Create filestream object
+    # Create file stream object
     $fileStream = New-Object System.IO.FileStream($packageFile, [System.IO.FileMode]::Open)
 
     # Push package
@@ -157,7 +157,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 space_name = "Default"

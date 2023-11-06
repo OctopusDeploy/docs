@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctopus.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 $spaceName = "Default"
@@ -50,7 +50,7 @@ $ErrorActionPreference = "Stop";
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusURL = "https://youroctopus.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $spaceName = "Default"
 $environments = @("Development", "Test", "Staging", "Production")
@@ -94,7 +94,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctopus.octopus.app";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 
 var spaceName = "Default";
 var environments = new List<string> { "Development", "Staging", "Test", "Production" };
@@ -144,7 +144,7 @@ import requests
 from urllib.parse import quote
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):

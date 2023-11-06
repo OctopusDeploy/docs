@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $packageName = "packageName"
@@ -35,7 +35,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $packageName = "packageName"
 $packageVersion = "1.0.0.0"
@@ -78,10 +78,10 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 
 string spaceName = "Default";
-string packageName = "packagename";
+string packageName = "package_name";
 string packageVersion = "1.0.0.0";
 string outputFolder = @"C:\Temp\";
 
@@ -126,7 +126,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -141,7 +141,7 @@ def get_by_name(uri, name):
 
 space_name = "Default"
 package_output_folder = '/path/to/output/package/to'
-package_name = 'packagename'
+package_name = 'package_name'
 package_version = '1.0.0.0'
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)

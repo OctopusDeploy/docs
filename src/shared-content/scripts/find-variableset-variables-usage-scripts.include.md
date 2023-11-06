@@ -1,4 +1,4 @@
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Specify the Space to search in
@@ -57,7 +57,7 @@ foreach ($project in $projects)
 
         if($null -ne $matchingValueVariables) {
             foreach($match in $matchingValueVariables) {
-                $result = [pscustomobject]@{
+                $result = [PSCustomObject]@{
                     Project = $project.Name
                     MatchType = "Referenced Project Variable"
                     VariableSetVariable = $variable.Name
@@ -91,7 +91,7 @@ foreach ($project in $projects)
                 foreach($variable in $variables)
                 {
                     if($null -ne $json -and ($json -like "*$($variable.Name)*")) {
-                        $result = [pscustomobject]@{
+                        $result = [PSCustomObject]@{
                             Project = $project.Name
                             MatchType= "Step"
                             VariableSetVariable = $variable.Name
@@ -133,7 +133,7 @@ foreach ($project in $projects)
                     foreach($variable in $variables)
                     {
                         if($null -ne $json -and ($json -like "*$($variable.Name)*")) {
-                            $result = [pscustomobject]@{
+                            $result = [PSCustomObject]@{
                                 Project = $project.Name
                                 MatchType= "Runbook Step"
                                 VariableSetVariable = $variable.Name
@@ -166,7 +166,7 @@ if($variableTracking.Count -gt 0) {
 ```
 
 </details>
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
@@ -235,7 +235,7 @@ foreach ($project in $projects)
 
         if($null -ne $matchingValueVariables) {
             foreach($match in $matchingValueVariables) {
-                $result = [pscustomobject]@{
+                $result = [PSCustomObject]@{
                     Project = $project.Name
                     MatchType = "Referenced Project Variable"
                     VariableSetVariable = $variable.Name
@@ -267,7 +267,7 @@ foreach ($project in $projects)
                     {
                         if ($action.Properties[$property].Value -like "*$($variable.Name)*")
                         {
-                            $result = [pscustomobject]@{
+                            $result = [PSCustomObject]@{
                                 Project = $project.Name
                                 MatchType= "Step"
                                 VariableSetVariable = $variable.Name
@@ -309,7 +309,7 @@ foreach ($project in $projects)
                         {
                             if ($action.Properties[$property].Value -like "*$($variable.Name)*")
                             {
-                                $result = [pscustomobject]@{
+                                $result = [PSCustomObject]@{
                                     Project = $project.Name
                                     MatchType= "Runbook Step"
                                     VariableSetVariable = $variable.Name
@@ -343,7 +343,7 @@ if($variableTracking.Count -gt 0) {
 ```
 
 </details>
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>C#</summary>
 
 ```csharp
@@ -594,7 +594,7 @@ if (variableTracking.Count > 0)
 ```
 
 </details>
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>Python3</summary>
 
 ```python
@@ -603,7 +603,7 @@ import requests
 import csv
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -633,7 +633,7 @@ csv_export_path = ''
 
 variable_tracker = []
 octopus_server_uri = octopus_server_uri.rstrip('/')
-octopus_server_baselink_uri = octopus_server_uri.rstrip('api')
+octopus_server_base_link_uri = octopus_server_uri.rstrip('api')
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
 library_variableset_resource = get_by_name('{0}/{1}/libraryvariablesets/all'.format(octopus_server_uri, space['Id']), library_variableset_name)
@@ -662,7 +662,7 @@ for project in projects:
                     'Context': matching_variable['Name'],
                     'AdditionalContext': matching_variable['Value'],
                     'Property': None,
-                    'Link': '{0}{1}/variables'.format(octopus_server_baselink_uri, project_web_uri)
+                    'Link': '{0}{1}/variables'.format(octopus_server_base_link_uri, project_web_uri)
                 }
                 if tracked_variable not in variable_tracker:
                     variable_tracker.append(tracked_variable)
@@ -683,7 +683,7 @@ for project in projects:
                             'Context': step['Name'],
                             'Property': step_key,
                             'AdditionalContext': None,
-                            'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_baselink_uri, project_web_uri, step['Actions'][0]['Id'])
+                            'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_base_link_uri, project_web_uri, step['Actions'][0]['Id'])
                         }
                         if tracked_variable not in variable_tracker:
                             variable_tracker.append(tracked_variable)
@@ -694,7 +694,7 @@ for project in projects:
         runbooks = runbooks_resource['Items']
         for runbook in runbooks:
             runbook_processes_link = runbook['Links']['RunbookProcesses']
-            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_baselink_uri, runbook_processes_link))
+            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_base_link_uri, runbook_processes_link))
             for step in runbook_process['Steps']:
                 for step_key in step.keys():
                     step_property_value = str(step[step_key])
@@ -708,7 +708,7 @@ for project in projects:
                                 'Context': runbook['Name'],
                                 'Property': step_key,
                                 'AdditionalContext': step['Name'],
-                                'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_baselink_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
+                                'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_base_link_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
                             }
                             if tracked_variable not in variable_tracker:
                                 variable_tracker.append(tracked_variable)               
@@ -736,7 +736,7 @@ if results_count > 0:
 ```
 
 </details>
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>Go</summary>
 
 ```go

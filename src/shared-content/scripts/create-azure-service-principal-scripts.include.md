@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 
@@ -61,7 +61,7 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/accounts" -Bod
 # Load assembly
 Add-Type -Path 'path\to\Octopus.Client.dll'
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 
 # Azure service principle details
 $azureSubscriptionNumber = "Subscription-Guid"
@@ -123,7 +123,7 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 var OctopusURL = "https://youroctourl";
-var OctopusAPIKey = "API-YOURAPIKEY";
+var OctopusAPIKey = "API-YOUR-KEY";
 
 // Azure specific details
 string azureSubscriptionNumber = "Subscription-Guid";
@@ -182,7 +182,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 space_name = 'Default'

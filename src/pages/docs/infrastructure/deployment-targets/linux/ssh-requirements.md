@@ -35,7 +35,7 @@ Octopus can execute Python scripts on SSH targets provided the following criteri
 
 - Python is version 3.4+
 - Python3 is on the path for the SSH user executing the deployment
-- pip is installed or the pycryptodome python package is installed
+- pip is installed or the PyCryptodome Python package is installed
 
 ## F#
 
