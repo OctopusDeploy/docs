@@ -37,6 +37,13 @@ The step exposes a number of options, typically requesting credentials to the va
 * `Octopus API Key` requires an [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) to the Octopus instance where the reference architecture projects and supporting resources are created.
 * `Octopus Space ID` requires the space ID where the reference architecture projects and supporting resources are created. Leave the default value to populate the same space as the runbook.
 * `Octopus Server URL` requires the URL of the Octopus instance where the reference architecture projects and supporting resources are created. Leave the default value to populate the same instance as the runbook.
+* `Optional Terraform Apply Args` allows custom arguments to be passed to the `terraform apply` command. The Terraform module applied by this step exposes a number of optional variables that can be defined as apply arguments that can be defined by setting this field to a value like `-var=project_template_project_name=renamed -var=infrastructure_project_name=renamed2 -var=frontend_project_name=renamed3 -var=products_project_name=renamed4 -var=audits_project_name=renamed5`:
+  * `infrastructure_project_name` defines the name of the `_ AWS EKS Infrastructure` project
+  * `project_template_project_name` defines the name of the `Docker Project Templates` project
+  * `frontend_project_name` defines the name of the `EKS Octopub Frontend` project
+  * `products_project_name` defines the name of the `EKS Octopub Products` project
+  * `audits_project_name` defines the name of the `EKS Octopub Audits`
+* `Optional Terraform Init Args` allows custom argument to be passed to the `terraform init` command. Leave this field blank unless you have a specific use case.
 
 ### Reference projects
 
