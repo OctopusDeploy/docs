@@ -8,7 +8,7 @@ navOrder: 80
 hideInThisSectionHeader: true
 ---
 
-Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're starting simple or want complete control over a complex setup. You can deploy Kubernetes resources such as [deployments](/docs/deployments/kubernetes/deploy-container/), [services](/docs/deployments/kubernetes/deploy-service/), and [ingress](/docs/deployments/kubernetes/deploy-ingress), and run scripts against a Kubernetes cluster.
+Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're starting simple or want complete control over a complex setup. You can [deploy Kubernetes resources](https://octopus.com/use-case/kubernetes) such as [deployments](/docs/deployments/kubernetes/deploy-container/), [services](/docs/deployments/kubernetes/deploy-service/), and [ingress](/docs/deployments/kubernetes/deploy-ingress), and run scripts against a Kubernetes cluster.
 
 - Centralize your Kubernetes clusters and resources in a single place so you can focus on your applications and customers
 - Adopt development best practices:
