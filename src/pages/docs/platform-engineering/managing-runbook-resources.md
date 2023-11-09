@@ -67,7 +67,7 @@ Many of the exported resources expose values, like resource names, as Terraform 
 
 The exported module defines only the runbook and the runbook deployment process. It does not define other project level resources like project variables or library variable sets. Any project that the exported runbook is added to is expected to define all the variables referenced by the runbook.
 
-Any project level variables required by the runbook can be defined as Terraform resources and deployed alongside the exported runbook module. The instructions documented in the [Managing project resources](managing-project-resources) section can be used to export a project to a Terraform module. The project level variables can be copied out of the exported project module as needed and placed in their own module as needed. 
+Any project level variables required by the runbook can be defined as Terraform resources and deployed alongside the exported runbook module. The instructions documented in the [Managing project resources](managing-project-resources) section can be used to export a project to a Terraform module. The project level variables can be copied from the exported project module and placed in their own module as needed. 
 
 ## Importing a runbook
 
