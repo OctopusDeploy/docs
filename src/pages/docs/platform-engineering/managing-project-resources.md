@@ -140,7 +140,7 @@ It is up to you to copy each of the properties into the Terraform resource that 
 
 ## Serializing with octoterra
 
-The second approach is to create a management, or upstream, space using the Octopus UI and then export projects to Terraform modules with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport). This allows you to rely on the UI for convenience and validation and then serialize the project to a Terraform module.
+The second approach is to create a management, or upstream, project using the Octopus UI and then export projects to Terraform modules with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport). This allows you to rely on the UI for convenience and validation and then serialize the project to a Terraform module.
 
 :::div{.hint}
 You are free to edit the Terraform module created by octoterra as you see fit once it is exported.
@@ -199,4 +199,4 @@ Executing the runbook will create a new project in an existing space. Any space 
 
 ### Updating project resources
 
-The runbooks `__ 1. Serialize Project` and `__ 2. Deploy Project` can be run as needed to serialize any changes to the upstream project and deploy the changes to downstream projects. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus spaces using the same processes you use Octopus to deploy applications.
+The runbooks `__ 1. Serialize Project` and `__ 2. Deploy Project` can be run as needed to serialize any changes to the upstream project and deploy the changes to downstream projects. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus projects using the same processes you use Octopus to deploy applications.
