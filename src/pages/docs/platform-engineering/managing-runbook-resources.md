@@ -93,4 +93,4 @@ Executing the runbook will create a new runbook in an existing project. Any spac
 
 ### Updating project resources
 
-The runbooks `__ Serialize Runbook` and `__ Deploy Runbook` can be run as needed to serialize any changes to the upstream runbook and deploy the changes to downstream runbooks. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way you can use Octopus to deploy Octopus runbooks using the same processes you use Octopus to deploy applications. 
+The runbooks `__ Serialize Runbook` and `__ Deploy Runbook` can be run as needed to serialize any changes to the upstream runbook and deploy the changes to downstream runbooks. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way, you can use Octopus to deploy Octopus runbooks using the same processes you use Octopus to deploy applications. 
