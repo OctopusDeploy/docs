@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
+pubDate: 2023-11-09
+modDate: 2023-11-09
 title: Managing runbook resources
 description: This section documents how to manage runbooks as code.
 navOrder: 6
