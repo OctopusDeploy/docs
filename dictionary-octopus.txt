@@ -15,6 +15,7 @@ ITSM
 kustomization
 kustomize
 lifecycles
+majeure
 maxage
 msiexec
 MTTR
