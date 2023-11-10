@@ -75,6 +75,7 @@ lifecycles
 linkerd
 ltsc
 maintenanceconfiguration
+majeure
 maxage
 milli
 MITM
