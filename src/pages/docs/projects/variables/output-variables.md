@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-11
 title: Output variables
 description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
 navOrder: 30
@@ -25,7 +25,7 @@ Set-OctopusVariable -name "TestResult" -value "Passed"
 <summary>C#</summary>
 
 ```csharp
-Octopus.SetVariable("TestResult", "Passed");
+SetVariable("TestResult", "Passed");
 ```
 
 </details>
@@ -74,7 +74,7 @@ $TestResult  = $OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
 <summary>C#</summary>
 
 ```csharp
-var testResult = Octopus.Parameters["Octopus.Action[StepA].Output.TestResult"]
+var testResult = OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
 ```
 
 </details>
@@ -117,7 +117,7 @@ Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sens
 <summary>C#</summary>
 
 ```csharp
-Octopus.SetVariable("Password", "correct horse battery staple", true);
+SetVariable("Password", "correct horse battery staple", true);
 ```
 
 </details>
@@ -146,7 +146,7 @@ set_octopusvariable("Password", "correct horse battery staple", True)
 
 </details>
 
-## System output variables {#Outputvariables-Systemoutputvariables}
+## System output variables
 
 After a step runs, Octopus captures the output variables, and keeps them for use in subsequent steps. In addition to variables that you create yourself using `Set-OctopusVariable`, Octopus also makes a number of built-in variables available. Here are some examples of commonly used built-in output variables:
 
@@ -159,7 +159,7 @@ After a step runs, Octopus captures the output variables, and keeps them for use
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.DisplayName`
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.EmailAddress`
 
-## Output from multiple deployment targets {#Outputvariables-Outputfrommultiplemachines}
+## Output from multiple deployment targets {#output-from-multiple-deployment-targets}
 
 Output variables become more complex when multiple deployment targets are involved, but they can still be used.
 
@@ -180,24 +180,24 @@ Note that for each output variable/deployment target combination:
 
 - A variable is created with the deployment target name contained in the variable name: this allows you to reference output variables from set by one deployment target from another deployment target.
 - A variable is created that is [scoped](/docs/projects/variables/#scoping-variables) to the deployment target. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set.
-- A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be indeterministic, but it allows scripts to use the value without knowing which deployment target set it.
+- A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be non-deterministic, but it allows scripts to use the value without knowing which deployment target set it.
 
 For some practical examples of using output variables, and how scoping rules are applied, see the following blog posts:
 
 - [Fun with output variables](https://octopus.com/blog/fun-with-output-variables)
 - [Changing website ports using output variables](http://octopus.com/blog/changing-website-port-on-each-deployment)
 
-## Output from deploy a release steps {#Outputvariables-Outputfromdeployareleasesteps}
+## Output from deploy a release steps
 
 Output variables from deployments triggered by a _Deploy a Release_ step are captured and exposed as output variables on the _Deploy a Release_ step.
 
 To get the value of an output variable from a _Deploy a Release_ step, use the `Output.Deployment` variable on the _Deploy a Release_ step. For example, if your _Deploy a Release_ step is named "Deploy Web Project", the target step in the child project is named "Update IP Address", and the variable name is "IPAddress", you would use the following variable to access it in the parent project: `Octopus.Action[Deploy Web Project].Output.Deployment[Update IP Address].IPAddress`.
 
-## Setting output variables using scripts {#Outputvariables-Settingoutputvariablesusingscripts}
+## Setting output variables using scripts
 
 You can set output variables using any of the scripting languages supported by Octopus. In each case we make special functions available to your scripts by bootstrapping them with a template defined in the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari).
 
-### PowerShell {#Outputvariables-PowerShell}
+### PowerShell
 
 [PowerShell Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/WindowsPowerShell/)
 
@@ -214,19 +214,19 @@ For example:
 Set-OctopusVariable -name "TestResult" -value "Passed"
 ```
 
-### C# {#Outputvariables-C#}
+### C#
 
-[ScriptCS Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/ScriptCS)
+[Dotnet Script Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/DotnetScript)
 
 From a C# script, you can use the `public static void SetVariable(string name, string value)` method to set the name and value of an output variable.
 
 **C#**
 
 ```csharp
-Octopus.SetVariable("TestResult", "Passed");
+SetVariable("TestResult", "Passed");
 ```
 
-### Bash {#Outputvariables-Bash}
+### Bash
 
 [Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/Bash)
 
@@ -238,7 +238,7 @@ In a Bash script you can use the `set_octopusvariable` function to set the name 
 set_octopusvariable "TestResult" "Passed"
 ```
 
-### F# {#Outputvariables-F#}
+### F#
 
 [FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/FSharp)
 

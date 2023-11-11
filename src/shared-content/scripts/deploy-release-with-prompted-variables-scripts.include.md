@@ -44,7 +44,7 @@ foreach($element in $deploymentPreview.Form.Elements)
     $uniqueName = $element.Name
     $isRequired = $element.Control.Required
     
-    $promptedVariablefound = $false
+    $promptedVariableFound = $false
     
     Write-Host "Looking for the prompted variable value for $nameToSearchFor"
     foreach ($promptedValue in $promptedValueList)
@@ -157,7 +157,7 @@ $deployment = $repositoryForSpace.Deployments.Create($deployment)
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;
@@ -453,14 +453,14 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 
 func GetProjectReleases(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, project *octopusdeploy.Project) []interface{} {
 	// Define api endpoint
-	projectReleasesEndoint := octopusURL.String() + "/api/" + space.ID + "/projects/" + project.ID + "/releases"
+	projectReleasesEndpoint := octopusURL.String() + "/api/" + space.ID + "/projects/" + project.ID + "/releases"
 
 	// Create http client
 	httpClient := &http.Client{}
 	skipAmount := 0
 
 	// Make request
-	request, _ := http.NewRequest("GET", projectReleasesEndoint, nil)
+	request, _ := http.NewRequest("GET", projectReleasesEndpoint, nil)
 	request.Header.Set("X-Octopus-ApiKey", APIKey)
 	response, err := httpClient.Do(request)
 

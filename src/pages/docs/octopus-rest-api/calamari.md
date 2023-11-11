@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-11
 title: Calamari
 description: Calamari is the command-line tool invoked by Tentacle during a deployment. It knows how to extract and install NuGet packages, run the Deploy.ps1 etc. conventions, modify configuration files, and all the other things that happen during an deployment.
 navOrder: 70
@@ -30,7 +30,7 @@ Calamari deploy-package --package MyPackage.nupkg --variables Variables.json
 Calamari has commands to support:
 
 - Deploying NuGet packages.
-- Running scripts (PowerShell, ScriptCS, Bash, F#).
+- Running scripts (PowerShell, Dotnet Script, Bash, F#).
 - Deploying packages to Azure targets (Cloud Services, WebApps).
 - Various other deployment related activities.
 

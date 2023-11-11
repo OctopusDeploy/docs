@@ -39,7 +39,7 @@ function Get-OctopusItems
         # Store call results
         $items += $resultSet.Items
     
-        # Check to see if resultset is bigger than page amount
+        # Check to see if result set is bigger than page amount
         if (($resultSet.Items.Count -gt 0) -and ($resultSet.Items.Count -eq $resultSet.ItemsPerPage))
         {
             # Increment skip count
@@ -123,7 +123,7 @@ $repositoryForSpace.ProjectGroups.Create($projectGroup)
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-07-18
+modDate: 2023-10-11
 title: Logging messages from scripts
 description: When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message.
 navOrder: 50
@@ -30,10 +30,10 @@ Write-Error "This will be logged as an Error and may cause your script to stop r
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
-Octopus.WriteVerbose("Verbose!!!");
-Octopus.WriteHighlight("This is a highlight");
-Octopus.WriteWait("Deployment is waiting on something");
-Octopus.WriteWarning("Warning");
+WriteVerbose("Verbose!!!");
+WriteHighlight("This is a highlight");
+WriteWait("Deployment is waiting on something");
+WriteWarning("Warning");
 ```
 
 </details>
@@ -96,7 +96,7 @@ Progress messages will display and update a progress bar on your deployment task
 <details data-group="deployments-custom-scripts-logging-messages">
 <summary>PowerShell</summary>
 
-```ps PowerShell
+```powershell
 Update-Progress 10
 Update-Progress 50 "Woah, we're halfway there!"
 ```
@@ -106,8 +106,8 @@ Update-Progress 50 "Woah, we're halfway there!"
 <summary>C#</summary>
 
 ```csharp
-Octopus.UpdateProgress(10);
-Octopus.UpdateProgress(50, "Woah, we're halfway there!");
+UpdateProgress(10);
+UpdateProgress(50, "Woah, we're halfway there!");
 ```
 
 </details>
@@ -133,8 +133,8 @@ Octopus.updateProgress 50 "Woah, we're halfway there!"
 <summary>Python3</summary>
 
 ```python
-updateprogress(10)
-updateprogress(50, 'Woah, we\'re halfway there!')
+update_progress(10)
+update_progress(50, 'Woah, we\'re halfway there!')
 ```
 
 </details>
@@ -176,7 +176,7 @@ let updateProgress (percentage: int) message =
 def encode(value):
     return base64.b64encode(value.encode('utf-8')).decode('utf-8')
 
-def updateprogress(progress, message=None):
+def update_progress(progress, message=None):
     encodedProgress = encode(str(progress))
     encodedMessage = encode(message)
 
@@ -188,12 +188,12 @@ def updateprogress(progress, message=None):
 <summary>Bash</summary>
 
 ```bash
-function encode_servicemessagevalue
+function encode_service_message_value
 {
 	echo -n "$1" | openssl enc -base64 -A
 }
 
-echo "##octopus[progress percentage='$(encode_servicemessagevalue "$1")' message='$(encode_servicemessagevalue "$2")']"
+echo "##octopus[progress percentage='$(encode_service_message_value "$1")' message='$(encode_service_message_value "$2")']"
 ```
 
 </details>

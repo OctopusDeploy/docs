@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-11
 title: Passing parameters to scripts
 description: Octopus can pass parameters to your custom script files for any of the supported scripting languages.
 navOrder: 40
@@ -43,7 +43,7 @@ You can define your parameters in the **Script Parameters** field using the form
 Don't forget to correctly delimit your parameters correctly for the scripting engine. In the example above we have surrounded the parameter value in double-quotes to handle cases where the Environment Name has spaces: `"#{Octopus.Environment.Name}"`
 :::
 
-## Passing parameters to PowerShell scripts {#Customscripts-PassingparameterstoPowerShellscripts}
+## Passing parameters to PowerShell scripts
 
 You can pass parameters to PowerShell scripts as if you were calling the script yourself from PowerShell, using positional or named parameters.
 
@@ -66,9 +66,9 @@ Param (
 Write-Host "$Environment storage path: $StoragePath"
 ```
 
-## Passing parameters to C# scripts {#Customscripts-PassingparameterstoC#scripts}
+## Passing parameters to C# scripts
 
-You can pass parameters to C# scripts [as described here for the ScriptCS engine](https://github.com/scriptcs/scriptcs/wiki/Pass-arguments-to-scripts). ScriptCS only supports positional parameters.
+You can pass parameters to C# scripts [as described here for the dotnet-script engine](https://github.com/dotnet-script/dotnet-script#passing-arguments-to-scripts).
 
 **Script Parameters in Octopus**
 
@@ -79,12 +79,12 @@ You can pass parameters to C# scripts [as described here for the ScriptCS engine
 **Usage in C# script**
 
 ```csharp
-var environment = Env.ScriptArgs[0]
-var storagePath = Env.ScriptArgs[1]
+var environment = Args[0]
+var storagePath = Args[1]
 Console.WriteLine("{0} storage path: {1}", environment, storagePath);
 ```
 
-## Passing parameters to Bash scripts {#Customscripts-PassingparameterstoBashscripts}
+## Passing parameters to Bash scripts
 
 You can pass parameters to Bash scripts [as described in Bash manual.](https://www.gnu.org/software/bash/manual/bash.html#Positional-Parameters)
 
@@ -102,7 +102,7 @@ storagePath="$2"
 echo "$environment storage path: $storagePath"
 ```
 
-## Passing parameters to F# scripts {#Customscripts-PassingparameterstoF#scripts}
+## Passing parameters to F# scripts
 
 You can pass parameters to FSharp scripts [as described by the F# documentation.](https://docs.microsoft.com/en-us/dotnet/fsharp/tools/fsharp-interactive/#using-the-fsi-object-in-f-code)
 
@@ -120,7 +120,7 @@ let storagePath = fsi.CommandLineArgs.[2]
 printfn "$s storage path: $s" environment storagePath
 ```
 
-## Passing parameters to Python3 scripts {#Customscripts-Passingparameterstopythonscripts}
+## Passing parameters to Python3 scripts
 
 You can pass parameters to python scripts [as described by the python documentation.](https://docs.python.org/3/tutorial/interpreter.html#argument-passing)
 

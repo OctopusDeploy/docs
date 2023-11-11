@@ -78,11 +78,11 @@ $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($libraryVariabl
 # Check to see if something was returned
 if ($null -eq $librarySet)
 {
-    Write-Warning "Library variable not found with name '$libraryVariabelSetName'"
+    Write-Warning "Library variable not found with name '$libraryVariableSetName'"
     exit
 }
 
-# Get the variableset
+# Get the variable set
 $variableSet = $repositoryForSpace.VariableSets.Get($librarySet.VariableSetId)
 
 # Get the variable
@@ -97,14 +97,14 @@ $repositoryForSpace.VariableSets.Modify($variableSet)
 <summary>C#</summary>
 
 ```csharp
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;
 using System.Linq;
 
 var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);

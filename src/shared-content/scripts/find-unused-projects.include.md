@@ -64,7 +64,7 @@ function Invoke-OctopusApi
             Write-Verbose "Ignoring cache."    
         }
 
-        Write-Verbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-Verbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         if ($cachedResults.ContainsKey($url) -eq $true)
@@ -230,13 +230,13 @@ foreach ($project in $oldProjects)
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;
 
 var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 DateTime currentUtcTime = DateTime.Now.ToUniversalTime();
 System.Collections.Generic.List<string> oldProjects = new System.Collections.Generic.List<string>();
 int daysSinceLastRelease = 90;

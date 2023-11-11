@@ -82,14 +82,14 @@ catch
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "default";
 
 // Create repository object
@@ -136,7 +136,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):

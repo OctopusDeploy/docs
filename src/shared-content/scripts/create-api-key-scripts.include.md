@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # UserName of the user for which the API key will be created. You can check this value from the web portal under Configuration/Users
@@ -43,7 +43,7 @@ Add-Type -Path "C:\octo\Octopus.Client.dll"
 
 # Define working variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 
 # Purpose of the API Key. This field is mandatory.
 $APIKeyPurpose = ""
@@ -76,14 +76,14 @@ catch
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 
 // Reference Octopus.Client
-//#r "path\to\Octopus.Client.dll"
+//#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string apiKeyPurpose = "Key used with C# application";
 
 // Create repository object

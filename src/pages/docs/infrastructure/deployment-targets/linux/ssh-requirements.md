@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-11
 title: SSH target requirements
 description: Requirements for using SSH deployment targets with Octopus.
 navOrder: 15
@@ -35,20 +35,14 @@ Octopus can execute Python scripts on SSH targets provided the following criteri
 
 - Python is version 3.4+
 - Python3 is on the path for the SSH user executing the deployment
-- pip is installed or the pycryptodome python package is installed
+- pip is installed or the PyCryptodome Python package is installed
 
-## ScriptCS and F#
+## F#
 
-Support for ScriptCS and F# scripts are only available with **Mono 4** and above. While they require mono installed, they will still execute with the self-contained Calamari.
-
-ScriptCS has not been ported for .NET Core ([GitHub issue](https://github.com/scriptcs/scriptcs/issues/1183)).
+Support F# scripts is only available with **Mono 4** and above. While they require mono installed, they will still execute with the self-contained Calamari.
 
 Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHub issue](https://github.com/Microsoft/visualfsharp/issues/2407)).
 
-:::div{.warning}
- 
-ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.14.x**.
-:::
 
 ## Self-contained Calamari {#self-contained-calamari}
 

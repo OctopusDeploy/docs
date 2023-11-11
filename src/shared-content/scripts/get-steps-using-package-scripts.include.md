@@ -53,7 +53,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $packageId = "PackageId"
 
@@ -92,14 +92,14 @@ foreach ($project in $projectList) {
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string packageId = "PackageId";
 

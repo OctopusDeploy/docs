@@ -87,7 +87,7 @@ Add-Type -Path "path:\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $eventDate = "8/1/2021"
 
@@ -129,7 +129,7 @@ catch
 <summary>C#</summary>
 
 ```csharp
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 using Octopus.Client;
 using Octopus.Client.Model;
 using System;
