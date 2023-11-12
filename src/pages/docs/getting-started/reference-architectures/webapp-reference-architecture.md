@@ -2,9 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-10-31
 modDate: 2023-10-31
-title: EKS reference architecture
-description: Populate an Octopus space with example projects deploying to an AWS EKS cluster
-navOrder: 1
+title: Web App reference architecture
+description: Populate an Octopus space with example projects deploying to an Azure web app
+navOrder: 2
 ---
 
 ## Azure Web App reference architecture
@@ -15,7 +15,7 @@ The [Octopus - Web App Reference Architecture](https://library.octopus.com/step-
 
 Hosted Octopus users should use the `Hosted Ubuntu` worker pool and run the step with the `octopuslabs/terraform-workertools` container image accessed via the `Container Images` feed. On-premises Octopus users need to ensure the step is run on a worker with a recent version of Terraform installed, or can use the `octopuslabs/terraform-workertools` container image on a worker with Docker installed.
 
-The step exposes a number of options, typically requesting credentials to the various platforms that are configured to support EKS deployments:
+The step exposes a number of options, typically requesting credentials to the various platforms that are configured to support Azure Web App deployments:
 
 * `Azure account application ID`, `Azure account subscription ID`, `Azure account tenant ID`, and `Azure account password` require the details associated with a [service principal](https://learn.microsoft.com/en-us/purview/create-service-principal-azure) used to access the Azure platform.
 * `Docker Hub Username` and `Docker Hub Password` require the credentials of a [Docker Hub user](https://docs.docker.com/docker-id/) that is used to access sample Docker images from public DockerHub repositories. These credentials are also used by a sample GitHub Actions workflow that publishes Docker images.
