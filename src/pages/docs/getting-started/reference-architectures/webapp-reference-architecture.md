@@ -33,7 +33,7 @@ The step exposes a number of options, typically requesting credentials to the va
 
 ### Reference projects
 
-The step creates a number of reference projects demonstrating how to deploy applications to an EKS cluster.
+The step creates a number of reference projects demonstrating how to deploy applications to an Azure web app.
 
 The `_ Azure Web App Infrastructure` project contains a runbook called `Create Web App`. This runbook creates an [Azure service plan](https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans) and three [Azure web app services](https://azure.microsoft.com/en-au/products/app-service/web) - one for each of the sample microservices deployed by the other projects.
 
