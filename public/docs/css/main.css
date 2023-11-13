@@ -1193,6 +1193,14 @@ nav.skip-links a:focus {
     display: none;
 }
 
+.recent-updates li {
+    margin-block-end: 1em;
+}
+
+.recent-updates time {
+    display: block;
+}
+
 /* Paging */
 
 .post-paging {
