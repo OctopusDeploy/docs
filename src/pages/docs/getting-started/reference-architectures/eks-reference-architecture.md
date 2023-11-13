@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-10-31
-modDate: 2023-10-31
+pubDate: 2023-11-13
+modDate: 2023-11-13
 title: EKS reference architecture
 description: Populate an Octopus space with example projects deploying to an AWS EKS cluster
 navOrder: 1
