@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-11-01
 title: AWS CLI and PowerShell scripts
 description: AWS CLI and PowerShell Scripts allow you to manage your AWS resources as part of your deployment process.
 navOrder: 90
@@ -100,17 +100,25 @@ Get-STSCallerIdentity | Select-Object -Property *
 
 Scripts can be run from two different locations: source code added to the step, or a script from a package.
 
-### Source code
+### Inline script
 
-The first option is to add the script source code to the step directly. This is done by selecting the `Source code` option, and entering the source code into the text box in the `Script Content` section.
+The first option is to add the script source code to the step directly. This is done by selecting the `Inline script` option, and entering the source code into the text box in the `Inline Source Code` section.
 
 :::figure
 ![Source Code](/docs/deployments/custom-scripts/images/step-aws-script.png)
 :::
 
+### Git repository
+
+The second option is to run a script from a git repository. This is done by selecting the `Git repository` option, configuring the repository details, and entering the path to the script file to run.
+
+:::figure
+![AWS script git repository](/docs/deployments/custom-scripts/images/step-aws-git.png)
+:::
+
 ### Package
 
-The second option is to run a script from a package. This is done by selecting the `Script file inside a package` option, selecting the package, and entering the name of the file within the package to run as a PowerShell script.
+The third option is to run a script from a package. This is done by selecting the `Package` option, selecting the package, and entering the name of the script file within the package to run.
 
 :::figure
 ![AWS script package](/docs/deployments/custom-scripts/images/step-aws-package.png)

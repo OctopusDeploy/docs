@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-11-01
 title: Custom scripts
 description: Custom scripts allows you to script anything you want using PowerShell, ScriptCS, F#, Python, or Bash.
 navOrder: 120
@@ -55,6 +55,7 @@ Octopus can execute scripts from a variety of locations, all with different bene
   2. You can author your scripts and publish them as step templates for other projects to use. Learn about [step templates](/docs/projects/custom-step-templates).
   3. You can develop your scripts and store them in a source control repository, like git, and Octopus can execute these scripts from within a package. Learn about [deployment process as code](/docs/deployments/patterns/deployment-process-as-code/) and [running scripts in packages](/docs/deployments/custom-scripts/scripts-in-packages).
   4. You can develop your scripts and store them in GitHub, then publish them as a release, which can be consumed by Octopus. Learn about [using the GitHub feed](/docs/packaging-applications/package-repositories/github-feeds).
+  5. And finally you can also store your scripts in git, and source them directly from the git repository. Learn about [run a script step](/docs/deployments/custom-scripts/run-a-script-step#choosing-where-to-source-scripts)
 
 ## How your scripts are executed by Octopus
 
@@ -66,13 +67,13 @@ The precise details depend on the context within which your script is running, h
  4. Any artifacts published by your scripts are transferred back to the Octopus Server.
  5. The temporary work directory is cleaned up.
 
-### Working directories {#Customscripts-Workingdirectories}
+### Working directories
 
 When Calamari executes your scripts, it does so within the context of a working directory. The working directory is a temporary location stored under the home folder you configure when setting up a deployment target or worker.
 
 If you're executing a script contained within a package, the package contents will be uncompressed and copied to this directory, but the working directory is the directory containing the script within it. After the script has finished executing, the working directory will be cleaned up. Learn about [copying the contents of the working directory](/docs/support/copy-working-directory).
 
-### Security and permissions {#Customscripts-Securityandpermissions}
+### Security and permissions
 
 When scripts are executed, it is in the context of the account that the Tentacle agent or SSH session is running as. Learn about [running Tentacle as a different user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account).
 
@@ -88,7 +89,7 @@ For example, when Calamari invokes PowerShell.exe, it uses the `Unrestricted` ex
 
 Learn about [script integrity](/docs/security/script-integrity).
 
-### Developing and testing scripts {#Customscripts-Testingscripts}
+### Developing and testing scripts
 
 We recommend the following approaches for developing and testing your scripts, in order of preference:
 
@@ -104,7 +105,7 @@ We recommend the following approaches for developing and testing your scripts, i
  1. If you are using PowerShell, Octopus has built-in support for PowerShell debugging. Learn about [debugging PowerShell scripts on remote machines using Octopus](/docs/deployments/custom-scripts/debugging-powershell-scripts/debugging-powershell-scripts-on-remote-machines).
  2. For all scripting languages, you can tell Octopus to preserve the script and its entire working directory so you can run it interactively. Learn about [copying the working directory](/docs/support/copy-working-directory).
 
-### Scripts that block deployments {#Customscripts-Scriptsthatblockdeployments}
+### Scripts that block deployments
 
 Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus process, the Octopus task will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behavior the service or application should be launched in a separate process or session, allowing the rest of the process to continue executing. For example:
 
@@ -124,7 +125,6 @@ screen -d -m -S "MyService" MyService
 ```
 
 </details>
-
 
 ### Scripts that restart the target operating system
 
