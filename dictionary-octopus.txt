@@ -3,6 +3,7 @@ astro
 bootstrap
 bootstrapped
 bootstrapper
+cicd
 cscfg
 cspkg
 cutover
@@ -14,6 +15,7 @@ deploymentprocesses
 DONTVALIDATEPATH
 Fargate
 FIPS
+frontmatter
 HKEY
 HKLM
 hotfix
