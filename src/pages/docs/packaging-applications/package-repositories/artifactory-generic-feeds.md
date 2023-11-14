@@ -7,7 +7,7 @@ description: Configuring an Artifactory Generic Feed in Octopus
 navOrder: 60
 ---
 
-If you're using an Artifactory Generic Repository, you can register it with Octopus and use artifacts as part of your deployments. To create a feed go to **Library ➜ External feeds**. Select the **Add feed** button and selecting the _Artifactory Generic Repository_ feed type.
+If you're using an Artifactory Generic Repository, you can create a feed in Octopus and use artifacts as part of your deployments. To create a feed go to **Library ➜ External feeds**. Select the **Add feed** button and selecting the _Artifactory Generic Repository_ feed type.
 
 You will then need to provide a feed name, the Artifactory repository name, an [access token](https://oc.to/ArtifactoryAccessToken) and the repository [Artifact Path regex](https://oc.to/ArtifactoryGenericLayouts).
 
@@ -15,7 +15,7 @@ You will then need to provide a feed name, the Artifactory repository name, an [
 ![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-creation.png)
 :::
 
-Artifactory generic feeds support all file types without no package name format requirements. To handle this Artifactory supports [custom layouts](https://oc.to/ArtifactoryGenericLayouts). This customisable package structure does not match Octopus's own expected [package versioning conventions](/docs/packaging-applications/create-packages/versioning) used in other feeds. To handle this we depend on the Artifact Path Pattern regex expression available from Artifactory to be set on the feed in Octopus. To find this go to **Administration ➜ Layouts ➜ Regular Expression View ➜ Resolve** and copy the Artifact Path. The default layout regex for a new repository and layout is <code>(?<orgPath>.+?)/(?<module>[^/]+)/(?<module>\2)-(?<baseRev>[^/]+?)\.(?<ext>(?:(?!\d))[^\-/]+|7z)</code>.
+Artifactory generic feeds accommodate files of any type without requiring a specific file name structure. To handle this Artifactory supports [custom layouts](https://oc.to/ArtifactoryGenericLayouts). Custom layouts produce a regex expression that the file path and name must match, enabling Artifactory to extract the file type, version and module. This customisable package structure does not match Octopus's own expected [package versioning conventions](/docs/packaging-applications/create-packages/versioning) used in other feeds. To handle this we depend on the Artifact Path Pattern regex expression available from Artifactory to be set on the feed in Octopus. To find the _Artifact Path Pattern_ go to **Administration ➜ Layouts ➜ Regular Expression View ➜ Resolve** and copy the Artifact Path Regex expression. The default layout regex for a new repository and layout is <code>(?<orgPath>.+?)/(?<module>[^/]+)/(?<module>\2)-(?<baseRev>[^/]+?)\.(?<ext>(?:(?!\d))[^\-/]+|7z)</code>.
 
 :::figure
 ![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feeds-custom-layout.png)
