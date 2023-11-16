@@ -7,7 +7,7 @@ description: Learn how to fork repositories when deploying a copy of CaC project
 navOrder: 7
 ---
 
-Octopus does not support two Config-as-Code (CaC) enabled projects pointing to the same Git repo. This means you must fork the Git repository hosting the upstream project and then point the downstream project to the new fork.
+Octopus does not support two Config-as-Code (CaC) enabled projects pointing to the same Git repository. This means you must fork the Git repository hosting the upstream project and then point the downstream project to the new fork.
 
 The `GitHub - Fork Repo` step from the community step template library automates the process of forking repositories in GitHub.
 
