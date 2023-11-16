@@ -9,12 +9,12 @@ navOrder: 8
 
 When upstream and downstream projects are [configured with CaC and backed by forked repositories](forking-git-repos) it becomes possible to track drift.
 
-The `Octopus - Find CaC Updates` steps detects drift by:
+The `Octopus - Find CaC Updates` steps detect drift by:
 
 1. Scanning the workspaces in the Terraform state created when deploying downstream projects
 2. Finding any CaC enabled projects
 3. Cloning the downstream Git repo
-4. Checking to see there are change to merge from the upstream repo into the downstream repo, and if any merges introduce conflicts
+4. Checking to see there are changes to merge from the upstream repo into the downstream repo, and if any merges introduce conflicts
 
 Each `Octopus - Find CaC Updates` step is configured with a specific Terraform backend. For example, the `Octopus - Find CaC Updates (S3 Backend)` step is configured to read Terraform state persisted in an S3 bucket.
 
