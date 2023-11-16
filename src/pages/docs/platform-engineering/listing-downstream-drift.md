@@ -20,7 +20,7 @@ Each `Octopus - Find CaC Updates` step is configured with a specific Terraform b
 
 The `Octopus - Find CaC Updates` steps are typically defined in a runbook attached to the upstream project:
 
-1. Create a runbook called `__ Detect Drift` attached to the upstream project.
+1. Create a runbook called `__ Find CaC Updates` attached to the upstream project.
 2. Add one of the `Octopus - Find CaC Updates` steps.
    1. Set the `Git Username` field to the Git repo username. GitHub users with access tokens set this field to `x-access-token`.
    2. Set the `Git Password` field to the Git repo password or access token.
