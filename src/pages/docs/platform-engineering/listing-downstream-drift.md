@@ -1,0 +1,37 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-11-09
+modDate: 2023-11-09
+title: Finding Drift
+description: Learn how to scan downstream CaC repos for drift
+navOrder: 8
+---
+
+When upstream and downstream projects are [configured with CaC and backed by forked repositories](forking-git-repos) it becomes possible to track drift.
+
+The `Octopus - Find CaC Updates` steps detects drift by:
+
+1. Scanning the workspaces in the Terraform state created when deploying downstream projects
+2. Finding any CaC enabled projects
+3. Cloning the downstream Git repo
+4. Checking to see there are change to merge from the upstream repo into the downstream repo, and if any merges introduce conflicts
+
+Each `Octopus - Find CaC Updates` step is configured with a specific Terraform backend. For example, the `Octopus - Find CaC Updates (S3 Backend)` step is configured to read Terraform state persisted in an S3 bucket.
+
+The `Octopus - Find CaC Updates` steps are typically defined in a runbook attached to the upstream project:
+
+1. Create a runbook called `__ Detect Drift` attached to the upstream project.
+2. Add one of the `Octopus - Find CaC Updates` steps.
+   1. Set the `Git Username` field to the Git repo username. GitHub users with access tokens set this field to `x-access-token`.
+   2. Set the `Git Password` field to the Git repo password or access token.
+   3. Set the `Git Protocol` field to either `HTTP` or `HTTPS`. All publicly hosted git platforms use `HTTPS`.
+   4. Set the `Git Hostname` field to the git repo host name e.g. `github.com`, `gitlab.com`, `bitbucket.com`.
+   5. Set the `Git Organization` field to the git repo owner or organization.
+   6. Set the `Git Template Repo` field to the git repo hosting the upstream project.
+   7. Each `Octopus - Find CaC Updates` step then defines additional fields related to the specific Terraform backend. For example, the `Octopus - Find CaC Updates (S3 Backend)` step has fields for AWS credentials, region, bucket, and key.
+
+Executing the runbook will display a list of downstream projects and indicate if they are:
+
+* Up to date with the upstream repo
+* Can marge upstream changes automatically
+* Must resolve a merge conflict to merge upstream changes
