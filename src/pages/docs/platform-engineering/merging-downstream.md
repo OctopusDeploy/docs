@@ -24,7 +24,7 @@ The `Octopus - Merge CaC Updates` steps are typically defined in a runbook attac
 1. Create a runbook called `__ Merge CaC Updates` attached to the upstream project.
 2. Add one of the `Octopus - Merge CaC Updates` steps.
    1. Run the step on a worker with a recent version of Terraform installed or set the container image to a Docker image with Terraform installed like `octopuslabs/terraform-workertools`.
-   2. Set the `Octopus Spaces` field to a newline-separated list of downstream space names containing projects to update. Leave the field blank to process all spaces. The default value of `#{Octopus.Deployment.Tenant.Name}` assumes the step is run against a tenant and the tenant name matches the space name.
+   2. Set the `Octopus Spaces` field to a newline-separated list of downstream space names containing projects to update. Leave the field blank to process all downstream spaces. The default value of `#{Octopus.Deployment.Tenant.Name}` assumes the step is run against a tenant and the tenant name matches the space name.
    3. Set the `Octopus Projects` field to a newline-separated list of downstream project names to process. Leave the field blank to process all downstream projects.
    2. Set the `Git Username` field to the Git repo username. GitHub users with access tokens set this field to `x-access-token`.
    3. Set the `Git Password` field to the Git repo password or access token.
