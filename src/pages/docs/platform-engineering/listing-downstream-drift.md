@@ -25,7 +25,7 @@ The `Octopus - Find CaC Updates` steps are typically defined in a runbook attach
    1. Run the step on a worker with a recent version of Terraform installed or set the container image to a Docker image with Terraform installed like `octopuslabs/terraform-workertools`.
    2. Set the `Git Username` field to the Git repo username. GitHub users with access tokens set this field to `x-access-token`.
    3. Set the `Git Password` field to the Git repo password or access token.
-   4. Set the `Git Protocol` field to either `HTTP` or `HTTPS`. All publicly hosted git platforms use `HTTPS`.
+   4. Set the `Git Protocol` field to either `HTTP` or `HTTPS`. All publicly hosted Git platforms use `HTTPS`.
    5. Set the `Git Hostname` field to the git repo host name e.g. `github.com`, `gitlab.com`, `bitbucket.com`.
    6. Set the `Git Organization` field to the git repo owner or organization.
    7. Set the `Git Template Repo` field to the git repo hosting the upstream project.
