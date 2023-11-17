@@ -7,15 +7,15 @@ description: Learn how to merge changes to downstream repos
 navOrder: 9
 ---
 
-When upstream and downstream projects are [configured with CaC and backed by forked repositories](forking-git-repos) it becomes possible to merge changes from upstream repos to downstream repos.
+When upstream and downstream projects are [configured with CaC and backed by forked repositories](forking-git-repos) it becomes possible to merge changes from upstream to downstream repos.
 
 The `Octopus - Merge CaC Updates` steps merges changes by:
 
 1. Scanning the workspaces in the Terraform state created when deploying downstream projects
 2. Finding any CaC enabled projects
 3. Cloning the downstream Git repo
-4. Adding the upstream repo as a remote repo
-5. Merging changes from the upstream repo to the downstream repo
+4. Adding the upstream repo as a remote repository
+5. Merging changes from the upstream repo to the downstream repository
 
 Each `Octopus - Merge CaC Updates` step is configured with a specific Terraform backend. For example, the `Octopus - Merge CaC Updates (S3 Backend)` step is configured to read Terraform state persisted in an S3 bucket.
 
