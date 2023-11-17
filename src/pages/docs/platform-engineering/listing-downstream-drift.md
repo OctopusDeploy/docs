@@ -34,5 +34,5 @@ The `Octopus - Find CaC Updates` steps are typically defined in a runbook attach
 Executing the runbook will display a list of downstream projects and indicate if they are:
 
 * Up to date with the upstream repo
-* Can marge upstream changes automatically
+* Can merge upstream changes automatically
 * Must resolve a merge conflict to merge upstream changes
