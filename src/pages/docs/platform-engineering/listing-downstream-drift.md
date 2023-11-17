@@ -23,16 +23,16 @@ The `Octopus - Find CaC Updates` steps are typically defined in a runbook attach
 1. Create a runbook called `__ Find CaC Updates` attached to the upstream project.
 2. Add one of the `Octopus - Find CaC Updates` steps.
    1. Run the step on a worker with a recent version of Terraform installed or set the container image to a Docker image with Terraform installed like `octopuslabs/terraform-workertools`.
-   2. Set the `Git Username` field to the Git repo username. GitHub users with access tokens set this field to `x-access-token`.
-   3. Set the `Git Password` field to the Git repo password or access token.
+   2. Set the `Git Username` field to the Git repository username. GitHub users with access tokens set this field to `x-access-token`.
+   3. Set the `Git Password` field to the Git repository password or access token.
    4. Set the `Git Protocol` field to either `HTTP` or `HTTPS`. All publicly hosted Git platforms use `HTTPS`.
-   5. Set the `Git Hostname` field to the git repo host name e.g. `github.com`, `gitlab.com`, `bitbucket.com`.
-   6. Set the `Git Organization` field to the git repo owner or organization.
-   7. Set the `Git Template Repo` field to the git repo hosting the upstream project.
+   5. Set the `Git Hostname` field to the Git repository host name e.g. `github.com`, `gitlab.com`, `bitbucket.com`.
+   6. Set the `Git Organization` field to the Git repository owner or organization.
+   7. Set the `Git Template Repo` field to the Git repository hosting the upstream project.
    8. Each `Octopus - Find CaC Updates` step then defines additional fields related to the specific Terraform backend. For example, the `Octopus - Find CaC Updates (S3 Backend)` step has fields for AWS credentials, region, bucket, and key.
 
 Executing the runbook will display a list of downstream projects and indicate if they are:
 
-* Up to date with the upstream repo
+* Up to date with the upstream repository
 * Can merge upstream changes automatically
 * Must resolve a merge conflict to merge upstream changes
