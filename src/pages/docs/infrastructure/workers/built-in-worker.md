@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-11-17
 title: Built-in Worker
 description: Octopus Server comes with a built-in worker which enables you to conveniently run parts of your deployment process on the Octopus Server without the need to install a Tentacle or other deployment target. This page describes how to configure the built-in worker for a variety of scenarios.
 navOrder: 2
