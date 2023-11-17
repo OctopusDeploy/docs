@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-09
 modDate: 2023-11-09
-title: Finding Drift
+title: Merging repos
 description: Learn how to merge changes to downstream repos
 navOrder: 9
 ---
