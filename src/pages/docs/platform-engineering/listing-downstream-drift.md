@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-09
 modDate: 2023-11-09
-title: Finding Drift
+title: Finding drift
 description: Learn how to scan downstream CaC repos for drift
 navOrder: 8
 ---
