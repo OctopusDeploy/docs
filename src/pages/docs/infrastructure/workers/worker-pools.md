@@ -34,7 +34,7 @@ On [self-hosted Octopus](/docs/getting-started#self-hosted-octopus), an empty `D
 - Initially this pool is empty, which means the [built-in worker](/docs/infrastructure/workers/built-in-worker) will be used
 - When you add workers to the default worker pool, the built-in worker will be disabled. This means any deployment processes that previously used the built-in worker on the Octopus Server will automatically start using workers in the worker pool.
 
-On [Octopus Cloud](/docs/octopus-cloud), the initial default pool is a [dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools) using the `Ubuntu (default)` image. A pool using the `Windows (default)` image is also provided.
+On [Octopus Cloud](/docs/octopus-cloud), the initial default pool is a [dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools) using the `Windows (default)` image. A pool using the `Ubuntu (default)` image is also provided.
 
 ## How Workers are Selected
 
