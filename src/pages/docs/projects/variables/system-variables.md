@@ -344,7 +344,7 @@ The ID of the user who initiated the deployment.
 
 Example: *users-123*
 
-`Octopus.Deployment.CreatedBy.Username
+`Octopus.Deployment.CreatedBy.Username`
 
 The username of the user who initiated the deployment.
 
