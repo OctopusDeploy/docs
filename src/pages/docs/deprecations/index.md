@@ -18,7 +18,7 @@ Deprecations have the following lifecycle:
 - (+1 year) Remove deprecated functionality
 
 :::div{.warning}
-Deprecations are subject to change in detail or timeframe. If you need help assessing the impact of deprecation of a feature on your particular Octopus Server configuration, please contact our [support team](https://octopus.com/support).
+Deprecations are subject to change in detail or time frame. If you need help assessing the impact of deprecation of a feature on your particular Octopus Server configuration, please contact our [support team](https://octopus.com/support).
 :::
 
 ## Deprecations coming in 2024.1

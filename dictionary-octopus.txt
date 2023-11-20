@@ -66,6 +66,7 @@ systemprofile
 tabpanel
 Trivy
 upgradelog
+useronboarding
 WCAG
 webfonts
 WEBSVR
