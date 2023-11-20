@@ -23,6 +23,15 @@ Deprecations are subject to change in detail or timeframe. If you need help asse
 
 ## Deprecations coming in 2024.1
 
+### Azure Cloud Services (Classic)
+Azure have announced the sunsetting of the original _Cloud Services_ resource, renamed _Cloud Services (Classic)_, with the [final retirement date set as August 31, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-cloud-services-classic). In a little over 6 months, teams that are still relying on this cloud service will be unable to deploy to them at all, with Octopus Deploy or otherwise.
+
+In the lead up to this, Octopus workloads making use of Azure Cloud Service Targets, Azure Cloud Service Steps or Management Certificates in Octopus Deploy will start to see in-app and in-task warnings appear in Octopus Server `2024.1`. 
+
+Once support has been fully dropped for these resources by Azure mid-year, then these warnings will turn into errors followed by the removal of these resources from Octopus instances entirely.
+
+The reccomended migration path outlined by Azure is to make use of the seperate [_Azure Cloud Services (extended support)_](https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/overview) product, however at this time there are no plans to support this feature in Octopus natively.
+
 ### Mono based SSH Deployment Targets
 
 From `2024.1` SSH deployments will no longer support running tasks via Mono. Instead, Linux workers and targets will only execute using .NET Core compiled tooling, which for most cases can be enabled via a simple configuration change on the machine configuration page. Further details on the background for this update as well as the reasoning behind it are available on the [Deprecating Mono](https://octopus.com/blog/deprecating-mono) blog post.
