@@ -4,6 +4,7 @@ bootstrap
 bootstrapped
 bootstrapper
 cicd
+comms
 cscfg
 cspkg
 cutover
@@ -73,6 +74,7 @@ WCAG
 webfonts
 WEBSVR
 WIXUI
+workerpool
 workertools
 xlarge
 xmark

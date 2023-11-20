@@ -13,7 +13,7 @@ import ConfigureSshConnectionWorker from 'src/shared-content/tentacle/configure-
 import ConfigureWindowsListeningWorker from 'src/shared-content/tentacle/configure-windows-listening-worker.include.md';
 import ConfigureWindowsPollingWorker from 'src/shared-content/tentacle/configure-windows-polling-worker.include.md';
 import InstallTentacleManager from 'src/shared-content/tentacle/install-tentacle-manager.include.md';
-import PoweShellNamedMutex from 'src/shared-content/tentacle/powershell-named-mutex.include.md';
+import PowerShellNamedMutex from 'src/shared-content/tentacle/powershell-named-mutex.include.md';
 import Workers from 'src/shared-content/infrastructure/workers.include.md';
 import WorkersIndividualProcessExclusively from 'src/shared-content/tentacle/workers-individual-process-exclusively.include.md';
 import WorkersMultipleSimultaneousProcesses from 'src/shared-content/tentacle/workers-multiple-simultaneous-processes.include.md';
@@ -153,14 +153,14 @@ The new Polling Tentacle will automatically show up in the Workers list.
 Tentacle workers can also register with the server using the Tentacle executable (version 3.22.0 or later), for example:
 
 ```
-.\Tentacle.exe register-worker --instance MyInstance --server "https://example.com/" --comms-style TentaclePassive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --workerpool "Default Worker Pool"
+.\Tentacle.exe register-worker --instance MyInstance --server "https://example.com/" --comms-style TentaclePassive --apikey "API-YOUR-KEY" --workerpool "Default Worker Pool"
 ```
 
 Use `TentacleActive` instead of `TentaclePassive` to register a polling Tentacle worker.
 
 The Tentacle executable can also be used to deregister workers, for example:
 ```
-.\Tentacle.exe deregister-worker --instance MyInstance --server "https://example.com/" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
+.\Tentacle.exe deregister-worker --instance MyInstance --server "https://example.com/" --apikey "API-YOUR-KEY"
 ```
 
 :::div{.hint}
@@ -185,7 +185,7 @@ Default pools attached to cloud targets allow co-location of workers and targets
 
 <WorkersIndividualProcessExclusively />
 
-<PoweShellNamedMutex />
+<PowerShellNamedMutex />
 
 ### Workers in HA setups 
 
