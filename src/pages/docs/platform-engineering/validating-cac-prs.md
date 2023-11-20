@@ -7,13 +7,13 @@ description: Learn how to automatically validate pull requests in a CaC Git repo
 navOrder: 10
 ---
 
-One of the challenges when implementing the [shared responsibility (or eventual consistency) model](levels-of-responsibility) is the potential for complex conflicts to be introduced in the downstream repositories. Without any controls on what changes can be made to a downstream project, it may become impractical to continue to push changes downstream.
+One of the challenges when implementing the [shared responsibility (or eventual consistency) model](levels-of-responsibility) is the potential for complex conflicts to be introduced to the downstream repositories. Without any controls on what changes can be made to a downstream project, it may become impractical to continue to push changes downstream.
 
-One way to constrain the changes introduced in to downstream CaC Git repositories is to automatically validate changes during a pull request (PR). This allows the platform team to introduce minimum requirements that all downstream CaC projects must adhere to while also allowing internal customers to customize their projects.
+One way to constrain the changes introduced to downstream CaC Git repositories is to automatically validate changes during a pull request (PR). This allows the platform team to introduce minimum requirements that all downstream CaC projects must adhere to while also allowing internal customers to customize their projects.
 
 ## Parsing OCL
 
-CaC projects persist their configuration in the [Octopus Configuration Language (OCL)](/docs/projects/version-control/ocl-file-format). This format is parsed by the [@octopusdeploy/ocl](https://github.com/OctopusDeploy/ocl.ts) JavaScript library.
+CaC projects persist their configuration in the [Octopus Configuration Language (OCL)](/docs/projects/version-control/ocl-file-format). This format is parsed by the [`@octopusdeploy/ocl`](https://github.com/OctopusDeploy/ocl.ts) JavaScript library.
 
 The `@octopusdeploy/ocl` library offers a low level parser that exposes individual OCL tokens. In addition, the library exposes a wrapper that allows the OCL data structure to be accessed via a read-only JavaScript object. This wrapped object can then be passed to any JavaScript library used to compare values or validate objects.
 
@@ -68,7 +68,7 @@ jobs:
 
 Let's break this workflow down.
 
-The workflow is triggered on the `pull_request_target` event. This event runs the workflows from the target branch, typically the `main` branch, meaning the pull request is validated according to the rules in the mainline branch. This prevents pull requests from bypassing checks by modifying the workflow file.
+The workflow is triggered on the `pull_request_target` event. This event runs workflows from the target branch, typically the `main` branch, meaning the pull request is validated according to the rules in the mainline branch. This prevents pull requests from bypassing checks by modifying the workflow file:
 
 ```yaml
 on: pull_request_target
@@ -95,7 +95,7 @@ The required libraries are installed via `npm`:
       - run: npm install expect
 ```
 
-The verification scope is executed with the `actions/github-script` action:
+The verification script is executed with the `actions/github-script` action:
 
 ```yaml
       - uses: actions/github-script@v7
@@ -105,7 +105,7 @@ The verification scope is executed with the `actions/github-script` action:
 
 The libraries are exposed to the script with `require` statements:
 
-```jJavascript
+```javascript
             const {parseOclWrapper} = require("@octopusdeploy/ocl")
             const fs = require("fs")
             const path =require("path")
@@ -114,7 +114,7 @@ The libraries are exposed to the script with `require` statements:
 
 The verification logic is defined in the function called `checkPr` whose parameter is the name of the OCL file to parse:
 
-```Javascript
+```javascript
             /**
             * This function performs the validation of the Octopus CaC OCL file
             * @param ocl The OCL file to parse
@@ -122,18 +122,18 @@ The verification logic is defined in the function called `checkPr` whose paramet
             function checkPr(ocl) {
 ```
 
-The file is read to a string and passed to the `parseOclWrapper` function:
+The file contents are read to a string and passed to the `parseOclWrapper` function:
 
-```Javascript
+```javascript
               // Read the file
               const fileContents = fs.readFileSync(ocl, 'utf-8')
               // Parse the file
               const deploymentProcess = parseOclWrapper(fileContents)
 ```
 
-The `deploymentProcess` variable references an object that allows the data stored in the OCL file to be accessed with a standard dot notation. Here we use the [`expect`](https://jestjs.io/docs/expect) library, often used with unit tests, to verify the properties of the OCL file:  
+The `deploymentProcess` variable references a read-only object that allows the data stored in the OCL file to be accessed with standard dot notation. Here we use the [`expect`](https://jestjs.io/docs/expect) library, often used with unit tests, to verify the properties of the OCL file:  
 
-```Javascript
+```javascript
               // Verify the contents
               expect(deploymentProcess.step).not.toHaveLength(0)
               expect(deploymentProcess.step[0].name).toBe("Manual Intervention")
@@ -143,7 +143,7 @@ The `deploymentProcess` variable references an object that allows the data store
 
 The final step is to call the `checkPr` function, catch any exceptions, and print them to the console:
 
-```Javascript
+```javascript
             try {
               checkPr('./deployment_process.ocl')
             } catch (error) {
@@ -164,7 +164,7 @@ Because the validation process is just JavaScript code you are free to implement
 
 The example below embeds a step OCL snippet as a string, parses the string, and uses the `toEqual` function to perform a deep comparison of the input OCL to the expected step:
 
-```Javascript
+```javascript
             const {parseOclWrapper} = require("@octopusdeploy/ocl")
             const fs = require("fs")
             const path =require("path")
@@ -213,7 +213,7 @@ The example below embeds a step OCL snippet as a string, parses the string, and 
 
 This example uses the [`lodash`](https://lodash.com/) library to clone the wrapper (because the wrapper is a read-only object) and remove the `name` property from both the template and actual OCL wrappers. This has the effect of comparing two OCL steps, but disregarding any changes to the step name:
 
-```Javascript
+```javascript
             const _ = require("lodash");
             const {parseOclWrapper} = require("@octopusdeploy/ocl")
             const fs = require("fs")
