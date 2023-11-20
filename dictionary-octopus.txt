@@ -3,6 +3,7 @@ astro
 bootstrap
 bootstrapped
 bootstrapper
+cicd
 cscfg
 cspkg
 cutover
@@ -14,6 +15,7 @@ deploymentprocesses
 DONTVALIDATEPATH
 Fargate
 FIPS
+frontmatter
 HKEY
 HKLM
 hotfix
@@ -24,6 +26,7 @@ jwks
 kustomization
 kustomize
 lifecycles
+maintenanceconfiguration
 maxage
 msiexec
 MTTR
@@ -51,6 +54,7 @@ quickstart
 reprioritize
 reprovisioned
 reprovisioning
+robocopy
 RSASSA
 Runbook
 runbook
@@ -64,6 +68,7 @@ systemprofile
 tabpanel
 Trivy
 upgradelog
+useronboarding
 WCAG
 webfonts
 WEBSVR
