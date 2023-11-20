@@ -26,6 +26,7 @@ jwks
 kustomization
 kustomize
 lifecycles
+maintenanceconfiguration
 maxage
 msiexec
 MTTR
@@ -53,6 +54,7 @@ quickstart
 reprioritize
 reprovisioned
 reprovisioning
+robocopy
 RSASSA
 Runbook
 runbook

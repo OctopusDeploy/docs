@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2023-11-20
 title: How to automate Octopus Deploy upgrades
 description: A how-to guide on how to automate Octopus Deploy upgrades
 navOrder: 4
@@ -44,9 +44,9 @@ Replace the variable values at the start of the script with ones applicable to y
 
 ```powershell
 $url = 'https://samples.octopus.app'
-$apiKey = "API-YOURKEY"
+$apiKey = "API-YOUR-KEY"
 $octopusDeployDatabaseName = "OctopusDeploy"
-$sqlbackupFolderLocation = "\\ServerStorage\Share\Databasebackup"
+$sqlBackupFolderLocation = "\\ServerStorage\Share\DatabaseBackup"
 $fileBackupLocation = "\\ServerStorage\Share\FileBackup"
 $downloadDirectory = "${env:Temp}"
 
@@ -67,7 +67,7 @@ if ($upgradeVersion -eq $currentVersion) {
 # Download the installer
 $msiFilename = "Octopus.$upgradeVersion-x64.msi"
 Write-Host "Downloading $msiFilename"
-Start-Bitstransfer -source "https://download.octopusdeploy.com/octopus/$msiFilename" -Destination "$downloadDirectory\$msiFilename"
+Start-BitsTransfer -source "https://download.octopusdeploy.com/octopus/$msiFilename" -Destination "$downloadDirectory\$msiFilename"
 
 # Place Octopus into maintenance mode
 if (-not (Invoke-RestMethod -Uri "$url/api/maintenanceconfiguration" -Headers @{'X-Octopus-ApiKey' = $apiKey}).IsInMaintenanceMode) {
@@ -87,25 +87,25 @@ if ($versionSplit[0] -ne $upgradeSplit[0])
 
     $serverFolders = Invoke-RestMethod -Uri "$url/api/configuration/server-folders/values" -Headers @{'X-Octopus-ApiKey' = $apiKey}
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.LogsDirectory) $fileBackupLocation\TaskLogs /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.LogsDirectory) $fileBackupLocation\TaskLogs /mir" -Wait -PassThru).ExitCode
     if ($msiExitCode -ge 8) 
     {
         Throw "Unable to copy files to $fileBackupLocation\TaskLogs"
     }
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.ArtifactsDirectory) $fileBackupLocation\Artifacts /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.ArtifactsDirectory) $fileBackupLocation\Artifacts /mir" -Wait -PassThru).ExitCode
     if ($msiExitCode -ge 8) 
     {
         Throw "Unable to copy files to $fileBackupLocation\Artifacts"
     }
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.PackagesDirectory) $fileBackupLocation\Packages /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.PackagesDirectory) $fileBackupLocation\Packages /mir" -Wait -PassThru).ExitCode
     if ($msiExitCode -ge 8) 
     {
         Throw "Unable to copy files to $fileBackupLocation\Packages"
     }
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.EventExportsDirectory) $fileBackupLocation\EventExports /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.EventExportsDirectory) $fileBackupLocation\EventExports /mir" -Wait -PassThru).ExitCode
     if ($msiExitCode -ge 8) 
     {
         Throw "Unable to copy files to $fileBackupLocation\EventExports"
@@ -119,7 +119,7 @@ if ($versionSplit[0] -ne $upgradeSplit[0])
 try{
     # Backup database
     $backupFileName = "$octopusDeployDatabaseName_" + (Get-Date -Format FileDateTime) + '.bak'
-    $backupFileFullPath = "$sqlbackupFolderLocation\$backupFileName"
+    $backupFileFullPath = "$sqlBackupFolderLocation\$backupFileName"
 
     # OctopusServer is the default instance name.  If you have multiple instances, or are not using the default instance name, change the --instance parameter.
     $instanceConfig = (& $serverExe show-configuration --instance="OctopusServer" --format="JSON") | Out-String | ConvertFrom-Json
@@ -151,7 +151,7 @@ catch {
 # Running the installer
 $msiToInstall = "$downloadDirectory\$msiFilename"
 Write-Host "Installing $msiToInstall"
-$msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $msiToInstall /quiet" -Wait -Passthru).ExitCode 
+$msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $msiToInstall /quiet" -Wait -PassThru).ExitCode 
 Write-Output "Server MSI installer returned exit code $msiExitCode" 
 
 # Upgrade database and restart service
@@ -190,10 +190,10 @@ As this is a runbook, you'll want to create variables to share across the variou
 
 - `Upgrade.Octopus.Url` - the URL of your instance, for example `https://samples.octopus.app`.
 - `Upgrade.Octopus.ApiKey` - the API key of a service account with permissions to turn on and off maintenance mode.  Please be sure to make this a sensitive variable!
-- `Upgrade.Download.Folder` - The network location of the shared folder to download the MSI to, for example `\\YOURNAS\ShareName`
-- `Upgrade.Database.Backup.Folder` -  The network location of the shared folder to backup the database to, for example `\\YOURNAS\DatabaseBackupShare`
+- `Upgrade.Download.Folder` - The network location of the shared folder to download the MSI to, for example `\\YOUR-NAS\ShareName`
+- `Upgrade.Database.Backup.Folder` -  The network location of the shared folder to backup the database to, for example `\\YOUR-NAS\DatabaseBackupShare`
 - `Upgrade.Database.Name` - The name of your Octopus Deploy database.  This is used for the backup script.
-- `Upgrade.File.Backup.Folder` - The folder name to store the file backups in.  For example `\\YOURNAS\FilebackupShare`
+- `Upgrade.File.Backup.Folder` - The folder name to store the file backups in.  For example `\\YOUR-NAS\FileBackupShare`
 - `Upgrade.Octopus.HasNewVersion` - Output variable set in the first step.  All other steps will use this variable as a run condition.  Example value: `#{unless Octopus.Deployment.Error}#{Octopus.Action[Check for new Octopus Version to Download].Output.UpgradeFound}#{/unless}`
 - `Upgrade.Download.Msi` - Output variable storing the MSI name that is being downloaded.  Example value: `#{Octopus.Action[Check for new Octopus Version to Download].Output.MSIToDownload}`
 
@@ -237,9 +237,9 @@ if ($upgradeVersion -eq $currentVersion) {
 # Download the installer
 $msiFilename = "Octopus.$upgradeVersion-x64.msi"
 Set-OctopusVariable -Name "MSIToDownload" -value $msiFileName
-$outfile = "$downloadFolder\$msiFilename"
+$outFile = "$downloadFolder\$msiFilename"
 
-if (Test-Path $outfile)
+if (Test-Path $outFile)
 {
     Set-OctopusVariable -Name "UpgradeFound" -Value $true
     Write-Host "The latest version has already been download and is waiting to be installed"
@@ -247,7 +247,7 @@ if (Test-Path $outfile)
 }
 
 Write-Host "Downloading $msiFilename"
-Start-BitsTransfer -source "https://download.octopusdeploy.com/octopus/$msiFilename" -destination $outfile
+Start-BitsTransfer -source "https://download.octopusdeploy.com/octopus/$msiFilename" -destination $outFile
 Set-OctopusVariable -Name "UpgradeFound" -Value $true
 ```
 
@@ -299,28 +299,28 @@ if ($versionSplit[0] -ne $upgradeSplit[1])
 
     $serverFolders = Invoke-RestMethod -Uri "$url/api/configuration/server-folders/values" -Headers @{'X-Octopus-ApiKey' = $apiKey}
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.LogsDirectory) $filebackUpFolder\TaskLogs /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.LogsDirectory) $fileBackUpFolder\TaskLogs /mir" -Wait -PassThru).ExitCode
     if ($msiExitCode -ge 8) 
     {
-        Throw "Unable to copy files to $filebackUpFolder\TaskLogs"
+        Throw "Unable to copy files to $fileBackUpFolder\TaskLogs"
     }
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.ArtifactsDirectory) $filebackUpFolder\Artifacts /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.ArtifactsDirectory) $fileBackUpFolder\Artifacts /mir" -Wait -PassThru).ExitCode
     if ($msiExitCode -ge 8) 
     {
-        Throw "Unable to copy files to $filebackUpFolder\Artifacts"
+        Throw "Unable to copy files to $fileBackUpFolder\Artifacts"
     }
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.PackagesDirectory) $filebackUpFolder\Packages /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.PackagesDirectory) $fileBackUpFolder\Packages /mir" -Wait -PassThru).ExitCode
     if ($msiExitCode -ge 8) 
     {
-        Throw "Unable to copy files to $filebackUpFolder\Packages"
+        Throw "Unable to copy files to $fileBackUpFolder\Packages"
     }
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.EventExportsDirectory) $filebackUpFolder\EventExports /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.EventExportsDirectory) $fileBackUpFolder\EventExports /mir" -Wait -PassThru).ExitCode
     if ($msiExitCode -ge 8) 
     {
-        Throw "Unable to copy files to $filebackUpFolder\EventExports"
+        Throw "Unable to copy files to $fileBackUpFolder\EventExports"
     }
 }
 ```
@@ -392,7 +392,7 @@ if ($upgradeMsiList.Count -le 0)
 $msiToInstall = $upgradeMsiList[0]
 # Running the installer
 Write-Host "Installing $msiToInstall"
-$msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $msiToInstall /quiet" -Wait -Passthru).ExitCode 
+$msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $msiToInstall /quiet" -Wait -PassThru).ExitCode 
 Write-Output "Server MSI installer returned exit code $msiExitCode" 
 ```
 
@@ -426,7 +426,7 @@ While ($true) {
 
     # OctopusServer is the default instance name.  If you have multiple instances, or are not using the default instance name, change the --instance parameter.
     & $serverExe database --instance="OctopusServer" --upgrade
-    if ($LASTEXITCODE -ne 0) {
+    if ($LastExitCode -ne 0) {
         Write-Warning "Upgrade failed. Retrying in $retryInterval seconds..."
         Start-Sleep -Seconds $retryInterval
     }
