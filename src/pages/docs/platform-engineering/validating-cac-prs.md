@@ -160,7 +160,7 @@ The output of your validation script depends on the libraries used. The `expect`
 
 ## Tips and tricks
 
-Because the validation process is just JavaScript code you are free to implement any libraries and logic you need.
+Because the validation process is plain JavaScript code you are free to implement any libraries and logic you need.
 
 The example below embeds a step OCL snippet as a string, parses the string, and uses the `toEqual` function to perform a deep comparison of the input OCL to the expected step:
 
