@@ -1,17 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-11-01
 title: Run a script step
-description: Standalone scripts allow you to run scripts contained in a package, or ad-hoc scripts you've saved as part of the step.
+description: Standalone scripts allow you to run scripts contained in a package, in a git repository, or ad-hoc scripts you've saved as part of the step.
 navOrder: 10
 ---
 
-Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/#target-roles). You can run scripts contained in a [package](/docs/deployments/packages/), or ad-hoc scripts you've saved as part of the [step](/docs/projects/steps).
+Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/#target-roles). You can run scripts contained in a [package](/docs/deployments/packages/), in a git repository, or ad-hoc scripts you've saved as part of the [step](/docs/projects/steps).
 
 You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables), and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 
-## Choosing where the script will run {#Standalonescripts-Choosingwherethescriptwillrun}
+## Choosing where the script will run
 
 When adding a script you choose where the script will run, and in which context the script will run.
 
@@ -39,15 +39,12 @@ Choosing the right combination of **Target** and **Roles** enables some really i
 | Octopus Server    |                        | The script will run once on the Octopus Server | Scope variables to the Step in order to customize variables for this script | Calculate some output variables to be used by other steps or run a database upgrade process |
 | Octopus Server    | `web-server`           | The script will run on the Octopus Server on behalf of the deployment targets with the `web-server` role. The script will execute once per deployment target | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Remove web servers from a load balancer as part of a [rolling deployment](/docs/deployments/patterns/rolling-deployments) where access to the load balancer API is restricted |
 
-:::div{.hint}
-Bash scripts are not able to be run on the Octopus Server, even if Bash is installed on that server
-:::
-
-## Choosing where to source the script {#Standalonescripts-Choosingwheretosourcethescript}
+## Choosing where to source the script {#choosing-where-to-source-scripts}
 
 You may also select the source of the script, either:
 
-- An ad-hoc or inline script, saved as part of the step itself, or:
+- An ad-hoc or inline script, saved as part of the step itself, or
+- A script file in a git repository, or
 - A script file inside a package (shown below).
 
 :::figure
@@ -55,17 +52,17 @@ You may also select the source of the script, either:
 :::
 
 :::div{.success}
-**Scripts from packages, versioning and source control**
-Using scripts from inside a package is a great way to version and source control your scripts. (You can be assured the correct version of your script will be run when deploying each version of your application.) Both methods (ad-hoc versus packaged) have benefits and suit different applications: choose the method best suited to your situation.
+**Scripts from packages or git repository, versioning and source control**
+Using scripts from inside a package or a git repository are a great way to version and source control your scripts. (You can be assured the correct version of your script will be run when deploying each version of your application.) Both methods have benefits and suit different applications: choose the method best suited to your situation.
 :::
 
 :::div{.hint}
 When sourcing a script from a file inside a package you cannot choose to run the step before packages are acquired.
 :::
 
-## Passing parameters to scripts {#Standalonescripts-Passingparameterstoscripts}
+## Passing parameters to scripts
 
-When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts).
+When you call external scripts (sourced from a file inside a package or git repository) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts).
 
 :::figure
 ![](/docs/deployments/custom-scripts/images/5865636.png)
@@ -73,7 +70,7 @@ When you call external scripts (sourced from a file inside a package) you can pa
 
 ## Referencing packages
 
-In addition to being able to [source the custom script from a package](#Standalonescripts-Choosingwheretosourcethescript), it is often desirable to reference other packages.  Scenarios where this can be useful include:
+In addition to being able to [source the custom script from a package](#choosing-where-to-source-scripts), it is often desirable to reference other packages.  Scenarios where this can be useful include:
 
 - Executing a utility contained in a package
 - Deploying a package in a manner for which there is no built-in steps available; for example pushing a package to a Content-Management-System
@@ -85,7 +82,7 @@ In addition to being able to [source the custom script from a package](#Standalo
 ![Script Step Package References](/docs/deployments/custom-scripts/images/script-step-package-references.png)
 :::
 
-Package references can be added regardless of whether the script is sourced inline or from a package.
+Package references can be added regardless of whether the script is sourced inline, from a git repository or from a package.
 
 ### Package reference fields
 

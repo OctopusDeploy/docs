@@ -82,7 +82,12 @@ If the request is successful, the response will contain the following properties
 | `issued_token_type` | The type of token being issued. This will always be set to `urn:ietf:params:oauth:token-type:access_token`. |
 | `expires_in`        | The number of seconds until the token expires.                                                              |
 
-TODO: If the request is not successful, the response will contain the following properties:
+If the request is not successful, the response will contain the following properties:
+
+| Property            | Value                                                            |
+| ------------------- | ---------------------------------------------------------------- |
+| `error`             | The type of error. This will always be set to `invalid_request`. |
+| `error_description` | A description of the error.                                      |
 
 ### `subject_token`
 

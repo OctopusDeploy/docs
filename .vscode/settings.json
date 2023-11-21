@@ -3,4 +3,6 @@
     "files.associations": {
         "*.mdx": "markdown"
     },
+    "[markdown]": {
+    },
 }

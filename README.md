@@ -73,6 +73,19 @@ You can generate a static copy of the site using `pnpm build` and run it in a br
 
 ## Astro hints and tips
 
+### Editor setup
+
+We have configured [Front Matter CMS](https://frontmatter.codes/), which works through a VS Code extension. This can help guide you during the editing process as there are snippets to help with images and other common components. Front Matter also helps you with the markdown YAML front matter.
+
+Here's the recommended setup for VS Code:
+
+- [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [Front Matter CMS](https://marketplace.visualstudio.com/items?itemName=eliostruyf.vscode-front-matter)
+- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+
+You can use the Front Matter dashboard to find content, media, and snippets - or the Front Matter toolbar to interact in markdown files (`.md` or `.mdx`).
+
 ### Finding pages to edit
 
 The pages are in the exact page shown on the website, so you can easily translate them. For example:
