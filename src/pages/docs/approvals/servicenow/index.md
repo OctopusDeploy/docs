@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2023-11-21
 title: ServiceNow Integration
 description: Octopus Deploy can integrate with your ServiceNow instance for deployment control using Change Request approvals
 navOrder: 10
