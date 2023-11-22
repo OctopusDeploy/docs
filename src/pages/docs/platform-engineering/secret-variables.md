@@ -141,4 +141,4 @@ All sensitive variables must be available to the `Sync` environment. This means:
 * Sensitive variables have no scope
 * Sensitive variables scoped to any environments must also be scoped to the `Sync` environment
 
-This ensures that the steps deploying downstream projects have access to all sensitive variables, and replace the Octostache template syntax in `project_variable_sensitive*.tf` with the correct value.
+This ensures the steps deploying downstream projects have access to all sensitive variables, and replace the Octostache template syntax in files matching the pattern `project_variable_sensitive*.tf` with the correct value.
