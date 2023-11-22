@@ -7,16 +7,16 @@ description: Learn how to export projects with secret variables
 navOrder: 11
 ---
 
-Octoterra interacts with Octopus via the Octopus API. One of the security features built into the Octopus API is that it does not return secret values. This means Octoterra can not export the values of any secrets, such as the value assigned secret variables.
+Octoterra interacts with Octopus via the Octopus API. One of the security features built into the Octopus API is that it does not return sensitive values. This means Octoterra can not export the values of any secrets, such as the value assigned secret variables.
 
 There are two ways to import projects that contain secret variables:
 
 1. Define all the values as Terraform variables when calling `terraform apply`
-2. Apply the Terraform module with Octopus and use variable substitution to inject secret variables during deployment
+2. Apply the Terraform module with Octopus and use variable substitution to inject secret values during deployment
 
 ## Supplying space level resource secret values
 
-Space level resources such as accounts, certificates, feeds, git credentials, and targets may include secret values. These values must be passed to the `terraform apply` command or set to dummy values to allow the resources to be created without knowing the secret values beforehand. Unlike project sensitive variables, it is not possible to have Octopus automatically inject these values during deployment.
+Space level resources such as accounts, certificates, feeds, Git credentials, and targets may include secret values. These values must be passed to the `terraform apply` command or set to dummy values to allow the resources to be created without knowing the secret values beforehand. Unlike project sensitive variables, it is not possible to have Octopus automatically inject these values during deployment.
 
 Teams can choose to enable the `Default Secrets to Dummy Values` option in the `Octopus - Serialize Space to Terraform` step to export a Terraform module with all secret values set to a placeholder string. For example, this is an account exported with the `Default Secrets to Dummy Values` option enabled:
 
