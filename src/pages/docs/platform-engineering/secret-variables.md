@@ -55,7 +55,7 @@ If the `Default Secrets to Dummy Values` option is disabled, no default value wi
 ```
 
 :::div{.hint}
-You may wish to define all space level secrets in a library variable set in the upstream space, exclude the library variable set from being exported, and pass the variable set values to the `terraform apply` argument when deploying a space level resources.
+You may wish to define all space level secrets in a library variable set in the upstream space, exclude the library variable set from being exported, and pass the variable set values to the `terraform apply` argument when deploying space level resources.
 :::
 
 ## Supplying project secret variable values
@@ -91,36 +91,36 @@ resource "octopusdeploy_variable" "eks_octopub_frontend_secret_value_1" {
 }
 ```
 
-The value of the secret variable is then defined by passing the argument `-var=eks_octopub_frontend_secret_value_1=SecretValueGoesHere` to `terraform apply`.
+The value of the secret variable is then defined by passing an argument like `-var=eks_octopub_frontend_secret_value_1=SecretValueGoesHere` to `terraform apply`.
 
 ## Injecting secret values during deployment
 
-Octoterra formats the Terraform sensitive variable default values in such a way as they can be replaced by Octopus. If you look at the example sensitive variable resource listed in the previous section, you'll see the default value is set to `#{Secret.Value}`.
+Octoterra formats the Terraform sensitive variable default values to allow them to be replaced by Octopus. If you look at the example sensitive variable resource listed in the previous section, you'll see the default value is set to `#{Secret.Value}`.
 
 This Octostache template can be replaced by Octopus when the Terraform module is deployed with the `Apply a Terraform template` step. Note that the `Octopus - Populate Octoterra Space` step templates are based on the `Apply a Terraform template` step, and are configured to replace Octostache template syntax in files matching the pattern `**/project_variable_sensitive*.tf`.
 
-There are, however, some special considerations that must be taken to ensure a project can inject all secret variables when deployed downstream:
+There are, however, some special considerations that must be taken into account to ensure a project can inject all secret variables when deployed downstream:
 
 1. A dedicated environment must be used for deploying downstream projects (this documentation and step templates assume an environment called `Sync`)
 2. All sensitive variables must have a single value
 3. All sensitive variables must be available to the `Sync` environment
 
-Following these rules ensures the Octostache templates defining the default value of sensitive variables have a single, unambiguous value injected into them when they are deployed.
+Following these rules ensures the Octostache templates defining the default value of a sensitive variables have a single, unambiguous value injected into them when they are deployed.
 
 ### The Sync environment
 
 Dedicating an environment to the process of serializing and deploying downstream projects allows the upstream environment to scope sensitive variables such that:
 
 * They are made available when deploying downstream projects
-* They do no leak into any regular deployment environments
+* They dot no leak into any regular deployment environments
 
-This documentation assumes this environment is called `Sync`. The `Sync` environment must not appear in the lifecycle of regular deployments, which ensures any variables scoped to the `Sync` environment do not leak into regular deployments.
+This documentation and the step templates assumes this environment is called `Sync`. The `Sync` environment must not appear in the lifecycle of regular deployments, which ensures any variables scoped to the `Sync` environment do not leak into regular deployments.
 
-Octoterra excludes the `Sync` environment from the scopes of exported projects. This ensures the downstream projects do not rely on the `Sync` environment.
+Octoterra excludes the `Sync` environment from the variable scopes in exported projects. This ensures the downstream projects do not rely on the `Sync` environment.
 
 ### Sensitive variables with single values
 
-Any sensitive values in the upstream project must have one value assigned to them. For example, if you had a sensitive variable for a database password, and the value was unique per environment. it must be captured as three variables e.g.:
+Any sensitive values in the upstream project must have one value assigned to them. For example, if you had a sensitive variable for a database password, and the value was unique per environment, it must be captured as three variables e.g.:
 
 * `Dev.Database.Password` scoped to the `Dev` and `Sync` environments
 * `Test.Database.Password` scoped to the `Test` and `Sync` environments
