@@ -4,10 +4,10 @@ pubDate: 2023-11-09
 modDate: 2023-11-09
 title: Secret variables
 description: Learn how to export projects with secret variables
-navOrder: 10
+navOrder: 11
 ---
 
-Octoterra interacts with Octopus via the Octopus API. One of the security features built into the Octopus API is that it does not return secret values. This means Octoterra can not export the values of any secrets, such as secret variables.
+Octoterra interacts with Octopus via the Octopus API. One of the security features built into the Octopus API is that it does not return secret values. This means Octoterra can not export the values of any secrets, such as the value assigned secret variables.
 
 There are two ways to import projects that contain secret variables:
 
@@ -46,7 +46,7 @@ variable "account_aws_account" {
 
 Note the default value of the Terraform variable `account_aws_account` is `Change Me!`. All other secret values have similar placeholders. Also note that the `lifecycle` meta-argument on the account resource is set to `ignore_changes = [secret_key]`. This indicates that Terraform will not reapply the placeholder secret value if the target resource was manually updated after it was created.
 
-This means that the space level resources exported by the `Octopus - Serialize Space to Terraform` step with the `Default Secrets to Dummy Values` option enabled can be applied without having to supply all the secret values. It is then expected that the Octopus resources are updated manually with the correct values.
+This means that the space level resources exported by the `Octopus - Serialize Space to Terraform` step with the `Default Secrets to Dummy Values` option enabled can be applied without having to supply all the secret values. It is then expected that the newly created Octopus resources are updated manually with the correct values.
 
 If the `Default Secrets to Dummy Values` option is disabled, no default value will be defined for the terraform variables, and you must pass values for these variables to `terraform apply`. For example:
 
@@ -95,13 +95,13 @@ The value of the secret variable is then defined by passing the argument `-var=e
 
 ## Injecting secret values during deployment
 
-Octoterra formats the Terraform sensitive variable default values in such a way as they can be injected by Octopus. If you look at the example sensitive variable resource listed in the previous section, you'll see the default value is set to `#{Secret.Value}`.
+Octoterra formats the Terraform sensitive variable default values in such a way as they can be replaced by Octopus. If you look at the example sensitive variable resource listed in the previous section, you'll see the default value is set to `#{Secret.Value}`.
 
-This Octostache template can be replaced by Octopus when the Terraform module is deployed with the `Apply a Terraform template` step. Note that the `Octopus - Populate Octoterra Space` step templates are based on the `Apply a Terraform template` step, and is configured to replace Octostache template syntax in files matching the pattern `**/project_variable_sensitive*.tf`.
+This Octostache template can be replaced by Octopus when the Terraform module is deployed with the `Apply a Terraform template` step. Note that the `Octopus - Populate Octoterra Space` step templates are based on the `Apply a Terraform template` step, and are configured to replace Octostache template syntax in files matching the pattern `**/project_variable_sensitive*.tf`.
 
 There are, however, some special considerations that must be taken to ensure a project can inject all secret variables when deployed downstream:
 
-1. A dedicated environment must be used for deploying downstream projects (typically called `Sync`)
+1. A dedicated environment must be used for deploying downstream projects (this documentation and step templates assume an environment called `Sync`)
 2. All sensitive variables must have a single value
 3. All sensitive variables must be available to the `Sync` environment
 
@@ -114,7 +114,7 @@ Dedicating an environment to the process of serializing and deploying downstream
 * They are made available when deploying downstream projects
 * They do no leak into any regular deployment environments
 
-This documentation assumes this environment is called `Sycn`. The `Sync` environment must not appear in the lifecycle of regular deployments, which ensure any variables scoped to the `Sync` environment do not leak into regular deployments.
+This documentation assumes this environment is called `Sync`. The `Sync` environment must not appear in the lifecycle of regular deployments, which ensures any variables scoped to the `Sync` environment do not leak into regular deployments.
 
 Octoterra excludes the `Sync` environment from the scopes of exported projects. This ensures the downstream projects do not rely on the `Sync` environment.
 
@@ -134,9 +134,11 @@ These three variables can then be referenced by a non-sensitive variable scoped 
 
 The deployment process can then reference `#{Database.Password}` to receive the environment scoped sensitive variable during deployment.
 
-### Sensitive variables made avilable to the Sync environment
+### Sensitive variables made available to the Sync environment
 
 All sensitive variables must be available to the `Sync` environment. This means:
 
 * Sensitive variables have no scope
 * Sensitive variables scoped to any environments must also be scoped to the `Sync` environment
+
+This ensures that the steps deploying downstream projects have access to all sensitive variables, and replace the Octostache template syntax in `project_variable_sensitive*.tf` with the correct value.
