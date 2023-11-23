@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-11-09
-modDate: 2023-11-09
+pubDate: 2023-11-23
+modDate: 2023-11-23
 title: Secret variables
 description: Learn how to export projects with secret variables
 navOrder: 11
