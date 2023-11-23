@@ -21,6 +21,7 @@ HKLM
 hotfix
 hotfixes
 HSTS
+internalcustomer
 ITSM
 jwks
 kustomization
@@ -66,6 +67,8 @@ sthumb
 swaggerui
 systemprofile
 tabpanel
+tagset
+tenanttype
 Trivy
 upgradelog
 useronboarding
