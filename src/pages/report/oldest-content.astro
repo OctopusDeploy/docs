@@ -7,7 +7,7 @@ const accelerator = new Accelerator(SITE);
 
 const allPages = accelerator.posts.all();
 const pageCount = allPages.length;
-const pages = allPages.sort(PostOrdering.sortByModDate).slice(0, Math.min(50, pageCount));
+const pages = allPages.filter(PostFiltering.isListable).sort(PostOrdering.sortByModDate).slice(0, Math.min(50, pageCount));
 ---
 <!doctype html>
 <html>
