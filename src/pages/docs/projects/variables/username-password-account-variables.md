@@ -29,7 +29,7 @@ The Username and Password account variable also exposes the following properties
 | Name and description                                                   | Example     |
 |------------------------------------------------------------------------|-------------|
 | **`Username`** <br/> The username of the Username and password account | BobSmith_85 | 
-| **`Password`** <br/> The password of the Username and password account | Sup3rSecr3tPassword1! | 
+| **`Password`** <br/> The password of the Username and password account | Password | 
 
 ### Accessing the properties in a script
 

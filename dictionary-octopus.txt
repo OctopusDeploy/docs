@@ -63,7 +63,6 @@ runbooks
 Schannel
 SIEM
 signingkeys
-Sup3rSecr3tPassword1!
 sthumb
 swaggerui
 systemprofile
