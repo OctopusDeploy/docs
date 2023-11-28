@@ -323,8 +323,7 @@ async function search(s, r) {
 
     cleanQuery.length > 0 && haystack.forEach( (item) => {
 
-        let foundWords = 0;
-        let isPhraseFound = false;
+        item.foundWords = 0;
         item.score = 0;
         item.matchedHeadings = [];
 
@@ -333,9 +332,13 @@ async function search(s, r) {
         // Part 1 - Phrase Matches, i.e. "Kitchen Sink"
 
         // Title
+        if (item.safeTitle === currentQuery) {
+            item.foundWords += 2;
+        }
+        
         if (contains(item.safeTitle, currentQuery)) {
             item.score = item.score + scoring.phraseTitle;
-            isPhraseFound = true;
+            item.foundWords += 2;
         }
 
         // Headings
@@ -343,21 +346,19 @@ async function search(s, r) {
             if (contains(c.safeText, currentQuery)) {
                 item.score = item.score + scoring.phraseHeading;
                 item.matchedHeadings.push(c);
-                isPhraseFound = true;
+                item.foundWords++;
             }
         });
 
         // Description
         if (contains(item.description, currentQuery)) {
             item.score = item.score + scoring.phraseDescription;
-            isPhraseFound = true;
-        }
-
-        if (isPhraseFound) {
-            foundWords++;
+            item.foundWords++;
         }
 
         // Part 2 - Term Matches, i.e. "Kitchen" or "Sink"
+
+        let foundWords = 0;
         
         allTerms.forEach(term => {
             let isTermFound = false;
@@ -405,7 +406,7 @@ async function search(s, r) {
             }
         });
 
-        item.foundWords = foundWords;
+        item.foundWords += foundWords;
 
         if (item.score > 0) {
             needles.push(item);
