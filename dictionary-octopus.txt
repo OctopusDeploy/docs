@@ -10,6 +10,7 @@ cutover
 datetime
 deallocate
 deallocated
+deployers
 deploymentprocess
 deploymentprocesses
 DONTVALIDATEPATH
@@ -49,9 +50,11 @@ octoterra
 OIDC
 onlylogs
 passout
+PKCE
 pkcs
 PROGRAMFILES
 quickstart
+remoting
 reprioritize
 reprovisioned
 reprovisioning
