@@ -119,7 +119,7 @@ We recommend execution containers as the preferred option for steps requiring ex
 
 ### Windows Server Core 2022
 :::div{.hint}
-Windows 2022 is currently the `Windows (default)` image. If you are having issues with your deployments using Windows 2022, you can revert your Dynamic Worker pool(s) to use Windows 2019. However, note that this is only a temporary workaround as Windows 2019 images will be removed on 1 January 2024. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
+Windows 2022 is currently the `Windows (default)` image. If you are having issues with your deployments using Windows 2022, you can revert your Dynamic Worker pool(s) to use Windows 2019. However, note that this is only a temporary workaround as Windows 2019 images will be removed on 9 January 2024. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
 :::
 
 Each `Windows Server Core 2022` worker is provisioned with a baseline of tools including (but not limited to):
