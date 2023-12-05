@@ -32,6 +32,7 @@ maintenanceconfiguration
 maxage
 msiexec
 MTTR
+NETBIOS
 Netscaler
 nologs
 noninteractive
@@ -64,6 +65,7 @@ Runbook
 runbook
 runbooks
 Schannel
+setspn
 SIEM
 signingkeys
 sthumb
