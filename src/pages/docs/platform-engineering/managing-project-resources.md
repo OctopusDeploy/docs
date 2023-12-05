@@ -7,6 +7,8 @@ description: This section documents how to manage project level resources as cod
 navOrder: 5
 ---
 
+[Serializing and deploying space level resources](https://www.youtube.com/watch?v=QIcq2WxnrPs)
+
 Octopus is conceptually split into two types of resources:
 
 1. Space level resources such as environments, feeds, accounts, lifecycles, certificates, workers, worker pools, and library variable sets
