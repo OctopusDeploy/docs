@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2023-11-30
 title: Active Directory authentication
 description: Octopus Deploy can use Windows credentials to identify users.
 navOrder: 5
@@ -15,34 +15,39 @@ Active Directory authentication can only be configured for Octopus Server and no
 Octopus Deploy can authenticate users using Windows credentials. Windows AD authentication can be chosen during installation of the Octopus Server, or later through the configuration.
 
 **Domain user required during setup**
+
 When setting AD Authentication, either via the Octopus setup wizard or running the commands outlined below to switch to AD authentication mode, make sure you are signed in to Windows as a domain user. If you are signed in as a local user account on the machine (a non-domain user) you won't be able to query Active Directory, so setup will fail.
 
-## Active Directory sign-in options {#ActiveDirectoryauthentication-ActiveDirectorysigninoptions}
+## Active Directory sign-in options
 If you are using Active Directory Authentication with Octopus, there are two ways to sign in.
 
 1. Integrated authentication
 2. Forms-based
 
 ## Authentication schemes
+
 By default, Active Directory Authentication will use NTLM as the Authentication Scheme. In many circumstances, you can also configure Octopus to use Kerberos for authentication.
 
 If you would like to use Kerberos for authentication, you should consider if you require User Mode authentication. User Mode is required for Kerberos authentication when Octopus is in a [High Availability](/docs/administration/high-availability) configuration. By default, Kerberos authentication for Octopus Deploy runs in Kernel Mode. The mode is dictated by the web server running Octopus Deploy, which can be configured using the `configure` command. Select HTTP.sys for Kernel Mode, or Kestrel for User Mode:
 
-**Kernel Mode authentication via HTTP.sys (default) - Command Line** {#ActiveDirectoryAuthentication-KernelModeAuthentication}\
+### Kernel Mode authentication via HTTP.sys (default) - Command Line
+
 Select this mode if you require features of HTTP.sys, such as port sharing.
 
 ```bash
 Octopus.Server.exe configure --webServer=HttpSys
 ```
 
-**User Mode authentication via Kestrel - Command Line** {#ActiveDirectoryAuthentication-UserModeAuthentication}\
+### User Mode authentication via Kestrel - Command Line
+
 Select this mode for High Availability configurations.
 
 ```bash
 Octopus.Server.exe configure --webServer=Kestrel
 ```
 
-## Integrated authentication {#ActiveDirectoryauthentication-Integratedauthentication}
+## Integrated authentication
+
 The easiest way to sign in when using Active Directory is to use Integrated Authentication. 
 This allows a one-click option to *Sign in with a domain account* as pictured below.
 
@@ -52,26 +57,23 @@ This allows a one-click option to *Sign in with a domain account* as pictured be
 
 This will instruct the Octopus Server to issue a browser challenge. NTLM Authentication doesn't require much configuration except for allowing NTLM to be used in your network. This is on by default.
 
-
-
-**Changing authentication schemes - Command Line** {#ActiveDirectoryAuthentication-AuthenticationSchemeChange}
+### Changing authentication schemes - Command Line
 
 ```bash
 Octopus.Server.exe configure --webAuthenticationScheme=IntegratedWindowsAuthentication
 ```
 
-
 Setting `IntegratedWindowsAuthentication` will mean that Octopus will attempt to [use Kerberos Authentication](#ActiveDirectoryAuthentication-UsingNegotiate) instead. [Read about other supported values](https://msdn.microsoft.com/en-us/library/system.net.authenticationschemes(v=vs.110).aspx).
 
 :::div{.hint}
 **How it works**
+
 Octopus is built on top of HTTP.sys, the same kernel driver that IIS is built on top of. You may be familiar with "Integrated Windows Authentication" in IIS; this is actually provided by HTTP.sys. This means that Octopus supports the same challenge-based sign-in mechanisms that IIS supports, including Integrated Windows Authentication.
 
 When the link is clicked, it redirects to a page which is configured to tell HTTP.sys to issue the browser challenge. The browser and HTTP.sys negotiate the authentication just like an IIS website would. The user principal is then passed to Octopus. Octopus will then query Active Directory for other information about the user.
 :::
 
-
-### Kerberos vs NTLM security for AD authentication {#ActiveDirectoryAuthentication-NTLMvKerberos}
+### Kerberos vs NTLM security for AD authentication
 
 It is possible to use explicitly select either `NTLM`, `Negotiate` or `IntegratedWindowsAuthentication` authentication for Active Directory authentication. Using `Negotiate` or `IntegratedWindowsAuthentication` will use Kerberos authentication. In some cases this may result in `NTLM` connections based on the nature of the connecting client.
 
@@ -85,12 +87,12 @@ This table describes the options you can choose in Octopus, and the protocols th
 
 Without some additional configuration, AD authentication, whether forms-based or integrated, will usually fail to negotiate the use of `kerberos` authentication and instead choose `NTLM`.
 
-### Supported setups for Active Directory authentication {#ActiveDirectoryAuthentication-SupportedAuthentication}
+### Supported setups for Active Directory authentication {#supported-active-directory-setups}
 
 Octopus Deploy supports various options for Active Directory authentication.
 
 :::div{.hint}
-Not all high availability and Active Directory configurations are supported. There are limitations on the use of Kerberos in high availability scenarios. This is due to a requirement to [use a machine level SPN in order to allow Kerberos to work](#ActiveDirectoryAuthentication-ConfiguringKerberos) with our web server.
+Not all high availability and Active Directory configurations are supported. There are limitations on the use of Kerberos in high availability scenarios. This is due to a requirement to [use a machine level SPN in order to allow Kerberos to work](#configuring-kerberos) with our web server.
 :::
 
 |     Octopus Option              | Single Octopus Server | High-Availability |
@@ -101,44 +103,43 @@ Not all high availability and Active Directory configurations are supported. The
 
 :::div{.hint}
  **Service Accounts and Kerberos**
+
 From Octopus version 2020.1.0 and above, an upgrade to .Net Core 3.1 and usage of the HTTP.sys library, the Octopus Deploy Service running with Domain Service Account credentials, does not have the ability to read the HttpContext.User.Identity.Name property which is used for Kerberos authentication. There is a requirement to run the Octopus Deploy Service as Local System in order to allow for Kerberos to successfully Authenticate. You can read more about this here: https://github.com/OctopusDeploy/Issues/issues/6602
 :::
 
-### Configuring Kerberos authentication for Active Directory {#ActiveDirectoryAuthentication-ConfiguringKerberos}
+### Configuring Kerberos authentication for Active Directory {#configuring-kerberos}
 
 Here's a simple checklist to help you on your way to allowing Kerberos Authentication.
 
 1. Change the Authentication Scheme.
 2. Set the Octopus Deploy HTTP/S Bindings to use a Fully Qualified Domain Name (FQDN) or NETBIOS name as per your usage.
-3. Add the Octopus Deploy URL to the [list of Trusted Sites](/docs/security/authentication/active-directory/#ActiveDirectoryAuthentication-AddingtrustedSitesviaGPO).
+3. Add the Octopus Deploy URL to the [list of Trusted Sites](/docs/security/authentication/active-directory/#group-policy-trusted-sites).
 4. Allow Automatic logon via a browser.
 5. Set the appropriate SPNs.
 6. Enable AES256 encryption for Kerberos tickets.
   
-
-
 - A valid Service Principal Name (SPN) for the `HTTP` service class for each Octopus host NETBIOS name. If you are accessing your Host via its FQDN then you will need to also add an FQDN also for the `HTTP` service class. (Please Note: Whether you've configured your Octopus host to use `HTTP` or `HTTPS`, you will only need to set an `HTTP` SPN.)
 - Included FQDNs of all Octopus Deploy Hosts and Octopus clusters within your trusted sites or Intranet zones.
 - Client Machines configured to allow auto logon with current user name and password.
 
-
 **SPN Configuration**
 
-Set an `HTTP` service class SPN for the NETBIOS name and FQDN of your OD hosts. For example, if you are hosting `od.mydomain.local` from server `octoserver1` you will require the following registered service principal names for your server:
+Set an `HTTP` service class SPN for the NETBIOS name and FQDN of your OD hosts. For example, if you are hosting `od.domain.local` from server `server1` you will require the following registered service principal names for your server:
 ```
 HTTP/od
-HTTP/od.mydomain.local
+HTTP/od.domain.local
 ```
 These can be registered by running the following commands in an elevated command prompt or PowerShell session:
 
 ```
-setspn.exe -S HTTP/od octoserver1
-setspn.exe -S HTTP/od.mydomain.local octoserver1 
+setspn.exe -S HTTP/od server1
+setspn.exe -S HTTP/od.domain.local server1 
 ```
 
 :::div{.hint}
 **HA Clusters**
-If you are running a HA Octopus Deploy environment, Kerberos authentication is not currently supported. Please refer to our section on [Supported Setups for Active Directory Authentication](#ActiveDirectoryAuthentication-SupportedAuthentication)
+
+If you are running a HA Octopus Deploy environment, Kerberos authentication is not currently supported. Please refer to our section on [Supported Setups for Active Directory Authentication](#supported-active-directory-setups)
 :::
 
 For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
@@ -165,8 +166,6 @@ Accessing a host via the NETBIOS name will mean that the "Intranet zone" rules w
 The recommend way to configure this, is to add all potential URIs that will be used to access Octopus, to the "Trusted Sites" list.
 This can be done in several ways including via Group Policy, scripting or via [internet security settings menu](https://www.computerhope.com/issues/ch001952.htm). 
 
-
-
 **Internet Security Configuration - Allow Automatic logon via browser**
 
 All **client machines** will need to be configured to allow automatic logon. We can set this option on all sites added to the trusted sites zone. This can be done via Group Policy, scripting or via the internet security settings menu. 
@@ -181,7 +180,7 @@ In the **Security Settings - Internet Zone** window, go to **User Authentication
 ![Client Security](/docs/security/authentication/active-directory/images/clientsecurity.png)
 :::
 
-### Adding Trusted Sites via Group Policy Object {#ActiveDirectoryAuthentication-AddingtrustedSitesviaGPO}
+### Adding Trusted Sites via Group Policy Object {#group-policy-trusted-sites}
 
 To set trusted sites via GPO:
 
@@ -191,8 +190,7 @@ To set trusted sites via GPO:
 1. Select **Enabled** and click Show to edit the list. Zone value 2 is for trusted sites.
 1. Click **OK** then **Apply** and **OK**.
 
-
-### Allowing auto logon via Group Policy Object {#ActiveDirectoryAuthentication-AllowingAutoLogon}
+### Allowing auto logon via Group Policy Object
 
 1. Open the **Group Policy Management Editor**.
 1. Go to **User Configuration ➜ Policies ➜ Administrative Templates ➜ Windows Components ➜ Internet Explorer ➜ Internet Control Panel ➜ Security Page**.
@@ -203,8 +201,8 @@ To set trusted sites via GPO:
 
 That is all the is needed for kerberos to be used as the logon method when using integrated sign-in or Forms-based authentication.
 
+## Forms-based authentication with Active Directory
 
-## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
 Octopus allows users to sign in by entering their Active Directory credentials to login. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
 
 :::figure
@@ -213,6 +211,7 @@ Octopus allows users to sign in by entering their Active Directory credentials t
 
 :::div{.hint}
 **How it works**
+
 Using this option, the credentials are posted back to the Octopus Server, and Octopus validates them against Active Directory by invoking the Windows API `LogonUser()` function. If that is successful, Octopus will then query Active Directory for information about the user.
 
 Keep in mind that if your Octopus Server isn't [configured to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https), these are posted in plain text (just like signing in to any other website).
@@ -242,11 +241,11 @@ This will result in integrated sign in being the only option:
 ![Integrated Sign In Only](/docs/security/authentication/active-directory/images/activedirectory-integrated-only.png)
 :::
 
-## Switching between username/password and Active Directory Authentication {#ActiveDirectoryauthentication-SwitchingbetweenusernamepasswordandActiveDirectoryauthentication}
+## Switching between username/password and Active Directory Authentication
 
 It is possible to reconfigure an existing Octopus Server to use a different authentication mode.
 
-### Select Active Directory authentication {#ActiveDirectoryauthentication-ToselectActiveDirectoryauthentication}
+### Select Active Directory authentication
 
 To switch from username/password authentication to Active Directory authentication, use the following script from an administrative command prompt on the Octopus Server:
 
@@ -255,12 +254,12 @@ To switch from username/password authentication to Active Directory authenticati
 ```bash
 Octopus.Server.exe configure --activeDirectoryIsEnabled=true
 Octopus.Server.exe configure --usernamePasswordIsEnabled=false
-Octopus.Server.exe admin --username=YOURUSERNAME
+Octopus.Server.exe admin --username=YOUR_USERNAME
 ```
 
-The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/security/authentication)).
+The text `YOUR_USERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/security/authentication)).
 
-### Select username/password authentication {#ActiveDirectoryauthentication-Toselectusernamepasswordauthentication}
+### Select username/password authentication
 
 To switch from Active Directory authentication to username/password authentication, use the following script from an administrative command prompt on the Octopus Server:
 
@@ -269,10 +268,10 @@ To switch from Active Directory authentication to username/password authenticati
 ```bash
 Octopus.Server.exe configure --activeDirectoryIsEnabled=false
 Octopus.Server.exe configure --usernamePasswordIsEnabled=true
-Octopus.Server.exe admin --username=YOURUSERNAME
+Octopus.Server.exe admin --username=YOUR_USERNAME
 ```
 
-### Specify a custom container {#ActiveDirectoryauthentication-Tospecifyacustomcontainer}
+### Specify a custom container
 
 In **Octopus 2.5.11** and newer you can specify a custom container to use for AD Authentication. This feature addresses the issue of authenticating with Active Directory where the Users container is not in default location and permissions prevent queries as a result. Specifying the container will result in the container being used as the root of the context. The container is the distinguished name of a container object. All queries are performed under this root which can be useful in a more restricted environment. This may be the solution if you see a "The specified directory service attribute or value does not exist" error when using Active Directory authentication.
 
@@ -284,7 +283,7 @@ Octopus.Server.exe configure --activeDirectoryContainer "CN=Users,DC=GPN,DC=COM"
 
 Where `"CN=Users,DC=GPN,DC=COM"` should be replaced with your Container.
 
-### Trusted domains {#ActiveDirectoryauthentication-TrustedDomains}
+### Trusted domains
 
 Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Server is a member of will always be allowed to log in.  Users from domains that the Octopus Server's domain trusts will also be able to log in.
 
