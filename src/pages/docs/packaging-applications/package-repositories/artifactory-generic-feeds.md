@@ -7,7 +7,14 @@ description: Configuring an Artifactory Generic Feed in Octopus
 navOrder: 60
 ---
 
+:::div{.warning}
 From version **Octopus 2024.1** we support Artifactory Generic Repositories. This functionality is behind the `ArtifactoryGenericFeedFeatureToggle` feature toggle, to request this functionality early, please context [support](https://octopus.com/support).
+:::
+
+:::div{.warning}
+To use the Artifactory Generic Feeds feature you will need a PRO or higher license of Artifactory
+:::
+
 If you're using an Artifactory Generic Repository, you can create a feed in Octopus and use artifacts as part of your deployments. To create a feed go to **Library ➜ External feeds**. Select the **Add feed** button and selecting the _Artifactory Generic Repository_ feed type.
 
 You will then need to provide a feed name, the Artifactory repository name, an [access token](https://oc.to/ArtifactoryAccessToken) and the repository [Artifact Path regex](https://oc.to/ArtifactoryGenericLayouts).
