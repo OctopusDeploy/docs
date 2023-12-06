@@ -7,7 +7,14 @@ description: Configuring an Artifactory Generic Feed in Octopus
 navOrder: 60
 ---
 
+:::div{.warning}
 From version **Octopus 2024.1** we support Artifactory Generic Repositories. This functionality is behind the `ArtifactoryGenericFeedFeatureToggle` feature toggle, to request this functionality early, please context [support](https://octopus.com/support).
+:::
+
+:::div{.warning}
+To use the Artifactory Generic Feeds feature you will need a PRO or higher license of Artifactory
+:::
+
 If you're using an Artifactory Generic Repository, you can create a feed in Octopus and use artifacts as part of your deployments. To create a feed go to **Library ➜ External feeds**. Select the **Add feed** button and selecting the _Artifactory Generic Repository_ feed type.
 
 You will then need to provide a feed name, the Artifactory repository name, an [access token](https://oc.to/ArtifactoryAccessToken) and the repository [Artifact Path regex](https://oc.to/ArtifactoryGenericLayouts).
@@ -28,7 +35,7 @@ The Octopus integration with Artifactory Generic Repositories depends on the art
 ![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-package-information.png)
 :::
 
-The regex layout in Artifactory is used to [list the versions of an artifact](https://oc.to/ArtifactVersionSearch). Searching and selecting a package depends on the AQL <code>items.find(...)</code> query to search within the repository, this does not depend on the layout. If a package has been found and selected but fetching versions fails when creating deployments this is likely due to the layout not matching the artifact within Artifactory.
+The regex layout in Artifactory is used to [list the versions of an artifact](https://oc.to/ArtifactVersionSearch). Searching and selecting a package uses the Artifactory Query Language to search within the repository, this does not depend on the layout. If a package has been found and selected but fetching versions fails when creating deployments this is likely due to the layout not matching the artifact within Artifactory.
 
 On the test page, you can search for packages, this will return the packageId expected by Octopus along with the artifact details. The expected packageId is `path/module` where the path is the folder structure to the artifact returned from the AQL query <code>items.find(...)</code> and the module is determined by parsing the regex expression set on the feed within Octopus.
 
