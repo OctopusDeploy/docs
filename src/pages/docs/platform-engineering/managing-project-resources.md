@@ -7,7 +7,7 @@ description: This section documents how to manage project level resources as cod
 navOrder: 5
 ---
 
-[Serializing and deploying space level resources](https://www.youtube.com/watch?v=QIcq2WxnrPs)
+[Serializing and deploying project level resources](https://www.youtube.com/watch?v=QIcq2WxnrPs)
 
 Octopus is conceptually split into two types of resources:
 
