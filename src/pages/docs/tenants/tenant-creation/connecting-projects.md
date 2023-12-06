@@ -29,11 +29,11 @@ The project connection feature was updated to allow bulk selection in Octopus De
 Not seeing the environment you want? Make sure at least one lifecycle used by your project includes that environment.
 :::
 
-6. A preview of the selected projects and environments is shown in the Connection preview panel. The selected environments will be assigned to each project based on whether they are part of any lifecycle in the project. If an environment is not part of any lifecycle in the project, it will not be assigned to the project.
+6. A preview of the selected projects and environments is shown in the connection preview panel. The selected environments will be assigned to each project based on whether they are part of any lifecycle in the project. If an environment is not part of any lifecycle in the project, it will not be assigned to the project.
 7. Click **CONNECT <N> PROJECTS**
 
-You can connect each tenant to any number of projects and for each project, any combination of environments that can be targeted by each project. This gives you the most flexibility when designing your multi-tenant deployments.
+You can connect each tenant to any number of projects and, for each project, any combination of environments that each project can target. This gives you the most flexibility when designing your multi-tenant deployments.
 
 - You can offer specific projects to some tenants and not to others.
-- You can also provide most of your tenants with a single environment while offering specific customers extra environments. For example, you could give particular customers with a test/staging/acceptance environment where they can test new releases before upgrading their production environment.
+- You can also provide most of your tenants with a single environment while offering specific customers extra environments. For example, you could give particular customers a test/staging/acceptance environment where they can test new releases before upgrading their production environment.
 

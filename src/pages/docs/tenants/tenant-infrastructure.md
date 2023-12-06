@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-10-04
-title: Tenant Infrastructure
+title: Tenant infrastructure
 description: Tenant infrastructure can be modeled in both a dedicated or shared way in Octopus using environments, deployment targets, and tenant tags.
 navOrder: 50
 ---

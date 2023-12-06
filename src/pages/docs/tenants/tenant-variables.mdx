@@ -30,7 +30,7 @@ Both of these methods use the [variable templates](/docs/projects/variables/vari
 
 ## Project variables \{#project-variables}
 
-Project variables allow you to specify a variable which a tenant can change. A perfect example would be a connection string or a database server. With project variables you define them at the project level using [project templates](/docs/projects/variables/variable-templates/#project-templates).
+Project variables allow you to specify a variable that a tenant can change. A perfect example would be a connection string or a database server. You define project variables using [project templates](/docs/projects/variables/variable-templates/#project-templates).
 
 :::figure
 ![](/docs/tenants/images/project-template-screen.png "width=500")
@@ -42,7 +42,7 @@ You can specify the variable type for the project template, just like regular va
 ![](/docs/tenants/images/project-template-edit.png "width=500")
 :::
 
-On the tenant variable screen, you can set those variables.
+On the tenant variable screen, you can set values for these variables.
 
 :::figure
 ![](/docs/tenants/images/project-template-tenant-value.png "width=500")
@@ -57,7 +57,7 @@ The great thing about project template variables is that they are treated like a
 
 ## Common variables \{#common-variables}
 
-Common variables are similar to project variables. The main difference between the two is that common variables can be used across multiple projects, and they aren't scoped to environments. Common variables are defined using [Library variable set templates](/docs/projects/variables/variable-templates/#adding-a-variable-template)
+Common variables are similar to project variables. The main difference between the two is that common variables can be used across multiple projects, and they aren't scoped to environments. Common variables are defined using [library variable set templates](/docs/projects/variables/variable-templates/#adding-a-variable-template)
 
 For example, if we wanted to define an abbreviation for the tenant to use in a deployment or runbook, we can configure a variable template for the library set.
 
@@ -72,17 +72,17 @@ To include common variables for a tenant, you must add the library variable set 
 Just like project variables, common variable values are supplied at the tenant level.
 
 ![](/docs/tenants/images/common-variable-tenant-value.png "width=500")
-  
+
 ### Common variable permissions
 
 When editing common variables for a tenant, a user requires variable editing permission (`VariableEdit`) for the tenant as well as **all projects** linked to the tenant. 
 
-This can be achieved by scoping a User Role to:
+This can be achieved by scoping a user role to:
 - All projects individually 
-- The correct Project Groups 
-- A combination of individual projects and Project Groups
+- The correct project groups 
+- A combination of individual projects and project groups
 
-If you don't have the necessary permissions, you might receive an error like this:
+If you don't have the necessary permissions, you will receive an error like this:
 
 :::figure
 ![](/docs/tenants/images/common-variable-permissions-error.png "width=500")
