@@ -62,7 +62,7 @@ Dedicated hosting ensures the applications for some tenants are completely isola
 To configure deployment targets as dedicated hosts for one or more tenants:
 
 1. Go to **Infrastructure ➜ Deployment Targets** and find the deployment targets that will be used to host the applications for the tenant. 
-1. Configure each deployment target as a dedicated host for the tenant:
+2. Configure each deployment target as a dedicated host for the tenant:
    ![](/docs/tenants/images/multi-tenant-dedicated-deployment-target.png)
 
 ### Step 2: Deploy {#dedicated-hosting-deploy}
@@ -77,14 +77,14 @@ The final step is to deploy a connected project for this tenant and see the resu
 
 Shared hosting allows you to host the applications of multiple tenants on the same machines to reduce hosting costs by increasing density. To implement shared hosting, you need to create a shared server farm and indicate which tenants will be hosted on that farm. 
 
-This is very similar to the dedicated hosting scenario. Instead of choosing a single-tenant, you use a tenant tag to indicate these servers will be hosting applications for multiple tenants.
+This is very similar to the dedicated hosting scenario. Instead of choosing a single tenant, you use a tenant tag to indicate these servers will be hosting applications for multiple tenants.
 
 ### Step 1: Create a hosting tag set {#shared-hosting-create-tagset}
 
 Firstly let's create a tag set to identify which tenants should be hosted on which shared server farms:
 
 1. Go to **Library ➜ Tenant Tag Sets** and create a new tag set called **Hosting**.
-1. Add a tag called **Shared-Farm-1** and set the color to green to help identify tenants on shared hosting more quickly:
+2. Add a tag called **Shared-Farm-1** and set the color to green to help identify tenants on shared hosting more quickly:
    ![](/docs/tenants/images/multi-tenant-shared-tag.png)
 
 ### Step 2: Configure the shared server farm {#shared-hosting-configure-shared-farm}
@@ -92,7 +92,7 @@ Firstly let's create a tag set to identify which tenants should be hosted on whi
 Now let's configure some shared servers in a farm:
 
 1. Go to **Infrastructure ➜ Deployment Targets** and find the deployment targets that will be used to host the applications for these tenants.
-1. Select the **Shared-Farm-1** tag:
+2. Select the **Shared-Farm-1** tag:
 
 :::figure
 ![](/docs/tenants/images/multi-tenant-infra.png)
@@ -102,9 +102,7 @@ These deployment targets will now be included in deployments for any tenants mat
 
 ### Step 3: Configure the Tenants to deploy onto the shared server farm {#shared-hosting-configure-tenants}
 
-Now let's select some tenants that should be hosted on **Shared-Farm-1**:
-
-1. Create some new tenants (or find existing ones) and tag them with **Shared-Farm-1**:
+Now let's select some tenants that should be hosted on **Shared-Farm-1**. Create some new tenants (or find existing ones) and tag them with **Shared-Farm-1**:
 ![](/docs/tenants/images/multi-tenant-shared-server.png)
 
 ### Step 4: Deploy {#shared-hosting-deploy}
