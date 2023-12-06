@@ -7,7 +7,7 @@ description: Learn how to fork repositories when deploying a copy of CaC project
 navOrder: 7
 ---
 
-[Serializing and deploying CaC enabled projects](https://youtu.be/QIcq2WxnrPs)
+[Serializing and deploying CaC enabled projects](https://youtu.be/VGgR4PuWvOQ)
 
 Octopus does not support two Config-as-Code (CaC) enabled projects pointing to the same Git repository. This means you must fork the Git repository hosting the upstream project and then point the downstream project to the new fork.
 
