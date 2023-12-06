@@ -35,7 +35,7 @@ The Octopus integration with Artifactory Generic Repositories depends on the art
 ![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-package-information.png)
 :::
 
-The regex layout in Artifactory is used to [list the versions of an artifact](https://oc.to/ArtifactVersionSearch). Searching and selecting a package depends on the AQL <code>items.find(...)</code> query to search within the repository, this does not depend on the layout. If a package has been found and selected but fetching versions fails when creating deployments this is likely due to the layout not matching the artifact within Artifactory.
+The regex layout in Artifactory is used to [list the versions of an artifact](https://oc.to/ArtifactVersionSearch). Searching and selecting a package uses the Artifactory Query Language to search within the repository, this does not depend on the layout. If a package has been found and selected but fetching versions fails when creating deployments this is likely due to the layout not matching the artifact within Artifactory.
 
 On the test page, you can search for packages, this will return the packageId expected by Octopus along with the artifact details. The expected packageId is `path/module` where the path is the folder structure to the artifact returned from the AQL query <code>items.find(...)</code> and the module is determined by parsing the regex expression set on the feed within Octopus.
 
