@@ -23,6 +23,10 @@
 
 /docs/projects/index.mdx @OctopusDeploy/team-marketing
 
+# updates to the projects deployment process page are reviewed by team-modelling-at-scale
+
+/docs/projects/deployment-process/index.mdx @OctopusDeploy/team-modelling-at-scale
+
 # updates to the built in step templates page are reviewed by team-modelling-at-scale
 
 /docs/projects/built-in-step-templates/index.mdx @OctopusDeploy/team-modelling-at-scale
@@ -30,6 +34,14 @@
 # updates to the exporting and importing projects page are reviewed by team-productive-engineering
 
 /docs/projects/export-import/index.mdx @OctopusDeploy/team-productive-engineering
+
+# updates to the projects custom step templates page are reviewed by team-modelling-at-scale
+
+/docs/projects/custom-step-templates.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the projects update step templates page are reviewed by team-modelling-at-scale
+
+/docs/projects/updating-step-templates.md @OctopusDeploy/team-modelling-at-scale
 
 # updates to the variables page are reviewed by team-modelling-at-scale
 
@@ -51,9 +63,57 @@
 
 /docs/tenants/index.md @OctopusDeploy/team-marketing
 
+# updates to the tenants tenant types page are reviewed by team-modelling-at-scale
+
+/docs/tenants/tenant-types.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the tenants tenant creation page are reviewed by team-modelling-at-scale
+
+/docs/tenants/tenant-creation/index.mdx @OctopusDeploy/team-modelling-at-scale
+
+# updates to the tenants tenant variables page are reviewed by team-modelling-at-scale
+
+/docs/tenants/tenant-variables.mdx @OctopusDeploy/team-modelling-at-scale
+
+# updates to the tenants tenant tags page are reviewed by team-modelling-at-scale
+
+/docs/tenants/tenant-tags.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the tenants tenant infrastructure page are reviewed by team-modelling-at-scale
+
+/docs/tenants/tenant-infrastructure.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the tenants tenant lifecycle page are reviewed by team-modelling-at-scale
+
+/docs/tenants/tenant-lifecycles.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the tenants tenant roles and security page are reviewed by team-modelling-at-scale
+
+/docs/tenants/tenant-roles-and-security.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the tenants multi-tenant deployment guide page are reviewed by team-modelling-at-scale
+
+/docs/tenants/guides/index.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the tenants multi-tenant deployments faq page are reviewed by team-modelling-at-scale
+
+/docs/tenants/tenant-deployment-faq.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the tenants troubleshooting multi-tenant deployments page are reviewed by team-modelling-at-scale
+
+/docs/tenants/troubleshooting-multi-tenant-deployments.md @OctopusDeploy/team-modelling-at-scale
+
 # updates to the octopus cloud overview page are reviewed by team-marketing
 
 /docs/octopus-cloud/index.mdx @OctopusDeploy/team-marketing
+
+# updates to the octopus cloud disaster recovery page are reviewed by team-cloud-platform
+
+/docs/octopus-cloud/disaster-recovery.md @OctopusDeploy/team-cloud-platform
+
+# updates to the octopus cloud uptime slo page are reviewed by team-cloud-platform
+
+/docs/octopus-cloud/uptime-slo.md @OctopusDeploy/team-cloud-platform
 
 # updates to the installation overview page are reviewed by team-marketing
 
@@ -67,6 +127,18 @@
 
 /docs/packaging-applications/index.md @OctopusDeploy/team-marketing
 
+# updates to the packaging applications create packages page are reviewed by team-server-at-scale
+
+/docs/packaging-applications/create-packages/index.md @OctopusDeploy/team-server-at-scale
+
+# updates to the packaging applications builder servers page are reviewed by team-server-at-scale
+
+/docs/packaging-applications/build-servers/index.md @OctopusDeploy/team-server-at-scale
+
+# updates to the packaging applications packaging repositories page are reviewed by team-server-at-scale
+
+/docs/packaging-applications/package-repositories/index.md @OctopusDeploy/team-server-at-scale
+
 # updates to the releases overview page are reviewed by team-marketing
 
 /docs/releases/index.mdx @OctopusDeploy/team-marketing
@@ -78,6 +150,14 @@
 # updates to the channels page are reviewed by team-modelling-at-scale
 
 /docs/releases/channels/index.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the releases deleting releases page are reviewed by team-modelling-at-scale
+
+/docs/releases/deleting-releases.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the releases manually fail a task page are reviewed by team-modelling-at-scale
+
+/docs/releases/manually-fail-a-task.md @OctopusDeploy/team-modelling-at-scale
 
 # updates to the release versioning page are reviewed by team-modelling-at-scale
 
@@ -91,6 +171,14 @@
 
 /docs/deployments/index.md @OctopusDeploy/team-marketing
 
+# updates to the deployments certificates page are reviewed by team-modelling-at-scale
+
+/docs/deployments/certificates/index.md @OctopusDeploy/team-modelling-at-scale
+
+# updates to the deployments packages page are reviewed by team-server-at-scale
+
+/docs/deployments/packages/index.md @OctopusDeploy/team-server-at-scale
+
 # updates to the bulk deployment creation page are reviewed by team-modelling-at-scale
 
 /docs/deployments/bulk-deployment-creation.md @OctopusDeploy/team-modelling-at-scale
@@ -98,6 +186,30 @@
 # updates to the runbooks overview page are reviewed by team-marketing
 
 /docs/runbooks/index.mdx @OctopusDeploy/team-marketing
+
+# updates to the runbooks runbooks vs deployments page are reviewed by team-server-at-scale
+
+/docs/runbooks/runbooks-vs-deployments/index.md @OctopusDeploy/team-server-at-scale
+
+# updates to the runbooks runbook permissions page are reviewed by team-server-at-scale
+
+/docs/runbooks/runbook-permissions/index.md @OctopusDeploy/team-server-at-scale
+
+# updates to the runbooks runbook variables page are reviewed by team-server-at-scale
+
+/docs/runbooks/runbook-variables/index.md @OctopusDeploy/team-server-at-scale
+
+# updates to the runbooks runbook publishing page are reviewed by team-server-at-scale
+
+/docs/runbooks/runbook-publishing/index.md @OctopusDeploy/team-server-at-scale
+
+# updates to the runbooks scheduled runbook triggers page are reviewed by team-server-at-scale
+
+/docs/runbooks/scheduled-runbook-trigger/index.md @OctopusDeploy/team-server-at-scale
+
+# updates to the runbooks scheduled runbook examples page are reviewed by team-server-at-scale
+
+/docs/runbooks/runbook-examples/index.md @OctopusDeploy/team-server-at-scale
 
 # updates to the tasks section are reviewed by team-productive-engineering
 
@@ -139,6 +251,10 @@
 
 /docs/octopus-rest-api/octopus.server.exe-command-line/index.md @OctopusDeploy/team-productive-engineering
 
+# updates to the octopus rest api tentacle exe command line page are reviewed by team-server-at-scale
+
+/docs/octopus-rest-api/tentacle.exe-command-line/index.md @OctopusDeploy/team-server-at-scale
+
 # updates to the octopus migrator command line page are reviewed by team-productive-engineering
 
 /docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md @OctopusDeploy/team-productive-engineering
@@ -163,6 +279,10 @@
 
 /docs/administration/retention-policies/index.mdx @OctopusDeploy/team-modelling-at-scale
 
+# updates to the administration reporting page are reviewed by team-modelling-at-scale
+
+/docs/administration/reporting/index.mdx @OctopusDeploy/team-modelling-at-scale
+
 # updates to the security overview page are reviewed by team-marketing
 
 /docs/security/index.md @OctopusDeploy/team-marketing
@@ -179,9 +299,17 @@
 
 /docs/security/http-security-headers.md @OctopusDeploy/team-productive-engineering
 
+# updates to the security octopus tentacle communication page are reviewed by team-server-at-scale
+
+/docs/security/octopus-tentacle-communication/index.md @OctopusDeploy/team-server-at-scale
+
 # updates to the data encryption page are reviewed by team-productive-engineering
 
 /docs/security/data-encryption.md @OctopusDeploy/team-productive-engineering
+
+# updates to the security built-in worker page are reviewed by team-server-at-scale
+
+/docs/security/built-in-worker.md @OctopusDeploy/team-server-at-scale
 
 # updates to the users and teams page are reviewed by team-productive-engineering
 

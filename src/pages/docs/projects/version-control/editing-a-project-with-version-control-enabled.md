@@ -11,7 +11,7 @@ Once an Octopus Project is configured to be version-controlled, your experience 
 
 ## Editing via the Octopus UI
 
-Editing via the Octopus Deploy UI works the same whether you are saving to a git repository or to SQL Server. You can add steps, update processes, remove steps, just like before. When you enable version control on a project, you get additional functionality.
+Editing via the Octopus Deploy UI works the same whether you are saving to a git repository or to SQL Server. You can add steps, update processes, and remove steps, just like before. When you enable version control on a project, you get additional functionality.
 
 ### Branch switcher 
 
@@ -47,7 +47,7 @@ If you are making changes on a protected branch, the quick save option will be d
 
 ### Viewing and editing OCL
 
-Enabling version control also enables you to edit the OCL (Octopus Configuration Language) file directly. We suggest using your favorite text editor or IDE to make changes, commit and push them just as you would any other code change. 
+Enabling version control also enables you to edit the OCL (Octopus Configuration Language) file directly. We suggest using your favorite text editor or IDE to make changes, commit, and push them just as you would any other code change. 
 
 :::div{.hint}
 We have a [Visual Studio Code Plug-in](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.vscode-octopusdeploy) that will add syntax highlighting, OCL snippets, and an integrated tree view for navigating nodes in an HCL file.
@@ -66,7 +66,7 @@ The Octopus Deploy Web Portal will only add non-default properties to the OCL fi
 
 ### OCL versus Octopus Terraform Provider
 
-While OCL is similar to HCL, it is not the exact same. In addition, there is not a 1:1 match between the resources generated for OCL and the resources for the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs). That means you cannot copy resources between OCL files and TF files.
+While OCL is similar to HCL, it is not the same. In addition, there is not a 1:1 match between the resources generated for OCL and the resources for the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs). That means you cannot copy resources between OCL files and TF files.
 
 ## Version control features
 
@@ -76,4 +76,4 @@ Storing the deployment process in the same repository as your source code has ma
 - Leveraging Pull Requests for approvals to any changes.
 - Reverting changes if something doesn't work right.
 
-If you make any changes outside of the Octopus UI (merging a branch, reverting a change, etc.), you'll need to either need to wait for Octopus to fetch from the remote repo, or reload the page for those changes to be reflected in the Octopus Web Portal.
+If you make any changes outside of the Octopus UI (merging a branch, reverting a change, etc.), you'll need to either wait for Octopus to fetch from the remote repo, or reload the page for those changes to be reflected in the Octopus Web Portal.
