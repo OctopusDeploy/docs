@@ -1,6 +1,7 @@
 apikey
 astro
 augeas
+Bento
 bootstrap
 bootstrapped
 bootstrapper
