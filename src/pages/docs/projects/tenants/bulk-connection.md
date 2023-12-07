@@ -40,7 +40,7 @@ When filters are active, clicking **SELECT ALL <N> RESULTS** will add all tenant
 
 A status indicator will show the progress of the operation, and the tenant list will be updated as tenants are connected. You can navigate away from the page at any time, and the operation will continue. All users with permission to view the project will be able to see the progress of the connection.
 
-Only one bulk connection may be performed per project. If there's a connection operation already in progress, **CONNECT TENANTS** will be disabled until it finishes.
+Only one bulk connection may be performed at a time, per project. If there's a connection operation already in progress for this project, **CONNECT TENANTS** will be disabled until it finishes.
 
 ### After the connection operation
 :::figure

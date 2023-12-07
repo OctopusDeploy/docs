@@ -16,8 +16,8 @@ dependencies:
     specifier: ^3.4.3
     version: 3.4.3
   astro-accelerator:
-    specifier: ^0.3.19
-    version: 0.3.19
+    specifier: ^0.3.28
+    version: 0.3.28
   astro-accelerator-utils:
     specifier: ^0.3.4
     version: 0.3.4
@@ -1465,8 +1465,8 @@ packages:
     resolution: {integrity: sha512-vliaNZqWsrJynqjqFVzX5dCpFrL6XLH6ysP0ab0+rgCj/WY5pL8mM0v7qexzmt5lcwZl6pnhK3br92YOxZLJGQ==}
     dev: false
 
-  /astro-accelerator@0.3.19:
-    resolution: {integrity: sha512-iSpUzO1KKNdPBZZgucOKI6U6QDSDab6E6WqJ/35KWQ+zLspkITwmCgFvJJ6Y9pxilfNF3IMD5mcBBGvYKU4zrA==}
+  /astro-accelerator@0.3.28:
+    resolution: {integrity: sha512-kByzvhy+wgVZ2BB5gzXlk90Mx7KNicLMOpmO1/aLKjp9B6Ch/P9tAJd+fi1Y3Hu46rkWy3cqX5bu5idHPXhY/w==}
     engines: {node: '>=18.14.1', pnpm: '>=8.6.12'}
     dependencies:
       '@astrojs/mdx': 1.1.4(astro@3.5.3)
@@ -1600,7 +1600,7 @@ packages:
       esbuild: 0.19.5
       estree-walker: 3.0.3
       execa: 8.0.1
-      fast-glob: 3.3.1
+      fast-glob: 3.3.2
       github-slugger: 2.0.0
       gray-matter: 4.0.3
       html-escaper: 3.0.3

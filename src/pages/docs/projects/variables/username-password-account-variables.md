@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-27
-modDate: 2023-10-27
+modDate: 2023-11-24
 title: Username and password account variables
 description: Create a Username and password account variable to use in any deployment step
 navOrder: 90
@@ -29,10 +29,15 @@ The Username and Password account variable also exposes the following properties
 | Name and description                                                   | Example     |
 |------------------------------------------------------------------------|-------------|
 | **`Username`** <br/> The username of the Username and password account | BobSmith_85 | 
+| **`Password`** <br/> The password of the Username and password account | Password | 
 
 ### Accessing the properties in a script
 
 Each of the above properties can be referenced in any of the supported scripting languages such as PowerShell and Bash.
+
+:::div{.hint}
+Although it's possible to reference the `Password` of the Username and password account in a script, writing them out to stdout will result in Octopus masking the values as they are considered sensitive.
+:::
 
 <details data-group="project-variables-username-password-account-variables">
 <summary>PowerShell</summary>
@@ -43,10 +48,12 @@ Each of the above properties can be referenced in any of the supported scripting
 # Using $OctopusParameters
 Write-Host 'UsernamePasswordAccount.Id=' $OctopusParameters["username password account"]
 Write-Host 'UsernamePassword.Username=' $OctopusParameters["username password account.Username"]
+$PasswordValue = $OctopusParameters["username password account.Password"]
 
 # Directly as a variable
 Write-Host 'UsernamePassword.Id=' #{username password account}
 Write-Host 'UsernamePassword.Username=' #{username password account.Username}
+$PasswordValue = "#{username password account.Password}"
 ```
 
 </details>
@@ -57,7 +64,8 @@ Write-Host 'UsernamePassword.Username=' #{username password account.Username}
 # For an account with a variable name of 'username password account'
 
 id=$(get_octopusvariable "username password account")
-client=$(get_octopusvariable "username password.Username")
+username=$(get_octopusvariable "username password.Username")
+password=$(get_octopusvariable "username password.Password")
 echo "Username Password Account Id is: $id"
 echo "Username Password Account Username is: $username"
 ```

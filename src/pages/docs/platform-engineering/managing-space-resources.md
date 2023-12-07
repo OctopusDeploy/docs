@@ -1,11 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-11-30
 title: Managing space resources
 description: This section documents how to manage space level resources as code.
 navOrder: 4
 ---
+
+[Serializing and deploying space level resources](https://www.youtube.com/watch?v=Hw4lnG7SqO8)
 
 Octopus is conceptually split into two types of resources:
 

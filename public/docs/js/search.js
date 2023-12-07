@@ -17,6 +17,7 @@ import { contains, sanitise, explode, highlight } from './modules/string.js';
     {
         foundWords: number;
         score: number;
+        depth: number;
         title: string;
         keywords: string;
         safeTitle: string;
@@ -29,6 +30,12 @@ import { contains, sanitise, explode, highlight } from './modules/string.js';
         matchedHeadings: Heading[];
     }
 }  SearchEntry
+
+@typedef {
+    {
+        [ix: string]: string
+    }
+} Synonyms
  */
 
 /**
@@ -224,14 +231,27 @@ var haystack = [];
 var currentQuery = '';
 var dataUrl = qs('#site-search').dataset.sourcedata;
 
+var scoring = {
+    depth: 5,
+    phraseTitle: 60,
+    phraseHeading: 20,
+    phraseDescription: 20,
+    termTitle: 40,
+    termHeading: 15,
+    termDescription: 15,
+    termTags: 15,
+    termKeywords: 15
+};
+
 var ready = false;
 var scrolled = false;
 
+/** @type{Synonyms | null} */
 var _synonyms = null;
 
 /**
  * Gets the list of synonyms if they exist
- * @returns { [ix: string]: string }
+ * @returns { Promise<Synonyms> }
  */
 async function getSynonyms() {
     if (_synonyms != null) {
@@ -245,7 +265,7 @@ async function getSynonyms() {
         _synonyms = {};
     }
 
-    return _synonyms;
+    return _synonyms ?? {};
 }
 
 /**
@@ -303,7 +323,7 @@ async function search(s, r) {
 
     cleanQuery.length > 0 && haystack.forEach( (item) => {
 
-        let foundWords = 0;
+        item.foundWords = 0;
         item.score = 0;
         item.matchedHeadings = [];
 
@@ -312,39 +332,47 @@ async function search(s, r) {
         // Part 1 - Phrase Matches, i.e. "Kitchen Sink"
 
         // Title
+        if (item.safeTitle === currentQuery) {
+            item.foundWords += 2;
+        }
+        
         if (contains(item.safeTitle, currentQuery)) {
-            item.score = item.score + 60;
+            item.score = item.score + scoring.phraseTitle;
+            item.foundWords += 2;
         }
 
         // Headings
         item.headings.forEach(c => {
             if (contains(c.safeText, currentQuery)) {
-                item.score = item.score + 20;
+                item.score = item.score + scoring.phraseHeading;
                 item.matchedHeadings.push(c);
+                item.foundWords++;
             }
         });
 
         // Description
         if (contains(item.description, currentQuery)) {
-            item.score = item.score + 20;
+            item.score = item.score + scoring.phraseDescription;
+            item.foundWords++;
         }
 
         // Part 2 - Term Matches, i.e. "Kitchen" or "Sink"
+
+        let foundWords = 0;
         
         allTerms.forEach(term => {
             let isTermFound = false;
-            const isUserTerm = queryTerms.includes(term);
 
             // Title
             if (contains(item.safeTitle, term)) {
-                item.score = item.score + 40;
+                item.score = item.score + scoring.termTitle;
                 isTermFound = true;
             }
 
             // Headings
             item.headings.forEach(c => {
                 if (contains(c.safeText, term)) {
-                    item.score = item.score + 15;
+                    item.score = item.score + scoring.termHeading;
                     isTermFound = true;
 
                     if (item.matchedHeadings.filter(h => h.slug == c.slug).length == 0) {
@@ -356,21 +384,21 @@ async function search(s, r) {
             // Description
             if (contains(item.description, term)) {
                 isTermFound = true;
-                item.score = item.score + 15;
+                item.score = item.score + scoring.termDescription;
             }
 
             // Tags
             item.tags.forEach(t => {
                 if (contains(t, term)) {
                     isTermFound = true;
-                    item.score = item.score + 15;
+                    item.score = item.score + scoring.termTags;
                 }
             });
 
             // Keywords
             if (contains(item.keywords, term)) {
                 isTermFound = true;
-                item.score = item.score + 15;
+                item.score = item.score + scoring.termKeywords;
             }
 
             if (isTermFound) {
@@ -378,10 +406,24 @@ async function search(s, r) {
             }
         });
 
-        item.foundWords = foundWords / allTerms.length;
+        item.foundWords += foundWords;
 
         if (item.score > 0) {
             needles.push(item);
+        }
+    });
+
+    needles.forEach(n => {
+        // Bonus points for shallow results, i.e. /features over /features/something/something
+
+        if (n.depth < 5) {
+            n.score += scoring.depth;
+            n.foundWords++;
+        }
+
+        if (n.depth < 4) {
+            n.score += scoring.depth;
+            n.foundWords++;
         }
     });
 
@@ -429,7 +471,8 @@ async function search(s, r) {
         markers.innerHTML = highlight(needle.description, queryTerms);
 
         const li = document.createElement('li');
-        li.dataset.score = (Math.round((needle.score/ total) * 100)).toString();
+        li.dataset.words = needle.foundWords.toString();
+        li.dataset.score = (Math.round((needle.score/ total) * 1000) / 1000).toString();
         li.appendChild(a);
         li.appendChild(path);
         li.appendChild(markers);
@@ -519,6 +562,7 @@ fetch(dataUrl)
             item.safeTitle = sanitise(item.title);
             item.tags = item.tags.map(t => sanitise(t));
             item.safeDescription = sanitise(item.description);
+            item.depth = item.url.match(/\//g)?.length ?? 0;
 
             item.headings.forEach(h => h.safeText = sanitise(h.text));
         }
@@ -555,6 +599,14 @@ fetch(dataUrl)
         if (params.has('q')) {
             siteSearchQuery.value = params.get('q') ?? '';
         }
+
+        for (let key of Object.keys(scoring)) {
+            if (params.has(`s_${key}`)) {
+                scoring[key] = parseInt(params.get(`s_${key}`) ?? scoring[key].toString(), 10)  ;
+            }
+        }
+
+        console.log(scoring);
 
         debounceSearch();
     })
