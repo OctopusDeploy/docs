@@ -1,10 +1,12 @@
 apikey
 astro
 augeas
+Bento
 bootstrap
 bootstrapped
 bootstrapper
 cicd
+combinational
 cscfg
 cspkg
 cutover
