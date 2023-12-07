@@ -84,7 +84,7 @@ When you first enable multi-tenant deployments you won't have any tenants, and w
 
 Yes. Choose the **Require a tenant for all deployments** option in the project settings. For more information refer to our [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
 
-## Can I require a tenant for all deployments of a project?
+## Can I require a tenant for all deployments of a project? {#always-require-tenant}
 
 Yes, see the previous question. For more information refer to our [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
 
