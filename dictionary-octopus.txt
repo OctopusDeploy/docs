@@ -1,10 +1,13 @@
 apikey
 astro
 augeas
+Bento
 bootstrap
 bootstrapped
 bootstrapper
 cicd
+COMPUTERNAME
+createartifact
 combinational
 cscfg
 cspkg
@@ -50,6 +53,7 @@ nupkg
 Octo
 octobak
 Octopub
+octopusartifact
 octopusdeploy
 octopusid
 octopuslabs
@@ -85,6 +89,7 @@ tagset
 tenanttype
 Trivy
 upgradelog
+upgrader
 umoci
 useronboarding
 WCAG
