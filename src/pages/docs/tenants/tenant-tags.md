@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-12-07
 title: Tenant tags
 description: Tenant Tags help you to classify your tenants with custom tags so you can tailor your tenanted deployments accordingly.
 navOrder: 40
@@ -38,7 +38,7 @@ Go to **Library ➜ Tenant tag sets** to create, modify and reorder tag sets and
 :::
 
 
-### Design your tag sets carefully {#design-tagsets-carefully}
+### Design your tag sets carefully {#design-tag-sets-carefully}
 
 We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](#tag-based-filters).
 
@@ -50,7 +50,7 @@ Let's look at an Example tag set design :
 
 This kind of tag set design will make it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on your tenanted deployments.
 
-### Ordering tag sets and tags {#ordering-tagsets}
+### Ordering tag sets and tags {#ordering-tag-sets}
 
 Order is important for tag sets, and tags within those tag sets. Octopus will sort tag sets and tags based on the order you define in the library. This allows you to tailor the Octopus user interface to your own situation.
 
