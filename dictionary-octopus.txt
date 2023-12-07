@@ -6,6 +6,7 @@ bootstrap
 bootstrapped
 bootstrapper
 cicd
+comms
 COMPUTERNAME
 createartifact
 combinational
@@ -96,6 +97,7 @@ WCAG
 webfonts
 WEBSVR
 WIXUI
+workerpool
 workertools
 xlarge
 xmark
