@@ -7,7 +7,7 @@ description: This section documents how to manage project level resources as cod
 navOrder: 5
 ---
 
-[Serializing and deploying space level resources](https://www.youtube.com/watch?v=QIcq2WxnrPs)
+[Serializing and deploying project level resources](https://www.youtube.com/watch?v=QIcq2WxnrPs)
 
 Octopus is conceptually split into two types of resources:
 
@@ -195,7 +195,7 @@ The following steps create a project in an existing space with the Terraform mod
 
 Typically, downstream spaces are represented by tenants in the upstream space. For example, the space called `Acme` is represented by a tenant wth the same name. Configuring the `__ 2. Deploy Project` runbook to run against a tenant allows you to manage the creation and updates of downstream projects with a typical tenant based deployment process.
 
-To resolve a downstream space with the name of a tenant to its ID, as required by the `Octopus - Populate Octoterra Space` step, you can use the `Octopus - Lookup Space ID` step from the [community step template library](/docs/projects/community-step-templates). To use the `Octopus - Lookup Space ID` step, add it before the `Octopus - Populate Octoterra Space` step and then reference the space ID as an output variable with an octostache template like `#{Octopus.Action[Lookup Space Id].Output.SpaceID}`.
+To resolve a downstream space with the name of a tenant to its ID, as required by the `Octopus - Populate Octoterra Space` step, you can use the `Octopus - Lookup Space ID` step from the [community step template library](/docs/projects/community-step-templates). To use the `Octopus - Lookup Space ID` step, add it before the `Octopus - Populate Octoterra Space` step and then reference the space ID as an output variable with an octostache template like `#{Octopus.Action[Octopus - Lookup Space ID].Output.SpaceID}`.
 
 Executing the runbook will create a new project in an existing space. Any space level resources referenced by the project are resolved by the resource name using Terraform [data sources](https://developer.hashicorp.com/terraform/language/data-sources), so the project can be imported into any space with the correctly named space level resources.
 

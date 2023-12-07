@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-12-07
 title: Tenant tags
 description: Tenant Tags help you to classify your tenants with custom tags so you can tailor your tenanted deployments accordingly.
 navOrder: 40
@@ -38,7 +38,7 @@ Go to **Library ➜ Tenant tag sets** to create, modify and reorder tag sets and
 :::
 
 
-### Design your tag sets carefully {#design-tagsets-carefully}
+### Design your tag sets carefully {#design-tag-sets-carefully}
 
 We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](#tag-based-filters).
 
@@ -50,7 +50,7 @@ Let's look at an Example tag set design :
 
 This kind of tag set design will make it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on your tenanted deployments.
 
-### Ordering tag sets and tags {#ordering-tagsets}
+### Ordering tag sets and tags {#ordering-tag-sets}
 
 Order is important for tag sets, and tags within those tag sets. Octopus will sort tag sets and tags based on the order you define in the library. This allows you to tailor the Octopus user interface to your own situation.
 
@@ -59,6 +59,10 @@ This example of configuring a tenanted deployment target shows how the tenant fi
 :::figure
 ![](/docs/tenants/images/tag-set-order.png)
 :::
+
+### Removing tenant tags
+
+If tenant tags are tied to specific tenants, included in project/runbook release [variable snapshots](/docs/releases#variable-snapshot) (via project/library variable sets), or captured in published runbooks, you will not be able to delete the relevant tag(s) until these associations are removed (by removing these from the tenant, deleting the associated release(s), or deleting published runbook snapshot(s)). Alternatively, in the case of release variable snapshots and assuming you've removed the tenant tag(s) association in the underlying project/library variable set, you can update the variable snapshot that is associated with the release(s) to remove this association.
 
 ## Tag-based filters {#tag-based-filters}
 
