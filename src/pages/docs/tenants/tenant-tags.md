@@ -57,6 +57,10 @@ This example of configuring a tenanted deployment target shows how the tenant fi
 ![](/docs/tenants/images/tag-set-order.png)
 :::
 
+### Removing tenant tags
+
+If tenant tags are tied to specific tenants, included in project/runbook release [variable snapshots](/docs/releases#variable-snapshot) (via project/library variable sets), or captured in published runbooks, you will not be able to delete the relevant tag(s) until these associations are removed (by removing these from the tenant, deleting the associated release(s), or deleting published runbook snapshot(s)). Alternatively, in the case of release variable snapshots and assuming you've removed the tenant tag(s) association in the underlying project/library variable set, you can update the variable snapshot that is associated with the release(s) to remove this association.
+
 ## Tag-based filters {#tag-based-filters}
 
 Once you have defined some tag sets and tags you can start leveraging those tags to tailor your environments and deployments.
