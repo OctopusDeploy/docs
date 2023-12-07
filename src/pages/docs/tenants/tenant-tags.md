@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-12-07
 title: Tenant tags
 description: Tenant Tags help you to classify your tenants with custom tags so you can tailor your tenanted deployments accordingly.
 navOrder: 40

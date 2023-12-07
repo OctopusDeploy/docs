@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-12-07
 title: Tenant lifecycles
 description: You can control release promotion using safe tenant-aware lifecycles.
 navOrder: 60
