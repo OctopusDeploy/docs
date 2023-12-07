@@ -10,7 +10,7 @@ navOrder: 10
 Tenants in Octopus can represent multiple use cases:
 
 - Software as a Service (SaaS)
-- Geographical regions or datacenters
+- Geographical regions or data centers
 - Developers, testers, or teams
 - Feature branches
 
@@ -44,7 +44,7 @@ Isolated is where each tenant has their own, dedicated infrastructure. This remo
 
 Learn more about how to to configure multi-tenancy for a SaaS application in Octopus with our [multi-tenant SaaS guide](/docs/tenants/guides/multi-tenant-saas-application).
 
-## Geographical regions or datacenters {#regions}
+## Geographical regions or data centers {#regions}
 
 Another pattern for multi-tenancy is to treat geographic regions of the same organization as tenants. Using this model, something like an e-commerce application can test out new or beta features in a specific region before releasing them out to the rest of the organization. Scheduling deployments during a maintenance window is another way this pattern can be used as each region may have different hours when they are least busy.
 
