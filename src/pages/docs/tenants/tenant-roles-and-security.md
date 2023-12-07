@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-12-07
 title: Tenant roles and security
 description: Common approaches to structuring roles and teams to secure a multi-tenant Octopus instance.
 navOrder: 70
@@ -17,7 +17,7 @@ To get the most out of this guide you will need to understand how to [manage use
 
 Toby is a member of the sales team for [Vet Clinic](https://samples.octopus.app/app#/Spaces-682/projects/vet-clinic/deployments) and manages the relationships for several of the largest customers. In his role Toby:
 
-- The main point of contact for specific tenants.
+- Is the main point of contact for specific tenants.
 - Manages the details/variables of particular tenants and keeps them up to date.
 - Works with customers to deploy releases to their environments on their behalf.
 
@@ -60,31 +60,31 @@ It is usually a good idea to build smaller roles that can be composed together i
 
 ### Step 2: Configure the account managers team {#step-2-configure-account-managers-team}
 
-Now we will create a team for all the Account Managers and add the role we created in the last step.
+Now we will create a team for all the account managers and add the role we created in the last step.
 
-1. In **Configuration ➜ Teams** click Add team and call it **Toby's clients**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces) and then select **Save**.
+1. In **Configuration ➜ Teams** click **ADD TEAM** and call it **Toby's clients**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces) and then click **Save**.
 
 :::figure
 ![](/docs/tenants/images/add-account-manager-team.png)
 :::
 
-2. Under **User Roles** select **Include User Role** button.
+2. Navigate to **USER ROLES** click **INCLUDE USER ROLE**.
 
 :::figure
 ![](/docs/tenants/images/multi-tenant-include-user-role.png)
 :::
 
-3. From the dropdown, select the **Tenant project deployer role**.
+3. From the dropdown, select the **Tenant project deployer** role.
 
 :::figure
 ![](/docs/tenants/images/multi-tenant-select-user-role.png)
 :::
 
-4. Under **Members ➜ Add member**  and add any user accounts that will form part of this team.
+4. Navigate to **MEMBERS ➜ ADD MEMBER** and add any user accounts that will form part of this team.
 
 ### Step 3: Reduce the scope of the team {#step-3-reduce-team-scope}
 
-After adding the **Tenant project deployer** role, we'll see that Toby has access to all tenants.  Toby only needs access to the accounts that he's responsible for; Midland Veterinary and Valley Veterinary Clinic.  To limit Toby to his accounts, click on the **ellipses ➜ Edit**
+After adding the **Tenant project deployer** role, we'll see that Toby has access to all tenants. Toby only needs access to the accounts that he's responsible for: Midland Veterinary and Valley Veterinary Clinic. To limit Toby to his accounts, click on the overflow menu (`...`) and select **Edit**
 
 :::figure
 ![](/docs/tenants/images/edit-tenant-team.png)
@@ -115,8 +115,8 @@ Similarly to the previous example, we will create a custom role with minimum per
 
 In this example, we will create a new team and combine multiple roles to achieve the desired result.
 
-1. Create a new team called Tenant Environment Managers.
-2. Add the Tenant viewer and Environment manager roles to the team:
+1. Create a new team called **Tenant Environment Managers**.
+2. Add the **Tenant viewer** and **Environment manager** roles to the team:
    ![](/docs/tenants/images/multi-tenant-environment-managers-team.png)
 3. Add any specific tenant/environment scoping that makes sense.
 4. Add any specific members

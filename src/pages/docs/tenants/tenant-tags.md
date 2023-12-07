@@ -7,31 +7,28 @@ description: Tenant Tags help you to classify your tenants with custom tags so y
 navOrder: 40
 ---
 
-In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Tenant tags also make it easier to work with tenants as groups instead of individuals. Using tags you can apply meaningful metadata to tenants, to describe them using your own terminology, improve search and filtering, and tailor the deployment process to their needs.
+Tenant tags are a form of metadata you can add to tenants to classify them. Tenant tags allow you to:
 
-## What can you do with tenant tags? {#what-can-you-do}
-
-Octopus allows you to group similar tags together into tag sets. This enables you to more easily understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags:
-
-:::figure
-![](/docs/tenants/images/tag-sets.png)
-:::
-
-With tenant tags you can:
-
-- Classify your tenants using custom tags that match your situation.
-- Find tenants more quickly by searching and filtering with tags.
-- Group the project overview by tag set.
+- Find tenants faster using tenant tag filters.
+- Group a project's deployments overview by tag set.
 - Deploy to multiple tenants at the same time - read more [below](#deploying-to-multiple-tenants-tags).
-- Customize the deployment process for tenants.
+- Customize deployment processes for tenants.
 - Scope project variables to tags.
 - Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
 - Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/#guides).
 - Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles) section.
 
-## Managing Tenant Tags {#managing-tenant-tags}
+## Tag sets
 
-Go to **Library ➜ Tenant tag sets** to create, modify and reorder tag sets and tags.
+Octopus allows you to group similar tags into tag sets, making it easier to work with tenants as groups instead of individuals. This enables you to understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags.
+
+:::figure
+![](/docs/tenants/images/tag-sets.png)
+:::
+
+## Managing tenant tags {#managing-tenant-tags}
+
+Go to **Library ➜ Tenant Tag Sets** to create, modify and reorder tag sets and tags.
 
 :::figure
 ![](/docs/tenants/images/tenant-importance.png)
@@ -40,13 +37,13 @@ Go to **Library ➜ Tenant tag sets** to create, modify and reorder tag sets and
 
 ### Design your tag sets carefully {#design-tag-sets-carefully}
 
-We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](#tag-based-filters).
+We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your tag sets are orthogonal, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](#tag-based-filters).
 
-Let's look at an Example tag set design :
+Let's look at an example tag set design :
 
 - **Importance (VIP, Standard, Trial):** concerned with classifying tenants so they can be found easily.
 - **Hosting Region (West US, East US 2):** concerned with how the tenant software is hosted - read more about this in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
-- **Release ring (Alpha, Beta, Stable):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring).
+- **Release Ring (Alpha, Beta, Stable):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring).
 
 This kind of tag set design will make it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on your tenanted deployments.
 
@@ -70,6 +67,7 @@ Once you have defined some tag sets and tags you can start leveraging those tags
 
 :::div{.hint}
 **Combinational logic**
+
 When filtering tenants, Octopus will combine tags within the same tag set using the **`OR`** operator, and combine tag sets using the **`AND`** operator.
 :::
 
@@ -89,14 +87,15 @@ When paired with a well-structured tag design, this logic will enable you to tai
 
 :::div{.hint}
 **Tips for working with tenant filters**
+
 - Only specify a tenant "by name" (explicitly) if you absolutely want that tenant included in the result, otherwise leave it blank
 - A filter with tags in the same tag set will be more inclusive since they are combined using **`OR`**
 - A filter with tags across different tag sets will become more reductive since they are combined using **`AND`**
-  :::
+:::
 
 ## Referencing tenant tags {#referencing-tenant-tags}
 
-If you want to use tenant tags to automate Octopus Deploy you should use the **Canonical Name** for the Tag which looks like this: `Tag Set Name/Tag Name`
+If you want to use tenant tags to automate Octopus Deploy you should use the **canonical name** for the tag which looks like this: `Tag Set Name/Tag Name`
 
 Consider an example deploying a release to the tenants tagged with the **Alpha** tag in the **Release Ring** tag set.
 
@@ -117,14 +116,14 @@ Some places you can use tags are:
 
 ## Deploying to multiple tenants using tags {#deploying-to-multiple-tenants-tags}
 
-You can create tenant tag sets specifically to help with deployments and rolling out upgrades. Quite often, you want to deploy targeted releases to your testers, and once testing is finished, you want to flight/prove that upgrade with a smaller group of tenants before rolling it out to the rest of your tenants. This is also useful when breaking down large amounts of tenants into smaller deployments. Here we outline the steps needed to design that kind of process using tenant tags.
+You can create tenant tag sets specifically to help with deployments and rolling out upgrades. Often, you want to deploy targeted releases to your testers, and once they've finished testing, prove that upgrade with a smaller group of tenants before rolling it out to the rest of your tenants. This is also useful to split up a large number of tenants into smaller groups for deployment. We've outlined the steps to design this process using tenant tags:
 
-### Step 1: Create a tag set called Upgrade ring {#deploy-step-1-create-tagset}
+### Step 1: Create a tag set called Upgrade Ring {#deploy-step-1-create-tagset}
 
-Firstly we create a tag set called **Upgrade ring** with tags allowing each tenant to choose how early in the development/test cycle they want to receive upgrades.
+First, we create a tag set called **Upgrade Ring** with tags that allow each tenant to choose how early in the development/test cycle they want to receive upgrades.
 
-1. Create a new tenant tag set called **Upgrade ring** and add tags for **Tester**, **Early adopter**, and **Stable**.
-1. Make sure to choose colors that highlight different tenants.
+1. Create a new tenant tag set called **Upgrade Ring** and add tags for **Tester**, **Early Adopter**, and **Stable**.
+2. Make sure to choose colors that highlight different tenants.
 
 :::figure
 ![](/docs/tenants/images/multi-tenant-upgrade-ring.png)
@@ -132,15 +131,11 @@ Firstly we create a tag set called **Upgrade ring** with tags allowing each tena
 
 ### Step 2: Configure a test tenant {#deploy-step-2-configure-test-tenant}
 
-Either create a new tenant, or configure an existing tenant. This tenant will receive upgrades before any of the other configured tenants.
-
-1. Tag your test tenant(s) with **Tester**.
+Either create a new tenant or configure an existing tenant. Tag your test tenant(s) with **Tester** - this tenant will receive upgrades before any other configured tenants.
 
 ### Step 3: Configure some early adopter tenants and stable tenants {#deploy-step-3-configure-other-tenants}
 
-*Optionally*, configure some external tenants as opting into early or stable releases to see the effect.
-
-1. Find or create some tenants and tag them as either **Stable** or **Early adopter**.
+*Optionally*, configure some external tenants as opting into early or stable releases to see the effect. Find or create some tenants and tag them as either **Stable** or **Early Adopter**.
 
 ### Step 4: Deploy {#deploy-step-4-deployment}
 
@@ -150,7 +145,7 @@ Now it's time to deploy using tenant tags as a way to select multiple tenants ea
 ![](/docs/tenants/images/multi-tenant-deploy-test.png)
 :::
 
-You can also use the Project Overview to deploy to groups of tenants by grouping the dashboard, selecting a release, and clicking the **Deploy to all** button.
+You can also use the project overview to deploy to groups of tenants by grouping the dashboard, selecting a release, and clicking the **DEPLOY ALL...** button.
 
 :::figure
 ![](/docs/tenants/images/multi-tenant-deploy-all.png)
@@ -158,4 +153,4 @@ You can also use the Project Overview to deploy to groups of tenants by grouping
 
 ## Learn more {#learn-more}
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns)
