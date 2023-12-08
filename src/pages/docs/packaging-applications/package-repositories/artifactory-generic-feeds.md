@@ -8,7 +8,7 @@ navOrder: 60
 ---
 
 :::div{.warning}
-From version **Octopus 2024.1** we support Artifactory Generic Repositories. This functionality is behind the `ArtifactoryGenericFeedFeatureToggle` feature toggle, to request this functionality early, please context [support](https://octopus.com/support).
+From version **Octopus 2024.1.4058** we support Artifactory Generic Repositories. This functionality is behind the `ArtifactoryGenericFeedFeatureToggle` feature toggle, to request this functionality early, please context [support](https://octopus.com/support).
 :::
 
 :::div{.warning}
