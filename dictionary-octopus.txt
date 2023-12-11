@@ -6,10 +6,10 @@ bootstrap
 bootstrapped
 bootstrapper
 cicd
+combinational
 comms
 COMPUTERNAME
 createartifact
-combinational
 cscfg
 cspkg
 cutover
@@ -47,6 +47,7 @@ msiexec
 MTTR
 NETBIOS
 Netscaler
+noconsolelogging
 nologs
 noninteractive
 NTLM
@@ -89,9 +90,9 @@ tabpanel
 tagset
 tenanttype
 Trivy
+umoci
 upgradelog
 upgrader
-umoci
 useronboarding
 WCAG
 webfonts

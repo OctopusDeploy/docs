@@ -19,7 +19,7 @@ When Username and Password authentication is enabled, the sign in page for the O
 ![Username and Password login screen](/docs/security/authentication/images/username-password-login.png)
 :::
 
-## Enable username and password authentication via UI {#usernamepassword-enable-in-ui}
+## Enable username and password authentication via UI
 
 You can enable Username and Password authentication from the Octopus Web Portal by navigating to **Configuration ➜ Settings ➜ Username / Password**. From there you can click the **Is Enabled** checkbox to enable or disable the Username and Password provider.
 
@@ -28,7 +28,7 @@ You can enable Username and Password authentication from the Octopus Web Portal 
 
 The Username and Password provider will now be activated and available for Octopus users.
 
-## Configuring username and password login {#usernamepassword-configure}
+## Configuring username and password login
 
 Octopus Server can be configured to enable or disable username and password authentication via the command line, as follows:
 
@@ -36,7 +36,7 @@ Octopus Server can be configured to enable or disable username and password auth
 Octopus.Server.exe configure --instance=[your_instance_name] --usernamePasswordIsEnabled=true
 ```
 
-## Managing user permissions {#usernamepassword-userpermissions}
+## Managing user permissions
 
 When a new Octopus user is created, they are automatically added to the **Everyone** team. To manage Octopus users, this can be done by navigating to **Configuration ➜ Users**. 
 
