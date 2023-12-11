@@ -24,7 +24,7 @@ The hostname of the URL that these two endpoints are available on must either be
 
 ## Authenticating using OpenID Connect with third party services and tools
 
-If you have a third-party service or tool that supports OpenID Connect, you can add any OIDC account variable into your projects variable set and use the `[account name].OpenIDConnect.Jwt` variable to get access to the request token that can be used for authenticating.
+If you have a third-party service or tool that supports OpenID Connect, you can add any OIDC account variable into your projects variable set and use the `Octopus.OpenIdConnect.Jwt` variable to get access to the request token that can be used for authenticating.
 
 ## Subject Keys
 
