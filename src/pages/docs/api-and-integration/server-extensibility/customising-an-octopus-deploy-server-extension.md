@@ -1,8 +1,8 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension
-pubDate:  2023-01-01
+redirect: https://octopus.com/docs/deprecations#server-extensibility
+pubDate:  2023-12-11
 navSearch: false
 navSitemap: false
 navMenu: false
