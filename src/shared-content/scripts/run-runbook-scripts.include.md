@@ -7,7 +7,7 @@ $ErrorActionPreference = "Stop";
 # Define working variables
 $octopusURL = "https://youroctourl/api"
 $octopusAPIKey = "API-YOURAPIKEY"
-$header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
+$headers = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $projectName = "MyProject"
 $runbookName = "MyRunbook"
