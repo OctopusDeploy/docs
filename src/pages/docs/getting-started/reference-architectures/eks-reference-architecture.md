@@ -54,3 +54,27 @@ The `Docker Project Templates` project contains a runbook called `Create Templat
 3. Populates the repo with a sample Node.js web application and GitHub Actions workflow to build the application, push it to DockerHub, and create a release in Octopus
 
 This runbook is an example of platform engineering where DevOps teams can bootstrap sample applications with best practices such as versioning, security scanning, and CI/CD pipelines provided as part of a common base template.
+
+### Feature branches
+
+This reference architecture provides the ability to deploy feature branch builds of each of the microservices.
+
+The implementation satisfies these requirements:
+
+* Feature branches are deployed to their own namespace
+* Feature branch builds can not be promoted to production
+* The feature branch environment is initially populated with the set of applications in another environment
+* Feature branch artifacts are identified by the [prerelease component of their version](https://semver.org/) e.g. `myfeature` in the version `0.2.8-myfeature.4`
+
+Feature branch deployments are performed in the environment called `Feature Branch`. This environment is defined as an optional phase after `Developement` for regular mainline deployments. Typically, mainline deployments will skip the `Feature Branch` environment, but it is possible to promote deployments from `Development` to `Feature Branch` in order to recreate the `Development` environment for the purposes of testing a feature branch build.
+
+Each application deployment project has two channels: `Mainline` and `Feature Branch`. The `Mainline` channel requires containers to have no prerelease component in their tags. The `Feature Branch` channel has no restrictions, allowing both mainline and feature branch builds to be deployed. 
+
+The `Feature Branch` channel is configured to use the `Feature Branch` lifecycle, which only contains the `Feature Branch` environment. This ensures that feature branch builds can not be promoted to production.
+
+The typical workflow is this:
+
+1. Using the `_ Deploy EKS Octopub Stack` orchestration project, the current state of the `Development` environment is promoted to the `Feature Branch` environment. The namespace hosting the feature branch is prompted for during release creation. This effectively recreates the `Development` environment in a new namespace.
+2. The feature branch build of the individual microservice being tested is then manually deployed using the `Feature Branch` channel.
+3. The end result is a copy of the mainline applications deployed to a feature branch namespace with a single feature branch build of the microservice being tested. This allows the feature branch microservice to be tested in isolation with a complete microservice stack.
+
