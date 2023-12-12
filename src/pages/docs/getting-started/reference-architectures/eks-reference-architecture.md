@@ -66,7 +66,7 @@ The implementation satisfies these requirements:
 * The feature branch environment is initially populated with the set of applications in another environment
 * Feature branch artifacts are identified by the [prerelease component of their version](https://semver.org/) e.g. `myfeature` in the version `0.2.8-myfeature.4`
 
-Feature branch deployments are performed in the environment called `Feature Branch`. This environment is defined as an optional phase after `Developement` for regular mainline deployments. Typically, mainline deployments will skip the `Feature Branch` environment, but it is possible to promote deployments from `Development` to `Feature Branch` in order to recreate the `Development` environment for the purposes of testing a feature branch build.
+Feature branch deployments are performed in the environment called `Feature Branch`. This environment is defined as an optional phase after `Development` for regular mainline deployments. Typically, mainline deployments will skip the `Feature Branch` environment, but it is possible to promote deployments from `Development` to `Feature Branch` in order to recreate the `Development` environment for the purposes of testing a feature branch build.
 
 Each application deployment project has two channels: `Mainline` and `Feature Branch`. The `Mainline` channel requires containers to have no prerelease component in their tags. The `Feature Branch` channel has no restrictions, allowing both mainline and feature branch builds to be deployed. 
 
