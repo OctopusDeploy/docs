@@ -74,7 +74,7 @@ The `Feature Branch` channel is configured to use the `Feature Branch` lifecycle
 
 The typical workflow is this:
 
-1. Using the `_ Deploy EKS Octopub Stack` orchestration project, the current state of the `Development` environment is promoted to the `Feature Branch` environment. The namespace hosting the feature branch is prompted for during release creation. This effectively recreates the `Development` environment in a new namespace.
+1. Using the `_ Deploy EKS Octopub Stack` orchestration project, the current state of the `Development` environment is promoted to the `Feature Branch` environment. The namespace hosting the feature branch is prompted for, just before the release is deployed. This effectively recreates the `Development` environment in a new namespace.
 2. The feature branch build of the individual microservice being tested is then manually deployed using the `Feature Branch` channel.
 3. The end result is a copy of the mainline applications deployed to a feature branch namespace with a single feature branch build of the microservice being tested. This allows the feature branch microservice to be tested in isolation with a complete microservice stack.
 
