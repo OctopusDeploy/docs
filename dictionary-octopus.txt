@@ -43,6 +43,7 @@ linkerd
 ltsc
 maintenanceconfiguration
 maxage
+myfeature
 msiexec
 MTTR
 NETBIOS

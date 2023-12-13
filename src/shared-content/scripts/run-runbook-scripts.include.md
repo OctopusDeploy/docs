@@ -45,7 +45,7 @@ Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $projectName = "MyProject"
 $runbookName = "MyRunbook"
@@ -114,7 +114,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string projectName = "MyProject";
 string runbookName = "MyRunbook";
@@ -181,7 +181,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
