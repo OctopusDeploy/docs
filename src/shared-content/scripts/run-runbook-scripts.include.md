@@ -14,12 +14,12 @@ $runbookName = "MyRunbook"
 $environmentNames = @("Development", "Staging")
 
 # Get space
-$spaces = Invoke-WebRequest -Uri "$octopusBaseURL/spaces/all" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
+$spaces = Invoke-WebRequest -Uri "$octopusURL/spaces/all" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
 $space = $spaces | Where-Object { $_.Name -eq $spaceName }
 Write-Host "Using Space named $($space.Name) with id $($space.Id)"
 
 # Create space specific url
-$octopusSpaceUrl = "$octopusBaseURL/$($space.Id)"
+$octopusSpaceUrl = "$octopusURL/$($space.Id)"
 
 # Create the release body
 $createRunbookRunCommandV1 = @{
