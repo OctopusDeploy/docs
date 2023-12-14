@@ -22,7 +22,7 @@ Dynamic infrastructure can be enabled when a new environment is created, or it c
 
 1. Navigate to **Infrastructure ➜ Environments**.
 1. Click the ... overflow menu for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
-1. Expand the **Dynamic infrastructure** section and tick or untick the check-box to enable or disable managing dynamic infrastructure.
+1. Expand the **Dynamic infrastructure** section and tick or un-tick the check-box to enable or disable managing dynamic infrastructure.
 1. Click **SAVE**.
 
 ## Using the Octopus REST API
@@ -99,7 +99,7 @@ New-AzureRmAppServicePlan -Name $uniqueName -Location "WestUS" -ResourceGroupNam
 New-AzureRmWebApp -Name $uniqueName -Location "WestUS" -AppServicePlan $uniqueName -ResourceGroupName $uniqueName
 
 # Create new target in Octopus
-New-OctopusAzureWebAppTarget -Name $uniqueName -AzureWebApp $uniqueName -AzureResourceGroupName $uniqueName -OctopusAccountIdOrName "my-octopus-azure-serviceprincipal-account" -OctopusRoles "acme-web"
+New-OctopusAzureWebAppTarget -Name $uniqueName -AzureWebApp $uniqueName -AzureResourceGroupName $uniqueName -OctopusAccountIdOrName "my-octopus-azure-service-principal-account" -OctopusRoles "acme-web"
 ```
 
 ### Tearing down a test environment
@@ -125,4 +125,4 @@ Firstly, turn on **Custom deployment scripts** under _Configure Features_ on you
 
 Under the _Features_ section you will have _Pre-deployment_, _Deployment_, and _Post-deployment_ scripts.
 
-In the _Post-deployment_ script section, you can [access the output parameters](/docs/runbooks/runbook-examples/azure/resource-groups/#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters) and use those output parameters to run any of the cmdlets above.
+In the _Post-deployment_ script section, you can [access the output parameters](/docs/runbooks/runbook-examples/azure/resource-groups/#arm-template-out-params) and use those output parameters to run any of the cmdlets above.

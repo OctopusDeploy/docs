@@ -8,7 +8,7 @@ navOrder: 80
 hideInThisSection: true
 ---
 
-A [user](/docs/security/users-and-teams/) is an entity that performs an action in Octopus Deploy.  [User roles](/docs/security/users-and-teams/user-roles) control what actions a user can perform.  Users and roles are assigned to [teams](/docs/security/users-and-teams/#Managingusersandteams-Creatingteams).  Teams are the core piece of the RBAC configuration in Octopus Deploy.  You control what specific users have permissions to perform specific actions on specific projects in specific environments by role assignment and scoping.
+A [user](/docs/security/users-and-teams/) is an entity that performs an action in Octopus Deploy.  [User roles](/docs/security/users-and-teams/user-roles) control what actions a user can perform.  Users and roles are assigned to [teams](/docs/security/users-and-teams/#create-teams).  Teams are the core piece of the RBAC configuration in Octopus Deploy.  You control what specific users have permissions to perform specific actions on specific projects in specific environments by role assignment and scoping.
 
 A user can be directly or indirectly associated with a team.  You can explicitly assign a user to a team.  Or you can assign teams from [external auth providers](/docs/security/authentication) to Octopus Deploy teams.
 
@@ -99,6 +99,6 @@ For further reading on users, roles, and teams in Octopus Deploy please see:
 
 - [User](/docs/security/users-and-teams)
 - [User roles](/docs/security/users-and-teams/user-roles)
-- [Teams](/docs/security/users-and-teams/#Managingusersandteams-Creatingteams)
+- [Teams](/docs/security/users-and-teams/#create-teams)
 - [External Groups and Roles](/docs/security/users-and-teams/external-groups-and-roles)
 - [Default Permissions for Built-in User Roles](/docs/security/users-and-teams/default-permissions)

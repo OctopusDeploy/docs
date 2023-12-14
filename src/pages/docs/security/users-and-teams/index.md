@@ -19,7 +19,7 @@ You can manage users and teams in the Octopus Web Portal:
 ![](/docs/security/users-and-teams/images/teams.png)
 :::
 
-## User and service accounts {#Managingusersandteams-UserandServiceaccounts}
+## User and service accounts
 
 **User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
@@ -38,7 +38,7 @@ There are some things to be aware of when deleting or disabling an Octopus User:
 - Additionally, any scripts that reference a deleted API key need to be updated to a new API key.
 - A disabled user's API keys will not function. Any attempt to use them will throw a `401 unauthorized error` and require the User to be re-enabled.
 
-## Inviting users {#Managingusersandteams-Invitingusers}
+## Inviting users {#inviting-users}
 :::div{.warning}
 This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/octopus-cloud).
 :::
@@ -58,7 +58,7 @@ In the example above, we are generating codes for the **Octopus Administrators**
 Invite codes are only valid for 48-hours after being generated, so make sure you issue them quickly before the expire.
 :::
 
-## Creating teams {#Managingusersandteams-Creatingteams}
+## Creating teams {#create-teams}
 
 Creating teams lets you assign the same roles to groups of users. Users can be added to or removed from multiple teams, making it easier to manage permissions for specific users and teams. You can create new teams by using the **Add Team** button.
 
@@ -89,7 +89,7 @@ The following table illustrates the combination of possible permissions when spe
 | GroupA           | Project5   | Project1, Project2, Project3 and Project5 |
 | GroupB           | Project4   | Project4 and Project5                    |
 
-## Roles {#Managingusersandteams-Roles}
+## Roles
 
 Team members can be assigned the following roles:
 
@@ -114,7 +114,7 @@ The roles assigned by a team can be scoped by project or environment.
 You can learn more about User Roles in our [documentation](/docs/security/users-and-teams/user-roles).
 :::
 
-## System teams {#Managingusersandteams-Systemteams}
+## System teams
 
 Octopus Deploy comes with several built-in teams.
 

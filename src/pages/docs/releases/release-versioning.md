@@ -65,7 +65,7 @@ Octopus.Time.(Hour|Minute|Second)
 
 ## Complex expressions
 
-The full power of the [Octopus variable syntax](/docs/projects/variables/variable-substitutions/#complex-syntax) (powered by [Octostache](https://github.com/OctopusDeploy/Octostache)) is available in version templates.  In particular, [conditional expressions](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-Conditionalsconditionals) can be used to model some complex scenarios. 
+The full power of the [Octopus variable syntax](/docs/projects/variables/variable-substitutions/#complex-syntax) (powered by [Octostache](https://github.com/OctopusDeploy/Octostache)) is available in version templates.  In particular, [conditional expressions](/docs/projects/variables/variable-substitutions/#conditionals) can be used to model some complex scenarios. 
 
 ### Example: Date with incrementing revision
 

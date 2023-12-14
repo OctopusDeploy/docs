@@ -23,7 +23,7 @@ To add your SMTP configuration navigate to **Configuration ➜ SMTP** and set th
 
 | Property           | Description                            | Example |
 | ------------------ | ------------------------------------   | ----------- |
-| SMTP Host          | The DNS hostname for your SMTP server. | smtp.yourmailserver.com |
+| SMTP Host          | The DNS hostname for your SMTP server. | smtp.example.com |
 | SMTP Port          | The TCP port for your SMTP server.     | 25 |
 | Timeout            | The timeout for SMTP operations. Value is in milliseconds. | 12000 (12 seconds) |
 | Use SSL/TLS        | This option controls whether or not Octopus enforces using an SSL/TLS-wrapped connection. | True |
@@ -68,7 +68,7 @@ Octopus will build the resulting recipient list during the deployment, remove du
 docs
 
 7. Provide a subject line for the emails. The subject can contain Octopus [basic variable syntax](/docs/projects/variables/variable-substitutions/#basic-syntax-variablesubstitutionsyntax-basicsyntax).
-8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/projects/variables/variable-substitutions/#extended-syntax-variablesubstitutionsyntax-extendedsyntax) to include information about the deployment in the email. See the [Email Template Examples](#email-template-examples) below.
+8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/projects/variables/variable-substitutions/#extended-syntax) to include information about the deployment in the email. See the [Email Template Examples](#email-template-examples) below.
 9. You can set conditions to determine when the step should run. For instance:
 
    - Send the email only for successful deployments to certain environments.
