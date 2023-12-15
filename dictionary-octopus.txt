@@ -68,6 +68,7 @@ maintenanceconfiguration
 maxage
 milli
 MITM
+mozroots
 msiexec
 MTTR
 myfeature
@@ -100,6 +101,7 @@ pkcs
 podannotation
 printfn
 PROGRAMFILES
+pycryptodome
 quickstart
 rehype
 reindexing
@@ -145,5 +147,3 @@ workertools
 xlarge
 xmark
 xvzf
-pycryptodome
-mozroots
