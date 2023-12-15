@@ -31,10 +31,10 @@ If the file undergoing variable replacement includes a string that *shouldn't* b
 
 :::div{.info}
 
-Also read about [common mistakes for variables](/docs/projects/variables/sensitive-variables/#Sensitivevariables-Avoidingcommonmistakes) for more information
+Also read about [common mistakes for variables](/docs/projects/variables/sensitive-variables/#avoiding-common-mistakes) for more information
 :::
 
-## Using variables in step definitions \{#Bindingsyntax-Referencingvariablesinstepdefinitions}
+## Using variables in step definitions \{#use-variables-in-step-definitions}
 
 Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/projects/variables/#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
 
@@ -50,25 +50,25 @@ For settings that support variables but aren't text (such as drop downs or check
 ![](/docs/projects/variables/images/3278297.png "width=500")
 :::
 
-## Extended syntax \{#VariableSubstitutionSyntax-ExtendedSyntax}
+## Extended syntax \{#extended-syntax}
 
 Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages.  It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.
 
 The capabilities of the extended syntax are:
 
-- [Index Replacement](#VariableSubstitutionSyntax-IndexReplacement)
-- [Calculation](#VariableSubstitutionSyntax-Calculations) - `calc`
-- [Conditionals](#VariableSubstitutionSyntax-Conditionalsconditionals) - `if`, `if-else` and `unless`
-- [Repetition](#VariableSubstitutionSyntax-Repetition) - `each`
-- [Filters](#VariableSubstitutionSyntax-Filters) - `HtmlEscape`, `Markdown` etc.
-- [Differences from regular variable bindings](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-Differencesfromregularvariablebindings)
-- [JSON Parsing](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-JSONParsingjson)
+- [Index Replacement](#index-replacement)
+- [Calculation](#calculation) - `calc`
+- [Conditionals](#conditionals) - `if`, `if-else` and `unless`
+- [Repetition](#repetition) - `each`
+- [Filters](#filters) - `HtmlEscape`, `Markdown` etc.
+- [Differences from regular variable bindings](/docs/projects/variables/variable-filters/#differences-from-regular-bindings)
+- [JSON Parsing](/docs/projects/variables/variable-filters/#json-parsing)
 
 :::div{.hint}
 [Octostache](https://github.com/OctopusDeploy/Octostache) is the open source component that powers this feature.
 :::
 
-### Index replacement \{#VariableSubstitutionSyntax-IndexReplacement}
+### Index replacement \{#index-replacement}
 
 Variable substitution inside an index makes it easy to dynamically retrieve variables within arrays/dictionaries.
 
@@ -83,7 +83,7 @@ Given the variables:
 
 `#{MyPassword[#{UserName}]}` would evaluate to `passwordZ`.
 
-### Calculations \{#VariableSubstitutionSyntax-Calculations}
+### Calculations \{#calculation}
 
 Basic mathematical calculations are supported in Octopus using the `calc` statement, and four main operators:
 
@@ -94,7 +94,7 @@ Basic mathematical calculations are supported in Octopus using the `calc` statem
 
 :::div{.warning}
 When using a variable on the left-hand-side of a divide (`/`) or subtraction (`-`) operation,
-the variable name must be enclosed in braces (`{ ... }`) to ensure correct parsing, this ensures the operator symbol is recognised
+the variable name must be enclosed in braces (`{ ... }`) to ensure correct parsing, this ensures the operator symbol is recognized
 as an operation, rather than part of the variable name. 
 :::
 
@@ -122,7 +122,7 @@ Given the variables:
 The `calc` operator is available from version 2023.2
 :::
 
-### Conditionals \{#VariableSubstitutionSyntax-Conditionalsconditionals}
+### Conditionals \{#conditionals}
 
 Two conditional statements are supported in Octopus - `if` and `unless`; these have identical syntax, but `if` evaluates only if the variable is *truthy*, while `unless` evaluates if the variable is *falsy*.  The syntax for `if` and `unless` is as follows:
 
@@ -161,11 +161,11 @@ You could achieve a similar result, with a different default/fallback behavior, 
 <compilation #{unless DebugDisabled}debug="true"#{/unless}>
 ```
 
-#### Using variable filters in conditionals \{#VariableSubstitutionSyntax-Conditionalfilters}
+#### Using variable filters in conditionals \{#conditional-filters}
 
 <VariableFiltersInOctostacheConditionals />
 
-#### *Truthy* and *Falsy* Values \{#VariableSubstitutionSyntax-TruthyandFalsyvalues}
+#### *Truthy* and *Falsy* Values \{#truthy-and-falsy}
 
 The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined; an empty string; or (ignoring case and any leading or trailing whitespace) `False`, `No` or `0`. All other values are considered to be *truthy*.
 
@@ -256,11 +256,11 @@ Some examples are:
 
 `#{unless Octopus.Action[StepName].Output.HasRun == "True"}true#{/unless}` would run the step unless it has run before. This would be useful for preventing something like an email step from executing every time an auto deploy executed for new machines in an environment.  It would be used in conjunction with the step calling `Set-OctopusVariable -name "HasRun" -value "True"` when it does run.
 
-### Repetition \{#VariableSubstitutionSyntax-Repetition}
+### Repetition \{#repetition}
 
 The `each` statement supports repetition over a set of variables, or over the individual values in a variable separated with commas.
 
-#### Iterating over sets of values \{#VariableSubstitutionSyntax-Iteratingoversetsofvalues}
+#### Iterating over sets of values
 
 More complex sets of related values are handled using multiple variables:
 
@@ -288,7 +288,7 @@ Listening on:
  - Endpoint B at http://b.example.com is Replica
 ```
 
-#### Complex syntax with sets of values \{#VariableSubstitutionSyntax-complexsyntaxwithsetsofvalues}
+#### Complex syntax with sets of values
 
 Sometimes, you might want to compare one variable value with another contained in a set of values. 
 
@@ -319,10 +319,10 @@ The resulting text will be:
 :::div{.hint}
 **Tips:**
 - Note both operands **don't** include the Octostache syntax denoting them as a variable e.g. `#{WidgetIdSelector}`. This is because within a conditional expression Octostache is already able to evaluate the operands as variable values.
-- The template references `.Value` which is a property available when using [JSON repetition](/docs/projects/variables/variable-filters/#VariableSubstitutionSyntax-RepetitionoverJSON).
+- The template references `.Value` which is a property available when using [JSON repetition](/docs/projects/variables/variable-filters/#repetition-over-json).
 :::
 
-#### Iterating over comma-separated values \{#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
+#### Iterating over comma-separated values
 
 Given the variable:
 
@@ -347,7 +347,7 @@ Listening on:
  - http://b.example.com
 ```
 
-#### Special variables \{#VariableSubstitutionSyntax-SpecialVariables}
+#### Special variables \{#special-variables}
 
 Within the context of an iteration template, some special variables are available.
 
@@ -390,7 +390,7 @@ This is the last item in the Index :  SV3
 If you're struggling with a specific syntax or OctoStache construct, you can find more examples in the unit tests defined for the library on GitHub:
 [OctoStache Tests UsageFixture](https://github.com/OctopusDeploy/Octostache/blob/master/source/Octostache.Tests/UsageFixture.cs).
 
-### Filters \{#VariableSubstitutionSyntax-Filters}
+### Filters \{#filters}
 
 The following filters are available:
 

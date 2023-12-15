@@ -43,7 +43,7 @@ Octopus will then register with Let's Encrypt, handle the domain validation, req
 
 The **Configuration ➜ Let's Encrypt** page will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if its due to expire in the next 21 days.
 
-At this point, we recommend enabling [Force SSL](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#ForcingHTTPS) and [HSTS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#HSTS).
+At this point, we recommend enabling [Force SSL](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#ForcingHTTPS) and [HSTS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#hsts).
 
 ## Let's Encrypt for Containers
 

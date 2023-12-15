@@ -72,7 +72,7 @@ To configure an inline YAML source, select the `Inline YAML` as your YAML Source
 This is **not** the recommended approach for advanced cases as it does not allow for version management unless you are using it in conjunction with [Config As Code](/docs/projects/version-control).
 :::
 
-## Glob Patterns and Multiple Paths
+## Glob Patterns and Multiple Paths {#glob-patterns-and-multiple-paths}
 
 The Git Repository and Package data sources require you to specify which files you would like to apply from the git repo or package. 
 Previously we only allowed a single file to be applied via an explicit path. 

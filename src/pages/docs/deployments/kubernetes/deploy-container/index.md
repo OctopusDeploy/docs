@@ -63,7 +63,7 @@ This field was added in Octopus 2020.6.
 
 An optional value that defines the maximum time in seconds for a deployment to make progress before it is considered to be failed. If this value is not specified, it will default to `600` seconds (or 10 minutes).
 
-This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), which will point the service to the new deployment only after the new deployment has succeeded.
+This value affects [Blue/Green deployments](#blue-green-deployment-strategy), which will point the service to the new deployment only after the new deployment has succeeded.
 
 ### Pod termination grace period
 
@@ -113,7 +113,7 @@ This field is used when creating Kubernetes `Job` resources only.
 This field is used when creating Kubernetes `Job` resources only.
 :::
 
-`ttlSecondsAfterFinished` is an option value to specify when the job should be cleaned up after it is executed. This is handled by the `TTL Controller`. When the TTL controller cleans up a resource, it will delete it cascadingly, that is to say it will delete its dependent objects together with it.
+`ttlSecondsAfterFinished` is an option value to specify when the job should be cleaned up after it is executed. This is handled by the `TTL Controller`. When the TTL controller cleans up a resource, it will cascade-delete, which means it deletes its dependent objects together with it.
 
 ### Deployment strategy
 
@@ -129,7 +129,7 @@ The first native deployment strategy is the [Recreate](https://oc.to/KubernetesR
 ### Rolling update deployment strategy
 The second native deployment strategy is the [Rolling Update](https://oc.to/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time but can be performed in a way that results in no downtime.
 
-### Blue/Green deployment strategy
+### Blue/Green deployment strategy {#blue-green-deployment-strategy}
 The third deployment strategy, Blue/Green, is not a native concept in Kubernetes. It is a deployment strategy that is achieved by the `Deploy Kubernetes containers` step because it creates and coordinates both the Deployment resource and the Service resources.
 
 The Blue/Green deployment strategy involves four phases.
@@ -275,14 +275,14 @@ For example, consider a Secret resource created with the following YAML.
 apiVersion: v1
 kind: Secret
 metadata:
-  name: mysecret
+  name: my-secret
 type: Opaque
 data:
   username: admin
   password: MWYyZDFlMmU2N2Rm
 ```
 
-To mount this Secret as a volume, the `Secret name` would be set to `mysecret`.
+To mount this Secret as a volume, the `Secret name` would be set to `my-secret`.
 
 To expose the `username` key as a file called `username.txt`, an item is added with the `Key` of `username` and a `Path` of `username.txt`.
 
@@ -294,7 +294,7 @@ The [Empty Dir Volume resource](https://oc.to/KubernetesEmptyDirVolume) is used 
 
 * Scratch space, such as for a disk-based merge sort.
 * Check-pointing a long computation for recovery from crashes.
-* Holding files that a content-manager Container fetches while a webserver Container serves the data.
+* Holding files that a content-manager Container fetches while a web server Container serves the data.
 
 By default, Empty Dir Volumes resources are stored on whatever medium is backing the node. Setting the `Medium` field to `Memory` will create the volume in a tmpfs, or RAM-backed filesystem.
 
@@ -361,7 +361,7 @@ metadata:
   name: test-ebs
 spec:
   containers:
-  - image: registry.k8s.io/test-webserver
+  - image: registry.k8s.io/test-web-server
     name: test-container
     volumeMounts:
     - mountPath: /test-ebs
@@ -467,7 +467,7 @@ In the [Volumes](#volumes) section we defined the Volume resources that were exp
 
 Each Volume Mount requires a unique `Name`.
 
-The `Mount Path` is the path in the Container resource file system where the Volume resource will be mounted e.g. `/data` or `/etc/myapp/config`.
+The `Mount Path` is the path in the Container resource file system where the Volume resource will be mounted e.g. `/data` or `/etc/my-app/config`.
 
 The `Sub Path` field is optional, and can be used to mount a sub directory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount only the subdirectory it requires. For example, Volume resource may expose a directory structure like:
 
@@ -477,7 +477,7 @@ The `Sub Path` field is optional, and can be used to mount a sub directory expos
  - database
 ```
 
-A Container resource hosting a webserver would specify the `Sub Path` to be `webserver/content`, while a Container resource hosting a database would specify the `Sub Path` of `database`.
+A Container resource hosting a web server would specify the `Sub Path` to be `webserver/content`, while a Container resource hosting a database would specify the `Sub Path` of `database`.
 
 The `Read Only` field defines if the Volume resource is mounted in read only mode.
 
@@ -507,10 +507,10 @@ The `Liveness probe type` defines the type of probe that is used to conduct the 
 
 #### Command
 
-The command probe type has one field, `Health check commands` that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck myservice "an argument with a space"`, you would enter the following text into the `Health check commands` field:
+The command probe type has one field, `Health check commands` that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck my_service "an argument with a space"`, you would enter the following text into the `Health check commands` field:
 ```
 /opt/healthcheck
-myservice
+my_service
 an argument with a space
 ```
 
@@ -541,7 +541,7 @@ The `Port` field defines the port that is requested. This value can be a number,
 The [Readiness probe resource](https://oc.to/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it has started correctly. Readiness probes are not supported by Init Container resources.
 
 :::div{.hint}
-If defined, the readiness probe must succeed for a [Blue/Green](#bluegreen-deployment-strategy) deployment to complete successfully. If the readiness probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
+If defined, the readiness probe must succeed for a [Blue/Green](#blue-green-deployment-strategy) deployment to complete successfully. If the readiness probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
 :::
 
 The `Success threshold` defines many consecutive times the probe must succeed for the container to be considered successful after a failure. The default value is 1.
@@ -562,10 +562,10 @@ The `Liveness probe type` defines the type of probe that is used to conduct the 
 
 #### Command
 
-The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck myservice "an argument with a space"`, you would enter the following text into the `Health check commands` field:
+The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck my_service "an argument with a space"`, you would enter the following text into the `Health check commands` field:
 ```
 /opt/healthcheck
-myservice
+my_service
 an argument with a space
 ```
 
@@ -605,23 +605,23 @@ If the `Command` field is specified, it will override the value of the Docker im
 
 If the `Command arguments` field is specified, it will override the Docker image `CMD`. So if the `Command arguments` was set to `hello Octopus` then the resulting command would be `print hello Octopus`.
 
-Each of these fields accepts multiple arguments separated by line breaks. For example, if you want to run the command `/opt/myapp myservice "an argument with a space"`, you would enter the following text into the `Command` field:
+Each of these fields accepts multiple arguments separated by line breaks. For example, if you want to run the command `/opt/my_app my_service "an argument with a space"`, you would enter the following text into the `Command` field:
 ```
-/opt/myapp
+/opt/my_app
 ```
 
 And the following into the `Command arguments` field:
 ```
-myservice
+my_service
 an argument with a space
 ```
 
 #### Startup probe
 
-The [Startup probe resource](https://oc.to/KubernetesProbes) configures a health check that must complete before the Liveness probe begins. This is useful to accomodate any inital delay in booting a container.
+The [Startup probe resource](https://oc.to/KubernetesProbes) configures a health check that must complete before the Liveness probe begins. This is useful to accommodate any initial delay in booting a container.
 
 :::div{.hint}
-If defined, the startup probe must succeed for a [Blue/Green](#bluegreen-deployment-strategy) deployment to complete successfully. If the startup probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
+If defined, the startup probe must succeed for a [Blue/Green](#blue-green-deployment-strategy) deployment to complete successfully. If the startup probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
 :::
 
 The `Success threshold` defines many consecutive times the probe must succeed for the container to be considered successful after a failure. The default value is 1.
@@ -642,10 +642,10 @@ The `Startup probe type` defines the type of probe that is used to conduct the h
 
 #### Command
 
-The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck myservice "an argument with a space"`, you would enter the following text into the `Health check commands` field:
+The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck my_service "an argument with a space"`, you would enter the following text into the `Health check commands` field:
 ```
 /opt/healthcheck
-myservice
+my_service
 an argument with a space
 ```
 
@@ -685,14 +685,14 @@ If the `Command` field is specified, it will override the value of the Docker im
 
 If the `Command arguments` field is specified, it will override the Docker image `CMD`. So if the `Command arguments` was set to `hello Octopus` then the resulting command would be `print hello Octopus`.
 
-Each of these fields accepts multiple arguments separated by line breaks. For example, if you want to run the command `/opt/myapp myservice "an argument with a space"`, you would enter the following text into the `Command` field:
+Each of these fields accepts multiple arguments separated by line breaks. For example, if you want to run the command `/opt/my_app my_service "an argument with a space"`, you would enter the following text into the `Command` field:
 ```
-/opt/myapp
+/opt/my_app
 ```
 
 And the following into the `Command arguments` field:
 ```
-myservice
+my_service
 an argument with a space
 ```
 
@@ -749,7 +749,7 @@ spec:
         Octopus.Deployment.Tenant.Id: untenanted
         Octopus.Kubernetes.DeploymentName: httpd
       annotations:
-        podannotation: "annotationvalue"
+        podannotation: "annotation_value"
     spec:
       containers:
       - name: httpd
@@ -771,7 +771,7 @@ spec:
   template:
     metadata:
       annotations:
-        podannotation: "annotationvalue"
+        podannotation: "annotation_value"
 ```
 
 When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
@@ -804,7 +804,7 @@ metadata:
     Octopus.Deployment.Tenant.Id: untenanted
     Octopus.Kubernetes.DeploymentName: httpd
   annotations:
-    deploymentannotation: "annotationvalue"
+    deploymentannotation: "annotation_value"
 spec:
   replicas: 1
   selector:
@@ -837,7 +837,7 @@ In particular `metadata.annotations` field has been populated with the pod annot
 ```yaml
 metadata:
   annotations:
-    deploymentannotation: "annotationvalue"
+    deploymentannotation: "annotation_value"
 ```
 
 ### Custom resources YAML
@@ -874,7 +874,7 @@ spec:
         - 172.17.1.0/24
     - namespaceSelector:
         matchLabels:
-          project: myproject
+          project: my-project
     - podSelector:
         matchLabels:
           role: frontend
@@ -944,7 +944,7 @@ A Load Balancer Service resource provides the same Cluster IP and Node Ports tha
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
 :::figure
-![Loadbalancer](/docs/deployments/kubernetes/loadbalancer.svg)
+![Load balancer](/docs/deployments/kubernetes/loadbalancer.svg)
 :::
 
 #### Cluster IP address
@@ -1008,7 +1008,7 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 :::div{.hint}
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](/docs/deployments/kubernetes/deploy-ingress) step.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fan-out pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](/docs/deployments/kubernetes/deploy-ingress) step.
 
 On the other hand, the [NGINX Ingress Controller resource installation procedure](https://oc.to/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::

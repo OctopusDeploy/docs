@@ -38,13 +38,13 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
     :::div{.hint}
     [Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Azure account**. 
 
-    The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#Bindingsyntax-Referencingvariablesinstepdefinitions).
+    The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#use-variables-in-step-definitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#use-variables-in-step-definitions).
     :::
 
 1. Select the **Resource Group** to place the created resources in. This can be selected from the drop-down of available resources or bound to a variable. The resource group must exist when the step is executed.
 
 1. Set the **Deployment Mode**. It can be either [Incremental or Complete](https://azure.microsoft.com/en-in/documentation/articles/resource-group-template-deploy/#incremental-and-complete-deployments).
-1. Choose the **Template Source**. It can be either [JSON entered directly](#DeployusinganAzureResourceGroupTemplate-TemplateEnteredasJSON) into the step, or a file [contained in a package](#DeployusinganAzureResourceGroupTemplate-TemplateContainedinaPackage).
+1. Choose the **Template Source**. It can be either [JSON entered directly](#json-template) into the step, or a file [contained in a package](#packaged-template).
 1. Enter any values for parameters if they are present.
 
 Configure any other settings for the step such as Environment run conditions and click **SAVE**.
@@ -53,7 +53,7 @@ Configure any other settings for the step such as Environment run conditions and
 ![Azure ARM step](/docs/runbooks/runbook-examples/azure/resource-groups/azure-arm-process-step.png)
 :::
 
-### Template entered as JSON  {#DeployusinganAzureResourceGroupTemplate-TemplateEnteredasJSON}
+### Template entered as JSON  {#json-template}
 
 By selecting *Source Code* as the *Template Source*, you can enter your template directly as JSON.
 
@@ -71,7 +71,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 ![](/docs/runbooks/runbook-examples/azure/resource-groups/arm-json-template.png)
 :::
 
-### Sensitive data {#DeployusinganAzureResourceGroupTemplate-SensitiveData}
+### Sensitive data
 
 :::div{.warning}
 Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
@@ -83,7 +83,7 @@ The field displayed when "From Octopus" option is selected stores data as plain 
 ![](/docs/runbooks/runbook-examples/azure/resource-groups/arm-sensitive-data.png)
 :::
 
-### Template contained in a package {#DeployusinganAzureResourceGroupTemplate-TemplateContainedinaPackage}
+### Template contained in a package {#packaged-template}
 
 By selecting *File inside a Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
 
@@ -97,7 +97,7 @@ The Template Path and Parameters Path fields should contain the relative path to
 Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions) on both the Template and Parameter files.
 :::
 
-#### Parameter file format {#DeployusinganAzureResourceGroupTemplate-ParameterFileFormat}
+#### Parameter file format
 
 The Parameter JSON file can be in one of two formats:
 
@@ -163,7 +163,7 @@ The Parameter JSON file can be in one of two formats:
 
 ```
 
-### Accessing ARM template output parameters {#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters}
+### Accessing ARM template output parameters {#arm-template-out-params}
 
 Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/projects/variables/output-variables) automatically. For example, an output `Foo` would be available as:
 
@@ -172,7 +172,7 @@ Octopus.Action[Arm Template Step Name].Output.AzureRmOutputs[Foo]
 ```
 Note, you need to replace **Arm Template Step Name** with the name of your ARM step template. 
 
-### Using linked templates {#DeployusinganAzureResourceGroupTemplate-Usinglinkedtemplates}
+### Using linked templates
 
 Azure Resource Manager supports the concept of [linking templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates). In this model you create a main template which links to other templates and parameters files via URI. This can be a really useful way to break your ARM templates into manageable components. In this case you would configure Octopus to deploy your main template, and the Azure Resource Manager will download any linked templates and parameters files as required to complete the deployment.
 

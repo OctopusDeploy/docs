@@ -36,18 +36,18 @@ That is, the ampersand has been encoded correctly for use in an HTML document.
 The filters provided by Octopus are for use with trusted input; don't rely on them to sanitize data from potentially malicious sources.
 :::
 
-## Provided filters {#VariableSubstitutionSyntax-Providedfilters}
+## Provided filters
 
 Octopus provides a number of different types of filters for variable values:
 
-- [Core filters](#VariableSubstitutionSyntax-CoreFilters)
-- [Comparison filters](#VariableSubstitutionSyntax-ComparisonFilters)
-- [Conversion filters](#VariableSubstitutionSyntax-ConversionFilters)
-- [Date filters](#VariableSubstitutionSyntax-DateFilters)
-- [Escaping filters](#VariableSubstitutionSyntax-EscapingFilters)
-- [Extraction filters](#VariableSubstitutionSyntax-ExtractionFilters)
+- [Core filters](#core-filters)
+- [Comparison filters](#comparison-filters)
+- [Conversion filters](#conversion-filters)
+- [Date filters](#date-filters)
+- [Escaping filters](#escaping-filters)
+- [Extraction filters](#extraction-filters)
 
-## Core filters {#VariableSubstitutionSyntax-CoreFilters}
+## Core filters {#core-filters}
 
 These core filters perform common string operations.
 
@@ -119,7 +119,7 @@ The *Truncate* filter limits the length of the input. If the input is longer tha
 | `Octopus Deploy` | `#{MyVar \| Truncate 7}` | `Octopus...` |
 | `abc`            | `#{MyVar \| Truncate 7}` | `abc`        |
 
-## Comparison filters {#VariableSubstitutionSyntax-ComparisonFilters}
+## Comparison filters {#comparison-filters}
 
 These filters return `true` or `false` depending on the result of a comparison. They are typically useful for specifying the condition in an `#{if}` block.
 
@@ -164,7 +164,7 @@ The *StartsWith*, *EndsWith* and *Contains* filters compare the input to a given
 | `a b(c`     | `#{MyVar \| Contains " b("}`  | `true`                    |
 | `a"b"c`     | `#{MyVar \| Contains #{str}}` | `true` (when `str`=`"b"`) |
 
-## Conversion filters {#VariableSubstitutionSyntax-ConversionFilters}
+## Conversion filters {#conversion-filters}
 
 These filters provide a mechanism to convert a value from one form to another.
 
@@ -174,7 +174,7 @@ These filters provide a mechanism to convert a value from one form to another.
 | `ToBase64`       | Converts values to Base64 (using UTF encoding)   | `Bar`            | `QmF6`                           |
 | `MarkdownToHTML` | Converts Markdown to HTML                        | `This \_rocks\_` | `\<p>This \<em>rocks\</em>\</p>` |
 
-## Date filters {#VariableSubstitutionSyntax-DateFilters}
+## Date filters {#date-filters}
 
 These filters are used to work with dates.
 
@@ -195,7 +195,7 @@ The *NowDate* and *NowDateUtc* filters take no variable input but can take an ad
 |                   | `#{ \| NowDateUtc zz}`            | `+00`                          |
 | dd-MM-yyyy        | `#{ \| NowDate #{MyFormat}}`      | `03-Nov-2016`                  |
 
-## Escaping filters {#VariableSubstitutionSyntax-EscapingFilters}
+## Escaping filters {#escaping-filters}
 
 These filters apply format-specific escaping rules.
 
@@ -215,7 +215,7 @@ These filters apply format-specific escaping rules.
 | `YamlDoubleQuoteEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in YAML double quoted strings | `"Hello"\Goodbye`  | `\"Hello\"\\Goodbye`   |
 | `YamlSingleQuoteEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in YAML single quoted strings | `The bee's knees`  | `The bee''s knees`     |
 
-## Extraction filters {#VariableSubstitutionSyntax-ExtractionFilters}
+## Extraction filters {#extraction-filters}
 
 These filters extract a part of value.
 
@@ -226,14 +226,14 @@ These filters extract a part of value.
 | Name                                          | Purpose                                                              | Example input                  | Example output |
 |-----------------------------------------------|----------------------------------------------------------------------|--------------------------------|----------------|
 | [`UriPart`](#uripart)                         | Extracts a specified part of a URI string                            | `https://octopus.com/docs`     | `/docs`        |
-| `VersionMajor` <br/>***2020.5.0**             | Extracts the major version field from a version string               | `1.2.3.4-mybranch.1.2+build10` | `1`            |
-| `VersionMinor` <br/>***2020.5.0**             | Extracts the minor version field from a version string               | `1.2.3.4-mybranch.1.2+build10` | `2`            |
-| `VersionPatch` <br/>***2020.5.0**             | Extracts the patch version field from a version string               | `1.2.3.4-mybranch.1.2+build10` | `3`            |
-| `VersionRevision` <br/>***2020.5.0**          | Extracts the revision version field from a version string            | `1.2.3.4-mybranch.1.2+build10` | `4`            |
-| `VersionPreRelease` <br/>***2020.5.0**        | Extracts the prerelease field from a version string                  | `1.2.3.4-mybranch.1.2+build10` | `mybranch.1.2` |
-| `VersionPreReleasePrefix` <br/>***2020.5.0**  | Extracts the prefix from the prerelease field from a version string  | `1.2.3.4-mybranch.1.2+build10` | `mybranch`     |
-| `VersionPreReleaseCounter` <br/>***2020.5.0** | Extracts the counter from the prerelease field from a version string | `1.2.3.4-mybranch.1.2+build10` | `1.2`          |
-| `VersionMetadata` <br/>***2020.5.0**          | Extracts the metadata field from a version string                    | `1.2.3.4-mybranch.1.2+build10` | `build10`      |
+| `VersionMajor` <br/>***2020.5.0**             | Extracts the major version field from a version string               | `1.2.3.4-my-branch.1.2+build10` | `1`            |
+| `VersionMinor` <br/>***2020.5.0**             | Extracts the minor version field from a version string               | `1.2.3.4-my-branch.1.2+build10` | `2`            |
+| `VersionPatch` <br/>***2020.5.0**             | Extracts the patch version field from a version string               | `1.2.3.4-my-branch.1.2+build10` | `3`            |
+| `VersionRevision` <br/>***2020.5.0**          | Extracts the revision version field from a version string            | `1.2.3.4-my-branch.1.2+build10` | `4`            |
+| `VersionPreRelease` <br/>***2020.5.0**        | Extracts the prerelease field from a version string                  | `1.2.3.4-my-branch.1.2+build10` | `my-branch.1.2` |
+| `VersionPreReleasePrefix` <br/>***2020.5.0**  | Extracts the prefix from the prerelease field from a version string  | `1.2.3.4-my-branch.1.2+build10` | `my-branch`     |
+| `VersionPreReleaseCounter` <br/>***2020.5.0** | Extracts the counter from the prerelease field from a version string | `1.2.3.4-my-branch.1.2+build10` | `1.2`          |
+| `VersionMetadata` <br/>***2020.5.0**          | Extracts the metadata field from a version string                    | `1.2.3.4-my-branch.1.2+build10` | `build10`      |
 
 ### UriPart
 
@@ -262,7 +262,7 @@ The *UriPart* filter parses the input as a URI and extracts a specified part of 
 | `https://octopus.com/docs`              | `#{MyVar \| UriPart SchemeAndServer}` | `https://octopus.com`      |
 | `https://username:password@octopus.com` | `#{MyVar \| UriPart UserInfo}`        | `username:password`        |
 
-## Differences from regular variable bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
+## Differences from regular variable bindings {#differences-from-regular-bindings}
 
 Because of the flexibility provided by the extended syntax, variables that are not defined will result in the source text, e.g. `#{UndefinedVar}` being echoed rather than an empty string, so that evaluation problems are easier to spot and debug. The `if` construct can be used to selectively bind to a variable only when it is defined, e.g. to obtain identical "empty" variable functionality as shown in the first example:
 
@@ -270,7 +270,7 @@ Because of the flexibility provided by the extended syntax, variables that are n
 Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
 ```
 
-## JSON parsing {#VariableSubstitutionSyntax-JSONParsingjson}
+## JSON parsing {#json-parsing}
 
 Octostache 2.x includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
 
@@ -306,7 +306,7 @@ There are a few things to note here:
 - Arrays can be accessed using standard numerical index notation.
 - Variables can map to a sub-section of the JSON variable.
 
-### Repetition over json {#VariableSubstitutionSyntax-RepetitionoverJSON}
+### Repetition over json {#repetition-over-json}
 
 Given the variables:
 

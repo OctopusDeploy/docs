@@ -33,7 +33,7 @@ The release notes may be accessed during a deployment using the [Octopus.Release
 
 Release notes are also rolled up into the [deployment notes](/docs/releases/deployment-notes).
 
-## Release notes templates {#Release-Notes-Templates}
+## Release notes templates {#templates}
 
 A release notes template can be configured in **Project ➜ Settings ➜ Release Notes Template**
 

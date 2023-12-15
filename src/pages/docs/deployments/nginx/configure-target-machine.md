@@ -129,7 +129,7 @@ sudo sed -i.bak -e s/'PasswordAuthentication no'/'PasswordAuthentication yes'/g 
 sudo restart ssh
 ```
 
-### Enable 'sudo' access without password {#ConfigureTargetMachine-EnableSudoAccessWithoutPassword}
+### Enable 'sudo' access without password {#enable-sudo-without-password}
 
 By default `sudo` requires the user to enter their password, but this won't work in a non-interactive session such as that of a running deployment. To successfully use the new *NGINX* feature in Octopus Deploy we need `sudo` access without password prompt for few commands `cp`, `mv`, `rm`, and `nginx` and for this guide we will also need to add `systemctl` to the list of required commands.
 

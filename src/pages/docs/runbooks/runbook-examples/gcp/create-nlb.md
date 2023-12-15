@@ -49,7 +49,7 @@ Create two [sensitive variables](/docs/projects/variables/sensitive-variables), 
 
 #### Create authorization function in script module
 
-The instructions at [Creating a script module](/docs/deployments/custom-scripts/script-modules/#ScriptModules-CreatingaScriptmodule) detail the procedure for creating a script module in Octopus.
+The instructions at [Creating a script module](/docs/deployments/custom-scripts/script-modules/#create-script-module) detail the procedure for creating a script module in Octopus.
 
 In the **Body** of the script module, include the following PowerShell code:
 
@@ -88,7 +88,7 @@ function Set-GCPAuth() {
 
 This script defines a function named `Set-GCPAuth` which uses the `auth activate-service-account` command that is used in the runbook steps to authorize with Google Cloud.
 
-Add the script module into your runbook process following [these instructions](/docs/deployments/custom-scripts/script-modules/#ScriptModules-UsingaScriptModuleonaDeployment):
+Add the script module into your runbook process following [these instructions](/docs/deployments/custom-scripts/script-modules/#use-script-module-for-deployment):
 
 ![Google Cloud Project variables](/docs/runbooks/runbook-examples/gcp/images/gcp-runbook-include-script-module.png)
 
@@ -115,26 +115,26 @@ Set-GCPAuth
 
 $projectName = $OctopusParameters["Project.GCP.ProjectName"]
 $region = $OctopusParameters["GCP.Region"]
-$loadbalancerIPName = $OctopusParameters["Project.GCP.LoadBalancer.ExternalIP.Name"]
+$loadBalancerIPName = $OctopusParameters["Project.GCP.LoadBalancer.ExternalIP.Name"]
 $networkTier = $OctopusParameters["Project.GCP.LoadBalancer.NetworkTier"]
 
-Write-Host "Getting compute address matching name: $loadbalancerIPName"
+Write-Host "Getting compute address matching name: $loadBalancerIPName"
 Write-Host "##octopus[stderr-progress]"
-$ipAddress=(& gcloud compute addresses list --project=$projectName --filter="name=($loadbalancerIPName)" --format="get(address)" --quiet)
+$ipAddress=(& gcloud compute addresses list --project=$projectName --filter="name=($loadBalancerIPName)" --format="get(address)" --quiet)
 Test-LastExit "gcloud compute addresses list"
 
 if( -not ([string]::IsNullOrEmpty($ipAddress))) 
 {
-	Write-Highlight "Found $loadbalancerIPName of: $ipAddress"
+	Write-Highlight "Found $loadBalancerIPName of: $ipAddress"
 }
 else {
-	Write-Highlight "Found no compute addresses matching: $loadbalancerIPName"
-    $ipAddress=(& gcloud compute addresses create $loadbalancerIPName --project=$projectName --network-tier=$networkTier --region=$region --format="get(address)" --quiet)
+	Write-Highlight "Found no compute addresses matching: $loadBalancerIPName"
+    $ipAddress=(& gcloud compute addresses create $loadBalancerIPName --project=$projectName --network-tier=$networkTier --region=$region --format="get(address)" --quiet)
     Test-LastExit "gcloud compute addresses create"
     
     if( -not ([string]::IsNullOrEmpty($ipAddress))) 
     {
-        Write-Highlight "Created new ip address of: $ipAddress for $loadbalancerIPName"
+        Write-Highlight "Created new ip address of: $ipAddress for $loadBalancerIPName"
     }
     else {
     	Write-Error "IP address could not be determined from attempted create!"
@@ -183,7 +183,7 @@ function CreateHealthCheckIfNotExists([string]$healthCheckName, [string] $health
     {
         Write-Highlight "Found existing http-health check named: $healthCheckName probing port: $listedPort"
         if($listedPort -ne $healthCheckPort) {
-        	Write-Warning "Existing http-health check port: $listedPort doesnt match expected port: $healthCheckPort"
+        	Write-Warning "Existing http-health check port: $listedPort doesn't match expected port: $healthCheckPort"
         }
     }
     else {
@@ -194,7 +194,7 @@ function CreateHealthCheckIfNotExists([string]$healthCheckName, [string] $health
         
         if([string]::IsNullOrEmpty($listedPort)) 
         {
-            Write-Error "Port for new http-health check couldnt be determined from attempted create!"
+            Write-Error "Port for new http-health check couldn't be determined from attempted create!"
         }
     }
 }
@@ -210,8 +210,8 @@ There are a number of variables used in the script:
 | Variable name  | Description | Example |
 | -------------  | ------------- | ------------- |
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
-| Project.GCP.LoadBalancer.Test.HealthCheckName | The name of the test environment health check. | my-project-lbhealth-http-8080 |
-| Project.GCP.LoadBalancer.Prod.HealthCheckName | The name of the prod environment health check. | my-project-lbhealth-http-80 |
+| Project.GCP.LoadBalancer.Test.HealthCheckName | The name of the test environment health check. | my-project-lb-health-http-8080 |
+| Project.GCP.LoadBalancer.Prod.HealthCheckName | The name of the prod environment health check. | my-project-lb-health-http-80 |
 
 ### Create load balancer target pools step {#create-target-pools-step}
 
@@ -256,7 +256,7 @@ function CreateLoadBalancerTargetPoolIfNotExists([string]$targetPoolName, [strin
         
         if([string]::IsNullOrEmpty($listedPoolName)) 
         {
-            Write-Error "Name for new target pool couldnt be determined from attempted create!"
+            Write-Error "Name for new target pool couldn't be determined from attempted create!"
         }
     }
 }
@@ -273,8 +273,8 @@ There are a number of variables used in the script:
 | -------------  | ------------- | ------------- |
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
 | GCP.Region | The region to create the target pools in. | europe-west1 |
-| Project.GCP.LoadBalancer.Test.HealthCheckName | The name of the test environment health check. | my-project-lbhealth-http-8080 |
-| Project.GCP.LoadBalancer.Prod.HealthCheckName | The name of the prod environment health check. | my-project-lbhealth-http-80 |
+| Project.GCP.LoadBalancer.Test.HealthCheckName | The name of the test environment health check. | my-project-lb-health-http-8080 |
+| Project.GCP.LoadBalancer.Prod.HealthCheckName | The name of the prod environment health check. | my-project-lb-health-http-80 |
 | Project.GCP.LoadBalancer.Test.TargetPoolName | The name of the test environment target pool. | my-project-test-pool |
 | Project.GCP.LoadBalancer.Prod.TargetPoolName | The name of the prod environment target pool. | my-project-prod-pool |
 
@@ -323,7 +323,7 @@ function CreateForwardingRulesForTargetPoolIfNotExists([string] $forwardingRuleN
         
         if([string]::IsNullOrEmpty($listedPortRange)) 
         {
-            Write-Error "Port Range for new forwarding-rule couldnt be determined from create!"
+            Write-Error "Port Range for new forwarding-rule couldn't be determined from create!"
         }
     }
 }
@@ -352,7 +352,7 @@ There are a number of variables used in the script:
 Finally, in order to have a functioning load balancer, we need virtual machines to add to the target pools.
 
 :::div{.hint}
-This step assumes you have already created one or more Compute Engine instance in Google Cloud to add to the target pool, which follow a naming convention of `machinename-number`. This is to allow multiple machines to be added to the target pool in a single step.
+This step assumes you have already created one or more Compute Engine instance in Google Cloud to add to the target pool, which follow a naming convention of `machine_name-number`. This is to allow multiple machines to be added to the target pool in a single step.
 :::
 
 Add the step to add machines to a target pool for the load balancer:

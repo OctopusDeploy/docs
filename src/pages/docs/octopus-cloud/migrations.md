@@ -107,7 +107,7 @@ Please do not skip Step 3.  In doing step 3, you will start your migration in a 
 
 ### Testing External Package Repository Connectivity
 
-If you use an external package repository, such as a self-hosted Artifactory instance, you'll need to test that Octopus Cloud can see and connect to it.  You might have to expose that server to the internet, or leverage a [proxy server](/docs/infrastructure/deployment-targets/proxy-support/#ProxySupport-WorkingwithExternalNuGetFeeds).
+If you use an external package repository, such as a self-hosted Artifactory instance, you'll need to test that Octopus Cloud can see and connect to it.  You might have to expose that server to the internet, or leverage a [proxy server](/docs/infrastructure/deployment-targets/proxy-support/#external-nuget-feed).
 
 ### Proof of Concept Deployments
 

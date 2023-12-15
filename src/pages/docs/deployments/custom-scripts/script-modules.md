@@ -9,7 +9,7 @@ navOrder: 120
 
 Script modules allow users to create collections of language specific functions that can be used in deployment processes across multiple projects.
 
-## Creating a script module {#ScriptModules-CreatingaScriptmodule}
+## Creating a script module {#create-script-module}
 
 1.  Navigate to **Library ➜ Script Modules ➜ Add Script Module**.
 
@@ -40,7 +40,7 @@ After inserting the modified function, the Script Module should look like this:
 
 Once this is done, click on **Save**.
 
-## Using a script module on a deployment {#ScriptModules-UsingaScriptModuleonaDeployment}
+## Using a script module on a deployment {#use-script-module-for-deployment}
 
 Once you have created a Script Module, you can start using the functions it contains in Script Steps in your deployment processes. These steps must use the same language as the Script Module.
 
@@ -91,13 +91,13 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 
 Each language has a slightly different syntax for using the Script Module. Please see the language specific section below.
 
-* [PowerShell](#ScriptModules-PowerShell)
-* [Bash](#ScriptModules-Bash)
+* [PowerShell](#powershell)
+* [Bash](#bash)
 * [C#](#ScriptModules-CSharp)
 * [F#](#ScriptModules-FSharp)
 * [Python](#ScriptModules-Python)
 
-## PowerShell script modules {#ScriptModules-PowerShell}
+## PowerShell script modules {#powershell}
 
 PowerShell script modules get automatically loaded once for every PowerShell script step in your deployment process - the functions and cmdlets will automatically be in scope for your script.
 
@@ -127,7 +127,7 @@ function Say-Hello($name) {
 }
 ```
 
-## Bash script modules {#ScriptModules-Bash}
+## Bash script modules {#bash}
 
 Bash Script Modules are written as a `.sh` file next to your script. Import them
 via `source MyScriptModule.sh`, where `MyScriptModule` is the name of your Script
@@ -194,7 +194,7 @@ The `#load` statement must be at the top of your script.
 Given an F# Script Module called `FSharp Script Module`:
 ```fsharp
 module MyFSharpScriptModule
-let sayhello name =
+let sayHello name =
     printfn "Hello %s. Welcome to Octopus!" name;
 ```
 
@@ -202,7 +202,7 @@ Call it from your Script Step with:
 ```fsharp
 #load "FSharpScriptModule.fsx"
 open MyFSharpScriptModule
-sayhello "George";
+sayHello "George";
 ```
 
 ## Python script modules {#ScriptModules-Python}
@@ -216,14 +216,14 @@ Once imported, functions from the Script Module will be available prefixed with 
 
 Given a Python Script Module called `Python Script Module`:
 ```python
-def sayhello(name):
+def say_hello(name):
     print(f"Hello {name}. Welcome to Octopus!")
 ```
 
 Call it from your Script Step with:
 ```python
 import PythonScriptModule
-PythonScriptModule.sayhello("George")
+PythonScriptModule.say_hello("George")
 ```
 
 ## Usage
