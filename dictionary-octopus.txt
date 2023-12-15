@@ -145,3 +145,5 @@ workertools
 xlarge
 xmark
 xvzf
+pycryptodome
+mozroots
