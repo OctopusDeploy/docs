@@ -116,7 +116,10 @@ See [https://github.com/OctopusDeploy/Issues/issues/8132](https://github.com/Oct
 :::
 
 :::div{.warning}
-Due to how deployment cancellation currently works, the Helm `--atomic` argument does not result in automatic rollbacks when a deployment is cancelled. Furthermore, if the Octopus deployment timeout is set lower than the Helm timeout, a similar issue may arise. To ensure a smooth deployment experience, we recommend setting a larger Octopus timeout than the Helm timeout.
+Due to how deployment cancellation currently works, the Helm `--atomic` argument does not result in automatic rollbacks when a deployment is cancelled. 
+This means that any Helm chart changes that were being deployed may become stuck or only partially deployed, and require manual clean-up.
+Furthermore, if the Octopus deployment timeout is set lower than the Helm timeout, a similar issue may arise if the Helm chart deployment is interrupted midway. 
+To ensure a smooth deployment experience, we recommend setting a larger Octopus timeout than the Helm timeout.
 :::
 
 ## Learn more
