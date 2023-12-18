@@ -18,7 +18,7 @@ A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/
 
 :::div{.info}
 
-The built-in repository is [capable of storing Helm Charts](/docs/packaging-applications/#supported-formats). However, the mechanism for determining the **PackageID** and **Version** may differ depending on the contents of the `.tgz` file.  If the `.tgz` file contains a `chart.yaml` file, the PackageID is determined by the `name`, and the version is determined by the `version` sections of the YAML.  
+The built-in repository is [capable of storing Helm Charts](/docs/packaging-applications/#supported-formats). However, the mechanism for determining the **PackageID** and **Version** may differ depending on the contents of the `.tgz` file.  If the `.tgz` file contains a `chart.yaml` file, the PackageID is determined by the `name`, and the version is determined by the `version` sections of the YAML.
 
 ```yaml
 apiVersion: v2
@@ -113,6 +113,10 @@ Although the helm client tool can be overridden for use during the step executio
 :::div{.warning}
 Helm deployments using Tar.gz packages can fail if the path is 100+ characters, to get around this problem use ZIP packages or shorter paths/filenames instead.
 See [https://github.com/OctopusDeploy/Issues/issues/8132](https://github.com/OctopusDeploy/Issues/issues/8132) for more info.  
+:::
+
+:::div{.warning}
+Due to how deployment cancellation currently works, the Helm `--atomic` argument does not result in automatic rollbacks when a deployment is cancelled. Furthermore, if the Octopus deployment timeout is set lower than the Helm timeout, a similar issue may arise. To ensure a smooth deployment experience, we recommend setting a larger Octopus timeout than the Helm timeout.
 :::
 
 ## Learn more
