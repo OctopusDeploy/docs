@@ -37,6 +37,10 @@ The [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) action obtai
 
 The ID token that GitHub generates contains a subject (the `sub` property in the ID token), which is generated based on the details of the workflow that is being run. The subject of the OIDC identity in Octopus needs to match this subject exactly in order for the access token to be issued, the Octopus Portal will help you to generate this subject correctly.
 
+:::div{.hint}
+Currently there is no support for wildcards when filtering workflow runs, support for this may be available in a future version of Octopus.
+:::
+
 The details of the subject that GitHub Actions will generate follow specific rules including:
 
 - Whether a GitHub `environment` is being used within the workflow

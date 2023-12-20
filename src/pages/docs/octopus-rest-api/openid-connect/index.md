@@ -10,6 +10,12 @@ hideInThisSection: true
 
 Octopus supports using [OpenID Connect (OIDC)](https://openid.net/) to access the Octopus API without needing to provision API keys.
 
+:::div{.hint}
+Using OIDC to access the Octopus API is used for machine-to-machine scenarios such as a automating release creation in CI servers.
+
+See [authentication providers](/docs/security/authentication) for information on configuring user authentication into Octopus Deploy.
+:::
+
 ## What is OpenID Connect and how is it used in Octopus?
 
 OpenID Connect is a set of identity specifications that build on OAuth 2.0 to allow software systems to connect to each other in a way that promotes security best practices.
@@ -88,7 +94,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Create a release in Octopus
     permissions:
+      # Add any additional permissions your job requires here
       id-token: write # This is required to obtain the ID token from GitHub Actions
+      contents: read # For example: this is required to check out code, remove if not needed
     steps:
       - name: Login to Octopus
         uses: OctopusDeploy/login@v1
