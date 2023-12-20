@@ -92,7 +92,9 @@ To use the [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) actio
 jobs:
   octopus:
     permissions:
-      id-token: write
+      # Add any additional permissions your job requires here
+      id-token: write # This is required to obtain the ID token from GitHub Actions
+      contents: read # For example: this is required to check out code, remove if not needed
     steps: ...
 ```
 
@@ -150,7 +152,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Create a release in Octopus
     permissions:
+      # Add any additional permissions your job requires here
       id-token: write # This is required to obtain the ID token from GitHub Actions
+      contents: read # For example: this is required to check out code, remove if not needed
     steps:
       - name: Login to Octopus
         uses: OctopusDeploy/login@v1
