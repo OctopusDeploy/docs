@@ -29,6 +29,10 @@ The first step is to create an OIDC identity for your issuer to access the Octop
 7. Click Save.
 
 :::div{.hint}
+Currently there is no support for wildcards when configuring the subject of an identity, support for this may be available in a future version of Octopus.
+:::
+
+:::div{.hint}
 Multiple OIDC identities can be added for a service account.
 :::
 
