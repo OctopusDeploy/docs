@@ -7,6 +7,8 @@ description: This section documents how to manage runbooks as code.
 navOrder: 6
 ---
 
+[Serializing and deploying runbook resources](https://www.youtube.com/watch?v=mPBeqOwkY4Q)
+
 [Runbooks](/docs/runbooks) are a component of a project, sharing or referencing much of the project's configuration such as variables, connected library variable sets, tenants, and lifecycles.
 
 However, it can be useful to treat runbooks as an independently deployable artifact. This allows a common runbook to be shared across many projects.
