@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-01
-modDate: 2023-10-01
+modDate: 2024-01-09
 title: Windows 2019 End-of-life
 description: Describing the deprecation process of Windows 2019 Dynamic Workers.
 navOrder: 50
