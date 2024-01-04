@@ -23,6 +23,7 @@ creds
 cscfg
 cspkg
 cutover
+Datacenter
 datetime
 deallocate
 deallocated
