@@ -6,7 +6,7 @@ This Configuration Feature was previously called JSON Configuration Variables. I
 
 With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables) in Octopus for use in JSON, YAML, XML, and Properties configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
 
-## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
+## Configuring the structured configuration variables feature
 
 1. To enable Structured Configuration Variables on a [step](/docs/projects/steps) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
 2. In the **Structured Configuration Variables** section of the step, specify the relative paths to your structured configuration files, relative to the working directory. For instance:
@@ -54,7 +54,7 @@ Config\*.json
 Application/**/*.xml
 ```
 
-The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
+The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions/#extended-syntax) allows conditionals and loops to be used.
 
 ### How the file type for target files is determined
 
@@ -64,7 +64,7 @@ If the file doesn't parse as JSON, Octopus refers to its file extension. If it i
 
 If the file extension is not recognized (for example, a file with a `config` file extension), Octopus will try to parse the files using each of the supported formats until a matching format is found.
 
-### Variable replacement {#StructuredConfigurationVariablesFeature-VariableReplacement}
+### Variable replacement {#variable-replacement}
 
 Octopus uses variable names to identify the structures that should be replaced within the target files. If a structure within a target file has a hierarchical location that matches a variable name, its content will be replaced with the variable's value. The hierarchical location is identified differently depending on the type of target file:
 
@@ -131,7 +131,7 @@ For more information, refer to our [variable casing](/docs/projects/variables/#v
 
 ## JSON and YAML
 
-### Simple variables {#StructuredConfigurationVariablesFeature-Simplevariables}
+### Simple variables
 
 Given this example of a target config file:
 
@@ -159,7 +159,7 @@ If you define [variables](/docs/projects/variables) in your Octopus project call
 
 Note that the `tempImageFolder` setting remains untouched, and the types of `port` and `debug` have not been changed. Octopus will attempt to keep the original type if the new value matches the type of the old value.
 
-### Hierarchical variables {#StructuredConfigurationVariablesFeature-Hierarchicalvariables}
+### Hierarchical variables
 
 It is common (and encouraged) to use hierarchical variables in Structured configuration files. This is supported in Octopus variables by using a nested path syntax delimited by *colon* characters.
 
@@ -201,7 +201,7 @@ weatherApi:
   key: TEST7654321
 ```
 
-### JSON Array or YAML Sequence variables {#StructuredConfigurationVariablesFeature-Arrayvariables}
+### JSON Array or YAML Sequence variables
 
 Octopus can replace a value in a JSON array or a YAML sequence by using the zero-based index of the array or sequence in the variable name. If we take the following examples:
 

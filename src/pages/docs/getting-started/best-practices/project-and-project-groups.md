@@ -46,7 +46,7 @@ Octopus Deploy expects any application component it deploys to contain everythin
 
 - All releases will need to be deployed to all environments.  
 - Deploying only delta changes requires you to always deploy all versions in a specific order.  
-- If a new deployment target (webserver) is created, you will have to deploy all versions to that new target rather than the latest.
+- If a new deployment target (web server) is created, you will have to deploy all versions to that new target rather than the latest.
 - You'll need a mechanism to create roll-up releases; otherwise, the list of versions to deploy when a new target is added will grow and become unwieldy.
 - It'll be near impossible to roll back to a previous version of the code.
 

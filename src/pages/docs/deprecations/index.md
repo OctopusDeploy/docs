@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-09-13
+modDate: 2023-11-20
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -18,10 +18,19 @@ Deprecations have the following lifecycle:
 - (+1 year) Remove deprecated functionality
 
 :::div{.warning}
-Deprecations are subject to change in detail or timeframe. If you need help assessing the impact of deprecation of a feature on your particular Octopus Server configuration, please contact our [support team](https://octopus.com/support).
+Deprecations are subject to change in detail or time frame. If you need help assessing the impact of deprecation of a feature on your particular Octopus Server configuration, please contact our [support team](https://octopus.com/support).
 :::
 
 ## Deprecations coming in 2024.1
+
+### Azure Cloud Services (Classic)
+Azure have announced the sun setting of the original _Cloud Services_ resource, renamed _Cloud Services (Classic)_, with the [final retirement date set as August 31, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-cloud-services-classic). In a little over 6 months, teams that are still relying on this cloud service will be unable to deploy to them at all, with Octopus Deploy or otherwise.
+
+In the lead up to this, Octopus workloads making use of Azure Cloud Service Targets, Azure Cloud Service Steps or Management Certificates in Octopus Deploy will start to see in-app and in-task warnings appear in Octopus Server `2024.1`. 
+
+Once support has been fully dropped for these resources by Azure mid-year, then these warnings will turn into errors followed by the removal of these resources from Octopus instances entirely.
+
+The recommended migration path outlined by Azure is to make use of the separate [_Azure Cloud Services (extended support)_](https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/overview) product, however at this time there are no plans to support this feature in Octopus natively.
 
 ### Mono based SSH Deployment Targets
 
@@ -39,12 +48,12 @@ Due to the low uptake of F# script steps and the work required to upgrade them f
 
 ## Deprecations for 2023.3
 
-### Project level `/runbooks/all` API endpoint
+### Project level `/runbooks/all` API endpoint {#project-level-runbooks-all-api-endpoint}
 
 The `GET /projects/{projectId}/runbooks/all` API endpoint is being replaced by a new version that omits the ProjectIds query string parameter in future versions of Octopus. It was adopted from an earlier version of the product and is now redundant and potentially confusing.
 The same functionality is available via the `GET /runbooks/all` API endpoint, passing relevant Project IDs via the `ProjectIds` query parameter. If the `ProjectIds` parameter is not required, the `GET /projects/{projectId}/runbooks/all/v2` endpoint should be used instead.
 
-### Reporting `/reporting/deployments-counted-by-week` API endpoint
+### Reporting `/reporting/deployments-counted-by-week` API endpoint {#reporting-deployments-by-week}
 
 The `GET /reporting/deployments-counted-by-week` API endpoint is being removed in future versions of Octopus.
 It is an old endpoint that is no longer used by any of our supported clients.

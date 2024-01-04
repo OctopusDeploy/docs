@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-10-27
 title: Service accounts
 description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform.
 navOrder: 2
@@ -18,10 +18,10 @@ It is best to create **Service accounts** for this purpose to provide each servi
 :::div{.hint}
 **Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus Web Portal.
 
-Service accounts authenticate with the Octopus API using their [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Service accounts authenticate with the Octopus API using [OpenID Connect](/docs/octopus-rest-api/openid-connect) or an [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
 :::
 
-## Creating a service account {#ServiceAccounts-Creatingaserviceaccount}
+## Creating a service account {#ServiceAccounts-CreatingAServiceAccount}
 
 [Getting Started - Service Accounts](https://www.youtube.com/watch?v=SMsZMpUwCZc)
 
@@ -37,8 +37,14 @@ Creating a new Service account is very similar to creating a new User account:
 :::
 
 :::div{.hint}
-This Service account is not very useful until it [belongs to one or more teams](/docs/security/users-and-teams/), and has one or more [Octopus API keys](/docs/octopus-rest-api/how-to-create-an-api-key) associated with it
+This Service account is not very useful until it [belongs to one or more teams](/docs/security/users-and-teams/), and has one or more [OpenID Connect Identities](/docs/octopus-rest-api/openid-connect) or [Octopus API keys](/docs/octopus-rest-api/how-to-create-an-api-key) associated with it.
 :::
+
+## OpenID Connect (OIDC)
+
+You can use [OpenID Connect (OIDC)](/docs/octopus-rest-api/openid-connect) to automate Octopus with another service without needing to provision or manage API Keys. To do this you configure a specific *OIDC Identity* for the service which allows it to connect to Octopus securely. The service then exchanges an ID token with Octopus for a short-lived access token which it can then use for API requests.
+
+## API Keys
 
 :::figure
 ![Service account API Key](/docs/security/users-and-teams/images/service-account-apikey.png)

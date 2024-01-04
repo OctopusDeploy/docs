@@ -4,4 +4,6 @@ Azure [announced](https://azure.microsoft.com/en-gb/updates/deprecating-service-
 We recommend reading the Azure [guide to choosing a compute service](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree) to help choose a replacement you can [deploy to Azure](/docs/deployments/azure) with.
 
 This guide remains here for legacy applications.
+
+Support for this feature will be deprecated in Octopus Server from the `2024.1` release.
 :::

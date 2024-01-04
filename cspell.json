@@ -15,6 +15,9 @@
         "package.json",
         "package-lock.yaml",
         "pnpm-lock.yaml",
+        "docs/credits.md",
+        "src/pages/report/**",
+        "public/docs/js/**",
         "node_modules/**"
     ]
 }

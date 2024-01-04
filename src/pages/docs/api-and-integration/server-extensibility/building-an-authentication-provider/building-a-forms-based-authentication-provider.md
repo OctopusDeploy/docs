@@ -1,8 +1,8 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/administration/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider
-pubDate:  2023-01-01
+redirect: https://octopus.com/docs/deprecations#server-extensibility
+pubDate:  2023-12-11
 navSearch: false
 navSitemap: false
 navMenu: false

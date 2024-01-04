@@ -11,7 +11,7 @@ You can deploy software to the Azure cloud by adding your Azure subscription to 
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy.
 
-## Azure account authentication method {#CreatinganAzureAccount-AuthenticationMethod}
+## Azure account authentication method {#CreatingAnAzureAccount-AuthenticationMethod}
 
 When you add an Azure account to Octopus, there are two ways to authenticate with Azure in Octopus. These represent the different interfaces in Azure, and the interface you need will dictate which authentication method you use.
 
@@ -20,36 +20,65 @@ When you add an Azure account to Octopus, there are two ways to authenticate wit
 
 You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
 
+Azure Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Azure Active Directory will let you configure finely grained authorization for your Octopus Server.
+
 :::div{.warning}
 Management Certificates are used to authenticate with Service Management APIs, those are being deprecated by Microsoft.  See our [blog post](https://octopus.com/blog/azure-management-certs) for more details.  Instructions remain only for legacy purposes.  Please migrate to service principals as soon as possible.
 :::
 
 ## Creating an Azure Service Principal account {#azure-service-principal}
 
-Azure Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Azure Active Directory will let you configure finely grained authorization for your Octopus Server.
+Before creating an Octopus Azure Service Principal account, you will need an Azure App Registration. If you do not currently have an Azure App Registration follow the [App Registration](https://oc.to/create-azure-app-registration) guide, or create it with a [script](#create-app-registration-via-script).
 
-1. Create an Azure Active Directory registered application (or application registration) and service principal (via the [Azure Portal](#create-service-principal-account-in-azure) or with [PowerShell](#create-service-principal-account-with-powershell)).
-2. Allow Octopus to authenticate with Azure using a Service Principal.
+After creating the App Registration, make a note of the following:
 
-### Create an Azure Service Principal with the Azure Portal {#create-service-principal-account-in-azure}
-
-This step shows you how to create a Service Principal with the Azure Portal, if you would rather use PowerShell to create the Service Principal, see [Create an Azure Service Principal With PowerShell](#create-service-principal-account-with-powershell).
-
-[Getting Started - Azure Account](https://www.youtube.com/watch?v=QDwDi17Dkfs)
-
-1. In the Azure Portal, navigate to **Azure Active Directory ➜ Properties** and copy the value from the **Tenant ID** field, this is your **Tenant ID**.
-1. Next you need your **Application ID**.
-  - If you have created an AAD registered application, navigate to **Azure Active Directory ➜ App Registrations**, click **View all applications**, select the app and copy the **Application ID**.  Please note, the Azure UI defaults to **Owned Applications** tab.  Click the **All Applications** tab to view all app registrations. 
-  - If you haven't created a registered app, navigate to **Azure Active Directory ➜ App Registrations**, click on **New registration** and add the details for your app, and click **Save**. Make note of the **Application ID**.
-3. Generate a one-time password by navigating to **Certificates & Secrets ➜ Certificates & Secrets**. Add a new **secret**, enter a description, and click **Save**. Make note of the displayed application password for use in Octopus. If you don't want to accept the default one year expiry for the password, you can change the expiry date.
-
-You now have the following:
-
+- **Subscription ID**
 - **Tenant ID**
 - **Application ID**
-- **Application Password/secret**
+
+There are two supported types of credentials to allow your Octopus instance to authenticate with an Azure Service Principal: Client Secrets and Federated Credentials.
+
+### Create a client secret credential for an Azure Service Principal
+
+To manually create a client secret follow the [Add a client secret](https://oc.to/create-azure-credentials) section in the Azure AD documentation, or create it with a [script](#create-a-client-secret-via-script).
+
+Following this process you will be given the client secret, make a note of this as you cannot retrieve it afterward.
 
 Next, you need to configure your [resource permissions](#resource-permissions).
+
+### Create a federated credential for an Azure Service Principal
+
+#### Octopus Server configuration  
+:::div{.info}
+If you are using Octopus Cloud, you will not need to do anything to expose the instance to the public internet, this is already configured for you.
+:::
+
+To use federated credentials, your Octopus instance will need to have two anonymous URLs exposed to the public internet. 
+
+- `https://server-host/.well-known/openid-configuration`
+- `https://server-host/.well-known/jwks`
+
+These must be exposed with anonymous access on HTTPS. Without this, the OpenID Connect protocol will not be able to complete the authentication flow.
+
+The hostname of the URL that these two endpoints are available on must either be configured under **Configuration->Nodes->Server Uri** or set as the first ListenPrefix in the server configuration. 
+
+#### Azure Service Principal configuration 
+
+To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-credentials) section in the Azure AD documentation, or create it with a [script](#create-federated-credential-via-script).
+
+The federated credential will need the **Issuer** value set to the publicly accessible Octopus Server URI configured in the previous step, this value must also not have a trailing slash (/), for example `https://samples.octopus.app`.
+
+Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect) on how to customize the **Subject** value.
+
+The **Audience** value can be left at the default, or set to a custom value if needed.
+
+#### Azure Tool support for OpenID Connect
+
+To support OpenID Connect authentication, you will need to ensure it is supported in the versions of the tooling:
+
+- az CLI requires 2.30+
+- az PowerShell modules requires 7.0+
+- AzureRM terraform provider required 3.22+ 
 
 ## Resource permissions {#resource-permissions}
 
@@ -76,25 +105,39 @@ Next, if you want to get even more granular you can constrain the service princi
 
 The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployments/azure/ase/#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
 
-### Create an Service Principal with PowerShell {#create-service-principal-account-with-powershell}
+### Create an Azure App Registration via script {#create-app-registration-via-script}
 
-This step shows you how to create a Service Principal with the PowerShell script below, if you would rather use the Azure Portal to create the Service Principal, see [Create an Azure Service Principal With the Azure Portal](#create-service-principal-account-in-azure).
+This step shows you how to script the creation of an Azure Active Directory App Registration
 
 :::div{.hint}
 During the script, you will be prompted to authenticate with Azure. The authenticated user must have administrator permissions in the Active Directory in which the Service Principal is being created.
 :::
 
 <details data-group="infrastructure-accounts-azure">
+<summary>Az CLI</summary>
+
+```bash
+# this script will create a new Azure AD App Registration
+
+subscription='' # Replace with the name or id of your subscription
+appName='' # Replace with your app registration name
+
+az login
+az account set --subscription $subscription
+az ad app create --display-name "$appName" -o table --query "{Id:id,Name:displayName,ClientId:appId}"
+az account show  --query "{Name:name,SubscriptionId:id,TenantId:tenantId}" -o table
+```
+</details>
+
+<details data-group="infrastructure-accounts-azure">
 <summary>Az PowerShell</summary>
 
 ```powershell
-# This script will create a new service principal for you to use in Octopus Deploy using the Az PowerShell modules.  This will work with both PowerShell and PowerShell Core.
+# this script will create a new Azure AD App Registration
 
 $AzureTenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982" # Replace with your Tenant Id
 $AzureSubscriptionName = "YOUR SUBSCRIPTION NAME" # Replace with your subscription name
 $AzureApplicationName = "YOUR APPLICATION NAME" # Replace with your application name
-$AzurePasswordEndDays = "365" # Update to change the expiration date of the password
-$AzurePassword = "$(New-Guid)$(New-Guid)" -replace "-", "" # Replace this if you want to have a known password
 
 if (Get-Module -Name Az -ListAvailable)
 {    
@@ -112,82 +155,105 @@ Import-Module -Name Az
 Write-Host "Logging into Azure"
 Connect-AzAccount -Tenant $AzureTenantId -Subscription $AzureSubscriptionName
 
-Write-Host "Auto-generating new password"
-$securePassword = ConvertTo-SecureString $AzurePassword -AsPlainText -Force
-
-$endDate = (Get-Date).AddDays($AzurePasswordEndDays)
-
 $azureSubscription = Get-AzSubscription -SubscriptionName $AzureSubscriptionName
 $ExistingApplication = Get-AzADApplication -DisplayName "$AzureApplicationName"
 
 if ($null -eq $ExistingApplication)
 {
     Write-Host "The Azure Active Directory Application does not exist, creating Azure Active Directory application"
-    $azureAdApplication = New-AzADApplication -DisplayName "$AzureApplicationName" -HomePage "http://octopus.com" -IdentifierUris "http://octopus.com/$($AzureApplicationName)" -Password $securePassword -EndDate $endDate
+    $azureAdApplication = New-AzADApplication -DisplayName "$AzureApplicationName"
     
-    Write-Host "Creating Azure Active Directory service principal"
-    $servicePrincipal = New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId    
-
-    Write-Host "Azure Service Principal successfully created"
-    $AzureApplicationId = $azureAdApplication.ApplicationId
+    Write-Host "Azure App Registration successfully created"
+    $AzureApplication = $azureAdApplication
 }
 else 
 {
-    Write-Host "The azure service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
-    New-AzADAppCredential -DisplayName "$AzureApplicationName" -Password $securePassword -EndDate $endDate     
-    Write-Host "Azure Service Principal successfully password successfully created."
-    $AzureApplicationId = $ExistingApplication.ApplicationId
+    Write-Host "The Azure service principal $AzureApplicationName already exists"        
+    $AzureApplication = $ExistingApplication
 }
 
 Write-Host "Important information to know when registering this subscription with Octopus Deploy:"
 Write-Host "    1) The Azure Tenant Id is: $AzureTenantId"
 Write-Host "    2) The Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
-Write-Host "    3) The Azure Application Id: $AzureApplicationId"
-Write-Host "    4) The new password is: $AzurePassword - this is the only time you'll see this password, please store it in a safe location."
+Write-Host "    3) The Azure Application Id: $(AzureApplication.AppId)"
+
+```
+</details>
+
+### Create a Service Principal Client Secret with PowerShell {#create-a-client-secret-via-script}
+
+This step shows you how to create a Service Principal Client Secret with the script below.
+
+:::div{.hint}
+During the script, you will be prompted to authenticate with Azure. The authenticated user must have administrator permissions in the Active Directory in which the Service Principal is being created.
+:::
+
+
+<details data-group="infrastructure-accounts-azure">
+<summary>Az CLI</summary>
+
+```bash
+# This script will create a new client secret for you to use in Octopus Deploy using the Az CLI. 
+subscription='' # Replace with the name or id of your subscription
+appId='' # Replace id of your application registration
+expiryYears=1
+
+az login
+az account set --subscription $subscription
+az ad app credential reset --append --id $appId --years $expiryYears
 ```
 
-</details>
 <details data-group="infrastructure-accounts-azure">
-<summary>AzureRM PowerShell</summary>
+<summary>Az PowerShell</summary>
 
 ```powershell
-# Obviously, replace the following with your own values
-Write-Host "This script requires Azure PowerShell 1.0 or greater which can be downloaded here: https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/"
-$subscriptionId = "cd21dc34-73dc-4c7d-bd86-041284e0bc45"
-$tenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982"
-$password = "correct horse battery staple"
+# This script will create a new client secret for you to use in Octopus Deploy using the Az PowerShell modules.  This will work with both PowerShell and PowerShell Core.
 
-# Login to your Azure Subscription
-Login-AzureRMAccount
-Set-AzureRMContext -SubscriptionId $subscriptionId -TenantId $tenantId
+$AzureTenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982" # Replace with your Tenant Id
+$AzureSubscriptionName = "YOUR SUBSCRIPTION NAME" # Replace with your subscription name
+$AzureApplicationName = "YOUR APPLICATION NAME" # Replace with your application name
+$AzurePasswordEndDays = "365" # Update to change the expiration date of the password
 
-# Create an Octopus Deploy Application in Active Directory
-Write-Output "Creating AAD application..."
-$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
-$azureAdApplication = New-AzureRmADApplication -DisplayName "Octopus Deploy" -HomePage "http://octopus.com" -IdentifierUris "http://octopus.com" -Password $securePassword
-$azureAdApplication | Format-Table
+if (Get-Module -Name Az -ListAvailable)
+{    
+    Write-Host "Azure Az Module found."
+}
+else
+{
+    Write-Host "Azure Az Modules not found.  Installing the Azure Az PowerShell Modules.  You might be prompted that PSGallery is untrusted.  If you select Yes your screen might freeze for a second while the modules download process is started."
+    Install-Module -Name Az -AllowClobber -Scope CurrentUser
+}
 
-# Create the Service Principal
-Write-Output "Creating AAD service principal..."
-$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-$servicePrincipal | Format-Table
+Write-Host "Loading the Azure Az Module.  This may cause the screen to freeze while loading the module."
+Import-Module -Name Az
 
-# Sleep, to Ensure the Service Principal is Actually Created
-Write-Output "Sleeping for 10s to give the service principal a chance to finish creating..."
-Start-Sleep -s 10
+Write-Host "Logging into Azure"
+Connect-AzAccount -Tenant $AzureTenantId -Subscription $AzureSubscriptionName
 
-# Assign the Service Principal the Contributor Role to the Subscription.
-# Roles can be Granted at the Resource Group Level if Desired.
-Write-Output "Assigning the Contributor role to the service principal..."
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId
+$endDate = (Get-Date).AddDays($AzurePasswordEndDays)
 
-# The Application ID (aka Client ID) will be Required When Creating the Account in Octopus Deploy
-Write-Output "Client ID: $($azureAdApplication.ApplicationId)"
+$azureSubscription = Get-AzSubscription -SubscriptionName $AzureSubscriptionName
+$ExistingApplication = Get-AzADApplication -DisplayName "$AzureApplicationName"
+
+if ($null -eq $ExistingApplication) {
+    Write-host "Unable to find application with name '$AzureApplicationName'"
+} else {
+    Write-Host "The Azure service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
+    $credential = New-Object Microsoft.Azure.PowerShell.Cmdlets.Resources.MSGraph.Models.ApiV10.MicrosoftGraphPasswordCredential
+    $credential.EndDateTime = $endDate 
+    $credential.DisplayName = "$AzureApplicationName"
+    $newCredential = New-AzADAppCredential -PasswordCredentials @($credential) -ApplicationId $ExistingApplication.AppId 
+    Write-Host "Azure Service Principal successfully password successfully created."
+
+    Write-Host "Important information to know when registering this subscription with Octopus Deploy:"
+    Write-Host "    1) The Azure Tenant Id is: $AzureTenantId"
+    Write-Host "    2) The Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
+    Write-Host "    3) The Azure Application Id: $($ExistingApplication.AppId)"
+    Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
+}
 ```
 
 </details>
-
-The values required for the script above are:
 
 - **Subscription ID**: The ID of the Azure subscription the account will interact with.
 - **Password**: A secret value created by you. Make sure you record it, as you will need to enter it into Octopus Deploy.
@@ -201,12 +267,115 @@ You can specify the expiry date by adding the *-EndDate* parameter to the *New-A
 -EndDate (new-object System.DateTime 2018, 12, 31)
 ```
 
-Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account). Consider reading our [note on least privilege first](#note_on_lease_privilege).
+Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account). Consider reading our [note on least privilege first](#note_on_least_privilege).
+
+
+### Create a Service Principal Client Secret with PowerShell {#create-a-client-secret-via-script}
+
+This step shows you how to create a Service Principal Client Secret with the script below.
+
+:::div{.hint}
+During the script, you will be prompted to authenticate with Azure. The authenticated user must have administrator permissions in the Active Directory in which the Service Principal is being created.
+:::
+
+
+<details data-group="infrastructure-accounts-azure">
+<summary>Az CLI</summary>
+
+```bash
+# This script will create a new federated credential for you to use in Octopus Deploy using the Az CLI. 
+subscription='' # Replace with the name or id of your subscription
+appId='' # Replace id of your application registration
+
+credential='{
+    "name": "Testing",
+    "issuer": "https://oidc-client-test.testoctopus.app",
+    "subject": "space:default:project:something",
+    "description": "Testing",
+    "audiences": [
+        "api://AzureADTokenExchange"
+    ]
+}'
+
+az login
+az account set --subscription "$subscription"
+az ad app federated-credential create --id $appId --parameters "$credential"
+```
+
+<details data-group="infrastructure-accounts-azure">
+<summary>Az PowerShell</summary>
+
+```powershell
+# This script will create a new client secret for you to use in Octopus Deploy using the Az PowerShell modules.  This will work with both PowerShell and PowerShell Core.
+
+$AzureTenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982" # Replace with your Tenant Id
+$AzureSubscriptionName = "YOUR SUBSCRIPTION NAME" # Replace with your subscription name
+$AzureApplicationName = "YOUR APPLICATION NAME" # Replace with your application name
+$AzurePasswordEndDays = "365" # Update to change the expiration date of the password
+
+if (Get-Module -Name Az -ListAvailable)
+{    
+    Write-Host "Azure Az Module found."
+}
+else
+{
+    Write-Host "Azure Az Modules not found.  Installing the Azure Az PowerShell Modules.  You might be prompted that PSGallery is untrusted.  If you select Yes your screen might freeze for a second while the modules download process is started."
+    Install-Module -Name Az -AllowClobber -Scope CurrentUser
+}
+
+Write-Host "Loading the Azure Az Module.  This may cause the screen to freeze while loading the module."
+Import-Module -Name Az
+
+Write-Host "Logging into Azure"
+Connect-AzAccount -Tenant $AzureTenantId -Subscription $AzureSubscriptionName
+
+$endDate = (Get-Date).AddDays($AzurePasswordEndDays)
+
+$azureSubscription = Get-AzSubscription -SubscriptionName $AzureSubscriptionName
+$ExistingApplication = Get-AzADApplication -DisplayName "$AzureApplicationName"
+
+if ($null -eq $ExistingApplication) {
+    Write-host "Unable to find application with name '$AzureApplicationName'"
+} else {
+    Write-Host "The Azure service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
+    $credential = New-Object Microsoft.Azure.PowerShell.Cmdlets.Resources.MSGraph.Models.ApiV10.MicrosoftGraphPasswordCredential
+    $credential.EndDateTime = $endDate 
+    $credential.DisplayName = "$AzureApplicationName"
+    $newCredential = New-AzADAppCredential -PasswordCredentials @($credential) -ApplicationId $ExistingApplication.AppId 
+    Write-Host "Azure Service Principal successfully password successfully created."
+
+    Write-Host "Important information to know when registering this subscription with Octopus Deploy:"
+    Write-Host "    1) The Azure Tenant Id is: $AzureTenantId"
+    Write-Host "    2) The Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
+    Write-Host "    3) The Azure Application Id: $($ExistingApplication.AppId)"
+    Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
+}
+```
+
+</details>
+
+- **Subscription ID**: The ID of the Azure subscription the account will interact with.
+- **Password**: A secret value created by you. Make sure you record it, as you will need to enter it into Octopus Deploy.
+- **Tenant ID**: The ID of the Active Directory tenant. You can find this in the Azure Portal by navigating to **Azure Active Directory ➜ Properties** in the **Tenant ID** field.
+
+The Service Principal will default to expiring in 1 year from the time of creation.
+
+You can specify the expiry date by adding the *-EndDate* parameter to the *New-AzureRmADApplication* command:
+
+```powershell
+-EndDate (new-object System.DateTime 2018, 12, 31)
+```
+
+Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account). Consider reading our [note on least privilege first](#note_on_least_privilege).
+
+
+
 
 ## Add the Service Principal account in Octopus {#add-service-principal-account}
 
 Now that you have the following values, you can add your account to Octopus:
 
+- Subscription ID
 - Application ID
 - Tenant ID
 - Application Password/Key
@@ -221,7 +390,7 @@ Now that you have the following values, you can add your account to Octopus:
 Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure) for more details.
 
 :::div{.hint}
-A newly created Service Principal may take several minutes before the credential test passes. If you have double checked your credential values, wait 15 minutes and try again.
+A newly created Service Principal may take several minutes before the credential test passes. If you have double-checked your credential values, wait 15 minutes and try again.
 :::
 
 ## Creating an Azure Management Certificate account {#azure-management-certificate}
@@ -234,7 +403,7 @@ The Azure Service Management APIs are being deprecated by Microsoft.  See [this 
 
 To create an Azure Management Certificate account as part of adding an [Azure subscription](#adding-azure-subscription), select Management Certificate as the Authentication Method.
 
-### Step 1: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2-ManagementCertificate}
+### Step 1: Management Certificate {#CreatingAnAzureManagementCertificateAccount-Step2-ManagementCertificate}
 
 When using **Management Certificate**, Octopus authenticates with Azure using an X.509 certificate.  You can either upload an existing certificate (`.pfx`), or leave the field blank and Octopus will generate a certificate. Keep in mind that since Octopus securely stores the certificate internally, there is no need to upload a password protected `.pfx` file. If you would like to use one that is password protected, you will need to first remove the password. This can be done with the following commands.
 
@@ -252,7 +421,7 @@ Uploaded certificates can be viewed on the 'Management Certificates' tab of the 
 
 The certificate will be named **Octopus Deploy -``{Your Account Name}**.
 
-### Step 2: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3-SaveandTest}
+### Step 2: Save and Test {#CreatingAnAzureManagementCertificateAccount-Step3-SaveAndTest}
 
 Click **Save and Test**, and Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure) for more details.
 

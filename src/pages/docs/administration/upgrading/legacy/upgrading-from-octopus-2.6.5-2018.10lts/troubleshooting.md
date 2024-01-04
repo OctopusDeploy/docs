@@ -5,6 +5,7 @@ modDate: 2023-01-01
 title: Troubleshooting
 description: Solutions to common problems when upgrading to Octopus 2018.10 LTS from Octopus 2.6.
 navOrder: 4
+navSearch: false
 ---
 
 If your upgrade from **Octopus 2.6** to **Octopus 2018.10 LTS** doesn't go smoothly, this page will help you find a solution. If this page doesn't help, contact support.
@@ -29,7 +30,7 @@ You can also refer to the Windows Event Log as well as Scheduled Tasks for more 
 
 This section describes some common upgrade issues and ways to resolve them.
 
-### Tentacle does not upgrade properly {#Troubleshooting-Tentacledoesnotupgradeproperly}
+### Tentacle does not upgrade properly
 
 #### Symptoms #1 {#Troubleshooting-Symptoms#1}
 
@@ -95,7 +96,7 @@ If the upgrade itself failed, this can be due to a previous installation of a 2.
 
 In this case, you will have to **log onto your Tentacle machine as the user who first installed the 2.0 version of the Tentacle**. You can then either run `Hydra.exe` directly, or manually uninstall the previous Tentacle and install the latest version of Tentacle.
 
-### I've lost all my NuGet packages {#Troubleshooting-I&#39;velostallmyNuGetpackages}
+### I've lost all my NuGet packages
 
 #### Symptoms {#Troubleshooting-Symptoms}
 
@@ -105,4 +106,4 @@ After migration, none of the NuGet packages that were present in the internal fe
 
 NuGet packages are not included in the Raven database backup, so will not be automatically moved to your new server and to the correct location.
 
-To move your NuGet packages, follow the [instructions in the Upgrade documentation](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/upgrade-with-a-new-server-instance/#Upgradewithanew3.0serverinstance-3.Migrateyourdatafrom2.6to3.x). After moving the files and restarting the service, your packages should be reindexed and available.
+To move your NuGet packages, follow the [instructions in the Upgrade documentation](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/upgrade-with-a-new-server-instance/#migrate-data-265-2018-10-lts). After moving the files and restarting the service, your packages should be reindexed and available.

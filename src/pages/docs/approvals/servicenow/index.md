@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2023-11-21
 title: ServiceNow Integration
 description: Octopus Deploy can integrate with your ServiceNow instance for deployment control using Change Request approvals
 navOrder: 10
@@ -51,7 +51,7 @@ The instructions in this section will require a ServiceNow Administrator.
 
 The Octopus Deploy / ServiceNow integration requires security configuration in your target ServiceNow instance.
 
-Follow the [ServiceNow OAuth documentation](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) to configure an OAuth endpoint for Octopus to use for authentication. Take note of the OAuth client id and client secret from the configuration.
+Follow the [ServiceNow OAuth documentation](https://docs.servicenow.com/bundle/sandiego-platform-security/page/administer/security/task/t_SettingUpOAuth.html) to configure an OAuth endpoint for Octopus to use for authentication. Take note of the OAuth client id and client secret from the configuration.
 
 Next, the integration will require a user account in ServiceNow. The recommendation is to create a service account specifically for Octopus, once created the user must be assigned the following two roles:
 

@@ -1,27 +1,27 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-12-07
 title: Artifacts
 description: Artifacts in Octopus provide a convenient way to collect files from remote machines during deployments.
 navOrder: 10
 ---
 import CollectArtifactInExecutionContainer from 'src/shared-content/projects/deployment-process/collect-artifact-in-execution-container.include.md';
 
-Artifacts in Octopus provide a convenient way to collect files from remote machines, and copy them to the Octopus Server, where they can then be downloaded from the web interface. Examples of where artifacts may be useful are:
+Artifacts in Octopus provide a convenient way to collect files from remote machines and copy them to the Octopus Server. Examples of where artifacts may be useful are:
 
 - Collecting log files from other programs.
-- Copying configuration files so you can inspect to see if the right values were replaced.
+- Copying configuration files to inspect values.
 
-Artifacts can be collected from anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console/), or [custom scripts](/docs/deployments/custom-scripts) in a deployment.
+Artifacts can be collected from anywhere Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console/) or [custom scripts](/docs/deployments/custom-scripts) in a deployment.
 
-After the script runs the files will be uploaded to Octopus Server and made available as deployment artifacts which are available for download from the task output, or via the [Octopus API](/docs/octopus-rest-api).
+Artifacts are uploaded to the Octopus Server after a script runs. You can download them from the task output or via the [Octopus API](/docs/octopus-rest-api).
 
 :::figure
 ![](/docs/projects/deployment-process/images/artifacts-access.png "width=500")
 :::
 
-## Collecting artifacts using scripts \{#Artifacts-Collectingartifactsusingscripts}
+## Collecting artifacts using scripts
 
 You can collect artifacts using any of the scripting languages supported by Octopus. In each scripting language you can specify the path to the file you want to collect as an artifact as an absolute path, or a path relative to the current working directory. By default, the file name will be used as the artifact name, but you can provide a custom name for the artifact as an alternative.
 
