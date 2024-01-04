@@ -293,7 +293,7 @@ async function replaceSynonyms(queryTerms) {
  */
 async function search(s, r) {
     const numberOfResults = r ?? 12;
-    console.log('search', s, numberOfResults);
+    console.log('search:' + s, numberOfResults);
 
     /** @type {SearchEntry[]} */
     const needles =  [];
@@ -539,7 +539,8 @@ function debounceSearch() {
         throw new Error('Cannot find #site-search-query');
     }
 
-    var s = input.value;
+    // Words chained with . are combined, i.e. System.Text is "systemtext"
+    var s = input.value.replace(/\./g, '');
 
     window.clearTimeout(debounceTimer);
     debounceTimer = window.setTimeout(function () {
