@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-12-04
+modDate: 2024-01-09
 title: Dynamic Worker pools
 description: Dynamic Worker pools are used in our cloud product to dynamically create and assign workers to running tasks.  This page describes how dynamic worker pools work.
 navOrder: 50
@@ -39,11 +39,7 @@ The full list of available worker images includes both specific operating system
 The current default images are:
 
 - `Ubuntu (default)` ➜ `Ubuntu Linux 22.04`
-- `Windows (default)` ➜ `Windows Server Core 2019`
-
-:::div{.warning}
-The `Windows (default)` image will change to Windows 2022 on 4 December 2023, and Windows 2019 images will be deprecated on 9 January 2024. You are advised to test your deployment processes with our Windows 2022 images. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
-:::
+- `Windows (default)` ➜ `Windows Server Core 2022`
 
 ### Choosing an Image
 
@@ -106,41 +102,9 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to [Ubuntu 18.04 End-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life) for further details.
 :::
 
-### Windows Server Core 2019
-
-:::div{.warning}
-Windows 2019 images will be removed on 9 January 2024. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
-:::
-
-Each `Windows Server Core 2019` worker is provisioned with a baseline of tools including (but not limited to):
-
-- .NET Core (2.1, 3.1)
-- .NET Framework 3.5
-- .NET Framework 4.8
-- AWS IAM Authenticator (0.5.3)
-- Chocolatey (latest)
-- Docker (latest)
-- Helm (2.9.1)
-- Kubectl (multiple versions)
-- Microsoft Service Fabric (6.1.480.9494)
-- Microsoft Service Fabric SDK (3.0.480)
-- Nuget CLI (latest)
-- Octopus Client (latest)
-- Pip (latest)
-- Powershell Core (latest)
-- Python (3.7.4)
-- GCloud CLI (339.0.0)
-
-Windows 2019 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers). 
-
-:::div{.hint}
-We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
-:::
-
 ### Windows Server Core 2022
-:::div{.hint}
-Windows 2022 is currently the `Windows (default)` image. If you are having issues with your deployments using Windows 2022, you can revert your Dynamic Worker pool(s) to use Windows 2019. However, note that this is only a temporary workaround as Windows 2019 images will be removed on 9 January 2024. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
-:::
+
+This is the default for the Windows operating system, referenced as `Windows (default)`.
 
 Each `Windows Server Core 2022` worker is provisioned with a baseline of tools including (but not limited to):
 
@@ -165,6 +129,12 @@ Windows 2022 workers are capable of running [execution worker containers](/docs/
 
 :::div{.hint}
 We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
+:::
+
+### Windows Server Core 2019
+
+:::div{.warning}
+Windows 2019 images are no longer available as of 9 January 2024. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
 :::
 
 ## kubectl on Windows Images

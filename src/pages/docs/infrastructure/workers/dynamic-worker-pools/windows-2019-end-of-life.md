@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-01
-modDate: 2023-10-01
+modDate: 2024-01-09
 title: Windows 2019 End-of-life
 description: Describing the deprecation process of Windows 2019 Dynamic Workers.
 navOrder: 50
@@ -9,15 +9,19 @@ hideInThisSection: true
 hideInThisSectionHeader: true
 ---
 
+:::div{.warning}
+Windows Server 2019 images are no longer available as of 9 January 2024. The details below are provided for historical reference.
+:::
+
 Our Windows Server 2019 Dynamic Workers are being upgraded to use Windows Server 2022, this may result in breaking changes for users of community steps or custom scripts.
 
 
 ## What is changing?
-Due to LTSC Windows Server 2019 ending on 9th January 2024 , we are upgrading our dynamic workers to use Windows Server 2022.  
+Due to LTSC Windows Server 2019 ending on 9 January 2024 , we are upgrading our dynamic workers to use Windows Server 2022.  
 
 
 ## Who will be impacted?
-Users of Octopus Cloud utilising Windows Dynamic Workers (`Windows (default)` and `Windows Server Core 2019` images) and running custom scripts or community steps may be impacted as there are **breaking changes between Windows 2019 and Windows 2022**. Should any additional components be identified as having breaking changes we will endeavour to inform you via email and Octopus community Slack.
+Users of Octopus Cloud utilizing Windows Dynamic Workers (`Windows (default)` and `Windows Server Core 2019` images) and running custom scripts or community steps may be impacted as there are **breaking changes between Windows 2019 and Windows 2022**. Should any additional components be identified as having breaking changes we will endeavour to inform you via email and Octopus community Slack.
 
 Steps running execution containers on Windows Dynamic Workers may also be impacted as Windows containers can generally only run when the container base image OS version matches the host OS version. This means the Windows 2019 container image you are currently using will likely fail to run on a Windows 2022 Dynamic Worker.
 
