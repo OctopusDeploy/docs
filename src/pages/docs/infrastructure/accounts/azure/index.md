@@ -189,7 +189,7 @@ During the script, you will be prompted to authenticate with Azure. The authenti
 :::
 
 
-<details data-group="infrastructure-accounts-azure">
+<details data-group="infrastructure-accounts-azure-powershell">
 <summary>Az CLI</summary>
 
 ```bash
@@ -202,8 +202,9 @@ az login
 az account set --subscription $subscription
 az ad app credential reset --append --id $appId --years $expiryYears
 ```
+</details>
 
-<details data-group="infrastructure-accounts-azure">
+<details data-group="infrastructure-accounts-azure-powershell">
 <summary>Az PowerShell</summary>
 
 ```powershell
@@ -252,7 +253,6 @@ if ($null -eq $ExistingApplication) {
     Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
 }
 ```
-
 </details>
 
 - **Subscription ID**: The ID of the Azure subscription the account will interact with.
@@ -279,7 +279,7 @@ During the script, you will be prompted to authenticate with Azure. The authenti
 :::
 
 
-<details data-group="infrastructure-accounts-azure">
+<details data-group="infrastructure-service-principal-powershell">
 <summary>Az CLI</summary>
 
 ```bash
@@ -301,8 +301,9 @@ az login
 az account set --subscription "$subscription"
 az ad app federated-credential create --id $appId --parameters "$credential"
 ```
+</details>
 
-<details data-group="infrastructure-accounts-azure">
+<details data-group="infrastructure-service-principal-powershell">
 <summary>Az PowerShell</summary>
 
 ```powershell
@@ -351,7 +352,6 @@ if ($null -eq $ExistingApplication) {
     Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
 }
 ```
-
 </details>
 
 - **Subscription ID**: The ID of the Azure subscription the account will interact with.
@@ -367,9 +367,6 @@ You can specify the expiry date by adding the *-EndDate* parameter to the *New-A
 ```
 
 Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account). Consider reading our [note on least privilege first](#note_on_least_privilege).
-
-
-
 
 ## Add the Service Principal account in Octopus {#add-service-principal-account}
 
