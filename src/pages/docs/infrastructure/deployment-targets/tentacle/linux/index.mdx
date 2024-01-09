@@ -61,9 +61,22 @@ Many of the steps described below require elevated permissions, or must be run a
 <summary>Debian/Ubuntu repository</summary>
 
 ```bash
-apt-key adv --fetch-keys https://apt.octopus.com/public.key
+apt update && apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+  install -m 0755 -d /etc/apt/keyrings
 
-add-apt-repository "deb https://apt.octopus.com/ stretch main"
+curl -fsSL https://apt.octopus.com/public.key | sudo gpg --dearmor -o /etc/apt/keyrings/octopus.gpg
+
+chmod a+r /etc/apt/keyrings/octopus.gpg
+
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/octopus.gpg] https://apt.octopus.com/ \
+  stable main" | \
+  tee /etc/apt/sources.list.d/octopus.list > /dev/null
+
+# for legacy Ubuntu (< 18.04) use
+# apt-key adv --fetch-keys https://apt.octopus.com/public.key
+# add-apt-repository "deb https://apt.octopus.com/ stretch main"
+
 # for Raspbian use
 # sh -c "echo 'deb https://apt.octopus.com/ buster main' >> /etc/apt/sources.list"
 
