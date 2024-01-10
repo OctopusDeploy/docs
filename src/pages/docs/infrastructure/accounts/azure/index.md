@@ -48,19 +48,15 @@ Next, you need to configure your [resource permissions](#resource-permissions).
 
 ### Create a federated credential for an Azure Service Principal
 
-#### Octopus Server configuration  
-:::div{.info}
-If you are using Octopus Cloud, you will not need to do anything to expose the instance to the public internet, this is already configured for you.
+:::div{.warning}
+Support for OpenID Connect authentication to Azure requires Octopus Server version 2023.4
 :::
 
-To use federated credentials, your Octopus instance will need to have two anonymous URLs exposed to the public internet. 
+To use OpenID Connect to authenticate with Azure, you will need to create a federated credential for the Azure Service Principal
 
-- `https://server-host/.well-known/openid-configuration`
-- `https://server-host/.well-known/jwks`
+#### Octopus Server configuration
 
-These must be exposed with anonymous access on HTTPS. Without this, the OpenID Connect protocol will not be able to complete the authentication flow.
-
-The hostname of the URL that these two endpoints are available on must either be configured under **Configuration->Nodes->Server Uri** or set as the first ListenPrefix in the server configuration. 
+To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). 
 
 #### Azure Service Principal configuration 
 
@@ -68,7 +64,7 @@ To manually create a Federated Credential follow the [Add a federated credential
 
 The federated credential will need the **Issuer** value set to the publicly accessible Octopus Server URI configured in the previous step, this value must also not have a trailing slash (/), for example `https://samples.octopus.app`.
 
-Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect) on how to customize the **Subject** value.
+Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) on how to customize the **Subject** value.
 
 The **Audience** value can be left at the default, or set to a custom value if needed.
 

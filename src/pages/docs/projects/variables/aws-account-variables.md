@@ -26,10 +26,21 @@ Select the AWS account you want to access from the project to assign it to the v
 
 The AWS account variable also exposes the following properties that you can reference in a PowerShell script:
 
+**Access Key account**
+
 | Name and description |
 | -------------------- |
 | **`AccessKey`** <br/> The Access Key for the AWS account|
 | **`SecretKey`** <br/> The Secret Key for the AWS account|
+
+**OpenId Connect account**
+
+| Name and description |
+| -------------------- |
+| **`RoleArn`** <br/> The Role Arn that identifies the AWS role|
+| **`SessionDuration`** <br/> The session duration for the AWS role|
+| **`OpenIdConnect.Jwt`** <br/> The JWT identity token for the current task|
+
 
 ### Accessing the properties in a script
 
@@ -42,9 +53,24 @@ Each of the above properties can be referenced in PowerShell.
 Write-Host 'AwsAccount.Id=' $OctopusParameters["aws account"]
 Write-Host 'AwsAccount.AccessKey=' $OctopusParameters["aws account.AccessKey"]
 
+# For an OpenId Connect account
+Write-Host `AwsAccount.RoleArn=` $OctopusParameters["aws account.RoleArn"]
+Write-Host `AwsAccount.SessionDuration=` $OctopusParameters["aws account.SessionDuration"]
+
 # Directly as a variable
 Write-Host 'AwsAccount.Id=' #{aws account}
 Write-Host 'AwsAccount.AccessKey=' #{aws account.AccessKey}
+
+# For an OpenId Connect account
+Write-Host `AwsAccount.RoleArn=` #{aws account.RoleArn}
+Write-Host `AwsAccount.SessionDuration=` #{aws account.SessionDuration}
+
+# Manually obtain temporary credentials for the AWS Cli with an OpenId Connect account
+aws sts assume-role-with-web-identity `
+    --duration-seconds $OctopusParameters["aws account.SessionDuration"] `
+    --role-session-name <ROLE_SESSION> `
+    --role-arn $OctopusParameters["aws account.RoleArn"]
+    --web-identity-token $OctopusParameters["aws account.OpenIdConnect.Jwt"]
 ```
 
 :::div{.hint}
