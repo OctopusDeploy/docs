@@ -52,6 +52,7 @@ const bookmarks = [
   '/docs/deprecations#reporting-deployments-by-week',
   '/docs/infrastructure/accounts/azure#azure-service-principal',
   '/docs/infrastructure/accounts/azure#resource-permissions',
+  '/docs/infrastructure/accounts/openid-connect#subject-keys',
   '/docs/infrastructure/deployment-targets#target-roles',
   '/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target',
   '/docs/infrastructure/deployment-targets/kubernetes-target#vendor-authentication-plugins',

@@ -26,7 +26,7 @@ The hostname of the URL that these two endpoints are available on must either be
 
 If you have a third-party service or tool that supports OpenID Connect, you can add any OIDC account variable into your projects variable set and use the `[account name].OpenIdConnect.Jwt` variable to get access to the request token that can be used for authenticating. The JWT for the account on a step or the target is available in the `Octopus.OpenIdConnect.Jwt` variable.
 
-## Subject Keys
+## Subject Keys {#subject-keys}
 
 When using OpenID Connect to authenticate to with external services, the Subject claim can have its contents customized.
 
