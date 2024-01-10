@@ -63,14 +63,14 @@ Write-Host 'AwsAccount.AccessKey=' #{aws account.AccessKey}
 
 # For an OpenId Connect account
 Write-Host `AwsAccount.RoleArn=` #{aws account.RoleArn}
-Write-Host `AwsAccount.SessionDuration=` #{aws account.SesstionDuration}
+Write-Host `AwsAccount.SessionDuration=` #{aws account.SessionDuration}
 
 # Manually obtain temporary credentials for the AWS Cli with an OpenId Connect account
 aws sts assume-role-with-web-identity `
-    --duration-seconds $OctopusParamters["aws account.SessionDuration"] `
+    --duration-seconds $OctopusParameters["aws account.SessionDuration"] `
     --role-session-name <ROLE_SESSION> `
     --role-arn $OctopusParameters["aws account.RoleArn"]
-    --web-identity-token $OctopusParamters["aws account.OpenIdConnect.Jwt"]
+    --web-identity-token $OctopusParameters["aws account.OpenIdConnect.Jwt"]
 ```
 
 :::div{.hint}

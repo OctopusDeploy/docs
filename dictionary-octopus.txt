@@ -52,6 +52,7 @@ HSTS
 HTTPAPI
 hyperthread
 hyperthreading
+IMDS
 inetmgr
 inetsrv
 internalcustomer

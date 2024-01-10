@@ -115,14 +115,14 @@ When running a step, the available variables will be printed to the log. In this
 
 **Access Key Account**
 ```
-[AWS Account] = 'amazonwebservicesaccount-aws-account'
-[AWS Account.AccessKey] = 'ABCDEFGHIJKLONOPQRST'
+[AWS Account] = 'amazon-web-services-account'
+[AWS Account.AccessKey] = 'YOUR_ACCESS_KEY'
 [AWS Account.SecretKey] = '********'
 ```
 
 **OpenID Connect Account**
 ```
-[AWS Account] = 'amazonwebservicesaccount-aws-account'
+[AWS Account] = 'amazon-web-services-account'
 [AWS Account.RoleArn] = 'arn:aws:iam::123456789012:role/test-role'
 [AWS Account.SessionDuration] = '3600'
 [AWS Account.OpenIdConnect.Jwt] = '********'
