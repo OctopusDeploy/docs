@@ -31,6 +31,8 @@ See the [AWS documentation](https://oc.to/aws-access-keys) for instructions to c
 
 See the [AWS documentation](https://oc.to/aws-oidc) for instructions to configure an OpenID Connect identity provider.
 
+When setting up the identity provider you need to use the host domain name of your server as the **Audience** value, as configured under **Configuration->Nodes->Server Uri**.
+
 To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration).
 
 1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **AWS Account**.
