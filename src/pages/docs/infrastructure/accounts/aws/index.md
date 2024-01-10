@@ -29,6 +29,10 @@ See the [AWS documentation](https://oc.to/aws-access-keys) for instructions to c
 
 ### OpenID Connect
 
+:::div{.warning}
+Support for OpenID Connect authentication to AWS requires Octopus Server version 2024.1
+:::
+
 See the [AWS documentation](https://oc.to/aws-oidc) for instructions to configure an OpenID Connect identity provider.
 
 When setting up the identity provider you need to use the host domain name of your server as the **Audience** value, as configured under **Configuration->Nodes->Server Uri**.

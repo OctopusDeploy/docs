@@ -48,6 +48,10 @@ Next, you need to configure your [resource permissions](#resource-permissions).
 
 ### Create a federated credential for an Azure Service Principal
 
+:::div{.warning}
+Support for OpenID Connect authentication to Azure requires Octopus Server version 2023.4
+:::
+
 To use OpenID Connect to authenticate with Azure, you will need to create a federated credential for the Azure Service Principal
 
 #### Octopus Server configuration
