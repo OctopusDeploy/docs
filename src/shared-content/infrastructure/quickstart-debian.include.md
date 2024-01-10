@@ -28,7 +28,7 @@ echo \
 
 # for legacy Ubuntu (< 18.04) use
 # apt-key adv --fetch-keys https://apt.octopus.com/public.key
-# add-apt-repository "deb https://apt.octopus.com/ stretch main"
+# add-apt-repository "deb https://apt.octopus.com/ stable main"
 
 apt-get update
 apt-get install tentacle
