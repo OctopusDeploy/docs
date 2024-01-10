@@ -11,7 +11,7 @@ AWS CloudFormation is a great tool to use to provisions resources, however, it d
 
 The following example will use Terraform to dynamically create worker machines based on auto-scaling rules.  Instead of defining the Terraform template directly in the step template, this example will make use of a package.  The package will consist of the following files:
 - autoscaling.tf
-- autoscalingpolicy.tf
+- autoscaling-policy.tf
 - backend.tf
 - installTentacle.sh
 - provider.tf
@@ -30,24 +30,24 @@ This file contains the definitions for creating the auto-scaling configuration i
 <p>
 
 ```
-resource "aws_launch_configuration" "dynamic-linux-worker-launchconfig" {
-    name_prefix = "dynamic-linux-worker-launchconfig"
+resource "aws_launch_configuration" "dynamic-linux-worker-launch-config" {
+    name_prefix = "dynamic-linux-worker-launch-config"
     image_id = "${var.LINUX_AMIS}"
     instance_type = "t2.micro"
     
-    security_groups = ["${aws_security_group.allow-octopusserver.id}"]
+    security_groups = ["${aws_security_group.allow-octopus-server.id}"]
   
     # script to run when created
 user_data = "${file("installTentacle.sh")}"
 
 }
 
-resource "aws_launch_configuration" "dynamic-windows-worker-launchconfig" {
-    name_prefix = "dynamic-windows-worker-launchconfig"
+resource "aws_launch_configuration" "dynamic-windows-worker-launch-config" {
+    name_prefix = "dynamic-windows-worker-launch-config"
     image_id = "${var.WINDOWS_AMIS}"
     instance_type = "t2.micro"
     
-    security_groups = ["${aws_security_group.allow-octopusserver.id}"]
+    security_groups = ["${aws_security_group.allow-octopus-server.id}"]
 
     user_data = <<-EOT
 <script>
@@ -76,7 +76,7 @@ choco install octopusdeploy.tentacle -y
 resource "aws_autoscaling_group" "dynamic-linux-worker-autoscaling" {
     name = "dynamic-linux-worker-autoscaling"
     vpc_zone_identifier = ["${aws_subnet.worker-public-1.id}", "${aws_subnet.worker-public-2.id}", "${aws_subnet.worker-public-3.id}"]
-    launch_configuration = "${aws_launch_configuration.dynamic-linux-worker-launchconfig.name}"
+    launch_configuration = "${aws_launch_configuration.dynamic-linux-worker-launch-config.name}"
     min_size = 2
     max_size = 3
     health_check_grace_period = 300
@@ -93,7 +93,7 @@ resource "aws_autoscaling_group" "dynamic-linux-worker-autoscaling" {
 resource "aws_autoscaling_group" "dynamic-windows-worker-autoscaling" {
     name = "dynamic-windows-worker-autoscaling"
     vpc_zone_identifier = ["${aws_subnet.worker-public-1.id}", "${aws_subnet.worker-public-2.id}", "${aws_subnet.worker-public-3.id}"]
-    launch_configuration = "${aws_launch_configuration.dynamic-windows-worker-launchconfig.name}"
+    launch_configuration = "${aws_launch_configuration.dynamic-windows-worker-launch-config.name}"
     min_size = 2
     max_size = 3
     health_check_grace_period = 300
@@ -110,12 +110,12 @@ resource "aws_autoscaling_group" "dynamic-windows-worker-autoscaling" {
 </p>
 </details>
 
-## autoscalingpolicy.tf
+## autoscaling-policy.tf
 
 This file contains the policy definition that goes with the auto-scaling definition:
 
 <details>
-<summary>autoscalingpolicy.tf</summary>
+<summary>autoscaling-policy.tf</summary>
 <p>
 
 ```
@@ -150,8 +150,8 @@ resource "aws_cloudwatch_metric_alarm" "linux-worker-cpu-alarm" {
 }
 
 # scale down alarm
-resource "aws_autoscaling_policy" "linux-worker-cpu-policy-scaledown" {
-  name                   = "linux-worker-cpu-policy-scaledown"
+resource "aws_autoscaling_policy" "linux-worker-cpu-policy-scale-down" {
+  name                   = "linux-worker-cpu-policy-scale-down"
   autoscaling_group_name = "${aws_autoscaling_group.dynamic-linux-worker-autoscaling.name}"
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = "-1"
@@ -159,9 +159,9 @@ resource "aws_autoscaling_policy" "linux-worker-cpu-policy-scaledown" {
   policy_type            = "SimpleScaling"
 }
 
-resource "aws_cloudwatch_metric_alarm" "linux-worker-cpu-alarm-scaledown" {
-  alarm_name          = "linux-worker-cpu-alarm-scaledown"
-  alarm_description   = "linux-worker-cpu-alarm-scaledown"
+resource "aws_cloudwatch_metric_alarm" "linux-worker-cpu-alarm-scale-down" {
+  alarm_name          = "linux-worker-cpu-alarm-scale-down"
+  alarm_description   = "linux-worker-cpu-alarm-scale-down"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "2"
   metric_name         = "CPUUtilization"
@@ -175,7 +175,7 @@ resource "aws_cloudwatch_metric_alarm" "linux-worker-cpu-alarm-scaledown" {
   }
 
   actions_enabled = true
-  alarm_actions   = ["${aws_autoscaling_policy.linux-worker-cpu-policy-scaledown.arn}"]
+  alarm_actions   = ["${aws_autoscaling_policy.linux-worker-cpu-policy-scale-down.arn}"]
 }
 
 resource "aws_autoscaling_policy" "windows-worker-cpu-policy" {
@@ -207,8 +207,8 @@ resource "aws_cloudwatch_metric_alarm" "windows-worker-cpu-alarm" {
 }
 
 # scale down alarm
-resource "aws_autoscaling_policy" "windows-worker-cpu-policy-scaledown" {
-  name                   = "windows-worker-cpu-policy-scaledown"
+resource "aws_autoscaling_policy" "windows-worker-cpu-policy-scale-down" {
+  name                   = "windows-worker-cpu-policy-scale-down"
   autoscaling_group_name = "${aws_autoscaling_group.dynamic-windows-worker-autoscaling.name}"
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = "-1"
@@ -216,9 +216,9 @@ resource "aws_autoscaling_policy" "windows-worker-cpu-policy-scaledown" {
   policy_type            = "SimpleScaling"
 }
 
-resource "aws_cloudwatch_metric_alarm" "windows-worker-cpu-alarm-scaledown" {
-  alarm_name          = "windows-worker-cpu-alarm-scaledown"
-  alarm_description   = "windows-worker-cpu-alarm-scaledown"
+resource "aws_cloudwatch_metric_alarm" "windows-worker-cpu-alarm-scale-down" {
+  alarm_name          = "windows-worker-cpu-alarm-scale-down"
+  alarm_description   = "windows-worker-cpu-alarm-scale-down"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "2"
   metric_name         = "CPUUtilization"
@@ -232,7 +232,7 @@ resource "aws_cloudwatch_metric_alarm" "windows-worker-cpu-alarm-scaledown" {
   }
 
   actions_enabled = true
-  alarm_actions   = ["${aws_autoscaling_policy.windows-worker-cpu-policy-scaledown.arn}"]
+  alarm_actions   = ["${aws_autoscaling_policy.windows-worker-cpu-policy-scale-down.arn}"]
 }
 ```
 </p>
@@ -324,10 +324,10 @@ This contains the security group information for AWS:
 <p>
 
 ```
-resource "aws_security_group" "allow-octopusserver" {
+resource "aws_security_group" "allow-octopus-server" {
   vpc_id      = "${aws_vpc.worker_vpc.id}"
-  name        = "allow-octopusserver"
-  description = "Security group that allows traffic to the worker from the Octpus Server"
+  name        = "allow-octopus-server"
+  description = "Security group that allows traffic to the worker from the Octopus Server"
   egress {
     from_port   = 0
     to_port     = 0
@@ -357,7 +357,7 @@ resource "aws_security_group" "allow-octopusserver" {
   }
 
   tags = {
-    Name = "allow-octopusserver"
+    Name = "allow-octopus-server"
   }
 }
 ```
@@ -365,7 +365,7 @@ resource "aws_security_group" "allow-octopusserver" {
 </details>
 
 ## vars.tf
-This contains the variables that are referenced in other files.  Note there are Octostache (Octopus variable syntax) to make use of Octopus variables:
+This contains the variables that are referenced in other files. Note there are Octostache (Octopus variable syntax) to make use of Octopus variables:
 
 <details>
 <summary>vars.tf</summary>
@@ -387,11 +387,11 @@ variable "WINDOWS_AMIS"{
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-  default = "mykey"
+  default = "my_key"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "mykey.pub"
+  default = "my_key.pub"
 }
 
 variable "INSTANCE_USERNAME" {
