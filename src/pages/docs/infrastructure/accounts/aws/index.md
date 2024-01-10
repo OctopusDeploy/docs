@@ -15,16 +15,47 @@ The AWS account is either a pair of access and secret keys, or the credentials a
 
 ## Create an AWS account
 
-AWS steps can use an Octopus managed AWS account for authentication.
+AWS steps can use an Octopus managed AWS account for authentication. There a two different account types you can choose from, Access Keys or OpenID Connect.
+
+### Access Key account
+
+See the [AWS documentation](https://oc.to/aws-access-keys) for instructions to create the access and secret keys.
 
 1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **AWS Account**.
 1. Add a memorable name for the account.
 1. Provide a description for the account.
 1. Enter the **Access Key** and the secret **Key**.
+1. Click the **SAVE AND TEST** to save the account and verify the credentials are valid.
 
-See the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) for instructions to create the access and secret keys.
+### OpenID Connect
 
-5. Click the **SAVE AND TEST** to save the account and verify the credentials are valid.
+See the [AWS documentation](https://oc.to/aws-oidc) for instructions to configure an OpenID Connect identity provider.
+
+To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration).
+
+1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **AWS Account**.
+1. Add a memorable name for the account.
+1. Provide a description for the account.
+1. Set the Role ARN to the ARN from the identity provider associated role.
+1. Set the Session Duration to the Maximum session duration from the role, in seconds.
+1. Click the **SAVE AND TEST** to save the account and verify the credentials are valid.
+
+Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) on how to customize the **Subject** value.
+
+By default, the role trust policy does not have any conditions on the subject identifier. To lock the role down to particular usages you need to modify the [trust policy conditions](https://oc.to/aws-iam-policy-conditions) and add a condition for the `sub`.  
+
+For example, to lock an identity role to a specific Octopus environment, you can update the conditions:
+
+```JSON
+"Condition": {
+  "StringEquals": {
+        "example.octopus.app:sub": "space:default:project:aws-oidc-testing:environment:dev",
+        "example.octopus.app::aud": "example.octopus.app:"
+  }
+}
+```
+
+`default`, `aws-oidc-testing` and `dev` are the slugs of their respective resources. AWS policy conditions also support complex matching with wildcards and `StringLike` expressions.
 
 :::div{.hint}
 AWS steps can also defer to the IAM role assigned to the instance that hosts the Octopus Server for authentication. In this scenario there is no need to create the AWS account.
@@ -80,10 +111,19 @@ The **OctopusPrintVariables** has been set to true to print the variables to the
 
 When running a step, the available variables will be printed to the log. In this example, the following variables are shown:
 
+**Access Key Account**
 ```
 [AWS Account] = 'amazonwebservicesaccount-aws-account'
 [AWS Account.AccessKey] = 'ABCDEFGHIJKLONOPQRST'
 [AWS Account.SecretKey] = '********'
+```
+
+**OpenID Connect Account**
+```
+[AWS Account] = 'amazonwebservicesaccount-aws-account'
+[AWS Account.RoleArn] = 'arn:aws:iam::123456789012:role/test-role'
+[AWS Account.SessionDuration] = '3600'
+[AWS Account.OpenIdConnect.Jwt] = '********'
 ```
 
 **AWS Account.AccessKey** is the access key associated with the AWS account, and **AWS Account.SecretKey** is the secret key. The secret key is hidden as asterisks in the log because it is a sensitive value, but the complete key is available to your script.
