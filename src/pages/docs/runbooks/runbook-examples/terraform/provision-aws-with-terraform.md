@@ -278,7 +278,7 @@ workerPool="#{Project.Octopus.Server.WorkerPool}"
 machinePolicy="#{Project.Octopus.Server.MachinePolicy}"
 space="#{Project.Octopus.Server.Space}"
 
-apt-get update && apt-get install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+apt-get update && apt-get install -y --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
   install -m 0755 -d /etc/apt/keyrings
 
 curl -fsSL https://apt.octopus.com/public.key | sudo gpg --dearmor -o /etc/apt/keyrings/octopus.gpg
@@ -295,7 +295,7 @@ echo \
 # add-apt-repository "deb https://apt.octopus.com/ stable main"
 
 sudo apt-get update
-sudo apt-get install tentacle
+sudo apt-get install -y tentacle
 
 sudo /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --instance "$name"
 sudo /opt/octopus/tentacle/Tentacle new-certificate --if-blank
