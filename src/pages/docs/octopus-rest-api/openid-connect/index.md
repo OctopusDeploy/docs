@@ -171,7 +171,7 @@ If you are encountering issues using OIDC validating identity tokens from your O
 - Check the audience (`aud`), issuer (`iss`) and subject (`sub`) of the token match the configured OIDC identity on the Octopus service account.
   - The audience must be the id of the service account and will be a GUID.
   - The issuer must be a URL using the HTTPS scheme.
-  - The subject must match configured subject on the OIDC identity and is _case-sensitive_. Support is available to include wildcard characters in the subject (`*` and `?` for multiple and single wildcard matches respectively).
+  - The subject must match configured subject on the OIDC identity and is _case-sensitive_. Support is available to include wildcard characters in the subject using `*` and `?` for multiple and single character matches respectively.
 - If you are making the token exchange request manually (e.g. using an [issuer other than GitHub Actions](/docs/octopus-rest-api/openid-connect/other-issuers)), check that the required fields are set correctly. See [Exchanging an OIDC token for an Octopus access token](/docs/octopus-rest-api/openid-connect/other-issuers#OidcOtherIssuers-TokenExchange) for more information on the request format.
 - Check that the token has not expired (`exp`). Often identity tokens created by OIDC providers will have a short lifetime.
 - Check that the token is signed by a valid key from the issuer. Signing keys may be invalidated by providers under some circumstances.
