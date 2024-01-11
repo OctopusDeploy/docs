@@ -1,3 +1,4 @@
+ALLUSERSPROFILE
 apikey
 approot
 appsettings
@@ -10,7 +11,9 @@ bootstrap
 bootstrapped
 bootstrapper
 childelement
+choco
 cicd
+classiclink
 cloudapi
 Cloudsmith
 Cmdn
@@ -18,6 +21,7 @@ combinational
 comms
 COMPUTERNAME
 Conjur
+cooldown
 createartifact
 creds
 cscfg
@@ -27,6 +31,7 @@ Datacenter
 datetime
 deallocate
 deallocated
+dearmor
 deployers
 deploymentannotation
 deploymentprocess
@@ -46,6 +51,7 @@ groff
 healthcheck
 HKEY
 HKLM
+hostnames
 hotfix
 hotfixes
 HSTS
@@ -60,6 +66,7 @@ Istio
 istioctl
 ITSM
 jwks
+keyrings
 Kubelet
 kustomization
 kustomize
