@@ -117,7 +117,7 @@ Follow the guide below to get started using OIDC with other issuers. For more co
 
 ### Create an OIDC identity for a service account
 
-The first step is to create an OIDC identity for your issuer to access the Octopus API.
+The first step is to create an OIDC identity for your issuer to access the Octopus API. Multiple OIDC identities can be added for a service account.
 
 1. Go to Configuration -> Users and either create a new service account or locate an existing one.
 2. Open the OpenID Connect section.
@@ -128,10 +128,6 @@ The first step is to create an OIDC identity for your issuer to access the Octop
    2. The URL should be the base where the OIDC Discovery endpoint (`/.well-known/openid-configuration`) endpoint can be found. For example if the discovery endpoint is `https://my-oidc-issuer.com/.well-known/openid-configuration` then the issuer should be set to `https://my-oidc-issuer.com`.
 6. Enter the subject of the identity. This must match exactly the subject that is provided in the OIDC token and is _case-sensitive_. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
 7. Click Save.
-
-:::div{.hint}
-Multiple OIDC identities can be added for a service account.
-:::
 
 :::figure
 ![OIDC Identity for other issuer](/docs/octopus-rest-api/images/oidc-identity-other-issuer.png "width=500")
@@ -171,7 +167,7 @@ If you are encountering issues using OIDC validating identity tokens from your O
 - Check the audience (`aud`), issuer (`iss`) and subject (`sub`) of the token match the configured OIDC identity on the Octopus service account.
   - The audience must be the id of the service account and will be a GUID.
   - The issuer must be a URL using the HTTPS scheme.
-  - The subject must match exactly the configured subject on the OIDC identity and is _case-sensitive_.
+  - The subject must match configured subject on the OIDC identity and is _case-sensitive_. Support is available to include wildcard characters in the subject (`*` and `?` for multiple and single wildcard matches respectively).
 - If you are making the token exchange request manually (e.g. using an [issuer other than GitHub Actions](/docs/octopus-rest-api/openid-connect/other-issuers)), check that the required fields are set correctly. See [Exchanging an OIDC token for an Octopus access token](/docs/octopus-rest-api/openid-connect/other-issuers#OidcOtherIssuers-TokenExchange) for more information on the request format.
 - Check that the token has not expired (`exp`). Often identity tokens created by OIDC providers will have a short lifetime.
 - Check that the token is signed by a valid key from the issuer. Signing keys may be invalidated by providers under some circumstances.
@@ -179,6 +175,12 @@ If you are encountering issues using OIDC validating identity tokens from your O
   - The OpenID discovery endpoint must be available at `{Issuer}/.well-known/openid-configuration`
   - This endpoint must return a `jwks_uri` property with a URL where the public key used to sign the token can be obtained. There could be multiple keys returned by this endpoint, each key can be identified using the `kid` property.
   - Both of these endpoints must be publicly accessible without requiring authorization.
+
+::dic{.warning}
+Although the subject field does support wildcards, we reccomend providing as explicit a value as possible to reduce the risk of malicious requests resulting in a subject match. 
+
+For example, if you are generating OIDC tokens from GitHub Actions and want to match against any branch in your project repository, ensure your wildcard covers just the branch component of the subject `repo:AcmeOrg/MyRepo:ref:*`. Providing a single blanket `*` wildcard character otherwise means that any token request (with a matching `service_account_id`) from a GitHub Action from any organisation could result in a match and an Octopus Authentication Token issued.
+:::
 
 :::div{.hint}
 Public sites such as [jwt.io](https://jwt.io/) can be used to inspect and validate identity tokens.
