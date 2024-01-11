@@ -181,9 +181,9 @@ If you are encountering issues using OIDC validating identity tokens from your O
   - Both of these endpoints must be publicly accessible without requiring authorization.
 
 ::dic{.warning}
-Although the subject field does support wildcards, we reccomend providing as explicit a value as possible to reduce the risk of malicious requests resulting in a subject match. 
+Although the subject field does support wildcards, we recomend providing as explicit a value as possible to reduce the risk of malicious requests resulting in a subject match. 
 
-For example, if you are generating OIDC tokens from GitHub Actions and want to match against any branch in your project repository, ensure your wildcard covers just the branch component of the subject `repo:AcmeOrg/MyRepo:ref:*`. Providing a single blanket `*` wildcard character otherwise means that any token request (with a matching `service_account_id`) from a GitHub Action from any organisation could result in a match and an Octopus Authentication Token issued.
+For example, if you are generating OIDC tokens from GitHub Actions and want to match against any branch in your project repository, ensure your wildcard covers just the branch component of the subject `repo:AcmeOrg/MyRepo:ref:*`. Providing a single blanket `*` wildcard character otherwise means that any token request (with a matching `service_account_id`) from a GitHub Action from any organization could result in a match and an Octopus Authentication Token issued.
 :::
 
 :::div{.hint}
