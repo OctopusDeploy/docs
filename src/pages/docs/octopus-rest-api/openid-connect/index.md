@@ -117,7 +117,7 @@ Follow the guide below to get started using OIDC with other issuers. For more co
 
 ### Create an OIDC identity for a service account
 
-The first step is to create an OIDC identity for your issuer to access the Octopus API. Multiple OIDC identities can be added for a service account.
+The first step is to create an OIDC identity for your issuer to access the Octopus API.
 
 1. Go to Configuration -> Users and either create a new service account or locate an existing one.
 2. Open the OpenID Connect section.
@@ -128,6 +128,10 @@ The first step is to create an OIDC identity for your issuer to access the Octop
    2. The URL should be the base where the OIDC Discovery endpoint (`/.well-known/openid-configuration`) endpoint can be found. For example if the discovery endpoint is `https://my-oidc-issuer.com/.well-known/openid-configuration` then the issuer should be set to `https://my-oidc-issuer.com`.
 6. Enter the subject of the identity. This must match exactly the subject that is provided in the OIDC token and is _case-sensitive_. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
 7. Click Save.
+
+:::div{.hint}
+Multiple OIDC identities can be added for a service account.
+:::
 
 :::figure
 ![OIDC Identity for other issuer](/docs/octopus-rest-api/images/oidc-identity-other-issuer.png "width=500")
