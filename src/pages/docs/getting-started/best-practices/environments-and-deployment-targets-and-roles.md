@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-01-11
 title: Environments, Deployment Targets, and Roles
 description: Guidelines and recommendations for configuring environments, deployment targets, and lifecycles in Octopus Deploy.
 navOrder: 30
@@ -76,7 +76,7 @@ A deployment target can be assigned to 1 to N environments and 1 to N roles.
 Adding an environment is a non-trivial task, as it involves adding/updating additional deployment targets, variable scoping, lifecycles accounts, certificates, and more.  There is a direct correlation between a high number of environments and poor maintainability, usability, and performance.  
 
 Our recommendations for environments are:
-- Keep the number of environments per space to be between 2 and 20.  
+- Keep the number of environments per space to be between 2 and 10.  
 - Name environments to match your company's terminology so you can re-use them across projects.  Common names include **development**, **test**, **QA**, **acceptance**, **uat**, and **production**.
 - If you have between one and five data centers (including cloud regions), it's okay to have an environment per data center.  For example, **Production - AU** for a data center in Australia and **Production - Central US** for the Azure Central US region. If you have more than five data centers, consider [tenants](/docs/tenants) where each data center is a tenant.
 - It's okay to have team-specific environments, similar to data center environments.  Although if you have more than five or six teams, consider [tenants](//docs/tenants/) where each team is a tenant.

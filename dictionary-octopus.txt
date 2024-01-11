@@ -107,6 +107,7 @@ OIDC
 onlylogs
 passout
 petclinic
+petshop
 PKCE
 pkcs
 podannotation
