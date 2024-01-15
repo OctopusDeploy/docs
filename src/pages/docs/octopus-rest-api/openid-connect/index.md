@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-27
-modDate: 2023-09-27
+modDate: 2024-01-15
 title: Using OpenID Connect with the Octopus API
 description: External systems can use OpenID Connect with service accounts to access the Octopus API without needing to provision API keys
 navOrder: 30
