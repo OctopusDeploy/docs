@@ -34,12 +34,12 @@ function addStickyNavigation(headerSelector, navigationSelector, navigationListS
         // && where the browser is more than 860px wide
         if (dimensions.navigationHeight < ((dimensions.browserHeight - Math.max(dimensions.headerHeight, site_features.stickyNav.top)) - buffer)
             && dimensions.browserWidth > 860) {
-            console.log('Navigation: Sticky Mode');
+            // Navigation: Sticky Mode
             navigation.classList.add(className);
             const top = site_features.stickyNav.top ?? 220;
             navigation.style.top = top + 'px';
         } else {
-            console.log('Navigation: Fixed Mode');
+            // Navigation: Fixed Mode
             navigation.classList.remove(className);
         }
     }
