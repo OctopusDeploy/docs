@@ -14,10 +14,21 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-apt-key adv --fetch-keys https://apt.octopus.com/public.key
-add-apt-repository "deb https://apt.octopus.com/ stretch main"
-apt-get update
-apt-get install tentacle
+sudo apt update && sudo apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+sudo install -m 0755 -d /etc/apt/keyrings && \
+curl -fsSL https://apt.octopus.com/public.key | sudo gpg --dearmor -o /etc/apt/keyrings/octopus.gpg && \
+sudo chmod a+r /etc/apt/keyrings/octopus.gpg && \
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/octopus.gpg] https://apt.octopus.com/ \
+  stable main" | \
+  sudo tee /etc/apt/sources.list.d/octopus.list > /dev/null && \
+sudo apt update && sudo apt install tentacle
+
+# for legacy Ubuntu/Debian (< 18.04) use
+# sudo apt update && sudo apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+# curl -sSfL https://apt.octopus.com/public.key | sudo apt-key add - && \
+# sudo sh -c "echo deb https://apt.octopus.com/ stable main > /etc/apt/sources.list.d/octopus.com.list" && \
+# sudo apt update && sudo apt install tentacle
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -43,10 +54,21 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-apt-key adv --fetch-keys https://apt.octopus.com/public.key
-add-apt-repository "deb https://apt.octopus.com/ stretch main"
-apt-get update
-apt-get install tentacle
+sudo apt update && sudo apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+sudo install -m 0755 -d /etc/apt/keyrings && \
+curl -fsSL https://apt.octopus.com/public.key | sudo gpg --dearmor -o /etc/apt/keyrings/octopus.gpg && \
+sudo chmod a+r /etc/apt/keyrings/octopus.gpg && \
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/octopus.gpg] https://apt.octopus.com/ \
+  stable main" | \
+  sudo tee /etc/apt/sources.list.d/octopus.list > /dev/null && \
+sudo apt update && sudo apt install tentacle
+
+# for legacy Ubuntu/Debian (< 18.04) use
+# sudo apt update && sudo apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+# curl -sSfL https://apt.octopus.com/public.key | sudo apt-key add - && \
+# sudo sh -c "echo deb https://apt.octopus.com/ stable main > /etc/apt/sources.list.d/octopus.com.list" && \
+# sudo apt update && sudo apt install tentacle
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -70,10 +92,21 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-apt-key adv --fetch-keys https://apt.octopus.com/public.key
-add-apt-repository "deb https://apt.octopus.com/ stretch main"
-apt-get update
-apt-get install tentacle
+sudo apt update && sudo apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+sudo install -m 0755 -d /etc/apt/keyrings && \
+curl -fsSL https://apt.octopus.com/public.key | sudo gpg --dearmor -o /etc/apt/keyrings/octopus.gpg && \
+sudo chmod a+r /etc/apt/keyrings/octopus.gpg && \
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/octopus.gpg] https://apt.octopus.com/ \
+  stable main" | \
+  sudo tee /etc/apt/sources.list.d/octopus.list > /dev/null && \
+sudo apt update && sudo apt install tentacle
+
+# for legacy Ubuntu/Debian (< 18.04) use
+# sudo apt update && sudo apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+# curl -sSfL https://apt.octopus.com/public.key | sudo apt-key add - && \
+# sudo sh -c "echo deb https://apt.octopus.com/ stable main > /etc/apt/sources.list.d/octopus.com.list" && \
+# sudo apt update && sudo apt install tentacle
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -98,10 +131,21 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-apt-key adv --fetch-keys https://apt.octopus.com/public.key
-add-apt-repository "deb https://apt.octopus.com/ stretch main"
-apt-get update
-apt-get install tentacle
+sudo apt update && sudo apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+sudo install -m 0755 -d /etc/apt/keyrings && \
+curl -fsSL https://apt.octopus.com/public.key | sudo gpg --dearmor -o /etc/apt/keyrings/octopus.gpg && \
+sudo chmod a+r /etc/apt/keyrings/octopus.gpg && \
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/octopus.gpg] https://apt.octopus.com/ \
+  stable main" | \
+  sudo tee /etc/apt/sources.list.d/octopus.list > /dev/null && \
+sudo apt update && sudo apt install tentacle
+
+# for legacy Ubuntu/Debian (< 18.04) use
+# sudo apt update && sudo apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+# curl -sSfL https://apt.octopus.com/public.key | sudo apt-key add - && \
+# sudo sh -c "echo deb https://apt.octopus.com/ stable main > /etc/apt/sources.list.d/octopus.com.list" && \
+# sudo apt update && sudo apt install tentacle
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank

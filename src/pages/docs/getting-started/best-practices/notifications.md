@@ -52,7 +52,7 @@ Regardless of the notification technology (email, Slack, MS Teams, etc.), the re
 
 - Create a library variable set called "Notifications" to house common variables used in those notifications.  Some variables can include pending notification message, email subject, and deployment or runbook run result message.
 - Send notifications when pausing for approval or manual intervention to let the approver know a deployment is waiting for them.  Example variable value: `#{Octopus.Project.Name} #{Octopus.Release.Number} to #{Octopus.Environment.Name} is awaiting approval.`
-- Always send notifications at the end of each deployment informing interested parties of the deployment status.  Use Octopus Deploy's built-in [extended variable syntax](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-ExtendedSyntax) to differentiate between successful and failed deployments. Example variable value: `#{Octopus.Project.Name} #{Octopus.Release.Number} to #{Octopus.Environment.Name} has #{if Octopus.Deployment.Error}failed#{else}completed successfully#{/if}`
+- Always send notifications at the end of each deployment informing interested parties of the deployment status.  Use Octopus Deploy's built-in [extended variable syntax](/docs/projects/variables/variable-substitutions/#extended-syntax) to differentiate between successful and failed deployments. Example variable value: `#{Octopus.Project.Name} #{Octopus.Release.Number} to #{Octopus.Environment.Name} has #{if Octopus.Deployment.Error}failed#{else}completed successfully#{/if}`
 - Include a deep link in your message back to the deployment or runbook run. Example variable value `https://samples.octopus.app/app#/#{Octopus.Space.Id}/tasks/#{Octopus.Task.Id}`
 
 ## Further reading

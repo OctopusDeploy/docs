@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-05
+modDate: 2023-12-07
 title: Tenanted deployments
 description: Control how the multi-tenancy feature in Octopus is used in your Projects.
 navOrder: 10
@@ -17,7 +17,7 @@ You can change the setting for tenanted deployments for a project by navigating 
 
 Tenanted deployments will be enabled when [connecting tenants to a project](/docs/projects/tenants/bulk-connection).
 
-## Tenanted and Untenanted deployments {#tenanted-and-untenanted-deployments}
+## Tenanted and untenanted deployments {#tenanted-and-untenanted-deployments}
 
 On the deployment screen, if you choose **Tenanted** from the **Tenants** option, you are performing a [**tenanted deployment**](https://octopus.com/use-case/tenanted-deployments) - deploying a release of a project to an environment for one or more tenants. 
 
@@ -27,9 +27,9 @@ On the deployment screen, if you choose **Tenanted** from the **Tenants** option
 
 When you perform a tenanted deployment, the selected tenant can impact the entire process, including which steps are run, which variable values are used, and which deployment targets are included, all depending on your deployment design.
 
-Also, note Octopus will create a deployment per-tenant. This means if you select 20 tenants, Octopus will create 20 separate deployments: one for each tenant. Each of those deployments will execute in its own task.
+Also, note that Octopus will create a deployment per-tenant. If you select 20 tenants, Octopus will create 20 separate deployments, one for each tenant. Each of those deployments will execute in its own task.
 
-When you choose **one or more environments** to deploy to, you are performing an **untenanted deployment** - this is the same kind of deployment Octopus has always performed where you deploy a release of a project to an environment there is no tenant for the deployment. There will be no tenant influence on the deployment process.
+When you choose **one or more environments** to deploy to, you are performing an **untenanted deployment**. This is the same kind of deployment Octopus always performs, where you deploy a release to an environment where there is no tenant for the deployment. There will be no tenant influence on the deployment process.
 
 :::figure
 ![](/docs/tenants/tenant-creation/images/multi-tenant-deploy-multiple-environments.png)

@@ -17,7 +17,9 @@ When connecting to a target over SSH, the Octopus Server connects then executes 
 
 For example, with targets on a Mac the default $PATH variable may be missing `/usr/sbin`. This can be added in the `.bashrc` script with the line:
 
-> PATH=$PATH:/usr/sbin
+```
+PATH=$PATH:/usr/sbin
+```
 
 If the `.bashrc` file doesn't already exist, create it in the user folder of the user that is connecting to the Max OSX instance. If the remote user is called `octopus`, then this file will be located at `/Users/octopus/.bashrc`.
 

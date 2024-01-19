@@ -41,13 +41,24 @@ function enhanceSearchIcon() {
                     document.body.appendChild(dialog);
                     document.body.appendChild(scr);
 
-                    icon.addEventListener('click', (e) => {
+                    function openSearch(e) {
                         e.preventDefault();
                         dialog.showModal();
                         icon.setAttribute('aria-expanded', 'true');
                         return false;
-                    });
+                    }
 
+                    // Open search on CTRL + SPACE
+                    window.onkeydown = function(e) {
+                        if (e.ctrlKey && e.key == ' ') {
+                            return openSearch(e);
+                        }
+                    };
+
+                    // Open search on click
+                    icon.addEventListener('click', openSearch);
+
+                    // Close dialog
                     close.addEventListener('click', () => dialog.close());
                     dialog.addEventListener('close', () => icon.setAttribute('aria-expanded', 'false'));
                 });

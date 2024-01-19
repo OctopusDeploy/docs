@@ -3,7 +3,7 @@
 import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
 import type { MarkdownInstance } from 'astro';
 import { SITE } from '@config';
-import { htmlToText } from 'html-to-text';
+import { htmlToText, convert } from 'html-to-text';
 import keywordExtractor from 'keyword-extractor';
 
 
@@ -33,20 +33,17 @@ const getData = async () => {
         let counted: { word: string, count: number }[] = [];
 
         if (content) {
-            const text = htmlToText(content, { wordwrap: false });
+            const text = convert(content, { wordwrap: false });
 
             const words = keywordExtractor.extract(text, {
                 language: 'english',
-                return_changed_case: true
+                return_changed_case: true,
+                remove_duplicates: true
             });
 
-            function unique (value: string, index: number, array: string[]) {
-                return array.indexOf(value) === index;
-            }
-            const uniques = words.filter(unique);
-            counted = uniques.map((w) => {
+            counted = words.map((w) => {
                 return { word: w, count: words.filter(wd => wd === w).length };
-            }).filter(e => e.word.replace(/[^a-z]+/g, '').length > 1 && e.count > 1);
+            }).filter(e => e.word.replace(/[^a-z]+/g, '').length > 1);
         }
 
         items.push({

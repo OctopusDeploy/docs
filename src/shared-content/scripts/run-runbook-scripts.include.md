@@ -6,20 +6,20 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://youroctourl/api"
-$octopusAPIKey = "API-YOURAPIKEY"
-$header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
+$octopusAPIKey = "API-YOUR-KEY"
+$headers = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $projectName = "MyProject"
 $runbookName = "MyRunbook"
 $environmentNames = @("Development", "Staging")
 
 # Get space
-$spaces = Invoke-WebRequest -Uri "$octopusBaseURL/spaces/all" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
+$spaces = Invoke-WebRequest -Uri "$octopusURL/spaces/all" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
 $space = $spaces | Where-Object { $_.Name -eq $spaceName }
 Write-Host "Using Space named $($space.Name) with id $($space.Id)"
 
 # Create space specific url
-$octopusSpaceUrl = "$octopusBaseURL/$($space.Id)"
+$octopusSpaceUrl = "$octopusURL/$($space.Id)"
 
 # Create the release body
 $createRunbookRunCommandV1 = @{
@@ -45,7 +45,7 @@ Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $projectName = "MyProject"
 $runbookName = "MyRunbook"
@@ -114,7 +114,7 @@ using Octopus.Client.Model;
 
 // Declare working variables
 var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string projectName = "MyProject";
 string runbookName = "MyRunbook";
@@ -181,7 +181,7 @@ import json
 import requests
 
 octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):

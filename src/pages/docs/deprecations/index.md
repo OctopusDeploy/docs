@@ -48,12 +48,12 @@ Due to the low uptake of F# script steps and the work required to upgrade them f
 
 ## Deprecations for 2023.3
 
-### Project level `/runbooks/all` API endpoint
+### Project level `/runbooks/all` API endpoint {#project-level-runbooks-all-api-endpoint}
 
 The `GET /projects/{projectId}/runbooks/all` API endpoint is being replaced by a new version that omits the ProjectIds query string parameter in future versions of Octopus. It was adopted from an earlier version of the product and is now redundant and potentially confusing.
 The same functionality is available via the `GET /runbooks/all` API endpoint, passing relevant Project IDs via the `ProjectIds` query parameter. If the `ProjectIds` parameter is not required, the `GET /projects/{projectId}/runbooks/all/v2` endpoint should be used instead.
 
-### Reporting `/reporting/deployments-counted-by-week` API endpoint
+### Reporting `/reporting/deployments-counted-by-week` API endpoint {#reporting-deployments-by-week}
 
 The `GET /reporting/deployments-counted-by-week` API endpoint is being removed in future versions of Octopus.
 It is an old endpoint that is no longer used by any of our supported clients.

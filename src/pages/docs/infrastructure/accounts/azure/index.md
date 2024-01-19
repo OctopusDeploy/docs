@@ -48,19 +48,15 @@ Next, you need to configure your [resource permissions](#resource-permissions).
 
 ### Create a federated credential for an Azure Service Principal
 
-#### Octopus Server configuration  
-:::div{.info}
-If you are using Octopus Cloud, you will not need to do anything to expose the instance to the public internet, this is already configured for you.
+:::div{.warning}
+Support for OpenID Connect authentication to Azure requires Octopus Server version 2023.4
 :::
 
-To use federated credentials, your Octopus instance will need to have two anonymous URLs exposed to the public internet. 
+To use OpenID Connect to authenticate with Azure, you will need to create a federated credential for the Azure Service Principal
 
-- `https://server-host/.well-known/openid-configuration`
-- `https://server-host/.well-known/jwks`
+#### Octopus Server configuration
 
-These must be exposed with anonymous access on HTTPS. Without this, the OpenID Connect protocol will not be able to complete the authentication flow.
-
-The hostname of the URL that these two endpoints are available on must either be configured under **Configuration->Nodes->Server Uri** or set as the first ListenPrefix in the server configuration. 
+To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). 
 
 #### Azure Service Principal configuration 
 
@@ -68,7 +64,7 @@ To manually create a Federated Credential follow the [Add a federated credential
 
 The federated credential will need the **Issuer** value set to the publicly accessible Octopus Server URI configured in the previous step, this value must also not have a trailing slash (/), for example `https://samples.octopus.app`.
 
-Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect) on how to customize the **Subject** value.
+Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) on how to customize the **Subject** value.
 
 The **Audience** value can be left at the default, or set to a custom value if needed.
 
@@ -189,7 +185,7 @@ During the script, you will be prompted to authenticate with Azure. The authenti
 :::
 
 
-<details data-group="infrastructure-accounts-azure">
+<details data-group="infrastructure-accounts-azure-powershell">
 <summary>Az CLI</summary>
 
 ```bash
@@ -202,8 +198,9 @@ az login
 az account set --subscription $subscription
 az ad app credential reset --append --id $appId --years $expiryYears
 ```
+</details>
 
-<details data-group="infrastructure-accounts-azure">
+<details data-group="infrastructure-accounts-azure-powershell">
 <summary>Az PowerShell</summary>
 
 ```powershell
@@ -252,7 +249,6 @@ if ($null -eq $ExistingApplication) {
     Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
 }
 ```
-
 </details>
 
 - **Subscription ID**: The ID of the Azure subscription the account will interact with.
@@ -279,7 +275,7 @@ During the script, you will be prompted to authenticate with Azure. The authenti
 :::
 
 
-<details data-group="infrastructure-accounts-azure">
+<details data-group="infrastructure-service-principal-powershell">
 <summary>Az CLI</summary>
 
 ```bash
@@ -301,8 +297,9 @@ az login
 az account set --subscription "$subscription"
 az ad app federated-credential create --id $appId --parameters "$credential"
 ```
+</details>
 
-<details data-group="infrastructure-accounts-azure">
+<details data-group="infrastructure-service-principal-powershell">
 <summary>Az PowerShell</summary>
 
 ```powershell
@@ -351,7 +348,6 @@ if ($null -eq $ExistingApplication) {
     Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
 }
 ```
-
 </details>
 
 - **Subscription ID**: The ID of the Azure subscription the account will interact with.
@@ -367,9 +363,6 @@ You can specify the expiry date by adding the *-EndDate* parameter to the *New-A
 ```
 
 Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account). Consider reading our [note on least privilege first](#note_on_least_privilege).
-
-
-
 
 ## Add the Service Principal account in Octopus {#add-service-principal-account}
 

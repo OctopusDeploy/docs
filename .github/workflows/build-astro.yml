@@ -115,13 +115,3 @@ jobs:
           project: "Docs Microsite"
           package_version: "${{ env.PACKAGE_VERSION }}"
           git_ref: ${{ github.ref }}
-
-      - name: Deploy the release in Octopus Deploy 🐙
-        id: "queue_deployments"
-        uses: OctopusDeploy/deploy-release-action@v3
-        if: ${{ env.SHOULD_DEPLOY }}
-        with:
-          project: "Docs Microsite"
-          release_number: ${{ steps.create_release.outputs.release_number }}
-          environments: |
-            Test

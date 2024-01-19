@@ -232,7 +232,7 @@ var currentQuery = '';
 var dataUrl = qs('#site-search').dataset.sourcedata;
 
 var scoring = {
-    depth: 2,
+    depth: 5,
     phraseTitle: 60,
     phraseHeading: 20,
     phraseDescription: 20,
@@ -293,7 +293,7 @@ async function replaceSynonyms(queryTerms) {
  */
 async function search(s, r) {
     const numberOfResults = r ?? 12;
-    console.log('search', s, numberOfResults);
+    console.log('search:' + s, numberOfResults);
 
     /** @type {SearchEntry[]} */
     const needles =  [];
@@ -323,7 +323,7 @@ async function search(s, r) {
 
     cleanQuery.length > 0 && haystack.forEach( (item) => {
 
-        let foundWords = 0;
+        item.foundWords = 0;
         item.score = 0;
         item.matchedHeadings = [];
 
@@ -332,8 +332,13 @@ async function search(s, r) {
         // Part 1 - Phrase Matches, i.e. "Kitchen Sink"
 
         // Title
+        if (item.safeTitle === currentQuery) {
+            item.foundWords += 2;
+        }
+        
         if (contains(item.safeTitle, currentQuery)) {
             item.score = item.score + scoring.phraseTitle;
+            item.foundWords += 2;
         }
 
         // Headings
@@ -341,19 +346,22 @@ async function search(s, r) {
             if (contains(c.safeText, currentQuery)) {
                 item.score = item.score + scoring.phraseHeading;
                 item.matchedHeadings.push(c);
+                item.foundWords++;
             }
         });
 
         // Description
         if (contains(item.description, currentQuery)) {
             item.score = item.score + scoring.phraseDescription;
+            item.foundWords++;
         }
 
         // Part 2 - Term Matches, i.e. "Kitchen" or "Sink"
+
+        let foundWords = 0;
         
         allTerms.forEach(term => {
             let isTermFound = false;
-            const isUserTerm = queryTerms.includes(term);
 
             // Title
             if (contains(item.safeTitle, term)) {
@@ -398,22 +406,25 @@ async function search(s, r) {
             }
         });
 
-        item.foundWords = foundWords / allTerms.length;
+        item.foundWords += foundWords;
 
         if (item.score > 0) {
             needles.push(item);
         }
     });
 
-    const maxDepth = needles
-        .reduce(function (previous, current) {
-            return (current.depth > previous.depth) ? current : previous
-        })
-        .depth;
-
     needles.forEach(n => {
         // Bonus points for shallow results, i.e. /features over /features/something/something
-        n.score += (n.depth - maxDepth) * scoring.depth;
+
+        if (n.depth < 5) {
+            n.score += scoring.depth;
+            n.foundWords++;
+        }
+
+        if (n.depth < 4) {
+            n.score += scoring.depth;
+            n.foundWords++;
+        }
     });
 
     needles.sort(function (a, b){
@@ -460,7 +471,8 @@ async function search(s, r) {
         markers.innerHTML = highlight(needle.description, queryTerms);
 
         const li = document.createElement('li');
-        li.dataset.score = (Math.round((needle.score/ total) * 100)).toString();
+        li.dataset.words = needle.foundWords.toString();
+        li.dataset.score = (Math.round((needle.score/ total) * 1000) / 1000).toString();
         li.appendChild(a);
         li.appendChild(path);
         li.appendChild(markers);
@@ -527,7 +539,8 @@ function debounceSearch() {
         throw new Error('Cannot find #site-search-query');
     }
 
-    var s = input.value;
+    // Words chained with . are combined, i.e. System.Text is "systemtext"
+    var s = input.value.replace(/\./g, '');
 
     window.clearTimeout(debounceTimer);
     debounceTimer = window.setTimeout(function () {
@@ -587,6 +600,14 @@ fetch(dataUrl)
         if (params.has('q')) {
             siteSearchQuery.value = params.get('q') ?? '';
         }
+
+        for (let key of Object.keys(scoring)) {
+            if (params.has(`s_${key}`)) {
+                scoring[key] = parseInt(params.get(`s_${key}`) ?? scoring[key].toString(), 10)  ;
+            }
+        }
+
+        console.log(scoring);
 
         debounceSearch();
     })

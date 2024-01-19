@@ -91,7 +91,7 @@ public class Commit
 }
 ```
 
-The packages in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-Repetition).  e.g.
+The packages in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#repetition).  e.g.
 
 ```
 #{each package in Octopus.Release.Package}
@@ -192,7 +192,7 @@ public class BuildPackage
 }
 ```
 
-The builds in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#VariableSubstitutionSyntax-Repetition).  e.g.
+The builds in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#repetition).  e.g.
 
 ```
 #{each build in Octopus.Release.Builds}

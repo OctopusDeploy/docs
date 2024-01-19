@@ -19,7 +19,7 @@ Our starting configuration:
 - Octopus Deploy installed and running on <http://servername:8080/>
    For guidance on this topic, see [Installing Octopus](/docs/installation).
 - Valid SSL certificate installed in the Local Certificate store.
-   For guidance on this topic, please follow [Importing your SSL certificate](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate).
+   For guidance on this topic, please follow [Importing your SSL certificate](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#import-ssl-certificate).
 - IIS Management Console installed.
    For guidance on this topic, please follow [this Microsoft Docs article](https://docs.microsoft.com/en-us/iis/install/installing-iis-85/installing-iis-85-on-windows-server-2012-r2).
 
@@ -36,11 +36,11 @@ Alternatively, use the following PowerShell snippet:
 
 ```powershell
 $downloadUrl = "https://download.microsoft.com/download/8/4/9/849DBCF2-DFD9-49F5-9A19-9AEE5B29341A/WebPlatformInstaller_x64_en-US.msi"
-$downloadtarget = ([uri]$downloadUrl).segments | select -last 1
-Invoke-WebRequest $downloadUrl -OutFile $env:tmp\$downloadtarget
-Start-Process $env:tmp\$downloadtarget '/qn' -PassThru | Wait-Process
+$downloadTarget = ([uri]$downloadUrl).segments | select -last 1
+Invoke-WebRequest $downloadUrl -OutFile $env:tmp\$downloadTarget
+Start-Process $env:tmp\$downloadTarget '/qn' -PassThru | Wait-Process
 Set-Location ($env:ProgramFiles + "\Microsoft\Web Platform Installer")
-.\WebpiCmd.exe /Install /Products:'UrlRewrite2,ARRv3_0' /AcceptEULA /Log:$env:tmp\WebpiCmd.log
+.\WebPICmd.exe /Install /Products:'UrlRewrite2,ARRv3_0' /AcceptEULA /Log:$env:tmp\WebPICmd.log
 ```
 
 ## Configure SSL on default web site
@@ -85,7 +85,7 @@ Under "Select a Rule Template", choose "Reverse Proxy".
 
 If you have never enabled reverse proxy functionality before, you'll be prompted to enable it.
 
-In the "Add Reverse Proxy Rules" dialog, specify the URL of your backend Octopus Server in "Inbound Rules". In our example, this is `servername:8080`.
+In the "Add Reverse Proxy Rules" dialog, specify the URL of your backend Octopus Server in "Inbound Rules". In our example, this is `server_name:8080`.
 
 Select "Enable SSL offloading".
 
@@ -129,10 +129,10 @@ Click OK.
 
 Open a PowerShell prompt.
 
-Type the following command (replacing 'servername' as appropriate):
+Type the following command (replacing 'server_name' as appropriate):
 
 ```powershell
-Invoke-WebRequest https://servername | select -expand Headers
+Invoke-WebRequest https://server_name | select -expand Headers
 ```
 
 You should see your `x-octopus-servedby` header listed in the returned headers.

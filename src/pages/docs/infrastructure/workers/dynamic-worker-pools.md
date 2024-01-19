@@ -1,17 +1,19 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-05
+modDate: 2024-01-09
 title: Dynamic Worker pools
 description: Dynamic Worker pools are used in our cloud product to dynamically create and assign workers to running tasks.  This page describes how dynamic worker pools work.
 navOrder: 50
 ---
 
-Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools/) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers) provided by Octopus, and they don't require users to configure any infrastructure.  
+Dynamic Worker Pools provide a quick and easy way to use [workers](/docs/infrastructure/workers) for your deployments. They are a special type of [worker pool](/docs/infrastructure/workers/worker-pools) available on [Octopus Cloud](/docs/octopus-cloud).
+
+Dynamic workers are isolated virtual machines, created on-demand to run your deployments and runbook steps. They run on Azure and are created and managed by Octopus Cloud, which means you don't need to configure or maintain additional infrastructure.
 
 ## On demand
 
-Dynamic workers are created on demand and leased to an Octopus Cloud instance for a limited time before being destroyed.  
+A dynamic worker is created on demand and leased to an Octopus Cloud instance for a limited time before being destroyed.  
 
 :::div{.info}
 Octopus Cloud will automatically destroy dynamic workers as soon as one of these conditions is met:
@@ -24,24 +26,38 @@ Please reach out to [support@octopus.com](mailto:support@octopus.com) if you nee
 
 ## Isolated
 
-Each worker is provisioned exclusively to a specific customer, and is completely isolated from other customers.
+Each worker VM is provisioned exclusively to a specific customer, and is completely isolated from other customers.
 
 ## Dynamic Worker Images
 
-Each dynamic worker pool can specify the worker image used. Ubuntu Linux 22.04 is the default. Windows Server Core 2019 and 2022 worker images are also available.
+Each dynamic worker pool uses a specific worker image. This is a VM image which determines the operating system (and OS version) running on the worker. You can edit a dynamic worker pool to change which image is used.
 
-Editing a dynamic worker pool allows you to modify the image used. 
+When you sign up to [Octopus Cloud](/docs/octopus-cloud) (or create a new [space](/docs/administration/spaces)), you automatically receive a worker pool for the `Ubuntu (default)` image, and a worker pool for the `Windows (default)` image.
 
-The available worker images list specific operating system versions (e.g., `Ubuntu Linux 22.04`) but also generic "default" options such as `Ubuntu (default)`. Choosing the default option means that your worker will get the latest stable worker image released. This is a good option to choose if you're running a basic script that doesn't have any dependencies on specific tool or operating system versions.
+The full list of available worker images includes both specific operating system versions (e.g., `Ubuntu Linux 22.04`), and also generic "default" options such as `Ubuntu (default)`. Choosing the default option means that your worker will use the latest stable worker image when it is released. 
 
-If you're writing a script that relies on a specific version of tooling (e.g., helm), then we recommend choosing a specific worker image, instead of the "default" options, to prevent worker image upgrades from impacting your deployments.
+The current default images are:
+
+- `Ubuntu (default)` ➜ `Ubuntu Linux 22.04`
+- `Windows (default)` ➜ `Windows Server Core 2022`
+
+### Choosing an Image
+
+The default image is a good option to choose if you are:
+
+- Running a simple script that doesn't require specific tools or operating system versions
+- Running a step [inside a container](/docs/projects/steps/execution-containers-for-workers)
+
+If you're writing a script that relies on a specific version of tooling (e.g., helm), then we recommend using [execution containers for workers](/docs/projects/steps/execution-containers-for-workers) to run the script in a Docker container with the tool versions you need. 
+
+Alternatively, you can choose a specific worker image, instead of the "default" options, to prevent worker image upgrades from impacting your deployments.
 
 |Type | Pros | Cons |
 |-----|------|------|
-| Default (eg `Ubuntu (default)`) | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned.| The versions of dependencies (e.g., helm) are not fixed. Deployments that rely on specific versions of dependencies or operating system specific features may break during upgrades. |
+| Default (eg `Ubuntu (default)`) | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned.| The versions of dependencies (e.g. helm) are not fixed. Deployments that rely on specific versions of dependencies or operating system specific features may break during upgrades. |
 | Specific (e.g., `Ubuntu Linux 22.04`) | The version of the operating system and dependencies are fixed and can be relied upon. | When a worker image is marked as deprecated, warnings will start to appear in your deployment logs. When a worker image is decommissioned, you will need to take action to update your worker pool or deployments will fail. |
 
-## Deprecation
+### Deprecation
 
 When an image is marked as deprecated, you will see warnings in the Octopus UI, and in the deployment log. After a suitable deprecation period, deployments will start to fail if they target an image that has hit end-of-life.
 
@@ -86,38 +102,9 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to [Ubuntu 18.04 End-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life) for further details.
 :::
 
-### Windows Server Core 2019
-
-:::div{.warning}
-Windows 2019 is currently the `Windows (default)` image. Windows 2019 images will be deprecated on 9 January 2024. You are advised to test your deployment processes with our Windows 2022 images. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
-:::
-
-Each `Windows Server Core 2019` worker is provisioned with a baseline of tools including (but not limited to):
-
-- .NET Core (2.1, 3.1)
-- .NET Framework 3.5
-- .NET Framework 4.8
-- AWS IAM Authenticator (0.5.3)
-- Chocolatey (latest)
-- Docker (latest)
-- Helm (2.9.1)
-- Kubectl (multiple versions)
-- Microsoft Service Fabric (6.1.480.9494)
-- Microsoft Service Fabric SDK (3.0.480)
-- Nuget CLI (latest)
-- Octopus Client (latest)
-- Pip (latest)
-- Powershell Core (latest)
-- Python (3.7.4)
-- GCloud CLI (339.0.0)
-
-Windows 2019 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers). 
-
-:::div{.hint}
-We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
-:::
-
 ### Windows Server Core 2022
+
+This is the default for the Windows operating system, referenced as `Windows (default)`.
 
 Each `Windows Server Core 2022` worker is provisioned with a baseline of tools including (but not limited to):
 
@@ -142,6 +129,12 @@ Windows 2022 workers are capable of running [execution worker containers](/docs/
 
 :::div{.hint}
 We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
+:::
+
+### Windows Server Core 2019
+
+:::div{.warning}
+Windows 2019 images are no longer available as of 9 January 2024. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
 :::
 
 ## kubectl on Windows Images

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-11-17
 title: Built-in Worker
 description: Octopus Server comes with a built-in worker which enables you to conveniently run parts of your deployment process on the Octopus Server without the need to install a Tentacle or other deployment target. This page describes how to configure the built-in worker for a variety of scenarios.
 navOrder: 2
@@ -10,6 +10,10 @@ navOrder: 2
 Octopus Server comes with a built-in worker which enables you to conveniently run parts of your deployment process on the Octopus Server without the need to install a Tentacle or other deployment target. This is very convenient when you are getting started with Octopus Deploy, but it does come with several security implications.
 
 This page describes how to configure the built-in worker for a variety of scenarios.
+
+:::div{.hint}
+The built-in worker is only available on [self-hosted Octopus](/docs/getting-started#self-hosted-octopus) instances. [Octopus Cloud](/docs/octopus-cloud) customers have access to [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools), which provides a pre-configured worker on-demand.
+:::
 
 ## Built-in Worker
 
