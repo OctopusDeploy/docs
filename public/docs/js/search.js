@@ -293,7 +293,6 @@ async function replaceSynonyms(queryTerms) {
  */
 async function search(s, r) {
     const numberOfResults = r ?? 12;
-    console.log('search:' + s, numberOfResults);
 
     /** @type {SearchEntry[]} */
     const needles =  [];
@@ -318,8 +317,6 @@ async function search(s, r) {
     }
 
     const allTerms = queryTerms.concat(stemmedTerms);
-
-    console.log(allTerms);
 
     cleanQuery.length > 0 && haystack.forEach( (item) => {
 
@@ -512,7 +509,7 @@ async function search(s, r) {
     more.addEventListener('click', function() {
         currentQuery = '';
         const newTotal = numberOfResults + 12;
-        console.log('More', newTotal);
+        
         search(s, newTotal);
     })
 
@@ -594,8 +591,6 @@ fetch(dataUrl)
             return false;
         });
 
-        console.log('Search ready');
-
         const params = new URLSearchParams(window.location.search);
         if (params.has('q')) {
             siteSearchQuery.value = params.get('q') ?? '';
@@ -606,8 +601,6 @@ fetch(dataUrl)
                 scoring[key] = parseInt(params.get(`s_${key}`) ?? scoring[key].toString(), 10)  ;
             }
         }
-
-        console.log(scoring);
 
         debounceSearch();
     })

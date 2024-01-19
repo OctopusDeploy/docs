@@ -71,7 +71,6 @@ function recheck() {
     const item = validItems.pop();
 
     if (item && item.id !== current) {
-        console.log('Reading', item.id);
         current = item.id;
         highlight(item.id);
     }
