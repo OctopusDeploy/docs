@@ -21,7 +21,19 @@ Deprecations have the following lifecycle:
 Deprecations are subject to change in detail or time frame. If you need help assessing the impact of deprecation of a feature on your particular Octopus Server configuration, please contact our [support team](https://octopus.com/support).
 :::
 
-## Deprecations coming in 2024.1
+## Planned Deprecations
+
+### Dropping capability for Windows Server 2008 Workers and Targets in 2025.1
+Microsoft [dropped extended support](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008) for the Windows Server 2008 family in January 2020. This operating system is also the last Windows OS that does not support .NET Core, the language upon which _most_ of Octopus Deploy is built upon. The complexity that is therfore required to operate on this legacy platform has begun outweigh the value that we can justify it brings to our customers. 
+
+It has already been [noted for several years](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/windows/requirements) that Octopus no longer actively tests against or supports Windows Server 2008. The planned change in `2025.1` will simply make this operating system requirement more definitive by introducing changes that will likely prevent standard deployment and runbook tasks from executing.
+
+To provide ample time to act, from Octopus Server `2024.1`, workloads that run on Windows 2008 Servers will begin logging warnings. it is highly recommended that you upgrade your targets to a later version of Windows Server before `2025.1` to prepare for the removal of functionality.
+
+Further notes about this pending change are mentioned in the [2024.1 deprecation blog post](https://octopus.com/blog/2024-deprecated-features#windows-server-2008)
+
+
+## Deprecations for 2024.1
 
 ### Azure Cloud Services (Classic)
 Azure have announced the sun setting of the original _Cloud Services_ resource, renamed _Cloud Services (Classic)_, with the [final retirement date set as August 31, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-cloud-services-classic). In a little over 6 months, teams that are still relying on this cloud service will be unable to deploy to them at all, with Octopus Deploy or otherwise.
