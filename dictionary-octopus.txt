@@ -1,5 +1,6 @@
 ALLUSERSPROFILE
 apikey
+YOURAPIKEY
 approot
 appsettings
 ASPNET

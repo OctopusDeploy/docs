@@ -53,7 +53,7 @@ $ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip
 
 </details>
 
-## Using the Octopus API (HTTP POST) {#UsingtheOctopusAPI(HttpPost)}
+## Using the Octopus API (HTTP POST) {#UsingTheOctopusAPI(HttpPost)}
 
 You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api) - `POST /api/packages/raw HTTP 1.1`.
 
