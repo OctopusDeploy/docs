@@ -28,7 +28,7 @@ Microsoft [dropped extended support](https://learn.microsoft.com/en-us/lifecycle
 
 It has already been [noted for several years](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/windows/requirements) that Octopus no longer actively tests against or supports Windows Server 2008. The planned change in `2025.1` will simply make this operating system requirement more definitive by introducing changes that will likely prevent standard deployment and runbook tasks from executing.
 
-To provide ample time to act, from Octopus Server `2024.1`, workloads that run on Windows 2008 Servers will begin logging warnings. it is highly recommended that you upgrade your targets to a later version of Windows Server before `2025.1` to prepare for the removal of functionality.
+To provide ample time to act, from Octopus Server `2024.1`, workloads that run on Windows 2008 Servers will begin logging warnings. It's highly recommended that you upgrade your targets to a later version of Windows Server before `2025.1` to prepare for the removal of functionality.
 
 Further notes about this pending change are mentioned in the [2024.1 deprecation blog post](https://octopus.com/blog/2024-deprecated-features#windows-server-2008)
 
