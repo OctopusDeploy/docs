@@ -48,9 +48,11 @@ The recommended migration path outlined by Azure is to make use of the separate 
 
 From `2024.1` SSH deployments will no longer support running tasks via Mono. Instead, Linux workers and targets will only execute using .NET Core compiled tooling, which for most cases can be enabled via a simple configuration change on the machine configuration page. Further details on the background for this update as well as the reasoning behind it are available on the [Deprecating Mono](https://octopus.com/blog/deprecating-mono) blog post.
 
-### Dropped support for Windows Server 2003 Workers and Targets
+### Dropped support for Windows Server 2003 and un-patched Windows Server 2008 Workers and Targets
 
 Windows Server 2003 Workers and Targets will no longer execute Octopus workloads from `2024.1`. It is highly recommended that you upgrade your targets to a later version of Windows Server before updating your Octopus Server instance to this release as deployments and runbooks using these machines are unlikely to run.
+
+Windows Server 2008 Workers and Targets that do not have the latest Service Packs installed will also no longer execute Octopus workloads from `2024.1` due to the dependency on .NET Framework 4.6.2 which is unavailable on these Operating Systems. It is highly recommended that you upgrade your targets to a later version of Windows Server before updating your Octopus Server instance to this release as deployments and runbooks using these machines are unlikely to run.
 
 Further details on the background for this update are available on the [Dropping support for Windows Server 2003 machines](https://octopus.com/blog/deprecating-win2003) blog post.
 
