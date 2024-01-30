@@ -19,13 +19,13 @@ However, we recommend using a [build server](/docs/packaging-applications/build-
 
 In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
 
-In addition to manually uploading packagings or using your build server, you can add, upload, and push packages to the built-in feed in the following ways:
+In addition to manually uploading packages or using your build server, you can add, upload, and push packages to the built-in feed in the following ways:
 
 - [Using the Octopus CLI](#UsingOctopusCli).
-- [Using the Octopus API (HTTP POST)](#UsingtheOctopusAPI(HTTPPOST)).
-- [Using NuGet.exe push](#UsingNuGetexePush).
-- [Using npm.exe, grunt or gulp](#Usingnpm.exe,gruntorgulp).
-- [Using curl](#Usingcurl).
+- [Using the Octopus API (HTTP POST)](#UsingTheOctopusAPI(HttpPost)).
+- [Using NuGet.exe push](#UsingNuGetExePush).
+- [Using npm.exe, grunt or gulp](#UsingNpm.exe,GruntOrGulp).
+- [Using curl](#UsingCurl).
 
 To push packages using these methods, you will need:
 
@@ -53,16 +53,16 @@ $ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip
 
 </details>
 
-## Using the Octopus API (HTTP POST) {#UsingtheOctopusAPI(HTTPPOST)}
+## Using the Octopus API (HTTP POST) {#UsingTheOctopusAPI(HttpPost)}
 
 You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api) - `POST /api/packages/raw HTTP 1.1`.
 
 - [C# example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/Feeds/PushPackage.cs)
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Feeds/PushPackage.ps1)
 
-## Using NuGet.exe push {#UsingNuGetexePush}
+## Using NuGet.exe push {#UsingNuGetExePush}
 
-To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **Library ➜ Packages** tab of the Octopus Web Portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+To push a package using `NuGet.exe` you'll need the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **Library ➜ Packages** tab of the Octopus Web Portal.  The Help sidebar has options and examples of how to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
 :::figure
 ![The Built-in Package Repository](/docs/packaging-applications/package-repositories/built-in-repository/built-in-package-repository.png)
@@ -76,16 +76,16 @@ If a package with the same version exists, and you want to force the Octopus Ser
 
 `http://MyOctopusServer/nuget/packages?replace=true`
 
-## Using npm.exe, Grunt or Gulp {#Usingnpm.exe,gruntorgulp}
+## Using npm.exe, Grunt or Gulp {#UsingNpm.exe,GruntOrGulp}
 
 You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deployments/node-js/node-on-linux).
 
-## Using Curl {#Usingcurl}
+## Using Curl {#UsingCurl}
 
-You can upload packages using **curl**. Like all of the other examples you will need your Octopus Server URL and an API Key. This will perform a POST uploading the file contents as multi-part form data.
+You can upload packages using **curl**. Like all the other examples you will need your Octopus Server URL and an API Key. This will perform a POST uploading the file contents as multi-part form data.
 
 ```powershell
-curl -X POST https://demo.octopus.app/api/packages/raw -H "X-Octopus-ApiKey: API-YOURAPIKEY" -F "data=@Demo.1.0.0.zip"
+curl -X POST https://demo.octopus.app/api/packages/raw -H "X-Octopus-ApiKey: API-YOUR-API-KEY" -F "data=@Demo.1.0.0.zip"
 ```
 
 :::div{.success}
@@ -105,10 +105,10 @@ Instead of using your own API key, consider using a [Service Account](/docs/secu
 
 :::div{.hint}
 **Using automatic release creation?**
-If you are using [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) page.
+If you are using [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) you will also require the permissions to create a release for all the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) page.
 :::
 
-## Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
+## Moving the location of the built-in repository {#PackageRepositories-MovingTheLocationOfTheBuilt-InRepository}
 
 See [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-OctopusHome).
 
