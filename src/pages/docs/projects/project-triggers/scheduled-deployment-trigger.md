@@ -34,6 +34,10 @@ If you are using [tenants](/docs/tenants) you can select the tenants that will r
 
 5. Save the trigger.
 
+:::div{.hint}
+All schedule options run based on CRON expressions. The other options provide a convenient way of setting up the schedule without worrying about the syntax. A custom CRON expression provides you with more fine-grained control over the exact schedule.
+:::
+
 ### Using CRON expressions {#cron-expression}
 
 CRON expressions allow you to configure a trigger that will run according to the specific CRON expression.
@@ -57,7 +61,3 @@ The CRON expression must consist of all 6 fields, there is an optional 7th field
 | Month         | 1-12 or JAN-DEC      | * , - /                     | Y        |
 | Day of week   | 0-6 or SUN-SAT       | * , - / ? L #               | Y        |
 | Year          | 0001–9999            | * , - /                     | N        |
-
-:::div{.hint}
-All schedule options run based on CRON expressions. The other options provide a convenient way of setting up the schedule without worrying about the syntax. A custom CRON expression provides you with more fine-grained control over the exact schedule.
-:::
