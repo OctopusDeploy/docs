@@ -7,7 +7,7 @@ description: Scheduled runbook triggers allow you to define unattended behavior 
 navOrder: 40
 ---
 
-Scheduled runbook triggers allow you to define unattended behavior for your [Runbook](/docs/runbooks) that will cause an automatic runbook run to environments of your choosing.
+Scheduled runbook triggers allow you to define an unattended behavior for your [runbook](/docs/runbooks) that will cause an automatic runbook run to environments of your choosing.
 
 :::div{.hint}
 Only published snapshots can be used to create a scheduled runbook trigger, draft snapshots cannot be used to create a scheduled trigger.
@@ -24,20 +24,23 @@ Scheduled runbook triggers provide a way to configure your runbooks to run on a 
 * Run a maintenance script on the last Saturday of the month.
 * Run a script to provision more machines on the 1st day of the month and a script to deprovision them at a future date.
 
-
 ## Add a scheduled runbook trigger
 
-1. From the Project's Overview page, select **Operations ➜ Triggers**, then **Add Scheduled trigger**.
+1. In a project, select **Operations ➜ Triggers**, then **Add Scheduled trigger**.
 2. Give the trigger a name.
 3. Select a runbook.
 4. Specify the target environments the runbook will run against.
-5. Set the Trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can specify the time the trigger should run and a daily scheduled, specific days of the week, or days of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
+5. Set the trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can schedule a trigger based on either days of the week, or dates of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
 
 If you are using [tenants](/docs/tenants) you can select the tenants that the runbook will run against. For each tenant, the published runbook will run against the tenant's environment. 
 
-6. Save the Trigger.
+6. Save the trigger.
 
-### Using CRON expression {#cron-expression}
+:::div{.hint}
+All schedule options run based on CRON expressions. The other options provide a convenient way of setting up the schedule without worrying about the syntax. A custom CRON expression provides you with more fine-grained control over the exact schedule.
+:::
+
+### Using CRON expressions {#cron-expression}
 
 CRON expressions allow you to configure a trigger that will run according to the specific CRON expression.
 
