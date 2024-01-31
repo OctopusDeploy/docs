@@ -6,6 +6,7 @@ appsettings
 ASPNET
 aspnetcore
 astro
+astrojs
 augeas
 awsaccount
 azureaccount
@@ -138,6 +139,7 @@ Schannel
 servedby
 serviceaccount
 setspn
+shiki
 SIEM
 signingkeys
 sthumb
