@@ -316,7 +316,7 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 octopus_server_uri = 'https://your.octopus.app'
-octopus_api_key = 'API-YOURKEY'
+octopus_api_key = 'API-YOURAPIKEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 tenant_name = "MyTenant"
