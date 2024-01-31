@@ -12,7 +12,7 @@ export default defineConfig({
     ],
     markdown: {
         shikiConfig: {
-            theme: 'nord'
+            theme: 'light-plus'
         },
         remarkPlugins: [
             remarkDirective,

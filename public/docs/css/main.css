@@ -99,11 +99,24 @@ code {
 pre {
     padding: 0.5rem 1rem;
     white-space: break-spaces;
+    background-color: var(--blue-100) !important;
+    border-radius: var(--standard-radius);
 }
 
 pre code {
     background-color: unset;
     font-size: var(--font-size-small);
+}
+
+.dark pre {
+    background-color: var(--white) !important;
+    filter: invert(98%) hue-rotate(180deg);
+}
+
+@media (prefers-color-scheme: dark) {
+    pre {
+        filter: invert(98%) hue-rotate(180deg);
+    }
 }
 
 em {
@@ -261,7 +274,7 @@ strong {
 }
 
 .bookmark-link {
-    border-radius: var(--block-radius);
+    border-radius: var(--standard-radius);
     color: var(--fore-link);
     display: inline-block;
     font-size: 1.2rem;
@@ -935,7 +948,7 @@ nav.skip-links a:focus {
 .search-dialog {
     margin: auto;
     padding: 2rem 3rem;
-    border-radius: var(--block-radius);
+    border-radius: var(--standard-radius);
     box-shadow: var(--box-shadow);
     height: calc(90vh - 4em);
     width: calc(80vw - 6em);
@@ -1047,7 +1060,7 @@ nav.skip-links a:focus {
     background-image: url(https://img.youtube.com/vi/VOWnhMxJMMk/0.jpg);
     background-position: center;
     background-size: cover;
-    border-radius: var(--block-radius);
+    border-radius: var(--standard-radius);
     box-shadow: var(--octo-shadow-standard-box);
     color: var(--fore-link);
     font-size: 5em;
