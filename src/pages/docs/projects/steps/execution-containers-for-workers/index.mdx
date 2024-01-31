@@ -32,14 +32,14 @@ You need Docker installed and running on the [worker](/docs/infrastructure/worke
   - [Add Docker Hub as an external feed](https://octopus.com/blog/build-a-real-world-docker-cicd-pipeline#add-docker-hub-as-an-external-feed).
 - Add a project and define a deployment process (or add a [runbook](/docs/runbooks)).
 - Set the **Execution Location** for your step to **Run on a worker**.
-- In **Container Image** select **Runs on a worker inside a container**.
+- In **Container Image** select **Run inside a container on a worker** and then **Pull container from a registry**.
 - Choose the previously added container registry.
 - Enter the name of the image (execution container) you want your step to run in. (e.g. `octopusdeploy/worker-tools:ubuntu.22.04`).
 - Click **Save**.
 - Click **Create release & deploy**.
 
 :::figure
-![](/docs/projects/steps/execution-containers-for-workers/images/container-selector.png "width=500")
+![](/docs/projects/steps/execution-containers-for-workers/images/container-selector-image.png "width=500")
 :::
 
 ## First deployment on a docker container
@@ -168,6 +168,40 @@ RUN curl -LO -k "https://packages.microsoft.com/config/ubuntu/20.04/packages-mic
 ```
 
 To learn more about creating a custom docker image, we have a [detailed blog post](https://octopus.com/blog/extending-octopus-execution-container) that describes how to get started and the minimum set of dependencies you would need.
+
+#### Inline execution containers
+
+:::div{.warning}
+Support for inline execution containers requires Octopus version 2024.1
+:::
+
+To improve the experience of using custom docker images on steps in Octopus we're expanding our execution containers feature to include options to provide the Dockerfile from a [Git URL](#docker-image-from-git-url) or an [Inline Dockerfile](#docker-image-from-inline-dockerfile) that will be built and used as the container that the step is executed on.
+
+This will make it easier and quicker to iterate on building a Docker image best suited to different scenarios.
+
+:::div{.hint}
+For your first deployment this may take a while since we're building the Docker container image for the first time, subsequent runs will be quicker as the image is cached (as long as it runs on the same worker).
+:::
+
+##### Docker image from a Git URL \{#docker-image-from-git-url}
+
+:::figure
+![](/docs/projects/steps/execution-containers-for-workers/images/container-selector-giturl.png "width=500")
+:::
+
+The **Docker image from a Git URL** option allows you to use a Dockerfile stored in a Git repository to build the image that the step in Octopus will run on.
+
+See the [Docker documentation](https://docs.docker.com/engine/reference/commandline/image_build/#git-repositories) for information about what context configuration is accepted in the Git URL.
+
+##### Docker image from an inline Dockerfile \{#docker-image-from-inline-dockerfile}
+
+:::figure
+![](/docs/projects/steps/execution-containers-for-workers/images/container-selector-dockerfile.png "width=500")
+:::
+
+The **Docker image from an inline Dockerfile** option allows you to write the container specification used to build the image that the step in Octopus will run on directly on the step in your deployment process.
+
+This option allows you to iterate quickly on building a container specification that will work for the step.
 
 #### Tool paths
 
