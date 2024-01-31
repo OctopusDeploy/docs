@@ -5,6 +5,7 @@ appsettings
 ASPNET
 aspnetcore
 astro
+astrojs
 augeas
 Bento
 bootstrap
@@ -132,6 +133,7 @@ runtimes
 Schannel
 servedby
 setspn
+shiki
 SIEM
 signingkeys
 sthumb
