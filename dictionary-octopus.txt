@@ -116,6 +116,7 @@ podannotation
 printfn
 PROGRAMFILES
 pycryptodome
+querystring
 quickstart
 rehype
 reindexing
@@ -141,6 +142,7 @@ swaggerui
 systemprofile
 tabpanel
 tagset
+templateid
 templating
 tenanttype
 TFVC
@@ -163,3 +165,4 @@ workertools
 xlarge
 xmark
 xvzf
+YOURAPIKEY
