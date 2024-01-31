@@ -78,7 +78,7 @@ foreach ($projectKey in $projects)
         }
     }
     else {
-        Write-Host "Couldnt find project template: $variableTemplateName for project $projectName"
+        Write-Host "Couldn't find project template: $variableTemplateName for project $projectName"
     }
 }
 # Update the variables with the new value
@@ -166,7 +166,7 @@ try
             }
         }
         else {
-            Write-Host "Couldnt find project template: $variableTemplateName for project $projectName"
+            Write-Host "Couldn't find project template: $variableTemplateName for project $projectName"
         }
     }
 
@@ -261,7 +261,7 @@ try
         }
         else
         {
-            Console.WriteLine("Couldnt find project template: {0} for project {1}", projectVariableTemplateName, projectName);
+            Console.WriteLine("Couldn't find project template: {0} for project {1}", projectVariableTemplateName, projectName);
         }
     }
 
