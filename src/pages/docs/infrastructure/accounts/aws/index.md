@@ -60,7 +60,7 @@ When setting up the identity provider you need to use the host domain name of yo
     {
       "Effect": "Allow",
       "Principal": {
-          "Federated": "arn:aws:iam::{awsaccount}:oidc-provider/{youridentityprovider}"
+          "Federated": "arn:aws:iam::{aws-account}:oidc-provider/{your-identity-provider}"
       },
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
