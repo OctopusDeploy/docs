@@ -1,3 +1,4 @@
+accounttest
 ALLUSERSPROFILE
 apikey
 approot
@@ -6,6 +7,8 @@ ASPNET
 aspnetcore
 astro
 augeas
+awsaccount
+azureaccount
 Bento
 bootstrap
 bootstrapped
@@ -47,6 +50,7 @@ FIPS
 frontmatter
 gcloud
 globbing
+googleaccount
 groff
 healthcheck
 HKEY
@@ -132,6 +136,7 @@ runbooks
 runtimes
 Schannel
 servedby
+serviceaccount
 setspn
 SIEM
 signingkeys

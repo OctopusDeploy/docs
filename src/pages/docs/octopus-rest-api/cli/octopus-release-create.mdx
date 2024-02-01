@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-06-19
+modDate: 2024-02-01
 title: octopus release create
 description: Create a release
-navOrder: 88
+navOrder: 96
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -25,7 +25,7 @@ Flags:
   -v, --version string              Override the Release Version
   -x, --ignore-existing             If a release with the same version exists, do nothing instead of failing.
       --ignore-channel-rules        Allow creation of a release where channel rules would otherwise prevent it.
-      --package strings             Version specification a specific packages.
+      --package stringArray         Version specification a specific packages.
                                     Format as {package}:{version}, {step}:{version} or {package-ref-name}:{packageOrStep}:{version}
                                     You may specify this multiple times
 
