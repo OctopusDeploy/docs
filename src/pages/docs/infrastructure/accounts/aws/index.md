@@ -52,14 +52,26 @@ When setting up the identity provider you need to use the host domain name of yo
 4. Set the **Role ARN** to the ARN from the identity provider associated role.
 5. Set the **Session Duration** to the Maximum session duration from the role, in seconds.
 6. Click **SAVE** to save the account.
-7. Before you can test the account you need to add a condition to the identity provider in AWS:
+7. Before you can test the account you need to add a condition to the identity provider in AWS under **IAM ➜ Roles ➜ {Your AWS Role} ➜ Trust Relationship** :
 ```JSON
-  "Condition": {
-    "StringEquals": {
-      "example.octopus.app:sub": "space:[space-slug]:account:[slug-of-account-created-above]",
-      "example.octopus.app:aud": "example.octopus.app"
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+          "Federated": "arn:aws:iam::{awsaccount}:oidc-provider/{youridentityprovider}"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "example.octopus.app:sub": "space:[space-slug]:account:[slug-of-account-created-above]",
+          "example.octopus.app:aud": "example.octopus.app"
+        }
+      }
     }
-  }
+  ]
+}
 ```
 8. Go back to the AWS account in Octopus and click **SAVE AND TEST** to verify the credentials are valid.
 
