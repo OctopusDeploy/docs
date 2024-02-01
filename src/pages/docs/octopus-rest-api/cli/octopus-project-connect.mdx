@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-06-19
+modDate: 2024-02-01
 title: octopus project connect
 description: Connect a tenant to a project
-navOrder: 67
+navOrder: 75
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -16,8 +16,8 @@ Usage:
 
 Flags:
       --enable-tenant-deployments   Update the project to support tenanted deployments, if required
-      --env strings                 The environments to connect to the tenant (can be specified multiple times)
-  -e, --environment strings         The environments to connect to the tenant (can be specified multiple times)
+      --env stringArray             The environments to connect to the tenant (can be specified multiple times)
+  -e, --environment stringArray     The environments to connect to the tenant (can be specified multiple times)
   -p, --project string              Name, ID or Slug of the project to connect to the tenant
   -t, --tenant string               Name or Id of the tenant
 

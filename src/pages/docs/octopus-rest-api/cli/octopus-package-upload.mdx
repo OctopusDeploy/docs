@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-06-19
+modDate: 2024-02-01
 title: octopus package upload
 description: upload one or more packages to Octopus Deploy
-navOrder: 61
+navOrder: 66
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -18,7 +18,7 @@ Aliases:
   upload, push
 
 Flags:
-  -p, --package strings         Package to upload, may be specified multiple times. Any arguments without flags will be treated as packages
+  -p, --package stringArray     Package to upload, may be specified multiple times. Any arguments without flags will be treated as packages
       --overwrite-mode string   Action when a package already exists. Valid values are 'fail', 'overwrite', 'ignore'. Default is 'fail'
       --continue-on-error       When uploading multiple packages, controls whether the CLI continues after a failed upload. Default is to abort.
 
