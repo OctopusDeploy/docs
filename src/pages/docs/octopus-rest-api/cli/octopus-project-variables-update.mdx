@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-06-19
+modDate: 2024-02-01
 title: octopus project variables update
 description: Update the value of a project variable
-navOrder: 79
+navOrder: 87
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -17,6 +17,7 @@ Usage:
 Flags:
       --channel-scope strings       Assign channel scopes to the variable. Multiple scopes can be supplied.
       --environment-scope strings   Assign environment scopes to the variable. Multiple scopes can be supplied.
+      --git-ref string              The GitRef for the Config-As-Code branch
       --id string                   The variable id to update
   -n, --name string                 The name of the variable
       --process-scope strings       Assign process scopes to the variable. Valid scopes are 'deployment' or a runbook name. Multiple scopes can be supplied.
@@ -47,6 +48,7 @@ $ octopus project variable update --name varname --value "abc"
 $ octopus project variable update --name varname --value "password"
 $ octopus project variable update --name varname --unscoped
 $ octopus project variable update --name varname --environment-scope test
+$ octopus project variable update -p "Deploy Website" --name varname --value "updated" --git-ref refs/heads/main
 
 
 ```

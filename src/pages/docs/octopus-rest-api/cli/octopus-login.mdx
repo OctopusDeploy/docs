@@ -1,0 +1,47 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-02-01
+title: octopus login
+description: Login to Octopus
+navOrder: 60
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Login to your Octopus server using OpenID Connect (OIDC) or an API key. If no arguments are provided then login will be done interactively allowing creation of an API key.
+
+```
+Usage:
+  octopus login [flags]
+
+Flags:
+      --api-key string              The API key to login with if using API keys
+      --id-token string             The ID token from your OIDC provider to login with if using OIDC
+      --server string               The URL of the Octopus Server to login to
+      --service-account-id string   The ID of the service account to login with if using OIDC
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus login
+$ octopus login --server https://my.octopus.app --service-account-id b1a6f20f-0ec7-4e9a-938e-db800f945b37 --id-token eyJhbGciOiJQUzI1NiIsImtp...
+$ octopus login --server https://my.octopus.app --api-key API-APIKEY123
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
