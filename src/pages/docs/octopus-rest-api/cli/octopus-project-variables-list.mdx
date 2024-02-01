@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-06-19
+modDate: 2024-02-01
 title: octopus project variables list
 description: List project variables
-navOrder: 78
+navOrder: 86
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -16,6 +16,11 @@ Usage:
 
 Aliases:
   list, ls
+
+Flags:
+      --git-ref string   The GitRef for the Config-As-Code branch
+  -p, --project string   The project
+
 
 Global Flags:
   -h, --help                   Show help for a command
@@ -30,7 +35,8 @@ Global Flags:
 <SamplesInstance />
 
 ```
-$ octopus project variable list
+$ octopus project variable list "Deploy Website"
+$ octopus project variable list -p "Deploy Website" --git-ref refs/heads/main
 $ octopus project variable ls
 
 

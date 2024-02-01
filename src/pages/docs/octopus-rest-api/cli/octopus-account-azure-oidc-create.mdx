@@ -1,0 +1,57 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-02-01
+title: octopus account azure-oidc create
+description: Create an Azure OpenID Connect account
+navOrder: 9
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Create an Azure OpenID Connect account in Octopus Deploy
+
+```
+Usage:
+  octopus account azure-oidc create [flags]
+
+Aliases:
+  create, new
+
+Flags:
+  -d, -- string                                A summary explaining the use of the account to other users.
+  -T, --accounttest-subject-keys stringArray   The subject keys used for an account test
+      --ad-endpoint-base-uri string            Set this only if you need to override the default Active Directory Endpoint.
+      --application-id string                  Your Azure Active Directory Application ID.
+      --audience string                        The audience claim for the federated credentials. Defaults to api://AzureADTokenExchange
+      --azure-environment string               Set only if you are using an isolated Azure Environment. Configure isolated Azure Environment. Valid option are AzureChinaCloud, AzureChinaCloud, AzureGermanCloud or AzureUSGovernment
+  -D, --description-file file                  Read the description from file
+  -e, --environment stringArray                The environments that are allowed to use this account
+  -E, --execution-subject-keys stringArray     The subject keys used for a deployment or runbook
+  -H, --health-subject-keys stringArray        The subject keys used for a health check
+  -n, --name string                            A short, memorable, unique name for this account.
+      --resource-management-base-uri string    Set this only if you need to override the default Resource Management Endpoint.
+      --subscription-id string                 Your Azure subscription ID.
+      --tenant-id string                       Your Azure Active Directory Tenant ID.
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus account azure-oidc create
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

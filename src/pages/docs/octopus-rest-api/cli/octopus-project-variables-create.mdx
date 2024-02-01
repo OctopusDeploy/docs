@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-06-19
+modDate: 2024-02-01
 title: octopus project variables create
 description: Create a variable for a project
-navOrder: 74
+navOrder: 82
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -20,6 +20,7 @@ Aliases:
 Flags:
       --channel-scope strings            Assign channel scopes to the variable. Multiple scopes can be supplied.
       --environment-scope strings        Assign environment scopes to the variable. Multiple scopes can be supplied.
+      --git-ref string                   The GitRef for the Config-As-Code branch
   -n, --name string                      The name of the variable
       --process-scope strings            Assign process scopes to the variable. Valid scopes are 'deployment' or a runbook name. Multiple scopes can be supplied.
   -p, --project string                   The project
@@ -51,9 +52,10 @@ Global Flags:
 
 ```
 $ octopus project variable create
-$ octopus project variable create --name varname --value "abc"
-$ octopus project variable create --name varname --value "passwordABC" --type sensitive
-$ octopus project variable create --name varname --value "abc" --scope environment='test'
+$ octopus project variable create --project "Deploy Website" --name "variable name" --value "abc"
+$ octopus project variable create --name "variable name" --value "passwordABC" --type sensitive
+$ octopus project variable create --name "variable name" --value "abc" --scope environment='test'
+$ octopus project variable create --name "variable name" --value "abc" --scope environment='test' --git-ref refs/heads/main
 
 
 ```
