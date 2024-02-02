@@ -86,7 +86,7 @@ If you are using multiple jobs within a workflow that interact with Octopus the 
 
 ### Workflow job permissions
 
-To use the [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) action within a workflow job, a specific permission `id-token: write` needs to be granted to the job in to obtain the ID token from GitHub, for example:
+To use the [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) action within a workflow job, a specific permission `id-token: write` needs to be granted to the job in order to obtain the ID token from GitHub, for example:
 
 ```yaml
 jobs:
