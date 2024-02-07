@@ -154,6 +154,8 @@ tagset
 templateid
 templating
 tenanttype
+tfvar
+tfvars
 TFVC
 tmpfs
 Traefik
