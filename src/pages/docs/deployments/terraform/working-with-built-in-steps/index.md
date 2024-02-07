@@ -33,7 +33,10 @@ Using credentials managed by Octopus is optional, and credentials defined in the
 
 ## Template section 
 
-The Terraform template can come from two sources: directly entered source code or from files in a package.
+The Terraform template can come from three sources:
+- Directly entered source code
+- Files in a package
+- Files in a Git repository - *New!*
 
 ### Source code
 
@@ -76,6 +79,28 @@ Given that Terraform templates and variable files are plain text, you may find i
 :::figure
 ![Package](/docs/deployments/terraform/working-with-built-in-steps/images/step-aws-package.png)
 :::
+
+### Git repository
+
+:::div{.info}
+Octopus version `2024.1` added support for terraform files stored in Git repositories.
+:::
+
+The third option is to use files container in a Git repository. This can streamline your deployment process by reducing the amount of steps required to get them into Octopus as you no longer need to package the files up and put them into a feed.
+
+To configure terraform steps to use a Git repository, select the `Git Repository` option as your Template Source.
+
+#### Database projects
+
+If you are not using [version control](/docs/projects/version-control) for your project, you can source your files from a Git repository by entering the details of the repository directly on the step, including:
+- URL
+- Credentials (either anonymous or selecting a Git credential from the Library)
+
+When creating a Release, you choose the tip of a branch for your files. The commit hash for this branch is saved to the Release. This means redeploying that release will only ever use that specific commit and not the _new_ tip of the branch.
+
+#### Version control projects
+
+If you are using [version control](/docs/projects/version-control) for your project, in addition to the option above, you can source your files from the same Git repository as your deployment process by selecting **Project** as the Git repository source. When creating a Release using this option, the commit hash used for your deployment process will also be used to source the files.
 
 ### Variable replacements
 

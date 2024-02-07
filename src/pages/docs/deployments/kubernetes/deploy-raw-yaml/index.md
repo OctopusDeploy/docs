@@ -27,6 +27,10 @@ Sourcing from Git Repositories was added in Octopus **2023.3**.
 You can find more information about this feature in [this blog post](https://octopus.com/blog/manifests-from-git).
 :::
 
+:::div{.info}
+From Octopus **2024.1**, if you are using [version control](/docs/projects/version-control) with your project you can source your YAML from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the YAML files.
+:::
+
 :::div{.warning}
 Sourcing from a Git repository clones the whole repository onto Octopus Server during a deployment. Ensure that you **do not have any sensitive data** in your git repository.
 :::

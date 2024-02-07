@@ -9,7 +9,13 @@ navOrder: 40
 
 Helm Charts are like a package manager for Kubernetes applications, allowing users to reuse and share complex resource configurations.
 
-## Helm feed
+## Helm chart sources
+
+You can source your Helm charts from two different sources:
+- Packages from Helm or OCI feeds
+- Git Repository - *New!*
+
+### Helm feed
 A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/topics/chart_repository/). This repository is effectively just an HTTP server that houses an `index.yaml` which describes the charts available on that server. Octopus uses this index file to determine the available "packages" (Charts) and versions. A chart is a tarball that looks like `alpine-0.1.2.tgz` which for this example Octopus will interpret as having PackageID `alpine` and version `0.1.2`. There are various ways you can host a chart repository, including third-party tools like [ChartMuseum](https://github.com/chartmuseum/chartmuseum), [Artifactory](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories), [Cloudsmith](https://help.cloudsmith.io/docs/helm-chart-repository), or even hosting your own [static web server](https://helm.sh/docs/topics/chart_repository/#hosting-chart-repositories).
 
 :::figure
@@ -37,7 +43,7 @@ If the `.tgz` does not have a `chart.yaml` file, the PackageID and version are i
 
 For more information about Helm Chart repositories and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/chart_repository/).
 
-## OCI-based registry feed
+### OCI-based registry feed
 
 :::div{.info}
 Octopus version `2023.3.4127` added support for Helm repositories stored in OCI-based registries.
@@ -52,6 +58,28 @@ An OCI-based registry can contain zero or more Helm repositories and each of tho
 :::
 
 For more information about using OCI-based registries and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/registries/).
+
+### Git repository
+
+:::div{.info}
+Octopus version `2024.1` added support for Helm charts stored in Git repositories.
+:::
+
+Sourcing your Helm charts from a Git Repository can streamline your deployment process by reducing the amount of steps required to get them into Octopus.
+
+To configure a Git Repository source, select the `Git Repository` option as your Chart Source. 
+
+#### Database projects
+
+If you are not using [version control](/docs/projects/version-control) for your project, you can source your charts from a Git repository by entering the details of the repository, including:
+- URL
+- Credentials (either anonymous or selecting a Git credential from the Library)
+
+When creating a Release, you choose the tip of a branch for your Helm charts. The commit hash for this branch is saved to the Release. This means redeploying that release will only ever use that specific commit and not the _new_ tip of the branch.
+
+#### Version control projects
+
+If you are using [version control](/docs/projects/version-control) for your project, in addition to the option above, you can source your charts from the same Git repository as your deployment process by selecting **Project** as the Git repository source. When creating a Release using this option, the commit hash used for your deployment process will also be used to source the chart files.
 
 ## Helm upgrade step
 Since the [helm upgrade](https://docs.helm.sh/helm/#helm-upgrade) command provides the ability to ensure that the chart is installed when it runs for the first time (by using the `--install` argument), this upgrade command is the most practical step to provide.

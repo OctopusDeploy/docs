@@ -57,6 +57,10 @@ Using scripts from inside a package or a git repository are a great way to versi
 :::
 
 :::div{.hint}
+From Octopus **2024.1**, when you are using [version control](/docs/projects/version-control) with your project you can source files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the files.
+:::
+
+:::div{.hint}
 When sourcing a script from a file inside a package you cannot choose to run the step before packages are acquired.
 :::
 

@@ -11,6 +11,10 @@ Octopus supports the deployment of Kubernetes resources through the **Kustomize*
 
 This step allows you to source your **Kustomize** files from git, perform variable substitutions based on your environment and/or tenant and finally apply the changes to your Kubernetes clusters.
 
+:::div{.info}
+From Octopus **2024.1**, if you are using [version control](/docs/projects/version-control) with your project you can source your Kustomize files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the Kustomize files.
+:::
+
 :::figure
 ![Kustomize step](/docs/deployments/kubernetes/kustomize/kustomise-step.png)
 :::
