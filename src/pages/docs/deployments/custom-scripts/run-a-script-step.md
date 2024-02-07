@@ -59,7 +59,7 @@ Using scripts from inside a package or a git repository are a great way to versi
 :::div{.hint}
 From Octopus **2024.1**, if you are storing your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the files.
 
-You can find more information about this feature in [this blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
+You can find more information about this feature in this [blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
 :::
 
 :::div{.hint}

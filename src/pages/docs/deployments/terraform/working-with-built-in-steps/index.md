@@ -85,7 +85,7 @@ Given that Terraform templates and variable files are plain text, you may find i
 :::div{.info}
 Octopus version `2024.1` added support for Terraform files stored in Git repositories.
 
-You can find more information about this feature in [this blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
+You can find more information about this feature in this [blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
 :::
 
 The third option is to use files container in a Git repository. This can streamline your deployment process by reducing the amount of steps required to get them into Octopus as you no longer need to package the files up and put them into a feed.
