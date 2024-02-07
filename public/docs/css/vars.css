@@ -63,11 +63,13 @@
     --blue-midnight-darker: #0A202FFF;
     --blue-midnight: #10212FFF;
     --blue-midnight-lighter: #22425CFF;
-
+    
     --blue-grey-dark: #152B3DFF;
     --blue-gray-darker: #1F2F3CFF;
     --blue-grey-medium: #113049FF;
+    --blue-grey: #2E475D;
     --blue-grey-light: #274B66FF;
+    --blue-grey-lighter: #557999FF;
     --blue-grey-smoke: #C5E6FF66;
 
     --font-size-xlarge: 24px;
@@ -120,6 +122,14 @@
 
     --color-trial: var(--blue-grey-medium);
     --bg-color-trial: var(--light-green);
+
+    /* Search variables */
+    --search-height: 3rem;
+    --search-border-radius: calc(var(--search-height)/2);
+    --search-results-padding: 1rem;
+    --search-border: 0.0625rem solid #76A1C2;
+    --search-dropdown-height: 65vh;
+    --search-dropdown-duration: 0.3s;
 
     /* To be checked and cleaned */
 
