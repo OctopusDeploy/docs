@@ -63,6 +63,8 @@ For more information about using OCI-based registries and how to run your own pr
 
 :::div{.info}
 Octopus version `2024.1` added support for Helm charts stored in Git repositories.
+
+You can find more information about this feature in [this blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
 :::
 
 Sourcing your Helm charts from a Git Repository can streamline your deployment process by reducing the amount of steps required to get them into Octopus.

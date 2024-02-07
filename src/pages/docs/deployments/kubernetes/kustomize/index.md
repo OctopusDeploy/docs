@@ -13,6 +13,8 @@ This step allows you to source your **Kustomize** files from git, perform variab
 
 :::div{.info}
 From Octopus **2024.1**, if you are using [version control](/docs/projects/version-control) with your project you can source your Kustomize files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the Kustomize files.
+
+You can find more information about this feature in [this blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
 :::
 
 :::figure
