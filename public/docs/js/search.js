@@ -580,7 +580,7 @@ async function search(s, r) {
         });
 
         const listElementDescription = document.createElement('p');
-        listElementDescription.className = 'result-text';
+        listElementDescription.className = 'result-description';
         // Only highlight user query terms, not stemmed terms
         listElementDescription.innerHTML = highlight(needle.description, queryTerms);
 
