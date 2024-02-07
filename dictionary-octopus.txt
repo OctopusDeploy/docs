@@ -175,3 +175,5 @@ xlarge
 xmark
 xvzf
 YOURAPIKEY
+Groupsand
+Directorygroup
