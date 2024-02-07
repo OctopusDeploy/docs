@@ -73,15 +73,15 @@ To configure a Git Repository source, select the `Git Repository` option as your
 
 #### Database projects
 
-If you are not using [version control](/docs/projects/version-control) for your project, you can source your charts from a Git repository by entering the details of the repository, including:
+If you are storing your project configuration directly in Octopus (i.e. not in a Git repository using the [Configuration as code feature](/docs/projects/version-control)), you can source your charts from a Git repository by entering the details of the repository, including:
 - URL
 - Credentials (either anonymous or selecting a Git credential from the Library)
 
 When creating a Release, you choose the tip of a branch for your Helm charts. The commit hash for this branch is saved to the Release. This means redeploying that release will only ever use that specific commit and not the _new_ tip of the branch.
 
-#### Version control projects
+#### Version-controlled projects
 
-If you are using [version control](/docs/projects/version-control) for your project, in addition to the option above, you can source your charts from the same Git repository as your deployment process by selecting **Project** as the Git repository source. When creating a Release using this option, the commit hash used for your deployment process will also be used to source the chart files.
+If you are storing your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), in addition to the option above, you can source your charts from the same Git repository as your deployment process by selecting **Project** as the Git repository source. When creating a Release using this option, the commit hash used for your deployment process will also be used to source the chart files.
 
 ## Helm upgrade step
 Since the [helm upgrade](https://docs.helm.sh/helm/#helm-upgrade) command provides the ability to ensure that the chart is installed when it runs for the first time (by using the `--install` argument), this upgrade command is the most practical step to provide.
