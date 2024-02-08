@@ -1394,7 +1394,7 @@ a[data-youtube] {
     position: relative;
     width: 100%;
     max-width: 34.75rem;
-    transition: max-width 0.15s ease-in-out;
+    transition: max-width var(--search-dropdown-duration) ease-in-out;
 }
 
 .site-search__wrapper.is-active {
@@ -1415,18 +1415,26 @@ a[data-youtube] {
     position: absolute;
     top: var(--search-height);
     width: 100%;
-    max-height: 0;
     padding: 0;
     border-radius: var(--search-border-radius);
     border-radius: 0.9375rem;
     list-style-type: none;
     overflow-y: scroll;
-    transition-property: max-height, padding, transform, visibility;
+    transition-property:  padding, transform, visibility;
     transition-duration: var(--search-dropdown-duration);
     transition-timing-function: ease-in-out;
     visibility: hidden;
-    transform: translateY(0);
+    transform: translateY(0) scaleY(0);
     z-index: 1;
+    max-height: var(--search-dropdown-height);
+    transform-origin: top;
+    will-change: transform;
+}
+
+.site-search.is-active+.site-search-results {
+    padding: 1rem 0;
+    transform: translateY(1.37rem) scaleY(1);
+    visibility: visible;
 }
 
 .site-search-results ul {
@@ -1441,13 +1449,6 @@ a[data-youtube] {
     display: block;
     margin: 1rem auto 0;
     cursor: pointer;
-}
-
-.site-search.is-active+.site-search-results {
-    max-height: var(--search-dropdown-height);
-    padding: 1rem 0;
-    transform: translateY(1.37rem);
-    visibility: visible;
 }
 
 .site-search__overlay {
