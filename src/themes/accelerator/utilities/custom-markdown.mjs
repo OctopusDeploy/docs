@@ -1,3 +1,8 @@
+/**
+ * This javascript file comes from Astro Accelerator
+ * Edits will be overwritten if you change the file locally
+ */
+
 import { SITE } from '/src/config';
 import { size } from '/src/data/image-size.mjs';
 import { h } from 'hastscript';

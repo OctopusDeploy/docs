@@ -1,4 +1,9 @@
 /**
+ * This javascript file comes from Astro Accelerator
+ * Edits will be overwritten if you change the file locally
+ */
+
+/**
  * Removes "morphological and inflexional endings" from words
  * See: http://www.tartarus.org/~martin/PorterStemmer
  */

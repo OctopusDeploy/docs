@@ -1,3 +1,8 @@
+/**
+ * This javascript file comes from Astro Accelerator
+ * Edits will be overwritten if you change the file locally
+ */
+
 import bundled from './language.json';
 import user from '@data/language.json';
 

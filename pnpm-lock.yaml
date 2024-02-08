@@ -16,8 +16,8 @@ dependencies:
     specifier: ^4.0.3
     version: 4.0.3
   astro-accelerator:
-    specifier: ^4.0.8
-    version: 4.0.8
+    specifier: ^4.0.10
+    version: 4.0.10
   astro-accelerator-utils:
     specifier: ^0.3.7
     version: 0.3.7
@@ -1633,8 +1633,8 @@ packages:
     resolution: {integrity: sha512-oQvDPZvEUPtk85F3z+ISYv5IuIQF1iAnbNASPJb/capGE22wqyGqiKRH6q+BhL4FtlitapwH0bs1a5R9q6SSbQ==}
     dev: false
 
-  /astro-accelerator@4.0.8:
-    resolution: {integrity: sha512-bDGY1X3vdUp0mQnm9KmOObGYrUW1GqZjVH6QqA8apOJeQTciXoM+y/l8wcsVOWF9OVMQXsu46w44w7IStsF8GA==}
+  /astro-accelerator@4.0.10:
+    resolution: {integrity: sha512-mPj4svJRoDqKyYUuFcqKm1Av3a+XC76l+J+gRixv9NCOOrhHgOhSM7C4uKWS5NID9TDYuKh8rs0RzJK9K90N+g==}
     engines: {node: '>=18.14.1', pnpm: '>=8.6.12'}
     dependencies:
       '@astrojs/mdx': 2.1.1(astro@4.3.2)

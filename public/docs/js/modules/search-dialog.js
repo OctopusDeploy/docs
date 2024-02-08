@@ -1,5 +1,9 @@
 // @ts-check
 
+/**
+ * This javascript file comes from Astro Accelerator
+ * Edits will be overwritten if you change the file locally
+ */
 function enhanceSearchIcon() {
     if (document.querySelector('#site-search-query') == null) {
         const icon = document.querySelector('a.search-icon');

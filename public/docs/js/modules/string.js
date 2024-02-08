@@ -1,6 +1,11 @@
 // @ts-check
 
 /**
+ * This javascript file comes from Astro Accelerator
+ * Edits will be overwritten if you change the file locally
+ */
+
+/**
  * Looks for a search within a string
  * 
  * @param {string} string 

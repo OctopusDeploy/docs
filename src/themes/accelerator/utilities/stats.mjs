@@ -1,3 +1,8 @@
+/**
+ * This javascript file comes from Astro Accelerator
+ * Edits will be overwritten if you change the file locally
+ */
+
 import fs from 'fs';
 import { parse } from 'csv-parse';
 

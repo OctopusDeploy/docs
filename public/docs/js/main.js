@@ -1,4 +1,9 @@
 // @ts-check
+
+/**
+ * This javascript file comes from Astro Accelerator
+ * Edits will be overwritten if you change the file locally
+ */
 import { addIntersectionObserver, addListImageIntersectionObserver } from './modules/animation.js';
 import { addResizedEvent } from './modules/resizing.js';
 import { addStickyNavigation } from './modules/nav-sticky.js';

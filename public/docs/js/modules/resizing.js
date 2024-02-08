@@ -1,5 +1,9 @@
 // @ts-check
 
+/**
+ * This javascript file comes from Astro Accelerator
+ * Edits will be overwritten if you change the file locally
+ */
 import { raiseEvent } from './events.js';
 
 var resizeEventName = 'resize';
