@@ -7,7 +7,11 @@ description: Some of the authentication providers allow external groups or roles
 navOrder: 3
 ---
 
-Some of the authentication providers allow external groups or roles to be added as Members of Teams in Octopus.  This section outlines how to add external groups/roles to Teams.
+Some of the authentication providers allow external groups or roles to be added as Members of Teams in Octopus. This section outlines how to add external groups/roles to Teams.
+
+Note: Not all authentication providers include support for external groups and roles. See [Authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) for more information.
+
+---
 
 Adding external groups or roles to Octopus Teams can be helpful in controlling the permissions of users. In the case of Active Directory, when a user logs in to Octopus, we check the user's groups. If the user is in one of the groups assigned to an Octopus Team, they are considered part of that Team and will have the permissions set for that Team.
 

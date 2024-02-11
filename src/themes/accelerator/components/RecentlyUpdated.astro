@@ -22,8 +22,6 @@ const pages = allPages
   .sort(PostOrdering.sortByModDateDesc)
   .slice(0, Math.min(count, pageCount));
 
-console.log('Recent Pages: ' + pageCount);
-
 stats.stop();
 ---
 <ul class="recent-updates">

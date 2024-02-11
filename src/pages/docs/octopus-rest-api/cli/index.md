@@ -30,6 +30,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus account azure](/docs/octopus-rest-api/cli/octopus-account-azure)**:  Manage Azure subscription accounts.
 - **[octopus account azure create](/docs/octopus-rest-api/cli/octopus-account-azure-create)**:  Create an Azure subscription account.
 - **[octopus account azure list](/docs/octopus-rest-api/cli/octopus-account-azure-list)**:  List Azure subscription accounts.
+- **[octopus account azure-oidc](/docs/octopus-rest-api/cli/octopus-account-azure-oidc)**:  Manage Azure OpenID Connect accounts.
+- **[octopus account azure-oidc create](/docs/octopus-rest-api/cli/octopus-account-azure-oidc-create)**:  Create an Azure OpenID Connect account.
+- **[octopus account azure-oidc list](/docs/octopus-rest-api/cli/octopus-account-azure-oidc-list)**:  List Azure OpenID Connect accounts.
 - **[octopus account create](/docs/octopus-rest-api/cli/octopus-account-create)**:  Create an account.
 - **[octopus account delete](/docs/octopus-rest-api/cli/octopus-account-delete)**:  Delete an account.
 - **[octopus account gcp](/docs/octopus-rest-api/cli/octopus-account-gcp)**:  Manage Google Cloud accounts.
@@ -79,6 +82,8 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus environment](/docs/octopus-rest-api/cli/octopus-environment)**:  Manage environments.
 - **[octopus environment delete](/docs/octopus-rest-api/cli/octopus-environment-delete)**:  Delete an environment.
 - **[octopus environment list](/docs/octopus-rest-api/cli/octopus-environment-list)**:  List environments.
+- **[octopus login](/docs/octopus-rest-api/cli/octopus-login)**:  Login to Octopus.
+- **[octopus logout](/docs/octopus-rest-api/cli/octopus-logout)**:  Logout of Octopus.
 - **[octopus package](/docs/octopus-rest-api/cli/octopus-package)**:  Manage packages.
 - **[octopus package list](/docs/octopus-rest-api/cli/octopus-package-list)**:  List packages.
 - **[octopus package nuget](/docs/octopus-rest-api/cli/octopus-package-nuget)**:  Package as NuPkg.
@@ -88,6 +93,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus package zip](/docs/octopus-rest-api/cli/octopus-package-zip)**:  Package as zip.
 - **[octopus package zip create](/docs/octopus-rest-api/cli/octopus-package-zip-create)**:  Create zip.
 - **[octopus project](/docs/octopus-rest-api/cli/octopus-project)**:  Manage projects.
+- **[octopus project branch](/docs/octopus-rest-api/cli/octopus-project-branch)**:  Manage project branches.
+- **[octopus project branch create](/docs/octopus-rest-api/cli/octopus-project-branch-create)**:  Create a Git branch for a project.
+- **[octopus project branch list](/docs/octopus-rest-api/cli/octopus-project-branch-list)**:  List project branches.
 - **[octopus project clone](/docs/octopus-rest-api/cli/octopus-project-clone)**:  Clone a project.
 - **[octopus project connect](/docs/octopus-rest-api/cli/octopus-project-connect)**:  Connect a tenant to a project.
 - **[octopus project convert](/docs/octopus-rest-api/cli/octopus-project-convert)**:  Convert a project to use Config As Code.

@@ -71,6 +71,8 @@ Before merging to `main` it's possible you'd like to see your changes in a previ
 
 You can generate a static copy of the site using `pnpm build` and run it in a browser with `pnpm preview`.
 
+Note! We use _Sharp_ to generate images. You may need to install a specific flavour of _Sharp_ depending on your operating system. If you see an error, such as "Error: Could not load the "sharp" module using the linux-x64 runtime", you can follow the instruction on the [Sharp cross-platform page](https://sharp.pixelplumbing.com/install#cross-platform). You can also refer to [issue 2142](https://github.com/OctopusDeploy/docs/issues/2142).
+
 ## Astro hints and tips
 
 ### Editor setup

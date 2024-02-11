@@ -41,7 +41,7 @@ The subject can be modified for the three different uses within Octopus:
 ### Subject key parts
 
 - Only the requested keys for a **Subject** claim will be include in the generated **Subject** claim
-- Any resource types include in the **Subject** claim will use the slug value for the resource. The slug value is generated from the name of the resource when it was created, it can be edited on the edit page of resource type.
+- Any Octopus resource types included in the **Subject** claim will use the slug value for the Octopus resource. The slug value is generated from the name of the Octopus resource when it was created, it can be edited on the edit page of resource type.
 - The **Subject** claim parts will always be in the following order 
     - **Space**
     - **Project**

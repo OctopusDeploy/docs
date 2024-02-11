@@ -38,7 +38,7 @@ export const SITE: Site = {
 		youTubeLinks: ['embed'],
 		headers: ['link'],
 		details: ['tabs'],
-		search: ['dialog'],
+		search: ['dialog', 'headings'],
 	},
 	images: {
 		contentSize: '(min-width: 1680px) 1000px, (min-width: 940px) calc(71.81vw - 192px), calc(100vw - 32px)',
