@@ -17,6 +17,7 @@
         "pnpm-lock.yaml",
         "docs/credits.md",
         "src/pages/report/**",
+        "src/themes/**",
         "public/docs/js/**",
         "node_modules/**"
     ]
