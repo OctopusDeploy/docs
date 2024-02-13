@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-22-09
-modDate: 2023-22-09
+pubDate: 2023-09-22
+modDate: 2024-01-25
 title: OpenID Connect 
 description: How to customize the Subject Claim for OpenID Connect authentication
 navOrder: 70
