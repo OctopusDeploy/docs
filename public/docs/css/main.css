@@ -376,7 +376,7 @@ table th {
 /* Skip Links */
 nav.skip-links {
   position: fixed;
-  z-index: 2;
+  z-index: 12;
 }
 
 nav.skip-links a {
@@ -390,7 +390,6 @@ nav.skip-links a {
   z-index: 15;
   text-align: center;
   display: inline-block;
-  height: 1px;
   margin: -1px;
   width: 1px;
 }
