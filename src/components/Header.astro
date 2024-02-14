@@ -14,9 +14,9 @@ type Props = {
   lang: string;
   frontmatter: Frontmatter;
   headings: { depth: number; slug: string; text: string }[];
-  noSearch?: boolean;
+  showSearch: boolean;
 };
-const { lang, noSearch = false } = Astro.props satisfies Props;
+const { lang, showSearch } = Astro.props satisfies Props;
 
 // Language
 const _ = Lang(lang);
@@ -35,7 +35,7 @@ stats.stop();
       /></a
     >
 
-    { !noSearch && <Search lang={ lang } /> }
+    { showSearch && <Search lang={ lang } /> }
 
     <a href="https://octopus.com/start?location=docs" class="button trial"
       >Free trial</a

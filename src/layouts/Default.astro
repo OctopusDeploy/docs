@@ -52,13 +52,15 @@ const site_url = SITE.url;
 const site_features = SITE.featureFlags;
 const search = accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
 const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url)
-const isSearchPage = Astro.url.pathname === searchUrl;
+const isSearchPage = accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
+console.log(accelerator.urlFormatter.formatAddress(Astro.url.pathname), searchUrl)
+const showSearch = !isSearchPage;
 ---
 <html dir={ textDirection } lang={ lang } class="initial">
     <Head frontmatter={ frontmatter } headings={ headings } lang={ lang } />
     <body>
         <SkipLinks frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-        <Header frontmatter={ frontmatter } headings={ headings } lang={ lang } noSearch={ isSearchPage } />
+        <Header frontmatter={ frontmatter } headings={ headings } lang={ lang } showSearch={ showSearch } />
         <Title frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         <div class="content-group">
             <main id="site-main">

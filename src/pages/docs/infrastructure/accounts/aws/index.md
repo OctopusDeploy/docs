@@ -53,7 +53,7 @@ When setting up the identity provider you need to use the host domain name of yo
 5. Set the **Session Duration** to the Maximum session duration from the role, in seconds.
 6. Click **SAVE** to save the account.
 7. Before you can test the account you need to add a condition to the identity provider in AWS under **IAM ➜ Roles ➜ {Your AWS Role} ➜ Trust Relationship** :
-```JSON
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -81,7 +81,7 @@ By default, the role trust policy does not have any conditions on the subject id
 
 For example, to lock an identity role to a specific Octopus environment, you can update the conditions:
 
-```JSON
+```json
 "Condition": {
   "StringEquals": {
         "example.octopus.app:sub": "space:default:project:aws-oidc-testing:environment:dev",
@@ -96,7 +96,7 @@ AWS policy conditions also support complex matching with wildcards and `StringLi
 
 For example, to lock an identity role to any Octopus environment, you can update the conditions:
 
-```JSON
+```json
 "Condition": {
   "StringLike": {
         "example.octopus.app:sub": "space:default:project:aws-oidc-testing:environment:*",

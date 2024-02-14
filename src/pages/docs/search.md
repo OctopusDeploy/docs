@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Search.astro
 title: Search
-navOrder: 5
+navOrder: 1000
 navSearch: false
 navSitemap: false
 pubDate: 2022-09-17
