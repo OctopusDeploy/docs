@@ -1,8 +1,9 @@
 ---
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
-import { Translations, Lang } from '@util/Languages';
+import { Lang } from '@util/Languages';
 import Default from './Default.astro';
+import Search from '../themes/accelerator/components/Search.astro';
 
 // Properties
 type Props = {
@@ -14,28 +15,8 @@ const lang = frontmatter.lang ?? SITE.default.lang;
 
 // Language
 const _ = Lang(lang);
-
-// Logic
-const siteUrl = Astro.site ? Astro.site.href : '';
 ---
 <Default frontmatter={ frontmatter } headings={ headings }>
     <slot />
-    <form method="GET" action={ SITE.search.fallbackUrl ?? 'https://www.google.com/search' } role="search" id="site-search" class="site-search note" autocomplete="off" data-sourcedata={ SITE.subfolder + '/search.json' }>
-        <fieldset>
-            <input type="hidden" name={ SITE.search.fallbackSite ?? 'q' } value={ 'site:' + siteUrl } />
-            <div>
-                <label for="site-search-query">{ _(Translations.search.search_for) }</label>
-                <input 
-                    type="text" 
-                    name={ SITE.search.fallbackSite ?? 'q' } 
-                    id="site-search-query" 
-                    spellcheck="true"
-                    autocomplete="off" />
-                <button id="site-search-button" type="submit">{ _(Translations.search.submit) }</button>
-            </div>
-        </fieldset>
-    </form>
-    <div id="site-search-results" data-title={ _(Translations.search.results_title) } data-emptytitle={ _(Translations.search.no_results_title) }>
-    </div>
-    <script src={ SITE.subfolder + '/js/search.js' } type="module" async></script>
+    <Search lang={ lang }/>
 </Default>

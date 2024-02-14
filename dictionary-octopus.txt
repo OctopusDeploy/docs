@@ -26,9 +26,11 @@ comms
 COMPUTERNAME
 Conjur
 cooldown
+Cpath
 createartifact
 creds
 crossorigin
+Csvg
 cscfg
 cspkg
 cutover
@@ -46,9 +48,11 @@ Dockerfiles
 dockerhub
 DONTVALIDATEPATH
 dpkg
+emptytitle
 Fargate
 feedcred
 FIPS
+fieldset
 frontmatter
 gcloud
 globbing
@@ -71,6 +75,9 @@ internalcustomer
 Istio
 istioctl
 ITSM
+itemprop
+itemscope
+itemtype
 jwks
 keyrings
 Kubelet
@@ -146,6 +153,7 @@ setspn
 shiki
 SIEM
 signingkeys
+sourcedata
 sthumb
 swaggerui
 systemprofile
@@ -154,8 +162,6 @@ tagset
 templateid
 templating
 tenanttype
-tfvar
-tfvars
 TFVC
 tmpfs
 Traefik

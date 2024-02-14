@@ -1,5 +1,5 @@
 ---
-import { Accelerator } from 'astro-accelerator-utils';
+import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { getImageInfo } from '@util/custom-markdown.mjs';
@@ -50,12 +50,17 @@ const subtitle = frontmatter.subtitle
 
 const site_url = SITE.url;
 const site_features = SITE.featureFlags;
+const search = accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
+const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url)
+const isSearchPage = accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
+console.log(accelerator.urlFormatter.formatAddress(Astro.url.pathname), searchUrl)
+const showSearch = !isSearchPage;
 ---
 <html dir={ textDirection } lang={ lang } class="initial">
     <Head frontmatter={ frontmatter } headings={ headings } lang={ lang } />
     <body>
         <SkipLinks frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-        <Header frontmatter={ frontmatter } headings={ headings } lang={ lang } />
+        <Header frontmatter={ frontmatter } headings={ headings } lang={ lang } showSearch={ showSearch } />
         <Title frontmatter={ frontmatter } headings={ headings } lang={ lang } />
         <div class="content-group">
             <main id="site-main">
