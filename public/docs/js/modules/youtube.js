@@ -1,5 +1,4 @@
 // @ts-check
-
 import { qsa } from './query.js';
 
 function enhanceYoutubeLinks() {

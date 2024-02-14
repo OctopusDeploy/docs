@@ -1,8 +1,22 @@
 // @ts-check
-
 import { qs } from './modules/query.js';
 import { raiseEvent } from './modules/events.js';
 import { contains, sanitise, explode, highlight } from './modules/string.js';
+import { stemmer } from './modules/stemmer.js';
+
+// @ts-ignore
+const f = site_features ?? {};
+
+/**
+ * 
+ * @param {string[]} settings 
+ * @param {string} option 
+ * @returns 
+ */
+function enabled(settings, option) {
+    return settings
+        && settings.includes(option);
+}
 
 /**
 @typedef {
@@ -38,201 +52,13 @@ import { contains, sanitise, explode, highlight } from './modules/string.js';
 } Synonyms
  */
 
-/**
- * Removes "morphological and inflexional endings" from words
- * See: http://www.tartarus.org/~martin/PorterStemmer
- */
-const stemmer = (function () {
-    const step2list = {
-        "ational": "ate",
-        "tional": "tion",
-        "enci": "ence",
-        "anci": "ance",
-        "izer": "ize",
-        "bli": "ble",
-        "alli": "al",
-        "entli": "ent",
-        "eli": "e",
-        "ousli": "ous",
-        "ization": "ize",
-        "ation": "ate",
-        "ator": "ate",
-        "alism": "al",
-        "iveness": "ive",
-        "fulness": "ful",
-        "ousness": "ous",
-        "aliti": "al",
-        "iviti": "ive",
-        "biliti": "ble",
-        "logi": "log"
-    };
-
-    const step3list = {
-        "icate": "ic",
-        "ative": "",
-        "alize": "al",
-        "iciti": "ic",
-        "ical": "ic",
-        "ful": "",
-        "ness": ""
-    };
-
-    const c = "[^aeiou]", // consonant
-    v = "[aeiouy]",       // vowel
-    C = c + "[^aeiouy]*", // consonant sequence
-    V = v + "[aeiou]*",   // vowel sequence
-
-    mgr0 = "^(" + C + ")?" + V + C,                   // [C]VC... is m>0
-    meq1 = "^(" + C + ")?" + V + C + "(" + V + ")?$", // [C]VC[V] is m=1
-    mgr1 = "^(" + C + ")?" + V + C + V + C,           // [C]VCVC... is m>1
-    s_v = "^(" + C + ")?" + v;                        // vowel in stem
-
-    /**
-     * @param {string} w
-     * @returns {string}
-     */
-    return function (w) {
-        var stem,
-            suffix,
-            firstch,
-            re,
-            re2,
-            re3,
-            re4,
-            origword = w;
-
-        if (w.length < 3) { return w; }
-
-        firstch = w.substring(0, 1);
-
-        if (firstch == "y") {
-            w = firstch.toUpperCase() + w.substring(1, w.length);
-        }
-
-        // Step 1a
-        re = /^(.+?)(ss|i)es$/;
-        re2 = /^(.+?)([^s])s$/;
-
-        if (re.test(w)) { 
-            w = w.replace(re, "$1$2"); 
-        } else if (re2.test(w)) {
-            w = w.replace(re2, "$1$2"); 
-        }
-
-        // Step 1b
-        re = /^(.+?)eed$/;
-        re2 = /^(.+?)(ed|ing)$/;
-        if (re.test(w)) {
-            var fp = re.exec(w);
-            re = new RegExp(mgr0);
-            if (re.test(fp[1])) {
-                re = /.$/;
-                w = w.replace(re, "");
-            }
-        } else if (re2.test(w)) {
-            var fp = re2.exec(w);
-            stem = fp[1];
-            re2 = new RegExp(s_v);
-            if (re2.test(stem)) {
-                w = stem;
-                re2 = /(at|bl|iz)$/;
-                re3 = new RegExp("([^aeiouylsz])\\1$");
-                re4 = new RegExp("^" + C + v + "[^aeiouwxy]$");
-                if (re2.test(w)) { w = w + "e"; }
-                else if (re3.test(w)) { re = /.$/; w = w.replace(re, ""); }
-                else if (re4.test(w)) { w = w + "e"; }
-            }
-        }
-
-        // Step 1c
-        re = /^(.+?)y$/;
-        if (re.test(w)) {
-            var fp = re.exec(w);
-            stem = fp[1];
-            re = new RegExp(s_v);
-            if (re.test(stem)) { w = stem + "i"; }
-        }
-
-        // Step 2
-        re = /^(.+?)(ational|tional|enci|anci|izer|bli|alli|entli|eli|ousli|ization|ation|ator|alism|iveness|fulness|ousness|aliti|iviti|biliti|logi)$/;
-        if (re.test(w)) {
-            var fp = re.exec(w);
-            stem = fp[1];
-            suffix = fp[2];
-            re = new RegExp(mgr0);
-            if (re.test(stem)) {
-                w = stem + step2list[suffix];
-            }
-        }
-
-        // Step 3
-        re = /^(.+?)(icate|ative|alize|iciti|ical|ful|ness)$/;
-        if (re.test(w)) {
-            var fp = re.exec(w);
-            stem = fp[1];
-            suffix = fp[2];
-            re = new RegExp(mgr0);
-            if (re.test(stem)) {
-                w = stem + step3list[suffix];
-            }
-        }
-
-        // Step 4
-        re = /^(.+?)(al|ance|ence|er|ic|able|ible|ant|ement|ment|ent|ou|ism|ate|iti|ous|ive|ize)$/;
-        re2 = /^(.+?)(s|t)(ion)$/;
-        if (re.test(w)) {
-            var fp = re.exec(w);
-            stem = fp[1];
-            re = new RegExp(mgr1);
-            if (re.test(stem)) {
-                w = stem;
-            }
-        } else if (re2.test(w)) {
-            var fp = re2.exec(w);
-            stem = fp[1] + fp[2];
-            re2 = new RegExp(mgr1);
-            if (re2.test(stem)) {
-                w = stem;
-            }
-        }
-
-        // Step 5
-        re = /^(.+?)e$/;
-        if (re.test(w)) {
-            var fp = re.exec(w);
-            stem = fp[1];
-            re = new RegExp(mgr1);
-            re2 = new RegExp(meq1);
-            re3 = new RegExp("^" + C + v + "[^aeiouwxy]$");
-            if (re.test(stem) || (re2.test(stem) && !(re3.test(stem)))) {
-                w = stem;
-            }
-        }
-
-        re = /ll$/;
-        re2 = new RegExp(mgr1);
-        if (re.test(w) && re2.test(w)) {
-            re = /.$/;
-            w = w.replace(re, "");
-        }
-
-        // and turn initial Y back to y
-
-        if (firstch == "y") {
-            w = firstch.toLowerCase() + w.substr(1);
-        }
-
-        return w;
-    }
-})();
-
-/** @type {SearchEntry[]} */
 const siteSearchInput = qs('[data-site-search-query]');
 const siteSearchWrapper = qs('[data-site-search-wrapper]');
 const siteSearchElement = qs('[data-site-search]');
 const siteSearchResults = qs('[data-site-search-results');
 const removeSearchButton = qs('[data-site-search-remove]');
 
+/** @type {SearchEntry[]} */
 var haystack = [];
 var currentQuery = '';
 var dataUrl = siteSearchElement.dataset.sourcedata;
@@ -255,12 +81,12 @@ var scrolled = false;
 siteSearchInput.addEventListener('focus', () => activateInput());
 
 // Close the dropdown upon clicking outside the search
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (!siteSearchElement.contains(e.target) && !siteSearchResults.contains(e.target)) {
         closeDropdown();
 
         const duration = getComputedStyle(siteSearchWrapper).getPropertyValue('--search-dropdown-duration');
-        
+
         // Convert duration to milliseconds for setTimeout
         const durationMs = parseFloat(duration) * (duration.endsWith('ms') ? 1 : 1000);
 
@@ -281,6 +107,9 @@ siteSearchInput.addEventListener('click', () => {
 // Clear the search input
 removeSearchButton.addEventListener('click', () => clearInput());
 
+// Dropdown accessibility controls
+document.addEventListener('keydown', handleDropdownKeyboardNavigation);
+  
 function activateInput() {
     siteSearchWrapper.classList.add('is-active');
 }
@@ -302,7 +131,7 @@ function openDropdown() {
         if (offsetFromBottomToElement < dropdownHeight) {
             // Scroll to the siteSearchElement
             siteSearchElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            
+
             // Delay the overflow to allow for smooth scrolling
             setTimeout(() => {
                 document.body.style.overflow = 'hidden';
@@ -317,12 +146,40 @@ function openDropdown() {
 function closeDropdown() {
     siteSearchElement.classList.remove('is-active');
     document.body.style.overflow = '';
+    siteSearchInput.blur();
 }
 
 function clearInput() {
     closeDropdown();
     siteSearchInput.value = '';
     siteSearchInput.focus();
+}
+
+function handleDropdownKeyboardNavigation(e) {
+    // Proceed only if search dropdown is active
+    if (!siteSearchWrapper.classList.contains('is-active')) return;
+
+    if (e.key === 'Escape') {
+        closeDropdown();
+        deactivateInput();
+
+        return;
+    }
+
+    if (e.key === 'Tab') {
+        const firstElement = siteSearchInput;
+        const lastElement = siteSearchResults.querySelector('button') || siteSearchResults.querySelector('.site-search-results__item:last-child .result-wrapper');
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+            // Shift + Tab: Move focus to the last element if the first element is currently focused
+            e.preventDefault();
+            if (lastElement) lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+            // Tab: Move focus to the first element if the last element is currently focused
+            e.preventDefault();
+            firstElement.focus();
+        }
+    }
 }
 
 /** @type{Synonyms | null} */
@@ -339,7 +196,7 @@ async function getSynonyms() {
 
     try {
         const synonymsModule = await import('./synonyms.js');
-        _synonyms =synonymsModule.synonyms;
+        _synonyms = synonymsModule.synonyms;
     } catch {
         _synonyms = {};
     }
@@ -353,7 +210,7 @@ async function getSynonyms() {
  */
 async function replaceSynonyms(queryTerms) {
     const synonyms = await getSynonyms();
-    
+
     for (let i = 0; i < queryTerms.length; i++) {
         const term = queryTerms[i];
         if (synonyms[term] != null) {
@@ -383,7 +240,7 @@ async function search(s, r) {
     }
 
     /** @type {SearchEntry[]} */
-    const needles =  [];
+    const needles = [];
 
     // Clean the input
     const cleanQuery = sanitise(s);
@@ -406,7 +263,7 @@ async function search(s, r) {
 
     const allTerms = queryTerms.concat(stemmedTerms);
 
-    cleanQuery.length > 0 && haystack.forEach( (item) => {
+    cleanQuery.length > 0 && haystack.forEach((item) => {
 
         item.foundWords = 0;
         item.score = 0;
@@ -420,7 +277,7 @@ async function search(s, r) {
         if (item.safeTitle === currentQuery) {
             item.foundWords += 2;
         }
-        
+
         if (contains(item.safeTitle, currentQuery)) {
             item.score = item.score + scoring.phraseTitle;
             item.foundWords += 2;
@@ -444,7 +301,7 @@ async function search(s, r) {
         // Part 2 - Term Matches, i.e. "Kitchen" or "Sink"
 
         let foundWords = 0;
-        
+
         allTerms.forEach(term => {
             let isTermFound = false;
 
@@ -512,7 +369,7 @@ async function search(s, r) {
         }
     });
 
-    needles.sort(function (a, b){
+    needles.sort(function (a, b) {
         if (b.foundWords === a.foundWords) {
             return b.score - a.score;
         }
@@ -522,7 +379,7 @@ async function search(s, r) {
 
     const total = needles.reduce(function (accumulator, needle) {
         return accumulator + needle.score;
-        }, 0);
+    }, 0);
 
     const results = siteSearchResults;
 
@@ -539,7 +396,7 @@ async function search(s, r) {
 
         const address = new URL(needle.url);
         const isSameHost = siteUrl.host == address.host;
-        const url =  isSameHost ? address.pathname : needle.url;
+        const url = isSameHost ? address.pathname : needle.url;
 
         const listElementWrapper = document.createElement('a');
         listElementWrapper.href = url;
@@ -558,15 +415,15 @@ async function search(s, r) {
 
         segments.forEach((segment, index) => {
             const words = segment.replace(/-/g, ' ').split(' ');
-            const processedSegment = words.map((word, index) => 
+            const processedSegment = words.map((word, index) =>
                 index === 0 ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() : word.toLowerCase()
             ).join(' ');
-        
+
             const segmentSpan = document.createElement('span');
             segmentSpan.className = 'result-path__segment';
             segmentSpan.textContent = processedSegment;
             path.appendChild(segmentSpan);
-        
+
             if (index < segments.length - 1) {
                 const svgIcon = document.createElement('span');
                 svgIcon.className = 'result-path__icon';
@@ -587,38 +444,37 @@ async function search(s, r) {
         const li = document.createElement('li');
         li.classList.add('site-search-results__item');
         li.dataset.words = needle.foundWords.toString();
-        li.dataset.score = (Math.round((needle.score/ total) * 1000) / 1000).toString();
+        li.dataset.score = (Math.round((needle.score / total) * 1000) / 1000).toString();
         listElementWrapper.appendChild(path);
         listElementWrapper.appendChild(listElementTitle);
         listElementWrapper.appendChild(listElementDescription);
         li.appendChild(listElementWrapper);
 
-        // TODO: Feature flag
-        // if (needle.matchedHeadings.length > 0) {
-        //     const headings = document.createElement('ul');
-        //     headings.className = 'result-headings';
+        if (enabled(f.search, 'headings') && needle.matchedHeadings.length > 0) {
+            const headings = document.createElement('ul');
+            headings.className = 'result-headings';
 
-        //     headings.tabIndex = 0;
+            headings.tabIndex = 0;
 
-        //     needle.matchedHeadings
-        //         .forEach(h => {
-        //             const item = document.createElement('li');
-        //             const link = document.createElement('a');
-        //             link.href = url + '#' + h.slug;
-        //             // Only highlight user query terms, not stemmed terms
-        //             link.innerHTML = highlight(h.text, queryTerms);
-        //             item.appendChild(link);
-        //             headings.append(item);
-        //         });
+            needle.matchedHeadings
+                .forEach(h => {
+                    const item = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = url + '#' + h.slug;
+                    // Only highlight user query terms, not stemmed terms
+                    link.innerHTML = highlight(h.text, queryTerms);
+                    item.appendChild(link);
+                    headings.append(item);
+                });
 
-        //     li.appendChild(headings);
-        // }
+            li.appendChild(headings);
+        }
 
         ul.appendChild(li);
     }
 
     let h2;
-    if(needles.length === 0) {
+    if (needles.length === 0) {
         h2 = document.createElement('h2');
         h2.classList.add('search-results__heading');
         h2.innerHTML = results.dataset.emptytitle || 'No Results';
@@ -628,7 +484,7 @@ async function search(s, r) {
     more.className = 'show-more';
     more.type = 'button';
     more.innerHTML = 'See more';
-    more.addEventListener('click', function(e) {
+    more.addEventListener('click', function (e) {
         e.stopPropagation(); // Prevent the click from closing the dropdown
         currentQuery = '';
         const newTotal = numberOfResults + 12;
@@ -653,7 +509,7 @@ var debounceTimer;
 
 function debounceSearch() {
     var input = siteSearchInput;
-    
+
     document.body.style.overflow = 'hidden'; // Prevent scrolling when active
 
     if (input == null) {
@@ -668,14 +524,14 @@ function debounceSearch() {
         if (ready) {
             search(s);
         }
-    }, 400);    
+    }, 400);
 }
 
 fetch(dataUrl)
-    .then(function (response) { 
+    .then(function (response) {
         return response.json();
     })
-    .then(function (data) { 
+    .then(function (data) {
         haystack = data;
         ready = true;
 
@@ -698,13 +554,13 @@ fetch(dataUrl)
         if (siteSearch == null || siteSearchQuery == null) {
             throw new Error('Cannot find #site-search or data-site-search-query');
         }
-    
+
         siteSearch.addEventListener('submit', function (e) {
             e.preventDefault();
             debounceSearch();
             return false;
         });
-    
+
         siteSearchQuery.addEventListener('keyup', function (e) {
             e.preventDefault();
             if (!scrolled) {
@@ -722,7 +578,7 @@ fetch(dataUrl)
 
         for (let key of Object.keys(scoring)) {
             if (params.has(`s_${key}`)) {
-                scoring[key] = parseInt(params.get(`s_${key}`) ?? scoring[key].toString(), 10)  ;
+                scoring[key] = parseInt(params.get(`s_${key}`) ?? scoring[key].toString(), 10);
             }
         }
 

@@ -1,5 +1,4 @@
 // @ts-check
-
 import { raiseEvent } from './events.js';
 
 var resizeEventName = 'resize';

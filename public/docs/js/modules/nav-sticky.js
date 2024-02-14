@@ -1,5 +1,4 @@
 // @ts-check
-
 import { qs } from './query.js';
 
 /**

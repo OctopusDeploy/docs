@@ -1,5 +1,4 @@
 // @ts-check
-
 function enhanceSearchIcon() {
     if (document.querySelector('#site-search-query') == null) {
         const icon = document.querySelector('a.search-icon');

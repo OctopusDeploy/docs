@@ -1,5 +1,4 @@
 // @ts-check
-
 import { qsa } from './query.js';
 
 const dataAttributeName = 'data-destination';

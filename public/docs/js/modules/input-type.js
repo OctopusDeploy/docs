@@ -1,5 +1,4 @@
 // @ts-check
-
 let inputType = 'unknown';
 
 /**

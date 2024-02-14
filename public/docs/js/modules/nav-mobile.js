@@ -1,5 +1,4 @@
 // @ts-check
-
 import { qs, qsa } from './query.js';
 import { getFocusableElement, trapFocusForward, trapReverseFocus } from './focus.js';
 
