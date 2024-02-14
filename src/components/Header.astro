@@ -3,7 +3,7 @@ import { Accelerator } from "astro-accelerator-utils";
 import type { Frontmatter } from "astro-accelerator-utils/types/Frontmatter";
 import { Lang } from "@util/Languages";
 import { SITE } from "@config";
-import Search from './Search.astro';
+import Search from '../themes/accelerator/components/Search.astro';
 
 const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics("components/Header.astro");
