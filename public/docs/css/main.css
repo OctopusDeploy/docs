@@ -407,7 +407,7 @@ nav.skip-links a:focus {
 .octo-header-bkg {
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   background-color: var(--header-bg);
-  min-height: 55px;
+  min-height: 82px;
   position: sticky;
   top: 0;
   /* z-index due to conflict with octo-title-bkg */
@@ -568,7 +568,7 @@ nav.skip-links a:focus {
 .octo-title-bkg {
   background: linear-gradient(269.9deg, #11181D 47.17%, #124164 72.68%, #07121A 96.54%);
   position: sticky;
-  top: 55px;
+  top: 82px;
   z-index: 10;
 }
 
@@ -635,13 +635,13 @@ nav.skip-links a:focus {
 .site-nav {
   background-color: var(--bg-color-menu);
   height: calc(100vh - 110px);
-  top: 110px;
+  top: 140px;
 }
 
 .side-nav {
   margin-block-start: 10vh;
   height: calc(100vh - 260px);
-  top: 150px;
+  top: 170px;
 }
 
 .site-nav>ul,
