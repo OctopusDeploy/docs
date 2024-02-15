@@ -235,7 +235,7 @@ async function search(s, r) {
     if (s && s.trim().length > 0) {
         activateInput();
         openDropdown();
-    } else {
+    } else if(siteSearchElement.classList.contains('is-active')){
         // Remove 'is-active' class when search is cleared
         closeDropdown();
     }
@@ -474,11 +474,11 @@ async function search(s, r) {
         ul.appendChild(li);
     }
 
-    let h2;
+    let h4;
     if (needles.length === 0) {
-        h2 = document.createElement('h2');
-        h2.classList.add('search-results__heading');
-        h2.innerHTML = results.dataset.emptytitle || 'No Results';
+        h4 = document.createElement('h4');
+        h4.classList.add('search-results__heading');
+        h4.innerHTML = results.dataset.emptytitle || 'No Results';
     }
 
     const more = document.createElement('button');
@@ -494,7 +494,7 @@ async function search(s, r) {
 
     results.innerHTML = '';
     results.appendChild(ul);
-    h2 && results.appendChild(h2);
+    h4 && results.appendChild(h4);
 
     if (needles.length > numberOfResults) {
         results.appendChild(more);

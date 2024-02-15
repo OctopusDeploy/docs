@@ -1398,7 +1398,7 @@ a[data-youtube] {
   padding: 110px 1em 2rem 1em;
   max-height: 100vh;
   overflow-y: auto;
-  z-index: 0;
+  z-index: 1;
 }
 
 /* Site Search */
@@ -1492,6 +1492,7 @@ a[data-youtube] {
 
 .search-results__heading {
   visibility: hidden;
+  padding: 1.5rem 3.6rem 1.75rem;
 }
 
 .site-search.is-active+.site-search-results>.search-results__heading {
