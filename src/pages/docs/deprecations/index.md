@@ -32,14 +32,14 @@ To provide ample time to act, from Octopus Server `2024.1`, workloads that run o
 
 Further notes about this pending change are mentioned in the [2024.1 deprecation blog post](https://octopus.com/blog/2024-deprecated-features#windows-server-2008)
 
-### Removing support for Helm V2
+## Deprecations for 2024.1
+
+### Helm V2
 Helm V2 was [deprecated in November 2020](https://helm.sh/blog/helm-v2-deprecation-timeline/) and is no longer receiving any updates.
 
-As a result, coupled with very low usage, Helm V2 support will be removed in `2024.2`. Deprecation warnings in both the UI and in task logs where Helm V2 is being used have been added in `2024.1`.
+As a result, coupled with very low usage, Helm V2 support will be disabled in `2024.3` and removed in `2025.1`. Deprecation warnings in both the UI and in task logs where Helm V2 is being used have been added in `2024.1`.
 
 There is an official [Helm V2 to V3 migration guide](https://helm.sh/docs/topics/v2_v3_migration/) which details the process of migrating to using Helm V3. Once this has been done, the  Helm Upgrade deployment process steps in Octopus Server need to be updated to specify Helm V3, rather than Helm V2.
-
-## Deprecations for 2024.1
 
 ### Azure Cloud Services (Classic)
 Azure have announced the sun setting of the original _Cloud Services_ resource, renamed _Cloud Services (Classic)_, with the [final retirement date set as August 31, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-cloud-services-classic). In a little over 6 months, teams that are still relying on this cloud service will be unable to deploy to them at all, with Octopus Deploy or otherwise.
