@@ -1,22 +1,21 @@
 // @ts-check
 
-import { qs } from './modules/query.js';
-import { raiseEvent } from './modules/events.js';
-import { contains, sanitise, explode, highlight } from './modules/string.js';
-import { stemmer } from './modules/stemmer.js';
+import { qs } from "./modules/query.js";
+import { raiseEvent } from "./modules/events.js";
+import { contains, sanitise, explode, highlight } from "./modules/string.js";
+import { stemmer } from "./modules/stemmer.js";
 
 // @ts-ignore
 const f = site_features ?? {};
 
 /**
- * 
- * @param {string[]} settings 
- * @param {string} option 
- * @returns 
+ *
+ * @param {string[]} settings
+ * @param {string} option
+ * @returns
  */
 function enabled(settings, option) {
-    return settings
-        && settings.includes(option);
+  return settings && settings.includes(option);
 }
 
 /**
@@ -53,18 +52,20 @@ function enabled(settings, option) {
 } Synonyms
  */
 
-const siteSearchInput = qs('[data-site-search-query]');
-const siteSearchWrapper = qs('[data-site-search-wrapper]');
-const siteSearchElement = qs('[data-site-search]');
-const siteSearchResults = qs('[data-site-search-results');
-const removeSearchButton = qs('[data-site-search-remove]');
+function initializeSearch() {
+  const siteSearchInput = qs("[data-site-search-query]");
+  const siteSearchWrapper = qs("[data-site-search-wrapper]");
+  const siteSearchElement = qs("[data-site-search]");
+  const siteSearchResults = qs("[data-site-search-results");
+  const removeSearchButton = qs("[data-site-search-remove]");
+  let scrollYPosition = window.scrollY;
 
-/** @type {SearchEntry[]} */
-var haystack = [];
-var currentQuery = '';
-var dataUrl = siteSearchElement.dataset.sourcedata;
+  /** @type {SearchEntry[]} */
+  var haystack = [];
+  var currentQuery = "";
+  var dataUrl = siteSearchElement.dataset.sourcedata;
 
-var scoring = {
+  var scoring = {
     depth: 5,
     phraseTitle: 60,
     phraseHeading: 20,
@@ -73,171 +74,205 @@ var scoring = {
     termHeading: 15,
     termDescription: 15,
     termTags: 15,
-    termKeywords: 15
-};
+    termKeywords: 15,
+  };
 
-var ready = false;
-var scrolled = false;
+  var ready = false;
+  var scrolled = false;
 
-siteSearchInput.addEventListener('focus', () => activateInput());
+  siteSearchInput.addEventListener("focus", () => activateInput());
 
-// Close the dropdown upon clicking outside the search
-document.addEventListener('click', function (e) {
-    if (!siteSearchElement.contains(e.target) && !siteSearchResults.contains(e.target)) {
-        closeDropdown();
+  // Close the dropdown upon clicking outside the search
+  document.addEventListener("click", function (e) {
+    if (
+      !siteSearchElement.contains(e.target) &&
+      !siteSearchResults.contains(e.target)
+    ) {
+      closeDropdown();
 
-        const duration = getComputedStyle(siteSearchWrapper).getPropertyValue('--search-dropdown-duration');
+      const duration = getComputedStyle(siteSearchWrapper).getPropertyValue(
+        "--search-dropdown-duration"
+      );
 
-        // Convert duration to milliseconds for setTimeout
-        const durationMs = parseFloat(duration) * (duration.endsWith('ms') ? 1 : 1000);
+      // Convert duration to milliseconds for setTimeout
+      const durationMs =
+        parseFloat(duration) * (duration.endsWith("ms") ? 1 : 1000);
 
-        setTimeout(() => {
-            deactivateInput();
-        }, durationMs);
+      setTimeout(() => {
+        deactivateInput();
+      }, durationMs);
     }
-});
+  });
 
-// Reopen the dropdown upon clicking the input after it has been closed
-siteSearchInput.addEventListener('click', () => {
-    if (siteSearchInput.value.trim() !== '') {
-        activateInput();
-        openDropdown();
+  // Reopen the dropdown upon clicking the input after it has been closed
+  siteSearchInput.addEventListener("click", () => {
+    if (siteSearchInput.value.trim() !== "") {
+      activateInput();
+      openDropdown();
     }
-});
+  });
 
-// Clear the search input
-removeSearchButton.addEventListener('click', () => clearInput());
+  // Clear the search input
+  removeSearchButton.addEventListener("click", () => clearInput());
 
-// Dropdown accessibility controls
-document.addEventListener('keydown', handleDropdownKeyboardNavigation);
-  
-function activateInput() {
-    siteSearchWrapper.classList.add('is-active');
-}
+  // Dropdown accessibility controls
+  document.addEventListener("keydown", handleDropdownKeyboardNavigation);
 
-function deactivateInput() {
-    siteSearchWrapper.classList.remove('is-active');
-}
+  function activateInput() {
+    if (siteSearchWrapper.classList.contains("is-active")) return;
+    siteSearchWrapper.classList.add("is-active");
+    document.body.style.overflow = "hidden";
 
-function openDropdown() {
-    siteSearchElement.classList.add('is-active');
+    scrollYPosition = window.scrollY;
+
+    // Add event listener to lock scroll position
+    window.addEventListener("scroll", lockScroll, { passive: false });
+  }
+
+  function deactivateInput() {
+    if (!siteSearchWrapper.classList.contains("is-active")) return;
+    siteSearchWrapper.classList.remove("is-active");
+    siteSearchInput.blur();
+    document.body.style.overflow = "";
+
+    // Remove event listener to allow scrolling again
+    window.removeEventListener("scroll", lockScroll, { passive: false });
+  }
+
+  function openDropdown() {
+    siteSearchElement.classList.add("is-active");
 
     requestAnimationFrame(() => {
-        const dropdownHeightPercentage = parseFloat(getComputedStyle(siteSearchWrapper).getPropertyValue('--search-dropdown-height'));
-        // Convert vh to pixels
-        const dropdownHeight = window.innerHeight * (dropdownHeightPercentage / 100) + 32;
-        const siteSearchElementRect = siteSearchElement.getBoundingClientRect();
-        const offsetFromBottomToElement = window.innerHeight - siteSearchElementRect.bottom;
+      const dropdownHeightPercentage = parseFloat(
+        getComputedStyle(siteSearchWrapper).getPropertyValue(
+          "--search-dropdown-height"
+        )
+      );
+      // Convert vh to pixels
+      const dropdownHeight =
+        window.innerHeight * (dropdownHeightPercentage / 100) + 32;
+      const siteSearchElementRect = siteSearchElement.getBoundingClientRect();
+      const offsetFromBottomToElement =
+        window.innerHeight - siteSearchElementRect.bottom;
 
-        if (offsetFromBottomToElement < dropdownHeight) {
-            // Scroll to the siteSearchElement
-            siteSearchElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (offsetFromBottomToElement < dropdownHeight) {
+        window.removeEventListener("scroll", lockScroll, { passive: false });
 
-            // Delay the overflow to allow for smooth scrolling
-            setTimeout(() => {
-                document.body.style.overflow = 'hidden';
-            }, 300);
-        } else {
-            // If dropdown is fully visible, no need to adjust scroll but prevent further scrolling
-            document.body.style.overflow = 'hidden';
-        }
+        // Scroll to the siteSearchElement
+        siteSearchElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        // Delay the overflow to allow for smooth scrolling
+        setTimeout(() => {
+          scrollYPosition = window.scrollY;
+          window.addEventListener("scroll", lockScroll, { passive: false });
+        }, 300);
+      }
     });
-}
+  }
 
-function closeDropdown() {
-    siteSearchElement.classList.remove('is-active');
-    document.body.style.overflow = '';
-    siteSearchInput.blur();
-}
+  function closeDropdown() {
+    siteSearchElement.classList.remove("is-active");
+  }
 
-function clearInput() {
+  function clearInput() {
     closeDropdown();
-    siteSearchInput.value = '';
+    siteSearchInput.value = "";
     siteSearchInput.focus();
-}
+  }
 
-function handleDropdownKeyboardNavigation(e) {
+  function lockScroll() {
+    window.scrollTo(window.scrollX, scrollYPosition);
+  }
+
+  function handleDropdownKeyboardNavigation(e) {
     // Proceed only if search dropdown is active
-    if (!siteSearchWrapper.classList.contains('is-active')) return;
+    if (!siteSearchWrapper.classList.contains("is-active")) return;
 
-    if (e.key === 'Escape') {
-        closeDropdown();
-        deactivateInput();
+    if (e.key === "Escape") {
+      closeDropdown();
+      deactivateInput();
 
-        return;
+      return;
     }
 
-    if (e.key === 'Tab') {
-        const firstElement = siteSearchInput;
-        const lastElement = siteSearchResults.querySelector('button') || siteSearchResults.querySelector('.site-search-results__item:last-child .result-wrapper');
+    if (e.key === "Tab") {
+      const firstElement = siteSearchInput;
+      const lastElement =
+        siteSearchResults.querySelector("button") ||
+        siteSearchResults.querySelector(
+          ".site-search-results__item:last-child .result-wrapper"
+        );
 
-        if (e.shiftKey && document.activeElement === firstElement) {
-            // Shift + Tab: Move focus to the last element if the first element is currently focused
-            e.preventDefault();
-            if (lastElement) lastElement.focus();
-        } else if (!e.shiftKey && document.activeElement === lastElement) {
-            // Tab: Move focus to the first element if the last element is currently focused
-            e.preventDefault();
-            firstElement.focus();
-        }
+      if (e.shiftKey && document.activeElement === firstElement) {
+        // Shift + Tab: Move focus to the last element if the first element is currently focused
+        e.preventDefault();
+        if (lastElement) lastElement.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        // Tab: Move focus to the first element if the last element is currently focused
+        e.preventDefault();
+        firstElement.focus();
+      }
     }
-}
+  }
 
-/** @type{Synonyms | null} */
-var _synonyms = null;
+  /** @type{Synonyms | null} */
+  var _synonyms = null;
 
-/**
- * Gets the list of synonyms if they exist
- * @returns { Promise<Synonyms> }
- */
-async function getSynonyms() {
+  /**
+   * Gets the list of synonyms if they exist
+   * @returns { Promise<Synonyms> }
+   */
+  async function getSynonyms() {
     if (_synonyms != null) {
-        return _synonyms;
+      return _synonyms;
     }
 
     try {
-        const synonymsModule = await import('./synonyms.js');
-        _synonyms = synonymsModule.synonyms;
+      const synonymsModule = await import("./synonyms.js");
+      _synonyms = synonymsModule.synonyms;
     } catch {
-        _synonyms = {};
+      _synonyms = {};
     }
 
     return _synonyms ?? {};
-}
+  }
 
-/**
- * Replaces synonyms
- * @param {string[]} queryTerms 
- */
-async function replaceSynonyms(queryTerms) {
+  /**
+   * Replaces synonyms
+   * @param {string[]} queryTerms
+   */
+  async function replaceSynonyms(queryTerms) {
     const synonyms = await getSynonyms();
 
     for (let i = 0; i < queryTerms.length; i++) {
-        const term = queryTerms[i];
-        if (synonyms[term] != null) {
-            queryTerms.push(synonyms[term]);
-        }
+      const term = queryTerms[i];
+      if (synonyms[term] != null) {
+        queryTerms.push(synonyms[term]);
+      }
     }
 
     return queryTerms;
-}
+  }
 
-/**
- * Search term `s` and number of results `r`
- * @param {string} s 
- * @param {number|null} [r=12]
- * @returns 
- */
-async function search(s, r) {
+  /**
+   * Search term `s` and number of results `r`
+   * @param {string} s
+   * @param {number|null} [r=12]
+   * @returns
+   */
+  async function search(s, r) {
     const numberOfResults = r ?? 12;
 
     // Add 'is-active' class when search is performed
     if (s && s.trim().length > 0) {
-        activateInput();
-        openDropdown();
-    } else if(siteSearchElement.classList.contains('is-active')){
-        // Remove 'is-active' class when search is cleared
-        closeDropdown();
+      activateInput();
+      openDropdown();
+    } else if (siteSearchElement.classList.contains("is-active")) {
+      // Remove 'is-active' class when search is cleared
+      closeDropdown();
     }
 
     /** @type {SearchEntry[]} */
@@ -247,7 +282,7 @@ async function search(s, r) {
     const cleanQuery = sanitise(s);
 
     if (currentQuery === cleanQuery) {
-        return;
+      return;
     }
 
     currentQuery = cleanQuery;
@@ -256,16 +291,16 @@ async function search(s, r) {
     const queryTerms = await replaceSynonyms(explode(currentQuery));
 
     for (const term of queryTerms) {
-        const stemmed = stemmer(term);
-        if (stemmed !== term) {
-            stemmedTerms.push(stemmed);
-        }
+      const stemmed = stemmer(term);
+      if (stemmed !== term) {
+        stemmedTerms.push(stemmed);
+      }
     }
 
     const allTerms = queryTerms.concat(stemmedTerms);
 
-    cleanQuery.length > 0 && haystack.forEach((item) => {
-
+    cleanQuery.length > 0 &&
+      haystack.forEach((item) => {
         item.foundWords = 0;
         item.score = 0;
         item.matchedHeadings = [];
@@ -276,116 +311,118 @@ async function search(s, r) {
 
         // Title
         if (item.safeTitle === currentQuery) {
-            item.foundWords += 2;
+          item.foundWords += 2;
         }
 
         if (contains(item.safeTitle, currentQuery)) {
-            item.score = item.score + scoring.phraseTitle;
-            item.foundWords += 2;
+          item.score = item.score + scoring.phraseTitle;
+          item.foundWords += 2;
         }
 
         // Headings
-        item.headings.forEach(c => {
-            if (contains(c.safeText, currentQuery)) {
-                item.score = item.score + scoring.phraseHeading;
-                item.matchedHeadings.push(c);
-                item.foundWords++;
-            }
+        item.headings.forEach((c) => {
+          if (contains(c.safeText, currentQuery)) {
+            item.score = item.score + scoring.phraseHeading;
+            item.matchedHeadings.push(c);
+            item.foundWords++;
+          }
         });
 
         // Description
         if (contains(item.description, currentQuery)) {
-            item.score = item.score + scoring.phraseDescription;
-            item.foundWords++;
+          item.score = item.score + scoring.phraseDescription;
+          item.foundWords++;
         }
 
         // Part 2 - Term Matches, i.e. "Kitchen" or "Sink"
 
         let foundWords = 0;
 
-        allTerms.forEach(term => {
-            let isTermFound = false;
+        allTerms.forEach((term) => {
+          let isTermFound = false;
 
-            // Title
-            if (contains(item.safeTitle, term)) {
-                item.score = item.score + scoring.termTitle;
-                isTermFound = true;
+          // Title
+          if (contains(item.safeTitle, term)) {
+            item.score = item.score + scoring.termTitle;
+            isTermFound = true;
+          }
+
+          // Headings
+          item.headings.forEach((c) => {
+            if (contains(c.safeText, term)) {
+              item.score = item.score + scoring.termHeading;
+              isTermFound = true;
+
+              if (
+                item.matchedHeadings.filter((h) => h.slug == c.slug).length == 0
+              ) {
+                item.matchedHeadings.push(c);
+              }
             }
+          });
 
-            // Headings
-            item.headings.forEach(c => {
-                if (contains(c.safeText, term)) {
-                    item.score = item.score + scoring.termHeading;
-                    isTermFound = true;
+          // Description
+          if (contains(item.description, term)) {
+            isTermFound = true;
+            item.score = item.score + scoring.termDescription;
+          }
 
-                    if (item.matchedHeadings.filter(h => h.slug == c.slug).length == 0) {
-                        item.matchedHeadings.push(c);
-                    }
-                }
-            });
-
-            // Description
-            if (contains(item.description, term)) {
-                isTermFound = true;
-                item.score = item.score + scoring.termDescription;
+          // Tags
+          item.tags.forEach((t) => {
+            if (contains(t, term)) {
+              isTermFound = true;
+              item.score = item.score + scoring.termTags;
             }
+          });
 
-            // Tags
-            item.tags.forEach(t => {
-                if (contains(t, term)) {
-                    isTermFound = true;
-                    item.score = item.score + scoring.termTags;
-                }
-            });
+          // Keywords
+          if (contains(item.keywords, term)) {
+            isTermFound = true;
+            item.score = item.score + scoring.termKeywords;
+          }
 
-            // Keywords
-            if (contains(item.keywords, term)) {
-                isTermFound = true;
-                item.score = item.score + scoring.termKeywords;
-            }
-
-            if (isTermFound) {
-                foundWords++;
-            }
+          if (isTermFound) {
+            foundWords++;
+          }
         });
 
         item.foundWords += foundWords;
 
         if (item.score > 0) {
-            needles.push(item);
+          needles.push(item);
         }
-    });
+      });
 
-    needles.forEach(n => {
-        // Bonus points for shallow results, i.e. /features over /features/something/something
+    needles.forEach((n) => {
+      // Bonus points for shallow results, i.e. /features over /features/something/something
 
-        if (n.depth < 5) {
-            n.score += scoring.depth;
-            n.foundWords++;
-        }
+      if (n.depth < 5) {
+        n.score += scoring.depth;
+        n.foundWords++;
+      }
 
-        if (n.depth < 4) {
-            n.score += scoring.depth;
-            n.foundWords++;
-        }
+      if (n.depth < 4) {
+        n.score += scoring.depth;
+        n.foundWords++;
+      }
     });
 
     needles.sort(function (a, b) {
-        if (b.foundWords === a.foundWords) {
-            return b.score - a.score;
-        }
+      if (b.foundWords === a.foundWords) {
+        return b.score - a.score;
+      }
 
-        return b.foundWords - a.foundWords;
+      return b.foundWords - a.foundWords;
     });
 
     const total = needles.reduce(function (accumulator, needle) {
-        return accumulator + needle.score;
+      return accumulator + needle.score;
     }, 0);
 
     const results = siteSearchResults;
 
-    const ul = document.createElement('ul');
-    ul.className = 'site-search-results__list';
+    const ul = document.createElement("ul");
+    ul.className = "site-search-results__list";
 
     const limit = Math.min(needles.length, numberOfResults);
 
@@ -393,198 +430,220 @@ async function search(s, r) {
     const siteUrl = new URL(site_url);
 
     for (let i = 0; i < limit; i++) {
-        const needle = needles[i];
+      const needle = needles[i];
 
-        const address = new URL(needle.url);
-        const isSameHost = siteUrl.host == address.host;
-        const url = isSameHost ? address.pathname : needle.url;
+      const address = new URL(needle.url);
+      const isSameHost = siteUrl.host == address.host;
+      const url = isSameHost ? address.pathname : needle.url;
 
-        const listElementWrapper = document.createElement('a');
-        listElementWrapper.href = url;
-        listElementWrapper.className = 'result-wrapper';
+      const listElementWrapper = document.createElement("a");
+      listElementWrapper.href = url;
+      listElementWrapper.className = "result-wrapper";
 
-        const listElementTitle = document.createElement('span');
-        // Only highlight user query terms, not stemmed terms
-        listElementTitle.innerHTML = highlight(needle.title, queryTerms);
-        listElementTitle.className = 'result-title';
+      const listElementTitle = document.createElement("span");
+      // Only highlight user query terms, not stemmed terms
+      listElementTitle.innerHTML = highlight(needle.title, queryTerms);
+      listElementTitle.className = "result-title";
 
-        const path = document.createElement('div');
-        path.className = 'result-path';
+      const path = document.createElement("div");
+      path.className = "result-path";
 
-        // Split the path into segments, filter out empty segments (in case of leading slash)
-        const segments = address.pathname.split('/').filter(Boolean);
+      // Split the path into segments, filter out empty segments (in case of leading slash)
+      const segments = address.pathname.split("/").filter(Boolean);
 
-        segments.forEach((segment, index) => {
-            const words = segment.replace(/-/g, ' ').split(' ');
-            const processedSegment = words.map((word, index) =>
-                index === 0 ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() : word.toLowerCase()
-            ).join(' ');
+      segments.forEach((segment, index) => {
+        const words = segment.replace(/-/g, " ").split(" ");
+        const processedSegment = words
+          .map((word, index) =>
+            index === 0
+              ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+              : word.toLowerCase()
+          )
+          .join(" ");
 
-            const segmentSpan = document.createElement('span');
-            segmentSpan.className = 'result-path__segment';
-            segmentSpan.textContent = processedSegment;
-            path.appendChild(segmentSpan);
+        const segmentSpan = document.createElement("span");
+        segmentSpan.className = "result-path__segment";
+        segmentSpan.textContent = processedSegment;
+        path.appendChild(segmentSpan);
 
-            if (index < segments.length - 1) {
-                const svgIcon = document.createElement('span');
-                svgIcon.className = 'result-path__icon';
-                svgIcon.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
-                        <path d="M1 9L5 5L1 1" stroke="#7C98B4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                `;
-                path.appendChild(svgIcon);
-            }
+        if (index < segments.length - 1) {
+          const svgIcon = document.createElement("span");
+          svgIcon.className = "result-path__icon";
+          svgIcon.innerHTML = `
+                      <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                          <path d="M1 9L5 5L1 1" stroke="#7C98B4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  `;
+          path.appendChild(svgIcon);
+        }
+      });
+
+      const listElementDescription = document.createElement("p");
+      listElementDescription.className = "result-description";
+      // Only highlight user query terms, not stemmed terms
+      listElementDescription.innerHTML = highlight(
+        needle.description,
+        queryTerms
+      );
+
+      const li = document.createElement("li");
+      li.classList.add("site-search-results__item");
+      li.dataset.words = needle.foundWords.toString();
+      li.dataset.score = (
+        Math.round((needle.score / total) * 1000) / 1000
+      ).toString();
+      listElementWrapper.appendChild(path);
+      listElementWrapper.appendChild(listElementTitle);
+      listElementWrapper.appendChild(listElementDescription);
+      li.appendChild(listElementWrapper);
+
+      if (enabled(f.search, "headings") && needle.matchedHeadings.length > 0) {
+        const headings = document.createElement("ul");
+        headings.className = "result-headings";
+
+        headings.tabIndex = 0;
+
+        needle.matchedHeadings.forEach((h) => {
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = url + "#" + h.slug;
+          // Only highlight user query terms, not stemmed terms
+          link.innerHTML = highlight(h.text, queryTerms);
+          item.appendChild(link);
+          headings.append(item);
         });
 
-        const listElementDescription = document.createElement('p');
-        listElementDescription.className = 'result-description';
-        // Only highlight user query terms, not stemmed terms
-        listElementDescription.innerHTML = highlight(needle.description, queryTerms);
+        li.appendChild(headings);
+      }
 
-        const li = document.createElement('li');
-        li.classList.add('site-search-results__item');
-        li.dataset.words = needle.foundWords.toString();
-        li.dataset.score = (Math.round((needle.score / total) * 1000) / 1000).toString();
-        listElementWrapper.appendChild(path);
-        listElementWrapper.appendChild(listElementTitle);
-        listElementWrapper.appendChild(listElementDescription);
-        li.appendChild(listElementWrapper);
-
-        if (enabled(f.search, 'headings') && needle.matchedHeadings.length > 0) {
-            const headings = document.createElement('ul');
-            headings.className = 'result-headings';
-
-            headings.tabIndex = 0;
-
-            needle.matchedHeadings
-                .forEach(h => {
-                    const item = document.createElement('li');
-                    const link = document.createElement('a');
-                    link.href = url + '#' + h.slug;
-                    // Only highlight user query terms, not stemmed terms
-                    link.innerHTML = highlight(h.text, queryTerms);
-                    item.appendChild(link);
-                    headings.append(item);
-                });
-
-            li.appendChild(headings);
-        }
-
-        ul.appendChild(li);
+      ul.appendChild(li);
     }
 
     let h4;
     if (needles.length === 0) {
-        h4 = document.createElement('h4');
-        h4.classList.add('search-results__heading');
-        h4.innerHTML = results.dataset.emptytitle || 'No Results';
+      h4 = document.createElement("h4");
+      h4.classList.add("search-results__heading");
+      h4.innerHTML = results.dataset.emptytitle || "No Results";
     }
 
-    const more = document.createElement('button');
-    more.className = 'show-more';
-    more.type = 'button';
-    more.innerHTML = 'See more';
-    more.addEventListener('click', function (e) {
-        e.stopPropagation(); // Prevent the click from closing the dropdown
-        currentQuery = '';
-        const newTotal = numberOfResults + 12;
-        search(s, newTotal);
+    const more = document.createElement("button");
+    more.className = "show-more";
+    more.type = "button";
+    more.innerHTML = "See more";
+    more.addEventListener("click", function (e) {
+      e.stopPropagation(); // Prevent the click from closing the dropdown
+      currentQuery = "";
+      const newTotal = numberOfResults + 12;
+      search(s, newTotal);
     });
 
-    results.innerHTML = '';
+    results.innerHTML = "";
     results.appendChild(ul);
     h4 && results.appendChild(h4);
 
     if (needles.length > numberOfResults) {
-        results.appendChild(more);
+      results.appendChild(more);
     }
 
-    const address = window.location.href.split('?')[0];
-    window.history.pushState({}, '', address + '?q=' + encodeURIComponent(cleanQuery));
-    raiseEvent('searched', { search: s });
-}
+    const address = window.location.href.split("?")[0];
+    window.history.pushState(
+      {},
+      "",
+      address + "?q=" + encodeURIComponent(cleanQuery)
+    );
+    raiseEvent("searched", { search: s });
+  }
 
-/** @type {Number} */
-var debounceTimer;
+  /** @type {Number} */
+  var debounceTimer;
 
-function debounceSearch() {
+  function debounceSearch() {
     var input = siteSearchInput;
 
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when active
-
     if (input == null) {
-        throw new Error('Cannot find data-site-search-query');
+      throw new Error("Cannot find data-site-search-query");
     }
 
     // Words chained with . are combined, i.e. System.Text is "systemtext"
-    var s = input.value.replace(/\./g, '');
+    var s = input.value.replace(/\./g, "");
 
     window.clearTimeout(debounceTimer);
     debounceTimer = window.setTimeout(function () {
-        if (ready) {
-            search(s);
-        }
+      if (ready) {
+        search(s);
+      }
     }, 400);
-}
+  }
 
-fetch(dataUrl)
+  fetch(dataUrl)
     .then(function (response) {
-        return response.json();
+      return response.json();
     })
     .then(function (data) {
-        haystack = data;
-        ready = true;
+      haystack = data;
+      ready = true;
 
-        for (let i = 0; i < haystack.length; i++) {
-            const item = haystack[i];
-            item.safeTitle = sanitise(item.title);
-            item.tags = item.tags.map(t => sanitise(t));
-            item.safeDescription = sanitise(item.description);
-            item.depth = item.url.match(/\//g)?.length ?? 0;
+      for (let i = 0; i < haystack.length; i++) {
+        const item = haystack[i];
+        item.safeTitle = sanitise(item.title);
+        item.tags = item.tags.map((t) => sanitise(t));
+        item.safeDescription = sanitise(item.description);
+        item.depth = item.url.match(/\//g)?.length ?? 0;
 
-            item.headings.forEach(h => h.safeText = sanitise(h.text));
-        }
+        item.headings.forEach((h) => (h.safeText = sanitise(h.text)));
+      }
 
-        /** @type {HTMLFormElement} */
-        const siteSearch = siteSearchElement;
+      /** @type {HTMLFormElement} */
+      const siteSearch = siteSearchElement;
 
-        /** @type {HTMLInputElement} */
-        const siteSearchQuery = siteSearchInput;
+      /** @type {HTMLInputElement} */
+      const siteSearchQuery = siteSearchInput;
 
-        if (siteSearch == null || siteSearchQuery == null) {
-            throw new Error('Cannot find #site-search or data-site-search-query');
-        }
+      if (siteSearch == null || siteSearchQuery == null) {
+        throw new Error("Cannot find #site-search or data-site-search-query");
+      }
 
-        siteSearch.addEventListener('submit', function (e) {
-            e.preventDefault();
-            debounceSearch();
-            return false;
-        });
-
-        siteSearchQuery.addEventListener('keyup', function (e) {
-            e.preventDefault();
-            if (!scrolled) {
-                scrolled = true;
-                this.scrollIntoView(true);
-            }
-            debounceSearch();
-            return false;
-        });
-
-        const params = new URLSearchParams(window.location.search);
-        if (params.has('q')) {
-            siteSearchQuery.value = params.get('q') ?? '';
-        }
-
-        for (let key of Object.keys(scoring)) {
-            if (params.has(`s_${key}`)) {
-                scoring[key] = parseInt(params.get(`s_${key}`) ?? scoring[key].toString(), 10);
-            }
-        }
-
+      siteSearch.addEventListener("submit", function (e) {
+        e.preventDefault();
         debounceSearch();
+        return false;
+      });
+
+      siteSearchQuery.addEventListener("keyup", function (e) {
+        e.preventDefault();
+        if (!scrolled) {
+          scrolled = true;
+          this.scrollIntoView(true);
+        }
+        debounceSearch();
+        return false;
+      });
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.has("q")) {
+        siteSearchQuery.value = params.get("q") ?? "";
+      }
+
+      for (let key of Object.keys(scoring)) {
+        if (params.has(`s_${key}`)) {
+          scoring[key] = parseInt(
+            params.get(`s_${key}`) ?? scoring[key].toString(),
+            10
+          );
+        }
+      }
+
+      debounceSearch();
     })
     .catch((error) => {
-        console.log(error)
+      console.log(error);
     });
+}
+
+if (document.readyState === "loading") {
+  // Loading hasn't finished yet
+  document.addEventListener("DOMContentLoaded", initializeSearch);
+} else {
+  // `DOMContentLoaded` has already fired
+  initializeSearch();
+}
