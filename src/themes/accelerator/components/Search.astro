@@ -59,7 +59,11 @@ const searchUrl =
         autocomplete="off"
         data-site-search-query
       />
-      <button class="site-search__remove-btn" type="button" data-site-search-remove>
+      <button
+        class="site-search__remove-btn"
+        type="button"
+        data-site-search-remove
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="11"
@@ -96,4 +100,4 @@ const searchUrl =
   </a>
 </div>
 
-<script src={SITE.subfolder + "/js/search.js"} type="module" async></script>
+<script src={SITE.subfolder + "/js/search.js"} type="module" defer></script>

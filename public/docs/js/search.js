@@ -6,7 +6,7 @@ import { contains, sanitise, explode, highlight } from "./modules/string.js";
 import { stemmer } from "./modules/stemmer.js";
 
 // @ts-ignore
-const f = site_features ?? {};
+const f = window.site_features ?? {};
 
 /**
  *
