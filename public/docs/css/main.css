@@ -408,7 +408,8 @@ nav.skip-links a:focus {
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   background-color: var(--header-bg);
   min-height: 82px;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   /* z-index due to conflict with octo-title-bkg */
   z-index: 11;
@@ -785,6 +786,7 @@ nav.skip-links a:focus {
   justify-content: space-between;
   grid-template-areas:
     "menu content toc";
+  margin-top: 82px;
 }
 
 .content-group header {
@@ -1432,7 +1434,7 @@ a[data-youtube] {
   border-radius: 0.9375rem;
   list-style-type: none;
   overflow-y: scroll;
-  transition-property: padding, transform, visibility;
+  transition-property: opacity, padding, transform, visibility;
   transition-duration: var(--search-dropdown-duration);
   transition-timing-function: ease-in-out;
   visibility: hidden;
@@ -1441,9 +1443,11 @@ a[data-youtube] {
   max-height: var(--search-dropdown-height);
   transform-origin: top;
   will-change: transform;
+  opacity: 0;
 }
 
 .site-search.is-active+.site-search-results {
+  opacity: 1;
   padding: 1rem 0;
   transform: translateY(1.37rem) scaleY(1);
   visibility: visible;
