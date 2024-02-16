@@ -58,7 +58,6 @@ function initializeSearch() {
   const siteSearchElement = qs("[data-site-search]");
   const siteSearchResults = qs("[data-site-search-results");
   const removeSearchButton = qs("[data-site-search-remove]");
-  let scrollYPosition = window.scrollY;
 
   /** @type {SearchEntry[]} */
   var haystack = [];
@@ -122,11 +121,6 @@ function initializeSearch() {
     if (siteSearchWrapper.classList.contains("is-active")) return;
     siteSearchWrapper.classList.add("is-active");
     document.body.style.overflow = "hidden";
-
-    scrollYPosition = window.scrollY;
-
-    // Add event listener to lock scroll position
-    window.addEventListener("scroll", lockScroll, { passive: false });
   }
 
   function deactivateInput() {
@@ -134,9 +128,6 @@ function initializeSearch() {
     siteSearchWrapper.classList.remove("is-active");
     siteSearchInput.blur();
     document.body.style.overflow = "";
-
-    // Remove event listener to allow scrolling again
-    window.removeEventListener("scroll", lockScroll, { passive: false });
   }
 
   function openDropdown() {
@@ -156,7 +147,7 @@ function initializeSearch() {
         window.innerHeight - siteSearchElementRect.bottom;
 
       if (offsetFromBottomToElement < dropdownHeight) {
-        window.removeEventListener("scroll", lockScroll, { passive: false });
+        document.body.style.overflow = "";
 
         // Scroll to the siteSearchElement
         siteSearchElement.scrollIntoView({
@@ -166,8 +157,7 @@ function initializeSearch() {
 
         // Delay the overflow to allow for smooth scrolling
         setTimeout(() => {
-          scrollYPosition = window.scrollY;
-          window.addEventListener("scroll", lockScroll, { passive: false });
+          document.body.style.overflow = "hidden";
         }, 300);
       }
     });
@@ -181,10 +171,6 @@ function initializeSearch() {
     closeDropdown();
     siteSearchInput.value = "";
     siteSearchInput.focus();
-  }
-
-  function lockScroll() {
-    window.scrollTo(window.scrollX, scrollYPosition);
   }
 
   function handleDropdownKeyboardNavigation(e) {
