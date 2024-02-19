@@ -88,12 +88,12 @@ To modify your plan:
 
 ## Configuration 
 
-### Changing outage windows (Cloud only)
+### Changing maintenance windows (Cloud only)
 
-We use outage windows to perform updates to the Octopus Deploy software, so you can take advantage of fixes and enhancements.
+We use maintenance windows to perform updates to the Octopus Deploy software, so you can take advantage of fixes and enhancements.
 1. Navigate to your subscription.
 2. Click **CONFIGURATION** in the left sidebar.
-3. Click **CHANGE OUTAGE WINDOW**.
+3. Click **CHANGE MAINTENANCE WINDOW**.
 4. Specify the start and end times.
 5. Click **SUBMIT**.
 
