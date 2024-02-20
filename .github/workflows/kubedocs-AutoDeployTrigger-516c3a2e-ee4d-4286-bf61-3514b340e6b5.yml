@@ -35,7 +35,7 @@ jobs:
         uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }} 
-          dockerfilePath: ./docker/Dockerfile
+          dockerfilePath: docker/Dockerfile
           registryUrl: kubedocs.azurecr.io
           registryUsername: ${{ secrets.KUBEDOCS_REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.KUBEDOCS_REGISTRY_PASSWORD }}
