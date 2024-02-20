@@ -6,7 +6,7 @@ title: Support
 navTitle: Overview
 navSection: Support
 description: Information explaining how to perform requested tasks by Octopus support.
-navOrder: 160
+navOrder: 600
 ---
 
 Sometimes when you contact support we might ask you to perform tasks on your Octopus. This section explains how to perform some of those tasks.
