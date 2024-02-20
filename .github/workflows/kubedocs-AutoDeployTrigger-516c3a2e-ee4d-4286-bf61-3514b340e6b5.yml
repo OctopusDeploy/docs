@@ -1,0 +1,47 @@
+name: Trigger auto deployment for kubedocs
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ kubedocs ]
+    paths:
+    - '**'
+    - '.github/workflows/kubedocs-AutoDeployTrigger-516c3a2e-ee4d-4286-bf61-3514b340e6b5.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:      
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.KUBEDOCS_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.KUBEDOCS_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.KUBEDOCS_AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }} 
+          registryUrl: kubedocs.azurecr.io
+          registryUsername: ${{ secrets.KUBEDOCS_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.KUBEDOCS_REGISTRY_PASSWORD }}
+          containerAppName: kubedocs
+          resourceGroup: kubedocs
+          imageToBuild: kubedocs.azurecr.io/kubedocs:${{ github.sha }}
+          _buildArgumentsKey_: |
+            _buildArgumentsValues_
+
+
