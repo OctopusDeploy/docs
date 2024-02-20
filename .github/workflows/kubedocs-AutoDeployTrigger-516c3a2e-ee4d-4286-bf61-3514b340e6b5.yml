@@ -35,13 +35,12 @@ jobs:
         uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }} 
+          dockerfilePath: ./docker
           registryUrl: kubedocs.azurecr.io
           registryUsername: ${{ secrets.KUBEDOCS_REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.KUBEDOCS_REGISTRY_PASSWORD }}
           containerAppName: kubedocs
           resourceGroup: kubedocs
           imageToBuild: kubedocs.azurecr.io/kubedocs:${{ github.sha }}
-          _buildArgumentsKey_: |
-            _buildArgumentsValues_
 
 
