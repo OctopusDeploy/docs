@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-02-20
 title: Managing Octopus subscriptions
 description: Control Center is where you manage your Octopus subscriptions and their associated user access. 
 navOrder: 40
