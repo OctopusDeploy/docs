@@ -1,0 +1,31 @@
+---
+// Properties
+type Props = {
+  description: string;
+  imgAlt: string;
+  imgSrc: string;
+  link: string;
+  title: string;
+  variant?: "default" | "padded";
+};
+const {
+  description,
+  imgAlt,
+  imgSrc,
+  link,
+  title,
+  variant = "default",
+} = Astro.props satisfies Props;
+---
+
+<article class={`card ${variant === "padded" ? "card--padded" : ""}`}>
+  <a href={link} class="card__link">
+    <div class="card__image-wrapper">
+      <img src={imgSrc} alt={imgAlt} class="card__image" />
+    </div>
+    <div class="card__copy">
+      <p class="card__title">{title}</p>
+      <p class="card__description">{description}</p>
+    </div>
+  </a>
+</article>
