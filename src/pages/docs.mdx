@@ -8,40 +8,41 @@ description: Need help with Octopus Deploy? Check out our comprehensive document
 navOrder: 0
 ---
 import RecentlyUpdated from '@components/RecentlyUpdated.astro';
+import Card from 'src/components/Card.astro';
 
 ::::div{.docs-home .simple-grid}
 
-:::div{data-destination="/docs/getting-started"}
-:img{ src="/docs/img/getting-started.png" alt="An octopus waves a chequered flag" }
+<Card
+  description="An overview of the Octopus Deploy fundamentals."
+  imgAlt="An octopus waves a chequered flag"
+  imgSrc="/docs/img/getting-started.png"
+  link="/docs/getting-started"
+  title="Getting started"
+/>
 
-[Getting started](/docs/getting-started)
+<Card
+  description="Scale container and Kubernetes deployments across your Enterprise."
+  imgAlt="Octopus and Kubernetes are great together"
+  imgSrc="/docs/img/octopus-kubernetes.png"
+  link="/docs/deployments/kubernetes"
+  title="Kubernetes"
+/>
 
-An overview of the Octopus Deploy fundamentals.
-:::
+<Card
+  description="How Octopus Deploy fits in your CI/CD pipeline."
+  imgAlt="Famous continuous integration tool logos"
+  imgSrc="/docs/img/cicd-tutorials.png"
+  link="/docs/guides"
+  title="End to end CI/CD tutorials"
+/>
 
-:::div{data-destination="/docs/deployments/kubernetes"}
-:img{ src="/docs/img/octopus-kubernetes.png" alt="Octopus and Kubernetes are great together" }
-
-[Kubernetes](/docs/deployments/kubernetes)
-
-Scale container and Kubernetes deployments across your Enterprise.
-:::
-
-:::div{data-destination="/docs/guides"}
-:img{ src="/docs/img/cicd-tutorials.png" alt="Famous continuous integration tool logos" }
-
-[End to end CI/CD tutorials](/docs/guides)
-
-How Octopus Deploy fits in your CI/CD pipeline.
-:::
-
-:::div{data-destination="https://www.youtube.com/playlist?list=PLAGskdGvlaw268i2ZTPC1ZrxwFjjKIdKH"}
-:img{ src="/docs/img/training-videos.png" alt="A video player" }
-
-[Training videos](https://www.youtube.com/playlist?list=PLAGskdGvlaw268i2ZTPC1ZrxwFjjKIdKH)
-
-Watch getting started videos of Octopus Deploy in action.
-:::
+<Card
+  description="Watch getting started videos of Octopus Deploy in action."
+  imgAlt="A video player"
+  imgSrc="/docs/img/training-videos.png"
+  link="https://www.youtube.com/playlist?list=PLAGskdGvlaw268i2ZTPC1ZrxwFjjKIdKH"
+  title="Training videos"
+/>
 
 ::::
 
