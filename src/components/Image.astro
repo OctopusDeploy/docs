@@ -1,14 +1,14 @@
 ---
 // Define the component's properties
 type Props = {
-  imgSrc: string;
-  imgAlt: string;
+  src: string;
+  alt: string;
   caption?: string;
 };
-const { imgSrc, imgAlt, caption } = Astro.props satisfies Props;
+const { src, alt, caption } = Astro.props satisfies Props;
 ---
 
 <figure class="image" data-image>
-  <img src={imgSrc} alt={imgAlt} class="image__img" />
+  <img src={src} alt={alt} class="image__img" />
   {caption && <figcaption class="image__caption">{caption}</figcaption>}
 </figure>
