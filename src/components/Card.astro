@@ -6,21 +6,15 @@ type Props = {
   imgSrc: string;
   link: string;
   title: string;
-  variant?: "" | "padded";
+  variant?: "padded";
 };
-const {
-  description,
-  imgAlt,
-  imgSrc,
-  link,
-  title,
-  variant = "",
-} = Astro.props satisfies Props;
+const { description, imgAlt, imgSrc, link, title, variant } =
+  Astro.props satisfies Props;
 
 const classList = `card ${variant === "padded" ? "card--padded" : ""}`;
 ---
 
-<article class={ classList }>
+<article class={classList}>
   <a href={link} class="card__link">
     <div class="card__image-wrapper">
       <img src={imgSrc} alt={imgAlt} class="card__image" />
