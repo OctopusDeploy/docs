@@ -180,7 +180,7 @@ img {
 /* Image component */
 .image {
   border-radius: 0.9375rem;
-  border: 0.0625 solid var(--navy-200);
+  border: 0.0625rem solid var(--navy-200);
   background: #F4F6F8;
   display: flex;
   flex-direction: column;
@@ -214,7 +214,7 @@ img {
 /* TODO: Once all images are used with Image component these styles should be removed */
 figure > p > img {
   border-radius: 0.9375rem;
-  border: 0.0625 solid var(--navy-200);
+  border: 0.0625rem solid var(--navy-200);
   background: #F4F6F8;
   padding: 2rem;
   width: calc(100% - 4rem);
