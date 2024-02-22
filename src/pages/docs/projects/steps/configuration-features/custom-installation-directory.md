@@ -47,13 +47,12 @@ Defining a [variable](/docs/projects/variables) with the directory path, means y
 
 The **Exclude from purge** list must be a newline-separated list of file or directory names, relative to the installation directory. To exclude an entire directory specify it by name without a wildcard. Extended wildcard syntax is supported. For instance:
 
-> appsettings.config
->
-> Config
->
-> Config\\*.config
->
-> **\\*.config
+```
+appsettings.config
+Config
+Config\*.config
+**\*.config
+```
 
 7. Add any [conditions](/docs/projects/steps/conditions) you need to specify for the step, and then click **SAVE**.
 
