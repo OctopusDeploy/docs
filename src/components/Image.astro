@@ -1,0 +1,14 @@
+---
+// Define the component's properties
+type Props = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+const { src, alt, caption } = Astro.props satisfies Props;
+---
+
+<figure class="image" data-image>
+  <img src={src} alt={alt} class="image__img" />
+  {caption && <figcaption class="image__caption">{caption}</figcaption>}
+</figure>
