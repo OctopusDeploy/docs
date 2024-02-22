@@ -177,6 +177,56 @@ img {
   background-color: var(--white);
 }
 
+/* Image component */
+.image {
+  border-radius: 0.9375rem;
+  border: 0.0625 solid var(--navy-200);
+  background: #F4F6F8;
+  display: flex;
+  flex-direction: column;
+  gap: 1.56rem;
+  padding: 2rem;
+  position: relative;
+}
+
+@media (max-width: 930px) {
+  .image {
+    padding: 1rem;
+  }
+}
+
+.image .magnify-container {
+  position: absolute;
+  right: 0;
+}
+
+.image__img {
+  border-radius: 0.6875rem;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+}
+
+.image__caption {
+  color: var(--blue-grey-dark);
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+/* TODO: Once all images are used with Image component these styles should be removed */
+figure > p > img {
+  border-radius: 0.9375rem;
+  border: 0.0625 solid var(--navy-200);
+  background: #F4F6F8;
+  padding: 2rem;
+  width: calc(100% - 4rem);
+}
+
+@media (max-width: 930px) {
+  figure > p > img {
+    padding: 1rem;
+    width: calc(100% - 2rem);
+  }
+}
+
 input {
   padding: 0.5em;
   border-radius: 0.3em;

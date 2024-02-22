@@ -53,6 +53,7 @@ Fargate
 feedcred
 FIPS
 fieldset
+figcaption
 frontmatter
 gcloud
 globbing
