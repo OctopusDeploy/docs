@@ -3,7 +3,8 @@ import { Accelerator } from "astro-accelerator-utils";
 import type { Frontmatter } from "astro-accelerator-utils/types/Frontmatter";
 import { Lang } from "@util/Languages";
 import { SITE } from "@config";
-import Search from '../themes/accelerator/components/Search.astro';
+import Search from "../themes/accelerator/components/Search.astro";
+import Hamburger from "./Hamburger.astro";
 
 const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics("components/Header.astro");
@@ -35,10 +36,11 @@ stats.stop();
       /></a
     >
 
-    { showSearch && <Search lang={ lang } /> }
+    {showSearch && <Search lang={lang} />}
 
     <a href="https://octopus.com/start?location=docs" class="button trial"
       >Free trial</a
     >
+    <Hamburger />
   </div>
 </header>
