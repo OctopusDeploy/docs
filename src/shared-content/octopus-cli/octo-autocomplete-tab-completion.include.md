@@ -53,6 +53,6 @@ octo install-autocomplete --shell powershell --dryRun
 
 </details>
 
-4. You can now discover sub-commands by typing `octo [searchterm]` and hitting the [tab] key. If you don't provide a search term, the full list of available sub-commands will be shown.
+4. You can now discover sub-commands by typing `octo [search-term]` and hitting the [tab] key. If you don't provide a search term, the full list of available sub-commands will be shown.
 
 ![animation showing the tab completion feature in Zsh to list all environments in the default space](/docs/shared-content/images/autocomplete.gif)
