@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: CLI
+modDate: 2023-02-23
+title: Octopus Command Line (CLI)
 description: The all-new Octopus CLI
-navOrder: 100
+navOrder: 30
 hideInThisSection: true
 ---
 
