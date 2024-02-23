@@ -102,6 +102,7 @@ mozroots
 msiexec
 MTTR
 myfeature
+navigationid
 NETBIOS
 Netscaler
 noconsolelogging
