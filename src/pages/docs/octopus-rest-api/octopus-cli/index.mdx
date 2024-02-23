@@ -1,16 +1,22 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
-title: The Octopus Command Line (CLI)
-description: The Octopus CLI (octo) is the Octopus command line tool that builds on top of the Octopus REST API.
-navOrder: 30
+modDate: 2023-02-23
+title: Octo Command Line (CLI)
+description: The Octo CLI is the Octopus command line tool that builds on top of the Octopus REST API.
+navOrder: 100
 hideInThisSection: true
 ---
 import OctopusCli from 'src/shared-content/concepts/octopus-cli.include.md';
 import OctoAutocompleteTabCompletion from 'src/shared-content/octopus-cli/octo-autocomplete-tabcompletion.include.md';
 
-<OctopusCli />
+:::div{.hint}
+The Octo CLI has been replaced by the <a href="/docs/octopus-rest-api/cli">new Octopus CLI</a>. We will no longer provide feature or security updates to the Octo CLI and we recommend making the swap to the new Octopus CLI as soon as it's practical to do so.
+:::
+
+The Octo CLI is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/octopus-rest-api). With the Octo CLI you can package your applications for deployment as either Zip or NuGet packages, and manage your environments, deployments, channels, projects, and workers.
+
+The Octo CLI, which leans heavily on the [Octopus Clients library](https://github.com/OctopusDeploy/OctopusClients), is built and maintained by the Octopus Deploy team, but it is also open source. The Octo CLI can be used on Windows, Mac, Linux, Docker, and as a .NET Core global tool. For installation options and direct downloads, visit the [Octopus CLI Project on GitHub](https://github.com/OctopusDeploy/OctopusCli).
 
 ## Commands \{#octoCommandLine-Commands}
 
