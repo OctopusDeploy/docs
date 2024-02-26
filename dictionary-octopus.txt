@@ -90,6 +90,8 @@ kustomize
 latestdeployments
 libicu
 lifecycles
+linejoin
+linecap
 linkerd
 ltsc
 maintenanceconfiguration
