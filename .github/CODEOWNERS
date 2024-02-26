@@ -21,27 +21,27 @@
 
 # updates to the first deployment page are reviewed by team-user-onboarding
 
-/docs/getting-started/first-deployment/ @OctopusDeploy/@team-user-onboarding
+/docs/getting-started/first-deployment/ @OctopusDeploy/team-user-onboarding
 
 # updates to the first kubernetes deployment page are reviewed by team-user-onboarding
 
-/docs/getting-started/first-kubernetes-deployment.md @OctopusDeploy/@team-user-onboarding
+/docs/getting-started/first-kubernetes-deployment.md @OctopusDeploy/team-user-onboarding
 
 # updates to the best practices page are reviewed by team-support
 
-/docs/getting-started/best-practices/ @OctopusDeploy/@team-support
+/docs/getting-started/best-practices/ @OctopusDeploy/team-support
 
 # updates to the first runbook run page are reviewed by team-user-onboarding
 
-/docs/getting-started/first-runbook-run/ @OctopusDeploy/@team-user-onboarding
+/docs/getting-started/first-runbook-run/ @OctopusDeploy/team-user-onboarding
 
 # updates to the managing octopus subscriptions page are reviewed by team-user-onboarding
 
-/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/@team-user-onboarding
+/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/team-user-onboarding
 
 # updates to the samples instance page are reviewed by team-solutions
 
-/docs/getting-started/samples-index.mdx @OctopusDeploy/@team-solutions
+/docs/getting-started/samples-index.mdx @OctopusDeploy/team-solutions
 
 # updates to the projects overview page are reviewed by team-marketing
 
