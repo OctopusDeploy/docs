@@ -1,14 +1,12 @@
 ---
 import { Accelerator } from "astro-accelerator-utils";
-import { Translations, Lang } from "@util/Languages";
+import { Lang } from "@util/Languages";
 import { getNavigationItems } from "@util/getNavigationItems";
 import NavigationItem from "@components/NavigationItem.astro";
 import { SITE } from "@config";
 
 const accelerator = new Accelerator(SITE);
-const stats = new accelerator.statistics(
-  "accelerator/components/Navigation.astro"
-);
+const stats = new accelerator.statistics("components/Hamburger.astro");
 stats.start();
 
 // Properties
@@ -27,13 +25,16 @@ const pages = await getNavigationItems(currentUrl, lang);
 stats.stop();
 ---
 
-<nav
-  class="site-nav"
-  id="site-nav"
-  aria-label={_(Translations.aria.site_navigation)}
->
-  <h2 class="site-nav-title">{_(Translations.navigation.title)}</h2>
-  <ul>
-    {pages.map((page) => <NavigationItem lang={lang} page={page} />)}
-  </ul>
-</nav>
+<div class="mobile-menu">
+  <div class="hamburger" data-hamburger-icon>
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="circle"></span>
+  </div>
+  <div class="site-nav site-nav__mobile" data-mobile-menu>
+    <ul class="site-nav__list">
+      {pages.map((page) => <NavigationItem lang={lang} page={page} />)}
+    </ul>
+  </div>
+</div>

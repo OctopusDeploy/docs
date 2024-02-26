@@ -815,20 +815,40 @@ nav.skip-links a:focus {
   }
 }
 
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 930px) {
+  .mobile-menu {
+    display: block;
+  }
+}
+.site-nav__list {
+  height: calc(100vh - 5.125rem);
+  overflow-y: scroll;
+}
+
+.site-nav__mobile {
+  position: absolute;
+  width: 100%;
+  left: -100%;
+  transition: left 500ms ease-in-out;
+  margin: 0;
+  top: 5.125rem;
+}
+
+.site-nav__mobile.is-active {
+  left: 0;
+}
+
 /* Burger menu */
 .hamburger {
   position: relative;
-  display: none;
 }
 
 .hamburger:hover {
   cursor: pointer;
-}
-
-@media (max-width: 930px) {
-  .hamburger {
-    display: block;
-  }
 }
 
 .hamburger .line {
