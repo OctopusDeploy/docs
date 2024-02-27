@@ -3,7 +3,8 @@ import { Accelerator } from "astro-accelerator-utils";
 import type { Frontmatter } from "astro-accelerator-utils/types/Frontmatter";
 import { Lang } from "@util/Languages";
 import { SITE } from "@config";
-import Search from '../themes/accelerator/components/Search.astro';
+import Search from "../themes/accelerator/components/Search.astro";
+import MobileMenu from "./MobileMenu.astro";
 
 const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics("components/Header.astro");
@@ -26,6 +27,7 @@ stats.stop();
 
 <header class="octo-header-bkg site-header header-default">
   <div class="octo-header">
+    <MobileMenu lang={lang} />
     <a href="https://octopus.com" class="logo"
       ><img
         src="/docs/img/octopus-logo.svg"
@@ -35,7 +37,7 @@ stats.stop();
       /></a
     >
 
-    { showSearch && <Search lang={ lang } /> }
+    {showSearch && <Search lang={lang} />}
 
     <a href="https://octopus.com/start?location=docs" class="button trial"
       >Free trial</a

@@ -90,6 +90,8 @@ kustomize
 latestdeployments
 libicu
 lifecycles
+linejoin
+linecap
 linkerd
 ltsc
 maintenanceconfiguration
@@ -102,6 +104,7 @@ mozroots
 msiexec
 MTTR
 myfeature
+navigationid
 NETBIOS
 Netscaler
 noconsolelogging
