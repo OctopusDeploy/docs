@@ -821,7 +821,11 @@ nav.skip-links a:focus {
 
 @media (max-width: 930px) {
   .mobile-menu {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--navbar-icon-size);
+    height: var(--navbar-icon-size);
   }
 }
 .site-nav__list {
@@ -832,14 +836,14 @@ nav.skip-links a:focus {
 .site-nav__mobile {
   position: absolute;
   width: 100%;
-  left: -100%;
-  transition: left 500ms ease-in-out;
+  right: -100%;
+  transition: right 500ms ease-in-out;
   margin: 0;
   top: 5.125rem;
 }
 
 .site-nav__mobile.is-active {
-  left: 0;
+  right: 0;
 }
 
 /* Burger menu */
@@ -863,17 +867,17 @@ nav.skip-links a:focus {
 }
 .hamburger .circle {
   display: block;
-  width: calc(var(--hamburger-line-width) * 1.5);
-  height: calc(var(--hamburger-line-width) * 1.5);
+  width: var(--navbar-icon-size);
+  height: var(--navbar-icon-size);
+  border: solid #76A1C2;
   border-radius: 50%;
-  border: var(--hamburger-line-height) solid #274B66;
+  border-width: 0;
   background-color: transparent;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  border-width: 0;
   transition-property: opacity, border-width;
   transition-duration: 500ms;
 }
@@ -888,7 +892,7 @@ nav.skip-links a:focus {
 }
 .hamburger.is-active .circle {
   opacity: 1;
-  border-width: var(--hamburger-line-height);
+  border-width: 0.0625rem;
 }
 
 
@@ -1744,7 +1748,7 @@ a[data-youtube] {
 @media (max-width: 930px) {
   .site-header .site-search__wrapper {
     max-width: fit-content;
-    margin-left: auto;
+    order: -1;
   }
 
   .site-header .site-search {
@@ -1752,11 +1756,10 @@ a[data-youtube] {
   }
 
   .site-header .site-search__mobile {
-    --search-mobile-size: 3rem;
     display: flex;
-    width: var(--search-mobile-size);
-    height: var(--search-mobile-size);
-    border-radius: calc(var(--search-mobile-size) / 2);
+    width: var(--navbar-icon-size);
+    height: var(--navbar-icon-size);
+    border-radius: calc(var(--navbar-icon-size) / 2);
     justify-content: center;
     align-items: center;
     border: var(--search-border);

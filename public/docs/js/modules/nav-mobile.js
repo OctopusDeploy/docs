@@ -22,6 +22,15 @@ function addMobileNav() {
       closeMobileMenu(mobileMenu, hamburgerIcon);
     }
   });
+
+  const menuList = qs(".site-nav__list");
+  mobileMenu.addEventListener("keydown", function (e) {
+    if (mobileMenu.classList.contains("is-active")) {
+      const focusElements = getFocusableElement(mobileMenu);
+      trapReverseFocus(e, focusElements.first);
+      trapFocusForward(e, focusElements.last);
+    }
+  });
 }
 
 function toggleMobileMenu(icon, mobileMenu) {
@@ -40,12 +49,6 @@ function openMobileMenu(mobileMenu, icon) {
 
   // Prevent scrolling on the body
   document.body.style.overflow = "hidden";
-
-  const focusableElements = getFocusableElement(mobileMenu);
-  if (focusableElements.length > 0) {
-    focusableElements[0].focus();
-    handleFocusTrap(focusableElements, icon);
-  }
 }
 
 function closeMobileMenu(mobileMenu, icon) {
@@ -55,28 +58,6 @@ function closeMobileMenu(mobileMenu, icon) {
 
   // Re-enable scrolling on the body
   document.body.style.overflow = "";
-}
-
-function handleFocusTrap(focusableElements, icon) {
-  const firstElement = focusableElements[0];
-  const lastElement = focusableElements[focusableElements.length - 1];
-
-  firstElement.addEventListener("keydown", (e) =>
-    trapReverseFocus(e, lastElement)
-  );
-  lastElement.addEventListener("keydown", (e) =>
-    trapFocusForward(e, firstElement)
-  );
-
-  mobileMenu.addEventListener(
-    "transitionend",
-    () => {
-      if (!mobileMenu.classList.contains("is-active")) {
-        icon.focus();
-      }
-    },
-    { once: true }
-  );
 }
 
 export { addMobileNav };
