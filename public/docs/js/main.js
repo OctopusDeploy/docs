@@ -5,7 +5,7 @@ import {
 } from "./modules/animation.js";
 import { addResizedEvent } from "./modules/resizing.js";
 import { addStickyNavigation } from "./modules/nav-sticky.js";
-import { addMobileNav } from "./modules/nav-mobile.js";
+import { mobileNav } from "./modules/nav-mobile.js";
 import { setClickableBlocks } from "./modules/click-blocks.js";
 import { setExternalLinkAttributes } from "./modules/external-links.js";
 import { monitorInputType } from "./modules/input-type.js";
@@ -22,7 +22,6 @@ addStickyNavigation(
   "#site-nav > ul",
   resizedEventName
 );
-addMobileNav();
 addIntersectionObserver(".anim-show-parent img, .anim-show-parent .list-item");
 addListImageIntersectionObserver(".post-list img");
 monitorInputType();

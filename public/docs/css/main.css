@@ -834,7 +834,7 @@ nav.skip-links a:focus {
   top: 5.125rem;
 }
 
-.site-nav__mobile.is-active {
+.mobile-menu.is-active .site-nav__mobile {
   right: 0;
 }
 
@@ -873,16 +873,16 @@ nav.skip-links a:focus {
   transition-property: opacity, border-width;
   transition-duration: 500ms;
 }
-.hamburger.is-active .line:nth-child(1) {
+.mobile-menu.is-active .hamburger .line:nth-child(1) {
   transform: translateY(var(--hamburger-translate-y)) rotate(45deg);
 }
-.hamburger.is-active .line:nth-child(2) {
+.mobile-menu.is-active .hamburger .line:nth-child(2) {
   opacity: 0;
 }
-.hamburger.is-active .line:nth-child(3) {
+.mobile-menu.is-active .hamburger .line:nth-child(3) {
   transform: translateY(calc(-1 * var(--hamburger-translate-y))) rotate(-45deg);
 }
-.hamburger.is-active .circle {
+.mobile-menu.is-active .hamburger .circle {
   opacity: 1;
   border-width: 0.0625rem;
 }
