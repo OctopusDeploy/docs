@@ -677,7 +677,7 @@ nav.skip-links a:focus {
 .site-nav {
   background-color: var(--bg-color-menu);
   height: calc(100vh - 110px);
-  top: 140px;
+  top: 81px;
 }
 
 .side-nav {
@@ -803,14 +803,6 @@ nav.skip-links a:focus {
   }
 
   nav.site-nav h2 {
-    display: none;
-  }
-
-  .site-nav {
-    margin: 3rem 5% 0 5%;
-  }
-
-  #site-nav {
     display: none;
   }
 }

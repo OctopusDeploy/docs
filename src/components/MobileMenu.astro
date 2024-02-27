@@ -25,13 +25,13 @@ const pages = await getNavigationItems(currentUrl, lang);
 stats.stop();
 ---
 
-<div class="mobile-menu">
-  <div class="hamburger" data-hamburger-icon>
+<div class="mobile-menu" data-mobile-menu-wrapper>
+  <a href="#site-nav" class="hamburger" data-hamburger-icon>
     <span class="line"></span>
     <span class="line"></span>
     <span class="line"></span>
     <span class="circle"></span>
-  </div>
+  </a>
   <div class="site-nav site-nav__mobile" data-mobile-menu>
     <ul class="site-nav__list">
       {pages.map((page) => <NavigationItem lang={lang} page={page} />)}
