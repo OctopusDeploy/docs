@@ -15,6 +15,7 @@ Bento
 bootstrap
 bootstrapped
 bootstrapper
+builtinfeed
 childelement
 choco
 cicd
@@ -78,6 +79,7 @@ inetsrv
 internalcustomer
 Istio
 istioctl
+isnt
 itemprop
 itemscope
 itemtype
@@ -148,6 +150,7 @@ remoting
 reprioritize
 reprovisioned
 reprovisioning
+retentionpolicy
 robocopy
 roboto
 rootelement
@@ -177,6 +180,8 @@ tmpfs
 Traefik
 Trivy
 umoci
+Undeployed
+undeployed
 upgradelog
 upgrader
 useronboarding
