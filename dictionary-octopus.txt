@@ -62,6 +62,7 @@ globbing
 googleaccount
 groff
 Groupsand
+hastscript
 healthcheck
 HKEY
 HKLM
@@ -90,13 +91,14 @@ kustomize
 latestdeployments
 libicu
 lifecycles
-linejoin
 linecap
+linejoin
 linkerd
 ltsc
 maintenanceconfiguration
 majeure
 maxage
+mdast
 milli
 MITM
 mozjpeg
@@ -128,6 +130,7 @@ Octostache
 octoterra
 OIDC
 onlylogs
+openon
 passout
 petclinic
 petshop
@@ -163,8 +166,12 @@ setspn
 shiki
 SIEM
 signingkeys
+skiplinks
 sourcedata
+srcset
+srcset
 sthumb
+stylesheet
 swaggerui
 systemprofile
 tabpanel
@@ -176,6 +183,8 @@ TFVC
 tmpfs
 Traefik
 Trivy
+tsconfigs
+typeof
 umoci
 upgradelog
 upgrader

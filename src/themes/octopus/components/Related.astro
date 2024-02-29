@@ -21,12 +21,12 @@ const { lang, frontmatter, headings } = Astro.props satisfies Props;
 
 // Logic
 let relatedPosts: MarkdownInstance<Record<string, any>>[] = [];
-const parentCagory = (frontmatter.categories ?? [null])[0];
+const parentCategory = (frontmatter.categories ?? [null])[0];
 
-if (parentCagory != null) {
+if (parentCategory != null) {
   const allPages = accelerator.posts.all().filter(PostFiltering.isListable);
   const allPosts = allPages
-    .filter(p => p.frontmatter.title != frontmatter.title && p.frontmatter.categories && p.frontmatter.categories.includes(parentCagory))
+    .filter(p => p.frontmatter.title != frontmatter.title && p.frontmatter.categories && p.frontmatter.categories.includes(parentCategory))
     .sort(PostOrdering.sortByPubDateDesc)
   
   // One "Most Recent" Post
