@@ -8,9 +8,9 @@
         "@config": ["src/config"],
         // Layouts and components for the theme
         "@data/*": ["src/data/*"],
-        "@util/*": ["src/themes/accelerator/utilities/*"],
-        "@layouts/*": ["src/themes/accelerator/layouts/*"],
-        "@components/*": ["src/themes/accelerator/components/*"],
+        "@util/*": ["src/themes/octopus/utilities/*"],
+        "@layouts/*": ["src/themes/octopus/layouts/*"],
+        "@components/*": ["src/themes/octopus/components/*"],
       }
   }
 }
