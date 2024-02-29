@@ -1,11 +1,16 @@
 // @ts-check
 import { qs, qsa } from "./query.js";
+import { removeScroll, resetScroll } from './scrollbar.js';
 
 class MobileNav {
   constructor() {
     this.mobileMenuWrapper = qs("[data-mobile-menu-wrapper]");
     this.hamburgerIcon = qs("[data-hamburger-icon]");
+    this.mobileMenu = qs("[data-mobile-menu]");
     this.menuItems = qsa(".site-nav__list li");
+
+    // Initially hide the menu
+    this.mobileMenu.style.visibility = 'hidden';
 
     this.addListeners();
   }
@@ -20,17 +25,23 @@ class MobileNav {
   }
 
   openMobileMenu() {
+    this.mobileMenu.style.visibility = "visible";
     this.mobileMenuWrapper.classList.add("is-active");
     this.hamburgerIcon.setAttribute("aria-expanded", "true");
-    // Prevent scrolling on the body
-    document.body.style.overflow = "hidden";
+
+    removeScroll();
   }
 
   closeMobileMenu() {
     this.mobileMenuWrapper.classList.remove("is-active");
     this.hamburgerIcon.setAttribute("aria-expanded", "false");
-    // Re-enable scrolling on the body
-    document.body.style.overflow = "";
+
+    // Wait for the transition to complete before hiding the menu
+    setTimeout(() => {
+      this.mobileMenu.style.visibility = 'hidden';
+    }, 500);
+    
+    resetScroll();
   }
 
   handleDropdownKeyboardNavigation(e) {

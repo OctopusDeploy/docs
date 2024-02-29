@@ -31,6 +31,10 @@ body {
   background-color: var(--white);
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 a,
 summary,
 summary>* {
