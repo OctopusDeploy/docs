@@ -46,7 +46,7 @@ For example, imagine a deployment freeze that applies to
 You will be allowed to view this deployment freeze on the **Deployment Freezes** page if your user doesn't have the DeploymentFreezeAdminister system permission. If your user has the DeploymentFreezeAdminister system permission and permissions scoped to the Car Rental project and Production environment, they will be able to view, edit and override this freeze.
 
 # Overriding a freeze
-Following on from the example above, imagine a scenario where a deployment freeze is currently active for the Car Rental project to the Production environment. While the freeze is active, a developer discovers that there is a bug in the production code and a fix needs to be rolled out immediately. In this scenario, the freeze can be overriden to deploy the fix to Production even while the freeze is active. After the fix is deployed, the freeze will still be in place and behave as expected. 
+Following on from the example above, imagine a scenario where a deployment freeze is currently active for the Car Rental project to the Production environment. While the freeze is active, a developer discovers that there is a bug in the production code and a fix needs to be rolled out immediately. In this scenario, the freeze can be overridden to deploy the fix to Production even while the freeze is active. After the fix is deployed, the freeze will still be in place and behave as expected. 
 
 To override a freeze
 - Navigate to the **Deploy A Release** page of your chosen project.
@@ -57,8 +57,8 @@ To override a freeze
 ![Override a deployment freeze from deploy a release page](/docs/deployments/deployment-freeze-override.png)
 :::
 
-- Click the 'deploy' button and enter a reason for the override in the dialog box.
-- Click **Override and Deploy**
+- Click the **DEPLOY** button and enter a reason for the override in the dialog box.
+- Click **OVERRIDE AND DEPLOY**
 
 :::figure
 ![Override a deployment freeze confirmation dialog](/docs/deployments/deployment-freeze-override-dialog-confirm.png)
