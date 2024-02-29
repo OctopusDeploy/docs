@@ -1,82 +1,80 @@
 // @ts-check
+import { qs, qsa } from "./query.js";
+import { removeScroll, resetScroll } from './scrollbar.js';
 
-import { qs } from "./query.js";
-import {
-  getFocusableElement,
-  trapFocusForward,
-  trapReverseFocus,
-} from "./focus.js";
+class MobileNav {
+  constructor() {
+    this.mobileMenuWrapper = qs("[data-mobile-menu-wrapper]");
+    this.hamburgerIcon = qs("[data-hamburger-icon]");
+    this.mobileMenu = qs("[data-mobile-menu]");
+    this.menuItems = qsa(".site-nav__list li");
 
-function addMobileNav() {
-  const hamburgerIcon = qs("[data-hamburger-icon]");
-  const mobileMenu = qs("[data-mobile-menu]");
+    // Initially hide the menu
+    this.mobileMenu.style.visibility = 'hidden';
 
-  hamburgerIcon.addEventListener("click", (e) => {
-    e.preventDefault();
-    toggleMobileMenu(hamburgerIcon, mobileMenu);
-  });
+    this.addListeners();
+  }
 
-  // Listen for escape key to close the menu
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && mobileMenu.classList.contains("is-active")) {
-      closeMobileMenu(mobileMenu, hamburgerIcon);
+  toggleMobileMenu() {
+    const isOpen = this.mobileMenuWrapper.classList.contains("is-active");
+    if (isOpen) {
+      this.closeMobileMenu();
+    } else {
+      this.openMobileMenu();
     }
-  });
-}
-
-function toggleMobileMenu(icon, mobileMenu) {
-  const isOpen = mobileMenu.classList.contains("is-active");
-  if (isOpen) {
-    closeMobileMenu(mobileMenu, icon);
-  } else {
-    openMobileMenu(mobileMenu, icon);
   }
-}
 
-function openMobileMenu(mobileMenu, icon) {
-  icon.classList.add("is-active");
-  mobileMenu.classList.add("is-active");
-  icon.setAttribute("aria-expanded", "true");
+  openMobileMenu() {
+    this.mobileMenu.style.visibility = "visible";
+    this.mobileMenuWrapper.classList.add("is-active");
+    this.hamburgerIcon.setAttribute("aria-expanded", "true");
 
-  // Prevent scrolling on the body
-  document.body.style.overflow = "hidden";
-
-  const focusableElements = getFocusableElement(mobileMenu);
-  if (focusableElements.length > 0) {
-    focusableElements[0].focus();
-    handleFocusTrap(focusableElements, icon);
+    removeScroll();
   }
-}
 
-function closeMobileMenu(mobileMenu, icon) {
-  icon.classList.remove("is-active");
-  mobileMenu.classList.remove("is-active");
-  icon.setAttribute("aria-expanded", "false");
+  closeMobileMenu() {
+    this.mobileMenuWrapper.classList.remove("is-active");
+    this.hamburgerIcon.setAttribute("aria-expanded", "false");
 
-  // Re-enable scrolling on the body
-  document.body.style.overflow = "";
-}
+    // Wait for the transition to complete before hiding the menu
+    setTimeout(() => {
+      this.mobileMenu.style.visibility = 'hidden';
+    }, 500);
+    
+    resetScroll();
+  }
 
-function handleFocusTrap(focusableElements, icon) {
-  const firstElement = focusableElements[0];
-  const lastElement = focusableElements[focusableElements.length - 1];
+  handleDropdownKeyboardNavigation(e) {
+    if (!this.mobileMenuWrapper.classList.contains("is-active")) return;
+    if (e.key === "Escape") {
+      this.closeMobileMenu();
+    }
 
-  firstElement.addEventListener("keydown", (e) =>
-    trapReverseFocus(e, lastElement)
-  );
-  lastElement.addEventListener("keydown", (e) =>
-    trapFocusForward(e, firstElement)
-  );
+    if (e.key === "Tab") {
+      const firstElement = this.hamburgerIcon;
+      const lastElement = this.menuItems[this.menuItems.length - 1].firstChild;
 
-  mobileMenu.addEventListener(
-    "transitionend",
-    () => {
-      if (!mobileMenu.classList.contains("is-active")) {
-        icon.focus();
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement?.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
       }
-    },
-    { once: true }
-  );
+    }
+  }
+
+  addListeners() {
+    this.hamburgerIcon.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.toggleMobileMenu();
+    });
+
+    document.addEventListener("keydown", (e) =>
+      this.handleDropdownKeyboardNavigation(e)
+    );
+  }
 }
 
-export { addMobileNav };
+const mobileNav = new MobileNav();
+export { mobileNav };

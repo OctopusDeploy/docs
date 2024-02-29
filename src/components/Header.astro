@@ -27,7 +27,6 @@ stats.stop();
 
 <header class="octo-header-bkg site-header header-default">
   <div class="octo-header">
-    <MobileMenu lang={lang} />
     <a href="https://octopus.com" class="logo"
       ><img
         src="/docs/img/octopus-logo.svg"
@@ -36,9 +35,8 @@ stats.stop();
         alt="Octopus Deploy"
       /></a
     >
-
     {showSearch && <Search lang={lang} />}
-
+    <MobileMenu lang={lang} />
     <a href="https://octopus.com/start?location=docs" class="button trial"
       >Free trial</a
     >

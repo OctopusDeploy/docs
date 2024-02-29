@@ -130,6 +130,7 @@
     --search-border: 0.0625rem solid #76A1C2;
     --search-dropdown-height: 60vh;
     --search-dropdown-duration: 0.3s;
+    --navbar-icon-size: 3rem;
 
     /* Hamburger menu */
     --hamburger-line-width: 1.5rem;
