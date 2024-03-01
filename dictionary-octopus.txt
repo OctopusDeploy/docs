@@ -44,6 +44,7 @@ deployers
 deploymentannotation
 deploymentprocess
 deploymentprocesses
+DIND
 Directorygroup
 Distro
 Dockerfiles
