@@ -29,7 +29,7 @@ docker run --interactive --detach `
  --publish 10933:10933 `
  --env ACCEPT_EULA="Y" `
  --env ListeningPort="10933" `
- --env ServerApiKey="API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
+ --env ServerApiKey="API-XXXXXXXX" `
  --env TargetEnvironment="Development" `
  --env TargetRole="container-server" `
  --env ServerUrl="http://10.0.0.1:8080" `
@@ -46,7 +46,7 @@ docker run --interactive --detach `
  --publish 10933:10933 `
  --env ACCEPT_EULA="Y" `
  --env ListeningPort="10933" `
- --env ServerApiKey="API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
+ --env ServerApiKey="API-XXXXXXXX" `
  --env TargetWorkerPool="LinuxWorkers" `
  --env ServerUrl="http://10.0.0.1:8080" `
  octopusdeploy/tentacle
