@@ -58,6 +58,7 @@ figcaption
 FIPS
 frontmatter
 gcloud
+gifs
 globbing
 googleaccount
 groff
@@ -144,6 +145,7 @@ pwsh
 pycryptodome
 querystring
 quickstart
+QUOTENAME
 rehype
 reindexing
 releaseprogression
@@ -186,6 +188,8 @@ Trivy
 tsconfigs
 typeof
 umoci
+Undeployed
+undeployed
 upgradelog
 upgrader
 useronboarding
