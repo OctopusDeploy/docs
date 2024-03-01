@@ -18,8 +18,8 @@
         "astro": "astro",
         "css": "robocopy ./public/docs/css/ ./dist/docs/css/ /mir && robocopy ./public/docs/js/ ./dist/docs/js/ /mir",
         "theme": "pnpm install --save astro-accelerator@latest && pnpm install --save astro-accelerator-utils@latest && node ./accelerator.js",
-        "format": "prettier --write 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css'",
-        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- pnpm prettier --write {{changed}}"
+        "format": "prettier --write --plugin=prettier-plugin-astro 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css'",
+        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
     },
     "dependencies": {
         "@astrojs/mdx": "^2.0.0",
@@ -34,7 +34,8 @@
     "devDependencies": {
         "@playwright/test": "^1.39.0",
         "onchange": "^7.1.0",
-        "prettier": "^3.2.5"
+        "prettier": "^3.2.5",
+        "prettier-plugin-astro": "^0.13.0"
     },
     "pnpm": {
         "overrides": {
