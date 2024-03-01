@@ -10,7 +10,7 @@
     },
     "scripts": {
         "img": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs",
-        "dev": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs && astro dev",
+        "dev": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs && astro dev & pnpm watch",
         "test": "astro build && npx playwright install --with-deps && npx playwright test",
         "spellcheck": "git fetch origin main:refs/remotes/origin/main && git diff origin/main --name-only --diff-filter=ACMRTUXB | cspell --no-must-find-files --file-list stdin",
         "build": "astro build",
