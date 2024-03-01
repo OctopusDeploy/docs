@@ -3,7 +3,7 @@
 import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
 import type { MarkdownInstance } from 'astro';
 import { SITE } from '@config';
-import { htmlToText, convert } from 'html-to-text';
+import { convert } from 'html-to-text';
 import keywordExtractor from 'keyword-extractor';
 
 
