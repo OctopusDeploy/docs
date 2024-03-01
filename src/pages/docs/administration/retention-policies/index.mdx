@@ -64,7 +64,7 @@ When configuring the repository retention policy, it's also worth making note of
 - If the package is present in the built-in repository, and a package retention policy has been configured, then the record will be kept according to that value. If no package retention policy has been configured, then the build information record will be kept indefinitely.
 - If the package is not present in the built-in repository, it's assumed that the package belongs to an [external package repository](/docs/packaging-applications/package-repositories). The build information record will be kept for a fixed value of 100 days from when it was published to Octopus.
 
-## What isn't deleted \{#what-isnt-deleted}
+## What isn't deleted \{#what-is-not-deleted}
 
 Some items in Octopus are not affected by Retention policies, and are never deleted. One example of this is [Audit logs](/docs/security/users-and-teams/auditing). Octopus actively [prevents modifying or deleting audit logs](/docs/security/users-and-teams/auditing/#modifying-and-deleting-audit-logs-is-prevented).
 
@@ -181,7 +181,7 @@ Note how Dev and Test inherit their policies from the lifecycle retention policy
 
 Phases prioritize retention policies from the latest previous phase over the lifecycle retention policy as later phases tend to be treated more seriously. The more serious a phase is, the more the retention policy matters. The final phases are more likely to be production environments, and therefore once a release reaches this point you will want to keep more of them.
 
-## Set Built-in feed retention policy \{#set-builtinfeed-retentionpolicy}
+## Set Built-in feed retention policy \{#built-in-feed}
 
 You can find the built-in repository retention policy settings under **Library ➜ Packages**.
 

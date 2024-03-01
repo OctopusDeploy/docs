@@ -15,7 +15,6 @@ Bento
 bootstrap
 bootstrapped
 bootstrapper
-builtinfeed
 childelement
 choco
 cicd
@@ -59,6 +58,7 @@ figcaption
 FIPS
 frontmatter
 gcloud
+gifs
 globbing
 googleaccount
 groff
@@ -79,7 +79,6 @@ inetsrv
 internalcustomer
 Istio
 istioctl
-isnt
 itemprop
 itemscope
 itemtype
@@ -92,8 +91,8 @@ kustomize
 latestdeployments
 libicu
 lifecycles
-linejoin
 linecap
+linejoin
 linkerd
 ltsc
 maintenanceconfiguration
@@ -143,6 +142,7 @@ pwsh
 pycryptodome
 querystring
 quickstart
+QUOTENAME
 rehype
 reindexing
 releaseprogression
@@ -150,7 +150,6 @@ remoting
 reprioritize
 reprovisioned
 reprovisioning
-retentionpolicy
 robocopy
 roboto
 rootelement
