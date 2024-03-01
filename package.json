@@ -17,7 +17,9 @@
         "preview": "astro preview",
         "astro": "astro",
         "css": "robocopy ./public/docs/css/ ./dist/docs/css/ /mir && robocopy ./public/docs/js/ ./dist/docs/js/ /mir",
-        "theme": "pnpm install --save astro-accelerator@latest && pnpm install --save astro-accelerator-utils@latest && node ./accelerator.js"
+        "theme": "pnpm install --save astro-accelerator@latest && pnpm install --save astro-accelerator-utils@latest && node ./accelerator.js",
+        "format": "prettier --write 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css'",
+        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- pnpm prettier --write {{changed}}"
     },
     "dependencies": {
         "@astrojs/mdx": "^2.0.0",
@@ -30,7 +32,9 @@
         "remark-heading-id": "^1.0.1"
     },
     "devDependencies": {
-        "@playwright/test": "^1.39.0"
+        "@playwright/test": "^1.39.0",
+        "onchange": "^7.1.0",
+        "prettier": "^3.2.5"
     },
     "pnpm": {
         "overrides": {
