@@ -180,7 +180,7 @@ If you are encountering issues using OIDC validating identity tokens from your O
   - This endpoint must return a `jwks_uri` property with a URL where the public key used to sign the token can be obtained. There could be multiple keys returned by this endpoint, each key can be identified using the `kid` property.
   - Both of these endpoints must be publicly accessible without requiring authorization.
 
-::dic{.warning}
+:::div{.warning}
 Although the subject field does support wildcards, we recommend providing as explicit a value as possible to reduce the risk of malicious requests resulting in a subject match. 
 
 For example, if you are generating OIDC tokens from GitHub Actions and want to match against any branch in your project repository, ensure your wildcard covers just the branch component of the subject `repo:AcmeOrg/MyRepo:ref:*`. Providing a single blanket `*` wildcard character otherwise means that any token request (with a matching `service_account_id`) from a GitHub Action from any organization could result in a match and an Octopus Authentication Token issued.
