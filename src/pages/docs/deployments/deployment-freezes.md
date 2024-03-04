@@ -66,7 +66,7 @@ To override a freeze
 
 # Current limitations
 - Deployment freezes are not yet integrated with our [Executions API](https://octopus.com/blog/faster-deployments-with-the-executions-api).
-- Deployment freezes currently do not block [automatic deployments](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure/#ImmutableInfrastructure-Automaticallydeploying)
+- Deployment freezes currently block [automatic deployments](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure/#ImmutableInfrastructure-Automaticallydeploying)
 
 ## Learn more
 
