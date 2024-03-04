@@ -177,6 +177,10 @@ When a Kubernetes target is used, the namespace it references is created automat
 To make use of the Kubernetes steps, the Octopus Server or workers that will run the steps need to have the `kubectl` executable installed. Linux workers also need to have the `jq`, `xargs` and `base64` applications installed.
 11. Click **SAVE**.
 
+:::div{.warning}
+Setting the Worker Pool directly on the Deployment Target will override the Worker Pool defined in a Deployment Process.  
+:::
+
 ## Create service accounts
 
 The recommended approach to configuring a Kubernetes target is to have a service account for each application and namespace.
