@@ -45,30 +45,30 @@ A number of the fields in this configuration file map directly to the fields in 
 apiVersion: v1
 clusters:
 - cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUV5REN...
+    certificate-authority-data: XXXXXXXXXXXXXXXX...
     server: https://kubernetes.example.org:443
-  name: k8scluster
+  name: k8s-cluster
 contexts:
 - context:
-    cluster: k8scluster
-    user: k8suser
-  name: k8suser
-current-context: k8scluster
+    cluster: k8s-cluster
+    user: k8s_user
+  name: k8s_user
+current-context: k8s-cluster
 kind: Config
 preferences: {}
 users:
-- name: k8suser
+- name: k8s_user
   user:
-    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tL...
-    client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS0FJQkFBS0...
-    token: 1234567890abcdefghijkl
-- name: k8suser2
+    client-certificate-data: XXXXXXXXXXXXXXXX...
+    client-key-data: XXXXXXXXXXXXXXXX...
+    token: 1234567890xxxxxxxxxxxxx
+- name: k8s_user2
   user:
     password: some-password
     username: exp
-- name: k8suser3
+- name: k8s_user3
   user:
-    token: 1234567890abcdefghijkl    
+    token: 1234567890xxxxxxxxxxxxx    
 ```
 
 ## Add a Kubernetes target
@@ -129,7 +129,7 @@ users:
       C:\OpenSSL-Win32\bin\openssl pkcs12 `
         -passout pass: `
         -export `
-        -out certificateandkey.pfx `
+        -out certificate_and_key.pfx `
         -in certificate.crt `
         -inkey private.key
       ```
@@ -140,7 +140,7 @@ users:
       openssl pkcs12 \
         -passout pass: \
         -export \
-        -out certificateandkey.pfx \
+        -out certificate_and_key.pfx \
         -in certificate.crt \
         -inkey private.key
       ```
@@ -158,18 +158,18 @@ Decoding the `certificate-authority-data` field results in a string that looks s
 
 ```
 -----BEGIN CERTIFICATE-----
-MIIEyDCCArCgAwIBAgIRAOBNYnhYDBamTvQn...
+XXXXXXXXXXXXXXXX...
 -----END CERTIFICATE-----
 ```
 
 Save this text to a file called `ca.pem`, and upload it to the [Octopus certificate management area](https://oc.to/CertificatesDocumentation). The certificate can then be selected in the `cluster certificate authority` field.
 
 9. Enter the Kubernetes Namespace.
-When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team, or service. In this situation, the recommended approach is to create a namespace for each application and environment (e.g., `myapplication-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.
+When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team, or service. In this situation, the recommended approach is to create a namespace for each application and environment (e.g., `my-application-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.
 
-Where each environment has its own Kubernetes cluster, namespaces can be assigned to each application, team or service (e.g. `myapplication`).
+Where each environment has its own Kubernetes cluster, namespaces can be assigned to each application, team or service (e.g. `my-application`).
 
-In both scenarios, a target is then created for each Kubernetes cluster and namespace. The `Target Role` tag is set to the application name (e.g. `myapplication`), and the `Environments` are set to the matching environment.
+In both scenarios, a target is then created for each Kubernetes cluster and namespace. The `Target Role` tag is set to the application name (e.g. `my-application`), and the `Environments` are set to the matching environment.
 
 When a Kubernetes target is used, the namespace it references is created automatically if it does not already exist.
 
@@ -275,7 +275,7 @@ The token can then be saved as a Token Octopus account, and assigned to the Kube
 Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus Server itself.
 
 ## Vendor Authentication Plugins
-Prior to `kubectl` version 1.26, the logic for authenticating against various cloud providers (eg Azure Kubernetes Services, Google Kubernetes Engine) was included "in-tree" in `kubetcl`. From version 1.26 onward, the cloud-vendor specific authentication code has been removed from `kubectl`, in favor of a plugin approach.
+Prior to `kubectl` version 1.26, the logic for authenticating against various cloud providers (eg Azure Kubernetes Services, Google Kubernetes Engine) was included "in-tree" in `kubectl`. From version 1.26 onward, the cloud-vendor specific authentication code has been removed from `kubectl`, in favor of a plugin approach.
 
 What this means for your deployments:
 
@@ -341,7 +341,7 @@ kubectl version --client --output=yaml
 
 # Write a custom kube config. This is useful when you have a config that works, and you want to confirm it works in Octopus.
 Write-Host "Health check with custom config file"
-Set-Content -Path "myconfig.yml" -Value @"
+Set-Content -Path "my-config.yml" -Value @"
 apiVersion: v1
 clusters:
 - cluster:
@@ -351,8 +351,8 @@ clusters:
 contexts:
 - context:
     cluster: test
-    user: testadmin
-  name: testadmin
+    user: test_admin
+  name: test_admin
 - context:
     cluster: test
     user: test
@@ -361,16 +361,16 @@ current-context: test
 kind: Config
 preferences: {}
 users:
-- name: testadmin
+- name: test_admin
   user:
     token: auth-token-goes-here
 - name: test
   user:
     client-certificate-data: certificate-data-goes-here
-    client-key-data: certificate-key-gies-here
+    client-key-data: certificate-key-goes-here
 "@
 
-kubectl version --short --kubeconfig myconfig.yml
+kubectl version --short --kubeconfig my-config.yml
 
 exit 0
 
