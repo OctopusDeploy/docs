@@ -360,7 +360,7 @@ Example: *Script returned exit code 123*
 
 The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/projects/variables/system-variables)
 
-Example: *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*|
+Example: *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*
 
 `Octopus.Deployment.ForcePackageDownload`
 
@@ -801,7 +801,7 @@ The teams responsible for completing a manual step *(List)*.
 
 Example: *teams-123,teams-124*
 
-|`Octopus.Action.MaxParallelism`
+`Octopus.Action.MaxParallelism`
 
 The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments). *(Number - Default: 10)*.
 
@@ -833,7 +833,7 @@ If true, the all files in the `Octopus.Action.Package.CustomInstallationDirector
 
 Example: *False*
 
-|`Octopus.Action.Package.DownloadOnTentacle`
+`Octopus.Action.Package.DownloadOnTentacle`
 
 If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server *(Boolean)*.
 
