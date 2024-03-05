@@ -29,9 +29,9 @@ const _ = Lang(lang);
 
 // Logic
 let relatedPosts: MarkdownInstance<Record<string, any>>[] = [];
-const parentCagory = (frontmatter.categories ?? [null])[0];
+const parentCategory = (frontmatter.categories ?? [null])[0];
 
-if (parentCagory != null) {
+if (parentCategory != null) {
   const allPages = accelerator.posts.all().filter(PostFiltering.isListable);
   const allPosts = allPages
     .filter(PostFiltering.showInMenu)
@@ -39,7 +39,7 @@ if (parentCagory != null) {
       (p) =>
         p.frontmatter.title != frontmatter.title &&
         p.frontmatter.categories &&
-        p.frontmatter.categories.includes(parentCagory)
+        p.frontmatter.categories.includes(parentCategory)
     )
     .sort(PostOrdering.sortByPubDateDesc);
 
