@@ -11,33 +11,32 @@ var height = window.innerHeight;
 /**
  * Adds a de-bounced "resized" event, so you can listen to:
  * document.addEventListener('resized', <handler>);
- * 
+ *
  * @returns {string}
  */
- function addResizedEvent() {
-    let debounce = null;
+function addResizedEvent() {
+  let debounce = null;
 
-    function resizeEnd(e) {
-        window.clearTimeout(debounce);
-        debounce = window.setTimeout(raiseResizeEvent, 500);
-    }
+  function resizeEnd(e) {
+    window.clearTimeout(debounce);
+    debounce = window.setTimeout(raiseResizeEvent, 500);
+  }
 
-    function raiseResizeEvent() {
-        const change = {
-            width: window.innerWidth - width,
-            height: window.innerHeight - height
-        };
+  function raiseResizeEvent() {
+    const change = {
+      width: window.innerWidth - width,
+      height: window.innerHeight - height,
+    };
 
-        width = window.innerWidth;
-        height = window.innerHeight;
-        
+    width = window.innerWidth;
+    height = window.innerHeight;
 
-        raiseEvent(resizedEventName, { change: change });
-    }
+    raiseEvent(resizedEventName, { change: change });
+  }
 
-    window.addEventListener(resizeEventName, resizeEnd);
+  window.addEventListener(resizeEventName, resizeEnd);
 
-    return resizedEventName;
+  return resizedEventName;
 }
 
 export { addResizedEvent };

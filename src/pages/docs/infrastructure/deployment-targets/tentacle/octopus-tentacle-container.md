@@ -29,7 +29,7 @@ docker run --interactive --detach `
  --publish 10933:10933 `
  --env ACCEPT_EULA="Y" `
  --env ListeningPort="10933" `
- --env ServerApiKey="API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
+ --env ServerApiKey="API-XXXXXXXX" `
  --env TargetEnvironment="Development" `
  --env TargetRole="container-server" `
  --env ServerUrl="http://10.0.0.1:8080" `
@@ -46,7 +46,7 @@ docker run --interactive --detach `
  --publish 10933:10933 `
  --env ACCEPT_EULA="Y" `
  --env ListeningPort="10933" `
- --env ServerApiKey="API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
+ --env ServerApiKey="API-XXXXXXXX" `
  --env TargetWorkerPool="LinuxWorkers" `
  --env ServerUrl="http://10.0.0.1:8080" `
  octopusdeploy/tentacle
@@ -76,6 +76,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 |**TargetTenantTag**|Comma delimited list of tenant tags to add to this target|
 |**TargetTenantedDeploymentParticipation**|The tenanted deployment mode of the target. Allowed values are `Untenanted`, `TenantedOrUntenanted`, and `Tenanted`. Defaults to `Untenanted`|
 |**MachinePolicy**|The name of the machine policy that will apply to this Tentacle. Defaults to the default machine policy|
+|**ServerCommsAddress**|The URL of the Octopus Server that the Tentacle will poll for work. Defaults to `ServerUrl`. Implies a polling Tentacle|
 |**ServerPort**|The port on the Octopus Server that the Tentacle will poll for work. Defaults to `10943`. Implies a Polling Tentacle|
 |**ListeningPort**|The port that the Octopus Server will connect back to the Tentacle with. Defaults to `10933`. Implies a listening Tentacle|
 |**PublicHostNameConfiguration**|How the url that the Octopus Server will use to communicate with the Tentacle is determined. Can be `PublicIp`, `FQDN`, `ComputerName` or `Custom`. Defaults to `PublicIp`|

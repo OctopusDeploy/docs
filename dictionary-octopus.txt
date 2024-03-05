@@ -44,6 +44,7 @@ deployers
 deploymentannotation
 deploymentprocess
 deploymentprocesses
+DIND
 Directorygroup
 Distro
 Dockerfiles
@@ -58,10 +59,12 @@ figcaption
 FIPS
 frontmatter
 gcloud
+gifs
 globbing
 googleaccount
 groff
 Groupsand
+hastscript
 healthcheck
 HKEY
 HKLM
@@ -90,13 +93,14 @@ kustomize
 latestdeployments
 libicu
 lifecycles
-linejoin
 linecap
+linejoin
 linkerd
 ltsc
 maintenanceconfiguration
 majeure
 maxage
+mdast
 milli
 MITM
 mozjpeg
@@ -128,6 +132,7 @@ Octostache
 octoterra
 OIDC
 onlylogs
+openon
 passout
 petclinic
 petshop
@@ -141,6 +146,7 @@ pwsh
 pycryptodome
 querystring
 quickstart
+QUOTENAME
 rehype
 reindexing
 releaseprogression
@@ -163,8 +169,12 @@ setspn
 shiki
 SIEM
 signingkeys
+skiplinks
 sourcedata
+srcset
+srcset
 sthumb
+stylesheet
 swaggerui
 systemprofile
 tabpanel
@@ -176,7 +186,11 @@ TFVC
 tmpfs
 Traefik
 Trivy
+tsconfigs
+typeof
 umoci
+Undeployed
+undeployed
 upgradelog
 upgrader
 useronboarding

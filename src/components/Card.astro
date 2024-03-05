@@ -6,12 +6,12 @@ type Props = {
   imgSrc: string;
   link: string;
   title: string;
-  variant?: "padded";
+  variant?: 'padded';
 };
 const { description, imgAlt, imgSrc, link, title, variant } =
   Astro.props satisfies Props;
 
-const classList = `card ${variant === "padded" ? "card--padded" : ""}`;
+const classList = `card ${variant === 'padded' ? 'card--padded' : ''}`;
 ---
 
 <article class={classList}>
