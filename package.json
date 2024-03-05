@@ -10,7 +10,7 @@
     },
     "scripts": {
         "dev": "npm-run-all --parallel dev:img dev:astro dev:watch",
-        "dev:img": "node --no-experimental-fetch ./src/themes/accelerator/utilities/img.mjs",
+        "dev:img": "node --no-experimental-fetch ./src/themes/octopus/utilities/img.mjs",
         "dev:astro": "astro dev",
         "dev:watch": "pnpm watch",
         "test": "astro build && npx playwright install --with-deps && npx playwright test",
