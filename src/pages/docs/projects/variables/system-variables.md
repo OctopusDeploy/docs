@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-09-20
+modDate: 2024-03-05
 title: System variables
 description: System variables are variables provided by Octopus that can be used in your deployments.
 navOrder: 20
