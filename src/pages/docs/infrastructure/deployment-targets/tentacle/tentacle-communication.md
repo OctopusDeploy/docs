@@ -18,7 +18,7 @@ In listening mode Tentacle is the TCP server, and Octopus is the TCP client.
 :::figure
 ![Octopus to Listening Tentacle communication](/docs/infrastructure/deployment-targets/tentacle/images/listening-tentacle.png)
 :::
-
+ 
 When choosing a communication mode, we recommend Listening mode when possible.
 
 Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/security/octopus-tentacle-communication), and Tentacle will outright reject connections that aren't from an Octopus Server that it trusts, identified by an X.509 certificate public key that you provide during setup.
