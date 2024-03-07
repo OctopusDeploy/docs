@@ -40,6 +40,10 @@ Give the token a meaningful name and enable the **repo** scope if you want to be
 
 Copy the token that is generated and use this value as the password for the GitHub feed in Octopus Deploy.
 
+:::div{.hint}
+**Note:** Octopus can make use of GitHub's fine-grained tokens should you wish to have more control over the repositories that can be accessed. These can be created in the same way as the steps above, but selecting the "Fine-grained Tokens" option instead. From there individual repository access can be added for further security.
+:::
+
 ### Testing a GitHub feed
 
 You can check whether the GitHub feed is working by searching for packages. Click the **TEST** button, and you'll be taken to the test page:
