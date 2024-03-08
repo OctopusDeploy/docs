@@ -10,8 +10,8 @@ stats.start();
 // Properties
 type Props = {
   lang: string;
-  frontmatter: Frontmatter
-  headings: { depth: number; slug: string; text: string; }[];
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
 };
 const { lang, frontmatter, headings } = Astro.props satisfies Props;
 
@@ -21,6 +21,7 @@ const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSehVdN2w6tgSvp5QX7lHGn
 
 stats.stop();
 ---
+
 <h2>Help us continuously improve</h2>
 <p>Please let us know if you have any feedback about this page.</p>
-<p><a href={ formUrl } class="button trial">Send feedback</a></p>
+<p><a href={formUrl} class="button trial">Send feedback</a></p>

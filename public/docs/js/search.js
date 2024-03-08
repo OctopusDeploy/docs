@@ -1,9 +1,9 @@
 // @ts-check
 
-import { qs } from "./modules/query.js";
-import { raiseEvent } from "./modules/events.js";
-import { contains, sanitise, explode, highlight } from "./modules/string.js";
-import { stemmer } from "./modules/stemmer.js";
+import { qs } from './modules/query.js';
+import { raiseEvent } from './modules/events.js';
+import { contains, sanitise, explode, highlight } from './modules/string.js';
+import { stemmer } from './modules/stemmer.js';
 
 // @ts-ignore
 const f = window.site_features ?? {};
@@ -53,15 +53,15 @@ function enabled(settings, option) {
  */
 
 function initializeSearch() {
-  const siteSearchInput = qs("[data-site-search-query]");
-  const siteSearchWrapper = qs("[data-site-search-wrapper]");
-  const siteSearchElement = qs("[data-site-search]");
-  const siteSearchResults = qs("[data-site-search-results");
-  const removeSearchButton = qs("[data-site-search-remove]");
+  const siteSearchInput = qs('[data-site-search-query]');
+  const siteSearchWrapper = qs('[data-site-search-wrapper]');
+  const siteSearchElement = qs('[data-site-search]');
+  const siteSearchResults = qs('[data-site-search-results');
+  const removeSearchButton = qs('[data-site-search-remove]');
 
   /** @type {SearchEntry[]} */
   var haystack = [];
-  var currentQuery = "";
+  var currentQuery = '';
   var dataUrl = siteSearchElement.dataset.sourcedata;
 
   var scoring = {
@@ -79,10 +79,10 @@ function initializeSearch() {
   var ready = false;
   var scrolled = false;
 
-  siteSearchInput.addEventListener("focus", () => activateInput());
+  siteSearchInput.addEventListener('focus', () => activateInput());
 
   // Close the dropdown upon clicking outside the search
-  document.addEventListener("click", function (e) {
+  document.addEventListener('click', function (e) {
     if (
       !siteSearchElement.contains(e.target) &&
       !siteSearchResults.contains(e.target)
@@ -90,12 +90,12 @@ function initializeSearch() {
       closeDropdown();
 
       const duration = getComputedStyle(siteSearchWrapper).getPropertyValue(
-        "--search-dropdown-duration"
+        '--search-dropdown-duration'
       );
 
       // Convert duration to milliseconds for setTimeout
       const durationMs =
-        parseFloat(duration) * (duration.endsWith("ms") ? 1 : 1000);
+        parseFloat(duration) * (duration.endsWith('ms') ? 1 : 1000);
 
       setTimeout(() => {
         deactivateInput();
@@ -104,39 +104,39 @@ function initializeSearch() {
   });
 
   // Reopen the dropdown upon clicking the input after it has been closed
-  siteSearchInput.addEventListener("click", () => {
-    if (siteSearchInput.value.trim() !== "") {
+  siteSearchInput.addEventListener('click', () => {
+    if (siteSearchInput.value.trim() !== '') {
       activateInput();
       openDropdown();
     }
   });
 
   // Clear the search input
-  removeSearchButton.addEventListener("click", () => clearInput());
+  removeSearchButton.addEventListener('click', () => clearInput());
 
   // Dropdown accessibility controls
-  document.addEventListener("keydown", handleDropdownKeyboardNavigation);
+  document.addEventListener('keydown', handleDropdownKeyboardNavigation);
 
   function activateInput() {
-    if (siteSearchWrapper.classList.contains("is-active")) return;
-    siteSearchWrapper.classList.add("is-active");
-    document.body.style.overflow = "hidden";
+    if (siteSearchWrapper.classList.contains('is-active')) return;
+    siteSearchWrapper.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
   }
 
   function deactivateInput() {
-    if (!siteSearchWrapper.classList.contains("is-active")) return;
-    siteSearchWrapper.classList.remove("is-active");
+    if (!siteSearchWrapper.classList.contains('is-active')) return;
+    siteSearchWrapper.classList.remove('is-active');
     siteSearchInput.blur();
-    document.body.style.overflow = "";
+    document.body.style.overflow = '';
   }
 
   function openDropdown() {
-    siteSearchElement.classList.add("is-active");
+    siteSearchElement.classList.add('is-active');
 
     requestAnimationFrame(() => {
       const dropdownHeightPercentage = parseFloat(
         getComputedStyle(siteSearchWrapper).getPropertyValue(
-          "--search-dropdown-height"
+          '--search-dropdown-height'
         )
       );
       // Convert vh to pixels
@@ -147,49 +147,49 @@ function initializeSearch() {
         window.innerHeight - siteSearchElementRect.bottom;
 
       if (offsetFromBottomToElement < dropdownHeight) {
-        document.body.style.overflow = "";
+        document.body.style.overflow = '';
 
         // Scroll to the siteSearchElement
         siteSearchElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
+          behavior: 'smooth',
+          block: 'start',
         });
 
         // Delay the overflow to allow for smooth scrolling
         setTimeout(() => {
-          document.body.style.overflow = "hidden";
+          document.body.style.overflow = 'hidden';
         }, 300);
       }
     });
   }
 
   function closeDropdown() {
-    siteSearchElement.classList.remove("is-active");
+    siteSearchElement.classList.remove('is-active');
   }
 
   function clearInput() {
     closeDropdown();
-    siteSearchInput.value = "";
+    siteSearchInput.value = '';
     siteSearchInput.focus();
   }
 
   function handleDropdownKeyboardNavigation(e) {
     // Proceed only if search dropdown is active
-    if (!siteSearchWrapper.classList.contains("is-active")) return;
+    if (!siteSearchWrapper.classList.contains('is-active')) return;
 
-    if (e.key === "Escape") {
+    if (e.key === 'Escape') {
       closeDropdown();
       deactivateInput();
 
       return;
     }
 
-    if (e.key === "Tab") {
+    if (e.key === 'Tab') {
       const firstElement = siteSearchInput;
       const lastElement =
-        siteSearchResults.querySelector("button") ||
+        siteSearchResults.querySelector('button') ||
         siteSearchResults.querySelector(
-          ".site-search-results__item:last-child .result-wrapper"
+          '.site-search-results__item:last-child .result-wrapper'
         );
 
       if (e.shiftKey && document.activeElement === firstElement) {
@@ -217,7 +217,7 @@ function initializeSearch() {
     }
 
     try {
-      const synonymsModule = await import("./synonyms.js");
+      const synonymsModule = await import('./synonyms.js');
       _synonyms = synonymsModule.synonyms;
     } catch {
       _synonyms = {};
@@ -256,7 +256,7 @@ function initializeSearch() {
     if (s && s.trim().length > 0) {
       activateInput();
       openDropdown();
-    } else if (siteSearchElement.classList.contains("is-active")) {
+    } else if (siteSearchElement.classList.contains('is-active')) {
       // Remove 'is-active' class when search is cleared
       closeDropdown();
     }
@@ -407,8 +407,8 @@ function initializeSearch() {
 
     const results = siteSearchResults;
 
-    const ul = document.createElement("ul");
-    ul.className = "site-search-results__list";
+    const ul = document.createElement('ul');
+    ul.className = 'site-search-results__list';
 
     const limit = Math.min(needles.length, numberOfResults);
 
@@ -422,39 +422,39 @@ function initializeSearch() {
       const isSameHost = siteUrl.host == address.host;
       const url = isSameHost ? address.pathname : needle.url;
 
-      const listElementWrapper = document.createElement("a");
+      const listElementWrapper = document.createElement('a');
       listElementWrapper.href = url;
-      listElementWrapper.className = "result-wrapper";
+      listElementWrapper.className = 'result-wrapper';
 
-      const listElementTitle = document.createElement("span");
+      const listElementTitle = document.createElement('span');
       // Only highlight user query terms, not stemmed terms
       listElementTitle.innerHTML = highlight(needle.title, queryTerms);
-      listElementTitle.className = "result-title";
+      listElementTitle.className = 'result-title';
 
-      const path = document.createElement("div");
-      path.className = "result-path";
+      const path = document.createElement('div');
+      path.className = 'result-path';
 
       // Split the path into segments, filter out empty segments (in case of leading slash)
-      const segments = address.pathname.split("/").filter(Boolean);
+      const segments = address.pathname.split('/').filter(Boolean);
 
       segments.forEach((segment, index) => {
-        const words = segment.replace(/-/g, " ").split(" ");
+        const words = segment.replace(/-/g, ' ').split(' ');
         const processedSegment = words
           .map((word, index) =>
             index === 0
               ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
               : word.toLowerCase()
           )
-          .join(" ");
+          .join(' ');
 
-        const segmentSpan = document.createElement("span");
-        segmentSpan.className = "result-path__segment";
+        const segmentSpan = document.createElement('span');
+        segmentSpan.className = 'result-path__segment';
         segmentSpan.textContent = processedSegment;
         path.appendChild(segmentSpan);
 
         if (index < segments.length - 1) {
-          const svgIcon = document.createElement("span");
-          svgIcon.className = "result-path__icon";
+          const svgIcon = document.createElement('span');
+          svgIcon.className = 'result-path__icon';
           svgIcon.innerHTML = `
                       <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
                           <path d="M1 9L5 5L1 1" stroke="#7C98B4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -464,16 +464,16 @@ function initializeSearch() {
         }
       });
 
-      const listElementDescription = document.createElement("p");
-      listElementDescription.className = "result-description";
+      const listElementDescription = document.createElement('p');
+      listElementDescription.className = 'result-description';
       // Only highlight user query terms, not stemmed terms
       listElementDescription.innerHTML = highlight(
         needle.description,
         queryTerms
       );
 
-      const li = document.createElement("li");
-      li.classList.add("site-search-results__item");
+      const li = document.createElement('li');
+      li.classList.add('site-search-results__item');
       li.dataset.words = needle.foundWords.toString();
       li.dataset.score = (
         Math.round((needle.score / total) * 1000) / 1000
@@ -483,16 +483,16 @@ function initializeSearch() {
       listElementWrapper.appendChild(listElementDescription);
       li.appendChild(listElementWrapper);
 
-      if (enabled(f.search, "headings") && needle.matchedHeadings.length > 0) {
-        const headings = document.createElement("ul");
-        headings.className = "result-headings";
+      if (enabled(f.search, 'headings') && needle.matchedHeadings.length > 0) {
+        const headings = document.createElement('ul');
+        headings.className = 'result-headings';
 
         headings.tabIndex = 0;
 
         needle.matchedHeadings.forEach((h) => {
-          const item = document.createElement("li");
-          const link = document.createElement("a");
-          link.href = url + "#" + h.slug;
+          const item = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = url + '#' + h.slug;
           // Only highlight user query terms, not stemmed terms
           link.innerHTML = highlight(h.text, queryTerms);
           item.appendChild(link);
@@ -507,23 +507,23 @@ function initializeSearch() {
 
     let h4;
     if (needles.length === 0) {
-      h4 = document.createElement("h4");
-      h4.classList.add("search-results__heading");
-      h4.innerHTML = results.dataset.emptytitle || "No Results";
+      h4 = document.createElement('h4');
+      h4.classList.add('search-results__heading');
+      h4.innerHTML = results.dataset.emptytitle || 'No Results';
     }
 
-    const more = document.createElement("button");
-    more.className = "show-more";
-    more.type = "button";
-    more.innerHTML = "See more";
-    more.addEventListener("click", function (e) {
+    const more = document.createElement('button');
+    more.className = 'show-more';
+    more.type = 'button';
+    more.innerHTML = 'See more';
+    more.addEventListener('click', function (e) {
       e.stopPropagation(); // Prevent the click from closing the dropdown
-      currentQuery = "";
+      currentQuery = '';
       const newTotal = numberOfResults + 12;
       search(s, newTotal);
     });
 
-    results.innerHTML = "";
+    results.innerHTML = '';
     results.appendChild(ul);
     h4 && results.appendChild(h4);
 
@@ -531,13 +531,13 @@ function initializeSearch() {
       results.appendChild(more);
     }
 
-    const address = window.location.href.split("?")[0];
+    const address = window.location.href.split('?')[0];
     window.history.pushState(
       {},
-      "",
-      address + "?q=" + encodeURIComponent(cleanQuery)
+      '',
+      address + '?q=' + encodeURIComponent(cleanQuery)
     );
-    raiseEvent("searched", { search: s });
+    raiseEvent('searched', { search: s });
   }
 
   /** @type {Number} */
@@ -547,11 +547,11 @@ function initializeSearch() {
     var input = siteSearchInput;
 
     if (input == null) {
-      throw new Error("Cannot find data-site-search-query");
+      throw new Error('Cannot find data-site-search-query');
     }
 
     // Words chained with . are combined, i.e. System.Text is "systemtext"
-    var s = input.value.replace(/\./g, "");
+    var s = input.value.replace(/\./g, '');
 
     window.clearTimeout(debounceTimer);
     debounceTimer = window.setTimeout(function () {
@@ -586,16 +586,16 @@ function initializeSearch() {
       const siteSearchQuery = siteSearchInput;
 
       if (siteSearch == null || siteSearchQuery == null) {
-        throw new Error("Cannot find #site-search or data-site-search-query");
+        throw new Error('Cannot find #site-search or data-site-search-query');
       }
 
-      siteSearch.addEventListener("submit", function (e) {
+      siteSearch.addEventListener('submit', function (e) {
         e.preventDefault();
         debounceSearch();
         return false;
       });
 
-      siteSearchQuery.addEventListener("keyup", function (e) {
+      siteSearchQuery.addEventListener('keyup', function (e) {
         e.preventDefault();
         if (!scrolled) {
           scrolled = true;
@@ -606,8 +606,8 @@ function initializeSearch() {
       });
 
       const params = new URLSearchParams(window.location.search);
-      if (params.has("q")) {
-        siteSearchQuery.value = params.get("q") ?? "";
+      if (params.has('q')) {
+        siteSearchQuery.value = params.get('q') ?? '';
       }
 
       for (let key of Object.keys(scoring)) {
@@ -626,9 +626,9 @@ function initializeSearch() {
     });
 }
 
-if (document.readyState === "loading") {
+if (document.readyState === 'loading') {
   // Loading hasn't finished yet
-  document.addEventListener("DOMContentLoaded", initializeSearch);
+  document.addEventListener('DOMContentLoaded', initializeSearch);
 } else {
   // `DOMContentLoaded` has already fired
   initializeSearch();

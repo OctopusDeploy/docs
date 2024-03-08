@@ -1,28 +1,28 @@
 ---
-import { Accelerator, PostFiltering } from "astro-accelerator-utils";
-import type { Frontmatter } from "astro-accelerator-utils/types/Frontmatter";
-import { SITE } from "@config";
-import { getImageInfo } from "@util/custom-markdown.mjs";
+import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { getImageInfo } from '@util/custom-markdown.mjs';
 
 // Theme components
-import TableOfContents from "@components/TableOfContents.astro";
-import Head from "@components/HtmlHead.astro";
-import Footer from "@components/Footer.astro";
-import SkipLinks from "@components/SkipLinks.astro";
-import Breadcrumbs from "@components/Breadcrumbs.astro";
-import Navigation from "@components/Navigation.astro";
-import Authors from "@components/Authors.astro";
-import Taxonomy from "@components/Taxonomy.astro";
+import TableOfContents from '@components/TableOfContents.astro';
+import Head from '@components/HtmlHead.astro';
+import Footer from '@components/Footer.astro';
+import SkipLinks from '@components/SkipLinks.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import Navigation from '@components/Navigation.astro';
+import Authors from '@components/Authors.astro';
+import Taxonomy from '@components/Taxonomy.astro';
 
 // Custom components
-import Copyright from "../components/Copyright.astro";
-import Header from "../components/Header.astro";
-import Related from "../components/Related.astro";
-import ArticleJourney from "../components/ArticleJourney.astro";
-import Feedback from "../components/Feedback.astro";
-import EditOnGithub from "../components/EditOnGithub.astro";
-import LastUpdated from "../components/LastUpdated.astro";
-import Plausible from "src/components/Plausible.astro";
+import Copyright from '../components/Copyright.astro';
+import Header from '../components/Header.astro';
+import Related from '../components/Related.astro';
+import ArticleJourney from '../components/ArticleJourney.astro';
+import Feedback from '../components/Feedback.astro';
+import EditOnGithub from '../components/EditOnGithub.astro';
+import LastUpdated from '../components/LastUpdated.astro';
+import Plausible from 'src/components/Plausible.astro';
 
 type Props = {
   frontmatter: Frontmatter;
@@ -38,7 +38,7 @@ const textDirection = frontmatter.dir ?? SITE.default.dir;
 const accelerator = new Accelerator(SITE);
 
 const metaImage = frontmatter.bannerImage
-  ? getImageInfo(frontmatter.bannerImage.src, "", SITE.images.contentSize)
+  ? getImageInfo(frontmatter.bannerImage.src, '', SITE.images.contentSize)
   : null;
 
 const title = await accelerator.markdown.getInlineHtmlFrom(
@@ -134,7 +134,7 @@ const showSearch = !isSearchPage;
       window.site_url = site_url;
       window.site_features = site_features;
     </script>
-    <script src={SITE.subfolder + "/js/main.js"} type="module" async></script>
+    <script src={SITE.subfolder + '/js/main.js'} type="module" async></script>
     <Plausible />
   </body>
 </html>

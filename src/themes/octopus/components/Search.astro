@@ -1,7 +1,7 @@
 ---
-import { Accelerator, PostFiltering } from "astro-accelerator-utils";
-import { Translations, Lang } from "@util/Languages";
-import { SITE } from "@config";
+import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
+import { Translations, Lang } from '@util/Languages';
+import { SITE } from '@config';
 
 // Properties
 type Props = {
@@ -13,7 +13,7 @@ const { lang } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-const siteUrl = Astro.site ? Astro.site.href : "";
+const siteUrl = Astro.site ? Astro.site.href : '';
 const accelerator = new Accelerator(SITE);
 const search =
   accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
@@ -26,18 +26,18 @@ const searchUrl =
   <div class="site-search__overlay"></div>
   <form
     method="GET"
-    action={SITE.search.fallbackUrl ?? "https://www.google.com/search"}
+    action={SITE.search.fallbackUrl ?? 'https://www.google.com/search'}
     role="search"
     class="site-search"
     autocomplete="off"
-    data-sourcedata={SITE.subfolder + "/search.json"}
+    data-sourcedata={SITE.subfolder + '/search.json'}
     data-site-search
   >
     <fieldset>
       <input
         type="hidden"
-        name={SITE.search.fallbackSite ?? "q"}
-        value={"site:" + siteUrl}
+        name={SITE.search.fallbackSite ?? 'q'}
+        value={'site:' + siteUrl}
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ const searchUrl =
       </svg>
       <input
         type="text"
-        name={SITE.search.fallbackSite ?? "q"}
+        name={SITE.search.fallbackSite ?? 'q'}
         class="site-search-query"
         placeholder={_(Translations.search.search_for)}
         spellcheck="true"
@@ -100,4 +100,4 @@ const searchUrl =
   </a>
 </div>
 
-<script src={SITE.subfolder + "/js/search.js"} type="module" defer></script>
+<script src={SITE.subfolder + '/js/search.js'} type="module" defer></script>

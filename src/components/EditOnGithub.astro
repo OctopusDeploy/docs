@@ -5,14 +5,16 @@ import { SITE } from '@config';
 import { Lang, Translations } from '@util/Languages';
 
 const accelerator = new Accelerator(SITE);
-const stats = new accelerator.statistics('octopus/components/ArticleList.astro');
+const stats = new accelerator.statistics(
+  'octopus/components/ArticleList.astro'
+);
 stats.start();
 
 // Properties
 type Props = {
   lang: string;
-  frontmatter: Frontmatter
-  headings: { depth: number; slug: string; text: string; }[];
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
 };
 const { lang, frontmatter, headings } = Astro.props satisfies Props;
 
@@ -20,7 +22,8 @@ const { lang, frontmatter, headings } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-let gitHubUrl: string | null = 'https://github.com/OctopusDeploy/docs/blob/main';
+let gitHubUrl: string | null =
+  'https://github.com/OctopusDeploy/docs/blob/main';
 
 const pos = frontmatter.file.lastIndexOf('/src/pages/');
 
@@ -33,8 +36,11 @@ if (pos < 0) {
 
 stats.stop();
 ---
-{gitHubUrl && (
-<div class="octo-github-edit">
-  <a href={ gitHubUrl }>{ _(Translations.octopus_github.edit_on_github) }</a>
-</div>
-)}
+
+{
+  gitHubUrl && (
+    <div class="octo-github-edit">
+      <a href={gitHubUrl}>{_(Translations.octopus_github.edit_on_github)}</a>
+    </div>
+  )
+}

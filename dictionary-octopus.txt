@@ -8,6 +8,7 @@ aspnetcore
 astro
 astrojs
 augeas
+auths
 autodeployoverride
 awsaccount
 azureaccount
@@ -34,6 +35,7 @@ crossorigin
 cscfg
 cspkg
 Csvg
+customisation
 cutover
 Datacenter
 datetime
@@ -90,6 +92,7 @@ keyrings
 Kubelet
 kustomization
 kustomize
+lastmod
 latestdeployments
 libicu
 lifecycles
@@ -139,6 +142,7 @@ petshop
 PKCE
 pkcs
 podannotation
+prerender
 prerenderingchange
 printfn
 PROGRAMFILES
@@ -171,6 +175,7 @@ SIEM
 signingkeys
 skiplinks
 sourcedata
+speculationrules
 srcset
 srcset
 sthumb
@@ -184,6 +189,7 @@ templating
 tenanttype
 TFVC
 tmpfs
+toptags
 Traefik
 Trivy
 tsconfigs
@@ -193,6 +199,7 @@ Undeployed
 undeployed
 upgradelog
 upgrader
+urlset
 useronboarding
 variablename
 Voltron

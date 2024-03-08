@@ -1,14 +1,12 @@
 ---
-import { Accelerator } from "astro-accelerator-utils";
-import { Translations, Lang } from "@util/Languages";
-import { getNavigationItems } from "@util/getNavigationItems";
-import NavigationItem from "@components/NavigationItem.astro";
-import { SITE } from "@config";
+import { Accelerator } from 'astro-accelerator-utils';
+import { Translations, Lang } from '@util/Languages';
+import { getNavigationItems } from '@util/getNavigationItems';
+import NavigationItem from '@components/NavigationItem.astro';
+import { SITE } from '@config';
 
 const accelerator = new Accelerator(SITE);
-const stats = new accelerator.statistics(
-  "octopus/components/Navigation.astro"
-);
+const stats = new accelerator.statistics('octopus/components/Navigation.astro');
 stats.start();
 
 // Properties

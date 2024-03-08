@@ -1,58 +1,59 @@
 import type { Site } from 'astro-accelerator-utils/types/Site';
 
 export const SITE: Site = {
-	url: 'https://octopus.com',
-	useTrailingUrlSlash: false,
-	captureStatistics: false,
-	subfolder: '/docs',
-	feedUrl: '',
-	title: 'Documentation and Support',
-	description: 'Site description.',
-	defaultLanguage: 'en',
-	themeColor: '#311e3e',
-	owner: 'Octopus Deploy',
-	default: {
-		lang: 'en',
-		locale: 'en-US',
-		dir: 'ltr'
-	},
-	search: {
-		fallbackUrl: 'https://www.google.com/search',
-		fallbackSite: 'q',
-		fallbackQuery: 'q',
-	},
-	pageSize: 12,
-	pageLinks: 5,
-	rssLimit: 20,
-	dateOptions: {
-		weekday: 'long',
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-	},
-	cacheMaxAge: 200,
-	featureFlags: {
-		stickyNav: { top: 112 },
-		codeBlocks: ['copy'],
-		figures: ['enlarge'],
-		youTubeLinks: ['embed'],
-		headers: ['link'],
-		details: ['tabs'],
-		search: ['dialog'],
-	},
-	images: {
-		contentSize: '(min-width: 1680px) 1000px, (min-width: 940px) calc(71.81vw - 192px), calc(100vw - 32px)',
-		listerSize: '254px',
-		authorSize: '170px',
-	}
+  url: 'https://octopus.com',
+  useTrailingUrlSlash: false,
+  captureStatistics: false,
+  subfolder: '/docs',
+  feedUrl: '',
+  title: 'Documentation and Support',
+  description: 'Site description.',
+  defaultLanguage: 'en',
+  themeColor: '#311e3e',
+  owner: 'Octopus Deploy',
+  default: {
+    lang: 'en',
+    locale: 'en-US',
+    dir: 'ltr',
+  },
+  search: {
+    fallbackUrl: 'https://www.google.com/search',
+    fallbackSite: 'q',
+    fallbackQuery: 'q',
+  },
+  pageSize: 12,
+  pageLinks: 5,
+  rssLimit: 20,
+  dateOptions: {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  },
+  cacheMaxAge: 200,
+  featureFlags: {
+    stickyNav: { top: 112 },
+    codeBlocks: ['copy'],
+    figures: ['enlarge'],
+    youTubeLinks: ['embed'],
+    headers: ['link'],
+    details: ['tabs'],
+    search: ['dialog'],
+  },
+  images: {
+    contentSize:
+      '(min-width: 1680px) 1000px, (min-width: 940px) calc(71.81vw - 192px), calc(100vw - 32px)',
+    listerSize: '254px',
+    authorSize: '170px',
+  },
 };
 
 // Default image for OG: Tags
 export const OPEN_GRAPH = {
-	image: {
-		src: '/docs/img/devops.png',
-		alt: 'An Octopus arm in an infinity shape, supporting people collaborating',
-	}
+  image: {
+    src: '/docs/img/devops.png',
+    alt: 'An Octopus arm in an infinity shape, supporting people collaborating',
+  },
 };
 
 export const HEADER_SCRIPTS = `
@@ -90,4 +91,3 @@ export const HEADER_SCRIPTS = `
   }
   </script>
 `.trim();
-
