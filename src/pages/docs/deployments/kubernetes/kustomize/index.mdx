@@ -7,6 +7,8 @@ description: Use Kustomize to deploy resources to a Kubernetes cluster.
 navOrder: 9
 ---
 
+import Image from "src/components/Image.astro";
+
 Octopus supports the deployment of Kubernetes resources through the **Kustomize** step.
 
 This step allows you to source your **Kustomize** files from git, perform variable substitutions based on your environment and/or tenant and finally apply the changes to your Kubernetes clusters.
@@ -17,9 +19,10 @@ From Octopus **2024.1**, if you are storing your project configuration in a Git 
 You can find more information about this feature in this [blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
 :::
 
-:::figure
-![Kustomize step](/docs/deployments/kubernetes/kustomize/kustomise-step.png)
-:::
+<Image
+  src="/docs/deployments/kubernetes/kustomize/kustomise-step.png"
+  alt="Kustomize step"
+/>
 
 [Kustomize](https://kustomize.io) introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications.
 
@@ -70,15 +73,17 @@ You can use glob patterns to target multiple files. [Learn more about glob patte
 
 From v2.0.2, you are able to add container images as package references directly from the Kustomize step. Image references added in this way can be used via [reference package variables](/docs/projects/variables/system-variables#reference-package-variables).
 
-:::figure
-![Add package references](/docs/deployments/kubernetes/kustomize/referenced-packages.png)
-:::
+<Image
+  src="/docs/deployments/kubernetes/kustomize/referenced-packages.png"
+  alt="Add package references"
+/>
 
 For example, if you add a container image reference for `nginx`:
 
-:::figure
-![Reference a package](/docs/deployments/kubernetes/kustomize/reference-a-package.png)
-:::
+<Image
+  src="/docs/deployments/kubernetes/kustomize/reference-a-package.png"
+  alt="Reference a package"
+/>
 
 You will then be able to select the version of this container image at release creation time. You can use the referenced `nginx` container image in your `kustomization.yaml` file using the following syntax:
 
