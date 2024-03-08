@@ -9,14 +9,18 @@
         "pnpm": ">=8.6.12"
     },
     "scripts": {
-        "img": "node --no-experimental-fetch ./src/themes/octopus/utilities/img.mjs",
-        "dev": "node --no-experimental-fetch ./src/themes/octopus/utilities/img.mjs && astro dev",
+        "dev": "npm-run-all --parallel dev:img dev:astro dev:watch",
+        "dev:img": "node --no-experimental-fetch ./src/themes/octopus/utilities/img.mjs",
+        "dev:astro": "astro dev",
+        "dev:watch": "pnpm watch",
         "test": "astro build && npx playwright install --with-deps && npx playwright test",
         "spellcheck": "git fetch origin main:refs/remotes/origin/main && git diff origin/main --name-only --diff-filter=ACMRTUXB | cspell --no-must-find-files --file-list stdin",
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "css": "robocopy ./public/docs/css/ ./dist/docs/css/ /mir && robocopy ./public/docs/js/ ./dist/docs/js/ /mir"
+        "css": "robocopy ./public/docs/css/ ./dist/docs/css/ /mir && robocopy ./public/docs/js/ ./dist/docs/js/ /mir",
+        "format": "prettier --write --plugin=prettier-plugin-astro 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css'",
+        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
     },
     "dependencies": {
         "@astrojs/mdx": "^2.0.0",
@@ -30,7 +34,11 @@
         "remark-heading-id": "^1.0.1"
     },
     "devDependencies": {
-        "@playwright/test": "^1.39.0"
+        "@playwright/test": "^1.39.0",
+        "npm-run-all": "^4.1.5",
+        "onchange": "^7.1.0",
+        "prettier": "^3.2.5",
+        "prettier-plugin-astro": "^0.13.0"
     },
     "pnpm": {
         "overrides": {

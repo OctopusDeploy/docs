@@ -13,8 +13,8 @@ stats.start();
 // Properties
 type Props = {
   lang: string;
-  frontmatter: Frontmatter
-  headings: { depth: number; slug: string; text: string; }[];
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
 };
 const { lang } = Astro.props satisfies Props;
 
@@ -23,15 +23,20 @@ const _ = Lang(lang);
 
 // Logic
 const currentUrl = new URL(Astro.request.url);
-const pages = accelerator.navigation.footer(currentUrl, _, Translations, SITE.subfolder, menu);
+const pages = accelerator.navigation.footer(
+  currentUrl,
+  _,
+  Translations,
+  SITE.subfolder,
+  menu
+);
 
 stats.stop();
 ---
+
 <footer class="site-footer" id="site-footer">
   <div class="footer-columns">
-  {pages.map((page) => (
-    <FooterItem lang={ lang } page={ page } />
-  ))}
+    {pages.map((page) => <FooterItem lang={lang} page={page} />)}
   </div>
   <slot />
 </footer>

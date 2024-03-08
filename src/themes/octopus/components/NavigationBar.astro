@@ -5,7 +5,9 @@ import { SITE } from '@config';
 import { menu } from '@data/navigation';
 
 const accelerator = new Accelerator(SITE);
-const stats = new accelerator.statistics('octopus/components/NavigationBar.astro');
+const stats = new accelerator.statistics(
+  'octopus/components/NavigationBar.astro'
+);
 stats.start();
 
 // Properties
@@ -23,11 +25,22 @@ const pages = accelerator.navigation.menu(currentUrl, SITE.subfolder, menu);
 
 stats.stop();
 ---
-<nav class="site-nav-bar" id="site-nav" aria-label={ _(Translations.aria.site_navigation) }>
-  <h2 class="site-nav-title">{ _(Translations.navigation.title) }</h2>
+
+<nav
+  class="site-nav-bar"
+  id="site-nav"
+  aria-label={_(Translations.aria.site_navigation)}
+>
+  <h2 class="site-nav-title">{_(Translations.navigation.title)}</h2>
   <ul>
-    {pages.sort((a, b) => a.order - b.order).map((page) => (
-      <li><a href={ page.url }>{ page.title }</a></li>
-    ))}
+    {
+      pages
+        .sort((a, b) => a.order - b.order)
+        .map((page) => (
+          <li>
+            <a href={page.url}>{page.title}</a>
+          </li>
+        ))
+    }
   </ul>
 </nav>

@@ -2,7 +2,7 @@ import { SITE } from '/src/config';
 import { size } from '/src/data/image-size.mjs';
 import { h } from 'hastscript';
 import { visit } from 'unist-util-visit';
-import { fromSelector } from 'hast-util-from-selector'
+import { fromSelector } from 'hast-util-from-selector';
 import path from 'path';
 import fs from 'fs';
 
@@ -56,7 +56,7 @@ export function getImageInfo(src, className, sizes) {
 
   try {
     let metaAddress = path.join(workingDirectory, 'public', src + '.json');
-    
+
     if (fs.existsSync(metaAddress)) {
       info.metadata = JSON.parse(fs.readFileSync(metaAddress));
       nativeSize = info.metadata.width;
@@ -92,15 +92,22 @@ export function getImageInfo(src, className, sizes) {
 /** @type {import('unified').Plugin<[], import('mdast').Root>} */
 export function attributeMarkdown() {
   return (tree) => {
-
     visit(tree, (node) => {
-      if (['textDirective', 'leafDirective', 'containerDirective'].includes(node.type)) {
+      if (
+        ['textDirective', 'leafDirective', 'containerDirective'].includes(
+          node.type
+        )
+      ) {
         const data = node.data || (node.data = {});
         const hast = h(node.name, node.attributes);
 
         if (hast.properties.src) {
           // Process the image
-          const info = getImageInfo(hast.properties.src, hast.properties.class, SITE.images.contentSize);
+          const info = getImageInfo(
+            hast.properties.src,
+            hast.properties.class,
+            SITE.images.contentSize
+          );
 
           hast.properties.src = info.src;
           hast.properties.srcset = info.srcset;
@@ -117,7 +124,7 @@ export function attributeMarkdown() {
         data.hProperties = hast.properties;
       }
     });
-  }
+  };
 }
 
 /** @type {import('unified').Plugin<[], import('mdast').Root>} */
@@ -127,8 +134,8 @@ export function wrapTables() {
       if (node.type == 'table') {
         // Create the wrapping element
         const wrap = fromSelector('div');
-        const data = wrap.data || (wrap.data = {})
-        const props = data.hProperties || (data.hProperties = {})
+        const data = wrap.data || (wrap.data = {});
+        const props = data.hProperties || (data.hProperties = {});
         props.className = 'table-wrap';
 
         // Add the table to the wrapper
@@ -138,5 +145,5 @@ export function wrapTables() {
         parent.children[i] = wrap;
       }
     });
-  }
+  };
 }

@@ -1,8 +1,6 @@
 import type { NavPage } from '@util/NavigationTypes.astro';
 
-export const menu: (NavPage | 'auto')[] = [
-	'auto'
-];
+export const menu: (NavPage | 'auto')[] = ['auto'];
 
 /*
 * DEFAULT USAGE NOTES

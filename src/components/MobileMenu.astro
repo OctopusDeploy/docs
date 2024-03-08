@@ -1,12 +1,12 @@
 ---
-import { Accelerator } from "astro-accelerator-utils";
-import { Lang } from "@util/Languages";
-import { getNavigationItems } from "@util/getNavigationItems";
-import NavigationItem from "@components/NavigationItem.astro";
-import { SITE } from "@config";
+import { Accelerator } from 'astro-accelerator-utils';
+import { Lang } from '@util/Languages';
+import { getNavigationItems } from '@util/getNavigationItems';
+import NavigationItem from '@components/NavigationItem.astro';
+import { SITE } from '@config';
 
 const accelerator = new Accelerator(SITE);
-const stats = new accelerator.statistics("components/Hamburger.astro");
+const stats = new accelerator.statistics('components/Hamburger.astro');
 stats.start();
 
 // Properties

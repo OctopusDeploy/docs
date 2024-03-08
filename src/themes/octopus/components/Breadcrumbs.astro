@@ -5,15 +5,17 @@ import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
 
 const accelerator = new Accelerator(SITE);
-const stats = new accelerator.statistics('octopus/components/Breadcrumbs.astro');
+const stats = new accelerator.statistics(
+  'octopus/components/Breadcrumbs.astro'
+);
 stats.start();
 
 // Properties
 type Props = {
   lang: string;
-  frontmatter: Frontmatter
-  headings: { depth: number; slug: string; text: string; }[];
-  breadcrumbs?: { url: string; title: string; ariaCurrent?: string; }[] | null;
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+  breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
 };
 const { lang, breadcrumbs } = Astro.props satisfies Props;
 
@@ -22,7 +24,11 @@ const _ = Lang(lang);
 
 // Logic
 const currentUrl = new URL(Astro.request.url);
-const navPages = accelerator.navigation.breadcrumbs(currentUrl, SITE.subfolder, breadcrumbs?.length ?? 0);
+const navPages = accelerator.navigation.breadcrumbs(
+  currentUrl,
+  SITE.subfolder,
+  breadcrumbs?.length ?? 0
+);
 
 for (let i = 0; i < navPages.length; i++) {
   navPages[i].title = navPages[i].section || navPages[i].title;
@@ -35,19 +41,40 @@ let metaIndex = navPages.length;
 
 stats.stop();
 ---
-<nav class="site-breadcrumbs" aria-label={ _(Translations.aria.breadcrumbs) }>
+
+<nav class="site-breadcrumbs" aria-label={_(Translations.aria.breadcrumbs)}>
   <ol vocab="http://schema.org/" typeof="BreadcrumbList">
-    {navPages.map((page, index) => (
-    <li property="itemListElement" typeof="ListItem">
-      <meta property="position" content={ index.toString() } />
-      <a property="item" typeof="WebPage" href={ accelerator.urlFormatter.formatAddress(page.url) } aria-current={ page.ariaCurrent } rel={ page.rel }><span property="name">{ page.title }</span></a>
-    </li>
-    ))}
-    {breadcrumbs && breadcrumbs.map( (crumb) => (
-    <li property="itemListElement" typeof="ListItem">
-      <meta property="position" content={ (metaIndex++).toString() } />
-      <a property="item" typeof="WebPage" href={ accelerator.urlFormatter.formatAddress(crumb.url) } aria-current={ crumb.ariaCurrent }><span property="name">{ crumb.title }</span></a>
-    </li>
-    ))}
+    {
+      navPages.map((page, index) => (
+        <li property="itemListElement" typeof="ListItem">
+          <meta property="position" content={index.toString()} />
+          <a
+            property="item"
+            typeof="WebPage"
+            href={accelerator.urlFormatter.formatAddress(page.url)}
+            aria-current={page.ariaCurrent}
+            rel={page.rel}
+          >
+            <span property="name">{page.title}</span>
+          </a>
+        </li>
+      ))
+    }
+    {
+      breadcrumbs &&
+        breadcrumbs.map((crumb) => (
+          <li property="itemListElement" typeof="ListItem">
+            <meta property="position" content={(metaIndex++).toString()} />
+            <a
+              property="item"
+              typeof="WebPage"
+              href={accelerator.urlFormatter.formatAddress(crumb.url)}
+              aria-current={crumb.ariaCurrent}
+            >
+              <span property="name">{crumb.title}</span>
+            </a>
+          </li>
+        ))
+    }
   </ol>
 </nav>

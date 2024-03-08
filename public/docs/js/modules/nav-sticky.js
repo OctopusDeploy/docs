@@ -1,6 +1,6 @@
 // @ts-check
 
-import { qs } from "./query.js";
+import { qs } from './query.js';
 
 /**
  * Makes an existing navigation element sticky
@@ -26,7 +26,7 @@ function addStickyNavigation(
     const navigationList = qs(navigationListSelector);
 
     const buffer = 50;
-    const className = "sticky";
+    const className = 'sticky';
 
     const dimensions = {
       browserHeight: window.innerHeight,
@@ -48,7 +48,7 @@ function addStickyNavigation(
 
       navigation.classList.add(className);
       const top = site_features.stickyNav.top ?? 220;
-      navigation.style.top = top + "px";
+      navigation.style.top = top + 'px';
     } else {
       // Navigation: Fixed Mode
 
@@ -60,9 +60,9 @@ function addStickyNavigation(
     const navigation = qs(navigationSelector);
 
     if (window.innerWidth <= 930) {
-      navigation.style.display = "none";
+      navigation.style.display = 'none';
     } else {
-      navigation.style.display = "block";
+      navigation.style.display = 'block';
     }
   }
 

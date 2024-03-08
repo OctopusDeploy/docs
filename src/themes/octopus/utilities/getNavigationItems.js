@@ -1,6 +1,6 @@
-import { Accelerator } from "astro-accelerator-utils";
-import { SITE } from "@config";
-import { menu } from "@data/navigation";
+import { Accelerator } from 'astro-accelerator-utils';
+import { SITE } from '@config';
+import { menu } from '@data/navigation';
 
 export async function getNavigationItems(currentUrl, lang) {
   const accelerator = new Accelerator(SITE);

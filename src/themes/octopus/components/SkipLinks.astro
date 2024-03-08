@@ -11,8 +11,8 @@ stats.start();
 // Properties
 type Props = {
   lang: string;
-  frontmatter: Frontmatter
-  headings: { depth: number; slug: string; text: string; }[];
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
 };
 const { lang } = Astro.props satisfies Props;
 
@@ -22,8 +22,13 @@ const _ = Lang(lang);
 // Logic
 stats.stop();
 ---
-<nav class="skip-links" aria-label={ _(Translations.aria.skiplinks) } id="site-top">
-  <a href="#site-nav">{ _(Translations.skiplinks.skip_to_navigation) }</a>
-  <a href="#site-main">{ _(Translations.skiplinks.skip_to_content) }</a>
-  <a href="#site-footer">{ _(Translations.skiplinks.skip_to_footer) }</a>
+
+<nav
+  class="skip-links"
+  aria-label={_(Translations.aria.skiplinks)}
+  id="site-top"
+>
+  <a href="#site-nav">{_(Translations.skiplinks.skip_to_navigation)}</a>
+  <a href="#site-main">{_(Translations.skiplinks.skip_to_content)}</a>
+  <a href="#site-footer">{_(Translations.skiplinks.skip_to_footer)}</a>
 </nav>

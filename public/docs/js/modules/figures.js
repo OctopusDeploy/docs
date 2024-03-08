@@ -1,6 +1,6 @@
-import { qs, qsa } from "./query.js";
+import { qs, qsa } from './query.js';
 
-const activeClass = "magnify-icon";
+const activeClass = 'magnify-icon';
 
 /**
  * Enables opening image in new tab
@@ -9,17 +9,17 @@ function enhanceFigures() {
   qsa(`figure > p > img, [data-image] > .image__img`).forEach((node) => {
     const src = node.src;
 
-    const magnify = document.createElement("button");
+    const magnify = document.createElement('button');
     magnify.classList.add(activeClass);
-    magnify.title = "Enlarge";
+    magnify.title = 'Enlarge';
 
-    const magnifyContainer = document.createElement("div");
-    magnifyContainer.className = "magnify-container";
+    const magnifyContainer = document.createElement('div');
+    magnifyContainer.className = 'magnify-container';
     magnifyContainer.appendChild(magnify);
 
-    node.insertAdjacentElement("beforebegin", magnifyContainer);
+    node.insertAdjacentElement('beforebegin', magnifyContainer);
 
-    magnify.addEventListener("click", async () => {
+    magnify.addEventListener('click', async () => {
       window.open(src);
     });
   });

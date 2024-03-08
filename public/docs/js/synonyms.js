@@ -1,6 +1,6 @@
 const synonyms = {
-    // Keep me alphabetical
-    "licence": "license"
+  // Keep me alphabetical
+  licence: 'license',
 };
 
 export { synonyms };

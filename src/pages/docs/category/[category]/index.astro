@@ -2,19 +2,19 @@
 // warning: This file is overwritten by Astro Accelerator
 
 import { getData } from './[page].astro';
-import Redirect from 'src/layouts/Redirect.astro'
+import Redirect from 'src/layouts/Redirect.astro';
 
 export async function getStaticPaths() {
-    let data = await getData();
+  let data = await getData();
 
-    return data.categories.map(item => {
-        return { params: { category: item.toLowerCase().replace(' ', '-') }}
-    });
+  return data.categories.map((item) => {
+    return { params: { category: item.toLowerCase().replace(' ', '-') } };
+  });
 }
 
 const frontmatter = {
-    redirect: './1/'
+  redirect: './1/',
 } as any;
 ---
 
-<Redirect frontmatter={ frontmatter } headings={ [] } />
+<Redirect frontmatter={frontmatter} headings={[]} />

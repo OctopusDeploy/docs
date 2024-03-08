@@ -5,14 +5,16 @@ import { Translations, Lang } from '@util/Languages';
 import { Accelerator } from 'astro-accelerator-utils';
 
 const accelerator = new Accelerator(SITE);
-const stats = new accelerator.statistics('octopus/components/TableOfContents.astro');
+const stats = new accelerator.statistics(
+  'octopus/components/TableOfContents.astro'
+);
 stats.start();
 
 // Properties
 type Props = {
   lang: string;
   frontmatter: Frontmatter;
-  headings: { depth: number; slug: string; text: string; }[];
+  headings: { depth: number; slug: string; text: string }[];
   expanded?: boolean | number;
 };
 const { lang, frontmatter, headings, expanded } = Astro.props satisfies Props;
@@ -21,7 +23,7 @@ const { lang, frontmatter, headings, expanded } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 // Logic
-let openAttribute = null; 
+let openAttribute = null;
 let openInteraction = null;
 
 if (typeof expanded === 'number') {
@@ -32,15 +34,20 @@ if (typeof expanded === 'number') {
 
 stats.stop();
 ---
-{headings?.length > 0 &&
-<nav class="page-toc" aria-label={ _(Translations.aria.toc) }>
-  <details open={ openAttribute } data-openon={ openInteraction }>
-    <summary>{ _(Translations.toc.title) }</summary>
-    <ol>
-      {headings.map((heading) =>(
-        <li class={ 'toc-lev-' + heading.depth }><a href={ '#' + heading.slug }>{ heading.text }</a></li>
-      ))}
-    </ol>
-  </details>
-</nav>
+
+{
+  headings?.length > 0 && (
+    <nav class="page-toc" aria-label={_(Translations.aria.toc)}>
+      <details open={openAttribute} data-openon={openInteraction}>
+        <summary>{_(Translations.toc.title)}</summary>
+        <ol>
+          {headings.map((heading) => (
+            <li class={'toc-lev-' + heading.depth}>
+              <a href={'#' + heading.slug}>{heading.text}</a>
+            </li>
+          ))}
+        </ol>
+      </details>
+    </nav>
+  )
 }
