@@ -91,7 +91,6 @@ jwks
 keyrings
 Kubelet
 kustomization
-kustomise
 kustomize
 lastmod
 latestdeployments
