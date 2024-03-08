@@ -8,9 +8,11 @@ navOrder: 100
 ---
 import TenantsWhichVariableTemplatesApply from 'src/shared-content/tenants/tenants-which-variable-templates-apply.include.md';
 
-Tenant variables allow you to configure [variables](/docs/projects/variables/) that can have different values for each [tenant](/docs/tenants)/environment combination. Tenant variables are provided using variable templates which map a single variable name to different values for each tenant based on what you choose to set.
+Tenant variables allow you to configure [variables](/docs/projects/variables/) that can have different values for each [tenant](/docs/tenants)/environment combination. 
 
-Each variable template can define the data type, name, label, help text, and default value.
+![](/docs/projects/variables/images/tenant-variables.png "width=500")
+
+Tenant variables are provided using variable templates which map a single variable name to different values for each tenant based on what you choose to set. Each variable template can define the data type, name, label, help text, and default value.
 
 There are two types of variable templates:
 
@@ -46,6 +48,8 @@ To add a project template:
 Values for your newly created templates will be displayed for each tenant/environment combination. If you don't see any values, make sure you've [connected tenants](/docs/projects/tenants/bulk-connection) to the project. You can filter the displayed values to a specific template by selecting it from the list on the side, or to specific tenants and environments using the provided filter options.
 
 To set the variable value for a tenant/environment, click the **Edit** (pencil) icon on the right-side of the table row. This will open a dialog where you can update the value, then click **Update** to save the new value.
+
+![](/docs/projects/variables/images/tenant-variables-edit.png "width=500")
 
 ## Common templates
 
