@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Library variable sets
 description: Library variable sets allow you to define and share common variables between your Octopus projects.
-navOrder: 100
+navOrder: 110
 ---
 
 Octopus [variables](/docs/projects/variables/) can be added to library variables sets, which make it possible to define variables for use with multiple [projects](/docs/projects).
