@@ -222,7 +222,6 @@ figure > p > img {
   display: flex;
   margin: 0 auto;
   border-radius: 0.9375rem;
-  /* max-width: calc(100% - 4rem); */
 }
 
 figure:has(p > img) {
@@ -237,10 +236,6 @@ figure:has(p > img) p {
 }
 
 @media (max-width: 930px) {
-  figure > p > img {
-    /* width: calc(100% - 2rem); */
-  }
-
   figure:has(p > img) p {
     padding: 1rem;
   }
