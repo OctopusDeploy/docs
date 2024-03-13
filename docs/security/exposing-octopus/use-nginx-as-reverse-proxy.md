@@ -200,6 +200,9 @@ MASTER_KEY=
 
 # The API Key to set for the administrator. If this is set and no password is provided then a service account user will be created. If this is set and a password is also set then a standard user will be created.
 ADMIN_API_KEY=
+
+# Sets the task cap for this node. If not specified the default is 5.
+TASK_CAP=20
 ```
 ## NGINX as a Load Balancer
 

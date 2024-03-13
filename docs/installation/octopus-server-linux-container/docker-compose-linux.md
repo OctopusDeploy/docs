@@ -39,6 +39,7 @@ services:
       MASTER_KEY: ${MASTER_KEY}
       ADMIN_API_KEY: ${ADMIN_API_KEY}
       DISABLE_DIND: ${DISABLE_DIND}
+      TASK_CAP: ${TASK_CAP}
     ports:
       - 8080:8080
       - 11111:10943
@@ -113,6 +114,9 @@ PRIVILEGED=false
 
 # Octopus can be run either as the user root or as octopus.
 CONTAINER_USER=octopus
+
+# Sets the task cap for this node. If not specified the default is 5.
+TASK_CAP=20
 ```
 
 You will have to supply your own values for `SA_PASSWORD`, `ADMIN_USERNAME`, and `ADMIN_PASSWORD`. 
