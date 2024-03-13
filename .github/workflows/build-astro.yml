@@ -1,0 +1,117 @@
+name: Deploy
+
+on:
+  # Disable on push temporarily while we're doing the migration
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      SHOULD_DEPLOY: ${{ secrets.OCTOPUSSERVERURL != '' || '' }}
+      OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
+      OCTOPUS_API_KEY: ${{ secrets.OCTOPUSSERVERAPIKEY }}
+      OCTOPUS_SPACE: "DevOps Microsite"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.7.0
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: PNPM and Playwright install
+        run: |
+          echo; echo "cd to workspace"
+          cd $GITHUB_WORKSPACE
+          echo; echo "listing"
+          ls
+          echo; echo "NPM install"
+          pnpm install
+
+      - name: Astro build and test
+        run: |
+          export NODE_OPTIONS=--max_old_space_size=4096
+          pnpm dev:img
+          pnpm test
+
+      - name: Set Version
+        run: |
+          echo "PACKAGE_VERSION=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
+
+      - name: Check output
+        run: |
+          echo; echo "cd to workspace"
+          cd $GITHUB_WORKSPACE
+          echo; echo "listing"
+          ls
+
+      - name: Create a Zip package 🐙
+        id: package
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: 'DocsMicrosite'
+          version: "${{ env.PACKAGE_VERSION  }}"
+          base_path: "./dist"
+          output_folder: "./artifacts"
+          files: |
+            **/*.*
+
+      - name: Push a package to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-package-action@v3.0.2
+        if: ${{ env.SHOULD_DEPLOY }}
+        with:
+          packages: ${{ steps.package.outputs.package_file_path }}
+
+      - name: Let people download package
+        uses: actions/upload-artifact@v3
+        if: ${{ ! env.SHOULD_DEPLOY }}
+        with:
+          name: docs-microsite
+          path: ${{ steps.package.outputs.package_file_path }}
+
+      - name: Push build information to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-build-information-action@v3
+        if: ${{ env.SHOULD_DEPLOY }}
+        with:
+          version: "${{ env.PACKAGE_VERSION }}"
+          packages: "Docs Microsite"
+
+      - name: Create a release in Octopus Deploy 🐙
+        id: "create_release"
+        uses: OctopusDeploy/create-release-action@v3
+        if: ${{ env.SHOULD_DEPLOY }}
+        with:
+          project: "Docs Microsite"
+          package_version: "${{ env.PACKAGE_VERSION }}"
+          git_ref: ${{ github.ref }}

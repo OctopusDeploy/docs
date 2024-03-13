@@ -1,0 +1,31 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Polling Tentacles with HA
+description: With Octopus High Availability, Polling Tentacles must poll all of the Octopus Server nodes in your configuration.
+navOrder: 50
+---
+import PollingTentaclesAndHA from 'src/shared-content/administration/polling-tentacles-and-ha.include.md';
+import PollingTentaclesAndHAConnecting from 'src/shared-content/administration/polling-tentacles-and-ha-connecting.include.md';
+import PollingTentaclesAndHARegistering from 'src/shared-content/administration/polling-tentacles-and-ha-registering.include.md';
+import PollingTentaclesConnectionDifferentPort from 'src/shared-content/administration/polling-tentacles-connection-different-ports.include.md';
+import PollingTentaclesConnectionSamePort from 'src/shared-content/administration/polling-tentacles-connection-same-port.include.md';
+
+<PollingTentaclesAndHA />
+
+## Connecting Polling Tentacles
+
+<PollingTentaclesAndHAConnecting />
+
+### Using a unique address
+
+<PollingTentaclesConnectionSamePort />
+
+### Using a unique port
+
+<PollingTentaclesConnectionDifferentPort />
+
+## Registering Polling Tentacles
+
+<PollingTentaclesAndHARegistering />

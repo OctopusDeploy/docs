@@ -1,0 +1,26 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Configure Runbook Environments
+description: Step by step guide on how to configure environments in Octopus Deploy.
+navOrder: 10
+hideInThisSection: true
+---
+import CreatingEnvironments from 'src/shared-content/concepts/creating-environments.include.md';
+
+<CreatingEnvironments />
+
+:::div{.hint}
+Try to reuse the same environments as your deployments whenever possible.  You will often run runbooks on the same deployment targets as your deployment process.  Creating runbook only environments can saturate your dashboards and lifecycles.  If you need to have an environment for runbooks, we recommend limiting it to one or two environments at most with a name similar to `Maintenance`.
+:::
+
+The next step will [create a project to house the runbook](/docs/getting-started/first-runbook-run/create-runbook-projects).
+
+**Further Reading**
+
+For further reading on deployment targets in Octopus Deploy please see:
+
+- [Deployment Targets](/docs/infrastructure/deployment-targets)
+- [Runbook Documentation](/docs/runbooks)
+- [Runbook Examples](/docs/runbooks/runbook-examples)

@@ -1,0 +1,24 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Add an Azure Web App
+description: An example script to add an Azure Web App as a deployment target.
+---
+import AddAzureWebAppScripts from 'src/shared-content/scripts/add-azure-web-app-scripts.include.md';
+
+This script demonstrates how to programmatically add an Azure Web App as a deployment target.
+
+## Usage
+
+Provide values for the following:
+- Octopus URL
+- Octopus API Key
+- Name of the space to add the target to
+- Name of the Azure Service Principal account in Octopus
+- Name of the Azure Web App
+- Name of the Azure Resource Group
+
+## Script
+
+<AddAzureWebAppScripts />

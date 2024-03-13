@@ -1,0 +1,16 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "types": ["astro/client"],
+  "exclude": ["npm_modules"],
+  "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@config": ["src/config"],
+        // Layouts and components for the theme
+        "@data/*": ["src/data/*"],
+        "@util/*": ["src/themes/octopus/utilities/*"],
+        "@layouts/*": ["src/themes/octopus/layouts/*"],
+        "@components/*": ["src/themes/octopus/components/*"],
+      }
+  }
+}

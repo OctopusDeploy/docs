@@ -1,0 +1,142 @@
+---
+import {
+  PostFiltering,
+  PostOrdering,
+  Accelerator,
+} from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import type { MarkdownInstance } from 'astro';
+import { Translations, Lang } from '@util/Languages';
+import { getImageInfo } from '@util/custom-markdown.mjs';
+
+import AuthorsMini from '@components/AuthorsMini.astro';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('components/Related.astro');
+stats.start();
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+};
+const { lang, frontmatter, headings } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+let relatedPosts: MarkdownInstance<Record<string, any>>[] = [];
+const parentCategory = (frontmatter.categories ?? [null])[0];
+
+if (parentCategory != null) {
+  const allPages = accelerator.posts.all().filter(PostFiltering.isListable);
+  const allPosts = allPages
+    .filter(PostFiltering.showInMenu)
+    .filter(
+      (p) =>
+        p.frontmatter.title != frontmatter.title &&
+        p.frontmatter.categories &&
+        p.frontmatter.categories.includes(parentCategory)
+    )
+    .sort(PostOrdering.sortByPubDateDesc);
+
+  // One "Most Recent" Post
+  if (allPosts.length > 0) {
+    relatedPosts.push(allPosts[0]);
+  }
+
+  const olderPost = allPosts
+    .slice(1)
+    .filter((p) => p.frontmatter.pubDate < frontmatter.pubDate);
+
+  // One "Older than current" Post
+  if (olderPost.length > 0) {
+    relatedPosts.push(olderPost[0]);
+  } else if (allPosts.length > 1) {
+    relatedPosts.push(allPosts[1]);
+  }
+}
+
+type ImageInfo = {
+  src: string;
+  srcset: string;
+  sizes: string;
+  class: string;
+};
+
+type Article = {
+  title: string;
+  url: string;
+  frontmatter: Record<string, any>;
+  img: ImageInfo | null;
+};
+
+const articles: Article[] = [];
+
+for (let p of relatedPosts) {
+  const item = {
+    title: await accelerator.markdown.getTextFrom(p.frontmatter.title),
+    url: p.url ?? '',
+    frontmatter: p.frontmatter,
+    img: p.frontmatter.bannerImage
+      ? getImageInfo(p.frontmatter.bannerImage.src, '', SITE.images.listerSize)
+      : null,
+  };
+
+  articles.push(item);
+}
+
+stats.stop();
+---
+
+{
+  articles.length > 0 && (
+    <div class="octo-related">
+      <h2>{_(Translations.octopus_related.related_title)}</h2>
+      <ul class="post-list anim-show-parent">
+        {articles.map((post) => (
+          <li
+            class="list-item"
+            data-destination={accelerator.urlFormatter.addSlashToAddress(
+              post.url
+            )}
+            data-image={(
+              post.frontmatter.bannerImage?.src.length > 0
+            ).toString()}
+          >
+            <article>
+              <div class="list-item-image">
+                {post.img && (
+                  <img
+                    srcset={post.img.srcset}
+                    sizes={post.img.sizes}
+                    src={post.img.src}
+                    alt={post.frontmatter.bannerImage.alt}
+                    class={post.img.class}
+                    loading="lazy"
+                  />
+                )}
+              </div>
+              <div class="list-item-content">
+                <h3>{post.title}</h3>
+                <a
+                  href={accelerator.urlFormatter.addSlashToAddress(post.url)}
+                  class="i-right"
+                >
+                  {_(Translations.octopus_related.read_more)}{' '}
+                </a>
+                <AuthorsMini
+                  lang={lang}
+                  frontmatter={post.frontmatter as Frontmatter}
+                />
+              </div>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}

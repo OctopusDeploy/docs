@@ -1,0 +1,3 @@
+## Using Octopus.Client from installation folder {#using-octopus-client-from-install-folder}
+
+Octopus Server and Tentacle both ship with a version of `Octopus.Client.dll` in the installation directory. Avoid using this in your scripts as this is considered an implementation detail of those products. As such it is subject to change at any time, and not guaranteed to work with your version of Octopus Server.

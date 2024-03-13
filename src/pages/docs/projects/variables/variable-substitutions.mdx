@@ -1,0 +1,426 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-10-05
+title: Variable substitutions
+description: Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment.
+navOrder: 10
+---
+import VariableFiltersInOctostacheConditionals from 'src/shared-content/projects/deployment-process/variable-filters-in-octostache-conditionals.include.md';
+
+Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/) and the context of your [deployment](/docs/projects/deployment-process). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
+
+## Binding variables \{#binding-variables}
+
+You can use Octopus's special binding syntax to reference a variable from within the value of another variable. This is sometimes referred to as using **Composite variables**, because you compose a variable value with other Octopus variables. In the following example, the `ConnectionString` variable references the variables `{Server}` and `{Database}`.
+
+| Name               | Value                       | Scope |
+| ------------------ | --------------------------- | ----------- |
+| Server             | SQL | Production, Test  |
+| Database           | PDB001 | Production |
+| Database           | TDB001 | Test |
+| ConnectionString   | Server=#\{Server\}; Database=#\{Database\} |  |
+
+In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `Database` or `Server` are defined for that environment.
+
+If the file undergoing variable replacement includes a string that *shouldn't* be replaced, for example `#{NotToBeReplaced}`, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
+
+| Expression            | Value                |
+| --------------------- | -------------------- |
+| `##{NotToBeReplaced}` | `#{NotToBeReplaced}` |
+
+:::div{.info}
+
+Also read about [common mistakes for variables](/docs/projects/variables/sensitive-variables/#avoiding-common-mistakes) for more information
+:::
+
+## Using variables in step definitions \{#use-variables-in-step-definitions}
+
+Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/projects/variables/#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
+
+Most text fields that support binding to variables will have a variable insert button:
+
+:::figure
+![](/docs/projects/variables/images/3278296.png "width=500")
+:::
+
+For settings that support variables but aren't text (such as drop downs or check-boxes), a button is displayed to toggle custom expression modes:
+
+:::figure
+![](/docs/projects/variables/images/3278297.png "width=500")
+:::
+
+## Extended syntax \{#extended-syntax}
+
+Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages.  It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.
+
+The capabilities of the extended syntax are:
+
+- [Index Replacement](#index-replacement)
+- [Calculation](#calculation) - `calc`
+- [Conditionals](#conditionals) - `if`, `if-else` and `unless`
+- [Repetition](#repetition) - `each`
+- [Filters](#filters) - `HtmlEscape`, `Markdown` etc.
+- [Differences from regular variable bindings](/docs/projects/variables/variable-filters/#differences-from-regular-bindings)
+- [JSON Parsing](/docs/projects/variables/variable-filters/#json-parsing)
+
+:::div{.hint}
+[Octostache](https://github.com/OctopusDeploy/Octostache) is the open source component that powers this feature.
+:::
+
+### Index replacement \{#index-replacement}
+
+Variable substitution inside an index makes it easy to dynamically retrieve variables within arrays/dictionaries.
+
+Given the variables:
+
+| Name                | Value       | Scope |
+| ------------------- | ----------- | ----- |
+| `MyPassword[Rob]`   | `passwordX` |       |
+| `MyPassword[Steve]` | `passwordY` |       |
+| `MyPassword[Mary]`  | `passwordZ` |       |
+| `UserName`          | `Mary`      |       |
+
+`#{MyPassword[#{UserName}]}` would evaluate to `passwordZ`.
+
+### Calculations \{#calculation}
+
+Basic mathematical calculations are supported in Octopus using the `calc` statement, and four main operators:
+
+- Addition - `+`
+- Subtraction - `-`
+- Multiplication - `*`
+- Division - `/`
+
+:::div{.warning}
+When using a variable on the left-hand-side of a divide (`/`) or subtraction (`-`) operation,
+the variable name must be enclosed in braces (`{ ... }`) to ensure correct parsing, this ensures the operator symbol is recognized
+as an operation, rather than part of the variable name. 
+:::
+
+Given the variables:
+
+| Name                  | Value            | Scope |
+| --------------------- | -----------------| ----- |
+| `IPOffset[Primary]`   | `0`              |       |
+| `IPOffset[Secondary]` | `180`            |       |
+| `ScaleFactor`         | `12`             |       |
+| `Numbers`             | `10,20,30,40,50` |       |
+| `My/Var`              | `15`             |       |
+
+- `192.168.0.#{calc IPOffset[Primary] + 1}` would evaluate to `192.168.0.1`
+- `192.168.0.#{calc IPOffset[Secondary] + 1}` would evaluate to `192.168.0.181`
+- `#{calc 22 * ScaleFactor}` would evaluate to `264`
+- `#{each i in Numbers}#{calc i + 5} #{each}` would evaluate to `15 25 35 45 55 `
+- `#{calc {My/Var} / 3}` would evaluate to `5`
+- `#{calc 2 * My/Var}` would evaluate to `30`
+- `#{calc {My/Var} - 4}`  would evaluate to `11`
+- `#{calc 22 - My/Var}`  would evaluate to `7`
+
+:::div{.info}
+
+The `calc` operator is available from version 2023.2
+:::
+
+### Conditionals \{#conditionals}
+
+Two conditional statements are supported in Octopus - `if` and `unless`; these have identical syntax, but `if` evaluates only if the variable is *truthy*, while `unless` evaluates if the variable is *falsy*.  The syntax for `if` and `unless` is as follows:
+
+`#{if VariableName}conditional statements#{/if}`
+
+`#{unless VariableName}conditional statements#{/unless}`
+
+Let's look at an example.  Given the variables:
+
+| Name           | Value   | Scope      |
+| -------------- | ------- | ---------- |
+| `DebugEnabled` | `True`  | Dev        |
+| `DebugEnabled` | `False` | Production |
+
+Then the following template:
+
+```powershell
+<compilation #{if DebugEnabled}debug="true"#{/if}>
+```
+
+The resulting text in the *Dev* environment will be:
+
+```xml
+<compilation debug="true">
+```
+
+And in *Production* it will be:
+
+```xml
+<compilation >
+```
+
+You could achieve a similar result, with a different default/fallback behavior, using the unless syntax:
+
+```powershell
+<compilation #{unless DebugDisabled}debug="true"#{/unless}>
+```
+
+#### Using variable filters in conditionals \{#conditional-filters}
+
+<VariableFiltersInOctostacheConditionals />
+
+#### *Truthy* and *Falsy* Values \{#truthy-and-falsy}
+
+The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined; an empty string; or (ignoring case and any leading or trailing whitespace) `False`, `No` or `0`. All other values are considered to be *truthy*.
+
+:::div{.warning}
+**All variables are strings**
+Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
+:::
+
+### Complex syntax
+
+Additional conditional statements are supported, including `==` and `!=`.
+
+Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`, or:
+
+```
+#{if ATruthyVariable}
+  Do this if ATruthyVariable evaluates to true
+#{else}
+  Do this if ATruthyVariable evaluates to false
+#{/if}
+```
+
+**OR Conditions**
+
+It's common to want to check for more than one value in an Octopus variable. To achieve this, you can create an effective `OR` statement by combining an `if` with another `else` statement:
+
+```
+#{if Octopus.Environment.Name == "Development"}
+  Do this if it's Development
+#{else}
+  #{if Octopus.Environment.Name == "Test"}
+    Do this if it's Test
+  #{else}
+    Do this if it's neither
+  #{/if}
+#{/if}
+```
+
+This is the equivalent of checking the Environment name for Development or Test.
+
+**Comparing one variable value with another**
+
+Sometimes, you might want to compare one variable value with another. 
+
+Given the variables:
+
+| Name        | Value                                    | Scope |
+| ----------- | ---------------------------------------- | ----- |
+| `Base.MaxLogLevel` | `ERROR` |  |
+| `Environment.LogLevel` | `DEBUG` | `Dev` |
+| `Environment.LogLevel` | `INFO` | `Test` |
+| `Environment.LogLevel` | `ERROR` | `Staging` |
+| `Environment.LogLevel` | `ERROR` | `Production` |
+
+Using conditional syntax, you can compare the value in the `Base.MaxLogLevel` variable with the `Environment.LogLevel` variable value.
+
+Using the template:
+
+```
+#{if Environment.LogLevel == Base.MaxLogLevel}We are at the MAX!#{else}We have room to grow!#{/if}
+```
+
+The resulting text in both _Dev and Test_ will be:
+
+```
+We have room to grow!
+```
+
+And in both _Staging and Production_ it will be:
+
+```
+We are at the MAX!
+```
+
+:::div{.hint}
+Note both operands **don't** include the Octostache syntax denoting them as a variable e.g. `#{Environment.LogLevel}`. This is because within a conditional expression Octostache is already able to evaluate the operand as a variable value.
+:::
+
+### Run conditions
+
+Conditions can be used to control whether a given step in a deployment process actually runs.  In this scenario the conditional statement should return true/false, depending on your requirements.
+
+Some examples are:
+
+`#{if Octopus.Environment.Name == "Production"}true#{/if}` would run the step only in Production.
+
+`#{if Octopus.Environment.Name != "Production"}true#{/if}` would run the step in all environments other than Production.
+
+`#{unless Octopus.Action[StepName].Output.HasRun == "True"}true#{/unless}` would run the step unless it has run before. This would be useful for preventing something like an email step from executing every time an auto deploy executed for new machines in an environment.  It would be used in conjunction with the step calling `Set-OctopusVariable -name "HasRun" -value "True"` when it does run.
+
+### Repetition \{#repetition}
+
+The `each` statement supports repetition over a set of variables, or over the individual values in a variable separated with commas.
+
+#### Iterating over sets of values
+
+More complex sets of related values are handled using multiple variables:
+
+| Name                      | Value                  | Scope |
+| ------------------------- | ---------------------- | ----- |
+| `Endpoint[A].Address`     | `http://a.example.com` |       |
+| `Endpoint[A].Description` | `Primary`              |       |
+| `Endpoint[B].Address`     | `http://b.example.com` |       |
+| `Endpoint[B].Description` | `Replica`              |       |
+
+Given the template:
+
+```powershell
+Listening on:
+#{each endpoint in Endpoint}
+ - Endpoint #{endpoint} at #{endpoint.Address} is #{endpoint.Description}
+#{/each}
+```
+
+The result will be:
+
+```powershell
+Listening on:
+ - Endpoint A at http://a.example.com is Primary
+ - Endpoint B at http://b.example.com is Replica
+```
+
+#### Complex syntax with sets of values
+
+Sometimes, you might want to compare one variable value with another contained in a set of values. 
+
+Given the variables:
+
+| Name        | Value                                    |
+| ----------- | ---------------------------------------- |
+| `WidgetIdSelector` | `Widget-2` |
+| `MyWidgets` | `{"One":{"WidgetId":"Widget-1","Name":"Widget-One"},"Two":{"WidgetId":"Widget-2","Name":"Widget-Two"}}` |
+
+Using complex syntax, you can iterate over the values in the `MyWidgets` variable and find the entry with the value specified in the second variable `WidgetIdSelector`.
+
+Using the template:
+
+```
+#{each w in MyWidgets}
+'#{w.Value.WidgetId}': #{if w.Value.WidgetId == WidgetIdSelector}This is my Widget!#{else}No widget matched :(#{/if}
+#{/each}
+```
+
+The resulting text will be:
+
+```
+'Widget-1': No widget matched :(
+'Widget-2': This is my Widget!
+```
+
+:::div{.hint}
+**Tips:**
+- Note both operands **don't** include the Octostache syntax denoting them as a variable e.g. `#{WidgetIdSelector}`. This is because within a conditional expression Octostache is already able to evaluate the operands as variable values.
+- The template references `.Value` which is a property available when using [JSON repetition](/docs/projects/variables/variable-filters/#repetition-over-json).
+:::
+
+#### Iterating over comma-separated values
+
+Given the variable:
+
+| Name        | Value                                    | Scope |
+| ----------- | ---------------------------------------- | ----- |
+| `Endpoints` | `http://a.example.com,http://b.example.com` |       |
+
+And the template:
+
+```powershell
+Listening on:
+#{each endpoint in Endpoints}
+ - #{endpoint}
+#{/each}
+```
+
+The resulting text will be:
+
+```powershell
+Listening on:
+ - http://a.example.com
+ - http://b.example.com
+```
+
+#### Special variables \{#special-variables}
+
+Within the context of an iteration template, some special variables are available.
+
+| Name                          | Description                              |
+| ----------------------------- | ---------------------------------------- |
+| `Octopus.Template.Each.Index` | Zero-based index of the iteration count  |
+| `Octopus.Template.Each.First` | `"True" if the element is the first in the collection`, otherwise "False" |
+| `Octopus.Template.Each.Last`  | "True" if the element is the last in the collection, otherwise "False" |
+
+Given the variable created as an index (comma separated):
+
+| Name        | Value                                    |
+| ----------- | ---------------------------------------- |
+| `Endpoints` | `SV1,SV2,SV3` |
+
+And the template:
+
+```powershell
+#{each endpoint in Endpoints}
+
+#{if Octopus.Template.Each.First}
+  write-host 'This is the first item in the Index : ' #{endpoint} 
+#{/if}
+
+#{if Octopus.Template.Each.Last}
+  write-host 'This is the last item in the Index : ' #{endpoint} 
+#{/if}
+```
+
+The resulting text will be:
+
+```powershell
+This is the first item in the Index :  SV1 
+
+This is the last item in the Index :  SV3 
+```
+
+### Further examples
+
+If you're struggling with a specific syntax or OctoStache construct, you can find more examples in the unit tests defined for the library on GitHub:
+[OctoStache Tests UsageFixture](https://github.com/OctopusDeploy/Octostache/blob/master/source/Octostache.Tests/UsageFixture.cs).
+
+### Filters \{#filters}
+
+The following filters are available:
+
+- ToLower
+- ToUpper
+- ToBase64
+- HtmlEscape
+- XmlEscape
+- JsonEscape
+- YamlSingleQuoteEscape
+- YamlDoubleQuoteEscape
+- PropertiesKeyEscape
+- PropertiesKeyEscape
+- Markdown
+- NowDate
+- NowDateUtc
+- Format
+- Replace
+- Trim
+- Truncate
+- Substring
+
+The filters can be invoked in the following way:
+
+```powershell
+#{Octopus.Environment.Name | ToLower}
+```
+
+For more information, see [Variable Filters](/docs/projects/variables/variable-filters).
+
+## Learn more
+
+- [Variable blog posts](https://octopus.com/blog/tag/variables)

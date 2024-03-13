@@ -1,0 +1,10 @@
+connectivity_policy {
+    allow_deployments_to_no_targets = true
+}
+
+versioning_strategy {
+
+    donor_package {
+        step = "upload-microsite-to-aws-s3"
+    }
+}

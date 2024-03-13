@@ -1,0 +1,212 @@
+/* Recommended Tools
+    Check accessibility for color combinations
+    https://toolness.github.io/accessible-color-matrix/
+*/
+
+@font-face {
+  font-family: 'RobotoRegular';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/docs/css/roboto-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'RobotoBold';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/docs/css/roboto-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'fa-solid';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src:
+    url('fa/webfonts/fa-solid-900.woff2') format('woff2'),
+    url('fa/webfonts/fa-solid-900.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'fa-brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:
+    url('fa/webfonts/fa-brands-400.woff2') format('woff2'),
+    url('fa/webfonts/fa-brands-400.ttf') format('truetype');
+}
+
+:root {
+  --page-inline-margin: 2rem;
+
+  /* Theme colors */
+  --black: #000000ff;
+  --white: #ffffffff;
+  --grey: #555555ff; /* #777777 is low contrast (WCAG) */
+
+  --navy-600: #3e607dff;
+  --navy-400: #7c98b4ff;
+  --navy-300: #a9bbcbff;
+  --navy-200: #dae2e9ff;
+
+  --blue-500: #1a77ca;
+  --blue-200: #cde4f7;
+  --blue-100: #f2f8fd;
+  --blue-qqq: #fafdff;
+
+  --green-400: #00ab62;
+
+  --red-500: #d63d3d;
+
+  --orange-400: #ea7325;
+
+  --blue-midnight-dark: #070e14ff;
+  --blue-midnight-darker: #0a202fff;
+  --blue-midnight: #10212fff;
+  --blue-midnight-lighter: #22425cff;
+
+  --blue-grey-dark: #152b3dff;
+  --blue-gray-darker: #1f2f3cff;
+  --blue-grey-medium: #113049ff;
+  --blue-grey: #2e475dff;
+  --blue-grey-light: #274b66ff;
+  --blue-grey-lighter: #557999ff;
+  --blue-grey-smoke: #c5e6ff66;
+
+  --font-size-xlarge: 24px;
+  --font-size-large: 20px;
+  --font-size-regular: 18px;
+  --font-size-medium: 16px;
+  --font-size-small: 14px;
+
+  --color-text: var(--blue-midnight);
+  --color-heading: var(--blue-grey-dark);
+
+  --color-subtitle: var(--navy-600);
+  --font-size-subtitle: var(--font-size-large);
+
+  --border-color-header: var(--navy-200);
+
+  --color-menu-link: var(--navy-600);
+  --color-menu-link-alt: var(--blue-500);
+  --color-menu-marker: var(--navy-300);
+  --bg-color-menu: var(--blue-qqq);
+  --bg-color-menu-open: var(--blue-100);
+  --border-color-menu-open: var(--navy-200);
+  --gap-menu: 0.6em;
+
+  --navigation-width: 280px;
+
+  --bg-color-tab: var(--navy-200);
+  --border-color-tab: var(--navy-200);
+  --border-color-tab-active: var(--navy-400);
+
+  --color-hint: #124164;
+  --bg-color-hint: #e5f4ff;
+  --border-color-hint: var(--blue-500);
+
+  --color-info: #124164;
+  --bg-color-info: #e5f4ff;
+  --border-color-info: var(--blue-500);
+
+  --color-success: #04502f;
+  --bg-color-success: #e8ffeb;
+  --border-color-success: #00b065;
+
+  --color-warning: #a23623;
+  --bg-color-warning: #fefae9;
+  --border-color-warning: #fc8431;
+
+  --color-problem: #931919;
+  --bg-color-problem: #fff2ee;
+  --border-color-problem: #ff4848;
+
+  --color-trial: var(--blue-grey-medium);
+  --bg-color-trial: var(--light-green);
+
+  /* Search variables */
+  --search-height: 3rem;
+  --search-border-radius: calc(var(--search-height) / 2);
+  --search-results-padding: 1rem;
+  --search-border: 0.0625rem solid #76a1c2;
+  --search-dropdown-height: 60vh;
+  --search-dropdown-duration: 0.3s;
+  --navbar-icon-size: 3rem;
+
+  /* Hamburger menu */
+  --hamburger-line-width: 1.5rem;
+  --hamburger-line-height: 0.2rem;
+  --hamburger-line-margin: 0.2rem;
+  --hamburger-translate-y: calc(
+    var(--hamburger-line-height) + var(--hamburger-line-margin)
+  );
+
+  /* To be checked and cleaned */
+
+  --octo-blue: var(--blue-500);
+  --lightest-blue: #e5f4ffff;
+  --octo-blue-lighter: #2f95e3ff;
+  --octo-blue-lightest: #1fc0ffff;
+  --lilac: #9c6adeff;
+  --green: #25d284ff;
+  --light-green: #00ffa3ff;
+
+  --heading-font: RobotoBold, Roboto, 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  --body-font: RobotoRegular, Roboto, 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  --bold-font: RobotoBold, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --code-font: Consolas, monaco, monospace;
+
+  --header-bg: var(--white);
+  --header-icon-stroke: var(--blue-grey-light);
+  --header-link-color: var(--octo-blue);
+  --header-link-alt: var(--blue-gray-darker);
+  --header-link-alt-bg: var(--blue-grey-smoke);
+
+  --image-bg: var(--blue-grey-smoke);
+  --content-bg: var(--white);
+
+  --body-link-color: var(--octo-blue);
+  --body-link-alt: var(--blue-grey-light);
+  --menu-link-bg: var(--blue-grey-smoke);
+
+  --gradient-start: var(--lilac);
+  --gradient-end: var(--green);
+
+  --icon-stroke: var(--white);
+  --icon-fill: var(--blue-grey-light);
+
+  --block-gap: 2rem;
+
+  --header-pin: 0;
+  --scroll-pad: 140px;
+
+  --box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
+  --octo-shadow-standard-box: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  --octo-shadow-standard-box-hover: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  --card-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+
+  --content-width: 78vw;
+  --content-width-mobile: calc(100vw - 4rem);
+  --toc-width: 250px;
+  --grid-max-width: 1250px;
+  --grid-gap: 1rem;
+  --grid-gap-main: 1rem;
+
+  --standard-radius: 0.5rem;
+}
+
+@media (max-width: 860px) {
+  :root {
+    --page-inline-margin: 1rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}

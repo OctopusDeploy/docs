@@ -1,0 +1,51 @@
+---
+import { PostOrdering, Accelerator } from 'astro-accelerator-utils';
+import { SITE } from '@config';
+
+// Logic
+const accelerator = new Accelerator(SITE);
+
+const allPages = accelerator.posts.all();
+const missingBanner = allPages.filter(
+  (p) =>
+    p.frontmatter.bannerImage == null &&
+    p.frontmatter.layout != 'src/layouts/Redirect.astro'
+);
+const pageCount = missingBanner.length;
+const pages = missingBanner
+  .sort(PostOrdering.sortByPubDateDesc)
+  .slice(0, Math.min(50, pageCount));
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Missing banners</title>
+  </head>
+  <body>
+    <h2>Report: Missing banners</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Published</th>
+          <th>Modified</th>
+        </tr>
+      </thead>
+      {
+        pages.map((p) => (
+          <tr>
+            <td>
+              <a href={accelerator.urlFormatter.formatAddress(p.url)}>
+                {p.frontmatter.title}
+              </a>
+            </td>
+            <td>{p.frontmatter.pubDate}</td>
+            <td>{p.frontmatter.modDate}</td>
+          </tr>
+        ))
+      }
+    </table>
+  </body>
+</html>

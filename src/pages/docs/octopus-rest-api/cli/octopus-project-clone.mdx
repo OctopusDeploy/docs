@@ -1,0 +1,48 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-02-01
+title: octopus project clone
+description: Clone a project
+navOrder: 74
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Clone a project in Octopus Deploy
+
+```
+Usage:
+  octopus project clone [flags]
+
+Flags:
+  -n, --name string          Name of the project
+  -d, --description string   Description of the project
+      --source string        Name of the source project
+  -g, --group string         Project group of the project
+  -l, --lifecycle string     Lifecycle of the project
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus project clone
+$ octopus project clone --name 'New Project' --source 'Old Project'
+$ octopus project clone --name 'Deploy web app 2' --source 'Deploy web app' --lifecycle 'Test Only Lifecycle' --group 'Web App Project Group'
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

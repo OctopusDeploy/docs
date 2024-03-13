@@ -1,0 +1,51 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-11-14
+title: Octopus Deploy documentation
+navTitle: Docs
+description: Need help with Octopus Deploy? Check out our comprehensive documentation covering everything from getting started to advanced issues and features.
+navOrder: 0
+---
+import RecentlyUpdated from '@components/RecentlyUpdated.astro';
+import Card from 'src/components/Card.astro';
+
+::::div{.docs-home .simple-grid}
+
+<Card
+  description="An overview of the Octopus Deploy fundamentals."
+  imgAlt="An octopus waves a chequered flag"
+  imgSrc="/docs/img/getting-started.png"
+  link="/docs/getting-started"
+  title="Getting started"
+/>
+
+<Card
+  description="Scale container and Kubernetes deployments across your Enterprise."
+  imgAlt="Octopus and Kubernetes are great together"
+  imgSrc="/docs/img/octopus-kubernetes.png"
+  link="/docs/deployments/kubernetes"
+  title="Kubernetes"
+/>
+
+<Card
+  description="How Octopus Deploy fits in your CI/CD pipeline."
+  imgAlt="Famous continuous integration tool logos"
+  imgSrc="/docs/img/cicd-tutorials.png"
+  link="/docs/guides"
+  title="End to end CI/CD tutorials"
+/>
+
+<Card
+  description="Watch getting started videos of Octopus Deploy in action."
+  imgAlt="A video player"
+  imgSrc="/docs/img/training-videos.png"
+  link="https://www.youtube.com/playlist?list=PLAGskdGvlaw268i2ZTPC1ZrxwFjjKIdKH"
+  title="Training videos"
+/>
+
+::::
+
+## Recent changes
+
+<RecentlyUpdated count="5" />

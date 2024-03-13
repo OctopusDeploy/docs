@@ -1,0 +1,37 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { Lang, Translations } from '@util/Languages';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('components/LastUpdated.astro');
+stats.start();
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+};
+const { lang, frontmatter, headings } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const date = frontmatter.modDate ?? frontmatter.pubDate;
+
+stats.stop();
+---
+
+{
+  date && (
+    <p class="last-updated">
+      <time datetime={date.toString()} itemprop="dateModified" />
+      {_(Translations.post.last_modified) +
+        ' ' +
+        accelerator.dateFormatter.formatDate(date, lang)}
+    </p>
+  )
+}

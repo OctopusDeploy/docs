@@ -1,0 +1,89 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-10-04
+title: Rolling back an NGINX deployment
+description: A guide on how to rollback a Node.js application hosted on NGINX
+navOrder: 15
+hideInThisSectionHeader: true
+---
+import ZeroConfigRollback from 'src/shared-content/rollbacks/zero-configuration-rollback.include.md';
+import CalculateDeploymentMode from 'src/shared-content/rollbacks/calculate-deployment-mode.include.md';
+import PreventReleaseProgression from 'src/shared-content/rollbacks/prevent-release-progression.include.md';
+
+[NGINX](https://nginx.org) is a popular web server for Linux deployments.  This guide will cover how to roll back a [Node.js](https://nodejs.org/en/) application accessed through NGINX.  In this example, NGINX is a reverse proxy to a Node.js service running as a [systemd service](https://wiki.debian.org/systemd/Services). The application has two components:
+
+- Database
+- Website
+
+Rolling back the database is out of scope for this guide.  This [article](https://octopus.com/blog/database-rollbacks-pitfalls) describes reasons and scenarios in which rolling back a database could result in data loss or incorrect data.  This guide assumes that there are no database changes or the changes are backward compatible. Because the database changes are out of scope for rollbacks, the database package will be *skipped* during the rollback process.
+
+:::div{.hint}
+While this guide is for Node.js, the same process can be used for any framework, language or platform NGINX supports.  
+:::
+
+## Existing deployment process
+
+The existing deployment process is:
+
+1. Deploy to MongoDB.
+1. Deploy to NGINX.
+1. Verify Application.
+1. Notify Stakeholders.
+
+:::figure
+![Original deployment process for Node.js application](/docs/deployments/patterns/rollbacks/nginx/images/rollback-nginx-original-process.png)
+:::
+
+:::div{.success}
+View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
+:::
+
+## Zero-configuration rollback
+
+<ZeroConfigRollback />
+
+## Rollback process
+
+For most rollbacks, the typical strategy is to skip the database step while re-deploying the Node.js application website.  In addition, a rollback indicates something is wrong with a release, so we'd want to [prevent that release from progressing](/docs/releases/prevent-release-progression).
+
+The updated deployment process will be:
+
+1. Calculate Deployment Mode
+1. Deploy to MongoDB (skip during rollback)
+1. Deploy to NGINX
+1. Block Release Progression
+1. Verify the Application
+1. Notify stakeholders
+
+:::figure
+![simple rollback for windows deployment](/docs/deployments/patterns/rollbacks/nginx/images/rollback-nginx-simple-rollback.png)
+:::
+
+:::div{.success}
+View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/bestbags-rollback/deployments/process).  Please login as a guest.
+:::
+
+### calculate deployment mode
+
+<CalculateDeploymentMode />
+
+### Skip database deployment step
+
+The database deployment step should be skipped during a rollback.  Unlike code, databases cannot easily be rolled back without risking data loss.  For most rollbacks, you won't have database changes.  However, a rollback could accidentally be triggered with a database change.  For example, rolling back a change in **Test** to unblock the QA team.   Skipping these steps during the rollback reduces the chance of accidental data loss.  
+
+To skip these steps during a rollback, set the variable run condition to be:
+
+```
+#{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
+```
+
+We also recommend adding or updating the notes field to indicate it will only run on deployments.
+
+:::figure
+![windows updating notes field](/docs/deployments/patterns/rollbacks/nginx/images/rollback-nginx-notes-field.png)
+:::
+
+### Block release progression
+
+<PreventReleaseProgression />

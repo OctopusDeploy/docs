@@ -1,0 +1,23 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Load balancing
+description: Instructions on how to set-up third-party load balancers for Octopus High Availability (HA) to direct user traffic between each of the Octopus Server nodes.
+navOrder: 50
+hideInThisSectionHeader: true
+---
+import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
+
+Octopus Deploy can work with any http/https load balancer technology.  There are plenty of options when it comes to choosing a load balancer to direct user traffic between each of the Octopus Server nodes.
+
+## Load Balancer Basics
+
+<LoadBalancerEndpointInfo />
+
+## Third Party Load Balancers
+
+This section contains information on how to set up third-party load balancers for use with Octopus High Availability:
+
+- [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy)
+- [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy)

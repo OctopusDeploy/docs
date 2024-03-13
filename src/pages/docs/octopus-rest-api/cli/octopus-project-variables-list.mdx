@@ -1,0 +1,48 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-02-01
+title: octopus project variables list
+description: List project variables
+navOrder: 86
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+List project variables in Octopus Deploy
+
+```
+Usage:
+  octopus project variables list [flags]
+
+Aliases:
+  list, ls
+
+Flags:
+      --git-ref string   The GitRef for the Config-As-Code branch
+  -p, --project string   The project
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus project variable list "Deploy Website"
+$ octopus project variable list -p "Deploy Website" --git-ref refs/heads/main
+$ octopus project variable ls
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

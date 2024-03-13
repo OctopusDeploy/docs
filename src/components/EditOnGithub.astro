@@ -1,0 +1,46 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { Lang, Translations } from '@util/Languages';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics(
+  'octopus/components/ArticleList.astro'
+);
+stats.start();
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+};
+const { lang, frontmatter, headings } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+let gitHubUrl: string | null =
+  'https://github.com/OctopusDeploy/docs/blob/main';
+
+const pos = frontmatter.file.lastIndexOf('/src/pages/');
+
+if (pos < 0) {
+  gitHubUrl = null;
+} else {
+  const path = frontmatter.file.substring(pos);
+  gitHubUrl += path;
+}
+
+stats.stop();
+---
+
+{
+  gitHubUrl && (
+    <div class="octo-github-edit">
+      <a href={gitHubUrl}>{_(Translations.octopus_github.edit_on_github)}</a>
+    </div>
+  )
+}

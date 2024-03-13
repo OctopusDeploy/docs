@@ -1,1 +1,0 @@
-octopusdeploy/octo:6.17.3-alpine

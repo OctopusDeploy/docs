@@ -1,0 +1,31 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Azure DevOps
+description: Octopus Deploy integrates with Azure DevOps to provide for a full automated build and deployment pipeline.
+navOrder: 20
+hideInThisSectionHeader: true
+---
+import TfsNotice from 'src/shared-content/azure-ado/tfs-notice.include.md';
+
+Octopus Deploy integrates with Azure DevOps to provide for a full automated build and deployment pipeline. This section provides information about how to integrate Octopus Deploy and the various versions of Microsoft's build server.
+
+:::figure
+![](/docs/packaging-applications/build-servers/tfs-azure-devops/images/5672461.png "width=500")
+:::
+
+## Supported Azure DevOps versions
+
+Depending on the version of Azure DevOps you are using, the recommended approach for a successful integration with Octopus may vary. Use the below chart to pick the right approach for your build server version.
+
+| Version                     | Recommended approach                     | Notes                                    |
+| --------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Azure DevOps Services       | [Octopus Extension for Azure DevOps Services](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension)         | This is the hosted version of Azure DevOps. Our integration will always aim to be compatible with this offer. |
+| Azure DevOps Server         | [Octopus Extension for Azure DevOps Server](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension)         | This is the on-premises offering for Azure DevOps. We will try our best to be compatible with this offer. |
+
+<TfsNotice />
+
+## Learn more
+
+- Generate an Octopus guide for [Azure DevOps and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?buildServer=Azure%20DevOps%2FTFS).
