@@ -215,3 +215,8 @@ xlarge
 xmark
 xvzf
 YOURAPIKEY
+octopusbob
+servername
+octopusdemos
+sqlcmd
+sqlvolume
