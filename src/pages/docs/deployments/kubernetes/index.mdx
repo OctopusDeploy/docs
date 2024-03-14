@@ -17,7 +17,7 @@ Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're
 - Octopus documentation for built-in steps and targets
 
 :::figure
-![Kubernetes pipeline](/docs/deployments/kubernetes/pipeline-visual.png)
+![Kubernetes pipeline](/docs/deployments/kubernetes/pipeline-visual-k8s.png)
 :::
 
 ## Why use Octopus as your Kubernetes CD platform
@@ -29,7 +29,7 @@ Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're
   - Octopus [runbooks](https://octopus.com/docs/runbooks/) and [projects](https://octopus.com/docs/projects) share the same variables and accounts to interact with your clusters
   - Use pre-approved [kubectl](https://octopus.com/docs/deployments/kubernetes/kubectl) scripts
 
-### Getting started
+## Getting started
 With Octopus, you can choose between managing your application configuration with Helm charts or YAML.
 
 ::::div{.docs-home .simple-grid}
@@ -46,7 +46,7 @@ With Octopus, you can choose between managing your application configuration wit
   description="Start with our YAML deployment guide if you intend to use plain YAML."
   imgAlt="Yaml logo"
   imgSrc="/docs/img/yaml-logo.png"
-  link="/docs/deployments/kubernetes/helm-update"
+  link="/docs/getting-started/first-kubernetes-deployment"
   title="YAML deployment guide"
 />
 
@@ -54,7 +54,7 @@ With Octopus, you can choose between managing your application configuration wit
   description="Consider using Kustomize with Octopus for more templating capabilities."
   imgAlt="Kustomize and Octopus logo"
   imgSrc="/docs/img/kustomize-octopus-logo.png"
-  link="/docs/deployments/kubernetes/helm-update"
+  link="/docs/deployments/kubernetes/kustomize"
   title="Kustomize with Octopus"
 />
 
@@ -68,9 +68,7 @@ With Octopus, you can choose between managing your application configuration wit
 
 ::::
 
-You can also [create a configuration with our UI](https://octopus.com/docs/deployments/kubernetes/deploy-container), and Octopus will generate YAML behind the scenes for you.
-
-### First production deployment
+## First production deployment
 When you’re ready to apply Octopus to a real scenario, we recommend that you:
 - Familiarize yourself with 3 fundamental Octopus concepts: [projects](https://octopus.com/docs/projects), [environments](https://octopus.com/docs/infrastructure/environments), and [targets](https://octopus.com/docs/infrastructure/deployment-targets). When you have time, you can learn about other Octopus concepts in our [glossary](https://octopus.com/docs/getting-started/glossary).
 - Learn how to implement GitOps best practices with Octopus and use our observability features.
@@ -86,5 +84,4 @@ Learn more about deploying to multiple apps with Octopus, with these guides:
 ## Learn more
 - Learn more about [Kubernetes deployments with Octopus](https://octopus.com/use-case/kubernetes)
 - How to choose between [Kubernetes deployment targets](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target)
-- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes)
 - [Learn more about Kubernetes](https://octopus.com/blog/search?context=blog&q=kubernetes) on our blog
