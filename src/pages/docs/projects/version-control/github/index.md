@@ -1,4 +1,11 @@
-# GitHub Integration
+---
+layout: src/layouts/Default.astro
+pubDate: 2024-03-14
+modDate: 2024-03-14
+title: GitHub integration 
+description: Octopus Deploy GitHub integration
+navOrder: 30
+---
 
 The Octopus Deploy GitHub App provides seamless integration between Octopus Deploy and GitHub.
 
