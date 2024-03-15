@@ -64,7 +64,7 @@ In the middle of the grid, you'll see **Releases**. A Release is a bundle of all
 - A snapshot of the process that will be used to deploy the release, as the process may change in future releases
 - Details on Jira tickets and Git commits that went into the release
 
-Many releases get created for a project - often each time a CI build completes - and those releases can then be _deployed_ to an environment. When a release is deployed to an environment, Octopus calls that a Deployment. Software teams often use [release and deployment interchangably](https://octopus.com/devops/continuous-delivery/deployments-vs-releases/), but in our opinion they have subtly different meanings.
+Many releases get created for a project - often each time a CI build completes - and those releases can then be _deployed_ to an environment. When a release is deployed to an environment, Octopus calls that a Deployment. Software teams often use [release and deployment interchangeably](https://octopus.com/devops/continuous-delivery/deployments-vs-releases/), but in our opinion they have subtly different meanings.
 
 Creating releases is normally done automatically at the end of a CI process using one of our CI integrations. 
 
