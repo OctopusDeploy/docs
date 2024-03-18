@@ -1,0 +1,37 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import { Translations, Lang } from '@util/Languages';
+import { getNavigationItems } from '@util/getNavigationItems';
+import NavigationItem from '@components/NavigationItem.astro';
+import { SITE } from '@config';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('octopus/components/Navigation.astro');
+stats.start();
+
+// Properties
+type Props = {
+  lang: string;
+};
+const { lang } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const currentUrl = new URL(Astro.request.url);
+const pages = await getNavigationItems(currentUrl, lang);
+
+stats.stop();
+---
+
+<nav
+  class="site-nav"
+  id="site-nav"
+  aria-label={_(Translations.aria.site_navigation)}
+>
+  <h2 class="site-nav-title">{_(Translations.navigation.title)}</h2>
+  <ul>
+    {pages.map((page) => <NavigationItem lang={lang} page={page} />)}
+  </ul>
+</nav>

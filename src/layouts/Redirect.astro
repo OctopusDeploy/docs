@@ -6,12 +6,12 @@ import Redirect from '@layouts/Redirect.astro';
 
 // Properties
 type Props = {
-    frontmatter: Frontmatter
-    headings: { depth: number; slug: string; text: string; }[];
-}
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+};
 const { frontmatter, headings } = Astro.props satisfies Props;
-
 ---
-<Redirect frontmatter={ frontmatter } headings={ headings }>
-    <slot />
+
+<Redirect frontmatter={frontmatter} headings={headings}>
+  <slot />
 </Redirect>

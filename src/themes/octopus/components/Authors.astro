@@ -1,0 +1,128 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { Translations, Lang } from '@util/Languages';
+import { getImageInfo } from '@util/custom-markdown.mjs';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('octopus/components/Authors.astro');
+stats.start();
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter;
+};
+const { lang, frontmatter } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const authorList = accelerator.authors.forPost(frontmatter);
+
+// Get image info
+const authorImage = authorList?.image?.src
+  ? getImageInfo(authorList.image.src, 'author-image', SITE.images.authorSize)
+  : null;
+
+stats.stop();
+---
+
+{
+  authorList.writers.length > 0 && (
+    <div class="post-meta">
+      {authorImage && (
+        <img
+          srcset={authorImage.srcset}
+          sizes={authorImage.sizes}
+          src={authorImage.src}
+          alt={authorList?.image?.alt}
+          class={authorImage.class}
+          width={authorImage.metadata?.width}
+          height={authorImage.metadata?.height}
+        />
+      )}
+      <div class="author-info">
+        <span class="author-list">
+          {_(Translations.post.written_by) + ' '}
+          {authorList.mainAuthor && (
+            <span
+              itemprop="author"
+              itemscope
+              itemtype="https://schema.org/Person"
+            >
+              <a
+                href={
+                  accelerator.urlFormatter.formatAddress(
+                    authorList.mainAuthor.url
+                  ) + '1/'
+                }
+                itemprop="url"
+              >
+                <span itemprop="name">
+                  {authorList.mainAuthor.frontmatter.title}
+                </span>
+              </a>
+            </span>
+          )}
+          <>
+            {authorList.contributors.map((writer, index) => (
+              <>
+                {index > 0 && ', '}
+                <span
+                  itemprop="contributor"
+                  itemscope
+                  itemtype="https://schema.org/Person"
+                >
+                  <a
+                    href={
+                      accelerator.urlFormatter.formatAddress(writer.url) + '1/'
+                    }
+                    itemprop="url"
+                  >
+                    <span itemprop="name">{writer.frontmatter.title}</span>
+                  </a>
+                </span>
+              </>
+            ))}
+          </>
+          <>
+            <>
+              <br />
+              <time
+                datetime={frontmatter.pubDate.toString()}
+                itemprop="datePublished"
+              >
+                {accelerator.dateFormatter.formatDate(
+                  frontmatter.pubDate,
+                  lang
+                )}
+              </time>
+            </>
+            {frontmatter.modDate && (
+              <>
+                <br />
+                <time
+                  datetime={frontmatter.modDate.toString()}
+                  itemprop="dateModified"
+                >
+                  {_(Translations.post.last_modified) +
+                    ' ' +
+                    accelerator.dateFormatter.formatDate(
+                      frontmatter.modDate,
+                      lang
+                    )}
+                </time>
+              </>
+            )}
+          </>
+          {authorList.mainAuthor && (
+            <p>{authorList.mainAuthor.frontmatter.description}</p>
+          )}
+        </span>
+      </div>
+    </div>
+  )
+}

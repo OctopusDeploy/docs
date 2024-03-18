@@ -19,17 +19,16 @@ import Copyright from '../components/Copyright.astro';
 import Header from '../components/Header.astro';
 import Related from '../components/Related.astro';
 import ArticleJourney from '../components/ArticleJourney.astro';
-import Title from '../components/Title.astro';
 import Feedback from '../components/Feedback.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import LastUpdated from '../components/LastUpdated.astro';
 import Plausible from 'src/components/Plausible.astro';
 
 type Props = {
-    frontmatter: Frontmatter
-    headings: { depth: number; slug: string; text: string; }[];
-    breadcrumbs?: { url: string; title: string; ariaCurrent?: string; }[] | null;
-}
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+  breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
+};
 const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
 
 const lang = frontmatter.lang ?? SITE.default.lang;
@@ -39,65 +38,103 @@ const textDirection = frontmatter.dir ?? SITE.default.dir;
 const accelerator = new Accelerator(SITE);
 
 const metaImage = frontmatter.bannerImage
-      ? getImageInfo(frontmatter.bannerImage.src, '', SITE.images.contentSize)
-      : null
+  ? getImageInfo(frontmatter.bannerImage.src, '', SITE.images.contentSize)
+  : null;
 
-const title = await accelerator.markdown.getInlineHtmlFrom(frontmatter.title ?? SITE.title);
+const title = await accelerator.markdown.getInlineHtmlFrom(
+  frontmatter.title ?? SITE.title
+);
 
 const subtitle = frontmatter.subtitle
-    ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.subtitle)
-    : null;
+  ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.subtitle)
+  : null;
 
 const site_url = SITE.url;
 const site_features = SITE.featureFlags;
-const search = accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
-const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url)
-const isSearchPage = accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
-console.log(accelerator.urlFormatter.formatAddress(Astro.url.pathname), searchUrl)
+const search =
+  accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
+const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url);
+const isSearchPage =
+  accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
+console.log(
+  accelerator.urlFormatter.formatAddress(Astro.url.pathname),
+  searchUrl
+);
 const showSearch = !isSearchPage;
 ---
-<html dir={ textDirection } lang={ lang } class="initial">
-    <Head frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-    <body>
-        <SkipLinks frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-        <Header frontmatter={ frontmatter } headings={ headings } lang={ lang } showSearch={ showSearch } />
-        <Title frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-        <div class="content-group">
-            <main id="site-main">
-                <Breadcrumbs frontmatter={ frontmatter } headings={ headings } lang={ lang } breadcrumbs={ breadcrumbs } />
-                <article itemscope itemtype="https://schema.org/Article">
-                    <header>
-                        <h1 itemprop="name headline"><Fragment set:html={ title } /></h1>
-                        {subtitle && (
-                            <p><Fragment set:html={ subtitle } /></p>
-                        )}
-                    </header>
-                    <div class="page-content anim-show-parent" itemprop="articleBody">
-                        <slot />
-                        <Feedback frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-                        <Authors frontmatter={ frontmatter } lang={ lang } />
-                        <Taxonomy frontmatter={ frontmatter } lang={ lang } />
-                        <LastUpdated frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-                        <EditOnGithub frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-                        {metaImage && <meta itemprop="image" content={ metaImage.src } />}
-                    </div>
-                </article>
-            </main>
-            <Navigation lang={ lang } />
-            <div class="side-nav">
-                <TableOfContents expanded={ 930 } frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-            </div>
-        </div>
-        <ArticleJourney frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-        <Related frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-        <Footer frontmatter={ frontmatter } headings={ headings } lang={ lang }>
-        <Copyright frontmatter={ frontmatter } headings={ headings } lang={ lang } />
-        </Footer>
-        <script define:vars={{ site_url, site_features }}>
-            window.site_url = site_url;
-            window.site_features = site_features;
-        </script>
-        <script src={ SITE.subfolder + '/js/main.js' } type="module" async></script>
-        <Plausible />
-    </body>
+
+<html dir={textDirection} lang={lang} class="initial">
+  <Head frontmatter={frontmatter} headings={headings} lang={lang} />
+  <body>
+    <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
+    <Header
+      frontmatter={frontmatter}
+      headings={headings}
+      lang={lang}
+      showSearch={showSearch}
+    />
+    <div class="content-group">
+      <main id="site-main">
+        <Breadcrumbs
+          frontmatter={frontmatter}
+          headings={headings}
+          lang={lang}
+          breadcrumbs={breadcrumbs}
+        />
+        <article itemscope itemtype="https://schema.org/Article">
+          <header>
+            <h1 itemprop="name headline"><Fragment set:html={title} /></h1>
+            {
+              subtitle && (
+                <p>
+                  <Fragment set:html={subtitle} />
+                </p>
+              )
+            }
+          </header>
+          <div class="page-content anim-show-parent" itemprop="articleBody">
+            <slot />
+            <Feedback
+              frontmatter={frontmatter}
+              headings={headings}
+              lang={lang}
+            />
+            <Authors frontmatter={frontmatter} lang={lang} />
+            <Taxonomy frontmatter={frontmatter} lang={lang} />
+            <LastUpdated
+              frontmatter={frontmatter}
+              headings={headings}
+              lang={lang}
+            />
+            <EditOnGithub
+              frontmatter={frontmatter}
+              headings={headings}
+              lang={lang}
+            />
+            {metaImage && <meta itemprop="image" content={metaImage.src} />}
+          </div>
+        </article>
+      </main>
+      <Navigation lang={lang} />
+      <div class="side-nav">
+        <TableOfContents
+          expanded={930}
+          frontmatter={frontmatter}
+          headings={headings}
+          lang={lang}
+        />
+      </div>
+    </div>
+    <ArticleJourney frontmatter={frontmatter} headings={headings} lang={lang} />
+    <Related frontmatter={frontmatter} headings={headings} lang={lang} />
+    <Footer frontmatter={frontmatter} headings={headings} lang={lang}>
+      <Copyright frontmatter={frontmatter} headings={headings} lang={lang} />
+    </Footer>
+    <script define:vars={{ site_url, site_features }}>
+      window.site_url = site_url;
+      window.site_features = site_features;
+    </script>
+    <script src={SITE.subfolder + '/js/main.js'} type="module" async></script>
+    <Plausible />
+  </body>
 </html>

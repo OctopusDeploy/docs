@@ -12,8 +12,8 @@ stats.start();
 // Properties
 type Props = {
   lang: string;
-  frontmatter: Frontmatter
-  headings: { depth: number; slug: string; text: string; }[];
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
 };
 const { lang, frontmatter, headings } = Astro.props satisfies Props;
 
@@ -25,13 +25,13 @@ const articles: NavPage[] = [];
 
 function flatten(pageTree: NavPage[]) {
   pageTree.sort((a, b) => a.order - b.order);
-  pageTree.forEach(page => {
+  pageTree.forEach((page) => {
     if (page.children.length == 0) {
       articles.push(page);
     } else {
       flatten(page.children);
     }
-  })
+  });
 }
 
 const currentUrl = new URL(Astro.request.url);
@@ -39,7 +39,7 @@ const pages = accelerator.navigation.autoMenu(SITE.subfolder);
 accelerator.navigation.setCurrentPage(pages, currentUrl);
 flatten(pages);
 
-const current = articles.findIndex(p => p.ariaCurrent);
+const current = articles.findIndex((p) => p.ariaCurrent);
 
 const previous = articles[current - 1] || null;
 const next = articles[current + 1] || null;
@@ -55,8 +55,8 @@ if (next) {
 }
 
 function getSpeculationRules(articles: NavPage[]) {
-  const urls = JSON.stringify(articles.map(a => a.url));
-return `<script type="speculationrules">
+  const urls = JSON.stringify(articles.map((a) => a.url));
+  return `<script type="speculationrules">
 {
   "prerender": [
     {
@@ -71,22 +71,39 @@ return `<script type="speculationrules">
 const showPrevious = true;
 stats.stop();
 ---
+
 <div class="octo-article-nav">
   <div class="grid">
-      {showPrevious && previous &&
-      <div class="previous">
-        <div data-destination={ previous.url }><span>Previous article</span></div>
-        <div><a href={ previous.url } rel={ previous.rel }>{ previous.title }</a></div>
-      </div>
-      }
-      {next &&
-      <div class="next">
-        <div data-destination={ next.url }><span>Next article</span></div>
-        <div><a href={ next.url } class="continue"rel={ next.rel }>{ next.title }</a></div>
-      </div>
-      }
+    {
+      showPrevious && previous && (
+        <div class="previous">
+          <div data-destination={previous.url}>
+            <span>Previous article</span>
+          </div>
+          <div>
+            <a href={previous.url} rel={previous.rel}>
+              {previous.title}
+            </a>
+          </div>
+        </div>
+      )
+    }
+    {
+      next && (
+        <div class="next">
+          <div data-destination={next.url}>
+            <span>Next article</span>
+          </div>
+          <div>
+            <a href={next.url} class="continue" rel={next.rel}>
+              {next.title}
+            </a>
+          </div>
+        </div>
+      )
+    }
   </div>
 </div>
 <!-- Chromium fix. See: https://www.stevefenton.co.uk/blog/2022/12/mobile-position-sticky-issue/ -->
 <div style="position: fixed;"></div>
-<Fragment set:html={ getSpeculationRules(speculationList) } />
+<Fragment set:html={getSpeculationRules(speculationList)} />

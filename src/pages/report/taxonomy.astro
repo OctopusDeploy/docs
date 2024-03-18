@@ -13,36 +13,45 @@ const accelerator = new Accelerator(SITE);
 const links = accelerator.taxonomy.links(Translations, _, SITE.subfolder);
 const entries = accelerator.taxonomy.all();
 ---
+
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Taxonomy</title>
-    </head>
-    <body>
-        <h2>Report: Taxonomy</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Type</th>
-                    <th>Title</th>
-                    <th>Count</th>
-                </tr>
-            </thead>
-        {entries.categories.map(t => 
+  <head>
+    <meta charset="utf-8" />
+    <title>Taxonomy</title>
+  </head>
+  <body>
+    <h2>Report: Taxonomy</h2>
+    <table>
+      <thead>
         <tr>
-            <td>{ links.category }</td>
-            <td><a href={ links.getCategoryLink(t.title) }>{ t.title }</a></td>
-            <td>{ t.count }</td>
+          <th>Type</th>
+          <th>Title</th>
+          <th>Count</th>
         </tr>
-        )}
-        {entries.tags.map(t => 
-        <tr>
-            <td>{ links.tag }</td>
-            <td><a href={ links.getTagLink(t.title) }>{ t.title }</a></td>
-            <td>{ t.count }</td>
-        </tr>
-        )}
-        </table>
-    </body>
+      </thead>
+      {
+        entries.categories.map((t) => (
+          <tr>
+            <td>{links.category}</td>
+            <td>
+              <a href={links.getCategoryLink(t.title)}>{t.title}</a>
+            </td>
+            <td>{t.count}</td>
+          </tr>
+        ))
+      }
+      {
+        entries.tags.map((t) => (
+          <tr>
+            <td>{links.tag}</td>
+            <td>
+              <a href={links.getTagLink(t.title)}>{t.title}</a>
+            </td>
+            <td>{t.count}</td>
+          </tr>
+        ))
+      }
+    </table>
+  </body>
 </html>

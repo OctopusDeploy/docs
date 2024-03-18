@@ -9,13 +9,16 @@ description: The infrastructure tab in the Octopus Web Portal is where you manag
 navOrder: 30
 hideInThisSection: true
 ---
-import DeploymentTargets from 'src/shared-content/infrastructure/deployment-targets.include.md';
+
+import DeploymentTargets from "src/shared-content/infrastructure/deployment-targets.include.mdx";
+import Image from "src/components/Image.astro";
 
 With Octopus Deploy the machines and services you deploy your software to are managed on the **Infrastructure** tab of the Octopus Web Portal:
 
-:::figure
-![The infrastructure tab of Octopus Deploy](/docs/infrastructure/images/infrastructure.png "width=500")
-:::
+<Image
+  src="/docs/infrastructure/images/infrastructure.png"
+  alt="The infrastructure tab of Octopus Deploy"
+/>
 
 ## Deployment Targets
 
@@ -29,9 +32,9 @@ Before you can add your deployment targets to Octopus, you need to configure you
 
 Typical environments include:
 
- - Development
- - Test
- - Production
+- Development
+- Test
+- Production
 
 You can add as many or as few environments as you require in your deployment pipeline, and you can add as many deployment targets to each environment as you need.
 
@@ -43,7 +46,7 @@ Learn more about [environments](/docs/infrastructure/environments).
 
 ## Learn more
 
- - [Environments](/docs/infrastructure/environments)
- - [Deployment targets](/docs/infrastructure/deployment-targets)
- - [Workers](/docs/infrastructure/workers)
- - [Accounts](/docs/infrastructure/accounts)
+- [Environments](/docs/infrastructure/environments)
+- [Deployment targets](/docs/infrastructure/deployment-targets)
+- [Workers](/docs/infrastructure/workers)
+- [Accounts](/docs/infrastructure/accounts)

@@ -1,15 +1,22 @@
-name: Tests
+name: Deploy to Channel
 
 on: pull_request
 
-# Allow this job to clone the repo
+# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
+  pages: write
   id-token: write
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
+
+    env:
+      SHOULD_DEPLOY: ${{ secrets.OCTOPUSSERVERURL != '' || '' }}
+      OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
+      OCTOPUS_API_KEY: ${{ secrets.OCTOPUSSERVERAPIKEY }}
+      OCTOPUS_SPACE: "DevOps Microsite"
 
     steps:
       - name: Checkout
@@ -51,4 +58,56 @@ jobs:
       - name: Astro build and test
         run: |
           export NODE_OPTIONS=--max_old_space_size=4096
+          pnpm dev:img
           pnpm test
+
+      - name: Set Version
+        run: |
+          echo "PACKAGE_VERSION=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
+
+      - name: Check output
+        run: |
+          echo; echo "cd to workspace"
+          cd $GITHUB_WORKSPACE
+          echo; echo "listing"
+          ls
+
+      - name: Create a Zip package 🐙
+        id: package
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: 'DocsMicrosite'
+          version: "${{ env.PACKAGE_VERSION  }}-pullrequest"
+          base_path: "./dist"
+          output_folder: "./artifacts"
+          files: |
+            **/*.*
+
+      - name: Push a package to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-package-action@v3.0.2
+        if: ${{ env.SHOULD_DEPLOY }}
+        with:
+          packages: ${{ steps.package.outputs.package_file_path }}
+
+      - name: Let people download package
+        uses: actions/upload-artifact@v3
+        if: ${{ ! env.SHOULD_DEPLOY }}
+        with:
+          name: docs-microsite
+          path: ${{ steps.package.outputs.package_file_path }}
+
+      - name: Push build information to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-build-information-action@v3
+        if: ${{ env.SHOULD_DEPLOY }}
+        with:
+          version: "${{ env.PACKAGE_VERSION }}-pullrequest"
+          packages: "Docs Microsite"
+
+      - name: Create a release in Octopus Deploy 🐙
+        id: "create_release"
+        uses: OctopusDeploy/create-release-action@v3
+        if: ${{ env.SHOULD_DEPLOY }}
+        with:
+          project: "Docs Microsite"
+          package_version: "${{ env.PACKAGE_VERSION }}-pullrequest"
+          git_ref: ${{ github.ref }}
