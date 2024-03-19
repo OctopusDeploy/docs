@@ -53,6 +53,7 @@ Dockerfiles
 dockerhub
 DONTVALIDATEPATH
 dpkg
+Dspring
 emptytitle
 Fargate
 feedcred
@@ -105,11 +106,14 @@ majeure
 maxage
 mdast
 milli
+minifier
 MITM
+Moines
 mozjpeg
 mozroots
 msiexec
 MTTR
+myapplication
 myfeature
 navigationid
 NETBIOS
@@ -131,6 +135,7 @@ octopuslabs
 octopusservernodes
 octopustarget
 octopusvariable
+Octostash
 Octostache
 octoterra
 OIDC
@@ -151,6 +156,7 @@ pycryptodome
 querystring
 quickstart
 QUOTENAME
+Redgate
 rehype
 reindexing
 releaseprogression
@@ -160,6 +166,7 @@ reprovisioned
 reprovisioning
 robocopy
 roboto
+rolename
 rootelement
 RSASSA
 Runbook
@@ -180,6 +187,7 @@ srcset
 srcset
 sthumb
 stylesheet
+subcontext
 swaggerui
 systemprofile
 tabpanel
@@ -188,6 +196,7 @@ templateid
 templating
 tenanttype
 TFVC
+thepassword
 tmpfs
 toptags
 Traefik
@@ -204,9 +213,11 @@ useronboarding
 variablename
 Voltron
 WCAG
+webapps
 webfonts
 webserver
 WEBSVR
+WFLYUT
 WIXUI
 Wildfly
 workerpool
