@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-07-28
 title: Kubernetes
 description: Octopus Deploy provides support for deploying Kubernetes resources.
-navOrder: 80
+navOrder: 10
 hideInThisSectionHeader: true
 ---
 

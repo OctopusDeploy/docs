@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-10-04
 title: Java applications
 description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deploy
-navOrder: 70
+navOrder: 110
 hideInThisSectionHeader: true
 ---
 

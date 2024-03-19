@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Terraform
 description: Terraform deployments
-navOrder: 130
+navOrder: 100
 hideInThisSectionHeader: true
 ---
 

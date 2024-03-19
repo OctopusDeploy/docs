@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Certificates
 description: Manage X.509 certificates with Octopus Deploy
-navOrder: 40
+navOrder: 80
 hideInThisSectionHeader: true
 ---
 
