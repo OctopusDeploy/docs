@@ -1,54 +1,87 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-07-28
+modDate: 2024-03-20
 title: Kubernetes
 description: Octopus Deploy provides support for deploying Kubernetes resources.
 navOrder: 10
 hideInThisSectionHeader: true
 ---
+import RecentlyUpdated from '@components/RecentlyUpdated.astro';
+import Card from 'src/components/Card.astro';
 
-Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're starting simple or want complete control over a complex setup. You can [deploy Kubernetes resources](https://octopus.com/use-case/kubernetes) such as [deployments](/docs/deployments/kubernetes/deploy-container/), [services](/docs/deployments/kubernetes/deploy-service/), and [ingress](/docs/deployments/kubernetes/deploy-ingress), and run scripts against a Kubernetes cluster.
+Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're starting simple or want complete control over a complex setup. This section has everything you need to know about using Octopus for Kubernetes CD.
 
-- Centralize your Kubernetes clusters and resources in a single place so you can focus on your applications and customers
-- Adopt development best practices:
-  - Deploy to development, test, and production environments with automatic configuration updates ([variable substitution](/docs/projects/variables/variable-substitutions))
-  - Use built-in service accounts for simple and secure authentication
-  - Implement deployment patterns like blue/green, canary, and rolling deployments
-- Automate routine maintenance and respond more quickly to emergencies:
-  - Octopus [runbooks](/docs/runbooks/) and [projects](/docs/projects) share the same variables and accounts to interact with your clusters
-  - Use pre-approved [kubectl](/docs/deployments/kubernetes/kubectl) scripts
+- Tutorials and guides for different deployment scenarios, from a simple proof of concept to enterprise-scale GitOps
+- Kubernetes best practices
+- Octopus documentation for built-in steps and targets
 
 :::figure
-![Three screenshots from Octopus, showing the Google Cloud account configuration, Kubernetes deployment process, and a successful deployment to production.](/docs/deployments/kubernetes/image-octopus-gcp-kubernetes-2021-q3.png)
+![Kubernetes pipeline](/docs/deployments/kubernetes/pipeline-visual-k8s.png)
 :::
 
-## Get started with Kubernetes and Octopus or manage a complex setup
+## Why use Octopus as your Kubernetes CD platform
+- Model environments and tenants for hundreds of applications with ease.
+- Work with any Kubernetes distribution in the cloud or on-premises. Source YAML or Helm charts from Git or repositories.
+- Use the centralized dashboard and detailed resource status to learn the state of all your deployments and clusters in an instant.
+- Use configuration templates across environments, tenants, or even applications.
+- Automate routine maintenance and respond faster to emergencies:
+  - Octopus [runbooks](https://octopus.com/docs/runbooks/) and [projects](https://octopus.com/docs/projects) share the same variables and accounts to interact with your clusters
+  - Use pre-approved [kubectl](https://octopus.com/docs/deployments/kubernetes/kubectl) scripts
 
-Our Kubernetes automation supports three approaches:
+## Getting started
+With Octopus, you can choose between managing your application configuration with Helm charts or YAML.
 
-1. A structured UI step that guides you through the configuration without any YAML input
-2. A fully flexible step configured with raw YAML
-3. Helm chart automation steps
+::::div{.docs-home .simple-grid}
 
-All three methods:
+<Card
+  description="Learn more about how you can use Octopus variables for Helm values in our Helm documentation."
+  imgAlt="Helm logo"
+  imgSrc="/docs/img/helm-logo.png"
+  link="/docs/deployments/kubernetes/helm-update"
+  title="Helm deployment guide"
+/>
 
-- Are compatible with runbooks, [environments](/docs/infrastructure/environments), and shared variables in Octopus
-- Include robust config file support for repeatable and reliable deployments across multiple environments
+<Card
+  description="Start with our YAML deployment guide if you intend to use plain YAML."
+  imgAlt="Yaml logo"
+  imgSrc="/docs/img/yaml-logo.png"
+  link="/docs/getting-started/first-kubernetes-deployment"
+  title="YAML deployment guide"
+/>
 
-### Structured UI step without YAML input
+<Card
+  description="Consider using Kustomize with Octopus for more templating capabilities."
+  imgAlt="Kustomize and Octopus logo"
+  imgSrc="/docs/img/kustomize-octopus-logo.png"
+  link="/docs/deployments/kubernetes/kustomize"
+  title="Kustomize with Octopus"
+/>
 
-If you're getting started with Kubernetes, we recommend the structured UI step. Octopus prompts you for the required properties and provides deep links to the official Kubernetes documentation so you can learn how Kubernetes works.
+<Card
+  description="You can also create a configuration with our UI, and Octopus will generate YAML behind the scenes for you."
+  imgAlt="Octopus logo"
+  imgSrc="/docs/img/octopus-deploy-logo.png"
+  link="/docs/deployments/kubernetes/deploy-container"
+  title="Use the Octopus UI"
+/>
 
-### Helm chart automation steps
+::::
 
-Helm is the de facto Kubernetes package manager, so our [Helm chart steps](/docs/deployments/kubernetes/helm-update) are a popular option. Again, you have the full power of Octopus at your disposal, but there's less raw YAML to configure.
+## First production deployment
+When you’re ready to apply Octopus to a real scenario, we recommend that you:
+- Familiarize yourself with 3 fundamental Octopus concepts: [projects](https://octopus.com/docs/projects), [environments](https://octopus.com/docs/infrastructure/environments), and [targets](https://octopus.com/docs/infrastructure/deployment-targets). When you have time, you can learn about other Octopus concepts in our [glossary](https://octopus.com/docs/getting-started/glossary).
+- Learn how to implement GitOps best practices with Octopus and use our observability features.
 
-## Kubernetes targets
-
-Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run. Learn how to configure [Kubernetes deployment targets](/docs/infrastructure/deployment-targets/kubernetes-target).
+## Deployments at scale
+Learn more about deploying to multiple apps with Octopus, with these guides:
+- Release triggers [link] and [channels](https://octopus.com/docs/releases/channels) to automate deployments
+- [Step templates](https://octopus.com/docs/projects/custom-step-templates) to create new pipelines with ease
+- [Configuration as Code](https://octopus.com/docs/projects/version-control) to manage deployment pipeline versions
+- [Users, roles, and teams](https://octopus.com/docs/getting-started/best-practices/users-roles-and-teams)
+- Maintenance tasks with [runbooks](https://octopus.com/docs/runbooks/) and [scripts](https://octopus.com/docs/deployments/kubernetes/kubectl)
 
 ## Learn more
-
-- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes)
-- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
+- Learn more about [Kubernetes deployments with Octopus](https://octopus.com/use-case/kubernetes)
+- How to choose between [Kubernetes deployment targets](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target)
+- [Learn more about Kubernetes](https://octopus.com/blog/search?context=blog&q=kubernetes) on our blog
