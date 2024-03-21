@@ -16,6 +16,6 @@ If you need product help and have a paid license, or you're trialing Octopus, pl
 Sometimes when you contact support, we might ask you to perform tasks in Octopus. This section explains how to perform some of those tasks.
 
 :::div{.hint}
-Priority Support is available as an addition to your Octopus Enterprise license. For more information on what is included, please see our [Priority Support page](https://octopus.com/support/priority).
+Priority Support is available as an addition to your Octopus Enterprise license. For more information, please see our [Priority Support page](https://octopus.com/support/priority).
 :::
 
