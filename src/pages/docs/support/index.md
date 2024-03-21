@@ -11,7 +11,7 @@ navOrder: 160
 
 To enquire about purchasing, renewing, or upgrading your Octopus license, please [contact our sales team](https://octopus.com/company/contact). 
 
-For customers with a paid license, or if you're currently trialing Octopus, please reach out for support at [support@octopus.com](support@octopus.com). Otherwise please visit our [Support page](https://octopus.com/support).
+If you need product help and have a paid license, or you're trialing Octopus, please [email our support team](mailto:support@octopus.com). You can also visit our [Support page](https://octopus.com/support).
 
 Sometimes when you contact support we might ask you to perform tasks on your Octopus. This section explains how to perform some of those tasks.
 
