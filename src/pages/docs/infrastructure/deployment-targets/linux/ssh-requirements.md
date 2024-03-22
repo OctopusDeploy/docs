@@ -60,7 +60,7 @@ Self-contained Calamari is built as a [.NET Core self-contained distributable](h
 
 ### Self-Contained .NET Core dependencies {#self-contained-net-core-dependencies}
 
-[.NET Core has some dependencies](https://github.com/dotnet/core/blob/main/Documentation/prereqs/) which must be installed on the target server.
+[.NET Core has some dependencies](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#dependencies) which must be installed on the target server.
 
 ## Calamari on Mono {#mono-calamari}
 
