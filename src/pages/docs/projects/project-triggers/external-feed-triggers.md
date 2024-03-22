@@ -13,7 +13,7 @@ Your existing [lifecycles](/docs/releases/lifecycles/) will then promote that re
 
 The details of these container images and Helm charts are already known in Octopus. This means we can use the registry locations, image names, chart names, and credentials to do this monitoring, without adding or maintaining this information anywhere else.
 
-## Getting started {#ExternalFeedTriggers-Gettingstarted}
+## Getting started {#ExternalFeedTriggers-GettingStarted}
 
 Navigate to your project’s triggers page by selecting Projects and clicking on the project you are working with. Click **Triggers** option on the left, under **Deployments**.  You are now presented with an empty triggers list.  
 
@@ -41,7 +41,7 @@ If you combine external feed triggers with the automatic deployment feature with
 
 ## Trigger sources
 
-Any container images or helm charts referenced in your project's deployment process can be selected to trigger release creation.  Feeds or packages referenced using variable substitution are also options here, however they will only be used by the trigger if they are both evaluated as either container/helm chart repositories, and do not use variable unavailable at release creation time.  For example, using an environment bame variable will not work, because that value is only available at deploy time.
+Any container images or helm charts referenced in your project's deployment process can be selected to trigger release creation.  Feeds or packages referenced using variable substitution are also options here, however they will only be used by the trigger if they are both evaluated as either container/helm chart repositories, and do not use variable unavailable at release creation time.  For example, using an environment name variable will not work, because that value is only available at deploy time.
 
 :::figure
 ![Package selection](/docs/projects/project-triggers/images/external-feed-trigger-packages.png)
@@ -59,7 +59,7 @@ When you are using external feed triggers there are a few reasons why a release 
 
 1. **Inspect the task list** for errors in the **Task** menu - Octopus will log the reason why external feed triggers failed as errors or warnings.  Note that external feed triggers are system tasks, and do not display in the list by default.  Use the **SHOW ADVANCED FILTERS** option and select **Include system tasks** to show them.
 
-2. Ensure you are pushing the package to a **supported external feed type**. While capability has been verified against most major docker providers, compatability is not guaranteed - please contact octopus support if you encounter any problems. 
+2. Ensure you are pushing the package to a **supported external feed type**. While capability has been verified against most major docker providers, compatibility is not guaranteed - please contact octopus support if you encounter any problems. 
 
 3. Ensure that packages in the external feed match the [channel rules](/docs/releases/channels#version-rules) if defined for the trigger's channel (or the default channel if your project doesn't have multiple channels).  **Triggers will only create a new release if the packages match channel rules.**
 
