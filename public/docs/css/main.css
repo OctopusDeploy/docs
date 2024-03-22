@@ -561,8 +561,8 @@ nav.skip-links a:focus {
 
 .docs-home {
   text-align: center;
-  margin-block-start: 10vh;
-  margin-block-end: 10vh;
+  margin-block-start: 5vh;
+  margin-block-end: 5vh;
 }
 
 /* card */
