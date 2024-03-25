@@ -23,24 +23,28 @@ An example of how deployment freezes could be used is:
 
 As deployment freezes are scoped to projects and environments, both projects and environments will need to be assigned to the freeze. This will ensure that projects and environments that are not frozen will still deploy.
 
-# Pre-requisites
+
+## Pre-requisites
 As a deployment freeze needs to be scoped to projects and environments, projects and environments will need to be created before a deployment freeze can be created.
 
-# Create a deployment freeze
+
+## Create a deployment freeze
 1. Navigate to **Configuration ➜ Deployment Freezes** and click **ADD DEPLOYMENT FREEZE**
 2. Enter a name for your deployment freeze
 3. Set a start and end time for your freeze
 4. Assign projects and environments to your freeze by clicking **ASSIGN SCOPE** and navigating through the wizard. At least 1 project and 1 environment per project must be selected to create a freeze.
 5. Save
 
-# Scoping deployment freezes
+
+## Scoping deployment freezes
 Deployment freezes can be scoped in the following ways:
 - Projects
 - Environments
 
 During deployment, Octopus will block deployments for projects to a certain environment if a freeze is scoped to that project and environment. For example, if a freeze is active and is assigned to Project A in Production, Project A will not be deployed to Production but can still be deployed to any other environment according to the lifecycle.
 
-# Permissions
+
+## Permissions
 To create and edit a deployment freeze, the DeploymentFreezeAdminister system permission is required. In addition, permissions will need to be scoped to all requested projects and environments when creating, editing or overriding a deployment freeze.
 
 For example, imagine a deployment freeze that applies to
@@ -49,10 +53,11 @@ For example, imagine a deployment freeze that applies to
 
 You will be allowed to view this deployment freeze on the **Deployment Freezes** page if your user doesn't have the DeploymentFreezeAdminister system permission. If your user has the DeploymentFreezeAdminister system permission and permissions scoped to the Car Rental project and Production environment, they will be able to view, edit and override this freeze.
 
-# Overriding a freeze
+
+## Overriding a freeze
 Following on from the example above, imagine a scenario where a deployment freeze is currently active for the Car Rental project to the Production environment. While the freeze is active, a developer discovers that there is a bug in the production code and a fix needs to be rolled out immediately. In this scenario, the freeze can be overridden to deploy the fix to Production even while the freeze is active. After the fix is deployed, the freeze will still be in place and behave as expected. 
 
-To override a freeze
+To override a freeze:
 - Navigate to the **Deploy A Release** page of your chosen project.
 - You should see an information box that shows the affected environments in the freeze
 - If you have the correct permissions, the Deploy button should be green.
@@ -68,9 +73,11 @@ To override a freeze
 ![Override a deployment freeze confirmation dialog](/docs/deployments/deployment-freeze-override-dialog-confirm.png)
 :::
 
-# Current limitations
+
+## Current limitations
 - Deployment freezes are not yet integrated with our [Executions API](https://octopus.com/blog/faster-deployments-with-the-executions-api).
 - Deployment freezes currently block [automatic deployments](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure/#ImmutableInfrastructure-Automaticallydeploying)
+
 
 ## Learn more
 
