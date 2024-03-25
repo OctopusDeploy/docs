@@ -1,14 +1,18 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2024-03-01
-modDate: 2024-03-01
+pubDate: 2024-03-25
+modDate: 2024-03-25
 title: Deployment freezes
 description: Deployment freezes allow you to pause deployments for a specified time range
 navOrder: 170
 ---
 
 :::div{.hint}
-Deployment freezes will be available from Octopus Deploy **2024.2**
+Deployment freezes will be available for early access from Octopus Deploy **2024.2**. Please contact michelle.obrien@octopus.com if you would like to turn this feature on.
+:::
+
+:::div{.hint}
+As this is an early access feature, we are aware of some flaws in the UI when assigning projects and environments to the deployment freeze. If you have feedback regarding this feature please contact michelle.obrien@octopus.com.
 :::
 
 Deployment freezes allow you to pause deployments across all spaces for a configured amount of time. This is useful when you want to prevent certain projects deploying to certain environments within a specific time frame. Without deployment freezes, you would need to manually disable specific projects or machines to stop the deployments. 
