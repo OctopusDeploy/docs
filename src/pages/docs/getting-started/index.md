@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-03-26
 title: Getting started
 subtitle: An overview of Octopus Deploy concepts
 navTitle: Overview
@@ -53,7 +53,7 @@ The first page you will see in Octopus is called the Dashboard. Initially yours 
 
 The Dashboard shows the three main building blocks of Octopus. 
 
-**[Projects](/docs/projects)** are the applications we deploy. In the image above, "Commerce API Service" and "Phoenix" are the projects. A project has all the information needed to deploy an application - or often, a really large system composed of many applications that are delivered at the same time. 
+**[Projects](/docs/projects)** are the applications we deploy. In the image above, "Database", "Product API", and "Shopping Cart API" are the projects. A project has all the information needed to deploy an application - or often, a really large system composed of many applications that are delivered at the same time. 
 
 **Environments** are where we deploy the applications. In this case, Dev, Test and Production. 
 
