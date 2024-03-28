@@ -23,12 +23,13 @@ Octopus will also show a snapshot (from the moment of deployment) of deployed ob
 
 Kubernetes Object status is available for these steps.
 
-* Deploy raw Kubernetes YAML
-* Deploy Kubernetes containers (except for the Blue/Green deployment strategy)
-* Deploy Kubernetes config map resource
-* Deploy Kubernetes secret resource
-* Deploy Kubernetes ingress resource
-* Deploy Kubernetes service resource
+* Deploy Kubernetes YAML
+* Deploy with Kustomize
+* Configure and apply Kubernetes resources (except for the Blue/Green deployment strategy)
+* Configure and apply a Kubernetes ConfigMap
+* Configure and apply a Kubernetes Secret
+* Configure and apply a Kubernetes Ingress
+* Configure and apply a Kubernetes Service
 
 Object status is disabled for all steps added before the feature was introduced and enabled by default in all the new steps added later.
 
