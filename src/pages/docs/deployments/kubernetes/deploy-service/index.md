@@ -1,17 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Deploy a service resource
-description: Deploy a service resource to a Kubernetes cluster.
+modDate: 2024-03-28
+title: Configure and apply a Kubernetes Service
+description: Configure and apply a Kubernetes Service.
 navOrder: 30
 ---
 
-[Service resources](https://oc.to/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Deploy Kubernetes service resource` steps can be used to configure and deploy a Service resource.
+Step was previously named `Deploy Kubernetes service resource`.
 
-:::figure
-![Deploy service step](/docs/deployments/kubernetes/deploy-service/deploy-service-step.png)
-:::
+[Service resources](https://oc.to/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Configure and apply a Kubernetes Service` steps can be used to configure and deploy a Service resource.
 
 ## Service name
 Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
