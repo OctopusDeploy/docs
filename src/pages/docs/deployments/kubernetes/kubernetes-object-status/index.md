@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-05-15
-modDate: 2023-05-15
+modDate: 2024-03-28
 title: Kubernetes Object Status  
 description: Kubernetes Object Status guide.
 navOrder: 5
