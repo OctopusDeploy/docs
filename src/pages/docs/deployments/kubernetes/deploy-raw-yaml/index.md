@@ -1,21 +1,23 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-07-28
-modDate: 2023-07-28
-title: Deploy Raw YAML
-description: Deploy Raw YAML to a Kubernetes cluster.
+modDate: 2024-03-28
+title: Deploy Kubernetes YAML
+description: Deploy Kubernetes YAML to a Kubernetes cluster.
 navOrder: 8
 ---
 
-Octopus supports the deployment of Kubernetes resources through the `Deploy Raw Kubernetes YAML` step.
+Step was previously named `Deploy Raw Kubernetes YAML`.
 
-This step allows you to configure Kubernetes manually, leveraging the full power of Octopus features to support your setup. 
+Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes YAML` step.
+
+This step lets you configure Kubernetes manually, leveraging the full power of Octopus features to support your setup. 
 This approach is more flexible and gives you complete control over the YAML but requires deeper knowledge of Kubernetes configuration.
 
 # YAML Sources
 
 You can source your YAML from three different sources:
-- Git Repository - *New!*
+- Git Repository
 - Package
 - Inline Script
 
@@ -43,7 +45,7 @@ In Octopus, when YAML is sourced from a Git repository, we call it a Git Manifes
 To configure a Git Repository source, select the `Git Repository` option as your YAML Source.
 
 :::figure
-![Deploy Raw Kubernetes YAML with a Git Manifest](/docs/deployments/kubernetes/deploy-raw-yaml/git-repository.png)
+![Deploy Kubernetes YAML with a Git Manifest](/docs/deployments/kubernetes/deploy-raw-yaml/git-repository.png)
 :::
  
 :::div{.hint}
@@ -58,7 +60,7 @@ You can specify the Package Feed and Package ID as well as a path or paths† to
 To configure a package source, select the `Package` option as your YAML Source.
 
 :::figure
-![Deploy Raw Kubernetes YAML with a Package](/docs/deployments/kubernetes/deploy-raw-yaml/package.png)
+![Deploy Kubernetes YAML with a Package](/docs/deployments/kubernetes/deploy-raw-yaml/package.png)
 :::
 
 †In 2023.3, sourcing from packages can take advantage of [Glob Patterns and Multiple Paths](/docs/deployments/kubernetes/deploy-raw-yaml#glob-patterns-and-multiple-paths).
@@ -71,7 +73,7 @@ You can create your YAML resources in the inline editor which will be saved in t
 To configure an inline YAML source, select the `Inline YAML` as your YAML Source, click `Add Source Code` and start writing!
 
 :::figure
-![Deploy Raw Kubernetes YAML with an Inline Script](/docs/deployments/kubernetes/deploy-raw-yaml/inline-yaml.png)
+![Deploy Kubernetes YAML with an Inline Script](/docs/deployments/kubernetes/deploy-raw-yaml/inline-yaml.png)
 :::
 
 :::div{.warning}
