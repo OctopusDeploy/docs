@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-07-28
 modDate: 2024-03-28
 title: Deploy Kubernetes YAML
-description: Deploy Kubernetes YAML to a Kubernetes cluster.
+description: Deploy Kubernetes YAML.
 navOrder: 8
 ---
 
