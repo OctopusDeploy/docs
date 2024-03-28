@@ -1,17 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Deploy an Ingress resource
-description: Deploy an ingress resource to a Kubernetes cluster.
+modDate: 2024-03-28
+title: Configure and apply a Kubernetes Ingress
+description: Configure and apply a Kubernetes Ingress.
 navOrder: 40
 ---
 
-[Ingress resources](https://oc.to/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
+Step was previously named `Deploy Kubernetes ingress resource`.
 
-:::figure
-![Deploy ingress step](/docs/deployments/kubernetes/deploy-ingress/deploy-ingress-step.png)
-:::
+[Ingress resources](https://oc.to/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
 
 ## Ingress name
 
