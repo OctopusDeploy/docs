@@ -1,11 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-03-28
 title: Deploy a Helm chart
 description: Deploy a Helm chart to a Kubernetes cluster.
 navOrder: 40
 ---
+
+Step was previously named `Upgrade a Helm Chart`.
 
 Helm Charts are like a package manager for Kubernetes applications, allowing users to reuse and share complex resource configurations.
 
@@ -13,7 +15,7 @@ Helm Charts are like a package manager for Kubernetes applications, allowing use
 
 You can source your Helm charts from two different sources:
 - Packages from Helm or OCI feeds
-- Git Repository - *New!*
+- Git Repository
 
 ### Helm feed
 A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/topics/chart_repository/). This repository is effectively just an HTTP server that houses an `index.yaml` which describes the charts available on that server. Octopus uses this index file to determine the available "packages" (Charts) and versions. A chart is a tarball that looks like `alpine-0.1.2.tgz` which for this example Octopus will interpret as having PackageID `alpine` and version `0.1.2`. There are various ways you can host a chart repository, including third-party tools like [ChartMuseum](https://github.com/chartmuseum/chartmuseum), [Artifactory](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories), [Cloudsmith](https://help.cloudsmith.io/docs/helm-chart-repository), or even hosting your own [static web server](https://helm.sh/docs/topics/chart_repository/#hosting-chart-repositories).
@@ -88,10 +90,6 @@ Since the [helm upgrade](https://docs.helm.sh/helm/#helm-upgrade) command provid
 
 :::div{.success}
 Remember that since the Kubernetes cluster connection context is available via the kubectl script step, any helm commands that you want to perform that don't fit into the existing helm upgrade step can easily be scripted as per usual.
-:::
-
-:::figure
-![Helm upgrade step](/docs/deployments/kubernetes/helm-update/step-card.png)
 :::
 
 ### Upgrade options
