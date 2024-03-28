@@ -1,21 +1,19 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Deploy to a Kubernetes cluster
-description: Deploy to a Kubernetes cluster.
+modDate: 2024-03-28
+title: Configure and apply Kubernetes resources
+description: Configure and apply Kubernetes resources.
 navOrder: 10
 ---
 
-Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes containers` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](https://oc.to/KubernetesDeploymentResource), a [Service resource](https://oc.to/KubernetesServiceResource), and an [Ingress resource](https://oc.to/KubernetesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
+Step was previously named `Deploy Kubernetes containers`.
 
-## Deploy Kubernetes containers step
+Octopus supports the deployment of Kubernetes resources through the `Configure and apply Kubernetes resources` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](https://oc.to/KubernetesDeploymentResource), a [Service resource](https://oc.to/KubernetesServiceResource), and an [Ingress resource](https://oc.to/KubernetesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
 
-To begin, add the `Deploy Kubernetes containers` step to a project.
+## Configure and apply Kubernetes resources step
 
-:::figure
-![Deploy Container Step](/docs/deployments/kubernetes/deploy-container/deploy-container-step.png)
-:::
+To begin, add the `Configure and apply Kubernetes resources` step to a project.
 
 This step has three important sections that make up the combined objects that are deployed to Kubernetes.
 
@@ -130,7 +128,7 @@ The first native deployment strategy is the [Recreate](https://oc.to/KubernetesR
 The second native deployment strategy is the [Rolling Update](https://oc.to/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time but can be performed in a way that results in no downtime.
 
 ### Blue/Green deployment strategy {#blue-green-deployment-strategy}
-The third deployment strategy, Blue/Green, is not a native concept in Kubernetes. It is a deployment strategy that is achieved by the `Deploy Kubernetes containers` step because it creates and coordinates both the Deployment resource and the Service resources.
+The third deployment strategy, Blue/Green, is not a native concept in Kubernetes. It is a deployment strategy that is achieved by the `Configure and apply Kubernetes resources` step because it creates and coordinates both the Deployment resource and the Service resources.
 
 The Blue/Green deployment strategy involves four phases.
 
@@ -844,7 +842,7 @@ metadata:
 
 When deploying a Kubernetes Deployment resource, it can be useful to have other Kubernetes resources tied to the Deployment resource lifecycle.
 
-The `Deploy Kubernetes containers` step already deploys ConfigMap and Secret resources in a tightly coupled fashion with their associated Deployment resource. Doing so means the containers in a Deployment resource can reliably reference a ConfigMap or Secret resource during an update, and will not be left in an inconsistent state where a new ConfigMap or Secret resource is referenced by an old Container resource.
+The `Configure and apply Kubernetes resources` step already deploys ConfigMap and Secret resources in a tightly coupled fashion with their associated Deployment resource. Doing so means the containers in a Deployment resource can reliably reference a ConfigMap or Secret resource during an update, and will not be left in an inconsistent state where a new ConfigMap or Secret resource is referenced by an old Container resource.
 
 Once a Deployment resource is fully deployed and healthy, these old ConfigMap and Secret resources are cleaned up automatically.
 
