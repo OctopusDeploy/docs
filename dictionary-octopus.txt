@@ -181,6 +181,7 @@ shiki
 SIEM
 signingkeys
 skiplinks
+snapshotting
 sourcedata
 speculationrules
 srcset
