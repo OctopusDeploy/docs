@@ -156,6 +156,24 @@ A Service Account Id will be shown, this will be a GUID which must be supplied a
 
 The access token obtained from the token exchange must be supplied in the `Authorization` header of API requests, using the `Bearer` scheme, for example `Authorization: Bearer {the-access-token}`.
 
+## Using the Octopus CLI with OIDC
+
+From version `2.1.0`, the [Octopus CLI](https://github.com/OctopusDeploy/cli) supports a new command `octopus login` which can be used to authenticate using OIDC, providing the Octopus Server URL, the id of the service account and the ID token from your OIDC provider. This can be used as part of your CI server workflows where you are using the CLI but currently provisioning an API key.
+
+After authenticating using OIDC, the `login` command will configure the CLI environment to be used.
+
+Usage:
+
+```
+octopus login --server {OctopusServerUrl} --service-account-id {ServiceAccountId} --id-token {IdTokenFromProvider}
+```
+
+For example:
+
+```
+octopus login --server https://my.octopus.app --service-account-id 834a7275-b5b8-42a1-8b36-14f11c8eb55e --id-token eyJhbGciOiJQUzI1NiIs...
+```
+
 ## Validation of OIDC identity tokens
 
 When an OIDC identity token from an external system is received as part of a token exchange request, Octopus will validate this token before issuing an access token. It does this by:
