@@ -2,11 +2,11 @@
 layout: src/layouts/Default.astro
 pubDate: 1000-01-01
 modDate: 1000-01-01
-title: Virtual Machines
-navTitle: Virtual Machines
-navSection: Virtual Machines
+title: GitOps with Octopus
+navTitle: GitOps with Octopus
+navSection: GitOps with Octopus
 description: TBC
-navOrder: 580
+navOrder: 40
 hideInThisSectionHeader: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
+pubDate: 1000-01-01
+modDate: 1000-01-01
 title: Concepts
 navTitle: Concepts
 navSection: Concepts

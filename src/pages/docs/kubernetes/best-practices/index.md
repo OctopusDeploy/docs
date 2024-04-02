@@ -2,11 +2,11 @@
 layout: src/layouts/Default.astro
 pubDate: 1000-01-01
 modDate: 1000-01-01
-title: Virtual Machines
-navTitle: Virtual Machines
-navSection: Virtual Machines
+title: Best Practices
+navTitle: Overview
+navSection: Best Practices
 description: TBC
-navOrder: 580
+navOrder: 20
 hideInThisSectionHeader: true
 ---
 

@@ -1,9 +1,9 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
+pubDate: 1000-01-01
+modDate: 1000-01-01
 title: Configuration
-navTitle: Configuration
+navTitle: Overview
 navSection: Configuration
 description: TBC
 navOrder: 530
