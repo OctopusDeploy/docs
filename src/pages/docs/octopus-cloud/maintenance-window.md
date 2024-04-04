@@ -32,7 +32,7 @@ Many of those tasks have guard clauses. For example, the Octopus Cloud Platform 
 It is important to note that most maintenance tasks do not start at the beginning of your maintenance window. The Octopus Cloud Platform hosts thousands of customer instances. Because of that, it performs maintenance tasks in bulk. When the Octopus Cloud Platform runs a maintenance task, your instance might be the first, somewhere in the middle, or at the end of the list of instances. In some cases, by the time the Octopus Cloud Platform finishes processing other instances, your maintenance window is about to end. When that happens, your instance is skipped and that task won't be processed until the next day. That typically happens when performing upgrades. 
 
 :::div{.hint}
-Upgrading an instance is the primary cause of outages on the Octopus Cloud Platform. The most noticeable impact of an outage is deployments, and runbook runs will fail. We are actively working on [Resilient Scalable Deployments](https://roadmap.octopus.com/c/95-alpha-program-resilient-scalable-deployments-in-octopus-cloud). Once completed, deployments and runbook runs will no longer fail when an instance is upgraded.  
+Upgrading an instance is the primary cause of outages on the Octopus Cloud Platform. The most noticeable impact of an outage is deployments and runbook runs will fail. We are actively working on [Resilient Scalable Deployments](https://roadmap.octopus.com/c/95-alpha-program-resilient-scalable-deployments-in-octopus-cloud) to allow the deployments and runbook runs to continue post-upgrade.  
 :::
 
 ## Taking your instance offline
