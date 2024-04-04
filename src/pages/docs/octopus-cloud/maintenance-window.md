@@ -51,3 +51,7 @@ You can let us know the best time for maintenance by setting the maintenance win
 3. Click **Configuration.**
 4. Scroll down to the **Outage Window** section.
 5. Select the time in UTC, providing a window of at least two hours and click **Save Outage window.**
+
+## How we communicate maintenance windows
+- **Routine maintenance:** During a regular maintenance window, a maintenance page will be displayed to users, and any requests to the API will return a 503 Service Unavailable status code
+- **Other maintenance:** There may be rare occasions outside of your normal maintenance window where we need to perform maintenance on your instance. Our Support team will contact you in these scenarios to coordinate the work.
