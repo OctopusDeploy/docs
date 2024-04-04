@@ -13,6 +13,8 @@ Each Octopus Cloud customer must set a two-hour daily maintenance window for the
 We DO NOT take your instance offline for two hours every day. Many, but not all, maintenance tasks are performed while the instance is online. At most, you might notice a performance impact.  Many maintenance tasks that require an outage can perform a significant number of steps while the instance is online.  The steps that require an outage typically only take a short time to complete.
 :::
 
+At a time of publishing this (April 2024), our maintenance tasks that require downtime average to 15 minutes per week. This is factored into our uptime [SLO](/docs/octopus-cloud/uptime-slo).
+
 ## During a Maintenance Window
 
 At the start of each window, an evaluation is performed to determine which maintenance operations need to be performed on each Octopus Cloud instance. There may be several operations that need to be performed in sequence on your instance during a single maintenance window.
