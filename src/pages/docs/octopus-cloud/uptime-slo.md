@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-05
 title: Octopus Cloud Uptime SLO
 navOrder: 50
 description: The uptime SLO for Octopus Cloud instances
