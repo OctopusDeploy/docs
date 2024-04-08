@@ -13,7 +13,7 @@ navOrder: 15
 We have renamed the feature and refreshed the UI, but it still works the same way behind the scenes.
 :::
 
-## Getting started {#BuiltInPackageRepositoryTriggers-Gettingstarted}
+## Getting started {#BuiltInPackageRepositoryTriggers-GettingStarted}
 
 If you use the [built-in Octopus package repository](/docs/packaging-applications/package-repositories), you can now select a package, that when uploaded it will automatically create a release.
 
@@ -55,7 +55,7 @@ You must select the [channels](/docs/releases/channels) that will be used for an
 - Choose the channel that will be used most commonly for automatically creating releases, and create releases manually for the other channels.
 - Try creating some releases manually for the selected channel to make sure it works as expected.
 
-## Automatically creating pre-releases {#BuiltInPackageRepositoryTriggers-Automaticallycreatingpre-releases}
+## Automatically creating pre-releases {#BuiltInPackageRepositoryTriggers-AutomaticallyCreatingPreReleases}
 
 When you push a package to your trigger step, Octopus will look for the latest available package for all other steps **excluding pre-release packages by default** - see [this thread](https://help.octopus.com/t/arc-not-working-with-pre-release-builds/3646) for background.
 
@@ -75,7 +75,7 @@ When you are using built-in package repository triggers there are many reasons w
 
 5. Ensure you are pushing a **new version** of the package - Octopus will not create a release where the package has already been used for creating a release.
 
-6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the section above on [automatically creating pre-releases](#BuiltInPackageRepositoryTriggers-Automaticallycreatingpre-releases).
+6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the section above on [automatically creating pre-releases](#BuiltInPackageRepositoryTriggers-AutomaticallyCreatingPreReleases).
 
 7. Ensure the release creation package step **DOES NOT use variables for the PackageId** - Octopus will only create a release where the package is constant.
 
@@ -83,7 +83,7 @@ When you are using built-in package repository triggers there are many reasons w
 
 9. When using Channels the package **must satisfy the version rules** for the Channel being used for the built-in package repository trigger - try creating some releases manually.
 
-10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](#BuiltInPackageRepositoryTriggers-Automaticallycreatingpre-releases).
+10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](#BuiltInPackageRepositoryTriggers-AutomaticallyCreatingPreReleases).
 
 11. Ensure the account pushing the package has the required permissions for **each** of the **Projects** and **Environments** that will be involved in creating (and potentially deploying) the release. Consider which of the following permissions may be required depending on your circumstances:
 
