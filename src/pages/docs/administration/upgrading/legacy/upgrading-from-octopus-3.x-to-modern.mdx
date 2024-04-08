@@ -111,7 +111,7 @@ Creating a clone of an existing instance involves:
 
 Cloning an instance includes cloning all certificates.  Assuming you are not using polling Tentacles, all the deployments will "just work."  That is by design if the VM hosting Octopus Deploy is lost and you have to restore Octopus Deploy from a backup.  
 
-Just working does have a downside, as you might have triggers, auto release creation, and other items configured.  These items could potentially perform deployments.  You can run this SQL Script on your cloned instance to disable everything.
+Just working does have a downside, as you might have triggers and other items configured.  These items could potentially perform deployments.  You can run this SQL Script on your cloned instance to disable everything.
 
 ```sql
 Use [OctopusDeploy]

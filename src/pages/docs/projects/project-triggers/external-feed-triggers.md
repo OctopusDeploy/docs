@@ -29,7 +29,7 @@ Enter a name and description for your trigger.  The name should be short, memora
 
 If your project contains multiple [channels](/docs/releases/channels), you have the option of selecting which channel this trigger will apply to.  Any pushed packages must satisfy the selected channel's [versioning rules](/docs/releases/channels#version-rules) to trigger a release creation. The releases created by the trigger will use this channel.
 
-Unlike the existing [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation) feature, you can create multiple external feed triggers per channel.  This can enable you to, for example, have your external container dependencies in a separate trigger to that used for your internal container dependencies.
+Unlike the existing [built-in package repository triggers](/docs/projects/project-triggers/built-in-package-respository-triggers) (formerly Automatic Release Creation), you can create multiple external feed triggers per project. This can enable you to automatically create releases for multiple channels.
 
 :::figure
 ![Channel selection](/docs/projects/project-triggers/images/external-trigger-channel.png)

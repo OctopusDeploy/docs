@@ -28,12 +28,14 @@ When you create a release, you must enter or choose the following items:
 Let the CI, or Build Server, create the release after uploading the package you wish to deploy.  The build server knows when it has finished uploading the package, along with other important information, such as the current branch, was the build triggered by a pull request, and more.  
 
 :::div{.hint}
-Octopus Deploy provides [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) functionality.  That monitors a specific package in the built-in package repository.  It automatically creates a release when a new package version is pushed.
+Octopus Deploy provides [built-in package repository](/docs/projects/project-triggers/built-in-package-respository-triggers) and [external feed](/docs/projects/project-triggers/external-feed-triggers) triggers. These triggers will automatically create a release when a new package version is pushed.
 
-That has the following limitations:
-- Only works for the built-in repository.
-- The order the build server pushes the packages becomes very important, as you'll have to configure Automatic Release Creation to monitor the last package pushed by the build server.  That makes the build server and Octopus Deploy more tightly coupled.
-- You are required to pre-select a channel when configuring Automatic Release Creation.  Creating a release automatically for another channel is possible but will require the build server or other tool to be configured.
+Release creation triggers have the following limitations:
+
+- Only the built-in package repository, container image and helm feeds are currently supported.
+- The order the build server pushes the packages can be very important when there are multiple involved, as you'll have to configure the trigger to monitor the last package pushed by the build server. That makes the build server and Octopus Deploy more tightly coupled.
+- Built-in package repository triggers have a limit of one per project.
+
 :::
 
 ## Updating a release
