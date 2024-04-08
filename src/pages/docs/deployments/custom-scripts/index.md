@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-11-01
 title: Custom scripts
 description: Custom scripts allows you to script anything you want using PowerShell, ScriptCS, F#, Python, or Bash.
-navOrder: 120
+navOrder: 150
 ---
 
 As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as configuring common types of applications and deploying them to popular hosting environments. For these situations, we have built everything you need into Octopus. Sometimes, however, you need to do more than the built-in conventions support, and that's where custom scripts come in.

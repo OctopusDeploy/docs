@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-03-22
 title: SSH target requirements
 description: Requirements for using SSH deployment targets with Octopus.
 navOrder: 15
@@ -60,7 +60,7 @@ Self-contained Calamari is built as a [.NET Core self-contained distributable](h
 
 ### Self-Contained .NET Core dependencies {#self-contained-net-core-dependencies}
 
-[.NET Core has some dependencies](https://github.com/dotnet/core/blob/main/Documentation/prereqs/) which must be installed on the target server.
+[.NET Core has some dependencies](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#dependencies) which must be installed on the target server.
 
 ## Calamari on Mono {#mono-calamari}
 

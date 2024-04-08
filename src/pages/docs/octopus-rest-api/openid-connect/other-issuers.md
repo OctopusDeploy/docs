@@ -25,11 +25,11 @@ The first step is to create an OIDC identity for your issuer to access the Octop
 5. Enter the URL of the identity. Octopus uses OpenID Configuration Discovery to validate the OIDC token provided by the issuer.
    1. The issuer URL must be HTTPS.
    2. The URL should be the base where the OIDC Discovery endpoint (`/.well-known/openid-configuration`) endpoint can be found. For example if the discovery endpoint is `https://my-oidc-issuer.com/.well-known/openid-configuration` then the issuer should be set to `https://my-oidc-issuer.com`.
-6. Enter the subject of the identity. This must match exactly the subject that is provided in the OIDC token and is _case-sensitive_. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
+6. Enter the subject of the identity. This must match the subject that is provided in the OIDC token and is _case-sensitive_, wildcards for matching multiple characters `*` and single characters `?` can be used. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
 7. Click Save.
 
 :::div{.hint}
-Currently there is no support for wildcards when configuring the subject of an identity, support for this may be available in a future version of Octopus.
+Support for wildcards when matching a subject is available from Octopus 2024.1. To match multiple characters in a subject use `*`, and to match a single character use `?`.
 :::
 
 :::div{.hint}
