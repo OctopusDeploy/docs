@@ -1,7 +1,7 @@
-  ---
+---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-10
 title: Community step templates
 description: How to take advantage of step templates contributed by the Octopus community.
 navOrder: 50
