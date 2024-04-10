@@ -1,4 +1,4 @@
----
+  ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
@@ -78,7 +78,7 @@ If you run into any problems with a community step template, don't worry - [we a
 
 Our community step templates live in our [Library repository](https://github.com/OctopusDeploy/Library) on GitHub. If you're familiar with GitHub, you can raise an [issue](https://github.com/OctopusDeploy/Library/issues), and a member of the Octopus team will triage the issue and work with you to get the issue resolved. 
 
-In addition, as the code is open-source, you can also submit a [pull request](https://github.com/OctopusDeploy/Library/pulls) to fix an issue. We have [contributing guidelines](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING/) that we recommend reading before submitting a change.
+In addition, as the code is open-source, you can also submit a [pull request](https://github.com/OctopusDeploy/Library/pulls) to fix an issue. We have [contributing guidelines](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) that we recommend reading before submitting a change.
 
 ## Security 
 
