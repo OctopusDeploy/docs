@@ -81,6 +81,7 @@ hyperthreading
 IMDS
 inetmgr
 inetsrv
+inkey
 internalcustomer
 Istio
 istioctl
@@ -90,7 +91,9 @@ itemtype
 ITSM
 jwks
 keyrings
+kubeconfig
 Kubelet
+kubelogin
 kustomization
 kustomize
 lastmod
@@ -161,6 +164,7 @@ rehype
 reindexing
 releaseprogression
 remoting
+replicasets
 reprioritize
 reprovisioned
 reprovisioning
