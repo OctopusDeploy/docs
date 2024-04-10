@@ -55,7 +55,7 @@ A subscription with the filters:
 That filter is translated to look for events where the category is Deployment Started AND for the environments Staging OR Production AND for the project Hello World.  
 :::
 
-You can read more about getting started with notifications in our [Getting Started guide](docs/getting-started/best-practices/notifications).
+You can read more about getting started with notifications in our [Getting Started guide](/docs/getting-started/best-practices/notifications).
 
 :::div{.hint}
 **Dates and Timezone**
