@@ -158,7 +158,7 @@ The `Elytron server SSL context name` defines the name of the Elytron SSL Contex
 :::
 
 :::div{.hint}
-You can find more information of the Elytron subsystem components in the [WildFly documentation](https://docs.jboss.org/author/display/WFLY/Using+the+Elytron+Subsystem#UsingtheElytronSubsystem-onewayapps).
+You can find more information of the Elytron subsystem components in the [WildFly documentation](https://docs.jboss.org/author/display/WFLY/Elytron%20Subsystem.html).
 :::
 
 ## Configuration file backups
