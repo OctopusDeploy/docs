@@ -16,6 +16,7 @@ Bento
 bootstrap
 bootstrapped
 bootstrapper
+changeit
 childelement
 choco
 cicd
@@ -54,6 +55,7 @@ dockerhub
 DONTVALIDATEPATH
 dpkg
 Dspring
+Elyton
 emptytitle
 Fargate
 feedcred
