@@ -113,7 +113,7 @@ While we make every effort to ensure events are only ever sent *once* to a given
 :::
 
 
-## Event visibility and permissions {#Subscriptions-EventVisibilityandPermissions}
+## Event visibility and permissions {#Subscriptions-Event-Visibility-and-Permissions}
 
 Because certain teams may be restricted to only see certain events, subscriptions give you the ability to scope to one or more teams. Teams may be restricted to certain criteria, such as project(s) and/or environment(s). Combine these restrictions with team roles and you can successfully control which events get seen for a given subscription. See more information on [Managing Users and Teams](/docs/security/users-and-teams/) as well as our [User Roles](/docs/security/users-and-teams/user-roles) documentation if you wish to learn more.
 
