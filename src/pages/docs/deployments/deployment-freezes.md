@@ -83,5 +83,5 @@ As this is an early access feature, we are aware of some flaws in the UI when as
 ## Learn more
 
 - [Projects](/docs/projects/)
-- [Environments](/docs/infrastructure/environments/index)
+- [Environments](/docs/infrastructure/environments)
 - Learn more about our concept of [Spaces](/docs/administration/spaces)
