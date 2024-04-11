@@ -13,10 +13,11 @@ We pride ourselves on making Octopus Deploy a secure product. The security and i
 
 This section provides information about the responsibility we take to provide a secure software product, and considerations for you as the host and administrator of your Octopus Deploy installation.
 
-Every year Octopus undergoes a security review conducted by a third-party company. The latest reports can be downloaded:
-- [cloud-security-review-2022.pdf](https://octopus.com/documents/cloud-security-review-executive-report-2022.pdf)
-- [octopus-security-review-2022.pdf](https://octopus.com/documents/octopus-security-review-executive-report-2022.pdf)
+## Our Certifications 
 
+Octopus Deploy is compliant with cybersecurity standards such as ISO27001 & SOC II. Every year Octopus undergoes a security review conducted by a third-party company. We also run several public bug bounty programs to encourage the security community to help us keep our customers safer. We are an active member of MITRE through its CVE program as a CNA, meaning that we're responsible for disclosing any vulnerabilities in our product to allow customers security teams to make informed decisions.
+
+A comprehensive overview of our security controls is available in our [Trust Centre](https://trust.octopus.com) where it is possible to request access to our certifications and penetration test reports, as well as other supporting documents and policies.
 
 We often hear from customers who want to know more about our security posture. We've performed a [self assessment against various industry-standard controls](/docs/security/caiq). Feel free to use this in any vendor assessments you need to perform.
 
