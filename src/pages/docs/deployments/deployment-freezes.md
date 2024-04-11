@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-25
-modDate: 2024-03-25
+modDate: 2024-04-10
 title: Deployment freezes
 description: Deployment freezes allow you to pause deployments for a specified time range
 navOrder: 170
@@ -83,5 +83,5 @@ As this is an early access feature, we are aware of some flaws in the UI when as
 ## Learn more
 
 - [Projects](/docs/projects/)
-- [Environments](/docs/infrastructure/environments/index)
+- [Environments](/docs/infrastructure/environments)
 - Learn more about our concept of [Spaces](/docs/administration/spaces)

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-10
 title: Custom step templates
 description: How to create reusable steps
 navOrder: 60
@@ -93,7 +93,7 @@ If you want to transport, backup, or share your custom step templates with the c
 Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopus.com/).
 
 :::div{.success}
-Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING/) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
+Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
 :::
 
 ## Linking custom step templates to community step templates
