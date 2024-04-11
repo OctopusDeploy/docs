@@ -19,25 +19,25 @@
 
 /docs/getting-started/index.md @steve-fenton-octopus
 
-# updates to the first deployment page are reviewed by team-user-onboarding
+# updates to the first deployment page are reviewed by team-product-growth
 
-/docs/getting-started/first-deployment/ @OctopusDeploy/team-user-onboarding
+/docs/getting-started/first-deployment/ @OctopusDeploy/team-product-growth
 
-# updates to the first kubernetes deployment page are reviewed by team-user-onboarding
+# updates to the first kubernetes deployment page are reviewed by team-product-growth
 
-/docs/getting-started/first-kubernetes-deployment.md @OctopusDeploy/team-user-onboarding
+/docs/getting-started/first-kubernetes-deployment.md @OctopusDeploy/team-product-growth
 
 # updates to the best practices page are reviewed by team-support
 
 /docs/getting-started/best-practices/ @OctopusDeploy/team-support
 
-# updates to the first runbook run page are reviewed by team-user-onboarding
+# updates to the first runbook run page are reviewed by team-product-growth
 
-/docs/getting-started/first-runbook-run/ @OctopusDeploy/team-user-onboarding
+/docs/getting-started/first-runbook-run/ @OctopusDeploy/team-product-growth
 
-# updates to the managing octopus subscriptions page are reviewed by team-user-onboarding
+# updates to the managing octopus subscriptions page are reviewed by team-product-growth
 
-/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/team-user-onboarding
+/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/team-product-growth
 
 # updates to the samples instance page are reviewed by team-solutions
 
@@ -155,9 +155,9 @@
 
 /docs/octopus-cloud/index.mdx @OctopusDeploy/team-marketing
 
-# updates to the installation sections are reviewed by team-user-onboarding
+# updates to the installation sections are reviewed by team-product-growth
 
-/docs/installation/ @OctopusDeploy/team-user-onboarding
+/docs/installation/ @OctopusDeploy/team-product-growth
 
 # updates to the installation overview page are reviewed by team-marketing
 
@@ -403,9 +403,9 @@
 
 /docs/security/octopus-tentacle-communication/index.md @OctopusDeploy/team-server-at-scale
 
-# updates to the security authentication providers section are reviewed by team-user-onboarding
+# updates to the security authentication providers section are reviewed by team-product-growth
 
-/docs/security/authentication/ @OctopusDeploy/team-user-onboarding
+/docs/security/authentication/ @OctopusDeploy/team-product-growth
 
 # updates to the data encryption page are reviewed by team-productive-engineering
 
