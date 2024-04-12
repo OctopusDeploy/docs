@@ -16,6 +16,7 @@ Bento
 bootstrap
 bootstrapped
 bootstrapper
+changeit
 childelement
 choco
 cicd
@@ -54,6 +55,7 @@ dockerhub
 DONTVALIDATEPATH
 dpkg
 Dspring
+Elyton
 emptytitle
 Fargate
 feedcred
@@ -81,6 +83,7 @@ hyperthreading
 IMDS
 inetmgr
 inetsrv
+inkey
 internalcustomer
 Istio
 istioctl
@@ -90,7 +93,9 @@ itemtype
 ITSM
 jwks
 keyrings
+kubeconfig
 Kubelet
+kubelogin
 kustomization
 kustomize
 lastmod
@@ -161,6 +166,7 @@ rehype
 reindexing
 releaseprogression
 remoting
+replicasets
 reprioritize
 reprovisioned
 reprovisioning
