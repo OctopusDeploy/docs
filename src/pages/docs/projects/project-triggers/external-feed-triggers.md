@@ -31,7 +31,7 @@ If your project contains multiple [channels](/docs/releases/channels), you have 
 
 The versions used for those releases is guided by the [release versioning](/docs/releases/release-versioning) settings under **Deployments Settings**. They will use the rules defined there.
 
-Unlike the existing [built-in package repository triggers](/docs/projects/project-triggers/built-in-package-respository-triggers) (formerly Automatic Release Creation), you can create multiple external feed triggers per project. This can enable you to automatically create releases for multiple channels.
+Unlike the existing [built-in package repository triggers](/docs/projects/project-triggers/built-in-package-repository-triggers) (formerly Automatic Release Creation), you can create multiple external feed triggers per project. This can enable you to automatically create releases for multiple channels.
 
 :::figure
 ![Channel selection](/docs/projects/project-triggers/images/external-trigger-channel.png)

@@ -28,7 +28,7 @@ When you create a release, you must enter or choose the following items:
 Let the CI, or Build Server, create the release after uploading the package you wish to deploy.  The build server knows when it has finished uploading the package, along with other important information, such as the current branch, was the build triggered by a pull request, and more.  
 
 :::div{.hint}
-Octopus Deploy provides [built-in package repository](/docs/projects/project-triggers/built-in-package-respository-triggers) and [external feed](/docs/projects/project-triggers/external-feed-triggers) triggers. These triggers will automatically create a release when a new package version is pushed.
+Octopus Deploy provides [built-in package repository](/docs/projects/project-triggers/built-in-package-repository-triggers) and [external feed](/docs/projects/project-triggers/external-feed-triggers) triggers. These triggers will automatically create a release when a new package version is pushed.
 
 Release creation triggers have the following limitations:
 
