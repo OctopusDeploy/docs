@@ -20,7 +20,7 @@ If you use the [built-in Octopus package repository](/docs/packaging-application
 :::div{.warning}
 **Built-in repository only**
 
-This trigger only supports the [built-in package repository](/docs/packaging-applications/package-repositories). There is some support for external feeds using the [external feed triggers](/docs/external-feed-triggers).
+This trigger only supports the [built-in package repository](/docs/packaging-applications/package-repositories). There is some support for external feeds using the [external feed triggers](/docs/projects/project-triggers/external-feed-triggers).
 :::
 
 From the project's trigger tab, click **ADD TRIGGER**, and then select the **Built-in package repository**:
@@ -67,7 +67,7 @@ When you are using built-in package repository triggers there are many reasons w
 
 1. **Inspect the server logs** for warnings in **Configuration ➜ Diagnostics** - Octopus will log the reason why the automatic release creation failed as errors or warnings.
 
-2. Ensure you are pushing the package to the **built-in package repository** - use [external feed triggers](/docs/external-feed-triggers) if you are pushing packages to other feeds.
+2. Ensure you are pushing the package to the **built-in package repository** - use [external feed triggers](/docs/projects/project-triggers/external-feed-triggers) if you are pushing packages to other feeds.
 
 3. Ensure you have **configured the built-in package repository trigger** for the project based on the **correct package**.
 
