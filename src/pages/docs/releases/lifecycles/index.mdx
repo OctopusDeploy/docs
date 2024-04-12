@@ -121,14 +121,14 @@ The default lifecycle handles most cases for small or straightforward configurat
 When you create a new environment, it's automatically included in the default lifecycle. This also means that if you reorder the environments, the order of the phases will also change to match. These conventions can be helpful, but can sometimes lead to performance problems.
 
 :::div{.hint}
-Try to keep the number of environments in Octopus under ten. Having fewer environments keeps the number of phases in the default lifecyle low.
+Try to keep the number of environments in Octopus under ten. Having fewer environments keeps the number of phases in the default lifecycle low.
 :::
 
 We recommend updating the default lifecycle to define the phases you need. This makes configuring and maintaining your Octopus Server easier.
 
 In the next section, we look at configuring the default lifecycle to add your own phases.
 
-### Adding a phase to the default lifecyle
+### Adding a phase to the default lifecycle
 
 You can define your own phases for the default lifecycle. This helps to prevent having too many phases being added automatically. To add a new phase, in the default lifecycle, Click **ADD PHASE**. Here, we are creating a phase named **Development** and adding the Dev environment to the phase:
 

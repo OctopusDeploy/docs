@@ -126,7 +126,7 @@ $repositoryForSpace = $client.ForSpace($space)
 # Check to see if lifecycle already exists
 if ($null -eq $repositoryForSpace.Lifecycles.FindByName($lifecycleName))
 {
-    # Create new lifecyle
+    # Create new lifecycle
     $lifecycle = New-Object Octopus.Client.Model.LifecycleResource
     $lifecycle.Name = $lifecycleName
     $repositoryForSpace.Lifecycles.Create($lifecycle)
