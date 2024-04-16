@@ -46,6 +46,7 @@
   --black: #000000ff;
   --white: #ffffffff;
   --grey: #555555ff; /* #777777 is low contrast (WCAG) */
+  --grey-light: #eef0f2ff;
 
   --navy-600: #3e607dff;
   --navy-400: #7c98b4ff;

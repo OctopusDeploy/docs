@@ -72,37 +72,75 @@ const showPrevious = true;
 stats.stop();
 ---
 
-<div class="octo-article-nav">
-  <div class="grid">
-    {
-      showPrevious && previous && (
-        <div class="previous">
-          <div data-destination={previous.url}>
-            <span>Previous article</span>
-          </div>
-          <div>
-            <a href={previous.url} rel={previous.rel}>
-              {previous.title}
-            </a>
-          </div>
+<div class="article-journey">
+  {
+    showPrevious && previous && (
+      <a
+        href={previous.url}
+        rel={previous.rel}
+        class="article-journey__button article-journey__button--previous"
+        aria-label={`Previous article: ${previous.title}`}
+      >
+        <div class="article-journey__icon-wrapper">
+          <svg
+            class="article-journey__icon"
+            width="13"
+            height="22"
+            viewBox="0 0 13 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 20L11 11L2 2"
+              stroke="#0D80D8"
+              stroke-width="3.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
-      )
-    }
-    {
-      next && (
-        <div class="next">
-          <div data-destination={next.url}>
-            <span>Next article</span>
-          </div>
-          <div>
-            <a href={next.url} class="continue" rel={next.rel}>
-              {next.title}
-            </a>
-          </div>
+        <div class="article-journey__content">
+          <span class="article-journey__label">Previous article</span>
+          <span class="article-journey__title">{previous.title}</span>
         </div>
-      )
-    }
-  </div>
+      </a>
+    )
+  }
+  {
+    next && (
+      <a
+        href={next.url}
+        rel={next.rel}
+        class="article-journey__button article-journey__button--next"
+        aria-label={`Next article: ${next.title}`}
+      >
+        <div class="article-journey__content">
+          <span class="article-journey__label">Next article</span>
+          <span class="article-journey__title">{next.title}</span>
+        </div>
+        <div class="article-journey__icon-wrapper">
+          <svg
+            class="article-journey__icon"
+            width="13"
+            height="22"
+            viewBox="0 0 13 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 20L11 11L2 2"
+              stroke="#0D80D8"
+              stroke-width="3.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </a>
+    )
+  }
 </div>
 <!-- Chromium fix. See: https://www.stevefenton.co.uk/blog/2022/12/mobile-position-sticky-issue/ -->
 <div style="position: fixed;"></div>

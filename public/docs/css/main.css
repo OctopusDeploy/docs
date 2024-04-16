@@ -1210,67 +1210,61 @@ a[data-youtube] {
 
 /* Article Journey */
 
-.octo-article-nav {
-  background: var(--white);
-  box-shadow: var(--box-shadow);
-  margin-block-start: 4rem;
-  padding: 1rem;
+.article-journey {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--grid-gap);
+  justify-content: space-between;
 }
 
-.octo-article-nav .grid {
-  display: grid;
-  grid-gap: var(--grid-gap);
-  grid-template-columns: 1fr 1fr;
-  max-width: var(--grid-max-width);
-  margin: 0 auto;
-  width: var(--content-width);
-  color: var(--blue-gray-darker);
-}
-
-.octo-article-nav .grid div > div:first-child {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: var(--font-size-large);
-}
-
-.octo-article-nav .previous {
-  text-align: start;
-}
-
-.octo-article-nav .previous span:before {
-  content: '\f137';
-  /* Circle Chevron Left */
-  font-family: fa-solid;
-  padding-inline-end: 0.6em;
-  color: var(--octo-blue);
-}
-
-.octo-article-nav .next {
-  text-align: end;
-}
-
-.octo-article-nav .next span:after {
-  content: '\f138';
-  /* Circle Chevron Right */
-  font-family: fa-solid;
-  padding-inline-start: 0.6em;
-  color: var(--octo-blue);
-}
-
-.octo-article-nav a {
+.article-journey__button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   text-decoration: none;
 }
 
-@media (max-width: 860px) {
-  .octo-article-nav .grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
+.article-journey__button--previous .article-journey__icon {
+  transform: rotate(180deg);
+}
 
-  .octo-article-nav .previous,
-  .octo-article-nav .next {
-    text-align: center;
-  }
+.article-journey__button--next {
+  margin-left: auto;
+}
+
+.article-journey__button--next .article-journey__content {
+  text-align: right;
+}
+
+.article-journey__icon {
+  flex-shrink: 0;
+}
+
+.article-journey__icon-wrapper {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background: var(--grey-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-journey__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-journey__label {
+  color: var(--blue-grey-dark);
+  font-size: var(--font-size-medium);
+  font-weight: 400;
+}
+
+.article-journey__title {
+  color: var(--blue-grey-dark);
+  font-size: var(--font-size-large);
+  font-weight: 700;
 }
 
 /* Related articles */
