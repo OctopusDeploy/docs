@@ -91,7 +91,7 @@ deploy:
   deploy_release: false
   server: https://myoctopus.acme.corp
   api_key:
-    secure: 8PgmblIvjjj7jr4ZxOdZ9ADT+PeBCF6+PqRcf6PZ4A=
+    secure: YOUR-API-KEY
   project: AcmeWeb
   deploy_wait: false
 ```
