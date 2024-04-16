@@ -7,6 +7,7 @@ ASPNET
 aspnetcore
 astro
 astrojs
+auditability
 augeas
 auths
 autodeployoverride
@@ -59,11 +60,13 @@ Elyton
 emptytitle
 Fargate
 feedcred
+Feedz.io
 fieldset
 figcaption
 FIPS
 frontmatter
 gcloud
+getenv
 gifs
 globbing
 googleaccount
@@ -105,6 +108,7 @@ lifecycles
 linecap
 linejoin
 linkerd
+Linq
 ltsc
 maintenanceconfiguration
 majeure
@@ -116,6 +120,7 @@ MITM
 Moines
 mozjpeg
 mozroots
+msbuild
 msiexec
 MTTR
 myapplication
@@ -155,6 +160,7 @@ podannotation
 prerender
 prerenderingchange
 printfn
+Println
 PROGRAMFILES
 pwsh
 pycryptodome
@@ -187,6 +193,7 @@ shiki
 SIEM
 signingkeys
 skiplinks
+snapshotted
 snapshotting
 sourcedata
 speculationrules
@@ -202,6 +209,7 @@ tagset
 templateid
 templating
 tenanttype
+testoctopusdemos.app
 TFVC
 thepassword
 tmpfs
@@ -236,6 +244,6 @@ xvzf
 YOURAPIKEY
 octopusbob
 servername
-octopusdemos
+octopusdemos.app
 sqlcmd
 sqlvolume
