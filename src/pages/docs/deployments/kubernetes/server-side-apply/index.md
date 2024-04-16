@@ -14,7 +14,7 @@ Octopus supports Server-Side Apply for all of our Kubernetes steps.
 You can find the settings under the **Additional Configuration Options** section of the step in the process editor.
 
 :::figure
-![Server-Side Apply configuration options](/docs/deployments/kubernetes/server-side-apply/server-side-apply-configuration-options.gif)
+![Server-Side Apply configuration options](/docs/deployments/kubernetes/server-side-apply/server-side-apply-configuration-options.png)
 :::
 
 When using SSA, there is a risk of [conflicts](https://kubernetes.io/docs/reference/using-api/server-side-apply/#conflicts) blocking deployments. These can be dealt with manually or ignored with the `--force-conflicts` flag.
