@@ -14,13 +14,13 @@ Octopus supports Server-Side Apply for all of our Kubernetes steps.
 You can find the settings under the **Additional Configuration Options** section of the step in the process editor.
 
 :::figure
-![Server-Side Apply configuration options](/docs/deployments/kubernetes/server-side-apply/server-side-apply-configuration-options.png)
+![Server-Side Apply configuration options](/docs/deployments/kubernetes/server-side-apply/server-side-apply-configuration-options.gif)
 :::
 
 When using SSA, there is a risk of [conflicts](https://kubernetes.io/docs/reference/using-api/server-side-apply/#conflicts) blocking deployments. These can be dealt with manually or ignored with the `--force-conflicts` flag.
-Turn this option off if you need conflict errors to propagate back, and prefer to manually deal with them.
+Turn this option off if you need conflict errors to propagate back and prefer to deal with them manually.
 
-Running `kubectl apply` with SSA is the [recommended](https://kubernetes.io/blog/2022/10/20/advanced-server-side-apply/) way to apply your Kubernetes configuration. As such, it is enabled by default on all new Kubernetes steps you create.
+Running `kubectl apply` with SSA is the [recommended](https://kubernetes.io/blog/2022/10/20/advanced-server-side-apply/) way to apply your Kubernetes configuration. As such, all new Kubernetes steps you create have it enabled by default.
 
 :::div{.info}
 To minimize disruptions to your current workflows, Octopus won't enable SSA for any steps you created before Octopus `2024.2`. You can still use SSA by manually enabling the option for these steps.
