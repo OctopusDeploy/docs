@@ -7,7 +7,7 @@ description: External feed triggers allow you to automatically create a new rele
 navOrder: 12
 ---
 
-By configuring your Octopus project with container dependencies, you can now create triggers that watch those repositories for new packages pushed by your build tool. Based on tags and version rules, triggers detect if an image appears that is later than the image used in your previous release. Octopus then automatically creates a new release with all the latest container images or Helm Chart dependencies.
+By configuring your Octopus project with container dependencies, you can now create triggers that watch those repositories for new packages, container images and Helm charts pushed by your build tool. This feature enables pull-driven deployments for Kubernetes steps. Based on tags and version rules, triggers detect if an image appears that is later than the image used in your previous release. Octopus then automatically creates a new release with all the latest container images or Helm Chart dependencies.
 
 Your existing [lifecycles](/docs/releases/lifecycles/) will then promote that release through your [environments](/docs/infrastructure/environments) or [tenants](/docs/tenants), just like it does currently. If your lifecycle uses automatic release progression, then you've just set up a Continuous Delivery pipeline without explicitly letting Octopus know about your application changes!
 
@@ -49,6 +49,24 @@ Please note that for [configuration as code](/docs/projects/version-control/conf
 :::figure
 ![Package selection](/docs/projects/project-triggers/images/external-feed-trigger-packages.png)
 :::
+
+
+## History
+
+The history section contains information about the last time the trigger was evaluated and the last release that was created by trigger. By default, triggers are evaluated every three minutes and results will be reported here.
+
+- Outcome: Tells us if there was any action taken, or if there was an error during processing.
+- Reason: Additional information about the outcome.
+- Last executed at: The time the task was run.
+- Discovered packages: A full list of watched packages, container images or Helm charts and the versions that were found in this execution.
+
+If the trigger has created a release, a link to the created release will be shown alongside the date it was created.
+
+:::figure
+![Trigger history](/docs/projects/project-triggers/images/external-feed-trigger-history.png)
+:::
+
+If required, more detailed information can be found in the system task logs.
 
 
 ## Advanced use cases
