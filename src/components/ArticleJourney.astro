@@ -72,7 +72,7 @@ const showPrevious = true;
 stats.stop();
 ---
 
-<div class="article-journey">
+<nav class="article-journey">
   {
     showPrevious && previous && (
       <a
@@ -141,7 +141,7 @@ stats.stop();
       </a>
     )
   }
-</div>
+</nav>
 <!-- Chromium fix. See: https://www.stevefenton.co.uk/blog/2022/12/mobile-position-sticky-issue/ -->
 <div style="position: fixed;"></div>
 <Fragment set:html={getSpeculationRules(speculationList)} />
