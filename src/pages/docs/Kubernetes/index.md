@@ -25,4 +25,10 @@ Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're
 ![Three screenshots from Octopus, showing the Google Cloud account configuration, Kubernetes deployment process, and a successful deployment to production.](/docs/deployments/kubernetes/image-octopus-gcp-kubernetes-2021-q3.png)
 :::
 
-## Get Started
+## Get started
+
+Octopus supports multiple approaches for deploying to Kubernetes. 
+
+ - Deploying a Helm Chart 
+ - Deploying Kubernetes YAML files
+ - Using a UI forms-based step
