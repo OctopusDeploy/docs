@@ -111,6 +111,11 @@ const showSearch = !isSearchPage;
               headings={headings}
               lang={lang}
             />
+            <ArticleJourney
+              frontmatter={frontmatter}
+              headings={headings}
+              lang={lang}
+            />
             {metaImage && <meta itemprop="image" content={metaImage.src} />}
           </div>
         </article>
@@ -125,7 +130,6 @@ const showSearch = !isSearchPage;
         />
       </div>
     </div>
-    <ArticleJourney frontmatter={frontmatter} headings={headings} lang={lang} />
     <Related frontmatter={frontmatter} headings={headings} lang={lang} />
     <Footer frontmatter={frontmatter} headings={headings} lang={lang}>
       <Copyright frontmatter={frontmatter} headings={headings} lang={lang} />
