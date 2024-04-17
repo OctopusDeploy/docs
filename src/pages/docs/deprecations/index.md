@@ -40,8 +40,8 @@ deprecated by Microsoft in favor of the Azure CLI or the Az Powershell modules.
 
 These modules were [deprecated by Microsoft](https://learn.microsoft.com/en-us/powershell/azure/azurerm-retirement-overview) (as of 29-February-2024
 
-AzureRm will remain available until July 2024 (albeit with an in-app warning), but will be required to move  to either `az cli` or the `az module for powershell` 
-for authentication thereafter.
+AzureRm will remain available until July 2024 (albeit with an in-app warning), but users will be required to move to either `az cli` or the `az module for powershell` 
+for Azure authentication thereafter.
 
 ## Deprecations for 2024.1
 
