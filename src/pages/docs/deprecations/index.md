@@ -38,7 +38,7 @@ Further notes about this pending change are mentioned in the [2024.1 deprecation
 The AzureRM Powershell modules were Microsoft’s way of integrating Powershell with Azure resources however this has since been 
 deprecated by Microsoft in favor of the Azure CLI or the Az Powershell modules.
 
-These modules were [deprecated by Microsoft](https://learn.microsoft.com/en-us/powershell/azure/azurerm-retirement-overview) (as of 29-February-2024
+These modules were [deprecated by Microsoft](https://learn.microsoft.com/en-us/powershell/azure/azurerm-retirement-overview) (as of 29-February-2024).
 
 AzureRm will remain available until July 2024 (albeit with an in-app warning), but users will be required to move to either `az cli` or the `az module for powershell` 
 for Azure authentication thereafter.
