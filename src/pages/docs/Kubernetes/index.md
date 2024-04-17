@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 1000-01-01
 modDate: 1000-01-01
 title: Kubernetes
-navTitle: Overview
+navTitle: Kubernetes
 navSection: Kubernetes
 description: Octopus Deploy provides support for deploying Kubernetes resources.
 navOrder: 570
@@ -31,4 +31,4 @@ Octopus supports multiple approaches for deploying to Kubernetes.
 
  - Deploying a Helm Chart 
  - Deploying Kubernetes YAML files
- - Using a UI forms-based step
+ - A UI-driven step that guides you through the Kubernetes configuration without requiring any YAML 
