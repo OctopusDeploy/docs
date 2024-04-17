@@ -128,13 +128,15 @@
   --color-trial: var(--blue-grey-medium);
   --bg-color-trial: var(--light-green);
 
+  --duration-default: 300ms;
+
   /* Search variables */
   --search-height: 3rem;
   --search-border-radius: calc(var(--search-height) / 2);
   --search-results-padding: 1rem;
   --search-border: 0.0625rem solid #76a1c2;
   --search-dropdown-height: 60vh;
-  --search-dropdown-duration: 0.3s;
+  --search-dropdown-duration: var(--duration-default);
   --navbar-icon-size: 3rem;
 
   /* Hamburger menu */
