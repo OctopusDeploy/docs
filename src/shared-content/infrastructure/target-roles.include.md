@@ -1,5 +1,9 @@
 [Getting Started - Machine Roles](https://www.youtube.com/watch?v=AU8TBEOI-0M)
 
+:::div{.info}
+**Target roles** are **target tags** from Octopus Deploy **2024.2** onwards. The functionality remains the same. This is only a name change to make our terminology clearer. No action is needed.
+:::
+
 Before you can deploy software to your deployment targets, you need to associate them with target tags. This ensures you deploy the right software to the right deployment targets. Typical target tags include:
 
 - web-server
