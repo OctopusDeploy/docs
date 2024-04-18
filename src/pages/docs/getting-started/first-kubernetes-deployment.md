@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-26
-modDate: 2023-10-26
+modDate: 2024-04-18
 title: First Kubernetes deployment
 description: This guide will walk you through how to configure your first deployment to Kubernetes in Octopus Deploy.
 navOrder: 10
