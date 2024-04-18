@@ -116,7 +116,7 @@ Worker Pools are groups of Workers. When a task is assigned to a Worker, the tas
 :::
 
 #### Target tags \{#on-behalf-of}
-[Target tags](/docs/infrastructure/deployment-targets#target-roles) select specific deployment targets in an environment. This step will run on all deployment targets with the tags you specify in this field.
+[Target tags](/docs/infrastructure/deployment-targets#target-roles) (formerly target roles) select specific deployment targets in an environment. This step will run on all deployment targets with the tags you specify in this field.
 
 5. Add a new target tag by typing it into the field. For this example, we'll use `k8s`.
 
