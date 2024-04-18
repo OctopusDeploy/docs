@@ -52,7 +52,7 @@ As a result, coupled with very low usage, Helm V2 support will be switched off i
 An official [Helm V2 to V3 migration guide](https://helm.sh/docs/topics/v2_v3_migration/) details migration to Helm V3. After upgrading Helm, you should update deployment process steps in Octopus to use Helm V3 rather than Helm V2.
 
 ### Azure Cloud Services (Classic)
-Azure has announced the sun setting of the original _Cloud Services_ resource, renamed _Cloud Services (Classic)_, with the [final retirement date set as August 31, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-cloud-services-classic). In a little over 6 months, teams still relying on this cloud service will be unable to deploy to them, with Octopus Deploy or otherwise.
+Azure has announced the sunsetting of the original _Cloud Services_ resource, renamed _Cloud Services (Classic)_, with the [final retirement date set as August 31, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-cloud-services-classic). In a little over 6 months, teams still relying on this cloud service will be unable to deploy to them, with Octopus Deploy or otherwise.
 
 In the lead-up, Octopus workloads using Azure Cloud Service Targets, Azure Cloud Service Steps, or Management Certificates in Octopus Deploy will start to see in-app and in-task warnings appear in Octopus Server `2024.1`. 
 
@@ -87,7 +87,7 @@ The same functionality is available via the `GET /runbooks/all` API endpoint, pa
 
 ### Reporting `/reporting/deployments-counted-by-week` API endpoint {#reporting-deployments-by-week}
 
-The `GET /reporting/deployments-counted-by-week` API endpoint is being removed in future versions of Octopus. None of our supported customers currently use this endpoint.
+The `GET /reporting/deployments-counted-by-week` API endpoint is being removed in future versions of Octopus. None of our supported clients currently use this endpoint.
 
 While there is no direct replacement for this endpoint, much more detailed reporting is available via the [Insights feature](https://octopus.com/docs/insights).
 
