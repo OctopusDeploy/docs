@@ -19,14 +19,14 @@ A runbook process can run steps, which include scripts, on the Octopus Server, a
 1. Change **Name** of the script to be "Run a script on deployment targets" for the script 
 1. Leave the **Enabled** check-box ticked.
 1. In the **Execution Location** section change the option to be **Run on each deployment target**.
-1. In the **On Target In Roles** section change the role to be `Hello-World`.
+1. In the **Target Tags** section change the tag to be `Hello-World`.
 
 :::figure
 ![Changing the script step to run on a deployment target](/docs/getting-started/first-runbook-run/images/run-script-on-deployment-target.png)
 :::
 
 :::div{.hint}
-Not all steps can run on deployment targets.  A step missing the option **On Target In Roles** indicates that step must run on the Octopus Server or a [on a worker](/docs/infrastructure/workers)
+Not all steps can run on deployment targets.  A step missing the option **Target Tags** indicates that step must run on the Octopus Server or a [on a worker](/docs/infrastructure/workers)
 :::
 
 11. Scroll down to the **Script**, select your script language of choice and enter the following script in the **Inline Source Code** section:
