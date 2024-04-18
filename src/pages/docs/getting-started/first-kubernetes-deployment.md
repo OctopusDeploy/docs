@@ -116,7 +116,7 @@ Worker Pools are groups of Workers. When a task is assigned to a Worker, the tas
 :::
 
 #### Target tags \{#on-behalf-of}
-Target tags select specific deployment targets in an environment. This step will run on all deployment targets with the tags you specify in this field.
+[Target tags](/docs/infrastructure/deployment-targets#target-roles) select specific deployment targets in an environment. This step will run on all deployment targets with the tags you specify in this field.
 
 5. Add a new target tag by typing it into the field. For this example, we'll use `k8s`.
 
@@ -304,7 +304,7 @@ Wherever you’re deploying your software, these machines and services are known
 4. Select **Development**, **Staging**, and **Production** from the dropdown list.
 
 #### Target tags \{#target-roles}
-5. Type in the same target tag you provided while configuring the **Deploy raw Kubernetes YAML** step, for example `k8s`.
+5. Type in the same [target tag](/docs/infrastructure/deployment-targets#target-roles) you provided while configuring the **Deploy raw Kubernetes YAML** step, for example `k8s`.
 
 The target tag won’t be available to select from the dropdown list yet, because it gets created during this step.
 
