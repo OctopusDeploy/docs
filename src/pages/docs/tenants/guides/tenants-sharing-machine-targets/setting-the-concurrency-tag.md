@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-08-21
-modDate: 2023-08-21
+modDate: 2024-04-19
 title: Setting the Concurrency Tag
 description: How to set the Task's Concurrency Tag to improve deployment efficiency
 navOrder: 60
