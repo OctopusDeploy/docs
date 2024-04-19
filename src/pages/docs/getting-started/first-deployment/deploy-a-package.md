@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-19
 title: Deploy a sample package
 description: Step by step guide on how to deploy a sample package Octopus Deploy
 navOrder: 80
