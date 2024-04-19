@@ -37,7 +37,7 @@ The deployment process from above targets the `hello-world-api` tag.  When a dep
 :::
 
 :::div{.hint}
-Assigning multiple target tags to a deployment step results in an OR statement.  For example, adding the target tag `octo-petshop-api` to the deployment process and deploying to the **development** enviornment will result in the filtering logic to be: 
+Assigning multiple target tags to a deployment step results in an OR statement.  For example, adding the target tag `octo-petshop-api` to the deployment process and deploying to the **development** environment will result in the filtering logic to be: 
 
 All servers in the **development** environment AND the servers with the target tags `hello-world-api` OR `octo-petshop-api`.  
 
