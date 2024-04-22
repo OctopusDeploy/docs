@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2024-03-04
 title: Kubernetes cluster
 description: How to configure a Kubernetes cluster as a deployment target in Octopus
-navOrder: 50
+navOrder: 60
 ---
 Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernetes) to define the context in which deployments and scripts are run.
 

@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Offline package drop
 description: Offline package drop deployment targets allow you to deploy your applications in the most restricted security environments where Tentacles cannot be used.
-navOrder: 60
+navOrder: 70
 ---
 
 The offline package drop deployment target makes it possible for Octopus to bundle all the files needed to perform a deployment to a deployment target, even when a direct connection to the deployment target isn't always possible, for instance, if a security policy, compliance control, or network topology make a direct connection impossible.
