@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-23
 title: Virtual hard drives
 description: VHD steps allow you to deploy a virtual hard drive and optionally attach it to a Hyper-V virtual machine.
 navOrder: 20
@@ -17,15 +17,7 @@ Octopus Deploy has built-in support for deploying Virtual Hard Drives. The featu
 
 To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
-:::figure
-![](/docs/deployments/windows/images/deploying-virtual-hard-drives-add-step.png)
-:::
-
 ## Configuring the step {#DeployingVirtualHardDrives-ConfiguringtheStep}
-
-:::figure
-![](/docs/deployments/windows/images/deploying-virtual-hard-drives-configure-step.png)
-:::
 
 ### Step 1: Select a package {#DeployingVirtualHardDrives-Step1-SelectaPackage}
 
