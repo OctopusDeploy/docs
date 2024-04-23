@@ -905,7 +905,7 @@ metadata:
 By creating each custom resource with a unique name and common labels, Octopus will ensure that a new resource is created with each deployment, and old resources are cleaned up. This means that the custom resources are tightly coupled to a Deployment resource, and can be treated as a single deployment.
 
 :::div{.success}
-To deploy resources that are not bound to the lifecycle of the Deployment resource, use an additional step such as the `Run a kubectl CLI Script` or `Deploy raw Kubernetes YAML` step.
+To deploy resources that are not bound to the lifecycle of the Deployment resource, use an additional step such as the `Run a kubectl script` or `Deploy Kubernetes YAML` step.
 :::
 
 ### Service
@@ -1008,7 +1008,7 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 :::div{.hint}
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fan-out pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](/docs/deployments/kubernetes/deploy-ingress) step.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fan-out pattern that shares a single load balancer. This can be achieved using the [Configure and apply a Kubernetes Ingress](/docs/deployments/kubernetes/deploy-ingress) step.
 
 On the other hand, the [NGINX Ingress Controller resource installation procedure](https://oc.to/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::
