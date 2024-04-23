@@ -3,6 +3,14 @@ We built Octopus Deploy with the core concept of consistency across all environm
 
 Knowing the underlying concept of Octopus Deploy is consistency; here are our project recommendations.
 
+## Set up projects as single units of deployment
+
+A project usually represents a single unit of deployment, such as a component, a service, or a database. 
+
+A unit of deployment is usually a single package that you will deploy independently. Heritage applications sometimes require multiple packages to be deployed at the same time, creating a larger and more interdependent unit of deployment. Octopus supports both these scenarios, though there are benefits to reducing the dependencies so you can perform smaller deployments.
+
+Aiming for small units of deployment reduces downtime, encourages the decoupling of components, and makes each deployment complete faster. It will also be easier to identify the source of any problems caused during a deployment if fewer components have changed.
+
 ## Deploy tightly coupled components together
 
 A component is considered tightly coupled when they depend on one another, and any changes made in one impact the others.  For example, consider a web application with a React front-end, a Web API back-end, and PostgreSQL database.  Those components are tightly coupled if adding a column to the database requires changing both the front-end and back-end. Not only that, the front-end and back-end will throw exceptions if the column isn't present in the database.  Tightly coupled components must be deployed in a specific order.

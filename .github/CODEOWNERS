@@ -19,25 +19,25 @@
 
 /docs/getting-started/index.md @steve-fenton-octopus
 
-# updates to the first deployment page are reviewed by team-user-onboarding
+# updates to the first deployment page are reviewed by team-product-growth
 
-/docs/getting-started/first-deployment/ @OctopusDeploy/team-user-onboarding
+/docs/getting-started/first-deployment/ @OctopusDeploy/team-product-growth
 
-# updates to the first kubernetes deployment page are reviewed by team-user-onboarding
+# updates to the first kubernetes deployment page are reviewed by team-product-growth
 
-/docs/getting-started/first-kubernetes-deployment.md @OctopusDeploy/team-user-onboarding
+/docs/getting-started/first-kubernetes-deployment.md @OctopusDeploy/team-product-growth
 
 # updates to the best practices page are reviewed by team-support
 
 /docs/getting-started/best-practices/ @OctopusDeploy/team-support
 
-# updates to the first runbook run page are reviewed by team-user-onboarding
+# updates to the first runbook run page are reviewed by team-product-growth
 
-/docs/getting-started/first-runbook-run/ @OctopusDeploy/team-user-onboarding
+/docs/getting-started/first-runbook-run/ @OctopusDeploy/team-product-growth
 
-# updates to the managing octopus subscriptions page are reviewed by team-user-onboarding
+# updates to the managing octopus subscriptions page are reviewed by team-product-growth
 
-/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/team-user-onboarding
+/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/team-product-growth
 
 # updates to the samples instance page are reviewed by team-solutions
 
@@ -67,9 +67,9 @@
 
 /docs/projects/built-in-step-templates/index.mdx @OctopusDeploy/team-modelling-at-scale
 
-# updates to the exporting and importing projects page are reviewed by team-productive-engineering
+# updates to the exporting and importing projects page are reviewed by team-backend-foundations
 
-/docs/projects/export-import/index.mdx @OctopusDeploy/team-productive-engineering
+/docs/projects/export-import/index.mdx @OctopusDeploy/team-backend-foundations
 
 # updates to the projects custom step templates page are reviewed by team-modelling-at-scale
 
@@ -155,9 +155,9 @@
 
 /docs/octopus-cloud/index.mdx @OctopusDeploy/team-marketing
 
-# updates to the installation sections are reviewed by team-user-onboarding
+# updates to the installation sections are reviewed by team-product-growth
 
-/docs/installation/ @OctopusDeploy/team-user-onboarding
+/docs/installation/ @OctopusDeploy/team-product-growth
 
 # updates to the installation overview page are reviewed by team-marketing
 
@@ -239,9 +239,9 @@
 
 /docs/deployments/certificates/index.md @OctopusDeploy/team-modelling-at-scale
 
-# updates to the deployments databases section are reviewed by team-productive-engineering
+# updates to the deployments databases section are reviewed by team-backend-foundations
 
-/docs/deployments/databases/ @OctopusDeploy/team-productive-engineering
+/docs/deployments/databases/ @OctopusDeploy/team-backend-foundations
 
 # updates to the deployments docker section are reviewed by team-cloud-platform
 
@@ -287,9 +287,9 @@
 
 /docs/runbooks/runbook-examples/index.md @OctopusDeploy/team-server-at-scale
 
-# updates to the tasks section are reviewed by team-productive-engineering
+# updates to the tasks section are reviewed by team-backend-foundations
 
-/docs/tasks/ @OctopusDeploy/team-productive-engineering
+/docs/tasks/ @OctopusDeploy/team-backend-foundations
 
 # updates to the tasks overview page are reviewed by team-marketing
 
@@ -315,25 +315,25 @@
 
 /docs/octopus-rest-api/index.mdx @OctopusDeploy/team-marketing
 
-# updates to the how to create an api key page are reviewed by team-productive-engineering
+# updates to the how to create an api key page are reviewed by team-backend-foundations
 
-/docs/octopus-rest-api/how-to-create-an-api-key.md @OctopusDeploy/team-productive-engineering
+/docs/octopus-rest-api/how-to-create-an-api-key.md @OctopusDeploy/team-backend-foundations
 
-# updates to the octopus client page are reviewed by team-productive-engineering
+# updates to the octopus client page are reviewed by team-backend-foundations
 
-/docs/octopus-rest-api/octopus.client/index.md @OctopusDeploy/team-productive-engineering
+/docs/octopus-rest-api/octopus.client/index.md @OctopusDeploy/team-backend-foundations
 
 # updates to the octopus command line sections are reviewed by team-modern-deployments
 
 /docs/octopus-rest-api/octopus-cli/ @OctopusDeploy/team-modern-deployments
 
-# updates to the API examples page are reviewed by team-productive-engineering
+# updates to the API examples page are reviewed by team-backend-foundations
 
-/docs/octopus-rest-api/examples/index.md @OctopusDeploy/team-productive-engineering
+/docs/octopus-rest-api/examples/index.md @OctopusDeploy/team-backend-foundations
 
-# updates to the octopus server command line page are reviewed by team-productive-engineering
+# updates to the octopus server command line page are reviewed by team-backend-foundations
 
-/docs/octopus-rest-api/octopus.server.exe-command-line/index.md @OctopusDeploy/team-productive-engineering
+/docs/octopus-rest-api/octopus.server.exe-command-line/index.md @OctopusDeploy/team-backend-foundations
 
 # updates to the octopus rest api tentacle exe command line page are reviewed by team-server-at-scale
 
@@ -343,13 +343,13 @@
 
 /docs/octopus-rest-api/calamari.md @OctopusDeploy/team-modern-deployments
 
-# updates to the octopus migrator command line page are reviewed by team-productive-engineering
+# updates to the octopus migrator command line page are reviewed by team-backend-foundations
 
-/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md @OctopusDeploy/team-productive-engineering
+/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md @OctopusDeploy/team-backend-foundations
 
-# updates to the migration api page are reviewed by team-productive-engineering
+# updates to the migration api page are reviewed by team-backend-foundations
 
-/docs/octopus-rest-api/migration-api/index.md @OctopusDeploy/team-productive-engineering
+/docs/octopus-rest-api/migration-api/index.md @OctopusDeploy/team-backend-foundations
 
 # updates to the octopus CLI sections are reviewed by team-modern-deployments
 
@@ -359,9 +359,9 @@
 
 /docs/octopus-rest-api/openid-connect/index.md @OctopusDeploy/team-github
 
-# updates to the administration section are reviewed by team-productive-engineering
+# updates to the administration section are reviewed by team-backend-foundations
 
-/docs/administration/ @OctopusDeploy/team-productive-engineering
+/docs/administration/ @OctopusDeploy/team-backend-foundations
 
 # updates to the administration overview page are reviewed by team-marketing
 
@@ -387,41 +387,41 @@
 
 /docs/security/hardening-octopus.mdx @OctopusDeploy/team-cloud-platform
 
-# updates to the exposing octopus page are reviewed by team-productive-engineering
+# updates to the exposing octopus page are reviewed by team-backend-foundations
 
-/docs/security/exposing-octopus/index.md @OctopusDeploy/team-productive-engineering
+/docs/security/exposing-octopus/index.md @OctopusDeploy/team-backend-foundations
 
-# updates to the outbound requests page are reviewed by team-productive-engineering
+# updates to the outbound requests page are reviewed by team-backend-foundations
 
-/docs/security/outbound-requests/index.md @OctopusDeploy/team-productive-engineering
+/docs/security/outbound-requests/index.md @OctopusDeploy/team-backend-foundations
 
-# updates to the http security headers page are reviewed by team-productive-engineering
+# updates to the http security headers page are reviewed by team-backend-foundations
 
-/docs/security/http-security-headers.md @OctopusDeploy/team-productive-engineering
+/docs/security/http-security-headers.md @OctopusDeploy/team-backend-foundations
 
 # updates to the security octopus tentacle communication page are reviewed by team-server-at-scale
 
 /docs/security/octopus-tentacle-communication/index.md @OctopusDeploy/team-server-at-scale
 
-# updates to the security authentication providers section are reviewed by team-user-onboarding
+# updates to the security authentication providers section are reviewed by team-product-growth
 
-/docs/security/authentication/ @OctopusDeploy/team-user-onboarding
+/docs/security/authentication/ @OctopusDeploy/team-product-growth
 
-# updates to the data encryption page are reviewed by team-productive-engineering
+# updates to the data encryption page are reviewed by team-backend-foundations
 
-/docs/security/data-encryption.md @OctopusDeploy/team-productive-engineering
+/docs/security/data-encryption.md @OctopusDeploy/team-backend-foundations
 
 # updates to the security built-in worker page are reviewed by team-server-at-scale
 
 /docs/security/built-in-worker.md @OctopusDeploy/team-server-at-scale
 
-# updates to the users and teams page are reviewed by team-productive-engineering
+# updates to the users and teams page are reviewed by team-backend-foundations
 
-/docs/security/users-and-teams/index.md @OctopusDeploy/team-productive-engineering
+/docs/security/users-and-teams/index.md @OctopusDeploy/team-backend-foundations
 
-# updates to the fips and octopus deploy page are reviewed by team-productive-engineering
+# updates to the fips and octopus deploy page are reviewed by team-backend-foundations
 
-/docs/security/fips-and-octopus-deploy.md @OctopusDeploy/team-productive-engineering
+/docs/security/fips-and-octopus-deploy.md @OctopusDeploy/team-backend-foundations
 
 # updates to the PCI compliance and octopus deploy page are reviewed by jburger
 
