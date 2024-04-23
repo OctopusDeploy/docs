@@ -1,13 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-07-28
-modDate: 2024-03-28
+modDate: 2024-04-23
 title: Deploy Kubernetes YAML
 description: Deploy Kubernetes YAML.
 navOrder: 8
 ---
 
-Step was previously named `Deploy Raw Kubernetes YAML`.
+:::div{.hint}
+`Deploy Raw Kubernetes YAML` was renamed to `Deploy Kubernetes YAML` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
+:::
 
 Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes YAML` step.
 
