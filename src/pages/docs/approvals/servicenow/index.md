@@ -219,7 +219,7 @@ The title must match the format **exactly**, including the double-quotes.
 
 ### Populating CR fields through Octopus
 
-To control the content of the CRs the variable `Octopus.ServiceNow.Field[snow_field]` can be set at the poject level. These are contributed to the create CR body as a dictionary allowing any field to be set.
+To control the content of the CRs the variable `Octopus.ServiceNow.Field[snow_field]` can be set at the project level. These are contributed to the create CR body as a dictionary allowing any field to be set.
 
 For example to set the `Assigned To` or `Short Description` fields you can use the following:
 
@@ -236,7 +236,7 @@ Setting a `Short Description` will over-ride the auto generated Octopus descript
 The expected ServiceNow value doesn't always align with the displayed value. In the case of `Assigned To` the value displayed is `Beth Anglin` but the expected value is the `User ID` in this case `beth.anglin`.
 :::
 
-For a full list of avaiable fields and values refer to the [ServiceNow docs](https://developer.servicenow.com/dev.do#!/reference/api/utah/rest/change-management-api).
+For a full list of available fields and values refer to the [ServiceNow docs](https://developer.servicenow.com/dev.do#!/reference/api/utah/rest/change-management-api).
 
 
 ### Respecting change windows
