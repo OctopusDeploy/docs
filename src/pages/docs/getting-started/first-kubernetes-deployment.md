@@ -87,16 +87,16 @@ The next step is creating your deployment process. This is where you define the 
 ![Deployment process page with a button to create the process.](/docs/getting-started/first-kubernetes-deployment/create-process.png)
 :::
 
-### Configure Deploy raw Kubernetes YAML step
+### Configure Deploy Kubernetes YAML step
 
-2. Select the **Kubernetes** filter and then click the **Deploy raw Kubernetes YAML** card.
+2. Select the **Kubernetes** filter and then add the **Deploy Kubernetes YAML** step.
 
 :::figure
 ![Kubernetes steps in the Octopus Deploy process editor.](/docs/getting-started/first-kubernetes-deployment/kubernetes-step.png)
 :::
 
 #### Step name
-You can leave this as the *default Deploy raw Kubernetes YAML*.
+You can leave this as the *default Deploy Kubernetes YAML*.
 
 #### Execution location
 This step will run once on a worker on behalf of each deployment target.
@@ -162,7 +162,7 @@ Since you don’t have a Docker Container Registry available yet, you need to ad
 ![A search interface in Octopus to test the Docker Hub repository.](/docs/getting-started/first-kubernetes-deployment/test-docker-feed.png)
 :::
 
-Close the window and return to configuring the **Deploy raw Kubernetes YAML** step.
+Close the window and return to configuring the **Deploy Kubernetes YAML** step.
 
 #### Container image
 7. Click **REFRESH** and select **Docker Hub** as your Container Registry.
@@ -220,7 +220,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 
 #### Git repository details
 14. Paste the token into Octopus's personal access token field.
-1. **Save** your Git credential and return to the **Deploy raw Kubernetes YAML** step.
+1. **Save** your Git credential and return to the **Deploy Kubernetes YAML** step.
 1. Click the refresh icon next to the **Select Git credential** dropdown.
 1. Select the Git credential you created earlier.
 
@@ -304,7 +304,7 @@ Wherever you’re deploying your software, these machines and services are known
 4. Select **Development**, **Staging**, and **Production** from the dropdown list.
 
 #### Target roles
-5. Type in the same target role you provided while configuring the **Deploy raw Kubernetes YAML** step, for example `k8s`.
+5. Type in the same target role you provided while configuring the **Deploy Kubernetes YAML** step, for example `k8s`.
 
 The target role won’t be available to select from the dropdown list yet, because it gets created during this step.
 
@@ -391,7 +391,7 @@ A release is a snapshot of the deployment process and the associated assets (Git
 ![Deployment overview page with no deployments.](/docs/getting-started/first-kubernetes-deployment/deployment-overview.png)
 :::
 
-You’ll see a summary of the Git resources you provided in the **Deploy raw YAML** step. 
+You’ll see a summary of the Git resources you provided in the **Deploy Kubernetes YAML** step. 
 
 :::figure
 ![Release summary showing Git resources](/docs/getting-started/first-kubernetes-deployment/release-summary.png)
