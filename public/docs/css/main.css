@@ -1253,7 +1253,7 @@ a[data-youtube] {
 .article-journey__button:focus-visible .article-journey__content,
 .article-journey__button:active .article-journey__content {
   transform: translateX(calc(var(--icon-translate-value) * -1));
-  color: var(--blue-gray-darker);
+  color: var(--header-link-alt);
 }
 
 .article-journey__button--previous .article-journey__icon {
@@ -1754,7 +1754,7 @@ a[data-youtube] {
 }
 
 .result-path__segment:last-child {
-  color: var(--blue-grey);
+  color: var(--color-menu-link-active);
 }
 
 .result-title {
