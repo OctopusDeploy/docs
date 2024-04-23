@@ -46,7 +46,7 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 :::div{.hint}
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fan-out pattern that shares a single load balancer.
 
 On the other hand, the [NGINX Ingress Controller resource installation procedure](https://oc.to/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::
