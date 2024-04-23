@@ -120,7 +120,7 @@ To enforce a deployment to require an approved CR, the **Change Controlled** set
 
 To enable a project to enforce a requirement for an approved CR:
 
-1. Navigate to the project and then **Settings ➜ General**.
+1. Navigate to the project and then **Settings ➜ ITSM Providers**.
 2. Check the **Jira Service Management Integration ➜ Change Controlled** setting.
 3. Select your JSM connection in the **Jira Service Management Connection** setting and click 
    **SAVE**.
