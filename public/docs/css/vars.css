@@ -45,13 +45,13 @@
   /* Theme colors */
   --black: #000000ff;
   --white: #ffffffff;
-  --grey: #555555ff; /* #777777 is low contrast (WCAG) */
-  --grey-light: #eef0f2ff;
 
+  --navy-700: #2e475dff;
   --navy-600: #3e607dff;
   --navy-400: #7c98b4ff;
   --navy-300: #a9bbcbff;
   --navy-200: #dae2e9ff;
+  --navy-100: #f4f6f8ff;
 
   --blue-500: #1a77ca;
   --blue-200: #cde4f7;
@@ -77,11 +77,17 @@
   --blue-grey-lighter: #557999ff;
   --blue-grey-smoke: #c5e6ff66;
 
+  --grey: #555555ff; /* #777777 is low contrast (WCAG) */
+  --grey-light: #eef0f2ff;
+  --grey-lighter: var(--navy-100);
+
   --font-size-xlarge: 24px;
   --font-size-large: 20px;
   --font-size-regular: 18px;
   --font-size-medium: 16px;
   --font-size-small: 14px;
+
+  --color-base-primary: var(--white);
 
   --color-text: var(--blue-midnight);
   --color-heading: var(--blue-grey-dark);
@@ -92,6 +98,7 @@
   --border-color-header: var(--navy-200);
 
   --color-menu-link: var(--navy-600);
+  --color-menu-link-active: var(--navy-700);
   --color-menu-link-alt: var(--blue-500);
   --color-menu-marker: var(--navy-300);
   --bg-color-menu: var(--blue-qqq);
@@ -137,6 +144,8 @@
   --search-border: 0.0625rem solid #76a1c2;
   --search-dropdown-height: 60vh;
   --search-dropdown-duration: var(--duration-default);
+  --search-placeholder-color: #173b56;
+  --search-remove-icon-color: #355670;
   --navbar-icon-size: 3rem;
 
   /* Hamburger menu */
@@ -212,4 +221,27 @@
 @media (prefers-color-scheme: dark) {
   :root {
   }
+}
+
+body[data-theme='dark'] {
+  --color-base-primary: #10202e;
+  --color-menu-link: var(--navy-300);
+  --color-menu-link-active: var(--navy-100);
+  --bg-color-menu: #0c1a24;
+  --bg-color-menu-open: var(--blue-grey-dark);
+  --border-color-menu-open: var(--blue-grey);
+  --header-bg: var(--blue-grey-dark);
+  --color-text: var(--white);
+  --color-heading: var(--white);
+  --color-subtitle: var(--white);
+  --body-link-alt: var(--white);
+  --search-placeholder-color: var(--navy-400);
+  /* --blue-midnight: var(--white);
+  --blue-grey-dark: var(--white);
+  --blue-grey-light: var(--white); */
+  --search-remove-icon-color: var(--white);
+  --grey-lighter: var(--blue-grey-dark);
+  --navy-200: #314c62;
+  --octo-blue: var(--octo-blue-lightest);
+  --border-color-header: var(--blue-grey);
 }

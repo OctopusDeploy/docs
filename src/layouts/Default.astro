@@ -65,7 +65,7 @@ const showSearch = !isSearchPage;
 
 <html dir={textDirection} lang={lang} class="initial">
   <Head frontmatter={frontmatter} headings={headings} lang={lang} />
-  <body>
+  <body data-theme="dark">
     <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
     <Header
       frontmatter={frontmatter}
@@ -74,7 +74,7 @@ const showSearch = !isSearchPage;
       showSearch={showSearch}
     />
     <div class="content-group">
-      <main id="site-main">
+      <main id="site-main test">
         <Breadcrumbs
           frontmatter={frontmatter}
           headings={headings}

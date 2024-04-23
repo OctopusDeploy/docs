@@ -3,6 +3,10 @@ import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
 import { Translations, Lang } from '@util/Languages';
 import { SITE } from '@config';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('octopus/components/Search.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -14,12 +18,13 @@ const _ = Lang(lang);
 
 // Logic
 const siteUrl = Astro.site ? Astro.site.href : '';
-const accelerator = new Accelerator(SITE);
 const search =
   accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
 const searchUrl =
   (search && accelerator.urlFormatter.formatAddress(search.url)) ||
   SITE.search.fallbackUrl;
+
+stats.stop();
 ---
 
 <div class="site-search__wrapper" data-site-search-wrapper>
@@ -40,6 +45,7 @@ const searchUrl =
         value={'site:' + siteUrl}
       />
       <svg
+        class="site-search__icon"
         xmlns="http://www.w3.org/2000/svg"
         width="20"
         height="19"
