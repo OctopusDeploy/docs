@@ -1,13 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-03-28
+modDate: 2024-04-23
 title: Configure and apply a Kubernetes Ingress
 description: Configure and apply a Kubernetes Ingress.
 navOrder: 40
 ---
 
-Step was previously named `Deploy Kubernetes ingress resource`.
+:::div{.hint}
+`Deploy Kubernetes ingress resource` was renamed to `Configure and apply a Kubernetes Ingress` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
+:::
 
 [Ingress resources](https://oc.to/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
 
