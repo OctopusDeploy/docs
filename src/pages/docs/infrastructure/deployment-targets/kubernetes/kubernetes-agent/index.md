@@ -2,9 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
 modDate: 2024-04-22
-title: Kubernetes agent
-description: How to configure a Kubernetes agent as a deployment target in Octopus
-navOrder: 50
+title: Kubernetes Agent
+description: How to configure a Kubernetes Agent as a deployment target in Octopus
+navOrder: 10
 ---
 Kubernetes Agent targets are a mechanism for executing [Kubernetes steps](/docs/deployments/kubernetes) for inside the target Kubernetes cluster.
 
