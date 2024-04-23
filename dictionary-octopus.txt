@@ -146,7 +146,6 @@ octopuslabs
 octopusservernodes
 octopustarget
 octopusvariable
-Octostash
 Octostache
 octoterra
 OIDC
