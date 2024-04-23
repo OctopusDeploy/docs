@@ -40,7 +40,7 @@ A LoadBalancer Service resource provides the same Cluster IP and Node Ports that
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
 :::figure
-![Loadbalancer](/docs/deployments/kubernetes/loadbalancer.svg)
+![Load balancer](/docs/deployments/kubernetes/loadbalancer.svg)
 :::
 
 ## Cluster IP address

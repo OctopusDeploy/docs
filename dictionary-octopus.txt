@@ -13,6 +13,7 @@ auths
 autodeployoverride
 awsaccount
 azureaccount
+azurefile
 Bento
 bootstrap
 bootstrapped
@@ -28,6 +29,7 @@ Cmdn
 combinational
 comms
 COMPUTERNAME
+configmap
 Conjur
 cooldown
 Cpath
@@ -63,6 +65,7 @@ feedcred
 Feedz.io
 fieldset
 figcaption
+Filestore
 FIPS
 frontmatter
 gcloud
@@ -123,6 +126,7 @@ mozjpeg
 mozroots
 msbuild
 msiexec
+mssqldb
 MTTR
 myapplication
 myfeature
@@ -140,19 +144,22 @@ Octo
 octobak
 Octopub
 octopusartifact
+octopusbob
+octopusdemos.app
 octopusdeploy
 octopusid
 octopuslabs
 octopusservernodes
 octopustarget
 octopusvariable
-Octostash
 Octostache
+Octostash
 octoterra
 OIDC
 onlylogs
 openon
 passout
+pemstore
 petclinic
 petshop
 PKCE
@@ -168,6 +175,9 @@ pycryptodome
 querystring
 quickstart
 QUOTENAME
+redeploy
+redeployment
+redeployments
 Redgate
 rehype
 reindexing
@@ -188,6 +198,8 @@ runbooks
 runtimes
 Schannel
 servedby
+servername
+serverstatus
 serviceaccount
 setspn
 shiki
@@ -198,8 +210,11 @@ snapshotted
 snapshotting
 sourcedata
 speculationrules
+sqlcmd
+sqlvolume
 srcset
-srcset
+statefulset
+statefulsets
 sthumb
 stylesheet
 subcontext
@@ -228,6 +243,7 @@ upgrader
 urlset
 useronboarding
 variablename
+vhdx
 Voltron
 WCAG
 webapps
@@ -235,8 +251,8 @@ webfonts
 webserver
 WEBSVR
 WFLYUT
-WIXUI
 Wildfly
+WIXUI
 workerpool
 workerpools
 workertools
@@ -244,8 +260,3 @@ xlarge
 xmark
 xvzf
 YOURAPIKEY
-octopusbob
-servername
-octopusdemos.app
-sqlcmd
-sqlvolume
