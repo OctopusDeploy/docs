@@ -1,13 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-03-28
+modDate: 2024-04-23
 title: Configure and apply a Kubernetes Service
 description: Configure and apply a Kubernetes Service.
 navOrder: 30
 ---
 
-Step was previously named `Deploy Kubernetes service resource`.
+:::div{.hint}
+`Deploy Kubernetes service resource` was renamed to `Configure and apply a Kubernetes Service` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
+:::
 
 [Service resources](https://oc.to/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Configure and apply a Kubernetes Service` steps can be used to configure and deploy a Service resource.
 
