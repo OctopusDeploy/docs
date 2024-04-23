@@ -134,7 +134,7 @@ To enable a project to enforce a requirement for an approved CR:
 ![ServiceNow Integration Project settings](/docs/approvals/servicenow/images/servicenow-cd-project-settings.png)
 :::
 
-### Standard, Normal and Emergency Changes
+### Standard, Normal, and Emergency Changes
 
 By default, deployments resulting in CR creation will produce a `Normal` change (i.e. one 
 requiring explicit approval).
