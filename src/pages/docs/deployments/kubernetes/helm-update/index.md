@@ -1,13 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-03-28
+modDate: 2024-04-23
 title: Deploy a Helm chart
 description: Deploy a Helm chart to a Kubernetes cluster.
 navOrder: 40
 ---
 
-Step was previously named `Upgrade a Helm Chart`.
+:::div{.hint}
+`Upgrade a Helm Chart` was renamed to `Deploy a Helm chart` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
+:::
 
 Helm Charts are like a package manager for Kubernetes applications, allowing users to reuse and share complex resource configurations.
 
