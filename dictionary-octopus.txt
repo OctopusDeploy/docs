@@ -1,5 +1,7 @@
 accounttest
 ALLUSERSPROFILE
+anglin
+Anglin
 apikey
 approot
 appsettings
