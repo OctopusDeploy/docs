@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-15
-modDate: 2024-04-15
+modDate: 2024-04-24
 title: Server-Side Apply
 description: Deploy Raw YAML to a Kubernetes cluster.
 navOrder: 80
