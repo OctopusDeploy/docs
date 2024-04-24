@@ -3,6 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-04-24
 title: Kubernetes
+navTitle: Overview
+navSection: Kubernetes
 description: Kubernetes deployment targets
 navOrder: 50
 ---

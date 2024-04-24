@@ -73,9 +73,9 @@ users:
 
 ## Add a Kubernetes target
 
-1. Navigate to **Infrastructure ➜ Deployment Targets**, and click **ADD DEPLOYMENT TARGET**.
-2. Select **KUBERNETES CLUSTER** and click **ADD** on the Kubernetes Cluster card.
-3. Enter a display name for the Kubernetes Cluster.
+1. Navigate to **Infrastructure ➜ Deployment Targets**, and click **Add Deployment Target**.
+2. Select **KUBERNETES API** and click **ADD** on the Kubernetes API card.
+3. Enter a display name for the Kubernetes API target.
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.
 5. Select at least one [target role](/docs/infrastructure/deployment-targets/#target-roles) for the target.
 6. Select the authentication method. Kubernetes targets support multiple [account types](https://oc.to/KubernetesAuthentication):
