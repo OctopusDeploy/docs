@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-11-21
+modDate: 2024-04-23
 title: ServiceNow Integration
 description: Octopus Deploy can integrate with your ServiceNow instance for deployment control using Change Request approvals
 navOrder: 10
@@ -14,7 +14,7 @@ The ServiceNow Integration feature is available from Octopus **2022.3** onwards 
 
 ## Overview
 
-The Octopus Deploy/ServiceNow integration allows users to block the execution of specifically configured deployments unless they have a corresponding approved ServiceNow **Change Request** (CR).
+The Octopus Deploy/ServiceNow integration allows you to block the execution of specifically configured deployments unless they have a corresponding approved ServiceNow **Change Request** (CR).
 
 To enable this behavior, both the Octopus Project and Environment you are deploying to must be configured and the ServiceNow configuration is set up before deployments can be managed.
 
@@ -126,26 +126,33 @@ To enforce a deployment to require an approved CR, the **Change Controlled** set
 
 To enable a project to enforce a requirement for an approved CR:
 
-1. Navigate to the project and then **Settings ➜ General**.
+1. Navigate to the project and then **Settings ➜ ITSM Providers**.
 2. Check the **Change-controlled** setting.
 3. Select your ServiceNow connection in the **ServiceNow Connection** setting and click **SAVE**.
 
 :::figure
-![ServiceNow Integration Project settings](/docs/approvals/servicenow/images/servicenow-project-settings.png)
+![ServiceNow Integration Project settings](/docs/approvals/servicenow/images/servicenow-cd-project-settings.png)
 :::
 
-### Standard vs Normal Changes
+### Standard, Normal, and Emergency Changes
 
 By default, deployments resulting in CR creation will produce a `Normal` change (i.e. one 
 requiring explicit approval).
 
-Setting the **Standard Change Template Name** setting under **Project Settings** to the name of an 
+Setting the **Standard Change Template Name** setting under **ITSM Providers** to the name of an 
 active, approved **Standard Change Template** (as found in the Standard Change Catalog) will instead 
 result in deployments of the project creating a `Standard` (i.e. low-risk, pre-approved) change.
 
+To create an `Emergency` change you can select the Emergency Change setting on the deployment creation page.
+:::figure
+![ServiceNow Integration Project settings](/docs/approvals/servicenow/images/servicenow-emergency-change.png)
+:::
+
 ### Supplying the CR number to a deployment
 
-If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables).
+If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/#scoping-variables).
+
+This variable can be set under the `ServiceNow Change Request settings` section on the deployment creation page. Setting the CR number at the deployment level will override any predefined variable.
 
 ### Setting up environments for CR approval
 
@@ -161,9 +168,9 @@ To enable an environment to enforce a requirement for an approved CR, navigate t
 This feature is only available for version 2022.3.7086 and later
 :::
 
-This feature allows a CD workflow using standard changes as audit records at the project level. When enabled a standard change will be created and moved to the `Implement` state, the deployment will execute and then the linked change will be moved to the `Review` state.
+This feature allows a CD workflow using standard changes as audit records at the project level. When enabled a standard change will be created and moved to the `Implement` state, the deployment will execute and then the linked change will be moved to the `Review` or `Closed` state.
 
-CD audit record functionality is enabled under **Project Settings**. First set a valid **Change Template Name** then turn on the **Automatic Transition** checkbox and click **Save** as per the following screenshot.
+CD audit record functionality is enabled under **ITSM Providers**. First set a valid **Change Template Name** then turn on the **Automatic Transition** selection to your desired completion state and click **Save** as per the following screenshot.
 
 :::figure
 ![ServiceNow CD Audit Record project settings](/docs/approvals/servicenow/images/servicenow-cd-project-settings.png)
@@ -179,7 +186,7 @@ When a **Change Controlled** deployment is evaluated for approval, the following
 - If there is an existing CR with the specifically formatted **Short Description** available. See [Title text matching](#title-text-matching) for more information, then this CR will be evaluated.
 - Create a new CR.
   - This will be a `Normal` change, or a `Standard` change if the project has a `Change Template Name` set.
-  - A CR created by Octopus will have a **Short Description** in the format outlined in [Title text matching](#title-text-matching).
+  - A CR created by Octopus will have a **Short Description** in the format outlined in [Title text matching](#title-text-matching) unless [over-ridden by a variable](#populating-cr-fields-through-octopus).
 
 When re-deploying a previous deployment, the same CR will be used if it is still open. If it is closed the above process will be followed again.
 
@@ -210,6 +217,28 @@ e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
 The title must match the format **exactly**, including the double-quotes.
 :::
 
+### Populating CR fields through Octopus
+
+To control the content of the CRs the variable `Octopus.ServiceNow.Field[snow_field]` can be set at the project level. These are contributed to the create CR body as a dictionary allowing any field to be set.
+
+For example to set the `Assigned To` or `Short Description` fields you can use the following:
+
+| Field | Variable | Example Value|
+|--|--|--|
+|Assigned To|Octopus.ServiceNow.Field[assigned_to]|beth.anglin|
+|Short Description|Octopus.ServiceNow.Field[short_description]Custom Short Description with #{SomeVariable} #{Octopus.Deployment.Id}|
+
+:::div{.hint}
+Setting a `Short Description` will over-ride the auto generated Octopus description. [Title text matching](#title-text-matching) means this will automatically progress the deployment unless the resolved description is unique. This can be done by including variables like the deployment or environment Id.
+:::
+
+:::div{.hint}
+The expected ServiceNow value doesn't always align with the displayed value. In the case of `Assigned To` the value displayed is `Beth Anglin` but the expected value is the `User ID` in this case `beth.anglin`.
+:::
+
+For a full list of available fields and values refer to the [ServiceNow docs](https://developer.servicenow.com/dev.do#!/reference/api/utah/rest/change-management-api).
+
+
 ### Respecting change windows
 
 :::div{.warning}
@@ -238,7 +267,7 @@ The following list assumes the linked change is in an **approved** state.
 ## Troubleshooting
 
 Errors occurring during a deployment approval checks will appear in the "Task Failed" icon's 
-tooltip. Additional information will also be available in the "System Diagnostic Report".
+tooltip. Errors related to creating a change request are available through the task log. Additional information will also be available in the "System Diagnostic Report".
 
 If you are seeing errors in Octopus during deployments, ensure that the ServiceNow user account is authorized to call the required endpoints. 
 

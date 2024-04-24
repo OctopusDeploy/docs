@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-23
 title: Approvals
 navTitle: Overview
 navSection: Approvals
@@ -14,7 +14,7 @@ Managing deployment pipelines at scale is complex and time-consuming for DevOps 
 
 When CI/CD systems create change requests automatically, you can work towards best practices with less friction. We want to make change management easier by helping you integrate Octopus with ServiceNow to reduce friction and simplify your development teams' lives.
 
-Octopus Deploy includes ITSM integrations for ServiceNow and Jira Service Management (early access) that let you balance audit and compliance requirements with team productivity. 
+Octopus Deploy includes ITSM integrations for ServiceNow and Jira Service Management that let you balance audit and compliance requirements with team productivity. 
 
 Our support focuses on:
 
@@ -32,11 +32,12 @@ What's included in our ServiceNow support?
 
 - Easy workflow configuration, so it's straightforward to integrate Octopus with ServiceNow.
 - Link a deployment to an existing change request to manually associate deployments with change requests.
-- Automatically create normal change requests at deployment time. Octopus pauses the deployment until the appropriate approvals are complete.
+- Automatically create normal and emergency change requests at deployment time. Octopus pauses the deployment until the appropriate approvals are complete.
 - Let Octopus do the work for you by automating the transition between stages in the change request once created, leaving a deployment record in ServiceNow.
 - Use change templates to auto-create standard change requests to reduce manual work and control what information is populated.
 - Ensure “Change Windows” are honored on existing change requests so deployments won't execute until the specified time window.
 - Add work notes to change requests with information about deployment start and finish time and whether it was successful or not.
+- Create change requests with pre-populated fields through variables.
 - View and export audit logs of controlled deployments for easy compliance and post-deployment reconciliation.
 
 Learn more about our [ServiceNow integration](/docs/approvals/servicenow).
@@ -45,13 +46,13 @@ Learn more about our [ServiceNow integration](/docs/approvals/servicenow).
 ServiceNow integration is available to customers with an [enterprise subscription](https://octopus.com/pricing).
 :::
 
-## Efficient change management approvals with Jira Service Management (early access)
+## Efficient change management approvals with Jira Service Management
 
 :::figure
 ![Jira Service Management approvals configuration](/docs/approvals/jira-task-settings.png)
 :::
 
-To build on our ITSM change management support further, we are also pleased to announce our Jira Service Management integration as an early access preview. 
+To build on our ITSM change management support further, we are also pleased to announce our Jira Service Management integration.
 
 The Jira Service Management integration ensures that teams using this platform can access the benefits of creating change requests automatically in Octopus. It makes it easier to manage deployment pipelines at scale, reducing the complexity of change management. Integrating Octopus with Jira Service Management reduces the need for manually filling out change requests, making it faster and less prone to error. By using Octopus to create change requests automatically, you can create best practice change management easily. 
 
