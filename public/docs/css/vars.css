@@ -156,6 +156,9 @@
     var(--hamburger-line-height) + var(--hamburger-line-margin)
   );
 
+  /* Theme Switcher */
+  --theme-switcher-border: var(--navy-200);
+
   /* To be checked and cleaned */
 
   --octo-blue: var(--blue-500);
@@ -191,6 +194,8 @@
 
   --icon-stroke: var(--white);
   --icon-fill: var(--blue-grey-light);
+
+  --octopus-logo-text-color: #0f2535;
 
   --block-gap: 2rem;
 
@@ -248,4 +253,6 @@ body[data-theme='dark'] {
   --grey-light: var(--navy-700);
   --color-menu-link-alt: var(--octo-blue-lightest);
   --body-link-color: var(--octo-blue-lightest);
+  --octopus-logo-text-color: var(--white);
+  --theme-switcher-border: var(--navy-700);
 }

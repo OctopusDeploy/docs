@@ -5,6 +5,9 @@ import { Lang } from '@util/Languages';
 import { SITE } from '@config';
 import Search from '../themes/octopus/components/Search.astro';
 import MobileMenu from './MobileMenu.astro';
+import OctopusLogo from '../../public/docs/img/OctopusLogo.astro';
+import SunIcon from '../../public/docs/img/SunIcon.astro';
+import MoonIcon from '../../public/docs/img/MoonIcon.astro';
 
 const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('components/Header.astro');
@@ -27,14 +30,30 @@ stats.stop();
 
 <header class="octo-header-bkg site-header header-default">
   <div class="octo-header">
-    <a href="https://octopus.com" class="logo"
-      ><img
-        src="/docs/img/octopus-logo.svg"
-        width="172"
-        height="50"
-        alt="Octopus Deploy"
-      /></a
-    >
+    <a href="https://octopus.com" class="logo">
+      <OctopusLogo />
+    </a>
+    <div class="theme-switcher">
+      <input
+        id="switch-rounded"
+        type="checkbox"
+        aria-checked="false"
+        role="switch"
+        aria-labelledby="switchLabel"
+        data-theme-toggle
+      />
+      <label for="switch-rounded" class="theme-switcher__label">
+        <span class="theme-switcher__icon theme-switcher__icon--light">
+          <SunIcon />
+          Light
+        </span>
+        <span class="switch-slider"></span>
+        <span class="theme-switcher__icon theme-switcher__icon--dark">
+          <MoonIcon />
+          Dark
+        </span>
+      </label>
+    </div>
     {showSearch && <Search lang={lang} />}
     <MobileMenu lang={lang} />
     <a href="https://octopus.com/start?location=docs" class="button trial"
@@ -42,3 +61,11 @@ stats.stop();
     >
   </div>
 </header>
+
+<script type="module">
+  import { ThemeSwitcher } from '/docs/js/modules/theme-switcher.js';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    new ThemeSwitcher();
+  });
+</script>
