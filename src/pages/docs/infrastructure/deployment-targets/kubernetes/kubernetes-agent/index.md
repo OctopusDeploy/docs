@@ -73,14 +73,6 @@ If no storage class name is added, the default Network File System (NFS) storage
 
 You can choose a default Kubernetes namespace that resources are deployed to. This is only used if the step configuration or Kubernetes manifests don’t specify a namespace.
 
-##### Octopus Server (self-hosted)
-
-For self-hosted installations of Octopus Server, the Server URL and Communications URL can be set. See [here](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication#polling-tentacles) for more information.
-
-:::figure
-![Kubernetes Agent self-hosted urls](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-urls.png)
-:::
-
 ### NFS CSI driver
 
 If no [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) name is set, the default NFS storage pod will be used. This runs a small NFS pod next to the agent pod and provides shared storage to the agent and script pods.
