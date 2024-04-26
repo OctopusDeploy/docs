@@ -537,7 +537,7 @@ nav.skip-links a:focus {
   height: 40px;
 }
 
-@media (max-width: 930px) {
+@media (max-width: 1130px) {
   .octo-header {
     grid-template-columns: auto 40px;
   }
@@ -564,7 +564,7 @@ nav.skip-links a:focus {
 }
 
 /* TODO: Header has no space between elements */
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 1130px) {
   .octo-header > .theme-switcher {
     display: none;
   }
@@ -885,7 +885,7 @@ nav.skip-links a:focus {
   color: var(--color-menu-link-alt);
 }
 
-@media (max-width: 930px) {
+@media (max-width: 1130px) {
   .site-nav,
   .side-nav {
     height: auto;
@@ -918,7 +918,7 @@ nav.skip-links a:focus {
   display: none;
 }
 
-@media (max-width: 930px) {
+@media (max-width: 1130px) {
   .mobile-menu {
     display: flex;
     justify-content: center;
@@ -958,7 +958,7 @@ nav.skip-links a:focus {
 .hamburger .line {
   width: var(--hamburger-line-width);
   height: var(--hamburger-line-height);
-  background-color: #274b66;
+  background-color: var(--hamburger-lines-color);
   display: block;
   margin: var(--hamburger-line-margin) auto;
   transition-property: opacity, transform;
@@ -1040,7 +1040,7 @@ nav.skip-links a:focus {
   padding-inline-end: 30px;
 }
 
-@media (max-width: 930px) {
+@media (max-width: 1130px) {
   .content-group {
     grid-template-columns: 1rem auto 1rem;
     grid-template-rows: auto auto auto;
@@ -1665,15 +1665,29 @@ a[data-youtube] {
   transition: max-width var(--search-dropdown-duration) ease-in-out;
 }
 
-@media screen and (min-width: 930px) {
+@media screen and (min-width: 1131px) {
   .site-search__wrapper {
     /* TODO: Find better solution for search&theme switcher */
     margin-right: auto;
   }
 }
 
-.site-search__wrapper.is-active {
-  max-width: 57.8rem;
+@media screen and (min-width: 1131px) {
+  .site-search__wrapper.is-active {
+    max-width: 34.8rem;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .site-search__wrapper.is-active {
+    max-width: 45.8rem;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .site-search__wrapper.is-active {
+    max-width: 57.8rem;
+  }
 }
 
 .site-search {
@@ -1898,7 +1912,7 @@ a[data-youtube] {
   display: none;
 }
 
-@media (max-width: 930px) {
+@media (max-width: 1130px) {
   .site-header .site-search__wrapper {
     max-width: fit-content;
     order: -1;

@@ -155,6 +155,7 @@
   --hamburger-translate-y: calc(
     var(--hamburger-line-height) + var(--hamburger-line-margin)
   );
+  --hamburger-lines-color: var(--blue-grey-light);
 
   /* Theme Switcher */
   --theme-switcher-border: var(--navy-200);
@@ -257,4 +258,5 @@ body[data-theme='dark'] {
   --theme-switcher-border: var(--navy-700);
   --bg-color-hint: var(--blue-grey-light);
   --bg-color-info: var(--blue-grey-light);
+  --hamburger-lines-color: var(--white);
 }
