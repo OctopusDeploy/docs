@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Cloud Target Discovery
 description: Cloud resources can be discovered and registered as deployment targets by Octopus
-navOrder: 100
+navOrder: 90
 ---
 
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
