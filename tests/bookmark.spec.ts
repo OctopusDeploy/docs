@@ -54,7 +54,7 @@ const bookmarks = [
   '/docs/infrastructure/accounts/azure#resource-permissions',
   '/docs/infrastructure/accounts/openid-connect#subject-keys',
   '/docs/infrastructure/deployment-targets#target-roles',
-  '/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target',
+  '/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api#add-a-kubernetes-target',
   '/docs/infrastructure/deployment-targets/kubernetes-target#vendor-authentication-plugins',
   '/docs/infrastructure/deployment-targets/windows-targets#configure-a-polling-tentacle',
   '/docs/infrastructure/deployment-targets/machine-policies#custom-health-check-scripts',

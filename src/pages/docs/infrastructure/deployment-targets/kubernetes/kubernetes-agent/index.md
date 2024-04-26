@@ -83,7 +83,7 @@ For self-hosted installations of Octopus Server, the Server URL and Communicatio
 
 ### NFS CSI driver
 
-If no Storage Class name is set, the default NFS storage pod will be used. This runs a small NFS pod next to the agent pod and provides shared storage to the agent and script pods.
+If no [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) name is set, the default NFS storage pod will be used. This runs a small NFS pod next to the agent pod and provides shared storage to the agent and script pods.
 
 A requirement of using the NFS pod is the installation of the [NFS CSI Driver](https://github.com/kubernetes-csi/csi-driver-nfs). This can be achieved by executing the presented helm command in a terminal connected to the target Kubernetes cluster.
 
@@ -131,7 +131,7 @@ The deployment target deletion confirmation dialog will provide you with the com
 
 ### Helm command fails with context deadline exceeded
 
-The generated helm commands use the `--atomic` flag, which automatically rollbacks the changes if it fails to execute within a specified timeout (default 5 min).
+The generated helm commands use the []`--atomic`](https://helm.sh/docs/helm/helm_upgrade/#options) flag, which automatically rollbacks the changes if it fails to execute within a specified timeout (default 5 min).
 
 If the helm command fails, then it may print an error message containing context deadline exceeded
 This indicates that the timeout was exceeded and the Kubernetes resources did not correctly start.
