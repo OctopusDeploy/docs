@@ -33,22 +33,29 @@ stats.stop();
     <a href="https://octopus.com" class="logo">
       <OctopusLogo />
     </a>
-    <div class="theme-switcher">
+    <div class="theme-switcher" data-theme-toggle>
       <input
-        id="switch-rounded"
+        id="theme-switcher"
         type="checkbox"
         aria-checked="false"
         role="switch"
-        aria-labelledby="switchLabel"
-        data-theme-toggle
+        aria-label="Toggle theme between light and dark mode"
+        tabindex="-1"
+        data-theme-toggle-checkbox
       />
-      <label for="switch-rounded" class="theme-switcher__label">
-        <span class="theme-switcher__icon theme-switcher__icon--light">
+      <label for="theme-switcher" class="theme-switcher__label" tabindex="0">
+        <span
+          class="theme-switcher__icon theme-switcher__icon--light"
+          aria-hidden="true"
+        >
           <SunIcon />
           Light
         </span>
         <span class="switch-slider"></span>
-        <span class="theme-switcher__icon theme-switcher__icon--dark">
+        <span
+          class="theme-switcher__icon theme-switcher__icon--dark"
+          aria-hidden="true"
+        >
           <MoonIcon />
           Dark
         </span>
