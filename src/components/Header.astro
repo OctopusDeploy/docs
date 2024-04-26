@@ -73,6 +73,7 @@ stats.stop();
   import { ThemeSwitcher } from '/docs/js/modules/theme-switcher.js';
 
   document.addEventListener('DOMContentLoaded', function () {
-    new ThemeSwitcher();
+    const themeSwitchers = document.querySelectorAll('[data-theme-toggle]');
+    themeSwitchers.forEach((switcher) => new ThemeSwitcher(switcher));
   });
 </script>

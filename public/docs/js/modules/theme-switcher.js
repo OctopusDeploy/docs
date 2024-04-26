@@ -1,6 +1,6 @@
 class ThemeSwitcher {
-  constructor() {
-    this.themeSwitcher = document.querySelector('[data-theme-toggle]');
+  constructor(el) {
+    this.themeSwitcher = el;
     this.checkbox = this.themeSwitcher.querySelector(
       '[data-theme-toggle-checkbox]'
     );
@@ -30,7 +30,6 @@ class ThemeSwitcher {
     });
     // Handle keydown event for keyboard accessibility
     this.themeSwitcher.addEventListener('keydown', (e) => {
-      // Enter or Space key
       if (e.keyCode === 13 || e.keyCode === 32) {
         e.preventDefault();
         this.toggleTheme();
@@ -50,8 +49,6 @@ class ThemeSwitcher {
     this.checkbox.checked = isDarkMode;
     this.checkbox.setAttribute('aria-checked', isDarkMode.toString());
     if (isDarkMode) {
-      console.log(isDarkMode);
-      console.log(this.themeSwitcher);
       this.themeSwitcher.classList.add('dark-mode');
     } else {
       this.themeSwitcher.classList.remove('dark-mode');
