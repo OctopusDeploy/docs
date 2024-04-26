@@ -11,6 +11,8 @@ Kubernetes agent targets are a mechanism for executing [Kubernetes steps](/docs/
 
 Similar to the [Octopus Tentacle](/docs/infrastructure/deployment-targets/tentacle), the Kubernetes agent is a small, lightweight application that is installed into the target Kubernetes cluster.
 
+## Benefits of the Kubernetes agent
+
 The Kubernetes agent provides a number of improvements over the [Kubernetes API](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api) target:
 
 ### Polling communication
