@@ -123,7 +123,7 @@ The deployment target deletion confirmation dialog will provide you with the com
 
 ### Helm command fails with context deadline exceeded
 
-The generated helm commands use the []`--atomic`](https://helm.sh/docs/helm/helm_upgrade/#options) flag, which automatically rollbacks the changes if it fails to execute within a specified timeout (default 5 min).
+The generated helm commands use the [`--atomic`](https://helm.sh/docs/helm/helm_upgrade/#options) flag, which automatically rollbacks the changes if it fails to execute within a specified timeout (default 5 min).
 
 If the helm command fails, then it may print an error message containing context deadline exceeded
 This indicates that the timeout was exceeded and the Kubernetes resources did not correctly start.
