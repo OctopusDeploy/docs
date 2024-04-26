@@ -564,7 +564,7 @@ nav.skip-links a:focus {
 }
 
 /* TODO: Header has no space between elements */
-@media screen and (max-width: 1135px) {
+@media screen and (max-width: 930px) {
   .octo-header > .theme-switcher {
     display: none;
   }
@@ -1663,8 +1663,13 @@ a[data-youtube] {
   width: 100%;
   max-width: 34.75rem;
   transition: max-width var(--search-dropdown-duration) ease-in-out;
-  /* TODO: Find better solution for search&theme switcher */
-  margin-right: auto;
+}
+
+@media screen and (min-width: 930px) {
+  .site-search__wrapper {
+    /* TODO: Find better solution for search&theme switcher */
+    margin-right: auto;
+  }
 }
 
 .site-search__wrapper.is-active {
