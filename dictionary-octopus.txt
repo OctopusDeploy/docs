@@ -1,5 +1,7 @@
 accounttest
 ALLUSERSPROFILE
+anglin
+Anglin
 apikey
 approot
 appsettings
@@ -146,7 +148,6 @@ octopuslabs
 octopusservernodes
 octopustarget
 octopusvariable
-Octostash
 Octostache
 octoterra
 OIDC
