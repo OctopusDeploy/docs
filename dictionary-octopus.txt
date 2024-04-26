@@ -74,6 +74,7 @@ groff
 Groupsand
 hastscript
 healthcheck
+Helloworld
 HKEY
 HKLM
 hostnames
@@ -162,6 +163,7 @@ prerenderingchange
 printfn
 Println
 PROGRAMFILES
+proxying
 pwsh
 pycryptodome
 querystring
@@ -186,6 +188,7 @@ runbook
 runbooks
 runtimes
 Schannel
+Sesna
 servedby
 serviceaccount
 setspn
@@ -211,6 +214,7 @@ templateid
 templating
 tenanttype
 testoctopusdemos.app
+testproject
 TFVC
 thepassword
 tmpfs

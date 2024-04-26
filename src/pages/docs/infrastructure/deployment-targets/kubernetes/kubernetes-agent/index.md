@@ -15,7 +15,7 @@ The Kubernetes agent provides a number of improvements over the [Kubernetes API]
 
 ### Polling communication
 
-The agent uses the same [polling communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication#polling-tentacles) protocol as [Octopus Tentacle](/docs/infrastructure/deployment-targets/tentacle). It lets the agent initiate the connection from the cluster to Octopus Server, solving network access issues such as publically addressable clusters..
+The agent uses the same [polling communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication#polling-tentacles) protocol as [Octopus Tentacle](/docs/infrastructure/deployment-targets/tentacle). It lets the agent initiate the connection from the cluster to Octopus Server, solving network access issues such as publicly addressable clusters..
 
 ### In-cluster authentication
 
@@ -35,7 +35,7 @@ Additionally, the Kubernetes agent only supports **Linux AMD64** and **Linux ARM
 
 ## Installing the Kubernetes agent
 
-The Kubernetes agent is installed using [Helm](https://helm.sh) via the [octousdeploy/kubernetes-agent](https://hub.docker.com/r/octopusdeploy/kubernetes-agent).
+The Kubernetes agent is installed using [Helm](https://helm.sh) via the [octopusdeploy/kubernetes-agent](https://hub.docker.com/r/octopusdeploy/kubernetes-agent).
 
 To simplify this, there is an installation wizard in Octopus to generate the required values.
 
