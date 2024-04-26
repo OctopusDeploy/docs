@@ -6,9 +6,9 @@ title: Kubernetes API
 description: How to configure a Kubernetes cluster as a deployment target in Octopus
 navOrder: 20
 ---
-Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernetes) to define the context in which deployments and scripts are run.
+Kubernetes API targets are used by the [Kubernetes steps](/docs/deployments/kubernetes) to define the context in which deployments and scripts are run.
 
-Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.  A namespace is required when registering the Kubernetes cluster with Octopus Deploy. By default, the namespace used in the registration is used in health checks and deployments. The namespace can be overwritten in the deployment process.
+Conceptually, a Kubernetes API target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes API target, along with the cluster endpoint URL.  A namespace is required when registering the Kubernetes API target with Octopus Deploy. By default, the namespace used in the registration is used in health checks and deployments. The namespace can be overwritten in the deployment process.
 
 :::div{.hint}
 From **Octopus 2022.2**, AKS target discovery has been added to the 
@@ -19,7 +19,7 @@ From **Octopus 2022.3** will include EKS cluster support.
 
 ## Discovering Kubernetes targets
 
-Octopus can discover Kubernetes targets in _Azure Kubernetes Service_ (AKS) or _Amazon Elastic Container Service for Kubernetes_ (EKS) as part of your deployment using tags on your AKS or EKS resource. 
+Octopus can discover Kubernetes API targets in _Azure Kubernetes Service_ (AKS) or _Amazon Elastic Container Service for Kubernetes_ (EKS) as part of your deployment using tags on your AKS or EKS resource. 
 
 :::div{.hint}
 From **Octopus 2022.3**, you can configure the well-known variables used to discover Kubernetes targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
@@ -39,7 +39,7 @@ See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-targe
 
 The YAML file below shows a sample **kubectl** configuration file. Existing Kubernetes users will likely have a similar configuration file.
 
-A number of the fields in this configuration file map directly to the fields in an Octopus Kubernetes target, as noted in the next section.
+A number of the fields in this configuration file map directly to the fields in an Octopus Kubernetes API target, as noted in the next section.
 
 ```yaml
 apiVersion: v1
@@ -74,7 +74,7 @@ users:
 ## Add a Kubernetes target
 
 1. Navigate to **Infrastructure ➜ Deployment Targets**, and click **Add Deployment Target**.
-2. Select **KUBERNETES API** and click **ADD** on the Kubernetes API card.
+2. Select **KUBERNETES** and click **ADD** on the Kubernetes API card.
 3. Enter a display name for the Kubernetes API target.
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.
 5. Select at least one [target role](/docs/infrastructure/deployment-targets/#target-roles) for the target.
