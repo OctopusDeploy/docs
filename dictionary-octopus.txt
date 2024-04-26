@@ -131,6 +131,7 @@ myfeature
 navigationid
 NETBIOS
 Netscaler
+newcert
 noconsolelogging
 nologs
 noninteractive
@@ -151,6 +152,8 @@ octopusvariable
 Octostache
 octoterra
 OIDC
+oldcert
+oldthumbprint
 onlylogs
 openon
 passout
