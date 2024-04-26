@@ -35,7 +35,7 @@ Additionally, the Kubernetes agent only supports **Linux AMD64** and **Linux ARM
 
 ## Installing the Kubernetes agent
 
-The Kubernetes agent is installed using [Helm](https://helm.sh) via the [octopusdeploy/kubernetes-agent](https://hub.docker.com/r/octopusdeploy/kubernetes-agent).
+The Kubernetes agent is installed using [Helm](https://helm.sh) via the [octopusdeploy/kubernetes-agent](https://hub.docker.com/r/octopusdeploy/kubernetes-agent) chart.
 
 To simplify this, there is an installation wizard in Octopus to generate the required values.
 
