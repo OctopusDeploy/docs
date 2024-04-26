@@ -17,11 +17,7 @@ class ThemeSwitcher {
         ? 'dark'
         : 'light');
     this.body.setAttribute('data-theme', preferredTheme);
-    this.checkbox.checked = preferredTheme === 'dark';
-    this.checkbox.setAttribute(
-      'aria-checked',
-      this.checkbox.checked.toString()
-    );
+    this.updateCheckboxAndClass(preferredTheme === 'dark');
 
     this.addEventListeners();
   }
@@ -43,16 +39,23 @@ class ThemeSwitcher {
   }
 
   toggleTheme() {
-    const newTheme =
-      this.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    // Toggle the checked state of the checkbox - keyboard fallback
-    this.checkbox.checked = newTheme === 'dark';
+    const isDarkMode = this.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDarkMode ? 'light' : 'dark';
     this.body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    this.checkbox.setAttribute(
-      'aria-checked',
-      this.checkbox.checked.toString()
-    );
+    this.updateCheckboxAndClass(!isDarkMode);
+  }
+
+  updateCheckboxAndClass(isDarkMode) {
+    this.checkbox.checked = isDarkMode;
+    this.checkbox.setAttribute('aria-checked', isDarkMode.toString());
+    if (isDarkMode) {
+      console.log(isDarkMode);
+      console.log(this.themeSwitcher);
+      this.themeSwitcher.classList.add('dark-mode');
+    } else {
+      this.themeSwitcher.classList.remove('dark-mode');
+    }
   }
 }
 

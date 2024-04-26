@@ -68,7 +68,7 @@ button[data-share] {
 }
 
 blockquote {
-  background: var(--lightest-blue);
+  background: var(--bg-color-hint);
   border-radius: var(--standard-radius);
   font-size: var(--font-size-large);
   margin: var(--block-gap) 0;
@@ -317,7 +317,7 @@ strong {
 }
 
 .question {
-  background: var(--lightest-blue);
+  background: var(--bg-color-hint);
   border-radius: var(--standard-radius);
   margin: var(--block-gap) 0;
   padding: 1.5rem;
@@ -392,7 +392,7 @@ table td {
 }
 
 table tr td:first-child {
-  background-color: var(--lightest-blue);
+  background-color: var(--bg-color-hint);
 }
 
 table th {
@@ -565,9 +565,14 @@ nav.skip-links a:focus {
 
 /* TODO: Header has no space between elements */
 @media screen and (max-width: 1135px) {
-  .theme-switcher {
+  .octo-header > .theme-switcher {
     display: none;
   }
+}
+
+.site-nav__mobile > .theme-switcher {
+  display: block;
+  margin: 1rem auto;
 }
 
 .theme-switcher input {
@@ -612,27 +617,23 @@ nav.skip-links a:focus {
   z-index: 2;
 }
 
-input:checked + .theme-switcher__label .switch-slider {
+.theme-switcher.dark-mode .switch-slider {
   transform: translateX(100%);
 }
 
-input:checked + .theme-switcher__label .theme-switcher__icon--light {
+.theme-switcher.dark-mode .theme-switcher__icon--light {
   color: #7c98b4;
 }
 
-input:checked + .theme-switcher__label .theme-switcher__icon--light svg path {
+.theme-switcher.dark-mode .theme-switcher__icon--light svg path {
   fill: #7c98b4;
 }
 
-input:not(:checked) + .theme-switcher__label .theme-switcher__icon--dark {
+.theme-switcher:not(.dark-mode) .theme-switcher__icon--dark {
   color: #557999;
 }
 
-input:not(:checked)
-  + .theme-switcher__label
-  .theme-switcher__icon--dark
-  svg
-  path {
+.theme-switcher:not(.dark-mode) .theme-switcher__icon--dark svg path {
   fill: #557999;
 }
 
@@ -927,7 +928,8 @@ input:not(:checked)
   }
 }
 .site-nav__list {
-  height: calc(100vh - 5.125rem);
+  /* 100vh - header & theme switcher */
+  height: calc(100vh - 10.625rem);
   overflow-y: scroll;
 }
 
@@ -2286,7 +2288,7 @@ figure:focus .magnify-icon {
 }
 
 .rec-book.rec-full-width {
-  background: var(--lightest-blue);
+  background: var(--bg-color-hint);
   border-radius: var(--standard-radius);
   margin: var(--block-gap) 0;
   padding: 1.5rem;

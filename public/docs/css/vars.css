@@ -113,11 +113,11 @@
   --border-color-tab-active: var(--navy-400);
 
   --color-hint: #124164;
-  --bg-color-hint: #e5f4ff;
+  --bg-color-hint: var(--lightest-blue);
   --border-color-hint: var(--blue-500);
 
   --color-info: #124164;
-  --bg-color-info: #e5f4ff;
+  --bg-color-info: var(--lightest-blue);
   --border-color-info: var(--blue-500);
 
   --color-success: #04502f;
@@ -255,4 +255,6 @@ body[data-theme='dark'] {
   --body-link-color: var(--octo-blue-lightest);
   --octopus-logo-text-color: var(--white);
   --theme-switcher-border: var(--navy-700);
+  --bg-color-hint: var(--blue-grey-light);
+  --bg-color-info: var(--blue-grey-light);
 }
