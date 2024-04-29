@@ -28,7 +28,7 @@ This default implementation is made to let you try the Kubernetes agent without 
 Since the NFS server runs inside your Kubernetes cluster, upgrades and other cluster operations will interrupt the server. Due to how NFS stores and allows access to the shared data, clients will not be able to recover from a restart cleanly. This results in deployment failure if one happens to be running while the NFS server is restarted.
 
 ### Privileges
-The NFS server requires `privileged` access when running as a container. This can be disallowed in some clusters, and access to the NFS pod should be kept to a minimum. 
+The NFS server requires `privileged` access when running as a container, which may not be permitted depending on the cluster configuration. Access to the NFS pod should be kept to a minimum since it enables access to the host. 
 
 If you have a use case that can’t tolerate occasional deployment failures, it’s recommended to provide your own `StorageClass` instead of using the default NFS implementation.
 
@@ -41,11 +41,11 @@ Many managed Kubernetes offerings will have offerings that require little effort
 
 |**Offering**                      |**Provisioner**                    |**Default StorageClass name**       |
 |----------------------------------|-----------------------------------|------------------------------------|
-|Azure Kubernetes Service (AKS)    |`file.csi.azure.com`               |`azurefile`                        |
-|Elastic Kubernetes Service (EKS)  |`efs.csi.aws.com`                  |`efs-sc`                            |
-|Google Kubernetes Engine (GKE)    |`filestore.csi.storage.gke.io`     |`standard-rwx`                      |
+|[Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/concepts-storage)    |`file.csi.azure.com`               |`azurefile`                        |
+|[Elastic Kubernetes Service (EKS)](https://docs.aws.amazon.com/eks/latest/userguide/storage.html)  |`efs.csi.aws.com`                  |`efs-sc`                            |
+|[Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine/docs/concepts/storage-overview)    |`filestore.csi.storage.gke.io`     |`standard-rwx`                      |
 
 If you manage your own cluster and don’t have offerings from cloud providers available, there are some in-cluster options you could explore:
-- Longhorn
-- Rook (CephFS)
-- GlusterFS
+- [Longhorn](https://longhorn.io/)
+- [Rook (CephFS)](https://rook.io/)
+- [GlusterFS](https://www.gluster.org/)
