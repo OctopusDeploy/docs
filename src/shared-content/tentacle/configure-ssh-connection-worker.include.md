@@ -14,10 +14,20 @@ If this discovery process is not successful, you will need to click **ENTER DETA
 7. Select the account that will be used for the Octopus Server and the SSH target to communicate.
 8. If entering the details manually, enter the **Host**, **Port** and the host's fingerprint.
 
+:::div{.hint}
+From Octopus Server **2024.2.6856** both SHA256 and MD5 fingerprints are supported. We recommend using SHA256 fingerprints.
+:::
+
 You can retrieve the fingerprint of the default key configured in your sshd\_config file from the target server with the following command:
 
 ```bash
-ssh-keygen -E md5 -lf /etc/ssh/ssh_host_ed25519_key.pub | cut -d' ' -f2 | awk '{ print $1}' | cut -d':' -f2-
+ssh-keygen -E sha256 -lf /etc/ssh/ssh_host_ed25519_key.pub | awk '{ print $2 }'
+```
+
+For Octopus Server prior to **2024.2.6856** use the following:
+
+```bash
+ssh-keygen -E md5 -lf /etc/ssh/ssh_host_ed25519_key.pub | awk '{ print $2 }' | cut -d':' -f2-
 ```
 
 9. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/octopus-rest-api/calamari) will be installed.
