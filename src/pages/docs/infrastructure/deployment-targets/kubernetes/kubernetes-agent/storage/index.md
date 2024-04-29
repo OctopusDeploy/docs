@@ -24,14 +24,13 @@ This NFS server is referenced in the `StorageClass` that the Kubernetes agent an
 
 This default implementation is made to let you try the Kubernetes agent without worrying about installing a `ReadWriteMany` compatible `StorageClass` yourself. There are  some drawbacks to this approach:
 
-### Reliability
-Since the NFS server runs inside your Kubernetes cluster, upgrades and other cluster operations will interrupt the server. Due to how NFS stores and allows access to the shared data, clients will not be able to recover from a restart cleanly. This results in deployment failure if one happens to be running while the NFS server is restarted.
-
 ### Privileges
 The NFS server requires `privileged` access when running as a container, which may not be permitted depending on the cluster configuration. Access to the NFS pod should be kept to a minimum since it enables access to the host. 
 
-If you have a use case that can’t tolerate occasional deployment failures, it’s recommended to provide your own `StorageClass` instead of using the default NFS implementation.
+### Reliability
+Since the NFS server runs inside your Kubernetes cluster, upgrades and other cluster operations can cause the NFS server to restart. Due to how NFS stores and allows access to shared data, script pods will not be able to recover cleanly from an NFS server restart. This causes running deployments to fail when the NFS server is restarted.
 
+If you have a use case that can’t tolerate occasional deployment failures, it’s recommended to provide your own `StorageClass` instead of using the default NFS implementation.
 
 ## Custom StorageClass
 
