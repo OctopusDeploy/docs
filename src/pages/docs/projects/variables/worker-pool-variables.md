@@ -63,7 +63,7 @@ Worker pool variables have multiple use cases for consideration during set up. T
 The most common would be to use environment-specific worker pools to separate this for development, test, and production. Often these sit in different network segments, and often production is in the cloud or in a DMZ, which would help with Security.
 
 :::figure
-![addworkerpoolvariable](/docs/projects/variables/images/workerpoolvariable-environments.png)
+![Environment-specific worker pool variables](/docs/projects/variables/images/workerpoolvariable-environments.png)
 :::
 
 ### Performance and role separation
