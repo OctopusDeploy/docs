@@ -116,6 +116,7 @@ linecap
 linejoin
 linkerd
 Linq
+Liquibase
 ltsc
 maintenanceconfiguration
 majeure
