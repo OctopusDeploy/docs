@@ -1,5 +1,7 @@
 accounttest
 ALLUSERSPROFILE
+anglin
+Anglin
 apikey
 approot
 appsettings
@@ -7,15 +9,19 @@ ASPNET
 aspnetcore
 astro
 astrojs
+auditability
 augeas
 auths
 autodeployoverride
 awsaccount
 azureaccount
+azurefile
 Bento
 bootstrap
 bootstrapped
 bootstrapper
+Ceph
+changeit
 childelement
 choco
 cicd
@@ -54,21 +60,27 @@ dockerhub
 DONTVALIDATEPATH
 dpkg
 Dspring
+Elyton
 emptytitle
 Fargate
 feedcred
+Feedz.io
 fieldset
 figcaption
+filestore
 FIPS
 frontmatter
 gcloud
+getenv
 gifs
 globbing
+Gluster
 googleaccount
 groff
 Groupsand
 hastscript
 healthcheck
+Helloworld
 HKEY
 HKLM
 hostnames
@@ -81,6 +93,7 @@ hyperthreading
 IMDS
 inetmgr
 inetsrv
+inkey
 internalcustomer
 Istio
 istioctl
@@ -90,7 +103,9 @@ itemtype
 ITSM
 jwks
 keyrings
+kubeconfig
 Kubelet
+kubelogin
 kustomization
 kustomize
 lastmod
@@ -100,6 +115,7 @@ lifecycles
 linecap
 linejoin
 linkerd
+Linq
 ltsc
 maintenanceconfiguration
 majeure
@@ -111,6 +127,7 @@ MITM
 Moines
 mozjpeg
 mozroots
+msbuild
 msiexec
 MTTR
 myapplication
@@ -135,7 +152,6 @@ octopuslabs
 octopusservernodes
 octopustarget
 octopusvariable
-Octostash
 Octostache
 octoterra
 OIDC
@@ -150,7 +166,9 @@ podannotation
 prerender
 prerenderingchange
 printfn
+Println
 PROGRAMFILES
+proxying
 pwsh
 pycryptodome
 querystring
@@ -161,6 +179,7 @@ rehype
 reindexing
 releaseprogression
 remoting
+replicasets
 reprioritize
 reprovisioned
 reprovisioning
@@ -174,6 +193,7 @@ runbook
 runbooks
 runtimes
 Schannel
+Sesna
 servedby
 serviceaccount
 setspn
@@ -181,6 +201,8 @@ shiki
 SIEM
 signingkeys
 skiplinks
+snapshotted
+snapshotting
 sourcedata
 speculationrules
 srcset
@@ -188,6 +210,7 @@ srcset
 sthumb
 stylesheet
 subcontext
+sunsetting
 swaggerui
 systemprofile
 tabpanel
@@ -195,6 +218,8 @@ tagset
 templateid
 templating
 tenanttype
+testoctopusdemos.app
+testproject
 TFVC
 thepassword
 tmpfs
@@ -229,6 +254,6 @@ xvzf
 YOURAPIKEY
 octopusbob
 servername
-octopusdemos
+octopusdemos.app
 sqlcmd
 sqlvolume

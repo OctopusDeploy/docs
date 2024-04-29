@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2023-04-10
 title: Subscriptions
 description: Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly.
 navOrder: 1600
@@ -55,7 +55,7 @@ A subscription with the filters:
 That filter is translated to look for events where the category is Deployment Started AND for the environments Staging OR Production AND for the project Hello World.  
 :::
 
-You can read more about getting started with notifications in our [Getting Started guide](docs/getting-started/best-practices/notifications).
+You can read more about getting started with notifications in our [Getting Started guide](/docs/getting-started/best-practices/notifications).
 
 :::div{.hint}
 **Dates and Timezone**
@@ -113,7 +113,7 @@ While we make every effort to ensure events are only ever sent *once* to a given
 :::
 
 
-## Event visibility and permissions {#Subscriptions-EventVisibilityandPermissions}
+## Event visibility and permissions {#Subscriptions-Event-Visibility-and-Permissions}
 
 Because certain teams may be restricted to only see certain events, subscriptions give you the ability to scope to one or more teams. Teams may be restricted to certain criteria, such as project(s) and/or environment(s). Combine these restrictions with team roles and you can successfully control which events get seen for a given subscription. See more information on [Managing Users and Teams](/docs/security/users-and-teams/) as well as our [User Roles](/docs/security/users-and-teams/user-roles) documentation if you wish to learn more.
 

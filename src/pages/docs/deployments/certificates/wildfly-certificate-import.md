@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-10
 title: Import certificates into WildFly and JBoss EAP
 description: Configure WildFly or JBoss EAP with a certificate managed by Octopus.
 navOrder: 50
@@ -158,9 +158,9 @@ The `Elytron server SSL context name` defines the name of the Elytron SSL Contex
 :::
 
 :::div{.hint}
-You can find more information of the Elytron subsystem components in the [WildFly documentation](https://docs.jboss.org/author/display/WFLY/Using+the+Elytron+Subsystem#UsingtheElytronSubsystem-onewayapps).
+You can find more information of the Elytron subsystem components in the [WildFly documentation](https://docs.jboss.org/author/display/WFLY/Elytron%20Subsystem.html).
 :::
 
 ## Configuration file backups
 
-Before any changes are made to the WildFly or JBoss EAP configurations, a `:take-snapshot` command is run. This will create a backup file in the `domain/configuration/standalone_xml_history/snapshot` or `standaline/configuration/standalone_xml_history/snapshot` directory.
+Before any changes are made to the WildFly or JBoss EAP configurations, a `:take-snapshot` command is run. This will create a backup file in the `domain/configuration/standalone_xml_history/snapshot` or `standalone/configuration/standalone_xml_history/snapshot` directory.

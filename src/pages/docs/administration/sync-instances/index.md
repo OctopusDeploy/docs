@@ -288,7 +288,7 @@ In our experience, it is far easier to group data by type and sync them all toge
         - Variables
         - Channel Version Rules
         - Release Version Strategy
-        - Auto Release Creation settings
+        - Built-in package repository trigger
         - Logo
     - Tenants
         - Tenant / Project relationship 

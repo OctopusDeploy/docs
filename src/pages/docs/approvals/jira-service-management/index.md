@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-04-23
 title: Jira Service Management Integration
 description: Octopus Deploy can integrate with your Jira Service Management instance for deployment control using Change Requests/Issues
 navOrder: 10
@@ -120,7 +120,7 @@ To enforce a deployment to require an approved CR, the **Change Controlled** set
 
 To enable a project to enforce a requirement for an approved CR:
 
-1. Navigate to the project and then **Settings ➜ General**.
+1. Navigate to the project and then **Settings ➜ ITSM Providers**.
 2. Check the **Jira Service Management Integration ➜ Change Controlled** setting.
 3. Select your JSM connection in the **Jira Service Management Connection** setting and click 
    **SAVE**.

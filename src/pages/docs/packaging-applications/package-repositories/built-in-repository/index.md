@@ -104,8 +104,8 @@ Instead of using your own API key, consider using a [Service Account](/docs/secu
 :::
 
 :::div{.hint}
-**Using automatic release creation?**
-If you are using [automatic release creation](/docs/projects/project-triggers/automatic-release-creation/) you will also require the permissions to create a release for all the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) page.
+**Using built-in package repository triggers?**
+If you are using [built-in package repository triggers](/docs/projects/project-triggers/built-in-package-repository-triggers) you will also require the permissions to create a release for all the relevant projects in the required environments. To diagnose issues with pushing packages used for built-in package repository triggers follow the troubleshooting guide on the [built-in package repository triggers](/docs/projects/project-triggers/built-in-package-repository-triggers) page.
 :::
 
 ## Moving the location of the built-in repository {#PackageRepositories-MovingTheLocationOfTheBuilt-InRepository}
