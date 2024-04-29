@@ -13,7 +13,11 @@ On a Kubernetes agent, scripts are executed in separate Kubernetes pods (script 
 
 Since the Kubernetes agent is built on the Tentacle codebase,  it is necessary to configure shared storage so that the Tentacle Pod can write the files in a place that the Script Pods can read from.
 
-We offer two options for configuring the shared storage - you can use either the default NFS storage or specify a Storage Class name.
+We offer two options for configuring the shared storage - you can use either the default NFS storage or specify a Storage Class name during setup:
+
+:::figure
+![Kubernetes Agent Wizard Config Page](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-config.png)
+:::
 
 
 ## NFS storage
