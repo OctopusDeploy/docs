@@ -52,6 +52,7 @@ deployers
 deploymentannotation
 deploymentprocess
 deploymentprocesses
+deployto
 DIND
 Directorygroup
 Distro
