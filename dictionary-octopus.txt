@@ -15,10 +15,12 @@ auths
 autodeployoverride
 awsaccount
 azureaccount
+azurefile
 Bento
 bootstrap
 bootstrapped
 bootstrapper
+Ceph
 changeit
 childelement
 choco
@@ -65,12 +67,14 @@ feedcred
 Feedz.io
 fieldset
 figcaption
+filestore
 FIPS
 frontmatter
 gcloud
 getenv
 gifs
 globbing
+Gluster
 googleaccount
 groff
 Groupsand
