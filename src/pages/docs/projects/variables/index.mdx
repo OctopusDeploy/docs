@@ -63,7 +63,7 @@ Scoping the values of your variables lets you determine which values will be use
 
 During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and Staging, the *LogLevel* value will be *Warn*, but to any other environment, it will fall back to the less-specific variable and have a value of *Info* instead.
 
-### Assigning scopes \{#Scopingvariables-Assigningscopes}
+### Assigning scopes \{#assigning-scopes}
 
 You can set the scope of a variable values when you are creating or editing your variables, either from the **variable** section of the project, or in the **Variable Sets** section of the Library; however, when you assign scope to variables that are part of a library **variable set**, the variables cannot be scoped to deployment steps or channels.
 
@@ -90,7 +90,7 @@ With the above *MyVariable* variable, the scoped and unscoped values will be imp
 | Test Environment | Scoped | Unscoped |
 | Stage Environment |  Unscoped | Unscoped |
 
-### Scope specificity \{#Scopingvariables-Scopespecificity}
+### Scope specificity \{#scope-specificity}
 
 Imagine you have one variable scoped to an environment (Production), and another scoped to a machine within the environment. Which value should Octopus choose?
 
@@ -114,7 +114,7 @@ Variable scoping also works like CSS rules; a value scoped twice is more specifi
 
 If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
 
-### Mutually exclusive scopes \{#Mutuallyexclusive-scopes}
+### Mutually exclusive scopes \{#mutually-exclusive-scopes}
 
 Scopes of the same type can generally be thought of as a grouping of logical OR expressions while scopes of different types evaluate as AND expressions between the groups of scopes. As an example, a variable scoped to the `Development` environment, `Production` environment as well as the `Default` channel would evaluate as `(Development OR Production) AND (Default)`. This example results in a specific scope which requires a channel in order for the variable to evaluate. This means that the variable will not be usable in the context of a runbook as channels do not apply in this context.
 

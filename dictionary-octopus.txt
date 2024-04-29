@@ -1,5 +1,4 @@
 accounttest
-addworkerpoolvariable
 ALLUSERSPROFILE
 anglin
 Anglin
@@ -8,7 +7,6 @@ approot
 appsettings
 ASPNET
 aspnetcore
-Assigningscopes
 astro
 astrojs
 auditability
@@ -130,7 +128,6 @@ msiexec
 MTTR
 myapplication
 myfeature
-Mutuallyexclusive
 navigationid
 NETBIOS
 Netscaler
@@ -192,8 +189,6 @@ runbook
 runbooks
 runtimes
 Schannel
-Scopespecificity
-Scopingvariables
 Sesna
 servedby
 serviceaccount
