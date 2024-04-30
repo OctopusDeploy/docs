@@ -12,7 +12,7 @@ The Kubernetes agent uses service accounts to manage access to cluster objects.
 There are 3 main components that run with different permissions in the Kubernetes agent:
 - **Agent Pod** - This is the main component and is responsible for receiving work from Octopus Server and scheduling it in the cluster.
 - **Script Pods** - These are run to execute work on the cluster. When Octopus issues work to the agent, the Tentacle will schedule a pod to run the script to execute the required work. These are short-lived, single-use pods which are removed by Tentacle when they are complete.
-- **NFS Server Pod** - This optional component is used if no Storage Class is specified during installation.
+- **NFS Server Pod** - This optional component is used if no StorageClass is specified during installation.
 
 # Agent Pod Permissions
 
@@ -42,17 +42,17 @@ Example for `script.serviceAccount.targetNamespaces`:
 ```Bash
 helm upgrade --install --atomic \
 --set scriptPods.serviceAccount.targetNamespaces="{development,preproduction}" \
---set tentacle.ACCEPT_EULA="Y" \
---set tentacle.targetName="Nonproduction Agent" \
---set tentacle.serverUrl="http://localhost:5000/" \
---set tentacle.serverCommsAddress="http://localhost:10943/" \
---set tentacle.space="Default" \
---set tentacle.targetEnvironments="{Development,Preproduction}" \
---set tentacle.targetRoles="{k8s-cluster-tag}" \
---set tentacle.bearerToken="XXXX" \
+--set agent.acceptEula="Y" \
+--set agent.targetName="Nonproduction Agent" \
+--set agent.serverUrl="http://localhost:5000/" \
+--set agent.serverCommsAddress="http://localhost:10943/" \
+--set agent.space="Default" \
+--set agent.targetEnvironments="{Development,Preproduction}" \
+--set agent.targetRoles="{k8s-cluster-tag}" \
+--set agent.bearerToken="XXXX" \
 --version "1.*.*" \
---create-namespace --namespace octopus-agent-my-cluster \
-my-cluster \
+--create-namespace --namespace octopus-agent-my-agent \
+my-agent\
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
@@ -77,8 +77,8 @@ scriptPods:
           verbs:
           - '*'
 
-tentacle:
-  ACCEPT_EULA: 'Y'
+agent:
+  acceptEula: 'Y'
   targetName: 'No Secret Access Production Agent'
   serverUrl: 'http://localhost:5000/'
   serverCommsAddress: 'http://localhost:10943/'
@@ -94,12 +94,12 @@ tentacle:
 helm upgrade --install --atomic \
 --values values.yaml \
 --version "1.*.*" \
---create-namespace --namespace octopus-agent-my-cluster \
-my-cluster \
+--create-namespace --namespace octopus-agent-my-agent\
+my-agent \
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
 
 # NFS Server Pod Permissions
 
-If you have not provided a storageClassName for persistence, an NFS pod will be used. This NFS Server pod requires `privileged` access. For more information see [Kubernetes agent Storage](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/storage#nfs-storage).
+If you have not provided a predefined storageClassName for persistence, an NFS pod will be used. This NFS Server pod requires `privileged` access. For more information see [Kubernetes agent Storage](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/storage#nfs-storage).
