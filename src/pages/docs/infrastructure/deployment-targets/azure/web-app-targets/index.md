@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-30
 title: Azure Web App targets
-description: Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
+description: Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by target tag during deployments.
 navOrder: 20
 ---
 
-Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
+Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by [target tag](/docs/infrastructure/deployment-targets/#target-roles) during deployments.
 
 :::div{.hint}
-From version 2022.1 Octopus can discover Azure Web App targets using tags on your Web App resource.
+From version 2022.1 Octopus can discover Azure Web App targets using tags on your Web App cloud resource template.
 :::
 
 ## Requirements
@@ -31,7 +31,7 @@ To discover targets use the following steps:
 
 - Add an Azure account variable named **Octopus.Azure.Account** to your project.
 - [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/#tag-cloud-resources) to your Azure Web App so that Octopus can match it to your deployment step and environment.
-- Add a `Deploy an Azure App Service` or `Deploy an Azure Web App (Web Deploy)` step to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Azure Web App targets to deploy to.
+- Add a `Deploy an Azure App Service` or `Deploy an Azure Web App (Web Deploy)` step to your deployment process. During deployment, the target tag on the step will be used along with the environment being deployed to, to discover Azure Web App targets to deploy to.
 
 From **Octopus 2022.2**, deployment slots within an Azure Web App can also be discovered separately from the Web App it is a part of by adding tags to the slot. Any deployment slot discovered during deployment will be created as a separate target in Octopus.
 
@@ -49,7 +49,7 @@ To create an Azure Web App target within Octopus:
 
 - Navigate to **Infrastructure ➜ Deployment Target ➜ Add Deployment Target**.
 - Select **Azure Web App** from the list of available targets and click _Next_.
-- Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Web App target.
+- Fill out the necessary fields, being sure to provide a unique target tag (formerly target role) that clearly identifies your Azure Web App target.
 
 :::figure
 ![](/docs/infrastructure/deployment-targets/azure/web-app-targets/create-azure-web-app-target.png)
