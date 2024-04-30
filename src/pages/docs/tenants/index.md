@@ -33,7 +33,7 @@ Tenants let you:
 - Deploy to shared or dedicated [infrastructure](/docs/tenants/tenant-infrastructure) per tenant.
 - Limit access to tenants by [scoping team roles](/docs/tenants/tenant-roles-and-security) to tenants.
 - Create release rings to easily deploy to alpha and beta tenants.
-- Build simple [tenanted deployment](/use-case/tenanted-deployments) processes that can scale as you add more tenants.
+- Build simple [tenanted deployment](https://octopus.com/use-case/tenanted-deployments) processes that can scale as you add more tenants.
 
 ## When to use tenants {#when-to-use-tenants}
 Tenants simplify complex deployments if you're deploying your application more than once in an environment.
