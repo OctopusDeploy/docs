@@ -6,8 +6,6 @@ title: Creating a release
 description: Learn how to create a release in Octopus Deploy  
 navOrder: 2
 ---
-import CreateRelease from 'src/shared-content/releases/create-release.include.md';
-
 ## How to create a release in Octopus Deploy
 
 1. With your deployment process defined, you can create a release on the project's Overview page, by clicking **CREATE RELEASE**.
