@@ -58,7 +58,7 @@ Tenants can also represent:
 
 Learn more about [tenant types](https://octopus.com/docs/tenants/tenant-types).
 
-## Create your first tenant
+## Create your first tenant {#create-your-first-tenant}
 
 It’s simple to configure a new or existing Octopus project to use the Tenants feature:
 1. [Create a tenant](/docs/tenants/tenant-creation)
