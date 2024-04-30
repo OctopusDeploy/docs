@@ -15,6 +15,7 @@ Make sure you have a **current backup** of your Octopus data before proceeding. 
 :::
 
 ## Server configuration {#server-configuration}
+
 If you need to re-configure your Octopus Server instance, you can do that using the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
 ## Server folders {#server-folders}

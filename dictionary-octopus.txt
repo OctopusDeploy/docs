@@ -132,6 +132,7 @@ mozjpeg
 mozroots
 msbuild
 msiexec
+mssqldb
 MTTR
 myapplication
 myfeature
@@ -169,6 +170,7 @@ petshop
 PKCE
 pkcs
 podannotation
+preproduction
 prerender
 prerenderingchange
 printfn
@@ -180,6 +182,7 @@ pycryptodome
 querystring
 quickstart
 QUOTENAME
+redeploy
 redeployment
 redeployments
 Redgate
@@ -217,7 +220,6 @@ sourcedata
 speculationrules
 sqlcmd
 sqlvolume
-srcset
 srcset
 statefulset
 statefulsets
