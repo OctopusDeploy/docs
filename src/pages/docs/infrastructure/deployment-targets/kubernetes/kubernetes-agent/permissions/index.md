@@ -36,9 +36,12 @@ The service account for script pods can be customized in a few ways:
 | `scriptPods.serviceAccount.name`              | The name of the scriptPods service account                       | `<agent-name>-tentacle`                                                                                                                                                                                                                    |
 | `scriptPods.serviceAccount.annotations`       | Annotations given to the service account                         | `[]`                                                                                                                                                                                                                                       |
 
-Example for `script.serviceAccount.targetNamespaces`:
+### Examples
+<details data-group="script-pod-value-examples">
+<summary>Target Namespaces</summary>
 
-**script:**
+`scriptPods.serviceAccount.targetNamespaces`
+
 ```Bash
 helm upgrade --install --atomic \
 --set scriptPods.serviceAccount.targetNamespaces="{development,preproduction}" \
@@ -55,8 +58,12 @@ helm upgrade --install --atomic \
 my-agent\
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
+</details>
 
-Example for `scriptPods.serviceAccount.clusterRole.rules`:
+<details data-group="script-pod-value-examples">
+<summary>Cluster Role Rules</summary>
+
+`scriptPods.serviceAccount.clusterRole.rules`
 
 **values.yaml:**
 ```yaml
@@ -89,7 +96,7 @@ agent:
     - 'k8s-cluster-tag'
   bearerToken: 'XXXX'
 ```
-**script:**
+**command:**
 ```Bash
 helm upgrade --install --atomic \
 --values values.yaml \
@@ -98,6 +105,7 @@ helm upgrade --install --atomic \
 my-agent \
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
+</details>
 
 
 # NFS Server Pod Permissions
