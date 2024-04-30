@@ -13,7 +13,7 @@ hideInThisSection: true
 Tenants in Octopus help you deploy software to many production instances, targets, or customers without duplicating effort. This includes:
 
 - Delivering [Software as a Service (SaaS)](https://octopus.com/use-case/tenanted-deployments/saas/) applications where each customer has its own resources
-- Deploying to [physical locations](/use-case/tenanted-deployments/physical-locations/) like stores, hospitals, or data centers
+- Deploying to [physical locations](https://octopus.com/use-case/tenanted-deployments/physical-locations/) like stores, hospitals, or data centers
 - Dealing with multiple cloud regions
 
 Although you can model these scenarios using multiple projects, or multiple environments, this can quickly become overwhelming. These models also don’t scale well as there is a lot of duplication.
