@@ -42,6 +42,9 @@ The service account for script pods can be customized in a few ways:
 
 `scriptPods.serviceAccount.targetNamespaces`
 
+<br/>
+
+**command:**
 ```Bash
 helm upgrade --install --atomic \
 --set scriptPods.serviceAccount.targetNamespaces="{development,preproduction}" \
@@ -64,6 +67,8 @@ oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 <summary>Cluster Role Rules</summary>
 
 `scriptPods.serviceAccount.clusterRole.rules`
+
+<br/>
 
 **values.yaml:**
 ```yaml
@@ -96,6 +101,8 @@ agent:
     - 'k8s-cluster-tag'
   bearerToken: 'XXXX'
 ```
+<br/>
+
 **command:**
 ```Bash
 helm upgrade --install --atomic \
