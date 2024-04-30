@@ -82,4 +82,4 @@ If you’re having any issues with tenants, we have useful answers to common que
 - [Multi-tenant deployments FAQ](/docs/tenants/tenant-deployment-faq)
 - [Troubleshooting multi-tenant deployments](/docs/tenants/troubleshooting-multi-tenant-deployments)
 
-If you still have questions, [we’re always here to help](/support).
+If you still have questions, [we’re always here to help](https://octopus.com/support).
