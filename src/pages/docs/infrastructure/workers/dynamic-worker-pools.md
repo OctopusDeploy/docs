@@ -24,6 +24,8 @@ Octopus Cloud will automatically destroy dynamic workers as soon as one of these
 Please reach out to [support@octopus.com](mailto:support@octopus.com) if you need these values to be adjusted for your instance.
 :::
 
+Worker VMs are provisioned with at least 20GB of available disk space, which is persistent until the worker is destroyed.
+
 ## Isolated
 
 Each worker VM is provisioned exclusively to a specific customer, and is completely isolated from other customers.
@@ -161,7 +163,7 @@ A specific version can be used by [specifying a custom kubectl location](/docs/d
 
 Octopus does not recommend installing additional software on Dynamic Workers. 
 
-By default, every dynamic worker is destroyed after it has been allocated for over 72 hours. In addition Octopus cannot guarantee that the dynamic worker leased to run one step will be the same worker leased to other executing steps in a deployment or runbook run. 
+By default, every dynamic worker is destroyed after it has been idle for 60 minutes or allocated for over 72 hours. In addition Octopus cannot guarantee that the dynamic worker leased to run one step will be the same worker leased to other executing steps in a deployment or runbook run. 
 
 For deployments and runbook runs that require additional software dependencies on a Dynamic worker, our recommendation is to leverage [execution containers for workers](/docs/projects/steps/execution-containers-for-workers).  Octopus provides execution containers with a baseline of tools (`octopusdeploy/worker-tools`) pre-installed. These tools won't include every possible software combination you might need. If you require a specific set of software and tooling we recommend [building your own custom docker images for use with execution containers](/docs/projects/steps/execution-containers-for-workers/#custom-docker-images).
 

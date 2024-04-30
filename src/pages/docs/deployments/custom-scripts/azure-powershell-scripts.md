@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-11-01
+modDate: 2024-04-23
 title: Azure CLI and PowerShell Scripts
 description: Azure CLI and PowerShell Scripts allow you to manage your Azure resources as part of your deployment process.
 navOrder: 80
@@ -50,10 +50,6 @@ To use your own version of the Azure CLI or Azure Powershell cmdlets when using 
 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers).
 - Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
-
-:::figure
-![](/docs/deployments/custom-scripts/images/5865912.png)
-:::
 
 These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 

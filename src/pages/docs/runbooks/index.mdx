@@ -1,17 +1,61 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-02
 title: Runbooks
 navTitle: Overview
 navSection: Runbooks
 description: With Octopus runbook automation you can automate routine or emergency operations-centric processes, for instance, disaster recovery and database backups.
 navOrder: 90
 ---
-import RunbooksIntro from 'src/shared-content/concepts/runbooks-intro.include.md';
+Deployments are just one piece of the deployment puzzle. You also have to manage day-1 and day-2 operations. Octopus Runbooks lets you automate these routine and emergency operations tasks, giving you one platform for DevOps automation.
 
-<RunbooksIntro />
+A runbook is a set of instructions that help you consistently carry out a task, whether it's routine maintenance or responding to an incident. Octopus provides the platform for your runbooks just as it does for your deployments. 
+
+Runbooks automate routine maintenance and emergency operations tasks, like:
+
+- Infrastructure provisioning
+- Database management
+- Website failover and restoration
+
+:::figure
+![Octopus deployment process](/docs/runbooks/runbooks-screen.png)
+:::
+
+Runbooks help you:
+
+- Make operations more repeatable and reliable
+- Let people self-serve without granting access to the underlying infrastructure
+- Automate tasks so you don't need human intervention
+- Free your teams for more crucial work
+
+## How runbooks work
+You can set permissions so anyone on a team can start a runbook, or you can limit access to specific environments. Octopus handles access control and provides a complete audit trail. This makes runbooks ideal for creating safe and secure, self-service, push-button operations. This also frees up your Ops team from time-consuming, repetitive tasks.
+
+You can also use prompted variables with runbooks if you need human interaction, like a review. Because you don't need to grant access to the underlying infrastructure, reviews and approvals can happen in Octopus, too. This keeps the whole process in one place. The audit log stores changes to runbooks, requests to run them, and approvals, for complete transparency.
+
+## Types of runbooks
+There are 3 common types of runbooks:
+
+- **Routine operations** - where you replace manual operations and ClickOps with runbooks. The goal is to move all toil into runbooks so you don’t need to remote into servers or click through cloud management portals. You can use Octopus to bring these tasks into one place and make them self-service or automatic.
+- **Emergency operations** - runbooks can reduce stress during an incident. You can have runbooks that restart a server, or perform a graceful failover to your standby region when there's a major incident.
+- **Infrastructure provisioning** - for elastic or transient environments, you can use runbooks to deploy templates for cloud infrastructure on Azure, AWS, or Google Cloud. Or, you might apply a Terraform template, destroy a Terraform resource, or create Terraform plans.
+
+Learn more about the ways you can use runbooks in our [runbooks examples](/docs/runbooks/runbook-examples).
+
+## Getting started
+Runbooks belong to projects. To create or manage your runbooks, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 
 To create a runbook, navigate to **Project ➜ Operations ➜ Runbooks ➜ Add Runbook**.
 
-![Add Runbook](/docs/runbooks/runbooks-list.png "width=500")
+:::figure
+![Add Runbook](/docs/runbooks/create-a-runbook.png)
+:::
+
+## Learn more
+- [Runbooks versus deployments](/docs/runbooks/runbooks-vs-deployments) - Learn how runbooks differ from deployments
+- [Runbooks permissions](/docs/runbooks/runbook-permissions) - Understand how to manage permissions
+- [Runbooks variables](/docs/runbooks/runbook-variables) - Learn how to manage variables
+- [Runbooks publishing](https://octopus.com/docs/runbooks/runbook-publishing) - Learn about snapshots for runbooks 
+- [Scheduled runbook triggers](https://octopus.com/docs/runbooks/scheduled-runbook-trigger) - Define an unattended behavior for your runbook
+- [Runbook examples](https://octopus.com/docs/runbooks/runbook-examples) - Learn about the ways you can use runbooks

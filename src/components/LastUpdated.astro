@@ -11,8 +11,8 @@ stats.start();
 // Properties
 type Props = {
   lang: string;
-  frontmatter: Frontmatter
-  headings: { depth: number; slug: string; text: string; }[];
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
 };
 const { lang, frontmatter, headings } = Astro.props satisfies Props;
 
@@ -24,6 +24,14 @@ const date = frontmatter.modDate ?? frontmatter.pubDate;
 
 stats.stop();
 ---
-{date &&
-<p class="last-updated"><time datetime={ date.toString() } itemprop="dateModified"></time>{ _(Translations.post.last_modified) + ' ' + accelerator.dateFormatter.formatDate(date, lang) }</time></p>
+
+{
+  date && (
+    <p class="last-updated">
+      <time datetime={date.toString()} itemprop="dateModified" />
+      {_(Translations.post.last_modified) +
+        ' ' +
+        accelerator.dateFormatter.formatDate(date, lang)}
+    </p>
+  )
 }

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-03-26
 title: Getting started
 subtitle: An overview of Octopus Deploy concepts
 navTitle: Overview
@@ -11,123 +11,129 @@ navOrder: 5
 hideInThisSectionHeader: true
 ---
 
-This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guide you through implementing them with [Octopus Cloud](#octopus-cloud) or your own [self-hosted Octopus Server](#self-hosted-octopus). When you are ready, you can start a free trial and explore.
+Getting started with Octopus Deploy is straightforward, and the product will guide you through most of the initial setup and get you deploying in minutes. However, to truly take advantage of Octopus, it helps to have some background on the key concepts.
+
+When you are ready, start a free trial to explore Octopus. 
 
 <span><a class="button trial" href="https://octopus.com/start">Start a Trial</a></span>
 
-## Consistent releases
+Octopus Cloud is the easiest way to get started with Octopus Deploy, and we take care of everything for you. Alternatively, if you require a self-managed CD solution, you can [download Octopus Server](https://octopus.com/downloads) and run it on your own setup. The [installation guide](/docs/installation) provides instructions for downloading, installing, and configuring your Octopus Deploy Server.
 
-Octopus Deploy simplifies complex deployments.
+## Octopus in your software delivery pipeline
 
-Octopus Deploy sits between your build servers and the deployment targets your software will be deployed to, and gives you control over every step in the deployment process.
+Octopus is designed as a dedicated, best-of-breed Continuous Delivery platform with a focus on releasing and deploying software, in the spirit of "do one thing, _really_ well". We don't aim to solve the entire software delivery pipeline, but we focus on going deeper on release & deploy than any other solution.
 
-After your build server has compiled and packaged your software, Octopus progresses the software through your environments from **Dev** and **QA** all the way through to **Production**, whether your deployment targets are Windows servers, Linux servers, Azure, AWS, Kubernetes, or Google Cloud Platform.
+:::figure
+![Octopus in a deployment pipeline](/docs/getting-started/octopus-in-pipeline.png)
+:::
 
-## Octopus Deploy Server
+Octopus assumes you already have a CI system up and running, and we provide first-class integrations with all major CI systems on the market. You'll find guides for integrating Octopus with:
 
-You can install your own [self-hosted](#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](#octopus-cloud).
+- GitHub Actions
+- GitLab
+- Circle CI
+- Jenkins
+- JetBrains TeamCity
+- BuildKite
+- Azure DevOps
 
-### Octopus Cloud
+The job of the CI system is to take source code and turn it into an artifact that can be deployed. To do this, CI systems monitor source control for changes, then run jobs like compiling code and running tests in order to give fast feedback to developers. 
 
-**Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/security/#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
+The final output of the CI system will be one or more **packages** or **containers** that are ready to be deployed. Containers are usually built and published to a Docker registry, usually the registry provided by the cloud you are deploying to.  
 
-Learn more about [Octopus Cloud](/docs/octopus-cloud).
+Packages like ZIP or JAR files can be pushed directly to Octopus's built in package repository. Alternatively, if you already have an external artifact repository like JFrog Artifactory, you can use that. 
 
-### Self-Hosted Octopus
+## Projects, environments, and releases
 
-Installing the self-hosted [Octopus Server](/docs/installation/) sets up the [Octopus Web Portal](#the-octopus-web-portal) and the [Octopus REST API](/docs/octopus-rest-api).
-
-The [installation documentation](/docs/installation) provides instructions for downloading, installing, and configuring your Octopus Deploy Server.
-
-### The Octopus Web Portal
-
-Whether you're self-hosting the Octopus Server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments and runbooks.
+The first page you will see in Octopus is called the Dashboard. Initially yours will be empty, but as you add start deploying applications, it will fill up.
 
 :::figure
 ![Octopus Dashboard](/docs/getting-started/dashboard.png)
 :::
+
+The Dashboard shows the three main building blocks of Octopus. 
+
+**[Projects](/docs/projects)** are the applications we deploy. In the image above, "Database", "Product API", and "Shopping Cart API" are the projects. A project has all the information needed to deploy an application - or often, a really large system composed of many applications that are delivered at the same time. 
+
+**Environments** are where we deploy the applications. In this case, Dev, Test and Production. 
+
+In the middle of the grid, you'll see **Releases**. A Release is a bundle of all the things needed to deploy a specific version of an application. This might include:
+
+- The container images or packages (artifacts produced from a CI build)
+- The associated configuration and variables needed to configure the release for each environment
+- A snapshot of the process that will be used to deploy the release, as the process may change in future releases
+- Details on Jira tickets and Git commits that went into the release
+
+Many releases get created for a project - often each time a CI build completes - and those releases can then be _deployed_ to an environment. When a release is deployed to an environment, Octopus calls that a Deployment. Software teams often use [release and deployment interchangeably](https://octopus.com/devops/continuous-delivery/deployments-vs-releases/), but in our opinion they have subtly different meanings.
+
+Creating releases is normally done automatically at the end of a CI process using one of our CI integrations. 
+
+
+## Deployment process
+
+Inside each project, you'll configure a Deployment Process. The deployment process is like the recipe for deploying the project - the steps that will be run. 
+
+:::figure
+![Octopus Deployment Process](/docs/shared-content/concepts/images/deployment-process.png)
+:::
+
+Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
+
+Octopus Deploy provides a range of built-in step templates that can be included in your deployment processes. You can even create your own custom steps.
+
+Learn more about the [deployment process](/docs/projects/deployment-process/) and see some example [deployments](/docs/deployments).
+
+The deployment process and many other parts of a project can be stored in a Git repository. Learn more about [Config as Code](/docs/projects/version-control).
+
+### Variables
+
+As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advanced support for managing and scoping variables. For instance, your test environment shouldn't have access to your production database. Using variables, you can specify a different database for each environment, ensuring your production data won't be impacted by codes changes that are still in review.
+
+:::figure
+![Octopus Variables](/docs/shared-content/concepts/images/variables.png)
+:::
+
+Learn more about [variables](/docs/projects/variables/) and advanced [configuration features](/docs/projects/steps/configuration-features).
 
 ## Infrastructure
 
 Octopus Deploy organizes your deployment targets (the machines and services you deploy software to) into groups called environments. Typical environments are **Dev**, **Test**, and **Production**.
 
 :::figure
-![The infrastructure tab of Octopus Deploy](/docs/getting-started/images/infrastructure.png)
+![The infrastructure tab of Octopus Deploy](/docs/shared-content/concepts/images/infrastructure.png)
 :::
 
 Organizing your infrastructure into environments lets you define your deployment processes (no matter how many deployment targets are involved) and have Octopus deploy the right versions of your software, with the right configuration, to the right environments at the right time.
 
 Learn more about managing your [infrastructure](/docs/infrastructure).
 
-## Packaging applications
+## Lifecycles
 
-Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run in a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. You can configure your build server to push packages automatically to Octopus's built-in repository or to your existing [package repository](/docs/packaging-applications/package-repositories).
-
-Learn more about [packaging your applications](/docs/packaging-applications).
-
-## Projects
-
-<!-- needs runbooks -->
-
-Projects let you create and manage your deployment processes, releases, and runbooks from the Octopus REST API and Octopus Web Portal.
-
-For each project, you can define a deployment process, runbooks to manage your infrastructure, variables, the environments where the software will be deployed, and releases of your software.
-
-Learn more about [projects](/docs/projects).
-
-## Deploying applications
-
-Octopus Deploy is designed to work with teams following modern DevOps methodologies, that is, continuously deploying software, getting feedback, making changes, and redeploying.
-
-The deployment process is the steps the Octopus Server orchestrates to deploy your software.
-
-Octopus Deploy provides a range of built-in step templates that can be included in your deployment processes, you can also add steps from the community step template library, and even create your own custom steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
-
-Learn more about the [deployment process](/docs/projects/deployment-process/) and see some example [deployments](/docs/deployments).
-
-### Variables
-
-As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advanced support for managing and scoping variables. For instance, your test environment shouldn't have access to your production database. Using variables, you can specify a different database for each environment, ensuring your production data won't be impacted by codes changes that are still in review.
-
-Learn more about [variables](/docs/projects/variables/) and advanced [configuration features](/docs/projects/steps/configuration-features).
-
-### Lifecycle
-
-When you define a project, you also select a lifecycle. The lifecycle defines the rules around how releases of the project are deployed between environments, which projects are deployed to which environments.
+When you define a project, you also select a lifecycle. The lifecycle defines the promotion rules around how releases of the project are deployed between environments, which projects are deployed to which environments.
 
 Lifecycles are defined by phases, each phase can have one or more environments, and each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
 
 Learn more about [lifecycles](/docs/releases/lifecycles).
 
-### Releases
+## Runbook automation
 
-A release in Octopus, is a snapshot of the packaged software, variables, and the deployment process.
+A deployment is only one phase in the life of an application. There are many other tasks that are performed to keep an application operating - often called "Day 2". 
 
-:::figure
-![Deploy release screen in the Octopus Web Portal](/docs/getting-started/deploy-release.png)
-:::
+Octopus Runbooks live inside a Project, and can be used to automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration. 
 
-A release is deployed to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to the next environment when they are successful. Releases can be deployed manually each time or set up to deploy automatically, depending on your needs.
-
-Learn more about [deploying releases](/docs/releases).
-
-## Runbook automation {#octopus-runbooks}
-
-A deployment is only one phase in the life of an application. There are many other tasks that are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where runbooks help.
-
-Octopus Runbooks automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.
+They can also be used to grant application developers the ability to do special things like "restart a Kubernetes pod that has frozen", without giving them direct production cluster access.
 
 Learn more about [Octopus Runbooks](/docs/runbooks).
 
-## Config as Code
-
-Octopus now provides the option to host multiple branches of your deployment processes in Git. This feature enables you to track changes to your deployment process via commits directly to your Git repository. This provides greater control when testing changes to your projects, allowing you to branch your deployment process and test changes before altering your main branch.
-
-Learn more about [Config as Code](/docs/projects/version-control).
-
 ## Tenants
 
-Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy slightly different versions of the software configured for each customer. For instance, you might deploy version 1.0.1 to Customer A with the software configured to display customer A's logo on their landing page, and version 1.1.0 to Customer B configured to display their logo on their landing page. The tenants feature in Octopus Deploy helps you manage deploying different versions of the same software to multiple customers.
+Tenants in Octopus allow you to easily create **customer specific** deployment pipelines **without duplicating project configuration**. 
+
+One example of using Tenants would be when your application is a SaaS platform, where each Tenant has their own running instance of your application, possibly with their own infrastructure. A Tenant allows you to model the infrastructure that belongs to the customer, as well as customer-specific configuration variables, and use that data across multiple projects. 
+
+Another example where Tenants come in handy is "edge" scenarios, where you deploy software to many remote locations - for example, restaurants around the country, or retail stores around the world, where each store has their own servers or MicroK8s cluster that you will be deploying to. 
+
+If a project uses tenants, a release can be deployed to all tenants, a single tenant, or a group of tenants using tags. 
 
 Learn more about [tenants](/docs/tenants).
 

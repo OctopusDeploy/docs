@@ -1,0 +1,103 @@
+---
+import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
+import { Translations, Lang } from '@util/Languages';
+import { SITE } from '@config';
+
+// Properties
+type Props = {
+  lang: string;
+};
+const { lang } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const siteUrl = Astro.site ? Astro.site.href : '';
+const accelerator = new Accelerator(SITE);
+const search =
+  accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
+const searchUrl =
+  (search && accelerator.urlFormatter.formatAddress(search.url)) ||
+  SITE.search.fallbackUrl;
+---
+
+<div class="site-search__wrapper" data-site-search-wrapper>
+  <div class="site-search__overlay"></div>
+  <form
+    method="GET"
+    action={SITE.search.fallbackUrl ?? 'https://www.google.com/search'}
+    role="search"
+    class="site-search"
+    autocomplete="off"
+    data-sourcedata={SITE.subfolder + '/search.json'}
+    data-site-search
+  >
+    <fieldset>
+      <input
+        type="hidden"
+        name={SITE.search.fallbackSite ?? 'q'}
+        value={'site:' + siteUrl}
+      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="19"
+        viewBox="0 0 20 19"
+        fill="none"
+      >
+        <path
+          d="M19.0524 16.4267L15.3727 12.7273C15.2067 12.5603 14.9815 12.4675 14.7453 12.4675H14.1437C15.1624 11.1577 15.7676 9.5102 15.7676 7.718C15.7676 3.45455 12.3316 0 8.09097 0C3.85035 0 0.414307 3.45455 0.414307 7.718C0.414307 11.9814 3.85035 15.436 8.09097 15.436C9.87358 15.436 11.5123 14.8275 12.8151 13.8033V14.4082C12.8151 14.6456 12.9073 14.872 13.0734 15.039L16.7531 18.7384C17.1 19.0872 17.661 19.0872 18.0042 18.7384L19.0487 17.6883C19.3956 17.3395 19.3956 16.7755 19.0524 16.4267ZM8.09097 12.4675C5.48164 12.4675 3.36687 10.3451 3.36687 7.718C3.36687 5.09462 5.47795 2.96846 8.09097 2.96846C10.7003 2.96846 12.8151 5.09091 12.8151 7.718C12.8151 10.3414 10.704 12.4675 8.09097 12.4675Z"
+          fill="#274B66"></path>
+      </svg>
+      <input
+        type="text"
+        name={SITE.search.fallbackSite ?? 'q'}
+        class="site-search-query"
+        placeholder={_(Translations.search.search_for)}
+        spellcheck="true"
+        autocomplete="off"
+        data-site-search-query
+      />
+      <button
+        class="site-search__remove-btn"
+        type="button"
+        data-site-search-remove
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="11"
+          height="11"
+          viewBox="0 0 11 11"
+          fill="none"
+        >
+          <path
+            d="M7.585 5.5L10.7122 2.37281C11.0959 1.98906 11.0959 1.36687 10.7122 0.982812L10.0172 0.287813C9.63344 -0.0959375 9.01125 -0.0959375 8.62719 0.287813L5.5 3.415L2.37281 0.287813C1.98906 -0.0959375 1.36688 -0.0959375 0.982813 0.287813L0.287813 0.982812C-0.0959375 1.36656 -0.0959375 1.98875 0.287813 2.37281L3.415 5.5L0.287813 8.62719C-0.0959375 9.01094 -0.0959375 9.63312 0.287813 10.0172L0.982813 10.7122C1.36656 11.0959 1.98906 11.0959 2.37281 10.7122L5.5 7.585L8.62719 10.7122C9.01094 11.0959 9.63344 11.0959 10.0172 10.7122L10.7122 10.0172C11.0959 9.63344 11.0959 9.01125 10.7122 8.62719L7.585 5.5Z"
+            fill="#355670"></path>
+        </svg>
+      </button>
+    </fieldset>
+  </form>
+  <div
+    class="site-search-results"
+    data-title={_(Translations.search.results_title)}
+    data-emptytitle={_(Translations.search.no_results_title)}
+    data-site-search-results
+  >
+  </div>
+  <a href={searchUrl} class="site-search__mobile">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="19"
+      viewBox="0 0 20 19"
+      fill="none"
+    >
+      <path
+        d="M19.0524 16.4267L15.3727 12.7273C15.2067 12.5603 14.9815 12.4675 14.7453 12.4675H14.1437C15.1624 11.1577 15.7676 9.5102 15.7676 7.718C15.7676 3.45455 12.3316 0 8.09097 0C3.85035 0 0.414307 3.45455 0.414307 7.718C0.414307 11.9814 3.85035 15.436 8.09097 15.436C9.87358 15.436 11.5123 14.8275 12.8151 13.8033V14.4082C12.8151 14.6456 12.9073 14.872 13.0734 15.039L16.7531 18.7384C17.1 19.0872 17.661 19.0872 18.0042 18.7384L19.0487 17.6883C19.3956 17.3395 19.3956 16.7755 19.0524 16.4267ZM8.09097 12.4675C5.48164 12.4675 3.36687 10.3451 3.36687 7.718C3.36687 5.09462 5.47795 2.96846 8.09097 2.96846C10.7003 2.96846 12.8151 5.09091 12.8151 7.718C12.8151 10.3414 10.704 12.4675 8.09097 12.4675Z"
+        fill="#274B66"></path>
+    </svg>
+  </a>
+</div>
+
+<script src={SITE.subfolder + '/js/search.js'} type="module" defer></script>

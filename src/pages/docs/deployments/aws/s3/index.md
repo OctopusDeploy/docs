@@ -14,10 +14,6 @@ The following instructions can be used to configure the `Upload a package to an 
 
 Add the `Upload a package to an AWS S3 bucket` step to the project, and give it a name.
 
-:::figure
-![Upload s3 step](/docs/deployments/aws/s3/upload-s3-step.png)
-:::
-
 ### AWS section
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).

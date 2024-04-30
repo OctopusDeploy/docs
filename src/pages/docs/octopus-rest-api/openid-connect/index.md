@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-27
-modDate: 2023-09-27
+modDate: 2024-01-15
 title: Using OpenID Connect with the Octopus API
 description: External systems can use OpenID Connect with service accounts to access the Octopus API without needing to provision API keys
 navOrder: 30
@@ -156,6 +156,24 @@ A Service Account Id will be shown, this will be a GUID which must be supplied a
 
 The access token obtained from the token exchange must be supplied in the `Authorization` header of API requests, using the `Bearer` scheme, for example `Authorization: Bearer {the-access-token}`.
 
+## Using the Octopus CLI with OIDC
+
+From version `2.1.0`, the [Octopus CLI](https://github.com/OctopusDeploy/cli) supports a new command `octopus login` which can be used to authenticate using OIDC, providing the Octopus Server URL, the id of the service account and the ID token from your OIDC provider. This can be used as part of your CI server workflows where you are using the CLI but currently provisioning an API key.
+
+After authenticating using OIDC, the `login` command will configure the CLI environment to be used.
+
+Usage:
+
+```
+octopus login --server {OctopusServerUrl} --service-account-id {ServiceAccountId} --id-token {IdTokenFromProvider}
+```
+
+For example:
+
+```
+octopus login --server https://my.octopus.app --service-account-id 834a7275-b5b8-42a1-8b36-14f11c8eb55e --id-token eyJhbGciOiJQUzI1NiIs...
+```
+
 ## Validation of OIDC identity tokens
 
 When an OIDC identity token from an external system is received as part of a token exchange request, Octopus will validate this token before issuing an access token. It does this by:
@@ -171,7 +189,7 @@ If you are encountering issues using OIDC validating identity tokens from your O
 - Check the audience (`aud`), issuer (`iss`) and subject (`sub`) of the token match the configured OIDC identity on the Octopus service account.
   - The audience must be the id of the service account and will be a GUID.
   - The issuer must be a URL using the HTTPS scheme.
-  - The subject must match exactly the configured subject on the OIDC identity and is _case-sensitive_.
+  - The subject must match the configured subject on the OIDC identity and is _case-sensitive_. Support is available to include wildcard characters in the subject using `*` and `?` for multiple and single character matches respectively.
 - If you are making the token exchange request manually (e.g. using an [issuer other than GitHub Actions](/docs/octopus-rest-api/openid-connect/other-issuers)), check that the required fields are set correctly. See [Exchanging an OIDC token for an Octopus access token](/docs/octopus-rest-api/openid-connect/other-issuers#OidcOtherIssuers-TokenExchange) for more information on the request format.
 - Check that the token has not expired (`exp`). Often identity tokens created by OIDC providers will have a short lifetime.
 - Check that the token is signed by a valid key from the issuer. Signing keys may be invalidated by providers under some circumstances.
@@ -179,6 +197,12 @@ If you are encountering issues using OIDC validating identity tokens from your O
   - The OpenID discovery endpoint must be available at `{Issuer}/.well-known/openid-configuration`
   - This endpoint must return a `jwks_uri` property with a URL where the public key used to sign the token can be obtained. There could be multiple keys returned by this endpoint, each key can be identified using the `kid` property.
   - Both of these endpoints must be publicly accessible without requiring authorization.
+
+:::div{.warning}
+Although the subject field does support wildcards, we recommend providing as explicit a value as possible to reduce the risk of malicious requests resulting in a subject match. 
+
+For example, if you are generating OIDC tokens from GitHub Actions and want to match against any branch in your project repository, ensure your wildcard covers just the branch component of the subject `repo:AcmeOrg/MyRepo:ref:*`. Providing a single blanket `*` wildcard character otherwise means that any token request (with a matching `service_account_id`) from a GitHub Action from any organization could result in a match and an Octopus Authentication Token issued.
+:::
 
 :::div{.hint}
 Public sites such as [jwt.io](https://jwt.io/) can be used to inspect and validate identity tokens.

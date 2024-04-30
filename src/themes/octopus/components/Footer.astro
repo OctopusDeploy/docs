@@ -1,0 +1,42 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { Translations, Lang } from '@util/Languages';
+import { menu } from 'src/data/footer';
+import FooterItem from '@components/FooterItem.astro';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('octopus/components/Footer.astro');
+stats.start();
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+};
+const { lang } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const currentUrl = new URL(Astro.request.url);
+const pages = accelerator.navigation.footer(
+  currentUrl,
+  _,
+  Translations,
+  SITE.subfolder,
+  menu
+);
+
+stats.stop();
+---
+
+<footer class="site-footer" id="site-footer">
+  <div class="footer-columns">
+    {pages.map((page) => <FooterItem lang={lang} page={page} />)}
+  </div>
+  <slot />
+</footer>

@@ -1,0 +1,65 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { Translations, Lang } from '@util/Languages';
+import { SITE } from '@config';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('octopus/components/Taxonomy.astro');
+stats.start();
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter;
+};
+const { lang, frontmatter } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const categories = frontmatter.categories ?? [];
+const tags = frontmatter.tags ?? [];
+
+const links = accelerator.taxonomy.links(Translations, _, SITE.subfolder);
+const hasTaxonomy = categories.length + tags.length > 0;
+
+stats.stop();
+---
+
+{
+  hasTaxonomy && (
+    <div class="post-taxonomy">
+      {tags.length > 0 && (
+        <div class="post-tag">
+          <h2>{_(Translations.articles.tag_title)}: </h2>
+          <ul itemprop="keywords">
+            {tags.map((tag) => (
+              <li>
+                <a href={links.getTagLink(tag)}>{tag}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {categories.length > 0 && (
+        <div class="post-cat">
+          <h2>{_(Translations.articles.category_title)}: </h2>
+          <ul>
+            {categories.map((category) => (
+              <li>
+                <a
+                  href={links.getCategoryLink(category)}
+                  itemprop="articleSection"
+                >
+                  {category}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )
+}

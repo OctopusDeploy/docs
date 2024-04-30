@@ -1,17 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Deploy an Ingress resource
-description: Deploy an ingress resource to a Kubernetes cluster.
+modDate: 2024-04-23
+title: Configure and apply a Kubernetes Ingress
+description: Configure and apply a Kubernetes Ingress.
 navOrder: 40
 ---
 
-[Ingress resources](https://oc.to/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
-
-:::figure
-![Deploy ingress step](/docs/deployments/kubernetes/deploy-ingress/deploy-ingress-step.png)
+:::div{.hint}
+`Deploy Kubernetes ingress resource` was renamed to `Configure and apply a Kubernetes Ingress` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
 :::
+
+[Ingress resources](https://oc.to/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
 
 ## Ingress name
 
@@ -46,7 +46,7 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 :::div{.hint}
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fan-out pattern that shares a single load balancer.
 
 On the other hand, the [NGINX Ingress Controller resource installation procedure](https://oc.to/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::

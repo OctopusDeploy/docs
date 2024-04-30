@@ -217,7 +217,7 @@ The commits that are pushed to Octopus as build information need to have the exa
 
 If you push build information to Octopus after a release is created, the build information won't be included in the release. This is because the information is included in the release snapshot. To ensure your release contains any build information, push the build information *before* you create a release.
 
-If you have [Automatic release creation](/docs/projects/project-triggers/automatic-release-creation) enabled for a specific package step, you will need to push build information *before* you push the configured package to the built-in repository.
+If you have a [built-in package repository trigger](/docs/projects/project-triggers/built-in-package-repository-triggers) (formerly Automatic release creation) enabled for a specific package step, you will need to push build information _before_ you push the configured package to the built-in repository.
 
 ### Check the entire package ID {#troubleshooting-check-the-entire-package-id}
 
