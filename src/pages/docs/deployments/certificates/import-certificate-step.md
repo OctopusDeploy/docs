@@ -1,17 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-23
 title: Import certificate to Windows certificate store
 description: The Import Certificate deployment step allows you to import a certificate managed by Octopus into one of the Windows Certificate Stores as part of a deployment process
 navOrder: 30
 ---
 
 The *Import Certificate* step can be used to import a certificate managed by Octopus into a Windows Certificate Store.
-
-:::figure
-![](/docs/deployments/certificates/images/import-certificate-step-select.png)
-:::
 
 ## Import details
 

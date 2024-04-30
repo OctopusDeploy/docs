@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-11-01
+modDate: 2024-04-23
 title: AWS CLI and PowerShell scripts
 description: AWS CLI and PowerShell Scripts allow you to manage your AWS resources as part of your deployment process.
 navOrder: 90
@@ -50,10 +50,6 @@ Select the account that was created in the previous step to assign it to the var
 ## Add AWS script step
 
 Add the `Run an AWS CLI Script` step to the project, and provide it a name:
-
-:::figure
-![Run AWS Script](/docs/deployments/custom-scripts/images/run-aws-script-step.png)
-:::
 
 ### AWS section
 

@@ -1,18 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-23
 title: Transfer package
 description: Transfer Package step allows you to simply transfer a package to your deployment target without extracting it.
 ---
 
-## Transferring a package to your target without extraction {#TransferPackage-Transferringapackagetoyourtargetwithoutextraction}
+## Transferring a package to your target without extraction {#transfer-without-extraction}
 
 If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deployments/packages/) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](/docs/projects/steps) section.
-
-:::figure
-![](/docs/deployments/packages/images/5866194.png)
-:::
 
 When transferring a package you will need to specify a location that the file will be copied to once it has been uploaded from the server. This can be either a hard-coded path, or a bound variable.
 
