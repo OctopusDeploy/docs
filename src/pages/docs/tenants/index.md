@@ -73,7 +73,7 @@ When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release/) 
 
 Learn more about [tenant variables](/docs/tenants/tenant-variables) in our documentation.
 
-## Tenant tags
+## Tenant tags {#tenant-tags}
 Tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Learn more about [tenant tags](/docs/tenants/tenant-tags) in our documentation.
 
 ## Troubleshooting tenanted deployments
