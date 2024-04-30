@@ -32,6 +32,7 @@ Cmdn
 combinational
 comms
 COMPUTERNAME
+configmap
 Conjur
 cooldown
 Cpath
@@ -62,6 +63,7 @@ dpkg
 Dspring
 Elyton
 emptytitle
+fanout
 Fargate
 feedcred
 Feedz.io
@@ -147,6 +149,8 @@ Octo
 octobak
 Octopub
 octopusartifact
+octopusbob
+octopusdemos.app
 octopusdeploy
 octopusid
 octopuslabs
@@ -159,6 +163,7 @@ OIDC
 onlylogs
 openon
 passout
+pemstore
 petclinic
 petshop
 PKCE
@@ -175,6 +180,8 @@ pycryptodome
 querystring
 quickstart
 QUOTENAME
+redeployment
+redeployments
 Redgate
 rehype
 reindexing
@@ -194,9 +201,11 @@ runbook
 runbooks
 runtimes
 Schannel
-Sesna
 servedby
+servername
+serverstatus
 serviceaccount
+Sesna
 setspn
 shiki
 SIEM
@@ -206,8 +215,12 @@ snapshotted
 snapshotting
 sourcedata
 speculationrules
+sqlcmd
+sqlvolume
 srcset
 srcset
+statefulset
+statefulsets
 sthumb
 stylesheet
 subcontext
@@ -237,6 +250,7 @@ upgrader
 urlset
 useronboarding
 variablename
+vhdx
 Voltron
 WCAG
 webapps
@@ -244,8 +258,8 @@ webfonts
 webserver
 WEBSVR
 WFLYUT
-WIXUI
 Wildfly
+WIXUI
 workerpool
 workerpools
 workertools
@@ -253,8 +267,3 @@ xlarge
 xmark
 xvzf
 YOURAPIKEY
-octopusbob
-servername
-octopusdemos.app
-sqlcmd
-sqlvolume
