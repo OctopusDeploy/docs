@@ -53,6 +53,7 @@ datetime
 deallocate
 deallocated
 dearmor
+decryptable
 deployers
 deploymentannotation
 deploymentprocess
@@ -101,6 +102,7 @@ inetsrv
 inkey
 INSTALLLOCATION
 internalcustomer
+ipify
 Istio
 istioctl
 itemprop
@@ -214,11 +216,11 @@ runbooks
 runtimes
 Schannel
 secureclientcertificate
-Sesna
 servedby
 servername
 serverstatus
 serviceaccount
+Sesna
 setspn
 shiki
 SIEM
