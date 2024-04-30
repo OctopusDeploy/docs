@@ -65,7 +65,7 @@ It’s simple to configure a new or existing Octopus project to use the Tenants 
 2. [Enable tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments)
 3. [Connect a tenant to a project](/docs/tenants/tenant-creation/connecting-projects)
 
-## Tenant variables
+## Tenant variables {#tenant-variables}
 You often want to define different variable values for each tenant, like database connection settings or a tenant-specific URL. If you use an untenanted project, you’ll have previously defined these values in the project itself. But with a tenanted project, you can set these values directly on the tenant for any connected projects.
 
 ### Tenant-provided variables are not snapshotted 
