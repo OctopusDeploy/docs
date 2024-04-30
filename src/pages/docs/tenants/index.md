@@ -35,7 +35,7 @@ Tenants let you:
 - Create release rings to easily deploy to alpha and beta tenants.
 - Build simple [tenanted deployment](/use-case/tenanted-deployments) processes that can scale as you add more tenants.
 
-## When to use tenants
+## When to use tenants {#when-to-use-tenants}
 Tenants simplify complex deployments if you're deploying your application more than once in an environment.
 
 Consider using tenants if:
