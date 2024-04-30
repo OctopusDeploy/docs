@@ -158,7 +158,6 @@ octopusservernodes
 octopustarget
 octopusvariable
 Octostache
-Octostash
 octoterra
 OIDC
 onlylogs
