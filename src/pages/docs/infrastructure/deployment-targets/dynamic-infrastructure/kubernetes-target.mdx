@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-30
 title: Create Kubernetes Target Command
 description: Cmdlet for creating a Kubernetes target
 navOrder: 40
@@ -17,7 +17,7 @@ Command: **_New-OctopusKubernetesTarget_**
 | `-name`                                  |                 | Name for the Octopus deployment target.                                                                                                             |
 | `-clusterUrl`                            |                 | The Kubernetes cluster URL. This must be a complete URL such as `https://mycluster.org`.                                                            |
 | `-octopusServerCertificateIdOrName`      |                 | The name of the Octopus certificate to use as the cluster CA.                                                                                       |
-| `-octopusRoles`                          |                 | Comma separated list of Roles to assign.                                                                                                            |
+| `-octopusRoles`                          |                 | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/#target-roles) to assign.                                                                                                            |
 | `-octopusAccountIdOrName`                | Azure, AWS, GCE | The name of the Octopus account used for authentication with the cluster. This or the `-octopusClientCertificateIdOrName` option must be defined.   |
 | `-octopusClientCertificateIdOrName`      |                 | The name of the Octopus certificate used for authentication with the cluster. This or the `-octopusAccountIdOrName` option must be defined.         |
 | `-clusterResourceGroup`                  |                 | When using an Azure account, this defines the name of the resource group that holds the AKS cluster.                                                |
@@ -49,7 +49,7 @@ Create a target with a username/password or token account.
 New-OctopusKubernetesTarget `
     -name "The name of the target" `
     -clusterUrl "https://k8scluster" `
-    -octopusRoles "The target role" `
+    -octopusRoles "The target tag" `
     -octopusAccountIdOrName "The name of an account" `
     -namespace "kubernetes-namespace" `
     -updateIfExisting `
@@ -62,7 +62,7 @@ When creating a target with a client certificate, the name of the certificate is
 New-OctopusKubernetesTarget `
     -name "The name of the target" `
     -clusterUrl "https://k8scluster" `
-    -octopusRoles "The target role" `
+    -octopusRoles "The target tag" `
     -octopusClientCertificateIdOrName "The name of a certificate" `
     -namespace "kubernetes-namespace" `
     -updateIfExisting `
@@ -74,7 +74,7 @@ When creating a target using an Azure account, the cluster URL and certificates 
 ```
 New-OctopusKubernetesTarget `
     -name "The name of the target" `
-    -octopusRoles "The target role" `
+    -octopusRoles "The target tag" `
     -octopusAccountIdOrName "The name of an azure account" `
     -clusterResourceGroup "AzureResourceGroupName" `
     -clusterName "AzureAKSClusterName" `
@@ -92,7 +92,7 @@ required if the default is preferred.
 ```
 New-OctopusKubernetesTarget `
     -name "The name of the target" `
-    -octopusRoles "The target role" `
+    -octopusRoles "The target tag" `
     -clusterUrl "https://k8scluster" `
     -octopusAccountIdOrName "The name of an aws account" `
     -clusterName "AwsEKSClusterName" `
@@ -113,7 +113,7 @@ _Note:_ In this case, no `-octopusAccountIdOrName` is required.
 ```
 New-OctopusKubernetesTarget `
     -name "The name of the target" `
-    -octopusRoles "The target role" `
+    -octopusRoles "The target tag" `
     -clusterUrl "https://k8scluster" `
     -clusterName "AwsEKSClusterName" `
     -namespace "kubernetes-namespace" `
