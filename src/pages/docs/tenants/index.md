@@ -47,7 +47,7 @@ You don't need tenants in every deployment scenario. If you don't deploy multipl
 
 Check out our [multi-tenancy guides](https://octopus.com/docs/tenants/guides) for more detail on how to use tenanted deployments in Octopus for common scenarios.
 
-## Types of tenants
+## Types of tenants {#types-of-tenants}
 While it’s common to use tenants to represent the customers of your application, there are many more ways you can use tenants. 
 
 Tenants can also represent:
