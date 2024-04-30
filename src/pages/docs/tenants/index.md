@@ -18,7 +18,7 @@ Tenants in Octopus help you deploy software to many production instances, target
 
 Although you can model these scenarios using multiple projects, or multiple environments, this can quickly become overwhelming. These models also don’t scale well as there is a lot of duplication.
 
-[Tenants](/features/tenants) let you easily create customer or location-specific deployment pipelines without duplicating project configuration. You can manage separate instances of your application in multiple environments – all from a single Octopus project. This allows you to define one process and easily deploy to any number of tenants. 
+[Tenants](https://octopus.com/features/tenants) let you easily create customer or location-specific deployment pipelines without duplicating project configuration. You can manage separate instances of your application in multiple environments – all from a single Octopus project. This allows you to define one process and easily deploy to any number of tenants. 
 
 :::figure
 ![](/docs/tenants/images/octopus-tenants-deployments.png)
