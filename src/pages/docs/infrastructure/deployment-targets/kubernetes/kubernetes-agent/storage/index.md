@@ -40,7 +40,7 @@ If you have a use case that can’t tolerate occasional deployment failures, it�
 
 If you need a more reliable storage solution, then you can specify your own `StorageClass`. This `StorageClass` must be capable of `ReadWriteMany` (also known as `RWX`) access mode. 
 
-Many managed Kubernetes offerings will have offerings that require little effort to use. These will be a “provisioner” (named as such as they “provision” storage for a storage class), which you can then tie to a storage class. Some examples are listed below:
+Many managed Kubernetes offerings will have provide storage that require little effort to set up. These will be a “provisioner” (named as such as they “provision” storage for a `StorageClass`), which you can then tie to a `StorageClass`. Some examples are listed below:
 
 |**Offering**                      |**Provisioner**                    |**Default StorageClass name**       |
 |----------------------------------|-----------------------------------|------------------------------------|
@@ -52,3 +52,27 @@ If you manage your own cluster and don’t have offerings from cloud providers a
 - [Longhorn](https://longhorn.io/)
 - [Rook (CephFS)](https://rook.io/)
 - [GlusterFS](https://www.gluster.org/)
+
+## Migrating from NFS storage to a custom StorageClass
+
+If you installed the Kubernetes agent using the default NFS storage, and want to use a custom `StorageClass` instead, simply rerun the installation Helm command with specified values for `persistence.storageClassName` and `persistence.size`.
+
+The following steps assume your Kubernetes agent is in the `octopus-agent-nfs-to-pv` namespace:
+
+1. Take note of the current Helm release and Chart version for your Kubernetes agent by running the following command:
+   ```bash
+   helm list --namespace octopus-agent-nfs-to-pv
+   ```
+1. The output should look like this:
+   - In this example, the release name is `nfs-to-pv` while the chart version is `1.0.1`
+   :::figure
+   ![Helm list command](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-helm-list.png)
+   :::
+1. Run the following command (substitute with your own values):
+   ```bash
+   helm upgrade --reuse-values --atomic --set persistence.storageClassName="<storage class>" --set persistence.size="<size>" --namespace <namespace> --version "<chart version>" <release name> oci://registry-1.docker.io/octopusdeploy/kubernetes-agent`
+   ```
+   - Here is an example command to convert the `nfs-to-pv` Helm release in the `octopus-agent-nfs-to-pv` namespace to use the `octopus-agent-nfs-migration` `StorageClass` with `15Gi` of space (substitute with your own values):
+     ```bash
+     helm upgrade --reuse-values --atomic --set persistence.storageClassName="octopus-agent-nfs-migration" --set persistence.size="15Gi" --namespace octopus-agent-nfs-to-pv --version "1.0.1" nfs-to-pv oci://registry-1.docker.io/octopusdeploy/kubernetes-agent`
+     ```
