@@ -17,7 +17,15 @@ Octopus Deploy has built-in support for deploying Virtual Hard Drives. The featu
 
 To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
+:::figure
+![](/docs/deployments/windows/images/deploying-virtual-hard-drives-add-step.png)
+:::
+
 ## Configuring the step {#configure-step}
+
+:::figure
+![](/docs/deployments/windows/images/deploying-virtual-hard-drives-configure-step.png)
+:::
 
 ### Step 1: Select a package {#select-package}
 

@@ -64,6 +64,7 @@ dpkg
 Dspring
 Elyton
 emptytitle
+fanout
 Fargate
 feedcred
 Feedz.io
@@ -207,11 +208,11 @@ runbook
 runbooks
 runtimes
 Schannel
-Sesna
 servedby
 servername
 serverstatus
 serviceaccount
+Sesna
 setspn
 shiki
 SIEM
