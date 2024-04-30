@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-30
 title: Octopus Tentacle in a Container
 description: An Octopus Tentacle instance can be run directly from within a container.
 navOrder: 40
@@ -18,7 +18,7 @@ The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastru
 Tentacles set up this way will run *inside a container* and script execution will not happen on the host itself. For this reason, Octopus Tentacles inside a container may not be appropriate for many deployment tasks.
 :::
 
-When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command to connect and add itself as a machine to that server with the provided roles and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies) to remove the duplicated targets.
+When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command to connect and add itself as a machine to that server with the provided [target tags](/docs/infrastructure/deployment-targets/#target-roles) and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies) to remove the duplicated targets.
 
 <details data-group="deployment-targets-tentacle-container">
 <summary>Deployment Target</summary>
@@ -69,8 +69,8 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 |**ServerUrl**|The Url of the Octopus Server the Tentacle should register with|
 |**Space**|The name of the space which the Tentacle will be added to. Defaults to the default space|
 |**TargetEnvironment**|Comma delimited list of environments to add this target to|
-|**TargetRole**|Comma delimited list of roles to add to this target|
-|**TargetWorkerPool**|Comma delimited list of worker pools to add to this target to (not to be used with environments or role variable).|
+|**TargetRole**|Comma delimited list of [target tags](/docs/infrastructure/deployment-targets/#target-roles) to add to this target|
+|**TargetWorkerPool**|Comma delimited list of worker pools to add to this target to (not to be used with the environment or target tag variables).|
 |**TargetName**|Optional Target name, defaults to container generated host name|
 |**TargetTenant**|Comma delimited list of tenants to add to this target|
 |**TargetTenantTag**|Comma delimited list of tenant tags to add to this target|
