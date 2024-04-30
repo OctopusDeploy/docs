@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-30
 title: Azure Service Fabric cluster targets
-description: Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
+description: Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by target tag during deployments.
 navOrder: 10
 ---
 
-Azure Service Fabric Cluster deployment targets let you reference existing Service Fabric Cluster apps that are available in your Azure subscription. You can then reference these by role during deployments.
+Azure Service Fabric Cluster deployment targets let you reference existing Service Fabric Cluster apps that are available in your Azure subscription. You can then reference these by [target tag](/docs/infrastructure/deployment-targets/#target-roles) during deployments.
 
 ## Requirements
 
@@ -30,7 +30,7 @@ To create an Azure Service Fabric Cluster target within Octopus:
 
 - Navigate to **Infrastructure ➜ Deployment Targets ➜ Add Deployment Target**.
 - Select **Azure Service Fabric Cluster** from the list of available targets and click _Next_.
-- Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Service Fabric Cluster target.
+- Fill out the necessary fields, being sure to provide a unique target tag (formerly target role) that clearly identifies your Azure Service Fabric Cluster target.
 
 :::figure
 ![](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/create-azure-service-fabric-cluster-target.png)
