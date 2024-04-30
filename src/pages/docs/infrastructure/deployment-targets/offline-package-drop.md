@@ -4,14 +4,14 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Offline package drop
 description: Offline package drop deployment targets allow you to deploy your applications in the most restricted security environments where Tentacles cannot be used.
-navOrder: 60
+navOrder: 70
 ---
 
 The offline package drop deployment target makes it possible for Octopus to bundle all the files needed to perform a deployment to a deployment target, even when a direct connection to the deployment target isn't always possible, for instance, if a security policy, compliance control, or network topology make a direct connection impossible.
 
 You can treat the offline package drop just like any other target, but instead of the application being deployed Octopus will bundle up all of the files needed to perform the deployment on the *actual* target server.
 
-## Configuring the target {#OfflinePackageDrop-ConfiguringtheTarget}
+## Configuring the target {#target-configuration}
 
 Offline package drop is available as a deployment target.
 
@@ -33,27 +33,27 @@ The bundle can be zipped and attached as an [Octopus Artifact](/docs/projects/de
 Octopus Cloud instances will almost certainly want to use _Artifact_ as the destination.
 :::
 
-#### Drop folder {#OfflinePackageDrop-Dropfolderpath}
+#### Drop folder {#drop-folder}
 
 The bundle can alternatively be configured to be written directly to a file-system path.
 
 Configure the drop folder path field with the [UNC path](http://en.wikipedia.org/wiki/Path_%28computing%29#Uniform_Naming_Convention) to the directory you wish your offline packages to be located.
 
-### Sensitive-variables encryption password  {#OfflinePackageDrop-Sensitive-variablesencryptionpasswordSensitive-variablesencryptionpassword}
+### Sensitive-variables encryption password {#sensitive-variables-encryption-password}
 
 As a security measure, any sensitive variables are written to a separate file which is then encrypted.  To perform the encryption/decryption, a password is required.  If your project does not contain any sensitive-variables, this field may be left un-set.  If a project is deployed to an offline package drop target which does not have an encryption password set, the deployment will fail with an indicative error.
 
 Please ensure you store your encryption password in a secure location, as you will require it when executing the batch file to perform the deployment on the target server.
 
-### Applications directory {#OfflinePackageDrop-Applicationsdirectory}
+### Applications directory {#applications-directory}
 
 The applications directory is the directory your packages will be extracted to, and is the location applications will execute from by default (if no custom-installation-location is set).  On a regular Tentacle, this is set to `C:\Applications` by default.
 
-### Octopus working directory {#OfflinePackageDrop-Octopusworkingdirectory}
+### Octopus working directory {#octopus-working-directory}
 
 The Octopus working directory is a location where some supporting files (e.g. the deployment journal XML file) are stored.
 
-## Building the offline package {#OfflinePackageDrop-BuildingtheOfflinePackage}
+## Building the offline package {#build-offline-package}
 
 When Octopus deploys to an offline package drop target it doesn't actually execute the deployment, but will create a folder structure complete with Packages, Scripts, Variable files, Calamari and a batch file to execute the deployment on the actual target server.
 
@@ -156,10 +156,10 @@ For example:
 
 :::div{.success}
 **Using Sensitive Variables?**
-Usually the reason you need to use offline package drop is for some kind of security policy or compliance control. If you indicate any Variables as Sensitive they will be encrypted into a separate variable file so they are protected during transport. When you execute the deployment you will be prompted for the [sensitive-variables password](#OfflinePackageDrop-Sensitive-variablesencryptionpasswordSensitive-variablesencryptionpassword) that will be used to decrypt the sensitive values so they can be used as part of the deployment.
+Usually the reason you need to use offline package drop is for some kind of security policy or compliance control. If you indicate any Variables as Sensitive they will be encrypted into a separate variable file so they are protected during transport. When you execute the deployment you will be prompted for the [sensitive-variables password](#sensitive-variables-encryption-password) that will be used to decrypt the sensitive values so they can be used as part of the deployment.
 :::
 
-## Deploying the offline package drop {#OfflinePackageDrop-DeployingtheOfflinePackageDrop}
+## Deploying the offline package drop {#deploy-offline-package}
 
 :::div{.warning}
 **PowerShell 7.3 breaking change**

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-25
-modDate: 2024-03-25
+modDate: 2024-04-10
 title: Deployment freezes
 description: Deployment freezes allow you to pause deployments for a specified time range
 navOrder: 170
@@ -9,10 +9,6 @@ navOrder: 170
 
 :::div{.hint}
 Deployment freezes will be available for early access from Octopus Deploy **2024.2**. Please contact michelle.obrien@octopus.com if you would like to turn this feature on.
-:::
-
-:::div{.hint}
-As this is an early access feature, we are aware of some flaws in the UI when assigning projects and environments to the deployment freeze. If you have feedback regarding this feature please contact michelle.obrien@octopus.com.
 :::
 
 Deployment freezes allow you to pause deployments across all spaces for a configured amount of time. This is useful when you want to prevent certain projects deploying to certain environments within a specific time frame. Without deployment freezes, you would need to manually disable specific projects or machines to stop the deployments. 
@@ -75,6 +71,11 @@ To override a freeze:
 
 
 ## Current limitations
+
+:::div{.hint}
+As this is an early access feature, we are aware of some flaws in the UI when assigning projects and environments to the deployment freeze. If you have feedback regarding this feature please contact michelle.obrien@octopus.com.
+:::
+
 - Deployment freezes are not yet integrated with our [Executions API](https://octopus.com/blog/faster-deployments-with-the-executions-api).
 - Deployment freezes currently block [automatic deployments](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure/#ImmutableInfrastructure-Automaticallydeploying)
 
@@ -82,5 +83,5 @@ To override a freeze:
 ## Learn more
 
 - [Projects](/docs/projects/)
-- [Environments](/docs/infrastructure/environments/index)
+- [Environments](/docs/infrastructure/environments)
 - Learn more about our concept of [Spaces](/docs/administration/spaces)

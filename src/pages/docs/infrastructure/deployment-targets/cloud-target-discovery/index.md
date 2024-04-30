@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-23
 title: Cloud Target Discovery
 description: Cloud resources can be discovered and registered as deployment targets by Octopus
-navOrder: 100
+navOrder: 90
 ---
 
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
@@ -104,14 +104,14 @@ Octopus will discover targets if one of the following steps are in your deployme
 - Deploy Amazon ECS Service
 - Update Amazon ECS Service
 - Kubernetes Steps:
-  - Deploy Kubernetes containers
-  - Run a kubectl CLI Script
-  - Deploy raw Kubernetes YAML
-  - Update a Helm Chart
-  - Deploy Kubernetes config map resource
-  - Deploy Kubernetes ingress resource
-  - Deploy Kubernetes secret resource
-  - Deploy Kubernetes service resource
+  - Deploy a Helm Chart
+  - Deploy Kubernetes YAML
+  - Run a kubectl script
+  - Configure and apply Kubernetes resources
+  - Configure and apply a Kubernetes ConfigMap
+  - Configure and apply a Kubernetes Ingress
+  - Configure and apply a Kubernetes Secret
+  - Configure and apply a Kubernetes Service
 
 ## Enabling discovery for existing projects
 

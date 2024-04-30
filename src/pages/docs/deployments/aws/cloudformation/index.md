@@ -14,10 +14,6 @@ The proceeding instructions can be followed to configure the `Deploy an AWS Clou
 
 Add the `Deploy an AWS CloudFormation template` step to the project, and provide it a name.
 
-:::figure
-![Deploy an AWS CloudFormation Template Step](/docs/deployments/aws/cloudformation/images/deploy-cloudformation-step.png)
-:::
-
 ### AWS section
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).

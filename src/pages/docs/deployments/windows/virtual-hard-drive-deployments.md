@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-23
 title: Virtual hard drives
 description: VHD steps allow you to deploy a virtual hard drive and optionally attach it to a Hyper-V virtual machine.
 navOrder: 20
@@ -13,25 +13,17 @@ The Deploy a VHD step requires the target Machine to be running Windows Server 2
 
 Octopus Deploy has built-in support for deploying Virtual Hard Drives. The feature allows you to deploy a package containing a VHD while taking advantage of Octopus features such as variable substitution in configuration files or running .NET configuration transforms on files within the VHD. Octopus can then optionally attach the VHD to an existing Hyper-V virtual machine.
 
-## Adding a VHD step {#DeployingVirtualHardDrives-AddingaVHDstep}
+## Adding a VHD step {#add-vhd-step}
 
 To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
-:::figure
-![](/docs/deployments/windows/images/deploying-virtual-hard-drives-add-step.png)
-:::
+## Configuring the step {#configure-step}
 
-## Configuring the step {#DeployingVirtualHardDrives-ConfiguringtheStep}
-
-:::figure
-![](/docs/deployments/windows/images/deploying-virtual-hard-drives-configure-step.png)
-:::
-
-### Step 1: Select a package {#DeployingVirtualHardDrives-Step1-SelectaPackage}
+### Step 1: Select a package {#select-package}
 
 Use the Package Feed and Package ID fields to select the [package](/docs/packaging-applications) containing the Virtual Hard Drive (\*.vhd or \*.vhdx) to be installed. There must be a single VHD in the root of the package. The package may contain deployment scripts and other artifacts required by those scripts, but only a single VHD.
 
-### Step 2: Configure VHD options {#DeployingVirtualHardDrives-Step2-ConfigureVHDoptions}
+### Step 2: Configure VHD options {#configure-vhd-options}
 
 +--------------------------+-----------------------------------------------------------------------------+
 | Field                    | Meaning                                                                     |
@@ -50,7 +42,7 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 | **Virtual Machine Name** | The name of the virtual machine to add the VHD to.                          |
 +--------------------------+-----------------------------------------------------------------------------+
 
-## Accessing the VHD in deployment scripts {#DeployingVirtualHardDrives-AccessingtheVHDindeploymentscripts}
+## Accessing the VHD in deployment scripts {#access-vhd-in-deployment-scripts}
 
 When a VHD is deployed the following steps take place:
 
@@ -63,7 +55,7 @@ When a VHD is deployed the following steps take place:
 7. If enabled, the VHD is attached to a Hyper-V virtual machine. The step waits for the virtual machine to reboot, so you should be able to interact with the running virtual machine in your `PostDeploy` scripts.
 8. `PostDeploy` scripts are run.
 
-## VHDs with multiple partitions {#DeployingVirtualHardDrives-VHDswithmultiplepartitions}
+## VHDs with multiple partitions {#multiple-partitions}
 
 If you have a VHD with multiple partitions, in step 2 above all partitions are mounted, and the mount-points are available to your scripts in `OctopusVhdMountPoint_0`, `OctopusVhdMountPoint_1`, etc. The `OctopusVhdMountPoint` variable will contain the mount-point of the first partition that was actually mounted (see below to not mount all partitions).
 
