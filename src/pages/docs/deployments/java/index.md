@@ -310,9 +310,9 @@ The following steps can be used to deploy an application via a file copy to an a
 
 ## Variable substitution in Java packages
 
-Octopus provides the [ability to replace variables in packages during deployment](/docs/projects/steps/configuration-features/substitute-variables-in-templates/). This is done using a [specific syntax](/docs/projects/variables/variable-substitutions) implemented by the [Octostash](https://github.com/OctopusDeploy/Octostache) library.
+Octopus provides the [ability to replace variables in packages during deployment](/docs/projects/steps/configuration-features/substitute-variables-in-templates/). This is done using a [specific syntax](/docs/projects/variables/variable-substitutions) implemented by the [Octostache](https://github.com/OctopusDeploy/Octostache) library.
 
-The syntax used by Octostash and Java libraries such as Spring do overlap, so care must be taken to ensure that files intended to be used as Octostash templates during deployment don't interfere with local development.
+The syntax used by Octostache and Java libraries such as Spring do overlap, so care must be taken to ensure that files intended to be used as Octostache templates during deployment don't interfere with local development.
 
 For example, you may have a `application.properties` file that defines an environment variable which reflects the environment that the application has been published to.
 
@@ -320,7 +320,7 @@ For example, you may have a `application.properties` file that defines an enviro
 environment: #{Environment}
 ```
 
-This file is expected to be used as an Octostash template during deployment, but when testing locally you will receive an error like `Unsatisfied dependency expressed through field 'environment';`. This is because during local development the template file has not been processed, and the common syntax between Spring and Octostash means Spring is attempting to resolve the variable `Environment`, which doesn't exist.
+This file is expected to be used as an Octostache template during deployment, but when testing locally you will receive an error like `Unsatisfied dependency expressed through field 'environment';`. This is because during local development the template file has not been processed, and the common syntax between Spring and Octostache means Spring is attempting to resolve the variable `Environment`, which doesn't exist.
 
 [Spring profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html) provide a convenient way to load valid properties files for local development, while leaving environment specific templates for deployments processed by Octopus.
 

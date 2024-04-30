@@ -20,6 +20,7 @@ Bento
 bootstrap
 bootstrapped
 bootstrapper
+Ceph
 changeit
 childelement
 choco
@@ -67,13 +68,14 @@ feedcred
 Feedz.io
 fieldset
 figcaption
-Filestore
+filestore
 FIPS
 frontmatter
 gcloud
 getenv
 gifs
 globbing
+Gluster
 googleaccount
 groff
 Groupsand
@@ -115,6 +117,7 @@ linecap
 linejoin
 linkerd
 Linq
+Liquibase
 ltsc
 maintenanceconfiguration
 majeure
@@ -172,6 +175,7 @@ prerenderingchange
 printfn
 Println
 PROGRAMFILES
+proxying
 pwsh
 pycryptodome
 querystring
@@ -199,6 +203,7 @@ runbook
 runbooks
 runtimes
 Schannel
+Sesna
 servedby
 servername
 serverstatus
@@ -229,6 +234,7 @@ templateid
 templating
 tenanttype
 testoctopusdemos.app
+testproject
 TFVC
 thepassword
 tmpfs
