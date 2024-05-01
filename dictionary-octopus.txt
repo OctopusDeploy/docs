@@ -58,6 +58,7 @@ deployers
 deploymentannotation
 deploymentprocess
 deploymentprocesses
+deployto
 DIND
 Directorygroup
 Distro
@@ -68,6 +69,7 @@ dpkg
 Dspring
 Elyton
 emptytitle
+fanout
 Fargate
 feedcred
 Feedz.io
@@ -147,6 +149,7 @@ navigationid
 NETBIOS
 Netscaler
 netsh
+newcert
 Newtonsoft
 noconsolelogging
 nologo
@@ -172,6 +175,8 @@ octopusvariable
 Octostache
 octoterra
 OIDC
+oldcert
+oldthumbprint
 onlylogs
 openon
 passout
