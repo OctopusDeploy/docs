@@ -1,4 +1,6 @@
+ABCXYZ
 accounttest
+advfirewall
 ALLUSERSPROFILE
 anglin
 Anglin
@@ -15,6 +17,7 @@ auths
 autodeployoverride
 awsaccount
 azureaccount
+azureactivedirectory
 azurefile
 Bento
 bootstrap
@@ -26,6 +29,7 @@ childelement
 choco
 cicd
 classiclink
+clientcertificate
 cloudapi
 Cloudsmith
 Cmdn
@@ -49,6 +53,7 @@ datetime
 deallocate
 deallocated
 dearmor
+decryptable
 deployers
 deploymentannotation
 deploymentprocess
@@ -97,7 +102,9 @@ IMDS
 inetmgr
 inetsrv
 inkey
+INSTALLLOCATION
 internalcustomer
+ipify
 Istio
 istioctl
 itemprop
@@ -123,6 +130,7 @@ Liquibase
 ltsc
 maintenanceconfiguration
 majeure
+mattc
 maxage
 mdast
 milli
@@ -140,14 +148,18 @@ myfeature
 navigationid
 NETBIOS
 Netscaler
+netsh
 newcert
+Newtonsoft
 noconsolelogging
+nologo
 nologs
 noninteractive
 NOPASSWD
 nosniff
 NTLM
 nupkg
+Obtainingthe
 Octo
 octobak
 Octopub
@@ -208,6 +220,7 @@ runbook
 runbooks
 runtimes
 Schannel
+secureclientcertificate
 servedby
 servername
 serverstatus
@@ -238,6 +251,9 @@ tagset
 templateid
 templating
 tenanttype
+Tentacleinstallation
+Tentacleinstallers
+tentaclethumbprint
 testoctopusdemos.app
 testproject
 TFVC

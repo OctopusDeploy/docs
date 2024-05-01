@@ -45,7 +45,7 @@ The schema for the public configuration file is:
 
 * `OctopusServerUrl`: (string) The url to the Octopus Server portal.
 * `Environments`: (array of string) The environments to which the Tentacle should be added.
-* `Roles`: (array of string) The roles to assign to the Tentacle.
+* `Roles`: (array of string) The [target tags](/docs/infrastructure/deployment-targets/#target-roles) to assign to the Tentacle.
 * `CommunicationMode`: (string) Whether the Tentacle should wait for connections from the server (`Listen`) or should poll the server (`Poll`).
 * `Tenants`: (array of string) The tenants to assign to the Tentacle.
 * `TenantTags`: (array of strings) The tenant tags in [canonical name format](/docs/tenants/tenant-tags/#referencing-tenant-tags) to assign to the Tentacle.

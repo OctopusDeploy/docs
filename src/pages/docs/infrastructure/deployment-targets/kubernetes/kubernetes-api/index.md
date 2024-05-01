@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-03-04
+modDate: 2024-04-30
 title: Kubernetes API
 description: How to configure a Kubernetes cluster as a deployment target in Octopus
 navOrder: 20
@@ -28,8 +28,8 @@ From **Octopus 2022.3**, you can configure the well-known variables used to disc
 To discover targets use the following steps:
 
 - Add an Azure account variable named **Octopus.Azure.Account** or the appropriate AWS authentication variables ([more info here](/docs/infrastructure/deployment-targets/cloud-target-discovery/#aws)) to your project.
-- [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/#tag-cloud-resources) to your cluster so that Octopus can match it to your deployment step and environment.
-- Add any of the Kubernetes built-in steps to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Kubernetes targets to deploy to.
+- [Add cloud resource template tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/#tag-cloud-resources) to your cluster so that Octopus can match it to your deployment step and environment.
+- Add any of the Kubernetes built-in steps to your deployment process. During deployment, the target tag on the step will be used along with the environment being deployed to, to discover Kubernetes targets to deploy to.
 
 Kubernetes targets discovered will not have a namespace set, the namespace on the step will be used during deployment (or the default namespace in the cluster if no namespace is set on the step).
 
@@ -77,7 +77,7 @@ users:
 2. Select **KUBERNETES** and click **ADD** on the Kubernetes API card.
 3. Enter a display name for the Kubernetes API target.
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.
-5. Select at least one [target role](/docs/infrastructure/deployment-targets/#target-roles) for the target.
+5. Select at least one [target tag](/docs/infrastructure/deployment-targets/#target-roles) for the target.
 6. Select the authentication method. Kubernetes targets support multiple [account types](https://oc.to/KubernetesAuthentication):
     - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password) account.
     - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens) account.
