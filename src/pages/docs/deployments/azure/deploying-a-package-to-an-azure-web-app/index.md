@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Azure web apps
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Azure web apps.
 hideInThisSectionHeader: true
@@ -40,7 +40,7 @@ If instead you want to **dynamically** create you account during your deployment
 ![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/5865899.png)
 :::
 
-2. On the **Execution Location** section, select the Roles that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
+2. On the **Execution Location** section, select the [target tags](/docs/infrastructure/deployment-targets/#target-roles) that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
 
 - Manually before running your deployment. [See documentation](/docs/infrastructure/deployment-targets/azure/web-app-targets).
 
