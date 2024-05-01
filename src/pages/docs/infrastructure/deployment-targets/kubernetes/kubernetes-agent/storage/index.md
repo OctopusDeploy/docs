@@ -55,7 +55,7 @@ If you manage your own cluster and don’t have offerings from cloud providers a
 
 ## Migrating from NFS storage to a custom StorageClass
 
-If you installed the Kubernetes agent using the default NFS storage, and want to use a custom `StorageClass` instead, simply rerun the installation Helm command with specified values for `persistence.storageClassName` and `persistence.size`.
+If you installed the Kubernetes agent using the default NFS storage, and want to change to custom `StorageClass` instead, simply rerun the installation Helm command with specified values for `persistence.storageClassName` and `persistence.size`.
 
 The following steps assume your Kubernetes agent is in the `octopus-agent-nfs-to-pv` namespace:
 
