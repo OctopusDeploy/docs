@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-29
 title: Library variable sets
 description: Library variable sets allow you to define and share common variables between your Octopus projects.
 navOrder: 110
@@ -15,7 +15,7 @@ This can be useful if you have the same variables that are used across multiple 
 
 1. Navigate to **Library ➜ Variable Sets** and click **ADD NEW VARIABLE SET**.
 2. Give the variable set a name, a description, and click **SAVE**.
-3. Define the variables. As with project variables, library variables can be [scoped](/docs/projects/variables/#scoping-variables) to environment, deployment target, or target roles.
+3. Define the variables. As with project variables, library variables can be [scoped](/docs/projects/variables/#scoping-variables) to environment, deployment target, or target tags.
 4. Save the variable set by clicking **SAVE**.
 
 ## Adding the library variable set to a project
@@ -59,7 +59,7 @@ You can use the following advanced filters to refine the result of the audit tra
 
 ## Naming library variable set variables
 
-Always try to name variables in a variable set uniquely to avoid variable name collision. A common example is when a project and a library variable set have the same variable name, scoped to the same environment. When a name collision occurs, Octopus Deploy will do its best to pick the *right one* [using an algorithm](/docs/projects/variables/#Scopingvariables-Scopespecificity). But sometimes the variables are scoped equally. If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
+Always try to name variables in a variable set uniquely to avoid variable name collision. A common example is when a project and a library variable set have the same variable name, scoped to the same environment. When a name collision occurs, Octopus Deploy will do its best to pick the *right one* [using an algorithm](/docs/projects/variables/#scope-specificity). But sometimes the variables are scoped equally. If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
 
 Read more about our recommendations for [variable naming](/docs/getting-started/best-practices/variables/#variable-naming).
 
