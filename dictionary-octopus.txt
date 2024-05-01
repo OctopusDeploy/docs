@@ -32,6 +32,7 @@ Cmdn
 combinational
 comms
 COMPUTERNAME
+configmap
 Conjur
 cooldown
 Cpath
@@ -52,6 +53,7 @@ deployers
 deploymentannotation
 deploymentprocess
 deploymentprocesses
+deployto
 DIND
 Directorygroup
 Distro
@@ -62,6 +64,7 @@ dpkg
 Dspring
 Elyton
 emptytitle
+fanout
 Fargate
 feedcred
 Feedz.io
@@ -116,6 +119,7 @@ linecap
 linejoin
 linkerd
 Linq
+Liquibase
 ltsc
 maintenanceconfiguration
 majeure
@@ -129,12 +133,14 @@ mozjpeg
 mozroots
 msbuild
 msiexec
+mssqldb
 MTTR
 myapplication
 myfeature
 navigationid
 NETBIOS
 Netscaler
+newcert
 noconsolelogging
 nologs
 noninteractive
@@ -146,6 +152,8 @@ Octo
 octobak
 Octopub
 octopusartifact
+octopusbob
+octopusdemos.app
 octopusdeploy
 octopusid
 octopuslabs
@@ -155,14 +163,18 @@ octopusvariable
 Octostache
 octoterra
 OIDC
+oldcert
+oldthumbprint
 onlylogs
 openon
 passout
+pemstore
 petclinic
 petshop
 PKCE
 pkcs
 podannotation
+preproduction
 prerender
 prerenderingchange
 printfn
@@ -174,6 +186,9 @@ pycryptodome
 querystring
 quickstart
 QUOTENAME
+redeploy
+redeployment
+redeployments
 Redgate
 rehype
 reindexing
@@ -193,9 +208,11 @@ runbook
 runbooks
 runtimes
 Schannel
-Sesna
 servedby
+servername
+serverstatus
 serviceaccount
+Sesna
 setspn
 shiki
 SIEM
@@ -205,8 +222,11 @@ snapshotted
 snapshotting
 sourcedata
 speculationrules
+sqlcmd
+sqlvolume
 srcset
-srcset
+statefulset
+statefulsets
 sthumb
 stylesheet
 subcontext
@@ -236,6 +256,7 @@ upgrader
 urlset
 useronboarding
 variablename
+vhdx
 Voltron
 WCAG
 webapps
@@ -243,8 +264,8 @@ webfonts
 webserver
 WEBSVR
 WFLYUT
-WIXUI
 Wildfly
+WIXUI
 workerpool
 workerpools
 workertools
@@ -252,8 +273,3 @@ xlarge
 xmark
 xvzf
 YOURAPIKEY
-octopusbob
-servername
-octopusdemos.app
-sqlcmd
-sqlvolume

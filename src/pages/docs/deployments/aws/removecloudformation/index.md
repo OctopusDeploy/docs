@@ -6,17 +6,13 @@ title: Delete an existing AWS CloudFormation stack
 description: Delete an existing AWS CloudFormation stack.
 ---
 
-Octopus supports the deletion of an existing AWS CloudFormation stack through the **Delete an AWS CloudFormation stack** step. This step deletes a CloudFormation stack using AWS credentials managed by Octopus.
+Octopus supports the deletion of an existing AWS CloudFormation stack through the `Delete an AWS CloudFormation stack` step. This step deletes a CloudFormation stack using AWS credentials managed by Octopus.
 
-The proceeding instructions can be followed to configure the **Delete an AWS CloudFormation stack** step.
+The proceeding instructions can be followed to configure the `Delete an AWS CloudFormation stack` step.
 
 ## Add the CloudFormation step
 
-Add the **Delete an AWS CloudFormation stack** step to the project, and provide it a name.
-
-:::figure
-![Remove a CloudFormation stack Step](/docs/deployments/aws/removecloudformation/images/deploy-cloudformation-step.png)
-:::
+Add the `Delete an AWS CloudFormation stack` step to the project, and provide it a name.
 
 ### AWS section
 

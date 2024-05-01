@@ -1,21 +1,21 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Deploy to a Kubernetes cluster
-description: Deploy to a Kubernetes cluster.
+modDate: 2024-04-23
+title: Configure and apply Kubernetes resources
+description: Configure and apply Kubernetes resources.
 navOrder: 10
 ---
 
-Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes containers` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](https://oc.to/KubernetesDeploymentResource), a [Service resource](https://oc.to/KubernetesServiceResource), and an [Ingress resource](https://oc.to/KubernetesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
-
-## Deploy Kubernetes containers step
-
-To begin, add the `Deploy Kubernetes containers` step to a project.
-
-:::figure
-![Deploy Container Step](/docs/deployments/kubernetes/deploy-container/deploy-container-step.png)
+:::div{.hint}
+`Deploy Kubernetes containers` was renamed to `Configure and apply Kubernetes resources` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
 :::
+
+Octopus supports the deployment of Kubernetes resources through the `Configure and apply Kubernetes resources` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](https://oc.to/KubernetesDeploymentResource), a [Service resource](https://oc.to/KubernetesServiceResource), and an [Ingress resource](https://oc.to/KubernetesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
+
+## Configure and apply Kubernetes resources step
+
+To begin, add the `Configure and apply Kubernetes resources` step to a project.
 
 This step has three important sections that make up the combined objects that are deployed to Kubernetes.
 
@@ -130,7 +130,7 @@ The first native deployment strategy is the [Recreate](https://oc.to/KubernetesR
 The second native deployment strategy is the [Rolling Update](https://oc.to/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time but can be performed in a way that results in no downtime.
 
 ### Blue/Green deployment strategy {#blue-green-deployment-strategy}
-The third deployment strategy, Blue/Green, is not a native concept in Kubernetes. It is a deployment strategy that is achieved by the `Deploy Kubernetes containers` step because it creates and coordinates both the Deployment resource and the Service resources.
+The third deployment strategy, Blue/Green, is not a native concept in Kubernetes. It is a deployment strategy that is achieved by the `Configure and apply Kubernetes resources` step because it creates and coordinates both the Deployment resource and the Service resources.
 
 The Blue/Green deployment strategy involves four phases.
 
@@ -844,7 +844,7 @@ metadata:
 
 When deploying a Kubernetes Deployment resource, it can be useful to have other Kubernetes resources tied to the Deployment resource lifecycle.
 
-The `Deploy Kubernetes containers` step already deploys ConfigMap and Secret resources in a tightly coupled fashion with their associated Deployment resource. Doing so means the containers in a Deployment resource can reliably reference a ConfigMap or Secret resource during an update, and will not be left in an inconsistent state where a new ConfigMap or Secret resource is referenced by an old Container resource.
+The `Configure and apply Kubernetes resources` step already deploys ConfigMap and Secret resources in a tightly coupled fashion with their associated Deployment resource. Doing so means the containers in a Deployment resource can reliably reference a ConfigMap or Secret resource during an update, and will not be left in an inconsistent state where a new ConfigMap or Secret resource is referenced by an old Container resource.
 
 Once a Deployment resource is fully deployed and healthy, these old ConfigMap and Secret resources are cleaned up automatically.
 
@@ -905,7 +905,7 @@ metadata:
 By creating each custom resource with a unique name and common labels, Octopus will ensure that a new resource is created with each deployment, and old resources are cleaned up. This means that the custom resources are tightly coupled to a Deployment resource, and can be treated as a single deployment.
 
 :::div{.success}
-To deploy resources that are not bound to the lifecycle of the Deployment resource, use an additional step such as the `Run a kubectl CLI Script` or `Deploy raw Kubernetes YAML` step.
+To deploy resources that are not bound to the lifecycle of the Deployment resource, use an additional step such as the `Run a kubectl script` or `Deploy Kubernetes YAML` step.
 :::
 
 ### Service
@@ -1008,7 +1008,7 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 :::div{.hint}
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fan-out pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](/docs/deployments/kubernetes/deploy-ingress) step.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fan-out pattern that shares a single load balancer. This can be achieved using the [Configure and apply a Kubernetes Ingress](/docs/deployments/kubernetes/deploy-ingress) step.
 
 On the other hand, the [NGINX Ingress Controller resource installation procedure](https://oc.to/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::
