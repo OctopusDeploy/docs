@@ -2,12 +2,14 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-04-24
-title: Kubernetes
+title: Kubernetes Targets
 navTitle: Overview
-navSection: Kubernetes
+navSection: Targets
 description: Kubernetes deployment targets
-navOrder: 50
+navOrder: 30
+hideInThisSectionHeader: true
 ---
+
 
 There are two different deployment targets for deploying to Kubernetes using Octopus Deploy, the [Kubernetes Agent](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent) and the [Kubernetes API](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api) targets.
 
