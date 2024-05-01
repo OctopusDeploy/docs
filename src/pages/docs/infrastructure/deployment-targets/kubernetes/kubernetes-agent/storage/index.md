@@ -40,7 +40,7 @@ If you have a use case that can’t tolerate occasional deployment failures, it�
 
 If you need a more reliable storage solution, then you can specify your own `StorageClass`. This `StorageClass` must be capable of `ReadWriteMany` (also known as `RWX`) access mode. 
 
-Many managed Kubernetes offerings will have provide storage that require little effort to set up. These will be a “provisioner” (named as such as they “provision” storage for a `StorageClass`), which you can then tie to a `StorageClass`. Some examples are listed below:
+Many managed Kubernetes offerings will provide storage that require little effort to set up. These will be a “provisioner” (named as such as they “provision” storage for a `StorageClass`), which you can then tie to a `StorageClass`. Some examples are listed below:
 
 |**Offering**                      |**Provisioner**                    |**Default StorageClass name**       |
 |----------------------------------|-----------------------------------|------------------------------------|
