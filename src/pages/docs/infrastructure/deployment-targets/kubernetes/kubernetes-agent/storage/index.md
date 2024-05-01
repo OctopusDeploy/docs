@@ -59,7 +59,7 @@ If you installed the Kubernetes agent using the default NFS storage, and want to
 
 The following steps assume your Kubernetes agent is in the `octopus-agent-nfs-to-pv` namespace:
 
-1. Take note of the current Helm release and Chart version for your Kubernetes agent by running the following command:
+1. Take note of the current Helm release name and Chart version for your Kubernetes agent by running the following command:
    ```bash
    helm list --namespace octopus-agent-nfs-to-pv
    ```
