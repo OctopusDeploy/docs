@@ -55,24 +55,36 @@ If you manage your own cluster and don’t have offerings from cloud providers a
 
 ## Migrating from NFS storage to a custom StorageClass
 
-If you installed the Kubernetes agent using the default NFS storage, and want to change to custom `StorageClass` instead, simply rerun the installation Helm command with specified values for `persistence.storageClassName` and `persistence.size`.
+If you installed the Kubernetes agent using the default NFS storage, and want to change to a custom `StorageClass` instead, simply rerun the installation Helm command with specified values for `persistence.storageClassName`. 
 
 The following steps assume your Kubernetes agent is in the `octopus-agent-nfs-to-pv` namespace:
 
-1. Take note of the current Helm release name and Chart version for your Kubernetes agent by running the following command:
-   ```bash
-   helm list --namespace octopus-agent-nfs-to-pv
-   ```
-1. The output should look like this:
-   - In this example, the release name is `nfs-to-pv` while the chart version is `1.0.1`
-   :::figure
-   ![Helm list command](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-helm-list.png)
-   :::
-1. Run the following command (substitute with your own values):
-   ```bash
-   helm upgrade --reuse-values --atomic --set persistence.storageClassName="<storage class>" --set persistence.size="<size>" --namespace <namespace> --version "<chart version>" <release name> oci://registry-1.docker.io/octopusdeploy/kubernetes-agent`
-   ```
-   - Here is an example command to convert the `nfs-to-pv` Helm release in the `octopus-agent-nfs-to-pv` namespace to use the `octopus-agent-nfs-migration` `StorageClass` with `15Gi` of space (substitute with your own values):
-     ```bash
-     helm upgrade --reuse-values --atomic --set persistence.storageClassName="octopus-agent-nfs-migration" --set persistence.size="15Gi" --namespace octopus-agent-nfs-to-pv --version "1.0.1" nfs-to-pv oci://registry-1.docker.io/octopusdeploy/kubernetes-agent`
-     ```
+### Step 1: Find your Helm release {#KubernetesAgentStorage-Step1-FindYourHelmRelease}
+
+Take note of the current Helm release name and Chart version for your Kubernetes agent by running the following command:
+```bash
+helm list --namespace octopus-agent-nfs-to-pv
+```
+
+The output should look like this:
+:::figure
+![Helm list command](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-helm-list.png)
+:::
+
+In this example, the release name is `nfs-to-pv` while the chart version is `1.0.1`.
+   
+### Step 2: Change Persistence {#KubernetesAgentStorage-Step2-ChangePersistence}
+
+Run the following command (substitute the placeholders with your own values):
+```bash
+helm upgrade --reuse-values --atomic --set persistence.storageClassName="<storage class>" --namespace <namespace> --version "<chart version>" <release name> oci://registry-1.docker.io/octopusdeploy/kubernetes-agent`
+```
+   
+Here is an example to convert the `nfs-to-pv` Helm release in the `octopus-agent-nfs-to-pv` namespace to use the `octopus-agent-nfs-migration` `StorageClass`:
+```bash
+helm upgrade --reuse-values --atomic --set persistence.storageClassName="octopus-agent-nfs-migration" --namespace octopus-agent-nfs-to-pv --version "1.0.1" nfs-to-pv oci://registry-1.docker.io/octopusdeploy/kubernetes-agent`
+```
+
+:::div{.warning}
+If you are using an existing `PersistentVolume` via its `StorageClassName`, then you must set the `persistence.size` value in the Helm command to match the capacity of the `PersistentVolume` for the `PersistentVolume` to bind.
+:::
