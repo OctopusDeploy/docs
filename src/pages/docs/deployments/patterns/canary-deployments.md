@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Canary deployments
 description: Implementing canary deployments, i.e. rolling out releases to a subset of users or servers, with Octopus.
 navOrder: 50
@@ -40,9 +40,9 @@ First, you would deploy using just the canary servers, then after testing, you c
 
 The alternative approach is to build canary deployments into your deployment process.
 
-1. Deploy the package to the canary server (one or more deployment targets may be assigned to the *canary* role).
+1. Deploy the package to the canary server (one or more deployment targets may be associated with the *canary* [target tag](/docs/infrastructure/deployment-targets/#target-roles)).
 2. Have a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step to wait until we are satisfied.
-3. Deploy the package to the remaining deployment targets (the *web-server* role).
+3. Deploy the package to the remaining deployment targets (the *web-server* target tag).
 
 Note that the first two steps have been configured to only run for production deployments - in our pre-production environments, we can just deploy to all targets immediately. If we were performing fully automated tests, we could use a [PowerShell script step](/docs/deployments/custom-scripts) to invoke them rather than the manual intervention step.
 
