@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Deploying a package to an Azure Service Fabric cluster
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Service Fabric clusters.
 navOrder: 20
@@ -35,7 +35,7 @@ Add a new Service Fabric application deployment step to your project. For inform
 
 ## Step 5: Configure your Service Fabric application step
 
-Select the Role you assigned your Service Fabric target and select your Service Fabric package from your package feed.
+Select the [target tag](/docs/infrastructure/deployment-targets/#target-roles) you assigned your Service Fabric target and select your Service Fabric package from your package feed.
 
 Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deployments/azure/service-fabric)
 
@@ -103,7 +103,7 @@ If you choose to override the deployment script, remember that your `DeployToSer
 
 ## Deploying to multiple geographic regions
 
-When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this by creating a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets) per-region and assigning them to the same role and an appropriate environment.
+When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this by creating a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets) per-region and assigning them to the same target tag and an appropriate environment.
 
 Your process can be modified by using [variables scoped](/docs/projects/variables/#scoping-variables) by environment or deployment target.
 
