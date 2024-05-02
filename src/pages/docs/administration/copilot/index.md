@@ -86,6 +86,8 @@ This is equivalent to the prompt `octopus-copilot Show me the state of the lates
 
 Resource names included in a prompt override the defaults. So the query `octopus-copilot Show me the state of the latest deployment of the project "My Web App"` will show the details of the project `My Web App` and ignore the default project name.
 
+Default values can be cleared with the prompt `@octopus-copilot Remove default values`.
+
 ## Example queries
 
 The following are example queries you can use to test Octopus Copilot:
