@@ -11,7 +11,7 @@ hideInThisSection: true
 The Octopus Copilot integration allows read only queries of cloud Octopus instance via GitHub Copilot.
 
 :::div{.warning}
-Octopus Copilot is an experiment. It is not covered by existing service level agreements.
+Octopus Copilot is an experiment. It is not covered by service level agreements.
 :::
 
 The goal of Octopus Copilot is to provide a middle ground between the web based UI and the REST API. Prior to Octopus Copilot, tasks that can not be performed via the web UI could only be achieved through custom scripts that interacted with the REST API. Working with the REST API requires a good understanding of the Octopus domain model and the ability to write custom code. Octopus Copilot provides the ability to query the configuration and state of an Octopus instance via natural language prompts.
