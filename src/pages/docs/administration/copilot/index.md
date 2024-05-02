@@ -107,4 +107,4 @@ The following are example queries you can use to test Octopus Copilot:
 
 The Octopus Copilot source code can be found on [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusCopilot).
 
-Octopus Copilot generates much of the prompt context from the Octoterra project. The source code for Octoterra is found on [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport/actions).
+Octopus Copilot generates much of the prompt context using the Octoterra application. The source code for Octoterra is found on [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport/actions).
