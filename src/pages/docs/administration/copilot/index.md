@@ -18,7 +18,7 @@ The goal of Octopus Copilot is to provide a middle ground between the web based 
 
 ## Getting started
 
-Octopus Copilot has 4 prerequisites:
+Octopus Copilot has 3 prerequisites:
 
 * An Octopus Cloud instance
 * An API key
@@ -35,6 +35,8 @@ Octopus Copilot only requires read access to the Octopus instance. It is recomme
 ### Creating a GitHub Copilot account
 
 You can sign up for a GitHub Copilot account [here](https://github.com/features/copilot).
+
+You can also use the web based interface without GitHub Copilot. See the section "Test query website" for more details.
 
 ## Querying Octopus with Copilot
 
@@ -59,6 +61,12 @@ Click the `Submit` button to save your Octopus details. You can then return to t
 :::div{.hint}
 You must log in to Octopus every 8 hours. It is recommended you save the Octopus details in your web browser's password manager or other password manager to streamline this login process.
 :::
+
+## Test query website
+
+A [test website](https://aiagent.octopus.com/api/form) allows you to query Octopus without Copilot. You must enter a GitHub token as identification, and complete the log in process with the same use as the one associated with the GitHub token. You can then query your Octopus instance via the web form in the same way you would query it from Copilot.
+
+![Octopus Copilot web interface](octopus-copilot-web.png)
 
 ## Example queries
 
