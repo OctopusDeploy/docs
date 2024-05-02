@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Configure Octopus Deploy project
 description: This guide describes how to configure your Octopus project to deploy an ASP.NET Core project together with an Angular CLI project and configuring NGINX to a Linux deployment target.
 navOrder: 2
@@ -42,7 +42,7 @@ The next step is to create a project that will extract the package.
 - Navigate to the Projects page via **Projects ➜ All** and then click the *Add Project* button.
 - Give the new project an appropriate name (for example *NGINXSampleWebApp*) and once saved, go to the project's *Process* page and click **Add Step ➜ Deploy to NGINX**.
     * Give the step a name (for example *Deploy NginxSampleWebApp*)
-    * Ensure that the target role matches that which was assigned to the machine in the previous step and
+    * Ensure that the [target tag](/docs/infrastructure/deployment-targets/#target-roles) matches that which was assigned to the machine in the previous step and
     * Select *NGINXsamplewebapp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/#package-id) documentation for more details).
 
 :::figure
