@@ -8,7 +8,7 @@ navOrder: 100
 hideInThisSection: true
 ---
 
-The Octopus Copilot integration allows read only queries of cloud Octopus instance via GitHub Copilot.
+The Octopus Copilot integration allows read only queries of cloud Octopus instances via GitHub Copilot.
 
 :::div{.warning}
 Octopus Copilot is an experiment. It is not covered by service level agreements.
@@ -25,12 +25,12 @@ Octopus Copilot has 3 prerequisites:
 * A GitHub Copilot account
 
 ### Creating an Octopus cloud instance
-Octopus Copilot is available for cloud Octopus instances. Click [here](https://octopus.com/start) to sign up for trial cloud Octopus instance.
+Octopus Copilot is available for cloud Octopus instances. Click [here](https://octopus.com/start) to sign up for a trial cloud Octopus instance.
 
 ### Creating the Octopus API key
 Octopus Copilot requires an API key to interact with the Octopus server. 
 
-Octopus Copilot only requires read access to the Octopus instance. It is recommended that you create a service account that belongs to a team with read-only permissions. The documentation [here](https://github.com/OctopusSolutionsEngineering/OctopusCopilot?tab=readme-ov-file#creating-a-service-account) provides a sample Terraform module that creates a read-only role, a team referencing the role, and a service account belonging to the team.
+Octopus Copilot only requires read access to the Octopus instance. It is recommended that you create a service account that belongs to a team with read-only permissions. The documentation [here](https://github.com/OctopusSolutionsEngineering/OctopusCopilot?tab=readme-ov-file#creating-a-service-account) provides a sample Terraform module to create a read-only role, a team referencing the role, and a service account belonging to the team.
 
 ### Creating a GitHub Copilot account
 
@@ -40,7 +40,7 @@ You can also use the web based interface without GitHub Copilot. See the section
 
 ## Querying Octopus with Copilot
 
-Queries directed to `@octopus-copilot` in the GitHub Copiloy chat window are answered by Octopus Copilot. For example, the following query displays the dashboard of the `Default` space:
+Queries directed to `@octopus-copilot` in the GitHub Copilot chat window are answered by Octopus Copilot. For example, the following query displays the dashboard of the `Default` space:
 
 ```
 @octopus-copilot Show the dashboard for the "Default" space
