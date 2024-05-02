@@ -54,7 +54,7 @@ To continue chatting please log in
 
 Click the `log in` link to open the Octopus Copilot login page. You will first be required to log in via GitHub. You must use the same GitHub credentials as the user logged into the GitHub Copilot chat. You are then prompted to enter the URL and API key of your Octopus instance:
 
-![Octopus Copilot Login Page](octopus-copilot-login.png)
+![Octopus Copilot Login Page](/docs/administration/copilot/octopus-copilot-login.png)
 
 Click the `Submit` button to save your Octopus details. You can then return to the Copilot chat.
 
@@ -68,7 +68,7 @@ A [test website](https://aiagent.octopus.com/api/form) allows you to query Octop
 
 Queries entered into the test website do not need to mention `@octopus-copilot`.
 
-![Octopus Copilot web interface](octopus-copilot-web.png)
+![Octopus Copilot web interface](/docs/administration/copilot/octopus-copilot-web.png)
 
 ## Saving default values
 
