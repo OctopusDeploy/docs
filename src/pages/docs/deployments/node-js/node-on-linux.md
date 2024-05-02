@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Deploying Node applications to Linux
 description: Learn how to package and deploy a Node.js application to a Linux deployment target over an SSH connection.
 ---
@@ -265,7 +265,7 @@ The next step is to create a project that will extract the package.
 1. Navigate to the Projects page via **Projects ➜ All** and then click **Add Project**.
 2. Give the new project an appropriate name, save the project, and navigate to the project's *Process* page and click **Add Step ➜ Deploy a Package**.
  
-Ensure the target role matches the target role that was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
+Ensure the [target tag](/docs/infrastructure/deployment-targets/#target-roles) matches the target tag that was associated with the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
 
 :::figure
 ![](/docs/deployments/node-js/images/step-details.png)
