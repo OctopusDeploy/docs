@@ -7,6 +7,10 @@ description: How to regenerate the certificates used for communication between O
 navOrder: 2
 ---
 
+:::div{.warning}
+By default, Octopus will use a 100-year, self-signed certificate for Octopus - Tentacle communication. It is unlikely you will need to follow this process outside of extenuating circumstances. If you are looking to update your SSL certificate for the Octopus web portal, please see [Updating the SSL Certificate of an existing web portal binding](https://octopus.com/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https#updating-the-ssl-certificate-of-an-existing-web-portal-binding). If in doubt, please reach out to [Octopus Support](mailto:support@octopus.com).
+:::
+
 Octopus uses self-signed certificates to securely communicate between Tentacles and the Octopus Server. Prior to Octopus 3.14, the certificates were SHA1, and following the [shattered](https://octopus.com/blog/shattered) exploit, the certificate generation was upgraded to SHA256. 
 
 This guide walks through the process of regenerating certificates to use the new algorithm. This is useful for upgrading from SHA1 to SHA256, and if you want to rotate certificates.

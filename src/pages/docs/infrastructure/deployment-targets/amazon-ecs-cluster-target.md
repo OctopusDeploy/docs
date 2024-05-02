@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-04-30
 title: Amazon ECS cluster
 description: How to configure an Amazon ECS cluster target in Octopus Deploy
 navOrder: 30
@@ -29,7 +29,7 @@ To discover targets use the following steps:
 
 - Add an AWS account variable named **Octopus.Aws.Account** to your project, or configure your worker with credentials that will allow your target to be discovered. See [AWS discovery configuration](/docs/infrastructure/deployment-targets/cloud-target-discovery/#aws) for more information on how to configure target discovery for AWS.
 - [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/#tag-cloud-resources) to your ECS cluster so that Octopus can match it to your deployment step and environment.
-- Add a `Deploy Amazon ECS Service` or `Update Amazon ECS Service` step to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover cluster targets to deploy to.
+- Add a `Deploy Amazon ECS Service` or `Update Amazon ECS Service` step to your deployment process. During deployment, the target tag on the step will be used along with the environment being deployed to, to discover cluster targets to deploy to.
 
 See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 
@@ -39,7 +39,7 @@ See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-targe
 2. Select **AWS** and click **ADD** on the Amazon ECS Cluster target type.
 3. Enter a display name for the Amazon ECS Cluster.
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.
-5. Select at least one [target role](/docs/infrastructure/deployment-targets/#target-roles) for the target.
+5. Select at least one [target tag](/docs/infrastructure/deployment-targets/#target-roles) for the target.
 6. In the **Authentication** section (see [Authentication](#authentication) below for more information):
    
    - Select whether to use an AWS account configured in Octopus or to use credentials from the worker on which your deployment runs.

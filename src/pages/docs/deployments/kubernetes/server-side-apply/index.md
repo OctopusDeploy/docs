@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-15
-modDate: 2024-04-15
+modDate: 2024-04-24
 title: Server-Side Apply
 description: Deploy Raw YAML to a Kubernetes cluster.
 navOrder: 80
@@ -10,7 +10,15 @@ navOrder: 80
 [Server-Side Apply (SSA)](https://kubernetes.io/docs/reference/using-api/server-side-apply/) is an opt-in Kubernetes mechanism that improves the configuration management of the `kubectl apply` command by tracking field ownership directly on the Kubernetes server.
 SSA allows multiple appliers to manage the fields of a single Kubernetes object without accidentally overwriting each other’s intentions.
 
-Octopus supports Server-Side Apply for all of our Kubernetes steps. 
+Octopus supports Server-Side Apply for the following steps:
+- Deploy Kubernetes YAML
+- Deploy with Kustomize
+- Configure and apply Kubernetes resources
+- Configure and apply a Kubernetes ConfigMap
+- Configure and apply a Kubernetes Service
+- Configure and apply a Kubernetes Ingress
+- Configure and apply a Kubernetes Secret
+
 You can find the settings under the **Additional Configuration Options** section of the step in the process editor.
 
 :::figure

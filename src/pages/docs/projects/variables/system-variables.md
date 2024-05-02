@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-03-05
+modDate: 2024-04-29
 title: System variables
 description: System variables are variables provided by Octopus that can be used in your deployments.
 navOrder: 20
@@ -457,7 +457,7 @@ Example: *environments-123*
 
 `Octopus.Environment.MachinesInRole[\_role\_]`
 
-Lists the machines in a specified role being deployed to.
+Lists the machines with a specified target tag being deployed to.
 
 Example: *machines-123,machines-124*
 
@@ -487,7 +487,7 @@ Example: *WEBSVR01*
 
 `Octopus.Machine.Roles`
 
-The roles applied to the machine *(List)*.
+The target tags associated with the machine *(List)*.
 
 Example: *web-server,frontend*
 
@@ -637,7 +637,7 @@ Example: *C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg*
 
 `Octopus.Tentacle.CurrentDeployment.TargetedRoles`
 
-The intersection of the roles targeted by the step, and those applied to the machine.
+The intersection of the target tags targeted by the step, and those associated with the machine.
 
 Example: *web-server*
 
@@ -907,7 +907,7 @@ Example: *True*
 
 `Octopus.Action.TargetRoles`
 
-Machine roles targeted by the action *(List)*.
+Machine target tags targeted by the action *(List)*.
 
 Example: *web-server,frontend*
 

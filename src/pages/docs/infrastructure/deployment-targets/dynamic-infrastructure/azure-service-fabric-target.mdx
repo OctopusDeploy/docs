@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-30
 title: Create Azure Service Fabric target command
 description: Cmdlet for creating an Azure Service Fabric target
 navOrder: 30
@@ -23,7 +23,7 @@ Command: **_New-OctopusAzureServiceFabricTarget_**
 | `-certificateStoreLocation`         | (Optional) Override the default certificate store location  |
 | `-certificateStoreName`             | (Optional) Override the default certificate store name      |
 | `-octopusCertificateIdOrName`       | Name or Id of the Certificate Resource in Octopus           |
-| `-octopusRoles`                     | Comma separated list of Roles to assign                     |
+| `-octopusRoles`                     | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/#target-roles) to assign                     |
 | `-updateIfExisting`                 | Will update an existing Service Fabric target with the same name, create if it doesn't exist |
 | `-octopusDefaultWorkerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional). Added in 2020.6.0. |
 
@@ -41,7 +41,7 @@ Examples:
 New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 1" `
                                     -azureConnectionEndpoint "connectionEndpoint" `
                                     -azureSecurityMode "unsecure" `
-                                    -octopusRoles "ServiceFabricRole" `
+                                    -octopusRoles "ServiceFabricTargetTag" `
                                     -updateIfExisting
 
 # Client Certificate
@@ -50,7 +50,7 @@ New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 2" `
                                     -azureSecurityMode "certificate" `
                                     -azureCertificateThumbprint "1234567890" `
                                     -octopusCertificateIdOrName "My Service Fabric Certificate" `
-                                    -octopusRoles "Service Fabric Role"
+                                    -octopusRoles "ServiceFabricTargetTag"
 
 # Client Certificate overriding certificate store
 New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 3" `
@@ -60,7 +60,7 @@ New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 3" `
                                     -certificateStoreLocation "Custom Store Location" `
                                     -certificateStoreName "My Store Name" `
                                     -octopusCertificateIdOrName "cert" `
-                                    -octopusRoles "sfrole"
+                                    -octopusRoles "ServiceFabricTargetTag"
 
 # Azure Active Directory
 New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 4" `
@@ -68,7 +68,7 @@ New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 4" `
                                    -azureSecurityMode  "azureactivedirectory" `
                                    -azureCertificateThumbprint "1234567890" `
                                    -octopusCertificateIdOrName "cert" `
-                                   -octopusRoles "Service Fabric Role"
+                                   -octopusRoles "ServiceFabricTargetTag"
 
 ```
 

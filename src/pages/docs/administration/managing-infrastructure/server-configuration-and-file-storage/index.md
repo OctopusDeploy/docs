@@ -14,15 +14,15 @@ Occasionally, it may be necessary to change the location at which Octopus stores
 Make sure you have a **current backup** of your Octopus data before proceeding. You will also need your **Master Key** if you need to use the backup, so please copy that also!
 :::
 
-## Server configuration {#ServerconfigurationandFilestorage-ConfigurationServerconfiguration}
+## Server configuration {#server-configuration}
 
 If you need to re-configure your Octopus Server instance, you can do that using the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
 
-## Server folders {#ServerconfigurationandFilestorage-Serverfolders}
+## Server folders {#server-folders}
 
 If you need to move folders other than the Octopus Home folder, you can do that using the Octopus Server [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path) command. Also see [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-OctopusHome).
 
-## File storage {#ServerconfigurationandFilestorage-FileStorageFilestorage}
+## File storage {#file-storage}
 
 The Octopus Server stores files in the following folders by default:
 
@@ -52,7 +52,7 @@ The Octopus Server stores files in the following folders by default:
     - This is where audit log archive zip files are stored when using the [Archived audit logs feature](/docs/security/users-and-teams/auditing/#archived-audit-events).
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-EventExports) on how to move the Octopus Server event exports folder
 
-## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}
+## Clean up post-2.6 migration {#clean-up-post-2-6-migration}
 
 In **Octopus 2.6** the Server stored files in the following folders by default:
 
