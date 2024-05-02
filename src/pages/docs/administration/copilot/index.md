@@ -28,9 +28,9 @@ Octopus Copilot has 3 prerequisites:
 Octopus Copilot is available for cloud Octopus instances. Click [here](https://octopus.com/start) to sign up for a trial cloud Octopus instance.
 
 ### Creating the Octopus API key
-Octopus Copilot requires an API key to interact with the Octopus server. 
+Octopus Copilot requires an [API key](/docs/octopus-rest-api/how-to-create-an-api-key) to interact with the Octopus server.
 
-Octopus Copilot only requires read access to the Octopus instance. It is recommended that you create a service account that belongs to a team with read-only permissions. The documentation [here](https://github.com/OctopusSolutionsEngineering/OctopusCopilot?tab=readme-ov-file#creating-a-service-account) provides a sample Terraform module to create a read-only role, a team referencing the role, and a service account belonging to the team.
+Octopus Copilot only requires read access to the Octopus instance. It is recommended that you create a [service account](/docs/security/users-and-teams/service-accounts) that belongs to a team with read-only permissions. The documentation [here](https://github.com/OctopusSolutionsEngineering/OctopusCopilot?tab=readme-ov-file#creating-a-service-account) provides a sample Terraform module to create a read-only role, a team referencing the role, and a service account belonging to the team.
 
 ### Creating a GitHub Copilot account
 
