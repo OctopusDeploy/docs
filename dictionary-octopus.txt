@@ -76,7 +76,6 @@ Deployingapackagetoan
 Deployingtomultiplegeographicregions
 Deployingtotargetsthatbecomeunavailableduringadeployment
 Deployingtotransienttargets
-Deployingtotransienttargets
 deploymentannotation
 Deploymentfeaturesavailableto
 deploymentprocess
@@ -144,10 +143,6 @@ itemscope
 itemtype
 ITSM
 jwks
-Keepingdeploymenttargetsuptodate
-Keepingdeploymenttargetsuptodate
-Keepingdeploymenttargetsuptodate
-Keepingdeploymenttargetsuptodate
 Keepingdeploymenttargetsuptodate
 keyrings
 keyserver
