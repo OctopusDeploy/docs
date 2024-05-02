@@ -96,7 +96,7 @@ The following are example queries you can use to test Octopus Copilot:
 * `@octopus-copilot Show the last lines from the latest deployment of "Octopus Copilot Function" to the "Production" enviroment in the "Default" space in a markdown code block.`
 * `@octopus-copilot Show the step names from the "Octopus Copilot Function" project in the "Octopus Copilot" space`
 * `@octopus-copilot How do I use the server side apply feature?`
-* `@octopus-copilot Find the deployments created after 2024-04-16T00:00:00+10:00 and before 2024-04-17T00:00:00+10:00 for he "Octopus Copilot Function" project in the "Octopus Copilot" space to the "Production" environment. Then find the average deployment duration.`
+* `@octopus-copilot Find the deployments created after 2024-04-16T00:00:00+10:00 and before 2024-04-17T00:00:00+10:00 for the "Octopus Copilot Function" project in the "Octopus Copilot" space to the "Production" environment. Then find the average deployment duration.`
 
 
 ## Prompt engineering tips
