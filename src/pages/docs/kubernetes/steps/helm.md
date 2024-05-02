@@ -2,12 +2,10 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-04-23 #update-this
-title: Deploy a Helm chart
-navTitle: Helm
-navSection: Helm
+title: Deploy a Helm Chart
 description: Deploy a Helm chart to a Kubernetes cluster
-navOrder: 10
-hideInThisSectionHeader: true
+navOrder: 40
+hideInThisSectionHeader: false
 ---
 
 :::div{.hint}
