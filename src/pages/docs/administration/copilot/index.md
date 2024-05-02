@@ -32,7 +32,7 @@ Octopus Copilot requires an API key to interact with the Octopus server. Octopus
 
 ### Creating a GitHub Copilot account
 
-You can sign up for a GitHub Copilot account [here](https://github.com/features/copilot)
+You can sign up for a GitHub Copilot account [here](https://github.com/features/copilot).
 
 ## Querying Octopus with Copilot
 
@@ -59,5 +59,7 @@ You must log in to Octopus every 8 hours. It is recommended you save the Octopus
 :::
 
 ## Example queries
+
+The following are example queries you can use to test Octopus Copilot:
 
 * `@octopus-copilot What projects exist in the "Default" space?`
