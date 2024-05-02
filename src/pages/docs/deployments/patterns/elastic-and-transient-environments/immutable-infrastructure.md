@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-05-01
 title: Immutable Infrastructure
 description: This guide covers deploying to immutable infrastructure where a new version of the infrastructure is provisioned and the old infrastructure is terminated.
 navOrder: 4
@@ -41,7 +41,7 @@ The infrastructure project runs a script that provisions two new Tentacles and r
 
    ![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865670.png)
 
-7. Add a step that runs **Terminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles.
+7. Add a step that runs **Terminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all [target tags](/docs/infrastructure/deployment-targets/#target-roles).
 
 ## Intermission {#ImmutableInfrastructure-Intermission}
 
