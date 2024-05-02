@@ -9,11 +9,11 @@ hideInThisSectionHeader: true
 
 Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites). The below guide explains how to add a step to your deployment process to deploy an application to an Azure Web App.
 
-## Understanding Azure web apps {#DeployingapackagetoanAzureWebApp-UnderstandingAzureWebApps}
+## Understanding Azure web apps {#understand-azure-web-apps}
 
 The Azure web apps you build, and how you might want to deploy them, are becoming increasingly complex as the Azure team provide more features to the platform. The best place to stay abreast of changes, and how they might affect your deployments is the [Azure Web App Documentation](https://azure.microsoft.com/en-us/documentation/services/app-service/web/), the [many and varied ways you can deploy Web Apps (including Octopus Deploy)](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/). There is also the hidden gem of the [Project Kudu GitHub repository](https://github.com/projectkudu/kudu/wiki) where you will find many of the hard to find facts about Web Jobs (like the `settings.job` file, configuring a Continuous Web Job as a Singleton, configuring the Schedule for Scheduled Jobs, how shadow copying enables in-place deployments, and how to shut down gracefully).
 
-### Web apps are deployed using web deploy {#DeployingapackagetoanAzureWebApp-WebAppsaredeployedusingWebDeploy}
+### Web apps are deployed using web deploy {#web-app-deployed-with-web-deploy}
 
 Deploying an Azure Web App with Octopus Deploy behaves very similarly to the Visual Studio publish wizard and uses **Web Deploy** to synchronize the files in your package to the Azure Web App. Similarly to Visual Studio you can change how Octopus Deploy invokes Web Deploy using the following options in your deployment steps which enable the most common deployment scenarios. All of these options are discussed below where we describe how to configure the Azure Web App step.
 
@@ -22,17 +22,17 @@ Deploying an Azure Web App with Octopus Deploy behaves very similarly to the Vis
 The default values for these variables were chosen to match Visual Studio following the principle of least surprise. You will typically need to adjust these values depending on your specific circumstances.
 :::
 
-## Step 1: Packaging {#DeployingapackagetoanAzureWebApp-Step1-Packaging}
+## Step 1: Packaging {#packaging}
 
 See the [packaging application docs](/docs/packaging-applications)
 
-## Step 2: Create an Azure account {#DeployingapackagetoanAzureWebApp-Step2-CreateanAzureAccount}
+## Step 2: Create an Azure account {#create-azure-account}
 
 If you haven't already, create an [Azure Account](/docs/infrastructure/accounts/azure) to grant Octopus Deploy access to your Azure Subscription.
 
 If instead you want to **dynamically** create you account during your deployment, check our [documentation on how to do so](/docs/infrastructure/deployment-targets/dynamic-infrastructure)
 
-## Step 3: Configure your Azure web app step {#DeployingapackagetoanAzureWebApp-Step4-ConfigureyourAzureWebAppstep}
+## Step 3: Configure your Azure web app step {#configure-azure-web-app-step}
 
 1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/projects/steps).
 
@@ -57,7 +57,7 @@ If instead you want to **dynamically** create you account during your deployment
 | Setting                     | Default     | Description                                                                                                                                                                                                                                                                                                                           |
 | --------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Deployment Slot**         |             | The target slot to deploy the application to. Requires a **Standard** or **Premium** App Service Plan.                                                                                                                                                                                                                                |
-| **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root.                                                                                                                                                                                             |
+| **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\WWWRoot\foo'. Leave blank to deploy to root.                                                                                                                                                                                             |
 | **Remove additional files** | _False_     | When _True_ instructs Web Deploy to delete files from the destination that aren't in the source package                                                                                                                                                                                                                               |
 | **Preserve App_Data**       | _False_     | When _True_ instructs Web Deploy to skip Delete operations in the **App_Data** directory                                                                                                                                                                                                                                              |
 | **Enable AppOffline**       | _False_     | When _True_ instructs Web Deploy to place _app_offline.htm_ in root deployment directory to safely bring down the app domain.</br>Click [here](http://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) for more details.                                                     |
@@ -68,7 +68,7 @@ If instead you want to **dynamically** create you account during your deployment
 Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different web apps, like **MyApp_Production** and **MyApp_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
 
-### Deployment features available to Azure web app steps {#DeployingapackagetoanAzureWebApp-DeploymentfeaturesavailabletoAzureWebAppsteps}
+### Deployment features available to Azure web app steps {#available-deployment-features}
 
 The following features are available when deploying a package to an Azure Web App.
 
@@ -109,7 +109,7 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 
 See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell) for more information.
 
-### What happens when the step is executed? {#DeployingapackagetoanAzureWebApp-ExecutingTheStep}
+### What happens when the step is executed? {#execute-step}
 
 When the `Deploy an Azure Web App` step gets executed, the below actions will happen (in order):
 
@@ -123,9 +123,9 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 8. Push your package content to the Web App in Azure.
 9. Any configured or packaged `PostDeploy` scripts are executed.
 
-## Simple and advanced deployment scenarios {#DeployingapackagetoanAzureWebApp-Simpleandadvanceddeploymentscenarios}
+## Simple and advanced deployment scenarios {#deployment-scenarios}
 
-### Deploying to multiple geographic regions {#DeployingapackagetoanAzureWebApp-Deployingtomultiplegeographicregions}
+### Deploying to multiple geographic regions {#deploy-to-multiple-regions}
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 

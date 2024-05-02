@@ -38,7 +38,7 @@ Targets configured with this policy will be considered healthy so long as an SSH
 ![Machine policy settings for connection test only](/docs/deployments/custom-scripts/images/machine-policy-connection-test-only.png)
 :::
 
-## Deploying To SSH endpoint without Calamari (i.e., no Mono prerequisite) {#RawScripting-DeployingToSSHEndpointWithoutCalamari(i.e.noMonoprerequisite)}
+## Deploying To SSH endpoint without Calamari (i.e., no Mono prerequisite) {#deploy-to-ssh-without-calamari}
 
 While raw scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a raw script in conjunction with the Transfer a Package step to extract a package on an SSH endpoint where Mono is unable to be installed.
 
