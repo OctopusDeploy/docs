@@ -242,8 +242,8 @@ rolename
 ROOTDIR
 rootelement
 RSASSA
-Runbook
 runbook
+Runbook
 runbooks
 Runthetemplate
 runtimes
@@ -295,8 +295,8 @@ Trivy
 tsconfigs
 typeof
 umoci
-Undeployed
 undeployed
+Undeployed
 upgradelog
 upgrader
 urlset
