@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-05-01
 title: Deploying to Transient Targets
 description: Transient deployment targets are targets that are intermittently available for a deployment.
 navOrder: 0
@@ -17,12 +17,12 @@ A typical Octopus deployment requires that all deployment targets are available 
 
 ## Deploying to Targets that become unavailable during a deployment {#Deployingtotransienttargets-Deployingtotargetsthatbecomeunavailableduringadeployment}
 
-This example uses the OctoFX project that does a deployment to two roles: **RateServer** and **TradingWebServer**. We have decided to auto-scale the machines in the **TradingWebServer** role and want to continue deploying the web site to the available machines, ignoring any machines that are no longer available, perhaps due to being scaled down.
+This example uses the OctoFX project that does a deployment to two [target tags](/docs/infrastructure/deployment-targets/#target-roles): **RateServer** and **TradingWebServer**. We have decided to auto-scale the machines in the **TradingWebServer** tag and want to continue deploying the web site to the available machines, ignoring any machines that are no longer available, perhaps due to being scaled down.
 
 1. Navigate to the OctoFX project overview page.
 2. Select the **Settings** option and expand the **Deployment Target** section.
-3. Under *Unavailable Deployment targets* click **Skip** and select the roles that can be skipped, in our example (**TradingWebServer**). If no roles are selected, then any deployment target may be skipped.
-4. Create and deploy a release to an environment where deployment targets in the **TradingWebServer** role are unavailable. They will be automatically removed from the deployment.
+3. Under *Unavailable Deployment targets* click **Skip** and select the target tags that can be skipped, in our example (**TradingWebServer**). If no tag are selected, then any deployment target may be skipped.
+4. Create and deploy a release to an environment where deployment targets with the **TradingWebServer** target tag are unavailable. They will be automatically removed from the deployment.
 
 :::div{.success}
 To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date).
@@ -39,11 +39,11 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
    ![](/docs/deployments/patterns/elastic-and-transient-environments/images/healthcheck.png)
 
 4. Save the step.
-5. Back at the deployment process, re-order the steps so that the **Health Check** step occurs before the **Trading Website** step.  This will ensure that deployment targets in the **TradingWebServer** role are re-evaluated before the trading web site is deployed:
+5. Back at the deployment process, re-order the steps so that the **Health Check** step occurs before the **Trading Website** step.  This will ensure that deployment targets with the **TradingWebServer** target tag are re-evaluated before the trading web site is deployed:
 
    ![](/docs/deployments/patterns/elastic-and-transient-environments/images/evaluate.png)
 
-6. Deploy OctoFX to an environment that has some deployment targets in the **TradingWebServer** role that are disabled.  While the deployment is in progress (but before the Health Check step), enable the disabled targets and disable the enabled targets. When the Health Check step runs:
+6. Deploy OctoFX to an environment that has some deployment targets with the **TradingWebServer** target tag that are disabled.  While the deployment is in progress (but before the Health Check step), enable the disabled targets and disable the enabled targets. When the Health Check step runs:
 
  - Any enabled targets that were disabled at the start of the deployment will be included in the deployment.
  - Any disabled targets that were enabled at the start of the deployment will be excluded from the deployment.
