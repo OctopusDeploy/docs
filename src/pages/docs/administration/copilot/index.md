@@ -52,7 +52,7 @@ The first request to Octopus Copilot will prompt you to complete a login with th
 To continue chatting please log in
 ```
 
-Clicking the `log in` link to open the Octopus Copilot login page. You will first be required to log in via GitHub. You must use the same GitHub credentials as the user logged into the GitHub Copilot chat. You are then prompted to enter the URL and API key of your Octopus instance:
+Click the `log in` link to open the Octopus Copilot login page. You will first be required to log in via GitHub. You must use the same GitHub credentials as the user logged into the GitHub Copilot chat. You are then prompted to enter the URL and API key of your Octopus instance:
 
 ![Octopus Copilot Login Page](octopus-copilot-login.png)
 
