@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Keeping deployment targets up to date
 description: Octopus can ensure that deployment targets are kept up to date with the relevant releases. This can be useful when deploying to transient targets or when new deployment targets are added to an environment.
 navOrder: 2
@@ -11,7 +11,7 @@ Octopus Deploy can ensure that deployment targets are kept up to date with the r
 
 ## Triggers {#Keepingdeploymenttargetsuptodate-Triggers}
 
-Triggers are per-project settings that execute an action in response to an event. For this example we will create an automatic deployment trigger so that machines in the **TradingWebServer** role are automatically kept up to date with the latest releases for OctoFX.  Triggers can be found by selecting the *Triggers* menu item on the project screen.
+Triggers are per-project settings that execute an action in response to an event. For this example we will create an automatic deployment trigger so that machines associated with the **TradingWebServer** [target tag](/docs/infrastructure/deployment-targets/#target-roles) are automatically kept up to date with the latest releases for OctoFX.  Triggers can be found by selecting the *Triggers* menu item on the project screen.
 
 ## Creating an automatic deployment trigger {#Keepingdeploymenttargetsuptodate-Creatinganautomaticdeploymenttrigger}
 
@@ -27,7 +27,7 @@ Triggers are per-project settings that execute an action in response to an event
 
 4. Select the environments (**Test A**) that this trigger applies to.
 
-5. Select the deployment target roles (**TradingWebServer**) that this trigger applies to.
+5. Select the deployment target tags (**TradingWebServer**) that this trigger applies to.
 
 :::figure
 ![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865705.png)
@@ -39,13 +39,13 @@ Once the trigger has been created, it will ensure that any deployment targets ma
 
 To test the trigger, we will disable a deployment target, deploy to that target's environment and then re-enable the target.  Octopus should automatically deploy the release to the target when it is re-enabled.
 
-1. Disable a target with the role **TradingWebServer**in the **Test A** environment:
+1. Disable a target with the target tag **TradingWebServer** in the **Test A** environment:
 
 :::figure
 ![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865573.png)
 :::
 
-2. Create a new release of OctoFX and deploy it to the **Test A** environment.  It will skip the steps that have been scoped to the **TradingWebServer** role because no deployment targets are available in that role:
+2. Create a new release of OctoFX and deploy it to the **Test A** environment.  It will skip the steps that have been scoped to the **TradingWebServer** target tag because no deployment targets are associated with that tag:
 
 :::figure
 ![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865574.png)
