@@ -5,6 +5,7 @@ ALLUSERSPROFILE
 anglin
 Anglin
 apikey
+Applicationproject
 APPNAME
 approot
 Appsaredeployedusing
@@ -19,6 +20,9 @@ auditability
 augeas
 auths
 autodeployoverride
+Automaticallydeploying
+Automaticallydeployinganewrelease
+Automatingallthethings
 awsaccount
 AXFVLJNAWQEDLG
 azureaccount
@@ -28,12 +32,15 @@ Bento
 bootstrap
 bootstrapped
 bootstrapper
+Canarydeployments
+Canarydeploymentsin
 Ceph
 changeit
 childelement
 choco
 cicd
 classiclink
+Cleaningmachines
 clientcertificate
 cloudapi
 Cloudsmith
@@ -50,6 +57,7 @@ cooldown
 Cpath
 Createan
 createartifact
+Creatinganautomaticdeploymenttrigger
 creds
 crossorigin
 cscfg
@@ -66,6 +74,9 @@ decryptable
 deployers
 Deployingapackagetoan
 Deployingtomultiplegeographicregions
+Deployingtotargetsthatbecomeunavailableduringadeployment
+Deployingtotransienttargets
+Deployingtotransienttargets
 deploymentannotation
 Deploymentfeaturesavailableto
 deploymentprocess
@@ -118,8 +129,10 @@ HTTPAPI
 hyperthread
 hyperthreading
 IMDS
+Includingandexcludingtargetsduringadeployment
 inetmgr
 inetsrv
+Infrastructureproject
 inkey
 INSTALLLOCATION
 internalcustomer
@@ -131,6 +144,11 @@ itemscope
 itemtype
 ITSM
 jwks
+Keepingdeploymenttargetsuptodate
+Keepingdeploymenttargetsuptodate
+Keepingdeploymenttargetsuptodate
+Keepingdeploymenttargetsuptodate
+Keepingdeploymenttargetsuptodate
 keyrings
 keyserver
 kubeconfig
@@ -148,6 +166,7 @@ linkerd
 Linq
 Liquibase
 ltsc
+Machinepolicy
 maintenanceconfiguration
 majeure
 mattc
@@ -166,12 +185,14 @@ mssqldb
 MTTR
 myapplication
 myfeature
+nameofaspnetcoreapplication
 navigationid
 NETBIOS
 Netscaler
 netsh
 newcert
 Newtonsoft
+Nextsteps
 noconsolelogging
 nologo
 nologs
@@ -204,6 +225,8 @@ oldthumbprint
 oneshot
 onlylogs
 openon
+Overridingthereleaseusedforautomaticdeploymentsoverriderelease
+packageversion
 passout
 pemstore
 petclinic
@@ -291,7 +314,9 @@ thepassword
 tmpfs
 toptags
 Traefik
+Triggeringanautomaticdeployment
 Trivy
+Troubleshootingautomaticdeployments
 tsconfigs
 typeof
 umoci
