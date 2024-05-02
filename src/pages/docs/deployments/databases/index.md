@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Databases
 description: Database deployments
-navOrder: 50
+navOrder: 90
 hideInThisSectionHeader: true
 ---
 
@@ -23,10 +23,10 @@ We have also written a series of blog posts on the topic:
 
 Octopus Deploy integrates with several third-party database tools:
 
-- RoundhousE
-- DbUp
-- ApexSQL
-- Redgate
+- [Redgate Flyway](https://www.red-gate.com/products/flyway/)
+- [grate](https://erikbra.github.io/grate/) (replaced RoundhousE)
+- [Liquibase](https://www.liquibase.com/)
+- [DbUp](https://dbup.readthedocs.io/en/latest/)
 - [and more](https://library.octopus.com/listing/database)
 
 Before those tools can run, they need to be configured to run as a specific database account that has permission to make schema changes.

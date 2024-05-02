@@ -1,14 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-17
 title: Deployment targets
 description: How to configure deployment targets in Octopus
 navOrder: 10
 hideInThisSection: true
 ---
-import DeploymentTargets from 'src/shared-content/infrastructure/deployment-targets.include.md';
-import TargetRoles from 'src/shared-content/infrastructure/target-roles.include.md';
+
+import DeploymentTargets from "src/shared-content/infrastructure/deployment-targets.include.mdx";
+import TargetRoles from "src/shared-content/infrastructure/target-roles.include.md";
 
 [Getting Started - Deployment Targets](https://www.youtube.com/watch?v=CBws8yDaN4w)
 
@@ -27,27 +28,28 @@ Deployment targets are added in different ways, depending on the type of target 
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets)
 - [Azure Service Fabric cluster](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets)
 - [AWS](/docs/infrastructure/accounts/aws)
-- [Kubernetes target](/docs/infrastructure/deployment-targets/kubernetes-target)
+- [Kubernetes agent](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent)
+- [Kubernetes API](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api)
 - [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop)
 - [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions)
 
-## Target roles \{#target-roles}
+## Target tags (formerly target roles) \{#target-roles}
 
 <TargetRoles />
 
-### Add target roles \{#create-target-roles}
+### Add target tags \{#create-target-roles}
 
-Roles are created and saved in the database as soon as you assign them to a deployment target.
+Target tags are created and saved in the database as soon as you assign them to a deployment target.
 
-Decide on the naming convention you will use before creating your first target role as it's not possible to change the case after the role has been created, for instance, all lowercase to camel case.
+Decide on the naming convention you will use before creating your first target tag as it's not possible to change the case after the target tag has been created, for instance, all lowercase to camel case.
 
 1. Register a deployment target or click on an already registered deployment target and go to **Settings**.
-2. In the **Target Roles** field, enter the target role you'd like to use (no spaces).
+2. In the **Target Tags** field, enter the target tag you'd like to use (no spaces).
 3. Save the target settings.
 
-The role has been created and assigned to the deployment target and can be added to other deployment targets.
+The target tag has been created and assigned to the deployment target and can be added to other deployment targets.
 
-You can check all the roles assigned to your deployment targets from the **Infrastructure** tab.
+You can check all the target tags assigned to your deployment targets from the **Infrastructure** tab.
 
 ## Dynamic infrastructure
 
@@ -57,5 +59,5 @@ Learn about [Managing resources with scripts](/docs/infrastructure/deployment-ta
 
 ## Learn more
 
- - [Machine policies](/docs/infrastructure/deployment-targets/machine-policies)
- - [Proxy support](/docs/infrastructure/deployment-targets/proxy-support)
+- [Machine policies](/docs/infrastructure/deployment-targets/machine-policies)
+- [Proxy support](/docs/infrastructure/deployment-targets/proxy-support)

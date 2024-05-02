@@ -37,7 +37,8 @@ To use OpenID Connect authentication you have to follow the [required minimum co
 
 See the [AWS documentation](https://oc.to/aws-oidc) for instructions to configure an OpenID Connect identity provider.
 
-:::div{.info}**If using the AWS CLI or API to configure the identity provider.**
+:::div{.info}
+**If using the AWS CLI or API to configure the identity provider.**
 
 See the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html) for instructions on how to obtain the thumbprint of your Octopus Server.
 :::

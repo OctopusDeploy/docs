@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-19
 title: Deploy a sample package
 description: Step by step guide on how to deploy a sample package Octopus Deploy
 navOrder: 80
@@ -39,12 +39,12 @@ Add a step to the hello world deployment process to push that package to the des
 1. Select the **Package** tile.
 1. Click **ADD** on the **Deploy a Package** tile.
 1. Leave the **Step Name** and the **Enabled** check-box as is.
-1. Select *hello-world* as the **On Targets in Roles**.
+1. Select *hello-world* as the tag in **Target Tags**.
 1. Select *hello-world* as the **Package ID**.
 1. Click the **SAVE** button.
 
 :::figure
-![Deploy a package step with role and package selected](/docs/getting-started/first-deployment/images/img-deploypackage.png)
+![Deploy a package step with target tag and package selected](/docs/getting-started/first-deployment/images/img-deploypackage.png)
 :::
 
 Please create a new release and deploy it to *Development*.  The release will deploy the *hello world* package to *dev-server-01*.

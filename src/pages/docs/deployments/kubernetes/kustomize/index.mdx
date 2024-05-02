@@ -1,0 +1,101 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-04-23
+title: Deploy with Kustomize
+description: Use Deploy with Kustomize to deploy resources to a Kubernetes cluster.
+navOrder: 9
+---
+
+import Image from "src/components/Image.astro";
+
+:::div{.hint}
+`Kustomize` was renamed to `Deploy with Kustomize` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
+:::
+
+Octopus supports the deployment of Kubernetes resources through the `Deploy with Kustomize` step.
+
+This step lets you source your **Kustomize** files from git, perform variable substitutions based on your environment and/or tenant and apply the changes to your Kubernetes clusters.
+
+[Kustomize](https://kustomize.io) introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications.
+
+:::div{.info}
+From Octopus **2024.1**, if you are storing your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source your Kustomize files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the Kustomize files.
+
+You can find more information about this feature in this [blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
+:::
+
+## Recommended usages for this step
+
+We list a few different scenarios below to help you figure out what is the best setup for you to deploy your applications to a Kubernetes cluster with Octopus.
+
+### When you use Kustomize for one application configuration
+
+1. **Multiple overlays**  
+   This is the recommended usage if you are already using Kustomize and just want Octopus to orchestrate the deployment.
+   In this scenario, our recommendation is to use `.env` files with Octopus [variable substitution syntax](/docs/projects/variables/variable-substitutions), so we can replace secrets and any other data managed via Octopus variables. These `.env` files are then used by [secretGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_secretgenerator_) and/or [configMapGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_configmapgenerator_).  
+   Everything else is defined in the `kustomization.yaml` files directly, and overlays should match the same environment structure defined in Octopus itself. 
+
+2. **Single overlay for Octopus**  
+   In this scenario, you may define two overlays, one being for local use outside Octopus, so you can test your `yaml` files. The other overlay is used exclusively by Octopus.  
+   In the Octopus overlay, you add [variable substitution syntax](/docs/projects/variables/variable-substitutions) directly into `kustomization.yaml` and any other `yaml` files in the overlay folder, as well as `.env` files.  
+   This scenario is better suited for customers with many environments and/or tenants, where customizations are needed for each target.
+
+3. **A mix of both**  
+   This would be the ideal scenario when you have a small number of environments and many tenants.  
+   In this scenario, you model your overlays based on the environments, with the different settings hardcoded in the `kustomization.yaml` file, and you use Octopus [substitution syntax](/docs/projects/variables/variable-substitutions) to define the different tenant properties in `kustomization.yaml` file.  
+   Again as in the previous scenarios, we would use `.env` files for secrets via [secretGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_secretgenerator_).
+
+### When you use Kustomize to template configurations for many applications
+
+1. **A mix of both — templates**  
+   You can go beyond configuration for a single application with Octopus and Kustomize. Imagine you have a hundred applications you deploy to Kubernetes. Some of them might have universal traits, like a group of API applications or a group of databases. Therefore, parts of the configuration will be universal for all the apps or a group of apps. There likely be app-unique parameters (like a container image).  
+   You can combine overlays and Octopus variables to create and use one template for all the apps. In this scenario, you would have a set of base files same for all the apps. One or more levels of overlays to add customizations for an app group. You can introduce another layer of overlays for environments. Finally, app-specific parameters (e.g. container images, tags and labels) can be defined in Octopus variables.  
+   In this scenario, tenant or environment-specific parameters can be added to any overlay. For example, you can add prefixes for tenants; also consider using [system variables](/docs/projects/variables/system-variables).
+
+## Kustomization file directory
+
+This field must be a path to a directory containing the `kustomization.yaml` file.
+During deployment, **Kustomize** reads the `kustomization.yaml` file located at this path to perform manifest yaml transforms.  
+The path is relative to the root of the git repository.
+When using overlays, ensure the path is to the overlay directory containing `kustomization.yaml` file.  
+Also, remember that in Linux workers, the paths are case-sensitive, so it is always good practice to check this. 
+
+## Substitute Variables in Files
+
+This setting is useful, for example, when you want to put your application specific configuration settings in a `.env` file and also have the value scoped per environment and/or tenant, see more information regarding [variable scoping](/docs/projects/variables#scoping-variables).  
+The target file paths are relative to the root of the git repository.
+Again remember that in Linux workers, paths are case-sensitive, so it is always good practice to check this.  
+You can use glob patterns to target multiple files. [Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns).
+
+## Referencing Container images
+
+From v2.0.2, you can add container images as package references directly from the Deploy with Kustomize step. Image references added in this way can be used via [reference package variables](/docs/projects/variables/system-variables#reference-package-variables).
+
+<Image
+  src="/docs/deployments/kubernetes/kustomize/referenced-packages.png"
+  alt="Add package references"
+/>
+
+For example, if you add a container image reference for `nginx`:
+
+<Image
+  src="/docs/deployments/kubernetes/kustomize/reference-a-package.png"
+  alt="Reference a package"
+/>
+
+You will then be able to select the version of this container image at release creation time. You can use the referenced `nginx` container image in your `kustomization.yaml` file using the following syntax:
+
+```yaml
+# ~/myApp/kustomization.yaml
+
+resources:
+- deployment.yaml
+
+images:
+- name: nginx
+   newTag: #{Octopus.Action.Package[nginx].PackageVersion}
+```
+
+The "`#{Octopus.Action.Package[nginx].PackageVersion}`" Octostache expression will be resolved to the selected image version during the deployment.
+

@@ -3,20 +3,21 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Lang } from '@util/Languages';
 import Default from './Default.astro';
-import Search from '../themes/accelerator/components/Search.astro';
+import Search from '../themes/octopus/components/Search.astro';
 
 // Properties
 type Props = {
-    frontmatter: Frontmatter
-    headings: { depth: number; slug: string; text: string; }[];
-}
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+};
 const { frontmatter, headings } = Astro.props satisfies Props;
 const lang = frontmatter.lang ?? SITE.default.lang;
 
 // Language
 const _ = Lang(lang);
 ---
-<Default frontmatter={ frontmatter } headings={ headings }>
-    <slot />
-    <Search lang={ lang }/>
+
+<Default frontmatter={frontmatter} headings={headings}>
+  <slot />
+  <Search lang={lang} />
 </Default>

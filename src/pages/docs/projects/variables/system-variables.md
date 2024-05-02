@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-09-20
+modDate: 2024-04-29
 title: System variables
 description: System variables are variables provided by Octopus that can be used in your deployments.
 navOrder: 20
@@ -360,7 +360,7 @@ Example: *Script returned exit code 123*
 
 The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/projects/variables/system-variables)
 
-Example: *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*|
+Example: *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*
 
 `Octopus.Deployment.ForcePackageDownload`
 
@@ -457,7 +457,7 @@ Example: *environments-123*
 
 `Octopus.Environment.MachinesInRole[\_role\_]`
 
-Lists the machines in a specified role being deployed to.
+Lists the machines with a specified target tag being deployed to.
 
 Example: *machines-123,machines-124*
 
@@ -487,7 +487,7 @@ Example: *WEBSVR01*
 
 `Octopus.Machine.Roles`
 
-The roles applied to the machine *(List)*.
+The target tags associated with the machine *(List)*.
 
 Example: *web-server,frontend*
 
@@ -637,7 +637,7 @@ Example: *C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg*
 
 `Octopus.Tentacle.CurrentDeployment.TargetedRoles`
 
-The intersection of the roles targeted by the step, and those applied to the machine.
+The intersection of the target tags targeted by the step, and those associated with the machine.
 
 Example: *web-server*
 
@@ -801,7 +801,7 @@ The teams responsible for completing a manual step *(List)*.
 
 Example: *teams-123,teams-124*
 
-|`Octopus.Action.MaxParallelism`
+`Octopus.Action.MaxParallelism`
 
 The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments). *(Number - Default: 10)*.
 
@@ -833,7 +833,7 @@ If true, the all files in the `Octopus.Action.Package.CustomInstallationDirector
 
 Example: *False*
 
-|`Octopus.Action.Package.DownloadOnTentacle`
+`Octopus.Action.Package.DownloadOnTentacle`
 
 If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server *(Boolean)*.
 
@@ -907,7 +907,7 @@ Example: *True*
 
 `Octopus.Action.TargetRoles`
 
-Machine roles targeted by the action *(List)*.
+Machine target tags targeted by the action *(List)*.
 
 Example: *web-server,frontend*
 

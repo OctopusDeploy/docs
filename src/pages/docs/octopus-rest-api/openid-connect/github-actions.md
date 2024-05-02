@@ -57,7 +57,7 @@ When configuring an OIDC identity for GitHub Actions you need to choose a filter
 - Tag: Workflow runs for the specific tag will be allowed to connect using the OIDC identity. The prefix for the git ref does not need to be supplied e.g. Use `v1` instead of `refs/tags/v1`.
 
 :::div{.hint}
-The subject in an OIDC identity is case-sensitive and must match exactly, wildcards are currently not supported.
+Support for wildcards when matching a subject is available from Octopus 2024.1. To match multiple characters in a subject use `*`, and to match a single character use `?`.
 :::
 
 ### Customized subject claims

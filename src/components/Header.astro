@@ -1,12 +1,13 @@
 ---
-import { Accelerator } from "astro-accelerator-utils";
-import type { Frontmatter } from "astro-accelerator-utils/types/Frontmatter";
-import { Lang } from "@util/Languages";
-import { SITE } from "@config";
-import Search from '../themes/accelerator/components/Search.astro';
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { Lang } from '@util/Languages';
+import { SITE } from '@config';
+import Search from '../themes/octopus/components/Search.astro';
+import MobileMenu from './MobileMenu.astro';
 
 const accelerator = new Accelerator(SITE);
-const stats = new accelerator.statistics("components/Header.astro");
+const stats = new accelerator.statistics('components/Header.astro');
 stats.start();
 
 // Properties
@@ -34,9 +35,8 @@ stats.stop();
         alt="Octopus Deploy"
       /></a
     >
-
-    { showSearch && <Search lang={ lang } /> }
-
+    {showSearch && <Search lang={lang} />}
+    <MobileMenu lang={lang} />
     <a href="https://octopus.com/start?location=docs" class="button trial"
       >Free trial</a
     >

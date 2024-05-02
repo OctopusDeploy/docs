@@ -1,0 +1,32 @@
+import Image from "src/components/Image.astro";
+
+With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes clusters, cloud regions, or an offline package drop. Regardless of where you're deploying your software, these machines and services are known as your deployment targets.
+
+Deployment targets are defined as the following.  Octopus Deploy will count deployment targets differently against your license based on your license type.
+
+- PTM License (Projects/Tenants/Machines) - Has at a project limit with optional tenant and machine limits in the license key.  Sold from 2023 onward.
+- Per Target License - Only has a target limit in the license key, no project or tenant limits appear in the license key.  Sold between 2017 and 2024.
+
+**Please note:** If you are unsure of your license type, please refer to your invoice or reach out to sales@octopus.com and they will clarify your license type.
+
+| Host                                                                                                         | <div style="width:175px">Machine Count Against License (PTM)</div> | <div style="width:175px">Target Count Against License (Per-Target)</div> | Important Note |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------------ | -------------- |
+| [Windows Server running a Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows)                | 1 Machine per Tentacle instance     | 1 Target per Tentacle instance     | Listening Tentacles registered multiple times on the same instance will count as one (1) target. |
+| [Linux Server running a Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux)                    | 1 Machine per Tentacle instance     | 1 Target per Tentacle instance     | Listening Tentacles registered multiple times on the same instance will count as one (1) target. |
+| [SSH Connection](/docs/infrastructure/deployment-targets/linux/ssh-target)                                   | 1 Machine per SSH Connection        | 1 Target per SSH Connection        |      |
+| [Kubernetes agent](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent)                      | 0 Machines per Kubernetes Agent     | 1 Target per Agent instance        |      |
+| [Kubernetes Cluster](/docs/infrastructure/deployment-targets/kubernetes-target)                              | 0 Machines per Kubernetes Cluster   | 1 Target per Kubernetes Namespace  | A namespace is required when registering the Kubernetes cluster with Octopus Deploy. By default, the namespace used in the registration is used in health checks and deployments. The namespace can be overwritten in the deployment process. |
+| [AWS ECS Cluster](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target)                         | 0 Machines per ECS Cluster          | 1 Target per ECS Cluster           |      |
+| [Azure Web App / Function / Cloud Service](/docs/infrastructure/deployment-targets/azure/web-app-targets)    | 0 Machines per Web App / Function   | 1 Target per Web App / Function    | This represents how Octopus Deploy _currently_ counts Azure Web Apps / Functions. However, one (1) Azure Web App / Function is not equal to one (1) Linux server. |
+| [Azure Service Fabric Cluster](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets) | 0 Machines per Cluster              | 1 Target per Cluster               |      |
+| [Offline Package Drops](/docs/infrastructure/deployment-targets/offline-package-drop)                        | 0 Machines per Offline Package Drop | 1 Target per Offline Package Drop  |      |
+| [Cloud Region](/docs/infrastructure/deployment-targets/cloud-regions)                                        | 0 Machines per Cloud Region         | 0 Target per Cloud Region          | Cloud regions are legacy targets that pre-dated workers as a mechanism to run scripts on cloud providers. They are used today to execute scripts multiple times with variables scoped for each iteration. |
+
+**Please note:** Octopus will only count Windows Servers, Linux Servers, ECS Clusters, Kubernetes Clusters, etc., that are registered with an Octopus Deploy Instance. If you have 5,000 Linux Servers, and 4,000 of them are registered with Octopus Deploy, then Octopus will only count those 4,000 against your license.
+
+You can manage your deployment targets by navigating to **Infrastructure ➜ Deployment Targets** in the Octopus Web Portal:
+
+<Image
+  src="/docs/shared-content/concepts/images/deployment-targets.png"
+  alt="The deployment targets area of Octopus Deploy"
+/>

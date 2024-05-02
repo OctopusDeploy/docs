@@ -1,0 +1,31 @@
+---
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { Accelerator } from 'astro-accelerator-utils';
+import { SITE } from '@config';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('octopus/layouts/Redirect.astro');
+stats.start();
+
+// Properties
+type Props = {
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+};
+const { frontmatter, headings } = Astro.props satisfies Props;
+
+// Logic
+const destination = frontmatter.redirect;
+const metaContent = `0; URL=${destination}`;
+
+stats.stop();
+---
+
+<html>
+  <meta charset="utf-8" />
+  <title>Redirecting to {destination}</title>
+  <meta http-equiv="refresh" content={metaContent} />
+  <link rel="canonical" href={destination} />
+
+
+</html>

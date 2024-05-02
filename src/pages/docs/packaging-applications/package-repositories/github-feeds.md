@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-03-08
 title: GitHub Repository feeds
 description: Configuring GitHub repositories as Octopus Feeds
 navOrder: 30
@@ -39,6 +39,10 @@ For authorization, it is recommended that you create a [Personal access tokens](
 Give the token a meaningful name and enable the **repo** scope if you want to be able to access private repositories from Octopus Deploy.
 
 Copy the token that is generated and use this value as the password for the GitHub feed in Octopus Deploy.
+
+:::div{.hint}
+**Note:** Octopus can make use of [GitHub's fine-grained tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens) should you wish to have more control over the repositories that can be accessed. These can be created in the same way as the steps above, but selecting the **Fine-grained tokens** from the navigation menu. From there individual repository access can be added for further security.
+:::
 
 ### Testing a GitHub feed
 

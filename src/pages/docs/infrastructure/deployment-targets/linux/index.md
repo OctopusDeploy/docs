@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-02-20
 title: Linux targets
 description: Configuring Linux servers as deployment targets in Octopus.
 navOrder: 20
@@ -38,7 +38,7 @@ The following platforms are explicitly supported (we run automated tests against
 
 - Ubuntu 18.04 LTS
 - Ubuntu 16.04 LTS
-- Redhat (RHEL) 7.2
+- Redhat (RHEL) 7.9
 - Centos 7.7
 - Amazon Linux 2
 - Debian 9.12

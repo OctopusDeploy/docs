@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-11-20
+modDate: 2024-04-30
 title: Azure Cloud Service targets
-description: Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by role during deployments.
+description: Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by target tag during deployments.
 navOrder: 100
 ---
 
-Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by role during deployments.
+Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by [target tag](/docs/infrastructure/deployment-targets/#target-roles) during deployments.
 
 :::div{.warning}
 Microsoft [announced](https://blogs.msdn.microsoft.com/appserviceteam/2018/03/12/deprecating-service-management-apis-support-for-azure-app-services/) that from June 30th 2018 they are retiring support for Azure Service Management API (which indicates Cloud Services). Microsoft stated that _"Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it's now a legacy service and Service Fabric is recommended for new development"_ ([source](https://docs.microsoft.com/en-us/azure/app-service/choose-web-site-cloud-service-vm)).
@@ -31,7 +31,7 @@ To create an Azure Cloud Service target within Octopus:
 
 - Go to **Infrastructure ➜ Deployment Targets ➜ Add Deployment Target**.
 - Select **Azure Cloud Service** from the list of available targets and click _Next_.
-- Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Cloud Service target.
+- Fill out the necessary fields, being sure to provide a unique target tag that clearly identifies your Azure Cloud Service target.
 
 :::figure
 ![](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/create-azure-cloud-service-target.png)

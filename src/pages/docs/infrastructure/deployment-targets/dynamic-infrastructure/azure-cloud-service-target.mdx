@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-30
 title: Create Azure Cloud Service target command
 description: Cmdlet for creating an Azure Cloud Service target
 navOrder: 40
@@ -21,7 +21,7 @@ Command: **_New-OctopusAzureCloudServiceTarget_**
 | `-swap`                             | Swap staging to production, or just deploy. <br />Options are `swap` (default), `deploy`      |
 | `-instanceCount`                    | Use the current instance count from Azure, or use the value in the configuration file.<br />Options are `current` (default), `configuration` |
 | `-octopusAccountIdOrName`           | Name or Id of the Account Resource in Octopus. Must be a Management Certificate Account |
-| `-octopusRoles`                     | Comma separated list of Roles to assign                                                 |
+| `-octopusRoles`                     | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/#target-roles) to assign                                                 |
 | `-updateIfExisting`                 | Will update an existing Cloud Service target with the same name, create if it doesn't exist |
 | `-octopusDefaultWorkerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional). Added in 2020.6.0. |
 

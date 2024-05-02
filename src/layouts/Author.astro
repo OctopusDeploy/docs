@@ -7,12 +7,12 @@ import Author from '@layouts/Author.astro';
 // Properties
 
 type Props = {
-    frontmatter: Frontmatter
-    headings: { depth: number; slug: string; text: string; }[];
-}
+  frontmatter: Frontmatter;
+  headings: { depth: number; slug: string; text: string }[];
+};
 const { frontmatter, headings } = Astro.props satisfies Props;
-
 ---
-<Author frontmatter={ frontmatter } headings={ headings }>
-    <slot />
+
+<Author frontmatter={frontmatter} headings={headings}>
+  <slot />
 </Author>

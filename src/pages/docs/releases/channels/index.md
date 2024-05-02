@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Channels
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
-navOrder: 10
+navOrder: 15
 ---
 
 As you deploy your projects, you can assign [releases](/docs/releases) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies. This would, of course, leave you trying to manage multiple duplicated projects. Channels lets you use one project, with multiple release strategies.
@@ -42,7 +42,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 ## Design the version rules {#version-rules}
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation).
+Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
 
 :::div{.hint}
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
@@ -143,17 +143,13 @@ The package list allows you to select the version of each package involved in th
 
 When using one of the [build server extensions](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
 
-### Automatic release creation
+### Release creation triggers
 
-When enabling [automatic release creation](/docs/projects/project-triggers/automatic-release-creation) for your project, you are required to select a Channel (if the project has more than one).
-
-:::figure
-![](/docs/releases/channels/images/3278462.png)
-:::
+When adding [release creation triggers](/docs/projects/project-triggers) to your project, you are required to select a Channel (if the project has more than one).
 
 Any releases created automatically will use the configured channel. Additionally, any version rules configured for the channel will be used to decide whether a release is automatically created.
 
-For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the channel selected for automatic release creation has a version rule range that doesn't include 3.1.0, then no release will be created.
+For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the channel selected for the release creation trigger has a version rule range that doesn't include 3.1.0, then no release will be created.
 
 :::figure
 ![](/docs/releases/channels/images/3278461.png)

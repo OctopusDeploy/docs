@@ -1,4 +1,4 @@
-## Create a release
+## How to create a release in Octopus Deploy
 
 1. With your deployment process defined, you can create a release on the project's Overview page, by clicking **CREATE RELEASE**.
 

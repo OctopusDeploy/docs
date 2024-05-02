@@ -121,7 +121,7 @@ Tentacle.exe create-instance --instance "Tentacle" --config "C:\Octopus\Tentacle
 Tentacle.exe new-certificate --instance "Tentacle" --if-blank --console
 Tentacle.exe configure --instance "Tentacle" --reset-trust --console
 Tentacle.exe configure --instance "Tentacle" --home "C:\Octopus" --app "C:\Octopus\Applications" --noListen "True" --console
-Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" --name "YOUR_TENTACLE_NAME" --apiKey "API-YOUR_API_KEY" --comms-style "TentacleActive" --server-comms-port "10943" --force --environment "YOUR_TENTACLE_ENVIRONMENTS" --role "YOUR_TENTACLE_ROLES" --console
+Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" --name "YOUR_TENTACLE_NAME" --apiKey "API-YOUR_API_KEY" --comms-style "TentacleActive" --server-comms-port "10943" --force --environment "YOUR_TENTACLE_ENVIRONMENTS" --role "YOUR_TENTACLE_TARGET_TAG" --console
 Tentacle.exe service --instance "Tentacle" --install --start --console
 ```
 
@@ -179,7 +179,7 @@ Tentacle.exe configure --instance "Tentacle" --home "C:\Octopus" --console
 
 Tentacles can also be installed via [Desired State Configuration](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC), you can add, remove, start and stop Tentacles in either Polling or Listening mode.
 
-The following PowerShell script will install a Tentacle listening on port `10933` against the Octopus Server at `https://YOUR_OCTOPUS`, add it to the `Development` environment and assign the `web-server` and `app-server` roles:
+The following PowerShell script will install a Tentacle listening on port `10933` against the Octopus Server at `https://YOUR_OCTOPUS`, add it to the `Development` environment and assign the `web-server` and `app-server` target tags:
 
 **DSC Configuration**
 

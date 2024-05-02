@@ -19,10 +19,6 @@ The following instructions can be followed to configure the `Create an Amazon S3
 
 Add the `Create an Amazon S3 Bucket` step to the project, and provide it a name.
 
-:::figure
-![Create an Amazon S3 Bucket Step](/docs/deployments/aws/aws-s3-create-bucket/images/create-an-amazon-s3-bucket-step.png)
-:::
-
 ## Provide the required configuration
 
 Provide the information required to create the bucket.
