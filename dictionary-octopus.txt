@@ -5,8 +5,12 @@ ALLUSERSPROFILE
 anglin
 Anglin
 apikey
+APPNAME
 approot
+Appsaredeployedusing
 appsettings
+Appstep
+Appsteps
 ASPNET
 aspnetcore
 astro
@@ -16,6 +20,7 @@ augeas
 auths
 autodeployoverride
 awsaccount
+AXFVLJNAWQEDLG
 azureaccount
 azureactivedirectory
 azurefile
@@ -37,9 +42,13 @@ combinational
 comms
 COMPUTERNAME
 configmap
+configureoctopusdeployproject
+Configureyour
 Conjur
+contoso
 cooldown
 Cpath
+Createan
 createartifact
 creds
 crossorigin
@@ -55,7 +64,10 @@ deallocated
 dearmor
 decryptable
 deployers
+Deployingapackagetoan
+Deployingtomultiplegeographicregions
 deploymentannotation
+Deploymentfeaturesavailableto
 deploymentprocess
 deploymentprocesses
 deployto
@@ -69,6 +81,8 @@ dpkg
 Dspring
 Elyton
 emptytitle
+expressjs
+Fabricapplication
 fanout
 Fargate
 feedcred
@@ -78,6 +92,7 @@ figcaption
 filestore
 FIPS
 frontmatter
+FZOIZFX
 gcloud
 getenv
 gifs
@@ -86,6 +101,10 @@ Gluster
 googleaccount
 groff
 Groupsand
+gruntfile
+Gruntpublishtask
+gulpfile
+Gulppublishtask
 hastscript
 healthcheck
 Helloworld
@@ -113,6 +132,7 @@ itemtype
 ITSM
 jwks
 keyrings
+keyserver
 kubeconfig
 Kubelet
 kubelogin
@@ -137,6 +157,7 @@ milli
 minifier
 MITM
 Moines
+Monoprerequisite
 mozjpeg
 mozroots
 msbuild
@@ -162,6 +183,9 @@ nupkg
 Obtainingthe
 Octo
 octobak
+octofxjs
+octojs
+octopackjs
 Octopub
 octopusartifact
 octopusbob
@@ -177,6 +201,7 @@ octoterra
 OIDC
 oldcert
 oldthumbprint
+oneshot
 onlylogs
 openon
 passout
@@ -192,6 +217,7 @@ prerenderingchange
 printfn
 Println
 PROGRAMFILES
+proxied
 proxying
 pwsh
 pycryptodome
@@ -213,12 +239,15 @@ reprovisioning
 robocopy
 roboto
 rolename
+ROOTDIR
 rootelement
 RSASSA
 Runbook
 runbook
 runbooks
+Runthetemplate
 runtimes
+samplewebapp
 Schannel
 secureclientcertificate
 servedby
@@ -230,6 +259,7 @@ setspn
 shiki
 SIEM
 signingkeys
+Simpleandadvanceddeploymentscenarios
 skiplinks
 snapshotted
 snapshotting
@@ -276,6 +306,7 @@ vhdx
 Voltron
 WCAG
 webapps
+WEBDEPLOY
 webfonts
 webserver
 WEBSVR
@@ -285,6 +316,7 @@ WIXUI
 workerpool
 workerpools
 workertools
+wwwroot
 xlarge
 xmark
 xvzf
