@@ -143,7 +143,7 @@ Setting the **Standard Change Template Name** setting under **ITSM Providers** t
 active, approved **Standard Change Template** (as found in the Standard Change Catalog) will instead 
 result in deployments of the project creating a `Standard` (i.e. low-risk, pre-approved) change.
 
-To create an `Emergency` change you can select the Emergency Change setting on the deployment creation page.
+From **2024.2** you can create an `Emergency` change by selecting the Emergency Change setting on the deployment creation page.
 :::figure
 ![ServiceNow Integration Project settings](/docs/approvals/servicenow/images/servicenow-emergency-change.png)
 :::
@@ -152,7 +152,7 @@ To create an `Emergency` change you can select the Emergency Change setting on t
 
 If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/#scoping-variables).
 
-This variable can be set under the `ServiceNow Change Request settings` section on the deployment creation page. Setting the CR number at the deployment level will override any predefined variable.
+From **2024.2** on this can be set under the `ServiceNow Change Request settings` section on the deployment creation page. Setting the CR number at the deployment level will override any predefined variable.
 
 ### Setting up environments for CR approval
 
@@ -219,6 +219,11 @@ The title must match the format **exactly**, including the double-quotes.
 
 ### Populating CR fields through Octopus
 
+:::div{.warning}
+This feature is only available for version 2024.2.6455 and later
+:::
+
+
 To control the content of the CRs the variable `Octopus.ServiceNow.Field[snow_field]` can be set at the project level. These are contributed to the create CR body as a dictionary allowing any field to be set.
 
 For example to set the `Assigned To` or `Short Description` fields you can use the following:
@@ -267,7 +272,7 @@ The following list assumes the linked change is in an **approved** state.
 ## Troubleshooting
 
 Errors occurring during a deployment approval checks will appear in the "Task Failed" icon's 
-tooltip. Errors related to creating a change request are available through the task log. Additional information will also be available in the "System Diagnostic Report".
+tooltip. From **2024.2** on errors related to creating a change request are available through the task log. Additional information will also be available in the "System Diagnostic Report".
 
 If you are seeing errors in Octopus during deployments, ensure that the ServiceNow user account is authorized to call the required endpoints. 
 
