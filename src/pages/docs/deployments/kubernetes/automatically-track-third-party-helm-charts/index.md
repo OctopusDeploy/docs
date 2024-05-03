@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2024-04-22
-modDate: 2024-04-22
+pubDate: 2024-05-02
+modDate: 2024-05-02
 title: Automatically tracking third party helm charts
 description: External feed triggers allow you to automatically create a new release as a result of new container images or helm charts being pushed to their respective repositories.
-navOrder: 12
+navOrder: 41
 ---
 
-With a growing number of applications being provided with Helm charts as a primary method of installation, often all that needs to be done is a `helm install` against your cluster and you're up and running!
+With a growing number of applications being provided with Helm charts as a primary method of installation, often all that needs to be done is a `helm install` against your cluster and the application will be up and running.
 
 However managing updates can be a more involved process. Not only do you need to know when a new release is available, but you also need to have someone with credentials to run the `helm upgrade` against your cluster. Meaning you'll either need to share important credentials among everyone performing updates or have only a few people busy performing these updates.
 
@@ -61,9 +61,9 @@ step "deploy-ingress-nginx-helm-chart" {
 
 ### Helpful settings
 
-By default, Octopus will start versioning releases from `0.0.1` and count up patch versions from there. That's not particularly useful when we already have a meaningful version number attached to the Helm chart.
+By default, Octopus will start versioning releases from `0.0.1` and count up patch versions from there. Helm charts already have a meaningful version number that you may wish to use instead.
 
-Let's change our releases to track the Helm chart version by heading to the project settings and changing the release versioning rule to use the version number from our deployment step.
+You can change our releases to track the Helm chart version by heading to the project settings and changing the release versioning rule to use the version number from our deployment step.
 
 :::figure
 ![Change release versioning](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-versioning-rule.png)
@@ -83,14 +83,14 @@ versioning_strategy {
 
 Triggers can be created directly from the deployment process by clicking the **Create a trigger** link, or by navigating to the **Triggers** page and clicking **Add Trigger**.
 
-Enter a name and a select which images you'd like to watch for updates.
-In our case our Default channel has a lifecycle that will automatically deploy to our Development environment for testing, but we'll touch more on that later.
+Enter a name and a select which container images or Helm charts you'd like to watch for updates.
+In this example, the Default channel has a lifecycle that will automatically deploy to the Development environment for testing, more on that later.
 
 :::figure
 ![Helm chart create trigger](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-create-trigger.png)
 :::
 
-Once the trigger is created, we can now watch the triggers execution history. Within a couple of minutes you'll see your very first release created!
+Once the trigger is created, you can watch the triggers execution history. Within a couple of minutes you'll see your very first release created.
 
 :::figure
 ![Helm chart trigger history](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-trigger-history.png)
@@ -98,42 +98,42 @@ Once the trigger is created, we can now watch the triggers execution history. Wi
 
 ### Automatic deployment strategies
 
-Heading back to the project dashboard, we can see our release is not only created but successfully deployed to our cluster as well.
+Back on the project dashboard, you can see the release isn't only created but successfully deployed to your cluster as well.
 
 :::figure
 ![Helm chart deployed release](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-deployed-release.png)
 :::
 
-But what if we only had a production environment? We might be a bit more careful with deploying updates the moment they are released. We can control this with channels and lifecycles.
+But what if there was only a production environment? You may be a bit more careful with deploying updates the moment they are released. You can control this with channels and lifecycles.
 
-First we'll need a new lifecycle, which we'll call Production.
+First [create a new lifecycle](/docs/releases/lifecycles), called Production here.
 
 :::figure
 ![Helm chart production lifecycle](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-production-lifecycle.png)
 :::
 
-And then we'll need to create a channel in our project that uses this lifecycle.
+Then [create a channel](/docs/releases/channels) in the project that uses this lifecycle.
 
 :::figure
 ![Helm chart production channel](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-production-channel.png)
 :::
 
-Finally, back in our trigger, we can change the channel to be Production instead.
+Back in the trigger, change the channel to Production instead.
 
 :::figure
 ![Helm chart trigger production channel](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-trigger-production-channel.png)
 :::
 
-Now new releases will remain undeployed until someone has time to manually review the changes and click **Deploy**.
+New releases will remain undeployed until someone has time to manually review the changes and click **Deploy**.
 
 :::figure
 ![Helm chart undeployed release](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-undeployed-release.png)
 :::
 
-These are two simple cases, check out our [environment recommendations](/docs/infrastructure/environments/environment-recommendations) for more information on what's possible.
+These are two simple cases, take a look at [environment recommendations](/docs/infrastructure/environments/environment-recommendations) for more information on what's possible.
 
 #### Getting notified about new releases
 
-It's all well and good to have a list of releases created and waiting to be deployed, but not very useful if no one knows about it.
+Now you have a list of releases created and waiting to be deployed. This isn't very useful if no one knows about it.
 
 Octopus deploy offers a quick and easy notification service through [subscriptions](/docs/administration/managing-infrastructure/subscriptions) that allow you to send the right people an email or message whenever a release is created in a particular project.

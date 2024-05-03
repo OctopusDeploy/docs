@@ -15,15 +15,15 @@ The details of these container images and Helm Charts are already known in Octop
 
 ## Common use cases
 
-- [Automated deployments with Helm chart](./use-cases/automated-deployments-with-helm.md)
+- [Automated deployments with Helm charts](/docs/deployments/kubernetes/helm-update#setting-up-referenced-images-with-helm-chart-deployments)
 
   Create releases when any referenced images used in your Helm charts are updated.
 
-- [Tracking third party Helm charts](./use-cases/automatically-tracking-third-party-helm-charts.md)
+- [Tracking third party Helm charts](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts)
 
   Create releases whenever a third party releases a new Helm chart.
 
-- [Deployments with a collection of related images](./use-cases/deployments-with-a-collection-related-images.md)
+- [Deployments with YAML manifests](docs/deployments/kubernetes/deploy-raw-yaml#referencing-packages)
 
   Create releases for a deployment referencing any number of images.
 
