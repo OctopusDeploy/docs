@@ -23,7 +23,7 @@ A Helm chart deployment like this is simple with Octopus Deploy.
 4. Configure the namespace and any values required for your application
 
 :::figure
-![Helm chart deployment process](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-deployment-process.png)
+![Helm chart deployment process](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-deployment-process.png)
 :::
 
 Sample OCL for version controlled projects:
@@ -66,7 +66,7 @@ By default, Octopus will start versioning releases from `0.0.1` and count up pat
 You can change our releases to track the Helm chart version by heading to the project settings and changing the release versioning rule to use the version number from our deployment step.
 
 :::figure
-![Change release versioning](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-versioning-rule.png)
+![Change release versioning](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-versioning-rule.png)
 :::
 
 Sample OCL for version controlled projects:
@@ -87,13 +87,13 @@ Enter a name and a select which container images or Helm charts you'd like to wa
 In this example, the Default channel has a lifecycle that will automatically deploy to the Development environment for testing, more on that later.
 
 :::figure
-![Helm chart create trigger](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-create-trigger.png)
+![Helm chart create trigger](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-create-trigger.png)
 :::
 
 Once the trigger is created, you can watch the triggers execution history. Within a couple of minutes you'll see your very first release created.
 
 :::figure
-![Helm chart trigger history](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-trigger-history.png)
+![Helm chart trigger history](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-trigger-history.png)
 :::
 
 ### Automatic deployment strategies
@@ -101,7 +101,7 @@ Once the trigger is created, you can watch the triggers execution history. Withi
 Back on the project dashboard, you can see the release isn't only created but successfully deployed to your cluster as well.
 
 :::figure
-![Helm chart deployed release](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-deployed-release.png)
+![Helm chart deployed release](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-deployed-release.png)
 :::
 
 But what if there was only a production environment? You may be a bit more careful with deploying updates the moment they are released. You can control this with channels and lifecycles.
@@ -109,25 +109,25 @@ But what if there was only a production environment? You may be a bit more caref
 First [create a new lifecycle](/docs/releases/lifecycles), called Production here.
 
 :::figure
-![Helm chart production lifecycle](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-production-lifecycle.png)
+![Helm chart production lifecycle](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-production-lifecycle.png)
 :::
 
 Then [create a channel](/docs/releases/channels) in the project that uses this lifecycle.
 
 :::figure
-![Helm chart production channel](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-production-channel.png)
+![Helm chart production channel](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-production-channel.png)
 :::
 
 Back in the trigger, change the channel to Production instead.
 
 :::figure
-![Helm chart trigger production channel](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-trigger-production-channel.png)
+![Helm chart trigger production channel](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-trigger-production-channel.png)
 :::
 
 New releases will remain undeployed until someone has time to manually review the changes and click **Deploy**.
 
 :::figure
-![Helm chart undeployed release](/docs/projects/project-triggers/external-feed-triggers/use-cases/helm-chart-undeployed-release.png)
+![Helm chart undeployed release](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-undeployed-release.png)
 :::
 
 These are two simple cases, take a look at [environment recommendations](/docs/infrastructure/environments/environment-recommendations) for more information on what's possible.
