@@ -23,7 +23,7 @@ The details of these container images and Helm Charts are already known in Octop
 
   Create releases whenever a third party releases a new Helm chart.
 
-- [Deployments with YAML manifests](docs/deployments/kubernetes/deploy-raw-yaml#referencing-packages)
+- [Deployments with YAML manifests](/docs/deployments/kubernetes/deploy-raw-yaml#referencing-packages)
 
   Create releases for a deployment referencing any number of images.
 
