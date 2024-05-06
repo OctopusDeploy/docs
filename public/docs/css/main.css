@@ -1940,7 +1940,7 @@ a[data-youtube] {
   text-decoration: none;
   text-align: center;
   padding: 0.2em 0.6em 0.3em 0.6em;
-  color: var(--color-hint);
+  color: var(--color-trial);
   background-color: var(--bg-color-hint);
 }
 
@@ -1972,7 +1972,7 @@ a[data-youtube] {
   text-decoration: none;
   text-align: center;
   padding: 0.2em 1.6em 0.3em 1.6em;
-  color: var(--color-hint);
+  color: var(--color-trial);
   background-color: var(--bg-color-hint);
 }
 
