@@ -224,12 +224,7 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
-
-body[data-theme='dark'] {
+html[data-theme='dark'] {
   --color-base-primary: #10202e;
   --color-menu-link: var(--navy-300);
   --color-menu-link-active: var(--navy-100);
