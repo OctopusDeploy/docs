@@ -560,7 +560,7 @@ nav.skip-links a:focus {
   width: 11.1875rem;
   height: 2.5rem;
   /* TODO: Find better solution for search&theme switcher */
-  margin-right: auto;
+  margin: 0 auto 0 1.5rem;
 }
 
 /* TODO: Header has no space between elements */
