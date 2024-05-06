@@ -1,17 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Deploy a service resource
-description: Deploy a service resource to a Kubernetes cluster.
+modDate: 2024-04-23
+title: Configure and apply a Kubernetes Service
+description: Configure and apply a Kubernetes Service.
 navOrder: 30
 ---
 
-[Service resources](https://oc.to/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Deploy Kubernetes service resource` steps can be used to configure and deploy a Service resource.
-
-:::figure
-![Deploy service step](/docs/deployments/kubernetes/deploy-service/deploy-service-step.png)
+:::div{.hint}
+`Deploy Kubernetes service resource` was renamed to `Configure and apply a Kubernetes Service` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
 :::
+
+[Service resources](https://oc.to/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Configure and apply a Kubernetes Service` steps can be used to configure and deploy a Service resource.
 
 ## Service name
 Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
@@ -40,7 +40,7 @@ A LoadBalancer Service resource provides the same Cluster IP and Node Ports that
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
 :::figure
-![Loadbalancer](/docs/deployments/kubernetes/loadbalancer.svg)
+![Load balancer](/docs/deployments/kubernetes/loadbalancer.svg)
 :::
 
 ## Cluster IP address

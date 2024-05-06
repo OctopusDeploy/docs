@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-04-23
 title: Octopus Server in Kubernetes
 description: Octopus can be installed into a Kubernetes cluster running the Octopus Server Linux container, optionally leveraging High Availability (HA).
 navOrder: 40
@@ -19,7 +19,7 @@ Since [Octopus High Availability](/docs/administration/high-availability) (HA) a
 Whether you are running Octopus in a Container using Docker or Kubernetes, or running it on Windows Server, there are a number of items to consider when creating an Octopus High Availability cluster:
 
 - A Highly available [SQL Server database](/docs/installation/sql-server-database)
-- A shared file system for [Artifacts, Packages, Task Logs, and Event Exports](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/#ServerconfigurationandFilestorage-FileStorageFilestorage)
+- A shared file system for [Artifacts, Packages, Task Logs, and Event Exports](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/#file-storage)
 - A [Load balancer](/docs/administration/high-availability/load-balancing) for traffic to the Octopus Web Portal 
 - Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha)
 
@@ -95,7 +95,7 @@ spec:
       securityContext:
         fsGroup: 10001
       volumes:
-        - name: mssqldb
+        - name: mssql_db
           persistentVolumeClaim:
             claimName: mssql-data
       containers:
@@ -111,7 +111,7 @@ spec:
             - name: SA_PASSWORD
               value: Password01!
           volumeMounts:
-            - name: mssqldb
+            - name: mssql_db
               mountPath: /var/opt/mssql
 ```
 :::div{.hint}
@@ -212,7 +212,7 @@ To share common files between the Octopus Server nodes, we need access to a mini
 
 These are created via [persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes) with an [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) of `ReadWriteMany` to indicate they are shared between multiple pods. 
 
-Most of the YAML in this guide can be used with any Kubernetes provider. However, the YAML describing file storage can have differences between each Kubernetes provider as they typically expose different names for their shared filesystems via the `storageClassName` property. 
+Most of the YAML in this guide can be used with any Kubernetes provider. However, the YAML describing file storage can have differences between each Kubernetes provider as they typically expose different names for their shared file systems via the `storageClassName` property. 
 
 :::div{.hint}
 To find out more about storage classes, refer to the [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) documentation.
@@ -839,4 +839,4 @@ Add the following excerpt to the end of the Octopus Server YAML
 
 View a working example that deploys an Octopus High Availability configuration to a GKE Kubernetes cluster in our [samples instance](https://samples.octopus.app/app#/Spaces-105/projects/octopus-ha-in-gke/operations/runbooks/Runbooks-1862/process/RunbookProcess-Runbooks-1862).
 
-The runbook consists of a number of [Deploy Raw Kubernetes YAML](/docs/deployments/kubernetes/#raw-yaml-step) steps that deploy the resources discussed in this guide.
+The runbook consists of a number of [Deploy Kubernetes YAML](/docs/deployments/kubernetes/deploy-raw-yaml) steps that deploy the resources discussed in this guide.

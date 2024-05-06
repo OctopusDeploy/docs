@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-06-28
+modDate: 2024-04-23
 title: Packages
 description: Package steps allow you to deploy your applications and services that you have packaged and configured with Octopus.
 navOrder: 140
@@ -12,10 +12,6 @@ When defining your [deployment process](/docs/deployments/), the most common ste
 ## Adding a package step
 
 When adding a step to your deployment process, choose the **Deploy a Package** option. For more information, see the [add step](/docs/projects/steps) section:
-
-:::figure
-![](/docs/deployments/packages/images/5865908.png)
-:::
 
 When deploying a package you will need to select the machine role that the package will be deployed to. You will also be asked to select the [feed](/docs/packaging-applications/package-repositories) that is the source of the package, and the ID of the package to deploy.
 

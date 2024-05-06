@@ -3,6 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2024-04-22
 modDate: 2024-04-22
 title: Kubernetes agent
+navTitle: Overview
+navSection: Kubernetes agent
 description: How to configure a Kubernetes agent as a deployment target in Octopus
 navOrder: 10
 ---
@@ -123,7 +125,7 @@ The deployment target deletion confirmation dialog will provide you with the com
 
 ### Helm command fails with context deadline exceeded
 
-The generated helm commands use the []`--atomic`](https://helm.sh/docs/helm/helm_upgrade/#options) flag, which automatically rollbacks the changes if it fails to execute within a specified timeout (default 5 min).
+The generated helm commands use the [`--atomic`](https://helm.sh/docs/helm/helm_upgrade/#options) flag, which automatically rollbacks the changes if it fails to execute within a specified timeout (default 5 min).
 
 If the helm command fails, then it may print an error message containing context deadline exceeded
 This indicates that the timeout was exceeded and the Kubernetes resources did not correctly start.

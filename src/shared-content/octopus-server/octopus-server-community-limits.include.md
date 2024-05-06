@@ -1,5 +1,0 @@
-- Deploy to 5 targets
-- Limit of 5 users with [restricted permissions](/docs/administration/managing-licenses/community/#restricted-permissions)
-- Limit of 5 projects
-- Valid for 12 months, extend anytime for free
-- [Community Slack](https://octopus.com/slack) 

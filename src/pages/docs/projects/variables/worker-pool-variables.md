@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-04-29
 title: Worker Pool variables
 description: Create a worker pool variable and use it in deployment steps
 navOrder: 60
@@ -34,7 +34,7 @@ In Octopus, you can [scope](/docs/projects/variables/#scoping-variables) worker 
 ![Add worker pool variable type](/docs/projects/variables/images/workerpoolvariable-changetype.png)
 :::
 
-3. If required, add multiple values, binding each to the required scope. Worker pool variables can not be scoped to roles or targets as the pool is resolved during the planning phase of the deployment.
+3. If required, add multiple values, binding each to the required scope. Worker pool variables can not be scoped to target tags or targets as the pool is resolved during the planning phase of the deployment.
 
 ## Step Configuration
 
@@ -63,7 +63,7 @@ Worker pool variables have multiple use cases for consideration during set up. T
 The most common would be to use environment-specific worker pools to separate this for development, test, and production. Often these sit in different network segments, and often production is in the cloud or in a DMZ, which would help with Security.
 
 :::figure
-![addworkerpoolvariable](/docs/projects/variables/images/workerpoolvariable-environments.png)
+![Environment-specific worker pool variables](/docs/projects/variables/images/workerpoolvariable-environments.png)
 :::
 
 ### Performance and role separation

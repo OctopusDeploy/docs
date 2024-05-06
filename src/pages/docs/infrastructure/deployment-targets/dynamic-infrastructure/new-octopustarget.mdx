@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-04-30
 title: New Octopus Target Command
 description: Function for creating an Octopus target for a step package
 navOrder: 50
@@ -33,7 +33,7 @@ Command (pwsh): **New-OctopusTarget**
 | `-name`               | The Name of the target to create                                              |
 | `-targetId`           | The target identifier of target to create                                     |
 | `-inputs`             | The inputs required to define the target being created                        |
-| `-roles`              | Comma separated list of Roles to assign                                       |
+| `-roles`              | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/#target-roles) to assign                                       |
 | `-updateIfExisting`   | Will update an existing target with the same name, create if it doesn't exist |
 | `-workerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional)    |
 
@@ -44,13 +44,13 @@ Command (bash) **new_octopustarget**
 | `-n` \| `--name`       | The Name of the target to create                                              |
 | `-t` \| `--targetId`   | The target identifier of target to create                                     |
 | `--inputs`             | The inputs required to define the target being created                        |
-| `--roles`              | Comma separated list of Roles to assign                                       |
+| `--roles`              | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/#target-roles) to assign                                       |
 | `--update-if-existing` | Will update an existing target with the same name, create if it doesn't exist |
 | `--worker-pool`        | Name or Id of the Worker Pool for the deployment target to use. (Optional)    |
 
 ### Examples
 
-The below examples demonstrate creating a new AWS ECS Cluster target, evidenced by the `aws-ecs-target` target identifier. These scripts would typically be invoked after creating the cluster in a preceeding step. The required information can be passed to these scripts via [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), or via [output variables](/docs/deployments/custom-scripts/output-variables) published in preceeding steps, or can simply be hard-coded.
+The below examples demonstrate creating a new AWS ECS Cluster target, evidenced by the `aws-ecs-target` target identifier. These scripts would typically be invoked after creating the cluster in a preceding step. The required information can be passed to these scripts via [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), or via [output variables](/docs/deployments/custom-scripts/output-variables) published in preceding steps, or can simply be hard-coded.
 
 #### Account credentials
 
