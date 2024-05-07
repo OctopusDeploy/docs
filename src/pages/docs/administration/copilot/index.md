@@ -1,6 +1,6 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
+pubDate: 2024-07-01
 modDate: 2023-10-04
 title: Octopus Copilot integration
 description: How to use the Octopus Copilot integration
