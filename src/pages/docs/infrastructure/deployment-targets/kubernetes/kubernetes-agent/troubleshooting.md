@@ -40,7 +40,7 @@ _Replace `[NAMESPACE]` with the namespace in the agent installation command_
 
 This error indicates that the logs from the script pods are incomplete or malformed. 
 
-When scripts are executed, any outputs or logs are stored in the Script Pod's container logs. The Tentacle Pod then reads from the container logs to feed back to Octopus Server.
+When scripts are executed, any outputs or logs are stored in the script pod's container logs. The Tentacle pod then reads from the container logs to feed back to Octopus Server.
 
 There's a limit to the size of logs kept before they are [rotated](https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation) out. If a particular log line is rotated before Octopus Server reads it, then it means log lines are missing - hence we fail the deployment prevent unexpected changes from being hidden.
 
