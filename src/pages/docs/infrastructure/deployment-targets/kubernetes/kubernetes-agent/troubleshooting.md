@@ -9,7 +9,7 @@ navOrder: 40
 
 This page will help you diagnose and solve issues with the Kubernetes agent.
 
-## Common errors:
+## Installation Issues
 
 ### Helm command fails with `context deadline exceeded`
 
@@ -32,6 +32,9 @@ kubectl describe pods -l app.kubernetes.io/name=csi-driver-nfs -n kube-system
 kubectl describe pods -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
 ```
 _Replace `[NAMESPACE]` with the namespace in the agent installation command_
+
+
+## Script Execution Issues
 
 ### `Unexpected Script Pod log line number, expected: expected-line-no, actual: actual-line-no` 
 
