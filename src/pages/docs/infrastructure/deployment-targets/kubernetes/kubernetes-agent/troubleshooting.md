@@ -25,4 +25,4 @@ This error implies that the Script Pods were deleted unexpectedly - typically be
 If you are using the default NFS storage however, then the Script Pod would be deleted if the NFS Server Pod is restarted. Some possible causes are:
 
 - being evicted due to exceeding its storage quota
-- being moved or retarted as part of routine operation
+- being moved or restarted as part of routine cluster operation
