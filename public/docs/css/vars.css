@@ -45,13 +45,13 @@
   /* Theme colors */
   --black: #000000ff;
   --white: #ffffffff;
-  --grey: #555555ff; /* #777777 is low contrast (WCAG) */
-  --grey-light: #eef0f2ff;
 
+  --navy-700: #2e475dff;
   --navy-600: #3e607dff;
   --navy-400: #7c98b4ff;
   --navy-300: #a9bbcbff;
   --navy-200: #dae2e9ff;
+  --navy-100: #f4f6f8ff;
 
   --blue-500: #1a77ca;
   --blue-200: #cde4f7;
@@ -72,16 +72,22 @@
   --blue-grey-dark: #152b3dff;
   --blue-gray-darker: #1f2f3cff;
   --blue-grey-medium: #113049ff;
-  --blue-grey: #2e475dff;
+  --blue-grey: var(--navy-700);
   --blue-grey-light: #274b66ff;
   --blue-grey-lighter: #557999ff;
   --blue-grey-smoke: #c5e6ff66;
+
+  --grey: #555555ff; /* #777777 is low contrast (WCAG) */
+  --grey-light: #eef0f2ff;
+  --grey-lighter: var(--navy-100);
 
   --font-size-xlarge: 24px;
   --font-size-large: 20px;
   --font-size-regular: 18px;
   --font-size-medium: 16px;
   --font-size-small: 14px;
+
+  --color-base-primary: var(--white);
 
   --color-text: var(--blue-midnight);
   --color-heading: var(--blue-grey-dark);
@@ -92,6 +98,7 @@
   --border-color-header: var(--navy-200);
 
   --color-menu-link: var(--navy-600);
+  --color-menu-link-active: var(--navy-700);
   --color-menu-link-alt: var(--blue-500);
   --color-menu-marker: var(--navy-300);
   --bg-color-menu: var(--blue-qqq);
@@ -106,11 +113,11 @@
   --border-color-tab-active: var(--navy-400);
 
   --color-hint: #124164;
-  --bg-color-hint: #e5f4ff;
+  --bg-color-hint: var(--lightest-blue);
   --border-color-hint: var(--blue-500);
 
   --color-info: #124164;
-  --bg-color-info: #e5f4ff;
+  --bg-color-info: var(--lightest-blue);
   --border-color-info: var(--blue-500);
 
   --color-success: #04502f;
@@ -137,6 +144,9 @@
   --search-border: 0.0625rem solid #76a1c2;
   --search-dropdown-height: 60vh;
   --search-dropdown-duration: var(--duration-default);
+  --search-placeholder-color: #173b56;
+  --search-remove-icon-color: #355670;
+  --search-overlay: rgba(12, 26, 36, 0.3);
   --navbar-icon-size: 3rem;
 
   /* Hamburger menu */
@@ -146,6 +156,10 @@
   --hamburger-translate-y: calc(
     var(--hamburger-line-height) + var(--hamburger-line-margin)
   );
+  --hamburger-lines-color: var(--blue-grey-light);
+
+  /* Theme Switcher */
+  --theme-switcher-border: var(--navy-200);
 
   /* To be checked and cleaned */
 
@@ -176,12 +190,15 @@
   --body-link-color: var(--octo-blue);
   --body-link-alt: var(--blue-grey-light);
   --menu-link-bg: var(--blue-grey-smoke);
+  --footer-link-color: var(--navy-200);
 
   --gradient-start: var(--lilac);
   --gradient-end: var(--green);
 
   --icon-stroke: var(--white);
   --icon-fill: var(--blue-grey-light);
+
+  --octopus-logo-text-color: #0f2535;
 
   --block-gap: 2rem;
 
@@ -209,7 +226,37 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
+html[data-theme='dark'] {
+  --color-base-primary: #10202e;
+  --color-menu-link: var(--navy-300);
+  --color-menu-link-active: var(--navy-100);
+  --bg-color-menu: #0c1a24;
+  --bg-color-menu-open: var(--blue-grey-dark);
+  --border-color-menu-open: var(--navy-700);
+  --header-bg: var(--blue-grey-dark);
+  --color-text: #dae2e9ff;
+  --color-heading: var(--white);
+  --color-subtitle: #f5f6f8;
+  --body-link-alt: var(--white);
+  --search-placeholder-color: var(--navy-400);
+  --search-remove-icon-color: var(--white);
+  --grey-lighter: var(--blue-grey-dark);
+  /* TODO: update this */
+  --navy-200: #314c62;
+  --octo-blue: var(--octo-blue-lightest);
+  --border-color-header: var(--navy-700);
+  /* TODO: update this */
+  --blue-grey: #dae2e9ff;
+  --header-link-alt: var(--color-text);
+  --grey-light: var(--navy-700);
+  --color-menu-link-alt: var(--octo-blue-lightest);
+  --body-link-color: var(--octo-blue-lightest);
+  --octopus-logo-text-color: var(--white);
+  --theme-switcher-border: var(--navy-700);
+  --color-hint: var(--color-text);
+  --bg-color-hint: rgba(13, 128, 216, 0.1);
+  --bg-color-info: var(--blue-grey-light);
+  --hamburger-lines-color: var(--white);
+  --footer-link-color: var(--color-menu-link);
+  --search-overlay: rgba(12, 26, 36, 0.8);
 }

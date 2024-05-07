@@ -57,9 +57,18 @@ export const OPEN_GRAPH = {
 };
 
 export const HEADER_SCRIPTS = `
-<link rel="preload" href="/docs/css/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/docs/css/roboto-bold.woff2" as="font" type="font/woff2" crossorigin>
-<meta name="google-site-verification" content="nIbWsTU_ELqMnLNxIexH_s6ch3m-s_MaFnl5u8WoaRM" />
+	<link rel="preload" href="/docs/css/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/docs/css/roboto-bold.woff2" as="font" type="font/woff2" crossorigin>
+	<meta name="google-site-verification" content="nIbWsTU_ELqMnLNxIexH_s6ch3m-s_MaFnl5u8WoaRM" />
+
+	<!-- Inline Script to set the initial theme -->
+	<script>
+		(() => {
+			const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			document.documentElement.setAttribute('data-theme', theme);
+		})();
+	</script>
+
   <script defer>
   const whenActivated = new Promise((resolve) => {
 	if (document.prerendering) {

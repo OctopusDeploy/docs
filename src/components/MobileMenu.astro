@@ -4,6 +4,8 @@ import { Lang } from '@util/Languages';
 import { getNavigationItems } from '@util/getNavigationItems';
 import NavigationItem from '@components/NavigationItem.astro';
 import { SITE } from '@config';
+import SunIcon from '../../public/docs/img/SunIcon.astro';
+import MoonIcon from '../../public/docs/img/MoonIcon.astro';
 
 const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('components/Hamburger.astro');
@@ -42,6 +44,38 @@ stats.stop();
     <span class="circle"></span>
   </a>
   <div class="site-nav site-nav__mobile" data-mobile-menu>
+    <div class="theme-switcher" data-theme-toggle>
+      <input
+        id="theme-switcher-mobile"
+        type="checkbox"
+        aria-checked="false"
+        role="switch"
+        aria-label="Toggle theme between light and dark mode"
+        tabindex="-1"
+        data-theme-toggle-checkbox
+      />
+      <label
+        for="theme-switcher-mobile"
+        class="theme-switcher__label"
+        tabindex="0"
+      >
+        <span
+          class="theme-switcher__icon theme-switcher__icon--light"
+          aria-hidden="true"
+        >
+          <SunIcon />
+          Light
+        </span>
+        <span class="switch-slider"></span>
+        <span
+          class="theme-switcher__icon theme-switcher__icon--dark"
+          aria-hidden="true"
+        >
+          <MoonIcon />
+          Dark
+        </span>
+      </label>
+    </div>
     <ul class="site-nav__list" data-mobile-menu-list>
       {pages.map((page) => <NavigationItem lang={lang} page={page} />)}
     </ul>
