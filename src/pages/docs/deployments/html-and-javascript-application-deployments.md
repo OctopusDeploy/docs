@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: HTML and JavaScript applications
 description: This guide provides a simple example of deploying and configuring a simple JavaScript application built using AngularJS.
 navOrder: 160
@@ -76,7 +76,7 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
  1. Remember you need to target a web server running IIS in order to follow this guide verbatim.
 2. Configure some project variables to match the JavaScript shown above. *You can use these values or any other values you wish - we've chosen to show a [complex expression](/docs/projects/variables/variable-substitutions/) including an [Octopus System Variable](/docs/projects/variables/system-variables).*
 ![](/docs/deployments/images/5866206.png)
-3. Configure the deployment process to deploy the MyApp package and host it in an IIS Web Site. Our web servers in this example belong to the **web-server** role.
+3. Configure the deployment process to deploy the MyApp package and host it in an IIS Web Site. Our web servers in this example are associated with the **web-server** [target tag](/docs/infrastructure/deployment-targets/#target-roles).
 
 :::figure
 ![](/docs/deployments/images/5866207.png)

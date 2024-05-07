@@ -99,7 +99,7 @@ Tags in cloud resource templates are in the format `octopus-{scope}` and support
 
 ## Add step to deployment process
 
-Octopus will discover targets if one of the following steps are in your deployment process. Each step will discover targets that match it's target tags.
+Octopus will discover targets if one of the following steps are in your deployment process. Each step will discover targets that match its target tags.
 
 - Deploy an Azure App Service
 - Deploy an Azure Web App (Web Deploy)

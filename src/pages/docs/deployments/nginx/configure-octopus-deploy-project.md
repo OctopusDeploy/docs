@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Configure Octopus Deploy project
 description: This guide describes how to configure your Octopus project to deploy an ASP.NET Core project together with an Angular CLI project and configuring NGINX to a Linux deployment target.
 navOrder: 2
@@ -42,8 +42,8 @@ The next step is to create a project that will extract the package.
 - Navigate to the Projects page via **Projects ➜ All** and then click the *Add Project* button.
 - Give the new project an appropriate name (for example *NGINXSampleWebApp*) and once saved, go to the project's *Process* page and click **Add Step ➜ Deploy to NGINX**.
     * Give the step a name (for example *Deploy NginxSampleWebApp*)
-    * Ensure that the target role matches that which was assigned to the machine in the previous step and
-    * Select *NGINXsamplewebapp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/#package-id) documentation for more details).
+    * Ensure that the [target tag](/docs/infrastructure/deployment-targets/#target-roles) matches that which was assigned to the machine in the previous step and
+    * Select *NGINXSampleWebApp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/#package-id) documentation for more details).
 
 :::figure
 ![](/docs/deployments/nginx/images/deployment_process_name_role_and_package.png)
@@ -59,7 +59,7 @@ To configure NGINX to send traffic to your application you need to fill in a few
 | **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the NGINX virtual server. |                                          |                                          |
 | **Locations**             | Specify any number of locations that NGINX should test request URIs against to send traffic to your application. |                                          |                                          |
 
-When defining **locations** you can configure NGINX to deliver files from the file system , or proxy requests to another server. For our sample application we want requests to `http://<IPorDNSofServer>/` to deliver the `index.html` file from the `wwwroot` folder of our ASP.NET Core project and requests to `http://<IPorDNSofServer>/api/` to be proxied to our ASP.NET Core project running on [http://localhost:5000](http://localhost:5000).
+When defining **locations** you can configure NGINX to deliver files from the file system , or proxy requests to another server. For our sample application we want requests to `http://<IPorDNSofServer>/` to deliver the `index.html` file from the `WWWRoot` folder of our ASP.NET Core project and requests to `http://<IPorDNSofServer>/api/` to be proxied to our ASP.NET Core project running on [http://localhost:5000](http://localhost:5000).
 
 :::figure
 ![](/docs/deployments/nginx/images/deployment_process_nginx_feature.png)
@@ -67,7 +67,7 @@ When defining **locations** you can configure NGINX to deliver files from the fi
 
 ### Starting and managing our ASP.NET Core project
 
-To get the ASP.NET Core process started up you can manually call *dotnet <nameofaspnetcoreapplication>.dll*, however this has its drawbacks when trying to run the process in the background of your deployment environments. Each time you deploy a new version of the package you would then have to stop the old version and start the newly deployed one. Without running the process through some intermediary process manager you would need to search for and kill the previous one from the process list, based on something like parsing its path to determine the correct one. A better approach is to use a process manager, for the purposes of this simple example we will use `systemd` (as nearly all Linux distributions use this process manager) to demonstrate how the web process might be managed.
+To get the ASP.NET Core process started up you can manually call *dotnet <name_of_asp_net_core_application>.dll*, however this has its drawbacks when trying to run the process in the background of your deployment environments. Each time you deploy a new version of the package you would then have to stop the old version and start the newly deployed one. Without running the process through some intermediary process manager you would need to search for and kill the previous one from the process list, based on something like parsing its path to determine the correct one. A better approach is to use a process manager, for the purposes of this simple example we will use `systemd` (as nearly all Linux distributions use this process manager) to demonstrate how the web process might be managed.
 
 - Click the *Configure features* link at the bottom of the step and enable the *Custom deployment scripts* feature.
 - Add the following code as a **bash** script for the **post-deployment** phase.

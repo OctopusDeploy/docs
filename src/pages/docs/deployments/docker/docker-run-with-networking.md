@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Docker run with networking
 description: This guide demonstrates the basic functionality provided by the Octopus Docker steps.
 ---
@@ -22,7 +22,7 @@ If not, you'll need to configure a host for our sample application. We recommend
 
 1. Install Ubuntu.
 2. Configure your Ubuntu machine as either an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target/#configuring-ssh-targets) or [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux) in Octopus
-    * Make sure this Deployment Target has a [target role](/docs/infrastructure/deployment-targets/#target-roles) like **docker-server**. We will configure the Docker steps to target this role.
+    * Make sure this Deployment Target has a [target tag](/docs/infrastructure/deployment-targets/#target-roles) like **docker-server**. We will configure the Docker steps to target this tag.
 
 :::figure
 ![](/docs/deployments/docker/images/my-docker-host.png)
@@ -54,7 +54,7 @@ Next we are going to create a connection to the official Docker Hub registry so 
 
 In a newly created project, click **Add Step ➜ Create a Docker network**. This step manages parameters that will be passed to the `docker network create` command.
 
-1. Ensure the step is set to run on the **docker-server** role (targeting the Docker host we created earlier).
+1. Ensure the step is set to run on the **docker-server** target tag (targeting the Docker host we created earlier).
 2. Set the *Name* to **Custom Network**. This name will be referenced later on in subsequent steps that will link the containers to the created network.
 3. Leave the *Driver* as the default **Bridge** type. This network type allows containers on the same network to immediately communicate with each other, while keeping them isolated from external networks.
 4. Set the *Subnet* to `172.28.6.0/24`. You can optionally provide IP ranges that will define the Subnet, IP Range, and Gateway used by the network. In this case we have opted to just set up the subnet using the [CIDR format ](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)`172.28.6.0/24` meaning that connected containers will be assigned IP addresses in the range `172.28.6.0-172.28.6.255`.
@@ -72,7 +72,7 @@ For detailed information about Docker networking and additional arguments you ca
 From the project process page, add a new step via **Add Step ➜ Run a Docker Container**. This step helps you configure the parameters that will be passed to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
 1. Set the *Name* to **First Server**.
-2. Ensure the step is set to run on the **docker-server** role (targeting the Docker host and Network we created earlier).
+2. Ensure the step is set to run on the **docker-server** target tag (targeting the Docker host and Network we created earlier).
 3. For the *Package Feed* the **DockerHub** feed. You may notice the only options are Docker feeds, like the one we created earlier. This is because only Docker feeds will be shown for Docker-specific steps.
 4. Set the *Package ID* as **busybox**. Note, the package auto-complete should search for and return all public images from Docker Hub with the word "busybox". Since we want to use the official image, select the one that is not preceded by a registry prefix. busybox is a tiny linux distro that, at just over 1 MB, will serve as a sufficient image for this feature demonstration.
 ![](/docs/deployments/docker/images/busybox-image-search.png)
@@ -101,7 +101,7 @@ Now we will create a second container, exactly the same as the first using busyb
 
 1. Create a new Run Docker Container step (very much like the first one, but notice some subtle differences):
     * Set the *Name* to **Second Server**.
-    * Set the *Roles* to **docker-server**.
+    * Set the *Target Tags* to **docker-server**.
     * Set the *Package feed* to **DockerHub**.
     * Set the *Package ID* to **busybox**.
     * Set the *Network Type* to **Custom Network** using the name `#{Octopus.Action[Custom Network].Output.Docker.Inspect.Name}`.
@@ -138,7 +138,7 @@ As one final step we will write out to the logs the IP addresses of the containe
 
 1. Create a new script step.
 2. Set the *Name* to **Get Log**.
-3. Set the *Roles* to **docker-server**.
+3. Set the *Target Tags* to **docker-server**.
 4. Set the *Type* to **Bash**.
 5. Provide the following code which uses a mixture of advanced Octopus variable parsing, and directly calling the `docker logs` command:
 

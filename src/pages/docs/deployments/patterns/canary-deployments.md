@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Canary deployments
 description: Implementing canary deployments, i.e. rolling out releases to a subset of users or servers, with Octopus.
 navOrder: 50
@@ -32,7 +32,7 @@ The test phase of the canary deployment can work in many ways. You could run som
 Canary deployments are similar to using a staging environment. The difference is that staging environments are usually dedicated to the task; a staging web server doesn't become a production server. By contrast, in a canary deployment, the canary server remains part of the production fleet when the deployment is complete. Canary deployments may be worth considering if you do not have the resources to have a dedicated staging environment.
 :::
 
-## Canary deployments in Octopus {#Canarydeployments-CanarydeploymentsinOctopus}
+## Canary deployments in Octopus {#canary-deployments-in-octopus}
 
 There are two ways to implement canary deployments in Octopus. The first, and simplest, is to use the "Deploy to a subset of deployment targets" feature when deploying the release. This allows you to limit which deployment targets to deploy to.
 
@@ -40,9 +40,9 @@ First, you would deploy using just the canary servers, then after testing, you c
 
 The alternative approach is to build canary deployments into your deployment process.
 
-1. Deploy the package to the canary server (one or more deployment targets may be assigned to the *canary* role).
+1. Deploy the package to the canary server (one or more deployment targets may be associated with the *canary* [target tag](/docs/infrastructure/deployment-targets/#target-roles)).
 2. Have a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step to wait until we are satisfied.
-3. Deploy the package to the remaining deployment targets (the *web-server* role).
+3. Deploy the package to the remaining deployment targets (the *web-server* target tag).
 
 Note that the first two steps have been configured to only run for production deployments - in our pre-production environments, we can just deploy to all targets immediately. If we were performing fully automated tests, we could use a [PowerShell script step](/docs/deployments/custom-scripts) to invoke them rather than the manual intervention step.
 

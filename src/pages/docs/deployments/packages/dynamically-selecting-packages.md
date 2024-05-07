@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Dynamically selecting packages at deployment time
 description: You can configure Octopus to dynamically resolve package details, including Feed and Package ID at deployment time by using variables. This can be useful if you want a different package feed for each environment, or a different package per environment or tenant.
 navOrder: 0
@@ -65,7 +65,7 @@ Would you like Octopus to deploy a specific version of your application code, bu
 
 ## Which variables can be used?
 
-You can use any values which are either unscoped/global, or values scoped to environments, tenants, or tenant tags. Variable values scoped to other things like roles and deployment targets are not supported.
+You can use any values which are either unscoped/global, or values scoped to environments, tenants, or tenant tags. Variable values scoped to other things like [target tags](/docs/infrastructure/deployment-targets/#target-roles) and deployment targets are not supported.
 
 ## Tradeoffs
 

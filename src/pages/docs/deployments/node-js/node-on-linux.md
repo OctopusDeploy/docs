@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Deploying Node applications to Linux
 description: Learn how to package and deploy a Node.js application to a Linux deployment target over an SSH connection.
 ---
@@ -27,7 +27,7 @@ sudo apt-get update
 sudo apt-get install mono-complete
 ```
 
-### Add user {#ConfiguringTargetMachine-AddUser}
+### Add user {#add-user}
 
 Create a custom user account for the purpose of deployments. 
 
@@ -89,7 +89,7 @@ Use the following command to verify which version of npm you're currently runnin
 npm -v
 ```
 
-## Download and run the template {#Create&amp;PushNode.jsProject-Download&amp;Runthetemplate}
+## Download and run the template {#download-and-run-template}
 
 Download the sample project from the public GitHub repo and checkout the gulp branch:
 
@@ -117,11 +117,11 @@ If the site runs correctly, when you navigate to [http://localhost:8081](http://
 
 Using the task runner of your choice, pick one of the following steps that you are most comfortable with:
 
-1. [Gulp Publish Task](#CreatePushNode.jsProject-Option1-Gulppublishtask).
-2. [Grunt Publish Task](#CreatePushNode.jsProject-Option2-Gruntpublishtask).
-3. [Custom Scripts](#CreatePushNode.jsProject-Option3-Bespoke)
+1. [Gulp Publish Task](#gulp-publish-task).
+2. [Grunt Publish Task](#grunt-publish-task).
+3. [Custom Scripts](#bespoke)
 
-### Option 1 - Gulp publish task {#CreatePushNode.jsProject-Option1-Gulppublishtask}
+### Option 1 - Gulp publish task {#gulp-publish-task}
 
 Ensure you have checked out the **gulp** branch with the initial build tasks already configured, and install the **gulp-octojs** package that will package and push the application. 
 
@@ -150,7 +150,7 @@ gulp.task('bump', function(){
 gulp.task('publish', ['bump', 'build'], function () {
   return gulp.src(['**/*', '!bin{,/**}', '!src{,/**}', '!gulpfile.js'])
       .pipe(octo.pack())
-      .pipe(octo.push({apiKey: 'API-FZOIZFX6AXFVLJNAWQEDLG09SVU', host: 'http://10.0.0.134'}));
+      .pipe(octo.push({apiKey: 'API-ABCXYZ', host: 'http://10.0.0.134'}));
 });
 ```
 
@@ -167,7 +167,7 @@ Add the gulp publish script to the **package.json** scripts section:
 
 You can now execute the publish command directly through npm even if the task runner or arguments change.
 
-### Option 2 - Grunt publish task {#CreatePushNode.jsProject-Option2-Gruntpublishtask}
+### Option 2 - Grunt publish task {#grunt-publish-task}
 
 Ensure that you have checked out the **grunt** branch with the initial build tasks already configured, and install the **grunt-octojs** package that will package and push the application. 
 
@@ -188,7 +188,7 @@ Modify the **gruntfile.js** file to add the following grunt tasks. Substitute th
 grunt.initConfig({
 	...
 	"octo-push": {
-		options: { host: 'http://10.0.0.134', apiKey: 'API-FZOIZFX6AXFVLJNAWQEDLG09SVU'	},
+		options: { host: 'http://10.0.0.134', apiKey: 'API-ABCXYZ'	},
 		src: ['./bin/**/*']
 	},
 	"octo-pack": {
@@ -222,7 +222,7 @@ Add the npm publish script using the grunt task runner:
 
 You can now execute the publish command directly through npm even if the task runner or arguments change.
 
-### Option 3 - Bespoke {#CreatePushNode.jsProject-Option3-Bespoke}
+### Option 3 - Bespoke {#bespoke}
 
 Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module you can write your own Node.js scripts to package and push your projects to the Octopus Server (both the Gulp and Grunt tasks leverage this module). Alternately, package your files into the [format of your choice](/docs/packaging-applications/#supported-formats) and push to the API over a HTTP call using whatever framework or language best suits you.
 
@@ -244,11 +244,11 @@ While this guide executes the publish task from your local machine, we recommend
 
 Next, you need to configure your Octopus project to deploy a Node.js application to your Linux deployment target.
 
-### Configure an environment {#ConfigureOctopusDeployProject-ConfigureEnvironment}
+### Configure an environment {#configure-environment}
 
 - Navigate to **Infrastructure ➜ Environments**, and create an Environment called **prod**.
 
-### Configure account and target {#configureoctopusdeployproject-ConfigureAccount&amp;Target}
+### Configure account and target {#configure-account-and-target}
 
 1. Navigate to **Infrastructure ➜ Accounts**, click **Add Account**, select **username/password** from the drop-down menu, and add the username credentials for the Linux deployment target you configured earlier.
 2. Navigate to **Infrastructure ➜ Environments**, select the **prod** environment, click **Add deployment target**, and select **SSH Connection**.
@@ -258,20 +258,20 @@ Next, you need to configure your Octopus project to deploy a Node.js application
 
 More information about working with Linux deployment targets see [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target/) or [Linux Tentacles](/docs/infrastructure/deployment-targets/tentacle/linux).
 
-### Create deployment project {#ConfigureOctopusDeployProject-CreateDeploymentProject}
+### Create deployment project {#create-deployment-project}
 
 The next step is to create a project that will extract the package.
 
 1. Navigate to the Projects page via **Projects ➜ All** and then click **Add Project**.
 2. Give the new project an appropriate name, save the project, and navigate to the project's *Process* page and click **Add Step ➜ Deploy a Package**.
  
-Ensure the target role matches the target role that was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
+Ensure the [target tag](/docs/infrastructure/deployment-targets/#target-roles) matches the target tag that was associated with the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
 
 :::figure
 ![](/docs/deployments/node-js/images/step-details.png)
 :::
 
-### Variable substitution {#ConfigureOctopusDeployProject-VariableSubstitution}
+### Variable substitution {#variable-substitution}
 
 1. Click the *Configure features* link on the step.
 2. Disable the two configuration steps that are selected by default.
@@ -306,7 +306,7 @@ NODE_ENV="#{Octopus.Environment.Name}" pm2 start server.js --name="#{Octopus.Pro
 
 While this code is not the ideal solution, it does demonstrate how you might leverage pm2 to start and stop new versions of your project as it is deployed. Check the pm2 documentation for best practices and more advanced topics like restarting after a server reboot, clustering, and monitoring.
 
-### Deploy {#ConfigureOctopusDeployProject-Deploy}
+### Deploy {#deploy}
 
 - Create a new release and deploy it to the **prod** environment.
 
