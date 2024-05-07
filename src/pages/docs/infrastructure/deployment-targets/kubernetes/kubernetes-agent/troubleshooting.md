@@ -7,7 +7,7 @@ description: How to troubleshoot common Kubernetes Agent issues
 navOrder: 40
 ---
 
-This page will help you diagnose and solve issues with the Kubernetes Agent.
+This page will help you diagnose and solve issues with the Kubernetes agent.
 
 ## Common errors:
 
