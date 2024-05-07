@@ -32,7 +32,7 @@ This default implementation is made to let you try the Kubernetes agent without 
 The NFS server requires `privileged` access when running as a container, which may not be permitted depending on the cluster configuration. Access to the NFS pod should be kept to a minimum since it enables access to the host. 
 
 :::div{.warning}
-Red Hat OpenShift does not enable `privileged` access by default. When enabled, we have also encountered inconsistent file access issues using the NFS server. We highly recommend the use of a [custom storage class](#custom-storage-class).
+Red Hat OpenShift does not enable `privileged` access by default. When enabled, we have also encountered inconsistent file access issues using the NFS storage. We highly recommend the use of a [custom storage class](#custom-storage-class) when using Red Hat OpenShift.
 :::
 
 ### Reliability
