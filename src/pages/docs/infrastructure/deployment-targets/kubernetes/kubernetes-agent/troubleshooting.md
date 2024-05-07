@@ -20,7 +20,7 @@ There's a limit to the size of logs kept before they are [rotated](https://kuber
 
 ### `The Script Pod 'octopus-script-xyz' could not be found`
 
-This error implies that the Script Pods were deleted unexpectedly - typically being evicted/terminated by Kubernetes.
+This error indicates that the Script Pods were deleted unexpectedly - typically being evicted/terminated by Kubernetes.
 
 If you are using the default NFS storage however, then the Script Pod would be deleted if the NFS Server Pod is restarted. Some possible causes are:
 
