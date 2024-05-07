@@ -16,7 +16,7 @@ This error indicates that the logs from the Script Pods are incomplete or malfor
 
 When scripts are executed, any outputs or logs are stored in the Script Pod's container logs. The Tentacle Pod then reads from the container logs to feed back to Octopus Server.
 
-There's a limit to the size of logs kept before they are [rotated](https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation) out. If a particular line is rotated before Octopus Server reads it, then it means log lines are missing - hence we fail the deployment prevent unexpected changes from being hidden.
+There's a limit to the size of logs kept before they are [rotated](https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation) out. If a particular log line is rotated before Octopus Server reads it, then it means log lines are missing - hence we fail the deployment prevent unexpected changes from being hidden.
 
 ### `The Script Pod 'octopus-script-xyz' could not be found`
 
