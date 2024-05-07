@@ -111,6 +111,38 @@ If left open, the installation dialog waits for the agent to establish a connect
 A successful health check indicates that deployments can successfully be executed.
 :::
 
+## Upgrading the Kubernetes agent
+
+The Kubernetes agent can be upgrade by the Octopus portal or via a `helm` command.
+
+### Octopus portal
+
+To check if a Kubernetes agent can be upgraded, navigate to the **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Connectivity** page. If the agent can be upgraded, there will be an *Upgrade available* banner. Clicking **Upgrade to latest** button will trigger the upgrade via a new task. If the upgrade fails, the previous version of the agent is restored.
+
+:::figure
+![Kubernetes Agent updated interface](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-portal.png)
+:::
+
+### Helm upgrade command
+
+To upgrade a Kubernetes agent via `helm`, note the following fields from the **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Connectivity** page:
+* Helm Release Name
+* Namespace
+
+Then, from a terminal connected to the cluster containing the instance, execute the following command:
+
+```bash
+helm upgrade --atomic --namespace NAMESPACE HELM_RELEASE_NAME oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+```
+__Replace NAMESPACE and HELM_RELEASE_NAME with the values noted__
+
+If after the upgrade command has executed, you find that there is issues with the agent, you can rollback to the previous helm release by executing:
+
+```bash
+helm rollback --namespace NAMESPACE HELM_RELEASE_NAME
+```
+
+
 ## Uninstalling the Kubernetes agent
 
 To fully remove the Kubernetes agent, you need to delete the agent from the Kubernetes cluster as well as delete the deployment target from Octopus Deploy
@@ -134,13 +166,13 @@ To help diagnose these issues, the `kubectl` command [`describe`](https://kubern
 
 #### NFS install command
 
-```
+```bash
 kubectl describe pods -l app.kubernetes.io/name=csi-driver-nfs -n kube-system
 ```
 
 #### Agent install command
 
-```
+```bash
 kubectl describe pods -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
 ```
 _Replace `[NAMESPACE]` with the namespace in the agent installation command_

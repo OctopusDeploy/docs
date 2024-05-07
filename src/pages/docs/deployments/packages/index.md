@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2024-05-01
 title: Packages
 description: Package steps allow you to deploy your applications and services that you have packaged and configured with Octopus.
 navOrder: 140
@@ -13,7 +13,7 @@ When defining your [deployment process](/docs/deployments/), the most common ste
 
 When adding a step to your deployment process, choose the **Deploy a Package** option. For more information, see the [add step](/docs/projects/steps) section:
 
-When deploying a package you will need to select the machine role that the package will be deployed to. You will also be asked to select the [feed](/docs/packaging-applications/package-repositories) that is the source of the package, and the ID of the package to deploy.
+When deploying a package you will need to select the [target tag](/docs/infrastructure/deployment-targets/#target-roles) that the package will be deployed to. You will also be asked to select the [feed](/docs/packaging-applications/package-repositories) that is the source of the package, and the ID of the package to deploy.
 
 :::div{.hint}
 **Variable Package Feed and/or Package ID**
@@ -25,7 +25,7 @@ You can dynamically select a Package Feed and/or the Package ID at deployment ti
 :::
 
 :::div{.hint}
-When multiple machines are in the role you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/deployments/patterns/rolling-deployments).
+When multiple machines are associated with the target tag you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/deployments/patterns/rolling-deployments).
 :::
 
 ## Configuring features

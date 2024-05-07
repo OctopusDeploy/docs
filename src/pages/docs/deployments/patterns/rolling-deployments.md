@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Rolling deployments
 description: Implementing rolling deployments, i.e. deploying to release to servers one-by-one, with Octopus.
 navOrder: 0
@@ -15,7 +15,7 @@ Normally, when executing a deployment process with multiple steps, Octopus runs 
 ![](/docs/deployments/patterns/images/normal-deployment.png)
 :::
 
-NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
+NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, identify machines via [target tags](/docs/infrastructure/deployment-targets/#target-roles), which may be associated with multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
 
 - Deployment steps are run in sequence
 - The actions performed by each step are performed in parallel on all deployment targets
@@ -84,7 +84,7 @@ All child steps run on the same machine at the same time, and you can add more t
 ![](/docs/deployments/patterns/images/rolling-deployments-reorder.png)
 :::
 
-You can edit the parent step to change the roles that the steps run on or the window size.
+You can edit the parent step to change the target tags that the steps run on or the window size.
 
 With this configuration, we run the entire website deployment step - taking the machine out of the load balancer, deploying the site, and returning it to the load balancer - on each machine in sequence as part of a rolling deployment step.
 

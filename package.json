@@ -30,6 +30,7 @@
         "hast-util-from-selector": "^3.0.0",
         "html-to-text": "^9.0.5",
         "keyword-extractor": "^0.0.28",
+        "optional": "^0.1.4",
         "remark-directive": "^3.0.0",
         "remark-heading-id": "^1.0.1",
         "sharp": "^0.33.3"

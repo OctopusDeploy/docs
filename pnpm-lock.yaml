@@ -30,6 +30,9 @@ dependencies:
   keyword-extractor:
     specifier: ^0.0.28
     version: 0.0.28
+  optional:
+    specifier: ^0.1.4
+    version: 0.1.4
   remark-directive:
     specifier: ^3.0.0
     version: 3.0.0
@@ -4119,6 +4122,10 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       mimic-fn: 4.0.0
+    dev: false
+
+  /optional@0.1.4:
+    resolution: {integrity: sha512-gtvrrCfkE08wKcgXaVwQVgwEQ8vel2dc5DDBn9RLQZ3YtmtkBss6A2HY6BnJH4N/4Ku97Ri/SF8sNWE2225WJw==}
     dev: false
 
   /ora@7.0.1:
