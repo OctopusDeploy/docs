@@ -1525,7 +1525,7 @@ a[data-youtube] {
 /* Footer */
 
 .site-footer {
-  color: var(--navy-200);
+  color: var(--footer-link-color);
   text-align: start;
   background-color: var(--blue-midnight-dark);
   padding: 3rem 0 3rem 0;
