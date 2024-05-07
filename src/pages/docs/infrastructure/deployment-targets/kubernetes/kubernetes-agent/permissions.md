@@ -45,7 +45,7 @@ The service account for script pods can be customized in a few ways:
 <br/>
 
 **command:**
-```Bash
+```bash
 helm upgrade --install --atomic \
 --set scriptPods.serviceAccount.targetNamespaces="{development,preproduction}" \
 --set agent.acceptEula="Y" \

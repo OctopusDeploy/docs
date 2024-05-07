@@ -129,15 +129,16 @@ To upgrade a Kubernetes agent via `helm`, note the following fields from the **I
 * Helm Release Name
 * Namespace
 
-Then, from a terminal connected to the cluster containing the instance, execute the following command (replacing the release name + namespace noted above)
+Then, from a terminal connected to the cluster containing the instance, execute the following command:
 
-```
+```bash
 helm upgrade --atomic --namespace NAMESPACE HELM_RELEASE_NAME oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
+__Replace NAMESPACE and HELM_RELEASE_NAME with the values noted__
 
-If after the upgrade command has executed, you find that there is issues with the agent, you can rollback to the previous helm release by executing
+If after the upgrade command has executed, you find that there is issues with the agent, you can rollback to the previous helm release by executing:
 
-```
+```bash
 helm rollback --namespace NAMESPACE HELM_RELEASE_NAME
 ```
 
@@ -165,13 +166,13 @@ To help diagnose these issues, the `kubectl` command [`describe`](https://kubern
 
 #### NFS install command
 
-```
+```bash
 kubectl describe pods -l app.kubernetes.io/name=csi-driver-nfs -n kube-system
 ```
 
 #### Agent install command
 
-```
+```bash
 kubectl describe pods -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
 ```
 _Replace `[NAMESPACE]` with the namespace in the agent installation command_
