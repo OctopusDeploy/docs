@@ -119,7 +119,7 @@ pre code {
 
 html[data-theme='dark'] {
   pre {
-    filter: invert(98%) hue-rotate(180deg) brightness(1.5);
+    filter: invert(98%) hue-rotate(180deg) brightness(1.1);
   }
 }
 
