@@ -11,7 +11,7 @@ During a deployment, Octopus Server first sends any required scripts and package
 
 On a Kubernetes agent, scripts are executed in separate Kubernetes pods (script pod) as opposed to in a local shell (Bash/Powershell). This means the Tentacle pod and script pods don’t automatically share a common file system.
 
-Since the Kubernetes agent is built on the Tentacle codebase,  it is necessary to configure shared storage so that the Tentacle Pod can write the files in a place that the Script Pods can read from.
+Since the Kubernetes agent is built on the Tentacle codebase,  it is necessary to configure shared storage so that the Tentacle Pod can write the files in a place that the script pods can read from.
 
 We offer two options for configuring the shared storage - you can use either the default NFS storage or specify a Storage Class name during setup:
 
