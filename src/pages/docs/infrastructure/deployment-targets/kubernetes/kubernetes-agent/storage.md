@@ -4,7 +4,7 @@ pubDate: 2024-04-29
 modDate: 2024-04-29
 title: Storage
 description: How to configure storage for a Kubernetes agent
-navOrder: 10
+navOrder: 30
 ---
 
 During a deployment, Octopus Server first sends any required scripts and packages to [Tentacle](https://octopus.com/docs/infrastructure/deployment-targets/tentacle) which writes them to the file system. The actual script execution then takes place in a different process called [Calamari](https://github.com/OctopusDeploy/Calamari), which retrieves the scripts and packages directly from the file system. 
