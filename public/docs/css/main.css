@@ -1745,7 +1745,7 @@ a[data-youtube] {
 .site-search__overlay {
   opacity: 0;
   visibility: hidden;
-  background: rgba(12, 26, 36, 0.3);
+  background: var(--search-overlay);
   position: fixed;
   top: 0;
   left: 0;

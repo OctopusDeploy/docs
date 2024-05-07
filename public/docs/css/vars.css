@@ -146,6 +146,7 @@
   --search-dropdown-duration: var(--duration-default);
   --search-placeholder-color: #173b56;
   --search-remove-icon-color: #355670;
+  --search-overlay: rgba(12, 26, 36, 0.3);
   --navbar-icon-size: 3rem;
 
   /* Hamburger menu */
@@ -257,4 +258,5 @@ html[data-theme='dark'] {
   --bg-color-info: var(--blue-grey-light);
   --hamburger-lines-color: var(--white);
   --footer-link-color: var(--color-menu-link);
+  --search-overlay: rgba(12, 26, 36, 0.8);
 }
