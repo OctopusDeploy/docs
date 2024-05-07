@@ -45,7 +45,7 @@ There's a limit to the size of logs kept before they are [rotated](https://kuber
 
 This error indicates that the Script Pods were deleted unexpectedly - typically being evicted/terminated by Kubernetes.
 
-If you are using the default NFS storage however, then the Script Pod would be deleted if the NFS Server Pod is restarted. Some possible causes are:
+If you are using the default NFS storage however, then the script pod would be deleted if the NFS server pod is restarted. Some possible causes are:
 
 - being evicted due to exceeding its storage quota
 - being moved or restarted as part of routine cluster operation
