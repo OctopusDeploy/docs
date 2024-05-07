@@ -104,7 +104,7 @@ agent:
 <br/>
 
 **command:**
-```Bash
+```bash
 helm upgrade --install --atomic \
 --values values.yaml \
 --version "1.*.*" \
