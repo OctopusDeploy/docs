@@ -189,6 +189,7 @@
   --body-link-color: var(--octo-blue);
   --body-link-alt: var(--blue-grey-light);
   --menu-link-bg: var(--blue-grey-smoke);
+  --footer-link-color: var(--navy-200);
 
   --gradient-start: var(--lilac);
   --gradient-end: var(--green);
@@ -245,7 +246,7 @@ html[data-theme='dark'] {
   --border-color-header: var(--navy-700);
   /* TODO: update this */
   --blue-grey: #dae2e9ff;
-  --header-link-alt: #dae2e9ff;
+  --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
   --color-menu-link-alt: var(--octo-blue-lightest);
   --body-link-color: var(--octo-blue-lightest);
@@ -255,4 +256,5 @@ html[data-theme='dark'] {
   --bg-color-hint: rgba(13, 128, 216, 0.1);
   --bg-color-info: var(--blue-grey-light);
   --hamburger-lines-color: var(--white);
+  --footer-link-color: var(--color-menu-link);
 }

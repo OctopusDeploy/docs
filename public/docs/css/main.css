@@ -1544,7 +1544,7 @@ a[data-youtube] {
 }
 
 .site-footer a {
-  color: var(--navy-200);
+  color: var(--footer-link-color);
   text-decoration: none;
 }
 
