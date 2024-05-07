@@ -12,7 +12,7 @@ navOrder: 10
 
 ### `Unexpected Script Pod log line number, expected: expected-line-no, actual: actual-line-no` 
 
-This error implies that the logs from the Script Pods are incomplete or malformed. 
+This error indicates that the logs from the Script Pods are incomplete or malformed. 
 
 When scripts are executed, any outputs or logs are stored in the Script Pod's container logs. The Tentacle Pod then reads from the container logs to feed back to Octopus Server.
 
