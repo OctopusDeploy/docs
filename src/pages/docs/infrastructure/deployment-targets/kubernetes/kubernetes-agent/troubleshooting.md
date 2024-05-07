@@ -7,8 +7,31 @@ description: How to troubleshoot common Kubernetes Agent issues
 navOrder: 10
 ---
 
+This page will help you diagnose and solve issues with the Kubernetes Agent.
 
 ## Common errors:
+
+### Helm command fails with context deadline exceeded
+
+The generated helm commands use the [`--atomic`](https://helm.sh/docs/helm/helm_upgrade/#options) flag, which automatically rollbacks the changes if it fails to execute within a specified timeout (default 5 min).
+
+If the helm command fails, then it may print an error message containing context deadline exceeded
+This indicates that the timeout was exceeded and the Kubernetes resources did not correctly start.
+
+To help diagnose these issues, the `kubectl` command [`describe`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_describe/) can be used _while the helm command is executing_ to help debug any issues.
+
+#### NFS install command
+
+```
+kubectl describe pods -l app.kubernetes.io/name=csi-driver-nfs -n kube-system
+```
+
+#### Agent install command
+
+```
+kubectl describe pods -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
+```
+_Replace `[NAMESPACE]` with the namespace in the agent installation command_
 
 ### `Unexpected Script Pod log line number, expected: expected-line-no, actual: actual-line-no` 
 
