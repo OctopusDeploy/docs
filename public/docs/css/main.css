@@ -2406,6 +2406,7 @@ a.button {
   align-items: center;
   font-family: var(--bold-font);
   font-size: var(--font-size-medium);
+  font-weight: 700;
   line-height: 1.38rem;
   border-radius: 0.5rem;
   border-width: 0.0625rem;
