@@ -137,6 +137,13 @@
 
   --duration-default: 300ms;
 
+  /* Button */
+
+  --button-primary: #00e693;
+  --button-primary-focus: var(--light-green);
+  --button-primary-text: var(--blue-grey-medium);
+  --button-ring-color: rgba(0, 255, 163, 0.5);
+
   /* Search variables */
   --search-height: 3rem;
   --search-border-radius: calc(var(--search-height) / 2);
