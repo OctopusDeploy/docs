@@ -15,7 +15,7 @@ Getting started with Octopus Deploy is straightforward, and the product will gui
 
 When you are ready, start a free trial to explore Octopus. 
 
-<span><a class="button trial" href="https://octopus.com/start">Start a Trial</a></span>
+<span><a class="button button--primary" href="https://octopus.com/start">Start a Trial</a></span>
 
 Octopus Cloud is the easiest way to get started with Octopus Deploy, and we take care of everything for you. Alternatively, if you require a self-managed CD solution, you can [download Octopus Server](https://octopus.com/downloads) and run it on your own setup. The [installation guide](/docs/installation) provides instructions for downloading, installing, and configuring your Octopus Deploy Server.
 
