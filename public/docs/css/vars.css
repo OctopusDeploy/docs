@@ -262,6 +262,7 @@ html[data-theme='dark'] {
   --theme-switcher-border: var(--navy-700);
   --color-hint: var(--color-text);
   --bg-color-hint: rgba(13, 128, 216, 0.1);
+  --color-info: var(--color-text);
   --bg-color-info: var(--blue-grey-light);
   --hamburger-lines-color: var(--white);
   --footer-link-color: var(--color-menu-link);
