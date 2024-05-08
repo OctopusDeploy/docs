@@ -14,7 +14,7 @@
 @font-face {
   font-family: 'RobotoBold';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-display: block;
   src: url('/docs/css/roboto-bold.woff2') format('woff2');
 }
@@ -58,7 +58,10 @@
   --blue-100: #f2f8fd;
   --blue-qqq: #fafdff;
 
+  /* TODO: remove green-400 as it's being used in one place only */
   --green-400: #00ab62;
+  --green: #00e693ff;
+  --light-green: #00ffa3ff;
 
   --red-500: #d63d3d;
 
@@ -132,10 +135,13 @@
   --bg-color-problem: #fff2ee;
   --border-color-problem: #ff4848;
 
-  --color-trial: var(--blue-grey-medium);
-  --bg-color-trial: var(--light-green);
-
   --duration-default: 300ms;
+
+  /* Button */
+  --button-primary: var(--green);
+  --button-primary-focus: var(--light-green);
+  --button-primary-text: var(--blue-grey-medium);
+  --button-ring-color: rgba(0, 255, 163, 0.5);
 
   /* Search variables */
   --search-height: 3rem;
@@ -167,9 +173,6 @@
   --lightest-blue: #e5f4ffff;
   --octo-blue-lighter: #2f95e3ff;
   --octo-blue-lightest: #1fc0ffff;
-  --lilac: #9c6adeff;
-  --green: #25d284ff;
-  --light-green: #00ffa3ff;
 
   --heading-font: RobotoBold, Roboto, 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
@@ -191,9 +194,6 @@
   --body-link-alt: var(--blue-grey-light);
   --menu-link-bg: var(--blue-grey-smoke);
   --footer-link-color: var(--navy-200);
-
-  --gradient-start: var(--lilac);
-  --gradient-end: var(--green);
 
   --icon-stroke: var(--white);
   --icon-fill: var(--blue-grey-light);
