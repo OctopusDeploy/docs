@@ -1,11 +1,15 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2024-07-01
+pubDate: 2024-05-08
 modDate: 2023-10-04
 title: Octopus Copilot integration
 description: How to use the Octopus Copilot integration
 navOrder: 100
 hideInThisSection: true
+navSearch: false
+navSitemap: false
+navMenu: false
+robots: noindex, follow
 ---
 
 The Octopus Copilot integration allows read only queries of cloud Octopus instances via GitHub Copilot.
