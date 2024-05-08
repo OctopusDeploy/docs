@@ -2478,6 +2478,7 @@ a.button.button--primary:active {
   font-weight: bold;
   text-align: left;
   cursor: pointer;
+  color: var(--color-text);
 }
 
 .tab-list button[aria-selected='true'] {
