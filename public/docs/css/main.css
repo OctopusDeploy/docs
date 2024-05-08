@@ -2436,7 +2436,6 @@ a.button:hover,
 a.button.trial:hover {
   background: var(--button-primary-focus);
   border-color: var(--button-primary-focus);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.35);
 }
 
 a.button:active,
