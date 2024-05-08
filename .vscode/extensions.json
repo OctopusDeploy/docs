@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+      "astro-build.astro-vscode",
+      "esbenp.prettier-vscode",
+      "yzhang.markdown-all-in-one",
+      "ms-playwright.playwright",
+      "streetsidesoftware.code-spell-checker",
+      "unifiedjs.vscode-mdx"
+    ],
+    "unwantedRecommendations": []
+  }
