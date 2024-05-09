@@ -64,7 +64,7 @@ As you move on from the POC phase to the Pilot phase you should familiarize your
     - [**Step Templates**](/docs/projects/custom-step-templates): Pre-configured steps created by you to be reused in multiple projects.
     - [**Community Step Templates**](/docs/projects/community-step-templates): Step templates contributed by the Octopus Community.
 - **Deployments**
-    - [**Deployment Notes**](/docs/releases/deployment-notes): The summarization of all the releases rolled up and included since the previous deployment to the deployment environment.  
+    - [**Deployment Changes**](/docs/releases/deployment-changes): The summarization of all the releases rolled up and included since the previous deployment to the deployment environment.  
     - [**Artifacts**](/docs/projects/deployment-process/artifacts): Files collected from remote machines during the deployment which can be downloaded from the Octopus Web Portal for review.
 
 ## General adoption phase terms

@@ -21,7 +21,7 @@ Octopus integrates with Jira issues. The integration includes the ability to:
 1.  When you commit code, add a commit message containing one or more [Jira issue references](https://confluence.atlassian.com/adminjiracloud/integrating-with-development-tools-776636216.html).
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The Jira issue-tracker extension in Octopus parses the commit messages and recognizes the issue references.
-4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes).
+4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-changes).
 5. As the release is deployed to each environment, Octopus notifies Jira to update the issue.
 
 :::figure

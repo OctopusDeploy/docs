@@ -51,7 +51,7 @@ You can change the projects settings by accessing the settings menu on the proje
       - Allow deployments to be created when there are no deployment targets - Use this where no steps in the process have targets (or are all run on the Server), or you are dynamically adding targets during deployment.
 - Deployment target status
    - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
-- [Deployment changes template](/docs/releases/deployment-notes/#Templates)
+- [Deployment changes template](/docs/releases/deployment-changes/#Templates)
    - Specify a template for each deployment’s changes.
 - Default failure mode
    - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures).

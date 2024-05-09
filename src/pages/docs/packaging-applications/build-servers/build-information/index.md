@@ -96,4 +96,4 @@ See the [system variable documentation](/docs/projects/variables/system-variable
 
 ## Using build information in deployments {#build-info-in-deployments}
 
-Package build information associated with a release will be also [captured in deployments](/docs/releases/deployment-notes) of the release.
+Package build information associated with a release will be also [captured in deployments](/docs/releases/deployment-changes) of the release.
