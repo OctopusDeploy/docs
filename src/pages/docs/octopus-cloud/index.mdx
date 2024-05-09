@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-05
+modDate: 2024-05-07
 title: Octopus Cloud
 navTitle: Overview
 navSection: Octopus Cloud
@@ -14,104 +14,55 @@ import OctopusCloudInstance from 'src/shared-content/octopus-cloud/octopus-cloud
 import OctopusCloudRegions from 'src/shared-content/octopus-cloud/octopus-cloud-regions.include.md';
 import OctopusCloudStorageLimits from 'src/shared-content/octopus-cloud/octopus-cloud-storage-limits.include.md';
 
-Octopus Cloud is the hosted version of Octopus Deploy.
+Octopus Cloud is the easiest way to run Octopus Deploy. It has the same software and functionality as Octopus Server, except we host it for you. You don’t need to download, install, and manage it yourself. 
+We recommend Octopus Cloud over Octopus Server as it includes the following:
 
-We designed Octopus Cloud and self-hosted Octopus to provide the same functionality. Octopus Cloud uses the same deployment automation server to define your deployment processes and runbooks and manage the releases of your software.
+- Automatic upgrades to the latest version of Octopus, including improvements, bug fixes, security enhancements, and [new features](https://octopus.com/whatsnew) before they’re released on Octopus Server. 
+- We host the instance with the appropriate resources.
+- 24x7 monitoring and alerting.
+- Maintenance and support on the instance, performed by experienced Octopus Support and Cloud Operations teams.
+- Automatic instance recovery with comprehensive [disaster recovery](/docs/octopus-cloud/disaster-recovery#disaster-recovery-procedure) procedures.
+- Network security and DNS configuration.
+- Windows and Linux dynamic Workers.
+- Bandwidth and storage.
+- File and database backups.
+- ISO 27001 and SOC II certifications with regular audits.
 
 :::figure
-![Octopus Dashboard](/docs/shared-content/concepts/images/dashboard.png "width=500")
+![](/docs/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
 :::
 
-You can get started with Octopus Cloud for [free](https://octopus.com/start/cloud).
+When you’re ready, [start a free trial](https://octopus.com/start) to explore Octopus.
 
-## Create an Octopus account \{#create-an-octopus-account}
+## Are there any differences between Octopus Cloud and Server?
+In providing Octopus as a service, some configuration and diagnostic functions in Octopus Cloud differ from the Octopus Server. These include disabling specific items related to the cloud server's provisioning and management. You can learn more on the [migration page](/docs/octopus-cloud/migrations#differences-between-octopus-cloud-and-octopus-server). 
 
-An Octopus account lets you manage your instances of Octopus Cloud. You can register for you Octopus account at [Octopus.com/register](https://Octopus.com/register).
+## Where is Octopus Cloud hosted? \{#octopus-cloud-hosting-locations}
+Octopus Cloud runs in the Microsoft Azure cloud. When you create an Octopus Cloud instance, we provision a Linux container to run the Octopus Server in, along with all the other resources we need to provide Octopus as a service. We deploy this to one of our Kubernetes clusters. 
 
-<OctopusAccount />
+We host Octopus Cloud in the following Azure regions:
+- West US 2
+- West Europe
+- Australia East
 
-Now that you've created an Octopus account, you can create a new instance of Octopus Cloud.
+If you’d like to move an existing Octopus Cloud instance to one of the other regions or request a new region, please [contact us](https://octopus.com/company/contact).
 
-## Create a cloud instance \{#create-a-cloud-instance}
+## Octopus Cloud storage thresholds \{#octopus-cloud-storage-limits}
+Octopus Cloud instances are subject to storage thresholds.
 
-<OctopusCloudInstance />
+- Maximum file storage for artifacts, task logs, packages, package cache, and event exports is limited to 1 TB.
+- Maximum database size for configuration data (for example, projects, deployment processes, and inline scripts) is limited to 100 GB.
+- Maximum size for any single package is 5 GB.
+- [Retention policies](/docs/administration/retention-policies) default to 30 days, but you can change this figure as needed.
 
-When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://octopus.com/signin).
-
-## Where is Octopus Cloud hosted \{#octopus-cloud-hosting-locations}
-
-<OctopusCloudRegions />
-
-## Octopus Cloud storage limits \{#octopus-cloud-storage-limits}
-
-Octopus Cloud instances are subject to storage limits. Specifically:
-
-<OctopusCloudStorageLimits />
+Enterprise customers can exceed these limits. Learn more by [contacting Sales](https://octopus.com/company/contact).
 
 Please see our [Cloud pricing FAQ](https://octopus.com/pricing/faq#are-there-any-storage-limits) for further details.
 
-## Uploading packages to Octopus Cloud servers \{#uploading-packages-to-octopus-cloud-servers}
-
-Factors such as geographical distance, network bandwidth, and network congestion may cause package uploads to your Octopus Cloud Server to take longer than expected.
-
-If you are having difficulty uploading packages to your Octopus built-in package feed within the default timeout threshold, typically within 5 minutes, you might be affected by one or more of the factors mentioned above. In this case, you could try increasing the timeout threshold of the Octopus CLI or `nuget.exe` to a value that suits you. We also recommend using the Octopus CLI, **Octopus.Client**, or the **TeamCity Plugin (v4.41.0+)** because they have the advantage of using delta compression.
-
-## Change your password \{#change-your-password}
-
-To change your password for the Octopus instance and Octopus account:
-
-1. Go to [Octopus.com/signin](https://Octopus.com/signin).
-1. Click the drop-down menu next to your username in the top right corner.
-1. Click profile.
-1. Click the **Change Password** link.
-1. Enter your new password.
-1. Confirm the new password, and click **Change password**.
-
-## Reset the Octopus account password \{#reset-the-octopus-account-password}
-
-If you forget your username or password for your Octopus account or Octopus instance, you can reset them via Octopus.com
-
-1. Visit [Octopus.com/signin](https://Octopus.com/signin).
-1. Click **Forgot your password?**
-1. Reset your credentials and log into your Octopus account. You can now launch your Octopus instance from the accounts dashboard.
-
-## Invite users to your Octopus Cloud instance \{#inviting-octopus-cloud-users}
-
-### Inviting users via Control Center
-
-You can invite users to your Octopus Cloud instance from Control Center. To learn about how to invite users and the levels of access you can give them, head to the [Managing Octopus subscriptions](/docs/getting-started/managing-octopus-subscriptions#access-control) page.
-
-### Managing User Permissions in Octopus Cloud
-
-Users are only added to the Octopus Cloud instance after they sign in for the first time. After the first sign in, users get assigned to the **“Everyone”** team (if they’re a Cloud User) or the **“Octopus Managers”** team (if they’re a Cloud Owner). You can add users to different teams to give them appropriate permissions.
-
-1. In the product, go to **Configuration**
-1. Select **Teams**
-1. Create or select an existing team such as **Space Managers**
-1. Select **Add Member**
-1. Click **Add** and then **Save**.
-
-## Set the maintenance window \{#set-the-outage-window}
-
-To keep Octopus Cloud running smoothly, we must perform occasional [maintenance](/docs/octopus-cloud/maintenance-window), including updates and optimizations on your instance.
-Please pick a two-hour maintenance window in the control center.  Set a time outside of your normal business hours that is unlikely to include any scheduled deployments.  The daily two-hour window provides some scheduling flexibility to ensure that all of our Cloud instances can be kept up-to-date and in good health by running a variety of maintenance tasks.
-
-1. Log in to your Octopus account.
-1. Select your cloud instance.
-1. Click Configuration.
-1. Scroll down to Outage Window.
-1. Select the time in UTC, providing a window of at least two hours and click **Save outage window**.
-
-## Log in to your Octopus Cloud instance \{#log-in-to-your-octopus-cloud-instance}
-
-You can access your Octopus Cloud instance at the URL you defined during the registration process. Where \<your-url\> is the part of the URL you provided:
-
-https://\<your-url\>.octopus.app/app#/users/sign-in
-
-## Octopus Cloud version \{#octopus-cloud-version}
-
-We keep your instance of Octopus Cloud up to date and running the latest version of Octopus Deploy. To check which version your instance is running, log into the Octopus Web Portal, and click the drop-down menu that appears next to your name in the top right corner. The version is displayed at the top of the display.
-
 ## Learn more
-
-- [Octopus Cloud blog posts](https://Octopus.com/blog/tag/octopus%20Cloud)
+- [Octopus Cloud pricing FAQs](https://octopus.com/pricing/faq#are-there-any-differences-between-cloud-and-server)
+- [Octopus pricing page](https://octopus.com/pricing/overview)
+- [Getting started with Octopus Cloud](/docs/octopus-cloud/getting-started-with-cloud)
+- [Migrating to Octopus Cloud](/docs/octopus-cloud/migrations)
+- [Octopus Cloud blog posts](https://octopus.com/blog/tag/octopus%20Cloud)
+- [Trust center](https://octopus.com/company/trust)

@@ -71,7 +71,7 @@ const bookmarks = [
   '/docs/insights/metrics#mean-time-to-recovery',
   '/docs/insights/space-level-insights#settings',
   '/docs/installation/requirements#supported-browsers',
-  '/docs/octopus-cloud/#inviting-octopus-cloud-users',
+  '/docs/octopus-cloud/getting-started-with-cloud#inviting-octopus-cloud-users',
   '/docs/packaging-applications#package-id',
   '/docs/packaging-applications#supported-formats',
   '/docs/packaging-applications#version-numbers',
