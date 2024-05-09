@@ -270,6 +270,15 @@ kubectl get secret $(kubectl get serviceaccount jenkins-deployer -o jsonpath="{.
 
 The token can then be saved as a Token Octopus account, and assigned to the Kubernetes target.
 
+:::div{.warning}
+Kubernetes versions 1.24+ no longer automatically create tokens for service accounts and they need to be manually created using the **create token** command:
+```bash
+kubectl create token jenkins-deployer
+```
+
+From Kubernetes version 1.29, a warning will be displayed when using automatically created Tokens. Make sure to rotate any Octopus Token Accounts to use manually created tokens via **create token** instead.   
+:::
+
 ## Kubectl
 
 Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus Server itself.
