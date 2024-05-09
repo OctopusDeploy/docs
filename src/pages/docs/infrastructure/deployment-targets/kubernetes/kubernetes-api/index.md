@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-30
+modDate: 2024-05-09
 title: Kubernetes API
 description: How to configure a Kubernetes cluster as a deployment target in Octopus
 navOrder: 20
