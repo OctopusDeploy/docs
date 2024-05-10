@@ -1010,17 +1010,6 @@ nav.skip-links a:focus {
   margin-top: 82px;
 }
 
-/* .content-group header {
-  border-block-end: 1px solid var(--border-color-header);
-  margin-block-end: 1.5rem;
-  padding-block-end: 1.5rem;
-}
-
-.content-group header p {
-  color: var(--color-subtitle);
-  font-size: var(--font-size-subtitle);
-} */
-
 /* Article header */
 .header {
   display: flex;
@@ -1042,6 +1031,7 @@ nav.skip-links a:focus {
   background-color: var(--header-icon-background);
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .header__icon-wrapper:after {
@@ -1058,10 +1048,13 @@ nav.skip-links a:focus {
 /* Need to override styles that might be applied to certain font awesome icons */
 .header__icon-wrapper .header__icon:before {
   color: var(--blue-500);
+  font-size: 2rem;
 }
 
 .header__icon {
   z-index: 1;
+  /* Override image global styles */
+  background: transparent;
 }
 
 .header__text {
@@ -1079,6 +1072,8 @@ nav.skip-links a:focus {
   color: var(--color-subtitle);
   font-size: var(--font-size-subtitle);
 }
+
+/* Article header END */
 
 .content-group .site-nav {
   grid-area: menu;
