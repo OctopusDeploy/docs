@@ -14,7 +14,7 @@ import TenantsWhichVariableTemplatesApply from 'src/shared-content/tenants/tenan
 Tenant variables allow you to configure [variables](/docs/projects/variables/) that can have different values for each [tenant](/docs/tenants)/environment combination. 
 
 :::figure
-![](/docs/getting-started/tenant-variables.png "width=500")
+![Octopus Deploy Tenant variable dashboard](/docs/getting-started/tenant-variables.png "width=500")
 :::
 
 Tenant variables are provided using variable templates which map a single variable name to different values for each tenant. Each variable template can define the data type, name, label, help text, and default value.
@@ -51,7 +51,7 @@ Values for your newly created templates will be displayed for each tenant/enviro
 To set the variable value for a tenant/environment, click the **Edit** (pencil) icon on the right-side of the table row. This will open a dialog where you can update the value, then click **Update** to save the new value.
 
 :::figure
-![](/docs/projects/variables/images/tenant-variables-edit.png "width=500")
+![Octopus Deploy screen to edit a Tenant variable](/docs/projects/variables/images/tenant-variables-edit.png "width=500")
 :::
 
 ## Common templates
@@ -78,7 +78,7 @@ To specify common variables that can be used across multiple tenants, you need t
 4. Add the details to your template and click **SAVE**:
 
 :::figure
-![](/docs/getting-started/library-variable-sets.png "width=500")
+![Octopus Deploy Library variable sets screen](/docs/getting-started/library-variable-sets.png "width=500")
 :::
 
 :::div{.hint}
@@ -91,31 +91,15 @@ Alternatively, you can set common variable values on an individual tenant:
 2. Provide values for each common template.
 
 :::figure
-![](/docs/projects/variables/images/variable-templates-project-template.png "width=500")
+![Octopus Deploy Common Variables screen](/docs/projects/variables/images/variable-templates-project-template.png "width=500")
 :::
 
 ## Older versions
 
-### Prior to 2024.1 \{#prior-to-2024-1}
-
-#### Project templates
-
-To add a project template:
-
-1. Navigate to the **Variables ➜ Project Templates** tab in your tenant connected project.
-2. Click **ADD TEMPLATE**.
-3. Add the details to your template and click **ADD**:
-
-    ![](/docs/projects/variables/images/variable-templates-project-template.png "width=500")
-
-Then to set the variable values for a tenant:
-
-1. Navigate to the **Variables ➜ Project Variables** tab in the tenant screen:
-1. Expand each connected environment and provide values for each project template:
-
-:::figure
-    ![](/docs/getting-started/tenant-variables.png "width=500")
-:::
+| Version | Change | 
+| ------------------ | ------------ | 
+| 2024.1 | Added support for new thing | 
+| 2023.2 | Deprecated unsupported thing | 
 
 ## Learn more
 
