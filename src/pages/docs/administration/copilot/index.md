@@ -44,10 +44,10 @@ You can also use the web based interface without GitHub Copilot. See the section
 
 ## Querying Octopus with Copilot
 
-Queries directed to `@octopus-copilot` in the GitHub Copilot chat window are answered by Octopus Copilot. For example, the following query displays the dashboard of the `Default` space:
+Queries directed to `@octopus-ai-app` in the GitHub Copilot chat window are answered by Octopus Copilot. For example, the following query displays the dashboard of the `Default` space:
 
 ```
-@octopus-copilot Show the dashboard for the "Default" space
+@octopus-ai-app Show the dashboard for the "Default" space
 ```
 
 The first request to Octopus Copilot will prompt you to complete a login with the following response:
@@ -70,7 +70,7 @@ You must log in to Octopus every 8 hours. It is recommended you save the Octopus
 
 A [test website](https://aiagent.octopus.com/api/form) allows you to query Octopus without Copilot. You must enter a GitHub token as identification, and complete the log in process with the same user as the one associated with the GitHub token. You can then query your Octopus instance via the web form in the same way you would query it from Copilot.
 
-Queries entered into the test website do not need to mention `@octopus-copilot`.
+Queries entered into the test website do not need to mention `@octopus-ai-app`.
 
 ![Octopus Copilot web interface](/docs/administration/copilot/octopus-copilot-web.png)
 
@@ -78,29 +78,29 @@ Queries entered into the test website do not need to mention `@octopus-copilot`.
 
 Users will often have a specific project, environment, space, tenant, and channel that they wish to query without explicitly typing the resource names in each prompt. To save default values for these resources, enter the following prompts:
 
-* `@octopus-copilot Set the default space to "My Space"`
-* `@octopus-copilot Set the default project to "My Project"`
-* `@octopus-copilot Set the default environment to "My Environment"`
-* `@octopus-copilot Set the default channel to "My Channel"`
-* `@octopus-copilot Set the default tenant to "My Tenant"`
+* `@octopus-ai-app Set the default space to "My Space"`
+* `@octopus-ai-app Set the default project to "My Project"`
+* `@octopus-ai-app Set the default environment to "My Environment"`
+* `@octopus-ai-app Set the default channel to "My Channel"`
+* `@octopus-ai-app Set the default tenant to "My Tenant"`
 
-With default values set, you can enter a query like `@octopus-copilot Show me the state of the latest deployment` and the query will return the details of the latest deployment for the project `My Project` to the environment `My Environment` with the channel `My Channel` and tenant `My Tenant` in the space `My Space`. 
+With default values set, you can enter a query like `@octopus-ai-app Show me the state of the latest deployment` and the query will return the details of the latest deployment for the project `My Project` to the environment `My Environment` with the channel `My Channel` and tenant `My Tenant` in the space `My Space`. 
 
 This is equivalent to the prompt `octopus-copilot Show me the state of the latest deployment of the project "My Project" to the environment "My Environment" for the channel "My Channel" and tenant "My Tenant" in the space "My Space"`.
 
 Resource names included in a prompt override the defaults. So the query `octopus-copilot Show me the state of the latest deployment of the project "My Web App"` will show the details of the project `My Web App` and ignore the default project name.
 
-Default values can be cleared with the prompt `@octopus-copilot Remove default values`.
+Default values can be cleared with the prompt `@octopus-ai-app Remove default values`.
 
 ## Example queries
 
 The following are example queries you can use to test Octopus Copilot:
 
-* `@octopus-copilot What projects exist in the "Default" space?`
-* `@octopus-copilot Show the last lines from the latest deployment of "Octopus Copilot Function" to the "Production" environment in the "Default" space in a markdown code block.`
-* `@octopus-copilot Show the step names from the "Octopus Copilot Function" project in the "Octopus Copilot" space`
-* `@octopus-copilot How do I use the server side apply feature?`
-* `@octopus-copilot Find the deployments created after 2024-04-16T00:00:00+10:00 and before 2024-04-17T00:00:00+10:00 for the "Octopus Copilot Function" project in the "Octopus Copilot" space to the "Production" environment. Then find the average deployment duration.`
+* `@octopus-ai-app What projects exist in the "Default" space?`
+* `@octopus-ai-app Show the last lines from the latest deployment of "Octopus Copilot Function" to the "Production" environment in the "Default" space in a markdown code block.`
+* `@octopus-ai-app Show the step names from the "Octopus Copilot Function" project in the "Octopus Copilot" space`
+* `@octopus-ai-app How do I use the server side apply feature?`
+* `@octopus-ai-app Find the deployments created after 2024-04-16T00:00:00+10:00 and before 2024-04-17T00:00:00+10:00 for the "Octopus Copilot Function" project in the "Octopus Copilot" space to the "Production" environment. Then find the average deployment duration.`
 
 
 ## Prompt engineering tips
