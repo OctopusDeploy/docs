@@ -186,9 +186,18 @@ Within an MDX file, this looks like a code block and will error. Escape the stat
 
 ## Clear Docs cache
 Changes on Docs pages can sometimes take some time to fully propagate to production. If the changes you are making are critical and need to be updated on Docs quickly, it is possible to manually clear the Docs cache. You can do this using these steps:
-1. Open the AWS portal for the Docs project (add link here)
-2. Enter the **Docs invalidation** section
-3. Add /* into the field and click **Create invalidation button**
-4. Enter the [Octopus.com project](https://deploy.octopus.app/app#/Spaces-443/projects/octopus-com/operations/runbooks) in the Commercial Platform project
-5. Find the **Purge Front Door and Cloudflare Cache** Runbook and click **Run**
-6. Choose the relevant environment you wish to clear the cache for in the **Select environments** dropdown and click **Run**
+
+### AWS
+
+1. Open the [AWS portal](https://d-9767053c64.awsapps.com/start/#/saml/custom/133577413914 %28product team%29/OTY4ODAyNjcwNDkzX2lucy1kYTM4MDg3NWU4ZTczMTUzX3AtNmMwMDljYjcyZWExNDI1Yg)
+2. Navigate to Cloudfront
+3. Select the distribution (Docs - Production)
+4. Open the **Invalidations** tab
+5. Add a record with the value `/*`
+6. Click **Add invalidation**
+
+## Azure
+
+1. Navigate to the runbooks on [deploy.octopus.app - octopus.com project](https://deploy.octopus.app/app#/Spaces-443/projects/octopus-com/operations/runbooks)
+2. Find the **Purge Front Door and Cloudflare Cache** Runbook and click **Run**
+3. Choose the relevant environment you wish to clear the cache for in the **Select environments** dropdown and click **Run**
