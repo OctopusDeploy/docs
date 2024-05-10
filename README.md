@@ -185,11 +185,12 @@ Within an MDX file, this looks like a code block and will error. Escape the stat
 ```
 
 ## Clear Docs cache
+
 Changes on Docs pages can sometimes take some time to fully propagate to production. If the changes you are making are critical and need to be updated on Docs quickly, it is possible to manually clear the Docs cache. You can do this using these steps:
 
 ### AWS
 
-1. Open the [AWS portal](https://d-9767053c64.awsapps.com/start/#/saml/custom/133577413914 %28product team%29/OTY4ODAyNjcwNDkzX2lucy1kYTM4MDg3NWU4ZTczMTUzX3AtNmMwMDljYjcyZWExNDI1Yg)
+1. Open the [AWS portal](https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1) for account `133577413914`
 2. Navigate to Cloudfront
 3. Select the distribution (Docs - Production)
 4. Open the **Invalidations** tab
