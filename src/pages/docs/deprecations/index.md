@@ -45,7 +45,7 @@ for Azure authentication.
 ## Deprecations for 2024.2
 
 ### Bundled Tools
-Command line tools for AWS, Azure and Terraform have been included with Octopus Deploy as a convenience mechanism for some time. The provided versions of these tools are now out of date and won't be updated.
+For some time, command line tools for AWS, Azure, and Terraform have been included with Octopus Deploy as a convenience mechanism. The provided versions of these tools are out of date and won't be updated.
 
 As of `2024.2`, deployment steps will no longer be able to use the bundled tools and they will be removed entirely in `2025.1`.
 
