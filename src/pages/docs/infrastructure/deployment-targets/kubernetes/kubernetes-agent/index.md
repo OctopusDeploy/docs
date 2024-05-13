@@ -46,7 +46,7 @@ To simplify this, there is an installation wizard in Octopus to generate the req
 :::div{.warning}
 Helm will use your current kubectl config, so make sure your kubectl config is pointing to the correct cluster before executing the following helm commands.
 You can see the current kubectl config by executing:
-```
+```bash
 kubectl config view
 ```
 :::
@@ -83,6 +83,13 @@ A requirement of using the NFS pod is the installation of the [NFS CSI Driver](h
 
 :::figure
 ![Kubernetes Agent Wizard NFS CSI Page](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-nfs.png)
+:::
+
+:::div{.warning}
+If you receive an error with the text `failed to download` or `no cached repo found` when attempting to install the NFS CSI driver via helm, try executing the following command and then retrying the install command:
+```bash
+helm repo update
+```
 :::
 
 ### Installation helm command
