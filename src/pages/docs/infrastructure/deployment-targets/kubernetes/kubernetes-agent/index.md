@@ -31,9 +31,11 @@ As the agent is running in the cluster, it can retrieve the cluster's version an
 
 ## Requirements
 
-The Kubernetes agent is supported on the following versions:
-* Octopus Server **2024.2.6580** or newer
-* Kubernetes **1.26** to **1.29** (inclusive)
+The Kubernetes agent follows [semantic versioning](https://semver.org/), so a major agent version is locked to a Octopus Server version range. Updating to the latest major agent version requires updating to a supported Octopus Server. The supported versions for each agent major version are:
+
+| Kubernetes agent | Octopus Server           | Kubernetes cluster   |
+| ---------------- | ------------------------ | -------------------- |
+| 1.\*.\*          | **2024.2.6580** or newer | **1.26** to **1.29** |
 
 Additionally, the Kubernetes agent only supports **Linux AMD64** and **Linux ARM64** Kubernetes nodes.
 
