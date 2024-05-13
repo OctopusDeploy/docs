@@ -47,7 +47,7 @@ for Azure authentication.
 ### Bundled Tools
 For some time, command line tools for AWS, Azure, and Terraform have been included with Octopus Deploy as a convenience mechanism. The provided versions of these tools are out of date and won't be updated.
 
-As of `2024.2`, you won't be able to configure deployment steps to use the bundled tools but existing steps will continue to function.. The bundled tools will be removed from Octopus Deploy in `2025.1`.
+As of `2024.2`, you won't be able to configure deployment steps to use the bundled tools, but existing steps will continue to function. The bundled tools will be removed from Octopus Deploy in `2025.1`.
 
 If you're currently using these bundled tools, you'll need to either manually install the required versions on your workers or modify your deployment processes to make use of [execution containers](/docs/projects/steps/execution-containers-for-workers).
 
