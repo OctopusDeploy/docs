@@ -50,10 +50,13 @@ Learn more about [how High Availability processes tasks in the queue](/docs/admi
 Octopus Deploy's High Availability functionality provides many benefits, but it has limits.  
 
 1. All Octopus Server nodes must run the same version of Octopus Deploy.  Upgrading to a newer version of Octopus Deploy will require an outage as you upgrade all nodes.
-1. Octopus Server nodes have no concept of a "read-only" connection to a database.  If a node is online it is performing write operations to the database.  Even if it is not processing tasks.
-1. Octopus Server nodes are sensitive to latency to SQL Server and the file storage.  The Octopus Server nodes, SQL Server, and file storage should all be located in the same data center or cloud region.  
+1. You cannot specify the node a deployment or runbook run to executes on.  Octopus Deploy uses a FIFO queue, nodes will pick up any pending tasks.
+1. If a deployment or runbook run fails, it fails.  Octopus Deploy will not automatically attempt to re-run that failed deployment or runbook run on a different node.  In our experience, changing nodes has very rarely been the solution to a failed deployment or runbook run.
+1. All the Octopus Server nodes must connect to the same database.  
+1. Octopus Server nodes have no concept of a "read-only" connection to a database.  All online nodes perform write operations to the database.  Even if it is not processing tasks.
+1. Octopus Server nodes are sensitive to latency to SQL Server and the file storage.  The Octopus Server nodes, SQL Server, and file storage should all be located in the same data center or cloud region.  Latency between availability zones within the same cloud region is acceptable.  Latency between cloud regions or data centers is not.
 
-Generally these limits are encountered when our users attempt to use Octopus Deploy's High Availability functionality for disaster recovery in a hot/hot configuration.  A hot/hot configuration between two data centers is not supported nor recommended.  Please see our white paper on recommendations for [high availability and disaster recovery](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr).
+Generally these limits are encountered when our users attempt to use Octopus Deploy's High Availability functionality for disaster recovery in a hot/hot configuration.  A hot/hot configuration between two or more data centers or cloud regions is not supported nor recommended.  Please see our white paper on recommendations for [high availability and disaster recovery](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr).
 
 ## Calculating Task Cap
 
@@ -136,7 +139,7 @@ Below is a baseline for setting compute resources based on the task cap.  You ar
 | 80                | 16 Cores / 32 GB RAM      | 2000m - 4000m / 5000 Mi - 10000 Mi |
 | 160               | 32 Cores / 64 GB RAM      | 3500m - 7000m / 6000 Mi - 12000 Mi |
 
-While possible to have Octopus Server nodes with a task cap above 160, it isn't recommended.  At that point you'll likely run into underlying Host OS, .NET, or networking limitations.  We've found 40-80 to be a reasonable max for the task cap for each node.  Once you go beyond that, if your license supports it, it is far better to add more nodes.
+While possible to have a Octopus Server node with a task cap above 160, it isn't recommended.  At that point you'll likely run into underlying Host OS, .NET, or networking limitations.  We've found 40-80 to be a reasonable max for the task cap for each node.  It is far better to scale horizontally by adding more nodes.
 
 :::div{.hint}
 In our research the biggest limiting factor of processing concurrent tasks is the database.  It won't matter how many nodes or how big they are if the database cannot handle the load.  You have to scale your database resources as you increase the overall task cap.
@@ -165,7 +168,7 @@ The amount of compute resources to assign the databases is based on the total am
 
 #### Database High Availability
 
-Since this database is shared, it's important that the database server is also highly available. Octopus Deploy supports a variety of SQL Server editions, from express all the way up to Enterprise as well as managed SQL Server. How the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them. There are many [options for high availability with SQL Server](https://msdn.microsoft.com/en-us/library/ms190202.aspx), and [Brent Ozar also has a fantastic set of resources on SQL Server Failover Clustering](http://www.brentozar.com/sql/sql-server-failover-cluster/) if you are looking for an introduction and practical guide to setting it up.
+Since the database is shared, it's important that the database server is also highly available. Octopus Deploy supports a variety of SQL Server editions, from express all the way up to Enterprise as well as managed SQL Server. How the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them. There are many [options for high availability with SQL Server](https://msdn.microsoft.com/en-us/library/ms190202.aspx), and [Brent Ozar also has a fantastic set of resources on SQL Server Failover Clustering](http://www.brentozar.com/sql/sql-server-failover-cluster/) if you are looking for an introduction and practical guide to setting it up.
 
 Octopus High Availability works with:
 
@@ -215,6 +218,10 @@ Octopus Deploy's only has two possible inbound connections.
 1. Web UI / Web API over http/https (ports 80/443)
 2. Polling Tentacles over TCP (port 10943)
 
+:::div{.hint}
+For the Web UI and API traffic you can leverage SSL offloading.  For Polling Tentacles, SSL offloading is not supported.
+:::
+
 #### Health Checks
 Octopus Deploy provides an endpoint you can use for health checks for your load balancer to ping: `/api/octopusservernodes/ping`.
 
@@ -243,6 +250,25 @@ All package uploads are sent as a POST to the REST API endpoint `/api/[SPACE-ID]
 - Timeout: Octopus is designed to handle 1 GB+ packages, which takes longer than the typical http/https timeout to upload.
 - Request Size: Octopus does not have a size limit on the request body for packages.  Some load balancers only allow 2 or 3 MB files by default.
 
+#### Polling Tentacles
+
+Polling Tentacles poll each Octopus Server node at regular intervals to see if that node has picked up a task.  Using Polling Tentacles with HA requires every Polling Tentacle to be able to connect to all nodes.  
+
+You have two options:
+
+1. Using a unique address per node with the default port of `10943`.
+  - Node1 would use address: Octo1.domain.com:10943
+  - Node2 would use address: Octo2.domain.com:10943
+  - Node3 would use address: Octo3.domain.com:10943
+2. Using the same address with a different port per node.
+  - Node1 would use address: octopus.domain.com:10943
+  - Node2 would use address: octopus.domain.com:10944
+  - Node3 would use address: octopus.domain.com:10945
+
+:::div{.hint}
+For Polling Tentacles, SSL offloading is not supported.  Octopus Deploy and the Tentacle establishes a two-way trust using the certificates created by Octopus Deploy and the Tentacle.  If either of them don't match, the connection is closed and all commands are rejected.
+:::
+
 #### Additional Load Balancer Resources
 
 - [Configure Netscaler](/docs/administration/high-availability/load-balancing/configuring-netscaler)
@@ -254,23 +280,128 @@ All package uploads are sent as a POST to the REST API endpoint `/api/[SPACE-ID]
 
 ## Octopus Deploy Configuration
 
-### Migrating Database
+Once the infrastructure is in place to support high availablity, you can then start configuring Octopus Deploy to leverage it.  The good news is if you have an existing instance in place you can update the configuration without having to rebuild everything.
 
-Lorem Ipsum
+### Creating a new instance
 
-More details at [Migrating database to High Availability](/docs/administration/high-availability/migrate).
+When creating a new instance, you must start with a single node.  Once that is up and running, you can add additional nodes.  When you create a new Octopus Deploy instance, it will run a series of SQL Scripts to populate the Octopus Deploy database with the appropriate tables, views, and stored procedures.  
 
-### Migrating File Storage
+#### Windows Host
 
-More details at [Migrating file storage to High Availability](/docs/administration/high-availability/migrate).
+Follow these steps if you elect to host Octopus Deploy on Windows Servers.
 
-### Configuring Nodes
+1. Download the lastest MSI from [Octopus Downloads](https://octopus.com/downloads)
+1. Install the MSI on the Windows Server.  Once complete, it will start the Octopus Setup Wizard.
+1. Follow the wizard and complete the configuration.
+1. Once the setup wizard is complete, you'll be taken to the Octopus Manager.  Now is a good time to [retrieving the master key](/docs/security/data-encryption#Securityandencryption-YourMasterKey).  That master key is required to add additional nodes to your High Availability Cluster.
+1. Run the following script to configure the BLOB storage.
 
-Lorem Ipsum 
+```
+Octopus.Server.exe path --clusterShared \\OctoShared\OctopusData
+```
+
+More details can be found at [Installing Octopus Deploy Overview](/docs/installation#install-octopus)
+
+#### Container Host
+
+Follow these steps if you elect to host Octopus Deploy on a container host like Kubernetes.
+
+1. Generate a Master Key using `openssl rand 16 | base64`.
+1. Send that master key, along with the database connection string and volume mounts to the container or helm chart.
+1. Once the first node is up and running, you can add additional nodes.
+
+Additional container host resources:
+
+- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container)
+- [Octopus Server in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes)
+
+### Migrating an existing instance
+
+Migrating an existing instance is possible, and for most configurations can be completed in as little as a few hours.  However, you should be aware of the steps.  Please read through each section below prior to starting a migration.
+
+#### Backup the Master Key
+
+Before getting started, it is important to ensure you have a backup of the master key.  The master key is used by Octopus Deploy to encrypt and decrypt data within the Octopus Deploy database.  If this master key is lost, you will have to reset all the encrypted items in your database.  
+
+More details at [retrieving the master key](/docs/security/data-encryption#Securityandencryption-YourMasterKey).
+
+#### Migrating Database
+
+In our experience, it is uncommon to have the Octopus Deploy service and database running on the same server for a production instance.  You can skip this step if your database is already running on a SQL Server cluster, on a managed server like AWS RDS or Azure SQL, or leveraging always-on High Availability.
+
+If you need to move the database the process is:
+
+1. Turn off the Octopus Deploy service.
+1. Perform a full backup of the existing database.
+1. Restore the database on the desired SQL Server location.
+1. Update the connection string for the existing service.
+1. Turn back on the Octopus Deploy service.
+
+More details can be found at [Moving the Octopus Server Database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database).
+
+#### Migrating File Storage
+
+Typically, the file storage takes the most time of the high availability migration.  The good news is you can do most of the work prior to the cutover.  The file storage stores items like deployment logs and runbook run logs.  Once a deployment or runbook run is complete, Octopus Deploy will leave those files until they are deleted by the retention policies.  
+
+The following work can be completed without turning off any Octopus Server nodes.  Your Octopus instance might have years worth of data.  It can take hours or days to finish copying all the files over.
+
+1. Create the main directory and sub directories.
+  1. TaskLogs
+  1. Artifacts
+  1. Packages
+  1. Imports
+  1. EventExports
+  1. Telemetry
+1. Using tools such as `robocopy` or `rsync` copy the files and subdirectories to the corresponding folder.  Leverage the mirror functionality to ensure your file share folder structure matches the original.
+
+Once the files are copied over, you can update your Octopus Deploy instance to point to the file share.
+
+- Turn off the Octopus Deploy service.
+- Run `robocopy` or `rsync` one final time to pick up any new files since the last sync.
+- Run the following PowerShell script to update Octopus to point to the new directory.
+
+```
+Set-Location "C:\Program Files\Octopus Deploy\Octopus"
+$filePath = "YOUR ROOT DIRECTORY"
+
+& .\Octopus.Server.exe path --clusterShared "$filePath"
+```
+
+- Turn back on your Octopus Deploy service.
+
+More details can be found at [Moving the Octopus Server folders](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory#MovingOctopusServerfolders-Other).
+
+#### Migrating to the Load Balancer
+
+For Web UI and API traffic, migrating to a load balancer should be seamless.  Use the configuration information from an earlier section in this document to configure the load balancer. Once you've verified all the traffic is working as expected, then provide the new URL to your users.  
+
+### Adding Nodes
+
+Generally, the same process is followed when adding new nodes to an existing High Availability cluster.
+
+1. Ensure the new host, be it Windows or Containers, can connect to the Octopus Deploy database and file storage.
+1. Run a script to configure the Octopus Server node instance on a Windows machine or to start up a new container.  You'll need to provide the master key and database connection information.  For containers, you'll also need to provide the volume mounts.
+1. Add that new node to the load balancers.
+1. Update all the polling tentacles to connect to that new node.
+
+:::div{.hint}
+Because all the configuration is stored in the database and blob storage, you can delete all the nodes and create new ones if you so desire.
+:::
+
+We recommend writing scripts to automate this process.
+
+- [Octopus Server on Windows] Link to be added
+- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container)
+- [Octopus Server in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes)
 
 ### Polling Tentacles with High Availability
 
-Lorem Ipsum
+Once the load balancer is configured to expose each Octopus Server node, you must register them with each polling tentacle.  You can use this PowerShell script as a basis for your automation.  The script should add any new nodes you've created.  If you added two nodes to your High Availability cluster, your script would look like this.
+
+```
+C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=Octo2.domain.com:10943 --apikey=YOUR_API_KEY
+C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=Octo3.domain.com:10943 --apikey=YOUR_API_KEY
+```
 
 More details at [Polling Tentacles with Octopus High Availability](/docs/administration/high-availability/maintain/polling-tentacles-with-ha)
 
