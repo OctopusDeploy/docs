@@ -488,9 +488,9 @@ nav.skip-links a:focus {
   padding: 1rem 0;
 }
 
-@media (max-width: 930px) {
+@media (max-width: 1130px) {
   .octo-header {
-    gap: 1.5rem;
+    gap: 0.5rem;
   }
 }
 
@@ -552,6 +552,38 @@ nav.skip-links a:focus {
   }
 }
 
+.octo-header__wrapper--left {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  column-gap: 0.5rem;
+}
+
+/* Hide badge due to not enough space */
+@media (max-width: 360px) {
+  .octo-header__wrapper--left .badge {
+    display: none;
+  }
+}
+
+/* Badge */
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  line-height: 138%;
+}
+
+.badge--brand {
+  color: var(--badge-color);
+  background-color: var(--badge-background);
+}
+
 /* Theme switcher */
 
 .theme-switcher {
@@ -559,13 +591,12 @@ nav.skip-links a:focus {
   display: inline-block;
   width: 11.1875rem;
   height: 2.5rem;
-  /* TODO: Find better solution for search&theme switcher */
-  margin: 0 auto 0 1.5rem;
+  margin-left: 1rem;
 }
 
-/* TODO: Header has no space between elements */
+/* Hide theme switcher in header on mobile */
 @media screen and (max-width: 1130px) {
-  .octo-header > .theme-switcher {
+  .octo-header .octo-header__wrapper--left > .theme-switcher {
     display: none;
   }
 }
@@ -1720,27 +1751,35 @@ a[data-youtube] {
 }
 
 @media screen and (min-width: 1131px) {
-  .site-search__wrapper {
-    /* TODO: Find better solution for search&theme switcher */
-    margin-right: auto;
+  .site-search__wrapper,
+  .site-search__wrapper.is-active {
+    max-width: 28.8rem;
   }
 }
 
-@media screen and (min-width: 1131px) {
+@media screen and (min-width: 1201px) {
   .site-search__wrapper.is-active {
     max-width: 34.8rem;
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1370px) {
   .site-search__wrapper.is-active {
     max-width: 45.8rem;
   }
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1570px) {
   .site-search__wrapper.is-active {
     max-width: 57.8rem;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .octo-header .site-search-results,
+  .octo-header .site-search__overlay,
+  .octo-header .site-search.is-active {
+    display: none;
   }
 }
 
