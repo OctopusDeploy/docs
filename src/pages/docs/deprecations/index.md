@@ -37,7 +37,7 @@ Further notes about this pending change can be found in the [2024.1 deprecation 
 ### Azure Resource Manager Powershell Module
 The AzureRM Powershell modules were Microsoft's way of integrating Powershell with Azure resources. Microsoft has deprecated AzureRM in favor of the Azure CLI or the Az Powershell modules.
 
-AzureRM was [deprecated by Microsoft](https://learn.microsoft.com/en-us/powershell/azure/azurerm-retirement-overview) as of February 29, 2024).
+AzureRM was [deprecated by Microsoft](https://learn.microsoft.com/en-us/powershell/azure/azurerm-retirement-overview) as of February 29, 2024.
 
 AzureRm will remain available until July 2024 (with an in-app warning). After this, you'll need to move to either `az cli` or the `az module for powershell` 
 for Azure authentication.
@@ -47,7 +47,7 @@ for Azure authentication.
 ### Bundled Tools
 For some time, command line tools for AWS, Azure, and Terraform have been included with Octopus Deploy as a convenience mechanism. The provided versions of these tools are out of date and won't be updated.
 
-As of `2024.2`, you won't be able to configure deployment steps to use the bundled tools. The bundled tools will be removed from Octopus Deploy in `2025.1`.
+As of `2024.2`, you won't be able to configure deployment steps to use the bundled tools but existing steps will continue to function.. The bundled tools will be removed from Octopus Deploy in `2025.1`.
 
 If you're currently using these bundled tools, you'll need to either manually install the required versions on your workers or modify your deployment processes to make use of [execution containers](/docs/projects/steps/execution-containers-for-workers).
 
