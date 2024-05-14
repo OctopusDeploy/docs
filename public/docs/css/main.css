@@ -698,14 +698,48 @@ nav.skip-links a:focus {
   box-shadow: var(--card-shadow);
 }
 
-.card:hover .card__image {
+.card:not(.card--related-topics):hover .card__image {
   transform: scale(1.3);
 }
 
+/* padded variant */
 .card--padded .card__image-wrapper {
   background-color: #c3cdd5;
   padding: 1rem 2rem 0;
-  transition: transform 300ms ease-in-out;
+}
+
+/* related-topics variant */
+.card--related-topics {
+  box-shadow: var(--card-related-topics-shadow);
+}
+
+.card--related-topics:hover,
+.card--related-topics .card__link:focus-visible {
+  box-shadow: var(--card-related-topics-hover-shadow);
+}
+
+.card--related-topics:hover .card__label svg,
+.card--related-topics .card__link:focus-visible .card__label svg {
+  transform: translateX(0.5rem);
+}
+
+.card--related-topics .card__image-wrapper {
+  padding: 0.75rem 0.75em 0;
+}
+
+.card--related-topics .card__image {
+  border-radius: 0.625rem;
+}
+
+.card--related-topics .card__copy {
+  padding: 0 1.25rem 1.25rem;
+}
+
+.card--related-topics .card__title {
+  color: var(--color-text);
+  font-family: var(--bold-font);
+  font-size: var(--font-size-large);
+  font-weight: 700;
 }
 
 .card__image {
@@ -718,13 +752,14 @@ nav.skip-links a:focus {
   flex-direction: column;
   gap: 1.875rem;
   text-decoration: none;
+  height: 100%;
 }
 
 .card__image-wrapper {
   display: flex;
-  max-height: 9rem;
-  height: 100%;
+  height: 9rem;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .card__image {
@@ -738,6 +773,7 @@ nav.skip-links a:focus {
   flex-direction: column;
   gap: 0.38rem;
   text-align: left;
+  flex-grow: 1;
 }
 
 .card__title {
@@ -750,6 +786,28 @@ nav.skip-links a:focus {
   font-size: var(--font-size-medium);
   font-weight: 400;
   color: var(--blue-grey);
+}
+
+.card__bottom {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--badge-color);
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 0.25rem;
+  border-bottom: 0.0625rem solid var(--badge-color);
+}
+
+.card__label svg {
+  transition: transform 300ms ease-in-out;
 }
 
 /* Breadcrumbs */
