@@ -81,7 +81,7 @@ resource "helm_release" "octopus_agent" {
   version          = "1.*.*"
   atomic           = true
   create_namespace = true
-  namespace        = "octopus-agent-octopusagent"
+  namespace        = "octopus-agent-target"
 
   set {
     name  = "agent.acceptEula"
@@ -167,7 +167,7 @@ resource "helm_release" "octopus_agent" {
   version          = "1.*.*"
   atomic           = true
   create_namespace = true
-  namespace        = "octopus-agent-octopusagent"
+  namespace        = "octopus-agent-target"
 
   set {
     name  = "agent.acceptEula"
