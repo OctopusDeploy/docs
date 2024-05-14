@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
-modDate: 2024-04-22
+modDate: 2024-05-15
 title: Kubernetes agent
 navTitle: Overview
 navSection: Kubernetes agent
@@ -122,11 +122,21 @@ A successful health check indicates that deployments can successfully be execute
 
 ## Upgrading the Kubernetes agent
 
-The Kubernetes agent can be upgrade by the Octopus portal or via a `helm` command.
+The Kubernetes agent can be upgraded automatically by Octopus Server, manually in the the Octopus portal or via a `helm` command.
 
-### Octopus portal
+### Automatic updates
 
-To check if a Kubernetes agent can be upgraded, navigate to the **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Connectivity** page. If the agent can be upgraded, there will be an *Upgrade available* banner. Clicking **Upgrade to latest** button will trigger the upgrade via a new task. If the upgrade fails, the previous version of the agent is restored.
+:::div{.hint}
+Automatic updating was added in 2024.2.8584
+:::
+
+By default, the Kubernetes agent is automatically updated by Octopus Server when a new version is released. These version checks typically occur after a health check. When an update is required, Octopus will start a task to update the agent to the latest version.
+
+This behavior is controlled by the [Machine Policy](/docs/infrastructure/deployment-targets/machine-policies) associated with the agent. You can change this behavior to **Manually** in the [Machine policy settings](/docs/infrastructure/deployment-targets/machine-policies#configure-machine-updates).
+
+### Manual updating via Octopus portal
+
+To check if a Kubernetes agent can be manually upgraded, navigate to the **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Connectivity** page. If the agent can be upgraded, there will be an *Upgrade available* banner. Clicking **Upgrade to latest** button will trigger the upgrade via a new task. If the upgrade fails, the previous version of the agent is restored.
 
 :::figure
 ![Kubernetes Agent updated interface](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-portal.png)

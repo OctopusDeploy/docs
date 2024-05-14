@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-05-14
 title: Machine policies
 description: Machine Policies allow you to customize the behavior of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
 navOrder: 110
@@ -123,12 +123,13 @@ By default, health checks fail if any deployment targets are unavailable during 
 
 By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (i.e., a warning will be reported or the health check will fail with an error).
 
-## Configure how Calamari and Tentacle are updated
+## Configure how Calamari, Tentacle and Kubernetes agents are updated \{#configure-machine-updates}
 
-Brand new Tentacle and SSH endpoints require the installation of Calamari to perform a deployment.  Also, if Calamari is updated, the Octopus Server will push the update to Tentacle and SSH endpoints. When there is a Tentacle update, Octopus can automatically update Tentacle endpoints.  Machine policies allow the customization of when Calamari and Tentacle updates occur.
+Brand new Tentacle, Kubernetes agent and SSH endpoints require the installation of Calamari to perform a deployment.  Also, if Calamari is updated, the Octopus Server will push the update to Tentacle, Kubernetes agent and SSH endpoints. 
+When there is a Tentacle or Kubernetes agent update, Octopus can automatically update Tentacle and Kubernetes agent endpoints.  Machine policies allow the customization of when Calamari, Tentacle and Kubernetes agent updates occur.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/images/5865594.png "width=500")
+![Machine Policieis - Machine Updates](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-machine-updates.png "width=500")
 :::
 
 By default, Calamari will be installed or updated when a machine is involved in a deployment.  The other two options will update Calamari:
@@ -136,7 +137,9 @@ By default, Calamari will be installed or updated when a machine is involved in 
 - the first time a machine is added to Octopus and then subsequently when it is involved in a deployment.
 - any time Octopus detects Calamari is out of date (after health checks for example).
 
-Tentacle can be toggled to manually or automatically update.  If **Automatically** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically update Tentacle but instead will display a prompt to begin a Tentacle update on the Deployment Targets and Environments screens.
+Tentacle and Kubernetes agents can be toggled to manually or automatically update.  If **Automatically** is selected, Octopus will start a task to update Tentacles and Kubernetes agents whenever Octopus detects that there is a pending Tentacle or Kubernetes agents upgrade (after health checks for example). 
+
+Conversely, Octopus will not automatically update Tentacle or Kubernetes agents but instead will display a prompt to begin a Tentacle and Kubernetes agents update on the Deployment Targets and Environments screens.
 
 ### Maximum number of concurrent upgrades
 
