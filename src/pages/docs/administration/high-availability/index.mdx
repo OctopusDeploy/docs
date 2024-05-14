@@ -407,18 +407,87 @@ More details at [Polling Tentacles with Octopus High Availability](/docs/adminis
 
 ## Maintenance
 
-### Maintaining Octopus Server Nodes
+Most of the maintenance concerns for a Octopus Deploy High Available cluster are related to:
 
-Lorem Ipsum
+- The availability of each node.
+- The work each node is performing.
+- Each nodes' connectivity to the database and file storage.
+- Each nodes' connectivity to all the deployment targets.
+- Ensuring all the nodes are running the same version of Octopus Deploy.
 
-More details at [Maintaining High Availability nodes](/docs/administration/high-availability/maintain/maintain-high-availability-nodes)
+### Node configuration page
 
-### Auto-scaling Octopus Server Nodes
+A dedicated page to High Availability within the Octopus Deploy user interface can be accessed via **Configuration -> Nodes.**  
 
-Lorem Ipsum
+That page provides the following functionality:
 
-### Troubleshooting
+- The number of nodes your HA cluster has registered.
+- The last time each node "checked-in" or was seen.  
+- The number of tasks each node is processing.
+- Changing the task cap on each node via the overflow menu.
+- Draining a specific node and stop it from processing tasks via the overflow menu.
+- Deleting a node from the HA cluster via the overflow menu.
 
-Lorem Ipsum
+#### Node Status and Last Seen
 
-If you're running into issues with your Octopus High Availability then please use our [Troubleshooting High Availability](/docs/administration/high-availability/troubleshooting) guide.
+A healthly node will update the **Last Seen** date on the node configuration page every 60 seconds or so.  The code to update that last seen date runs on a dedicated thread and will do it's very best to update that date.  That means there is a problem if that value isn't updated for a specific node in a while.  
+
+#### Modifying the task cap
+
+This page enables you to change the task cap for each node.  We recommend having the same task cap for all nodes, however there are use cases in which you want a different value for each node.
+
+- Setting the task cap to 0 to have "UI Only" nodes that do not process any tasks.
+- Setting the task cap to 1 for a new node in a canary-style deployment to ensure everything is working as expected before setting it to the default value.
+- Setting the task cap to a lower value than the others because the server doesn't have the same compute allocations.
+
+### Draining a node
+
+The drain toggle can be used to prevent an Octopus Server node from executing any new tasks.  All existing tasks running on that node will continue to run until completion.  This is useful for when you want to restart or shutdown a node, remove a node, or you want to upgrade the Octopus version number.
+
+While draining:
+
+- An Octopus Server node will finish running any tasks is it currently executing and then idle.
+- The Octopus Server ping url will not return 200 OK.
+
+### Deleting a node
+
+Once a node has been retired, you can delete it from the HA Cluster using the node configuration page.  It is important to note that deleting an active node will have minimal impact.  Every 60 seconds the nodes will perform a check-in where they update the "last seen" date.  If the node is not present in the table, it will automatically add itself.  
+
+### Connectivity issues with the database
+
+If an Octopus Server node cannot connect to the database it will start then immediately stop.  The logs will indicate a connection failure.
+
+### Conectivity issues with the file storage
+
+Octopus Deploy is generally more forgiving if it cannot access the files.  There are scenarios in which the Octopus Deploy service will not start, typically on a permissions denied or the path cannot be found.  However, if the paths exist, but they don't have data, then Octopus will continue to run.
+
+The telltale signs are:
+
+- The service gets a permissions denied error and stops.
+- Empty deployment logs for completed deployments.
+- Missing deployment artifacts.
+- Missing project and space images.
+- Packages cannot be found in the built-in repository.
+
+The paths to the file storage are stored within the database.  That means all nodes will use the same path.
+
+- Ensure the file storage paths point to a file share.  The file storage must be on a file share accessible by all nodes.  It cannot be a local drive.
+- When running Octopus Deploy on Windows ensure the account the Octopus Deploy Windows Service is running as can access those file shares.
+- When running Octopus Deploy on a container ensure the volumes are all mounted properly.
+
+### Upgrading Octopus Deploy version
+
+Upgrading an HA cluster the latest Octopus Deploy version will require an outage window as all nodes must be upgraded at the same time.  Octopus Deploy provides the capability to upgrade from almost any modern version.  For example, upgrading from 2022.2 to 2024.2.  Because of that, database changes are not backward compatible.  
+
+The upgrade process will be:
+
+1. Backup the master key.
+1. Drain all the nodes.
+1. After all tasks finish, stop all the nodes
+1. Backup the database.
+1. Install the latest version on one node (this will upgrade the database).
+1. Upgrade the remaining nodes.
+1. Start the nodes.
+1. Disable the draining.
+
+More detailed instructions can be found in the [upgrading guide](/docs/administration/upgrading/guide).
