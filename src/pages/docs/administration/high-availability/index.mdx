@@ -453,6 +453,27 @@ While draining:
 
 Once a node has been retired, you can delete it from the HA Cluster using the node configuration page.  It is important to note that deleting an active node will have minimal impact.  Every 60 seconds the nodes will perform a check-in where they update the "last seen" date.  If the node is not present in the table, it will automatically add itself.  
 
+### Auto-scaling nodes
+
+It is possible to leverage AWS Auto-Scaling Groups, Azure Virtual Machine Scale Sets, or Kubernetes auto-scaling capability to automatically horizontally scale your nodes.  Adding nodes is fairly trivial, removing them is much more difficult due to how Octopus processes tasks.
+
+The process for adding nodes is:
+
+1. Create the new application host.
+1. Download and install the same version as the other nodes.
+1. configure any volume mounts or symbolic links for file storage.
+1. Configure the Octopus Server node using the master key and database connection information.
+
+The process for removing a node is:
+
+1. Use the API to set the node to draining using an API key.
+1. Wait for all the tasks to complete.  Failure to do so will cause those tasks to fail.
+1. Delete the application host.
+
+The complexity for removing a node is due to having to invoke the API to drain the node and waiting for the node to complete any in-flight tasks.  For cloud providers such as Azure or AWS that typically means leveraging a function or a Lambda.  
+
+For scripts and examples, please refer to the [auto-scaling high availability nodes page](/docs/administration/high-availability/configure/auto-scaling-high-availability-nodes).
+
 ### Connectivity issues with the database
 
 If an Octopus Server node cannot connect to the database it will start then immediately stop.  The logs will indicate a connection failure.
