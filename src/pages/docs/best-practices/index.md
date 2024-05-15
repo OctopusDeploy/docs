@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-15
-title: Installation
+title: Best Practices
 navTitle: Overview
 navSection: Best Practices
 navOrder: 25
