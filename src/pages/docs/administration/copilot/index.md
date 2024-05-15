@@ -86,9 +86,9 @@ Users will often have a specific project, environment, space, tenant, and channe
 
 With default values set, you can enter a query like `@octopus-ai-app Show me the state of the latest deployment` and the query will return the details of the latest deployment for the project `My Project` to the environment `My Environment` with the channel `My Channel` and tenant `My Tenant` in the space `My Space`. 
 
-This is equivalent to the prompt `octopus-copilot Show me the state of the latest deployment of the project "My Project" to the environment "My Environment" for the channel "My Channel" and tenant "My Tenant" in the space "My Space"`.
+This is equivalent to the prompt `@octopus-ai-app Show me the state of the latest deployment of the project "My Project" to the environment "My Environment" for the channel "My Channel" and tenant "My Tenant" in the space "My Space"`.
 
-Resource names included in a prompt override the defaults. So the query `octopus-copilot Show me the state of the latest deployment of the project "My Web App"` will show the details of the project `My Web App` and ignore the default project name.
+Resource names included in a prompt override the defaults. So the query `@octopus-ai-app Show me the state of the latest deployment of the project "My Web App"` will show the details of the project `My Web App` and ignore the default project name.
 
 Default values can be cleared with the prompt `@octopus-ai-app Remove default values`.
 
