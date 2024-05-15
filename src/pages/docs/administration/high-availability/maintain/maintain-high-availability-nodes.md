@@ -1,10 +1,11 @@
 ---
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Maintain High Availability nodes
-description: Managing the nodes in your Octopus High Availability cluster can be done in the Octopus Web Portal.
-navOrder: 30
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/best-practices/self-hosted/high-availability
+pubDate:  2023-01-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
 import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
 
