@@ -95,6 +95,7 @@
 
   --color-text: var(--blue-midnight);
   --color-heading: var(--blue-grey-dark);
+  --color-text-secondary: var(--navy-700);
 
   --color-subtitle: var(--navy-600);
   --font-size-subtitle: var(--font-size-large);
@@ -107,7 +108,7 @@
   --color-menu-link-alt: var(--blue-500);
   --color-menu-marker: var(--navy-300);
   --bg-color-menu: var(--blue-qqq);
-  --bg-color-menu-open: var(--blue-100);
+  --bg-color-menu-open: var(--background-light);
   --border-color-menu-open: var(--navy-200);
   --gap-menu: 0.6em;
 
@@ -139,10 +140,24 @@
 
   --duration-default: 300ms;
 
+  /* Backgrounds TODO - update with design system */
+  --background-light: var(--blue-100);
+  --background-default: var(--white);
+
+  /* Borders TODO - update with design system */
+  --border-default-color: var(--blue-200);
+
+  /* Icon Tile */
+  --icon-tile-border: var(--border-default-color);
+  --icon-tile-border-hover: var(--border-default-color);
+  --icon-tile-background: var(--background-light);
+  --icon-tile-background-hover: var(--background-default);
+  --icon-tile-shadow: 0px 4px 10px 0px rgba(13, 128, 216, 0.2);
+
   /* Article header */
   --header-separator-color: var(--navy-200);
-  --header-icon-border: var(--blue-200);
-  --header-icon-background: var(--blue-100);
+  --header-icon-border: var(--border-default-color);
+  --header-icon-background: var(--background-light);
 
   /* Button */
   --button-primary: var(--green);
@@ -281,4 +296,10 @@ html[data-theme='dark'] {
   --header-icon-background: var(--blue-grey-dark);
   --badge-background: rgba(31, 192, 255, 0.1);
   --badge-color: var(--octo-blue-lightest);
+  --color-text-secondary: #dae2e9;
+  --icon-tile-background: #132838;
+  --icon-tile-background-hover: #223950;
+  --icon-tile-border: #1c3f59;
+  --icon-tile-border-hover: var(--octo-blue-lightest);
+  --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
 }

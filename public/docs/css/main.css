@@ -810,6 +810,60 @@ nav.skip-links a:focus {
   transition: transform 300ms ease-in-out;
 }
 
+/* IconTile */
+.icon-tile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 0.625rem;
+  border: 0.0625rem solid var(--icon-tile-border);
+  background: var(--icon-tile-background);
+  padding: 1.25rem 1.75rem 1rem;
+  text-decoration: none;
+  transition-property: background, box-shadow, border-color;
+  transition-duration: var(--duration-default);
+  transition-timing-function: ease-in-out;
+}
+
+.icon-tile:hover {
+  background: var(--icon-tile-background-hover);
+  box-shadow: 0px 4px 10px 0px rgba(13, 128, 216, 0.2);
+  border-color: var(--icon-tile-border-hover);
+}
+
+.icon-tile__icon-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-tile__icon {
+  max-width: 4rem;
+  width: 100%;
+}
+
+.icon-tile__content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.icon-tile__title {
+  color: var(--color-heading);
+  font-family: var(--bold-font);
+  font-size: var(--font-size-regular);
+  font-weight: 600;
+  /* Override global styles */
+  padding: 0;
+}
+
+.icon-tile__description {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  font-weight: 400;
+}
+
 /* Breadcrumbs */
 
 .site-breadcrumbs ol {
