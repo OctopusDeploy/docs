@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-05-08
 modDate: 2023-10-04
-title: Octopus Copilot integration
+title: Octopus extension for GitHub Copilot
 description: How to use the Octopus extension for GitHub Copilot
 navOrder: 100
 hideInThisSection: true
@@ -22,7 +22,7 @@ The goal of the Octopus extension is to provide a middle ground between the web 
 
 ## Getting started
 
-Octopus Copilot has 3 prerequisites:
+The Octopus extension has 3 prerequisites:
 
 * An Octopus Cloud instance
 * An API key
