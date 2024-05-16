@@ -178,7 +178,7 @@ To make use of the Kubernetes steps, the Octopus Server or workers that will run
 11. Click **SAVE**.
 
 :::div{.warning}
-Setting the Worker Pool directly on the Deployment Target will override the Worker Pool defined in a Deployment Process.  
+Setting the Worker Pool in a Deployment Process will override the Worker Pool defined directly on the Deployment Target.  
 :::
 
 ## Create service accounts

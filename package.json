@@ -3,10 +3,10 @@
     "type": "module",
     "version": "0.0.1",
     "private": true,
-    "packageManager": "pnpm@8.7.0",
+    "packageManager": "pnpm@9.1.0",
     "engines": {
         "node": ">=18.14.1",
-        "pnpm": ">=8.6.12"
+        "pnpm": ">=9.1.0"
     },
     "scripts": {
         "dev": "npm-run-all --parallel dev:img dev:astro dev:watch",
@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "@astrojs/mdx": "^2.0.0",
+        "@pnpm/exe": "^9.1.0",
         "astro": "^4.0.3",
         "astro-accelerator-utils": "^0.3.7",
         "cspell": "^8.1.3",
