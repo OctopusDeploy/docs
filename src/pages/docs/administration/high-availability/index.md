@@ -7,6 +7,7 @@ description: Octopus High Availability (HA) enables you to run multiple Octopus 
 hideInThisSection: true
 navOrder: 10
 ---
+import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
 
 Octopus: High Availability (HA) enables you to run multiple Octopus Server nodes, distributing load and tasks between them. We designed it for enterprises that need to deploy around the clock and rely on the Octopus Server being available.
 
@@ -25,6 +26,32 @@ An Octopus High Availability configuration requires four main components:
 - **Shared storage**
   Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
 
+## How High Availablity Works
+
+High Availability (HA) distributes load between multiple nodes.  There are two kinds of load an Octopus Server node encounters:
+
+1. Tasks (Deployments, runbook runs, health checks, package re-indexing, system integrity checks, etc.)
+2. User Interface via the Web UI and REST API (Users, build server integrations, deployment target registrations, etc.)
+
+Tasks are placed onto a first-in-first-out (FIFO) queue.  By default, each Octopus Deploy node is configured to process five (5) tasks concurrently, which [can be updated in the UI](/docs/support/increase-the-octopus-server-task-cap).  That is known as the task cap.  Once the task cap is reached, the remaining tasks in the queue will wait until one of the other tasks is finished.  
+
+Each Octopus Server node has a separate task cap.  High Availability allows you to scale the task cap horizontally.  If you have two (2) Octopus Server nodes each with a task cap of 10, you can process 20 concurrent tasks.  Each node will pull items from the task queue and process them.  
+
+Learn more about [how High Availability processes tasks in the queue](/docs/administration/high-availability/how-high-availability-works) section.
+
+## High Availability Limits
+
+Octopus Deploy's High Availability functionality provides many benefits, but it has limits.  
+
+1. All Octopus Server nodes must run the same version of Octopus Deploy.  Upgrading to a newer version of Octopus Deploy will require an outage as you upgrade all nodes.
+1. You cannot specify the node a deployment or runbook run to execute on.  Octopus Deploy uses a FIFO queue, nodes will pick up any pending tasks.
+1. If a deployment or runbook run fails, it fails.  Octopus Deploy will not automatically attempt to re-run that failed deployment or runbook run on a different node.  In our experience, changing nodes rarely has been the solution to a failed deployment or runbook run.
+1. All the Octopus Server nodes must connect to the same database.  
+1. Octopus Server nodes have no concept of a "read-only" connection to a database.  All online nodes perform write operations to the database.  Even if it is not processing tasks.
+1. Octopus Server nodes are sensitive to latency to SQL Server and the file storage.  The Octopus Server nodes, SQL Server, and file storage should all be located in the same data center or cloud region.  The latency between availability zones within the same cloud region is acceptable.  Latency between cloud regions or data centers is not.
+
+Generally, these limits are encountered when our users attempt to use Octopus Deploy's High Availability functionality for disaster recovery in a hot/hot configuration.  A hot/hot configuration between two or more data centers or cloud regions is not supported nor recommended.  Please see our white paper on recommendations for [high availability and disaster recovery](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr).
+
 ## Licensing
 
 Each Octopus Deploy SQL Server database is a unique **Instance**.  Nodes are the Octopus Server service that connects to the database.  High Availability occurs when two or more nodes connect to the same Octopus Deploy database.  An HA Cluster refers to all components, the load balancer, nodes, database, and shared storage.
@@ -42,58 +69,6 @@ The node limit is included in the license key in the NodeLimit node.
 
 If you do not have that node in your license key then you are limited to a single node.  If you recently purchased a license key and it is missing that node then reach out to [sales@octopus.com](mailto:sales@octopus.com).
 
-## How High Availablity works
+## Implementing High Availability
 
-In broad terms, HA allows for load to be distributed between multiple Octopus Server nodes.  How that load is distributed, specifically tasks, is more complex than "it's load balanced."
-
-Learn more in our [How High Availability Works](/docs/administration/high-availability/how-high-availability-works) section.
-
-## Designing Octopus High Availability
-
-There are several ways to configure High Availability for Octopus and this differs based on both how and where you host Octopus. We have created guides that will help you design the best solution for your installation. 
-
-This section walks through the different options and considerations for setting up Octopus and how you can incorporate each of the components, making them highly-available, whether you're using Windows Servers or running the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container) in Kubernetes, hosted on-premises or in the Cloud.
-
-- [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises)
-- [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure)
-- [Designing Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws)
-- [Designing Octopus for High Availability in GCP](/docs/administration/high-availability/design/octopus-for-high-availability-on-gcp)
-- [Designing Octopus for High Availability in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes)
-
-## Configuring Octopus High Availability
-
-When you have selected the approach you will use for Octopus High Availability and provisioned your infrastructure, the next step is to configure it. This section includes guides on configuring Octopus for High Availability with and without Active Directory:
-
-- [Configuring High Availability: with Active Directory](/docs/administration/high-availability/configure/octopus-with-active-directory)
-- [Configuring High Availability: without Active Directory](/docs/administration/high-availability/configure/octopus-without-active-directory)
-
-## Migrating to High Availability
-
-Most organizations start with a stand-alone Octopus installation as part of a Proof of Concept. We make it straight-forward to take your existing Octopus installation and migrate it to a highly-available configuration.
-
-Learn more in our [Migrating to High Availability](/docs/administration/high-availability/migrate) section.
-
-## Maintaining High Availability nodes
-
-One great benefit of Octopus High Availability is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments. 
-
-This section contains useful information on how to maintain the nodes in your Octopus High Availability cluster, along with specific things to know when running an Octopus High Availability instance:
-
-- [Maintaining High Availability nodes](/docs/administration/high-availability/maintain/maintain-high-availability-nodes)
-- [Polling Tentacles with Octopus High Availability](/docs/administration/high-availability/maintain/polling-tentacles-with-ha)
-
-## Load balancing
-
-There are plenty of options when it comes to choosing a load balancer to direct user traffic between each of the Octopus Server nodes. You can also use Apache or NGINX as a reverse load-balancing proxy. For more information on setting up a load balancer with Octopus High Availability we have the following guides:
-
-- [Configure Netscaler](/docs/administration/high-availability/load-balancing/configuring-netscaler)
-- [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy)
-- [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy)
-
-## Auditing
-
-From **Octopus 2023.1**, audit events include the IP address of the client that initiated the request. As High Availability redirects user traffic through a load balancer, the default value of the IP address in audit events will be the IP address of the load balancer rather than the client's IP address. See [IP address forwarding](/docs/security/users-and-teams/auditing/#ip-address-forwarding) for configuring trusted proxies in Octopus.
-
-## Troubleshooting
-
-If you're running into issues with your Octopus High Availability then please use our [Troubleshooting High Availability](/docs/administration/high-availability/troubleshooting) guide.
+Please see our [implementation guide](/docs/best-practices/self-hosted/high-availability) for step by step instructions on how to install and implement high availability.
