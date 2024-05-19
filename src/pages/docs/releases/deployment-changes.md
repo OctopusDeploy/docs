@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-09
+modDate: 2024-05-20
 title: Deployment changes
 description: Summarize the changes in a deployment
 navOrder: 130
@@ -17,14 +17,14 @@ Deployment changes summarize these changes by rolling up the [release notes](/do
 
 ## Versioning and pre-releases  {#Versioning}
 
-[Pre-release versions](/docs/packaging-applications/create-packages/versioning/#semver) are handled differently to other versions for release changes and deployment changes. Deployments of a pre-release will only ever include changes for that single version; they do not accumulate across versions like other scenarios.
+[Pre-release versions](/docs/packaging-applications/create-packages/versioning/#semver) are handled differently to other versions for release changes and deployment changes. Deployments of a pre-release will only ever include changes for that single version; they don't accumulate across versions like other scenarios.
 
-This is because in some scenarios different pre-release versions could be getting deployed to an environment where they co-exist. As an example, consider deployments for an application installer or a NuGet package. You could have multiple branched versions of these co-existing in an environment at any given point, so the accumulation of work across releases has to be treated differently.
+This is because in some scenarios, different pre-release versions could be deployed to an environment where they coexist. Consider deployments for an application installer or a NuGet package. Mltiple branched versions of these could coexist in an environment at any given point, so the accumulation of work across releases has to be treated differently.
 
 Octopus treats pre-releases as a *work in progress* that will fall under the banner of *full* release when they are completed/merged. At that point, the changes are then considered for accumulation across the *full* versions.
 
 :::div{.hint}
-We strongly recommend using pre-release versions for releases that are not intended to be a production release (e.g. a release of a development branch build). Since Octopus treats every release that is not a pre-release version as a full release, this can result in unintended duplication of release and deployment changes.
+We strongly recommend using pre-release versions for releases that aren't intended to be a production release (e.g. a release of a development branch build). Since Octopus treats every release that isn't a pre-release version as a full release, this can result in unintended duplication of release and deployment changes.
 :::
 
 ## Deployment change variables
