@@ -15,7 +15,7 @@ Deployment changes summarize these changes by rolling up the [release notes](/do
 ![Deployment changes](/docs/releases/images/deployment-notes.png)
 :::
 
-## Versioning and pre-releases  {#Versioning}
+## Versioning and pre-releases {#versioning}
 
 [Pre-release versions](/docs/packaging-applications/create-packages/versioning/#semver) are handled differently to other versions for release changes and deployment changes. Deployments of a pre-release will only ever include changes for that single version; they don't accumulate across versions like other scenarios.
 

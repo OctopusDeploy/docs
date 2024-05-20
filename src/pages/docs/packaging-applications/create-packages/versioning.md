@@ -9,7 +9,7 @@ navOrder: 10
 
 The [Package ID](/docs/packaging-applications/#package-id), version number, and [package format](/docs/packaging-applications/#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/#supported-formats), [releases](/docs/releases/), and [channels](/docs/releases/channels), which will help you design a versioning scheme that suits your needs.
 
-## Choosing a versioning scheme {#VersioningInOctopusDeploy-ChoosingAVersioningScheme}
+## Choosing a versioning scheme {#choose-version-scheme}
 
 The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](#semver) for your applications, unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds), in which case, you need to use [Maven Versions](#maven).
 
@@ -54,7 +54,7 @@ If you are using [deployment changes](/docs/releases/deployment-changes), note t
 
 Learn more about Semantic Version at [semver.org](http://semver.org/).
 
-### How Octopus Deploy treats semantic versions {#VersioningInOctopusDeploy-HowOctopusDeployTreatsVersions}
+### How Octopus Deploy treats semantic versions {#semantic-version-treatment}
 
 Octopus uses a string-based approach to version numbers. These are the decisions we made on handling versions:
 
