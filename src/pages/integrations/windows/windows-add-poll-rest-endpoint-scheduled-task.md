@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-07-17
-title: 'Windows - Add poll rest endpoint scheduled task'
+title: >-
+    Windows - Add poll rest endpoint scheduled task
 description: >-
     Adds a scheduled task that polls a specified endpoint at a specific interval using the provided HTTP method
 navMenu: false

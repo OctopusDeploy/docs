@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-08-11
-title: 'ASP.NET Core Set Environment Variables Via IIS Config'
+title: >-
+    ASP.NET Core Set Environment Variables Via IIS Config
 description: >-
     Set environment variables in IIS config (no web.config)
 navMenu: false

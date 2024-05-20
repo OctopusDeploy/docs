@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-03-16
-title: 'Event Tracing - Register an ETW manifest'
+title: >-
+    Event Tracing - Register an ETW manifest
 description: >-
     Registers an ETW manifest
 navMenu: false

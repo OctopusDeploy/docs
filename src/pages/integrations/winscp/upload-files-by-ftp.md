@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-07-05
-title: 'Upload files by FTP'
+title: >-
+    Upload files by FTP
 description: >-
     Upload files to a remote server via File Transfer Protocol (SFTP or FTP) using WinSCP.  This step template requires the [WinSCP .NET Assembly](http://winscp.net/eng/docs/library#downloading_and_installing_the_assembly) to be installed on the server running the deployment.  # Notes on usage  You will need to have a "Deploy a Package" step before this step to supply the files to deploy. You can have this all happen on your Octopus Server rather than one of your web servers by following the steps at [Deploying Packages to your Octopus Server](https://octopus.com/docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server#deploying-packages-to-your-octopus-server).  ## Cleaning up deployments  If you aren't deploying to an application host and don't want the deployment files to persist on the tentacle irrespective of the life cycle retention policy ensure that you set the "Delete Previous Deployment" to `true` and they will be removed.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2019-10-18
-title: 'Run Entity Framework migrations (Update-Database)'
+title: >-
+    Run Entity Framework migrations (Update-Database)
 description: >-
     Runs `Update-Database` to update the database to the latest Entity Framework migrations
 navMenu: false

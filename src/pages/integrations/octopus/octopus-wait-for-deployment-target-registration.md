@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-09-03
-title: 'Octopus - Wait for Deployment Target registration'
+title: >-
+    Octopus - Wait for Deployment Target registration
 description: >-
     This step will poll Octopus Deploy until it detects that the expected Deployment Target has been registered.  The goal being that a deployment will be paused until the expected Deployment Target is available (eg [Transient Targets](https://octopus.com/docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets)). On subsequent deploys, the Deployment Target would quickly be identified as registered, and the deployment would continue as expected.  With a couple of extra step templates you can: - Create a new EC2 Instance (_AWS - Launch EC2 Instance_) - Include the new Deployment Target in subsequent deployment steps (_Health Check_)
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-03-01
-title: 'Datadog - Schedule Downtime'
+title: >-
+    Datadog - Schedule Downtime
 description: >-
     Datadog is cloud monitoring service which allows you to push arbitrary events into via an api. This task allows you to schedule a downtime event to prevent error alerts during a deployment.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2019-03-21
-title: 'Run Oracle SQLPlus Script'
+title: >-
+    Run Oracle SQLPlus Script
 description: >-
     This step will run a script file on an Oracle database using SQLPlus.  This script assumes you have SQLPlus installed and a TNS entry for the database you wish to connect to.
 navMenu: false

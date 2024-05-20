@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-10-16
-title: 'Chef - Run Cookbook'
+title: >-
+    Chef - Run Cookbook
 description: >-
     Runs a chef cookbook using chef-client.
 navMenu: false

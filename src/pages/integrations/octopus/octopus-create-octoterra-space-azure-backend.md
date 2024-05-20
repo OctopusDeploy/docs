@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-12-20
-title: 'Octopus - Create Octoterra Space (Azure Backend)'
+title: >-
+    Octopus - Create Octoterra Space (Azure Backend)
 description: >-
     This step exposes the fields required to create the initial blank space serialized with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport) using Terraform. The new space is then populated using the `Octopus - Populate Octoterra Space (Azure Backend)` step.  This step configures a Terraform Azure backend.  It is recommended that this step be run with the `octopuslabs/terraform-workertools` worker image.
 navMenu: false

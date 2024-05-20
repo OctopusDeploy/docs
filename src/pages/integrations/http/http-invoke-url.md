@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-08-31
-title: 'HTTP - Invoke URL'
+title: >-
+    HTTP - Invoke URL
 description: >-
     Invoke HTTP Get request using provided url. Doesn't throw exception when request fails.
 navMenu: false

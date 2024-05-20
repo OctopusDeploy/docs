@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-08-20
-title: 'File System - Clean Directory'
+title: >-
+    File System - Clean Directory
 description: >-
     Clean out unwanted files from the installation directory after a deployment.
 navMenu: false

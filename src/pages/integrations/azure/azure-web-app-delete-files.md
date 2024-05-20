@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-08-17
-title: 'Azure Web App - Delete Files'
+title: >-
+    Azure Web App - Delete Files
 description: >-
     Provides the ability to delete files and folders from an Azure Web App through the kudu API.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-04-30
-title: 'Run MSTests'
+title: >-
+    Run MSTests
 description: >-
     This Step template should be used for running MSTests by passing list of assemblies.
 navMenu: false

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'azure'
+title: >-
+    azure
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-05-19
-title: 'Windows - Add Users to Local Groups'
+title: >-
+    Windows - Add Users to Local Groups
 description: >-
     Add a list of users to a list of Local Groups
 navMenu: false

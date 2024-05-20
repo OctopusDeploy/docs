@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-04-10
-title: 'IIS Application - Create'
+title: >-
+    IIS Application - Create
 description: >-
     Create an IIS virtual application (a virtual directory with an application pool)
 navMenu: false

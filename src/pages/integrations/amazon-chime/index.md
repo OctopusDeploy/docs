@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'amazon chime'
+title: >-
+    amazon chime
 navMenu: false
 # Set to true when launched
 navSitemap: false

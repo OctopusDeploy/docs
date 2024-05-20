@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-05-25
-title: 'SQL - Query Octopus Database for Fragmentation'
+title: >-
+    SQL - Query Octopus Database for Fragmentation
 description: >-
     This step template will run a fragmentation query on your Octopus database and report the results of the tables.  If you would like to set this up as a scheduled runbook and get the results in an email, please follow these instructions: 1) Create a Send an Email step after this step in your process 2) Set the body type of that email to HTML, and the body to#{Octopus.Action[STEPNAMEHERE].Output.EmailData}  3) Set the Run Condition of that Send an Email step to Variable, and the value to #{if Octopus.Action[STEPNAMEHERE].Output.Alert== "True"}True#{/if}. If you don't do this, you will receive an email regardless of if the threshold was hit.'
 navMenu: false

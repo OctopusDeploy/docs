@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-11-26
-title: 'RavenDB - Delete Database'
+title: >-
+    RavenDB - Delete Database
 description: >-
     Used to delete a database from a server, with a possibility to remove all the data from hard drive.
 navMenu: false

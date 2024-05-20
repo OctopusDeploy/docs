@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-04-08
-title: 'Azure Web App - Rolling Restart'
+title: >-
+    Azure Web App - Rolling Restart
 description: >-
     Performs a delayed rolling restart of all instances within an Azure Web App <hr />  *<p>Note This template is designed to run against an azure web app octopus target </p>* *<p>Depends on Azure CLI and powershell to be installed on the running machine</p>*
 navMenu: false

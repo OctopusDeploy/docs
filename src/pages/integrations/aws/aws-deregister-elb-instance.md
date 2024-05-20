@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-04-30
-title: 'AWS - Deregister ELB Instance'
+title: >-
+    AWS - Deregister ELB Instance
 description: >-
     Removes the current instance from the ELB
 navMenu: false

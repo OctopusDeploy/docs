@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
-title: 'Redgate - Deploy from Database Release'
+title: >-
+    Redgate - Deploy from Database Release
 description: >-
     Uses the deployment resources from the 'Redgate - Create Database Release' step to deploy the database changes using Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage).  Requires SQL Change Automation version 3.0.2 or later.  *Version date: 2020-12-21*
 navMenu: false

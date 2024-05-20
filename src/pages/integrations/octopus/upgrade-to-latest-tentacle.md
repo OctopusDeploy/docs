@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-11-21
-title: 'Upgrade To Latest Tentacle'
+title: >-
+    Upgrade To Latest Tentacle
 description: >-
     Upgrades a list of machines to the latest version of Tentacle. Machines can be targeted by Environment and/or Role or Machine Name.  This needs to be run directly on a worker or the octopus server itself.
 navMenu: false

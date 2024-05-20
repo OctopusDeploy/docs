@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-07-20
-title: 'Mulesoft - Deploy to Cloudhub'
+title: >-
+    Mulesoft - Deploy to Cloudhub
 description: >-
     Deploys a Mulesoft API to Cloudhub
 navMenu: false

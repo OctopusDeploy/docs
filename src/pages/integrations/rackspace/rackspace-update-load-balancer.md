@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
-title: 'Rackspace - Update Load Balancer'
+title: >-
+    Rackspace - Update Load Balancer
 description: >-
     Change the condition of a node in a Rackspace Cloud Load Balancer.
 navMenu: false

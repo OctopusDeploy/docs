@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-02-28
-title: 'GitHub - Create Release'
+title: >-
+    GitHub - Create Release
 description: >-
     Create a release for a Github Repository.
 navMenu: false

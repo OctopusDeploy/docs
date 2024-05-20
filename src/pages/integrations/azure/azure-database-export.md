@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-06-23
-title: 'Azure Database - Export'
+title: >-
+    Azure Database - Export
 description: >-
     Exports a database to a bacpac  *Depends on az cli*  *Source database requires 'Allow Azure services and resources to access this server' option turn on in the SQL server firewall*
 navMenu: false

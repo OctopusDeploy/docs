@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-06-01
-title: 'SQL - Deploy DACPAC using SqlPackage'
+title: >-
+    SQL - Deploy DACPAC using SqlPackage
 description: >-
     Calls SqlPackage commands such as:  * [Deploy](https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-publish?view=sql-server-ver16)  * [Script](https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-script?view=sql-server-ver16)  * [DeployReport](https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-deploy-drift-report?view=sql-server-ver16)  As SqlPackage is cross-platform, this template is both Windows and Linux* compatible.  Results of `Deploy script` and `deploy report` options will upload to Octopus Deploy as an artifact. This allows you to put in place a manual intervention step if required. It is also useful for auditing purposes.  SqlCmd variables are now supported.  To specify SqlCmd variables, create your Octopus variable with the following naming convention: SqlCmdVariable.<Variable name> (case insensitive) and then assign it a value.  Examples: * SqlCmdVariable.Variable1 * my.sqlcmdvariable.variable2  NOTE:   - Requires version 2019.10 or above.   - `TrustServerCertificate=true` is set by default  - Requires PowerShell or *PowerShell Core
 navMenu: false

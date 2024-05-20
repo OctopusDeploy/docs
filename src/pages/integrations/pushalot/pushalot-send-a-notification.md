@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-01-31
-title: 'Pushalot - Send a notification'
+title: >-
+    Pushalot - Send a notification
 description: >-
     Sends a notification using the Pushalot REST API.
 navMenu: false

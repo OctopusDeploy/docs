@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-05-19
-title: 'Install Docker on Windows Server'
+title: >-
+    Install Docker on Windows Server
 description: >-
     Automates the steps from [here](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server#install-docker).  This step reboots the machine.
 navMenu: false

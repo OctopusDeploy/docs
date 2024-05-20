@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-09-20
-title: 'IIS Website AppFabric Application - Start'
+title: >-
+    IIS Website AppFabric Application - Start
 description: >-
     Starts an AppFabric application in IIS.
 navMenu: false

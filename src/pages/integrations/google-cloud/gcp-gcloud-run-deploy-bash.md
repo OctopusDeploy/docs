@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-03-17
-title: 'GCP - gcloud run deploy (bash)'
+title: >-
+    GCP - gcloud run deploy (bash)
 description: >-
     [gcloud run deploy](https://cloud.google.com/sdk/gcloud/reference/run/deploy) - deploy a container to Cloud Run
 navMenu: false

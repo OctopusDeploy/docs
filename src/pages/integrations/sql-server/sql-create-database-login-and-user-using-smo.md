@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-08-30
-title: 'SQL - Create Database Login and User using SMO'
+title: >-
+    SQL - Create Database Login and User using SMO
 description: >-
     Requires SMO to be installed on the machine where this step will be run.
 navMenu: false

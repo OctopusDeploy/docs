@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-06-15
-title: 'File System - rclone (bash)'
+title: >-
+    File System - rclone (bash)
 description: >-
     Runs [rclone](https://rclone.org/) on a target or worker.
 navMenu: false

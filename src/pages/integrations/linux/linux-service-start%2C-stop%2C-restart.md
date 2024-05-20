@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-03-04
-title: 'Linux Service - Start, Stop, Restart'
+title: >-
+    Linux Service - Start, Stop, Restart
 description: >-
     
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-09-25
-title: 'Deploy SSAS from Package'
+title: >-
+    Deploy SSAS from Package
 description: >-
     Deploys SSAS packages using Microsoft.AnalysisServices.Deployment.exe.
 navMenu: false

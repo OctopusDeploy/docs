@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'ghost inspector'
+title: >-
+    ghost inspector
 navMenu: false
 # Set to true when launched
 navSitemap: false

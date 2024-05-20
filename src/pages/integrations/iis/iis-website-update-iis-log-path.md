@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-05-05
-title: 'IIS Website - Update IIS Log Path'
+title: >-
+    IIS Website - Update IIS Log Path
 description: >-
     Updates the IIS Log Path if needed.
 navMenu: false

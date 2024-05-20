@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-02-06
-title: 'AWS - Create Cloud Formation Stack'
+title: >-
+    AWS - Create Cloud Formation Stack
 description: >-
     Creates a [Amazon Cloud Formation Stack](#http://docs.aws.amazon.com/powershell/latest/reference/items/New-CFNStack.html) with the template specified.  - Requires the [AWS PowerShell cmdlets](http://aws.amazon.com/powershell/)
 navMenu: false

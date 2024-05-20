@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-10-26
-title: 'StatusPage.io - Update Scheduled Maintenance Incident'
+title: >-
+    StatusPage.io - Update Scheduled Maintenance Incident
 description: >-
     Updates an existing scheduled maintenance incident on StatusPage.io
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-10-09
-title: 'SharePoint Solution Deployment'
+title: >-
+    SharePoint Solution Deployment
 description: >-
     SharePoint Solution Deployment for 2010 & 2013.
 navMenu: false

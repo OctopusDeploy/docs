@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'microsoft teams'
+title: >-
+    microsoft teams
 navMenu: false
 # Set to true when launched
 navSitemap: false

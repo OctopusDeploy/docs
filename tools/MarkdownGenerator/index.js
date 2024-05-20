@@ -5,7 +5,8 @@ const scriptBlock = '```';
 
 return `---
 layout: src/layouts/Default.astro
-title: '${name}'
+title: >-
+    ${name}
 navMenu: false
 # Set to true when launched
 navSitemap: false

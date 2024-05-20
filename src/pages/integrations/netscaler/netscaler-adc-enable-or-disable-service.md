@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-01-29
-title: 'NetScaler ADC - Enable or Disable Service'
+title: >-
+    NetScaler ADC - Enable or Disable Service
 description: >-
     Enables or disables a load balancing service i Citrix NetScaler ADC. For documentation, see https://github.com/jnus/NetScalerPSLib 
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-09-16
-title: 'Windows Service - Set Startup Type'
+title: >-
+    Windows Service - Set Startup Type
 description: >-
     Sets the Startup Type of a Windows Service
 navMenu: false

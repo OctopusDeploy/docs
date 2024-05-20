@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-03-15
-title: 'StatusCake Maintenance Window'
+title: >-
+    StatusCake Maintenance Window
 description: >-
     Creates a maintenance window in Status Cake for a given set of tests.
 navMenu: false

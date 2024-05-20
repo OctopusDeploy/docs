@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-04-13
-title: 'Delete Resource Group If Exists (AZ Module)'
+title: >-
+    Delete Resource Group If Exists (AZ Module)
 description: >-
     This step uses the new `az` modules to delete a resource group if it exist.    Requires `Octopus Deploy 2020.1` or later.  Requires a worker with the `az` module installed on it.  That module is not bundled with Octopus Deploy.
 navMenu: false

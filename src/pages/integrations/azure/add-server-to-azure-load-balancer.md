@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-06-22
-title: 'Add Server to Azure Load Balancer'
+title: >-
+    Add Server to Azure Load Balancer
 description: >-
     Uses Service Principal to Add Server to Azure Load Balancer.
 navMenu: false

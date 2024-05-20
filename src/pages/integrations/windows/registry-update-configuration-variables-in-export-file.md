@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-07-02
-title: 'Registry - Update Configuration Variables In Export File'
+title: >-
+    Registry - Update Configuration Variables In Export File
 description: >-
     Replace values in a .reg file (Registry Export) automatically with octopus variables.
 navMenu: false

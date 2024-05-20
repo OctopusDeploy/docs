@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-08-25
-title: 'IIS Virtual Directory - Create'
+title: >-
+    IIS Virtual Directory - Create
 description: >-
     Create an IIS virtual directory.
 navMenu: false

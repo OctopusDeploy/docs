@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-07-25
-title: 'SQL - Execute SQL Script Files'
+title: >-
+    SQL - Execute SQL Script Files
 description: >-
     Executes SQL script file(s) against the specified database using the `SQLServer` Powershell Module.  This template includes an `Authentication` selector and supports SQL Authentication, Windows Authentication, and Azure Managed Identity.  Note: If the `SqlServer` PowerShell module is not present, the template will download a temporary copy to perform the task.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-02-09
-title: 'Azure Linux - Install Octopus Tentacle'
+title: >-
+    Azure Linux - Install Octopus Tentacle
 description: >-
     This step template will install the latest tentacle on an Azure hosted, Linux virtual machine. This will also open the firewall for inbound traffic on port 10933 on the NSG. <hr /> *Note: Expects the Azure CLI and Powershell to be installed on the worker running this task*<br /> *Note: Requires dotnet core to be pre-installed on the target machine* <br /> *Note: Firewall ports will not be opened on the remote machine*
 navMenu: false

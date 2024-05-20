@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-05-03
-title: 'Cassandra - Create database if not exists'
+title: >-
+    Cassandra - Create database if not exists
 description: >-
     This template creates a keyspace on a Cassandra server if it doesn't already exist.  **Note** this template is written in Python and requires that `pip` is installed to function correctly.,
 navMenu: false

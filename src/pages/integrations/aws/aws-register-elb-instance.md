@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-04-30
-title: 'AWS - Register ELB Instance'
+title: >-
+    AWS - Register ELB Instance
 description: >-
     Registers an instance with an ELB
 navMenu: false

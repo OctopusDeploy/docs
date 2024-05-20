@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-01-23
-title: 'Set Umbraco 7 Folder Permissions'
+title: >-
+    Set Umbraco 7 Folder Permissions
 description: >-
     To ensure a stable and smoothly running umbraco installation, these permissions need to be set correctly.  These permissions should be set before or during the insallation of umbraco. The user with the permissions set are the user used by the Application Pool used by the IIS website (usually Network Service or the IIS_IUSRS group). If in doubt, ask your server admin / hosting company  [Umbraco Wiki Article](http://our.umbraco.org/wiki/reference/files-and-folders/permissions) 
 navMenu: false

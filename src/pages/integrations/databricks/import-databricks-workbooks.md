@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-10-05
-title: 'Import Databricks Workbooks'
+title: >-
+    Import Databricks Workbooks
 description: >-
     Import Databricks workbooks (current supported files `.ipynb` and `.scala`) to a databricks instance
 navMenu: false

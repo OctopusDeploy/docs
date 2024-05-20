@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
-title: 'Solarwinds - Manage'
+title: >-
+    Solarwinds - Manage
 description: >-
     Start monitoring for a Solarwinds node, application or both
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-01-25
-title: 'Redgate - Deploy from Package (Worker Friendly)'
+title: >-
+    Redgate - Deploy from Package (Worker Friendly)
 description: >-
     Uses Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage) to deploy a package containing a database schema to a SQL Server database, without a review step.  Requires SQL Change Automation version 3.0.2 or later.  *Version date: 2022-01-24*  This step template is worker friendly, you can pass in a package reference rather than having to reference a previous step which downloaded the package. This step requires Octopus Deploy **2019.10.0** or higher.  **NOTE**: This template requires the SQLCMD utility, if not found, the template will install the following:   - Visual Studio 2017 C++ Redistributable   - SQL Server 2017 ODBC driver   - SQLCMD utility
 navMenu: false

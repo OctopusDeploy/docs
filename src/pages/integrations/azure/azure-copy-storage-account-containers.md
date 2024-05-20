@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-05-12
-title: 'Azure - Copy Storage Account Containers'
+title: >-
+    Azure - Copy Storage Account Containers
 description: >-
     Copy blobs between specified containers across two different storage accounts
 navMenu: false

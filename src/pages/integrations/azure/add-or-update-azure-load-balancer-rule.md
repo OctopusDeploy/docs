@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-05-04
-title: 'Add or update Azure Load balancer Rule'
+title: >-
+    Add or update Azure Load balancer Rule
 description: >-
     Create a new azure load balancer rule. With the default frontend ip configuration and default backend address pool.
 navMenu: false

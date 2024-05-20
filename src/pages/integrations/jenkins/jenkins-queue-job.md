@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-09-14
-title: 'Jenkins - Queue Job'
+title: >-
+    Jenkins - Queue Job
 description: >-
     Trigger a job in Jenkins
 navMenu: false

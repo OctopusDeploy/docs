@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
-title: 'Splunk - Forward File'
+title: >-
+    Splunk - Forward File
 description: >-
     Configures splunk forwarding for the specified file. (The splunk forwarder service should be installed on the target server)
 navMenu: false

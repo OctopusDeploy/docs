@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-08-03
-title: 'Unzip'
+title: >-
+    Unzip
 description: >-
     Unzip file
 navMenu: false

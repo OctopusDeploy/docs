@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-10-03
-title: 'Create Azure Resources - RG'
+title: >-
+    Create Azure Resources - RG
 description: >-
     The New-AzureRmResourceGroup cmdlet creates an Azure resource group
 navMenu: false

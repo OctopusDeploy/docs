@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-06-14
-title: 'Postgres - Add Database User To Role'
+title: >-
+    Postgres - Add Database User To Role
 description: >-
     Adds database user to a role.  Note: - AWS EC2 IAM Role authentication requires the AWS CLI be installed.
 navMenu: false

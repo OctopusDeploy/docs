@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-05
-title: 'Windows Service - Restart'
+title: >-
+    Windows Service - Restart
 description: >-
     Restarts a Windows Service.
 navMenu: false

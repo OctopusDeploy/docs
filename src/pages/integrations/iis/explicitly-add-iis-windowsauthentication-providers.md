@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-05-27
-title: 'Explicitly Add IIS WindowsAuthentication Providers'
+title: >-
+    Explicitly Add IIS WindowsAuthentication Providers
 description: >-
     Clears the WindowsAuthentication Providers, and explicitly adds the ones provided.
 navMenu: false

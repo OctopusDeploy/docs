@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-03-29
-title: 'SQL - Change User Mode Using SMO'
+title: >-
+    SQL - Change User Mode Using SMO
 description: >-
     This uses Sql Management Objects to change user access mode.  If the username and password are both empty then it will attempt a trusted connection using integrated security.
 navMenu: false

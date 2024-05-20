@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-02-16
-title: 'Set Octopus release notes from TFS query'
+title: >-
+    Set Octopus release notes from TFS query
 description: >-
     Sets Octopus release notes from TFS query
 navMenu: false

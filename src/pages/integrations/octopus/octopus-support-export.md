@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-06-01
-title: 'Octopus - Support Export'
+title: >-
+    Octopus - Support Export
 description: >-
     This step template will take an already exported project on your server and do the following: - Change all sensitive variables to plain text variables, and the values will become "Sensitive Variable Was Here" - All accounts will have their details nulled out - All certificates will have junk data put into their json  After the above is complete, the modified zip file will be attached to the task that you can download and send to support. Please remember, support will still need the password you used to create the original export, but now there will be no sensitive data available.  NOTE: This step template currently DOES NOT purge any Tenant variables. If you have any Tenants connected to this project with variables you are concerned about sharing, you will need to import the modified zip into a blank space and remove the values, and re-export for now. This functionality will come in a future update to the step template.  **NOTE: This template only works on Octopus Server 2021.1 and above, as it requires project import/export to be available.**
 navMenu: false

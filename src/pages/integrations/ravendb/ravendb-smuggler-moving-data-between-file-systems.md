@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-11-15
-title: 'RavenDB - Smuggler - Moving Data between File Systems'
+title: >-
+    RavenDB - Smuggler - Moving Data between File Systems
 description: >-
     To move data directly between two instances (or different file systems in the same instance) using the between option introduced in Smuggler version 3.
 navMenu: false

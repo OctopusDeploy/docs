@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-05-02
-title: 'Add Service Fabric Cluster Certificate'
+title: >-
+    Add Service Fabric Cluster Certificate
 description: >-
     Add a secondary cluster certificate to a service fabric cluster using an existing azure key vault certificate.
 navMenu: false

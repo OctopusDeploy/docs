@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-11-27
-title: 'Sentry Release Tracking'
+title: >-
+    Sentry Release Tracking
 description: >-
     Posts a new release to Sentry, It can optionaly resolve all previous issues.  If the release already exists, it only applies the resolving.
 navMenu: false

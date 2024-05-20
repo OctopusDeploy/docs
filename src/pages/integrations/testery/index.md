@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'testery'
+title: >-
+    testery
 navMenu: false
 # Set to true when launched
 navSitemap: false

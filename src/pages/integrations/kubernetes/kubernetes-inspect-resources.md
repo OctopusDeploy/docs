@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-04-22
-title: 'Kubernetes - Inspect Resources'
+title: >-
+    Kubernetes - Inspect Resources
 description: >-
     Inspect K8S resources with common actions like get, describe and logs. Optionally create artifacts containing the output.
 navMenu: false

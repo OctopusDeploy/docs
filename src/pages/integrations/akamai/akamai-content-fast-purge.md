@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-07-11
-title: 'Akamai - Content Fast Purge'
+title: >-
+    Akamai - Content Fast Purge
 description: >-
     Allows to purge content using the Content Control Utility (CCU) v3 REST API.
 navMenu: false

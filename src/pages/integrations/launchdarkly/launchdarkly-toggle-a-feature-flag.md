@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-07-09
-title: 'LaunchDarkly - Toggle a feature flag'
+title: >-
+    LaunchDarkly - Toggle a feature flag
 description: >-
     Toggle a LaunchDarkly feature flag on or off 
 navMenu: false

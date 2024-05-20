@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-02-22
-title: 'Uninstall TopShelf service'
+title: >-
+    Uninstall TopShelf service
 description: >-
     This step can be used before unpacking a package with your TopShelf service to stop and remove the previous installation, if there is one.
 navMenu: false

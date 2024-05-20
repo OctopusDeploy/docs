@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-01-21
-title: 'File System - Clean Configuration Transforms'
+title: >-
+    File System - Clean Configuration Transforms
 description: >-
     Clean out configuration transform files from the installation directory after a deployment (e.g. Web.Release.config, YourApp.Production.config, etc.).
 navMenu: false

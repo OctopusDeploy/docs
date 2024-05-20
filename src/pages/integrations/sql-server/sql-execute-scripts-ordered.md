@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-03-20
-title: 'SQL - Execute Scripts Ordered'
+title: >-
+    SQL - Execute Scripts Ordered
 description: >-
     Given a path to a folder containing SQL scripts, this module will execute each script on the database server and catalog provided.  It will execute them in order based on their name.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-08-27
-title: 'Retention Policy'
+title: >-
+    Retention Policy
 description: >-
     Applies retention policy for built-in package repository by specified package id. Useful when you are using variables in PackageId parameter of deploy package step and built-in retention policy for package repository is not deleting packages.
 navMenu: false

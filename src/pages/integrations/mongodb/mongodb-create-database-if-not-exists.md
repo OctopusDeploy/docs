@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-12-02
-title: 'MongoDB - Create Database if not exists'
+title: >-
+    MongoDB - Create Database if not exists
 description: >-
     Creates a new database on a MongoDB server with an initial collection.
 navMenu: false

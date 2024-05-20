@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-04-11
-title: 'Zabbix API maintenance'
+title: >-
+    Zabbix API maintenance
 description: >-
     This step template adds single host on Zabbix maintenance.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-07-22
-title: 'Windows - Apply Windows Updates'
+title: >-
+    Windows - Apply Windows Updates
 description: >-
     Step template to check for and apply Windows Updates with optional automatic reboot.
 navMenu: false

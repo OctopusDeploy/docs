@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-08-16
-title: 'Venafi TPP - Retrieve Certificate Details'
+title: >-
+    Venafi TPP - Retrieve Certificate Details
 description: >-
     This step template will authenticate against a Venafi TPP instance using an existing OAuth access token, and retrieve a certificate's details using its Distinguished Name (DN). This is the absolute path to the certificate in the TPP instance.  This is achieved using the VenafiPS PowerShell module's  [Get-VenafiCertificate](https://venafips.readthedocs.io/en/latest/functions/Get-VenafiCertificate/) function.  You can also store the entire certificate result in `JSON` format in an [Octopus output variable](https://octopus.com/docs/projects/variables/output-variables)  This output variable can then be used in additional deployment or runbook steps.  On successful completion, you can also *optionally* revoke the access token used.  ---  **Required:**  - The `VenafiPS` PowerShell module installed on the deployment target or worker. If the module can't be found, the step will attempt to download a version from the [PowerShell gallery](https://www.powershellgallery.com/packages/VenafiPS).  Notes:  - Tested on Octopus `2021.2`. - Tested with VenafiPS `3.1.5`. - Tested with both Windows PowerShell and PowerShell Core on Linux.
 navMenu: false

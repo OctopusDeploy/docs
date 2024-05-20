@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-11-26
-title: 'RavenDB - Update Properties within a Document'
+title: >-
+    RavenDB - Update Properties within a Document
 description: >-
     Retrieves the specified document by a Raven Query, updates selected variables with values from octopus Variables. Replaces the current document with the newly created document with the updated values. **IMPORTANT**: Any variable that is being updated **MUST** have an Octopus Variable that has exactly the same name (including capitals, any special characters, etc.) prefixed with “Property_”. This is the case of **BOTH** document variables and Metadata variables. I.E. if you wanted TestMode change, you **MUST** have an Octopus Variable named Property_TestMode (same name, and capitals, etc.). 
 navMenu: false

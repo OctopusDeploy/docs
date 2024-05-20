@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-07-11
-title: 'SQL - Delete SQL User'
+title: >-
+    SQL - Delete SQL User
 description: >-
     Deletes a SQL User from the server without using SMO.
 navMenu: false

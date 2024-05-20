@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-02-14
-title: 'IIS AppPool - Set Managed Pipeline Mode'
+title: >-
+    IIS AppPool - Set Managed Pipeline Mode
 description: >-
     Sets an IIS Application Pool's Managed Pipeline Mode. I.E. Classic or Integrated
 navMenu: false

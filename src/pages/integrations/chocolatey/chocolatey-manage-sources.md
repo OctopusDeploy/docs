@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-08-13
-title: 'Chocolatey - Manage Sources'
+title: >-
+    Chocolatey - Manage Sources
 description: >-
     Allows managing Chocolatey Package sources.
 navMenu: false

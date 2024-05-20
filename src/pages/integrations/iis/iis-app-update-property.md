@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-12-03
-title: 'IIS App - Update Property'
+title: >-
+    IIS App - Update Property
 description: >-
     Updates property for specified application
 navMenu: false

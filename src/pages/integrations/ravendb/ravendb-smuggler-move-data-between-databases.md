@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-11-15
-title: 'RavenDB - Smuggler - Move Data Between Databases'
+title: >-
+    RavenDB - Smuggler - Move Data Between Databases
 description: >-
     To move data directly between two instances (or different databases in the same instance) using the between option introduced in Smuggler version 3.
 navMenu: false

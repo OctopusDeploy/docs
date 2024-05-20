@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-24
-title: 'Octopus - Serialize Space to Terraform'
+title: >-
+    Octopus - Serialize Space to Terraform
 description: >-
     Serialize an Octopus space, excluding all projects, as a Terraform module and upload the resulting package to the Octopus built in feed.  This step is expected to be used in conjunction with the [Octopus - Serialize Project to Terraform](https://library.octopus.com/step-templates/e9526501-09d5-490f-ac3f-5079735fe041/actiontemplate-octopus-serialize-project-to-terraform) step. This step will serialize the global space resources, which typically do not change much, and have those resources recreated in a downstream space. The `Octopus - Serialize Project to Terraform` step then serializes a project, using `data` blocks to reference space level resources by name.
 navMenu: false

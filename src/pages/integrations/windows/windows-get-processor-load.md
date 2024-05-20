@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-30
-title: 'Windows - Get Processor Load'
+title: >-
+    Windows - Get Processor Load
 description: >-
     Get processor load from computer.
 navMenu: false

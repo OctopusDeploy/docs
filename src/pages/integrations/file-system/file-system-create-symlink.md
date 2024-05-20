@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-08-26
-title: 'File System - Create Symlink'
+title: >-
+    File System - Create Symlink
 description: >-
     Creates a Symbolic Link
 navMenu: false

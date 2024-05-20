@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
-title: 'Octopus - Check Certficate Expiry'
+title: >-
+    Octopus - Check Certficate Expiry
 description: >-
     Checks for certificates stored in the [Octopus Certificate library](https://octopus.com/docs/deployment-examples/certificates) which are due to expire within N days.  #### Output variable usage  An [Output variable](https://octopus.com/docs/projects/variables/output-variables) named `ExpiringCertificateJson` is created with a JSON array of all of the matching expiring certificates with the following properties:  - Certificate Name - Certificate Thumbprint - Certificate SubjectCommonName - Certificate Issuer - Certificate NotAfter   --- The Output variable can then be used in a subsequent step. Consider a step named `Check Expiring Certs` which uses this step template.   Adding the following PowerShell script to a subsequent step would iterate over the expiring certificates and highlight them in the Octopus Deployment log:  ```powershell  Write-Highlight "Expiring Certificates:" #{each cert in Octopus.Action[Check Expiring Certs].Output.ExpiringCertificateJson} Write-Highlight "- #{cert.Name} (#{cert.Thumbprint}) expires #{cert.NotAfter}" #{/each} ``` **Note:** If the Output variable is empty, this indicates that there were no matching certificates that meet the specified expiry window.  #### Pre-requisites - Access to the Octopus Server from where the script template runs (e.g. deployment target or worker) is required. - An Octopus Server running **2019.1** or greater, as Space support is required.
 navMenu: false

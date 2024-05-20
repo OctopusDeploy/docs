@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-02-23
-title: 'AWS - EC2 - Get Public Hostname'
+title: >-
+    AWS - EC2 - Get Public Hostname
 description: >-
     Gets the public hostname from `http://instance-data/latest/meta-data/public-hostname` on the EC2 instance and stores it in the `Hostname` variable.
 navMenu: false

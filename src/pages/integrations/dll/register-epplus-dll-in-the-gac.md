@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-11-03
-title: 'Register EPPlus DLL in the GAC'
+title: >-
+    Register EPPlus DLL in the GAC
 description: >-
     This script registers EPPlus dll to the GAC
 navMenu: false

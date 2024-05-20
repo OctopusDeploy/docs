@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-03-01
-title: 'IIS Website - Set IP Security'
+title: >-
+    IIS Website - Set IP Security
 description: >-
     Takes a list of ip/mask and allow them in ipsecurity
 navMenu: false

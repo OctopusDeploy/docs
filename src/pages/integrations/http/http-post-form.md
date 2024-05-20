@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-11-13
-title: 'HTTP - Post Form'
+title: >-
+    HTTP - Post Form
 description: >-
     Execute a simple form POST via HTTP. The script will construct a body in "application/x-www-form-urlencoded" format by extracting Octopus variables with a specified prefix (from the "HTTP.PostForm.Prefix" parameter). Variable names and values are encoded accordingly.  For instance, if "HTTP.PostForm.Prefix" is "foo.", then the Octopus variable "foo.Bar"="baz" will be translated to "Bar=baz" in the request body.
 navMenu: false

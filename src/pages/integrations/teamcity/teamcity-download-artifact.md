@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-01-23
-title: 'TeamCity - Download Artifact'
+title: >-
+    TeamCity - Download Artifact
 description: >-
     Downloads the TeamCity artifact from the most recent build of the specified branch.
 navMenu: false

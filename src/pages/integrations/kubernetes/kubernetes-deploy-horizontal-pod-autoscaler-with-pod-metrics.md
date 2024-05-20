@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-07-09
-title: 'Kubernetes - Deploy Horizontal Pod Autoscaler (with pod metrics)'
+title: >-
+    Kubernetes - Deploy Horizontal Pod Autoscaler (with pod metrics)
 description: >-
     Apply a Horizontal Pod Autoscaler monitoring pod metrics to a Kubernetes cluster.
 navMenu: false

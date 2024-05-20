@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
-title: 'Create Tenant'
+title: >-
+    Create Tenant
 description: >-
     Create an Octopus [tenant](https://octopus.com/docs/deployment-patterns/multi-tenant-deployments) with optional tenant tags and project connections.
 navMenu: false

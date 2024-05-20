@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-02-16
-title: 'Worker - Health check'
+title: >-
+    Worker - Health check
 description: >-
     Run a health check against a worker.
 navMenu: false

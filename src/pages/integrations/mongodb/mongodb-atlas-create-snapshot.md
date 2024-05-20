@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-10-03
-title: 'MongoDB Atlas - Create snapshot'
+title: >-
+    MongoDB Atlas - Create snapshot
 description: >-
     Takes one on-demand snapshot for the specified cluster. To use this resource, the requesting API Key must have the Project Atlas Admin role and an entry for the project access list.
 navMenu: false

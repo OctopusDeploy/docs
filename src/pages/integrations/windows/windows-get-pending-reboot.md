@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-30
-title: 'Windows - Get Pending Reboot'
+title: >-
+    Windows - Get Pending Reboot
 description: >-
     Get pending reboot status from computer.
 navMenu: false

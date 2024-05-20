@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-06-02
-title: 'Slack - Send Notification using Block Kit'
+title: >-
+    Slack - Send Notification using Block Kit
 description: >-
     Send a message notification to Slack using the Block Kit formatting. These messages will be limited to more basic formats (e.g., using functions and inputs probably won't work), but you still will be able to make much nicer looking messages this way with the ability to preview them using the [Block Kit Builder](https://app.slack.com/block-kit-builder).
 navMenu: false

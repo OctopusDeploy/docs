@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-09-06
-title: 'elmah.io - Upload Source Map'
+title: >-
+    elmah.io - Upload Source Map
 description: >-
     Step template for uploading a source map and a minified JavaScript file to elmah.io.
 navMenu: false

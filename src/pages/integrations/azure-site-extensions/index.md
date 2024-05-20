@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'azure site extensions'
+title: >-
+    azure site extensions
 navMenu: false
 # Set to true when launched
 navSitemap: false

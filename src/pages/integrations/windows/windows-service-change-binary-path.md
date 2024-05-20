@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-05-04
-title: 'Windows Service - Change binary path'
+title: >-
+    Windows Service - Change binary path
 description: >-
     Change binary path of existing windows service (changes will be effective after service start/stop)
 navMenu: false

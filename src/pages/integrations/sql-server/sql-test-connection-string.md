@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-06-26
-title: 'SQL - Test Connection String'
+title: >-
+    SQL - Test Connection String
 description: >-
     Tests a SQL Server connection string by attempting to connect to the database.
 navMenu: false

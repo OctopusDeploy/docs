@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-03
-title: 'Google Chat - Send message'
+title: >-
+    Google Chat - Send message
 description: >-
     Send a message to a [Google Chat](https://chat.google.com) space using a configured [chat webhook](https://developers.google.com/workspace/chat/quickstart/webhooks#python_2).  Multi-line message content and [basic formatting](https://developers.google.com/workspace/chat/format-messages) are supported.  **Note:** This script is written in python, and is required for this step to function correctly.
 navMenu: false

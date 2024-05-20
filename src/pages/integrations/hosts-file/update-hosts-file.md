@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2019-12-02
-title: 'Update Hosts File'
+title: >-
+    Update Hosts File
 description: >-
     This template will update the value of your HOSTS file to what you define in this step. It will skip all lines that start with "#" (comments), and all other lines will be deleted. Then the values defined in this step will be added. You can define as many entry lines as you want.
 navMenu: false

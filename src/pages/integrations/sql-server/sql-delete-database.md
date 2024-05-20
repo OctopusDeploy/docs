@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-07-11
-title: 'SQL - Delete Database'
+title: >-
+    SQL - Delete Database
 description: >-
     Deletes a database from the server without using SMO.
 navMenu: false

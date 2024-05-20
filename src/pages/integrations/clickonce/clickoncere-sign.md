@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-10-20
-title: 'ClickOnceRe-Sign'
+title: >-
+    ClickOnceRe-Sign
 description: >-
     This Template will help to re-sign the .application and manifest files. Finally add .deploy extenstion to the files
 navMenu: false

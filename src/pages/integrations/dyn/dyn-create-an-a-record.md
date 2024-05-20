@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-11-27
-title: 'Dyn - Create an A Record'
+title: >-
+    Dyn - Create an A Record
 description: >-
     Creates an A record in the specified zone with the specified details.   NOTE: The API User MUST have the follow permissions: 	- UserLogin 	- UserChangepw 	- RecordAdd 	- RecordUpdate         - RecordGet 	- ZoneGet 	- ZoneAddNode 	- ZonePublish 	- ZoneChangeset 
 navMenu: false

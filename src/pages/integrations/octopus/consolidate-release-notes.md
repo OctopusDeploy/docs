@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-03-09
-title: 'Consolidate Release Notes'
+title: >-
+    Consolidate Release Notes
 description: >-
     Consolidates all Release Notes between the last successful release in the current Environment and this one by merging or concatenating them.
 navMenu: false

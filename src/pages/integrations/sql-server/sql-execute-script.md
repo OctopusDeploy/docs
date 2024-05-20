@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-01-21
-title: 'SQL - Execute Script'
+title: >-
+    SQL - Execute Script
 description: >-
     Execute a SQL script
 navMenu: false

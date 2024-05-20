@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2019-03-26
-title: 'JIRA - Update Version Number'
+title: >-
+    JIRA - Update Version Number
 description: >-
     Update version to Jira tickets based on release number being deployed
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-03-25
-title: 'Run Azure DevOps Build Pipeline'
+title: >-
+    Run Azure DevOps Build Pipeline
 description: >-
     Will trigger a build pipeline in Azure DevOps for a specified branch using the [Azure DevOps REST API](https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-6.1).
 navMenu: false

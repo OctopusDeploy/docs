@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-11-23
-title: 'Azure Administer WebJob'
+title: >-
+    Azure Administer WebJob
 description: >-
     Start, Stop, or Delete a WebJob from the Azure Web App
 navMenu: false

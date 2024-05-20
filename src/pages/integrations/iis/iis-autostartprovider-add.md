@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-10-23
-title: 'IIS AutoStartProvider - Add'
+title: >-
+    IIS AutoStartProvider - Add
 description: >-
     Add autostartprovider entry so type can be used to warm up applicaiton. Final changes in applicationHost.config look like that:  <serviceAutoStartProviders>     <add name="ApplicationPreload" type="WebApplication1.ApplicationPreload, WebApplication1" /> </serviceAutoStartProviders>  where name and type are taken from parameters.
 navMenu: false

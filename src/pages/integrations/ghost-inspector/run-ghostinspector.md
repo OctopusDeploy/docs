@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-06-20
-title: 'Run GhostInspector'
+title: >-
+    Run GhostInspector
 description: >-
     Runs GhostInspector smoke tests asynchronously, returning immediately
 navMenu: false

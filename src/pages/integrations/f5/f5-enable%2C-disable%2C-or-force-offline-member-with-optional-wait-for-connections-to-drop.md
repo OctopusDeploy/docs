@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-09-21
-title: 'F5 - Enable, Disable, or Force Offline Member with optional wait for connections to drop'
+title: >-
+    F5 - Enable, Disable, or Force Offline Member with optional wait for connections to drop
 description: >-
     F5 - Enable, Disable, or Force Offline Member with optional wait for connections to drop
 navMenu: false

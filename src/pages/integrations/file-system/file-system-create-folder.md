@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-04-05
-title: 'File System - Create Folder'
+title: >-
+    File System - Create Folder
 description: >-
     Creates a folder structure that is passed in.
 navMenu: false

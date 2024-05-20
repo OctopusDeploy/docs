@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-08-16
-title: 'Venafi TPP - Find Certificate details'
+title: >-
+    Venafi TPP - Find Certificate details
 description: >-
     This step template will authenticate against a Venafi TPP instance using an existing OAuth access token, and find a matching certificate based on the certificate subject common name. This is achieved using a combination of two functions from the VenafiPS PowerShell module:  1. [Find-TppCertificate](https://venafips.readthedocs.io/en/latest/functions/Find-TppCertificate/) function. 2. [Get-VenafiCertificate](https://venafips.readthedocs.io/en/latest/functions/Get-VenafiCertificate/) function.  If multiple certificate matches are found, additional (optional) search criteria can be provided to further filter the results:  - Certificate serial number - Full Issuer Distinguished Name (DN) - Expires before  After any filtering is complete, if multiple matches are found, only the first certificate will be returned, and a warning will be logged that multiple matches were found.  You can also store the entire certificate result in `JSON` format in an [Octopus output variable](https://octopus.com/docs/projects/variables/output-variables)  This output variable can then be used in additional deployment or runbook steps.  On successful completion, you can also *optionally* revoke the access token used.  ---  **Required:**  - The `VenafiPS` PowerShell module installed on the deployment target or worker. If the module can't be found, the step will attempt to download a version from the [PowerShell gallery](https://www.powershellgallery.com/packages/VenafiPS).  Notes:  - Tested on Octopus `2021.2`. - Tested with VenafiPS `3.1.5`. - Tested with both Windows PowerShell and PowerShell Core on Linux.
 navMenu: false

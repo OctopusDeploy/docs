@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'event tracing for windows'
+title: >-
+    event tracing for windows
 navMenu: false
 # Set to true when launched
 navSitemap: false

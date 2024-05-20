@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-01-12
-title: 'Medianova - Purge'
+title: >-
+    Medianova - Purge
 description: >-
     Allows to purge content using Medianova CDN Purge App
 navMenu: false

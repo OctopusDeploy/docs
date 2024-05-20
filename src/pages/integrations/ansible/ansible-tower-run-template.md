@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-09-28
-title: 'Ansible Tower - Run Template'
+title: >-
+    Ansible Tower - Run Template
 description: >-
     Run a workflow or job template in Ansible Tower
 navMenu: false

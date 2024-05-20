@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-06-08
-title: 'Azure Web App - Stop'
+title: >-
+    Azure Web App - Stop
 description: >-
     Stops an azure web app. <hr />  *<p>Note This template is designed to run against an azure web app octopus target </p>* *<p>Depends on Azure CLI and powershell to be installed on the running machine</p>*
 navMenu: false

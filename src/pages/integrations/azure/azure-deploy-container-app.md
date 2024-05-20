@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-07-05
-title: 'Azure - Deploy Container App'
+title: >-
+    Azure - Deploy Container App
 description: >-
     Deploys a container to an Azure Container App Environment
 navMenu: false

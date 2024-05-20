@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-19
-title: 'Windows - Map Network Drive'
+title: >-
+    Windows - Map Network Drive
 description: >-
     Map a network drive.
 navMenu: false

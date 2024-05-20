@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-06-15
-title: 'RoundhousE Database Migrations'
+title: >-
+    RoundhousE Database Migrations
 description: >-
     Database migrations using [RoundhousE](https://github.com/chucknorris/roundhouse). With this template you can either include RoundhousE with your package or use the `Download RoundhousE?` feature to download it at deploy time.  If you're downloading, you can choose the version by specifying it in the `Version of RoundhousE`.  NOTE:   - AWS EC2 IAM Role authentication requires the AWS CLI be installed.  - To run on Linux, the machine must have both PowerShell Core and .NET Core 3.1 installed.  Note - The RoundhousE GitHub Project has been abandoned and as a result this template is now deprecated.  Version 9 will be the last release of this template.
 navMenu: false

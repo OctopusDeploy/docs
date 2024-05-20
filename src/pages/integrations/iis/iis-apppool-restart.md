@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
-title: 'IIS AppPool - Restart'
+title: >-
+    IIS AppPool - Restart
 description: >-
     Starts or Restarts an IIS Application Pool
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-02-25
-title: 'Liquibase - Apply changeset'
+title: >-
+    Liquibase - Apply changeset
 description: >-
     Deploy database updates using Liquibase.  You can include Liquibase in the package itself or choose Download to download it during runtime.  Use the `Report only?` option to output the SQL it will run and upload it as an Artifact.  NOTE: `Report only?` does not work with NoSQL databases such as MongoDB   **This template is now deprecated, please use `Liquibase - Run command`**
 navMenu: false

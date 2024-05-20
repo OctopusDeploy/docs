@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-02-14
-title: 'Testery - Create Test Run'
+title: >-
+    Testery - Create Test Run
 description: >-
     Run tests in the Testery platform. For more information, visit https://testery.io/.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-12-04
-title: 'IIS Application - Set Connect As credential'
+title: >-
+    IIS Application - Set Connect As credential
 description: >-
     Sets the credential for the Connect As of an IIS application
 navMenu: false

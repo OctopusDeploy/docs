@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-11-20
-title: 'SQL - Update Job'
+title: >-
+    SQL - Update Job
 description: >-
     Updates a MS SQL server job with provided ID to be enabled or disabled
 navMenu: false

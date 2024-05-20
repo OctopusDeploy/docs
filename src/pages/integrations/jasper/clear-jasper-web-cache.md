@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-07-09
-title: 'Clear Jasper Web-Cache'
+title: >-
+    Clear Jasper Web-Cache
 description: >-
     Clears the Jasper web cache
 navMenu: false

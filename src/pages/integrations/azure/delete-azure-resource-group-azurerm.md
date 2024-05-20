@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-04-13
-title: 'Delete Azure Resource Group - AzureRM'
+title: >-
+    Delete Azure Resource Group - AzureRM
 description: >-
     Step to delete an Azure Resource Group using the bundled AzureRM cmdlets with Octopus Deploy.  It will first check to see if the resource group exists, and if it does exist, it will delete it.
 navMenu: false

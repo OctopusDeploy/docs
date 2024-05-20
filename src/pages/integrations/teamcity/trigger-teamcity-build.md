@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-03-16
-title: 'Trigger TeamCity Build'
+title: >-
+    Trigger TeamCity Build
 description: >-
     Trigger a specific Team City build from an Octopus Deploy process.
 navMenu: false

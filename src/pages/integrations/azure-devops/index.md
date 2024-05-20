@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'azure devops'
+title: >-
+    azure devops
 navMenu: false
 # Set to true when launched
 navSitemap: false

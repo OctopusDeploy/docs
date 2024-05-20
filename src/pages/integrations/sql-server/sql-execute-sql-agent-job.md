@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-04-06
-title: 'SQL - Execute SQL Agent Job'
+title: >-
+    SQL - Execute SQL Agent Job
 description: >-
     Execute a SQL Agent Job and wait for results.
 navMenu: false

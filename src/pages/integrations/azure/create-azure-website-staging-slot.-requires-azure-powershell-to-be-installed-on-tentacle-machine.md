@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-03-25
-title: 'Create Azure Website Staging Slot. Requires Azure PowerShell to be installed on Tentacle machine'
+title: >-
+    Create Azure Website Staging Slot. Requires Azure PowerShell to be installed on Tentacle machine
 description: >-
     Creates a staging slot for Azure Website.   Provides Azure publish url as variable:       #{Octopus.Action[Create Staging Slot Step Name].Output.AzurePublishUrl}  And Username/Password for publishing:      #{Octopus.Action[Create Staging Slot Step Name].Output.AzureUsername}     #{Octopus.Action[Create Staging Slot Step Name].Output.AzurePassword}
 navMenu: false

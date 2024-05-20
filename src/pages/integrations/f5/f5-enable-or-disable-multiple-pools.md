@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-06-02
-title: 'F5 - Enable or Disable Multiple Pools'
+title: >-
+    F5 - Enable or Disable Multiple Pools
 description: >-
     F5 - Enable, Disable, or Force Offline multiple pools with optional wait for connections to drop
 navMenu: false

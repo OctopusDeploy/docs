@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-02-24
-title: 'SSRS Report Backup'
+title: >-
+    SSRS Report Backup
 description: >-
     Automatically performs a back up of all SSRS reports on an SSRS Server.
 navMenu: false

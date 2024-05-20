@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
-title: 'GitHub - Report Deployment'
+title: >-
+    GitHub - Report Deployment
 description: >-
     Creates or updates a deployment using [GitHub Deployments API](https://developer.github.com/v3/repos/deployments/)
 navMenu: false

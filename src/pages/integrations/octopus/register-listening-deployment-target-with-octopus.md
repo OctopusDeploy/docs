@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-03-17
-title: 'Register Listening Deployment Target with Octopus'
+title: >-
+    Register Listening Deployment Target with Octopus
 description: >-
     Step template to Register an Listening Deployment Target with Octopus Deploy using the API.  Useful when spinning up machines and you want to wait to register until the machine finishes installing all additional software.
 navMenu: false

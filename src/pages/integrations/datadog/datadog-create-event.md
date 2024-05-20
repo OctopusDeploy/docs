@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-07-08
-title: 'Datadog - Create Event'
+title: >-
+    Datadog - Create Event
 description: >-
     Datadog is cloud monitoring service which allows you to push arbitrary events into via an api.  This task allows you to create an event to correlate with other data.
 navMenu: false

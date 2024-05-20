@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-11
-title: 'Octopus - Lookup Space ID'
+title: >-
+    Octopus - Lookup Space ID
 description: >-
     This step queries an Octopus server to return the ID of a named space. The ID is captured in an output variables called `SpaceID`.
 navMenu: false

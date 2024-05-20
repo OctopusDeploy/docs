@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-12-06
-title: 'File System - Restore Directory'
+title: >-
+    File System - Restore Directory
 description: >-
     Restores a folder and it's contents (files and sub-folders).
 navMenu: false

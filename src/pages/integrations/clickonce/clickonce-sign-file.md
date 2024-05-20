@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-04-05
-title: 'ClickOnce - Sign file'
+title: >-
+    ClickOnce - Sign file
 description: >-
     Sign file with given code sign certificate using mage.exe.
 navMenu: false

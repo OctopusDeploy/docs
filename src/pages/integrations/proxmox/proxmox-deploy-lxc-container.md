@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-05-04
-title: 'Proxmox Deploy LXC Container'
+title: >-
+    Proxmox Deploy LXC Container
 description: >-
     Creates a new Proxmox LXC container using the Proxmox API.  Requires a Proxmox [API token](https://pve.proxmox.com/wiki/Proxmox_VE_API#API_Tokens) to authenticate to the Proxmox Server/Cluster
 navMenu: false

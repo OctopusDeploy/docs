@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-08-23
-title: 'Get Azure Web App Publishing Credentials'
+title: >-
+    Get Azure Web App Publishing Credentials
 description: >-
     Gets the publishing credentials for an Azure Web App. They are exported as variables from this step under the names PublishingUsername and PublishingPassword.
 navMenu: false

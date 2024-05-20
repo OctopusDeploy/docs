@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-16
-title: 'New Relic - Complete Deployment'
+title: >-
+    New Relic - Complete Deployment
 description: >-
     Notifies [New Relic](https://newrelic.com) of a deployment. Sends the revision/version number, deployer, etc from the Octopus deployment.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-07-11
-title: 'SQL - Add Database User To Role'
+title: >-
+    SQL - Add Database User To Role
 description: >-
     Adds a database user to a role without using SMO.  Please note: this is NOT for server roles or server users.
 navMenu: false

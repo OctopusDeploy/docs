@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-06-25
-title: 'Azure Web App - Slot Swap'
+title: >-
+    Azure Web App - Slot Swap
 description: >-
     Swaps an azure web app slot. Defaults to the deployment slot defined in the web app target. <hr />  *<p>Note This template is designed to run against an azure web app octopus target </p>* *<p>Depends on Azure CLI and powershell to be installed on the running machine</p>*
 navMenu: false

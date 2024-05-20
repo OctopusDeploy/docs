@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2019-01-31
-title: 'JSON - Merge Files'
+title: >-
+    JSON - Merge Files
 description: >-
     Merge JSON files
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-04-11
-title: 'Application Insights - Annotate Release'
+title: >-
+    Application Insights - Annotate Release
 description: >-
     Marks a release point in Application Insights.
 navMenu: false

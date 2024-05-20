@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-06-15
-title: 'Postgres - Execute SQL'
+title: >-
+    Postgres - Execute SQL
 description: >-
     Creates a Postgres database if it doesn't already exist.  Note: - AWS EC2 IAM Role authentication requires the AWS CLI be installed.
 navMenu: false

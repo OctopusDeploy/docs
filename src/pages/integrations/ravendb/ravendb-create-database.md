@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-11-15
-title: 'RavenDB - Create Database'
+title: >-
+    RavenDB - Create Database
 description: >-
     Used to create a new database on a server
 navMenu: false

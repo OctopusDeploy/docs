@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-09-15
-title: 'Wait until time'
+title: >-
+    Wait until time
 description: >-
     Pauses the process until a given time
 navMenu: false

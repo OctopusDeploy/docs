@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-09-13
-title: 'Block Release Progression'
+title: >-
+    Block Release Progression
 description: >-
     Step template to block the release progression of an Octopus Deploy release so it cannot be promoted beyond the current environment.
 navMenu: false

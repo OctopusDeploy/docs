@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-01-08
-title: 'Configure SPM Client'
+title: >-
+    Configure SPM Client
 description: >-
     This Step Template will Configure the SPM Client for Solr and Zookeeper
 navMenu: false

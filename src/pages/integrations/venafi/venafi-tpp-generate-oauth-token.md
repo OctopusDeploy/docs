@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-07-30
-title: 'Venafi TPP - Generate OAuth Token'
+title: >-
+    Venafi TPP - Generate OAuth Token
 description: >-
     This step template will authenticate against a Venafi TPP instance and generate an OAuth token for specified scope/privileges using the VenafiPS PowerShell module's `New-TppToken` (an alias of the [VdcToken](https://venafips.readthedocs.io/en/latest/functions/New-VdcToken/) function).  The following properties from the resulting OAuth token will be created as [Octopus sensitive variables](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables):  - `access_token` created with the name `AccessToken` - `Expires` created with the name `AccessTokenExpires` in the format `yyyy-MM-ddTHH:mm:ss` - `refresh_token` created with the name `RefreshToken` - `refresh_until` created with the name `RefreshTokenExpires` in the format `yyyy-MM-ddTHH:mm:ss`. *Note: This value can be empty*.  These output variables can be used in additional deployment or runbook steps.  ---  **Required:**  - The `VenafiPS` PowerShell module installed on the deployment target or worker. If the module can't be found, the step will attempt to download a version from the [PowerShell gallery](https://www.powershellgallery.com/packages/VenafiPS).  Notes:  - Tested on Octopus `2021.2`. - Tested with VenafiPS `3.1.5`. - Tested with both Windows PowerShell and PowerShell Core on Linux.
 navMenu: false

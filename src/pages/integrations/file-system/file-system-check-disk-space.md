@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-12-14
-title: 'File System - Check Disk Space'
+title: >-
+    File System - Check Disk Space
 description: >-
     Checks all or specified fixed drives for free space, either as an absolute number (GB) or relative (%). If the available disk space does not meet the minimum requirements, as set in the parameters, as error is thrown.  Author: Jim (Dimitrios) Andrakakis, [dandraka.com](https://dandraka.com)
 navMenu: false

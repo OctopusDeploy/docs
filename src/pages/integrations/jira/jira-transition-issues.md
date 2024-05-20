@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-01-26
-title: 'JIRA - Transition Issues'
+title: >-
+    JIRA - Transition Issues
 description: >-
     Transitions JIRA issues as the code they are associated with gets deployed.
 navMenu: false

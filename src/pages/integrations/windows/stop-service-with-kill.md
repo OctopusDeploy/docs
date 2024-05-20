@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-11-05
-title: 'Stop Service With Kill'
+title: >-
+    Stop Service With Kill
 description: >-
     This steps stops the specified service and in case it does not respond or times out, the service will be killed.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-09-18
-title: 'HashiCorp Vault - AppRole Unwrap Secret ID'
+title: >-
+    HashiCorp Vault - AppRole Unwrap Secret ID
 description: >-
     This step retrieves (and unwraps) a Secret ID for an [AppRole](https://www.vaultproject.io/docs/auth/approle) using a wrapped auth token from a HashiCorp Vault server.  ---  One property from the response will be made available as a [sensitive Output variable](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables):  - `data.secret_id` - This is the unwrapped Secret ID from Vault. The output variable name will be `UnwrappedSecretID`.  This step template makes use of the [Rest API](https://www.vaultproject.io/api-docs/auth/approle#login-with-approle), so no other dependencies are needed.   ---  **Required:**  - The Vault server must be [unsealed](https://www.vaultproject.io/docs/concepts/seal). - The wrapped [auth token](https://www.vaultproject.io/docs/auth/token) used to retrieve the unwrapped Secret ID.   ---  *Optional* - The creation path of the wrapped token. If this parameter value is provided, the step template will perform a [wrapping lookup](https://www.vaultproject.io/api-docs/system/wrapping-lookup) to [validate no malfeasance](https://www.vaultproject.io/docs/concepts/response-wrapping#response-wrapping-token-validation) has occurred. - A Vault [namespace](https://www.vaultproject.io/docs/enterprise/namespaces) to use. Nested namespaces can also be supplied, e.g. `ns1/ns2`. **Note:** This field is only supported on [Vault Enterprise](https://www.hashicorp.com/products/vault).  ---  Notes:  - Tested on Vault Server `1.11.3`. - Tested on both PowerShell Desktop and PowerShell Core. - See the HashiCorp [AppRole patterns documentation](https://learn.hashicorp.com/tutorials/vault/pattern-approle?in=vault/recommended-patterns#vault-returns-a-token) for further information.
 navMenu: false

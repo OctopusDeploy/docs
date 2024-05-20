@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-03-16
-title: 'Proxmox Start LXC Container'
+title: >-
+    Proxmox Start LXC Container
 description: >-
     Starts or Reboots a Proxmox LXC container using the Proxmox API.  Requires a Proxmox [API token](https://pve.proxmox.com/wiki/Proxmox_VE_API#API_Tokens) to authenticate to the Proxmox Server/Cluster
 navMenu: false

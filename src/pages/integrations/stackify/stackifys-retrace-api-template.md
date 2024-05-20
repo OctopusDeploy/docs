@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-01-29
-title: 'Stackify's Retrace API Template'
+title: >-
+    Stackify's Retrace API Template
 description: >-
     Notify Retrace about the status of your deployment via this script.
 navMenu: false

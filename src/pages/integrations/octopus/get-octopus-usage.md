@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-02-07
-title: 'Get Octopus Usage'
+title: >-
+    Get Octopus Usage
 description: >-
     Step template to gather Octopus usage details across spaces. The results will be output to the log and also as a downloadable artifact.  To avoid slowing down your instance, this script will pull back 50 items at a time and count them.  It is designed to run on instances as old as 3.4.  **Required:** An API Key for a user or service account that has read access in every space on the instance.
 navMenu: false

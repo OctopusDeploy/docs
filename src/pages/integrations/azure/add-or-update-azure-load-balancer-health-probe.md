@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-05-04
-title: 'Add or update Azure Load Balancer Health Probe'
+title: >-
+    Add or update Azure Load Balancer Health Probe
 description: >-
     
 navMenu: false

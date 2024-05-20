@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'hosts file'
+title: >-
+    hosts file
 navMenu: false
 # Set to true when launched
 navSitemap: false

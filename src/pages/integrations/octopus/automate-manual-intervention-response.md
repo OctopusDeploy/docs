@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-10-01
-title: 'Automate Manual Intervention Response'
+title: >-
+    Automate Manual Intervention Response
 description: >-
     This template will search for deployments that have been paused due to Manual Intervention or Guided Failure and automate the response.
 navMenu: false

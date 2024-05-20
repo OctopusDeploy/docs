@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-08-11
-title: 'MySQL - Backup Database'
+title: >-
+    MySQL - Backup Database
 description: >-
     Backs up a MySQL database on a windows instance hosting MySQL. 
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-06-07
-title: 'Load WIF Issuer Thumbprint(s)'
+title: >-
+    Load WIF Issuer Thumbprint(s)
 description: >-
     Updates the web/app config files' WIF TrustedIssuer thumbprints based on a realtime metadata request.  Changes are made to the following section: /configuration/system.identityModel/identityConfiguration/issuerNameRegistry/trustedIssuers
 navMenu: false

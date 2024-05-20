@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-06-08
-title: 'Firebase - Deploy'
+title: >-
+    Firebase - Deploy
 description: >-
     Deploys the contents of a package to a Firebase project using the [Firebase CLI deploy command](https://firebase.google.com/docs/cli/#deployment).
 navMenu: false

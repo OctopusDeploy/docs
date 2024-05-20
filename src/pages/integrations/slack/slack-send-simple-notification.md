@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-12-02
-title: 'Slack - Send Simple Notification'
+title: >-
+    Slack - Send Simple Notification
 description: >-
     Send a basic message notification to Slack.
 navMenu: false

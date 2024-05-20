@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-10-25
-title: 'Execute xUnit Tests'
+title: >-
+    Execute xUnit Tests
 description: >-
     Run xUnit tests with dotnet and vstest and some filters.
 navMenu: false

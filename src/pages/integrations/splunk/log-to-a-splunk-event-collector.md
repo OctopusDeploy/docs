@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-05-11
-title: 'Log to a Splunk Event Collector'
+title: >-
+    Log to a Splunk Event Collector
 description: >-
     A step template that logs a given message to the Splunk [Event Collector](http://dev.splunk.com/view/event-collector/SP-CAAAE6M) along with related Octopus Deploy variables.
 navMenu: false

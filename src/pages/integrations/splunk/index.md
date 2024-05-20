@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'splunk'
+title: >-
+    splunk
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-06-22
-title: 'Remove Server from Azure Load Balancer'
+title: >-
+    Remove Server from Azure Load Balancer
 description: >-
     Uses Service Principal to Remove Server From Azure Load Balancer.
 navMenu: false

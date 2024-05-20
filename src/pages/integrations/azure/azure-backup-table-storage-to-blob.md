@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-11-30
-title: 'Azure - Backup Table Storage to Blob'
+title: >-
+    Azure - Backup Table Storage to Blob
 description: >-
     This script allow to backup the specified azure table storage into the specified blob.
 navMenu: false

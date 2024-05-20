@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-10-26
-title: 'File System - Regular Expression Find and Replace (Updated)'
+title: >-
+    File System - Regular Expression Find and Replace (Updated)
 description: >-
     Find and replace text matching a regular expression in one or more files. Now with working $ replacement.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-01-30
-title: 'AWS - Change EC2 Instance State'
+title: >-
+    AWS - Change EC2 Instance State
 description: >-
     This step can Start, Stop or Terminate an EC2 instance.  Works well with the "_AWS - Launch EC2 Instance_" Community Step Template.  [AWS Tools for Windows PowerShell](http://aws.amazon.com/powershell/) must be installed on the Server/Target you plan on running this step template on.
 navMenu: false

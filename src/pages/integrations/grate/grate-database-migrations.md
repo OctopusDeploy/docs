@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-10-17
-title: 'grate Database Migrations'
+title: >-
+    grate Database Migrations
 description: >-
     Database migrations using [grate](https://github.com/erikbra/grate). With this template you can either include grate with your package or use the `Download grate?` feature to download it at deploy time.  If you're downloading, you can choose the version by specifying it in the `Version of grate`.  NOTE:   - AWS EC2 IAM Role authentication requires the AWS CLI be installed.  - To run on Linux, the machine must have both PowerShell Core and .NET Core 3.1 installed.
 navMenu: false

@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'apollo graphql'
+title: >-
+    apollo graphql
 navMenu: false
 # Set to true when launched
 navSitemap: false

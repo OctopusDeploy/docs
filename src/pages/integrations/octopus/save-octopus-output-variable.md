@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-10-21
-title: 'Save Octopus Output Variable'
+title: >-
+    Save Octopus Output Variable
 description: >-
     Saves an [output variable](https://octopus.com/docs/deploying-applications/variables/output-variables) to the given project / library variable set
 navMenu: false

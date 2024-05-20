@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-06-30
-title: 'Azure Web App - Set App Settings'
+title: >-
+    Azure Web App - Set App Settings
 description: >-
     Sets the Azure web app settings of a targeted Azure web app deployment target.  Will use the deployment slot if defined. <hr />  *<p>Note This template is designed to run against an azure web app octopus target</p>* *<p>Depends on Azure CLI and powershell to be installed on the worker</p>*
 navMenu: false

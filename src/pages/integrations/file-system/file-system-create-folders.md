@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-07-02
-title: 'File System - Create Folders'
+title: >-
+    File System - Create Folders
 description: >-
     Ensure/Create multiple folders separated by ;
 navMenu: false

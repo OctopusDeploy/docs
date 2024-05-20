@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-08-12
-title: 'ReleaseNotesHub Pull Trigger'
+title: >-
+    ReleaseNotesHub Pull Trigger
 description: >-
     ReleaseNotesHub is a B2B\B2C SaaS solution that automates the generation and publication of release notes. With ReleaseNotesHub the creation of Release Notes becomes another step within your CI/CD pipeline. ReleaseNotesHub can pull content from many systems including TFS, Azure Devops, GitHub, Jira and Asana.   Use this step to trigger a pull from your Octopus Deploy process. Visit [here](https://support.releasenoteshub.com/article/show/111570-how-to-trigger-a-pull-from-octopus-deploy) for setup guide.   https://www.releasenoteshub.com 
 navMenu: false

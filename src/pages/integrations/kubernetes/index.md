@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'kubernetes'
+title: >-
+    kubernetes
 navMenu: false
 # Set to true when launched
 navSitemap: false

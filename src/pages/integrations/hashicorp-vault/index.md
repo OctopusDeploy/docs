@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'hashicorp vault'
+title: >-
+    hashicorp vault
 navMenu: false
 # Set to true when launched
 navSitemap: false

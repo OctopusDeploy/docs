@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-05-02
-title: 'eksctl - Create Cluster (bash)'
+title: >-
+    eksctl - Create Cluster (bash)
 description: >-
     Uses [eksctl](https://eksctl.io/) to create an EKS cluster and register it as a [kubernetes target](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target) in Octopus.  eksctl must be installed on the worker executing the step.
 navMenu: false

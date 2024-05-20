@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-01-05
-title: 'Amazon Cloudfront Cache Invalidation'
+title: >-
+    Amazon Cloudfront Cache Invalidation
 description: >-
     Invalidate AWS Cloudfront cache. This template uses the AWS CLI tool. ALL step fields need to be populated for this template to work.  AWS CLI needs to be installed on your deployment server for this to work properly: https://aws.amazon.com/cli/
 navMenu: false

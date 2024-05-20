@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-09-18
-title: 'HashiCorp Vault - LDAP Login'
+title: >-
+    HashiCorp Vault - LDAP Login
 description: >-
     This step logs into a HashiCorp Vault server using the [LDAP](https://www.vaultproject.io/docs/auth/ldap) auth method.  The `client_token` from the response will be made available as a sensitive [Output variable](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) named `LDAPAuthToken` for use in other step templates.  This step template makes use of the [Rest API](https://www.vaultproject.io/api/auth/ldap#login-with-ldap-user), so no other dependencies are needed.   **Required:**  - The Vault server must be [unsealed](https://www.vaultproject.io/docs/concepts/seal). - You must supply the full path where the LDAP auth method is mounted. - You must supply both a `Username` and `Password`.  *Optional*: - A Vault [namespace](https://www.vaultproject.io/docs/enterprise/namespaces) to use. Nested namespaces can also be supplied, e.g. `ns1/ns2`. **Note:** This field is only supported on [Vault Enterprise](https://www.hashicorp.com/products/vault) .  Notes:  - Tested on Vault Server `1.11.3`. - Tested on both PowerShell Desktop and PowerShell Core.
 navMenu: false

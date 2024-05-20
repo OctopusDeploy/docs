@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-06-16
-title: 'HTTP - Test URL'
+title: >-
+    HTTP - Test URL
 description: >-
     Makes a GET request to a HTTP(S) end point and verifies that a particular status code and (optional) response is returned within a specified period of time.
 navMenu: false

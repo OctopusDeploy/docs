@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-07-11
-title: 'Akamai - Content Purge'
+title: >-
+    Akamai - Content Purge
 description: >-
     Allows to purge content using the Content Control Utility (CCU) v2 REST API.
 navMenu: false

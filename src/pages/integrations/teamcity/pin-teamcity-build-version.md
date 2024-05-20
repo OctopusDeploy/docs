@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-02-11
-title: 'Pin TeamCity Build Version'
+title: >-
+    Pin TeamCity Build Version
 description: >-
     Try to pin the TeamCity build version. (Requires Octopus version to match TeamCity version)
 navMenu: false

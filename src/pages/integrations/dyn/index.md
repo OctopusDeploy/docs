@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'dyn'
+title: >-
+    dyn
 navMenu: false
 # Set to true when launched
 navSitemap: false

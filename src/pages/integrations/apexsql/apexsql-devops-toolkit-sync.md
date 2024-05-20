@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-08-20
-title: 'ApexSQL DevOps toolkit - Sync'
+title: >-
+    ApexSQL DevOps toolkit - Sync
 description: >-
     The step will compare the database from a deployment package with the target database to create a schema synchronization script deployment resource  [ApexSQL Diff](https://www.apexsql.com/sql-tools-diff.aspx) is required
 navMenu: false

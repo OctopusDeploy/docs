@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-08-31
-title: 'Redis - Install service'
+title: >-
+    Redis - Install service
 description: >-
     Script will make sure that Redis server is installed as a Windows service  - It will start Redis inside package directory - To provide custom config you can prepare your own package (e.g. my-redis-64) or improve this template
 navMenu: false

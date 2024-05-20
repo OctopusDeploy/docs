@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-02-23
-title: 'Chain Deployment'
+title: >-
+    Chain Deployment
 description: >-
     Triggers a deployment of another project in Octopus
 navMenu: false

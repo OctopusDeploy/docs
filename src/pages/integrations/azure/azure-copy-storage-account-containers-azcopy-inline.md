@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-07-24
-title: 'Azure - Copy Storage Account Containers AZCopy Inline'
+title: >-
+    Azure - Copy Storage Account Containers AZCopy Inline
 description: >-
     Copies Storage Account containers, from a source storage account to destination. It copies the containers with the same names.
 navMenu: false

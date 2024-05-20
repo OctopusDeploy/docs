@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-08-31
-title: 'Redis - Uninstall service'
+title: >-
+    Redis - Uninstall service
 description: >-
     This step can be used before unpacking a package with Redis service to stop and remove the previous installation, if there is one.
 navMenu: false

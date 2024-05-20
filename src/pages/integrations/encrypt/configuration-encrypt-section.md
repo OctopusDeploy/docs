@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-12-27
-title: 'Configuration - Encrypt Section'
+title: >-
+    Configuration - Encrypt Section
 description: >-
     Encrypts several configuration sections for the specified file in a given directory.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-03-29
-title: 'Windows Scheduled Task - Create'
+title: >-
+    Windows Scheduled Task - Create
 description: >-
     Create Windows scheduled task. If the task exists it will be torn down and re-added to ensure consistency
 navMenu: false

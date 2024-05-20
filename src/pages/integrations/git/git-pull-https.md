@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
-title: 'Git - Pull (HTTPS)'
+title: >-
+    Git - Pull (HTTPS)
 description: >-
     Gets the latest source for a Git repository.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2019-01-22
-title: 'Azure Website - Load App Settings From File (Geta)'
+title: >-
+    Azure Website - Load App Settings From File (Geta)
 description: >-
     Loads app settings from a json file (e.g. local.settings.json) which is also json-transformed to inject environment-specific values.
 navMenu: false

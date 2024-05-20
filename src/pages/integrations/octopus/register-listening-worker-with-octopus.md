@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-04-13
-title: 'Register Listening Worker with Octopus'
+title: >-
+    Register Listening Worker with Octopus
 description: >-
     Step template to Register an Listening Worker with Octopus Deploy using the API.  Useful for when you need to wait to install additional software and a restart when spinning up a new worker.
 navMenu: false

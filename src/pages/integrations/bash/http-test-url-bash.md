@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-02-17
-title: 'HTTP - Test URL (Bash)'
+title: >-
+    HTTP - Test URL (Bash)
 description: >-
     Makes a GET request to a HTTP(S) end point and verifies that a particular status code is returned within a specified period of time
 navMenu: false

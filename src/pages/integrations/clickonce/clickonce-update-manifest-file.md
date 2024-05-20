@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-04-05
-title: 'ClickOnce - Update manifest file'
+title: >-
+    ClickOnce - Update manifest file
 description: >-
     Update manifest file after changing the configuration files of the ClickOnce application.
 navMenu: false

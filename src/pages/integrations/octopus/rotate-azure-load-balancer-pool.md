@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-11-22
-title: 'Rotate Azure Load Balancer Pool'
+title: >-
+    Rotate Azure Load Balancer Pool
 description: >-
     Updates all rules on an Azure load balancer to point to the next backend pool in a specified list. The current backend pool will be determined and the next pool in a provided list will become the target of all rules. If the current pool doesn't exist in the list, the first pool in the list will be used. This means that a specific pool can be chosen by specifying only a single pool.
 navMenu: false

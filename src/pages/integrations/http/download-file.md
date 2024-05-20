@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-03-07
-title: 'Download file'
+title: >-
+    Download file
 description: >-
     Downloads a file from the internet to the local machine.
 navMenu: false

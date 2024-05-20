@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-07-22
-title: 'Azure DB - Execute SQL '
+title: >-
+    Azure DB - Execute SQL 
 description: >-
     Runs a sql command against an Azure SQL Server database.  Adds a firewall rule to allow the machine executing the step to access the database; the rule is then removed.  *Depends on az cli*  *Depends on sqlserver powershell module *
 navMenu: false

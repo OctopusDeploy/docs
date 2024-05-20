@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-10-03
-title: 'Windows - Ensure Features Installed'
+title: >-
+    Windows - Ensure Features Installed
 description: >-
     Ensures that a set of Windows Features are installed on the system.
 navMenu: false

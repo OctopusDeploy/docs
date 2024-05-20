@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-10-03
-title: 'MongoDB Atlas - Restore cluster from latest snapshot'
+title: >-
+    MongoDB Atlas - Restore cluster from latest snapshot
 description: >-
     Allow the user to restore a cluster from the latest snapshot.
 navMenu: false

@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-07-11
-title: 'SQL - Create Database User If Not Exists'
+title: >-
+    SQL - Create Database User If Not Exists
 description: >-
     Will create a database user using an existing server user if that database user does not exist without using SMO.
 navMenu: false

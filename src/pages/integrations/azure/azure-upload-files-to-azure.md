@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-10-25
-title: 'Azure - Upload Files to Azure'
+title: >-
+    Azure - Upload Files to Azure
 description: >-
     Uploads files and folders to an Azure container from a specified location.  **IMPORTANT:** Azure PowerShell must be installed on the tentacle server for this step to work. This can be downloaded from http://bit.ly/AzurePowershellDownload
 navMenu: false

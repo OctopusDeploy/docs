@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2019-03-19
-title: 'IIS Website - Add Release Number to Response Header'
+title: >-
+    IIS Website - Add Release Number to Response Header
 description: >-
     Adds the Octopus Deploy Release number to the IIS response header. When you browse your site you can look at the response header to verify the build number that is running.
 navMenu: false

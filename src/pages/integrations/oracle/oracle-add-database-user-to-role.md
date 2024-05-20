@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-08-21
-title: 'Oracle - Add Database User To Role'
+title: >-
+    Oracle - Add Database User To Role
 description: >-
     Adds database user to a role
 navMenu: false

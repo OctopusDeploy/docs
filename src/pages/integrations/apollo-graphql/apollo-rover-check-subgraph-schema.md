@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-23
-title: 'Apollo Rover - Check Subgraph Schema'
+title: >-
+    Apollo Rover - Check Subgraph Schema
 description: >-
     Check subgraph schema against Apollo Studio. This should be run before deploying the subgraph service when promoting to higher environments.  The script installs the [Apollo Rover CLI](https://apollographql.com/docs/rover) and runs the `rover subgraph check` command.
 navMenu: false

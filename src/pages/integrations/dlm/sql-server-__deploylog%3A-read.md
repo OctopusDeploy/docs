@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-10-02
-title: 'SQL Server __DeployLog: Read'
+title: >-
+    SQL Server __DeployLog: Read
 description: >-
     To be used with: SQL Server __DeployLog: Update  Requires sqlserver PowerShell module on target machine.  For more information: https://octopus.com/blog/100x-faster-db-deploys
 navMenu: false

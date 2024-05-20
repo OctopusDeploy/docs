@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-02-16
-title: 'Seq - Log Deployment'
+title: >-
+    Seq - Log Deployment
 description: >-
     Post details of the deployment to a [Seq](https://getseq.net) log server. Add this as the last step in a process, and ensure it is set to run always (on success and failure).
 navMenu: false

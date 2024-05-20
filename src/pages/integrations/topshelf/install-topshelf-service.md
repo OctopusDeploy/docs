@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-02-22
-title: 'Install TopShelf service'
+title: >-
+    Install TopShelf service
 description: >-
     
 navMenu: false

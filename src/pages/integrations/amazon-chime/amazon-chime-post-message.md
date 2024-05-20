@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-02-18
-title: 'Amazon Chime - Post Message'
+title: >-
+    Amazon Chime - Post Message
 description: >-
     Posts a message to a Chime chat room using webhooks.
 navMenu: false

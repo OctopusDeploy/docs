@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-07-05
-title: 'Azure - Create Container App Environment'
+title: >-
+    Azure - Create Container App Environment
 description: >-
     Creates a Container App Environment if it doesn't exist.  An output variable called `ManagedEnvironmentId` is created which holds the Id.
 navMenu: false

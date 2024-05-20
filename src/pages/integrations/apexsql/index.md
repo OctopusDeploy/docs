@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'apexsql'
+title: >-
+    apexsql
 navMenu: false
 # Set to true when launched
 navSitemap: false

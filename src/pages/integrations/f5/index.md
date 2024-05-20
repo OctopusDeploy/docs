@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'f5'
+title: >-
+    f5
 navMenu: false
 # Set to true when launched
 navSitemap: false

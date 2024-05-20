@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2015-12-09
-title: 'IIS - Change App Offline'
+title: >-
+    IIS - Change App Offline
 description: >-
     Change the an app_offline file to app_online vice versa to turn the maintenance page on and off.
 navMenu: false

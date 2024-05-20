@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2020-08-10
-title: 'Snowchange - Deploy Scripts'
+title: >-
+    Snowchange - Deploy Scripts
 description: >-
     [Snowchange](https://github.com/jamesweakley/snowchange#overview) is a Python script that applies migration scripts to [Snowflake](https://www.snowflake.com/) systems.  **Dependencies:** This step is a PowerShell script which requires Python (and pip) to run. For the scripts package, ensure scripts follow the [naming convention](https://github.com/jamesweakley/snowchange#script-naming) presribed by SnowChange, which uses the Flyway naming convention.  **Activities:** * Uses pip to update itself and install `wheel` and `snowflake-connector-python`. * If a path to Snowchange.py is not provided, retrieves the latest version of the file from Github. * Generates a process-level environment variable, `SNOWSQL_PWD`, which Snowchange requires in order to function.
 navMenu: false

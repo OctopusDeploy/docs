@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-09-08
-title: 'Slack - Detailed Notification'
+title: >-
+    Slack - Detailed Notification
 description: >-
     Posts deployment status to Slack optionally including additional details (release number, environment name, release notes etc.) as well as error description and link to failure log page.
 navMenu: false

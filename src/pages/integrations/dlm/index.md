@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'dlm'
+title: >-
+    dlm
 navMenu: false
 # Set to true when launched
 navSitemap: false

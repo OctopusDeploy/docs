@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2019-02-06
-title: 'Tag all used ECR images'
+title: >-
+    Tag all used ECR images
 description: >-
     This will apply a tag to all AWS Elastic Container Registry images/packages from the ECR feed that are used in the deployment. That way the lifecycle policies in ECR can be configured to not delete images that are in-use by deployments in various environments.
 navMenu: false

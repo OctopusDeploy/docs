@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-06-22
-title: 'MySQL - Execute Command'
+title: >-
+    MySQL - Execute Command
 description: >-
     Enables ad-hoc command execution on a MySQL server
 navMenu: false

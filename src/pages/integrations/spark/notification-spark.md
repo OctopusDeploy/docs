@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2017-02-24
-title: 'Notification - Spark'
+title: >-
+    Notification - Spark
 description: >-
     Send a message to Spark user or room
 navMenu: false

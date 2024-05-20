@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2022-07-12
-title: 'MariaDB - Create User If Not Exists'
+title: >-
+    MariaDB - Create User If Not Exists
 description: >-
     Creates a new user account on a MariaDB database server
 navMenu: false

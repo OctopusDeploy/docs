@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2018-05-22
-title: 'VictorOps - Create Alert'
+title: >-
+    VictorOps - Create Alert
 description: >-
     Create an alert in VictorOps via the REST integration. See [VictorOps docs](https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/) for details.
 navMenu: false

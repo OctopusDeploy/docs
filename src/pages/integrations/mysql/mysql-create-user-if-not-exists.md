@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-22
-title: 'MySQL - Create User If Not Exists'
+title: >-
+    MySQL - Create User If Not Exists
 description: >-
     Creates a new user account on a MySQL database server
 navMenu: false

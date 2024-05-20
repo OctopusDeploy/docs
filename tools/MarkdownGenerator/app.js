@@ -1,4 +1,5 @@
 import * as fs from 'node:fs/promises';
+import * as home from './home.js';
 import * as index from './index.js';
 import * as detail from './detail.js';
 import { toSlug }  from './formatting.js';
@@ -30,6 +31,9 @@ for (let template of libraryData) {
 for (let property in categories) {
     await createIndex(property, categories[property]);
 }
+
+// Create integrations index page
+await createHomePage(categories);
 
 console.log(`Processed ${Object.keys(categories).length} categories`);
 
@@ -79,6 +83,12 @@ async function createIndex(name, data) {
     const content = index.getContent(name, data);
 
     await fs.writeFile(`${distributionPath}/${toSlug(name)}/index.md`, content);
+}
+
+async function createHomePage(data) {
+    const content = home.getContent(data);
+
+    await fs.writeFile(`${distributionPath}/index.md`, content);
 }
 
 

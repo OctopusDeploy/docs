@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-title: 'sql server'
+title: >-
+    sql server
 navMenu: false
 # Set to true when launched
 navSitemap: false

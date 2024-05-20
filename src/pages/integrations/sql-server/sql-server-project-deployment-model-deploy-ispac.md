@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2016-07-20
-title: 'SQL Server - Project Deployment Model - Deploy ISPAC'
+title: >-
+    SQL Server - Project Deployment Model - Deploy ISPAC
 description: >-
     This is to deploy ssis packages using 'project deployment model' (ISPAC file )
 navMenu: false

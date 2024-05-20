@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2021-06-27
-title: 'OpsLevel - Create Deploy Event - Powershell'
+title: >-
+    OpsLevel - Create Deploy Event - Powershell
 description: >-
     Track deploys to your services across different environments in [OpsLevel](https://www.opslevel.com/docs/insights/deploys/).
 navMenu: false

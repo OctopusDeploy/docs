@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2014-05-19
-title: 'Windows Service - Remove'
+title: >-
+    Windows Service - Remove
 description: >-
     Removes a Windows service.
 navMenu: false

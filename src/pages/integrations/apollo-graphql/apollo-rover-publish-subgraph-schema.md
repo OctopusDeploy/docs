@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-23
-title: 'Apollo Rover - Publish Subgraph Schema'
+title: >-
+    Apollo Rover - Publish Subgraph Schema
 description: >-
     Publish subgraph schema to Apollo Studio. This should be run after successfully deploying a subgraph service.  The script installs the [Apollo Rover CLI](https://apollographql.com/docs/rover) and runs the `rover subgraph publish` command.
 navMenu: false

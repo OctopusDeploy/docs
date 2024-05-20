@@ -1,7 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2019-04-10
-title: 'Trigger Multi-Tenant Deployment'
+title: >-
+    Trigger Multi-Tenant Deployment
 description: >-
     A step template that triggers Multi-Tenant Deployment. It can be used in not-tenanted projects. The step will lookup most recent release for the specified project if a specific version is not provided. Then it will lookup all tenants that are tagged with the specified tag and create a new deployment for each of the tenants. This will result in multiple tasks scheduled in Octopus. The step is not tracking status of deployment tasks execution.  Hypothetical use-case:   * A multi-tenanted system deployed (as a monoliths) with a non-tenanted Octopus Deploy process.  * Use this step to start a smoke test for several customers from such a not-tenanted deployment. In this case tenants can be used to represent different customers. This way each customer-specific parameters (access URLs, credentials, etc.) can be configured on tenants level.
 navMenu: false
