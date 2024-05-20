@@ -2,14 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-05-01
 title: 'Redgate - Create Database Release (Worker Friendly)'
-description: >-
-Creates the resources (including the SQL update script) to deploy database changes using Redgate's [SQL Change Automation](https://www.red-gate.com/products/sql-development/sql-change-automation/), and exports them as Octopus artifacts so you can review the changes before deploying.
-
-Requires SQL Change Automation version 3.0.2 or later.
-
-*Version date: 2019-07-26*
-
-This step template is worker friendly, you can pass in a package reference rather than having to reference a previous step which downloaded the package. This step requires Octopus Deploy **2019.10.0** or higher.
+description: Creates the resources (including the SQL update script) to deploy database changes using Redgate's [SQL Change Automation](https://www.red-gate.com/products/sql-development/sql-change-automation/), and exports them as Octopus artifacts so you can review the changes before deploying.  Requires SQL Change Automation version 3.0.2 or later.  *Version date: 2019-07-26*  This step template is worker friendly, you can pass in a package reference rather than having to reference a previous step which downloaded the package. This step requires Octopus Deploy **2019.10.0** or higher.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-10
 title: 'Chocolatey - Pin Package'
-description: >-
-Allows pinning versions of packages using the Chocolatey package manager.
+description: Allows pinning versions of packages using the Chocolatey package manager.
 navMenu: false
 # Set to true when launched
 navSitemap: false

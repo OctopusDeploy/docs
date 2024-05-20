@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-17
 title: 'Octopus - Merge CaC Updates (S3 Backend)'
-description: >-
-This step queries each workspace in the Terraform state for downstream Octopus CaC enabled projects, extracts the Git repo associated with the CaC project, and merges any changes so long as there are no merge conflicts.
-
-If there is a merge conflict between the upstream and downstream repos, instructions for manually resolving the conflict are provided.
+description: This step queries each workspace in the Terraform state for downstream Octopus CaC enabled projects, extracts the Git repo associated with the CaC project, and merges any changes so long as there are no merge conflicts.  If there is a merge conflict between the upstream and downstream repos, instructions for manually resolving the conflict are provided.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-03-03
 title: 'CyberArk Conjur - Retrieve a Secret'
-description: >-
-This step reads a secret from CyberArk Conjur and makes them available as an Output Variable.   Rest API is used and the details can be found at [https://docs.conjur.org/Latest/en/Content/Developer/Conjur_API_Retrieve_Secret.htm](https://docs.conjur.org/Latest/en/Content/Developer/Conjur_API_Retrieve_Secret.htm)
+description: This step reads a secret from CyberArk Conjur and makes them available as an Output Variable.   Rest API is used and the details can be found at [https://docs.conjur.org/Latest/en/Content/Developer/Conjur_API_Retrieve_Secret.htm](https://docs.conjur.org/Latest/en/Content/Developer/Conjur_API_Retrieve_Secret.htm)
 navMenu: false
 # Set to true when launched
 navSitemap: false

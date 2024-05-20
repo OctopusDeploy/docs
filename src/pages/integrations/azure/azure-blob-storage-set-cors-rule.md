@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-01-22
 title: 'Azure Blob Storage set CORS Rule'
-description: >-
-Set a given CORS rule on the specified Azure storage blob container
+description: Set a given CORS rule on the specified Azure storage blob container
 navMenu: false
 # Set to true when launched
 navSitemap: false

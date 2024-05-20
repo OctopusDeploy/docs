@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-12-03
 title: 'Run Pulumi (Windows)'
-description: >-
-Allows you to run Pulumi commands using the Pulumi CLI. For Pulumi stacks that deploy AWS resources, make sure your Octopus Project contains a variable called `AWS` of type `AWS Account`. For Pulumi stacks that deploy Azure resources, set the variable `Azure` of type `Azure Subscriptions` (Service Principal).
-
-Learn more about adding an [AWS Account](https://octopus.com/docs/infrastructure/deployment-targets/aws#create-an-aws-account) or [Azure Subscriptions](https://octopus.com/docs/infrastructure/deployment-targets/azure#azure-service-principal) to your Octopus Deploy instance.
+description: Allows you to run Pulumi commands using the Pulumi CLI. For Pulumi stacks that deploy AWS resources, make sure your Octopus Project contains a variable called `AWS` of type `AWS Account`. For Pulumi stacks that deploy Azure resources, set the variable `Azure` of type `Azure Subscriptions` (Service Principal).  Learn more about adding an [AWS Account](https://octopus.com/docs/infrastructure/deployment-targets/aws#create-an-aws-account) or [Azure Subscriptions](https://octopus.com/docs/infrastructure/deployment-targets/azure#azure-service-principal) to your Octopus Deploy instance.
 navMenu: false
 # Set to true when launched
 navSitemap: false

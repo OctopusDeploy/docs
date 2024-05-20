@@ -2,32 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
 title: 'Lets Encrypt - Self-Hosted HTTP Challenge'
-description: >-
-Request (or renew) an X.509 SSL Certificate from the [Let's Encrypt Certificate Authority](https://letsencrypt.org/) using the Self-hosted HTTP Challenge Listener provided by the [Posh-ACME](https://github.com/rmbolger/Posh-ACME/) PowerShell Module.
-
----
-#### Please Note
-
-It's generally a better idea to use one of the Posh-ACME [DNS providers](https://github.com/rmbolger/Posh-ACME/wiki/List-of-Supported-DNS-Providers) for Let's Encrypt.
-
-There are a number of Octopus Step templates in the [Community Library](https://library.octopus.com/listing/letsencrypt) that support DNS providers.
-
----
-
-#### Features
-
-- ACME v2 protocol support which allows generating wildcard certificates (*.example.com).
-- [Self-hosted HTTP Challenge](https://github.com/rmbolger/Posh-ACME/wiki/How-To-Self-Host-HTTP-Challenges) Challenge for TLD, CNAME, and Wildcard domains. 
-- _Optionally_ Publishes/Updates SSL Certificates in the [Octopus Deploy Certificate Store](https://octopus.com/docs/deployment-examples/certificates).
-- _Optionally_ import SSL Certificate into the local machine store. 
-- _Optionally_ Export PFX (PKCS#12) SSL Certificate to a supplied file path.
-- Verified to work on Windows and Linux deployment targets
-
-#### Pre-requisites
-
-- There are specific requirements when [running on Windows](https://github.com/rmbolger/Posh-ACME/wiki/How-To-Self-Host-HTTP-Challenges#windows-only-prerequisites).
-- HTTP Challenge Listener must be available on Port 80.
-- When updating the Octopus Certificate Store, access to the Octopus Server from where the script template runs e.g. deployment target or worker is required.
+description: Request (or renew) an X.509 SSL Certificate from the [Let's Encrypt Certificate Authority](https://letsencrypt.org/) using the Self-hosted HTTP Challenge Listener provided by the [Posh-ACME](https://github.com/rmbolger/Posh-ACME/) PowerShell Module.  --- #### Please Note  It's generally a better idea to use one of the Posh-ACME [DNS providers](https://github.com/rmbolger/Posh-ACME/wiki/List-of-Supported-DNS-Providers) for Let's Encrypt.  There are a number of Octopus Step templates in the [Community Library](https://library.octopus.com/listing/letsencrypt) that support DNS providers.  ---  #### Features  - ACME v2 protocol support which allows generating wildcard certificates (*.example.com). - [Self-hosted HTTP Challenge](https://github.com/rmbolger/Posh-ACME/wiki/How-To-Self-Host-HTTP-Challenges) Challenge for TLD, CNAME, and Wildcard domains.  - _Optionally_ Publishes/Updates SSL Certificates in the [Octopus Deploy Certificate Store](https://octopus.com/docs/deployment-examples/certificates). - _Optionally_ import SSL Certificate into the local machine store.  - _Optionally_ Export PFX (PKCS#12) SSL Certificate to a supplied file path. - Verified to work on Windows and Linux deployment targets  #### Pre-requisites  - There are specific requirements when [running on Windows](https://github.com/rmbolger/Posh-ACME/wiki/How-To-Self-Host-HTTP-Challenges#windows-only-prerequisites). - HTTP Challenge Listener must be available on Port 80. - When updating the Octopus Certificate Store, access to the Octopus Server from where the script template runs e.g. deployment target or worker is required.
 navMenu: false
 # Set to true when launched
 navSitemap: false

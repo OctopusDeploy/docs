@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-09-07
 title: 'Unicorn - Sync Configuration'
-description: >-
-Sync Unicorn items
+description: Sync Unicorn items
 navMenu: false
 # Set to true when launched
 navSitemap: false

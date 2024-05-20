@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-04-13
 title: 'Delete Target or Worker Registration From Octopus'
-description: >-
-Step that will attempt to delete a target or worker from Octopus Deploy using the API.  If it cannot delete the target or worker it will disable the target and rename it.
+description: Step that will attempt to delete a target or worker from Octopus Deploy using the API.  If it cannot delete the target or worker it will disable the target and rename it.
 navMenu: false
 # Set to true when launched
 navSitemap: false

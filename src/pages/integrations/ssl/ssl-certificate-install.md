@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-10-01
 title: 'SSL Certificate - Install'
-description: >-
-Installs an SSL certificate on the target machine
+description: Installs an SSL certificate on the target machine
 navMenu: false
 # Set to true when launched
 navSitemap: false

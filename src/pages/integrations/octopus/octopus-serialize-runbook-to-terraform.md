@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-08
 title: 'Octopus - Serialize Runbook to Terraform'
-description: >-
-Serialize an Octopus runbook as a Terraform module and upload the resulting package to the Octopus built in feed.
-
-Note the exported runbooks do not include project variables, so any project that the exported runbook is attached to must already have all project and library variables defined.
+description: Serialize an Octopus runbook as a Terraform module and upload the resulting package to the Octopus built in feed.  Note the exported runbooks do not include project variables, so any project that the exported runbook is attached to must already have all project and library variables defined.
 navMenu: false
 # Set to true when launched
 navSitemap: false

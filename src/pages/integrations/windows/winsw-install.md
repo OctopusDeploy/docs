@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-03
 title: 'WinSW - Install'
-description: >-
-Verify that WinSW is installed, if it is not, install it.
+description: Verify that WinSW is installed, if it is not, install it.
 navMenu: false
 # Set to true when launched
 navSitemap: false

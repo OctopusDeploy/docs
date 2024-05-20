@@ -2,22 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-09
 title: 'JWT - Generate JSON Web Token'
-description: >-
-Generates a [Json Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token) for use with applications that require a JWT token. The resulting JWT will be stored as a [sensitive output variable](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) called **JWT**.
-
-A private key needs to be provided that will sign the combined JWT header and payload.
-
-Currently, the following three signing algorithms are supported:
-
-1. `RS256` - RSASSA-PKCS1-v1_5 using SHA-256
-2. `RS384` - RSASSA-PKCS1-v1_5 using SHA-384
-3. `RS512` - RSASSA-PKCS1-v1_5 using SHA-512
-
-The default is `RS256`.
-
-**Notes:**
-- Tested on Windows and Linux (PowerShell Core)
-- Tested with Octopus **2020.1**
+description: Generates a [Json Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token) for use with applications that require a JWT token. The resulting JWT will be stored as a [sensitive output variable](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) called **JWT**.  A private key needs to be provided that will sign the combined JWT header and payload.  Currently, the following three signing algorithms are supported:  1. `RS256` - RSASSA-PKCS1-v1_5 using SHA-256 2. `RS384` - RSASSA-PKCS1-v1_5 using SHA-384 3. `RS512` - RSASSA-PKCS1-v1_5 using SHA-512  The default is `RS256`.  **Notes:** - Tested on Windows and Linux (PowerShell Core) - Tested with Octopus **2020.1**
 navMenu: false
 # Set to true when launched
 navSitemap: false

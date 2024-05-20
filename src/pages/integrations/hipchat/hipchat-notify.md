@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-07-29
 title: 'HipChat - Notify'
-description: >-
-Notifies a HipChat room of a deployment outcome.
+description: Notifies a HipChat room of a deployment outcome.
 navMenu: false
 # Set to true when launched
 navSitemap: false

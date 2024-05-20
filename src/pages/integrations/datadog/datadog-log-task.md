@@ -2,14 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-03-04
 title: 'Datadog - Log Task'
-description: >-
-Log details of a task to Datadog, including error detail.
-
-**Configuration**: 
-
-* In Datadog, add a [standard attribute](https://docs.datadoghq.com/logs/processing/attributes_naming_convention/#standard-attributes-and-aliasing) of `octopus.deployment.properties` to see and access JSON details of the task.  
-
-* When using the step, set the [run condition](https://octopus.com/docs/projects/steps/conditions) of the step to `Always run` to ensure logs are sent for errors as well as successful tasks.
+description: Log details of a task to Datadog, including error detail.  **Configuration**:   * In Datadog, add a [standard attribute](https://docs.datadoghq.com/logs/processing/attributes_naming_convention/#standard-attributes-and-aliasing) of `octopus.deployment.properties` to see and access JSON details of the task.    * When using the step, set the [run condition](https://octopus.com/docs/projects/steps/conditions) of the step to `Always run` to ensure logs are sent for errors as well as successful tasks.
 navMenu: false
 # Set to true when launched
 navSitemap: false

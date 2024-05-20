@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-08-31
 title: 'Microsoft Teams - Post a message'
-description: >-
-Posts a message to Microsoft Teams using a general webhook.
+description: Posts a message to Microsoft Teams using a general webhook.
 navMenu: false
 # Set to true when launched
 navSitemap: false

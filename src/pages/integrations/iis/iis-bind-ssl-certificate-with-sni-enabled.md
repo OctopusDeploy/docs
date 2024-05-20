@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-10-23
 title: 'IIS - Bind SSL Certificate with SNI Enabled'
-description: >-
-Applies a https binding, with SNI enabled.
+description: Applies a https binding, with SNI enabled.
 navMenu: false
 # Set to true when launched
 navSitemap: false

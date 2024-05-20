@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-01-04
 title: 'IIS Bindings - Backup'
-description: >-
-Backs up IIS bindings for a given site so they can be restored in later steps. This is very useful if we we have any existing bindings on IIS server since Octopus wipes all existing bindings when create new ones.
+description: Backs up IIS bindings for a given site so they can be restored in later steps. This is very useful if we we have any existing bindings on IIS server since Octopus wipes all existing bindings when create new ones.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-04-18
 title: 'Deploy ispac SSIS project from a package'
-description: >-
-This step template will deploy SSIS ispac projects to SQL Server Integration Services Catalog
+description: This step template will deploy SSIS ispac projects to SQL Server Integration Services Catalog
 navMenu: false
 # Set to true when launched
 navSitemap: false

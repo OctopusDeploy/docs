@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
 title: 'Clone Tenant'
-description: >-
-Clone an Octopus [tenant](https://octopus.com/docs/deployment-patterns/multi-tenant-deployments). The project connections and tenant tags will be cloned and the non-sensitive variables can optionally be cloned.
+description: Clone an Octopus [tenant](https://octopus.com/docs/deployment-patterns/multi-tenant-deployments). The project connections and tenant tags will be cloned and the non-sensitive variables can optionally be cloned.
 navMenu: false
 # Set to true when launched
 navSitemap: false

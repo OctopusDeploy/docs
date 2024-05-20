@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-10-20
 title: 'Update Azure PowerShell Module'
-description: >-
-This Step Template will help you to update the Azure PowerShell Module version on any targeted tentacle. [Note: Windows PowerShell 5.0 installed as pre-requisites for this step template to work]
+description: This Step Template will help you to update the Azure PowerShell Module version on any targeted tentacle. [Note: Windows PowerShell 5.0 installed as pre-requisites for this step template to work]
 navMenu: false
 # Set to true when launched
 navSitemap: false

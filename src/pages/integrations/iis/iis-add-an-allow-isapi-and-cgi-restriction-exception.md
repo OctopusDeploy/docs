@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-01-13
 title: 'IIS - Add an Allow ISAPI And CGI Restriction Exception'
-description: >-
-Adds an IIS Server Allow exception to the ISAPI/CGI Restrictions in IIS 7 and above.
+description: Adds an IIS Server Allow exception to the ISAPI/CGI Restrictions in IIS 7 and above.
 navMenu: false
 # Set to true when launched
 navSitemap: false

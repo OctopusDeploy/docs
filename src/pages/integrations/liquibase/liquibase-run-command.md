@@ -2,16 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-05-25
 title: 'Liquibase - Run command'
-description: >-
-Run Liqbuibase commands against a database.  You can include Liquibase in the package itself or choose Download to download it during runtime.
-
-Note:
-- AWS EC2 IAM Authentication requires the AWS CLI to be installed.
-- Windows Authentication has been tested with 
-  - Microsoft SQL Server 
-  - PostgreSQL
-
-Once the Liquibase commands have executed, the output is stored in an Octopus [output variable](https://octopus.com/docs/projects/variables/output-variables) called `LiquibaseCommandOutput` for use in subsequent Octopus deployment or runbook steps.
+description: Run Liqbuibase commands against a database.  You can include Liquibase in the package itself or choose Download to download it during runtime.  Note: - AWS EC2 IAM Authentication requires the AWS CLI to be installed. - Windows Authentication has been tested with    - Microsoft SQL Server    - PostgreSQL  Once the Liquibase commands have executed, the output is stored in an Octopus [output variable](https://octopus.com/docs/projects/variables/output-variables) called `LiquibaseCommandOutput` for use in subsequent Octopus deployment or runbook steps.
 navMenu: false
 # Set to true when launched
 navSitemap: false

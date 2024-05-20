@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-06-01
 title: 'File System - Rename File'
-description: >-
-Renames a file on the file system.
+description: Renames a file on the file system.
 navMenu: false
 # Set to true when launched
 navSitemap: false

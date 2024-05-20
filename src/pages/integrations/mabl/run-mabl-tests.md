@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-26
 title: 'Run mabl tests'
-description: >-
-Trigger specific application or environment plans in mabl.
+description: Trigger specific application or environment plans in mabl.
 navMenu: false
 # Set to true when launched
 navSitemap: false

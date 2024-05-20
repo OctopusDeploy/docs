@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-08-25
 title: 'File System - Clean ASP.NET Temp Files'
-description: >-
-Most ASP.NET websites today make use of dynamic compilation. 
-The dynamically compiled assemblies are stored in the Temporary ASP.NET files directory.
-However, files in this directory are not automatically removed and may build up over time.
-This script will clean out all files in this directory.
-You should note that this may cause running websites to be restarted.
+description: Most ASP.NET websites today make use of dynamic compilation.  The dynamically compiled assemblies are stored in the Temporary ASP.NET files directory. However, files in this directory are not automatically removed and may build up over time. This script will clean out all files in this directory. You should note that this may cause running websites to be restarted.
 navMenu: false
 # Set to true when launched
 navSitemap: false

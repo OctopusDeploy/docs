@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-09-03
 title: 'elmah.io - Register Deployment'
-description: >-
-Step template for notifying elmah.io about deployments on Octopus.
+description: Step template for notifying elmah.io about deployments on Octopus.
 navMenu: false
 # Set to true when launched
 navSitemap: false

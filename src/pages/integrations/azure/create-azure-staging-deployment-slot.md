@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-02-27
 title: 'Create Azure Staging Deployment Slot'
-description: >-
-This template will create an azure deployment slot. This step template should be placed before the "Deploy an Azure App" Octopus Deploy template and be used with its sister step "Switch Azure RM Deployment Slot"
-
-This should be used for green-blue deployments, as referenced in this document: https://octopus.com/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps
-
-NB: This step will promote your web app service plan to standard if it is currently using free, shared or basic tier
+description: This template will create an azure deployment slot. This step template should be placed before the "Deploy an Azure App" Octopus Deploy template and be used with its sister step "Switch Azure RM Deployment Slot"  This should be used for green-blue deployments, as referenced in this document: https://octopus.com/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps  NB: This step will promote your web app service plan to standard if it is currently using free, shared or basic tier
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,14 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-05-01
 title: 'Redgate - Deploy from Database Release (Worker Friendly)'
-description: >-
-Uses the deployment resources from the 'Redgate - Create Database Release' step to deploy the database changes using Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage).
-
-Requires SQL Change Automation version 3.0.2 or later.
-
-*Version date: 2019-07-26*
-
-This step template is worker friendly, you can pass in a package reference rather than having to reference a previous step which downloaded the package. This step requires Octopus Deploy **2019.10.0** or higher.
+description: Uses the deployment resources from the 'Redgate - Create Database Release' step to deploy the database changes using Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage).  Requires SQL Change Automation version 3.0.2 or later.  *Version date: 2019-07-26*  This step template is worker friendly, you can pass in a package reference rather than having to reference a previous step which downloaded the package. This step requires Octopus Deploy **2019.10.0** or higher.
 navMenu: false
 # Set to true when launched
 navSitemap: false

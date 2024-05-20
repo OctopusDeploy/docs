@@ -2,28 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-30
 title: 'Azure Function - Set AppSettings from Azure AppConfig'
-description: >-
-This step retrieves one or more key/values from an Azure App Configuration store and adds them to an Azure App Function's AppSettings.
-
-You can retrieve individual keys that match a specific name, and you can choose a custom setting name for each key.
-
-Wildcard search is also supported using the `*` notation in the **Key Names** parameter. Note: Combining a wildcard search with custom setting names is not supported.
-
-You can also combine retrieved values with additional parameters passed into the step using the `Additional AppSettings` parameter.
-
-Authentication is performed using an Azure Service Principal.
-
----
-
-**Required:** 
-- An Azure account with permission to both retrieve values from the Azure App Config store and publish to the App Function.
-- The `az` CLI on the target or worker. If the CLI can't be found, the step will fail. 
-
-Notes:
-
-- Tested on Octopus `2024.1` using az version `2.38.0`
-- Tested with both Windows PowerShell and PowerShell Core (on Linux).
-- Slot Settings are not currently supported.
+description: This step retrieves one or more key/values from an Azure App Configuration store and adds them to an Azure App Function's AppSettings.  You can retrieve individual keys that match a specific name, and you can choose a custom setting name for each key.  Wildcard search is also supported using the `*` notation in the **Key Names** parameter. Note: Combining a wildcard search with custom setting names is not supported.  You can also combine retrieved values with additional parameters passed into the step using the `Additional AppSettings` parameter.  Authentication is performed using an Azure Service Principal.  ---  **Required:**  - An Azure account with permission to both retrieve values from the Azure App Config store and publish to the App Function. - The `az` CLI on the target or worker. If the CLI can't be found, the step will fail.   Notes:  - Tested on Octopus `2024.1` using az version `2.38.0` - Tested with both Windows PowerShell and PowerShell Core (on Linux). - Slot Settings are not currently supported.
 navMenu: false
 # Set to true when launched
 navSitemap: false

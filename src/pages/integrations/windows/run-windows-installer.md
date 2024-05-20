@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-11-07
 title: 'Run - Windows Installer'
-description: >-
-Runs the Windows Installer to non-interactively install an MSI
+description: Runs the Windows Installer to non-interactively install an MSI
 navMenu: false
 # Set to true when launched
 navSitemap: false

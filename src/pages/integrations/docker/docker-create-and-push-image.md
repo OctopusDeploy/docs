@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-02-03
 title: 'Docker - Create and Push Image'
-description: >-
-Creates and pushes an Docker Image.
-
-- Requires the Docker infrastructure.
+description: Creates and pushes an Docker Image.  - Requires the Docker infrastructure.
 navMenu: false
 # Set to true when launched
 navSitemap: false

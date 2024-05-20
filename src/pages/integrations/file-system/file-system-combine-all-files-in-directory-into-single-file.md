@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-10-12
 title: 'File System - Combine all files in directory into single file'
-description: >-
-This step template will take all the files in a single directory, sort them alphabetically, and combine them into a single file.  
-
-Optional, it will create an artifact for that file so it can be reviewed.  
+description: This step template will take all the files in a single directory, sort them alphabetically, and combine them into a single file.    Optional, it will create an artifact for that file so it can be reviewed.  
 navMenu: false
 # Set to true when launched
 navSitemap: false

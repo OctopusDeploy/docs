@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-09-19
 title: 'HG - Get Changelog'
-description: >-
-Generate exact changelog from Mercurial commit history. It is stored in the output variable "Changelog".
-
-Requirement: each release must have been labeled in the repository as "release-OctopusReleaseNumber" (for instance using VCS labeling feature of TeamCity).
-
-See http://hgbook.red-bean.com/read/customizing-the-output-of-mercurial.html for template format.
+description: Generate exact changelog from Mercurial commit history. It is stored in the output variable "Changelog".  Requirement: each release must have been labeled in the repository as "release-OctopusReleaseNumber" (for instance using VCS labeling feature of TeamCity).  See http://hgbook.red-bean.com/read/customizing-the-output-of-mercurial.html for template format.
 navMenu: false
 # Set to true when launched
 navSitemap: false

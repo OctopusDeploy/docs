@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-01-22
 title: 'IIS - Configure Compression'
-description: >-
-Configures the MIME types used in static and dynamic compression e.g. The application/json MIME type can be configured to be served using GZIP compression.
+description: Configures the MIME types used in static and dynamic compression e.g. The application/json MIME type can be configured to be served using GZIP compression.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-10-22
 title: 'Octopus - Validate Deploying User'
-description: >-
-Verifies current deploying user didn't deploy previously to specified environment.
+description: Verifies current deploying user didn't deploy previously to specified environment.
 navMenu: false
 # Set to true when launched
 navSitemap: false

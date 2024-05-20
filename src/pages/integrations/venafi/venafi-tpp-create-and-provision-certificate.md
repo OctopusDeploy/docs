@@ -2,53 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
 title: 'Venafi TPP - Create and Provision Certificate'
-description: >-
-This step template will authenticate against a Venafi TPP instance using an existing OAuth access token, and create a new certificate as well as optionally associate and push the new certificate to specified existing application(s). This is achieved using a combination of two functions from the VenafiPS PowerShell module:
-
-1. `New-TppCertificate` which is an alias of the [New-VdcCertificate](https://venafips.readthedocs.io/en/latest/functions/New-VdcCertificate/) function.
-2. `Add-TppCertificateAssociation` which is an alias of the [Add-VdcCertificateAssociation](https://venafips.readthedocs.io/en/latest/functions/Add-VdcCertificateAssociation/) function.
-
----
-
-**Options:**
-
-- Provide a distinguished name (DN) path for the new certificate.
-- Provide a name for the new certificate.
-- Provide a common name (CN) for the new certificate.
-- *Optional* - Provide the distinguished name (DN) path to a certificate authority template to be used for the new certificate.
-- *Optional* - Choose from the following certificate types:
-  - `Code Signing`
-  - `Device`
-  - `Server`
-  - `User`
-- *Optional* - Choose from the following certificate management types:
-  - `Enrollment`
-  - `Provisioning`
-  - `Monitoring`
-  - `Unassigned`
-- *Optional* - Provide subject alternate names for the new certificate using the following acceptable SAN types: 
-  - `OtherName`
-  - `Email`
-  - `DNS`
-  - `URI`
-  - `IPAdress`
-- *Optional* - Choose if you would like the step to wait for the certificate to finishing provisioning before moving on.
-- *Optional* - Choose the maximum time in seconds that you would like the step to wait for provisioning to finish.
-- *Optional* - Provide the application(s) path to associate the new certificate to.
-- *Optional* - Choose to push the new certificate to the specified application(s).
-- *Optional* - Choose to revoke the access token used on successful completion.
-
----
-
-**Required:** 
-- The `VenafiPS` PowerShell module installed on the deployment target or worker. If the module can't be found, the step will attempt to download a version from the [PowerShell gallery](https://www.powershellgallery.com/packages/VenafiPS).
-
-Notes:
-
-- Tested on Octopus `2021.2`.
-- Tested with VenafiPS `3.1.5`.
-- Tested with both Windows PowerShell and PowerShell Core on Linux.
-
+description: This step template will authenticate against a Venafi TPP instance using an existing OAuth access token, and create a new certificate as well as optionally associate and push the new certificate to specified existing application(s). This is achieved using a combination of two functions from the VenafiPS PowerShell module:  1. `New-TppCertificate` which is an alias of the [New-VdcCertificate](https://venafips.readthedocs.io/en/latest/functions/New-VdcCertificate/) function. 2. `Add-TppCertificateAssociation` which is an alias of the [Add-VdcCertificateAssociation](https://venafips.readthedocs.io/en/latest/functions/Add-VdcCertificateAssociation/) function.  ---  **Options:**  - Provide a distinguished name (DN) path for the new certificate. - Provide a name for the new certificate. - Provide a common name (CN) for the new certificate. - *Optional* - Provide the distinguished name (DN) path to a certificate authority template to be used for the new certificate. - *Optional* - Choose from the following certificate types:   - `Code Signing`   - `Device`   - `Server`   - `User` - *Optional* - Choose from the following certificate management types:   - `Enrollment`   - `Provisioning`   - `Monitoring`   - `Unassigned` - *Optional* - Provide subject alternate names for the new certificate using the following acceptable SAN types:    - `OtherName`   - `Email`   - `DNS`   - `URI`   - `IPAdress` - *Optional* - Choose if you would like the step to wait for the certificate to finishing provisioning before moving on. - *Optional* - Choose the maximum time in seconds that you would like the step to wait for provisioning to finish. - *Optional* - Provide the application(s) path to associate the new certificate to. - *Optional* - Choose to push the new certificate to the specified application(s). - *Optional* - Choose to revoke the access token used on successful completion.  ---  **Required:**  - The `VenafiPS` PowerShell module installed on the deployment target or worker. If the module can't be found, the step will attempt to download a version from the [PowerShell gallery](https://www.powershellgallery.com/packages/VenafiPS).  Notes:  - Tested on Octopus `2021.2`. - Tested with VenafiPS `3.1.5`. - Tested with both Windows PowerShell and PowerShell Core on Linux. 
 navMenu: false
 # Set to true when launched
 navSitemap: false

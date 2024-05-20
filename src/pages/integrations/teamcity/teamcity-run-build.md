@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-11-03
 title: 'TeamCity - Run Build'
-description: >-
-Trigger a specific Team City build from an Octopus Deploy process and wait for the result. The step will fail if the build fails.
+description: Trigger a specific Team City build from an Octopus Deploy process and wait for the result. The step will fail if the build fails.
 navMenu: false
 # Set to true when launched
 navSitemap: false

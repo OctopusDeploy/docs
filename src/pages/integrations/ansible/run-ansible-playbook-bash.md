@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-02-16
 title: 'Run Ansible Playbook (bash)'
-description: >-
-Step template to run an ansible playbook using bash. Requires Ansible and Ansible-Playbook to run successfully.
+description: Step template to run an ansible playbook using bash. Requires Ansible and Ansible-Playbook to run successfully.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-03-02
 title: 'Slack - Send Simple Notification - Bash'
-description: >-
-Send a basic message notification to Slack.
+description: Send a basic message notification to Slack.
 navMenu: false
 # Set to true when launched
 navSitemap: false

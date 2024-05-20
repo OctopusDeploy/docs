@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-07-16
 title: 'File System - Add entry to hosts file'
-description: >-
-Adds an entry to etc/hosts file with the specified host name and optional ip address
+description: Adds an entry to etc/hosts file with the specified host name and optional ip address
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-10
 title: 'Chocolatey - Install Package'
-description: >-
-Installs or upgrades a package using the Chocolatey package manager.
+description: Installs or upgrades a package using the Chocolatey package manager.
 navMenu: false
 # Set to true when launched
 navSitemap: false

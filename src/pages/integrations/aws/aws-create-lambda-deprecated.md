@@ -2,14 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-04-16
 title: 'AWS - Create Lambda (deprecated)'
-description: >-
-Creates a [AWS Lambda Function](#https://aws.amazon.com/lambda/) from the specified zip.
-
-If the function exists, it will update the function code and update function configuration.
-- Requires the [AWS PowerShell cmdlets](http://aws.amazon.com/powershell/)
-
-To create environment variables, add variables in project starting with 'env.'.
-For example, to create environment variable S3BucketName = MyTestFolder, create variable 'env.S3BucketName' = 'MyTestFolder'.  This function has been deprecated in favor of the new AWS Deploy Lambda step template.  That new step requires 2019.10.x to run properly.  This step is left in place for older versions of Octopus Deploy to still use.
+description: Creates a [AWS Lambda Function](#https://aws.amazon.com/lambda/) from the specified zip.  If the function exists, it will update the function code and update function configuration. - Requires the [AWS PowerShell cmdlets](http://aws.amazon.com/powershell/)  To create environment variables, add variables in project starting with 'env.'. For example, to create environment variable S3BucketName = MyTestFolder, create variable 'env.S3BucketName' = 'MyTestFolder'.  This function has been deprecated in favor of the new AWS Deploy Lambda step template.  That new step requires 2019.10.x to run properly.  This step is left in place for older versions of Octopus Deploy to still use.
 navMenu: false
 # Set to true when launched
 navSitemap: false

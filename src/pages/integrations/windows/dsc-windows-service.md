@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-06-20
 title: 'DSC Windows Service'
-description: >-
-Starts/stops one or more services asynchronously, and then waits for them to align to the specified state
+description: Starts/stops one or more services asynchronously, and then waits for them to align to the specified state
 navMenu: false
 # Set to true when launched
 navSitemap: false

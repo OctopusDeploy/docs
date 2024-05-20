@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-03-16
 title: 'Proxmox Destroy LXC Container'
-description: >-
-Destroys a Proxmox LXC container using the Proxmox API.
-
-Requires a Proxmox [API token](https://pve.proxmox.com/wiki/Proxmox_VE_API#API_Tokens) to authenticate to the Proxmox Server/Cluster
+description: Destroys a Proxmox LXC container using the Proxmox API.  Requires a Proxmox [API token](https://pve.proxmox.com/wiki/Proxmox_VE_API#API_Tokens) to authenticate to the Proxmox Server/Cluster
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-18
 title: 'AWS RDS SQL Server - Backup to S3 Bucket'
-description: >-
-Will create a database user using an existing server user if that database user does not exist without using SMO.
+description: Will create a database user using an existing server user if that database user does not exist without using SMO.
 navMenu: false
 # Set to true when launched
 navSitemap: false

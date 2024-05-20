@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-10-16
 title: 'GitHub - Push Yeoman Generator'
-description: >-
-Clones a GitHub repo, runs Yeoman in the cloned directory, and pushes the changes. Note that the Yeoman generators can only use arguments or options, as prompts can not be provided.
+description: Clones a GitHub repo, runs Yeoman in the cloned directory, and pushes the changes. Note that the Yeoman generators can only use arguments or options, as prompts can not be provided.
 navMenu: false
 # Set to true when launched
 navSitemap: false

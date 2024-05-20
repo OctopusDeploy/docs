@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-03-16
 title: 'File System - Copy File'
-description: >-
-Copies a file in the file system.
+description: Copies a file in the file system.
 navMenu: false
 # Set to true when launched
 navSitemap: false

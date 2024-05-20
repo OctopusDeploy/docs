@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-12-23
 title: 'Windows - Create Shortcut'
-description: >-
-Creates or updates a Windows shortcut to point to a target file.
+description: Creates or updates a Windows shortcut to point to a target file.
 navMenu: false
 # Set to true when launched
 navSitemap: false

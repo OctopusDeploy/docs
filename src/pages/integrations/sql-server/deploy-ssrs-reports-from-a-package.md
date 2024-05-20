@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-03-11
 title: 'Deploy SSRS Reports from a package'
-description: >-
-Uploads SSRS reports to an SSRS server from a package.
-
-The following Datasource properties can be overidden: ConnectionString, Username, Password, and CredentialRetrieval (valid values are: Integrated, Prompt, Store, or None).  To override the property, create a Variable using the syntax of DatasourceName.PropertyName.  For example: MyDatasource.Username 
-
-To specify the Username and Password are Windows Credentials, create a variable called DatasourceName.WindowsCredentials and set the value to the string value 'true' (minus the quotes).
+description: Uploads SSRS reports to an SSRS server from a package.  The following Datasource properties can be overidden: ConnectionString, Username, Password, and CredentialRetrieval (valid values are: Integrated, Prompt, Store, or None).  To override the property, create a Variable using the syntax of DatasourceName.PropertyName.  For example: MyDatasource.Username   To specify the Username and Password are Windows Credentials, create a variable called DatasourceName.WindowsCredentials and set the value to the string value 'true' (minus the quotes).
 navMenu: false
 # Set to true when launched
 navSitemap: false

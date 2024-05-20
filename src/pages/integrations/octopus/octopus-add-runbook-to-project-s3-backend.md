@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-09
 title: 'Octopus - Add Runbook to Project (S3 Backend)'
-description: >-
-This step exposes the fields required to deploy a runbook serialized with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport) using Terraform to a project.
-
-This step configures a Terraform S3 backend.
-
-It is recommended that this step be run with the `octopuslabs/terraform-workertools` worker image.
+description: This step exposes the fields required to deploy a runbook serialized with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport) using Terraform to a project.  This step configures a Terraform S3 backend.  It is recommended that this step be run with the `octopuslabs/terraform-workertools` worker image.
 navMenu: false
 # Set to true when launched
 navSitemap: false

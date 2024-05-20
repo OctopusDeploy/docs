@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-06-18
 title: 'Azure - Sync Instance Count'
-description: >-
-This step template is useful when you want to have the instance count matched just before the VIP swap. It takes the source slot (usually Production slot) and match with the current deployment slot (normally Staging). Note: This will be helpful in scenario when 15 instances in Production and 4 instance in staging. This step template should only be used when a production slot already exists.
+description: This step template is useful when you want to have the instance count matched just before the VIP swap. It takes the source slot (usually Production slot) and match with the current deployment slot (normally Staging). Note: This will be helpful in scenario when 15 instances in Production and 4 instance in staging. This step template should only be used when a production slot already exists.
 navMenu: false
 # Set to true when launched
 navSitemap: false

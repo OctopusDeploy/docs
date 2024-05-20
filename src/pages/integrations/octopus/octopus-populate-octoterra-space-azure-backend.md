@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-12-20
 title: 'Octopus - Populate Octoterra Space (Azure Backend)'
-description: >-
-This step exposes the fields required to deploy a project or space serialized with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport) using Terraform.
-
-This step configures a Terraform Azure backend.
-
-It is recommended that this step be run with the `octopuslabs/terraform-workertools` worker image.
+description: This step exposes the fields required to deploy a project or space serialized with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport) using Terraform.  This step configures a Terraform Azure backend.  It is recommended that this step be run with the `octopuslabs/terraform-workertools` worker image.
 navMenu: false
 # Set to true when launched
 navSitemap: false

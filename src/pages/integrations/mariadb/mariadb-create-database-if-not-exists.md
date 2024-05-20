@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-07-12
 title: 'MariaDB - Create Database If Not Exists'
-description: >-
-Creates a MariaDB database if it doesn't already exist.
+description: Creates a MariaDB database if it doesn't already exist.
 navMenu: false
 # Set to true when launched
 navSitemap: false

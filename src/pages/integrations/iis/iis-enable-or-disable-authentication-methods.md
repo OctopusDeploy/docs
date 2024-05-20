@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-06-28
 title: 'IIS - Enable or Disable Authentication Methods'
-description: >-
-Step template to set the desired IIS Authentication (Anonymous, Windows, Digest) State for IIS site(s)
+description: Step template to set the desired IIS Authentication (Anonymous, Windows, Digest) State for IIS site(s)
 navMenu: false
 # Set to true when launched
 navSitemap: false

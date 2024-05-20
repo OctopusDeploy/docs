@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-01-19
 title: 'Xamarin TestCloud execute test run'
-description: >-
-Executes a Xamarin TestCloud test run for an app contained in a nuget file.
+description: Executes a Xamarin TestCloud test run for an app contained in a nuget file.
 navMenu: false
 # Set to true when launched
 navSitemap: false

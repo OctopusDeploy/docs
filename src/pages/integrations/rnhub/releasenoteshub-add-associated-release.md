@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-10-02
 title: 'ReleaseNotesHub Add Associated Release'
-description: >-
-ReleaseNotesHub is a B2B\B2C SaaS solution that automates the generation and publication of release notes. With RnHub the creation of Release Notes becomes another step within your CI/CD pipeline. ReleaseNotesHub can pull content from many systems including TFS, Azure Devops, GitHub, Jira and Asana. 
-
-Use this step to create an association between two releases. This can be used to create a "Single View" of release notes. Visit [here](https://support.releasenoteshub.com/article/show/116108-how-to-create-a-release-association-from-octopus-deploy) for setup guide. 
-
-https://www.releasenoteshub.com
+description: ReleaseNotesHub is a B2B\B2C SaaS solution that automates the generation and publication of release notes. With RnHub the creation of Release Notes becomes another step within your CI/CD pipeline. ReleaseNotesHub can pull content from many systems including TFS, Azure Devops, GitHub, Jira and Asana.   Use this step to create an association between two releases. This can be used to create a "Single View" of release notes. Visit [here](https://support.releasenoteshub.com/article/show/116108-how-to-create-a-release-association-from-octopus-deploy) for setup guide.   https://www.releasenoteshub.com
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-07-05
 title: 'RabbitMQ - Notify Deploy'
-description: >-
-Notifies a deploy by sending a message into rabbitMQ. The message contains all octopus variables and these can be used to have some insight on the deploy. The step is very beta, it is advised to improve it to match real case scenarios.
+description: Notifies a deploy by sending a message into rabbitMQ. The message contains all octopus variables and these can be used to have some insight on the deploy. The step is very beta, it is advised to improve it to match real case scenarios.
 navMenu: false
 # Set to true when launched
 navSitemap: false

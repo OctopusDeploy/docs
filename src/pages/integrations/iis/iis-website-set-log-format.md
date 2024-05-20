@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-12-22
 title: 'IIS Website - Set log format'
-description: >-
-Sets fields included in IIS logging. Uses named checkboxes where the names are identical to the naming scheme in IIS Manager.
+description: Sets fields included in IIS logging. Uses named checkboxes where the names are identical to the naming scheme in IIS Manager.
 navMenu: false
 # Set to true when launched
 navSitemap: false

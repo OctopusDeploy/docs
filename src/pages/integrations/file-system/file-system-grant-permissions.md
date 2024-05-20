@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-10-26
 title: 'File System - Grant Permissions'
-description: >-
-Grant read, write and modify permissions to folders or files
+description: Grant read, write and modify permissions to folders or files
 navMenu: false
 # Set to true when launched
 navSitemap: false

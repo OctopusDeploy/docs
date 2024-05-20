@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-05-20
 title: 'SQL - Drop Database Using SMO'
-description: >-
-This uses Sql Management Objects to drop a database if it exists. If the username and password are both empty then it will attempt a trusted connection.
+description: This uses Sql Management Objects to drop a database if it exists. If the username and password are both empty then it will attempt a trusted connection.
 navMenu: false
 # Set to true when launched
 navSitemap: false

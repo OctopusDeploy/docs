@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-01-12
 title: 'Octolint a Space'
-description: >-
-Run the [octolint tool](https://github.com/OctopusSolutionsEngineering/OctopusRecommendationEngine) against a Space to get a usage recommendation report.
-
-This step requires a worker or execution container that has docker installed.
+description: Run the [octolint tool](https://github.com/OctopusSolutionsEngineering/OctopusRecommendationEngine) against a Space to get a usage recommendation report.  This step requires a worker or execution container that has docker installed.
 navMenu: false
 # Set to true when launched
 navSitemap: false

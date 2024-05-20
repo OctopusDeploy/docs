@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-07-23
 title: 'PagerDuty - Open Maintenance Window'
-description: >-
-Open a new maintenance window for the specified services, using the PagerDuty v2 API.
-
-No new incidents will be created for a service that is currently in maintenance.
-
-This script sets an output variable **WindowId** that can be used in the _PagerDuty - Close Maintenance Window_ template.
+description: Open a new maintenance window for the specified services, using the PagerDuty v2 API.  No new incidents will be created for a service that is currently in maintenance.  This script sets an output variable **WindowId** that can be used in the _PagerDuty - Close Maintenance Window_ template.
 navMenu: false
 # Set to true when launched
 navSitemap: false

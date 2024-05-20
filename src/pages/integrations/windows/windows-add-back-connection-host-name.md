@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-06-30
 title: 'Windows - Add Back Connection Host Name'
-description: >-
-Disables loopback checking for a given host header name, allowing an IIS site running with integrated authentication to be accessed from the same machine, e.g. an MVC application referencing a WebAPI application. See below for more information:
-
-<https://support.microsoft.com/en-us/kb/896861>
+description: Disables loopback checking for a given host header name, allowing an IIS site running with integrated authentication to be accessed from the same machine, e.g. an MVC application referencing a WebAPI application. See below for more information:  <https://support.microsoft.com/en-us/kb/896861>
 navMenu: false
 # Set to true when launched
 navSitemap: false

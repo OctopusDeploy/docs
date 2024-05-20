@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-09-08
 title: 'Slack - Notify Deployment'
-description: >-
-Notifies Slack of deployment status. Uses the Octopus Deploy system variable to determine whether a deployment was successful.
+description: Notifies Slack of deployment status. Uses the Octopus Deploy system variable to determine whether a deployment was successful.
 navMenu: false
 # Set to true when launched
 navSitemap: false

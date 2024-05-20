@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-04-29
 title: 'Create Scheduled Tasks From XML'
-description: >-
-This will create a schedule task based on exported xml. See https://msdn.microsoft.com/en-us/library/windows/desktop/bb736357%28v=vs.85%29.aspx for instructions on how to export scheduled tasks as xml.
+description: This will create a schedule task based on exported xml. See https://msdn.microsoft.com/en-us/library/windows/desktop/bb736357%28v=vs.85%29.aspx for instructions on how to export scheduled tasks as xml.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-07-28
 title: 'Chocolatey - Ensure Installed'
-description: >-
-Ensures that the Chocolatey package manager is installed on the system. The installer is downloaded from https://chocolatey.org if required.
+description: Ensures that the Chocolatey package manager is installed on the system. The installer is downloaded from https://chocolatey.org if required.
 navMenu: false
 # Set to true when launched
 navSitemap: false

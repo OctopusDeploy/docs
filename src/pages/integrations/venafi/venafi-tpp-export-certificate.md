@@ -2,43 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-18
 title: 'Venafi TPP - Export Certificate'
-description: >-
-This step template will authenticate against a Venafi TPP instance using an existing OAuth access token, and export a certificate using its Distinguished Name (DN). This is the absolute path to the certificate in the TPP instance.
-
-This is achieved using the VenafiPS PowerShell module's [Export-VenafiCertificate](https://venafips.readthedocs.io/en/latest/functions/Export-VenafiCertificate/) function.
-
----
-
-**Options:**
-
-- Provide the distinguished name (DN) path to the certificate.
-- Choose from the following export formats:
-  - `Base64`
-  - `Base64 (PKCS #8)`
-  - `DER`
-  - `JKS`
-  - `PKCS #7`
-  - `PKCS #12` 
-- *Optional* - Provide a custom output path.
-- *Optional* - Provide a custom output filename. If not supplied, the filename will automatically be taken from the response.
-- *Optional* - Include the full certificate chain in the export.
-- *Optional* - Friendly name (Label or alias) to use. Permitted with `Base64` and `PKCS #12` formats. Required when format is `JKS`.
-- *Optional* - Include the private key in the export.
-- *Optional* - Provide a password to be used for the exported private key.
-- *Optional* - store the export certificate response in `JSON` format in an [Octopus sensitive output variable](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables). This output variable can then be used in additional deployment or runbook steps.
-- *Optional* - on successful completion, you can revoke the access token used.
-
----
-
-**Required:** 
-- The `VenafiPS` PowerShell module installed on the deployment target or worker. If the module can't be found, the step will attempt to download a version from the [PowerShell gallery](https://www.powershellgallery.com/packages/VenafiPS).
-- PowerShell `5` or greater.
-
-Notes:
-
-- Tested on Octopus `2021.2`.
-- Tested with VenafiPS `3.1.5`.
-- Tested with both Windows PowerShell and PowerShell Core on Linux.
+description: This step template will authenticate against a Venafi TPP instance using an existing OAuth access token, and export a certificate using its Distinguished Name (DN). This is the absolute path to the certificate in the TPP instance.  This is achieved using the VenafiPS PowerShell module's [Export-VenafiCertificate](https://venafips.readthedocs.io/en/latest/functions/Export-VenafiCertificate/) function.  ---  **Options:**  - Provide the distinguished name (DN) path to the certificate. - Choose from the following export formats:   - `Base64`   - `Base64 (PKCS #8)`   - `DER`   - `JKS`   - `PKCS #7`   - `PKCS #12`  - *Optional* - Provide a custom output path. - *Optional* - Provide a custom output filename. If not supplied, the filename will automatically be taken from the response. - *Optional* - Include the full certificate chain in the export. - *Optional* - Friendly name (Label or alias) to use. Permitted with `Base64` and `PKCS #12` formats. Required when format is `JKS`. - *Optional* - Include the private key in the export. - *Optional* - Provide a password to be used for the exported private key. - *Optional* - store the export certificate response in `JSON` format in an [Octopus sensitive output variable](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables). This output variable can then be used in additional deployment or runbook steps. - *Optional* - on successful completion, you can revoke the access token used.  ---  **Required:**  - The `VenafiPS` PowerShell module installed on the deployment target or worker. If the module can't be found, the step will attempt to download a version from the [PowerShell gallery](https://www.powershellgallery.com/packages/VenafiPS). - PowerShell `5` or greater.  Notes:  - Tested on Octopus `2021.2`. - Tested with VenafiPS `3.1.5`. - Tested with both Windows PowerShell and PowerShell Core on Linux.
 navMenu: false
 # Set to true when launched
 navSitemap: false

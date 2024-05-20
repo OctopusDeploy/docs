@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-02-01
 title: 'AWS - Create a Security Group'
-description: >-
-This step will Create a Security Group within a Virtual Private Cloud (VPC).
-
-Works well with the "_AWS - Launch EC2 Instance_" Community Step Template.
-
-[AWS Tools for Windows PowerShell](http://aws.amazon.com/powershell/) must be installed on the Server/Target you plan on running this step template on. If you would like to add comments to rules, then you will need at least version 3.3.42.0 installed.
+description: This step will Create a Security Group within a Virtual Private Cloud (VPC).  Works well with the "_AWS - Launch EC2 Instance_" Community Step Template.  [AWS Tools for Windows PowerShell](http://aws.amazon.com/powershell/) must be installed on the Server/Target you plan on running this step template on. If you would like to add comments to rules, then you will need at least version 3.3.42.0 installed.
 navMenu: false
 # Set to true when launched
 navSitemap: false

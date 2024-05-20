@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-09-12
 title: 'Git - Tag repository'
-description: >-
-Tags a git repository with the specified tag
+description: Tags a git repository with the specified tag
 navMenu: false
 # Set to true when launched
 navSitemap: false

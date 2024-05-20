@@ -2,18 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-09-17
 title: 'Azure Web App - Disable app_offline'
-description: >-
-This step template will remove an app_offline file from an Azure WebApp to safely bring the app domain online following a deployment.
-
-It requires a set of [deployment credentials](https://docs.microsoft.com/en-gb/azure/app-service/deploy-configure-credentials) for the Azure Web App.
-
-**Required:** 
-- Credentials with access to the [Kudu VFS API](https://github.com/projectkudu/kudu/wiki/REST-API#vfs)
-
-Notes:
-
-- Tested on Octopus `2021.2`.
-- Tested with both Windows PowerShell and PowerShell Core on Linux.
+description: This step template will remove an app_offline file from an Azure WebApp to safely bring the app domain online following a deployment.  It requires a set of [deployment credentials](https://docs.microsoft.com/en-gb/azure/app-service/deploy-configure-credentials) for the Azure Web App.  **Required:**  - Credentials with access to the [Kudu VFS API](https://github.com/projectkudu/kudu/wiki/REST-API#vfs)  Notes:  - Tested on Octopus `2021.2`. - Tested with both Windows PowerShell and PowerShell Core on Linux.
 navMenu: false
 # Set to true when launched
 navSitemap: false

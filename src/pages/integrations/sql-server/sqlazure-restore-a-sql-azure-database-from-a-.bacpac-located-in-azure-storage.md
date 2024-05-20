@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-04-01
 title: 'SQLAzure - Restore a SQL Azure database from a .bacpac located in Azure Storage'
-description: >-
-Given an existing [.bacpac](https://msdn.microsoft.com/en-us/library/azure/hh335292.aspx) in Azure Storage this template restores a SQL Azure database.
-
-**Note** - The storage account used needs to reside in the the same subscription as the SQL Azure Server.
+description: Given an existing [.bacpac](https://msdn.microsoft.com/en-us/library/azure/hh335292.aspx) in Azure Storage this template restores a SQL Azure database.  **Note** - The storage account used needs to reside in the the same subscription as the SQL Azure Server.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,39 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-10-04
 title: 'AWS - Configure Lambda API Gateway Integration'
-description: >-
-Configures an API v2 Gateway to connect to and invoke a Lambda Function.  That includes:
-
-- Integration on the API Gateway
-- Route on the API Gateway
-- Permission Policy on AWS Lambda (Aliases are supported)
-
-**Please Note:** Your AWS Lambda function **MUST** exist prior to running this step.
-
-This step uses the following AWS CLI commands to create the integration and route.  You will be required to install the AWS CLI on your server/worker for this to work.  The AWS CLI is pre-installed on the [dynamic workers](https://octopus.com/docs/infrastructure/workers/dynamic-worker-pools) in Octopus Cloud as well as the provided docker containers for [Execution Containers](https://octopus.com/docs/deployment-process/execution-containers-for-workers).
-
-APIGatewayV2 CLI Methods
-- [create-integration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/create-integration.html)
-- [create-route](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/create-route.html)
-- [get-apis](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/get-apis.html)
-- [get-integrations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/get-integrations.html)
-- [get-routes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/get-routes.html)
-- [get-vpc-links](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/get-vpc-links.html)
-- [update-integration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/update-integration.html)
-
-Lambda CLI Methods
-- [add-permission](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/add-permission.html)
-- [get-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-policy.html)
-- [remove-permission](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/remove-permission.html)
-
-
-## Output Variables
-
-This step template sets the following output variables:
-
-- `ApiGatewayEndPoint`: The endpoint of the API Gateway
-- `ApiGatewayId`: The id of the API Gateway
-- `ApiGatewayArn`: The ARN of the API Gateway
+description: Configures an API v2 Gateway to connect to and invoke a Lambda Function.  That includes:  - Integration on the API Gateway - Route on the API Gateway - Permission Policy on AWS Lambda (Aliases are supported)  **Please Note:** Your AWS Lambda function **MUST** exist prior to running this step.  This step uses the following AWS CLI commands to create the integration and route.  You will be required to install the AWS CLI on your server/worker for this to work.  The AWS CLI is pre-installed on the [dynamic workers](https://octopus.com/docs/infrastructure/workers/dynamic-worker-pools) in Octopus Cloud as well as the provided docker containers for [Execution Containers](https://octopus.com/docs/deployment-process/execution-containers-for-workers).  APIGatewayV2 CLI Methods - [create-integration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/create-integration.html) - [create-route](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/create-route.html) - [get-apis](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/get-apis.html) - [get-integrations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/get-integrations.html) - [get-routes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/get-routes.html) - [get-vpc-links](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/get-vpc-links.html) - [update-integration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewayv2/update-integration.html)  Lambda CLI Methods - [add-permission](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/add-permission.html) - [get-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-policy.html) - [remove-permission](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/remove-permission.html)   ## Output Variables  This step template sets the following output variables:  - `ApiGatewayEndPoint`: The endpoint of the API Gateway - `ApiGatewayId`: The id of the API Gateway - `ApiGatewayArn`: The ARN of the API Gateway
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-10-17
 title: 'GitHub - Create Repository'
-description: >-
-This step creates a new GitHub repository if it does not exist.
+description: This step creates a new GitHub repository if it does not exist.
 navMenu: false
 # Set to true when launched
 navSitemap: false

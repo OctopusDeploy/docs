@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-07-28
 title: 'Wait for IIS connections to drop to 0 or time expires'
-description: >-
-Wait for IIS connections to drop to 0 or time expires
+description: Wait for IIS connections to drop to 0 or time expires
 navMenu: false
 # Set to true when launched
 navSitemap: false

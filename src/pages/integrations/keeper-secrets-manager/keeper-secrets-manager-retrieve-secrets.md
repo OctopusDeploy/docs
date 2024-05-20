@@ -2,23 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-10
 title: 'Keeper Secrets Manager - Retrieve Secrets'
-description: >-
-This step retrieves one or more secrets from a Keeper Vault and creates [sensitive output variables](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) for each value retrieved. These values can be used in other steps in your deployment or runbook process.
-
-You can retrieve secrets using Keeper Notation URIs, and you can choose a custom output variable name for each secret.
-
----
-
-**Required:** 
-- A [Keeper Secrets Manager](https://docs.keeper.io/secrets-manager/) application with permissions to retrieve secrets from the Keeper Vault.
-- The `SecretManagement.Keeper.Extension` PowerShell module installed on the target or worker. If the module can't be found, the step will fail. *The `SecretManagement.Keeper` module(s) can be installed from the [PowerShell gallery](https://www.powershellgallery.com/packages/SecretManagement.Keeper)*
-
-Notes:
-
-- Tested on Octopus `2022.4`.
-- Tested with both Windows PowerShell and PowerShell Core on Linux.
-
-
+description: This step retrieves one or more secrets from a Keeper Vault and creates [sensitive output variables](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) for each value retrieved. These values can be used in other steps in your deployment or runbook process.  You can retrieve secrets using Keeper Notation URIs, and you can choose a custom output variable name for each secret.  ---  **Required:**  - A [Keeper Secrets Manager](https://docs.keeper.io/secrets-manager/) application with permissions to retrieve secrets from the Keeper Vault. - The `SecretManagement.Keeper.Extension` PowerShell module installed on the target or worker. If the module can't be found, the step will fail. *The `SecretManagement.Keeper` module(s) can be installed from the [PowerShell gallery](https://www.powershellgallery.com/packages/SecretManagement.Keeper)*  Notes:  - Tested on Octopus `2022.4`. - Tested with both Windows PowerShell and PowerShell Core on Linux.  
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-04
 title: 'Windows - Remove Hosts File Entry'
-description: >-
-Remove given IP/host name entry exists in the hosts file.
-
-This might be helpful in uninstall process.
+description: Remove given IP/host name entry exists in the hosts file.  This might be helpful in uninstall process.
 navMenu: false
 # Set to true when launched
 navSitemap: false

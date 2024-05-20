@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-12-02
 title: 'MongoDB - Create User if not exists'
-description: >-
-Creates a new database user on a MongoDB server.
+description: Creates a new database user on a MongoDB server.
 navMenu: false
 # Set to true when launched
 navSitemap: false

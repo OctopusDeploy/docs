@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-01-12
 title: 'Xamarin Insights dSYM Upload'
-description: >-
-Uploads a dSYM symbols file to Xamarin Insights, for more readable exceptions.
+description: Uploads a dSYM symbols file to Xamarin Insights, for more readable exceptions.
 navMenu: false
 # Set to true when launched
 navSitemap: false

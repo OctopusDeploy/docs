@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-07-22
 title: 'SQL - Fix Orphaned User'
-description: >-
-Will fix an orphaned user in the database by re-associating the SID.
+description: Will fix an orphaned user in the database by re-associating the SID.
 navMenu: false
 # Set to true when launched
 navSitemap: false

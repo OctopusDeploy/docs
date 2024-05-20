@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-06-15
 title: 'File System - rsync (bash)'
-description: >-
-Run [rsync](http://manpages.org/rsync) on a target or worker.
+description: Run [rsync](http://manpages.org/rsync) on a target or worker.
 navMenu: false
 # Set to true when launched
 navSitemap: false

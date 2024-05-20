@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-09-18
 title: 'GitHub - Fork Repo'
-description: >-
-Forks a repo in GitHub and returns the new repo URL in the output variable `NewRepo`. If the new repo already exists, it is not modified.
+description: Forks a repo in GitHub and returns the new repo URL in the output variable `NewRepo`. If the new repo already exists, it is not modified.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-05-29
 title: 'Azure - Capture AzureRM Virtual Machine Image'
-description: >-
-Prepares an AzureRM Virtual Machine (Managed Disk or Storage Account based) and captures a [Managed Image](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource) or [Image VHD](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image):
-1. Runs Sysprep
-2. Deallocates & Generalizes VM
-3. Creates Managed Image or Image VHD
-4. Removes virtual machine resource group
+description: Prepares an AzureRM Virtual Machine (Managed Disk or Storage Account based) and captures a [Managed Image](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource) or [Image VHD](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image): 1. Runs Sysprep 2. Deallocates & Generalizes VM 3. Creates Managed Image or Image VHD 4. Removes virtual machine resource group
 navMenu: false
 # Set to true when launched
 navSitemap: false

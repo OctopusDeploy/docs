@@ -2,9 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-08-24
 title: 'XML Transform using XDT'
-description: >-
-You can use this script to easily transform any XML file using XDT.
-The script will download its dependencies automatically.
+description: You can use this script to easily transform any XML file using XDT. The script will download its dependencies automatically.
 navMenu: false
 # Set to true when launched
 navSitemap: false

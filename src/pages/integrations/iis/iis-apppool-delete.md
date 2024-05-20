@@ -2,9 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-07-29
 title: 'IIS AppPool - Delete'
-description: >-
-Deletes an IIS Application Pool. 
-CAUTION: Delete will proceed even if applications are using the Application Pool.
+description: Deletes an IIS Application Pool.  CAUTION: Delete will proceed even if applications are using the Application Pool.
 navMenu: false
 # Set to true when launched
 navSitemap: false

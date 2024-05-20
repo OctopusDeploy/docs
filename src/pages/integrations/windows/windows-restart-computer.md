@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-30
 title: 'Windows - Restart Computer'
-description: >-
-Restarts the computer.
+description: Restarts the computer.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,19 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-11
 title: 'Venafi TPP - Revoke OAuth Token'
-description: >-
-This step template will revoke an access token obtained through a Venafi TPP instance using the VenafiPS PowerShell module's [Revoke-TppToken](https://venafips.readthedocs.io/en/latest/functions/Revoke-TppToken/) function.
-
----
-
-**Required:** 
-- The `VenafiPS` PowerShell module installed on the deployment target or worker. If the module can't be found, the step will attempt to download a version from the [PowerShell gallery](https://www.powershellgallery.com/packages/VenafiPS).
-
-Notes:
-
-- Tested on Octopus `2021.2`.
-- Tested with VenafiPS `3.1.5`.
-- Tested with both Windows PowerShell and PowerShell Core on Linux.
+description: This step template will revoke an access token obtained through a Venafi TPP instance using the VenafiPS PowerShell module's [Revoke-TppToken](https://venafips.readthedocs.io/en/latest/functions/Revoke-TppToken/) function.  ---  **Required:**  - The `VenafiPS` PowerShell module installed on the deployment target or worker. If the module can't be found, the step will attempt to download a version from the [PowerShell gallery](https://www.powershellgallery.com/packages/VenafiPS).  Notes:  - Tested on Octopus `2021.2`. - Tested with VenafiPS `3.1.5`. - Tested with both Windows PowerShell and PowerShell Core on Linux.
 navMenu: false
 # Set to true when launched
 navSitemap: false

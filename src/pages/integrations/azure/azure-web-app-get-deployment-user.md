@@ -2,22 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-09-17
 title: 'Azure Web App - Get Deployment User'
-description: >-
-This step template will retrieve a set of [deployment credentials](https://docs.microsoft.com/en-gb/azure/app-service/deploy-configure-credentials) for an Azure Web App.
-
-It will create two Octopus [sensitive output variables](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) for use in other deployment or runbook steps. They will be named:
-
-- `userName` - the username from the provided deployment credentials.
-- `userPwd` - the password from the provided deployment credentials.
-
-**Required:** 
-- An azure account with permissions to retrieve deployment credentials for the named Azure Web App.
-- The Azure CLI (`az`) is required to run this script. If running on a worker or deployment target, ensure this is installed.
-
-Notes:
-
-- Tested on Octopus `2021.2`.
-- Tested with both Windows PowerShell and PowerShell Core on Linux.
+description: This step template will retrieve a set of [deployment credentials](https://docs.microsoft.com/en-gb/azure/app-service/deploy-configure-credentials) for an Azure Web App.  It will create two Octopus [sensitive output variables](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) for use in other deployment or runbook steps. They will be named:  - `userName` - the username from the provided deployment credentials. - `userPwd` - the password from the provided deployment credentials.  **Required:**  - An azure account with permissions to retrieve deployment credentials for the named Azure Web App. - The Azure CLI (`az`) is required to run this script. If running on a worker or deployment target, ensure this is installed.  Notes:  - Tested on Octopus `2021.2`. - Tested with both Windows PowerShell and PowerShell Core on Linux.
 navMenu: false
 # Set to true when launched
 navSitemap: false

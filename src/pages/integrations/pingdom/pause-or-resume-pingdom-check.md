@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-07-31
 title: 'Pause or Resume Pingdom check'
-description: >-
-null
+description: 
 navMenu: false
 # Set to true when launched
 navSitemap: false

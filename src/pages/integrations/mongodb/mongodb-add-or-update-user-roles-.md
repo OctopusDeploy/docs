@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-12-02
 title: 'MongoDB - Add or update user roles '
-description: >-
-Adds roles to an existing user in a MongoDB database.
+description: Adds roles to an existing user in a MongoDB database.
 navMenu: false
 # Set to true when launched
 navSitemap: false

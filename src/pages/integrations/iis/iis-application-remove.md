@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-05-20
 title: 'IIS Application - Remove'
-description: >-
-Removes an IIS virtual application (a virtual directory with an application pool)
+description: Removes an IIS virtual application (a virtual directory with an application pool)
 navMenu: false
 # Set to true when launched
 navSitemap: false

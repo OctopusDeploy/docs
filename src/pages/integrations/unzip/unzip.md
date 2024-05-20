@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-08-03
 title: 'Unzip'
-description: >-
-Unzip file
+description: Unzip file
 navMenu: false
 # Set to true when launched
 navSitemap: false

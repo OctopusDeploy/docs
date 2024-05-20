@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-30
 title: 'SSL - Disable SSLv2'
-description: >-
-Disables SSL v2, requires restart.
+description: Disables SSL v2, requires restart.
 navMenu: false
 # Set to true when launched
 navSitemap: false

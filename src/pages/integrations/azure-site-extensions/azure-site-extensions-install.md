@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-09-06
 title: 'Azure Site Extensions - Install'
-description: >-
-Installs an Azure [site extension](https://www.siteextensions.net) in your Azure web app.
+description: Installs an Azure [site extension](https://www.siteextensions.net) in your Azure web app.
 navMenu: false
 # Set to true when launched
 navSitemap: false

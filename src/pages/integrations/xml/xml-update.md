@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-08-03
 title: 'XML update'
-description: >-
-null
+description: 
 navMenu: false
 # Set to true when launched
 navSitemap: false

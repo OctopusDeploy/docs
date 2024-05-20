@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-02-20
 title: 'Clear EdgeCast CDN Cache'
-description: >-
-This step will clear (purge) the EdgeCast CDN Cache
+description: This step will clear (purge) the EdgeCast CDN Cache
 navMenu: false
 # Set to true when launched
 navSitemap: false

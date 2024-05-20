@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-06-20
 title: 'Windows - Create Event Source'
-description: >-
-Establishes the specified source name as a valid event source for writing entries to a log on the local computer. 
-
-This method can also create a new custom log on the local computer.
+description: Establishes the specified source name as a valid event source for writing entries to a log on the local computer.   This method can also create a new custom log on the local computer.
 navMenu: false
 # Set to true when launched
 navSitemap: false

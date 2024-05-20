@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-05-16
 title: 'Redgate - SQL Clone, Create Image'
-description: >-
-Creates a database image with [Redgate SQL Clone](https://www.red-gate.com/products/dba/sql-clone/index).
-
-Requires SQL Clone.
-
-*Version date: 16th May 2019*
+description: Creates a database image with [Redgate SQL Clone](https://www.red-gate.com/products/dba/sql-clone/index).  Requires SQL Clone.  *Version date: 16th May 2019*
 navMenu: false
 # Set to true when launched
 navSitemap: false

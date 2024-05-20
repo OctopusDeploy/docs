@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-11-21
 title: 'Process - Wait for or Force close'
-description: >-
-Waits a set amount of time for a process to close and optionally force closes the process after the timeout expires.
+description: Waits a set amount of time for a process to close and optionally force closes the process after the timeout expires.
 navMenu: false
 # Set to true when launched
 navSitemap: false

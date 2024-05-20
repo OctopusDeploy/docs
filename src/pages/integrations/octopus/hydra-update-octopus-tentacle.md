@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-07-01
 title: 'Hydra - Update Octopus Tentacle'
-description: >-
-Performs an automatic update for a 2.6 Tentacle to a 3.0 Tentacle.
+description: Performs an automatic update for a 2.6 Tentacle to a 3.0 Tentacle.
 navMenu: false
 # Set to true when launched
 navSitemap: false

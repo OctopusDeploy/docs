@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-13
 title: 'SSL - Write Certificate Pem and Key to the Filesystem'
-description: >-
-Export the PEM and Key from an SSL certificate to the File System. This is useful in Linux for securing websites or Docker containers
+description: Export the PEM and Key from an SSL certificate to the File System. This is useful in Linux for securing websites or Docker containers
 navMenu: false
 # Set to true when launched
 navSitemap: false

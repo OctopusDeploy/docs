@@ -2,25 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-05-01
 title: 'GCP Secret Manager - Retrieve Secrets'
-description: >-
-This step retrieves one or more secrets from [Secret Manager](https://cloud.google.com/secret-manager) on Google Cloud Platform (GCP), and creates [sensitive output variables](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) for each value retrieved. These values can be used in other steps in your deployment or runbook process.
-
-It's recommended that you retrieve secrets with a specific version, and not the *latest* version. You can choose a custom output variable name for each secret, or one will be created dynamically.
-
----
-
-**Required:** 
-- Octopus Server **2021.2** or higher.
-- PowerShell **5.1** or higher.
-- The Google Cloud (`gcloud`) CLI, version **338.0.0** or higher installed on the target or worker. If the CLI can't be found, the step will fail.
-- A Google account with permissions to retrieve secrets from Secret Manager on Google Cloud. Accessing a secret version requires the **Secret Manager Secret Accessor** role (`roles/secretmanager.secretAccessor`) on the secret, project, folder, or organization. 
-
-Notes:
-
-- Tested on Octopus **2021.2**.
-- Tested on both Windows Server 2019 and Ubuntu 20.04.
-
-
+description: This step retrieves one or more secrets from [Secret Manager](https://cloud.google.com/secret-manager) on Google Cloud Platform (GCP), and creates [sensitive output variables](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) for each value retrieved. These values can be used in other steps in your deployment or runbook process.  It's recommended that you retrieve secrets with a specific version, and not the *latest* version. You can choose a custom output variable name for each secret, or one will be created dynamically.  ---  **Required:**  - Octopus Server **2021.2** or higher. - PowerShell **5.1** or higher. - The Google Cloud (`gcloud`) CLI, version **338.0.0** or higher installed on the target or worker. If the CLI can't be found, the step will fail. - A Google account with permissions to retrieve secrets from Secret Manager on Google Cloud. Accessing a secret version requires the **Secret Manager Secret Accessor** role (`roles/secretmanager.secretAccessor`) on the secret, project, folder, or organization.   Notes:  - Tested on Octopus **2021.2**. - Tested on both Windows Server 2019 and Ubuntu 20.04.  
 navMenu: false
 # Set to true when launched
 navSitemap: false

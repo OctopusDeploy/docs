@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-01-30
 title: 'Windows  - Certificate Grant Read Access'
-description: >-
-Grant read access to certificate for a specific user
+description: Grant read access to certificate for a specific user
 navMenu: false
 # Set to true when launched
 navSitemap: false

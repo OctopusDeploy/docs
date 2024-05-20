@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-18
 title: 'AWS RDS SQL Server - Restore from S3 Bucket'
-description: >-
-Will restore a database backup from an S3 bucket
+description: Will restore a database backup from an S3 bucket
 navMenu: false
 # Set to true when launched
 navSitemap: false

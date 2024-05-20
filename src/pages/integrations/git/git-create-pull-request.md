@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-09-12
 title: 'Git - Create Pull Request'
-description: >-
-Create a Pull or Merge Request for the repository
+description: Create a Pull or Merge Request for the repository
 navMenu: false
 # Set to true when launched
 navSitemap: false

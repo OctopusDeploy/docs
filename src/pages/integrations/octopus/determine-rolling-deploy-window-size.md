@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-08-15
 title: 'Determine Rolling Deploy Window Size'
-description: >-
-Determine Window Size for Rolling Deploy.
+description: Determine Window Size for Rolling Deploy.
 navMenu: false
 # Set to true when launched
 navSitemap: false

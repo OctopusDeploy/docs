@@ -2,34 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-11-03
 title: 'Web Deploy to Azure by convention'
-description: >-
-Makes it super simple to deploy websites to different regions inside a single process.
-
-This script assumes that you want to deploy websites like these to multiple regions:
-
-- playground.mydomain.com
-- status.mydomain.com
-
-When you deploy to staging and production to 3 regions, this means that each website requires 3 (regions) * 2 (deployment slots) = 6 scripts. If you want this deployed using ms web deploy, you will need 6 * 5 = 30 variables (for a single website).
-
-With this convention script you only need a few variables, but it requires some convention (mostly done by Azure anyway):
-
-- [prefix]-[websitename]-[region]
-- [prefix]-[websitename]-[region]-staging
-
-So
-
-- mydomain-playground-eu-west
-- mydomain-playground-eu-west-staging
-
-The following variables are required:
-
-- AzurePrefix
-- AzureName
-- AzurePassword-[region]
-- AzurePassword-[region]-staging
-
-The password is required for each region and deployment slot, the rest is fully determined by convention.
+description: Makes it super simple to deploy websites to different regions inside a single process.  This script assumes that you want to deploy websites like these to multiple regions:  - playground.mydomain.com - status.mydomain.com  When you deploy to staging and production to 3 regions, this means that each website requires 3 (regions) * 2 (deployment slots) = 6 scripts. If you want this deployed using ms web deploy, you will need 6 * 5 = 30 variables (for a single website).  With this convention script you only need a few variables, but it requires some convention (mostly done by Azure anyway):  - [prefix]-[websitename]-[region] - [prefix]-[websitename]-[region]-staging  So  - mydomain-playground-eu-west - mydomain-playground-eu-west-staging  The following variables are required:  - AzurePrefix - AzureName - AzurePassword-[region] - AzurePassword-[region]-staging  The password is required for each region and deployment slot, the rest is fully determined by convention.
 navMenu: false
 # Set to true when launched
 navSitemap: false

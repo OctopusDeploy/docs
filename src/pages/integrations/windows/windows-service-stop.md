@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-05
 title: 'Windows Service - Stop'
-description: >-
-Stops a Windows Service if it is running.
+description: Stops a Windows Service if it is running.
 navMenu: false
 # Set to true when launched
 navSitemap: false

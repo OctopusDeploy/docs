@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-07-17
 title: 'Redgate - Create Database Release'
-description: >-
-Creates the resources (including the SQL update script) to deploy database changes using Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage), and exports them as Octopus artifacts so you can review the changes before deploying.
-
-Requires SQL Change Automation version 3.0.2 or later.
-
-*Version date: 2020-12-21*
+description: Creates the resources (including the SQL update script) to deploy database changes using Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage), and exports them as Octopus artifacts so you can review the changes before deploying.  Requires SQL Change Automation version 3.0.2 or later.  *Version date: 2020-12-21*
 navMenu: false
 # Set to true when launched
 navSitemap: false

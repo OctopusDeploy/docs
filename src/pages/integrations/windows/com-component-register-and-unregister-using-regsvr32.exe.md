@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-06-30
 title: 'Com Component - Register and Unregister using Regsvr32.exe'
-description: >-
-Uses regsvr32.exe to register com components
+description: Uses regsvr32.exe to register com components
 navMenu: false
 # Set to true when launched
 navSitemap: false

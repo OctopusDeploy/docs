@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-10-26
 title: 'StatusPage.io - Create Scheduled Maintenance Incident'
-description: >-
-Creates or updates a scheduled maintenance incident on StatusPage.io
+description: Creates or updates a scheduled maintenance incident on StatusPage.io
 navMenu: false
 # Set to true when launched
 navSitemap: false

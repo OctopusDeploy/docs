@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
 title: 'AWS Win - Install Octopus Tentacle'
-description: >-
-This step template will install the latest tentacle on an AWS hosted, Windows virtual machine. This will also open the firewall for inbound traffic on port 10933 on the Security Group.
-<hr />
-*Note: Expects the AWS CLI and Powershell to be installed on the worker running this task*
+description: This step template will install the latest tentacle on an AWS hosted, Windows virtual machine. This will also open the firewall for inbound traffic on port 10933 on the Security Group. <hr /> *Note: Expects the AWS CLI and Powershell to be installed on the worker running this task*
 navMenu: false
 # Set to true when launched
 navSitemap: false

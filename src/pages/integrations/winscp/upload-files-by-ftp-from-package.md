@@ -2,18 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-08
 title: 'Upload files by FTP from package'
-description: >-
-Upload files to a remote server via File Transfer Protocol (SFTP or FTP) using WinSCP.
-
-This step template uses the [WinSCP .NET Assembly](http://winscp.net/eng/docs/library#downloading_and_installing_the_assembly).  In the absence of WinSCP installed on the machine, it will attempt to make use of the WinSCP PowerShell module, downloading a temporary copy if not already present. 
-
-# Notes on usage
-
-This version uses a referenced package parameter and is able to be run on a Worker.
-
-## Cleaning up deployments
-
-If you aren't deploying to an application host and don't want the deployment files to persist on the tentacle irrespective of the life cycle retention policy ensure that you set the "Delete Previous Deployment" to `true` and they will be removed.
+description: Upload files to a remote server via File Transfer Protocol (SFTP or FTP) using WinSCP.  This step template uses the [WinSCP .NET Assembly](http://winscp.net/eng/docs/library#downloading_and_installing_the_assembly).  In the absence of WinSCP installed on the machine, it will attempt to make use of the WinSCP PowerShell module, downloading a temporary copy if not already present.   # Notes on usage  This version uses a referenced package parameter and is able to be run on a Worker.  ## Cleaning up deployments  If you aren't deploying to an application host and don't want the deployment files to persist on the tentacle irrespective of the life cycle retention policy ensure that you set the "Delete Previous Deployment" to `true` and they will be removed.
 navMenu: false
 # Set to true when launched
 navSitemap: false

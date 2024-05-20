@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-08-31
 title: 'ASP.NET Core - set runtime environment variable via web.config'
-description: >-
-ASP.NET Core allows you specify environment variables in web.config - https://docs.microsoft.com/en-us/aspnet/core/hosting/aspnet-core-module#set-environment-variables
+description: ASP.NET Core allows you specify environment variables in web.config - https://docs.microsoft.com/en-us/aspnet/core/hosting/aspnet-core-module#set-environment-variables
 navMenu: false
 # Set to true when launched
 navSitemap: false

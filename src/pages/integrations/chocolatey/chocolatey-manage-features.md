@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-13
 title: 'Chocolatey - Manage Features'
-description: >-
-Allows enabling and disabling of Chocolatey features.
+description: Allows enabling and disabling of Chocolatey features.
 navMenu: false
 # Set to true when launched
 navSitemap: false

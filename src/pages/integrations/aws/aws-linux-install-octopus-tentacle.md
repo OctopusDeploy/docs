@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
 title: 'AWS Linux - Install Octopus Tentacle'
-description: >-
-This step template will install the latest tentacle on an AWS hosted, Linux virtual machine. This will also open the firewall for inbound traffic on port 10933 on the Security Group.
-<hr />
-*Note: Expects the AWS CLI and Powershell to be installed on the worker running this task*<br />
-*Note: Firewall ports will not be opened on the remote machine*</br>
-*Note: Target machines must be added to your AWS System Manager (SSM)*
+description: This step template will install the latest tentacle on an AWS hosted, Linux virtual machine. This will also open the firewall for inbound traffic on port 10933 on the Security Group. <hr /> *Note: Expects the AWS CLI and Powershell to be installed on the worker running this task*<br /> *Note: Firewall ports will not be opened on the remote machine*</br> *Note: Target machines must be added to your AWS System Manager (SSM)*
 navMenu: false
 # Set to true when launched
 navSitemap: false

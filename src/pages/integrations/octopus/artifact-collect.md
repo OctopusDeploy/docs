@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-05-29
 title: 'Artifact Collect'
-description: >-
-Collect artifacts easily and safely.
+description: Collect artifacts easily and safely.
 navMenu: false
 # Set to true when launched
 navSitemap: false

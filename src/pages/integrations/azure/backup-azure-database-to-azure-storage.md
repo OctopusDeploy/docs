@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-03-25
 title: 'Backup Azure Database To Azure Storage'
-description: >-
-Create a backup of SQL Azure Database and store it in Azure Blob Storage. Requires Azure PowerShell to be installed on Tentacle machine.
+description: Create a backup of SQL Azure Database and store it in Azure Blob Storage. Requires Azure PowerShell to be installed on Tentacle machine.
 navMenu: false
 # Set to true when launched
 navSitemap: false

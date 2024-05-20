@@ -2,9 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
 title: 'Register Linux Tentacle'
-description: >-
-This Step Template will Register a Linux Tentacle.
-[Reference](https://octopus.com/docs/infrastructure/deployment-targets/linux).
+description: This Step Template will Register a Linux Tentacle. [Reference](https://octopus.com/docs/infrastructure/deployment-targets/linux).
 navMenu: false
 # Set to true when launched
 navSitemap: false

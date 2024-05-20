@@ -2,22 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-02-22
 title: 'Re-prioritize Octopus Deploy Tasks'
-description: >-
-This step will allow you to re-prioritize tasks in the Octopus Deploy queue.  
-
-It will check the task queue for pending tasks and if it finds a task that should be prioritized based on the matching criteria it will cancel any tasks before it to move it to the top of the queue.  
-
-The matching logic supports:
-- Task Id - you provide a list of task ids and it will move those to the top of the queue
-- Space, Environment, Project, Tenant - you provide a list of spaces, environments, projects, or tenants and the step will find matching deployments or runbook runs and move them to the top of the queue.  
-
-How it works:
-1) The step template pulls the list of unscheduled queued tasks (if you schedule a task to run at 7 PM it will exclude that from the check).
-2) Attempts to find matching tasks based on task id or space/environment/project/tenant criteria.
-3) If it finds one or more matching tasks it checks the position of those tasks in the queue.  Any tasks ahead of them are cancelled.
-4) if the step template cancels any deployments or runbook runs it will resubmit them using the same criteria as before (this moves them to the bottom of the queue).
-
-**Important** It will not cancel running tasks.
+description: This step will allow you to re-prioritize tasks in the Octopus Deploy queue.    It will check the task queue for pending tasks and if it finds a task that should be prioritized based on the matching criteria it will cancel any tasks before it to move it to the top of the queue.    The matching logic supports: - Task Id - you provide a list of task ids and it will move those to the top of the queue - Space, Environment, Project, Tenant - you provide a list of spaces, environments, projects, or tenants and the step will find matching deployments or runbook runs and move them to the top of the queue.    How it works: 1) The step template pulls the list of unscheduled queued tasks (if you schedule a task to run at 7 PM it will exclude that from the check). 2) Attempts to find matching tasks based on task id or space/environment/project/tenant criteria. 3) If it finds one or more matching tasks it checks the position of those tasks in the queue.  Any tasks ahead of them are cancelled. 4) if the step template cancels any deployments or runbook runs it will resubmit them using the same criteria as before (this moves them to the bottom of the queue).  **Important** It will not cancel running tasks.
 navMenu: false
 # Set to true when launched
 navSitemap: false

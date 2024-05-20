@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-09-20
 title: 'Undeploy Tomcat Application via Manager'
-description: >-
-Undeploys the specified application/version from the Tomcat server.
+description: Undeploys the specified application/version from the Tomcat server.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,12 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-05-12
 title: 'NSSM Windows Service - Create'
-description: >-
-Create Windows Service using NSSM and powershell script. 
-
-Visit https://nssm.cc/usage for more information.
-
-NOTE: This site may be blocked due to .cc domain
+description: Create Windows Service using NSSM and powershell script.   Visit https://nssm.cc/usage for more information.  NOTE: This site may be blocked due to .cc domain
 navMenu: false
 # Set to true when launched
 navSitemap: false

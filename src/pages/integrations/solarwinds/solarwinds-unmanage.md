@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
 title: 'Solarwinds - Unmanage'
-description: >-
-Stop monitoring for a Solarwinds node, application or both
+description: Stop monitoring for a Solarwinds node, application or both
 navMenu: false
 # Set to true when launched
 navSitemap: false

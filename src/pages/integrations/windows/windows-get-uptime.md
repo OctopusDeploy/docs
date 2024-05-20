@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-30
 title: 'Windows - Get Uptime'
-description: >-
-Get computer up time.
+description: Get computer up time.
 navMenu: false
 # Set to true when launched
 navSitemap: false

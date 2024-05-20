@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-04-14
 title: 'Twilio - Send SMS (PowerShell)'
-description: >-
-Send an SMS using Twilio's API. This script step is written in PowerShell.
+description: Send an SMS using Twilio's API. This script step is written in PowerShell.
 navMenu: false
 # Set to true when launched
 navSitemap: false

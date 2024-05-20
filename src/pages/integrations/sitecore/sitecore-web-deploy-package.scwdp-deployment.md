@@ -2,15 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-06-19
 title: 'Sitecore web deploy package(.scwdp) deployment'
-description: >-
-Step template to deploy Sitecore WDP(Web Deploy Package) package. 
-
-**Useful links:**
-[Sitecore documentation.](https://doc.sitecore.com/developers/sat/24/sitecore-azure-toolkit/en/web-deploy-packages-for-a-module.html)
-How to create [Sitecore Web Deploy Package](https://hls-consulting.com/2019/05/15/how-to-create-a-wdp-from-a-sitecore-package/)  by Hugo Santos. 
-How to install [Sitecore Web Deploy Package](https://hls-consulting.com/2019/06/03/how-to-install-a-wdp-in-a-sitecore-9-1-on-premises-instance/) by Hugo Santos.
-
-
+description: Step template to deploy Sitecore WDP(Web Deploy Package) package.   **Useful links:** [Sitecore documentation.](https://doc.sitecore.com/developers/sat/24/sitecore-azure-toolkit/en/web-deploy-packages-for-a-module.html) How to create [Sitecore Web Deploy Package](https://hls-consulting.com/2019/05/15/how-to-create-a-wdp-from-a-sitecore-package/)  by Hugo Santos.  How to install [Sitecore Web Deploy Package](https://hls-consulting.com/2019/06/03/how-to-install-a-wdp-in-a-sitecore-9-1-on-premises-instance/) by Hugo Santos.  
 navMenu: false
 # Set to true when launched
 navSitemap: false

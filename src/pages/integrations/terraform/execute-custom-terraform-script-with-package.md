@@ -2,10 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-03-15
 title: 'Execute Custom Terraform Script with Package'
-description: >-
-Run a custom terraform script using a package and an Azure Account.
-
-E.g. run "terraform taint some-resource" in the context of your terraform package files and authenticated against Azure using credentials in an Octopus Azure Account variable. This step operates very similarly to the built-in Terraform Apply step but allowing you the control to call terraform commands rather than using the octopus runner. Very useful for runbooks doing terraform import.
+description: Run a custom terraform script using a package and an Azure Account.  E.g. run "terraform taint some-resource" in the context of your terraform package files and authenticated against Azure using credentials in an Octopus Azure Account variable. This step operates very similarly to the built-in Terraform Apply step but allowing you the control to call terraform commands rather than using the octopus runner. Very useful for runbooks doing terraform import.
 navMenu: false
 # Set to true when launched
 navSitemap: false

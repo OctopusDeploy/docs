@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-10-03
 title: 'MongoDB Atlas - Pause or Resume cluster'
-description: >-
-Allow the user to pause/resume the asked cluster.
+description: Allow the user to pause/resume the asked cluster.
 navMenu: false
 # Set to true when launched
 navSitemap: false

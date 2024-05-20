@@ -2,8 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-30
 title: 'IIS Bindings - Restore'
-description: >-
-This step will restore IIS bindings from backup taken in IIS Bindings - Backup step. Only bindings which doesn't exist will be restored.
+description: This step will restore IIS bindings from backup taken in IIS Bindings - Backup step. Only bindings which doesn't exist will be restored.
 navMenu: false
 # Set to true when launched
 navSitemap: false

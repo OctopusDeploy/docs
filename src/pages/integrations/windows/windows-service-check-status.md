@@ -2,11 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-09-27
 title: 'Windows Service - Check status'
-description: >-
-check Windows service status on target machine or remote host(s).
-
-_for the remote host(s): the 'OctopusDeploy Tentacle' service installed on target machine (or main tentacle) must have the grants for remote query_
-
+description: check Windows service status on target machine or remote host(s).  _for the remote host(s): the 'OctopusDeploy Tentacle' service installed on target machine (or main tentacle) must have the grants for remote query_ 
 navMenu: false
 # Set to true when launched
 navSitemap: false
