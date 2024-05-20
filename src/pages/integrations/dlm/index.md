@@ -13,13 +13,13 @@ navSearch: false
 
 <li>
 
-![dlm](https://i.octopus.com/library/step-templates/dlm.png) [SQL Server __DeployLog: Read](/integrations/dlm/sql-server-__deploylog%3A-read)
+![dlm](https://i.octopus.com/library/step-templates/dlm.png) [SQL Server __DeployLog: Read](/integrations/dlm/sql-server-deploylog-read)
 
 </li>
         
 <li>
 
-![dlm](https://i.octopus.com/library/step-templates/dlm.png) [SQL Server __DeployLog: Update](/integrations/dlm/sql-server-__deploylog%3A-update)
+![dlm](https://i.octopus.com/library/step-templates/dlm.png) [SQL Server __DeployLog: Update](/integrations/dlm/sql-server-deploylog-update)
 
 </li>
         

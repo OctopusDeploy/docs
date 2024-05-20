@@ -13,13 +13,13 @@ navSearch: false
 
 <li>
 
-![statuspage](https://i.octopus.com/library/step-templates/statuspage.png) [StatusPage.io - Create Scheduled Maintenance Incident](/integrations/statuspage/statuspage.io-create-scheduled-maintenance-incident)
+![statuspage](https://i.octopus.com/library/step-templates/statuspage.png) [StatusPage.io - Create Scheduled Maintenance Incident](/integrations/statuspage/statuspageio-create-scheduled-maintenance-incident)
 
 </li>
         
 <li>
 
-![statuspage](https://i.octopus.com/library/step-templates/statuspage.png) [StatusPage.io - Update Scheduled Maintenance Incident](/integrations/statuspage/statuspage.io-update-scheduled-maintenance-incident)
+![statuspage](https://i.octopus.com/library/step-templates/statuspage.png) [StatusPage.io - Update Scheduled Maintenance Incident](/integrations/statuspage/statuspageio-update-scheduled-maintenance-incident)
 
 </li>
         

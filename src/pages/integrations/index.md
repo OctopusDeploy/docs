@@ -12,13 +12,13 @@ navSearch: false
 
 <li>
 
-![aspdotnet](https://i.octopus.com/library/step-templates/aspdotnet.png) [aspdotnet](/integrations/aspdotnet)})
+![aspdotnet](https://i.octopus.com/library/step-templates/aspdotnet.png) [aspdotnet](/integrations/aspdodotnet)})
 
 </li>
         
 <li>
 
-![dotnet core](https://i.octopus.com/library/step-templates/dotnet core.png) [dotnet core](/integrations/dotnet-core)})
+![dotnet core](https://i.octopus.com/library/step-templates/dotnet core.png) [dotnet core](/integrations/dodotnet-core)})
 
 </li>
         
@@ -198,7 +198,7 @@ navSearch: false
         
 <li>
 
-![kubernetes](https://i.octopus.com/library/step-templates/kubernetes.png) [kubernetes](/integrations/kubernetes)})
+![kubernetes](https://i.octopus.com/library/step-templates/kubernetes.png) [kubernetes](/integrations/kubedotnetes)})
 
 </li>
         

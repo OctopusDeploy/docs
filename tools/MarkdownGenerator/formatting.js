@@ -2,11 +2,10 @@ export function toSlug(text) {
     return encodeURIComponent(
         text
             .toLowerCase()
-            .replace(/\(/g, '')
-            .replace(/\)/g, '')
-            .replace(/'/g, '')
             .replace(/ - /g, ' ')
             .replace(/ /g, '-')
+            .replace(/.net/g, 'dotnet')
+            .replace(/[^a-z0-9\-]+/gi, '')
     );
 }
 

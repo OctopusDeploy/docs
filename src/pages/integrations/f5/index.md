@@ -19,13 +19,13 @@ navSearch: false
         
 <li>
 
-![f5](https://i.octopus.com/library/step-templates/f5.png) [F5 - Enable, Disable, or Force Offline Member with optional wait for connections to drop](/integrations/f5/f5-enable%2C-disable%2C-or-force-offline-member-with-optional-wait-for-connections-to-drop)
+![f5](https://i.octopus.com/library/step-templates/f5.png) [F5 - Enable, Disable, or Force Offline Member with optional wait for connections to drop](/integrations/f5/f5-enable-disable-or-force-offline-member-with-optional-wait-for-connections-to-drop)
 
 </li>
         
 <li>
 
-![f5](https://i.octopus.com/library/step-templates/f5.png) [F5 API Enable, Disable and Force Offline pool member](/integrations/f5/f5-api-enable%2C-disable-and-force-offline-pool-member)
+![f5](https://i.octopus.com/library/step-templates/f5.png) [F5 API Enable, Disable and Force Offline pool member](/integrations/f5/f5-api-enable-disable-and-force-offline-pool-member)
 
 </li>
         
@@ -37,7 +37,7 @@ navSearch: false
         
 <li>
 
-![f5](https://i.octopus.com/library/step-templates/f5.png) [F5-LTM-REST - Enable, Disable, or Force Offline Member](/integrations/f5/f5-ltm-rest-enable%2C-disable%2C-or-force-offline-member)
+![f5](https://i.octopus.com/library/step-templates/f5.png) [F5-LTM-REST - Enable, Disable, or Force Offline Member](/integrations/f5/f5-ltm-rest-enable-disable-or-force-offline-member)
 
 </li>
         

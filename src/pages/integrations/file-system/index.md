@@ -31,7 +31,7 @@ navSearch: false
         
 <li>
 
-![file system](https://i.octopus.com/library/step-templates/file system.png) [File System - Clean ASP.NET Temp Files](/integrations/file-system/file-system-clean-asp.net-temp-files)
+![file system](https://i.octopus.com/library/step-templates/file system.png) [File System - Clean ASP.NET Temp Files](/integrations/file-system/file-system-clean-aspdotnet-temp-files)
 
 </li>
         

@@ -19,7 +19,7 @@ navSearch: false
         
 <li>
 
-![encrypt](https://i.octopus.com/library/step-templates/encrypt.png) [Configuration - Encrypt App.config Section](/integrations/encrypt/configuration-encrypt-app.config-section)
+![encrypt](https://i.octopus.com/library/step-templates/encrypt.png) [Configuration - Encrypt App.config Section](/integrations/encrypt/configuration-encrypt-appconfig-section)
 
 </li>
         

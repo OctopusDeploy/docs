@@ -19,7 +19,7 @@ navSearch: false
         
 <li>
 
-![windows](https://i.octopus.com/library/step-templates/windows.png) [Com Component - Register and Unregister using Regsvr32.exe](/integrations/windows/com-component-register-and-unregister-using-regsvr32.exe)
+![windows](https://i.octopus.com/library/step-templates/windows.png) [Com Component - Register and Unregister using Regsvr32.exe](/integrations/windows/com-component-register-and-unregister-using-regsvr32exe)
 
 </li>
         
@@ -151,7 +151,7 @@ navSearch: false
         
 <li>
 
-![windows](https://i.octopus.com/library/step-templates/windows.png) [Windows - Map Network Drive](/integrations/windows/windows-map-network-drive)
+![windows](https://i.octopus.com/library/step-templates/windows.png) [Windows - Map Network Drive](/integrations/windows/windows-mapdotnetwork-drive)
 
 </li>
         

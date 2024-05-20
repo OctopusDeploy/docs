@@ -61,25 +61,25 @@ navSearch: false
         
 <li>
 
-![redgate](https://i.octopus.com/library/step-templates/redgate.png) [Redgate - SQL Clone, Create Clone](/integrations/redgate/redgate-sql-clone%2C-create-clone)
+![redgate](https://i.octopus.com/library/step-templates/redgate.png) [Redgate - SQL Clone, Create Clone](/integrations/redgate/redgate-sql-clone-create-clone)
 
 </li>
         
 <li>
 
-![redgate](https://i.octopus.com/library/step-templates/redgate.png) [Redgate - SQL Clone, Create Image](/integrations/redgate/redgate-sql-clone%2C-create-image)
+![redgate](https://i.octopus.com/library/step-templates/redgate.png) [Redgate - SQL Clone, Create Image](/integrations/redgate/redgate-sql-clone-create-image)
 
 </li>
         
 <li>
 
-![redgate](https://i.octopus.com/library/step-templates/redgate.png) [Redgate - SQL Clone, Delete Clone](/integrations/redgate/redgate-sql-clone%2C-delete-clone)
+![redgate](https://i.octopus.com/library/step-templates/redgate.png) [Redgate - SQL Clone, Delete Clone](/integrations/redgate/redgate-sql-clone-delete-clone)
 
 </li>
         
 <li>
 
-![redgate](https://i.octopus.com/library/step-templates/redgate.png) [Redgate - SQL Clone, Delete Image](/integrations/redgate/redgate-sql-clone%2C-delete-image)
+![redgate](https://i.octopus.com/library/step-templates/redgate.png) [Redgate - SQL Clone, Delete Image](/integrations/redgate/redgate-sql-clone-delete-image)
 
 </li>
         

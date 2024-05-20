@@ -211,7 +211,7 @@ navSearch: false
         
 <li>
 
-![sql server](https://i.octopus.com/library/step-templates/sql server.png) [SQLAzure - Restore a SQL Azure database from a .bacpac located in Azure Storage](/integrations/sql-server/sqlazure-restore-a-sql-azure-database-from-a-.bacpac-located-in-azure-storage)
+![sql server](https://i.octopus.com/library/step-templates/sql server.png) [SQLAzure - Restore a SQL Azure database from a .bacpac located in Azure Storage](/integrations/sql-server/sqlazure-restore-a-sql-azure-database-from-a-bacpac-located-in-azure-storage)
 
 </li>
         

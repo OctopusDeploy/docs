@@ -13,13 +13,13 @@ navSearch: false
 
 <li>
 
-![elmah](https://i.octopus.com/library/step-templates/elmah.png) [elmah.io - Register Deployment](/integrations/elmah/elmah.io-register-deployment)
+![elmah](https://i.octopus.com/library/step-templates/elmah.png) [elmah.io - Register Deployment](/integrations/elmah/elmahio-register-deployment)
 
 </li>
         
 <li>
 
-![elmah](https://i.octopus.com/library/step-templates/elmah.png) [elmah.io - Upload Source Map](/integrations/elmah/elmah.io-upload-source-map)
+![elmah](https://i.octopus.com/library/step-templates/elmah.png) [elmah.io - Upload Source Map](/integrations/elmah/elmahio-upload-source-map)
 
 </li>
         

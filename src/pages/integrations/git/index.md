@@ -13,19 +13,19 @@ navSearch: false
 
 <li>
 
-![git](https://i.octopus.com/library/step-templates/git.png) [Git - Clone, copy, push](/integrations/git/git-clone%2C-copy%2C-push)
+![git](https://i.octopus.com/library/step-templates/git.png) [Git - Clone, copy, push](/integrations/git/git-clone-copy-push)
 
 </li>
         
 <li>
 
-![git](https://i.octopus.com/library/step-templates/git.png) [Git - Clone, copy, push from a Package](/integrations/git/git-clone%2C-copy%2C-push-from-a-package)
+![git](https://i.octopus.com/library/step-templates/git.png) [Git - Clone, copy, push from a Package](/integrations/git/git-clone-copy-push-from-a-package)
 
 </li>
         
 <li>
 
-![git](https://i.octopus.com/library/step-templates/git.png) [Git - Clone, copy, push to another repo](/integrations/git/git-clone%2C-copy%2C-push-to-another-repo)
+![git](https://i.octopus.com/library/step-templates/git.png) [Git - Clone, copy, push to another repo](/integrations/git/git-clone-copy-push-to-another-repo)
 
 </li>
         

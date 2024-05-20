@@ -121,7 +121,7 @@ navSearch: false
         
 <li>
 
-![aws](https://i.octopus.com/library/step-templates/aws.png) [AWS Elastic Beanstalk .Net WebApp Deploy](/integrations/aws/aws-elastic-beanstalk-.net-webapp-deploy)
+![aws](https://i.octopus.com/library/step-templates/aws.png) [AWS Elastic Beanstalk .Net WebApp Deploy](/integrations/aws/aws-elastic-beanstalk-dotnet-webapp-deploy)
 
 </li>
         

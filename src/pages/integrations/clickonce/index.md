@@ -25,7 +25,7 @@ navSearch: false
         
 <li>
 
-![clickonce](https://i.octopus.com/library/step-templates/clickonce.png) [ClickOnce - Update .application file](/integrations/clickonce/clickonce-update-.application-file)
+![clickonce](https://i.octopus.com/library/step-templates/clickonce.png) [ClickOnce - Update .application file](/integrations/clickonce/clickonce-update-application-file)
 
 </li>
         

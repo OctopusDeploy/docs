@@ -19,7 +19,7 @@ navSearch: false
         
 <li>
 
-![linux](https://i.octopus.com/library/step-templates/linux.png) [Linux Service - Start, Stop, Restart](/integrations/linux/linux-service-start%2C-stop%2C-restart)
+![linux](https://i.octopus.com/library/step-templates/linux.png) [Linux Service - Start, Stop, Restart](/integrations/linux/linux-service-start-stop-restart)
 
 </li>
         

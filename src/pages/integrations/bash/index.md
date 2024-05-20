@@ -13,7 +13,7 @@ navSearch: false
 
 <li>
 
-![bash](https://i.octopus.com/library/step-templates/bash.png) [.NET Core - Check .NET Core Framework Version (Bash)](/integrations/bash/.net-core-check-.net-core-framework-version-bash)
+![bash](https://i.octopus.com/library/step-templates/bash.png) [.NET Core - Check .NET Core Framework Version (Bash)](/integrations/bash/dotnet-core-check-dotnet-core-framework-version-bash)
 
 </li>
         

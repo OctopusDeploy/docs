@@ -169,13 +169,13 @@ navSearch: false
         
 <li>
 
-![azure](https://i.octopus.com/library/step-templates/azure.png) [Azure Web App - Disable app_offline](/integrations/azure/azure-web-app-disable-app_offline)
+![azure](https://i.octopus.com/library/step-templates/azure.png) [Azure Web App - Disable app_offline](/integrations/azure/azure-web-app-disable-appoffline)
 
 </li>
         
 <li>
 
-![azure](https://i.octopus.com/library/step-templates/azure.png) [Azure Web App - Enable app_offline](/integrations/azure/azure-web-app-enable-app_offline)
+![azure](https://i.octopus.com/library/step-templates/azure.png) [Azure Web App - Enable app_offline](/integrations/azure/azure-web-app-enable-appoffline)
 
 </li>
         
@@ -271,7 +271,7 @@ navSearch: false
         
 <li>
 
-![azure](https://i.octopus.com/library/step-templates/azure.png) [Create Azure Website Staging Slot. Requires Azure PowerShell to be installed on Tentacle machine](/integrations/azure/create-azure-website-staging-slot.-requires-azure-powershell-to-be-installed-on-tentacle-machine)
+![azure](https://i.octopus.com/library/step-templates/azure.png) [Create Azure Website Staging Slot. Requires Azure PowerShell to be installed on Tentacle machine](/integrations/azure/create-azure-website-staging-slot-requires-azure-powershell-to-be-installed-on-tentacle-machine)
 
 </li>
         

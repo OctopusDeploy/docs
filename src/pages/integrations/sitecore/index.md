@@ -13,7 +13,7 @@ navSearch: false
 
 <li>
 
-![sitecore](https://i.octopus.com/library/step-templates/sitecore.png) [Sitecore - Settings & Variable Replacement](/integrations/sitecore/sitecore-settings-%26-variable-replacement)
+![sitecore](https://i.octopus.com/library/step-templates/sitecore.png) [Sitecore - Settings & Variable Replacement](/integrations/sitecore/sitecore-settings--variable-replacement)
 
 </li>
         
@@ -25,7 +25,7 @@ navSearch: false
         
 <li>
 
-![sitecore](https://i.octopus.com/library/step-templates/sitecore.png) [Sitecore web deploy package(.scwdp) deployment](/integrations/sitecore/sitecore-web-deploy-package.scwdp-deployment)
+![sitecore](https://i.octopus.com/library/step-templates/sitecore.png) [Sitecore web deploy package(.scwdp) deployment](/integrations/sitecore/sitecore-web-deploy-packagescwdp-deployment)
 
 </li>
         
