@@ -38,9 +38,9 @@ You can change the projects settings by accessing the settings menu on the proje
 - Enable or disable the project to allow or prevent releases and deployments from being created
 - [Project logo](#project-logo)
 - Description
-- [Project Group](#project-group)
-- [Release Versioning](/docs/releases/release-versioning)
-- [Release Notes Template](/docs/releases/release-notes/#templates)
+- [Project group](#project-group)
+- [Release versioning](/docs/releases/release-versioning)
+- [Release notes template](/docs/releases/release-notes#templates)
 
 ## Deployment settings
 - Package re-deployment
@@ -51,7 +51,7 @@ You can change the projects settings by accessing the settings menu on the proje
       - Allow deployments to be created when there are no deployment targets - Use this where no steps in the process have targets (or are all run on the Server), or you are dynamically adding targets during deployment.
 - Deployment target status
    - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
-- [Deployment changes template](/docs/releases/deployment-changes/#Templates)
+- [Deployment changes template](/docs/releases/deployment-changes#templates)
    - Specify a template for each deployment’s changes.
 - Default failure mode
    - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures).
