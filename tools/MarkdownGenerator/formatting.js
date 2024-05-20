@@ -4,6 +4,7 @@ export function toSlug(text) {
             .toLowerCase()
             .replace(/\(/g, '')
             .replace(/\)/g, '')
+            .replace(/'/g, '')
             .replace(/ - /g, ' ')
             .replace(/ /g, '-')
     );

@@ -12,7 +12,7 @@ navSearch: false
 
 <li>
 
-![stackify](https://i.octopus.com/library/step-templates/stackify.png) [Stackify's Retrace API Template](/integrations/stackify/stackify's-retrace-api-template)
+![stackify](https://i.octopus.com/library/step-templates/stackify.png) [Stackify's Retrace API Template](/integrations/stackify/stackifys-retrace-api-template)
 
 </li>
         
