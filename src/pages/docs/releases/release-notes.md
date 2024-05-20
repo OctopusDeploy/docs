@@ -31,7 +31,7 @@ Only variables in scope when the release is created will be available for use in
 
 The release notes may be accessed during a deployment using the [Octopus.Release.Notes](/docs/projects/variables/system-variables/#release) variable.  
 
-Release notes are also rolled up into the [deployment notes](/docs/releases/deployment-notes).
+Release notes are also rolled up into the [deployment changes](/docs/releases/deployment-changes).
 
 ## Release notes templates {#templates}
 
