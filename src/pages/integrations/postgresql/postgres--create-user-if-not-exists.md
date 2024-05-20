@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-06-14
 title: 'Postgres- Create User If Not Exists'
-description: Creates a new user account on a Postgres database server.  Note: - AWS EC2 IAM Role authentication requires the AWS CLI be installed.
+description: >-
+    Creates a new user account on a Postgres database server.  Note: - AWS EC2 IAM Role authentication requires the AWS CLI be installed.
 navMenu: false
 # Set to true when launched
 navSitemap: false

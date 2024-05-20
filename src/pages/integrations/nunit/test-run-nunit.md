@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-06
 title: 'Test - Run NUnit'
-description: Runs NUnit tests from a list of assemblies.
+description: >-
+    Runs NUnit tests from a list of assemblies.
 navMenu: false
 # Set to true when launched
 navSitemap: false

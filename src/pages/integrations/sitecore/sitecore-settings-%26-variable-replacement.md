@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-06-13
 title: 'Sitecore - Settings & Variable Replacement'
-description: The default [Configuration Variables](https://octopus.com/docs/deployment-process/configuration-features#Configurationfiles-ConfigurationVariables) functionality replaces **appSettings** and **connectionStrings** entries. This step template extends this functionality to the Sitecore configuration **settings** and **sc.variable** nodes within the configuration file(s) that you specify. Variables that are defined for the Octopus project will automatically replace those defined in the target Sitecore configuration file(s).
+description: >-
+    The default [Configuration Variables](https://octopus.com/docs/deployment-process/configuration-features#Configurationfiles-ConfigurationVariables) functionality replaces **appSettings** and **connectionStrings** entries. This step template extends this functionality to the Sitecore configuration **settings** and **sc.variable** nodes within the configuration file(s) that you specify. Variables that are defined for the Octopus project will automatically replace those defined in the target Sitecore configuration file(s).
 navMenu: false
 # Set to true when launched
 navSitemap: false

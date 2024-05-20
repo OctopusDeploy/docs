@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-09-15
 title: 'ClickOnce - Create from deployed package'
-description: Create binaries manifest & CO application and sign them with given code sign certificate ... using mage.exe.
+description: >-
+    Create binaries manifest & CO application and sign them with given code sign certificate ... using mage.exe.
 navMenu: false
 # Set to true when launched
 navSitemap: false

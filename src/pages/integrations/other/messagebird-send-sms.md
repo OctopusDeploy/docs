@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-01-21
 title: 'MessageBird Send SMS'
-description: Send an SMS using MessageBird API.
+description: >-
+    Send an SMS using MessageBird API.
 navMenu: false
 # Set to true when launched
 navSitemap: false

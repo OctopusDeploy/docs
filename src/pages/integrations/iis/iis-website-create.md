@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-02-04
 title: 'IIS Website - Create'
-description: Creates a new website in IIS
+description: >-
+    Creates a new website in IIS
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-06-11
 title: 'Pingdom - Modify Uptime Check'
-description: Modifies Pingdom http check using [Modify Check API method](https://www.pingdom.com/resources/api#MethodModify+Check).
+description: >-
+    Modifies Pingdom http check using [Modify Check API method](https://www.pingdom.com/resources/api#MethodModify+Check).
 navMenu: false
 # Set to true when launched
 navSitemap: false

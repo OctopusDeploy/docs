@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-10-23
 title: 'IIS AppPool - Update Property'
-description: Updates property for specified AppPool, useful for example to change startMode to AlwaysRunning.
+description: >-
+    Updates property for specified AppPool, useful for example to change startMode to AlwaysRunning.
 navMenu: false
 # Set to true when launched
 navSitemap: false

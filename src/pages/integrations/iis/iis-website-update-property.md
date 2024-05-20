@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-05-30
 title: 'IIS WebSite - Update Property'
-description: Updates property for specified WebSite
+description: >-
+    Updates property for specified WebSite
 navMenu: false
 # Set to true when launched
 navSitemap: false

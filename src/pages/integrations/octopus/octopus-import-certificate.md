@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-11-14
 title: 'Octopus - Import Certificate'
-description: Create or replace an [Octopus Certificate](https://octopus.com/docs/deploying-applications/certificates) from a certificate file
+description: >-
+    Create or replace an [Octopus Certificate](https://octopus.com/docs/deploying-applications/certificates) from a certificate file
 navMenu: false
 # Set to true when launched
 navSitemap: false

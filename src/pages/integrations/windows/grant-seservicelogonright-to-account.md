@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-11-30
 title: 'Grant SeServiceLogonRight To Account'
-description: Grants `SeServiceLogonRight` to Windows account
+description: >-
+    Grants `SeServiceLogonRight` to Windows account
 navMenu: false
 # Set to true when launched
 navSitemap: false

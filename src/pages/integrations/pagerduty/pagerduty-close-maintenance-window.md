@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-07-23
 title: 'PagerDuty - Close Maintenance Window'
-description: Closes a maintenance window by Id.
+description: >-
+    Closes a maintenance window by Id.
 navMenu: false
 # Set to true when launched
 navSitemap: false

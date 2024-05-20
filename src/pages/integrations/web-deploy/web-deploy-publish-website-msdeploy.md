@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-07-25
 title: 'Web Deploy - Publish Website (MSDeploy)'
-description: Ensure that Web Deploy 3.5 is installed on the system. The installer is downloaded from http://www.iis.net/downloads/microsoft/web-deploy if required.
+description: >-
+    Ensure that Web Deploy 3.5 is installed on the system. The installer is downloaded from http://www.iis.net/downloads/microsoft/web-deploy if required.
 navMenu: false
 # Set to true when launched
 navSitemap: false

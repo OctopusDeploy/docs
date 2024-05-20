@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-02-17
 title: 'Service - Check Running (Bash)'
-description: Check if any given service or list of services is/are running (uses `ps` command)
+description: >-
+    Check if any given service or list of services is/are running (uses `ps` command)
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-10-24
 title: 'Git - Push (HTTPS)'
-description: Deploy a package using Git to a HTTPS server. Performs a clone, overwrites the repository with the files from your package, then pushes. Great for deploying to AppHarbor and Windows Azure websites.
+description: >-
+    Deploy a package using Git to a HTTPS server. Performs a clone, overwrites the repository with the files from your package, then pushes. Great for deploying to AppHarbor and Windows Azure websites.
 navMenu: false
 # Set to true when launched
 navSitemap: false

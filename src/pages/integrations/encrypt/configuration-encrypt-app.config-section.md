@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-12-13
 title: 'Configuration - Encrypt App.config Section'
-description: Encrypts configuration sections for the specified executable.
+description: >-
+    Encrypts configuration sections for the specified executable.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-14
 title: 'Windows Scheduled Task - Enable'
-description: Enables a Windows Scheduled Task for both 2008 and 2012.
+description: >-
+    Enables a Windows Scheduled Task for both 2008 and 2012.
 navMenu: false
 # Set to true when launched
 navSitemap: false

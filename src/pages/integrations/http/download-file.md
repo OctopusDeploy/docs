@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-03-07
 title: 'Download file'
-description: Downloads a file from the internet to the local machine.
+description: >-
+    Downloads a file from the internet to the local machine.
 navMenu: false
 # Set to true when launched
 navSitemap: false

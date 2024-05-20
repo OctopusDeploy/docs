@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-07-05
 title: 'IIS AppPool - Update Recycle Settings'
-description: Update the worker process and app pool timeout/recycle times.
+description: >-
+    Update the worker process and app pool timeout/recycle times.
 navMenu: false
 # Set to true when launched
 navSitemap: false

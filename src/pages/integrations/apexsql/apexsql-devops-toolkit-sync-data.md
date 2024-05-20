@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-20
 title: 'ApexSQL DevOps toolkit - Sync data'
-description: The step will compare database from a deployment package with target database to create data synchronization script deployment resource.  [ApexSQL Data Diff](https://www.apexsql.com/sql-tools-datadiff.aspx) is requred
+description: >-
+    The step will compare database from a deployment package with target database to create data synchronization script deployment resource.  [ApexSQL Data Diff](https://www.apexsql.com/sql-tools-datadiff.aspx) is requred
 navMenu: false
 # Set to true when launched
 navSitemap: false

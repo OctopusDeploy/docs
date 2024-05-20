@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-14
 title: 'File System - Find and Replace'
-description: Find and replace text in one or more files.
+description: >-
+    Find and replace text in one or more files.
 navMenu: false
 # Set to true when launched
 navSitemap: false

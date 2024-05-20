@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-10-29
 title: 'Testery - Report Deployment'
-description: Reports a deployment to Testery, enabling you to do post-deployment validation and testing. See https://testery.io for more info.
+description: >-
+    Reports a deployment to Testery, enabling you to do post-deployment validation and testing. See https://testery.io for more info.
 navMenu: false
 # Set to true when launched
 navSitemap: false

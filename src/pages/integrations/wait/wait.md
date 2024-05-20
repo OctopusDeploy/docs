@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-12-06
 title: 'Wait'
-description: Pauses the process for a set duration
+description: >-
+    Pauses the process for a set duration
 navMenu: false
 # Set to true when launched
 navSitemap: false

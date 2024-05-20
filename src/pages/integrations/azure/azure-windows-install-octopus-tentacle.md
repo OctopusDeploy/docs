@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-02-09
 title: 'Azure Windows - Install Octopus Tentacle'
-description: This step template will install the latest tentacle on an Azure hosted, Windows virtual machine. This will also open the firewall for inbound traffic on port 10933 on both the NSG and the the vm. <hr /> *note: expects the Azure CLI to be installed on the worker running this task*
+description: >-
+    This step template will install the latest tentacle on an Azure hosted, Windows virtual machine. This will also open the firewall for inbound traffic on port 10933 on both the NSG and the the vm. <hr /> *note: expects the Azure CLI to be installed on the worker running this task*
 navMenu: false
 # Set to true when launched
 navSitemap: false

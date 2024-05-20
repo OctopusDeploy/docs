@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-03-29
 title: 'Azure - Set Web App SSL Certificate'
-description: Configures the SSL binding for an Azure Web App to use an [Octopus-managed certificate](https://octopus.com/docs/deploying-applications/certificates)
+description: >-
+    Configures the SSL binding for an Azure Web App to use an [Octopus-managed certificate](https://octopus.com/docs/deploying-applications/certificates)
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-12-19
 title: 'IIS - List Sites'
-description: List sites on the server.
+description: >-
+    List sites on the server.
 navMenu: false
 # Set to true when launched
 navSitemap: false

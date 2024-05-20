@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-09-12
 title: 'Git - Clone, copy, push to another repo'
-description: Clones both a source and destination repository, copies files from the `Source Path` to the `Destination Path` then commits to the destination repository.
+description: >-
+    Clones both a source and destination repository, copies files from the `Source Path` to the `Destination Path` then commits to the destination repository.
 navMenu: false
 # Set to true when launched
 navSitemap: false

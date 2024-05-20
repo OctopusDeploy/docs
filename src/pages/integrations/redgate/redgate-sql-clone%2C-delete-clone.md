@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-05-16
 title: 'Redgate - SQL Clone, Delete Clone'
-description: Deletes a database clone with [Redgate SQL Clone](https://www.red-gate.com/products/dba/sql-clone/index).  Requires SQL Clone.  *Version date: 16th May 2019*
+description: >-
+    Deletes a database clone with [Redgate SQL Clone](https://www.red-gate.com/products/dba/sql-clone/index).  Requires SQL Clone.  *Version date: 16th May 2019*
 navMenu: false
 # Set to true when launched
 navSitemap: false

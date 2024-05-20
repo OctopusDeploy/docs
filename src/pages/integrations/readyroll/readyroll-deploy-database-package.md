@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-15
 title: 'ReadyRoll - Deploy Database Package'
-description: Deploy database changes packaged with Redgate's [ReadyRoll](http://www.ready-roll.com/). Requires the Microsoft SQL Command Line Utilities 11 or later to be installed on the tentacle.  *Version date: 14th January, 2016*
+description: >-
+    Deploy database changes packaged with Redgate's [ReadyRoll](http://www.ready-roll.com/). Requires the Microsoft SQL Command Line Utilities 11 or later to be installed on the tentacle.  *Version date: 14th January, 2016*
 navMenu: false
 # Set to true when launched
 navSitemap: false

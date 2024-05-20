@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-05-16
 title: 'AWS - Add or Remove instance from ELBv2'
-description: Add or Remove the current instance from an ELBv2 Target Group.
+description: >-
+    Add or Remove the current instance from an ELBv2 Target Group.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-09-14
 title: 'IIS - Add CCS HTTPS bindings based on HTTP bindings'
-description: Add IIS Centralized Certificate Store (CCS) SSL bindings to a website based on HTTP bindings (binds to same IP and hostname but different port and protocol).  This is used to enable CCS on IIS websites created with the normal Octopus IIS website creation step.
+description: >-
+    Add IIS Centralized Certificate Store (CCS) SSL bindings to a website based on HTTP bindings (binds to same IP and hostname but different port and protocol).  This is used to enable CCS on IIS websites created with the normal Octopus IIS website creation step.
 navMenu: false
 # Set to true when launched
 navSitemap: false

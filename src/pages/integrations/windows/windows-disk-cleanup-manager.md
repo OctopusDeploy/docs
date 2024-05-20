@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-10-12
 title: 'Windows Disk Cleanup Manager'
-description: Installs Windows Disk Cleanup manager on Windows 2008, 2008-R2 and 2012 Server.  Should work on Windows 7 and 8
+description: >-
+    Installs Windows Disk Cleanup manager on Windows 2008, 2008-R2 and 2012 Server.  Should work on Windows 7 and 8
 navMenu: false
 # Set to true when launched
 navSitemap: false

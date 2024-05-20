@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-06-05
 title: 'Execute AWS Powershell Script'
-description: This combines two previous library templates of [checking for Chocolatey being installed](https://library.octopus.com//step-templates/c364b0a5-a0b7-48f8-a1a4-35e9f54a82d3/actiontemplate-chocolatey-ensure-installed), and [installing something via Chocolatey](https://library.octopus.com/step-templates/b2385b12-e5b5-440f-bed8-6598c29b2528/actiontemplate-chocolatey-install-package), in this case awstools.powershell, and then adds on a third piece of running a custom Powershell script using AWS Powershell tools
+description: >-
+    This combines two previous library templates of [checking for Chocolatey being installed](https://library.octopus.com//step-templates/c364b0a5-a0b7-48f8-a1a4-35e9f54a82d3/actiontemplate-chocolatey-ensure-installed), and [installing something via Chocolatey](https://library.octopus.com/step-templates/b2385b12-e5b5-440f-bed8-6598c29b2528/actiontemplate-chocolatey-install-package), in this case awstools.powershell, and then adds on a third piece of running a custom Powershell script using AWS Powershell tools
 navMenu: false
 # Set to true when launched
 navSitemap: false

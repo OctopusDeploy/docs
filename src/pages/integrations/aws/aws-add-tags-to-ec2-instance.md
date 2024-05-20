@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-01-30
 title: 'AWS - Add Tags to EC2 Instance'
-description: This step will Add or Remove Tags from an EC2 instance.  Works well with the "_AWS - Launch EC2 Instance_" Community Step Template.  [AWS Tools for Windows PowerShell](http://aws.amazon.com/powershell/) must be installed on the Server/Target you plan on running this step template on.
+description: >-
+    This step will Add or Remove Tags from an EC2 instance.  Works well with the "_AWS - Launch EC2 Instance_" Community Step Template.  [AWS Tools for Windows PowerShell](http://aws.amazon.com/powershell/) must be installed on the Server/Target you plan on running this step template on.
 navMenu: false
 # Set to true when launched
 navSitemap: false

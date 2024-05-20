@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-06-03
 title: 'ASPState Database'
-description: This uses the .Net framework aspnet_regsql tool to create an ASPState database using the credentials provided. If the username and password are both empty then it will attempt a trusted connection.
+description: >-
+    This uses the .Net framework aspnet_regsql tool to create an ASPState database using the credentials provided. If the username and password are both empty then it will attempt a trusted connection.
 navMenu: false
 # Set to true when launched
 navSitemap: false

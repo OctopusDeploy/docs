@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-03-16
 title: 'Proxmox Shutdown LXC Container'
-description: Shutdown or Stop a Proxmox LXC container using the Proxmox API.  Requires a Proxmox [API token](https://pve.proxmox.com/wiki/Proxmox_VE_API#API_Tokens) to authenticate to the Proxmox Server/Cluster
+description: >-
+    Shutdown or Stop a Proxmox LXC container using the Proxmox API.  Requires a Proxmox [API token](https://pve.proxmox.com/wiki/Proxmox_VE_API#API_Tokens) to authenticate to the Proxmox Server/Cluster
 navMenu: false
 # Set to true when launched
 navSitemap: false

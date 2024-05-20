@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-09-14
 title: 'Variables - Find Unreplaced'
-description: Searches `Web.config` or `App.config` files looking for Octopus Deploy variables that have not been replaced. Alternatively, any arbitrary file can be checked.
+description: >-
+    Searches `Web.config` or `App.config` files looking for Octopus Deploy variables that have not been replaced. Alternatively, any arbitrary file can be checked.
 navMenu: false
 # Set to true when launched
 navSitemap: false

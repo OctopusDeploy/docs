@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-09-10
 title: 'Sentry Release Tracking (Token Auth)'
-description: Posts a new release to Sentry and links it to one or more sentry projects.   **Updated version** which uses the newer **API Token** instead of the now depreciated API Key which is only available in legacy Sentry accounts.
+description: >-
+    Posts a new release to Sentry and links it to one or more sentry projects.   **Updated version** which uses the newer **API Token** instead of the now depreciated API Key which is only available in legacy Sentry accounts.
 navMenu: false
 # Set to true when launched
 navSitemap: false

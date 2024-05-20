@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-02-20
 title: 'IIS Website - HTTP to HTTPS Redirect'
-description: Adds either a global or site specific rule which redirects from http to https
+description: >-
+    Adds either a global or site specific rule which redirects from http to https
 navMenu: false
 # Set to true when launched
 navSitemap: false

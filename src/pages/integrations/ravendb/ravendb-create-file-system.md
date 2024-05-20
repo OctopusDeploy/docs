@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-11-15
 title: 'RavenDB - Create File System'
-description: Used to create a new file system on a server
+description: >-
+    Used to create a new file system on a server
 navMenu: false
 # Set to true when launched
 navSitemap: false

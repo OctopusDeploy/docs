@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-06-15
 title: 'Deploy ispac SSIS project from Referenced Package'
-description: This step template will deploy SSIS ispac projects to SQL Server Integration Services Catalog.  The template uses a referenced package and is Worker compatible.  This template will install the Nuget package provider if it is not present on the machine it is running on.
+description: >-
+    This step template will deploy SSIS ispac projects to SQL Server Integration Services Catalog.  The template uses a referenced package and is Worker compatible.  This template will install the Nuget package provider if it is not present on the machine it is running on.
 navMenu: false
 # Set to true when launched
 navSitemap: false

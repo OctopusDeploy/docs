@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-01-31
 title: 'JSON - Merge Files'
-description: Merge JSON files
+description: >-
+    Merge JSON files
 navMenu: false
 # Set to true when launched
 navSitemap: false

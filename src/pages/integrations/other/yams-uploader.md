@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-11-24
 title: 'YAMS Uploader'
-description: Upload YAMS application.  [YAMS](https://github.com/Microsoft/Yams) is a library that can be used to deploy and host microservices in the cloud or on premises. This step uses [YAMS Uploader](https://github.com/Applicita/YamsUploader) to publish applications to YAMS cluster.
+description: >-
+    Upload YAMS application.  [YAMS](https://github.com/Microsoft/Yams) is a library that can be used to deploy and host microservices in the cloud or on premises. This step uses [YAMS Uploader](https://github.com/Applicita/YamsUploader) to publish applications to YAMS cluster.
 navMenu: false
 # Set to true when launched
 navSitemap: false

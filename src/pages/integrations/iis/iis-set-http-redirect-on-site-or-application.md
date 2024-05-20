@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-01-23
 title: 'IIS - Set HTTP Redirect on Site or Application'
-description: Configure a redirect for an IIS Site or Web Application
+description: >-
+    Configure a redirect for an IIS Site or Web Application
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-07-29
 title: 'F5 GTM - Enable or Disable'
-description: Enables or disables pools in the F5 GTM 
+description: >-
+    Enables or disables pools in the F5 GTM 
 navMenu: false
 # Set to true when launched
 navSitemap: false

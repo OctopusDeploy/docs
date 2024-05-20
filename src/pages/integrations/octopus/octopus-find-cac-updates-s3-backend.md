@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-16
 title: 'Octopus - Find CaC Updates (S3 Backend)'
-description: This step queries each workspace in the Terraform state for downstream Octopus CaC enabled projects, extracts the Git repo associated with the CaC project, and determines if there are any changes to merge into the downstream project from the upstream project.  This indicates if changes to an upstream project are available to be merged into a downstream project, either automatically, or after resolving merge conflicts.
+description: >-
+    This step queries each workspace in the Terraform state for downstream Octopus CaC enabled projects, extracts the Git repo associated with the CaC project, and determines if there are any changes to merge into the downstream project from the upstream project.  This indicates if changes to an upstream project are available to be merged into a downstream project, either automatically, or after resolving merge conflicts.
 navMenu: false
 # Set to true when launched
 navSitemap: false

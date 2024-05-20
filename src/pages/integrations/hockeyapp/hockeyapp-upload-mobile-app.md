@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-12-01
 title: 'HockeyApp - Upload Mobile App'
-description: This script uploads a new version of an existing app package to the [HockeyApp](http://hockeyapp.net/features/) services.
+description: >-
+    This script uploads a new version of an existing app package to the [HockeyApp](http://hockeyapp.net/features/) services.
 navMenu: false
 # Set to true when launched
 navSitemap: false

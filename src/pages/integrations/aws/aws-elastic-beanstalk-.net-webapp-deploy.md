@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-01-05
 title: 'AWS Elastic Beanstalk .Net WebApp Deploy'
-description: Deploy a .Net WebApp build to AWS Elastic Beanstalk. This template uses the awsdeploy tool. ALL step fields need to be populated for this template to work.  AWS Toolkit needs to be installed on your deployment server for this to work properly: https://aws.amazon.com/visualstudio/
+description: >-
+    Deploy a .Net WebApp build to AWS Elastic Beanstalk. This template uses the awsdeploy tool. ALL step fields need to be populated for this template to work.  AWS Toolkit needs to be installed on your deployment server for this to work properly: https://aws.amazon.com/visualstudio/
 navMenu: false
 # Set to true when launched
 navSitemap: false

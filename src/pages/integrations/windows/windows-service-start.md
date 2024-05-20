@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-05
 title: 'Windows Service - Start'
-description: Starts a Windows Service.
+description: >-
+    Starts a Windows Service.
 navMenu: false
 # Set to true when launched
 navSitemap: false

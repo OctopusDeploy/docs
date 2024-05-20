@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-04-25
 title: 'Azure - Remove Resource Group Deployments'
-description: There is a cap in Azure that prevents having more than 800 deployments in the history at any given time: link to microsoft docs  This script helps alleviate this issue by limiting how many deployments are allowed exist, keeps the latest specified number of deployments, and will remove the rest.  What it does: Logs into Azure, selects the resource group of the app. Based on how many deployments it wants to keep, it will keep the latest X deployments and remove the rest. If there are less deployments than X to keep, the script will skip.
+description: >-
+    There is a cap in Azure that prevents having more than 800 deployments in the history at any given time: link to microsoft docs  This script helps alleviate this issue by limiting how many deployments are allowed exist, keeps the latest specified number of deployments, and will remove the rest.  What it does: Logs into Azure, selects the resource group of the app. Based on how many deployments it wants to keep, it will keep the latest X deployments and remove the rest. If there are less deployments than X to keep, the script will skip.
 navMenu: false
 # Set to true when launched
 navSitemap: false

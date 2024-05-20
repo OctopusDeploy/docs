@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-07-12
 title: 'SQL - Create Database Using SMO (only if does not exists)'
-description: This uses Sql Management Objects to create a database.  If the username and password are both empty then it will attempt a trusted connection using integrated security.
+description: >-
+    This uses Sql Management Objects to create a database.  If the username and password are both empty then it will attempt a trusted connection using integrated security.
 navMenu: false
 # Set to true when launched
 navSitemap: false

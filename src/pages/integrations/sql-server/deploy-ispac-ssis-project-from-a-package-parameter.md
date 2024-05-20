@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-04-14
 title: 'Deploy ispac SSIS project from a Package parameter'
-description: This step template will deploy SSIS ispac projects to SQL Server Integration Services Catalog.  The template uses a referenced package and is Worker compatible.  This template will install the Nuget package provider if it is not present on the machine it is running on.  NOTE:  The SqlServer PowerShell module this template utilizes removed the assemblies necessary to interface with SSIS as of version 22.0.59.  Version 21.1.18256 has been pinned and will be used if the SqlServer PowerShell module is not installed.
+description: >-
+    This step template will deploy SSIS ispac projects to SQL Server Integration Services Catalog.  The template uses a referenced package and is Worker compatible.  This template will install the Nuget package provider if it is not present on the machine it is running on.  NOTE:  The SqlServer PowerShell module this template utilizes removed the assemblies necessary to interface with SSIS as of version 22.0.59.  Version 21.1.18256 has been pinned and will be used if the SqlServer PowerShell module is not installed.
 navMenu: false
 # Set to true when launched
 navSitemap: false

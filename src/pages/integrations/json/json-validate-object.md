@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-06-02
 title: 'JSON - Validate object'
-description: Validates the consistency of an input JSON object against provided JSON schema
+description: >-
+    Validates the consistency of an input JSON object against provided JSON schema
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-03-24
 title: 'SQL - Restore Database'
-description: Restore a MS SQL Server database to the file system.
+description: >-
+    Restore a MS SQL Server database to the file system.
 navMenu: false
 # Set to true when launched
 navSitemap: false

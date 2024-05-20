@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-07-14
 title: 'Sitecore Unicorn Sync'
-description: Syncs all the specified configurations via the Unicorn remote sync PowerShell script. Uses the newer MicroChap security layer. Please see the following post for instructions: http://www.sitecorenutsbolts.net/2016/03/14/Octopus-Deploy-Step-for-Unicorn-Sync/
+description: >-
+    Syncs all the specified configurations via the Unicorn remote sync PowerShell script. Uses the newer MicroChap security layer. Please see the following post for instructions: http://www.sitecorenutsbolts.net/2016/03/14/Octopus-Deploy-Step-for-Unicorn-Sync/
 navMenu: false
 # Set to true when launched
 navSitemap: false

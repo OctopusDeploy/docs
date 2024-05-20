@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-11-06
 title: 'Gitlab - Create Tag'
-description: Create an annotated tag in Gitlab repository.   If you fill release description then tag become Gitlab release too (gitlab release internally is a tag stored in git plus release info for this tag stored in gitlab db)  Proposed usage is along with publishing package metadata   It's recommended to use with GitlabTag variable set.
+description: >-
+    Create an annotated tag in Gitlab repository.   If you fill release description then tag become Gitlab release too (gitlab release internally is a tag stored in git plus release info for this tag stored in gitlab db)  Proposed usage is along with publishing package metadata   It's recommended to use with GitlabTag variable set.
 navMenu: false
 # Set to true when launched
 navSitemap: false

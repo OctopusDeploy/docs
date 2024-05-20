@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
 title: 'IIS AppPool - Start'
-description: Starts an IIS Application Pool
+description: >-
+    Starts an IIS Application Pool
 navMenu: false
 # Set to true when launched
 navSitemap: false

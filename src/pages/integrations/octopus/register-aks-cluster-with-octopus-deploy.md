@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-04-13
 title: 'Register AKS Cluster with Octopus Deploy'
-description: Step template to Register an AKS Cluster with Octopus Deploy using the Octopus Deploy API
+description: >-
+    Step template to Register an AKS Cluster with Octopus Deploy using the Octopus Deploy API
 navMenu: false
 # Set to true when launched
 navSitemap: false

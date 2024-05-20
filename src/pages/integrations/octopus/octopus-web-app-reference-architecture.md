@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-12
 title: 'Octopus - Web App Reference Architecture'
-description: This step populates an Octopus space with the environments, feeds, accounts, lifecycles, projects, and runbooks required to deploy a sample application to an Azure Web App. These resources combine to form a reference architecture teams can use to bootstrap an Octopus space with best practices and example projects. It is recommended that you run this step with the octopuslabs/terraform-workertools container image.  That this step assumes it is run on a cloud Octopus instance, or the default worker runs Linux, has Docker installed, and has PowerShell Core installed.  The step will not update existing projects, environments etc. If you wish to recreate these resource with the latest configuration, for example if this step is updated and you wish to see the latest settings, you must manually delete or rename the resources to be recreated.
+description: >-
+    This step populates an Octopus space with the environments, feeds, accounts, lifecycles, projects, and runbooks required to deploy a sample application to an Azure Web App. These resources combine to form a reference architecture teams can use to bootstrap an Octopus space with best practices and example projects. It is recommended that you run this step with the octopuslabs/terraform-workertools container image.  That this step assumes it is run on a cloud Octopus instance, or the default worker runs Linux, has Docker installed, and has PowerShell Core installed.  The step will not update existing projects, environments etc. If you wish to recreate these resource with the latest configuration, for example if this step is updated and you wish to see the latest settings, you must manually delete or rename the resources to be recreated.
 navMenu: false
 # Set to true when launched
 navSitemap: false

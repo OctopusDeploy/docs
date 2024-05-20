@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-02-09
 title: 'IIS Website - Stop'
-description: Stops a website in IIS.
+description: >-
+    Stops a website in IIS.
 navMenu: false
 # Set to true when launched
 navSitemap: false

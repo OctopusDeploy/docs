@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-10-29
 title: 'SSIS deploy ISPAC With Environment'
-description: A Template which will deploy any .ISPAC files from the published package step selected to the SQL Server catalog database.   The template will create a environment config and use variables that are wrapped in SSIS[<SSIS Parameter Path>] extracting the SSIS Parameter Path using that as the name and value linked the Octopus Variable and then assign parameter in the SSIS project to the name environment configuration.    When the SSIS Parameter Path is at the Package level then SSIS Parameter will need to have the Package Name (without .dtsx) added to front of the SSIS Parameter path.  To remove and environment config delete the variable or remove the SSIS[]. 
+description: >-
+    A Template which will deploy any .ISPAC files from the published package step selected to the SQL Server catalog database.   The template will create a environment config and use variables that are wrapped in SSIS[<SSIS Parameter Path>] extracting the SSIS Parameter Path using that as the name and value linked the Octopus Variable and then assign parameter in the SSIS project to the name environment configuration.    When the SSIS Parameter Path is at the Package level then SSIS Parameter will need to have the Package Name (without .dtsx) added to front of the SSIS Parameter path.  To remove and environment config delete the variable or remove the SSIS[]. 
 navMenu: false
 # Set to true when launched
 navSitemap: false

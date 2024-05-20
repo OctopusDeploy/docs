@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-07-31
 title: 'IIS - Reset'
-description: Starts, stops, or resets IIS using iisreset
+description: >-
+    Starts, stops, or resets IIS using iisreset
 navMenu: false
 # Set to true when launched
 navSitemap: false

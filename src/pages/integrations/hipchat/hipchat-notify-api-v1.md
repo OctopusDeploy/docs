@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-06-11
 title: 'HipChat - Notify (API v1)'
-description: Send a success notification when this step is executed.
+description: >-
+    Send a success notification when this step is executed.
 navMenu: false
 # Set to true when launched
 navSitemap: false

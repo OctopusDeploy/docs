@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-01-08
 title: 'Create Azure Resources - WA'
-description: The New-AzureRmAppServicePlan cmdlet creates a new app service plan. The New-AzureRmWebApp cmdlet creates a new web app.
+description: >-
+    The New-AzureRmAppServicePlan cmdlet creates a new app service plan. The New-AzureRmWebApp cmdlet creates a new web app.
 navMenu: false
 # Set to true when launched
 navSitemap: false

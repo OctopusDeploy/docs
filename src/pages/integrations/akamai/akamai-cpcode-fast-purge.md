@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-02-11
 title: 'Akamai - CPCode Fast Purge'
-description: Allows to purge CP codes using the Content Control Utility (CCU) v3 REST API.
+description: >-
+    Allows to purge CP codes using the Content Control Utility (CCU) v3 REST API.
 navMenu: false
 # Set to true when launched
 navSitemap: false

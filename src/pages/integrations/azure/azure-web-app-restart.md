@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-05-17
 title: 'Azure Web App - Restart'
-description: Restarts an azure web app. <hr />  *<p>Note This template is designed to run against an azure web app octopus target </p>* *<p>Depends on Azure CLI and powershell to be installed on the running machine</p>*
+description: >-
+    Restarts an azure web app. <hr />  *<p>Note This template is designed to run against an azure web app octopus target </p>* *<p>Depends on Azure CLI and powershell to be installed on the running machine</p>*
 navMenu: false
 # Set to true when launched
 navSitemap: false

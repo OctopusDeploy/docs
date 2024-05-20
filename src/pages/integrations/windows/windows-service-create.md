@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-12-09
 title: 'Windows Service - Create'
-description: Create Windows Service
+description: >-
+    Create Windows Service
 navMenu: false
 # Set to true when launched
 navSitemap: false

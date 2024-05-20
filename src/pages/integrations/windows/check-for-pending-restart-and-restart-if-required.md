@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-01-14
 title: 'Check for Pending Restart and Restart if required'
-description: Checks if Server is pending a reboot, and reboots if it needs it.
+description: >-
+    Checks if Server is pending a reboot, and reboots if it needs it.
 navMenu: false
 # Set to true when launched
 navSitemap: false

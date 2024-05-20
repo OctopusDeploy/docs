@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-02-12
 title: 'SQL - Create SQL User If Not Exists'
-description: Create a SQL Login if the login doesn't already exist without using SMO.
+description: >-
+    Create a SQL Login if the login doesn't already exist without using SMO.
 navMenu: false
 # Set to true when launched
 navSitemap: false

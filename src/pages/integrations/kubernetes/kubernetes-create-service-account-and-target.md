@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-03-07
 title: 'Kubernetes - Create Service Account and Target'
-description: Create a service account with a role granting full access to everything in the namespace, and create a Kubernetes target with the new account in Octopus
+description: >-
+    Create a service account with a role granting full access to everything in the namespace, and create a Kubernetes target with the new account in Octopus
 navMenu: false
 # Set to true when launched
 navSitemap: false

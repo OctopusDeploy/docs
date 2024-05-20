@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-04-10
 title: 'IIS AppPool - Stop'
-description: Stops an IIS Application Pool
+description: >-
+    Stops an IIS Application Pool
 navMenu: false
 # Set to true when launched
 navSitemap: false

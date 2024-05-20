@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-03-26
 title: 'SQL - Backup Database'
-description: Backup a MS SQL Server database to the file system.
+description: >-
+    Backup a MS SQL Server database to the file system.
 navMenu: false
 # Set to true when launched
 navSitemap: false

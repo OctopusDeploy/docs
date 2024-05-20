@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-04-10
 title: 'Amazon S3 Upload'
-description: Upload files and folders to an S3 bucket from a specified location.  Either specify a single file or a folder containing the files and folders to be uploaded.  **Important!** _For this plugin to function, you must install [AWS Tools for Windows PowerShell](http://aws.amazon.com/powershell/) on your tentacle server and you must restart your tentacle service._
+description: >-
+    Upload files and folders to an S3 bucket from a specified location.  Either specify a single file or a folder containing the files and folders to be uploaded.  **Important!** _For this plugin to function, you must install [AWS Tools for Windows PowerShell](http://aws.amazon.com/powershell/) on your tentacle server and you must restart your tentacle service._
 navMenu: false
 # Set to true when launched
 navSitemap: false

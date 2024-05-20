@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-05-19
 title: 'Install Docker on Linux'
-description: Installs the latest Docker Engine - Community from the stable channel, as per https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script  Note: Docker will start automatically on `DEB`-based distributions. On `RPM`-based distributions, you need to start it manually using the appropriate `systemctl` or `service` command. Non-root users can’t run Docker commands by default.
+description: >-
+    Installs the latest Docker Engine - Community from the stable channel, as per https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script  Note: Docker will start automatically on `DEB`-based distributions. On `RPM`-based distributions, you need to start it manually using the appropriate `systemctl` or `service` command. Non-root users can’t run Docker commands by default.
 navMenu: false
 # Set to true when launched
 navSitemap: false

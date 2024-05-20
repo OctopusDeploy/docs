@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-06-16
 title: 'Azure Database - Import'
-description: Imports a bacpac file into an existing database.  *depends on az cli*  *Target database requires 'Allow Azure services and resources to access this server' option turn on in the SQL server firewall*
+description: >-
+    Imports a bacpac file into an existing database.  *depends on az cli*  *Target database requires 'Allow Azure services and resources to access this server' option turn on in the SQL server firewall*
 navMenu: false
 # Set to true when launched
 navSitemap: false

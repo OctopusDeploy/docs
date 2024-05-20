@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-09-16
 title: 'SQL - Execute SQL Script with SQL or Windows Authentication'
-description: Executes SQL script file(s) against the specified database using either SQL or Windows authentication. SQL Scripts can be hardcoded value or can be from an extracted NuGet package.
+description: >-
+    Executes SQL script file(s) against the specified database using either SQL or Windows authentication. SQL Scripts can be hardcoded value or can be from an extracted NuGet package.
 navMenu: false
 # Set to true when launched
 navSitemap: false

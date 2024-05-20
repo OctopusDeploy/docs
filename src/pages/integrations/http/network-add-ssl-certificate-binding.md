@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-07-04
 title: 'Network - Add SSL Certificate Binding'
-description: Creates (replaces) an SSL certificate binding to a specific hostname and port using NETSH.
+description: >-
+    Creates (replaces) an SSL certificate binding to a specific hostname and port using NETSH.
 navMenu: false
 # Set to true when launched
 navSitemap: false

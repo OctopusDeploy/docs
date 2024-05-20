@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-03-13
 title: 'Windows Scheduled Task - Disable'
-description: Disables a Windows Scheduled Task for both 2008 and 2012.
+description: >-
+    Disables a Windows Scheduled Task for both 2008 and 2012.
 navMenu: false
 # Set to true when launched
 navSitemap: false

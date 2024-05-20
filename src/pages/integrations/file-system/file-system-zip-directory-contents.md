@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-02-08
 title: 'File System - Zip Directory Contents'
-description: Creates a zip archive that contains the files and directories from the specified directory, uses the specified compression level, and optionally includes the base directory.  Requires .NET 4.5 as it relies on the `System.IO.Compression.ZipFile` class.
+description: >-
+    Creates a zip archive that contains the files and directories from the specified directory, uses the specified compression level, and optionally includes the base directory.  Requires .NET 4.5 as it relies on the `System.IO.Compression.ZipFile` class.
 navMenu: false
 # Set to true when launched
 navSitemap: false

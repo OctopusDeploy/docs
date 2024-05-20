@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-11-26
 title: 'RavenDB - Delete File System'
-description: Used to delete a file system from a server, with a possibility to remove its all data from the hard drive.
+description: >-
+    Used to delete a file system from a server, with a possibility to remove its all data from the hard drive.
 navMenu: false
 # Set to true when launched
 navSitemap: false

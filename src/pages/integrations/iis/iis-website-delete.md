@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-04-22
 title: 'IIS Website - Delete'
-description: Deletes a website in IIS.
+description: >-
+    Deletes a website in IIS.
 navMenu: false
 # Set to true when launched
 navSitemap: false

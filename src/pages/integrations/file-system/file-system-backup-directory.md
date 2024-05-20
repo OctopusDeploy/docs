@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-08-25
 title: 'File System - Backup Directory'
-description: Uses Robocopy to backup directories and files from a source to a destination.
+description: >-
+    Uses Robocopy to backup directories and files from a source to a destination.
 navMenu: false
 # Set to true when launched
 navSitemap: false

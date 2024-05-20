@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-03-20
 title: 'MySQL - Create Database If Not Exists'
-description: Creates a MySQL database if it doesn't already exist.  This template is also compatible with MariaDB.  Note - this template will install the Nuget package provider if it's not already present.
+description: >-
+    Creates a MySQL database if it doesn't already exist.  This template is also compatible with MariaDB.  Note - this template will install the Nuget package provider if it's not already present.
 navMenu: false
 # Set to true when launched
 navSitemap: false

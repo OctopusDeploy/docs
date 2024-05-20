@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-07-19
 title: 'Slack - Detailed Notification - Bash'
-description: Posts deployment status to Slack optionally including additional details (release number, environment name, release notes etc.) as well as error description and link to failure log page.
+description: >-
+    Posts deployment status to Slack optionally including additional details (release number, environment name, release notes etc.) as well as error description and link to failure log page.
 navMenu: false
 # Set to true when launched
 navSitemap: false

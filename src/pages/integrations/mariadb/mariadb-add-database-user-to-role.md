@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-07-12
 title: 'MariaDB - Add Database User To Role'
-description: Adds a database user to a role
+description: >-
+    Adds a database user to a role
 navMenu: false
 # Set to true when launched
 navSitemap: false

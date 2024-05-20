@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-02-23
 title: 'SQL - Execute Script File'
-description: Execute a SQL script file
+description: >-
+    Execute a SQL script file
 navMenu: false
 # Set to true when launched
 navSitemap: false

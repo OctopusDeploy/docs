@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-03-09
 title: 'SQL - Create Job Category'
-description: Creates a SQL Server Job Category
+description: >-
+    Creates a SQL Server Job Category
 navMenu: false
 # Set to true when launched
 navSitemap: false

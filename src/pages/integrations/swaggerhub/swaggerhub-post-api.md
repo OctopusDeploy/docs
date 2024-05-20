@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-01-29
 title: 'SwaggerHub Post Api'
-description: Post your Swagger/OAS to SwaggerHub
+description: >-
+    Post your Swagger/OAS to SwaggerHub
 navMenu: false
 # Set to true when launched
 navSitemap: false

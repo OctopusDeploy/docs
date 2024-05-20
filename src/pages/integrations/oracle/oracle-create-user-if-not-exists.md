@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-21
 title: 'Oracle - Create User If Not Exists'
-description: Creates a new user account on a Oracle database server
+description: >-
+    Creates a new user account on a Oracle database server
 navMenu: false
 # Set to true when launched
 navSitemap: false

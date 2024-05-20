@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-10-24
 title: 'Octopus - Create Octoterra Space (S3 Backend)'
-description: This step exposes the fields required to create the initial blank space serialized with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport) using Terraform. The new space is then populated using the `Octopus - Populate Octoterra Space (S3 Backend)` step.  This step configures a Terraform S3 backend.  It is recommended that this step be run with the `octopuslabs/terraform-workertools` worker image.
+description: >-
+    This step exposes the fields required to create the initial blank space serialized with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport) using Terraform. The new space is then populated using the `Octopus - Populate Octoterra Space (S3 Backend)` step.  This step configures a Terraform S3 backend.  It is recommended that this step be run with the `octopuslabs/terraform-workertools` worker image.
 navMenu: false
 # Set to true when launched
 navSitemap: false

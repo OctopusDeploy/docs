@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-06-29
 title: 'Azure Web App - Set Traffic'
-description: Sets the traffic distribution between multiple web app slots. <hr />  *<p>Note This template is designed to run against an azure web app octopus target, but will not use the slot defined. </p>* *<p>Depends on Azure CLI and powershell to be installed on the worker</p>*
+description: >-
+    Sets the traffic distribution between multiple web app slots. <hr />  *<p>Note This template is designed to run against an azure web app octopus target, but will not use the slot defined. </p>* *<p>Depends on Azure CLI and powershell to be installed on the worker</p>*
 navMenu: false
 # Set to true when launched
 navSitemap: false

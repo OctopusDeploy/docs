@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-12-10
 title: 'Windows Scheduled Task - Change Path'
-description: Changes the execution path of a Windows Scheduled Task for both 2008 and 2012.
+description: >-
+    Changes the execution path of a Windows Scheduled Task for both 2008 and 2012.
 navMenu: false
 # Set to true when launched
 navSitemap: false

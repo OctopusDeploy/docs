@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
 title: 'Lets Encrypt - Cloudflare'
-description: Request (or renew) a X.509 SSL Certificate from the [Let's Encrypt Certificate Authority](https://letsencrypt.org/).   #### Features  - ACME v2 protocol support which allows generating wildcard certificates (*.example.com) - [Cloudflare DNS](https://www.cloudflare.com/en-au/dns/) Challenge for TLD, CNAME and Wildcard domains.  - Publishes/Updates SSL Certificates in the [Octopus Deploy Certificate Store](https://octopus.com/docs/deployment-examples/certificates).  - Verified to work on both Windows (PowerShell 5+) and Linux (PowerShell 6+) deployment Targets or Workers.
+description: >-
+    Request (or renew) a X.509 SSL Certificate from the [Let's Encrypt Certificate Authority](https://letsencrypt.org/).   #### Features  - ACME v2 protocol support which allows generating wildcard certificates (*.example.com) - [Cloudflare DNS](https://www.cloudflare.com/en-au/dns/) Challenge for TLD, CNAME and Wildcard domains.  - Publishes/Updates SSL Certificates in the [Octopus Deploy Certificate Store](https://octopus.com/docs/deployment-examples/certificates).  - Verified to work on both Windows (PowerShell 5+) and Linux (PowerShell 6+) deployment Targets or Workers.
 navMenu: false
 # Set to true when launched
 navSitemap: false

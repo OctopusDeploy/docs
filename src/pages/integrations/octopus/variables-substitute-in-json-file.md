@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-05-29
 title: 'Variables - Substitute in Json file'
-description: Use this step template after the Deploy API step template to substitute variables in a target json file like appsettings.json with Octopus scoped variables. Currently supported data types are string, boolean, interger, decimal and non-empty string arrays and can replace these types inside nested types as well as long as you name them like prop:subprop:subsubprop (like AppMetrics:GlobalTags:env) in octopus like we do today...this should be enough for most of the needs for files like appsettings.json
+description: >-
+    Use this step template after the Deploy API step template to substitute variables in a target json file like appsettings.json with Octopus scoped variables. Currently supported data types are string, boolean, interger, decimal and non-empty string arrays and can replace these types inside nested types as well as long as you name them like prop:subprop:subsubprop (like AppMetrics:GlobalTags:env) in octopus like we do today...this should be enough for most of the needs for files like appsettings.json
 navMenu: false
 # Set to true when launched
 navSitemap: false

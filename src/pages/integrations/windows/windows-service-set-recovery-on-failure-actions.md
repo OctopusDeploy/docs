@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-04-11
 title: 'Windows Service - Set Recovery on Failure Actions'
-description: Set the recovery on failure actions for a particular service.
+description: >-
+    Set the recovery on failure actions for a particular service.
 navMenu: false
 # Set to true when launched
 navSitemap: false

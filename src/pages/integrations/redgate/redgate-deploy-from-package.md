@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-08-23
 title: 'Redgate - Deploy from Package'
-description: Uses Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage) to deploy a package containing a database schema to a SQL Server database, without a review step.  Requires SQL Change Automation version 3.0.2 or later.  *Version date: 2020-12-21*
+description: >-
+    Uses Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage) to deploy a package containing a database schema to a SQL Server database, without a review step.  Requires SQL Change Automation version 3.0.2 or later.  *Version date: 2020-12-21*
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-10-19
 title: 'GitHub - Create Repo Secret'
-description: This step creates a secret in a GitHub repo.
+description: >-
+    This step creates a secret in a GitHub repo.
 navMenu: false
 # Set to true when launched
 navSitemap: false

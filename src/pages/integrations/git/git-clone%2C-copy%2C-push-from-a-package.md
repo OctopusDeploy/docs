@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-09-12
 title: 'Git - Clone, copy, push from a Package'
-description: Clones a repository, copies files from the `Source Package` to the `Destination Path` then commits to the repository.
+description: >-
+    Clones a repository, copies files from the `Source Package` to the `Destination Path` then commits to the repository.
 navMenu: false
 # Set to true when launched
 navSitemap: false

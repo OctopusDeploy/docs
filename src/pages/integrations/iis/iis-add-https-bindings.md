@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-07-17
 title: 'IIS - Add HTTP(S) Bindings'
-description: Adds HTTP and HTTPS bindings to a website using the specified host name, port numbers, Certificate Location, and SSL Thumbprint
+description: >-
+    Adds HTTP and HTTPS bindings to a website using the specified host name, port numbers, Certificate Location, and SSL Thumbprint
 navMenu: false
 # Set to true when launched
 navSitemap: false

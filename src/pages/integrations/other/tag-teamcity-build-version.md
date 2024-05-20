@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-01-19
 title: 'Tag TeamCity Build Version'
-description: Try to tag the TeamCity build version and dependencies (Requires Octopus version to match TeamCity version)
+description: >-
+    Try to tag the TeamCity build version and dependencies (Requires Octopus version to match TeamCity version)
 navMenu: false
 # Set to true when launched
 navSitemap: false

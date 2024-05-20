@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-06-23
 title: 'Azure Database - Import Create New DTU'
-description: restores a bacpac to a new database  *Depends on az cli*  *Source database requires 'Allow Azure services and resources to access this server' option turn on in the SQL server firewall*
+description: >-
+    restores a bacpac to a new database  *Depends on az cli*  *Source database requires 'Allow Azure services and resources to access this server' option turn on in the SQL server firewall*
 navMenu: false
 # Set to true when launched
 navSitemap: false

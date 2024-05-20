@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-03-28
 title: 'MSMQ - Create Transactional Queue'
-description: Create one or more MSMQ transactional queues and configure permissions.
+description: >-
+    Create one or more MSMQ transactional queues and configure permissions.
 navMenu: false
 # Set to true when launched
 navSitemap: false

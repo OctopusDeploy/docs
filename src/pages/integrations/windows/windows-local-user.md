@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
 title: 'Windows - Local User'
-description: Configures a local user. (If assigning user rights the ntrights.exe file should be installed on the target server and added to the system path variable)
+description: >-
+    Configures a local user. (If assigning user rights the ntrights.exe file should be installed on the target server and added to the system path variable)
 navMenu: false
 # Set to true when launched
 navSitemap: false

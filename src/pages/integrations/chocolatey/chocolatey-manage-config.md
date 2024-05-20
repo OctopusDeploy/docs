@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-13
 title: 'Chocolatey - Manage Config'
-description: Allows managing Chocolatey config.
+description: >-
+    Allows managing Chocolatey config.
 navMenu: false
 # Set to true when launched
 navSitemap: false

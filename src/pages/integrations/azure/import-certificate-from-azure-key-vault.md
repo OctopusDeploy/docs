@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-04-17
 title: 'Import Certificate from Azure Key Vault'
-description: Imports a certificate from Azure Key Vault to the tentacle
+description: >-
+    Imports a certificate from Azure Key Vault to the tentacle
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-03-08
 title: 'Kubernetes - kustomize template deployment (bash)'
-description: Load package with kubernetes configuration and deploy to cluster with [kustomize](https://kustomize.io/) evaluation.  kubectl must be installed on the worker executing the step.
+description: >-
+    Load package with kubernetes configuration and deploy to cluster with [kustomize](https://kustomize.io/) evaluation.  kubectl must be installed on the worker executing the step.
 navMenu: false
 # Set to true when launched
 navSitemap: false

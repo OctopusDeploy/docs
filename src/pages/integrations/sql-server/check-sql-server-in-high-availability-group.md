@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-10-13
 title: 'Check SQL Server in High Availability Group'
-description: Checks for SQL Node currently being serving as primary on high availability group and sets Octopus variable : SQLIsOnSecondary to true if secondary is active in High Availability Group
+description: >-
+    Checks for SQL Node currently being serving as primary on high availability group and sets Octopus variable : SQLIsOnSecondary to true if secondary is active in High Availability Group
 navMenu: false
 # Set to true when launched
 navSitemap: false

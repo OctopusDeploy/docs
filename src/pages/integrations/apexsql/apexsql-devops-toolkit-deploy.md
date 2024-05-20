@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-08-20
 title: 'ApexSQL DevOps toolkit - Deploy'
-description: This step will execute schema and data synchronization scripts created as deployment resource after comparison is done.   ApexSQL DevOps toolkit - Sync and/or ApexSQL DevOps toolkit - Sync data  steps are reqiured
+description: >-
+    This step will execute schema and data synchronization scripts created as deployment resource after comparison is done.   ApexSQL DevOps toolkit - Sync and/or ApexSQL DevOps toolkit - Sync data  steps are reqiured
 navMenu: false
 # Set to true when launched
 navSitemap: false

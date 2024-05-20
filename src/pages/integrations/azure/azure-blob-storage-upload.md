@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-01-21
 title: 'Azure Blob Storage Upload'
-description: Upload files in a directory to a specified Azure Storage blob container.
+description: >-
+    Upload files in a directory to a specified Azure Storage blob container.
 navMenu: false
 # Set to true when launched
 navSitemap: false

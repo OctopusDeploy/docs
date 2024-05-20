@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-06-11
 title: 'Pingdom - Create Uptime Check'
-description: Creates Pingdom http check using [Create New Check API method](https://www.pingdom.com/resources/api#MethodCreate+New+Check).
+description: >-
+    Creates Pingdom http check using [Create New Check API method](https://www.pingdom.com/resources/api#MethodCreate+New+Check).
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-04-09
 title: 'Raygun API - Register Deployment'
-description: Notifies [Raygun](https://raygun.com) of a deployment using their [Deployments API](https://raygun.com/documentation/product-guides/deployment-tracking/powershell/). Sends the release number, deployer, release notes from the Octopus deployment.
+description: >-
+    Notifies [Raygun](https://raygun.com) of a deployment using their [Deployments API](https://raygun.com/documentation/product-guides/deployment-tracking/powershell/). Sends the release number, deployer, release notes from the Octopus deployment.
 navMenu: false
 # Set to true when launched
 navSitemap: false

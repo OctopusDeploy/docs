@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
 title: 'Windows Firewall - Configure Rule'
-description: Configures a firewall rule
+description: >-
+    Configures a firewall rule
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-02-07
 title: 'Rollbar - Notify Deployment'
-description: Posts a deployment notification to Rollbar.
+description: >-
+    Posts a deployment notification to Rollbar.
 navMenu: false
 # Set to true when launched
 navSitemap: false

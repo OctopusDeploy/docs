@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-03-14
 title: 'Switch Azure Staging Deployment Slot'
-description: This template will warm up your deployment slot then swap it with production. This step template should be placed after ""Deploy an Azure Web App" Octopus Deploy template and be used with its sister step "Create Azure RM Deployment Slot"  This should be used for green-blue deployments, as referenced in this document: https://octopus.com/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps
+description: >-
+    This template will warm up your deployment slot then swap it with production. This step template should be placed after ""Deploy an Azure Web App" Octopus Deploy template and be used with its sister step "Create Azure RM Deployment Slot"  This should be used for green-blue deployments, as referenced in this document: https://octopus.com/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps
 navMenu: false
 # Set to true when launched
 navSitemap: false

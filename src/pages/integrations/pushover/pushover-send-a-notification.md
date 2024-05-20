@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-01-31
 title: 'Pushover - Send a notification'
-description: Sends a notification using the Pushover REST API.
+description: >-
+    Sends a notification using the Pushover REST API.
 navMenu: false
 # Set to true when launched
 navSitemap: false

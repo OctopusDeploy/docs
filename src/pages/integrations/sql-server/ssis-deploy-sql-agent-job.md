@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: (invalid date)
 title: 'SSIS - Deploy SQL Agent Job'
-description: Deploy a SQL Agent Job for SSIS Ispac Deployment. Requires SMO to be installed on the machine where this step will be run. 
+description: >-
+    Deploy a SQL Agent Job for SSIS Ispac Deployment. Requires SMO to be installed on the machine where this step will be run. 
 navMenu: false
 # Set to true when launched
 navSitemap: false

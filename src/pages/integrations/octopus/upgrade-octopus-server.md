@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2018-03-09
 title: 'Upgrade Octopus Server'
-description: This step downloads the latest version of Octopus Server and upgrades an existing instance. Run this step on a tentacle that has privileges to install software and start/stop services on the target server.  **Run this after a database backup step**  To Use: - Install a tentacle on the Octopus Server machine with privileges to install software and start/stop services - Add that tentacle to an environment and with a unique role - Setup a project for the upgrade process - Add a database backup step for your Octopus Server database - Add this step, selecting it to run on just the role previously configured - Create a release - Deploy that release whenever an upgrade is needed  NB: The deployment will show as "Timed Out" when the server comes back online
+description: >-
+    This step downloads the latest version of Octopus Server and upgrades an existing instance. Run this step on a tentacle that has privileges to install software and start/stop services on the target server.  **Run this after a database backup step**  To Use: - Install a tentacle on the Octopus Server machine with privileges to install software and start/stop services - Add that tentacle to an environment and with a unique role - Setup a project for the upgrade process - Add a database backup step for your Octopus Server database - Add this step, selecting it to run on just the role previously configured - Create a release - Deploy that release whenever an upgrade is needed  NB: The deployment will show as "Timed Out" when the server comes back online
 navMenu: false
 # Set to true when launched
 navSitemap: false

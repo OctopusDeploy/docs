@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-04-13
 title: 'Create Resource Group If Not Exists (AZ Module)'
-description: This step uses the new `az` modules to create a resource group if it doesn't exist.    Requires `Octopus Deploy 2020.1` or later.  Requires a worker with the `az` module installed on it.  That module is not bundled with Octopus Deploy.
+description: >-
+    This step uses the new `az` modules to create a resource group if it doesn't exist.    Requires `Octopus Deploy 2020.1` or later.  Requires a worker with the `az` module installed on it.  That module is not bundled with Octopus Deploy.
 navMenu: false
 # Set to true when launched
 navSitemap: false

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-07-15
 title: 'Windows - Ensure Hosts File Entry Exists'
-description: Ensures that the given IP/host name entry exists in the hosts file.
+description: >-
+    Ensures that the given IP/host name entry exists in the hosts file.
 navMenu: false
 # Set to true when launched
 navSitemap: false

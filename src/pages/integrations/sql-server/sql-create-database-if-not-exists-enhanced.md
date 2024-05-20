@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-12-15
 title: 'SQL - Create Database If Not Exists Enhanced'
-description: Creates a database if the database does not exist without using SMO. 
+description: >-
+    Creates a database if the database does not exist without using SMO. 
 navMenu: false
 # Set to true when launched
 navSitemap: false
