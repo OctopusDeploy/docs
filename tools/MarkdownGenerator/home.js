@@ -25,10 +25,10 @@ function getCategories(categories) {
         output.push(`
 <li>
 
-![${name}](https://i.octopus.com/library/step-templates/${name}.png) [${name}](${`/integrations/${toSlug(name)})}`})
+<img src="https://i.octopus.com/library/step-templates/${name}.png" alt="${name}" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [${name}](${`/integrations/${toSlug(name)}`})
 
 </li>
-        `);
+`);
     }
 
     return output.join('');

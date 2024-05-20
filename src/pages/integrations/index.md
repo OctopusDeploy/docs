@@ -12,752 +12,752 @@ navSearch: false
 
 <li>
 
-![aspdotnet](https://i.octopus.com/library/step-templates/aspdotnet.png) [aspdotnet](/integrations/aspdodotnet)})
+<img src="https://i.octopus.com/library/step-templates/aspdotnet.png" alt="aspdotnet" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [aspdotnet](/integrations/aspdodotnet)
 
 </li>
-        
+
 <li>
 
-![dotnet core](https://i.octopus.com/library/step-templates/dotnet core.png) [dotnet core](/integrations/dodotnet-core)})
+<img src="https://i.octopus.com/library/step-templates/dotnet core.png" alt="dotnet core" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [dotnet core](/integrations/dodotnet-core)
 
 </li>
-        
+
 <li>
 
-![bash](https://i.octopus.com/library/step-templates/bash.png) [bash](/integrations/bash)})
+<img src="https://i.octopus.com/library/step-templates/bash.png" alt="bash" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [bash](/integrations/bash)
 
 </li>
-        
+
 <li>
 
-![azure](https://i.octopus.com/library/step-templates/azure.png) [azure](/integrations/azure)})
+<img src="https://i.octopus.com/library/step-templates/azure.png" alt="azure" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [azure](/integrations/azure)
 
 </li>
-        
+
 <li>
 
-![akamai](https://i.octopus.com/library/step-templates/akamai.png) [akamai](/integrations/akamai)})
+<img src="https://i.octopus.com/library/step-templates/akamai.png" alt="akamai" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [akamai](/integrations/akamai)
 
 </li>
-        
+
 <li>
 
-![amazon chime](https://i.octopus.com/library/step-templates/amazon chime.png) [amazon chime](/integrations/amazon-chime)})
+<img src="https://i.octopus.com/library/step-templates/amazon chime.png" alt="amazon chime" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [amazon chime](/integrations/amazon-chime)
 
 </li>
-        
+
 <li>
 
-![aws](https://i.octopus.com/library/step-templates/aws.png) [aws](/integrations/aws)})
+<img src="https://i.octopus.com/library/step-templates/aws.png" alt="aws" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [aws](/integrations/aws)
 
 </li>
-        
+
 <li>
 
-![ansible](https://i.octopus.com/library/step-templates/ansible.png) [ansible](/integrations/ansible)})
+<img src="https://i.octopus.com/library/step-templates/ansible.png" alt="ansible" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [ansible](/integrations/ansible)
 
 </li>
-        
+
 <li>
 
-![apexsql](https://i.octopus.com/library/step-templates/apexsql.png) [apexsql](/integrations/apexsql)})
+<img src="https://i.octopus.com/library/step-templates/apexsql.png" alt="apexsql" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [apexsql](/integrations/apexsql)
 
 </li>
-        
+
 <li>
 
-![apollo graphql](https://i.octopus.com/library/step-templates/apollo graphql.png) [apollo graphql](/integrations/apollo-graphql)})
+<img src="https://i.octopus.com/library/step-templates/apollo graphql.png" alt="apollo graphql" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [apollo graphql](/integrations/apollo-graphql)
 
 </li>
-        
+
 <li>
 
-![octopus](https://i.octopus.com/library/step-templates/octopus.png) [octopus](/integrations/octopus)})
+<img src="https://i.octopus.com/library/step-templates/octopus.png" alt="octopus" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [octopus](/integrations/octopus)
 
 </li>
-        
+
 <li>
 
-![other](https://i.octopus.com/library/step-templates/other.png) [other](/integrations/other)})
+<img src="https://i.octopus.com/library/step-templates/other.png" alt="other" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [other](/integrations/other)
 
 </li>
-        
+
 <li>
 
-![azurefunctions](https://i.octopus.com/library/step-templates/azurefunctions.png) [azurefunctions](/integrations/azurefunctions)})
+<img src="https://i.octopus.com/library/step-templates/azurefunctions.png" alt="azurefunctions" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [azurefunctions](/integrations/azurefunctions)
 
 </li>
-        
+
 <li>
 
-![azure key vault](https://i.octopus.com/library/step-templates/azure key vault.png) [azure key vault](/integrations/azure-key-vault)})
+<img src="https://i.octopus.com/library/step-templates/azure key vault.png" alt="azure key vault" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [azure key vault](/integrations/azure-key-vault)
 
 </li>
-        
+
 <li>
 
-![azure site extensions](https://i.octopus.com/library/step-templates/azure site extensions.png) [azure site extensions](/integrations/azure-site-extensions)})
+<img src="https://i.octopus.com/library/step-templates/azure site extensions.png" alt="azure site extensions" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [azure site extensions](/integrations/azure-site-extensions)
 
 </li>
-        
+
 <li>
 
-![cassandra](https://i.octopus.com/library/step-templates/cassandra.png) [cassandra](/integrations/cassandra)})
+<img src="https://i.octopus.com/library/step-templates/cassandra.png" alt="cassandra" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [cassandra](/integrations/cassandra)
 
 </li>
-        
+
 <li>
 
-![windows](https://i.octopus.com/library/step-templates/windows.png) [windows](/integrations/windows)})
+<img src="https://i.octopus.com/library/step-templates/windows.png" alt="windows" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [windows](/integrations/windows)
 
 </li>
-        
+
 <li>
 
-![sql server](https://i.octopus.com/library/step-templates/sql server.png) [sql server](/integrations/sql-server)})
+<img src="https://i.octopus.com/library/step-templates/sql server.png" alt="sql server" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [sql server](/integrations/sql-server)
 
 </li>
-        
+
 <li>
 
-![chef](https://i.octopus.com/library/step-templates/chef.png) [chef](/integrations/chef)})
+<img src="https://i.octopus.com/library/step-templates/chef.png" alt="chef" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [chef](/integrations/chef)
 
 </li>
-        
+
 <li>
 
-![chocolatey](https://i.octopus.com/library/step-templates/chocolatey.png) [chocolatey](/integrations/chocolatey)})
+<img src="https://i.octopus.com/library/step-templates/chocolatey.png" alt="chocolatey" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [chocolatey](/integrations/chocolatey)
 
 </li>
-        
+
 <li>
 
-![edgecast](https://i.octopus.com/library/step-templates/edgecast.png) [edgecast](/integrations/edgecast)})
+<img src="https://i.octopus.com/library/step-templates/edgecast.png" alt="edgecast" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [edgecast](/integrations/edgecast)
 
 </li>
-        
+
 <li>
 
-![jasper](https://i.octopus.com/library/step-templates/jasper.png) [jasper](/integrations/jasper)})
+<img src="https://i.octopus.com/library/step-templates/jasper.png" alt="jasper" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [jasper](/integrations/jasper)
 
 </li>
-        
+
 <li>
 
-![clickonce](https://i.octopus.com/library/step-templates/clickonce.png) [clickonce](/integrations/clickonce)})
+<img src="https://i.octopus.com/library/step-templates/clickonce.png" alt="clickonce" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [clickonce](/integrations/clickonce)
 
 </li>
-        
+
 <li>
 
-![encrypt](https://i.octopus.com/library/step-templates/encrypt.png) [encrypt](/integrations/encrypt)})
+<img src="https://i.octopus.com/library/step-templates/encrypt.png" alt="encrypt" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [encrypt](/integrations/encrypt)
 
 </li>
-        
+
 <li>
 
-![linux](https://i.octopus.com/library/step-templates/linux.png) [linux](/integrations/linux)})
+<img src="https://i.octopus.com/library/step-templates/linux.png" alt="linux" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [linux](/integrations/linux)
 
 </li>
-        
+
 <li>
 
-![xml](https://i.octopus.com/library/step-templates/xml.png) [xml](/integrations/xml)})
+<img src="https://i.octopus.com/library/step-templates/xml.png" alt="xml" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [xml](/integrations/xml)
 
 </li>
-        
+
 <li>
 
-![cyberark](https://i.octopus.com/library/step-templates/cyberark.png) [cyberark](/integrations/cyberark)})
+<img src="https://i.octopus.com/library/step-templates/cyberark.png" alt="cyberark" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [cyberark](/integrations/cyberark)
 
 </li>
-        
+
 <li>
 
-![datadog](https://i.octopus.com/library/step-templates/datadog.png) [datadog](/integrations/datadog)})
+<img src="https://i.octopus.com/library/step-templates/datadog.png" alt="datadog" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [datadog](/integrations/datadog)
 
 </li>
-        
+
 <li>
 
-![docker](https://i.octopus.com/library/step-templates/docker.png) [docker](/integrations/docker)})
+<img src="https://i.octopus.com/library/step-templates/docker.png" alt="docker" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [docker](/integrations/docker)
 
 </li>
-        
+
 <li>
 
-![http](https://i.octopus.com/library/step-templates/http.png) [http](/integrations/http)})
+<img src="https://i.octopus.com/library/step-templates/http.png" alt="http" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [http](/integrations/http)
 
 </li>
-        
+
 <li>
 
-![dyn](https://i.octopus.com/library/step-templates/dyn.png) [dyn](/integrations/dyn)})
+<img src="https://i.octopus.com/library/step-templates/dyn.png" alt="dyn" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [dyn](/integrations/dyn)
 
 </li>
-        
+
 <li>
 
-![kubernetes](https://i.octopus.com/library/step-templates/kubernetes.png) [kubernetes](/integrations/kubedotnetes)})
+<img src="https://i.octopus.com/library/step-templates/kubernetes.png" alt="kubernetes" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [kubernetes](/integrations/kubedotnetes)
 
 </li>
-        
+
 <li>
 
-![elmah](https://i.octopus.com/library/step-templates/elmah.png) [elmah](/integrations/elmah)})
+<img src="https://i.octopus.com/library/step-templates/elmah.png" alt="elmah" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [elmah](/integrations/elmah)
 
 </li>
-        
+
 <li>
 
-![event tracing for windows](https://i.octopus.com/library/step-templates/event tracing for windows.png) [event tracing for windows](/integrations/event-tracing-for-windows)})
+<img src="https://i.octopus.com/library/step-templates/event tracing for windows.png" alt="event tracing for windows" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [event tracing for windows](/integrations/event-tracing-for-windows)
 
 </li>
-        
+
 <li>
 
-![terraform](https://i.octopus.com/library/step-templates/terraform.png) [terraform](/integrations/terraform)})
+<img src="https://i.octopus.com/library/step-templates/terraform.png" alt="terraform" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [terraform](/integrations/terraform)
 
 </li>
-        
+
 <li>
 
-![xunit](https://i.octopus.com/library/step-templates/xunit.png) [xunit](/integrations/xunit)})
+<img src="https://i.octopus.com/library/step-templates/xunit.png" alt="xunit" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [xunit](/integrations/xunit)
 
 </li>
-        
+
 <li>
 
-![iis](https://i.octopus.com/library/step-templates/iis.png) [iis](/integrations/iis)})
+<img src="https://i.octopus.com/library/step-templates/iis.png" alt="iis" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [iis](/integrations/iis)
 
 </li>
-        
+
 <li>
 
-![f5](https://i.octopus.com/library/step-templates/f5.png) [f5](/integrations/f5)})
+<img src="https://i.octopus.com/library/step-templates/f5.png" alt="f5" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [f5](/integrations/f5)
 
 </li>
-        
+
 <li>
 
-![file system](https://i.octopus.com/library/step-templates/file system.png) [file system](/integrations/file-system)})
+<img src="https://i.octopus.com/library/step-templates/file system.png" alt="file system" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [file system](/integrations/file-system)
 
 </li>
-        
+
 <li>
 
-![firebase](https://i.octopus.com/library/step-templates/firebase.png) [firebase](/integrations/firebase)})
+<img src="https://i.octopus.com/library/step-templates/firebase.png" alt="firebase" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [firebase](/integrations/firebase)
 
 </li>
-        
+
 <li>
 
-![flyway](https://i.octopus.com/library/step-templates/flyway.png) [flyway](/integrations/flyway)})
+<img src="https://i.octopus.com/library/step-templates/flyway.png" alt="flyway" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [flyway](/integrations/flyway)
 
 </li>
-        
+
 <li>
 
-![google cloud](https://i.octopus.com/library/step-templates/google cloud.png) [google cloud](/integrations/google-cloud)})
+<img src="https://i.octopus.com/library/step-templates/google cloud.png" alt="google cloud" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [google cloud](/integrations/google-cloud)
 
 </li>
-        
+
 <li>
 
-![git](https://i.octopus.com/library/step-templates/git.png) [git](/integrations/git)})
+<img src="https://i.octopus.com/library/step-templates/git.png" alt="git" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [git](/integrations/git)
 
 </li>
-        
+
 <li>
 
-![github](https://i.octopus.com/library/step-templates/github.png) [github](/integrations/github)})
+<img src="https://i.octopus.com/library/step-templates/github.png" alt="github" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [github](/integrations/github)
 
 </li>
-        
+
 <li>
 
-![gitlab](https://i.octopus.com/library/step-templates/gitlab.png) [gitlab](/integrations/gitlab)})
+<img src="https://i.octopus.com/library/step-templates/gitlab.png" alt="gitlab" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [gitlab](/integrations/gitlab)
 
 </li>
-        
+
 <li>
 
-![google chat](https://i.octopus.com/library/step-templates/google chat.png) [google chat](/integrations/google-chat)})
+<img src="https://i.octopus.com/library/step-templates/google chat.png" alt="google chat" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [google chat](/integrations/google-chat)
 
 </li>
-        
+
 <li>
 
-![grate](https://i.octopus.com/library/step-templates/grate.png) [grate](/integrations/grate)})
+<img src="https://i.octopus.com/library/step-templates/grate.png" alt="grate" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [grate](/integrations/grate)
 
 </li>
-        
+
 <li>
 
-![hashicorp vault](https://i.octopus.com/library/step-templates/hashicorp vault.png) [hashicorp vault](/integrations/hashicorp-vault)})
+<img src="https://i.octopus.com/library/step-templates/hashicorp vault.png" alt="hashicorp vault" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [hashicorp vault](/integrations/hashicorp-vault)
 
 </li>
-        
+
 <li>
 
-![mercurial](https://i.octopus.com/library/step-templates/mercurial.png) [mercurial](/integrations/mercurial)})
+<img src="https://i.octopus.com/library/step-templates/mercurial.png" alt="mercurial" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [mercurial](/integrations/mercurial)
 
 </li>
-        
+
 <li>
 
-![hipchat](https://i.octopus.com/library/step-templates/hipchat.png) [hipchat](/integrations/hipchat)})
+<img src="https://i.octopus.com/library/step-templates/hipchat.png" alt="hipchat" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [hipchat](/integrations/hipchat)
 
 </li>
-        
+
 <li>
 
-![hockeyapp](https://i.octopus.com/library/step-templates/hockeyapp.png) [hockeyapp](/integrations/hockeyapp)})
+<img src="https://i.octopus.com/library/step-templates/hockeyapp.png" alt="hockeyapp" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [hockeyapp](/integrations/hockeyapp)
 
 </li>
-        
+
 <li>
 
-![databricks](https://i.octopus.com/library/step-templates/databricks.png) [databricks](/integrations/databricks)})
+<img src="https://i.octopus.com/library/step-templates/databricks.png" alt="databricks" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [databricks](/integrations/databricks)
 
 </li>
-        
+
 <li>
 
-![topshelf](https://i.octopus.com/library/step-templates/topshelf.png) [topshelf](/integrations/topshelf)})
+<img src="https://i.octopus.com/library/step-templates/topshelf.png" alt="topshelf" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [topshelf](/integrations/topshelf)
 
 </li>
-        
+
 <li>
 
-![jenkins](https://i.octopus.com/library/step-templates/jenkins.png) [jenkins](/integrations/jenkins)})
+<img src="https://i.octopus.com/library/step-templates/jenkins.png" alt="jenkins" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [jenkins](/integrations/jenkins)
 
 </li>
-        
+
 <li>
 
-![jira](https://i.octopus.com/library/step-templates/jira.png) [jira](/integrations/jira)})
+<img src="https://i.octopus.com/library/step-templates/jira.png" alt="jira" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [jira](/integrations/jira)
 
 </li>
-        
+
 <li>
 
-![json](https://i.octopus.com/library/step-templates/json.png) [json](/integrations/json)})
+<img src="https://i.octopus.com/library/step-templates/json.png" alt="json" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [json](/integrations/json)
 
 </li>
-        
+
 <li>
 
-![jwt](https://i.octopus.com/library/step-templates/jwt.png) [jwt](/integrations/jwt)})
+<img src="https://i.octopus.com/library/step-templates/jwt.png" alt="jwt" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [jwt](/integrations/jwt)
 
 </li>
-        
+
 <li>
 
-![keeper secrets manager](https://i.octopus.com/library/step-templates/keeper secrets manager.png) [keeper secrets manager](/integrations/keeper-secrets-manager)})
+<img src="https://i.octopus.com/library/step-templates/keeper secrets manager.png" alt="keeper secrets manager" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [keeper secrets manager](/integrations/keeper-secrets-manager)
 
 </li>
-        
+
 <li>
 
-![launchdarkly](https://i.octopus.com/library/step-templates/launchdarkly.png) [launchdarkly](/integrations/launchdarkly)})
+<img src="https://i.octopus.com/library/step-templates/launchdarkly.png" alt="launchdarkly" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [launchdarkly](/integrations/launchdarkly)
 
 </li>
-        
+
 <li>
 
-![lets encrypt](https://i.octopus.com/library/step-templates/lets encrypt.png) [lets encrypt](/integrations/lets-encrypt)})
+<img src="https://i.octopus.com/library/step-templates/lets encrypt.png" alt="lets encrypt" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [lets encrypt](/integrations/lets-encrypt)
 
 </li>
-        
+
 <li>
 
-![liquibase](https://i.octopus.com/library/step-templates/liquibase.png) [liquibase](/integrations/liquibase)})
+<img src="https://i.octopus.com/library/step-templates/liquibase.png" alt="liquibase" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [liquibase](/integrations/liquibase)
 
 </li>
-        
+
 <li>
 
-![splunk](https://i.octopus.com/library/step-templates/splunk.png) [splunk](/integrations/splunk)})
+<img src="https://i.octopus.com/library/step-templates/splunk.png" alt="splunk" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [splunk](/integrations/splunk)
 
 </li>
-        
+
 <li>
 
-![mariadb](https://i.octopus.com/library/step-templates/mariadb.png) [mariadb](/integrations/mariadb)})
+<img src="https://i.octopus.com/library/step-templates/mariadb.png" alt="mariadb" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [mariadb](/integrations/mariadb)
 
 </li>
-        
+
 <li>
 
-![medianova](https://i.octopus.com/library/step-templates/medianova.png) [medianova](/integrations/medianova)})
+<img src="https://i.octopus.com/library/step-templates/medianova.png" alt="medianova" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [medianova](/integrations/medianova)
 
 </li>
-        
+
 <li>
 
-![microsoft teams](https://i.octopus.com/library/step-templates/microsoft teams.png) [microsoft teams](/integrations/microsoft-teams)})
+<img src="https://i.octopus.com/library/step-templates/microsoft teams.png" alt="microsoft teams" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [microsoft teams](/integrations/microsoft-teams)
 
 </li>
-        
+
 <li>
 
-![mongodb](https://i.octopus.com/library/step-templates/mongodb.png) [mongodb](/integrations/mongodb)})
+<img src="https://i.octopus.com/library/step-templates/mongodb.png" alt="mongodb" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [mongodb](/integrations/mongodb)
 
 </li>
-        
+
 <li>
 
-![mulesoft](https://i.octopus.com/library/step-templates/mulesoft.png) [mulesoft](/integrations/mulesoft)})
+<img src="https://i.octopus.com/library/step-templates/mulesoft.png" alt="mulesoft" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [mulesoft](/integrations/mulesoft)
 
 </li>
-        
+
 <li>
 
-![mysql](https://i.octopus.com/library/step-templates/mysql.png) [mysql](/integrations/mysql)})
+<img src="https://i.octopus.com/library/step-templates/mysql.png" alt="mysql" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [mysql](/integrations/mysql)
 
 </li>
-        
+
 <li>
 
-![netscaler](https://i.octopus.com/library/step-templates/netscaler.png) [netscaler](/integrations/netscaler)})
+<img src="https://i.octopus.com/library/step-templates/netscaler.png" alt="netscaler" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [netscaler](/integrations/netscaler)
 
 </li>
-        
+
 <li>
 
-![new relic](https://i.octopus.com/library/step-templates/new relic.png) [new relic](/integrations/new-relic)})
+<img src="https://i.octopus.com/library/step-templates/new relic.png" alt="new relic" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [new relic](/integrations/new-relic)
 
 </li>
-        
+
 <li>
 
-![spark](https://i.octopus.com/library/step-templates/spark.png) [spark](/integrations/spark)})
+<img src="https://i.octopus.com/library/step-templates/spark.png" alt="spark" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [spark](/integrations/spark)
 
 </li>
-        
+
 <li>
 
-![opslevel](https://i.octopus.com/library/step-templates/opslevel.png) [opslevel](/integrations/opslevel)})
+<img src="https://i.octopus.com/library/step-templates/opslevel.png" alt="opslevel" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [opslevel](/integrations/opslevel)
 
 </li>
-        
+
 <li>
 
-![oracle](https://i.octopus.com/library/step-templates/oracle.png) [oracle](/integrations/oracle)})
+<img src="https://i.octopus.com/library/step-templates/oracle.png" alt="oracle" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [oracle](/integrations/oracle)
 
 </li>
-        
+
 <li>
 
-![pagerduty](https://i.octopus.com/library/step-templates/pagerduty.png) [pagerduty](/integrations/pagerduty)})
+<img src="https://i.octopus.com/library/step-templates/pagerduty.png" alt="pagerduty" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [pagerduty](/integrations/pagerduty)
 
 </li>
-        
+
 <li>
 
-![pingdom](https://i.octopus.com/library/step-templates/pingdom.png) [pingdom](/integrations/pingdom)})
+<img src="https://i.octopus.com/library/step-templates/pingdom.png" alt="pingdom" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [pingdom](/integrations/pingdom)
 
 </li>
-        
+
 <li>
 
-![teamcity](https://i.octopus.com/library/step-templates/teamcity.png) [teamcity](/integrations/teamcity)})
+<img src="https://i.octopus.com/library/step-templates/teamcity.png" alt="teamcity" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [teamcity](/integrations/teamcity)
 
 </li>
-        
+
 <li>
 
-![postgresql](https://i.octopus.com/library/step-templates/postgresql.png) [postgresql](/integrations/postgresql)})
+<img src="https://i.octopus.com/library/step-templates/postgresql.png" alt="postgresql" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [postgresql](/integrations/postgresql)
 
 </li>
-        
+
 <li>
 
-![proxmox](https://i.octopus.com/library/step-templates/proxmox.png) [proxmox](/integrations/proxmox)})
+<img src="https://i.octopus.com/library/step-templates/proxmox.png" alt="proxmox" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [proxmox](/integrations/proxmox)
 
 </li>
-        
+
 <li>
 
-![pushalot](https://i.octopus.com/library/step-templates/pushalot.png) [pushalot](/integrations/pushalot)})
+<img src="https://i.octopus.com/library/step-templates/pushalot.png" alt="pushalot" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [pushalot](/integrations/pushalot)
 
 </li>
-        
+
 <li>
 
-![pushover](https://i.octopus.com/library/step-templates/pushover.png) [pushover](/integrations/pushover)})
+<img src="https://i.octopus.com/library/step-templates/pushover.png" alt="pushover" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [pushover](/integrations/pushover)
 
 </li>
-        
+
 <li>
 
-![rabbitmq](https://i.octopus.com/library/step-templates/rabbitmq.png) [rabbitmq](/integrations/rabbitmq)})
+<img src="https://i.octopus.com/library/step-templates/rabbitmq.png" alt="rabbitmq" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [rabbitmq](/integrations/rabbitmq)
 
 </li>
-        
+
 <li>
 
-![rackspace](https://i.octopus.com/library/step-templates/rackspace.png) [rackspace](/integrations/rackspace)})
+<img src="https://i.octopus.com/library/step-templates/rackspace.png" alt="rackspace" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [rackspace](/integrations/rackspace)
 
 </li>
-        
+
 <li>
 
-![ravendb](https://i.octopus.com/library/step-templates/ravendb.png) [ravendb](/integrations/ravendb)})
+<img src="https://i.octopus.com/library/step-templates/ravendb.png" alt="ravendb" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [ravendb](/integrations/ravendb)
 
 </li>
-        
+
 <li>
 
-![raygun](https://i.octopus.com/library/step-templates/raygun.png) [raygun](/integrations/raygun)})
+<img src="https://i.octopus.com/library/step-templates/raygun.png" alt="raygun" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [raygun](/integrations/raygun)
 
 </li>
-        
+
 <li>
 
-![readyroll](https://i.octopus.com/library/step-templates/readyroll.png) [readyroll](/integrations/readyroll)})
+<img src="https://i.octopus.com/library/step-templates/readyroll.png" alt="readyroll" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [readyroll](/integrations/readyroll)
 
 </li>
-        
+
 <li>
 
-![redgate](https://i.octopus.com/library/step-templates/redgate.png) [redgate](/integrations/redgate)})
+<img src="https://i.octopus.com/library/step-templates/redgate.png" alt="redgate" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [redgate](/integrations/redgate)
 
 </li>
-        
+
 <li>
 
-![redis](https://i.octopus.com/library/step-templates/redis.png) [redis](/integrations/redis)})
+<img src="https://i.octopus.com/library/step-templates/redis.png" alt="redis" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [redis](/integrations/redis)
 
 </li>
-        
+
 <li>
 
-![dll](https://i.octopus.com/library/step-templates/dll.png) [dll](/integrations/dll)})
+<img src="https://i.octopus.com/library/step-templates/dll.png" alt="dll" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [dll](/integrations/dll)
 
 </li>
-        
+
 <li>
 
-![rnhub](https://i.octopus.com/library/step-templates/rnhub.png) [rnhub](/integrations/rnhub)})
+<img src="https://i.octopus.com/library/step-templates/rnhub.png" alt="rnhub" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [rnhub](/integrations/rnhub)
 
 </li>
-        
+
 <li>
 
-![rollbar](https://i.octopus.com/library/step-templates/rollbar.png) [rollbar](/integrations/rollbar)})
+<img src="https://i.octopus.com/library/step-templates/rollbar.png" alt="rollbar" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [rollbar](/integrations/rollbar)
 
 </li>
-        
+
 <li>
 
-![roundhouse](https://i.octopus.com/library/step-templates/roundhouse.png) [roundhouse](/integrations/roundhouse)})
+<img src="https://i.octopus.com/library/step-templates/roundhouse.png" alt="roundhouse" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [roundhouse](/integrations/roundhouse)
 
 </li>
-        
+
 <li>
 
-![azure devops](https://i.octopus.com/library/step-templates/azure devops.png) [azure devops](/integrations/azure-devops)})
+<img src="https://i.octopus.com/library/step-templates/azure devops.png" alt="azure devops" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [azure devops](/integrations/azure-devops)
 
 </li>
-        
+
 <li>
 
-![entity framework](https://i.octopus.com/library/step-templates/entity framework.png) [entity framework](/integrations/entity-framework)})
+<img src="https://i.octopus.com/library/step-templates/entity framework.png" alt="entity framework" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [entity framework](/integrations/entity-framework)
 
 </li>
-        
+
 <li>
 
-![ghost inspector](https://i.octopus.com/library/step-templates/ghost inspector.png) [ghost inspector](/integrations/ghost-inspector)})
+<img src="https://i.octopus.com/library/step-templates/ghost inspector.png" alt="ghost inspector" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [ghost inspector](/integrations/ghost-inspector)
 
 </li>
-        
+
 <li>
 
-![mabl](https://i.octopus.com/library/step-templates/mabl.png) [mabl](/integrations/mabl)})
+<img src="https://i.octopus.com/library/step-templates/mabl.png" alt="mabl" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [mabl](/integrations/mabl)
 
 </li>
-        
+
 <li>
 
-![tests](https://i.octopus.com/library/step-templates/tests.png) [tests](/integrations/tests)})
+<img src="https://i.octopus.com/library/step-templates/tests.png" alt="tests" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [tests](/integrations/tests)
 
 </li>
-        
+
 <li>
 
-![pulumi](https://i.octopus.com/library/step-templates/pulumi.png) [pulumi](/integrations/pulumi)})
+<img src="https://i.octopus.com/library/step-templates/pulumi.png" alt="pulumi" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [pulumi](/integrations/pulumi)
 
 </li>
-        
+
 <li>
 
-![sentry](https://i.octopus.com/library/step-templates/sentry.png) [sentry](/integrations/sentry)})
+<img src="https://i.octopus.com/library/step-templates/sentry.png" alt="sentry" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [sentry](/integrations/sentry)
 
 </li>
-        
+
 <li>
 
-![seq](https://i.octopus.com/library/step-templates/seq.png) [seq](/integrations/seq)})
+<img src="https://i.octopus.com/library/step-templates/seq.png" alt="seq" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [seq](/integrations/seq)
 
 </li>
-        
+
 <li>
 
-![umbraco](https://i.octopus.com/library/step-templates/umbraco.png) [umbraco](/integrations/umbraco)})
+<img src="https://i.octopus.com/library/step-templates/umbraco.png" alt="umbraco" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [umbraco](/integrations/umbraco)
 
 </li>
-        
+
 <li>
 
-![sharepoint](https://i.octopus.com/library/step-templates/sharepoint.png) [sharepoint](/integrations/sharepoint)})
+<img src="https://i.octopus.com/library/step-templates/sharepoint.png" alt="sharepoint" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [sharepoint](/integrations/sharepoint)
 
 </li>
-        
+
 <li>
 
-![sitecore](https://i.octopus.com/library/step-templates/sitecore.png) [sitecore](/integrations/sitecore)})
+<img src="https://i.octopus.com/library/step-templates/sitecore.png" alt="sitecore" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [sitecore](/integrations/sitecore)
 
 </li>
-        
+
 <li>
 
-![slack](https://i.octopus.com/library/step-templates/slack.png) [slack](/integrations/slack)})
+<img src="https://i.octopus.com/library/step-templates/slack.png" alt="slack" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [slack](/integrations/slack)
 
 </li>
-        
+
 <li>
 
-![snowflake](https://i.octopus.com/library/step-templates/snowflake.png) [snowflake](/integrations/snowflake)})
+<img src="https://i.octopus.com/library/step-templates/snowflake.png" alt="snowflake" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [snowflake](/integrations/snowflake)
 
 </li>
-        
+
 <li>
 
-![solarwinds](https://i.octopus.com/library/step-templates/solarwinds.png) [solarwinds](/integrations/solarwinds)})
+<img src="https://i.octopus.com/library/step-templates/solarwinds.png" alt="solarwinds" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [solarwinds](/integrations/solarwinds)
 
 </li>
-        
+
 <li>
 
-![dlm](https://i.octopus.com/library/step-templates/dlm.png) [dlm](/integrations/dlm)})
+<img src="https://i.octopus.com/library/step-templates/dlm.png" alt="dlm" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [dlm](/integrations/dlm)
 
 </li>
-        
+
 <li>
 
-![ssl](https://i.octopus.com/library/step-templates/ssl.png) [ssl](/integrations/ssl)})
+<img src="https://i.octopus.com/library/step-templates/ssl.png" alt="ssl" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [ssl](/integrations/ssl)
 
 </li>
-        
+
 <li>
 
-![stackify](https://i.octopus.com/library/step-templates/stackify.png) [stackify](/integrations/stackify)})
+<img src="https://i.octopus.com/library/step-templates/stackify.png" alt="stackify" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [stackify](/integrations/stackify)
 
 </li>
-        
+
 <li>
 
-![statuscake](https://i.octopus.com/library/step-templates/statuscake.png) [statuscake](/integrations/statuscake)})
+<img src="https://i.octopus.com/library/step-templates/statuscake.png" alt="statuscake" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [statuscake](/integrations/statuscake)
 
 </li>
-        
+
 <li>
 
-![statuspage](https://i.octopus.com/library/step-templates/statuspage.png) [statuspage](/integrations/statuspage)})
+<img src="https://i.octopus.com/library/step-templates/statuspage.png" alt="statuspage" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [statuspage](/integrations/statuspage)
 
 </li>
-        
+
 <li>
 
-![swaggerhub](https://i.octopus.com/library/step-templates/swaggerhub.png) [swaggerhub](/integrations/swaggerhub)})
+<img src="https://i.octopus.com/library/step-templates/swaggerhub.png" alt="swaggerhub" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [swaggerhub](/integrations/swaggerhub)
 
 </li>
-        
+
 <li>
 
-![nunit](https://i.octopus.com/library/step-templates/nunit.png) [nunit](/integrations/nunit)})
+<img src="https://i.octopus.com/library/step-templates/nunit.png" alt="nunit" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [nunit](/integrations/nunit)
 
 </li>
-        
+
 <li>
 
-![testery](https://i.octopus.com/library/step-templates/testery.png) [testery](/integrations/testery)})
+<img src="https://i.octopus.com/library/step-templates/testery.png" alt="testery" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [testery](/integrations/testery)
 
 </li>
-        
+
 <li>
 
-![tenants](https://i.octopus.com/library/step-templates/tenants.png) [tenants](/integrations/tenants)})
+<img src="https://i.octopus.com/library/step-templates/tenants.png" alt="tenants" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [tenants](/integrations/tenants)
 
 </li>
-        
+
 <li>
 
-![twilio](https://i.octopus.com/library/step-templates/twilio.png) [twilio](/integrations/twilio)})
+<img src="https://i.octopus.com/library/step-templates/twilio.png" alt="twilio" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [twilio](/integrations/twilio)
 
 </li>
-        
+
 <li>
 
-![tomcat](https://i.octopus.com/library/step-templates/tomcat.png) [tomcat](/integrations/tomcat)})
+<img src="https://i.octopus.com/library/step-templates/tomcat.png" alt="tomcat" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [tomcat](/integrations/tomcat)
 
 </li>
-        
+
 <li>
 
-![unzip](https://i.octopus.com/library/step-templates/unzip.png) [unzip](/integrations/unzip)})
+<img src="https://i.octopus.com/library/step-templates/unzip.png" alt="unzip" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [unzip](/integrations/unzip)
 
 </li>
-        
+
 <li>
 
-![hosts file](https://i.octopus.com/library/step-templates/hosts file.png) [hosts file](/integrations/hosts-file)})
+<img src="https://i.octopus.com/library/step-templates/hosts file.png" alt="hosts file" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [hosts file](/integrations/hosts-file)
 
 </li>
-        
+
 <li>
 
-![winscp](https://i.octopus.com/library/step-templates/winscp.png) [winscp](/integrations/winscp)})
+<img src="https://i.octopus.com/library/step-templates/winscp.png" alt="winscp" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [winscp](/integrations/winscp)
 
 </li>
-        
+
 <li>
 
-![venafi](https://i.octopus.com/library/step-templates/venafi.png) [venafi](/integrations/venafi)})
+<img src="https://i.octopus.com/library/step-templates/venafi.png" alt="venafi" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [venafi](/integrations/venafi)
 
 </li>
-        
+
 <li>
 
-![victorops](https://i.octopus.com/library/step-templates/victorops.png) [victorops](/integrations/victorops)})
+<img src="https://i.octopus.com/library/step-templates/victorops.png" alt="victorops" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [victorops](/integrations/victorops)
 
 </li>
-        
+
 <li>
 
-![wait](https://i.octopus.com/library/step-templates/wait.png) [wait](/integrations/wait)})
+<img src="https://i.octopus.com/library/step-templates/wait.png" alt="wait" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [wait](/integrations/wait)
 
 </li>
-        
+
 <li>
 
-![web deploy](https://i.octopus.com/library/step-templates/web deploy.png) [web deploy](/integrations/web-deploy)})
+<img src="https://i.octopus.com/library/step-templates/web deploy.png" alt="web deploy" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [web deploy](/integrations/web-deploy)
 
 </li>
-        
+
 <li>
 
-![xamarin](https://i.octopus.com/library/step-templates/xamarin.png) [xamarin](/integrations/xamarin)})
+<img src="https://i.octopus.com/library/step-templates/xamarin.png" alt="xamarin" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [xamarin](/integrations/xamarin)
 
 </li>
-        
+
 <li>
 
-![zabbix](https://i.octopus.com/library/step-templates/zabbix.png) [zabbix](/integrations/zabbix)})
+<img src="https://i.octopus.com/library/step-templates/zabbix.png" alt="zabbix" onerror="this.src='https://i.octopus.com/library/step-templates/other.png';" width="55px" height="55px" /> [zabbix](/integrations/zabbix)
 
 </li>
-        
+
 </ul>
