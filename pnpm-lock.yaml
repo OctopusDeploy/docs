@@ -15,9 +15,6 @@ importers:
       '@astrojs/mdx':
         specifier: ^2.3.1
         version: 2.3.1(astro@4.8.4)
-      '@pnpm/exe':
-        specifier: ^9.1.1
-        version: 9.1.1
       astro:
         specifier: ^4.8.4
         version: 4.8.4
@@ -829,40 +826,6 @@ packages:
   '@playwright/test@1.44.0':
     resolution: {integrity: sha512-rNX5lbNidamSUorBhB4XZ9SQTjAqfe5M+p37Z8ic0jPFBMo5iCtQz1kRWkEMg+rYOKSlVycpQmpqjSFq7LXOfg==}
     engines: {node: '>=16'}
-    hasBin: true
-
-  '@pnpm/exe@9.1.1':
-    resolution: {integrity: sha512-IegJSCwfYPVmia3HX3FGOijoRe6LrwhaBFfJB9TEa0sv3oxGU5yRCKdd7ZD2FA6i2znf/a1IFKo5jq8lpblnPQ==}
-    hasBin: true
-
-  '@pnpm/linux-arm64@9.1.1':
-    resolution: {integrity: sha512-6Jxut6j8JKqoXjfvIkXmJhtQaHztJSUdwpfJKXHbRlxHjED+Fzo98XVtNz7fkWCm0iWr8YZ85LB4RNBwICmriw==}
-    cpu: [arm64]
-    os: [linux]
-    hasBin: true
-
-  '@pnpm/linux-x64@9.1.1':
-    resolution: {integrity: sha512-Lr5UuG4w7KRHxj/VB8pmHsgjLFXIDOtU0Dk9Sv1GRdYhv3+oqcsqoH3eBrT128WZt1tBwycqQFyYrpQa8G0TIQ==}
-    cpu: [x64]
-    os: [linux]
-    hasBin: true
-
-  '@pnpm/macos-arm64@9.1.1':
-    resolution: {integrity: sha512-CFgEY6v3oIekYQSfZ4PyhUfGdVEm864Quajf3hwyn4c67WaHgyaqUJrVL5g1uXSXGlj/3NU9jYLqbThhWO0kpQ==}
-    cpu: [arm64]
-    os: [darwin]
-    hasBin: true
-
-  '@pnpm/macos-x64@9.1.1':
-    resolution: {integrity: sha512-dKD1JDvCA28paT/GEnuflHyQmfKjI2h6+XfZrTtGT0796KLRJExm3mmWm3qqPoKOp3hT4+rWdxuj5kQW7HYfbQ==}
-    cpu: [x64]
-    os: [darwin]
-    hasBin: true
-
-  '@pnpm/win-x64@9.1.1':
-    resolution: {integrity: sha512-9rwwKAwlZ65d3uh1VrsTSmOv7m7LI32WR6XhvUluO8kF/XohQe3AKDNMDYbNNmDQmoq2kni3ze4DT9WCbo2qNw==}
-    cpu: [x64]
-    os: [win32]
     hasBin: true
 
   '@rollup/rollup-android-arm-eabi@4.17.2':
@@ -3579,29 +3542,6 @@ snapshots:
   '@playwright/test@1.44.0':
     dependencies:
       playwright: 1.44.0
-
-  '@pnpm/exe@9.1.1':
-    optionalDependencies:
-      '@pnpm/linux-arm64': 9.1.1
-      '@pnpm/linux-x64': 9.1.1
-      '@pnpm/macos-arm64': 9.1.1
-      '@pnpm/macos-x64': 9.1.1
-      '@pnpm/win-x64': 9.1.1
-
-  '@pnpm/linux-arm64@9.1.1':
-    optional: true
-
-  '@pnpm/linux-x64@9.1.1':
-    optional: true
-
-  '@pnpm/macos-arm64@9.1.1':
-    optional: true
-
-  '@pnpm/macos-x64@9.1.1':
-    optional: true
-
-  '@pnpm/win-x64@9.1.1':
-    optional: true
 
   '@rollup/rollup-android-arm-eabi@4.17.2':
     optional: true

@@ -60,6 +60,7 @@ decryptable
 deployers
 deploymentannotation
 deployto
+devcontainers
 DIND
 Directorygroup
 Distro

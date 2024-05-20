@@ -18,6 +18,7 @@
         "pnpm-lock.yaml",
         "docs/credits.md",
         "src/pages/report/**",
+        "src/pages/integrations/**",
         "public/docs/js/**",
         "node_modules/**"
     ]
