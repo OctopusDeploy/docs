@@ -96,6 +96,12 @@ See the [system variable documentation](/docs/projects/variables/system-variable
 
 Package build information associated with a release will be also [captured in deployments](/docs/releases/deployment-changes) of the release.
 
+From Octopus **2024.2** build information can be viewed on deployments.
+
+:::figure
+![Deployment build information](/docs/packaging-applications/build-servers/build-information/images/deployment-build-information.png)
+:::
+
 :::div{.warning}
 Ensure you're using [pre-release versions](/docs/releases/deployment-changes#versioning) for any releases that aren't intended to be a production release. Any releases that aren't a pre-release will be treated as a full release by Octopus, which can result in deployments containing a larger amount of build information than intended.
 :::
