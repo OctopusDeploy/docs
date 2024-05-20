@@ -1,5 +1,12 @@
 export function toSlug(text) {
-    return encodeURIComponent(text.toLowerCase().replace(/ - /g, ' ').replace(/ /g, '-'));
+    return encodeURIComponent(
+        text
+            .toLowerCase()
+            .replace(/\(/g, '')
+            .replace(/\)/g, '')
+            .replace(/ - /g, ' ')
+            .replace(/ /g, '-')
+    );
 }
 
 export function toMetaDate(date) {

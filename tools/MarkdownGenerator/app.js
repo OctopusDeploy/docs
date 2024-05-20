@@ -51,6 +51,8 @@ function getSafeCategory(data) {
 
     return category
         .toLowerCase()
+        .replace(/\(/g, '')
+        .replace(/\)/g, '')
         .replace(/\.net/g, 'dotnet')
         .trim();
 }
