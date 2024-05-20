@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-01-19
 title: 'Xamarin TestCloud execute test run'
-description: 'Executes a Xamarin TestCloud test run for an app contained in a nuget file.'
+description: >-
+Executes a Xamarin TestCloud test run for an app contained in a nuget file.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -613,7 +614,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Xamarin",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/xamarin-testcloud-execute-testrun.json",
   "Website": "/step-templates/fd79c2f6-8983-4f91-a36d-aa622f44f16f",
-  "Logo": "https://i.octopus.com/library/step-templates/xamarin.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////NJjbzOX2QZ7d8vn9TaXgZ7Lkmcvt5vL6gL/ps9jx2ez4dLjmptLvjcXrv9/0WqviJo8DRgAAA/pJREFUeNrsnd2S5CAIhcekjfk1ef+n3anau96kA4jYYc+5nJqaGtR8ICj+/EAQBEEQBEEQBEEQBEEQBEEQBBnp1Sno1dqKMcegopjHlpORg6KmZtOyxKCquDSyow/K6ptY8lK349eSFqtrDRW02tvRhSrqzA2JdQyJ1nZsoZK253/pTb73HKopm0YmoaIsY5WhpiHD49Frj+BY1xAzBKdQWenp6DVG8BSqazKJ3oOBlqej1xDBezDR/nT0miE4BSNVRvDYWxnSj09HrwmCu2Co7unoNUDwHEw1Vwuyoq0h8fV09FZGsB16KyN4DeZaH4/emgg+aDm1WUCk6+TSYYrene9rBmpErY7gT/vbgb8ER6rt6rveRF/JhHhsopuujOCRsXm4x/TbMEfDxOPKCSYSz9HNhgjuWEN8ly+KrN9WRfChOsbM+VPc9W7cYCLS0UtI7G8W6BVwiM04NQRnfjAxUD9ektfJFuhlL5iRHwcoIZi4v91pKyZL0n2DBXrP4XL1XbF8oS6CyfvbjULVTVbkjhbo5Qx2ZONQC8Gcqk6+94q7tMhdjGBWavEWSIMAhzqJR15V59ZFdAVJgMUCvcR/dBLhUAPB3KrOzdIZSwapqPbDTi1+DGxZIbIqgvmpxU94FfpChV2vpKCerp3QXDhIcgRLqjrXwx6LB0mKYFlq8ZJMXfEgSUMuYVXnAk0FvrAQwdKqznDuUReV0pcg8Siv6pyuoUlh1cpqP/KqznGSrntjwCH+46m+L/zI2aSyaiVesaQa8paAi2c/MauYFNUL/xn/udbfrlxne0vXHYdiLXK1cSKnXnHfFXyh1JW4MURzacWWS8vNx66I3/6f+oklft04RO0QZWwWorgJGpXC+K55GO9nYyWc/8v6hzjtW15d8JJ8UEgHJXb9pE5G3kuCrjhlmr8lZeonia1cVlhLqFhW2V0KqHJb6OFRsfCST0Hp7fim0hsLwYSPWbwxKT+PIi1Pv76sPK19YCA1OzAgPMIxft8RDiqCiUQSbUx0rpJIjjkt7DCfgcO6B8/IG6eB76i0mg64OQqofDiTna5TbMzBPC67sdNFtdFLhQvvSHLf7gCzmyPlNwg+mLhmpeuU71kxrl2sqozTvvmmfBGG7HX02z/M1AkRXE3qlFOLUgQnQUA709Zthctifq7vublQ6eeKq5tLx36ugbu5mO+nVYKf5hVu2on4afDipuWOnyZIftpSuWkU5qd1m5tmen7aG7ppOOmnBaifpqxu2uT6aVzsppW0n+bebtqt+2mA7+dJAjePRPh5tsPNQyp+nrb5XV2qW5Pc8g0oJ88//Z0WFw9yQRAEQRAEQRAEQRAEQRAEQRD0/+iPAAMARZVI2Ng2lE8AAAAASUVORK5CYII=",
   "$Meta": {
     "Type": "ActionTemplate"
   }

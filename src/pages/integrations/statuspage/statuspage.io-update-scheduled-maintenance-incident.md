@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-10-26
 title: 'StatusPage.io - Update Scheduled Maintenance Incident'
-description: 'Updates an existing scheduled maintenance incident on StatusPage.io'
+description: >-
+Updates an existing scheduled maintenance incident on StatusPage.io
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -242,7 +243,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "StatusPage",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/statuspageio-update-scheduled-maintenance-incident.json",
   "Website": "/step-templates/7bc83a07-8927-467e-a2eb-922609212e3a",
-  "Logo": "https://i.octopus.com/library/step-templates/statuspage.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////gb1B9/vzicFNsNaJ3+7P0Oa3wN6goc5xkcVZ7/fn5/PbyOKs1+rDqdJ9mclluNqUjbDtNQAABKhJREFUeNrsXdt23DAItCxZF1u29/+/tsnZpE2bjXUFZMq85SlnFoHQgGGaBAKBQCAQCAQCgUAgEAjuiGV3znuv1Qf02x/O7cuNKMy780H9iODdPo9PwpoLDl/YGDswmS2eqgBn3EZkscagihHiOhgN61UlvB3IGE6rBmg3hllWo5phVhY0BqDSiwYxlbnNN777CtHVsgfVGWGnMMehAHCgG2XXCgR6Z2AOfKNsQQEioKVgUQEj4hwro8BhEI7XfCoEnOBMNq1QoDcePKCZWDQeb0wAHypWocIy4aEeTHiY2/u58Mi6B7nwOHnwmAwTHnX5rvbG2eUD0RmvqXlsFVnfY3+hiqz74yTkMZe+ow57Ie2s9iDiMZW9a0NMpuDzleANx2Mv0qQzS1KLR+dRcoP4gsraaypwPAoO1llYIFxOTB7ZB0tXSAZRo/HIjlh1ctTfAhkgj8nBmeObUSB5rHme3qKp/Vb7IHlk5li+SbyZPTyPFSc1MtA88gxievwfWB4rWqoKXKM2lCk3skHuwCPnDvF34DGl75CQjrvb84FI2QuUFuQSQvMWjy8Jjn9QtWml+2Su8pLtEV49HecRXf24sKYfp4MmqZzoueChQdjgEGoPVrJ2jVtLT0pA50/myEiYzTzQyVpaHjAnnqecdVdhrraqsboC5jqD5GvEWExslUFKtG4kJqbGII8yjXseIPiGZknyIu5hukisFyoQyrYFP+5clZvlhnC8p8hRlSxnnlDMzNc2SJI4zQ2Zvr5WS5L/Ri5oIuXhprI7ENgkS3G0qe3vCKRB60UaXt12ulEGrbU8NSO6S1yph9Z3DgXC6OvbssV0BMQiYrrFLPC4dU3EdXQRYCfRhb/h0kDE092HS0dfB/b2UiKugYgSIv8TEfcC+2cL2YsSQWciCxlzITIakc7hl45I5wsxkr0qO6coji4V6Js0GjoifdN4T0ek78NKFybfQzjJCxdJlGFBiXQVH8qljwHOViivTgALxh0FupMuyewqma60wnc/EdsSNyR1KysclEGrY6EnFcnh2yY6ld5SnQoIJdQ+xdBA6+s5F0BWeTr1IsBpouzQMOAr4hwpkx94JJ9oWH1FrU01vsqv6G74n9qckgaJaETaGs+SXylijq1raAWMVakAoFEqmzPTH9jFCRl17bLp1xnBMLGKBub0p81ErfiFLeUZMwwoRyFmN/lnPGj0dAdkvALcHXjkpAQrEx7Aie+GxQPYILbP53vkBrGq0weVxAZ5SiddPnElNcinBNTlo+PEHbIi8Oj0GTjZHfKXJNfjw/yr/H1G4tFnVAKJLPddIu0wvKKk9RtS6m0fJ1IigYFK1s0DXpAP1oX03jpyB/VgJUoIbUOQECNWRimkZSwVmgSUW9J5HxQWawaFISknyPMaDRMeYANzkXloLjw24TESDzBBjgsPNoOL+YyS5jPcm8+4dT4D8PmsJJjYLImY+Kzt4LNIZWKz2mbis2zoXdHhsf5p4rOQa2KzIq0nFSb798wgGxF5LHZ8PlRYrNp8moXH8tNnCsZiHe3H1cJiQfAnGQ4rm78kMPdfoi0QCAQCgUAgEAgEAoFA8Ae/BBgAaZFFuhLr9ZYAAAAASUVORK5CYII=",
   "$Meta": {
     "Type": "ActionTemplate"
   }

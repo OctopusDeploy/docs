@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-10
 title: 'Keeper Secrets Manager - Retrieve Secrets'
-description: 'This step retrieves one or more secrets from a Keeper Vault and creates [sensitive output variables](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) for each value retrieved. These values can be used in other steps in your deployment or runbook process.
+description: >-
+This step retrieves one or more secrets from a Keeper Vault and creates [sensitive output variables](https://octopus.com/docs/projects/variables/output-variables#sensitive-output-variables) for each value retrieved. These values can be used in other steps in your deployment or runbook process.
 
 You can retrieve secrets using Keeper Notation URIs, and you can choose a custom output variable name for each secret.
 
@@ -17,7 +18,7 @@ Notes:
 - Tested on Octopus `2022.4`.
 - Tested with both Windows PowerShell and PowerShell Core on Linux.
 
-'
+
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -321,7 +322,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Keeper Secrets Manager",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/keeper-secretsmanager-retrieve-secrets.json",
   "Website": "/step-templates/95a35cf6-ce95-4b81-b8de-0892cffca4c4",
-  "Logo": "https://i.octopus.com/library/step-templates/keeper-secretsmanager.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABmJLR0QAAAAAAAD5Q7t/AAAD5UlEQVR42u3cS24qMRBA0YB6wJLYAKtmAyyJmTMiihARHWjsqvK5ozd6wu46Md/etdbal6SH7W2BBIgEiASIBIgEiASIBIgEiASIJEAkQCRAJEAkQCRAJEAkQCRAJEAkASIBIgEiASIBIgEiASIBIgEiCRAJEAkQCRAJEAkQCRAJEAkQCRBJj1pswZiul9PPvw/Hsw0J2q611mzDGBj3gQIIGCsCBRAwQAEEjG0CBRAwQAEEDFAAAQMUQDQSBiiAgAEKIGCAAggYoAACBiiAgAEKIGDUDxRAwAAFkMwwfg9npMeiyYFEHkZQAAGj2GMFBIxhwwYKIGCAAggY1pY1t/1J1OF4Hjqk18tpurfFPcVK/NfWiQKIIbJGQECxRkBAAQUQUECpBcWXFUEBJROQ+4vZa3NBASU0kGcXDxRrnBLIfy8WKNY4BZB3Lw4o1lgSyNYXAxRrLAHk05sPijWmBNJ7s0GxxjRAZrixMyi1kZQ7QUDxbMBrEFBKQ5nqNQgooGSEMQwIKKBkgDEcCCig+CTdAIGSFEY4IKDUh+LbvAbIOosV/gdToIACiAECBRADZJ2AgGKdgIACCiAbXVQDVGedvZH0nJ+/Wnpd0E8v9Pb/jxqgXuucoUg3yO7+exAnipMj4ryEAQIKGBHnJBwQUMCINB9hgYACBiDJL1KPYQQDEFCClWGPy7/N++6mVn97GIzYLdEfIChgAAIKGICAAgYgoIABCChgzNJSZSEzQwEDEFDAAAQUMAABBQxAQNlyyMAABBQwAAEFDEBAeRkKGICA8gAKGICAMui0AOO99pEf3Mgfy1wvp/SDNXoNh+M5/W2Qwp8g7neV78SodG+wNE+xQAEDEFDAAAQUMAABBQxAQOkLBQxAQAEDEFDAAASUl6GAAQgoYAACyjooYAACSrDTAgxAUkABAxBQwAAEFDAAAQUMQJQdChiAgAIGIKCAAcjG9bpbyIw3r/Zt3mJD1OPCunl17ZNx6blQUMDI9pRxGbFwUMDI8lpqGbkRoIAR/bXNEmFjQAEDEFCerhEMQECZ+ObVGd8m3rXW2lehMr44zrInPgdR9xOl8okBCChgAKIsUMAABBQwAAEFDEBAASNB5d7mjTBAn4LicwxADBQYgIACBiCgvDxwYAACChiAgLJuIMEABJSAgQEIKGAAAgoYgIACBiCggAEIKGAAAgoYgIACBiCKCgUMQEABAxBQwAAEFDAA0ZZQwAAEFDAA0TooYAAipWpvCyRAJEAkQCRAJEAkQCRAJEAkQCQBIgEiASIBIgEiASIBIgEiASIBIgkQCRAJEAkQCRAJEAkQCRAJEEm3vgEajriFDSkxDAAAAABJRU5ErkJggg==",
   "$Meta": {
     "Type": "ActionTemplate"
   }

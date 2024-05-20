@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-05-16
 title: 'Solarwinds - Unmanage'
-description: 'Stop monitoring for a Solarwinds node, application or both'
+description: >-
+Stop monitoring for a Solarwinds node, application or both
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -251,7 +252,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "SolarWinds",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/solarwinds-unmanage.json",
   "Website": "/step-templates/8da75dc4-f430-4c52-ac50-b37629445ff5",
-  "Logo": "https://i.octopus.com/library/step-templates/solarwinds.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////+Z00//ny+aNB+8KA/ebM/vPm+7Zn/dqz/M6Z+q9a+qlN/u3Z+7x0/MiN/NSm/eC/hW0iIgAAA/tJREFUeNrsnOliqyAQRtkRcHv/p6017W0WFzQBB+53/tt6AgPMADIGAAAAAAAAAAAAAAAAAAAAAAAAgDtEU4mH15V4yEo8uKrBo/Wc19CzBsl5KF/DWD7hio8Ox2cMpZfSE6ObEbEa8uZhCfykWjvXWc/viZvczK9G7AOpxppxEuALyKjX0urvictCXQ/K8zVkG9MY4f6R4YpBptlwiPNoh6e/IEVuiaGTfAe/4zH24eWZrGOvaFTg+/itH1e7xZgKOZvC8ihWPdqmX+2RuYastg88EiWWxueh3/wZLDUL/ryCbbXr7W5Q5ZjUzeA5P+wxT+82wiBXpI8dP0SwE/woPnVjuMBzINN2LN3xTIxJZ4yQS4P3KRMEmU0j4chrVEaN7WXAexo8J0FUoRG13D8TG5k1EnlkDfFbv0riMeTWSBPnOuTW4DaBh7HZNVIUen8LZFlpquhVKcJcdBc0hxIVjFXT7DFWEeS8q6M5wlhHdLjPN4e+oDlskqTW6MHZnEOvTbpHKLTrstiEHMVE03SyAo0T9cSj69zMu1GJXOwV++ftxysP6qrN2o+WtMIg2IXoD61cupFdTft+GUL2NA4AvFkYsoTOkJ3vYFQa483csaN4oO9wqSsMhpHkUOoV+pbRZYxsFKlGRpuYBCz0cRZGfx8kck7ZmfCy/5i2TXdSYu/anUxBz6++07RBDcl7ZuvX/3sj1gWa6f3jRr4u0yCxuOEgu7WfcPUY10p0NRlXZEOchJkUPO0F2V2xYlnCNM7KwxnXBavjW6D4Xi8m/vZ4HhOuWskI2zVmoSGUL3SN/yARyl9WjqczfE9nWRl9nG4piSdzll+/UWwh1KfGN8oswQlCEX66iB+IZVzCn8vi6V1zOWNiSd7WaY+GiaKaObZlFE0jaOrQmFB1aEz4OjSmRYo8r2H6npDJeFZDd8SugG6GSbeiMe++ELvKKsLh6c/0knN6V3L1QY2fQ+oErxYvdq6VS+n/dvS8oCciZOwK99anqHq8TvAr1yjvLj7Q9GDsIeGVi2nTwy4xVY+H1WMvNvsUaY+7eF+c/54u0xD2YGZjxG08L8aDse8zw2FBw7xsP9L2mIbgpaFKq3w3Xj42v4vdPjUPaQWs6Pf6VMIbLwnbR+W8uZNupve8Ag+zekyiKA+tct8Iy9qnCvPYPNRdUnuISjw2dxrGkjw2KqiFfVVOyDo8Vmtc5X3lr6nEY3ncKvKri7YSj+dTUMV6vG7GFfs1z6cBuC/V42lyL/gbmEMlHg97DGV/k7QWj79t3tK/Easq8WCuEo+faK/g28Pz3O5ZBZRQqI4iVOLBbCUezFXiAQAAAAAAAAAAAAAAAAAAAAAA4H/mS4ABAMLtK4xTFpEYAAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }

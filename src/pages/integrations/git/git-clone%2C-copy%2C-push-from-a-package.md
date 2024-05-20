@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-09-12
 title: 'Git - Clone, copy, push from a Package'
-description: 'Clones a repository, copies files from the `Source Package` to the `Destination Path` then commits to the repository.'
+description: >-
+Clones a repository, copies files from the `Source Package` to the `Destination Path` then commits to the repository.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -451,7 +452,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Git",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/git-clone-copy-push-package.json",
   "Website": "/step-templates/4d541683-4731-4f43-a342-5b9f6c915c4d",
-  "Logo": "https://i.octopus.com/library/step-templates/git.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////9CQ09TJB/dbZ9k1a/vHy+ZGZ/MjM+HaA92l0+62z91tn/uTm+YSN9T9N/Lq/+p+mxWmzxwAAA/5JREFUeNrs3dlyqzAMBmAWs0Po+z9t007OaUJskCXZljL6r3pDqi94w6bTqrJYLBaLxWKxWCwWi8VisVgYsw736GfMrv7NpNvSPhi/lE6xo6mf4rrPcOiVHB1aJe8OnRKfQ6PE79AnCTm0ScIOXZIzhybJuUOP5MqhRXLt0CGBODRIYA4Fkltdf4YEekdMYhKTmKRw7S+bJHol98rdJ0h+6/4AyaNq9ZL/NSuXPFWsWvJSr2LJoVq1krdalUo8laqUeOs8SG5T3/dLI1oS+L5fSvr3877IlQTbjb+kvREqOWn//pJWJ1Jy2o/9JXU3gZKL8chfUiuvn7S4Br9JkwDmh9HbTYSNwpB5bvZeOYmSgObr1Xvpl6Q5HuRo/NcOglYrsPXT4r94lbPuAq4DA5BOzAoSup4lNK0sEvi63F/KLGRVD3cEht9RxvNJhCPQSWQ8acU46noQK4lz1E7qDnekI7DaKi+JdgiVIBzBFzJLSlCO+7TYC5MgHff8fYQECd7xB+nH8hKC4wlSF5dQHM+Q0hKS4wVSVkJzvEJKSoiOA6SchOo4QkpJyI43SBkJ3fEOOUjcNg/D3rukEgaHBxLYgxzTSTgcPkhgVTykOj9hcXghAUmX5vyEx+GHhCRJ7omrE0JCrevyASfeMddJIQHJ5Wb9UOqGBCH1nueWrHVqiL+538CfB8yQGhLY5B6521ZySGCHpVcH8e9KVPunQGb2YSs1ZEI2rTUWMiWG3HC/1lWlhq3gd92iFilz/NQ+JYaMmC7iEGutzqWF+Fr71Vs3TVsVk4QhS/SrKjgHk+RkPBojGxbWwSM5G1jHTA4WyekMsTz1k25K5+CQXEx142OmbrcmpYNBcj1nL/dcPlZTHXQJfPGR1kGWsEA4HFQJB4THQZQwQLgcNAkdwucgScgQTgdFQoXwOggSIoTbgZfQIPwOpGRcn450ZDgwkmaPedrI5YiXvNUxy3BES4bYJ8BcjkjJRtvjT+mIkjQdaZMprSNGsuGODTI5IiT+TdpNigMuoWxg5nBAJaG3fuU4gJIFv8ufywGT4O9IPgdMgu0jOR0gSYs7yMnrgEg21PF9bgdAgprZ8zsAkj7+hpRwACRtbA8p47iWxD6PlHJES76kOiD95K/Hr4tcB2TsGvcfyzpPtWQH29lvcQeXpLyDRyLBwSGR4aBLpDioEjkOmkSSgyKR5cBLpDmwEnkOnESiA3V+ItLBcH6iVCLXESeR7IiRyHbAJdIdUIl8B0yiwQGR6HAg9ruUSvQ4ziWaHGcSXY6wRJsjJNHn8Es0OnwSnY53iVbHUaLX8fo3IU6x457hQXFzpT4//yB4rSwWi8VisVgsFovFYrFYLBbGfAswAOAaON62iVbvAAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }

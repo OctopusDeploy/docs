@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-22
 title: 'Rotate Azure Load Balancer Pool'
-description: 'Updates all rules on an Azure load balancer to point to the next backend pool in a specified list. The current backend pool will be determined and the next pool in a provided list will become the target of all rules. If the current pool doesn't exist in the list, the first pool in the list will be used. This means that a specific pool can be chosen by specifying only a single pool.'
+description: >-
+Updates all rules on an Azure load balancer to point to the next backend pool in a specified list. The current backend pool will be determined and the next pool in a provided list will become the target of all rules. If the current pool doesn't exist in the list, the first pool in the list will be used. This means that a specific pool can be chosen by specifying only a single pool.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -257,7 +258,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Octopus",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/rotate_azure_load_balancer_pool.json",
   "Website": "/step-templates/947623c6-940d-4a54-a18b-c755a1035dce",
-  "Logo": "https://i.octopus.com/library/step-templates/octopus.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1QTFRFT6Tl////L5Pg8vj9Y67omsvwPJrisdfzfbzs5fL7y+T32Ov5isLucLXqvt31CJPHWwAABMJJREFUeNrs3deW4jAMAFDF3U75/89dlp0ZhiU4blJEjvQ8hYubLJsA00UCBCIQgQhEIAIRiEAEIhCBCEQgAhGIQAQiEIEIhD8kJm+t+QprfdKfB9HbYpx6CWfspj8HMi+gMgHL/AmQA8W3JTKH+ALFvzCeL0RbpyoCPE9IJeNOSQwh5Z3qd6yRGWQ2qi2cZQWxqj1WzQYSjeoJmJlAklOd4VlArOqPhQEkqBERToeMcfRJBkC0Uep8CfBpjz4JsHJ0zF3dkEWNje0kiB/sUC6eApndaIiCMyAa1PiwJ0AWhRGJHJJQHG2dC7h1rNbO1QOxSA7lNCkkKrQIpJCAB1GREILYIC1NAiwbpKFJgGWDNExcwGstfExcZBCHC6nOglshHtmhViLIig1RNBCN7qjtW8C0Z1UvJcC1Z9XmwMBzzvobmgAyEzgq91dtEEsBsQSQQAFZCSBAATEEEApHZbrVBIkkEIUPSVeB+KtALA0kXQUSrwKZBCIQBnk8Y4i5CsReBeKvkqLM+BCSDWJlrZFvGk9SRTHshkgjZCGAaArIxm3H3grhVzFlW2msfl1ca79UJ1bofYvsDHHlNdTZnlh5MghuPd5NdBDUNZHyCkfktIh03XzALGRPlBDPac7qgWjHZzWcmF5zmmkhidMQ6boKiDXcDTUEaylZqCGJ0Vjvu/fLJtHqhSANEvqb2OYqkOUqEHuVMbJcZdZCGiPhKhC4yjqiIjEE7XThMp8fAWII3mY3kUIQD+AMKQTzPiBhgQ63HlT/KSvgtoi0dq5mCPah1UIE0eh3sT0NhOByvKeAkFzi8PgQomumFhsyOxpIzZN4gLOj5plVwNpR0b2AuePWKBEHQu24pSsJA+LVCeHHQxZ1SiyDIdqok8IOhSSnTottHEQTdyt4ettAj4KkzA4dMikk2Dht2S5ptm1vswnPDxn0YyDZ5oDM3iToo2T5voWaYe+Q+vdjH80QyAzZhCgcDtLMI1Tmtz9w++XHgziHQHJJu/OZ3bs9Xn8gQ72NcP3dKqEfkp10F51xhoIi2I91R+LurXV/5q7pH+wx061CzO16oSQleMyr8fXvwMA0Pro8432DPD/ySx8XrHfSuDAM8n6UhnjQabaiXf5Bq/lREHvEeNtn1rJ08+C/uXkQZHeguxAPC3UvtcJYUogLzZX5hhZZvS6onG5lxXtzWGaygwb79vT/IXhdlNibwlKYOR6T8xjI7W8n+xV7T+GH4tMzWwR+lZhRkJYSsC0thpmCYqyngOz3rN2FLBZ2wZflBCggUHF0Vnp88JKienzIXLSEZCZqU7IKr/gQW9yx3pzV7Y9kvWZWTRRIqDmTtRUnU7b2lLcTYmoqHqnmiO1poER0SPkAeZMAZxaJx0Y3TCdAclsIqDz03ALcyxfTCZBsthoGXWmigGyVhWPLFJJfuuKQWycoEFdXbH4dJJoJxNR1eD/kshz6yn48cF8yW8sFoitflB1w6Q8n+/15Za7oA17/pYNmYgP5fmWm8L1NOHPWgK8kuFew1/JXtOA0yJCv7ah7X8ObUuT5kObU30+fDZm8+zqP+HTIpK0xQ796b5Kv2hSIQAQiEIEIRCACEYhABCIQgQhEIAIRiEAEIpBf8UeAAQAEjtYmlDTcCgAAAABJRU5ErkJggg==",
   "$Meta": {
     "Type": "ActionTemplate"
   }

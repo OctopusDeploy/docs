@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-07-05
 title: 'RabbitMQ - Notify Deploy'
-description: 'Notifies a deploy by sending a message into rabbitMQ. The message contains all octopus variables and these can be used to have some insight on the deploy. The step is very beta, it is advised to improve it to match real case scenarios.'
+description: >-
+Notifies a deploy by sending a message into rabbitMQ. The message contains all octopus variables and these can be used to have some insight on the deploy. The step is very beta, it is advised to improve it to match real case scenarios.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -227,7 +228,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "RabbitMQ",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/rabbitmq-notify-deploy.json",
   "Website": "/step-templates/309f8497-7f79-4979-89a6-5d7e15d83ae2",
-  "Logo": "https://i.octopus.com/library/step-templates/rabbitmq.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRF/////2YA/9m//4xA/7J//+LP//Xv/8Wf/4Mw/+zf/3kg/3AQ/5ZQ/6Bg/7yP/6lwqNBbTgAAAbpJREFUeNrs3ctygjAYgFHD/aZ9/7etWyuJrYxNwpxv/4+cARYSjJeLJEmSJEmSdMrm5qn5F2P989iQk9EtYaelSx/UfN2bCm2TizFMIdKUOitjbCpcM0Gijrskfk6a+FTosjjG8NYhLamxubATcr9Pord5aircckCSRxRi11aXnGrLgzQgICAgICAgICAgICAgICBFQvqzQC4gICAgICAgICAgICAgICAgICAgICAgtS0rbOGtVyHzQSLv8M7hPX8+SBj3ZobpxdQ0FAcJ16e1nn5cXg2F9db8sf7TkP9r608CiVzHNULW+SSQQz90KAoSQEBAQEBAQEBAQEBAQEBAQEBAQEB+NrUPVQrZ2Xunv1YI2V8i6KfaILGljmGtC/IV/bymLkhiMbStCZJ6Y2CsCZLamKoBAQEBAQEBAQEBAQH5IGQ7yxer03zVTVxblT18iL5UPiyVQdb9B1tzdQ/o7jf880mZu7XKh9jr4zPs9vUr9ZYVQEBAQEBAQEBAQEBAQEBAQEBAQPJCtpIc2wFIXxLk0IYiYzmOQ9uJ3M9JWwajPbxZzWVoCijrH9lKkiRJkiRJH+tbgAEAnHhDbpt1S6YAAAAASUVORK5CYII=",
   "$Meta": {
     "Type": "ActionTemplate"
   }

@@ -2,8 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-04-16
 title: 'New Relic - Complete Deployment'
-description: 'Notifies [New Relic](https://newrelic.com) of a deployment.
-Sends the revision/version number, deployer, etc from the Octopus deployment.'
+description: >-
+Notifies [New Relic](https://newrelic.com) of a deployment.
+Sends the revision/version number, deployer, etc from the Octopus deployment.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -229,7 +230,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "New Relic",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/newrelic-complete-deployment.json",
   "Website": "/step-templates/7c88ea1e-de71-452d-be7e-b99dda397ba7",
-  "Logo": "https://i.octopus.com/library/step-templates/newrelic.png",
+  "Logo": "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",
   "$Meta": {
     "Type": "ActionTemplate"
   }

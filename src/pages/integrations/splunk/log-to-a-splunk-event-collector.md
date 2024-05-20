@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2016-05-11
 title: 'Log to a Splunk Event Collector'
-description: 'A step template that logs a given message to the Splunk [Event Collector](http://dev.splunk.com/view/event-collector/SP-CAAAE6M) along with related Octopus Deploy variables.'
+description: >-
+A step template that logs a given message to the Splunk [Event Collector](http://dev.splunk.com/view/event-collector/SP-CAAAE6M) along with related Octopus Deploy variables.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -185,7 +186,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Splunk",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/splunk-log-event-collector.json",
   "Website": "/step-templates/eb2ef48d-d4d1-40c9-9dab-769c1bac7608",
-  "Logo": "https://i.octopus.com/library/step-templates/splunk.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAD9QTFRFQUFBAAAAmpqazeXKKCgor9er////f39/arNhv7+/z8/P7+/vYGBg39/fr6+vfr12cHBw7PXrj8aJ9vr1c7hrbhrLqwAAA3RJREFUeNrs2ul2oyAYgGEkRCqItc3c/7VOXEDQaMEkZ5bz8qtiRR6WD7AV9X+SBBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQP4gpBdD6k8+LZ96+qUQUQ3pbFn6qaeBAAECBAiQ90NMp7VsNtm2kfd8cxZi7k/rzu5AzOshUlVTEt39qpl+vv8g5myl7RqyJk3XOq5uKLV1jyCyUtIbL5dXQKx/4fjSBdJH2cqUQqyIHjdbSONfN6Trx+fleUjsqJoAaaskmTKISkqt3BpiqhTykUvZh8i5yK6RouqXoTXUptfaN6y4FUFWqV1BbOIYIZmUXcitDVWo63FiNsnbw6UshQwzwPh2sAlkHnfeUV8+PnIp4oeQ2i0ZvuYivVaFEBffGJtBr55Wyzu/rrkUkb82NFEjjmmeLV0RRKelJfFsKlDZuBpf119ZlJ8gSzeHyR4yuimjL4KEWm4hczi4rQd5FmUf4jtAuTQjGmxhqBVErf3ALB/0Rz7lIPyGONslELfptMIF8TiePV7Xb9fPmfLUgtjHkPqtkP36XCbKqS1K6BNh3w9RcaM97JXP05BbFzfUmyHzHBkDcr0/T87ufv3w0vsQ9SKIHwCmPpruZ88j1g+vAGnWUas9glT5kNs8KbdxK2dZ/PkMIXz9Z4i8rdYReQBxBZCwYxQ7jO9z60gYXSuIWscCu4VUq51nJsTHr76YcQSxNhkdTbJLXO24xboq8+/YqgwS78CKGMe73yZuVLfsfqfZ6NSyQC6QLtbGoSIP4tJl8ZLLOIAM1W5N7WQYt8t5RN/z/Som0/NIOI4pIZYzVDbEN8Q84a+5jANIepKLTogPTkYxRKb3VSHETzwRIN9PnhDTE61cFkQTE/vtlr9NjvSiFOI3RnKCfD9/Zm+WrwTCxHut5fOBah6dXZY+6W1dDBljiJLT1tR9veRzkBv/lNTPhUYru9PDDb0swaYZkr+2sr3fbsePOtOdoQSX/M7BHande780brcof1MCAgQIECBAgJRBzPi/L+Lfh/zdCQgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIOfSbwEGAHvPjDxexE/EAAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }

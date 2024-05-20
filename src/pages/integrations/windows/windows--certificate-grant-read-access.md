@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-01-30
 title: 'Windows  - Certificate Grant Read Access'
-description: 'Grant read access to certificate for a specific user'
+description: >-
+Grant read access to certificate for a specific user
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -125,7 +126,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Windows",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/windows-certificate-grant-read-access.json",
   "Website": "/step-templates/cf6f35bf-b3e0-4285-98be-dcb509ab2ef9",
-  "Logo": "https://i.octopus.com/library/step-templates/windows.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////Da3qSsLvhtb0wur6O7zuWcfxldv2aMzyK7ftpOD3s+X48Pr+0fD7d9HzHLLr4fX8xD/OcwAAAaNJREFUeNrs3cFygjAUQFECWott1f//2sJoW6kIKEzNs+euXOmcmSSGDa8oJEmSJEmSJGmsj1W1K9cpsGD1Vr2WdToVEPC+2lYvZfpVrEW0qZpF1F+MRdRugzoNlvkiarfBPk0pT8GhWUSX2yASpDlLr2+DEJBmEY1ug6whx7N0n2b30G1QlmmxHsRYp6X76yvF9vg5RYQczq8UVURI35UiFmTgShED0p6lI1eKzCHTrxS5Qk6PZ9PLDtJ9PIsJmXWlyAky6/dAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQMJCyjltF/iO3gpJUpD8s4OAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID8T8itwwKyhbTdMr4ha8hXUwZqhICcOgyNOIkE+V5wo4MSgr1u/fp7poO+AL8K/gL8yw0UeyRB34m9iQ/pVD8L5JYTO3NI58R+AsiEEzsW5OfE3sUe/zRwYkeGnG2g2CPS7rhjF4GKP0ZwyoldxK37kFqEL/7wU0mSJEmSJOmJ+xRgAHxZTCXGdZkfAAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }

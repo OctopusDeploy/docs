@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-03-21
 title: 'Run Oracle SQLPlus Script'
-description: 'This step will run a script file on an Oracle database using SQLPlus.  This script assumes you have SQLPlus installed and a TNS entry for the database you wish to connect to.'
+description: >-
+This step will run a script file on an Oracle database using SQLPlus.  This script assumes you have SQLPlus installed and a TNS entry for the database you wish to connect to.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -163,7 +164,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Oracle",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/oracle-run-script-through-sqlplus.json",
   "Website": "/step-templates/c7cd3ab4-5dfb-4f8d-957e-1940ed30359c",
-  "Logo": "https://i.octopus.com/library/step-templates/oracle.png",
+  "Logo": "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",
   "$Meta": {
     "Type": "ActionTemplate"
   }

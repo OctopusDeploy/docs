@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-09-06
 title: 'Azure Site Extensions - Install'
-description: 'Installs an Azure [site extension](https://www.siteextensions.net) in your Azure web app.'
+description: >-
+Installs an Azure [site extension](https://www.siteextensions.net) in your Azure web app.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -165,7 +166,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Azure Site Extensions",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/azure-site-extensions-install.json",
   "Website": "/step-templates/7518eaa0-677c-4562-82d5-a131f29e1744",
-  "Logo": "https://i.octopus.com/library/step-templates/azure-site-extensions.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAtFBMVEUAAACASZigoaJZtNmASZiASZigoaKgoaKgoaKASZiASZiASZiASZiASZiASZiASZiASZiASZiASZigoaKgoaKgoaKgoaKgoaKgoaKgoaJZtNlZtNlZtNlZtNlZtNlZtNlZtNlZtNlZtNlZtNmgoaKgoaKgoaKgoaKgoaKgoaKgoaKgoaKgoaKgoaKgoaJZtNlZtNmgoaKgoaKgoaKgoaKgoaKgoaKgoaKASZigoaJZtNn///88MUhjAAAAOHRSTlMAAAAAWP2fomNT8fPy9f4TODVk+YKEhlLzOCpIR0UUkv3585YTPj9AJ0nx9vqZTFiZ9WQ1c/v+8s7KmYgAAAABYktHRDs5DvRsAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABAUlEQVR42u3YRw7CMBRFUUgg9N5L6L33tv+FMY9kLEe2RaR7F/DfGf9YTEvxRPIVLj37AAAAAAAAQKQBnlqptOPoBbwV8wAAAAAAwJ8CMtmcqHyhaAFQKgurVAvmAb+Kl3MAAAAAAABAVAE1r94I1mxZBLQ7qlsAAAAAYArgut1eX5Y/cA0ChqOxrIlvEjD9SBv3hYBsMSnMBqCUSYizAJAEAAAAAAAAAAAAwADAmc0Xopar4IPDBGC92Yra7W0ADjvxUQ8AAAAAAIQDHE9TWcOuOYBiAAAAAKANcL5cO2G63u56AI/zsx2m5/atB2AkAAAAAAAAAAAAAAAAAAAQBHwB/SLmwJclsisAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTQtMDYtMTVUMDk6MDI6MTYtMDc6MDAhb+VcAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE0LTA2LTEyVDExOjA4OjE5LTA3OjAwi613rgAAABZ0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMDvo9WkAAAAASUVORK5CYII=",
   "$Meta": {
     "Type": "ActionTemplate"
   }

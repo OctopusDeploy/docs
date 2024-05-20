@@ -2,9 +2,10 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-15
 title: 'ReadyRoll - Deploy Database Package'
-description: 'Deploy database changes packaged with Redgate's [ReadyRoll](http://www.ready-roll.com/). Requires the Microsoft SQL Command Line Utilities 11 or later to be installed on the tentacle.
+description: >-
+Deploy database changes packaged with Redgate's [ReadyRoll](http://www.ready-roll.com/). Requires the Microsoft SQL Command Line Utilities 11 or later to be installed on the tentacle.
 
-*Version date: 14th January, 2016*'
+*Version date: 14th January, 2016*
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -186,7 +187,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "ReadyRoll",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/readyroll-deploy-database-package.json",
   "Website": "/step-templates/14e87c33-b34a-429f-be2c-e44d3d631649",
-  "Logo": "https://i.octopus.com/library/step-templates/readyroll.png",
+  "Logo": "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",
   "$Meta": {
     "Type": "ActionTemplate"
   }

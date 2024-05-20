@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-02-22
 title: 'Re-prioritize Octopus Deploy Tasks'
-description: 'This step will allow you to re-prioritize tasks in the Octopus Deploy queue.  
+description: >-
+This step will allow you to re-prioritize tasks in the Octopus Deploy queue.  
 
 It will check the task queue for pending tasks and if it finds a task that should be prioritized based on the matching criteria it will cancel any tasks before it to move it to the top of the queue.  
 
@@ -16,7 +17,7 @@ How it works:
 3) If it finds one or more matching tasks it checks the position of those tasks in the queue.  Any tasks ahead of them are cancelled.
 4) if the step template cancels any deployments or runbook runs it will resubmit them using the same criteria as before (this moves them to the bottom of the queue).
 
-**Important** It will not cancel running tasks.'
+**Important** It will not cancel running tasks.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -921,7 +922,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Octopus",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/re-prioritize-octopus-deploy-tasks.json",
   "Website": "/step-templates/c9d5c96f-f731-4e6c-b9b3-d93f84a9bb74",
-  "Logo": "https://i.octopus.com/library/step-templates/octopus.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1QTFRFT6Tl////L5Pg8vj9Y67omsvwPJrisdfzfbzs5fL7y+T32Ov5isLucLXqvt31CJPHWwAABMJJREFUeNrs3deW4jAMAFDF3U75/89dlp0ZhiU4blJEjvQ8hYubLJsA00UCBCIQgQhEIAIRiEAEIhCBCEQgAhGIQAQiEIEIhD8kJm+t+QprfdKfB9HbYpx6CWfspj8HMi+gMgHL/AmQA8W3JTKH+ALFvzCeL0RbpyoCPE9IJeNOSQwh5Z3qd6yRGWQ2qi2cZQWxqj1WzQYSjeoJmJlAklOd4VlArOqPhQEkqBERToeMcfRJBkC0Uep8CfBpjz4JsHJ0zF3dkEWNje0kiB/sUC6eApndaIiCMyAa1PiwJ0AWhRGJHJJQHG2dC7h1rNbO1QOxSA7lNCkkKrQIpJCAB1GREILYIC1NAiwbpKFJgGWDNExcwGstfExcZBCHC6nOglshHtmhViLIig1RNBCN7qjtW8C0Z1UvJcC1Z9XmwMBzzvobmgAyEzgq91dtEEsBsQSQQAFZCSBAATEEEApHZbrVBIkkEIUPSVeB+KtALA0kXQUSrwKZBCIQBnk8Y4i5CsReBeKvkqLM+BCSDWJlrZFvGk9SRTHshkgjZCGAaArIxm3H3grhVzFlW2msfl1ca79UJ1bofYvsDHHlNdTZnlh5MghuPd5NdBDUNZHyCkfktIh03XzALGRPlBDPac7qgWjHZzWcmF5zmmkhidMQ6boKiDXcDTUEaylZqCGJ0Vjvu/fLJtHqhSANEvqb2OYqkOUqEHuVMbJcZdZCGiPhKhC4yjqiIjEE7XThMp8fAWII3mY3kUIQD+AMKQTzPiBhgQ63HlT/KSvgtoi0dq5mCPah1UIE0eh3sT0NhOByvKeAkFzi8PgQomumFhsyOxpIzZN4gLOj5plVwNpR0b2AuePWKBEHQu24pSsJA+LVCeHHQxZ1SiyDIdqok8IOhSSnTottHEQTdyt4ettAj4KkzA4dMikk2Dht2S5ptm1vswnPDxn0YyDZ5oDM3iToo2T5voWaYe+Q+vdjH80QyAzZhCgcDtLMI1Tmtz9w++XHgziHQHJJu/OZ3bs9Xn8gQ72NcP3dKqEfkp10F51xhoIi2I91R+LurXV/5q7pH+wx061CzO16oSQleMyr8fXvwMA0Pro8432DPD/ySx8XrHfSuDAM8n6UhnjQabaiXf5Bq/lREHvEeNtn1rJ08+C/uXkQZHeguxAPC3UvtcJYUogLzZX5hhZZvS6onG5lxXtzWGaygwb79vT/IXhdlNibwlKYOR6T8xjI7W8n+xV7T+GH4tMzWwR+lZhRkJYSsC0thpmCYqyngOz3rN2FLBZ2wZflBCggUHF0Vnp88JKienzIXLSEZCZqU7IKr/gQW9yx3pzV7Y9kvWZWTRRIqDmTtRUnU7b2lLcTYmoqHqnmiO1poER0SPkAeZMAZxaJx0Y3TCdAclsIqDz03ALcyxfTCZBsthoGXWmigGyVhWPLFJJfuuKQWycoEFdXbH4dJJoJxNR1eD/kshz6yn48cF8yW8sFoitflB1w6Q8n+/15Za7oA17/pYNmYgP5fmWm8L1NOHPWgK8kuFew1/JXtOA0yJCv7ah7X8ObUuT5kObU30+fDZm8+zqP+HTIpK0xQ796b5Kv2hSIQAQiEIEIRCACEYhABCIQgQhEIAIRiEAEIpBf8UeAAQAEjtYmlDTcCgAAAABJRU5ErkJggg==",
   "$Meta": {
     "Type": "ActionTemplate"
   }

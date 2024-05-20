@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-30
 title: 'Azure Function - Set AppSettings from Azure AppConfig'
-description: 'This step retrieves one or more key/values from an Azure App Configuration store and adds them to an Azure App Function's AppSettings.
+description: >-
+This step retrieves one or more key/values from an Azure App Configuration store and adds them to an Azure App Function's AppSettings.
 
 You can retrieve individual keys that match a specific name, and you can choose a custom setting name for each key.
 
@@ -22,7 +23,7 @@ Notes:
 
 - Tested on Octopus `2024.1` using az version `2.38.0`
 - Tested with both Windows PowerShell and PowerShell Core (on Linux).
-- Slot Settings are not currently supported.'
+- Slot Settings are not currently supported.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -767,7 +768,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Azure",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/azure-function-set-appsettings-from-azconfig.json",
   "Website": "/step-templates/67fcc93c-509c-4c13-bc24-645eff53c5c2",
-  "Logo": "https://i.octopus.com/library/step-templates/azure.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////AHjXf7vrv931QJrh7/f8EIDaIIncMJHfYKvmz+b3n8zw3+76j8Ttr9XycLPpUKLkkKvYFAAABGZJREFUeNrsnNmCqjoQRc1MEiD8/9cer7Yt2KBJZQC8ez07sKlKTQlcLgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzoUSnt8YxXlFuGHSbIaxvj+fip4btkLn1blkWLaF5v03yLhLOYlVuGYfMOMZzNGxCOzhjTJqFkXnjq3Dr1yyvPI3hGl3Ih3zzHHNKudRstRhX5O58vIcShY67Gq6EPIESlzUWvazaGAOGbvU7ArDu/g8M4o8opDZWvbvPzlL/MMBE8jT9T9W7PbAJlHPTBFRf9yVTEcs63msXz2UHLSgf650G/d5t+wjbxxB2UCMqGrk8/LFSD7uJMeNt5bcJCyQZyAe5Fo9KYfWS2flQrr4b4tpuzaeWjYs49rt9LHf9uZD7+VbyVi9EBNrjYjuq2sxQOrl+p+HuBVu45qvqfq691ttYFQ5KyKbyJgaIY/NGxrlWZwlwGvmvu1oY3PuAv0niTq6tZ78jk//9uc1r1r4lQki7y7sp2Tu4V1y2iLoqFTqi1lIGcpFiebrZNZ1dOkF0cCIlO8jQ47nCkam9Lilz9GhDF1I6XGLzfnhwDIIZVfI7+8SSgfHsijqXENOGJF5QorG4EcW0OrScqX/dDrXpr70Ut/BII+1OfECPuYz/NWxYmgrCsUskxPvyhgmrw+WGZ6lGTuOlIyCYWTFyWjpM5KIZRUIOwjRNYRQ6tZF9BXtk8hWAHPtLNJ727Fq0JSkC1FDRRF0Jalj0d5qVh2KEpM2TuSsCYTCT6ZkdmFYI9LrYp5QayWbo6NXlZwcRD/61pth5Fq5EX423QQxNjhqWvvklkljOLkYjrmphXPZOJOk6Pg7HKMsrtQKcowzZoK3rx1ZUelGMdQA/HaKkjAt2RgqpZeYqbNbH7Hp2ct4nqfSPOfe0ftiSTZJydOV6rG5bQbyLK+nRuCC0343PzDgiOXyQA5c14BTZi98uR/5KJ1SnatLdoO50WWBQZPTq0VgsklU3h932actuo17ayrHrb/3ykiegd3KbqF2wbV6RrlsJ07yLcpsWFTul9RyK6ZScr+tk7oNrFj0o7HQUlj4EiEvJ6rPLKSmlMZCrksl1OnLaRkxc+/HB1naMhNtT/6yM2bDs6azCRHrM3aVPN7aW8irD/10B8njpAMcsl8okXcdKrl4sPsLmQVy/Sj90ucPRc/d/Bxxj+dXSpCayen32D+hLi16MsIV8gfCXrYp6ySsiJKRUF0XXiLpVbFU+fNv4r7mOwhFsX4ZdwpSi1DYs2jb6ebZ9788cblTzMrYhu7sf/17IFdtuviJ2ioHA6pMHkoH4CLUeMBU7iGkxuM/YgcdderF9ibRdc7O982F1HpYhjfWUe+x5a6pjop9iNLfoePvlsdZdTSMwfxSmTY20Q0eHnUNzga1edeNmmqbg18aMVR1L9vwSXHF9TfIWBxpKLs2hj3eQeBC0USvp2HHF3eIkRdhFOd6ER8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA/I/4J8AAo/80BciBec4AAAAASUVORK5CYII=",
   "$Meta": {
     "Type": "ActionTemplate"
   }

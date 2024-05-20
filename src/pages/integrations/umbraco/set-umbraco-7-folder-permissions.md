@@ -2,12 +2,13 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-01-23
 title: 'Set Umbraco 7 Folder Permissions'
-description: 'To ensure a stable and smoothly running umbraco installation, these permissions need to be set correctly.
+description: >-
+To ensure a stable and smoothly running umbraco installation, these permissions need to be set correctly.
 
 These permissions should be set before or during the insallation of umbraco. The user with the permissions set are the user used by the Application Pool used by the IIS website (usually Network Service or the IIS_IUSRS group). If in doubt, ask your server admin / hosting company
 
 [Umbraco Wiki Article](http://our.umbraco.org/wiki/reference/files-and-folders/permissions)
-'
+
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -132,7 +133,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Umbraco",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/umbraco-v7-folder-permissions.json",
   "Website": "/step-templates/c60a8c60-c5bc-4dac-9384-65ec4bcf6c67",
-  "Logo": "https://i.octopus.com/library/step-templates/umbraco.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////8m8h+LeQ/NvH9ZNZ83gv/vbx/e3j/eTV+smr9IpL+cCd9pxn+9K596V1+K6D9IE9bvf1pgAABLNJREFUeNrsXd2anDAINb/GqNH3f9q2s9v91m27CYSYSDl3c6NzJEAgQKZJIBAIBAKBQCAQCAQCgUAgEFxgjNEf+PnjeQzCrreo/oK46T08RQzaqgysHl0485ol8UFmnYdloaMCIeoBufgFyOKdy+LHEkZyCgmXxhGL2VQVtjFU31hVDdufSiCg8aLS17v4pMiQOqr96hQh3NprVUVFjNhlfWnVAPp+z2FVE9ibvcruVCO4/U4eh2qI4z6ja1VTWP9Ua9XHegWnmsOFJ6v5vSq/qJuwMOHRmMmNPJoy2dWt2J9sr+6wXXfzaMXER3U7Ygsfb1UH2IeEHx0ClF11ArHp8q4XEeefryAN1GRVHUGYXJldTyJu5rCwSBfXojpjebrFIrZch+oOksTKrAYAhb6nEYgkJgKhEEkag0hiIpB6kaRRiKSGAnHJnnT/9LTfn3HXiURnHW7Ydarcwtj0XmmztAuxSr/RjD5q3+ZS+TfbZZ2X03YskcsJ+9lqx/Xtd95IIpYV9z7gdrE8L5BIrNH3GQ781nEtTwugk16xPMWBDxVjuYvC26xy9xvbrKzLPwh4IqH8e/gWNusagBo8EVMeVC8tbBZES6lsxtbCG17/QEUUeZR/EKRPDGRLgmyJhgbG9/rQis3jCfh4awMVuRitCusLehBOSc7yD1kVfs3IlxJ5ESrrC1M2jCcxAClX5SIXwHo29LquyY6zIE/CaPsxIhFMytHSLQi6RWrJjRaZP4SZDYzZUiMSUY2JVNUSxLZEck/0VI79+ue8ora/oE9DR2QSIthSh05E4IUQekwiWogIESEiRJib3//Ts1cdJZ4DEaHbxtMTmcYkQh+PBLICogNyPtE41KVLPjQIdS2ACF2CztAnHw5AhokuZbrSp4MgCbqpolrQQTYUmAQdJGVak9gCPQiTMvWA3EdN8ncBHCTjjkNPgCH0eCIeYPRRxwowKdNUPsDWM5G2r5ADx0KbBXsn0WHoRlIdfIBWAbLnykF2C7gWrK9NVBBLTaYkX2IcTFPc17a2vYWKZG3q13LJGSyTOMNKQbElHBmb+kfpvQfuHf+Iv3PtBOiCrQi1IfNRvL7cMUPtJL6PZEW4p6C3bOB7bjogXDC+8Cznr//5ZLNrnexPfJJp/PU7ab0b5HerKAXM2S3a1rqchlQUZ2aTWxslkdwOuqq10qlWyxa8sKoKmPPBONkYgAVsrEHIx7DLTTxq+y6SavulitMwtZ0wBWmF+gFMJaOhql9SEDG5SqHogu1AfbdYUabnxM+N9EtRBpygfy8Vbp1QQU8o3JwRtO+VJ9/OYwfJxe9H8XEESQM1JIiNaTUFbLxZEyR6oZkdBm86tvZ4TVw2l+UWzGsi82HBhxBUezoubeB8GvP5jEpgM7yCzzgRPgNe2Izc4TMEic9YKj6DwtiMbuMzTI/PeEM+Ayf5jADlM5SVz5hcPoOL+YyS5jPce2Izbn3iMwCfz5UEE5tLIppYr27XwjC5SGXic7XNxOayoV9gcv3TiwqPC7leXoXHFWlvR4EsLq17EwuLawTfubC42PG36nO4avPDu3C4/PSzcB5/Ha1AIBAIBAKBQCAQCAQCgUDQFj8EGABhylEAPMb2qAAAAABJRU5ErkJggg==",
   "$Meta": {
     "Type": "ActionTemplate"
   }

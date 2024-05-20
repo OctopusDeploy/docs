@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-09-18
 title: 'GitHub - Fork Repo'
-description: 'Forks a repo in GitHub and returns the new repo URL in the output variable `NewRepo`. If the new repo already exists, it is not modified.'
+description: >-
+Forks a repo in GitHub and returns the new repo URL in the output variable `NewRepo`. If the new repo already exists, it is not modified.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -624,7 +625,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "GitHub",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/github-fork-repo.json",
   "Website": "/step-templates/f79befdd-9042-4e49-a4d9-164fc8daf8d6",
-  "Logo": "https://i.octopus.com/library/step-templates/github.png",
+  "Logo": "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",
   "$Meta": {
     "Type": "ActionTemplate"
   }

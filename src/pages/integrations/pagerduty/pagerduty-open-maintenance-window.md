@@ -2,11 +2,12 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-07-23
 title: 'PagerDuty - Open Maintenance Window'
-description: 'Open a new maintenance window for the specified services, using the PagerDuty v2 API.
+description: >-
+Open a new maintenance window for the specified services, using the PagerDuty v2 API.
 
 No new incidents will be created for a service that is currently in maintenance.
 
-This script sets an output variable **WindowId** that can be used in the _PagerDuty - Close Maintenance Window_ template.'
+This script sets an output variable **WindowId** that can be used in the _PagerDuty - Close Maintenance Window_ template.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -271,7 +272,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "PagerDuty",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/pagerduty-open-maintenance-window.json",
   "Website": "/step-templates/93a10982-f675-42cd-ac3a-46ef28a46afa",
-  "Logo": "https://i.octopus.com/library/step-templates/pagerduty.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF////QbwAveatVcMrmtp9N7oA1+/NcMxCz2uBkgAAAsJJREFUeNrsm9ua6iAMRktIwvu/8WzHK20NR1vds9bXa+jqD4ht2DYAAAAAAAAAAAAAAAAA+Au4PZK/VUQePVL53kTSA4gggggiiCCCCCKIIIIIIogggggiiCDyN0VcSoyK97aopUpOK0Vcy+115Q17caXfN5qlVca9ZLu3aeGVFopoSa38u7MsDRq7B93MuIgU6+2rlkpJ4wyLaOr1SBaH4jMeoyKebaQ3C7oTs/NFfP1Q1jRHOdfjZYeSLhCZG8x62GS6QmTK43gZzleIzD69vH6CjIkUm+vSfNEaOCmi6/tcEEi/yNxMv+PLZ8iAiMyPAtPlTQ6I6OGWMOCo1/oqaFVmRcp+B1UkQnOuTPe9SKXJ32ZnRfJunHj/RkDCNatlwz/9D/H5pkxHtjQl2p1Y03+wWRF5uqfsI+PxoVe1cAa9SWRsaD6vSzlosinj9SJjveYgkY8W2XpE5AoRe0MiQiIkQiIkQiIkQiIkQiIkQiIkQiIkQiIkQiIkQiIkQiIkQiKLEylflIj3fLH6pkSib4iNTcoliWhUEahWrR5aN1nnEtl9SS/RLTV9nn6utWockJMPooS9ykBR9e7LvfmsiNcQrZRw7AsjbhUcYYtqlfKWfpGUaxzVB8eBVZs9aHJJcdAnlDnJJSIS/+6P1En6FSL7UkBb3uQZIvuVcrrqt3vNWpNIfX1eUhT9bpGjn67ZSPwKkcOnJ+cuWStEXqwvZd1qfo7Iy1M95dQ8pkWC00mja/BQHpMiOTpl5TpSkJ3H8pgSsVqn/cfPkvp2soil0lAgLKXn3ELW0ThGRcxy6/FQ0ZIaTo3Zrf7bt22diDUUsfcdcnXX+2wJjoX2H5td9PLhA/lfRRKJkAiJkAiJkAiJkAiJkAiJkAiJkAiJkAiJkMhXiDy9D/1aEXeRh2sDAAAAAAAAAAAAAAAAgIAfAQYAXo0zRlgxYJcAAAAASUVORK5CYII=",
   "$Meta": {
     "Type": "ActionTemplate"
   }

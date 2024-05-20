@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-11-15
 title: 'RavenDB - Smuggler - Move Data Between Databases'
-description: 'To move data directly between two instances (or different databases in the same instance) using the between option introduced in Smuggler version 3.'
+description: >-
+To move data directly between two instances (or different databases in the same instance) using the between option introduced in Smuggler version 3.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -582,7 +583,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "RavenDB",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/ravendb-smuggler-move-data-between-database.json",
   "Website": "/step-templates/82f804fe-682e-4e0b-8c2a-a5f289a9cabc",
-  "Logo": "https://i.octopus.com/library/step-templates/ravendb.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRF0Y6OjR8iHx8fW1la0szNmVZZZB8k5crLkIyMwl1evI6QwrCw6uPjsiAh////8/HxjiSEkQAABNlJREFUeNrs24uWmyAUBVBQkKfh//+2gKiYGKMRsWkPnbUmdZLUPfeBEUoe/8gggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggADy/0GceDpgpDSM/SCE9L1SxMweK5swWu/5rdQKlDAUmTCmbZqkYb9UIzZR+p4INxxishlHa1xViBNC7H0Lo5RZvrafBrHDIdY2maUixJ+L2v0W/nxfD41D2cRtsiHtXwAhzz9aQlSMj1CvlDantLYSxPeevRArRHZW/cBymWR0LoJSOirHi51sZ9103lml9GooONssKdUhhszN9CEI2apWn1pJmqdXP7zELtKraVlliHot563ZfQyZJYQo6hV0CtOTpDG1IfRACoqeqrxrJMpwzC0hTVsT4vTTTJFlmf0YHyF8VMIflSZHuWxf7q5iz19Me5F6nNJb7WGQ6LXmVaoRn4P0dIBQStWml8avGFYnL8muUxCjeIIMZeG7G5neMOiG2iKUJsrQ++LZLyXWZBnX+mtlVxWSnzMPTcF/p/NBf+YJEh4FDY/nZw1zbBGT5nW0ByfMryB+Ls8n89hnQ9rwESKIJlE1RSRZxn+ONTuGNJdAyPzbJtkpLdr0CCF0HNPT0t9Xp/i340Aj2A/RMyQ8XOtSU0T0BNFPEP56/bg5zOWQ6YVaE50uYLTiii8hJCReeArNQ2J2Q3b3tP0QwzlfiwhdCU88bS6GUhI0H/xIah2YMc93rfeQsbAHAE8SO3bgDzk1teN9khKQjurt5tz55/jk6sKD4bnyI8R7x8/Hu0r+PKTLIuKzj7+gWKBSLbRW0bIP0kg315J010E0H2b1hxBsmlTyjHqKiJ5IbO880voxPmaXQXhHX++zdP43nkGM9kNYHb8FUghIJD2ao+NTpXwPoZ1YrRe+eE467xSbCInXKe1hyYegfA3xrdV9igjv5kbgg5Ig1L/OfQHZ/oxf9k5jqBeRQ+aI+EcR4r/Mvmo/ll6FIExrsZp+3QTpuoevlvHIV5AtSSGI7jq91hDmiKTrgjH5WPOdxFaFhG71pjR9QM5A3l96FYL4CzGziESn30O6E5C3FX/J0tsWhA6QQxNJm0+N7jaICBcuwy/SshgRsRuyWOmy4VbSu7uTFSBsrItYSmGwfRD/sX3/PYgKq7ozRMgDkINrW1UhKSC7IEfvCteCtNOjXZDjKw4VIFZqqc3cfD9DvrmLWnfnw1wjrGg4akOc8YrmA+TL1Z+6EbGBsQ35dpmh8qaaKSKyULO6CxKLpHl7GX9iUbEyRMfcevdR98zqVWVImEnipXixbnUT5BEiwtch51Z4a0NaHxG5dhf77Jp7bQj3ETErtX56cbc2xPjcYq+1fn43R20Ii93XFi2PWyCuCRfC5sg9xL8T4ud2+bx1q8jeh+qQ1te6u2APR3WIbJaZVWp/UH0IX2QWc78KYSbrWQV3NlaHuCwgsuAe4Bs2+bvy2+fugbTF0+oeiLtgi+ktkLb0/tK7utYV4bhlZi/brG6DyPK74m+BOHnVO+M/iwECCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACSM3xR4ABAI1fHCI0qDDgAAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }

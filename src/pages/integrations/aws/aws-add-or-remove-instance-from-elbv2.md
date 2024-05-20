@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-05-16
 title: 'AWS - Add or Remove instance from ELBv2'
-description: 'Add or Remove the current instance from an ELBv2 Target Group.'
+description: >-
+Add or Remove the current instance from an ELBv2 Target Group.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -336,7 +337,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "AWS",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/aws-add-remove-elbv2.json",
   "Website": "/step-templates/2abc4f4f-06f4-4af6-8b10-52651ab4d3d5",
-  "Logo": "https://i.octopus.com/library/step-templates/aws.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////9o0R/eLD/Nu0/erS95Qg+bhr95sv/vHh+r96/vjw+bFc/NSl+KI++82W+saI+KpNeDqM1wAAA41JREFUeNrsnG2XazAURiuo0Cr//9feliIvR3DvXJFZe3+a6XpW5+xWEpyY2w0AAAAAAAAAAAAAAAAAAADgf1J0bda/9N70q83a3enzUHWVjbR1sW0xp6sd6fPI72VmUt3zA+kymD6N5vnIBMrHsxHTjsUXOX0e+iVaTNU5Q0A/Q+k+4oAp+ixMbw6A4rGVVjGHR92ulNXWuTAlBNJN/FFyr5yy3qN9rawmF9IxR4hqX4U1WMplmGtruVBDuiuswbKkzaGhX+cfXsqbZlXXv0dsYR13nw9fLenGXD7f6U5Ony4yTpzyZLNMUcpMr0xNzfwdRRMR1/LP2cqMctNqKx1LZFydm2U022ueEtLL6HbHfmSRYRn4HDXaXyzU4XRkkZWK/+JlRBBBBBFEEEEEEUQQQQQRRBBB5B9uYJc7SyuLw+nI7R2ptKWJcywd18Utza0rnM4iN66M6qzS5E93Lf1zLaviUL/ISs/Nt6W00DEyuRgiP2Yxvrd15z/Y26ncG76jy1Ta5jEy/L0p/VMWy33woVm8UYN1Y9fqKrzfZ5iedtaV34+kNxHak2Wg2SSkY7djx/bQWkNP6nkE0lH3Lyx7D1aak1Z1erWJ+U130Vz0Sude7mZqv995nW7mZxJd27Sg5XQppuMdWY3xl1XXOge8MasWjZfund0KbvrkE9fK7OPNne+2U9YEWX3nemtSbvLv6LJ7gZ9X45yBl9ZxrZ9d3vjT8rz62tOsny7jXkpYPX9jQmvF8yF55TdaslGviZy1vAmfoTobsZztGNEv7qZZSr/6HRc/0yzlb3HiKhURRBBBBBFEEEEEEUQQQQQRRBD5XSLav38tllbVzeH02Ww/UWA+6XgsHdXFKc2vK5Quoz/duVRnlrb26crpizzXOVU3l2Zb5Pfe+d1OX8ViqW7qH9gt51K44bukr2XxrW54vMaoy7mxa/cgvPRVKcQG7uOCD58HLQLt3r17Iy6AqjYeDG7TUenWW+p9Ot/IOF/lwuHV1nk6o8M469PWXhtr+0BeX/x7Ue40W3xacfb2gXFxUZcX8TYB3Kyfp+GThsjKti2zgZuMiLshxW3gpiQyrn/DXhR/i1NqIte5pkUEEUQQQQQRRBBBBBFEEEEEEUR+g4jQUZBEqjqFO9mOiyeShoXvYoukZOG4GCLpWZgu83/vTNRidhlE0rYAAAAAAAAAAAAAAAAAAACAZPkjwAAMDi+bsnPP/wAAAABJRU5ErkJggg==",
   "$Meta": {
     "Type": "ActionTemplate"
   }

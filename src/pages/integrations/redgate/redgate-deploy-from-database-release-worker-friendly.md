@@ -2,13 +2,14 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-05-01
 title: 'Redgate - Deploy from Database Release (Worker Friendly)'
-description: 'Uses the deployment resources from the 'Redgate - Create Database Release' step to deploy the database changes using Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage).
+description: >-
+Uses the deployment resources from the 'Redgate - Create Database Release' step to deploy the database changes using Redgate's [SQL Change Automation](http://www.red-gate.com/sca/productpage).
 
 Requires SQL Change Automation version 3.0.2 or later.
 
 *Version date: 2019-07-26*
 
-This step template is worker friendly, you can pass in a package reference rather than having to reference a previous step which downloaded the package. This step requires Octopus Deploy **2019.10.0** or higher.'
+This step template is worker friendly, you can pass in a package reference rather than having to reference a previous step which downloaded the package. This step requires Octopus Deploy **2019.10.0** or higher.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -577,7 +578,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Redgate",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/redgate-deploy-database-release-worker-friendly.json",
   "Website": "/step-templates/adf9a009-8bbb-4b82-8f3b-6fb12ef4ba18",
-  "Logo": "https://i.octopus.com/library/step-templates/redgate.png",
+  "Logo": "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",
   "$Meta": {
     "Type": "ActionTemplate"
   }

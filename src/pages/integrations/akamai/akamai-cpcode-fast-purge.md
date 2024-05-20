@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2019-02-11
 title: 'Akamai - CPCode Fast Purge'
-description: 'Allows to purge CP codes using the Content Control Utility (CCU) v3 REST API.'
+description: >-
+Allows to purge CP codes using the Content Control Utility (CCU) v3 REST API.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -373,7 +374,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Akamai",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/akamai-cpcode-fastpurge.json",
   "Website": "/step-templates/ee4a6957-7d98-4dcf-8f94-78f19ab1c6e0",
-  "Logo": "https://i.octopus.com/library/step-templates/akamai.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRFseDvTrjc1+/3f8zlKqrU////AJnM7/n8E0I9ngAABR5JREFUeNrsndly6zAIQAFJ1v//8c16GydGK3IgA9O3tqOcsCNZhvQjAg7iIA7iIA7iIA7iIA7iIA7iIA7iIA7iIA7iIA5yIAQUnkI2QS4AGLedmAPJEN4QbhJsgdAhxFKMBSAcBYIpZ4djigjZUtTKYTtWBqX1IgeS8Rgj5JQMgdB3MaRAOKM6DUMIhPON8zBEQNhIxWdLoOePHhDWOY7zPX78ecQQ4PsgjFXF/Fk74rHmHv8wCzP377lRHVy6F0z+UyDAfCJ4M6gWitncCfIc+2BF2I4xo5YJkBazAty6JcKpIJx7vJaHNIAxijIKkmPVPfIgxpivgCwHVQNzq4RTQOocFLdJibQepM4RNgEJq0GqHDPeMVp1wgKOebPiKx1BkCoHbHLS7igglQdhBcc+DsqC1PJ5Iwdeq/c/QWQrGVoDwjWD7RyXgp37bHA0n2z0k04QKDtlhmpJeIHgP9n1N5fma4SkD4Qq6geZwjbvmzCUB6kUWFC0qL5RxGvdDNIgFQcB2S6DQo/Dg4Bh5fKvx5ul/y6HsiBlw8orWvHn5C9IglQMKzY18KMNXJYDyWXDWjc0hSaVQK+SmZQO7T0rwS2R7374JPlUSpYC4VJhybDwaEzHhwRee5eEH6RAyrViaPGO+oArchvYhCgEUp5hUUO11zgZGt2lAxGFYLUn6pg2bkPnCmBOIWwq3LsHdPaMA7EO1igEB2e/43vybSBUDFlU5DjAuMdc2WkjrFAIHk5Nbzs674P663kVkX3UJhAuqTMKwc+yBsv7OPTRTXWP6JpAykk9MDnyWSe1bkbRJwwIg5QHQGzcvQ2OkHos5H1/LoiCUDH2Aj83xZGMsE+cKAkSijshKFq1fwQ6lAPhRouH1YnQmayXYIdiIGXLCoyjz8pf2xCkxkGhI4mIHmh6TuuCEEjRsvLSw35BchxULk9gjWG9GZjIOAiK2RClI9Zhn9swNa2vXa6z4kjM7w/GKAASS3VWXubpb64C0yC5Oa1jWia52rLXQaBYY4fPAdeXBBojYD2LYNINgsXKF0/wkLUgH5Hgywqpg5QHjGoUUgUpB620MKkLg1ROyZ3zSMVCkPCuEdIOUp47kBrLmgQBNZYlBULpR0wrqQfBJo2gdZCkxkWEQEA9SG4Dyb+ikfQjIGgApBx+H5yYfwQk2NdI+BUQMANS3mB/1ChgAIQqx2PNgKTK8Xs0DrLtfMgESHkcdPchMgwCrxozoZFQAUErINTwdIIJkMqo8TbByyZAinuhd9tKJkBqTgJWQKB2xC1GGyC54iQpkw2QVH+a1QhIEDo++XUQqtmWFRAbtjVx8CyYAzFhWwKHMw2BVBp3OyCVp5LsgFhwd4lD/oZAqg2vGZCsXiUyjyYZAlHvJbOP7wVzINpzSbuRK88lHd6qu+LqefhHtb/3xE/V/t4DkjfFxtWV0TQbV19qVhy5OmuMqLZS6fwIetNi73dJ0zd6KQFR27/3W3fQSTLgpjpbk5HlVZIMra6RZGxxhSSDazdcLWsDRJ9OhlfWVtOPf4XKMuOELYCqamXGqKn3Cn+tIM3XxqsH4S/yJ2sg7N2+wRoIezfd2UpZ99qOM9+ikta+SOXUPC+0Vti+HYmlVmJf/QTGQK4o8ZsooqswNxjGM9xe+Oti31cHxkB4lhjIGEjKLAvYArnTHF6PB/ZAbpqB93dt2gR50Ly8/ZSSXRBzmd1BHMRBHMRBHMRBHMRBHMRBHMRBHMRBHMRBHORM+SfAAMOMGvrIfh0UAAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2021-09-06
 title: 'elmah.io - Upload Source Map'
-description: 'Step template for uploading a source map and a minified JavaScript file to elmah.io.'
+description: >-
+Step template for uploading a source map and a minified JavaScript file to elmah.io.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -187,7 +188,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "ELMAH",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/elmahio-upload-source-map.json",
   "Website": "/step-templates/0EAF2914-E291-4CCF-833C-25EA769BF82B",
-  "Logo": "https://i.octopus.com/library/step-templates/elmah.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF////B6mdqOHd1PDuNrmvfNHLV8S9Gq+k3DhZ2AAABP5JREFUeNrsXNl2qzAMrLX5///4kqUNBDCWLIOTq3noS3JKBm0jWfDzEwgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBD4NuAEuP3BD+bALEQ53ZGJhOHz2CD8MlgiC3wUDaG0C+JPsQsUWDzd7BPMAjkdY3wqIKkOWYZ2sFoadyo8cIwnFUY1SlV0LBPYkJHCSY8R3UuSCfwN9hiRiZnHYEwkpa9gwil9BRNo45HyIFkYcyORRPj5AfKs8V/CI6UBnAs9eKSM32GQpXMBsMjZHT748PgzCfK8v5TzyJATkYdJUPJFstLLIBNwssZ1VYb8iMhuPTqhAWuvhbM7ny9sJbnyJ+acxy79FZ5F/Bj9guRxS/9xl77oykFGZXLkWauE05Dk+ELP2kickIcUMYZLv8++MiDQ1SYBi6JFWn2pLol3NAmb7iCsY5gvNgnbUr8sdEk9EbpGwUNNB8OqVgCvSFolj6a3e1yblC8hIjUuCTrl2StIkAx3by5VSNljyjBEkGWmHp/1sl5BdyOSNSFyI7H5u+oFGF1BZNef3rkqRMu1FkFg2jziUUZ6TwV8GCOI2yRmwxGNHu5FpOgUePMn2mm0jE1/nynEgWalTRKrOZWqQelREFcn0Rm2Y6FAQju9yD3kYt7qoZDz3poD7+1rKVyrQ2HnvThcTwpTpuLcUy4Mka2KLn/JNr/nJ3QaVdIp5WNeN/LLnxxHfO6T050rz4aBU6gUgsIaJHSCXz3rw+xLuCl72T6sfBSgkxRvaUXmrhipdZ5PfsclUl6RwWJ3u901qiZdXsclh6NFLpYLKDe+whXzYRcqYE4uvK/6+EkCa5NY+2geyaxRHzmZtt2OZsvAckYmrjwNwf17sN0A66/BPSpInZSQSpVRKVmkW8Y6ul1Qd/3qqtLApLq5pn1zFpW47lCLuxtkp1xQuTeammLl0Ql0jpBykHC7KVqZcKPVC0FiPJAz1hNqvMLDooWPTjog1WwzFYIkQ+NNap5GqMxf0Ovc2O829yjSfAHY/8i6pWrRKirr50IlQb9ot0QJ1hO59bk/OpViJqI3SW1Zz4VHwfalvH2NQLrEenmC9Rsk6GgR/fQRPMy8GyQNKyroX9e58p+AKxF2J7K806hKwA0PCYi/RV6zxknJikrKN+xxUS/Xep556qQ825frtKs2NcYnno1zdCqlYbcOO0oti0oxlxLoTCSjTqWYqfS2yLZvFftdm38pLWLofVAn5a1UtBWRXBLjVr8r85cOMHW2iCXVQ5VK4eXoG6mzRdgnxa+m8vDUaWh1Yi0R8JEP71L+78DxJYqpa0FUnsfs3i1YqhSeHwCjxSL6tt0QJHQwlX9fn7iHCjdb3d23NhuU2cBxvc0yiRzyKFfOvkXFfhd8HpczjLbYln5x+W6a57Eoi8+zQJZFG21efO2Q0nyPw/GpLOvhApgMkn9HRHADc/bkYVz8zzaDvAZe2ZWF/dxKJbTBKjZ7T7GVtYTM1ae/QVSKDk8wSMOjMdU/TM4wSMtpOw8UIW0bXKrtBxnUseqZPC6CXXk0r6Fxtfvy0Dzqft90HZRRA13pXT0D3WuRDildCr/V2b5uc5h3Pbf94TqjeO/Ic77GHP5PkeAFVHq9fg/kTC5d3+iKwOdESz7jFTw40bm97qcTpi75g197HAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIPDf4p8AAwCtzTlV0SvdJgAAAABJRU5ErkJggg==",
   "$Meta": {
     "Type": "ActionTemplate"
   }

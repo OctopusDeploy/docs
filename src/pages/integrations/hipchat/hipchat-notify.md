@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2014-07-29
 title: 'HipChat - Notify'
-description: 'Notifies a HipChat room of a deployment outcome.'
+description: >-
+Notifies a HipChat room of a deployment outcome.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -170,7 +171,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "HipChat",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/hipchat-notify.json",
   "Website": "/step-templates/6a6ce997-c91b-4e06-b237-4484417efc89",
-  "Logo": "https://i.octopus.com/library/step-templates/hipchat.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRF////HVCAvMvZaourDJE3ngAABCpJREFUeNrsXe12KyEI3DDv/85N2rT52igrg2DK3D/tPafqCCIqsNtWKBQKhUKhUCgUCoVCoVAoFAoFZ4gILjj94fvX838vxOF++Hs488kvhw6HOzZ5ZaMncSPzCSwychllkYyLicWVy+rCSCMWFo1gKkwagVTYNKKoONCIWPZycsNUoZw8MU+/dFr14+v+elTfPwJIpF/9RY6mQyiioBO/OpQuepeMhKrVIde84/IjbJWPrNEWF8Qsj2FTgwD1Ep8uZfaSFze7/1bSMpOHpG9c1ZWs0n67H6plwQwmMsMp2l8q4s9j0nbLZBJrUVx5uO27cFRhTPUf/HqTyb6pzNurnH1spx4jTj0efSLidkD4y0QiTqF7MpFsDQZNIMJunYTbc+DtmTBFgsgLTWLnEnsxC5o6IE6xqPMosTx4A0D4Qx9pBNECeRXJqgIhjSHENXEYhKR4CoddvZFBIM8igbmFsEdw83xKDoHYJxRZgkWsA0miWWbVSKNZ1ilFFoE8zyn+K5E8mmUcS6YANxiISB7Nsg0GiTTLpB6fSSQ8BhRFJJXRMil6JqP1bLaKSBEpIkWkiBSRGCIr7+zlNKYmUgerBEQ+5sz+MbcoqrskgMnwkiYj/HstxSx4BDDztaOvl/CINwR9vfZv48GMAUVjvo0PHN0/B8+oSUtxrA8c3Yci8QgKk4GB0HSLGILkoFmKBoSx1zwG9m98zdK8C9tDCqT/nmR/Z5eT1gKPdqOJxxLCo6wiDATj8fivySIYHMTRCdP0o+WylxgKhcwHDb1mNnA4z/VdRujmJRBlsBRaydOvHHAoD5QVMqYKoUMvGfyKgcRvTgDdpo0yJVQbENVEGnZdXUsyh4fFEdJuFLaSO8bOR0Ty1v6N1xZ5a+CosfEHcgZA1Sp6tsKRvAvhadVOY9aT6KGEFJCksdet+fR2LMfqSOm2I2uTcTWAY0lCotKwdpUL8eCx5xh2xNyrryH0HkeXiaLdfbcKmoIjfhmcGG75Umbn+k9dalIcM4NnZh379uWZm909qTFfNSSyQob/TLHVa0LNh8AqHHO0lzlfU6qJNHxC1qKXidWDXGvGYZI8mh4hg8o8C9/2bR28bNdXcbhVJZRpvoPiGGjiMjsPlVMVsEtkRowCpU7jK9+AqBHVGfBaOPPRpb+/OZWmSLY5oJSWRavRWeEvlOqyT+olMeEvFCoSrlsbqQLzg1CCREJaKogXCYuKJBAJh8pNv0IMF3PZ/1GJjkAEi0qocpFs2A+VFAHHsJI5ezUpKmZsilrXtJegGWQ6bC7eJJZgcnd//Yh7bxhjbkxGYBmhsCxd/q9Fqaks8BUvJZUVvkemej1d5MNqiu9ObKugs5Eu9Km79qP2SkRaHg62BbFDZkkeN3/tlxBkKxQKhUKhUCgUCoVCoVAoFAqFwhF8CTAA/z8hbAhfKXMAAAAASUVORK5CYII=",
   "$Meta": {
     "Type": "ActionTemplate"
   }

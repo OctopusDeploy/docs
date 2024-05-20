@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-05-19
 title: 'Windows - Add Users to Local Groups'
-description: 'Add a list of users to a list of Local Groups'
+description: >-
+Add a list of users to a list of Local Groups
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -229,7 +230,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Windows",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/windows-add-users-to-local-groups.json",
   "Website": "/step-templates/ed204305-3399-4ffa-8566-a62da4e36641",
-  "Logo": "https://i.octopus.com/library/step-templates/windows.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////Da3qSsLvhtb0wur6O7zuWcfxldv2aMzyK7ftpOD3s+X48Pr+0fD7d9HzHLLr4fX8xD/OcwAAAaNJREFUeNrs3cFygjAUQFECWott1f//2sJoW6kIKEzNs+euXOmcmSSGDa8oJEmSJEmSJGmsj1W1K9cpsGD1Vr2WdToVEPC+2lYvZfpVrEW0qZpF1F+MRdRugzoNlvkiarfBPk0pT8GhWUSX2yASpDlLr2+DEJBmEY1ug6whx7N0n2b30G1QlmmxHsRYp6X76yvF9vg5RYQczq8UVURI35UiFmTgShED0p6lI1eKzCHTrxS5Qk6PZ9PLDtJ9PIsJmXWlyAky6/dAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQMJCyjltF/iO3gpJUpD8s4OAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID8T8itwwKyhbTdMr4ha8hXUwZqhICcOgyNOIkE+V5wo4MSgr1u/fp7poO+AL8K/gL8yw0UeyRB34m9iQ/pVD8L5JYTO3NI58R+AsiEEzsW5OfE3sUe/zRwYkeGnG2g2CPS7rhjF4GKP0ZwyoldxK37kFqEL/7wU0mSJEmSJOmJ+xRgAHxZTCXGdZkfAAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }

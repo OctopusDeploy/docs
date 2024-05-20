@@ -2,14 +2,15 @@
 layout: src/layouts/Default.astro
 pubDate: 2020-06-19
 title: 'Sitecore web deploy package(.scwdp) deployment'
-description: 'Step template to deploy Sitecore WDP(Web Deploy Package) package. 
+description: >-
+Step template to deploy Sitecore WDP(Web Deploy Package) package. 
 
 **Useful links:**
 [Sitecore documentation.](https://doc.sitecore.com/developers/sat/24/sitecore-azure-toolkit/en/web-deploy-packages-for-a-module.html)
 How to create [Sitecore Web Deploy Package](https://hls-consulting.com/2019/05/15/how-to-create-a-wdp-from-a-sitecore-package/)  by Hugo Santos. 
 How to install [Sitecore Web Deploy Package](https://hls-consulting.com/2019/06/03/how-to-install-a-wdp-in-a-sitecore-9-1-on-premises-instance/) by Hugo Santos.
 
-'
+
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -198,7 +199,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Sitecore",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/sitecore-deploy-scwdp.json",
   "Website": "/step-templates/9a757194-4c7e-4e9e-a58f-7b0c12b8253a",
-  "Logo": "https://i.octopus.com/library/step-templates/sitecore.png",
+  "Logo": "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",
   "$Meta": {
     "Type": "ActionTemplate"
   }

@@ -2,12 +2,13 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-10-17
 title: 'grate Database Migrations'
-description: 'Database migrations using [grate](https://github.com/erikbra/grate).
+description: >-
+Database migrations using [grate](https://github.com/erikbra/grate).
 With this template you can either include grate with your package or use the `Download grate?` feature to download it at deploy time.  If you're downloading, you can choose the version by specifying it in the `Version of grate`.
 
 NOTE: 
  - AWS EC2 IAM Role authentication requires the AWS CLI be installed.
- - To run on Linux, the machine must have both PowerShell Core and .NET Core 3.1 installed.'
+ - To run on Linux, the machine must have both PowerShell Core and .NET Core 3.1 installed.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -971,7 +972,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Grate",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/grate-database-migration.json",
   "Website": "/step-templates/ca23d18f-ab03-403d-bfb8-3ff74d3ddab3",
-  "Logo": "https://i.octopus.com/library/step-templates/grate.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAC91BMVEUAAAAAAAAAAABVVf9AQECAQP8zMzMrKyskJCQkJEkgIEAcHDkzGjMuLi50XegVK0AkJCQkNzciIjMgMEAbKDYoKCgmJiYkJDEjIy4rKysfMz0pKSknJycmJi8bLkAkJC4jIywpKSknJy4eLTwmJi0kJCwrIyspKSl1U+ooKCgnJy4mJi0kJCsqJCopKSknJywmJisgMDolJSsfLj0pJClzVetxU+smJisgLjsoJC0oKCxzUu9xVe90VOsnJytyVOweMTwmJilxU+wpJSwoJCwnJysmJipzVO4fMDsmJilyU+4lJSx0Uu4eLzxyVO4oJCsdLjsnJysmJiwoJSsnJysnJyomJixyUu0mJitxVO4oJSsfMDwnJypzVO4eLz0nJywmJisgMDsnJSonJywmJiseMD0mJiseMDwoJitzU+4oJSpyVO5xU+4nJyxyU+4mJitxUu4mJisoJitxU+weLz0nJSxyU+wnJyxzU+1yUu1zU+0fLzxxUu1xU+4nJysmJitzU+4oJipyUuwfLztyUu1yVO0nJysnJysmJiwnJitzVO0oJitxU+1yVO0nJSsnJypyU+1yVO4mJityU+5yU+4nJityU+wnJyxyUu0oJityU+0fLzxzUu0mJityU+xyUuwnJysmJityU+1zUu0nJionJSsnJytyVO1yU+5yU+5yVO4oJityU+1xU+0fLzwnJSsnJysmJisoJiwnJisoJiwfLzwnJisfLzwnJisnJytzUu0mJixyU+0fLzxxU+0fLjwnJywoJisnJisnJityU+0mJityU+1yU+0nJityU+1xU+1yU+4nJityU+wfLzwnJityU+0nJisnJisfLzwnJisnJysfLzwnJisnJityU+1yU+0nJisfLzwnJisnJisfLj0nJitzU+0nJisnJityU+0nJityU+0nJityU+0nJisnJysnJisfLzwnJisnJisfLzwnJityU+1yU+0nJisnJisnJityU+0fLzwnJisfLzwnJityU+3///8ZordNAAAA+XRSTlMAAQIDBAQFBgcHCAkKCwsMDg4PEBMTFBUWGBkZGhscHB0fISIiIyQlJSYnKCorLC4vMDAyMjM0Njg5Oj4/QEJDRERERUZISUlKSkpLS0xMTU5OUVNUVVdXWFhZWltbXFxeX2FiZGVlZmZmZ2doaWlqamtsbG1ubm9vcHFyc3V3eHh5eX1/gIOEhoiMjo6PkJGRkpOTlJWWmJianZ6en6Okpaamp6mrrK6vsLG0tba3uLm6u73Bw8PFxcbGx8fIyMvNztDR09TU1dbZ2tvc3N3d3d7f4ODh4+Xm5ufp6urr7Ozs7u/x8vLz8/T19vf3+Pn5+fr7/P39/v5vNae6AAAAAWJLR0T8PA6jfwAAAoRJREFUGBntwXdUTXEAwPHvC2XvrZS9s0f2yki2jGwZ2bPszUP23p69x8MzIyuUFdmbSJSerMu9v390XjfnvI7ueQd/9vmQ4m/lW/0o9uIoe5Io4Ehy8oZHLhq7/ecWHdaMJpKzMbYCMEVpjGvbjN41oWxPr+zgfinEyxlyd+7oRBIO0WuJl9bLFX2EKW6+3drvIU/fVOJwTGyYO82jnj6P6Yu1MkofVHplbgYKHepGhvCdYDRB1ojNqXXz4pywUl7pDK3DwsIWo/+WiXh2hRvdOQVGE3RQGhQtWl3phZU8ynQo5uv7aiN6M+CwMjLu8sNAMJrAT3kTEW8k1s5ftgccv05FbwaG/mxnz5FAMJrAW3HmD9oqO1wodTLSGb0ZmPMhEyUiA2HfjdTkjl6mo8XR0iQxNEYxKy8agd4MlIu6f/zhhUDoo0Q1wTvu3oXvm+1IKpe3X7uMgGt74rn4DHJyqwtU8SkOzv2Hu5Hi/yg5bKnBsHRISWy2RhIW0ipsJX4jy0fZ4seJbGi5KlRXoMcAizFyV7S0GrEn9PXr0N3DWpFIJ/dDiwhe7t+9u/+KYIFq4i352Vk0SEIlocpxTv7UBg2T3gmLtxNIlPNYS7Ts9fQYPWvWaA/PvdhKiM/Xg4KufxaCBJkb+s+e7V8vM8naJlRbsZj8Xli8m0Syqs3YtH//pmlVSSAJlYStngjVY7RUXp+ORLUXXpGEkIIX1EJDxZfywfSovuwa59G0qef43V/QcFeW5ZmoxG9o6SfrSLRKEhbSCrT0lpvVt6gBAXUGLzEYlgysHYCW/A/kBD+yIMTNAwbDgdtCoCldkQQFIUioTmOrNF02nLl27cy6TqlI8Q9+AUpiXLmlXI7qAAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2015-12-01
 title: 'HockeyApp - Upload Mobile App'
-description: 'This script uploads a new version of an existing app package to the [HockeyApp](http://hockeyapp.net/features/) services.'
+description: >-
+This script uploads a new version of an existing app package to the [HockeyApp](http://hockeyapp.net/features/) services.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -752,7 +753,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "HockeyApp",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/hockeyapp-upload-mobile-app.json",
   "Website": "/step-templates/5667710e-60b8-4067-bfa5-87196faafdda",
-  "Logo": "https://i.octopus.com/library/step-templates/hockeyapp.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRF////AZ3kXMDutuP3nz1mRAAAA19JREFUeNrsnNtygzAMRLH2//+5hZAphJuMVzLp7MlbpxOySNbNhmEQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEECILjJ8N05+f/Kt/sYlixcnvv47ARn0PEDD9+nZGSV0EjQpKAKOeNA0xEj7kBIuI17BUE+ZMJR2+o6H0gqmln4q3Fs66KA/AOsiYM905xXLNYu50NiU0tztjmCsY82fUhiiGzPzlSU8IMEdQzrqQY1wdwYn3TIwRdVhCMXScfI21PmxIwjg/4EhHZoFNWfFGDRs3IZgEnf2KdjcfYRDG7fw3QsqTXasQvgIPMAjDtVLD71AiheTZBJQyBZEtTusvwEAxSedaq/ZOIrbvbGkgQPyuWKsYt3vPmWzUjwBBXG1x07OQbtczzSJq8U0ywfdV5owW3hGgRaw6ThtfNdu/bf7KWek83HJuEaF6i6jBjW9NfV+jRhh2eA3k7k1hERjUv2n6i2foQHim/ZJhvDdPfcP+SHf/AiPbdrfKwhoNVcTKOftshq6WaotDLb8KyR62NMF0G9EUrtBn3a9XOJqCl+2utgwtH3EKjVHYjuJf6CkO216tNZ3gJJQHnarZNjhLBwAje+xlJaoY278CJaOYJzMR1Bx1M2AVKnAXC3fai4vjZtugAma9eN4KLs4EOo4XVDaOTZXjZaK6MOmwOpjZ1sKHjMTjJnQI2tJA5ozuLNe2XyzlMMplWkrpEJuOusKTWkkdolUE0zojeL+5U4NoiwNcU7jCO3rdmwYx12LHrp29G2P/Q0avVjd/Z+/hY6D6DSViVR9gCKSb5eOSxlrmlupiHy5lrLViO7E8TsumY+ctettPS/yufafXATN64TiI8MTsljcwbm6382KhVc1RiQZ6OoErtld37adF5moRIqQ8udrA/asNX08lLD4zl48DfPS6xIxyczMa84OVVc9Rbh2VmRSz6oe9sM69UEIxdJCbsgpGRtd+EvcCDG8RXftVqAup4+ELqB5F3hMcUXV8TZr4ezp6/tQ/JBZ45DCztQo+BJolJeEsa4c9xG+VkvksQV5jFS8lQot1ev8DV4v1fYkFR4w94y0jLW5mhoe9KqV2Y7fbG0T8enBYjZhrS1cIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCLHmR4ABAJBvJBFaZlmBAAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2022-06-01
 title: 'Octopus - Support Export'
-description: 'This step template will take an already exported project on your server and do the following:
+description: >-
+This step template will take an already exported project on your server and do the following:
 - Change all sensitive variables to plain text variables, and the values will become "Sensitive Variable Was Here"
 - All accounts will have their details nulled out
 - All certificates will have junk data put into their json
@@ -11,7 +12,7 @@ After the above is complete, the modified zip file will be attached to the task 
 
 NOTE: This step template currently DOES NOT purge any Tenant variables. If you have any Tenants connected to this project with variables you are concerned about sharing, you will need to import the modified zip into a blank space and remove the values, and re-export for now. This functionality will come in a future update to the step template.
 
-**NOTE: This template only works on Octopus Server 2021.1 and above, as it requires project import/export to be available.**'
+**NOTE: This template only works on Octopus Server 2021.1 and above, as it requires project import/export to be available.**
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -296,7 +297,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "Octopus",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/octopus-support-export.json",
   "Website": "/step-templates/de1fb4d2-5cc7-43cc-8dfc-633d63e97c92",
-  "Logo": "https://i.octopus.com/library/step-templates/octopus.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1QTFRFT6Tl////L5Pg8vj9Y67omsvwPJrisdfzfbzs5fL7y+T32Ov5isLucLXqvt31CJPHWwAABMJJREFUeNrs3deW4jAMAFDF3U75/89dlp0ZhiU4blJEjvQ8hYubLJsA00UCBCIQgQhEIAIRiEAEIhCBCEQgAhGIQAQiEIEIhD8kJm+t+QprfdKfB9HbYpx6CWfspj8HMi+gMgHL/AmQA8W3JTKH+ALFvzCeL0RbpyoCPE9IJeNOSQwh5Z3qd6yRGWQ2qi2cZQWxqj1WzQYSjeoJmJlAklOd4VlArOqPhQEkqBERToeMcfRJBkC0Uep8CfBpjz4JsHJ0zF3dkEWNje0kiB/sUC6eApndaIiCMyAa1PiwJ0AWhRGJHJJQHG2dC7h1rNbO1QOxSA7lNCkkKrQIpJCAB1GREILYIC1NAiwbpKFJgGWDNExcwGstfExcZBCHC6nOglshHtmhViLIig1RNBCN7qjtW8C0Z1UvJcC1Z9XmwMBzzvobmgAyEzgq91dtEEsBsQSQQAFZCSBAATEEEApHZbrVBIkkEIUPSVeB+KtALA0kXQUSrwKZBCIQBnk8Y4i5CsReBeKvkqLM+BCSDWJlrZFvGk9SRTHshkgjZCGAaArIxm3H3grhVzFlW2msfl1ca79UJ1bofYvsDHHlNdTZnlh5MghuPd5NdBDUNZHyCkfktIh03XzALGRPlBDPac7qgWjHZzWcmF5zmmkhidMQ6boKiDXcDTUEaylZqCGJ0Vjvu/fLJtHqhSANEvqb2OYqkOUqEHuVMbJcZdZCGiPhKhC4yjqiIjEE7XThMp8fAWII3mY3kUIQD+AMKQTzPiBhgQ63HlT/KSvgtoi0dq5mCPah1UIE0eh3sT0NhOByvKeAkFzi8PgQomumFhsyOxpIzZN4gLOj5plVwNpR0b2AuePWKBEHQu24pSsJA+LVCeHHQxZ1SiyDIdqok8IOhSSnTottHEQTdyt4ettAj4KkzA4dMikk2Dht2S5ptm1vswnPDxn0YyDZ5oDM3iToo2T5voWaYe+Q+vdjH80QyAzZhCgcDtLMI1Tmtz9w++XHgziHQHJJu/OZ3bs9Xn8gQ72NcP3dKqEfkp10F51xhoIi2I91R+LurXV/5q7pH+wx061CzO16oSQleMyr8fXvwMA0Pro8432DPD/ySx8XrHfSuDAM8n6UhnjQabaiXf5Bq/lREHvEeNtn1rJ08+C/uXkQZHeguxAPC3UvtcJYUogLzZX5hhZZvS6onG5lxXtzWGaygwb79vT/IXhdlNibwlKYOR6T8xjI7W8n+xV7T+GH4tMzWwR+lZhRkJYSsC0thpmCYqyngOz3rN2FLBZ2wZflBCggUHF0Vnp88JKienzIXLSEZCZqU7IKr/gQW9yx3pzV7Y9kvWZWTRRIqDmTtRUnU7b2lLcTYmoqHqnmiO1poER0SPkAeZMAZxaJx0Y3TCdAclsIqDz03ALcyxfTCZBsthoGXWmigGyVhWPLFJJfuuKQWycoEFdXbH4dJJoJxNR1eD/kshz6yn48cF8yW8sFoitflB1w6Q8n+/15Za7oA17/pYNmYgP5fmWm8L1NOHPWgK8kuFew1/JXtOA0yJCv7ah7X8ObUuT5kObU30+fDZm8+zqP+HTIpK0xQ796b5Kv2hSIQAQiEIEIRCACEYhABCIQgQhEIAIRiEAEIpBf8UeAAQAEjtYmlDTcCgAAAABJRU5ErkJggg==",
   "$Meta": {
     "Type": "ActionTemplate"
   }

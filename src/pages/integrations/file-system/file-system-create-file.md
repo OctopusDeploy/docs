@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2017-04-28
 title: 'File System - Create File'
-description: 'Creates a file, using the full path that is provided.'
+description: >-
+Creates a file, using the full path that is provided.
 navMenu: false
 # Set to true when launched
 navSitemap: false
@@ -122,7 +123,7 @@ To use this template in Octopus Deploy, copy the JSON below and paste it into th
   "Category": "File System",
   "HistoryUrl": "https://github.com/OctopusDeploy/Library/commits/master/step-templates//opt/buildagent/work/75443764cd38076d/step-templates/file-system-create-file.json",
   "Website": "/step-templates/175a91a9-562e-49b9-bfa6-609a4e16bc56",
-  "Logo": "https://i.octopus.com/library/step-templates/filesystem.png",
+  "Logo": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKhQTFRF/////78A/6oAVVVV/++//+q/gICA1dXV/79A/9R///ff/8MQ/9dg/8cg//vv/68A/+ef//PP//rv/7Ug/68Q/+Sv/8sw/9tw/9NQ/89w/+uv/+OP/8pg/89A/8VQ/9+f/9+A/9qP/+/P/99//7cA/7IA/7wA/6sA/+/A39/f/64A2tjX//Tfn5+f/7MA/7sA/74A/60A/9Zw/7gA/74Q/7oA/7UA/7EAi6g4fwAAAuRJREFUeNrs21tT2mAUheEvaaCQQCSczyi29WzP7f//Z6UdZBIIM44us9hf13vbC+eRbLo3qnNKKaWUUkoppZRSSimllFJKKaWUwlVrLhsvbrLqnoai2+yFr2x+fwKOwasZm/oXdEczxDQnOyYhqgn3uQpxDZhz3gdCesQ3r3mIjDfwXagj7NEgKywkXLMgSzCE9mz1wBDaOzDYETYEEUSQ/wPSaz6rQa174pDnt1x5Atm8emtPIGG48gUClJAh/XtPILi36+L3Zz6oVdBF4w32/sIbYmWH6qAPX5fzjio/14Q/W7nnqtIPDnYfFfThkGpPovXu68IhNdKSVyXkoQ7qgQypvwNVFwQDuXkP6oYM8WbYBWFDYMPNHnZBTv3tV8MuiCC+Q6K36+ypkn/LsJC4lQSkhhkQch4Qa+MgrYBahIKcB35AYrIjyEAQ9gsCm5E2GTIDQabsJysFQcZkxxj0H2LKfkGmIMjM3KgfgbBHfQSCROwnKwZByNtJsACt8WlChnRAkA7ZkaAOqyEZ0gJB7O2LRyAjsmOIutlNjnoJhD3qL9gXyyFjk6N+CKGPegSC2DsNj0DY++IlCEI/DWMQhL0vjh0GYvE0LIWwT8PEgSDsfXEEgmRmR30PYvI0LIGkRvfFAwj9NExBkIXRfXEfYvQ0PISwT8O2A0HYoz4DQb4ZPQ0PID8sj3oO8tXuvliEPJoe9Rzkk9XTcA9yZnhfLEA+mD0Ni5Ar9gvSAUE+2j0Ni5DPdk/DAuTW9L6Yg7BHfehAkC/WR30LoY96CoL8tL0v7iD0fTECQX4Z3xd3EPa+OANBflvfF58g363vi1sIfV+cgiCPPoz6Xwh71EcgyK0Xo76BsPfFBcbhrjzYF/9l/zTcxj4NWyBH7Mmo038zFvWCsCHt1HnxaCWZg8X8ifQwxjlcSvsJaHLpsGW5v2S8vo4qyymF7+5O3wOllFJKKaWUUkoppZRSSimllPKxPwIMAPj2YtijZbi5AAAAAElFTkSuQmCC",
   "$Meta": {
     "Type": "ActionTemplate"
   }
