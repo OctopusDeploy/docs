@@ -18,7 +18,7 @@ Octopus Deploy provides a full workflow to manage updates, either hands on or fu
 A Helm chart deployment like this is simple with Octopus Deploy.
 
 1. Start with the **Deploy a Helm chart** step
-2. Link it to the required Kubernetes clusters via target tags
+2. Link it to the required Kubernetes clusters via [target tags](/docs/infrastructure/deployment-targets#target-roles)
 3. Reference the desired Helm chart
 4. Configure the namespace and any values required for your application
 
