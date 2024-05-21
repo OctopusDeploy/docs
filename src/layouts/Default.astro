@@ -5,7 +5,6 @@ import { SITE } from '@config';
 import { getImageInfo } from '@util/custom-markdown.mjs';
 
 // Theme components
-import TableOfContents from '@components/TableOfContents.astro';
 import Head from '@components/HtmlHead.astro';
 import Footer from '@components/Footer.astro';
 import SkipLinks from '@components/SkipLinks.astro';
@@ -16,6 +15,7 @@ import Taxonomy from '@components/Taxonomy.astro';
 
 // Custom components
 import ArticleHeader from '../components/ArticleHeader.astro';
+import ArticleNav from '../components/ArticleNav.astro';
 import Copyright from '../components/Copyright.astro';
 import Header from '../components/Header.astro';
 import Related from '../components/Related.astro';
@@ -128,12 +128,13 @@ const showSearch = !isSearchPage;
       </main>
       <Navigation lang={lang} />
       <div class="side-nav">
-        <TableOfContents
+        <!-- <TableOfContents
           expanded={930}
           frontmatter={frontmatter}
           headings={headings}
           lang={lang}
-        />
+        /> -->
+        <ArticleNav headings={headings} lang={lang} />
       </div>
     </div>
     <Related frontmatter={frontmatter} headings={headings} lang={lang} />

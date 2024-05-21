@@ -25,8 +25,8 @@
   font-weight: 900;
   font-display: block;
   src:
-    url('fa/webfonts/fa-solid-900.woff2') format('woff2'),
-    url('fa/webfonts/fa-solid-900.ttf') format('truetype');
+    url('/docs/css/fa/webfonts/fa-solid-900.woff2') format('woff2'),
+    url('/docs/css/fa/webfonts/fa-solid-900.ttf') format('truetype');
 }
 
 @font-face {
@@ -35,8 +35,8 @@
   font-weight: 400;
   font-display: block;
   src:
-    url('fa/webfonts/fa-brands-400.woff2') format('woff2'),
-    url('fa/webfonts/fa-brands-400.ttf') format('truetype');
+    url('/docs/css/fa/webfonts/fa-brands-400.woff2') format('woff2'),
+    url('/docs/css/fa/webfonts/fa-brands-400.ttf') format('truetype');
 }
 
 :root {
@@ -146,6 +146,9 @@
 
   /* Borders TODO - update with design system */
   --border-default-color: var(--blue-200);
+
+  /* Separator */
+  --separator-color: #dae2e9;
 
   /* Icon Tile */
   --icon-tile-border: var(--border-default-color);
@@ -302,4 +305,5 @@ html[data-theme='dark'] {
   --icon-tile-border: #1c3f59;
   --icon-tile-border-hover: var(--octo-blue-lightest);
   --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
+  --separator-color: var(--navy-700);
 }
