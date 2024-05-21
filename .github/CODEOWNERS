@@ -7,6 +7,10 @@
 
 /.github/CODEOWNERS @steve-fenton-octopus @tonykelly-octopus
 
+# Owners of the dictionary-octopus.txt file
+
+/dictionary-octopus.txt @steve-fenton-octopus
+
 # credits updates get reviewed by michaelnoonan and jburger for open source license compliance
 
 /docs/credits.md @michaelnoonan @jburger
@@ -355,9 +359,9 @@
 
 /docs/octopus-rest-api/cli/ @OctopusDeploy/team-modern-deployments
 
-# updates to the openid connect page are reviewed by team-github
+# updates to the openid connect page are reviewed by team-devex
 
-/docs/octopus-rest-api/openid-connect/index.md @OctopusDeploy/team-github
+/docs/octopus-rest-api/openid-connect/index.md @OctopusDeploy/team-devex
 
 # updates to the administration section are reviewed by team-backend-foundations
 

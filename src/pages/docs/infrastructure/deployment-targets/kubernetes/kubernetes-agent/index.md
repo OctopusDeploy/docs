@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
-modDate: 2024-04-22
+modDate: 2024-05-15
 title: Kubernetes agent
 navTitle: Overview
 navSection: Kubernetes agent
@@ -31,9 +31,11 @@ As the agent is running in the cluster, it can retrieve the cluster's version an
 
 ## Requirements
 
-The Kubernetes agent is supported on the following versions:
-* Octopus Server **2024.2.6580** or newer
-* Kubernetes **1.26** to **1.29** (inclusive)
+The Kubernetes agent follows [semantic versioning](https://semver.org/), so a major agent version is locked to a Octopus Server version range. Updating to the latest major agent version requires updating to a supported Octopus Server. The supported versions for each agent major version are:
+
+| Kubernetes agent | Octopus Server           | Kubernetes cluster   |
+| ---------------- | ------------------------ | -------------------- |
+| 1.\*.\*          | **2024.2.6580** or newer | **1.26** to **1.29** |
 
 Additionally, the Kubernetes agent only supports **Linux AMD64** and **Linux ARM64** Kubernetes nodes.
 
@@ -46,7 +48,7 @@ To simplify this, there is an installation wizard in Octopus to generate the req
 :::div{.warning}
 Helm will use your current kubectl config, so make sure your kubectl config is pointing to the correct cluster before executing the following helm commands.
 You can see the current kubectl config by executing:
-```
+```bash
 kubectl config view
 ```
 :::
@@ -85,6 +87,13 @@ A requirement of using the NFS pod is the installation of the [NFS CSI Driver](h
 ![Kubernetes Agent Wizard NFS CSI Page](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-nfs.png)
 :::
 
+:::div{.warning}
+If you receive an error with the text `failed to download` or `no cached repo found` when attempting to install the NFS CSI driver via helm, try executing the following command and then retrying the install command:
+```bash
+helm repo update
+```
+:::
+
 ### Installation helm command
 
 At the end of the wizard, Octopus generates a Helm command that you copy and paste into a terminal connected to the target cluster. After it's executed, Helm installs all the required resources and starts the agent.
@@ -111,6 +120,48 @@ If left open, the installation dialog waits for the agent to establish a connect
 A successful health check indicates that deployments can successfully be executed.
 :::
 
+## Upgrading the Kubernetes agent
+
+The Kubernetes agent can be upgraded automatically by Octopus Server, manually in the the Octopus portal or via a `helm` command.
+
+### Automatic updates
+
+:::div{.hint}
+Automatic updating was added in 2024.2.8584
+:::
+
+By default, the Kubernetes agent is automatically updated by Octopus Server when a new version is released. These version checks typically occur after a health check. When an update is required, Octopus will start a task to update the agent to the latest version.
+
+This behavior is controlled by the [Machine Policy](/docs/infrastructure/deployment-targets/machine-policies) associated with the agent. You can change this behavior to **Manually** in the [Machine policy settings](/docs/infrastructure/deployment-targets/machine-policies#configure-machine-updates).
+
+### Manual updating via Octopus portal
+
+To check if a Kubernetes agent can be manually upgraded, navigate to the **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Connectivity** page. If the agent can be upgraded, there will be an *Upgrade available* banner. Clicking **Upgrade to latest** button will trigger the upgrade via a new task. If the upgrade fails, the previous version of the agent is restored.
+
+:::figure
+![Kubernetes Agent updated interface](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-portal.png)
+:::
+
+### Helm upgrade command
+
+To upgrade a Kubernetes agent via `helm`, note the following fields from the **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Connectivity** page:
+* Helm Release Name
+* Namespace
+
+Then, from a terminal connected to the cluster containing the instance, execute the following command:
+
+```bash
+helm upgrade --atomic --namespace NAMESPACE HELM_RELEASE_NAME oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+```
+__Replace NAMESPACE and HELM_RELEASE_NAME with the values noted__
+
+If after the upgrade command has executed, you find that there is issues with the agent, you can rollback to the previous helm release by executing:
+
+```bash
+helm rollback --namespace NAMESPACE HELM_RELEASE_NAME
+```
+
+
 ## Uninstalling the Kubernetes agent
 
 To fully remove the Kubernetes agent, you need to delete the agent from the Kubernetes cluster as well as delete the deployment target from Octopus Deploy
@@ -120,27 +171,3 @@ The deployment target deletion confirmation dialog will provide you with the com
 :::figure
 ![Kubernetes Agent delete dialog](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-delete-dialog.png)
 :::
-
-## Troubleshooting
-
-### Helm command fails with context deadline exceeded
-
-The generated helm commands use the [`--atomic`](https://helm.sh/docs/helm/helm_upgrade/#options) flag, which automatically rollbacks the changes if it fails to execute within a specified timeout (default 5 min).
-
-If the helm command fails, then it may print an error message containing context deadline exceeded
-This indicates that the timeout was exceeded and the Kubernetes resources did not correctly start.
-
-To help diagnose these issues, the `kubectl` command [`describe`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_describe/) can be used _while the helm command is executing_ to help debug any issues.
-
-#### NFS install command
-
-```
-kubectl describe pods -l app.kubernetes.io/name=csi-driver-nfs -n kube-system
-```
-
-#### Agent install command
-
-```
-kubectl describe pods -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
-```
-_Replace `[NAMESPACE]` with the namespace in the agent installation command_

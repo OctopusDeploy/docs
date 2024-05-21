@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Update Amazon ECS Service
 description: Update an existing Amazon ECS Service.
 ---
@@ -54,9 +54,9 @@ The benefits of using deployment targets for ECS are outlined in the [ECS RFC bl
 
 Add the `Update Amazon ECS Service` step to the project, and provide it a name.
 
-As the step is using a deployment target a target role will also need to be specified.
-The role will be used to determine which ECS cluster to deploy to.
-Use the same role that you applied to your deployment target in Step 2.
+As the step is using a deployment target a [target tag](/docs/infrastructure/deployment-targets/#target-roles) will also need to be specified.
+The tag will be used to determine which ECS cluster to deploy to.
+Use the same tag that you applied to your deployment target in Step 2.
 
 :::figure
 ![Update ECS Step General Settings](/docs/deployments/aws/ecs-update-service/images/update-ecs-general-settings.png)

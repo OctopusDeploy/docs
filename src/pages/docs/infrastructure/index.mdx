@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-05-08
 title: Infrastructure
 navTitle: Overview
 navSection: Infrastructure
@@ -13,36 +13,32 @@ hideInThisSection: true
 import DeploymentTargets from "src/shared-content/infrastructure/deployment-targets.include.mdx";
 import Image from "src/components/Image.astro";
 
-With Octopus Deploy the machines and services you deploy your software to are managed on the **Infrastructure** tab of the Octopus Web Portal:
+Octopus lets you map and organize your infrastructure, keeping it separate from your deployment process. Instead of hard-coding machines or resource names in your process, you can configure steps to run on targets based on tags called target tags. This means you don't have to change your deployment process when you add or remove hosting resources.
 
-<Image
-  src="/docs/infrastructure/images/infrastructure.png"
-  alt="The infrastructure tab of Octopus Deploy"
-/>
+You assign deployment targets to an environment and you can set up a lifecycle that represents the sequence of environments.
 
-## Deployment Targets
+Target tags also make applying the same process to all environments easier. The table below shows a matrix of target tags and environments, with environments having different resource sets. Deployments proceed in an orderly fashion across the matrix.
 
-<DeploymentTargets />
+| | <div style="width:175px">Development</div> | <div style="width:175px">Staging</div> | Production |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------------ | -------------- |
+| Web tag                | Dev-Target-1     | Staging-Target-1<br />Staging-Target-2     | Production-Target-1<br />Production-Target-2<br />Production-Target-3 |
+| API tag | Dev-Target-2     | Staging-Target-3<br />Staging-Target-4     | Production-Target-4<br />Production-Target-5 |
+| Database tag | Dev-Target-3 | Staging-Target-5 | Production-Target-6<br />Production-Target-7 |
 
-Learn more about [deployment targets](/docs/infrastructure/deployment-targets).
+You can manage the machines and services you deploy your software to on the **Infrastructure** tab of the Octopus Web Portal:
 
-## Environments
+:::figure
+![](/docs/infrastructure/images/infrastructure-overview-dashboard.png)
+:::
 
-Before you can add your deployment targets to Octopus, you need to configure your [environments](/docs/infrastructure/environments). Environments represent the different stages of your deployment pipeline and ensure that the software that's deployed is the same as it moves through those stages from, for instance, **development**, into **test**, and finally to **production**.
+There are a few key infrastructure concepts in Octopus Deploy:
 
-Typical environments include:
-
-- Development
-- Test
-- Production
-
-You can add as many or as few environments as you require in your deployment pipeline, and you can add as many deployment targets to each environment as you need.
-
-Learn more about [environments](/docs/infrastructure/environments).
-
-## Workers
-
-[Workers](/docs/infrastructure/workers) are machines that are used to execute tasks that don't need to be performed on the Octopus Server or specific deployment targets. Examples of such tasks include deploying a package to an API or running a script. You can register multiple workers and assign them to worker pools.
+- [Environment](/docs/infrastructure/environments): The infrastructure used to run software for a specific purpose, like testing, staging, or production.
+- [Lifecycle](/docs/getting-started/best-practices/lifecycles-and-environments): A sequence of environments through which software progresses to production.
+  - Phase: An ordered step in a lifecycle, with environments and progression rules.
+- [Deployment target](/docs/infrastructure/deployment-targets): A server, platform, or serverless function that runs your software.
+  - [Tentacle](/docs/infrastructure/deployment-targets/tentacle): A lightweight deployment agent that runs on [Windows](/docs/infrastructure/deployment-targets/tentacle/windows) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux) servers.
+  - [Target tag](/docs/infrastructure/deployment-targets#target-roles): A tag that defines a purpose for the deployment target, which can be used to deploy particular components to a set of targets.
 
 ## Learn more
 
@@ -50,3 +46,4 @@ Learn more about [environments](/docs/infrastructure/environments).
 - [Deployment targets](/docs/infrastructure/deployment-targets)
 - [Workers](/docs/infrastructure/workers)
 - [Accounts](/docs/infrastructure/accounts)
+- [Signing keys](/docs/infrastructure/signing-keys)

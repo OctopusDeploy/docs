@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-30
+modDate: 2024-05-09
 title: Kubernetes API
 description: How to configure a Kubernetes cluster as a deployment target in Octopus
 navOrder: 20
@@ -178,7 +178,7 @@ To make use of the Kubernetes steps, the Octopus Server or workers that will run
 11. Click **SAVE**.
 
 :::div{.warning}
-Setting the Worker Pool directly on the Deployment Target will override the Worker Pool defined in a Deployment Process.  
+Setting the Worker Pool in a Deployment Process will override the Worker Pool defined directly on the Deployment Target.  
 :::
 
 ## Create service accounts
@@ -269,6 +269,15 @@ kubectl get secret $(kubectl get serviceaccount jenkins-deployer -o jsonpath="{.
 ```
 
 The token can then be saved as a Token Octopus account, and assigned to the Kubernetes target.
+
+:::div{.warning}
+Kubernetes versions 1.24+ no longer automatically create tokens for service accounts and they need to be manually created using the **create token** command:
+```bash
+kubectl create token jenkins-deployer
+```
+
+From Kubernetes version 1.29, a warning will be displayed when using automatically created Tokens. Make sure to rotate any Octopus Token Accounts to use manually created tokens via **create token** instead.   
+:::
 
 ## Kubectl
 
