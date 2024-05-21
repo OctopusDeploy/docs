@@ -108,7 +108,7 @@
   --color-menu-link-alt: var(--blue-500);
   --color-menu-marker: var(--navy-300);
   --bg-color-menu: var(--blue-qqq);
-  --bg-color-menu-open: var(--background-light);
+  --bg-color-menu-open: rgba(13, 128, 216, 0.1);
   --border-color-menu-open: var(--navy-200);
   --gap-menu: 0.6em;
 

@@ -28,23 +28,47 @@ stats.stop();
       data-article-nav
       aria-label={_(Translations.aria.toc)}
     >
-      <h2 class="article-nav__title">{_(Translations.toc.title)}</h2>
-      <Separator />
-      <ol class="article-nav__list">
-        {headings.map((heading) => (
-          <li
-            class={`article-nav__item article-nav__item--level-${heading.depth}`}
-          >
-            <a
-              href={`#${heading.slug}`}
-              class="article-nav__link"
-              data-article-link
+      <details class="article-nav__details" open>
+        <summary class="article-nav__title">
+          {_(Translations.toc.title)}
+        </summary>
+        <Separator />
+        <ol class="article-nav__list">
+          {headings.map((heading) => (
+            <li
+              class={`article-nav__item article-nav__item--level-${heading.depth}`}
             >
-              {heading.text}
-            </a>
-          </li>
-        ))}
-      </ol>
+              <a
+                href={`#${heading.slug}`}
+                class="article-nav__link"
+                data-article-link
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </details>
     </nav>
   )
 }
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const detailsElement = document.querySelector('.article-nav__details');
+
+    const updateDetailsState = () => {
+      const desktopWidth = 1130;
+      if (detailsElement) {
+        if (window.innerWidth >= desktopWidth) {
+          detailsElement.setAttribute('open', '');
+        } else {
+          detailsElement.removeAttribute('open');
+        }
+      }
+    };
+
+    updateDetailsState();
+    window.addEventListener('resize', updateDetailsState);
+  });
+</script>

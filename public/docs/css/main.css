@@ -29,6 +29,9 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-base-primary);
+  transition-property: background-color, color;
+  transition-duration: var(--duration-default);
+  transition-timing-function: ease-in-out;
 }
 
 body.no-scroll {
@@ -477,6 +480,8 @@ nav.skip-links a:focus {
   top: 0;
   /* z-index due to conflict with octo-title-bkg */
   z-index: 11;
+  background-color: var(--color-base-primary);
+  transition: background-color var(--duration-default) ease-in-out;
 }
 
 .octo-header {
@@ -741,12 +746,43 @@ nav.skip-links a:focus {
 
 @media (max-width: 1130px) {
   .article-nav {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 }
 
-.article-nav .separator {
-  margin: 1rem 0 0.69rem;
+.article-nav .article-nav__details .article-nav__title::marker {
+  content: '';
+  display: none;
+}
+
+.article-nav .article-nav__details .article-nav__title::after {
+  content: '\f078';
+  font-family: fa-solid;
+  float: right;
+  transition: transform var(--duration-default) ease-in-out;
+  display: none;
+}
+
+.article-nav .article-nav__details[open] .article-nav__title::after {
+  transform: rotate(180deg);
+}
+
+.article-nav__title {
+  pointer-events: none;
+}
+
+@media (max-width: 1130px) {
+  .article-nav__title {
+    pointer-events: auto;
+  }
+
+  .article-nav .article-nav__details .article-nav__title::after {
+    content: '\f078';
+    font-family: fa-solid;
+    float: right;
+    transition: transform var(--duration-default) ease-in-out;
+    display: block;
+  }
 }
 
 .article-nav__title {
@@ -755,6 +791,11 @@ nav.skip-links a:focus {
   font-size: var(--font-size-medium);
   font-weight: 700;
   text-transform: uppercase;
+  text-decoration: none;
+}
+
+.article-nav .separator {
+  margin: 1rem 0 0.69rem;
 }
 
 .article-nav__list {
@@ -1047,11 +1088,12 @@ nav.skip-links a:focus {
   background-color: var(--bg-color-menu);
   height: calc(100vh - 82px);
   top: 82px;
+  transition: background-color var(--duration-default) ease-in-out;
 }
 
 .side-nav {
   margin-block-start: 10vh;
-  height: calc(100vh - 82px);
+  height: calc(100vh - 82px - 10.625rem);
   top: 10.625rem;
 }
 
@@ -1063,6 +1105,10 @@ nav.skip-links a:focus {
 
 .site-nav ul {
   padding-inline-start: var(--page-inline-margin);
+}
+
+.site-nav > .site-nav__list {
+  padding: 1.81rem 2rem 2rem 2.31rem;
 }
 
 .site-nav li,
@@ -1083,10 +1129,13 @@ nav.skip-links a:focus {
   text-decoration: none;
   color: var(--color-menu-link);
   border-radius: var(--standard-radius);
+  font-size: var(--font-size-medium);
+  font-weight: 400;
 }
 
 .site-nav .sub-nav[open] > .sub-nav__summary .sub-nav__summary-title {
   color: var(--color-menu-link-active);
+  font-family: var(--bold-font);
   font-weight: 700;
 }
 
@@ -1099,6 +1148,21 @@ nav.skip-links a:focus {
   padding-inline: 0.8em;
   position: relative;
   left: -0.8em;
+}
+
+/* TODO: refactor selectors for site-nav */
+.sub-nav__summary-title,
+li.has-children .sub-nav ul li > a {
+  transition-property: color, transform;
+  transition-duration: var(--duration-default);
+  transition-timing-function: ease-in-out;
+}
+
+.sub-nav__summary:hover .sub-nav__summary-title,
+li.has-children .sub-nav ul li:hover > a,
+.sub-nav__summary:focus .sub-nav__summary-title,
+li.has-children .sub-nav ul li:focus > a {
+  transform: translateX(0.25rem);
 }
 
 .site-nav a:hover,
@@ -1120,7 +1184,12 @@ nav.skip-links a:focus {
   left: -1px;
 }
 
-.site-nav details[open] {
+/* .site-nav details[open] {
+  border-inline-start: 1px solid var(--border-color-menu-open);
+} */
+
+.site-nav details[open] > .site-nav__list--sub {
+  margin: 1.38rem 0;
   border-inline-start: 1px solid var(--border-color-menu-open);
 }
 
@@ -1193,7 +1262,7 @@ nav.skip-links a:focus {
     height: var(--navbar-icon-size);
   }
 }
-.site-nav__list {
+.site-nav > .site-nav__list {
   /* 100vh - header & theme switcher */
   height: calc(100vh - 10.625rem);
   overflow-y: scroll;
@@ -2025,6 +2094,7 @@ a[data-youtube] {
   background-color: var(--color-base-primary);
   position: relative;
   z-index: 1;
+  transition: background-color var(--duration-default) ease-in-out;
 }
 
 .site-search-results {
