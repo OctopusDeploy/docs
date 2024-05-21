@@ -79,6 +79,7 @@ fieldset
 figcaption
 filestore
 FIPS
+fontawesome
 frontmatter
 gcloud
 getenv
@@ -161,6 +162,8 @@ nologo
 nologs
 noninteractive
 NOPASSWD
+noopener
+noreferrer
 nosniff
 NTLM
 nupkg
@@ -300,4 +303,6 @@ workertools
 xlarge
 xmark
 xvzf
+xxlarge
 YOURAPIKEY
+youtu

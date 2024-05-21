@@ -19,6 +19,7 @@
         "docs/credits.md",
         "src/pages/report/**",
         "public/docs/js/**",
-        "node_modules/**"
+        "node_modules/**",
+        "public/docs/css/fa/**"
     ]
 }
