@@ -13,6 +13,20 @@ Your existing [lifecycles](/docs/releases/lifecycles/) will then promote that re
 
 The details of these container images and Helm Charts are already known in Octopus. This means we can use the registry locations, image names, chart names, and credentials to do this monitoring, without adding or maintaining this information anywhere else.
 
+## Common use cases
+
+- [Automated deployments with Helm charts](/docs/deployments/kubernetes/helm-update#setting-up-referenced-images-with-helm-chart-deployments)
+
+  Create releases when any referenced images used in your Helm charts are updated.
+
+- [Tracking third party Helm charts](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts)
+
+  Create releases whenever a third party releases a new Helm chart.
+
+- [Deployments with YAML manifests](/docs/deployments/kubernetes/deploy-raw-yaml#referencing-packages)
+
+  Create releases for a deployment referencing any number of images.
+
 ## Getting started {#ExternalFeedTriggers-GettingStarted}
 
 Navigate to your project’s triggers page by selecting Projects and clicking on the project you are working with. Click **Triggers** option on the left, under **Deployments**. You are now presented with an empty triggers list.
@@ -39,7 +53,6 @@ Unlike the existing [built-in package repository triggers](/docs/projects/projec
 
 A preview of the [lifecycle](/docs/releases/lifecycles) used by the selected channel is displayed. You can modify the [lifecycles phases](/docs/releases/lifecycles/#Lifecycles-LifecyclePhases) to have a release created and deployed to selected environments whenever a new package is pushed.
 
-
 ## Trigger sources
 
 Any container images or Helm Charts referenced in your project's deployment process can be selected to trigger release creation.
@@ -49,7 +62,6 @@ Please note that for [configuration as code](/docs/projects/version-control/conf
 :::figure
 ![Package selection](/docs/projects/project-triggers/images/external-feed-trigger-packages.png)
 :::
-
 
 ## History
 
@@ -68,13 +80,11 @@ If the trigger has created a release, a link to the created release will be show
 
 If required, more detailed information can be found in the system task logs.
 
-
 ## Advanced use cases
 
 Feeds or packages referenced using variable substitution are able to be leveraged with external feed triggers. They will only be used by the trigger, however, if they are evaluated as either container or Helm Chart repositories, and also do not use variable unavailable at release creation time. For example, using an environment name variable will not work, because that value is only available at the time of deployment.
 
 If you have a chain of dependencies with your external feed packages, make sure your trigger uses the package which will be pushed to its repository last.
-
 
 ## Troubleshooting {#ExternalFeedTriggers-Troubleshooting}
 
