@@ -691,11 +691,11 @@ A JSON array of `ReleaseChanges` objects. These can be iterated over and the pro
 
 `Octopus.Deployment.WorkItems`
 
-The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-notes/). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking) is enabled. This will be JSON (see below).
+The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-changes/). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking) is enabled. This will be JSON (see below).
 
 `Octopus.Deployment.PackageBuildInformation`
 
-The distinct list of package [build information](/docs/packaging-applications/build-servers/build-information/) across all [changes in the deployment](/docs/releases/deployment-notes/). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information) has been pushed. This will be JSON (see below).
+The distinct list of package [build information](/docs/packaging-applications/build-servers/build-information/) across all [changes in the deployment](/docs/releases/deployment-changes/). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information) has been pushed. This will be JSON (see below).
 
 The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChanges` objects matching the following C# classes:
 
