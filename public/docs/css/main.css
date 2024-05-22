@@ -160,26 +160,31 @@ h6 {
   padding: 2rem 0 0.5rem 0;
   font-family: var(--heading-font);
   letter-spacing: -0.02em;
+  transition: color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 h2 {
-  font-size: 2.25rem;
+  font-size: var(--font-size-xlarge);
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: var(--font-size-large);
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: var(--font-size-regular);
 }
 
 h5 {
-  font-size: 1rem;
+  font-size: var(--font-size-medium);
 }
 
 h6 {
-  font-size: 0.875rem;
+  font-size: var(--font-size-small);
 }
 
 img {
@@ -488,7 +493,7 @@ nav.skip-links a:focus {
   transition: background-color var(--duration-default) ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
-    transition-property: none;
+    transition: none;
   }
 }
 
@@ -591,6 +596,13 @@ nav.skip-links a:focus {
   font-size: var(--font-size-small);
   font-weight: 600;
   line-height: 138%;
+  transition-property: background-color, color;
+  transition-timing-function: ease-in-out;
+  transition-duration: var(--duration-default);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: none;
+  }
 }
 
 .badge--brand {
@@ -706,6 +718,11 @@ nav.skip-links a:focus {
   height: 0.0625rem;
   background-color: var(--separator-color);
   margin: 3rem 0 3.75rem;
+  transition: background-color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 /* Link */
@@ -800,6 +817,11 @@ nav.skip-links a:focus {
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
+  transition: color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .article-nav .separator {
@@ -1070,6 +1092,11 @@ nav.skip-links a:focus {
 .site-breadcrumbs a {
   color: var(--color-menu-link);
   text-decoration: none;
+  transition: color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .site-breadcrumbs a:hover,
@@ -1373,6 +1400,11 @@ li.has-children .sub-nav ul li:focus > a {
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--header-separator-color);
   margin-bottom: 1.56rem;
+  transition: border-color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .header__icon-wrapper {
@@ -1428,11 +1460,21 @@ li.has-children .sub-nav ul li:focus > a {
   color: var(--color-text);
   font-size: var(--font-size-title);
   font-weight: 700;
+  transition: color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .header__subtitle {
   color: var(--color-subtitle);
   font-size: var(--font-size-subtitle);
+  transition: color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 /* Article header END */
