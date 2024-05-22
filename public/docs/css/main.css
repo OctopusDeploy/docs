@@ -32,6 +32,10 @@ body {
   transition-property: background-color, color;
   transition-duration: var(--duration-default);
   transition-timing-function: ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: none;
+  }
 }
 
 body.no-scroll {
@@ -482,6 +486,10 @@ nav.skip-links a:focus {
   z-index: 11;
   background-color: var(--color-base-primary);
   transition: background-color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: none;
+  }
 }
 
 .octo-header {
@@ -820,6 +828,10 @@ nav.skip-links a:focus {
   transition-property: font-weight, color, transform;
   transition-timing-function: ease-in-out;
   transition-duration: var(--duration-default);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: none;
+  }
 }
 
 .article-nav__link.highlight,
@@ -1089,6 +1101,10 @@ nav.skip-links a:focus {
   height: calc(100vh - 82px);
   top: 82px;
   transition: background-color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .side-nav {
@@ -1156,6 +1172,10 @@ li.has-children .sub-nav ul li > a {
   transition-property: color, transform;
   transition-duration: var(--duration-default);
   transition-timing-function: ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: none;
+  }
 }
 
 .sub-nav__summary:hover .sub-nav__summary-title,
@@ -1367,6 +1387,13 @@ li.has-children .sub-nav ul li:focus > a {
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
+  transition-property: background-color, border;
+  transition-duration: var(--search-dropdown-duration);
+  transition-timing-function: ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: none;
+  }
 }
 
 .header__icon-wrapper:after {
@@ -2052,6 +2079,10 @@ a[data-youtube] {
   width: 100%;
   max-width: 34.75rem;
   transition: max-width var(--search-dropdown-duration) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 @media screen and (min-width: 1131px) {
@@ -2095,6 +2126,10 @@ a[data-youtube] {
   position: relative;
   z-index: 1;
   transition: background-color var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .site-search-results {

@@ -17,7 +17,7 @@ import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
 import Separator from 'src/components/Separator.astro';
 
-# Component Usage Guide
+## Component Usage Guide
 
 This guide is designed specifically to understand how to incorporate and utilize new components within articles effectively. This resource is not publicly available and can only be accessed through direct links shared within our editorial team.
 
@@ -129,102 +129,6 @@ The Card component displays content in a card format, suitable for highlights, f
 	</div>
 </div>
 
-### Grid
-#### 2 columns
-
-<div>
-	<div class="docs-home simple-grid">
-		<Card
-			imgAlt="Example Alt Text"
-			imgSrc="/docs/img/octopus-deploy-logo.png"
-			link="https://www.youtube.com/watch?v=example"
-			title="Watch Our Tutorial"
-			variant="related-topics"
-		/>
-		<Card
-			imgAlt="Example Alt Text"
-			imgSrc="/docs/img/octopus-deploy-logo.png"
-			link="https://www.youtube.com/watch?v=example"
-			title="Watch Our Tutorial"
-			variant="related-topics"
-		/>
-	</div>
-	<div>
-		```
-		<div class="docs-home simple-grid">
-			<Card
-				imgAlt="Example Alt Text"
-				imgSrc="/docs/img/octopus-deploy-logo.png"
-				link="https://www.youtube.com/watch?v=example"
-				title="Watch Our Tutorial"
-				variant="related-topics"
-			/>
-			<Card
-				imgAlt="Example Alt Text"
-				imgSrc="/docs/img/octopus-deploy-logo.png"
-				link="https://www.youtube.com/watch?v=example"
-				title="Watch Our Tutorial"
-				variant="related-topics"
-			/>
-		</div>
-		```
-	</div>
-</div>
-#### 3 columns
-
-<div>
-	<div class="docs-home simple-grid-3">
-		<IconTile
-			description="Learn more about deploying"
-			iconSrc="/docs/img/octopus.svg"
-			iconAlt="Example Alt Text"
-			link="/docs/deployments/kubernetes"
-			title="Deployments"
-		/>
-		<IconTile
-			description="Learn more about deploying"
-			iconSrc="/docs/img/octopus.svg"
-			iconAlt="Example Alt Text"
-			link="/docs/deployments/kubernetes"
-			title="Deployments"
-		/>
-		<IconTile
-			description="Learn more about deploying"
-			iconSrc="/docs/img/octopus.svg"
-			iconAlt="Example Alt Text"
-			link="/docs/deployments/kubernetes"
-			title="Deployments"
-		/>
-	</div>
-	<div>
-		```
-		<div class="docs-home simple-grid-3">
-			<IconTile
-				description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-				iconSrc="/docs/img/octopus.svg"
-				iconAlt="Example Alt Text"
-				link="/docs/deployments/kubernetes"
-				title="Kubernetes Deployment"
-			/>
-			<IconTile
-				description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-				iconSrc="/docs/img/octopus.svg"
-				iconAlt="Example Alt Text"
-				link="/docs/deployments/kubernetes"
-				title="Kubernetes Deployment"
-			/>
-			<IconTile
-				description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-				iconSrc="/docs/img/octopus.svg"
-				iconAlt="Example Alt Text"
-				link="/docs/deployments/kubernetes"
-				title="Kubernetes Deployment"
-			/>
-		</div>
-		```
-	</div>
-</div>
-
 ### IconTile
 
 The IconTile component is used for creating clickable tiles with an icon, a title, and a description.
@@ -329,6 +233,105 @@ The Link component is designed to provide a standardized way to display links wi
 	<div>
 		```
 		<Separator />
+		```
+	</div>
+</div>
+
+
+
+## Layout
+### Grid
+#### 2 columns
+
+<div>
+	<div class="docs-home simple-grid">
+		<Card
+			imgAlt="Example Alt Text"
+			imgSrc="/docs/img/octopus-deploy-logo.png"
+			link="https://www.youtube.com/watch?v=example"
+			title="Watch Our Tutorial"
+			variant="related-topics"
+		/>
+		<Card
+			imgAlt="Example Alt Text"
+			imgSrc="/docs/img/octopus-deploy-logo.png"
+			link="https://www.youtube.com/watch?v=example"
+			title="Watch Our Tutorial"
+			variant="related-topics"
+		/>
+	</div>
+	<div>
+		```
+		<div class="docs-home simple-grid">
+			<Card
+				imgAlt="Example Alt Text"
+				imgSrc="/docs/img/octopus-deploy-logo.png"
+				link="https://www.youtube.com/watch?v=example"
+				title="Watch Our Tutorial"
+				variant="related-topics"
+			/>
+			<Card
+				imgAlt="Example Alt Text"
+				imgSrc="/docs/img/octopus-deploy-logo.png"
+				link="https://www.youtube.com/watch?v=example"
+				title="Watch Our Tutorial"
+				variant="related-topics"
+			/>
+		</div>
+		```
+	</div>
+</div>
+#### 3 columns
+
+<div>
+	<div class="docs-home simple-grid-3">
+		<IconTile
+			description="Learn more about deploying"
+			iconSrc="/docs/img/octopus.svg"
+			iconAlt="Example Alt Text"
+			link="/docs/deployments/kubernetes"
+			title="Deployments"
+		/>
+		<IconTile
+			description="Learn more about deploying"
+			iconSrc="/docs/img/octopus.svg"
+			iconAlt="Example Alt Text"
+			link="/docs/deployments/kubernetes"
+			title="Deployments"
+		/>
+		<IconTile
+			description="Learn more about deploying"
+			iconSrc="/docs/img/octopus.svg"
+			iconAlt="Example Alt Text"
+			link="/docs/deployments/kubernetes"
+			title="Deployments"
+		/>
+	</div>
+	<div>
+		```
+		<div class="docs-home simple-grid-3">
+			<IconTile
+				description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
+				iconSrc="/docs/img/octopus.svg"
+				iconAlt="Example Alt Text"
+				link="/docs/deployments/kubernetes"
+				title="Kubernetes Deployment"
+			/>
+			<IconTile
+				description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
+				iconSrc="/docs/img/octopus.svg"
+				iconAlt="Example Alt Text"
+				link="/docs/deployments/kubernetes"
+				title="Kubernetes Deployment"
+			/>
+			<IconTile
+				description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
+				iconSrc="/docs/img/octopus.svg"
+				iconAlt="Example Alt Text"
+				link="/docs/deployments/kubernetes"
+				title="Kubernetes Deployment"
+			/>
+		</div>
 		```
 	</div>
 </div>
