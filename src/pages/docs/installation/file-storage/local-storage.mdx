@@ -8,9 +8,16 @@ navOrder: 10
 hideInThisSection: true
 ---
 
-import HighAvailabilitySharedStorageOverview from 'src/shared-content/administration/high-availability-shared-storage-overview.include.md';
+When you opt to store the binary files on a local storage device, there are a few items to keep in mind:
 
-<HighAvailabilitySharedStorageOverview />
+- When Octopus is hosted on Windows
+  - A mapped network drive e.g. `X:\`
+  - A UNC path to a file share e.g. `\\server\share`
+  - A [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, e.g. `C:\OctopusShared\Artifacts <<===>> \\server\share\Artifacts` 
+- When Octopus is hosted as a container
+  - Can be mounted as a volume on a container.
+- The service account that Octopus runs needs **full control** over the directory.
+- Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under.
 
 The simplest way to provide shared storage, assuming the Octopus Server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 

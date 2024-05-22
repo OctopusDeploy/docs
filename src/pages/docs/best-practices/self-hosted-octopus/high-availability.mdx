@@ -118,8 +118,9 @@ The Octopus Server nodes host and run the Octopus Server service. We support run
 
 How to install and configure Octopus Deploy on these nodes is outside the scope of this implementation guide. You can find detailed instructions in the links below.
 
-- [Installing Octopus on Windows](/docs/installation/requirements)
+- [Installing Octopus on Windows](/docs/installation#install-octopus)
 - [Running Octopus on Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes)
+- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container)
 
 Regardless of the host, you'll need to determine how many nodes you want in your HA cluster and how much compute resources each node needs.
 
@@ -147,12 +148,7 @@ In our research the biggest limiting factor in processing concurrent tasks is th
 
 ### Database
 
-Octopus Deploy stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. You have many options to consider. We recommend picking the option based on where you plan on hosting Octopus Deploy. 
-
-- [SQL Server on a Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview/)
-- [Amazon RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/)
-- [Azure SQL Database as a Service](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview/)
-- [GCP Cloud SQL Database](https://cloud.google.com/sql/sqlserver)
+Octopus Deploy stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. You can host that SQL Database on a local SQL server, or use one of the many popular cloud providers. We recommend picking the option based on where you plan on hosting Octopus Deploy. 
 
 #### Database Compute Resources
 
@@ -168,18 +164,27 @@ The amount of compute resources to assign the databases is based on the total am
 
 #### Database High Availability
 
-Since the database is shared, the database server must be also highly available. Octopus Deploy supports a variety of SQL Server editions, from SQL Server Express up to Enterprise as well as managed SQL Server. How the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them. There are many [options for high availability with SQL Server](https://msdn.microsoft.com/en-us/library/ms190202.aspx), and [Brent Ozar also has a fantastic set of resources on SQL Server Failover Clustering](http://www.brentozar.com/sql/sql-server-failover-cluster/) if you are looking for an introduction and practical guide to setting it up.
+Since the database is shared, the database server must be also highly available. Octopus Deploy supports a variety of SQL Server editions, from SQL Server Express up to Enterprise as well as managed SQL Server. How the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them.
 
 Octopus High Availability works with:
 
 - [SQL Server Failover Clusters](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
 - [SQL Server Always On Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
 
+Each of the popular cloud providers provides some version of SQL Server Always On Availability groups.  Please see the links to the implementation guides below for details for your specific cloud provider.
+
 :::div{.warning}
 Octopus High Availability has not been tested with Log Shipping or Database Mirroring and does not support SQL Server replication.
 :::
 
-See also the [SQL Server Database](/docs/installation/sql-server-database) page, which explains the editions and versions of SQL Server that Octopus supports and explains the requirements for how the database must be configured.
+#### Database Implementation Guides
+
+If you wish to learn more about how to configure Octopus Deploy with a specific hosting option, please refer to our installation guides.
+
+- [Local SQL Server](/docs/installation/sql-database/local-sql-server)
+- [AWS RDS](/docs/installation/sql-database/aws-rds)
+- [Azure SQL](/docs/installation/sql-database/azure-sql)
+- [GCP SQL](/docs/installation/sql-database/gcp-sql)
 
 ### File Storage
 
@@ -198,18 +203,17 @@ Whichever way you provide the shared storage, there are a few considerations to 
 - To Octopus, it needs to appear as either:
   - A mapped network drive e.g. `X:\`
   - A UNC path to a file share e.g. `\\server\share`
-  - A [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, e.g. 
-
-    `C:\OctopusShared\Artifacts <<===>> \\server\share\Artifacts` 
+  - A [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, e.g. `C:\OctopusShared\Artifacts <<===>> \\server\share\Artifacts` 
+  - For Linux containers they need to be a volume mount.
 - The service account that Octopus runs needs **full control** over the directory.
 - Drives are mapped per user, so you should map the drive using the same service account that Octopus is running under.
 
 Your file storage should be hosted in the same data center or cloud region as the Octopus Server nodes. We've included guides for the most common file storage options we encounter.
 
-- Local File Storage (Link to be added)
-- AWS File Storage (Link to be added)
-- Azure File Storage (Link to be added)
-- GCP File Storage (Link to be added)
+- [Local File Storage](/docs/installation/file-storage/local-storage)
+- [AWS File Storage](/docs/installation/file-storage/aws-storage)
+- [Azure File Storage](/docs/installation/file-storage/azure-storage)
+- [GCP File Storage](/docs/installation/file-storage/gcp-storage)
 
 ### Load Balancer
 
@@ -270,6 +274,8 @@ For Polling Tentacles, SSL offloading is not supported. Octopus Deploy and the T
 :::
 
 #### Additional Load Balancer Resources
+
+We've created guides for configuring many popular load balancers.
 
 - Local Options
   - [Using NGINX as a reverse proxy with Octopus](/docs/installation/load-balancers/use-nginx-as-reverse-proxy)
@@ -391,7 +397,7 @@ Because all the configuration is stored in the database and blob storage, you ca
 
 We recommend writing scripts to automate this process.
 
-- [Octopus Server on Windows] Link to be added
+- [Octopus Server on Windows](/docs/installation/automating-installation)
 - [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container)
 - [Octopus Server in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes)
 
