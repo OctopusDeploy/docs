@@ -1,0 +1,43 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-05-22
+title: SQL Database
+navTitle: Overview
+navSection: SQL Database
+navOrder: 2
+description: Information about using SQL Server Database with Octopus Deploy.
+hideInThisSection: true
+---
+import Sql from 'src/shared-content/installation/sql.include.md';
+
+Octopus Deploy stores projects, environments, and deployment history in a Microsoft SQL Server Database.
+
+<Sql />
+
+## Using SQL Server Express \{#SQLServerDatabaseRequirements-UsingSQLServerExpress}
+
+The easiest and cheapest way to get started is with [SQL Server Express](http://downloadsqlserverexpress.com/) and install the Octopus Server and SQL Server Express side-by-side on your server. This is a great way to test Octopus for a proof of concept. Depending on your needs, you might decide to use SQL Server Express, or upgrade to another supported edition.
+
+## Configuration Guidelines
+
+The SQL Database Octopus Deploy uses can be hosted on a local SQL Server, or one of the many cloud providers.  The requirements are: 
+
+- Must be running SQL Server 2016+ or Azure SQL
+- Be located in the same data center as the servers/container hosts that host Octopus Deploy.
+
+This section provides configuration walkthroughs for the popular storage options our customers use.
+
+- [Local SQL Server](/docs/installation/sql-database/local-sql-server)
+- [AWS RDS](/docs/installation/sql-database/aws-rds)
+- [Azure SQL](/docs/installation/sql-database/azure-sql)
+- [GCP SQL](/docs/installation/sql-database/gcp-sql)
+
+
+## Database administration and maintenance
+
+For more information about maintaining your Octopus database, please read our [database administrators guide](/docs/administration/data/octopus-database).
+
+## Learn more
+
+ - [Octopus installation](/docs/installation)

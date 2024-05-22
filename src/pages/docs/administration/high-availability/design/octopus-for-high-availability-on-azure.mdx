@@ -12,11 +12,6 @@ import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content
 import HighAvailabilitySharedStorageOverview from 'src/shared-content/administration/high-availability-shared-storage-overview.include.md';
 import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
 import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
-import PollingTentaclesAndHA from 'src/shared-content/administration/polling-tentacles-and-ha.include.md';
-import PollingTentaclesAndHAConnecting from 'src/shared-content/administration/polling-tentacles-and-ha-connecting.include.md';
-import PollingTentaclesAndHARegistering from 'src/shared-content/administration/polling-tentacles-and-ha-registering.include.md';
-import PollingTentaclesConnectionDifferentPort from 'src/shared-content/administration/polling-tentacles-connection-different-ports.include.md';
-import PollingTentaclesConnectionSamePort from 'src/shared-content/administration/polling-tentacles-connection-same-port.include.md';
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/).
 
@@ -65,6 +60,16 @@ And also:
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
 <HighAvailabilityDatabaseLogShippingMirroringNote />
+
+#### Using Azure Active Directory (AAD) in Azure SQL \{#using-aad-in-azure-sql}
+
+Support for [Azure Active Directory (AAD) authentication](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#setting-azure-active-directory-authentication) was added in Octopus **2021.1**. This includes the ability to use a [Managed Identity](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#using-active-directory-managed-identity-authentication) when connecting to your Octopus database hosted in Azure SQL.
+
+A typical connection string for using Azure Active Directory Authentication with a Managed Identity looks like this:
+
+```
+Server=localhost;Initial catalog=Octopus;authentication="Active Directory Managed Identity"
+```
 
 ### Shared storage
 
@@ -133,23 +138,3 @@ Azure has a wide range of [load balancers](https://docs.microsoft.com/azure/arch
 We recommend [Active Directory](https://en.wikipedia.org/wiki/Active_Directory) for most installations. For this to work in Azure you need a domain controller setup locally in Azure.  Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility) for a full list of supported authentication providers.
 
 If you're hosting in Azure with Domain Controllers, it would be a similar setup as described in our [on-premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises) guide.
-
-## Polling Tentacles with HA
-
-<PollingTentaclesAndHA />
-
-### Connecting Polling Tentacles
-
-<PollingTentaclesAndHAConnecting />
-
-#### Using a unique address
-
-<PollingTentaclesConnectionSamePort />
-
-#### Using a unique port
-
-<PollingTentaclesConnectionDifferentPort />
-
-### Registering Polling Tentacles
-
-<PollingTentaclesAndHARegistering />

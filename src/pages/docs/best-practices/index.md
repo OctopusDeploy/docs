@@ -5,16 +5,15 @@ modDate: 2024-05-15
 title: Best Practices
 navTitle: Overview
 navSection: Best Practices
-navOrder: 25
 description: Best practices you can adopt to set yourself up for success in using Octopus Deploy. 
-hideInThisSection: true
+navOrder: 25
 ---
 
 This section will provide a set of best practices and implementation guides to use with your Octopus Deploy instance.  Like any best practices guide, it won't cover 100% of all scenarios; adapt and modify them to match your company's requirements.  It is also a living document; it will change as new features are added to Octopus Deploy and we help more customers.  
 
 ## Whitepapers
 
-For some of the recommendations and implementation guides a significant amount of background context is required.  For example, configuring disaster recovery and high availability.  Background context for those recommendations can be found in our whitepapers.
+For longform best practices and recommendations please refer to our whitepapers.
 
 - [Best Practices for Self-Hosted Octopus Deploy HA/DR](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr)
 

@@ -10,7 +10,7 @@ description: Best practices for Octopus administrators responsible and accountab
 hideInThisSection: true
 ---
 
-This section covers our recommendations and implementation guides for anyone responsible and accountable for administrating Octopus Deploy for their organization.  
+This section covers our recommendations and implementation guides for anyone responsible and accountable for administrating Octopus Deploy for their organization.  This section is applicable for Octopus Cloud and self-hosted Octopus Deploy (Octopus Server).
 
 The topics covered are:
 
