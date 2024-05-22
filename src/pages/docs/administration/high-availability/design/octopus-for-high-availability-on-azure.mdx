@@ -10,7 +10,6 @@ import HighAvailabilityComputeRecommendations from 'src/shared-content/administr
 import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
 import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
 import HighAvailabilitySharedStorageOverview from 'src/shared-content/administration/high-availability-shared-storage-overview.include.md';
-import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
 import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/).
@@ -121,8 +120,6 @@ It's worth noting that you need to have created the folders within the Azure Fil
 ### Load balancing in Azure
 
 To distribute HTTP load among Octopus Server nodes with a single point of access, we recommended using an HTTP load balancer. 
-
-<LoadBalancerEndpointInfo />
 
 Azure has a wide range of [load balancers](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that will work with Octopus in a highly-available configuration:
 

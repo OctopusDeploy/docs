@@ -10,7 +10,6 @@ import HighAvailabilityComputeRecommendations from 'src/shared-content/administr
 import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
 import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
 import HighAvailabilitySharedStorageOverview from 'src/shared-content/administration/high-availability-shared-storage-overview.include.md';
-import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
 import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [AWS](https://aws.amazon.com/).
@@ -86,5 +85,3 @@ To distribute traffic to the Octopus web portal on multiple nodes, you need to u
 If you are *only* using [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended), we recommend using the Application Load Balancer.
 
 However, [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) don't work well with the Application Load Balancer, so instead, we recommend using the Network Load Balancer. To setup a Network Load Balancer for Octopus High Availability with Polling Tentacles take a look at this [knowledge base article](https://help.octopus.com/t/how-can-i-configure-my-polling-tentacles-to-hit-my-octopus-deploy-high-availability-instance-to-sitting-behind-an-aws-load-balancer/24890). 
-
-<LoadBalancerEndpointInfo />
