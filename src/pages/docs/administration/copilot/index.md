@@ -14,7 +14,7 @@ The Octopus extension for GitHub Copilot allows read only queries of cloud Octop
 The Octopus extension is an experiment. It is not covered by service level agreements.
 :::
 
-The goal of the Octopus extension is to allow developers to remain in a state of flow by querying their Octopus instance from their favourite IDE or any platform that supports GitHub Copilot. The Octopus extension allows Devops teams to query the state of deployments, extract useful information from log files, build custom reports, and get answers to common questions with natural language prompts.
+The goal of the Octopus extension is to allow developers to remain in a state of flow by querying their Octopus instance from their favorite IDE or any platform that supports GitHub Copilot. The Octopus extension allows Devops teams to query the state of deployments, extract useful information from log files, build custom reports, and get answers to common questions with natural language prompts.
 
 ## Getting started
 
