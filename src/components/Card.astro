@@ -1,27 +1,56 @@
 ---
+import Arrow from '../../public/docs/img/Arrow.astro';
+import List from '../../public/docs/img/List.astro';
+import Youtube from '../../public/docs/img/Youtube.astro';
+
 // Properties
 type Props = {
-  description: string;
+  description?: string;
   imgAlt: string;
   imgSrc: string;
   link: string;
   title: string;
-  variant?: 'padded';
+  variant?: 'padded' | 'related-topics';
 };
+
 const { description, imgAlt, imgSrc, link, title, variant } =
   Astro.props satisfies Props;
 
-const classList = `card ${variant === 'padded' ? 'card--padded' : ''}`;
+// Build class list based on the variant
+const classList = [
+  'card',
+  variant === 'padded' ? 'card--padded' : '',
+  variant === 'related-topics' ? 'card--related-topics' : '',
+]
+  .join(' ')
+  .trim();
+
+// Determine the icon type based on the link
+const isYouTubeLink = link.includes('youtube.com') || link.includes('youtu.be');
+const IconComponent = isYouTubeLink ? Youtube : List;
+
+// Bottom label for related topics variant
+const labelText = isYouTubeLink ? 'Watch Video' : 'Learn More';
 ---
 
 <article class={classList}>
-  <a href={link} class="card__link">
+  <a href={link} class="card__link" role="link" aria-label={`Open ${title}`}>
     <div class="card__image-wrapper">
       <img src={imgSrc} alt={imgAlt} class="card__image" />
     </div>
     <div class="card__copy">
       <p class="card__title">{title}</p>
-      <p class="card__description">{description}</p>
+      {description && <p class="card__description">{description}</p>}
+      {
+        variant === 'related-topics' && (
+          <div class="card__bottom">
+            <span class="card__label">
+              {labelText} <Arrow />
+            </span>
+            <IconComponent />
+          </div>
+        )
+      }
     </div>
   </a>
 </article>

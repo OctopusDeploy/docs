@@ -33,7 +33,7 @@ Azure work items aren't currently supported unless the `BuildEnvironment` is Azu
 ![Octopus release with Azure DevOps work items](/docs/releases/issue-tracking/images/octo-azure-devops-release-details.png)
 :::
 
-4. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes).  
+4. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-changes).  
 
 :::figure
 ![Octopus deployment with generated release notes](/docs/releases/issue-tracking/images/octo-azure-devops-release-notes.png)

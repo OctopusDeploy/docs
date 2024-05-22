@@ -1,14 +1,19 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-05-20
 title: Release versioning
 description: Select how the next release number is generated when creating a release.
 navOrder: 125
 ---
+
 You can define how the next release number will be generated when creating a release.
 
-Navigate to the **Project** tab, select the project and click **Deployments ➜ Settings ➜ Release Versioning**:
+:::div{.hint}
+We recommend using [SemVer](/docs/packaging-applications/create-packages/versioning#semver) as the versioning scheme for releases in Octopus.
+:::
+
+Within a project, click **Settings ➜ Release Versioning**:
 
 :::figure
 ![Release Versioning](/docs/releases/images/release-versioning.png)

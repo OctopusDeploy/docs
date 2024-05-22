@@ -24,7 +24,7 @@ stats.stop();
 
 {
   page.children.length == 0 && (
-    <li>
+    <li class="site-nav__list-item">
       <a
         href={accelerator.urlFormatter.formatAddress(page.url)}
         aria-current={page.ariaCurrent}
@@ -38,12 +38,12 @@ stats.stop();
 }
 {
   page.children.length > 0 && (
-    <li class="has-children">
+    <li class="site-nav__list-item has-children">
       <details class="sub-nav" open={page.isOpen}>
         <summary class="sub-nav__summary">
           <span class="sub-nav__summary-title">{page.section}</span>
         </summary>
-        <ul>
+        <ul class="site-nav__list site-nav__list--sub">
           {page.children
             .sort((a, b) => a.order - b.order)
             .map((page) => (
