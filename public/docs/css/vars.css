@@ -25,8 +25,8 @@
   font-weight: 900;
   font-display: block;
   src:
-    url('fa/webfonts/fa-solid-900.woff2') format('woff2'),
-    url('fa/webfonts/fa-solid-900.ttf') format('truetype');
+    url('/docs/css/fa/webfonts/fa-solid-900.woff2') format('woff2'),
+    url('/docs/css/fa/webfonts/fa-solid-900.ttf') format('truetype');
 }
 
 @font-face {
@@ -35,8 +35,8 @@
   font-weight: 400;
   font-display: block;
   src:
-    url('fa/webfonts/fa-brands-400.woff2') format('woff2'),
-    url('fa/webfonts/fa-brands-400.ttf') format('truetype');
+    url('/docs/css/fa/webfonts/fa-brands-400.woff2') format('woff2'),
+    url('/docs/css/fa/webfonts/fa-brands-400.ttf') format('truetype');
 }
 
 :root {
@@ -84,19 +84,22 @@
   --grey-light: #eef0f2ff;
   --grey-lighter: var(--navy-100);
 
-  --font-size-xlarge: 24px;
-  --font-size-large: 20px;
-  --font-size-regular: 18px;
-  --font-size-medium: 16px;
-  --font-size-small: 14px;
+  --font-size-xxlarge: 1.625rem;
+  --font-size-xlarge: 1.5rem;
+  --font-size-large: 1.25rem;
+  --font-size-regular: 1.125rem;
+  --font-size-medium: 1rem;
+  --font-size-small: 0.875rem;
 
   --color-base-primary: var(--white);
 
   --color-text: var(--blue-midnight);
   --color-heading: var(--blue-grey-dark);
+  --color-text-secondary: var(--navy-700);
 
   --color-subtitle: var(--navy-600);
   --font-size-subtitle: var(--font-size-large);
+  --font-size-title: var(--font-size-xxlarge);
 
   --border-color-header: var(--navy-200);
 
@@ -105,7 +108,7 @@
   --color-menu-link-alt: var(--blue-500);
   --color-menu-marker: var(--navy-300);
   --bg-color-menu: var(--blue-qqq);
-  --bg-color-menu-open: var(--blue-100);
+  --bg-color-menu-open: rgba(13, 128, 216, 0.1);
   --border-color-menu-open: var(--navy-200);
   --gap-menu: 0.6em;
 
@@ -137,6 +140,28 @@
 
   --duration-default: 300ms;
 
+  /* Backgrounds TODO - update with design system */
+  --background-light: var(--blue-100);
+  --background-default: var(--white);
+
+  /* Borders TODO - update with design system */
+  --border-default-color: var(--blue-200);
+
+  /* Separator */
+  --separator-color: #dae2e9;
+
+  /* Icon Tile */
+  --icon-tile-border: var(--border-default-color);
+  --icon-tile-border-hover: var(--border-default-color);
+  --icon-tile-background: var(--background-light);
+  --icon-tile-background-hover: var(--background-default);
+  --icon-tile-shadow: 0px 4px 10px 0px rgba(13, 128, 216, 0.2);
+
+  /* Article header */
+  --header-separator-color: var(--navy-200);
+  --header-icon-border: var(--border-default-color);
+  --header-icon-background: var(--background-light);
+
   /* Button */
   --button-primary: var(--green);
   --button-primary-focus: var(--light-green);
@@ -166,6 +191,16 @@
 
   /* Theme Switcher */
   --theme-switcher-border: var(--navy-200);
+
+  /* Badge */
+  --badge-background: rgba(162, 209, 244, 0.2);
+  --badge-color: #0d80d8;
+
+  /* Card */
+  --card-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+  --card-related-topics-shadow: 0px 10px 35px 0px rgba(133, 152, 165, 0.1);
+  --card-related-topics-hover-shadow: 0px 10px 35px 0px
+    rgba(133, 152, 165, 0.25);
 
   /* To be checked and cleaned */
 
@@ -208,7 +243,6 @@
   --box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
   --octo-shadow-standard-box: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
   --octo-shadow-standard-box-hover: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
-  --card-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
 
   --content-width: 78vw;
   --content-width-mobile: calc(100vw - 4rem);
@@ -260,4 +294,16 @@ html[data-theme='dark'] {
   --hamburger-lines-color: var(--white);
   --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
+  --header-separator-color: var(--navy-700);
+  --header-icon-border: transparent;
+  --header-icon-background: var(--blue-grey-dark);
+  --badge-background: rgba(31, 192, 255, 0.1);
+  --badge-color: var(--octo-blue-lightest);
+  --color-text-secondary: #dae2e9;
+  --icon-tile-background: #132838;
+  --icon-tile-background-hover: #223950;
+  --icon-tile-border: #1c3f59;
+  --icon-tile-border-hover: var(--octo-blue-lightest);
+  --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
+  --separator-color: var(--navy-700);
 }

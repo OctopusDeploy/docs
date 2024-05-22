@@ -3,6 +3,10 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Creating tenant tags
+subtitle: Deploy projects to one or more environment(s) but with tags.
+# TODO: Remove comments - for now it's usage example for both font awesome and an asset
+# icon: /docs/tenants/guides/multi-tenant-region/images/tags.svg
+icon: fa-solid fa-tags
 description: Create tenant tags as part of a multi-tenant region setup in Octopus Deploy.
 navOrder: 10
 hideInThisSectionHeader: true
