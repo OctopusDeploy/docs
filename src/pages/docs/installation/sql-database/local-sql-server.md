@@ -67,6 +67,8 @@ With Octopus Deploy's [High Availability](/docs/administration/high-availability
 
 The database can be configured in either a hot/cold or hot/warm configuration.
 
+Please refer to [our guide](/administration/data/failing-over-to-secondary-data-center) on failing over and recovering from a secondary data center.
+
 ### Hot/cold
 
 For hot/cold, you are limited to a single option, [Database Backups](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-overview-sql-server).  After the backup is complete, copy it to the secondary data center.  
