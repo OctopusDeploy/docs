@@ -8,8 +8,6 @@ navOrder: 10
 hideInThisSection: true
 ---
 
-import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
-
 Each Octopus Server node stores project, environment and deployment-related data in a Microsoft SQL Server Database. While it is possible to have Octopus Deploy connect to SQL Server Express running on the same host, it is not something we recommend.  If you plan to host the SQL Database on a local SQL Server, we recommend using a SQL Server that is managed by DBAs.
 
 ## Creating the database
@@ -47,9 +45,9 @@ How the database is made highly available is really up to you; to Octopus, it's 
 Octopus High Availability works with:
 
 - [SQL Server Failover Clusters](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
-- [SQL Server AlwaysOn Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [SQL Server Always-On Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
 
-Make sure the Octopus Server is connecting to the listener which will route database requests to the active SQL Server node and allow for automatic fail over. Learn about [connecting to listeners and handling fail over](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover).
+Make sure the Octopus Server is connecting to the listener which will route database requests to the active SQL Server node and allow for automatic failover. Learn about [connecting to listeners and handling failover](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover).
 
 A typical connection string for using a SQL Server AlwaysOn availability group looks like this:
 
@@ -57,10 +55,38 @@ A typical connection string for using a SQL Server AlwaysOn availability group l
 Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetFailover=True
 ```
 
-<HighAvailabilityDatabaseLogShippingMirroringNote />
-
 Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database and using that account as the service account when configuring Octopus.
+
+:::div{.warning}
+Octopus High Availability does not support Database Mirroring. [More information](/docs/administration/data/octopus-database/#highavailability)
+:::
 
 ## Disaster Recovery
 
-lorem ipsum
+With Octopus Deploy's [High Availability](/docs/administration/high-availability) functionality, you connect multiple nodes to the same database and file storage.  Octopus Server makes specific assumptions about the latency performance of the database.  If you combine that functionality with SQL Server Always-On Availability groups, it seems like a perfect use case for hot/hot.  However, due to latency concerns for both the database and file system, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr) for the nodes.  
+
+The database can be configured in either a hot/cold or hot/warm configuration.
+
+### Hot/cold
+
+For hot/cold, you are limited to a single option, [Database Backups](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-overview-sql-server).  After the backup is complete, copy it to the secondary data center.  
+
+:::div{.warning}
+When a disaster occurs, any data modified since the last backup will be lost.  If you doing a backup every 15 minutes, that means you can lose up to 15 minutes of work.
+:::
+
+When the disaster occurs, you create the Octopus Deploy database from the most recent backup.  Depending on the size of the database this can be accomplished as quickly as a few minutes.  However, you'll encounter challenges when you fail back to the primary data center, as you'll need to take a backup of the database in the secondary data center and overwrite what is in the primary data center.  Failure to do so will result in a [split-brain scenario](https://en.wikipedia.org/wiki/Split-brain_(computing)).
+
+### Hot/warm
+
+You have a couple of options for a hot/warm configuration with SQL Server.
+
+- [Transaction Log Shipping](https://learn.microsoft.com/en-us/sql/database-engine/log-shipping/about-log-shipping-sql-server)
+- Always On High Availability Node [configured for asynchronous-commit](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups?view=sql-server-ver16#AsyncCommitAvMode).
+
+:::div{.warning}
+When a disaster occurs, any data not synchronized will be lost.  Depending on the connection speed, this could be up to a couple of minutes.
+:::
+
+Fundamentally, both options are the same.  They asynchronously transfer database transactions to a secondary data center.  However, there are pros and cons to either approach.  And there might be additional licensing costs or limits.  We are not experts in configuring a local SQL Server, our recommendation is to consult a DBA on which option they prefer.  
+
