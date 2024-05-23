@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-25
-modDate: 2024-05-21
+modDate: 2024-05-22
 title: Deployment freezes
 description: Deployment freezes allow you to pause deployments for a specified time range
 navOrder: 170
@@ -70,16 +70,10 @@ To override a freeze:
 ![Override a deployment freeze confirmation dialog](/docs/deployments/deployment-freeze-override-dialog-confirm.png)
 :::
 
+## Deployment freezes and automatic deployments
+During deployment freezes, automatic deployments based on deployment target triggers are allowed. This ensures that your deployment targets will be updated with the latest deployments when you scale up.
 
-## Current limitations
-
-:::div{.hint}
-As this is an early access feature, we are aware of some flaws in the UI when assigning projects and environments to the deployment freeze. If you have feedback regarding this feature please contact michelle.obrien@octopus.com.
-:::
-
-- Deployment freezes are not yet integrated with our [Executions API](https://octopus.com/blog/faster-deployments-with-the-executions-api).
-- Deployment freezes currently block [automatic deployments](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure/#automatically-deploying)
-
+All other automatic deployments, such as scheduled deployment or automatic lifecycle promotions, are blocked by deployment freezes.
 
 ## Learn more
 
