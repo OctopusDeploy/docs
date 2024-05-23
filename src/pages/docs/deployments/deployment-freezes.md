@@ -49,6 +49,7 @@ For example, imagine a deployment freeze that applies to
 
 You will be allowed to view this deployment freeze on the **Deployment Freezes** page if your user doesn't have the DeploymentFreezeAdminister system permission. If your user has the DeploymentFreezeAdminister system permission and permissions scoped to the Car Rental project and Production environment, they will be able to view, edit and override this freeze.
 
+The DeploymentFreezeAdminister permission is included in the System Administrator, System Manager and Space Manager roles.
 
 ## Overriding a freeze
 Following on from the example above, imagine a scenario where a deployment freeze is currently active for the Car Rental project to the Production environment. While the freeze is active, a developer discovers that there is a bug in the production code and a fix needs to be rolled out immediately. In this scenario, the freeze can be overridden to deploy the fix to Production even while the freeze is active. After the fix is deployed, the freeze will still be in place and behave as expected. 
