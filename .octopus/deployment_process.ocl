@@ -16,7 +16,6 @@ step "upload-microsite-to-aws-s3" {
             Octopus.Action.Package.DownloadOnTentacle = "False"
             Octopus.Action.Package.FeedId = "octopus-server-built-in"
             Octopus.Action.Package.PackageId = "DocsMicrosite"
-            Octopus.Action.RunOnServer = "true"
         }
         worker_pool = "hosted-ubuntu"
 

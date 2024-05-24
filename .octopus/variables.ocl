@@ -1,0 +1,7 @@
+variable "CloudFront.InvalidationAccount" {
+    type = "AmazonWebServicesAccount"
+
+    value "cacheinvalidationaccount" {
+        process = ["runbook/clear-cloudfront-cache"]
+    }
+}
