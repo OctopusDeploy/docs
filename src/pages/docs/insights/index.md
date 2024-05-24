@@ -1,8 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-05-24
 title: Insights
+subtitle: Deployment metrics to help celebrate wins or find improvements
+icon: fa-solid fa-chart-line
 navTitle: Overview
 navSection: Insights
 description: Insights gives you better visibility into your company's DevOps performance.
