@@ -1,0 +1,55 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { Lang } from '@util/Languages';
+
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('components/ArticleHeader.astro');
+stats.start();
+
+// Properties
+type Props = {
+  icon?: string | null;
+  lang: string;
+  subtitle?: string | null;
+  title: string;
+};
+const { icon, lang, subtitle, title } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+stats.stop();
+---
+
+<header class="header">
+  {
+    icon && (
+      <div class="header__icon-wrapper">
+        {icon.startsWith('fa-') ? (
+          // For FontAwesome icons
+          <i
+            class={`${icon} header__icon`}
+            aria-hidden="false"
+            aria-label="Header icon"
+          />
+        ) : (
+          // For image icons
+          <img src={icon} alt="Header icon" class="header__icon" />
+        )}
+      </div>
+    )
+  }
+  {
+    subtitle ? (
+      <div class="header__text">
+        <h1 class="header__title">{title}</h1>
+        <p class="header__subtitle">{subtitle}</p>
+      </div>
+    ) : (
+      <h1 class="header__title">{title}</h1>
+    )
+  }
+</header>

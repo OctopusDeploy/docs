@@ -17,9 +17,11 @@
         "package-lock.yaml",
         "pnpm-lock.yaml",
         "docs/credits.md",
+        ".octopus/**",
         "src/pages/report/**",
         "src/pages/integrations/**",
         "public/docs/js/**",
-        "node_modules/**"
+        "node_modules/**",
+        "public/docs/css/fa/**"
     ]
 }

@@ -30,36 +30,39 @@ stats.stop();
 
 <header class="octo-header-bkg site-header header-default">
   <div class="octo-header">
-    <a href="https://octopus.com" class="logo">
-      <OctopusLogo />
-    </a>
-    <div class="theme-switcher" data-theme-toggle>
-      <input
-        id="theme-switcher"
-        type="checkbox"
-        aria-checked="false"
-        role="switch"
-        aria-label="Toggle theme between light and dark mode"
-        tabindex="-1"
-        data-theme-toggle-checkbox
-      />
-      <label for="theme-switcher" class="theme-switcher__label" tabindex="0">
-        <span
-          class="theme-switcher__icon theme-switcher__icon--light"
-          aria-hidden="true"
-        >
-          <SunIcon />
-          Light
-        </span>
-        <span class="switch-slider"></span>
-        <span
-          class="theme-switcher__icon theme-switcher__icon--dark"
-          aria-hidden="true"
-        >
-          <MoonIcon />
-          Dark
-        </span>
-      </label>
+    <div class="octo-header__wrapper--left">
+      <a href="https://octopus.com" class="logo">
+        <OctopusLogo />
+      </a>
+      <span class="badge badge--brand"> Docs </span>
+      <div class="theme-switcher" data-theme-toggle>
+        <input
+          id="theme-switcher"
+          type="checkbox"
+          aria-checked="false"
+          role="switch"
+          aria-label="Toggle theme between light and dark mode"
+          tabindex="-1"
+          data-theme-toggle-checkbox
+        />
+        <label for="theme-switcher" class="theme-switcher__label" tabindex="0">
+          <span
+            class="theme-switcher__icon theme-switcher__icon--light"
+            aria-hidden="true"
+          >
+            <SunIcon />
+            Light
+          </span>
+          <span class="switch-slider"></span>
+          <span
+            class="theme-switcher__icon theme-switcher__icon--dark"
+            aria-hidden="true"
+          >
+            <MoonIcon />
+            Dark
+          </span>
+        </label>
+      </div>
     </div>
     {showSearch && <Search lang={lang} />}
     <MobileMenu lang={lang} />
