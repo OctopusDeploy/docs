@@ -8,9 +8,15 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   branch_tests:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
 
     env:
       SHOULD_DEPLOY: ${{ secrets.OCTOPUSSERVERURL != '' || '' }}
@@ -26,6 +32,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'pnpm'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
