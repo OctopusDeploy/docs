@@ -9,7 +9,7 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  branch_tests:
     runs-on: ubuntu-latest
 
     env:
