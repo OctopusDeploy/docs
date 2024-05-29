@@ -1,8 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-20
-modDate: 2023-10-20
+modDate: 2024-05-24
 title: Tasks
+subtitle: The task view shows waiting, running, and completed tasks
+icon: fa-solid fa-list-check
 navTitle: Overview
 navSection: Tasks
 description: Tasks are the primary way of getting work done in Octopus.

@@ -1475,6 +1475,10 @@ li.has-children .sub-nav ul li:focus > a {
   background: transparent;
 }
 
+.header__icon.fa-octopus:before {
+  padding-inline-end: 0;
+}
+
 .header__text {
   display: flex;
   flex-direction: column;

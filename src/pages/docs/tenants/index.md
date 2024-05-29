@@ -1,8 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-29
+modDate: 2024-05-24
 title: Tenants
+subtitle: Deploy to many production instances, targets, or customers without duplication
+icon: fa-solid fa-users
 navTitle: Overview
 navSection: Tenants
 description: Tenants allow you to easily create customer specific deployment pipelines without duplicating project configuration.
