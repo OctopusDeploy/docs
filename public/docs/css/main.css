@@ -102,6 +102,7 @@ blockquote cite {
   font-size: var(--font-size-regular);
 }
 
+/* TODO: Refactor code snippets. This needs to be a component. */
 code {
   font-family: var(--code-font);
   background-color: var(--navy-200);
@@ -110,8 +111,10 @@ code {
 pre {
   padding: 0.5rem 1rem;
   white-space: break-spaces;
-  background-color: var(--blue-100) !important;
+  background-color: var(--code-background) !important;
   border-radius: var(--standard-radius);
+  font-family: var(--code-font);
+  color: var(--code-color);
 }
 
 pre code {
@@ -124,8 +127,19 @@ pre code {
   filter: invert(98%) hue-rotate(180deg);
 }
 
+/* TODO: Also will be removed once component is implemented */
+div.info code:not(pre code),
+div.success code:not(pre code),
+div.warning code:not(pre code),
+div.problem code:not(pre code),
+div.question code:not(pre code),
+div.hint code:not(pre code) {
+  background-color: var(--code-background);
+  color: var(--code-color);
+}
+
 html[data-theme='dark'] {
-  pre {
+  pre.astro-code code .line {
     filter: invert(98%) hue-rotate(180deg) brightness(1.1);
   }
 }
@@ -279,6 +293,16 @@ strong {
 .page-content > div.question > *:not(:last-child),
 .page-content > div.hint > *:not(:last-child) {
   margin-block-end: 1rem;
+}
+
+/* TODO: This is ugly but global styles above requires this to be set - Layout refactor is required to do first, then remove this. */
+.page-content > div.info > .copy-container,
+.page-content > div.success > .copy-container,
+.page-content > div.warning > .copy-container,
+.page-content > div.problem > .copy-container,
+.page-content > div.question > .copy-container,
+.page-content > div.hint > .copy-container {
+  margin: 0;
 }
 
 .page-content ul,
