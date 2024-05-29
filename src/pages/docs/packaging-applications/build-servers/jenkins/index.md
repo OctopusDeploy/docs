@@ -199,7 +199,7 @@ A successful run looks like this:
 
 We welcome contributions; issues, bug fixes, enhancements.
 
-If you are starting to work on something more detailed please reach out to support@octopus.com to ensure it aligns with what we have going on, and that we are not doubling up efforts.
+If you are starting to work on something more detailed please contact our [support team](https://octopus.com/support) to ensure it aligns with what we have going on, and that we are not doubling up efforts.
 
 Have a look at the [Octopus-Jenkins-Plugin repository](https://github.com/OctopusDeploy/octopus-jenkins-plugin) on GitHub. We also have the following [developer focused guidelines](https://github.com/OctopusDeploy/octopus-jenkins-plugin/blob/master/developer-guide/) to get you started working on the plugin.
 :::

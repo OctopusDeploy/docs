@@ -9,7 +9,7 @@ description:  Migrating from Octopus Server to Octopus Cloud.
 
 This guide will walk you through a general set of steps to take to migrate your self-hosted instance to Octopus Cloud.  This guide was written to minimize risk and keep any potential downtime as low as possible.
 
-It is impossible to cover every last use case in a single guide, and as such, if you have any questions, please [email our support team](mailto:support@octopus.com). We're always happy to help, and we can provide more specific information when you are ready to migrate.
+It is impossible to cover every last use case in a single guide, and as such, if you have any questions, please contact our [support team](https://octopus.com/support). We're always happy to help, and we can provide more specific information when you are ready to migrate.
 
 :::div{.hint}
 This guide will follow the recommended approach to migrating to Octopus Cloud using the **Export/Import Projects** feature released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import).
@@ -58,7 +58,7 @@ Octopus Cloud and Octopus Server are built on the same code base.  The differenc
 - Octopus Cloud is subject to [storage limits and default retention policies](/docs/octopus-cloud/#octopus-cloud-storage-limits).
 - Octopus Cloud does not support running tasks on the server itself.  Everything must run on a deployment target or worker.  To help, Octopus Cloud includes [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools) with both Windows and Linux workers.
 
-Before starting your migration, please ensure you are familiar with these fundamental differences (and limitations).  Depending on your requirements, Octopus Cloud, in its current form, might not be suitable for you.  If any of these limitations are deal-breakers, we'd love to know; please [email our support team](mailto:support@octopus.com).  We are constantly improving Octopus Cloud; a current limit has a genuine chance of changing in the future.
+Before starting your migration, please ensure you are familiar with these fundamental differences (and limitations).  Depending on your requirements, Octopus Cloud, in its current form, might not be suitable for you.  If any of these limitations are deal-breakers, we'd love to know; please contact our [support team](https://octopus.com/support). We are constantly improving Octopus Cloud; a current limit has a genuine chance of changing in the future.
 
 ### Upgrading your Octopus Server instance
 
