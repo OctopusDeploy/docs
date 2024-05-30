@@ -1,0 +1,48 @@
+---
+// Properties
+type Props = {
+  icon: string; // This can be a URL to an SVG or a FontAwesome class
+  iconAlt?: string;
+  link: string;
+  text: string;
+  noFollow?: boolean;
+  newTab?: boolean;
+};
+
+const {
+  text,
+  icon,
+  iconAlt,
+  link,
+  noFollow = false,
+  newTab = false,
+} = Astro.props satisfies Props;
+---
+
+<a
+  href={link}
+  class="link"
+  role="link"
+  aria-label={text}
+  title={`Link to ${text}`}
+  rel={`${noFollow ? 'nofollow' : ''} ${newTab ? 'noopener noreferrer' : ''}`.trim()}
+  target={newTab ? '_blank' : undefined}
+>
+  <div class="link__icon-wrapper">
+    {
+      icon.startsWith('fa-') ? (
+        <i
+          class={`${icon} link__icon`}
+          aria-hidden="true"
+          role="img"
+          aria-label={`${text} icon`}
+        />
+      ) : (
+        <img src={icon} alt={iconAlt} class="link__icon" />
+      )
+    }
+  </div>
+  <span class="link__content">
+    {text}
+  </span>
+</a>

@@ -18,7 +18,7 @@ There are three components to an Octopus Deploy instance:
 
 - **Octopus Server nodes** These run the Octopus Server service. They serve user traffic and orchestrate deployments.
 - **SQL Server Database** Most data used by the Octopus Server nodes is stored in this database.
-- **Files or BLOB Storage** Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes. Any network storage should run on the SMB/CIFS protocol.
+- **Files or BLOB Storage** Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database and are stored on the file system instead.  This can be a local folder, a network file share, or a cloud provider's storage.  
 
 This document will provide you with guidelines and recommendations for self-hosting Octopus Deploy.
 

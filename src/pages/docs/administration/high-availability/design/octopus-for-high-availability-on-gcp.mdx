@@ -9,14 +9,7 @@ navOrder: 40
 import HighAvailabilityComputeRecommendations from 'src/shared-content/administration/high-availability-compute-recommendations.include.md';
 import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
 import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
-import HighAvailabilitySharedStorageOverview from 'src/shared-content/administration/high-availability-shared-storage-overview.include.md';
-import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
 import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
-import PollingTentaclesAndHA from 'src/shared-content/administration/polling-tentacles-and-ha.include.md';
-import PollingTentaclesAndHAConnecting from 'src/shared-content/administration/polling-tentacles-and-ha-connecting.include.md';
-import PollingTentaclesAndHARegistering from 'src/shared-content/administration/polling-tentacles-and-ha-registering.include.md';
-import PollingTentaclesConnectionDifferentPort from 'src/shared-content/administration/polling-tentacles-connection-different-ports.include.md';
-import PollingTentaclesConnectionSamePort from 'src/shared-content/administration/polling-tentacles-connection-same-port.include.md';
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Google Cloud Platform (GCP)](https://cloud.google.com/gcp).
 
@@ -64,11 +57,7 @@ And also:
 
 <HighAvailabilityDatabaseLogShippingMirroringNote />
 
-### Shared storage
-
-<HighAvailabilitySharedStorageOverview />
-
---- 
+### Shared storage 
 
 **Google Cloud Shared Storage Options**
 
@@ -371,25 +360,3 @@ With Network Load Balancers, you can configure a health check to ensure your Com
 :::figure
 ![Network Load Balancer health check](/docs/administration/high-availability/design/images/gcp-octopus-nlb-health-check.png "width=500")
 :::
-
-<LoadBalancerEndpointInfo />
-
-## Polling Tentacles with HA
-
-<PollingTentaclesAndHA />
-
-### Connecting Polling Tentacles
-
-<PollingTentaclesAndHAConnecting />
-
-#### Using a unique address
-
-<PollingTentaclesConnectionSamePort />
-
-#### Using a unique port
-
-<PollingTentaclesConnectionDifferentPort />
-
-### Registering Polling Tentacles
-
-<PollingTentaclesAndHARegistering />

@@ -1,0 +1,23 @@
+---
+// Properties
+type Props = {
+  description: string;
+  iconAlt: string;
+  iconSrc: string;
+  link: string;
+  title: string;
+};
+
+const { description, iconAlt, iconSrc, link, title } =
+  Astro.props satisfies Props;
+---
+
+<a href={link} class="icon-tile" role="link" aria-label={`Open ${title}`}>
+  <div class="icon-tile__icon-wrapper">
+    <img src={iconSrc} alt={iconAlt} class="icon-tile__icon" />
+  </div>
+  <div class="icon-tile__content">
+    <h3 class="icon-tile__title">{title}</h3>
+    <p class="icon-tile__description">{description}</p>
+  </div>
+</a>

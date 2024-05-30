@@ -9,14 +9,7 @@ navOrder: 10
 import HighAvailabilityComputeRecommendations from 'src/shared-content/administration/high-availability-compute-recommendations.include.md';
 import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
 import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
-import HighAvailabilitySharedStorageOverview from 'src/shared-content/administration/high-availability-shared-storage-overview.include.md';
-import LoadBalancerEndpointInfo from 'src/shared-content/administration/load-balancer-endpoint-info.include.md';
 import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md'
-import PollingTentaclesAndHA from 'src/shared-content/administration/polling-tentacles-and-ha.include.md';
-import PollingTentaclesAndHAConnecting from 'src/shared-content/administration/polling-tentacles-and-ha-connecting.include.md';
-import PollingTentaclesAndHARegistering from 'src/shared-content/administration/polling-tentacles-and-ha-registering.include.md';
-import PollingTentaclesConnectionDifferentPort from 'src/shared-content/administration/polling-tentacles-connection-different-ports.include.md';
-import PollingTentaclesConnectionSamePort from 'src/shared-content/administration/polling-tentacles-connection-same-port.include.md';
 
 This section walks through the different options and considerations for the components required when setting up Octopus High Availability for an on-premises install of Octopus Deploy.
 
@@ -40,61 +33,3 @@ When running Octopus Deploy Windows Server, the underlying OS  can be installed 
 
 <OctopusInstanceMixedOSWarning />
 
-### Database
-
-Each Octopus Server node stores project, environment and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available.
-
-<HighAvailabilityDatabaseRecommendations />
-
-<HighAvailabilityDatabaseLogShippingMirroringNote />
-
-Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database and using that account as the service account when configuring Octopus.
-
-### Shared storage
-
-<HighAvailabilitySharedStorageOverview />
-
-The simplest way to provide shared storage, assuming the Octopus Server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
-
-An alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)). If using Microsoft DFS for the shared storage, it must be [configured specifically for use with Octopus Deploy](/docs/getting-started/best-practices/configuring-microsoft-dfs-with-octopus-server).
-
-
-### Load balancer
-
-When you configured the first Octopus Server node, as well as each of the subsequent nodes, you configured the HTTP endpoint that the Octopus web interface is available on. The final step is to configure a load balancer so that user traffic is directed between each of the Octopus Server nodes.
-
-Octopus can work with any load balancer technology, including hardware and software load balancers.
-
-<LoadBalancerEndpointInfo />
-
-#### Software load balancers
-
-If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or NGINX as a reverse load-balancing proxy. 
-
-:::figure
-![](/docs/administration/high-availability/design/images/create-server-farm.png "width=500")
-:::
-
-For more information on setting up a reverse proxy with Octopus Deploy we have the following guides:
-- [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy)
-- [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy)
-
-## Polling Tentacles with HA
-
-<PollingTentaclesAndHA />
-
-### Connecting Polling Tentacles
-
-<PollingTentaclesAndHAConnecting />
-
-#### Using a unique address
-
-<PollingTentaclesConnectionSamePort />
-
-#### Using a unique port
-
-<PollingTentaclesConnectionDifferentPort />
-
-### Registering Polling Tentacles
-
-<PollingTentaclesAndHARegistering />

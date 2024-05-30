@@ -31,7 +31,7 @@ stats.stop();
   aria-label={_(Translations.aria.site_navigation)}
 >
   <h2 class="site-nav-title">{_(Translations.navigation.title)}</h2>
-  <ul>
+  <ul class="site-nav__list">
     {pages.map((page) => <NavigationItem lang={lang} page={page} />)}
   </ul>
 </nav>

@@ -88,7 +88,7 @@ const bookmarks = [
   '/docs/projects/version-control/config-as-code-reference#authentication',
   '/docs/releases/channels#manually-create-release',
   '/docs/releases/channels#version-rules',
-  '/docs/releases/deployment-notes#templates',
+  '/docs/releases/deployment-changes#templates',
   '/docs/releases/release-notes#templates',
   '/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https#hsts',
   '/docs/security/users-and-teams#inviting-users',
