@@ -37,11 +37,12 @@ kubectl logs -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
 _Replace `[NAMESPACE]` with the namespace in the agent installation command_
 
 If the Agent install command fails with a timeout error, it could be that:
-- There is an error in the connection information provided,
-- The bearer token or API Key has expired or has been revoked,
-- The agent is unable to connect to Octopus Server due to a networking issue,
-- (if using the NFS storage solution) The NFS CSI driver has not been installed,
-- (if using a custom Storage Class) the Storage Class name doesn't match.
+
+- There is an error in the connection information provided
+- The bearer token or API Key has expired or has been revoked
+- The agent is unable to connect to Octopus Server due to a networking issue
+- (if using the NFS storage solution) The NFS CSI driver has not been installed
+- (if using a custom Storage Class) the Storage Class name doesn't match
 
 ## Script Execution Issues
 
