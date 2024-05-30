@@ -18,9 +18,9 @@ The generated helm commands use the [`--atomic`](https://helm.sh/docs/helm/helm_
 If the helm command fails, then it may print an error message containing context deadline exceeded
 This indicates that the timeout was exceeded and the Kubernetes resources did not correctly start.
 
-To help diagnose these issues, the `kubectl` command [`describe`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_describe/) can be used _while the helm command is executing_ to help debug any issues.
+To help diagnose these issues, the `kubectl` commands [`describe`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_describe/) and [`logs`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/) can be used _while the helm command is executing_ to help debug any issues.
 
-#### NFS install command
+#### NFS CSI driver install command
 
 ```
 kubectl describe pods -l app.kubernetes.io/name=csi-driver-nfs -n kube-system
@@ -29,10 +29,19 @@ kubectl describe pods -l app.kubernetes.io/name=csi-driver-nfs -n kube-system
 #### Agent install command
 
 ```
+# To get pod information
 kubectl describe pods -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
+# To get pod logs
+kubectl logs -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
 ```
 _Replace `[NAMESPACE]` with the namespace in the agent installation command_
 
+If the Agent install command fails with a timeout error, it could be that:
+- There is an error in the connection information provided,
+- The bearer token or API Key has expired or has been revoked,
+- The agent is unable to connect to Octopus Server due to a networking issue,
+- (if using the NFS storage solution) The NFS CSI driver has not been installed,
+- (if using a custom Storage Class) the Storage Class name doesn't match.
 
 ## Script Execution Issues
 
