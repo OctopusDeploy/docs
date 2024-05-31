@@ -220,7 +220,7 @@ Images should be uploaded to the folder that relates to the position of the page
 
 ### Move version notes for older versions of Octopus to the bottom of Docs pages
 
-Do not use callout / info boxes in the main body of docs pages to reference how features worked in earlier versions of Octopus. This information should be moved to the bottom of docs pages under an 'Older versions' heading. For example, you might add a note like this under the 'Older versions' heading:
+Do not use call out / info boxes in the main body of docs pages to reference how features worked in earlier versions of Octopus. This information should be moved to the bottom of docs pages under an 'Older versions' heading. For example, you might add a note like this under the 'Older versions' heading:
 
 ```
 In versions earlier than 2024.x, you'll find the page to add a feed under the Projects menu -> Tenant Variables
