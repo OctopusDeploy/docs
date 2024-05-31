@@ -9,4 +9,4 @@ It is up to you to decide on the level of testing you wish to perform on your up
 - Verify a handful of users can log in, and that their permissions are similar to before.
 - Build server integration; ensure all existing build servers can push to the upgraded server.
 
-We do our best to ensure backward compatibility, but it impossible to cover every user scenario for every possible configuration.  If something isn't working, please capture all relevant screenshots and logs and send them over to [support@octopus.com](mailto:support@octopus.com) for further investigation.
+We do our best to ensure backward compatibility, but it impossible to cover every user scenario for every possible configuration.  If something isn't working, please capture all relevant screenshots and logs and send them over to our [support team](https://octopus.com/support) for further investigation.
