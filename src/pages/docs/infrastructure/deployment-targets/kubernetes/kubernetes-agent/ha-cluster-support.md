@@ -15,7 +15,9 @@ Similarly to Polling Tentacles, the Kubernetes Agent must have a URL for each in
 
 To make things easier, Octopus will detect when it's running HA and show an extra configuration page in the Kubernetes agent creation wizard which asks you to give a unique URL for each cluster node.
 
-*IMAGE OF UI HERE*
+:::figure
+![Kubernetes Agent HA Cluster Configuration Page](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-ha-cluster-configuration-page.png)
+:::
 
 Once these values are provided the generated helm upgrade command will configure your new Agent to receive commands from all nodes.
 
