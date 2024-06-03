@@ -150,7 +150,7 @@ From **2024.2** you can create an `Emergency` change by selecting the Emergency 
 
 ### Supplying the CR number to a deployment
 
-If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/#scoping-variables).
+If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/getting-started/#scoping-variables).
 
 From **2024.2** on this can be set under the `ServiceNow Change Request settings` section on the deployment creation page. Setting the CR number at the deployment level will override any predefined variable.
 

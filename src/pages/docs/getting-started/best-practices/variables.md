@@ -35,7 +35,7 @@ In addition to having the above levels of variables, there are also two categori
 
 ## Variable naming
 
-Without established naming conventions, variable name collisions are possible.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/#scope-specificity).  But sometimes, the variables are scoped equally.  If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
+Without established naming conventions, variable name collisions are possible.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/getting-started/#scope-specificity).  But sometimes, the variables are scoped equally.  If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
 
 The recommendation is to avoid name collisions in the first place by following these naming standards.
 
@@ -103,7 +103,7 @@ Our recommendations for variable edit permissions are:
 For further reading on variables in Octopus Deploy please see:
 
 - [Variables](/docs/projects/variables)
-- [Scoping Variables](/docs/projects/variables/#scoping-variables)
+- [Scoping Variables](/docs/projects/variables/getting-started/#scoping-variables)
 - [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature)
 - [.NET XML Configuration Variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature)
 - [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms)
