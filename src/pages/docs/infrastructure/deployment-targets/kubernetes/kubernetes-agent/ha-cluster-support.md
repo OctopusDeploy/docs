@@ -27,7 +27,7 @@ Once these values are provided the generated helm upgrade command will configure
 
 If you add or remove cluster nodes, you need to update your Agent's configuration so that it continues to connect to all nodes in the cluster. To do this, you can simply run a helm upgrade command with the urls of all current cluster nodes. The agent will take remove any old urls and replace them with the provided ones.
 
-```Bash
+```bash
 helm upgrade --atomic \
 --set agent.serverCommsAddresses="{https://<node-one-url>:<node-one-port>/,https://<node-two-url>:<node-two-port>/,https://<node-three-url>:<node-three-port>/}" \
 --reuse-values \
