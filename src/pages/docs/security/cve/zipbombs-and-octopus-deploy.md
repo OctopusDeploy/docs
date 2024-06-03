@@ -49,7 +49,7 @@ The following archive limits are in place for all Octopus Cloud customers, which
 * Maximum size an archive can decompress to on Octopus Server for all other operations: 10 gigabytes
   * Applies to any other non-deployment operations that use archives
 
-These limits can be adjusted on a per-customer basis. If your standard business operations are being impacted by these limits, please contact support@octopus.com and we'll be happy to help adjust your limits to find the appropriate balance of functionality and protection.
+These limits can be adjusted on a per-customer basis. If your standard business operations are being impacted by these limits, please contact our [support team](https://octopus.com/support) and we'll be happy to help adjust your limits to find the appropriate balance of functionality and protection.
 
 ### Self-Hosted default archive limits {#self-hosted-limits}
 The following default archive limits are in place for all self-hosted:

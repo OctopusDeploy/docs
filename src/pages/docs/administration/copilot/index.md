@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-08
-modDate: 2023-10-04
+modDate: 2024-05-24
 title: Octopus extension for GitHub Copilot
 description: How to use the Octopus extension for GitHub Copilot
 navOrder: 100
@@ -18,11 +18,12 @@ The goal of the Octopus extension is to allow developers to remain in a state of
 
 ## Getting started
 
-The Octopus extension has 3 prerequisites:
+The Octopus extension has 4 prerequisites:
 
 * An Octopus Cloud instance
 * An API key
 * A GitHub Copilot account
+* The Octopus for GitHub Copilot application
 
 ### Creating an Octopus cloud instance
 The Octopus extension is available for cloud Octopus instances. Click [here](https://octopus.com/start) to sign up for a trial cloud Octopus instance.
@@ -37,6 +38,10 @@ The Octopus extension only requires read access to the Octopus instance. It is r
 You can sign up for a GitHub Copilot account [here](https://github.com/features/copilot).
 
 You can also use the web based interface without GitHub Copilot. See the section "Test query website" for more details.
+
+### Installing Octopus for GitHub Copilot
+
+[Octopus for GitHub Copilot](https://github.com/marketplace/octopus-github-copilot-extension) can be found in the GitHub marketplace.
 
 ## Querying Octopus with Copilot
 

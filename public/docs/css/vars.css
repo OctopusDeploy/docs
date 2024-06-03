@@ -140,6 +140,9 @@
 
   --duration-default: 300ms;
 
+  --code-color: var(--color-text);
+  --code-background: var(--blue-100);
+
   /* Backgrounds TODO - update with design system */
   --background-light: var(--blue-100);
   --background-default: var(--white);
@@ -306,4 +309,5 @@ html[data-theme='dark'] {
   --icon-tile-border-hover: var(--octo-blue-lightest);
   --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
   --separator-color: var(--navy-700);
+  --code-background: #0c1a24;
 }
