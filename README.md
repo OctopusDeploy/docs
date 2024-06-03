@@ -183,3 +183,45 @@ Within an MDX file, this looks like a code block and will error. Escape the stat
 ```markdown
 ## Switching between spaces \{#switching-between-spaces}
 ```
+
+## Docs page layout guidelines
+
+### Title icons
+
+If you are updating a page in Docs which doesn't already have a title icon, please add one. Title icons can be added in the frontmatter for each page by adding a Font Awesome class in the `icon` entry: 
+
+```
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-05-24
+title: Octopus Cloud
+subtitle: We host Octopus for you
+icon: fa-solid fa-cloud
+navTitle: Overview
+navSection: Octopus Cloud
+navOrder: 10
+description: How to work with Octopus Cloud.
+hideInThisSectionHeader: true
+---
+```
+
+### Product screenshots
+
+Product screenshots used in Docs should reflect the UI in the latest version of Octopus. The `figure` component will automatically add a curved border and outline to your image:
+
+```
+:::figure
+![](/docs/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
+:::
+```
+
+Images should be uploaded to the folder that relates to the position of the page in the Docs hierarchy. In the example above, where the image is destined for the Octopus Cloud overview page, the image has been uploaded to the Docs > Octopus Cloud > Images folder. If a folder has not been created for the page you are uploading an image to, create a new folder or use the Docs > Images folder as a backup.
+
+### Move version notes for older versions of Octopus to the bottom of Docs pages
+
+Do not use call out / info boxes in the main body of docs pages to reference how features worked in earlier versions of Octopus. This information should be moved to the bottom of docs pages under an 'Older versions' heading. For example, you might add a note like this under the 'Older versions' heading:
+
+```
+In versions earlier than 2024.x, you'll find the page to add a feed under the Projects menu -> Tenant Variables
+```
