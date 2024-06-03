@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-08
-modDate: 2023-10-04
+modDate: 2024-05-24
 title: Octopus extension for GitHub Copilot
 description: How to use the Octopus extension for GitHub Copilot
 navOrder: 100
