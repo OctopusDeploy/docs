@@ -28,6 +28,7 @@ bootstrapped
 bootstrapper
 Ceph
 changeit
+checkservices
 childelement
 choco
 cicd
@@ -35,6 +36,7 @@ classiclink
 clientcertificate
 cloudapi
 Cloudsmith
+cmdkey
 Cmdn
 combinational
 comms
@@ -68,6 +70,7 @@ dockerhub
 DONTVALIDATEPATH
 dpkg
 Dspring
+DWORD
 Elyton
 emptytitle
 expressjs
@@ -158,12 +161,13 @@ Netscaler
 netsh
 newcert
 Newtonsoft
+nfsadmin
 noconsolelogging
 nologo
 nologs
 noninteractive
-NOPASSWD
 noopener
+NOPASSWD
 noreferrer
 nosniff
 NTLM
@@ -173,6 +177,7 @@ Octo
 octoadmin
 octobak
 octofxjs
+octoha
 octojs
 octopackjs
 Octopub
@@ -186,6 +191,7 @@ octopusservernodes
 octopustarget
 octopusvariable
 Octostache
+octostorage
 octoterra
 OIDC
 oldcert
