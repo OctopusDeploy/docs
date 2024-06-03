@@ -225,7 +225,3 @@ Do not use call out / info boxes in the main body of docs pages to reference how
 ```
 In versions earlier than 2024.x, you'll find the page to add a feed under the Projects menu -> Tenant Variables
 ```
-
-### Using new Docs components
-
-You can find a list of components to use on docs at [this page](http://octopus-docs-production.s3-website-us-east-1.amazonaws.com/components/). Please note that you need to migrate pages from a `.md` to a `.mdx` file extension and import the components at the beginning of the `.mdx` file for the components to render correctly.
