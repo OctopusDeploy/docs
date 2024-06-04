@@ -53,6 +53,7 @@ cspkg
 Csvg
 customisation
 cutover
+dacpac
 Datacenter
 datetime
 deallocate
@@ -261,6 +262,9 @@ speculationrules
 sqlcmd
 sqlvolume
 srcset
+SSDT
+SSIS
+SSRS
 statefulset
 statefulsets
 sthumb
@@ -283,6 +287,7 @@ testproject
 TFVC
 thepassword
 tmpfs
+Toolsets
 toptags
 Traefik
 Trivy
