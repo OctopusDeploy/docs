@@ -11,7 +11,7 @@ import Card from 'src/components/Card.astro';
 You can manage the variables for your projects, by navigating to your project in the Project tab of the Octopus Web Portal and selecting Project Variables:
 
 :::figure
-![Adding a variable](/docs/projects/variables/images/project-variables.png)
+![Project variables in Octopus Deploy](/docs/projects/variables/images/project-variables.png)
 :::
 
 ## Creating hello world variables \{#example}
@@ -25,7 +25,7 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
 5. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello, Production*.
 6. Define the scope for this value, for instance, by selecting the *Production* environment.
 :::figure
-![Adding a project variable](/docs/projects/variables/images/add-project-variable.png)
+![Adding a project variable in Octopus Deploy](/docs/projects/variables/images/add-project-variable.png)
 :::
 7. Save the variable by clicking **SAVE**.
 8. In this example, we’ll reference this variable from a **Run a Script** step.
@@ -35,7 +35,7 @@ Write-Host
 ```
 10. Select the variable Greeting from the insert variable tool (**#{}**) next to the script editor, and click **SAVE**.
 :::figure
-![Adding a project variable](/docs/projects/variables/images/hello-world-greeting-script.png)
+![Using a variable in a Hello World script in Octopus Deploy](/docs/projects/variables/images/hello-world-greeting-script.png)
 :::
 
 When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
@@ -63,7 +63,11 @@ During deployment, Octopus will try to select the most specifically scoped varia
 
 ### Assigning scopes \{#assigning-scopes}
 
-You can set the scope of a variable values when you are creating or editing your variables, either from the **variable** section of the project, or in the **Variable Sets** section of the Library. However, when you assign scope to variables that are part of a library variable set, the variables cannot be scoped to deployment steps or channels.
+You can set the scope of a variable values when you are creating or editing your variables, either from the **Project Variable** section of the project, or in the **Variable Sets** section of the Library. However, when you assign scope to variables that are part of a library variable set, the variables cannot be scoped to deployment steps or channels.
+
+:::figure
+![Library variables in Octopus Deploy](/docs/projects/variables/images/library-variable-sets-scoping.png)
+:::
 
 ### Using multiple scopes
 
@@ -131,9 +135,17 @@ Let’s say you have the following targets with their respective tags:
 | Target 1 | app-server |
 | Target 2 | web-server |
 
-You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we'll call it *DeployPath*) with a different value for each tag.
+You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we'll call it *DeployPath*) with a different value for each tag:
+
+:::figure
+![Using variables to control the deployment path in Octopus Deploy](/docs/projects/variables/images/deploy-path-variable.png "width=500")
+:::
 
 Then, on your deployment step, you can set the **[Custom Install Directory](/docs/projects/steps/configuration-features/custom-installation-directory)** to `#{DeployPath}`.
+
+:::figure
+![Using the DeployPath variable in Octopus Deploy](/docs/projects/variables/images/custom-install-path.png "width=500")
+:::
 
 ### Variables and permissions
 
