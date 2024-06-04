@@ -13,7 +13,7 @@ Starting with SQL Server 2008, Microsoft introduced a new project type called Da
 ## Installing SSDT for Visual Studio
 For earlier versions of Visual Studio such as 2015 and below, installing the SSDT was a matter of locating the download for your version of Visual Studio.  Microsoft has provided a convenient way of finding the appropriate download on [this page](https://docs.microsoft.com/en-us/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi?view=sql-server-ver15).
 
-For more modern versions of Visual Studio (2017+), checkout [Microsofts installation instructions](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15)
+For more modern versions of Visual Studio (2017+), checkout [Microsoft's installation instructions](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15)
 
 :::div{.success}
 This guide uses Visual Studio 2019
@@ -89,7 +89,7 @@ Note, this example uses the classic editor without YAML.
 An MSBuild task will accomplish the same thing
 :::
 
-5. Add `/p:OutDir=$(build.stagingdirectory)` to the MSBuild Arguments so that the built artifacts are separated from the source code.
+5. Add `/p:OutDir=$(build.StagingDirectory)` to the MSBuild Arguments so that the built artifacts are separated from the source code.
 
 :::figure
 ![MSBuild arguments](/docs/deployments/databases/sql-server/images/azure-devops-build-visual-studio-arguments.png)
@@ -105,7 +105,7 @@ The Octopus Deploy extension is available in the Marketplace, install the extens
     - **Package ID**: Give the package a meaningful name.
     - **Package Format**: Chose whichever package type you wish.
     - **Package Version**:  Use the build server build number to associate a package version back to a build number.
-    - **Source Path**: This will be the same path as what we set the MSBuild argument to, `$(build.stagingdirectory)`.
+    - **Source Path**: This will be the same path as what we set the MSBuild argument to, `$(build.StagingDirectory)`.
     - **Output Path**: Location to store the created package.
 
 :::div{.hint}
@@ -113,13 +113,13 @@ For Azure DevOps, the build number can be formatted on the Options tab under Bui
 :::
 
 8. Expand the Advanced Options section and add:
-	- **Include**: The only file we need for deployment is the .dapac itself.  Add the filename here, this example uses `OctoFXDemo.dacpac`.
+	- **Include**: The only file we need for deployment is the .dacpac itself.  Add the filename here, this example uses `OctoFXDemo.dacpac`.
 9. The final step in the definition pushes the package to a repository.  This guide uses Octopus Deploy's built-in package repository. Click on the **+**, select **Package**, and select **Push Package(s) to Octopus**.
 10. Next, create a connection to the Octopus Server, by clicking **+ New** and add the connection details, then click **OK**.
 11. Select the space in your Octopus instance to push to from the drop-down menu.
 12. Enter the package(s) that you would like pushed to the Octopus repository and the individual packages or use wildcard syntax:
-	1. Individual packages, for instance, `$(build.stagingdirectory)\OctoFXDemo.dacpac.$(Build.BuildNumber).nupkg`
-	2. A wildcard `$(build.stagingdirectory)\*.nupkg`.
+	1. Individual packages, for instance, `$(build.StagingDirectory)\OctoFXDemo.dacpac.$(Build.BuildNumber).nupkg`
+	2. A wildcard `$(build.StagingDirectory)\*.nupkg`.
 
 Queue the build to push the artifact to the Octopus Server:
 
@@ -155,7 +155,7 @@ If you're using Integrated Authentication with Windows, you do not need either o
 ![The project variables in the Octopus Web Portal](/docs/deployments/databases/sql-server/images/octopus-project-variables.png)
 :::
 
-Note, both `Project.SQLServer.Admin.Password` and `Project.SQLServer.Name` have multiple variables that are scoped to different environments. Learn more about [scoping variables](/docs/projects/variables/#scoping-variables).
+Note, both `Project.SQLServer.Admin.Password` and `Project.SQLServer.Name` have multiple variables that are scoped to different environments. Learn more about [scoping variables](/docs/projects/variables/getting-started/#scoping-variables).
 
 ### Define the deployment process
 

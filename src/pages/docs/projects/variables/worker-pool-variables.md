@@ -13,7 +13,7 @@ Worker pool variables are only available in **Octopus 2020.1** and later.
 
 Worker pool variables are [variables](/docs/projects/variables/) which can be used to select where a deployment or a [runbook](/docs/runbooks/) is executed. Steps that use workers can specify a worker pool directly on the step or have the step depend on a worker pool variable.  Before you can use worker pool variables, you must set up your [worker](/docs/infrastructure/workers/) and [worker pool](/docs/infrastructure/workers/worker-pools) infrastructure.
 
-In Octopus, you can [scope](/docs/projects/variables/#scoping-variables) worker pools to:
+In Octopus, you can [scope](/docs/projects/variables/getting-started/#scoping-variables) worker pools to:
 
 - [Environments](/docs/infrastructure/environments)
 - [Processes](/docs/projects/deployment-process)

@@ -25,7 +25,7 @@ We recommend cloud target discovery over the existing [dynamic infrastructure](/
 
 ## Configure credentials for discovery
 
-To perform discovery of targets from cloud resources, Octopus uses a well-known set of variables configured within your project to provide the credentials for authentication to the cloud provider. Variables can be [scoped](/docs/projects/variables/#scoping-variables) allowing for different credentials to be used when performing discovery as required (for example in different environments).
+To perform discovery of targets from cloud resources, Octopus uses a well-known set of variables configured within your project to provide the credentials for authentication to the cloud provider. Variables can be [scoped](/docs/projects/variables/getting-started/#scoping-variables) allowing for different credentials to be used when performing discovery as required (for example in different environments).
 
 :::div{.hint}
 From **Octopus 2022.3**, you can configure the well-known variables used for target discovery when editing your deployment process in the Web Portal.
