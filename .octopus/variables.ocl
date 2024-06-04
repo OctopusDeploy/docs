@@ -1,5 +1,0 @@
-variable "CloudFront.InvalidationAccount" {
-    type = "AmazonWebServicesAccount"
-
-    value "cacheinvalidationaccount" {}
-}
