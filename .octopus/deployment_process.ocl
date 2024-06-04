@@ -29,3 +29,31 @@ step "upload-microsite-to-aws-s3" {
         }
     }
 }
+
+step "clear-aws-cloudfront-cache" {
+    name = "Clear AWS CloudFront Cache"
+
+    action {
+        action_type = "Octopus.AwsRunScript"
+        properties = {
+            Octopus.Action.Aws.AssumeRole = "False"
+            Octopus.Action.Aws.Region = "#{AWS.Region.Docs}"
+            Octopus.Action.AwsAccount.UseInstanceRole = "False"
+            Octopus.Action.AwsAccount.Variable = "CloudFront.InvalidationAccount"
+            Octopus.Action.Script.ScriptBody = <<-EOT
+                aws cloudfront create-invalidation \
+                --distribution-id #{AWS.Distribution.Docs} \
+                --paths "/*"
+                EOT
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+            OctopusUseBundledTooling = "False"
+        }
+        worker_pool = "hosted-ubuntu"
+
+        container {
+            feed = "docker-hub"
+            image = "octopusdeploy/worker-tools:6.2.1-ubuntu.22.04"
+        }
+    }
+}
