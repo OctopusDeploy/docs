@@ -7,17 +7,18 @@ description: Deployment freezes allow you to pause deployments for a specified t
 navOrder: 170
 ---
 
-:::div{.hint}
-Deployment freezes will be available for early access from Octopus Deploy **2024.2**. Please contact michelle.obrien@octopus.com if you would like to turn this feature on.
-:::
-
-Deployment freezes allow you to pause deployments across all spaces for a configured amount of time. This is useful when you want to prevent certain projects deploying to certain environments within a specific time frame. Without deployment freezes, you would need to manually disable specific projects or machines to stop the deployments. 
+Deployment freezes allow you to prevent deployments for a configured amount of time. This is useful when you want to prevent certain projects deploying to certain environments within a specific time frame. Without deployment freezes, you would need to manually disable specific projects or machines to stop the deployments. 
 
 An example of how deployment freezes could be used is:
 
 - Freezing deployments for all projects to the production environment during the holiday shut-down period.
 
 As deployment freezes are scoped to projects and environments, both projects and environments will need to be assigned to the freeze. This will ensure that projects and environments that are not frozen will still deploy.
+
+While a deployment freeze is in place for a project and environment:
+- New deployments are prevented from being created
+- Any existing deployments that start executing during the freeze will fail
+- Automatically triggered deployments fail, except for deployments created by machine triggers
 
 
 ## Pre-requisites
