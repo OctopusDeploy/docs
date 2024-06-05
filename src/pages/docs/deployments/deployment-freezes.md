@@ -18,7 +18,7 @@ As deployment freezes are scoped to projects and environments, both projects and
 While a deployment freeze is in place for a project and environment:
 - New deployments are prevented from being created
 - Any existing deployments that start executing during the freeze will fail
-- Automatically triggered deployment fail, except for deployments created by machine triggers
+- Automatically triggered deployments fail, except for deployments created by machine triggers
 
 
 ## Pre-requisites
