@@ -28,6 +28,6 @@ Octopus Deploy supports network file shares, as well as many cloud providers' st
 This section provides configuration walkthroughs for the popular storage options our customers use.
 
 - [Local File Storage](/docs/installation/file-storage/local-storage)
-- [AWS File Storage](/docs/installation/file-storage/aws-storage)
-- [Azure File Storage](/docs/installation/file-storage/azure-storage)
-- [GCP File Storage](/docs/installation/file-storage/gcp-storage)
+- [AWS File Storage](/docs/installation/file-storage/aws-file-storage)
+- [Azure File Storage](/docs/installation/file-storage/azure-file-storage)
+- [GCP File Storage](/docs/installation/file-storage/gcp-file-storage)
