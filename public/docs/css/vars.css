@@ -153,6 +153,9 @@
   /* Separator */
   --separator-color: #dae2e9;
 
+  /* Scrollbar */
+  --scrollbar-color: #a9bbcb;
+
   /* Icon Tile */
   --icon-tile-border: var(--border-default-color);
   --icon-tile-border-hover: var(--border-default-color);
@@ -310,4 +313,5 @@ html[data-theme='dark'] {
   --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
   --separator-color: var(--navy-700);
   --code-background: #0c1a24;
+  --scrollbar-color: var(--navy-300);
 }
