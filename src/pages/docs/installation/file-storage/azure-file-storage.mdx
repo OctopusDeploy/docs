@@ -7,6 +7,7 @@ description: Guidelines and recommendations for configuring Octopus Deploy to us
 navOrder: 30
 hideInThisSection: true
 ---
+import FileStorageHA from 'src/shared-content/installation/file-storage-ha.include.md';
 
 If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that can be shared across all of your Octopus servers.
 
@@ -48,19 +49,11 @@ It's worth noting that you need to have created the folders within the Azure Fil
 ```
 ## High Availability
 
-With Octopus Deploy's [High Availability](/docs/administration/high-availability) functionality, you connect multiple nodes to the same database and file storage.  Octopus Server makes specific assumptions about the performance and consistency of the file system when accessing log files, performing log retention, storing deployment packages and other deployment artifacts, exported events, and temporary storage when communicating with Tentacles.  
-
-What that means is: 
-
-- Octopus Deploy is sensitive to network latency.  It expects the file system to be hosted in the same data center as the virtual machines or container hosts running the Octopus Deploy Service.
-- It is extremely rare for two or more nodes to write to the same file at the same time.
-- It is common for two or more nodes to read the same file at the same time.
-
-In our experience, you will have the best experience when all the nodes and the file system are located in the same data center.  Modern network storage devices and operating systems handle almost all the scenarios a highly available instance of Octopus Deploy will encounter.
+<FileStorageHA />
 
 ## Disaster Recovery
 
-For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with Azure you have several options available.
+For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with Azure you have several options available. Further details on the redundancy options available for Azure Storage can be found [here](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy).
 
 ### Zone-redundant Storage
 
@@ -81,5 +74,3 @@ Geo-zone-redundant storage (GZRS) combines ZRS and GRS. It will protect against 
 :::div{.hint}
 When using GRS or GZRS a failure of the primary region would require a [manual failover](https://learn.microsoft.com/en-us/azure/storage/common/storage-failover-customer-managed-unplanned?tabs=grs-ra-grs) to be triggered within Azure which would update the the Azure Storage DNS entry to point to the secondary region. This process can take up to an hour.
 :::
-
-Further details on the redundancy options available for Azure Storage can be found [here](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy).
