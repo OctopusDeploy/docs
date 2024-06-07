@@ -70,6 +70,7 @@ Dockerfiles
 dockerhub
 DONTVALIDATEPATH
 dpkg
+dryrun
 Dspring
 DWORD
 Elyton
@@ -161,6 +162,8 @@ NETBIOS
 Netscaler
 netsh
 newcert
+newguid
+NEWID
 Newtonsoft
 nfsadmin
 noconsolelogging
@@ -173,6 +176,7 @@ noreferrer
 nosniff
 NTLM
 nupkg
+NVARCHAR
 Obtainingthe
 Octo
 octoadmin
@@ -196,6 +200,7 @@ octostorage
 octoterra
 OIDC
 oldcert
+oldguid
 oldthumbprint
 oneshot
 onlylogs
@@ -295,6 +300,7 @@ tsconfigs
 typeof
 umoci
 undeployed
+upgradeavailability
 upgradelog
 upgrader
 urlset
