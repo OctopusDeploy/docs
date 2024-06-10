@@ -124,7 +124,7 @@ The following are example queries you can use to test the Octopus extension:
 
 ## Troubleshooting
 
-### Prompts don't appear to work
+## Prompts don't appear to work
 A response like "Sorry, I can't assist with that" can occur if the prompt is not addressed to the Octopus extension, or if the user entering the prompt does not have permissions to use Copilot extension. In the screenshot below you can see the response was provided by `GitHub Copilot` despite being addressed to the `@octopus-ai-app` extension:
 
 ![Image of a failed request](/docs/administration/copilot/not-using-agent.png)
