@@ -11,7 +11,7 @@ hideInThisSection: true
 The Octopus extension for GitHub Copilot allows read only queries of cloud Octopus instances via GitHub Copilot.
 
 :::div{.warning}
-The Octopus extension is an experiment. It is not covered by service level agreements.
+The Octopus extension is in early access. It is not covered by service level agreements.
 :::
 
 The goal of the Octopus extension is to allow developers to remain in a state of flow by querying their Octopus instance from their favorite IDE or any platform that supports GitHub Copilot. The Octopus extension allows Devops teams to query the state of deployments, extract useful information from log files, build custom reports, and get answers to common questions with natural language prompts.
@@ -20,13 +20,25 @@ The goal of the Octopus extension is to allow developers to remain in a state of
 
 The Octopus extension has 4 prerequisites:
 
-* An Octopus Cloud instance
+* An Octopus instance
+  * A cloud instance or 
+  * An on-premises Octopus instance with a hostname accessible from the Octopus Copilot Extension service
 * An API key
 * A GitHub Copilot account
 * The Octopus for GitHub Copilot application
 
 ### Creating an Octopus cloud instance
 The Octopus extension is available for cloud Octopus instances. Click [here](https://octopus.com/start) to sign up for a trial cloud Octopus instance.
+
+### Integrating an on-premises Octopus instance
+
+The Octopus Copilot Extension is implemented as an Azure Function. The function must be able to call the Octopus API.
+
+On-premises Octopus instances must allow HTTP requests from the IP addresses listed in [this file](https://github.com/OctopusSolutionsEngineering/OctopusCopilot/blob/main/outboundips.txt)in order to integrate with the Octopus Copilot Extension. These IP addresses represent the possible addresses that the Octopus Copilot Extension may use when making API requests to an Octopus instance.
+
+:::div{.warning}
+It is not possible to integrate the Octopus Copilot Extension with an on-premises Octopus instance that can not accept HTTP requests from these public IP addresses.
+:::
 
 ### Creating the Octopus API key
 The Octopus extension requires an [API key](/docs/octopus-rest-api/how-to-create-an-api-key) to interact with the Octopus server.
