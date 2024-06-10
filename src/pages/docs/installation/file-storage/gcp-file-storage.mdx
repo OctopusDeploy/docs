@@ -9,103 +9,13 @@ hideInThisSection: true
 ---
 import FileStorageHA from 'src/shared-content/installation/file-storage-ha.include.md';
 
-Octopus running on Windows works best with shared storage accessed via the [Server Message Block (SMB) protocol](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
-
 Google Cloud offers its own managed file storage option known as [Filestore](https://cloud.google.com/filestore), however it's only accessible via the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System) (v3).
-
-For SMB storage, Google have partnered with NetApp to offer [NetApp Cloud Volumes](https://cloud.google.com/architecture/partners/netapp-cloud-volumes). This is a fully managed, cloud-based solution that runs on a Compute Engine virtual machine and uses a combination of persistent disks (PDs) and Cloud Storage buckets to store your NAS data.
 
 :::div{.hint}
 Typically, NFS shares are better suited to Linux or macOS clients, although it is possible to access NFS shares on Windows Servers. NFS shares on Windows are mounted per-user and are not persisted when the server reboots. It's for these reasons that Octopus recommends using SMB storage over NFS when running on Windows Servers.
 :::
 
 You can see the different file server options Google Cloud has in their [File Storage on Compute Engine](https://cloud.google.com/architecture/filers-on-compute-engine) overview.
-
-## NetApp Cloud Volumes
-
-:::div{.hint}
-To successfully create a NetApp Cloud SMB Volume in Google Cloud, you must have an Active Directory service that can be used to connect to the SMB volume. Please see the [creating and managing SMB volumes](https://cloud.google.com/architecture/partners/netapp-cloud-volumes/creating-smb-volumes) for further information. It's also worth reviewing the [security considerations for SMB access](https://cloud.google.com/architecture/partners/netapp-cloud-volumes/security-considerations) too.
-:::
-
-Once you have configured your NetApp Cloud SMB Volume, the best option is to mount the SMB share and then create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\OctopusShared\` for the Artifacts, Packages, TaskLogs, Imports, and EventExports folders which need to be available to all nodes.
-
-Before installing Octopus, follow the steps below *on each* Compute engine instance to mount your SMB share.
-
-1. In the Google Cloud Console, go to the [Volumes](https://console.cloud.google.com/netapp/cloud-volumes/volumes) page.
-
-2. Click the SMB volume for which you want to map an SMB share.
-
-3. Scroll to the right, click **More** (`...`), and then click **Mount Instructions**.
-
-4. Follow the instructions in the **Mount Instructions for SMB window** that appears.
-
-5. Create folders in your **SMB share** for the Artifacts, Packages, TaskLogs, Imports, and EventExports.
-
-   ![Create folders in your SMB share](/docs/administration/high-availability/design/images/smb-create-folders.png "width=500")
-
-6. Create the symbolic links for the Artifacts, Packages, TaskLogs, Imports, and EventExports folders.
-
-   Run the following PowerShell script, substituting the placeholder values with your own:
-
-   ```powershell
-
-   # (Optional) add the auth for the symbolic links. You can get the details from the Cloud Volume mount instructions.
-   cmdkey /add:your-smb-share-address /user:username /pass:XXXXXXXXXXXXXX
-
-   # Create the local folder to use to create the symbolic links within.
-   $LocalFolder="C:\OctopusShared"
-   
-   if (-not (Test-Path -Path $LocalFolder)) {
-      New-Item -ItemType directory -Path $LocalFolder    
-   }
-
-   $SmbShare = "\\your-smb-share\share-name"
-   
-   # Create symbolic links
-   $ArtifactsFolder = Join-Path -Path $LocalFolder -ChildPath "Artifacts"
-   if (-not (Test-Path -Path $ArtifactsFolder)) {
-       New-Item -Path $ArtifactsFolder -ItemType SymbolicLink -Value "$SmbShare\Artifacts"
-   }
-
-   $PackagesFolder = Join-Path -Path $LocalFolder -ChildPath "Packages"
-   if (-not (Test-Path -Path $PackagesFolder)) {
-       New-Item -Path $PackagesFolder -ItemType SymbolicLink -Value "$SmbShare\Packages"
-   }
-
-   $TaskLogsFolder = Join-Path -Path $LocalFolder -ChildPath "TaskLogs"
-   if (-not (Test-Path -Path $TaskLogsFolder)) {
-       New-Item -Path $TaskLogsFolder -ItemType SymbolicLink -Value "$SmbShare\TaskLogs"
-   }
-
-   $ImportsFolder = Join-Path -Path $LocalFolder -ChildPath "Imports"
-   if (-not (Test-Path -Path $ImportsFolder)) {
-       New-Item -Path $ImportsFolder -ItemType SymbolicLink -Value "$SmbShare\Imports"
-   }
-
-   $EventExportsFolder = Join-Path -Path $LocalFolder -ChildPath "EventExports"
-   if (-not (Test-Path -Path $EventExportsFolder)) {
-       New-Item -Path $EventExportsFolder -ItemType SymbolicLink -Value "$SmbShare\EventExports"
-   }
-   ```
-   
-   :::div{.hint}
-   Remember to create the folders in the SMB share before trying to create the symbolic links.
-   :::
-
-Once you've completed those steps, [install Octopus](/docs/installation/) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path) to change the paths to the shared storage:
-
-```powershell
-& 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path `
---artifacts "C:\OctopusShared\Artifacts" `
---nugetRepository "C:\OctopusShared\Packages" `
---taskLogs "C:\OctopusShared\TaskLogs" `
---imports "C:\OctopusShared\Imports" `
---eventExports "C:\OctopusShared\EventExports"
-```
-
-:::div{.hint}
-Changing the path only needs to be done once, and not on each node as the values are stored in the database.
-:::
 
 ## Filestore using NFS
 
@@ -289,14 +199,16 @@ Changing the path only needs to be done once, and not on each node as the values
 ## Disaster Recovery
 For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with GCP you have several options available. Further details on the redundancy options available for Filestore can be found [here](https://cloud.google.com/architecture/filers-on-compute-engine#filestore-basic).
 
-### Basic
-
-Filestore Basic offers very little data redundancy. Files are stored in a single location 
-
 ### Zonal
 
-
+Zonal availability provided by GCP will replicate your data across a single zone. This will protect against simple hardware failure but provides no protection against a zone or region failure.
 
 ### Regional
 
+Regional availability provided by GCP will replicate your data across several zones within the same region. This will protect against the failure of one or more zones but provides no protection against a region failure.
 
+Whether you use Zonal or Regional availability, it would be necessary to create [backups](https://cloud.google.com/filestore/docs/backups#backing_up_data_for_disaster_recovery) of the Filestore in a different region to ensure data resilience. The backup can be configured within a [scheduled job](https://cloud.google.com/filestore/docs/scheduling-backups).
+
+:::div{.warning}
+In the event of a failure of the primary region, it would be necessary to restore the backup of your Filestore to a secondary region and reconfigure Octopus to point to the new region. There may be some data loss to consider in this scenario based on how often your Filestore backups are taken.
+:::
