@@ -52,6 +52,8 @@ When the interruption has been assigned to you, you can then perform the action 
 
 When aborting a deployment, it's a good idea to write a reason into the **Notes** field, so that the rest of the team can see why the deployment was aborted.
 
+The tasks page, under the "Needs Approval" tab, contains a list of deployments pending manual intervention. In addition to the deployment page, you can also assign, approve, and abort deployments from this page.
+
 ## Output variables
 
 When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/projects/built-in-step-templates/email-notifications) templates.
