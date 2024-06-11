@@ -1,7 +1,7 @@
 ---
 // Properties
 type Props = {
-  description: string;
+  description?: string;
   iconAlt: string;
   iconSrc: string;
   link: string;
@@ -14,10 +14,16 @@ const { description, iconAlt, iconSrc, link, title } =
 
 <a href={link} class="icon-tile" role="link" aria-label={`Open ${title}`}>
   <div class="icon-tile__icon-wrapper">
-    <img src={iconSrc} alt={iconAlt} class="icon-tile__icon" />
+    <img
+      src={iconSrc}
+      alt={iconAlt}
+      class="icon-tile__icon"
+      onerror="this.src='https://i.octopus.com/library/step-templates/other.png';"
+      loading="lazy"
+    />
   </div>
   <div class="icon-tile__content">
     <h3 class="icon-tile__title">{title}</h3>
-    <p class="icon-tile__description">{description}</p>
+    {description && <p class="icon-tile__description">{description}</p>}
   </div>
 </a>
