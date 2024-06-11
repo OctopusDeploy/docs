@@ -34,7 +34,7 @@ The Octopus extension is available for cloud Octopus instances. Click [here](htt
 
 The Octopus Copilot Extension is implemented as an Azure Function. The function must be able to call the Octopus API.
 
-On-premises Octopus instances must allow HTTP requests from the IP addresses listed in [this file](https://github.com/OctopusSolutionsEngineering/OctopusCopilot/blob/main/outboundips.txt)in order to integrate with the Octopus Copilot Extension. These IP addresses represent the possible addresses that the Octopus Copilot Extension may use when making API requests to an Octopus instance.
+On-premises Octopus instances must allow HTTP requests from the IP addresses listed in [this file](https://github.com/OctopusSolutionsEngineering/OctopusCopilot/blob/main/outboundips.txt) in order to integrate with the Octopus Copilot Extension. These IP addresses represent the possible addresses that the Octopus Copilot Extension may use when making API requests to an Octopus instance.
 
 :::div{.warning}
 It is not possible to integrate the Octopus Copilot Extension with an on-premises Octopus instance that can not accept HTTP requests from these public IP addresses.
