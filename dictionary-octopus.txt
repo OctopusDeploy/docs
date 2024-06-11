@@ -122,6 +122,7 @@ itemprop
 itemscope
 itemtype
 ITSM
+jjones
 jwks
 keyrings
 keyserver
