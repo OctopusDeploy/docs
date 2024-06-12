@@ -11,7 +11,7 @@ import FileStorageHA from 'src/shared-content/installation/file-storage-ha.inclu
 
 When you opt to store the binary files on local network storage, there are a few items to keep in mind:
 
-- When Octopus is hosted on Windows it can be a mapped network drive e.g. `X:\`, a UNC path to a file share e.g. `\\server\share`, or a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)
+- When Octopus is hosted on Windows it can be a mapped network drive e.g. `X:\` or a UNC path to a file share e.g. `\\server\share`.
 - When Octopus is hosted as a container it must be as a volume.
 - The service account that Octopus runs needs **full control** over the directory.
 - Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under.

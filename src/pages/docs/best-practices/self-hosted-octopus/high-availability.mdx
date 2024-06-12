@@ -148,7 +148,7 @@ In our research the biggest limiting factor in processing concurrent tasks is th
 
 ### Database
 
-Octopus Deploy stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. You can host that SQL Database on a local SQL server, or use one of the many popular cloud providers. We recommend picking the option based on where you plan on hosting Octopus Deploy. 
+Octopus Deploy stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. You can host that SQL Database on a self-managed SQL server, or use one of the many popular cloud providers. We recommend picking the option based on where you plan on hosting Octopus Deploy. 
 
 #### Database Compute Resources
 
@@ -181,7 +181,7 @@ Octopus High Availability has not been tested with Log Shipping or Database Mirr
 
 If you wish to learn more about how to configure Octopus Deploy with a specific hosting option, please refer to our installation guides.
 
-- [Local SQL Server](/docs/installation/sql-database/local-sql-server)
+- [Self-Managed SQL Server](/docs/installation/sql-database/self-managed-sql-server)
 - [AWS RDS](/docs/installation/sql-database/aws-rds)
 - [Azure SQL](/docs/installation/sql-database/azure-sql)
 - [GCP SQL](/docs/installation/sql-database/gcp-sql)
@@ -202,8 +202,7 @@ Whichever way you provide the shared storage, there are a few considerations to 
 
 - To Octopus, it needs to appear as either:
   - A mapped network drive e.g. `X:\`
-  - A UNC path to a file share e.g. `\\server\share`
-  - A [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, e.g. `C:\OctopusShared\Artifacts <<===>> \\server\share\Artifacts` 
+  - A UNC path to a file share e.g. `\\server\share` 
   - For Linux containers they need to be a volume mount.
 - The service account that Octopus runs needs **full control** over the directory.
 - Drives are mapped per user, so you should map the drive using the same service account that Octopus is running under.
@@ -468,7 +467,7 @@ The process for adding nodes is:
 
 1. Create the new application host.
 1. Download and install the same version as the other nodes.
-1. configure any volume mounts or symbolic links for file storage.
+1. configure any volume mounts for file storage.
 1. Configure the Octopus Server node using the master key and database connection information.
 
 The process for removing a node is:
