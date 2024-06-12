@@ -43,11 +43,13 @@ It is not possible to integrate the Octopus Copilot Extension with an on-premise
 ### Creating the Octopus API key
 The Octopus extension requires an [API key](/docs/octopus-rest-api/how-to-create-an-api-key) to interact with the Octopus server.
 
-The Octopus extension only requires read access to the Octopus instance. It is recommended that you create a [service account](/docs/security/users-and-teams/service-accounts) that belongs to a team with read-only permissions. The documentation [here](https://github.com/OctopusSolutionsEngineering/OctopusCopilot?tab=readme-ov-file#creating-a-service-account) provides a sample Terraform module to create a read-only role, a team referencing the role, and a service account belonging to the team.
+A common use case for the Octopus extension is to query an Octopus instance. When used for read-only tasks, it is recommended that you create a [service account](/docs/security/users-and-teams/service-accounts) that belongs to a team with read-only permissions. The documentation [here](https://github.com/OctopusSolutionsEngineering/OctopusCopilot?tab=readme-ov-file#creating-a-service-account) provides a sample Terraform module to create a read-only role, a team referencing the role, and a service account belonging to the team.
+
+The Octopus extension can also be used to execute runbooks, create deployments, and release deployments. When used for these tasks, the associated API key must be linked to an account with the appropriate permissions.
 
 ### Creating a GitHub Copilot account
 
-You can sign up for a GitHub Copilot account [here](https://github.com/features/copilot).
+You can sign up for a GitHub Copilot account [here](https://github.com/features/copilot). You must also enable the required [policy settings](https://docs.github.com/en/copilot/github-copilot-chat/github-copilot-extensions/managing-github-copilot-extensions).
 
 You can also use the web based interface without GitHub Copilot. See the section "Test query website" for more details.
 
@@ -119,6 +121,19 @@ The following are example queries you can use to test the Octopus extension:
 ## Prompt engineering tips
 
 [This documentation](https://github.com/OctopusSolutionsEngineering/OctopusCopilot/wiki/Prompt-Engineering-with-Octopus) provides prompt engineering tips.
+
+## Troubleshooting
+
+## Prompts don't appear to work
+A response like `Sorry, I can't assist with that.` can occur if the prompt is not addressed to the Octopus extension, or if the user entering the prompt does not have permissions to use Copilot extensions. In the screenshot below you can see the response was provided by `GitHub Copilot` despite being addressed to the `@octopus-ai-app` extension:
+
+![Image of a failed request](/docs/administration/copilot/not-using-agent.png)
+
+A successful request highlights the `@octopus-ai-app` extension as part of the prompt, and the response is delivered by `Octopus AI App`:
+
+![Image of a successful request](/docs/administration/copilot/valid-request.png)
+
+You must ensure the Octopus Copilot extension is installed for your organization and that the required [policy settings](https://docs.github.com/en/copilot/github-copilot-chat/github-copilot-extensions/managing-github-copilot-extensions) are enabled.
 
 ## Source code
 
