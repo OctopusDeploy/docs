@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-13
 title: GitHub Actions
 description: GitHub Actions can leverage the Octopus CLI to pack, build, push, and create releases for Octopus Deploy.
 navOrder: 55
@@ -398,6 +398,10 @@ Build information is generated and pushed to Octopus with the
       packages: OctoPetShopWeb
       overwrite_mode: OverwriteExisting
 ```
+
+:::div{.warning}
+Commits will only be included when a workflow is triggered by a [push event](https://docs.github.com/en/webhooks/webhook-events-and-payloads#push). 
+:::
 
 :::div{.success}
 **Example GitHub Actions Repo:**
