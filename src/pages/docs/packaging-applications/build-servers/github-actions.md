@@ -40,9 +40,9 @@ For example:
 
 | Variable name       | Description|
 | ------------- | ------- |
-| `OCTOPUSSERVERURL` | The Octopus Server URL you wish to push the final package to |
-| `OCTOPUSSERVERAPIKEY` | The Octopus Deploy API Key required for authentication |
-| `OCTOPUSSERVER_SPACE` | The Space to push packages to |
+| `OCTOPUS_SERVER_URL` | The Octopus Server URL you wish to push the final package to |
+| `OCTOPUS_SERVER_API_KEY` | The Octopus Deploy API Key required for authentication |
+| `OCTOPUS_SERVER_SPACE` | The Space to push packages to |
 
 :::figure
 ![GitHub Actions Secrets](/docs/packaging-applications/build-servers/images/github-actions-secrets.png)
@@ -246,10 +246,10 @@ Once the artifacts are packaged, use the **OctopusDeploy/push-package-action** A
     - name: Push OctoPetShop packages
       uses: OctopusDeploy/push-package-action@v1
       with:
-        api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-        server: ${{ secrets.OCTOPUSSERVERURL }}
+        api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
+        server: ${{ secrets.OCTOPUS_SERVER_URL }}
         packages: "artifacts/OctoPetShop.Database.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.Web.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ProductService.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ShoppingCartService.${{ env.PACKAGE_VERSION }}.zip"
-        space: ${{ secrets.OCTOPUSSERVER_SPACE }}
+        space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
 ```
 
 ### Creating a release
@@ -260,9 +260,9 @@ To create a release, use the **OctopusDeploy/create-release-action**.  This acti
     - name: Create and deploy release
       uses: OctopusDeploy/create-release-action@v1
       with:
-        api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-        server: ${{ secrets.OCTOPUSSERVERURL }}
-        space: ${{ secrets.OCTOPUSSERVER_SPACE }}
+        api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
+        server: ${{ secrets.OCTOPUS_SERVER_URL }}
+        space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
         project: "Octo Pet Shop"
         deploy_to: "Development"
         progress: true
@@ -345,16 +345,16 @@ jobs:
     - name: Push OctoPetShop packages
       uses: OctopusDeploy/push-package-action@v1
       with:
-        api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-        server: ${{ secrets.OCTOPUSSERVERURL }}
+        api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
+        server: ${{ secrets.OCTOPUS_SERVER_URL }}
         packages: "artifacts/OctoPetShop.Database.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.Web.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ProductService.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ShoppingCartService.${{ env.PACKAGE_VERSION }}.zip"
-        space: ${{ secrets.OCTOPUSSERVER_SPACE }}
+        space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
     - name: Create and deploy release
       uses: OctopusDeploy/create-release-action@v1
       with:
-        api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-        server: ${{ secrets.OCTOPUSSERVERURL }}
-        space: ${{ secrets.OCTOPUSSERVER_SPACE }}
+        api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
+        server: ${{ secrets.OCTOPUS_SERVER_URL }}
+        space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
         project: "Octo Pet Shop"
         deploy_to: "Development"
         progress: true
@@ -369,12 +369,12 @@ In addition to common build steps, we also have an action that can Run a Runbook
   - name: Run a runbook in Octopus Deploy
     uses: OctopusDeploy/run-runbook-action@1.0.1
     with:
-      api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
+      api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
       environments: 'Development'
       project: 'Octo Pet Shop'
       runbook: 'Restart IIS App pool'
-      server: ${{ secrets.OCTOPUSSERVERURL }}
-      space: ${{ secrets.OCTOPUSSERVER_SPACE }}
+      server: ${{ secrets.OCTOPUS_SERVER_URL }}
+      space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
       show_progress: 'true'
 ```
 
