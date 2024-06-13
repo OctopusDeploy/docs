@@ -10,5 +10,34 @@ hideInThisSection: true
 ---
 
 import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
+import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
 
-Lorem Ipsum
+Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in Azure, there are two options to consider:
+
+- [SQL Server on a Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview/) -  To run SQL Server on a VM, please refer to our [self-managed SQL Server guide](/docs/installation/self-managed-sql-server).
+- [Azure SQL Database as a Service](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview/)
+
+
+## Using Azure Active Directory (AAD) in Azure SQL \{#using-aad-in-azure-sql}
+
+Support for [Azure Active Directory (AAD) authentication](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#setting-azure-active-directory-authentication) was added in Octopus **2021.1**. This includes the ability to use a [Managed Identity](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#using-active-directory-managed-identity-authentication) when connecting to your Octopus database hosted in Azure SQL.
+
+A typical connection string for using Azure Active Directory Authentication with a Managed Identity looks like this:
+
+```
+Server=localhost;Initial catalog=Octopus;authentication="Active Directory Managed Identity"
+```
+
+## High Availability
+
+The database is a critical component of Octopus Deploy.  If the database is lost or destroyed all your configuration will be lost with it.  We highly recommend leveraging a combination of backups and SQL Server's high availability functionality.  
+
+<HighAvailabilityDatabaseRecommendations />
+
+And also:
+
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+
+<HighAvailabilityDatabaseLogShippingMirroringNote />
+
+## Disaster Recovery
