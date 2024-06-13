@@ -1,15 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2024-06-13
 title: Jira Service Management Integration
 description: Octopus Deploy can integrate with your Jira Service Management instance for deployment control using Change Requests/Issues
 navOrder: 10
 ---
 
 :::div{.hint}
-The Jira Service Management (JSM) Integration Early-Access Program (EAP)  is available in Octopus 
-**2022.3.12101** or later. [Contact us](https://octopus.com/company/contact) to request access to this feature. 
+The Jira Service Management (JSM) Integration is available from Octopus **2022.3** onwards and requires an [enterprise subscription](https://octopus.com/pricing). [Contact us](https://octopus.com/company/contact) to request access to this feature. 
 :::
 
 ## Overview
