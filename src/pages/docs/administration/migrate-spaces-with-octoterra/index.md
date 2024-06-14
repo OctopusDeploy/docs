@@ -177,6 +177,12 @@ If your project or runbooks include step templates and the project will be recre
 ```
 
 When the project is recreated, the step template steps will be recreated in a detached state.
+
+If you get an error like this when applying a module, it can mean that a project or runbook is referencing a step template that does not exist in the target space, and you must use the `-detachProjectTemplates` argument:
+
+```Bash
+Error: Octopus API error: Resource is not found or it doesn't exist in the current space context. Please contact your administrator for more information. [] 
+```
 :::
 
 The Terraform module is created in the directory `~/Desktop/project/space_population`.
