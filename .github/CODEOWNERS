@@ -450,3 +450,9 @@
 # updates to the deprecations page are reviewed by michaelnoonan and alexrolleyoctopus
 
 /docs/deprecations/index.md @michaelnoonan @alexrolleyoctopus
+
+# updates to the Kubernetes targets infrastructure pages are reviewed by modern-deployments
+
+/docs/infrastructure/deployment-targets/kubernetes @OctopusDeploy/team-modern-deployments
+/docs/infrastructure/deployment-targets/kubernetes-cluster @OctopusDeploy/team-modern-deployments
+/docs/infrastructure/deployment-targets/kubernetes-target @OctopusDeploy/team-modern-deployments
