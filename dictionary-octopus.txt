@@ -91,6 +91,7 @@ frontmatter
 gcloud
 getenv
 gifs
+gitcredential
 globbing
 Gluster
 googleaccount
@@ -124,6 +125,7 @@ itemscope
 itemtype
 ITSM
 jjones
+jsondecode
 jwks
 keyrings
 keyserver
