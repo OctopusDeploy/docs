@@ -42,20 +42,6 @@ Google's Compute Engine also provides [machine type recommendations](https://clo
 
 <OctopusInstanceMixedOSWarning />
 
-### Database
-
-Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in GCP, there are two options to consider:
-
-- [SQL Server Virtual Machine instances](https://cloud.google.com/compute/docs/instances/sql-server/creating-sql-server-instances)
-- [Cloud SQL PaaS](https://cloud.google.com/sql/docs/sqlserver/create-instance)
-
-<HighAvailabilityDatabaseRecommendations />
-
-And also:
-
-- [Cloud SQL Database](https://cloud.google.com/sql/sqlserver)
-
-<HighAvailabilityDatabaseLogShippingMirroringNote />
 
 
 ### Load balancing in Google Cloud

@@ -9,5 +9,23 @@ hideInThisSection: true
 ---
 
 import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
+import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
 
-Lorem Ipsum
+Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in GCP, there are two options to consider:
+
+- [SQL Server Virtual Machine instances](https://cloud.google.com/compute/docs/instances/sql-server/creating-sql-server-instances) -  To run SQL Server on a VM, please refer to our [self-managed SQL Server guide](/docs/installation/self-managed-sql-server).
+- [Cloud SQL PaaS](https://cloud.google.com/sql/docs/sqlserver/create-instance)
+
+## High Availability
+
+The database is a critical component of Octopus Deploy.  If the database is lost or destroyed all your configuration will be lost with it.  We highly recommend leveraging a combination of backups and SQL Server's high availability functionality.  
+
+<HighAvailabilityDatabaseRecommendations />
+
+And also:
+
+- [Cloud SQL Database](https://cloud.google.com/sql/sqlserver)
+
+<HighAvailabilityDatabaseLogShippingMirroringNote />
+
+## Disaster Recovery

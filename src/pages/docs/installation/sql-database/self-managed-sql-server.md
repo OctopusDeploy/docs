@@ -2,13 +2,17 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-22
-title: Local SQL Server
-description: Guidelines and recommendations for configuring Octopus Deploy to use a local SQL Server.
+title: Self-Managed SQL Server
+description: Guidelines and recommendations for configuring Octopus Deploy to use a self-managed SQL Server.
 navOrder: 10
 hideInThisSection: true
 ---
 
-Each Octopus Server node stores project, environment and deployment-related data in a Microsoft SQL Server Database. While it is possible to have Octopus Deploy connect to SQL Server Express running on the same host, it is not something we recommend.  If you plan to host the SQL Database on a local SQL Server, we recommend using a SQL Server that is managed by DBAs.
+Each Octopus Server node stores project, environment and deployment-related data in a Microsoft SQL Server Database. While it is possible to have Octopus Deploy connect to SQL Server Express running on the same host, it is not something we recommend.  If you plan to host the SQL Database on a self-managed SQL Server, we recommend using a SQL Server that is managed by DBAs.
+
+:::div{.hint}
+This document applies to any self-managed SQL Server, regardless of where it is hosted, be it on physical machines in a self-managed data center or on virtual machines in a cloud provider.  
+:::
 
 ## Creating the database
 

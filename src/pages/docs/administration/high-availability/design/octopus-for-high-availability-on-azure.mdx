@@ -7,8 +7,7 @@ description: Information on configuring Octopus High Availability hosted in Micr
 navOrder: 20
 ---
 import HighAvailabilityComputeRecommendations from 'src/shared-content/administration/high-availability-compute-recommendations.include.md';
-import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
-import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
+
 import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/).
@@ -44,30 +43,6 @@ Each organization has different requirements when it comes to choosing the right
 
 <OctopusInstanceMixedOSWarning />
 
-### Database
-
-Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in Azure, there are two options to consider:
-
-- [SQL Server on a Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview/)
-- [Azure SQL Database as a Service](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview/)
-
-<HighAvailabilityDatabaseRecommendations />
-
-And also:
-
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-
-<HighAvailabilityDatabaseLogShippingMirroringNote />
-
-#### Using Azure Active Directory (AAD) in Azure SQL \{#using-aad-in-azure-sql}
-
-Support for [Azure Active Directory (AAD) authentication](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#setting-azure-active-directory-authentication) was added in Octopus **2021.1**. This includes the ability to use a [Managed Identity](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#using-active-directory-managed-identity-authentication) when connecting to your Octopus database hosted in Azure SQL.
-
-A typical connection string for using Azure Active Directory Authentication with a Managed Identity looks like this:
-
-```
-Server=localhost;Initial catalog=Octopus;authentication="Active Directory Managed Identity"
-```
 
 
 

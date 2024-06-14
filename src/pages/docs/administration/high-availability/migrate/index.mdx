@@ -69,7 +69,6 @@ You can run that script using the Octopus Deploy [script console](/docs/administ
 Most of the BLOB data (task logs, artifacts, packages, imports, event exports etc) stored on the file system can be copied to the new location prior to the outage window.  Doing so will reduce the amount of copying you have to do during the outage windows.  In addition, you can make sure your Octopus Deploy instance can use that shared location by running a test script to create and delete a file.  
 
 - Provision the shared storage folder.
-- If you are going to create a symbolic link to that shared folder, do that now.
 - Use the [script console](/docs/administration/managing-infrastructure/script-console) to ensure Octopus can connect to the shared folder and create files.
 
 ```powershell
