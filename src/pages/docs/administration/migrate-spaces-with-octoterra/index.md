@@ -12,20 +12,22 @@ navMenu: false
 robots: noindex, follow
 ---
 
-Octoterra is a tool that exports Octopus projects, runbooks, and spaces to a Terraform module. Octoterra can be used to migrate resources between spaces and instances. However, there are limitations that must be accounted for as part of a migration. This documentation outlines a process for migrating projects from one space to another, highlighting the limitations and workaround of the octoterra tool.
+[Octoterra](github.com/OctopusSolutionsEngineering/OctopusTerraformExport/actions) exports Octopus projects, runbooks, and spaces to a Terraform module. Octoterra can be used to migrate resources between spaces and instances.
 
 ## Limitations of octoterra and migrating projects between instances
 
+There are limitations that must be accounted for as part of a migration.
+
 ### Sensitive values
 
-Octoterra inspects the state of a space via the Octopus API and the API does not expose sensitive values. This means that octoterra can not export:
+Octoterra reads the state of a space via the Octopus API and the API does not expose sensitive values. This means that octoterra can not export:
 
 * The value of sensitive variables associated with a project, tenant, or library variable set 
 * Credentials defined in feeds, accounts, or git credentials
 * The contents of a certificate
 * Sensitive values defined in steps
 
-Octoterra defines Terraform variables to allow the value of these fields to be defined when the module is applied.
+Octoterra creates Terraform variables to allow the value of these fields to be defined when the module is applied.
 
 ### Step templates
 
@@ -37,11 +39,17 @@ As a workaround, octoterra can detach step templates while exporting a project o
 
 Some steps, such as the ECS deployment steps, rely on a new framework. Steps that use the new framework are not currently supported by the Terraform provider. These steps can not be exported by octoterra.
 
-### Config-as-Code repositories
+### Config-as-Code (CaC) repositories
 
 Two projects can not share the same CaC Git repository. When reimporting a CaC project, it must be configured with a new Git repo.
 
+## Teams and users
+
+Octoterra does not currently export teams and users.
+
 ## Prerequisites
+
+These are the prerequisites for migrating projects with octoterra:
 
 * Download octoterra from [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport)
 * Install [Terraform](https://developer.hashicorp.com/terraform/install)
@@ -50,12 +58,22 @@ Two projects can not share the same CaC Git repository. When reimporting a CaC p
 * [Optional] A remote [Terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) is recommended to maintain the state of the Terraform resources
 
 :::div{.warning}
-You can use the Terraform local state, and the commands presented in this documentation assume the use of local state. However, the local state is hard to share and is easily lost as the files are stored on the local drive of whoever is executing `terraform`. If you lose the Terraform state, you have to manually import any existing Octopus resources into a new state, which is time-consuming.
+You can use the Terraform local state, and the commands presented in this documentation assume the use of local state. However, the local state is hard to share and is easily lost as the files are stored on the local drive of whoever is executing `terraform`. If you lose the Terraform state, you must manually [import any existing Octopus resources into a new state](https://developer.hashicorp.com/terraform/language/state/import), which is time-consuming.
 :::
 
-## Exporting the space
+## Migrating spaces and projects
 
-The first step is to export any space level resources. Space level resources are everything except the projects.
+Migrating a project involves:
+* Exporting the source project to a Terraform module
+* Recreating the project in the new space with Terraform
+
+### Migrate the space
+
+The first step is to export any space level resources. Space level resources include everything except the projects.
+
+:::div{.hint}
+Recreating the space level resources is optional if the destination space already exists and is populated with all the resources an exported project requires.
+:::
 
 To export the space level resources, run the following command in Linux and macOS:
 
@@ -93,7 +111,7 @@ Use the `-terraformBackend` option to define a custom remote backend. The follow
 ```
 :::
 
-The Terraform module is created in the directory `~/Desktop/space/space_population`.
+In this example, the Terraform module is created in the directory `~/Desktop/space/space_population`.
 
 To recreate the space, enter the directory:
 
@@ -113,10 +131,10 @@ Then apply the module:
 terraform apply
 ```
 
-Terraform will prompt you for the Octopus server URL, API Key, space ID, and for the value of any sensitive values for things like sensitive variables, feed passwords, account credentials, git credentials, and certificate data.
+Terraform prompts you for the Octopus server URL, API Key, space ID, and for the value of any sensitive values for things like sensitive variables, feed passwords, account credentials, git credentials, and certificate data.
 
 :::div{.hint}
-If you would rather manually enter any sensitives values after the space has been imported, use the `-dummySecretVariableValues` option with octoterra, for example:
+If you would rather manually enter any sensitive values after the space has been imported, use the `-dummySecretVariableValues` option with octoterra, for example:
 
 ```Bash
 ./octoterra \
@@ -128,14 +146,12 @@ If you would rather manually enter any sensitives values after the space has bee
   -dest ~/Desktop/space
 ```
 
-The `dummySecretVariableValues` option defines a dummy value for any sensitive values in the Terraform module, which removes the need to provide a value when the module is applied. Any resources with a sensitive value must be manually updated after the module is applied as they will contain invalid credentials or invalid certificate data.
+The `dummySecretVariableValues` option defines a dummy value for any sensitive values in the Terraform module, which removes the need to provide a value when the module is applied. This is useful when you do not know the value of any sensitive values but wish to proceed with the migration anyway.
+
+Any resources with a sensitive value must be manually updated after the module is applied as they will contain invalid credentials or invalid certificate data.
 :::
 
-## Migrating projects
-
-Migrating a project involves:
-* Exporting the source project to a Terraform module
-* Recreating the project in the new space with Terraform
+### Migrating projects
 
 Here is the command to export a project to a Terraform module for Linux and macOS:
 
@@ -185,7 +201,7 @@ Error: Octopus API error: Resource is not found or it doesn't exist in the curre
 ```
 :::
 
-The Terraform module is created in the directory `~/Desktop/project/space_population`.
+In this example, the Terraform module is created in the directory `~/Desktop/project/space_population`.
 
 To recreate the project, enter the directory:
 
@@ -277,3 +293,17 @@ The default value of this variable is the URL of the Git repo configured for the
 ```Bash
 terraform apply -var=project_my_project_git_url=https://github.com/organization/new_repo_name.git
 ```
+
+## Excluding resource from the exported module
+
+Octoterra has many options to allow resources to be excluded from the export. 
+
+Run `./octoterra -help` to view the complete list. All the options to exclude resources start with the prefix `exclude`, e.g. `-excludeAllLibraryVariableSets`.
+
+:::div{.warning}
+Excluding a resource that another resource depends on can result in an invalid Terraform module. For example, excluding all environments can result in a target that is not assigned to any environments, which is not a valid configuration.
+:::
+
+## Editing the Terraform module
+
+Unlike other tools used to export Octopus resources, such as the Import/Export tool or the migrator, you are free to edit the exported Terraform module. The exported files use the same publicly documented [Octopus Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs) resources. 
