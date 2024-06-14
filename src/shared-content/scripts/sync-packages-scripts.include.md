@@ -10,11 +10,14 @@ param (
     [ValidateSet("FileVersions", "LatestVersion", "AllVersions")]
     [string] $VersionSelection = "FileVersions",
 
-    [Parameter(Mandatory)]
+    [Parameter(Mandatory, HelpMessage="See https://octopus.com/docs/octopus-rest-api/examples/feeds/synchronize-packages#usage for example file list structure.")]
     [string] $PackageListFilePath,
 
     [Parameter(Mandatory)]
     [string] $SourceUrl,
+    
+    [Parameter()]
+    [string] $SourceDownloadUrl = $null,
 
     [Parameter(Mandatory)]
     [string] $SourceApiKey,
@@ -31,14 +34,21 @@ param (
     [Parameter()]
     [string] $DestinationSpace = "Default",
 
-    [Parameter()]
+    [Parameter(HelpMessage="Optional cut-off date for a package's published date to be included in the synchronization. Expected data-type is a Date object e.g. 2020-12-16T19:31:25.650+00:00")]
     $CutoffDate = $null
 )
 
 function Push-Package([string] $fileName, $package) {
     Write-Information "Package $fileName does not exist in destination"
-    Write-Verbose "Downloading $fileName..."
-    $download = $sourceHttpClient.GetStreamAsync($sourceOctopusURL + $package.Links.Raw).GetAwaiter().GetResult()
+
+    if ($null -eq $SourceDownloadUrl) {
+        $sourceUrl = $sourceOctopusURL + $package.Links.Raw
+    }else {
+        $sourceUrl = $SourceDownloadUrl + $package.Links.Raw
+    }
+
+    Write-Verbose "Downloading $fileName from $sourceUrl..."
+    $download = $sourceHttpClient.GetStreamAsync($sourceUrl).GetAwaiter().GetResult()
 
     $contentDispositionHeaderValue = New-Object System.Net.Http.Headers.ContentDispositionHeaderValue "form-data"
     $contentDispositionHeaderValue.Name = "fileData"
@@ -53,6 +63,7 @@ function Push-Package([string] $fileName, $package) {
     $content.Add($streamContent)
 
     # Upload package
+    Write-Verbose "Uploading $fileName to $destinationOctopusURL/api/$destinationSpaceId..."
     $upload = $destinationHttpClient.PostAsync("$destinationOctopusURL/api/$destinationSpaceId/packages/raw?replace=false", $content)
     while (-not $upload.AsyncWaitHandle.WaitOne(10000)) {
         Write-Verbose "Uploading $fileName..."
@@ -138,6 +149,16 @@ $destinationSpaceId = ((Invoke-RestMethod -Method Get -Uri "$destinationOctopusU
 
 # Create HTTP clients 
 $httpClientTimeoutInMinutes = 60
+if (-not('System.Net.Http.HttpClient' -as [type])) {
+    try {
+        Write-Warning "System.Net.Http.HttpClient type not found. Trying to load System.Net.Http assembly"
+        Add-Type -AssemblyName System.Net.Http
+    }
+    catch {
+        Write-Error "Can't load required System.Net.Http Assembly!"
+       exit 1
+    }
+}
 $sourceHttpClient = New-Object System.Net.Http.HttpClient
 $sourceHttpClient.DefaultRequestHeaders.Add("X-Octopus-ApiKey", $sourceOctopusAPIKey)
 $sourceHttpClient.Timeout = New-TimeSpan -Minutes $httpClientTimeoutInMinutes

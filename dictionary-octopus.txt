@@ -63,6 +63,7 @@ decryptable
 deployers
 deploymentannotation
 deployto
+DESTKEY
 DIND
 Directorygroup
 Distro
@@ -90,6 +91,7 @@ frontmatter
 gcloud
 getenv
 gifs
+gitcredential
 globbing
 Gluster
 googleaccount
@@ -122,6 +124,8 @@ itemprop
 itemscope
 itemtype
 ITSM
+jjones
+jsondecode
 jwks
 keyrings
 keyserver
@@ -263,6 +267,7 @@ skiplinks
 snapshotted
 snapshotting
 sourcedata
+SOURCEKEY
 speculationrules
 sqlcmd
 sqlvolume
