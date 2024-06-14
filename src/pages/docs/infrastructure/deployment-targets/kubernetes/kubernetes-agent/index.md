@@ -120,6 +120,49 @@ If left open, the installation dialog waits for the agent to establish a connect
 A successful health check indicates that deployments can successfully be executed.
 :::
 
+## Configuration the agent with Tenants
+
+While the wizard doesn't support selecting Tenants or Tenant tags, the agent can be configured for tenanted deployments in two ways:
+
+1. Use the Deployment Target settings UI at **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Settings** to add a Tenant and set the Tenanted Deployment Participation as required.
+
+:::figure
+![Kubernetes Agent ](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-settings-page-tenants.png)
+:::
+
+2. Set additional variables in the helm command to allow the agent to register itself with associated Tenants or TenantTags. You also need to provider a value for the `TenantedDeploymentParticipation` value. Possible values are `Untenanted` (default), `Tenanted`, and `TenantedOrUntenanted`.
+
+example to add these values:
+```bash
+--set agent.tenants="{<tenant1>,<tenant2>}" \
+--set agent.tenantTags="{<tenantTag1>,<tenantTag2>}" \
+--set agent.tenantedDeploymentParticipation="TenantedOrUntenanted" \
+```
+
+:::div{.hint}
+You don't need to provide both Tenants and Tenant Tags, but you do need to provider the tenanted deployment participation value.
+:::
+
+In a full command:
+```bash
+helm upgrade --install --atomic \
+--set agent.acceptEula="Y" \
+--set agent.targetName="<name>" \
+--set agent.serverUrl="<serverUrl>" \
+--set agent.serverCommsAddress="<serverCommsAddress>" \
+--set agent.space="Default" \
+--set agent.targetEnvironments="{<env1>,<env2>}" \
+--set agent.targetRoles="{<targetRole1>,<targetRole2>}" \
+--set agent.tenants="{<tenant1>,<tenant2>}" \
+--set agent.tenantTags="{<tenantTag1>,<tenantTag2>}" \
+--set agent.tenantedDeploymentParticipation="TenantedOrUntenanted" \
+--set agent.bearerToken="<bearerToken>" \
+--version "1.*.*" \
+--create-namespace --namespace <namespace> \
+<release-name> \
+oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+```
+
 ## Upgrading the Kubernetes agent
 
 The Kubernetes agent can be upgraded automatically by Octopus Server, manually in the the Octopus portal or via a `helm` command.
