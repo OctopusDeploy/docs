@@ -37,11 +37,21 @@ As a workaround, octoterra can detach step templates while exporting a project o
 
 ### New step framework
 
-Some steps, such as the ECS deployment steps, rely on a new framework. Steps that use the new framework are not currently supported by the Terraform provider. These steps can not be exported by octoterra.
+Some steps rely on a new framework. Steps that use the new framework are not currently supported by the Terraform provider. These steps can not be exported by octoterra.
+
+Octoterra will display an error like this when an unsupported step is encountered:
+
+```Bash
+Action <step name> has the "Items" property, which indicates that it is from the new step framework. These steps are not supported and are not exported.
+```
 
 ### Config-as-Code (CaC) repositories
 
 Two projects can not share the same CaC Git repository. When reimporting a CaC project, it must be configured with a new Git repo.
+
+### CaC and step templates
+
+CaC repositories reference step templates by ID. The ID of a step template is unique in each space and instance. If you create a new CaC project in a new space and point it to an existing CaC repository that references step templates, the project will fail to load.
 
 ## Teams and users
 
@@ -292,6 +302,46 @@ The default value of this variable is the URL of the Git repo configured for the
 
 ```Bash
 terraform apply -var=project_my_project_git_url=https://github.com/organization/new_repo_name.git
+```
+
+## Converting a CaC project back to a database project
+
+It may be useful to essentially convert a CaC enabled project into a regular database project by including CaC managed settings, such as the deployment process and project variables, in the exported module. 
+
+The `-ignoreCacManagedValues=false` argument instructs octoterra to include CaC managed settings, such as the deployment process and project variables, in the exported module.
+
+The `-excludeCaCProjectSettings=true` argument instructs octoterra to exclude CaC settings, such as the version control configuration, in the exported module.
+
+The combination of these two arguments essentially exports a CaC project as if it were a regular database project. The exported module can then be reapplied without the limitations of a CaC enabled project.
+
+This is an example command for Linux and macOS: 
+
+```Bash
+./octoterra \
+  -url https://yourinstance.octopus.app \
+  -space Spaces-1234 \
+  -apiKey API-XXXXXXXXXXXXXXXXXXX \
+  -projectName "My Project" \
+  -lookupProjectDependencies \
+  -detachProjectTemplates \
+  -ignoreCacManagedValues=false \
+  -excludeCaCProjectSettings=true \
+  -dest ~/Desktop/project
+```
+
+This is an example command for Windows Powershell:
+
+```Powershell
+./octoterra `
+  -url https://yourinstance.octopus.app `
+  -space Spaces-1234 `
+  -apiKey API-XXXXXXXXXXXXXXXXXXX `
+  -projectName "My Project" `
+  -lookupProjectDependencies `
+  -detachProjectTemplates `
+  -ignoreCacManagedValues=false `
+  -excludeCaCProjectSettings=true `
+  -dest ~/Desktop/project
 ```
 
 ## Excluding resource from the exported module
