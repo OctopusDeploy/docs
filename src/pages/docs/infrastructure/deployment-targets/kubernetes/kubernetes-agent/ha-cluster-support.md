@@ -27,20 +27,20 @@ Once these values are provided the generated helm upgrade command will configure
 
 ### Octopus Deploy 2024.2
 
-To install the Agent with Octopus Deploy 2024.2 you need to adjust the helm command produced by the wizard before running it.
+To install the agent with Octopus Deploy 2024.2 you need to adjust the Helm command produced by the wizard before running it.
 
-1. Use the wizard to produce the helm command to install the agent.
+1. Use the wizard to produce the Helm command to install the agent.
    1. You may need to provide a ServerCommsAddress: you can just provide any valid URL to progress the wizard.
 2. Replace the `--set agent.serverCommsAddress="..."` property with
 ```
---set agent.serverCommsAddresses="{https://<url>:<port>/,https://<url>:<port>/,https://<url>:<port>/}"
+--set agent.serverCommsAddresses="{https://<url1>:<port1>/,https://<url2>:<port2>/,https://<url3>:<port3>/}"
 ```
 where each `<url>:<port>` is a unique address for an individual node.
 
-3. Run the command as normal.
+3. Execute the Helm command in a terminal connected to the target cluster.
 
 :::div{.warning}
-Note: The new property name is `agent.serverCommsAddresses` ("Addresses" is plural!).
+The new property name is `agent.serverCommsAddresses`. Note that "Addresses" is plural.
 :::
 
 ## Upgrading the Agent after Adding/Removing Cluster nodes
