@@ -74,8 +74,9 @@ You can use the Terraform local state, and the commands presented in this docume
 ## Migrating spaces and projects
 
 Migrating a project involves:
+* Migrating space level resources to the destination space
 * Exporting the source project to a Terraform module
-* Recreating the project in the new space with Terraform
+* Recreating the project in the destination space with Terraform
 
 ### Migrate the space
 
