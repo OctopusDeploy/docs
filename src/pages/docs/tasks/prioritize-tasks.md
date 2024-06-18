@@ -13,3 +13,13 @@ Prioritizing Tasks can be done either on the **Tasks** page or when viewing an i
 :::div{.warning}
 Ensure any other queued deployments to the same environment are cancelled when prioritizing a deployment, otherwise an unexpected version of a release may overwrite the prioritized deployment.
 :::
+
+## Task queue priority
+In Octopus **2024.2** we have redesigned the task system. Each task will be assigned a weight and the task queue will evaluate the weight when picking up the task. Currently there are six different factors, listed in order of their significance:
+* Queued tasks that are moved to the top
+* Tasks created by a prioritized task
+* Prioritized tasks
+* Tasks created by a regular task
+* Regular task
+
+The **Move to Top** button prioritizes the selected task above all others. This ensures that urgent tasks, such as hotfixes, can be addressed immediately.
