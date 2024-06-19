@@ -15,6 +15,8 @@ To read more about selecting the right URL for your nodes, see [Polling Tentacle
 
 ## Agent Installation on an HA Cluster
 
+### Octopus Deploy 2024.3+
+
 To make things easier, Octopus will detect when it's running HA and show an extra configuration page in the Kubernetes agent creation wizard which asks you to give a unique URL for each cluster node.
 
 :::figure
@@ -22,6 +24,24 @@ To make things easier, Octopus will detect when it's running HA and show an extr
 :::
 
 Once these values are provided the generated helm upgrade command will configure your new agent to receive commands from all nodes.
+
+### Octopus Deploy 2024.2
+
+To install the agent with Octopus Deploy 2024.2 you need to adjust the Helm command produced by the wizard before running it.
+
+1. Use the wizard to produce the Helm command to install the agent.
+   1. You may need to provide a ServerCommsAddress: you can just provide any valid URL to progress the wizard.
+2. Replace the `--set agent.serverCommsAddress="..."` property with
+```
+--set agent.serverCommsAddresses="{https://<url1>:<port1>/,https://<url2>:<port2>/,https://<url3>:<port3>/}"
+```
+where each `<url>:<port>` is a unique address for an individual node.
+
+3. Execute the Helm command in a terminal connected to the target cluster.
+
+:::div{.warning}
+The new property name is `agent.serverCommsAddresses`. Note that "Addresses" is plural.
+:::
 
 ## Upgrading the Agent after Adding/Removing Cluster nodes
 

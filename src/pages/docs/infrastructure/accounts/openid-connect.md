@@ -76,9 +76,9 @@ This is using the default generated slug values for the space, project and runbo
 
 ## Health Checks {#health-checks}
 
-The Health Check **Subject** claim supports the **Space** slug, the **Target** slug and the **Type**
+The Health Check **Subject** claim supports the **Space** slug, the **Account** slug, the **Target** slug and the **Type**
 
-The default format for a health check is `space:[space-slug]:target:[target-slug]`.
+The default format for a health check is `space:[space-slug]:target:[target-slug]:account:[account-slug]`.
 
 The value for the type is `health`.
 

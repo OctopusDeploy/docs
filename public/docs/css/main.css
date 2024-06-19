@@ -1044,6 +1044,7 @@ nav.skip-links a:focus {
   transition-duration: var(--duration-default);
   transition-timing-function: ease-in-out;
   height: fit-content;
+  box-sizing: border-box;
 }
 
 .icon-tile:hover {
@@ -2618,7 +2619,6 @@ a[data-youtube] {
 }
 
 .fa-brands {
-  width: 1.08em;
   overflow: hidden;
   display: block;
 }

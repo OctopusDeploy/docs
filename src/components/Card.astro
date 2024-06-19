@@ -36,7 +36,13 @@ const labelText = isYouTubeLink ? 'Watch Video' : 'Learn More';
 <article class={classList}>
   <a href={link} class="card__link" role="link" aria-label={`Open ${title}`}>
     <div class="card__image-wrapper">
-      <img src={imgSrc} alt={imgAlt} class="card__image" />
+      <img
+        src={imgSrc}
+        alt={imgAlt}
+        class="card__image"
+        onerror="this.src='https://i.octopus.com/library/step-templates/other.png';"
+        loading="lazy"
+      />
     </div>
     <div class="card__copy">
       <p class="card__title">{title}</p>
