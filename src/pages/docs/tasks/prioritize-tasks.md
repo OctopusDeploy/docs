@@ -17,12 +17,12 @@ Ensure any other queued deployments to the same environment are cancelled when p
 :::
 
 ## Task queue priority
-In Octopus **2024.2** we have redesigned the task system. Each task will be assigned a weight and the task queue will evaluate the weight when picking up the task. Currently there are six different factors, listed in order of their significance:
+In Octopus **2024.2** we have redesigned the task system. Tasks are processed based on their priority, in this order:
 * Queued tasks that are moved to the top
-* Tasks created by a prioritized task
-* Prioritized tasks
-* Tasks created by a regular task
-* Regular task
+* Tasks created from a prioritized deployment or runbook
+* Regular tasks
+
+Within each category, tasks are handled on a first in, first out basis.
 
 
 ## Lifecycle phases
