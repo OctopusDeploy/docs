@@ -1,0 +1,37 @@
+variable "AWS.Website" {
+    value "http://octopus-docs-production.s3-website-us-east-1.amazonaws.com/docs" {
+        environment = ["live"]
+    }
+
+    value "http://octopus-docs-staging.s3-website-us-east-1.amazonaws.com/docs" {
+        environment = ["test"]
+    }
+}
+
+variable "AWS.Region" {
+    value "us-east-1" {}
+}
+
+variable "AWS.Distribution" {
+    value "E1M91AW6ZECI94" {
+        environment = ["live"]
+    }
+
+    value "E2ABBGFOMEE5DL" {
+        environment = ["test"]
+    }
+}
+
+variable "AWS.BucketName" {
+    value "octopus-docs-production" {
+        environment = ["live"]
+    }
+
+    value "octopus-docs-staging" {
+        environment = ["test"]
+    }
+}
+
+variable "PackageId" {
+    value "DocsMicrosite" {}
+}

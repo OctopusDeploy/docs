@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-19
 title: Lifecycles
 description: Lifecycles allow you to control the way releases are promoted between environments.
 navOrder: 2
@@ -56,6 +56,11 @@ When a phase is defined without any environments added to it, this phase of the 
 :::div{.hint}
 Any future environments you define will also be deployed to as part of this phase of the Lifecycle.
 :::
+
+### Phases with priority
+
+When a phase is defined as a priority, deployments to the phase will be created as a priority task unless otherwise specified. When creating a deployment via UI, the priority checkbox will be selected by default.
+
 
 ## Create a new lifecycle
 
