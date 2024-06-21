@@ -169,7 +169,7 @@ oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 Server certificate support was added in Kubernetes agent 1.7.0
 :::
 
-It is common for organizations to have their Octopus Deploy server hosted in an environment where it has a SSL/TLS certificate that is not part of the global certificate trust chain. As a result, the Kubernetes agent will fail to register with the target server due to certificate errors. A typical error looks like this:
+It is common for organizations to have their Octopus Deploy server hosted in an environment where it has an SSL/TLS certificate that is not part of the global certificate trust chain. As a result, the Kubernetes agent will fail to register with the target server due to certificate errors. A typical error looks like this:
 
 ```
 2024-06-21 04:12:01.4189 | ERROR | The following certificate errors were encountered when establishing the HTTPS connection to the server: RemoteCertificateNameMismatch, RemoteCertificateChainErrors
