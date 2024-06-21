@@ -163,6 +163,36 @@ helm upgrade --install --atomic \
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
+## Trusting custom/internal Octopus Server certificates
+
+:::div{.hint}
+Server certificate support was added in Kubernetes agent 1.7.0
+:::
+
+It is common for organizations to have their Octopus Deploy server hosted in an environment where it has a SSL/TLS certificate that is not part of the global certificate trust chain. As a result, the Kubernetes agent will fail to register with the target server due to certificate errors. A typical error looks like this:
+
+```
+2024-06-21 04:12:01.4189 | ERROR | The following certificate errors were encountered when establishing the HTTPS connection to the server: RemoteCertificateNameMismatch, RemoteCertificateChainErrors
+Certificate subject name: CN=octopus.corp.domain
+Certificate thumbprint:   42983C1D517D597B74CDF23F054BBC106F4BB32F
+```
+
+To resolve this, you need to provide the Kubernetes agent with a base64-encoded string of the public key of the certificate in either `.pem` or `.crt` format. When viewed as text, this will look similar to this:
+
+```
+-----BEGIN CERTIFICATE-----
+MII...
+-----END CERTIFICATE-----
+```
+
+Once encoded, this string can be provided as part of the agent installation helm command via the `agent.serverCertificate` helm value.
+
+To include this in the installation command, add the following to the generated installation command:
+
+```bash
+--set agent.serverCertificate="<base64-encoded-cert>"
+```
+
 ## Upgrading the Kubernetes agent
 
 The Kubernetes agent can be upgraded automatically by Octopus Server, manually in the the Octopus portal or via a `helm` command.
