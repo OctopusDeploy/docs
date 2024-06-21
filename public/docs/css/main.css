@@ -2714,6 +2714,8 @@ a[data-youtube] {
   background-color: var(--color-base-primary);
   border-radius: 50%;
   padding: 2px;
+  width: 2.6rem;
+  height: 2.6rem;
 }
 
 .input-touch .magnify-icon {
@@ -2723,7 +2725,7 @@ a[data-youtube] {
 .magnify-icon:before {
   content: '\f00e';
   font-family: fa-solid;
-  font-size: 2rem;
+  font-size: 1.3rem;
   line-height: 2rem;
 }
 
