@@ -1235,6 +1235,7 @@ li.has-children .sub-nav ul li:hover > a,
 .sub-nav__summary:focus .sub-nav__summary-title,
 li.has-children .sub-nav ul li:focus > a {
   transform: translateX(0.25rem);
+  cursor: pointer;
 }
 
 .site-nav a:hover,
@@ -1248,6 +1249,16 @@ li.has-children .sub-nav ul li:focus > a {
 
 .site-nav a[aria-current] {
   font-weight: bold;
+}
+
+.site-nav .site-nav__list-item {
+  cursor: pointer;
+}
+
+.site-nav .site-nav__list-item a[aria-current] {
+  font-weight: 700;
+  color: var(--color-menu-link-alt);
+  transform: translateX(0.25rem);
 }
 
 .site-nav details {
@@ -2621,6 +2632,10 @@ a[data-youtube] {
 .fa-brands {
   overflow: hidden;
   display: block;
+}
+
+.octo-social .fa-brands {
+  width: 1.08em;
 }
 
 .fa-twitter:before {
