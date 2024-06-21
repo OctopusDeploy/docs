@@ -345,6 +345,54 @@ This is an example command for Windows Powershell:
   -dest ~/Desktop/project
 ```
 
+## Migrating and customizing CaC projects
+
+A common scenario is to have a template CaC project that you wish to recreate with a number of small tweaks to the deployment process or variables.
+
+It can be difficult to tweak a deployment process by editing the OCL files committed to a Git repository. Unlike JSON or YAML, there are comparatively few tools that allow you to process and tweak a HCL (OCL is a subset of HCL) file programmatically. This means you are left with the less robust solution of using a find-and-replace style workflow to modify individual values in an OCL file.
+
+A solution to this is to include the deployment process and variables of a CaC project in a Terraform module, expose individual settings in the Terraform module as Terraform variables, and then convert the project to CaC when the module is applied. This solves the problem of altering specific settings because Terraform modules can expose those settings as Terraform variables, making it very easy and reliable to make small changes to a module as it is applied.
+
+The first step is to export a Terraform module that embeds the deployment process and variables. This is done by setting the `ignoreCacManagedValues` argument to `false`. You also need to set the `excludeCaCProjectSettings` argument to `false`, which ensures the exported project has the version control settings required to convert the project to CaC automatically when it is reapplied.
+
+This is an example command for Linux and macOS:
+
+```Bash
+./octoterra \
+  -url https://yourinstance.octopus.app \
+  -space Spaces-1234 \
+  -apiKey API-XXXXXXXXXXXXXXXXXXX \
+  -projectName "My Project" \
+  -lookupProjectDependencies \
+  -detachProjectTemplates \
+  -ignoreCacManagedValues=false \
+  -excludeCaCProjectSettings=false \
+  -dest ~/Desktop/project
+```
+
+This is an example command for Windows Powershell:
+
+```Powershell
+./octoterra `
+  -url https://yourinstance.octopus.app `
+  -space Spaces-1234 `
+  -apiKey API-XXXXXXXXXXXXXXXXXXX `
+  -projectName "My Project" `
+  -lookupProjectDependencies `
+  -detachProjectTemplates `
+  -ignoreCacManagedValues=false `
+  -excludeCaCProjectSettings=false `
+  -dest ~/Desktop/project
+```
+
+When the module is applied, the Git repository URL needs to be set to the location of the target repository that the project will use once it is converted back to CaC:
+
+```Bash
+terraform apply -var=project_my_project_git_url=https://github.com/organization/new_repo_name.git
+```
+
+Octoterra exposes many settings as Terraform variables by default. This allows you to tweak the settings of the project as it is recreated by defining new values for these automatically generated variables. If the setting you wish to modify is not exposed as a Terraform variable, you can edit the resulting Terraform module by hand to expose the setting as a Terraform variable.
+
 ## Excluding resource from the exported module
 
 Octoterra has many options to allow resources to be excluded from the export. 
