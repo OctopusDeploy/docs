@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
-modDate: 2024-05-15
+modDate: 2024-06-21
 title: Kubernetes agent
 navTitle: Overview
 navSection: Kubernetes agent
@@ -195,7 +195,7 @@ To include this in the installation command, add the following to the generated 
 
 ## Upgrading the Kubernetes agent
 
-The Kubernetes agent can be upgraded automatically by Octopus Server, manually in the the Octopus portal or via a `helm` command.
+The Kubernetes agent can be upgraded automatically by Octopus Server, manually in the Octopus portal or via a `helm` command.
 
 ### Automatic updates
 
