@@ -8,6 +8,14 @@ navOrder: 20
 hideInThisSection: true
 ---
 
-import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
+Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in AWS, there are two options to consider:
 
-Lorem Ipsum
+- [SQL Server on EC2](https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/sql-server-on-ec2-overview.html) -  To run SQL Server on a VM, please refer to our [self-managed SQL Server guide](/docs/installation/sql-database/self-managed-sql-server).
+- [AWS RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/)
+
+
+## High Availability
+
+The database is a critical component of Octopus Deploy.  If the database is lost or destroyed all your configuration will be lost with it.  We highly recommend leveraging a combination of backups and SQL Server's high availability functionality.  
+
+We recommend using [Multi-AZ](https://aws.amazon.com/rds/features/multi-az/) with RDS to ensure the resilience and availability of your Octopus database. This will ensure that your data is replicated across multiple availability zones (Multi-AZ) within your region. In the event of a failure of the primary zone, Multi-AZ automatically switches to the secondary zone.
