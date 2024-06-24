@@ -34,7 +34,7 @@ If we haven't asked for anything specific, start with a 1-5 minute recording so 
 
 1. Install dotTrace on the machine hosting Octopus Server.
 2. Start dotTrace as an Administrator and start a free trial (the trial can be paused after recording the trace).
-3. Start a [timeline trace](https://www.jetbrains.com/help/profiler/Concurrency_Profiling_Timeline_.html) by [attaching to the running Octopus Server process](https://www.jetbrains.com/help/profiler/Profile_Running_Process.html).
+3. Start a timeline trace by [attaching to the running Octopus Server process](https://www.jetbrains.com/help/profiler/Profile_Running_Process.html).
 4. When enough time has passed, take a [snapshot](https://www.jetbrains.com/help/profiler/Profiling_Guidelines__Launching_and_Controlling_the_Profiling_Process.html) using `Get Snapshot'n'Wait`.
 5. Detach from the process.
 6. Close dotTrace.
