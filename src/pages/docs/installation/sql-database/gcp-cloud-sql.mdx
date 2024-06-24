@@ -21,9 +21,9 @@ We recommend using [high availability](https://cloud.google.com/sql/docs/sqlserv
 
 ## Disaster Recovery
 
-For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with Cloud SQL we recommend using [Replication](https://cloud.google.com/sql/docs/postgres/replication). All database transactions performed in the primary region will be asynchronously replicated to the secondary region.
+For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with Cloud SQL we recommend using [Replication](https://cloud.google.com/sql/docs/sqlserver/replication). All database transactions performed in the primary region will be asynchronously replicated to the secondary region.
 
-In the event of a primary region failure we recommend following Google's [documentation](https://cloud.google.com/sql/docs/postgres/replication/cross-region-replicas) to promote the replica. Following this you would need to re-configure your Octopus connection string to use the newly promoted replica.
+In the event of a primary region failure we recommend following Google's [documentation](https://cloud.google.com/sql/docs/sqlserver/replication/cross-region-replicas) to promote the replica. Following this you would need to re-configure your Octopus connection string to use the newly promoted replica.
 
 :::div{.warning}
 When a disaster occurs, any data not synchronized will be lost.  Depending on the replication speed, this could be up to a couple of minutes.
