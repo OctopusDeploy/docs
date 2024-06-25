@@ -44,6 +44,8 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 Channels allow to you to configure rules to ensure that package versions and Git resources that meet specific criteria can be deployed using the channel.
 
+When using creating a release for a channel with rules, an option can be configured on the project to allow the channel rules to be ignored. This option is disabled by default on new projects, but can be enabled using in project settings.
+
 ### Package version rules {#version-rules}
 
 Package version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
