@@ -90,7 +90,7 @@ The Octopus Deploy data-model is a web, not a graph.  Some resources are shared 
 Any environments which can be reached via the project will be included in the export.  This includes:
 
 - Environments included in any of the project's lifecycles, *except* when using the [default lifecycle](/docs/releases/lifecycles/#default-lifecycle).
-- Environments used to scope variables in any [library variable sets](/docs/projects/variables/library-variable-sets) connected to the project
+- Environments used to scope variables in any [variable sets](/docs/projects/variables/library-variable-sets) connected to the project
 - Environment restrictions defined on any accounts or certificates referenced by the project
 
 :::div{.warning}
@@ -145,7 +145,7 @@ On import, for any tenants which already exist on the destination the project/en
 
 [Library variable sets](/docs/projects/variables/library-variable-sets) connected to the project will be exported, including all variables. 
 
-When importing, if a library variable set with the same name already exists, the variables will be merged. If a variable in the export doesn't exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched. 
+When importing, if a variable set with the same name already exists, the variables will be merged. If a variable in the export doesn't exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched. 
 
 ### Step templates
 
@@ -162,7 +162,7 @@ Projects reference specific versions of a step template. When importing, if a st
 Any accounts which can be referenced via the project will be included in the export.  This includes:
 
 - Accounts which are the value of the project's variables 
-- Accounts which are the value of variables in library variable sets connected to the project
+- Accounts which are the value of variables in variable sets connected to the project
 - Accounts referenced directly from deployment process steps
 
 When importing, if an account with the same name already exists on the destination, the existing account will be used. 
@@ -172,7 +172,7 @@ When importing, if an account with the same name already exists on the destinati
 Any certificates which can be referenced via the project will be included in the export.  This includes:
 
 - Certificates which are the value of the project's variables 
-- Certificates which are the value of variables in library variable sets connected to the project
+- Certificates which are the value of variables in variable sets connected to the project
 
 When importing, if a certificate with the same name already exists on the destination, the existing certificate will be used. 
 

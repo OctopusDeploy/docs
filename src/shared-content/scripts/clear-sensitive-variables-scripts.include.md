@@ -122,7 +122,7 @@ try
         Clear-SensitiveVariables -VariableSetId $project.VariableSetId
     }
     
-    # Loop through library variable sets
+    # Loop through variable sets
     foreach ($librarySet in $repositoryForSpace.LibraryVariableSets.GetAll())
     {
         # Clear sensitive ones
@@ -340,7 +340,7 @@ func main() {
 		}
 	}
 
-	// Get reference to library variable sets
+	// Get reference to variable sets
 	librarySets := GetLibraryVariableSets(apiURL, APIKey, space)
 
 	// Loop through sets

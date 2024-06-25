@@ -17,7 +17,7 @@ description: A listing of the default permissions for each of the built-in user 
 | DeploymentView              | View deployments |
 | EnvironmentView             | View environments |
 | FeedView                    | View package feeds and the packages in them |
-| LibraryVariableSetView      | View library variable sets |
+| LibraryVariableSetView      | View variable sets |
 | LifecycleView               | View lifecycles |
 | BuildInformationPush        | Create/update build information |
 | BuildInformationAdminister  | Replace or delete build information |
@@ -57,7 +57,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ReleaseView                 | View a release of a project |
 | TaskView                    | View summary-level information associated with a task |
 | TenantView                  | View tenants |
-| LibraryVariableSetView      | View library variable sets |
+| LibraryVariableSetView      | View variable sets |
 | RunbookView                 | View runbooks |
 | RunbookRunView              | View runbook runs |
 | RunbookRunCreate            | Create runbook runs |
@@ -159,15 +159,15 @@ description: A listing of the default permissions for each of the built-in user 
 | ProcessEdit                 | Edit the deployment process and channels associated with a project |
 | ProjectEdit                 | Edit project details |
 | FeedView                    | View package feeds and the packages in them |
-| LibraryVariableSetCreate    | Create library variable sets |
-| LibraryVariableSetEdit      | Edit library variable sets |
-| LibraryVariableSetDelete    | Delete library variable sets |
+| LibraryVariableSetCreate    | Create variable sets |
+| LibraryVariableSetEdit      | Edit variable sets |
+| LibraryVariableSetDelete    | Delete variable sets |
 | TaskCreate                  | Explicitly create (run) server tasks |
 | InterruptionViewSubmitResponsible | Take responsibility for and submit interruptions generated during deployments when the user is in a designated responsible team |
 | MachineView                 | View machines |
 | DefectReport                | Block a release from progressing to the next lifecycle phase |
 | DefectResolve               | Unblock a release so it can progress to the next phase |
-| VariableView                | View variables belonging to a project or library variable set |
+| VariableView                | View variables belonging to a project or variable set |
 | VariableEdit                | Edit variables belonging to a project |
 | TriggerCreate               | Create triggers |
 | TriggerDelete               | Delete triggers |
@@ -182,7 +182,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ArtifactView                | View the artifacts created manually and during deployment |
 | EventView                   | View Events, including access to the Audit screen |
 | ProjectGroupView            | View project groups |
-| LibraryVariableSetView      | View library variable sets |
+| LibraryVariableSetView      | View variable sets |
 | TeamView                    | View teams |
 | TaskView                    | View summary-level information associated with a task |
 | InterruptionView            | View interruptions generated during deployments |
@@ -215,15 +215,15 @@ description: A listing of the default permissions for each of the built-in user 
 | ProcessEdit                 | Edit the deployment process and channels associated with a project |
 | ProjectEdit                 | Edit project details |
 | FeedView                    | View package feeds and the packages in them |
-| LibraryVariableSetCreate    | Create library variable sets |
-| LibraryVariableSetEdit      | Edit library variable sets |
-| LibraryVariableSetDelete    | Delete library variable sets |
+| LibraryVariableSetCreate    | Create variable sets |
+| LibraryVariableSetEdit      | Edit variable sets |
+| LibraryVariableSetDelete    | Delete variable sets |
 | TaskCreate                  | Explicitly create (run) server tasks |
 | InterruptionViewSubmitResponsible | Take responsibility for and submit interruptions generated during deployments when the user is in a designated responsible team |
 | MachineView                 | View machines |
 | DefectReport                | Block a release from progressing to the next lifecycle phase |
 | DefectResolve               | Unblock a release so it can progress to the next phase |
-| VariableView                | View variables belonging to a project or library variable set |
+| VariableView                | View variables belonging to a project or variable set |
 | VariableEdit                | Edit variables belonging to a project |
 | TriggerCreate               | Create triggers |
 | TriggerDelete               | Delete triggers |
@@ -238,7 +238,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ArtifactView                | View the artifacts created manually and during deployment |
 | EventView                   | View Events, including access to the Audit screen |
 | ProjectGroupView            | View project groups |
-| LibraryVariableSetView      | View library variable sets |
+| LibraryVariableSetView      | View variable sets |
 | TeamView                    | View teams |
 | TaskView                    | View summary-level information associated with a task |
 | InterruptionView            | View interruptions generated during deployments |
@@ -272,7 +272,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ArtifactView                | View the artifacts created manually and during deployment |
 | EventView                   | View Events, including access to the Audit screen |
 | ProjectGroupView            | View project groups |
-| LibraryVariableSetView      | View library variable sets |
+| LibraryVariableSetView      | View variable sets |
 | TeamView                    | View teams |
 | TaskView                    | View summary-level information associated with a task |
 | InterruptionView            | View interruptions generated during deployments |
@@ -307,15 +307,15 @@ description: A listing of the default permissions for each of the built-in user 
 | ProcessEdit                 | Edit the deployment process and channels associated with a project |
 | ProjectEdit                 | Edit project details |
 | FeedView                    | View package feeds and the packages in them |
-| LibraryVariableSetCreate    | Create library variable sets |
-| LibraryVariableSetEdit      | Edit library variable sets |
-| LibraryVariableSetDelete    | Delete library variable sets |
+| LibraryVariableSetCreate    | Create variable sets |
+| LibraryVariableSetEdit      | Edit variable sets |
+| LibraryVariableSetDelete    | Delete variable sets |
 | TaskCreate                  | Explicitly create (run) server tasks |
 | InterruptionViewSubmitResponsible | Take responsibility for and submit interruptions generated during deployments when the user is in a designated responsible team |
 | MachineView                 | View machines |
 | DefectReport                | Block a release from progressing to the next lifecycle phase |
 | DefectResolve               | Unblock a release so it can progress to the next phase |
-| VariableView                | View variables belonging to a project or library variable set |
+| VariableView                | View variables belonging to a project or variable set |
 | VariableEdit                | Edit variables belonging to a project |
 | TriggerCreate               | Create triggers |
 | TriggerDelete               | Delete triggers |
@@ -330,7 +330,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ArtifactView                | View the artifacts created manually and during deployment |
 | EventView                   | View Events, including access to the Audit screen |
 | ProjectGroupView            | View project groups |
-| LibraryVariableSetView      | View library variable sets |
+| LibraryVariableSetView      | View variable sets |
 | TeamView                    | View teams |
 | TaskView                    | View summary-level information associated with a task |
 | InterruptionView            | View interruptions generated during deployments |
@@ -359,7 +359,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ArtifactView                | View the artifacts created manually and during deployment |
 | EventView                   | View Events, including access to the Audit screen |
 | ProjectGroupView            | View project groups |
-| LibraryVariableSetView      | View library variable sets |
+| LibraryVariableSetView      | View variable sets |
 | TeamView                    | View teams |
 | TaskView                    | View summary-level information associated with a task |
 | InterruptionView            | View interruptions generated during deployments |
@@ -393,7 +393,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ArtifactView                | View the artifacts created manually and during deployment |
 | EventView                   | View Events, including access to the Audit screen |
 | ProjectGroupView            | View project groups |
-| LibraryVariableSetView      | View library variable sets |
+| LibraryVariableSetView      | View variable sets |
 | TeamView                    | View teams |
 | FeedView                    | View package feeds and the packages in them |
 | TaskView                    | View summary-level information associated with a task |
@@ -419,13 +419,13 @@ description: A listing of the default permissions for each of the built-in user 
 | ActionTemplateCreate        | Create step templates |
 | ActionTemplateEdit          | Edit step templates |
 | ActionTemplateDelete        | Delete step templates |
-| LibraryVariableSetCreate    | Create library variable sets |
-| LibraryVariableSetEdit      | Edit library variable sets |
-| LibraryVariableSetDelete    | Delete library variable sets |
+| LibraryVariableSetCreate    | Create variable sets |
+| LibraryVariableSetEdit      | Edit variable sets |
+| LibraryVariableSetDelete    | Delete variable sets |
 | TaskCreate                  | Explicitly create (run) server tasks |
 | TaskCancel                  | Cancel server tasks |
 | InterruptionViewSubmitResponsible | Take responsibility for and submit interruptions generated during deployments when the user is in a designated responsible team |
-| VariableView                | View variables belonging to a project or library variable set |
+| VariableView                | View variables belonging to a project or variable set |
 | VariableEdit                | Edit variables belonging to a project |
 | TriggerCreate               | Create triggers |
 | TriggerDelete               | Delete triggers |
@@ -441,7 +441,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ArtifactView                | View the artifacts created manually and during deployment |
 | EventView                   | View Events, including access to the Audit screen |
 | ProjectGroupView            | View project groups |
-| LibraryVariableSetView      | View library variable sets |
+| LibraryVariableSetView      | View variable sets |
 | TeamView                    | View teams |
 | FeedView                    | View package feeds and the packages in them |
 | TaskView                    | View summary-level information associated with a task |
@@ -472,9 +472,9 @@ description: A listing of the default permissions for each of the built-in user 
 | ProcessView                 | View the deployment process and channels associated with a project |
 | ProcessEdit                 | Edit the deployment process and channels associated with a project |
 | VariableEdit                | Edit variables belonging to a project |
-| VariableEditUnscoped        | Edit non-environment scoped variables belonging to a project or library variable set |
-| VariableView                | View variables belonging to a project or library variable set |
-| VariableViewUnscoped        | View non-environment scoped variables belonging to a project or library variable set |
+| VariableEditUnscoped        | Edit non-environment scoped variables belonging to a project or variable set |
+| VariableView                | View variables belonging to a project or variable set |
+| VariableViewUnscoped        | View non-environment scoped variables belonging to a project or variable set |
 | ReleaseCreate               | Create a release for a project |
 | ReleaseView                 | View a release of a project |
 | ReleaseEdit                 | Edit a release of a project |
@@ -501,10 +501,10 @@ description: A listing of the default permissions for each of the built-in user 
 | GitCredentialView           | View Git credentials |
 | GitCredentialEdit           | Edit Git credentials |
 | EventView                   | View Events, including access to the Audit screen |
-| LibraryVariableSetView      | View library variable sets |
-| LibraryVariableSetCreate    | Create library variable sets |
-| LibraryVariableSetEdit      | Edit library variable sets |
-| LibraryVariableSetDelete    | Delete library variable sets |
+| LibraryVariableSetView      | View variable sets |
+| LibraryVariableSetCreate    | Create variable sets |
+| LibraryVariableSetEdit      | Edit variable sets |
+| LibraryVariableSetDelete    | Delete variable sets |
 | ProjectGroupView            | View project groups |
 | ProjectGroupCreate          | Create project groups |
 | ProjectGroupEdit            | Edit project groups |

@@ -163,7 +163,7 @@ projects = get_octopus_resource('{0}/{1}/projects/all'.format(octopus_server_uri
 for project in projects:
     project_variable_sets = project['IncludedLibraryVariableSetIds']
     if library_variable_set_id in project_variable_sets:
-        print('Project \'{0}\' is using library variable set \'{1}\''.format(project['Name'], libraryset_name))
+        print('Project \'{0}\' is using variable set \'{1}\''.format(project['Name'], libraryset_name))
 ```
 
 </details>

@@ -33,7 +33,7 @@ $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Heade
 # Get first matching variableset record
 $libraryVariableSet = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header) | Where-Object {$_.Name -eq $variableSetVariableUsagesToFind} | Select-Object -First 1
 
-# Get variables for library variable set
+# Get variables for variable set
 $variableSet  = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/variables/$($libraryVariableSet.VariableSetId)" -Headers $header)
 $variables = $variableSet.Variables
 
@@ -209,7 +209,7 @@ $repositoryForSpace = $client.ForSpace($space)
 # Get first matching variableset record
 $libraryVariableSet = $repositoryForSpace.LibraryVariableSets.FindByName($variableSetVariableUsagesToFind)
 
-# Get variables for library variable set
+# Get variables for variable set
 $variableSet = $repositoryForSpace.VariableSets.Get($libraryVariableSet.VariableSetId)
 $variables = $variableSet.Variables
 

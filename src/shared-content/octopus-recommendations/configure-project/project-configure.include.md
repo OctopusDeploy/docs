@@ -39,7 +39,7 @@ We have the three projects set up, but we need to share some common variables be
 A project can reference 0 to N number of library sets.  Variable naming is significant.  A good practice is to use a Namespace style syntax on naming, `[LibrarySetName].[ComponentName].[SubName]`.  Project variables can then be called `[Project].[ComponentName].[SubName]`.  Using detailed names allow you to distinguish project variables from library set variables when viewing project steps, and task log output.
 :::
 
-It's also good to have a couple of other library variable sets to handle some non-project specific values.  For example, a global library set that stores any infrastructure as code (or IaC) variables.  The same naming convention applies as the project-specific variable set, for example, replacing **OctoFx** with **Global**.
+It's also good to have a couple of other variable sets to handle some non-project specific values.  For example, a global library set that stores any infrastructure as code (or IaC) variables.  The same naming convention applies as the project-specific variable set, for example, replacing **OctoFx** with **Global**.
 
 :::figure
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-globalvariables.png)
@@ -49,7 +49,7 @@ It's also good to have a couple of other library variable sets to handle some no
 
 The first project we are going to configure is the **OctoFX-Database** project.  If we follow the recommendations from earlier in this guide, we will assume that the SQL Server is running, but this database and the required user do not exist.  We will add steps to check to see if the database and the user for the environment exist.  If they don't, then we'll need to create them.  Also, we want to build some trust in the process; we can do this by having a manual intervention for a DBA to approve.
 
-Before adding steps to the process, we need to add a reference to the library variable sets we created earlier.
+Before adding steps to the process, we need to add a reference to the variable sets we created earlier.
 
 :::figure
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-databasevariablesets.png)
