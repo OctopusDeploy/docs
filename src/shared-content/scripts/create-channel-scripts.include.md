@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $projectId = "Projects-101"
@@ -35,8 +35,8 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/channels" -Bod
 ```powershell
 # Load assembly
 Add-Type -Path 'C:\Octopus.Client\Octopus.Client.dll'
-$octopusURL = "https://YourUrl"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $projectName = "MyProject"
 $channelName = "NewChannel"
@@ -52,7 +52,7 @@ $repositoryForSpace = $client.ForSpace($space)
 # Get project
 $project = $repositoryForSpace.Projects.FindByName($projectName)
 
-# Createw new channel object
+# Create new channel object
 $channel = New-Object Octopus.Client.Model.ChannelResource
 $channel.Name = $channelName
 $channel.ProjectId = $project.Id
@@ -73,8 +73,8 @@ $repositoryForSpace.Channels.Create($channel)
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var projectName = "MyProject";
 var channelName = "NewChannel";
@@ -141,8 +141,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 project_name = "MyProject"
@@ -188,11 +188,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	projectName := "MyProject"
 	channelName := "NewChannel"

@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $packageName = "packageName"
@@ -34,8 +34,8 @@ Write-Host "Downloaded file to $filePath"
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $packageName = "packageName"
 $packageVersion = "1.0.0.0"
@@ -77,11 +77,11 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 
 string spaceName = "Default";
-string packageName = "packagename";
+string packageName = "PackageName";
 string packageVersion = "1.0.0.0";
 string outputFolder = @"C:\Temp\";
 
@@ -125,8 +125,8 @@ catch (Exception ex)
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -141,7 +141,7 @@ def get_by_name(uri, name):
 
 space_name = "Default"
 package_output_folder = '/path/to/output/package/to'
-package_name = 'packagename'
+package_name = 'PackageName'
 package_version = '1.0.0.0'
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
@@ -177,11 +177,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	downloadPath := "c:\\temp"
 	packageName := "MyPackage"

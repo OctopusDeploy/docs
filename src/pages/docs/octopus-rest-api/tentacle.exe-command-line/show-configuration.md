@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Show configuration
 description:  Outputs the Tentacle configuration
 ---
@@ -50,5 +50,5 @@ tentacle show-configuration
 This example displays the configuration of the Tentacle (or Worker) on the machine, as well as the configuration from the Octopus Server in JSON format:
 
 ```
-tentacle show-configuration --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+tentacle show-configuration --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```

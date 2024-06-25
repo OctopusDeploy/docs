@@ -6,9 +6,9 @@ $ErrorActionPreference = "Stop";
 
 Add-Type -AssemblyName System.Net.Http
 
-$OctopusURL = "https://youroctourl"
+$OctopusURL = "https://your-octopus-url"
+$APIKey = "API-YOUR-KEY"
 $SpaceName = "YOUR SPACE NAME" 
-$APIKey = "API-YOURAPIKEY"
 $projectName = "YOUR PROJECT NAME"
 $releaseVersion = "YOUR RELEASE VERSION"
 $environmentName = "YOUR ENVIRONMENT NAME"
@@ -43,8 +43,8 @@ Write-Host "The id of $releaseVersion is $releaseId"
 
 Write-Host "Getting the deployment information"
 $deploymentList = Invoke-RestMethod -Method Get -Uri "$OctopusUrl/api/$spaceId/releases/$releaseId/deployments?skip=0&take=1000" -Headers $header
-$deploymentsToEnivronment = @($deploymentList.Items | Where-Object {$_.EnvironmentId -eq $environmentId})
-$deploymentToUse = $deploymentsToEnivronment | Sort-Object {[DateTime]$_."Created"} | Select-Object -First 1
+$deploymentsToEnvironment = @($deploymentList.Items | Where-Object {$_.EnvironmentId -eq $environmentId})
+$deploymentToUse = $deploymentsToEnvironment | Sort-Object {[DateTime]$_."Created"} | Select-Object -First 1
 
 $serverTaskId = $deploymentToUse.TaskId
 Write-Host "The server task id of the most recent deployment to $environmentName for release $releaseVersion is $serverTaskId"

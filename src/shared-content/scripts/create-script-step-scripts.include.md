@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $role = "My role"
@@ -79,12 +79,12 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/deploymentproce
 <summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
-# Load Octopous Client assembly
+# Load Octopus Client assembly
 Add-Type -Path 'c:\octopus.client\Octopus.Client.dll'
 
 # Declare Octopus variables
-$apikey = 'API-YOURAPIKEY'
-$octopusURI = 'https://youroctourl'
+$apikey = 'API-YOUR-KEY'
+$octopusURI = 'https://your-octopus-url'
 $projectName = "MyProject"
 
 # Create repository object
@@ -143,8 +143,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "http://OctoTemp";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string stepName = "Run a script";
 string roleName = "My role";
 string scriptBody = "Write-Host \"Hello world\"";
@@ -202,8 +202,8 @@ catch (Exception ex)
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 
@@ -278,11 +278,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	projectName := "MyProject"
 	stepName := "MyStep"

@@ -1,4 +1,4 @@
-<details data-group="create-projectgroup-scripts">
+<details data-group="create-project-group-scripts">
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
@@ -39,7 +39,7 @@ function Get-OctopusItems
         # Store call results
         $items += $resultSet.Items
     
-        # Check to see if resultset is bigger than page amount
+        # Check to see if result set is bigger than page amount
         if (($resultSet.Items.Count -gt 0) -and ($resultSet.Items.Count -eq $resultSet.ItemsPerPage))
         {
             # Increment skip count
@@ -61,8 +61,8 @@ function Get-OctopusItems
 
 
 # Define working variables
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $projectGroupName = "MyProjectGroup"
@@ -87,14 +87,14 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/projectgroups"
 ```
 
 </details>
-<details data-group="create-projectgroup-scripts">
+<details data-group="create-project-group-scripts">
 <summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $projectGroupName = "MyProjectGroup"
 $projectGroupDescription = "MyDescription"
@@ -118,7 +118,7 @@ $repositoryForSpace.ProjectGroups.Create($projectGroup)
 ```
 
 </details>
-<details data-group="create-projectgroup-scripts">
+<details data-group="create-project-group-scripts">
 <summary>C#</summary>
 
 ```csharp
@@ -128,7 +128,7 @@ $repositoryForSpace.ProjectGroups.Create($projectGroup)
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://your.octopus.app";
+var octopusURL = "https://your-octopus-url";
 var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var projectGroupName = "MyProjectGroup";
@@ -155,7 +155,7 @@ spaceRepository.ProjectGroups.Create(projectGroup);
 ```
 
 </details>
-<details data-group="create-projectgroup-scripts">
+<details data-group="create-project-group-scripts">
 <summary>Python3</summary>
 
 ```python
@@ -195,7 +195,7 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 # Define Octopus server variables
-octopus_server_uri = 'https://your.octopus.app'
+octopus_server_uri = 'https://your-octopus-url'
 octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
@@ -224,7 +224,7 @@ response.raise_for_status()
 ```
 
 </details>
-<details data-group="create-projectgroup-scripts">
+<details data-group="create-project-group-scripts">
 <summary>Go</summary>
 
 ```go
@@ -240,11 +240,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	projectGroupName := "MyProjectGroup"
 	projectGroupDescription := "My description"
@@ -299,7 +299,7 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 ```
 
 </details>
-<details data-group="create-projectgroup-scripts">
+<details data-group="create-project-group-scripts">
 <summary>Java</summary>
 
 ```java

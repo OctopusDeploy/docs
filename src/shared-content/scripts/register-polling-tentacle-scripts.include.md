@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $communicationsStyle = "TentacleActive" # Listening mode
@@ -59,8 +59,8 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/machines" -Hea
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $hostName = "MyHost"
 $tentacleThumbprint = "TentacleThumbprint"
@@ -127,8 +127,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string hostName = "OctoTempTentacle";
 string[] environmentNames = { "Development", "Production" };
@@ -194,8 +194,8 @@ catch (Exception ex)
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -215,7 +215,7 @@ environment_names = ['Development', 'Test']
 target_name = 'your-target-name'
 target_tentacle_thumbprint = 'your-tentacle-thumbprint'
 
-# The subscription id is a random 20 character id (for example: 3hw9vtskv2cbfw7zvpje) that is used to queue messages from the server to the Polling Tentacle. 
+# The subscription id is a random 20 character id that is used to queue messages from the server to the Polling Tentacle. 
 # This should match the value in the Tentacle config file.
 target_polling_subscription_identifier = 'your-target-subscription'
 
@@ -258,11 +258,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 
 	spaceName := "Default"
 	hostName := "MyPollingTentacle"
@@ -274,7 +274,7 @@ func main() {
 	// Get the space object
 	space := GetSpace(apiURL, APIKey, spaceName)
 
-	// Creat client for space
+	// Create client for space
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get the environment ids

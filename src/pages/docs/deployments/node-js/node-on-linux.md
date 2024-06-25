@@ -150,7 +150,7 @@ gulp.task('bump', function(){
 gulp.task('publish', ['bump', 'build'], function () {
   return gulp.src(['**/*', '!bin{,/**}', '!src{,/**}', '!gulpfile.js'])
       .pipe(octo.pack())
-      .pipe(octo.push({apiKey: 'API-ABCXYZ', host: 'http://10.0.0.134'}));
+      .pipe(octo.push({apiKey: 'API-YOUR-KEY', host: 'http://10.0.0.134'}));
 });
 ```
 
@@ -188,7 +188,7 @@ Modify the **gruntfile.js** file to add the following grunt tasks. Substitute th
 grunt.initConfig({
 	...
 	"octo-push": {
-		options: { host: 'http://10.0.0.134', apiKey: 'API-ABCXYZ'	},
+		options: { host: 'http://10.0.0.134', apiKey: 'API-YOUR-KEY'	},
 		src: ['./bin/**/*']
 	},
 	"octo-pack": {

@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 $spaceName = "Default" # Name of the Space
@@ -95,8 +95,8 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/tenants/$($tena
 Add-Type -Path 'Octopus.Client.dll' 
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $spaceName = "Default" # Name of the Space
 $tenantName = "TenantName" # The tenant name
@@ -190,8 +190,8 @@ catch
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var tenantName = "TenantName";
 var projectVariableTemplateName = "TemplateName";
@@ -315,8 +315,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://your.octopus.app'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 tenant_name = "MyTenant"

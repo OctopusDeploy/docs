@@ -6,8 +6,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 
@@ -21,7 +21,7 @@ $accountDescription = "A Google Cloud account for my project"
 $accountTenantParticipation = "Untenanted"
 
 # Google Cloud JSON key file
-$jsonKeyPath = "/path/to/jsonkeyfile.json"
+$jsonKeyPath = "/path/to/json_key_file.json"
 
 # (Optional) Tenant tags e.g.: "AWS Region/California"
 $accountTenantTags = @() 
@@ -74,8 +74,8 @@ $accountResponse
 # You can get this dll from your Octopus Server/Tentacle installation directory or from
 # https://www.nuget.org/packages/Octopus.Client/
 Add-Type -Path 'path\to\Octopus.Client.dll'
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 
 # Octopus Account name
@@ -88,7 +88,7 @@ $accountDescription = "A Google Cloud account for my project"
 $accountTenantParticipation = "Untenanted"
 
 # Google Cloud JSON key file
-$jsonKeyPath = "/path/to/jsonkeyfile.json"
+$jsonKeyPath = "/path/to/json_key_file.json"
 
 # (Optional) Tenant tags e.g.: "AWS Region/California"
 $accountTenantTags = @() 
@@ -154,8 +154,8 @@ catch
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var OctopusURL = "https://your.octopus.app";
-var OctopusAPIKey = "API-YOURAPIKEY";
+var OctopusURL = "https://your-octopus-url";
+var OctopusAPIKey = "API-YOUR-KEY";
 string spaceName = "Default";
 
 // Octopus Account name
@@ -168,7 +168,7 @@ string accountDescription = "A Google Cloud account for my project";
 Octopus.Client.Model.TenantedDeploymentMode octopusAccountTenantParticipation = Octopus.Client.Model.TenantedDeploymentMode.TenantedOrUntenanted;
 
 // Google Cloud JSON key file
-string jsonKeyPath = @"/path/to/jsonkeyfile.json";
+string jsonKeyPath = @"/path/to/json_key_file.json";
 string jsonKeyBase64 = "";
 
 // (Optional) Tenant tags e.g.: "AWS Region/California"
@@ -233,8 +233,8 @@ import json
 import requests
 import base64
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 space_name = 'Default'
@@ -246,8 +246,8 @@ tenant_tags = []
 tenant_ids = []
 environment_ids = []
 
-json_keyfile_path = '/path/to/jsonkeyfile.json'
-json_data = open(json_keyfile_path, 'rb').read()
+json_key_file_path = '/path/to/json_key_file.json'
+json_data = open(json_key_file_path, 'rb').read()
 json_key_base64 = base64.b64encode(json_data)
 
 account = {
@@ -293,7 +293,7 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}

@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $teamName = "MyTeam"
@@ -48,8 +48,8 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/scopeduserroles/$($scopedUse
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $environmentNames = @("Test", "Production")
 $teamName = "MyTeam"
@@ -104,8 +104,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string[] environmentNames = { "Development", "Production" };
 string teamName = "MyTeam";
@@ -156,8 +156,8 @@ import json
 import requests
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourUrl'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = 'Default'
 team_name = 'MyTeam'
@@ -183,15 +183,15 @@ team = next((x for x in teams['Items'] if x['Name'] == team_name), None)
 uri = '{0}/userroles'.format(octopus_server_uri)
 response = requests.get(uri, headers=headers)
 response.raise_for_status
-userroles = json.loads(response.content.decode('utf-8'))
-userrole = next((x for x in userroles['Items'] if x['Name'] == user_role_name), None)
+user_roles = json.loads(response.content.decode('utf-8'))
+user_role = next((x for x in user_roles['Items'] if x['Name'] == user_role_name), None)
 
 # Get scoped user role
 uri = '{0}/{1}/teams/{2}/scopeduserroles'.format(octopus_server_uri, space['Id'], team['Id'])
 response = requests.get(uri, headers=headers)
 response.raise_for_status
-scopeduserroles = json.loads(response.content.decode('utf-8'))
-scopeduserrole = next((x for x in scopeduserroles['Items'] if x['UserRoleId'] == userrole['Id']), None)
+scoped_user_roles = json.loads(response.content.decode('utf-8'))
+scoped_user_role = next((x for x in scoped_user_roles['Items'] if x['UserRoleId'] == user_role['Id']), None)
 
 # Get environments
 uri = '{0}/{1}/environments'.format(octopus_server_uri, space['Id'])
@@ -202,11 +202,11 @@ environments = json.loads(response.content.decode('utf-8'))
 # Loop through environment names
 for environment_name in environment_names:
     environment = next((x for x in environments['Items'] if x['Name'] == environment_name), None)
-    scopeduserrole['EnvironmentIds'].append(environment['Id'])
+    scoped_user_role['EnvironmentIds'].append(environment['Id'])
 
 # Update the user role
-uri = '{0}/{1}/scopeduserroles/{2}'.format(octopus_server_uri, space['Id'], scopeduserrole['Id'])
-response = requests.put(uri, headers=headers, json=scopeduserrole)
+uri = '{0}/{1}/scopeduserroles/{2}'.format(octopus_server_uri, space['Id'], scoped_user_role['Id'])
+response = requests.put(uri, headers=headers, json=scoped_user_role)
 response.raise_for_status
 ```
 
@@ -228,11 +228,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourUrl")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	environmentNames := []string{"Development", "Production"}
 	teamName := "MyTeam"

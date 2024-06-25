@@ -4,8 +4,8 @@
 ```powershell
 $ErrorActionPreference = "Stop";
 # Define working variables
-$octopusURL = "http://your.octopus.app/"
-$octopusAPIKey = "YOUR-APIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Specify the Space to search in
@@ -23,7 +23,7 @@ $VariableValue = ""
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
 Write-Host "Looking for library variable set '$libraryVariableSet'"
-$LibraryvariableSets = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets?contentType=Variables" -Headers $header)
+$LibraryVariableSets = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets?contentType=Variables" -Headers $header)
 $LibraryVariableSet = $LibraryVariableSets.Items | Where-Object { $_.Name -eq $libraryVariableSetName }
 
 if ($null -eq $libraryVariableSet) {
@@ -56,8 +56,8 @@ $ErrorActionPreference = "Stop";
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 # Define working variables
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $libraryVariableSetName = "MyLibraryVariableSet"
 $variableName = "MyVariable"
@@ -78,11 +78,11 @@ $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($libraryVariabl
 # Check to see if something was returned
 if ($null -eq $librarySet)
 {
-    Write-Warning "Library variable not found with name '$libraryVariabelSetName'"
+    Write-Warning "Library variable not found with name '$libraryVariableSetName'"
     exit
 }
 
-# Get the variableset
+# Get the variable set
 $variableSet = $repositoryForSpace.VariableSets.Get($librarySet.VariableSetId)
 
 # Get the variable
@@ -103,8 +103,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 using System.Linq;
 
-var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
@@ -175,8 +175,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 library_variable_set_name = "MyLibraryVariableSet"
@@ -231,11 +231,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 
 	spaceName := "Default"
 	libraryVariableSetName := "MyLibraryVariableSet"

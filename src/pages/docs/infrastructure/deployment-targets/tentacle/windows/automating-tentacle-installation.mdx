@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Automating Tentacle installation
 description: Information on how to install and configure an Octopus Tentacle in a fully automated way from the command line.
 navOrder: 60
@@ -84,8 +84,8 @@ You can also register a Tentacle with the Octopus Server after it has been insta
 Add-Type -Path 'Newtonsoft.Json.dll'
 Add-Type -Path 'Octopus.Client.dll'
 
-$octopusApiKey = 'API-ABCXYZ'
-$octopusURI = 'http://YOUR_OCTOPUS'
+$octopusURI = 'https://your-octopus-url'
+$octopusApiKey = 'API-YOUR-KEY'
 
 $endpoint = new-object Octopus.Client.OctopusServerEndpoint $octopusURI, $octopusApiKey
 $repository = new-object Octopus.Client.OctopusRepository $endpoint

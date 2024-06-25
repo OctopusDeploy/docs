@@ -1,12 +1,12 @@
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Specify the Space to search in
@@ -30,7 +30,7 @@ $octopusURL = $octopusURL.TrimEnd('/')
 # Get space
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
-# Get first matching variableset record
+# Get first matching variable set record
 $libraryVariableSet = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header) | Where-Object {$_.Name -eq $variableSetVariableUsagesToFind} | Select-Object -First 1
 
 # Get variables for library variable set
@@ -87,7 +87,7 @@ foreach ($project in $projects)
                 $propName = $prop.Name                
                 $json = $step.$propName | ConvertTo-Json -Compress
                 
-                # Check to see if any of the variableset variables are referenced in this step's properties
+                # Check to see if any of the variable set variables are referenced in this step's properties
                 foreach($variable in $variables)
                 {
                     if($null -ne $json -and ($json -like "*$($variable.Name)*")) {
@@ -129,7 +129,7 @@ foreach ($project in $projects)
                     $propName = $prop.Name                
                     $json = $step.$propName | ConvertTo-Json -Compress
                     
-                    # Check to see if any of the variableset variables are referenced in this runbook step's properties
+                    # Check to see if any of the variable set variables are referenced in this runbook step's properties
                     foreach($variable in $variables)
                     {
                         if($null -ne $json -and ($json -like "*$($variable.Name)*")) {
@@ -166,7 +166,7 @@ if($variableTracking.Count -gt 0) {
 ```
 
 </details>
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
@@ -177,8 +177,8 @@ Add-Type -Path 'path:\to\Octopus.Client.dll'
 
 
 # Define working variables
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $searchDeploymentProcesses = $true
 $searchRunbookProcesses = $true
@@ -206,7 +206,7 @@ $client = New-Object Octopus.Client.OctopusClient($endpoint)
 $space = $repository.Spaces.FindByName($spaceName)
 $repositoryForSpace = $client.ForSpace($space)
 
-# Get first matching variableset record
+# Get first matching variable set record
 $libraryVariableSet = $repositoryForSpace.LibraryVariableSets.FindByName($variableSetVariableUsagesToFind)
 
 # Get variables for library variable set
@@ -343,7 +343,7 @@ if($variableTracking.Count -gt 0) {
 ```
 
 </details>
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>C#</summary>
 
 ```csharp
@@ -396,8 +396,8 @@ class VariableResult
     }
 }
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 string variableSetVariableUsagesToFind = "My-Variable-Set";
 bool searchDeploymentProcess = true;
@@ -594,7 +594,7 @@ if (variableTracking.Count > 0)
 ```
 
 </details>
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>Python3</summary>
 
 ```python
@@ -602,8 +602,8 @@ import json
 import requests
 import csv
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -620,7 +620,7 @@ def get_by_name(uri, name):
 space_name = 'Default'
 
 # Specify the name of the Library VariableSet to use to find variables usage of
-library_variableset_name = 'My-Variable-Set'
+library_variable_set_name = 'My-Variable-Set'
 
 # Search through Project's Deployment Processes?
 search_deployment_processes = True
@@ -633,13 +633,13 @@ csv_export_path = ''
 
 variable_tracker = []
 octopus_server_uri = octopus_server_uri.rstrip('/')
-octopus_server_baselink_uri = octopus_server_uri.rstrip('api')
+octopus_server_base_uri = octopus_server_uri.rstrip('api')
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
-library_variableset_resource = get_by_name('{0}/{1}/libraryvariablesets/all'.format(octopus_server_uri, space['Id']), library_variableset_name)
-library_variableset = get_octopus_resource('{0}/{1}/variables/{2}'.format(octopus_server_uri, space['Id'], library_variableset_resource['VariableSetId']))
-library_variableset_variables = library_variableset['Variables']
-print('Looking for usages of variables from variable set \'{0}\' in space \'{1}\''.format(library_variableset_name, space_name))
+library_variable_set_resource = get_by_name('{0}/{1}/libraryvariablesets/all'.format(octopus_server_uri, space['Id']), library_variable_set_name)
+library_variable_set = get_octopus_resource('{0}/{1}/variables/{2}'.format(octopus_server_uri, space['Id'], library_variable_set_resource['VariableSetId']))
+library_variable_set_variables = library_variable_set['Variables']
+print('Looking for usages of variables from variable set \'{0}\' in space \'{1}\''.format(library_variable_set_name, space_name))
 
 projects = get_octopus_resource('{0}/{1}/projects/all'.format(octopus_server_uri, space['Id']))
 
@@ -650,19 +650,19 @@ for project in projects:
     project_variable_set = get_octopus_resource('{0}/{1}/variables/{2}'.format(octopus_server_uri, space['Id'], project['VariableSetId']))
         
     # Check to see if there are any project variable values that reference any of the library set variables.
-    for library_variableset_variable in library_variableset_variables:
+    for library_variable_set_variable in library_variable_set_variables:
 
-        matching_value_variables = [project_variable for project_variable in project_variable_set['Variables'] if project_variable['Value'] is not None and library_variableset_variable['Name'] in project_variable['Value']]
+        matching_value_variables = [project_variable for project_variable in project_variable_set['Variables'] if project_variable['Value'] is not None and library_variable_set_variable['Name'] in project_variable['Value']]
         if matching_value_variables is not None:
             for matching_variable in matching_value_variables:
                 tracked_variable = {
                     'Project': project_name,
                     'MatchType': 'Referenced Project Variable',
-                    'VariableSetVariable': library_variableset_variable['Name'],
+                    'VariableSetVariable': library_variable_set_variable['Name'],
                     'Context': matching_variable['Name'],
                     'AdditionalContext': matching_variable['Value'],
                     'Property': None,
-                    'Link': '{0}{1}/variables'.format(octopus_server_baselink_uri, project_web_uri)
+                    'Link': '{0}{1}/variables'.format(octopus_server_base_uri, project_web_uri)
                 }
                 if tracked_variable not in variable_tracker:
                     variable_tracker.append(tracked_variable)
@@ -673,17 +673,17 @@ for project in projects:
         for step in deployment_process['Steps']:
             for step_key in step.keys():
                 step_property_value = str(step[step_key])
-                # Check to see if any of the variableset variables are referenced in this step's properties
-                for library_variableset_variable in library_variableset_variables:
-                    if step_property_value is not None and library_variableset_variable['Name'] in step_property_value:
+                # Check to see if any of the variable set variables are referenced in this step's properties
+                for library_variable_set_variable in library_variable_set_variables:
+                    if step_property_value is not None and library_variable_set_variable['Name'] in step_property_value:
                         tracked_variable = {
                             'Project': project_name,
                             'MatchType': 'Step',
-                            'VariableSetVariable': library_variableset_variable['Name'],
+                            'VariableSetVariable': library_variable_set_variable['Name'],
                             'Context': step['Name'],
                             'Property': step_key,
                             'AdditionalContext': None,
-                            'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_baselink_uri, project_web_uri, step['Actions'][0]['Id'])
+                            'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_base_uri, project_web_uri, step['Actions'][0]['Id'])
                         }
                         if tracked_variable not in variable_tracker:
                             variable_tracker.append(tracked_variable)
@@ -694,21 +694,21 @@ for project in projects:
         runbooks = runbooks_resource['Items']
         for runbook in runbooks:
             runbook_processes_link = runbook['Links']['RunbookProcesses']
-            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_baselink_uri, runbook_processes_link))
+            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_base_uri, runbook_processes_link))
             for step in runbook_process['Steps']:
                 for step_key in step.keys():
                     step_property_value = str(step[step_key])
-                    # Check to see if any of the variableset variables are referenced in this step's properties
-                    for library_variableset_variable in library_variableset_variables:
-                        if step_property_value is not None and library_variableset_variable['Name'] in step_property_value:
+                    # Check to see if any of the variable set variables are referenced in this step's properties
+                    for library_variable_set_variable in library_variable_set_variables:
+                        if step_property_value is not None and library_variable_set_variable['Name'] in step_property_value:
                             tracked_variable = {
                                 'Project': project_name,
                                 'MatchType': 'Runbook Step',
-                                'VariableSetVariable': library_variableset_variable['Name'],
+                                'VariableSetVariable': library_variable_set_variable['Name'],
                                 'Context': runbook['Name'],
                                 'Property': step_key,
                                 'AdditionalContext': step['Name'],
-                                'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_baselink_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
+                                'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_base_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
                             }
                             if tracked_variable not in variable_tracker:
                                 variable_tracker.append(tracked_variable)               
@@ -736,7 +736,7 @@ if results_count > 0:
 ```
 
 </details>
-<details data-group="find-variableset-variables-usage-scripts">
+<details data-group="find-variable-set-variables-usage-scripts">
 <summary>Go</summary>
 
 ```go
@@ -767,11 +767,11 @@ type VariableResult struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	variableSetVariableUsagesToFind := "My-Variable-Set"
 	searchDeploymentProcess := true
@@ -788,7 +788,7 @@ func main() {
 
 	variableTracking := []VariableResult{}
 
-	// Get variableset
+	// Get variable set
 	librarySet := GetLibrarySet(apiURL, APIKey, space, variableSetVariableUsagesToFind, 0)
 
 	// Get the variables

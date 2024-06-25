@@ -1,4 +1,4 @@
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-identity-to-users-scripts">
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
@@ -139,13 +139,13 @@ function AddAzureADLogins(
                     $existingOctopusUser.Identities += $newAzureADIdentity
                 }
 
-                # Update user's email address if set AND the value isnt empty.
+                # Update user's email address if set AND the value isn't empty.
                 if($UpdateOctopusEmailAddress -eq $True -and -not([string]::IsNullOrWhiteSpace($User.AzureEmailAddress) -eq $true)) {
                     Write-Debug "Setting Octopus email address to: $($User.AzureEmailAddress)"
                     $existingOctopusUser.EmailAddress = $User.AzureEmailAddress
                 }
 
-                 # Update user's display name if set AND the value isnt empty.
+                 # Update user's display name if set AND the value isn't empty.
                  if($UpdateOctopusDisplayName -eq $True -and -not([string]::IsNullOrWhiteSpace($User.AzureDisplayName) -eq $true)) {
                     Write-Debug "Setting Octopus display name to: $($User.AzureDisplayName)"
                     $existingOctopusUser.DisplayName = $User.AzureDisplayName
@@ -183,7 +183,7 @@ function AddAzureADLogins(
 ```
 
 </details>
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-identity-to-users-scripts">
 <summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
@@ -329,14 +329,14 @@ function AddAzureLogins
                     $existingOctopusUser.Identities += $newAzureADIdentity # Identities is an array
                 }
 
-                # Update user's email address if set AND the value isnt empty.
+                # Update user's email address if set AND the value isn't empty.
                 if($UpdateOctopusEmailAddress -eq $True -and -not([string]::IsNullOrWhiteSpace($User.AzureEmailAddress) -eq $true)) 
                 {
                     Write-Debug "Setting Octopus email address to: $($User.AzureEmailAddress)"
                     $existingOctopusUser.EmailAddress = $User.AzureEmailAddress
                 }
 
-                # Update user's display name if set AND the value isnt empty.
+                # Update user's display name if set AND the value isn't empty.
                 if($UpdateOctopusDisplayName -eq $True -and -not([string]::IsNullOrWhiteSpace($User.AzureDisplayName) -eq $true)) 
                 {
                     Write-Debug "Setting Octopus display name to: $($User.AzureDisplayName)"
@@ -372,7 +372,7 @@ function AddAzureLogins
 ```
 
 </details>
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-identity-to-users-scripts">
 <summary>C#</summary>
 
 ```csharp
@@ -565,7 +565,7 @@ public static void AddAzureLogins(string OctopusUrl, string ApiKey, string Path 
 ```
 
 </details>
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-identity-to-users-scripts">
 <summary>Python3</summary>
 
 ```python
@@ -580,8 +580,8 @@ class userToUpdate:
     AzureDisplayName = ''
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourUrl'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 
 
 # Create function
@@ -609,8 +609,8 @@ WhatIf=False):
 
     if Path:
         # Write something to do extraction
-        with open(Path) as csvfile:
-            csv_reader = csv.reader(csvfile, delimiter=',')
+        with open(Path) as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
             for row in csv_reader:
                 updateUser = userToUpdate()
                 updateUser.AzureDisplayName = row[0]
@@ -706,7 +706,7 @@ AddAzureLogins(octopus_server_uri, octopus_api_key, OctopusUsername='some.email@
 ```
 
 </details>
-<details data-group="add-azuread-identity-to-users-scripts">
+<details data-group="add-azure-identity-to-users-scripts">
 <summary>Go</summary>
 
 ```go
@@ -733,11 +733,11 @@ type User struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourUrl")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 
 	Path := ""
 	Users := []User{}

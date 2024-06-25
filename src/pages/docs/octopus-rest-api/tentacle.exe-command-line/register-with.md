@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Register with
 description: Using the Tentacle.exe command line executable to register this machine as a deployment target with an Octopus Server.
 ---
@@ -91,11 +91,11 @@ Or one of the common options:
 This example registers a listening Tentacle to the Octopus Server with the `Development` environment and `OctoFX-Web` role:
 
 ```
-tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web"
+tentacle register-with --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --environment="Development" --role="OctoFX-Web"
 ```
 
 This example registers a polling Tentacle with the `Development` environment and `OctoFX-Web` role in the `OctoFX` space:
 
 ```
-tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web" --space="OctoFX" --comms-style="TentacleActive"
+tentacle register-with --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --environment="Development" --role="OctoFX-Web" --space="OctoFX" --comms-style="TentacleActive"
 ```
