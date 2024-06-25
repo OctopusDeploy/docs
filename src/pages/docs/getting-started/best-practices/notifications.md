@@ -38,7 +38,7 @@ That filter is translated to look for events where the category is Deployment St
 
 When creating subscriptions, these are our recommendations:
 
-- If you want to create a filter to monitor for changes to the runbook process, deployment process, variables, or library variables, the event category will be `Document Modified.`
+- If you want to create a filter to monitor for changes to the runbook process, deployment process, variables, or variable sets, the event category will be `Document Modified.`
 - Don't mix and match disparate event categories.  For example, don't have a subscription, look for `API Key Expired` and `Build Information Created` events.  That is very hard to maintain and is confusing.
 - The majority of events don't include information about projects or environments.  Combining project or environment filters to event categories such as `Login Banned` will result in the subscription not firing.
 - Octopus Deploy sends a specific [JSON payload](/docs/administration/managing-infrastructure/subscriptions/#Subscriptions-WebhookNotifications) via webhook to your service.  Generally, this won't be enough information; you will need to use the payload sent to make API calls to gather more details.

@@ -11,7 +11,7 @@ $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 # Specify the Space to search in
 $spaceName = ""
 
-# Library Variable Set
+# Variable Set
 $libraryVariableSetName = ""
 
 # Variable name to search for
@@ -27,7 +27,7 @@ $LibraryvariableSets = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($s
 $LibraryVariableSet = $LibraryVariableSets.Items | Where-Object { $_.Name -eq $libraryVariableSetName }
 
 if ($null -eq $libraryVariableSet) {
-    Write-Warning "Library variable set not found with name '$libraryVariableSetName'."
+    Write-Warning "Variable set not found with name '$libraryVariableSetName'."
     exit
 }
 
@@ -78,7 +78,7 @@ $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($libraryVariabl
 # Check to see if something was returned
 if ($null -eq $librarySet)
 {
-    Write-Warning "Library variable not found with name '$libraryVariabelSetName'"
+    Write-Warning "Variable not found with name '$libraryVariabelSetName'"
     exit
 }
 
@@ -124,7 +124,7 @@ var librarySet = repositoryForSpace.LibraryVariableSets.FindByName(libraryVariab
 
 if (null == librarySet)
 {
-    throw new Exception(string.Format("Library variable not found with name '{0}'", libraryVariableSetName));
+    throw new Exception(string.Format("Variable Set not found with name '{0}'", libraryVariableSetName));
 }
 
 // Get the variable set
@@ -197,7 +197,7 @@ library_variable_set = next((l for l in library_variable_sets if l['Name'] == li
 
 # Check to see if something was returned
 if library_variable_set == None:
-    print('Library variable set not found with name "{0}"'.format(library_variable_set_name))
+    print('Variable Set not found with name "{0}"'.format(library_variable_set_name))
     exit
 
 # Get the variables

@@ -163,7 +163,7 @@ The steps documented below are best run on the `Hosted Ubuntu` worker pools for 
    5. Set the `Octopus Space ID` field to the ID of the space to be exported. The default value of `#{Octopus.Space.Id}` references the current space.
    6. Set the `Octopus Project Name` field to the name of the project to serialize. The default value of `#{Octopus.Project.Name}` assumes the runbook has been defined in the same project that is being exported.
    7. Set the `Octopus Upload Space ID` field to the ID of another space to upload the resulting Terraform module zip file to the built-in feed of that space. Leave this field blank to upload the zip file to the built-in feed of the current space. 
-   8. Set the `Ignored Library Variables Sets` field to a comma separated list of variable sets to exclude from the Terraform module. Typically, this field is used when the values of the previous fields were sourced from a variable set that should not be exported.
+   8. Set the `Ignored Variables Sets` field to a comma separated list of variable sets to exclude from the Terraform module. Typically, this field is used when the values of the previous fields were sourced from a variable set that should not be exported.
 
 Executing the runbook will:
 

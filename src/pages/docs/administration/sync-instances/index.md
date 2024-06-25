@@ -279,7 +279,7 @@ In our experience, it is far easier to group data by type and sync them all toge
     - Workers
     - Targets
     - Certificates
-    - Library Variable Sets
+    - Variable Sets
     - Projects
         - Project Settings
         - Channels (no channel version rules)
@@ -321,7 +321,7 @@ One or more environments are excluded from the syncing process in all those use 
 - Library
     - Certificates
     - Lifecycles
-    - Library Variable Sets
+    - Variable Sets
 - Tenants
 - Projects
     - Channels

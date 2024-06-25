@@ -12,7 +12,7 @@ $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 # Specify the Space to search in
 $spaceName = "Default"
 
-# Specify the name of the Library VariableSet to use to find variables usage of
+# Specify the name of the VariableSet to use to find variables usage of
 $variableSetVariableUsagesToFind = "My-Variable-Set"
 
 # Search through Project's Deployment Processes?
@@ -185,7 +185,7 @@ $searchRunbookProcesses = $true
 $csvExportPath = "path:\to\variable.csv"
 
 
-# Specify the name of the Library VariableSet to use to find variables usage of
+# Specify the name of the VariableSet to use to find variables usage of
 $variableSetVariableUsagesToFind = "My-Variable-Set"
 
 # Search through Project's Deployment Processes?
@@ -619,7 +619,7 @@ def get_by_name(uri, name):
 # Specify the Space to search in
 space_name = 'Default'
 
-# Specify the name of the Library VariableSet to use to find variables usage of
+# Specify the name of the VariableSet to use to find variables usage of
 library_variableset_name = 'My-Variable-Set'
 
 # Search through Project's Deployment Processes?
