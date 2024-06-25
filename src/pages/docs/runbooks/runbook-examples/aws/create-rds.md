@@ -68,7 +68,7 @@ Set-OctopusVariable -name "AWS.SecurityGroup.Id" -value $securityGroupId
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
-| AWS Account | The AWS account to use | This will be a variable defined in either Project variables or a Variable Seet |
+| AWS Account | The AWS account to use | This will be a variable defined in either Project variables or a Variable Set |
 | Region | The region your resources will be located in | us-west-1 |
 | CloudFormation stack name | Name of the stack you're creating | MySuperStack |
 | Role ARN | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing any operations. This role will be used for any future operations on the stack. | MyARN |
