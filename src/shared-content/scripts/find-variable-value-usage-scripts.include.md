@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop";
 
 # Define working variables
 $octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
@@ -15,7 +15,7 @@ $spaceName = "Default"
 
 # Specify the Variable Value to find, without OctoStache syntax 
 
-$variableValueToFind = "mytestvalue"
+$variableValueToFind = "MyTestValue"
 
 # Optional: set a path to export to csv
 $csvExportPath = ""
@@ -238,7 +238,7 @@ class VariableResult
 }
 
 var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 string variableValueToFind = "MyValue";
 string csvExportPath = "path:\\to\\variable.csv";
@@ -373,7 +373,7 @@ import requests
 import csv
 
 octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri, headers, skip_count = 0):

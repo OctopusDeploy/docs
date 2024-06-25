@@ -23,7 +23,7 @@ $VariableValue = ""
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
 Write-Host "Looking for variable set '$libraryVariableSet'"
-$LibraryvariableSets = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets?contentType=Variables" -Headers $header)
+$LibraryVariableSets = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets?contentType=Variables" -Headers $header)
 $LibraryVariableSet = $LibraryVariableSets.Items | Where-Object { $_.Name -eq $libraryVariableSetName }
 
 if ($null -eq $libraryVariableSet) {
@@ -82,7 +82,7 @@ if ($null -eq $librarySet)
     exit
 }
 
-# Get the variableset
+# Get the variable set
 $variableSet = $repositoryForSpace.VariableSets.Get($librarySet.VariableSetId)
 
 # Get the variable
@@ -104,7 +104,7 @@ using Octopus.Client.Model;
 using System.Linq;
 
 var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURKEY";
+var octopusAPIKey = "API-YOUR-KEY";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);

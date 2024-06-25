@@ -169,14 +169,14 @@ project = next((x for x in projects if x['Name'] == project_name), None)
 
 # Get variable set
 uri = '{0}/{1}/libraryvariablesets'.format(octopus_server_uri, space['Id'])
-librarysets = get_octopus_resource(uri, headers)
-libraryset = next((x for x in librarysets if x['Name'] == library_set_name), None)
+library_sets = get_octopus_resource(uri, headers)
+library_set = next((x for x in library_sets if x['Name'] == library_set_name), None)
 
 # Check to see if project is none
 if project != None:
-    if libraryset != None:
+    if library_set != None:
         # Add set to project
-        project['IncludedLibraryVariableSetIds'].append(libraryset['Id'])
+        project['IncludedLibraryVariableSetIds'].append(library_set['Id'])
 
         # Update project
         uri = '{0}/{1}/projects/{2}'.format(octopus_server_uri, space['Id'], project['Id'])

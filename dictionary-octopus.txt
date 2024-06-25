@@ -1,5 +1,6 @@
 ABCXYZ
 accounttest
+actionid
 advfirewall
 ALLUSERSPROFILE
 anglin
@@ -26,6 +27,7 @@ Bento
 bootstrap
 bootstrapped
 bootstrapper
+bufio
 Ceph
 changeit
 checkservices
@@ -62,6 +64,8 @@ dearmor
 decryptable
 deployers
 deploymentannotation
+deploymentprocess
+deploymentprocesses
 deployto
 DESTKEY
 DIND
@@ -81,6 +85,7 @@ fanout
 Fargate
 feedcred
 Feedz.io
+fieldnames
 fieldset
 Fifield
 figcaption
@@ -99,6 +104,7 @@ groff
 Groupsand
 gruntfile
 gulpfile
+hasattr
 hastscript
 healthcheck
 Helloworld
@@ -123,6 +129,7 @@ istioctl
 itemprop
 itemscope
 itemtype
+Itoa
 ITSM
 jjones
 jsondecode
@@ -137,12 +144,14 @@ kustomize
 lastmod
 latestdeployments
 libicu
+libraryvariablesets
 lifecycles
 linecap
 linejoin
 linkerd
 Linq
 Liquibase
+lstrip
 ltsc
 maintenanceconfiguration
 majeure
@@ -181,6 +190,7 @@ nosniff
 NTLM
 nupkg
 NVARCHAR
+O_WRONLY
 Obtainingthe
 Octo
 octoadmin
@@ -226,6 +236,7 @@ Println
 PROGRAMFILES
 proxied
 proxying
+pscustomobject
 pwsh
 pycryptodome
 querystring
@@ -249,6 +260,7 @@ rolename
 ROOTDIR
 rootelement
 RSASSA
+rstrip
 runbook
 runbooks
 runtimes
@@ -278,6 +290,8 @@ SSRS
 statefulset
 statefulsets
 sthumb
+strconv
+struct
 stylesheet
 subcontext
 sunsetting
@@ -311,6 +325,7 @@ upgrader
 urlset
 useronboarding
 variablename
+variableset
 vhdx
 Voltron
 WCAG
@@ -325,6 +340,8 @@ WIXUI
 workerpool
 workerpools
 workertools
+writeheader
+writerow
 xlarge
 xmark
 xvzf

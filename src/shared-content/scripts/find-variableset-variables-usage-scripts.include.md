@@ -178,7 +178,7 @@ Add-Type -Path 'path:\to\Octopus.Client.dll'
 
 # Define working variables
 $octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $searchDeploymentProcesses = $true
 $searchRunbookProcesses = $true
@@ -633,7 +633,7 @@ csv_export_path = ''
 
 variable_tracker = []
 octopus_server_uri = octopus_server_uri.rstrip('/')
-octopus_server_baselink_uri = octopus_server_uri.rstrip('api')
+octopus_server_base_uri = octopus_server_uri.rstrip('api')
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
 library_variableset_resource = get_by_name('{0}/{1}/libraryvariablesets/all'.format(octopus_server_uri, space['Id']), library_variableset_name)
@@ -662,7 +662,7 @@ for project in projects:
                     'Context': matching_variable['Name'],
                     'AdditionalContext': matching_variable['Value'],
                     'Property': None,
-                    'Link': '{0}{1}/variables'.format(octopus_server_baselink_uri, project_web_uri)
+                    'Link': '{0}{1}/variables'.format(octopus_server_base_uri, project_web_uri)
                 }
                 if tracked_variable not in variable_tracker:
                     variable_tracker.append(tracked_variable)
@@ -683,7 +683,7 @@ for project in projects:
                             'Context': step['Name'],
                             'Property': step_key,
                             'AdditionalContext': None,
-                            'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_baselink_uri, project_web_uri, step['Actions'][0]['Id'])
+                            'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_base_uri, project_web_uri, step['Actions'][0]['Id'])
                         }
                         if tracked_variable not in variable_tracker:
                             variable_tracker.append(tracked_variable)
@@ -694,7 +694,7 @@ for project in projects:
         runbooks = runbooks_resource['Items']
         for runbook in runbooks:
             runbook_processes_link = runbook['Links']['RunbookProcesses']
-            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_baselink_uri, runbook_processes_link))
+            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_base_uri, runbook_processes_link))
             for step in runbook_process['Steps']:
                 for step_key in step.keys():
                     step_property_value = str(step[step_key])
@@ -708,7 +708,7 @@ for project in projects:
                                 'Context': runbook['Name'],
                                 'Property': step_key,
                                 'AdditionalContext': step['Name'],
-                                'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_baselink_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
+                                'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_base_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
                             }
                             if tracked_variable not in variable_tracker:
                                 variable_tracker.append(tracked_variable)               
