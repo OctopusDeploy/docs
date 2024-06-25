@@ -135,6 +135,18 @@ A successful request highlights the `@octopus-ai-app` extension as part of the p
 
 You must ensure the Octopus Copilot extension is installed for your organization and that the required [policy settings](https://docs.github.com/en/copilot/github-copilot-chat/github-copilot-extensions/managing-github-copilot-extensions) are enabled.
 
+## The Octopus extension is not available
+
+WHen you type the `@` character in the VSCode Copilot extension you should see a list of available extensions to "talk" to:
+
+![List of extensions in VSCode Copilot chat](/docs/administration/copilot/extension-list.png)
+
+If `@octopus-ai-app` is not in that list, try logging out:
+
+![VSCode logout](/docs/administration/copilot/vscode-logout.png)
+
+When you log back in, you will have an opportunity to authorize the Octopus Copilot extension.
+
 ## Source code
 
 The Octopus extension source code can be found on [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusCopilot).
