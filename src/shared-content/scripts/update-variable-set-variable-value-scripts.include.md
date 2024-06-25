@@ -78,7 +78,7 @@ $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($libraryVariabl
 # Check to see if something was returned
 if ($null -eq $librarySet)
 {
-    Write-Warning "Variable not found with name '$libraryVariabelSetName'"
+    Write-Warning "Variable not found with name '$libraryVariableSetName'"
     exit
 }
 
