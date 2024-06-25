@@ -18,4 +18,8 @@ Each Octopus Server node stores project, environment, and deployment-related dat
 
 The database is a critical component of Octopus Deploy.  If the database is lost or destroyed all your configuration will be lost with it.  We highly recommend leveraging a combination of backups and SQL Server's high availability functionality.  
 
-We recommend using [Multi-AZ](https://aws.amazon.com/rds/features/multi-az/) with RDS to ensure the resilience and availability of your Octopus database. This will ensure that your data is replicated across multiple availability zones (Multi-AZ) within your region. In the event of a failure of the primary zone, Multi-AZ automatically switches to the secondary zone.
+We recommend using [Multi-AZ](https://aws.amazon.com/rds/features/multi-az/) with RDS to ensure the resilience and availability of your Octopus database. This will ensure that your data is replicated across multiple availability zones (Multi-AZ) within your region. In the event of a failure of the primary zone, Multi-AZ automatically switches to the secondary zone.  Multi-AZ supports SQL Server Database Mirroring (DBM) or Always On Availability Groups (AG), refer to to [Multi-AZ deployments for Amazon RDS for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerMultiAZ.html) for more details.
+
+## Disaster Recovery
+
+Amazon provides [several mechanisms](https://docs.aws.amazon.com/prescriptive-guidance/latest/dr-standard-edition-amazon-rds/introduction.html) for Disaster Recovery (DR) should an entire region fail.  We recommend reviewing the [DR solution matrix](https://docs.aws.amazon.com/prescriptive-guidance/latest/dr-standard-edition-amazon-rds/dr-matrix.html) to determine which method best suits your organizations needs.
