@@ -169,7 +169,7 @@ closed the above process will be followed again.
 Once an Issue has been found, the deployment will only proceed if the **State** of the CR is 
 `Implementing`. If the **State** is either `Preview`, `Planning`, `Authorize`, or `Awaiting 
 Implementation` the 
-deployment will wait. Any other **State** will cause the deployment task to fail, with logs written to ServerLogs instead of Tasklogs.  
+deployment will wait. Any other **State** will cause the deployment task to fail, with logs written to server logs instead of task logs.
 
 :::div{.info}
 
