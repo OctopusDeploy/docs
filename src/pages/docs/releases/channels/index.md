@@ -134,7 +134,7 @@ Branch and tag patterns used in Git resource and Git reference rules support glo
 | `**` | Matches multiple characters including `/` | Branch pattern of `release/**` will match branch `release/1.0.0` and `release/1.0.0/hotfix1` |
 | `?` | Matches a single character | Tag pattern of `v?` will match a tag of `v1` but not `v1.0.0` |
 | `[0-9]` | Matches a single character in the range | Tag pattern of `v[0-9].[0-9].[0-9]` will match a tag `v1.0.0` |
-| `[abc]` | Matches a single character from the set | Branch pattern of `release/[abc]*` will match branch `release/a-new-branch` but not release/my-new-branch` |
+| `[abc]` | Matches a single character from the set | Branch pattern of `release/[abc]*` will match branch `release/a-new-branch` but not `release/my-new-branch` |
 
 ## Using channels {#using-channels}
 
