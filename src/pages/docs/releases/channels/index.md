@@ -22,7 +22,7 @@ When you are implementing a deployment process that uses channels you can scope 
 - [Variables](#variables)
 - [Tenants](#deploy-to-tenants)
 
-You can also define versioning rules per channel to ensure that only versions which meet specific criteria are deployed to specific channels.
+You can also define rules per channel to ensure that only package versions and Git resources which meet specific criteria are deployed to specific channels.
 
 ## Managing channels
 
@@ -40,15 +40,19 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 4. If you want to make this the default Channel for the project, click the **Default Channel** check-box.
 5. Design the [version rules](#version-rules) that will be used to enforce which versions of your packages are deployed to this channel.
 
-## Design the version rules {#version-rules}
+## Channel rules
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
+Channels allow to you to configure rules to ensure that package versions and Git resources that meet specific criteria can be deployed using the channel.
+
+### Package version rules {#version-rules}
+
+Package version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
 
 :::div{.hint}
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
 :::
 
-1. From the **New Channel** screen, click **ADD VERSION RULE**.
+1. From the **New Channel** screen, click **ADD VERSION RULE** in the Package Version Rules section.
 2. Select the package step(s) (and as such the packages) the version rule will be applied to.
 3. Enter the version range in the **Version Range** field. You can use either [Nuget](https://oc.to/NuGetVersioning) or [Maven](https://oc.to/MavenVersioning) versioning syntax to specify the range of versions to include.
 
@@ -82,6 +86,45 @@ The **Design Version Rule** window will show a list of the packages that will de
 :::
 
 6. Click **SAVE**.
+
+### Git resource rules
+
+:::div{.hint}
+Support for Git resource rules is currently rolling out to Octopus Cloud.
+:::
+
+Git resource rules assist in ensuring that only the correct branches and tags can be used in the channel for steps that source files from an external Git repository. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
+
+1. From the **New Channel** screen, click **Add Rule** in the Git Resource Rules section.
+2. Select the step(s) that use external Git repositories the rule will be applied to.
+3. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases.
+4. Click **Save**.
+
+### Git reference rules (version controlled projects)
+
+:::div{.hint}
+Support for Git reference rules is currently rolling out to Octopus Cloud.
+:::
+
+Git reference rules assist in ensuring that only the correct branches and tags can be used as the Git reference for a release in the channel for version controlled projects. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
+
+1. From the **New Channel** screen, expand the **Git Reference Rules** section.
+2. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases.
+3. Click **Save**.
+
+When patterns are entered, a sample of the matching branches/tags from the Git repository used by the project will be shown to help in configuring the Git reference rules.
+
+## Glob patterns in Git rules
+
+Branch and tag patterns used in Git resource and Git reference rules support glob patterns and can include the following wildcard characters:
+
+| **Character** | **Description** | **Example** |
+| --- | --- | --- |
+| `*` | Matches multiple characters except `/` | Branch pattern of `release/*` will match branch `release/1.0.0` but not `release/1.0.0/hotfix1` |
+| `**` | Matches multiple characters including `/` | Branch pattern of `release/**` will match branch `release/1.0.0` and `release/1.0.0/hotfix1` |
+| `?` | Matches a single character | Tag pattern of `v?` will match a tag of `v1` but not `v1.0.0` |
+| `[0-9]` | Matches a single character in the range | Tag pattern of `v[0-9].[0-9].[0-9]` will match a tag `v1.0.0` |
+| `[abc]` | Matches a single character from the set | Branch pattern of `release/[abc]*` will match branch `release/a-new-branch` but not release/my-new-branch` |
 
 ## Using channels {#using-channels}
 
