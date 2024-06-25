@@ -15,10 +15,10 @@ There are multiple levels of variables in Octopus Deploy:
 1.  Project 
 2.  Tenant 
 3.  Step Templates
-4.  Library Set
+4.  Variable Set
 5.  System Variables
 
-Project, Tenant, and Step Template variables are associated with their specific item and cannot be shared.  Library set variables can be shared between 1 to N Projects and Tenants.  System variables are variables provided by Octopus Deploy you can use during deployments.
+Project, Tenant, and Step Template variables are associated with their specific item and cannot be shared.  Variable Sets can be shared between 1 to N Projects and Tenants.  System variables are variables provided by Octopus Deploy you can use during deployments.
 
 During a deployment, Octopus will gather all the variables for the project, Tenant (when applicable), step template, associated variable set, and system variables and create a "variable manifest" for each step to use.
 
@@ -42,7 +42,7 @@ The recommendation is to avoid name collisions in the first place by following t
 1. Project: `Project.[Component].[Name]` - for example, **Project.Database.UserName.**
 2. Tenant: `[ProjectName].[Component].[Name]` - for example, **OctoPetShopWebUI.URL.Port**.
 3. Step Template: `[TemplateShortName].[Component].[Name]` - for example, **SlackNotification.Message.Body**.
-4. Library Set: `Library.[LibrarySetName].[Component].[Name]` - for example, **Library.Notification.Slack.Message**.
+4. Variable Set: `Library.[LibrarySetName].[Component].[Name]` - for example, **Library.Notification.Slack.Message**.
 
 These naming conventions only apply to variables used for a deployment or runbook run.  Variables used for configuration file replacement have a specific naming convention to follow.  The above naming convention makes it easier to distinguish between the two.
 

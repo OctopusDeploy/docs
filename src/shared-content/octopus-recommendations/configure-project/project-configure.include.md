@@ -29,17 +29,17 @@ Adding an image to your project is a useful way to set them apart from other pro
 
 ### Sharing variables between projects
 
-We have the three projects set up, but we need to share some common variables between them.  The SQL Server that we are deploying to, the database name and the application name are variables that come to mind.  To accomplish this, we are going to create a library set for this specific application.
+We have the three projects set up, but we need to share some common variables between them.  The SQL Server that we are deploying to, the database name and the application name are variables that come to mind.  To accomplish this, we are going to create a variable set for this specific application.
 
 :::figure
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-projectlibraryset.png)
 :::
 
 :::div{.hint}
-A project can reference 0 to N number of variable set.  Variable naming is significant.  A good practice is to use a Namespace style syntax on naming, `[LibrarySetName].[ComponentName].[SubName]`.  Project variables can then be called `[Project].[ComponentName].[SubName]`.  Using detailed names allow you to distinguish project variables from library set variables when viewing project steps, and task log output.
+A project can reference 0 to N number of variable set.  Variable naming is significant.  A good practice is to use a Namespace style syntax on naming, `[LibrarySetName].[ComponentName].[SubName]`.  Project variables can then be called `[Project].[ComponentName].[SubName]`.  Using detailed names allow you to distinguish project variables from variable set variables when viewing project steps, and task log output.
 :::
 
-It's also good to have a couple of other variable sets to handle some non-project specific values.  For example, a global library set that stores any infrastructure as code (or IaC) variables.  The same naming convention applies as the project-specific variable set, for example, replacing **OctoFx** with **Global**.
+It's also good to have a couple of other variable sets to handle some non-project specific values.  For example, a global variable set that stores any infrastructure as code (or IaC) variables.  The same naming convention applies as the project-specific variable set, for example, replacing **OctoFx** with **Global**.
 
 :::figure
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-globalvariables.png)

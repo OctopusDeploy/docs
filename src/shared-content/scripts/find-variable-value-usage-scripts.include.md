@@ -43,7 +43,7 @@ foreach ($variableSet in $variableSets.Items)
             $result = [PSCustomObject]@{
                 Project = $null
                 VariableSet = $variableSet.Name
-                MatchType = "Value in Library Set"
+                MatchType = "Value in Variable Set"
                 Context = $match.Value
                 Property = $null
                 AdditionalContext = $match.Name
@@ -138,7 +138,7 @@ foreach ($variableSet in $variableSets)
             $result = [PSCustomObject]@{
                 Project = $null
                 VariableSet = $variableSet.Name
-                MatchType = "Value in Library Set"
+                MatchType = "Value in Variable Set"
                 Context = $match.Value
                 Property = $null
                 AdditionalContext = $match.Name
@@ -277,7 +277,7 @@ foreach (var variableSet in variableSets)
             VariableResult result = new VariableResult();
             result.Project = null;
             result.VariableSet = variableSet.Name;
-            result.MatchType = "Value in Library Set";
+            result.MatchType = "Value in Variable Set";
             result.Context = match.Value;
             result.AdditionalContext = match.Name;
 
@@ -462,7 +462,7 @@ for variable_set in variable_sets:
             tracked_variable = {
                 'Project': None,
                 'VariableSet': variable_set['Name'],
-                'MatchType': 'Value in Library Set',
+                'MatchType': 'Value in Variable Set',
                 'Context': variable['Value'],
                 'Property': None,
                 'AdditionalContext': variable['Name']
@@ -592,7 +592,7 @@ func main() {
 
 	// Loop through variable sets
 	for _, variableSet := range variableSets {
-		fmt.Printf("Checking library set: %[1]s \n", variableSet.Name)
+		fmt.Printf("Checking variable set: %[1]s \n", variableSet.Name)
 		// Get variables for set
 		variables, err := client.Variables.GetAll(variableSet.ID)
 		if err != nil {
@@ -604,7 +604,7 @@ func main() {
 			if valueMatch {
 				result := VariableResult{}
 				result.Project = ""
-				result.MatchType = "Value in Library Set"
+				result.MatchType = "Value in Variable Set"
 				result.Context = variable.Value
 				result.Property = ""
 				result.AdditionalContext = variable.Name

@@ -54,7 +54,7 @@ Environments are designed as a macro grouping of deployment targets meant for us
 
 - Lifecycles
 - Project Variable scoping
-- Library Set Variable scoping
+- Variable Set scoping
 - Log filtering
 - Tenant variable scoping
 - Accounts

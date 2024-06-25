@@ -250,7 +250,7 @@ func main() {
 
 	fmt.Printf("Looking for variable set '%[1]s", libraryVariableSetName)
 
-	// Get the library set
+	// Get the variable set
 	librarySet := GetLibrarySet(client, space, libraryVariableSetName, 0)
 
 	// Get the variable set
@@ -308,7 +308,7 @@ func GetLibrarySet(client *octopusdeploy.Client, space *octopusdeploy.Space, lib
 		PartialName: librarySetName,
 	}
 
-	// Get Library set
+	// Get variable set
 	librarySets, err := client.LibraryVariableSets.Get(librarySetsQuery)
 
 	if err != nil {

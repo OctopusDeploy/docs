@@ -285,7 +285,7 @@ for variableSet in variableSets:
             variablesUpdated = True
 
     if variablesUpdated:
-        print ('Clearing sensitive variables for library set {0}'.format(variableSet['Name']))
+        print ('Clearing sensitive variables for variable set {0}'.format(variableSet['Name']))
         uri = '{0}{1}'.format(octopus_server_uri, variableSet['Links']['Variables'])
         response = requests.put(uri, headers=headers, json=libraryVariables)
         response.raise_for_status

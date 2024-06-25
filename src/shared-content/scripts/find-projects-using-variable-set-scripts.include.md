@@ -14,7 +14,7 @@ $librarySetName = "MyLibrarySet"
 # Get space
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
-# Get library set reference
+# Get variable set reference
 $librarySet = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header) | Where-Object {$_.Name -eq $librarySetName}
 
 # Get all projects
@@ -56,7 +56,7 @@ try
     $space = $repository.Spaces.FindByName($spaceName)
     $repositoryForSpace = $client.ForSpace($space)
 
-    # Get Library set
+    # Get variable set
     $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($librarySetName)
     
     # Get Projects
@@ -109,7 +109,7 @@ try
     // Get projects
     var projects = repositoryForSpace.Projects.GetAll();
 
-    // Get library set
+    // Get variable set
     var librarySet = repositoryForSpace.LibraryVariableSets.FindByName(librarySetName);
 
     // Loop through projects
@@ -197,7 +197,7 @@ func main() {
 	// Create client object
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
-	// Get library set
+	// Get variable set
 	librarySet := GetLibrarySet(apiURL, APIKey, space, librarySetName, 0)
 
 	// Get events
@@ -207,7 +207,7 @@ func main() {
 		log.Println(err)
 	}
 
-	fmt.Println("The following projects use library set " + librarySetName)
+	fmt.Println("The following projects use variable set " + librarySetName)
 
 	// Loop through projects
 	for i := 0; i < len(projects); i++ {
