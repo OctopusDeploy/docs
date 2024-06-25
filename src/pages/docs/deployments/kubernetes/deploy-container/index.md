@@ -597,7 +597,7 @@ The [command and arguments](https://oc.to/KubernetesCommand) that are executed w
 
 This section has two fields: `Command` and `Command arguments`. Each plays a slightly different role relating to how Docker images define the command that is used to launch the container.
 
-Docker images can define an [ENTRYPOINT](https://oc.to/DockerEntrypoint), a [CMD](https://oc.to/Docker/), or both.
+Docker images can define an [ENTRYPOINT](https://oc.to/DockerEntrypoint), a [CMD](https://docs.docker.com/reference/dockerfile/#cmd), or both.
 
 When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
 
@@ -677,7 +677,7 @@ The [command and arguments](https://oc.to/KubernetesCommand) that are executed w
 
 This section has two fields: `Command` and `Command arguments`. Each plays a slightly different role relating to how Docker images define the command that is used to launch the container.
 
-Docker images can define an [ENTRYPOINT](https://oc.to/DockerEntrypoint), a [CMD](https://oc.to/Docker/), or both.
+Docker images can define an [ENTRYPOINT](https://oc.to/DockerEntrypoint), a [CMD](https://docs.docker.com/reference/dockerfile/#cmd), or both.
 
 When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
 
