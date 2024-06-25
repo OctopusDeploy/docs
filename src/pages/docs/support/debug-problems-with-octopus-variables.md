@@ -23,7 +23,7 @@ Sometimes a variable used during deployment may have a different value from the 
 
 ## Check the variable value in the all variables tab {#check-variable-value-in-all-variables-tab}
 
-1. Open the **Project ➜ Variables ➜ All Variables** tab.
+1. Open the **Project ➜ All Variables** tab.
 2. Investigate the variables from all possible sources for the project including the project itself, [variable sets](/docs/projects/variables/library-variable-sets/), and [tenants](/docs/tenants).
 
 :::figure

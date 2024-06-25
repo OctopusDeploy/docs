@@ -68,7 +68,7 @@ The root of the export/import is a project (or multiple projects).  The simple r
 - Environments (see [below](#environments) for details)
 - [Tenants](#tenants) connected to the project
 - [Accounts](#accounts) and [certificates](#certificates) used by the project
-- [Variable Sets](#library-variable-sets) included in the project 
+- [Variable sets](#library-variable-sets) included in the project 
 - [Step templates](#step-templates) used in the deployment process or runbooks
 - Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step)
 
@@ -143,7 +143,7 @@ On import, for any tenants which already exist on the destination the project/en
 
 ### Variable Sets \{#library-variable-sets} 
 
-[Variable Sets](/docs/projects/variables/library-variable-sets) connected to the project will be exported, including all variables. 
+[Variable sets](/docs/projects/variables/library-variable-sets) connected to the project will be exported, including all variables. 
 
 When importing, if a variable set with the same name already exists, the variables will be merged. If a variable in the export doesn't exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched. 
 

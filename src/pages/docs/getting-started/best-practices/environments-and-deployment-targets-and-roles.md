@@ -50,7 +50,7 @@ Using the example from above, Octopus would select all three servers.
 
 ## Environment and Target Tag usage differences \{#environment-and-role-usage-differences}
 
-Environments are designed as a macro grouping of deployment targets meant for use across multiple projects, variable set, and more.  Below is a list of items where environments are used:
+Environments are designed as a macro grouping of deployment targets meant for use across multiple projects, variable sets, and more.  Below is a list of items where environments are used:
 
 - Lifecycles
 - Project Variable scoping

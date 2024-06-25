@@ -21,15 +21,15 @@ This can be useful if you have the same variables that are used across multiple 
 ## Adding the variable set to a project
 
 1. Navigate to your project by selecting the **Project** from the navigation menu and then clicking your project.
-2. Click **Variables ➜ Variable Set**.
+2. Click **Variable Sets**.
 3. Click **INCLUDE VARIABLE SETS**.
 4. Search for the Variable Set you'd like to include, click the check-box and **SAVE**.
 
 ## Viewing the variable set
 
-If you want to review the Variable Set you've created, from the Project Overview page you can navigate to **Variables ➜ Variable Set**.
+If you want to review the Variable Set you've created, from the Project Overview page you can navigate to **Variable Set**.
 
-If you want to review the Project variables and the Variable Set, from the Project Overview you can navigate to **Variables ➜ All**.
+If you want to review the Project variables and the Variable Set, from the Project Overview you can navigate to **All Variables**.
 
 ## Rename a variable set
 
