@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Channels
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
 navOrder: 15
@@ -97,8 +97,12 @@ Git resource rules assist in ensuring that only the correct branches and tags ca
 
 1. From the **New Channel** screen, click **Add Rule** in the Git Resource Rules section.
 2. Select the step(s) that use external Git repositories the rule will be applied to.
-3. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases.
+3. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases. Wildcard characters can be used, see [Glob patterns in Git rules](#git-rules-glob-patterns) for more information.
 4. Click **Save**.
+
+:::figure
+![Git resource rules example](/docs/releases/channels/images/git-resource-rules.png)
+:::
 
 ### Git reference rules (version controlled projects)
 
@@ -109,12 +113,16 @@ Support for Git reference rules is currently rolling out to Octopus Cloud.
 Git reference rules assist in ensuring that only the correct branches and tags can be used as the Git reference for a release in the channel for version controlled projects. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
 
 1. From the **New Channel** screen, expand the **Git Reference Rules** section.
-2. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases.
+2. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases. Wildcard characters can be used, see [Glob patterns in Git rules](#git-rules-glob-patterns) for more information.
 3. Click **Save**.
 
 When patterns are entered, a sample of the matching branches/tags from the Git repository used by the project will be shown to help in configuring the Git reference rules.
 
-## Glob patterns in Git rules
+:::figure
+![Git reference rules example](/docs/releases/channels/images/git-reference-rules.png)
+:::
+
+## Glob patterns in Git rules {#git-rules-glob-patterns}
 
 Branch and tag patterns used in Git resource and Git reference rules support glob patterns and can include the following wildcard characters:
 
