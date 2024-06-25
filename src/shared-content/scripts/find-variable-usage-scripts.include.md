@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Specify the Space to search in
@@ -191,8 +191,8 @@ if ($variableTracking.Count -gt 0) {
 ```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $variableToFind = "MyProject.Variable"
 $searchDeploymentProcesses = $true
@@ -230,7 +230,7 @@ foreach ($project in $projects)
     {
         foreach ($match in $matchingNamedVariable)
         {
-            # Create new hashtable
+            # Create new hash table
             $result = [pscustomobject]@{
                 Project = $project.Name
                 MatchType = "Named Project Variable"
@@ -404,8 +404,8 @@ class VariableResult
     }
 }
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 string variableToFind = "MyProject.Variable";
 bool searchDeploymentProcess = true;
@@ -612,8 +612,8 @@ import json
 import requests
 import csv
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -644,7 +644,7 @@ csv_export_path = ''
 
 variable_tracker = []
 octopus_server_uri = octopus_server_uri.rstrip('/')
-octopus_server_baselink_uri = octopus_server_uri.rstrip('api')
+octopus_server_base_uri = octopus_server_uri.rstrip('api')
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
 print('Looking for usages of variable named \'{0}\' in space \'{1}\''.format(variable_name, space_name))
@@ -667,7 +667,7 @@ for project in projects:
                 'Context': variable['Name'],
                 'AdditionalContext': None,
                 'Property': None,
-                'Link': '{0}{1}/variables'.format(octopus_server_baselink_uri, project_web_uri)
+                'Link': '{0}{1}/variables'.format(octopus_server_base_uri, project_web_uri)
             }
             if tracked_variable not in variable_tracker:
                 variable_tracker.append(tracked_variable)
@@ -682,7 +682,7 @@ for project in projects:
                 'Context': variable['Name'],
                 'AdditionalContext': variable['Value'],
                 'Property': None,
-                'Link': '{0}{1}/variables'.format(octopus_server_baselink_uri, project_web_uri)
+                'Link': '{0}{1}/variables'.format(octopus_server_base_uri, project_web_uri)
             }
             if tracked_variable not in variable_tracker:
                 variable_tracker.append(tracked_variable)
@@ -700,7 +700,7 @@ for project in projects:
                         'Context': step['Name'],
                         'Property': step_key,
                         'AdditionalContext': None,
-                        'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_baselink_uri, project_web_uri, step['Actions'][0]['Id'])
+                        'Link': '{0}{1}/deployments/process/steps?actionId={2}'.format(octopus_server_base_uri, project_web_uri, step['Actions'][0]['Id'])
                     }
                     if tracked_variable not in variable_tracker:
                         variable_tracker.append(tracked_variable)
@@ -711,7 +711,7 @@ for project in projects:
         runbooks = runbooks_resource['Items']
         for runbook in runbooks:
             runbook_processes_link = runbook['Links']['RunbookProcesses']
-            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_baselink_uri, runbook_processes_link))
+            runbook_process = get_octopus_resource('{0}/{1}'.format(octopus_server_base_uri, runbook_processes_link))
             for step in runbook_process['Steps']:
                 for step_key in step.keys():
                     step_property_value = str(step[step_key])
@@ -722,7 +722,7 @@ for project in projects:
                             'Context': runbook['Name'],
                             'Property': step_key,
                             'AdditionalContext': step['Name'],
-                            'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_baselink_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
+                            'Link': '{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}'.format(octopus_server_base_uri, project_web_uri, runbook['Id'], runbook['RunbookProcessId'], step['Actions'][0]['Id'])
                         }
                         if tracked_variable not in variable_tracker:
                             variable_tracker.append(tracked_variable)               
@@ -779,11 +779,11 @@ type VariableResult struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	variableToFind := "MyProject.Variable"
 	searchDeploymentProcess := true

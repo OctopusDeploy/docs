@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $projectName = "MyProject"
@@ -47,8 +47,8 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/deploymentproce
 ```powershell
 Add-Type -Path "path\to\Octopus.Client.dll"
 
-$apikey = "API-YOURAPIKEY"
-$octopusURL = "https://youroctourl"
+$apikey = "API-YOUR-KEY"
+$octopusURL = "https://your-octopus-url"
 $spaceName = "default"
 $stepName = "Run a script"
 $environmentNames = @("Development", "Test")
@@ -104,8 +104,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string projectName = "MyProject";
 string[] environmentNames = { "Development", "Test" };
@@ -165,8 +165,8 @@ catch (Exception ex)
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 
@@ -222,11 +222,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourUrl")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	environmentNames := []string{"Development", "Production"}
 	environments := []octopusdeploy.Environment{}

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Deregister from
 description: Using the Tentacle.exe command line executable to deregister a deployment target from an Octopus Server.
 ---
@@ -41,11 +41,11 @@ Or one of the common options:
 This example deregisters a Tentacle from the Octopus Server:
 
 ```
-tentacle deregister-from --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+tentacle deregister-from --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
 This example deregisters the instance `MyNewInstance` from the space `MyNewSpace`:
 
 ```
-tentacle deregister-from --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --instance="MyNewInstance" --space="MyNewSpace"
+tentacle deregister-from --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --instance="MyNewInstance" --space="MyNewSpace"
 ```

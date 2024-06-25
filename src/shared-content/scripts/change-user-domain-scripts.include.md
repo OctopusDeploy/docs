@@ -4,8 +4,8 @@
 ```powershell
 $ErrorActionPreference = "Stop"
 
-$octopusURL = "https://yoururl.com" # Replace with your instance URL
-$octopusAPIKey = "YOUR API KEY" # Replace with a service account API Key
+$octopusURL = "https://your-octopus-url.com" # Replace with your instance URL
+$octopusAPIKey = "API-YOUR-KEY" # Replace with a service account API Key
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $maxRecordsToUpdate = 2 # The max number of records you want to update in this batch
 
@@ -105,7 +105,7 @@ while (1 -eq 1) #Continue until we reach the end of the user list or until we go
                         $claimName = $claimName.Name
                         $claim = $identity.Claims.$ClaimName
                         
-                        if ($claim.Value.ToLower() -eq $expectedMatch.Tolower() -and $claim.IsIdentifyingClaim -eq $true)
+                        if ($claim.Value.ToLower() -eq $expectedMatch.ToLower() -and $claim.IsIdentifyingClaim -eq $true)
                         {
                             Write-Host "Found the user's new domain record, add that to Octopus Deploy"
                             $userRecordToUpdate.Identities += $identity

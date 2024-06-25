@@ -2,8 +2,8 @@
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
-$octopusUrl = "YOUR URL"
-$octopusApiKey = "API KEY"
+$octopusUrl = "https://your-octopus-url"
+$octopusApiKey = "API-YOUR-KEY"
 $maxAgeInMinutes = 240
 $serverNodes = "HANode03,HANode04"
 $whatIf = $true
@@ -99,7 +99,7 @@ function Invoke-OctopusApi
             Write-OctopusVerbose "Ignoring cache."    
         }
 
-        Write-OctopusVerbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-OctopusVerbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         if ($cachedResults.ContainsKey($url) -eq $true)

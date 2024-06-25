@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $projectName = "MyProject"
 $releaseVersion = "1.0.0.0"
@@ -38,8 +38,8 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/releases/$($re
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $projectName = "MyProject"
 $channelName = "default"
@@ -84,8 +84,8 @@ catch
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "default";
 string projectName = "MyProject";
 string channelName = "Default";

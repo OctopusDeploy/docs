@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Delete auto deploy override
 description: Using the Octopus CLI to delete automatic deployment release overrides.
 navOrder: 100
@@ -85,28 +85,28 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example {#Deletingautodeployoverrides-Basicexample}
+## Basic example
 
 The following deletes an automatic deployment release override for the project *HelloWorld* to the environment Development:
 
 ```bash
-octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
+octo delete-autodeployoverride --project HelloWorld --environment Development --server https://your-octopus-url --apikey API-YOUR-KEY
 ```
 
-## Tenanted example (by name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
+## Tenanted example (by name)
 
 The following deletes an automatic deployment release override for the project *HelloWorld* to the environment Development for the tenant *Acme*:
 
 ```bash
-octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
+octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server https://your-octopus-url --apikey API-YOUR-KEY
 ```
 
-## tenanted example (by tags) {#deletingautodeployoverrides-tenantedexample(bytags)}
+## tenanted example (by tags)
 
 The following deletes an automatic deployment release override for the project *HelloWorld* to the environment Development for all tenants with the *Hosting/Cloud* tag:
 
 ```bash
-octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456
+octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server https://your-octopus-url --apikey API-YOUR-KEY
 ```
 
 ## Learn more

@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 Function Clear-SensitiveVariables
@@ -79,8 +79,8 @@ foreach ($variableSet in $variableSets)
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
@@ -145,8 +145,8 @@ catch
 #r "path\to\Octopus.Client.dll"
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "default";
 
 // Create repository object
@@ -240,8 +240,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "MySpace"
 
@@ -309,12 +309,12 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("http://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
-	spaceName := "MySace"
+	APIKey := "API-YOUR-KEY"
+	spaceName := "MySpace"
 
 	// Get reference to space
 	space := GetSpace(apiURL, APIKey, spaceName)
@@ -345,18 +345,18 @@ func main() {
 
 	// Loop through sets
 	for i := 0; i < len(librarySets); i++ {
-		librarysetVariables := GetVariables(apiURL, APIKey, space, librarySets[i].ID)
+		librarySetVariables := GetVariables(apiURL, APIKey, space, librarySets[i].ID)
 		variablesUpdated := false
-		for j := 0; j < len(librarysetVariables.Variables); j++ {
-			if librarysetVariables.Variables[j].IsSensitive {
-				librarysetVariables.Variables[j].Value = ""
+		for j := 0; j < len(librarySetVariables.Variables); j++ {
+			if librarySetVariables.Variables[j].IsSensitive {
+				librarySetVariables.Variables[j].Value = ""
 				variablesUpdated = true
 			}
 		}
 
 		if variablesUpdated {
 			println("Variables for " + librarySets[i].Name + " have been updated")
-			UpdateVariables(apiURL, APIKey, space, librarysetVariables.OwnerID, librarysetVariables)
+			UpdateVariables(apiURL, APIKey, space, librarySetVariables.OwnerID, librarySetVariables)
 		}
 	}
 }

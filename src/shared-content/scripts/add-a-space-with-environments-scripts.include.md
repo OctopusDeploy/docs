@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 $spaceName = "New Space"
@@ -64,8 +64,8 @@ foreach ($environment in $environments) {
 ```powershell
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
@@ -122,8 +122,8 @@ foreach ($environmentName in $environments) {
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
 var repository = new OctopusRepository(endpoint);
@@ -186,8 +186,8 @@ import json
 import requests
 
 # Define Octopus server variables
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 # Define working variables
@@ -249,12 +249,12 @@ func main() {
 	spaceId := "" // Update if authentication is in a different space
 	newSpaceName := "MyNewSpace"
 
-	apiURL, err := url.Parse("https://youroctourl")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
 
-	APIKey := "API-YOURAPIKEY"
+	APIKey := "API-YOUR-KEY"
 	spaceManagersTeamMembers := []string{}                // This or spaceManagerTeams must contain a value
 	spaceManagerTeams := []string{"teams-administrators"} // This or spaceManagersTeamMembers must contain a value, "teams-administrators" is the Octopus Administrators team
 	environments := []string{"Development", "Test", "Production"}

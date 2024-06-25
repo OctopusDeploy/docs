@@ -17,6 +17,14 @@ See the [Octopus style guide](https://www.octopus.design/932c0f1a9/p/26f741-writ
 * Sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs)
 * We'll review your PR and accept it or suggest changes
 
+### Default values
+
+When you need to use an example value in docs, please use the below:
+
+- Octopus URL: `https://your-octopus-url`
+- Octopus API key: `API-YOUR-KEY`
+- Snapshot name: `Snapshot XXXXX`
+
 ## Required checks
 
 When you raise a pull request, the following checks will take place:

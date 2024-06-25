@@ -5,8 +5,8 @@
 $ErrorActionPreference = 'Stop';
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-KEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $csvExportPath = ""
 
@@ -69,9 +69,9 @@ $ErrorActionPreference = "Stop";
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 # Define working variables
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
-$csvExportPath = "path:\to\editpermissions.csv"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
+$csvExportPath = "path:\to\edit_permissions.csv"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
@@ -177,9 +177,9 @@ class UserDetails
     }
 }
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
-string csvExportPath = "path:\\to\\editpermissions.csv";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
+string csvExportPath = "path:\\to\\edit_permissions.csv";
 
 System.Collections.Generic.List<UserDetails> usersList = new System.Collections.Generic.List<UserDetails>();
 
@@ -303,10 +303,10 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
-csv_export_path = "path:\\to\\editpermissions.csv"
+csv_export_path = "path:\\to\\edit_permissions.csv"
 
 # Get users
 uri = '{0}/api/users'.format(octopus_server_uri)
@@ -377,12 +377,12 @@ type UserDetails struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
-	csvExportPath := "path:\\to\\editpermissions.csv"
+	APIKey := "API-YOUR-KEY"
+	csvExportPath := "path:\\to\\edit_permissions.csv"
 
 	usersList := []UserDetails{}
 

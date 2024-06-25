@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
@@ -15,7 +15,7 @@ $spaceName = "Default"
 
 # Specify the Variable Value to find, without OctoStache syntax 
 
-$variableValueToFind = "mytestvalue"
+$variableValueToFind = "MyTestValue"
 
 # Optional: set a path to export to csv
 $csvExportPath = ""
@@ -102,8 +102,8 @@ if($variableTracking.Count -gt 0) {
 ```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $variableValueToFind = "MyValue"
 $csvExportPath = "c:\temp\variable.csv"
@@ -237,8 +237,8 @@ class VariableResult
     }
 }
 
-var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 string variableValueToFind = "MyValue";
 string csvExportPath = "path:\\to\\variable.csv";
@@ -372,8 +372,8 @@ import json
 import requests
 import csv
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri, headers, skip_count = 0):
@@ -524,11 +524,11 @@ type VariableResult struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	variableValueToFind := "MyValue"
 	csvExportPath := "path:\\to\\variable.csv"

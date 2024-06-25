@@ -4,8 +4,8 @@
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-$octopusUrl = "https://local.octopusdemos.app" ## Octopus URL to look at
-$octopusApiKey = "YOUR API KEY" ## API key of user who has permissions to view all spaces, cancel tasks, and resubmit runbooks runs and deployments
+$octopusUrl = "https://your-octopus-url" ## Octopus URL to look at
+$octopusApiKey = "API-YOUR-KEY" ## API key of user who has permissions to view all spaces, cancel tasks, and resubmit runbooks runs and deployments
 $daysSinceLastDeployment = 90 ## The number of days since the last deployment to be considered unused.  Any target without a deployment in the last [90] days is considered inactive.
 $includeMachineLists = $false;  ## If true, all machines in each category will get listed out to the console.  If false, just a summary of information will be included.
 
@@ -50,7 +50,7 @@ function Invoke-OctopusApi
             return Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -Body $body -ContentType 'application/json; charset=utf-8' 
         }
 
-        Write-Verbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-Verbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         return $result               
@@ -216,8 +216,8 @@ if ($includeMachineLists -eq $true){
 ```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $daysSinceLastDeployment = 90
 $includeMachineLists = $false;  ## If true, all machines in each category will get listed out to the console.  If false, just a summary of information will be included.
 
@@ -553,8 +553,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 using System.Linq;
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 DateTime currentUtcTime = DateTime.Now.ToUniversalTime();
 CategorizedMachines categorizedMachines = new CategorizedMachines();
 int daysSinceLastDeployment = 90;
@@ -717,8 +717,8 @@ def update_categorized_machines(categorized_machines, space, octopus_server_uri,
 
 
 
-octopus_server_uri = 'https://your.octopus.app'
-octopus_api_key = 'API-YOURKEY'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 categorized_machines = {
     'NotCountedMachines': [],
@@ -803,11 +803,11 @@ type CategorizedMachines struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	daysSinceLastDeployment := 90
 	includeMachineLists := true
 	categorizedMachines := CategorizedMachines{}

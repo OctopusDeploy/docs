@@ -1,12 +1,12 @@
-<details data-group="change-machine-machinepolicy-scripts">
+<details data-group="change-machine-machine-policy-scripts">
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $machineName = "MyMachine"
@@ -27,7 +27,7 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/machines/$($mac
 ```
 
 </details>
-<details data-group="change-machine-machinepolicy-scripts">
+<details data-group="change-machine-machine-policy-scripts">
 <summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
@@ -35,8 +35,8 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/machines/$($mac
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $machineName = "MyMachine"
 $machinePolicyName = "MyPolicy"
@@ -68,7 +68,7 @@ catch
 ```
 
 </details>
-<details data-group="change-machine-machinepolicy-scripts">
+<details data-group="change-machine-machine-policy-scripts">
 <summary>C#</summary>
 
 ```csharp
@@ -79,8 +79,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string machineName = "MyMachine";
 string machinePolicyName = "TestPolicy";
@@ -114,15 +114,15 @@ catch (Exception ex)
 ```
 
 </details>
-<details data-group="change-machine-machinepolicy-scripts">
+<details data-group="change-machine-machine-policy-scripts">
 <summary>Python3</summary>
 
 ```python
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 
@@ -153,7 +153,7 @@ response.raise_for_status()
 ```
 
 </details>
-<details data-group="change-machine-machinepolicy-scripts">
+<details data-group="change-machine-machine-policy-scripts">
 <summary>Go</summary>
 
 ```go
@@ -170,11 +170,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://youroctourl")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	newMachinePolicyName := "MyMachinePolicy"
 	machineName := "MyMachine"

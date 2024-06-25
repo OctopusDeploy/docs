@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Report on deployments using Excel & XML
 description: How to report on deployments using Excel & XML
 navOrder: 10
@@ -23,14 +23,14 @@ At a high-level, the steps are:
 ![](/docs/administration/reporting/images/3278122.png)
 :::
 
-## Export all deployments to an XML file {#ReportondeploymentsusingExcel-ExportalldeploymentstoanXMLfile}
+## Export all deployments to an XML file
 
 Before we can report on the data using Excel, we need to export it in a format that Excel can import. The easiest way to do this is using an XML file.
 
 As of 2.5.10, the Octopus CLI can be used to export deployments to an XML file. The command looks like this:
 
 ```bash
-octo dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY1234 --filePath=Deployments.xml
+octo dump-deployments --server https://your-octopus-url --apiKey API-YOUR-KEY --filePath=Deployments.xml
 ```
 
 :::div{.success}
@@ -80,7 +80,7 @@ The command will produce an XML file with contents similar to the following:
 
 This file is now ready to be imported into Excel.
 
-## Import the XML file in Excel {#ReportondeploymentsusingExcel-ImporttheXMLfileinExcel}
+## Import the XML file in Excel
 
 Now that we have an XML file containing our deployments, we can import it into Microsoft Excel. In this example we are using Excel 2013.
 
@@ -94,7 +94,7 @@ Now that we have an XML file containing our deployments, we can import it into M
 
    ![](/docs/administration/reporting/images/3278131.png)
 
-## Report on the data using a pivot table {#ReportondeploymentsusingExcel-Reportonthedatausingapivottable}
+## Report on the data using a pivot table
 
 It's easy to turn the table of deployments into a pivot table for reporting.
 

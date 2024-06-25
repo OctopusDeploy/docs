@@ -64,8 +64,8 @@ Automatic deployments attempts to calculate the release to use for a project and
 **Octopus CLI**
 
 ```bash
-octo create-autodeployoverride --server http://octopus/ --apiKey API-ABCDEF123456 --project HelloWorld --environment Test -version 1.3.0
-octo delete-autodeployoverride --server http://octopus/ --apiKey API-ABCDEF123456 --project HelloWorld --environment Test
+octo create-autodeployoverride --server https://your-octopus-url --apiKey API-YOUR-KEY --project HelloWorld --environment Test -version 1.3.0
+octo delete-autodeployoverride --server https://your-octopus-url --apiKey API-YOUR-KEY --project HelloWorld --environment Test
 ```
 
 **Octopus.Client**
@@ -73,8 +73,8 @@ octo delete-autodeployoverride --server http://octopus/ --apiKey API-ABCDEF12345
 ```powershell
 Add-Type -Path 'Octopus.Client.dll'
 
-$octopusURI = 'http://octopus'
-$apiKey = "API-ABCDEF123456"
+$octopusURI = 'https://your-octopus-url'
+$apiKey = 'API-YOUR-KEY'
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI, $apiKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
@@ -96,7 +96,7 @@ Octopus will attempt to automatically deploy the current releases for the enviro
 Troubleshoot automatic deployment by viewing the auto deploy logs from the diagnostics page in the configuration section or viewing the [Audit log](/docs/security/users-and-teams/auditing).
 
 :::div{.success}
-**Why isn&#39;t my trigger working?**
+**Why isn't my trigger working?**
 The verbose logs usually contain the reason why a project trigger didn't take any action. For example:
 
 `Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant <none> because it already exists on the machine or is pending deployment.`
