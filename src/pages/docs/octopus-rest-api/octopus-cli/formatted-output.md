@@ -16,7 +16,7 @@ Most commands support printing the result in JSON format.
 To access JSON formatted output, use the `--outputformat=json` parameter.
 
 ```bash
-octo list-projects --server http://your-octopus-server/ --apiKey API-ABCDEF123456 --outputformat=json
+octo list-projects --server https://your-octopus-url --apiKey API-YOUR-KEY --outputformat=json
 ```
 
 This command outputs the list of projects in parsable JSON format:
@@ -36,7 +36,7 @@ This command outputs the list of projects in parsable JSON format:
 
 You can also work with the JSON output in PowerShell:
 ```powershell
-$json = (./octo list-releases --server http://your-octopus-server/ --apikey API-ABCDEF123456 --project=OctoLifecycle --outputformat=json) | ConvertFrom-Json
+$json = (./octo list-releases --server https://your-octopus-url --apikey API-YOUR-KEY --project=OctoLifecycle --outputformat=json) | ConvertFrom-Json
 $json | select -expand Releases | where {[datetime]$_.Assembled -gt ((Get-Date).AddMonths(-1))}
 ```
 

@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Optional: include user role details?
@@ -35,7 +35,7 @@ do {
 
 # Filter non-active users
 if($includeNonActiveUsers -eq $False) {
-    Write-Host "Filtering users who arent active from results"
+    Write-Host "Filtering users who aren't active from results"
     $usersList = $usersList | Where-Object {$_.IsActive -eq $True}
 }
 
@@ -151,8 +151,8 @@ $ErrorActionPreference = "Stop";
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 # Define working variables
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 
 # Optional: include user role details?
 $includeUserRoles = $true
@@ -181,7 +181,7 @@ $usersList = @()
 if ($includeNonActiveUsers -eq $true)
 {
     # Filter out inactive users
-    Write-Host "Filtering users who arent active from results"
+    Write-Host "Filtering users who aren't active from results"
     $users = $users | Where-Object {$_.IsActive -eq $True}
 }
 
@@ -344,8 +344,8 @@ class UserDetails
 
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string csvExportPath = "path:\\to\\users.csv";
 bool includeUserRoles = true;
 bool includeActiveDirectoryDetails = false;
@@ -497,8 +497,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 include_user_roles = True
 include_non_active_users = False
@@ -613,11 +613,11 @@ type UserDetails struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourUrl")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	csvExportPath := "path:\\to\\users.csv"
 	includeUserRoles := true
 	includeActiveDirectoryDetails := false

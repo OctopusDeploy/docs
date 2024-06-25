@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 
@@ -50,9 +50,9 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/certificates/$
 Add-Type -Path 'path\to\Octopus.Client.dll' 
 
 # Provide credentials for Octopus
-$apikey = 'API-YOURAPIKEY' 
-$octopusURI = 'https://youroctourl' 
-$spaceName = "default"
+$apikey = 'API-YOUR-KEY' 
+$octopusURI = 'https://your-octopus-url' 
+$spaceName = 'default'
 
 # Create repository object
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI,$apikey 
@@ -102,9 +102,9 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-APIKEY";
-string pfxFilePath = "C:\\path\\to\\thecert.pfx";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
+string pfxFilePath = "C:\\path\\to\\the_cert.pfx";
 string pfxFilePassword = "PFX-file-password";
 string certificateName = "MyCertificate";
 string spaceName = "default";
@@ -185,8 +185,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = 'Default'
 certificate_name = 'MyCertificate'
@@ -240,12 +240,12 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIEKey"
+	APIKey := "API-YOUR-KEY"
 
 	spaceName := "Default"
 	certificateName := "MyCertificate"
@@ -255,7 +255,7 @@ func main() {
 	// Get the space object
 	space := GetSpace(apiURL, APIKey, spaceName)
 
-	// Creat client for space
+	// Create client for space
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	rawData, err := ioutil.ReadFile(certificateFilePath)

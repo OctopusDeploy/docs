@@ -4,8 +4,8 @@
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-$octopusUrl = "https://local.octopusdemos.app" ## Octopus URL to look at
-$octopusApiKey = "YOUR API KEY" ## API key of user who has permissions to view all spaces, cancel tasks, and resubmit runbooks runs and deployments
+$octopusUrl = "https://your-octopus-url" ## Octopus URL to look at
+$octopusApiKey = "API-YOUR-KEY" ## API key of user who has permissions to view all spaces, cancel tasks, and resubmit runbooks runs and deployments
 $spaceList = "Default" ## Comma separated list of spaces to monitor
 $environmentList = "Production" ## Comma separated list of environments to look for (can be blank)
 $projectList = "" ## Comma separated list of projects to look for (can be blank)
@@ -104,7 +104,7 @@ function Invoke-OctopusApi
             Write-OctopusVerbose "Ignoring cache."    
         }
 
-        Write-OctopusVerbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-OctopusVerbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         if ($cachedResults.ContainsKey($url) -eq $true)
@@ -558,7 +558,7 @@ foreach ($task in $queuedTasks)
 
     $updatedTask = Invoke-OctopusApi -endPoint "tasks/$($task.Id)" -octopusUrl $octopusUrl -spaceId $null -apiKey $octopusApiKey -method "GET" -ignoreCache $true
 
-    if ($updatedTask.HasBeenPickedUpByProcssor -eq $true)
+    if ($updatedTask.HasBeenPickedUpByProcessor -eq $true)
     {
         Write-OctopusInformation "The task $($task.Id) has already been picked up and started processing, moving on."
         continue

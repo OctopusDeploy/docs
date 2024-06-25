@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Create auto deployment override
 description: Using the Octopus CLI to create automatic deployment release overrides.
 navOrder: 100
@@ -87,28 +87,28 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example {#Creatingautodeployoverrides-Basicexample}
+## Basic example
 
 The following creates an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment Development:
 
 ```bash
-octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server https://your-octopus-url --apikey API-YOUR-KEY
 ```
 
-## Tenanted example (by name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
+## Tenanted example (by name)
 
 The following creates an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment Development for the tenant *Acme*:
 
 ```bash
-octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server https://your-octopus-url --apikey API-YOUR-KEY
 ```
 
-## Tenanted example (by tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
+## Tenanted example (by tags)
 
 The following creates an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment Development for all tenants with the *Hosting/Cloud* tag:
 
 ```bash
-octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server https://your-octopus-url --apikey API-YOUR-KEY
 ```
 
 ## Learn more

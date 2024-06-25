@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
+modDate: 2024-06-25
 title: Immutable Infrastructure
 description: This guide covers deploying to immutable infrastructure where a new version of the infrastructure is provisioned and the old infrastructure is terminated.
 navOrder: 4
@@ -101,8 +101,8 @@ Wouldn't it be amazing if a developer checked in some changes to **Hello World**
 ```powershell
 Add-Type -Path 'Octopus.Client.dll'
 
-$octopusURI = "http://your-octopus"
-$apiKey = "API-ABC123"
+$octopusURI = "https://your-octopus-url"
+$apiKey = "API-YOUR-KEY"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI, $apiKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint

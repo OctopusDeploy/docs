@@ -5,9 +5,9 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$OctopusURL = "YOUR INSTANCE URL"
+$OctopusURL = "https://your-octopus-url"
+$APIKey = "API-YOUR-KEY"
 $SpaceName = "YOUR SPACE NAME" 
-$APIKey = "API-YOURAPIKEY"
 $projectName = "YOUR PROJECT NAME"
 $releaseVersion = "YOUR RELEASE VERSION"
 $environmentName = "YOUR ENVIRONMENT NAME"
@@ -66,8 +66,8 @@ Write-Host "File content written to $fileDownloadPath"
 ```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $projectName = "MyProject"
 $releaseVersion = "1.0.0"
@@ -133,8 +133,8 @@ foreach ($artifact in $artifacts.Items)
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var projectName = "MyProject";
 var releaseVersion = "1.0.0";
@@ -228,8 +228,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 project_name = "MyProject"
@@ -295,11 +295,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	projectName := "MyProject"
 	releaseVersion := "1.0.0"

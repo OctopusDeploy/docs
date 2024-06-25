@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: List projects
 description: Lists all projects
 navOrder: 100
@@ -75,7 +75,7 @@ Common options:
 This example displays the projects within the default space:
 
 ```
-octo list-projects --server="http://MyOctopusServer" --apiKey="API-MyApiKey" 
+octo list-projects --server="http://MyOctopusServer" --apiKey="API-YOUR-KEY" 
 ```
 
 ## Learn more

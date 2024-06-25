@@ -5,7 +5,7 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl/api"
+$octopusURL = "https://your-octopus-url/api"
 $octopusAPIKey = "API-YOUR-KEY"
 $headers = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
@@ -44,7 +44,7 @@ Invoke-RestMethod -Method POST -Uri "$octopusSpaceUrl/runbook-runs/create/v1" -B
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
+$octopusURL = "https://your-octopus-url"
 $octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $projectName = "MyProject"
@@ -113,7 +113,7 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
+var octopusURL = "https://your-octopus-url";
 var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string projectName = "MyProject";
@@ -180,7 +180,7 @@ catch (Exception ex)
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
+octopus_server_uri = 'https://your-octopus-url/api'
 octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
@@ -242,8 +242,8 @@ import { Client, CreateRunbookRunCommandV1, ReleaseRepository } from '@octopusde
 
 const configuration: ClientConfiguration = {
     userAgentApp: 'CustomTypeScript',
-    instanceURL: 'https://your.octopus.app/',
-    apiKey: 'api-key'
+    instanceURL: 'https://your-octopus-url/',
+    apiKey: 'API-YOUR-KEY'
 };
 
 const client = await Client.create(configuration);

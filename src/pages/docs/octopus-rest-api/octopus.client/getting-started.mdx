@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Getting started
 description: Getting started with the Octopus.Client.
 navOrder: 10
@@ -50,8 +50,8 @@ dotnet add package Octopus.Server.Client
 The easiest way to use the client is via the `OctopusRepository` helper:
 
 ```csharp
-var server = "https://myoctopus.example.com/";
-var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus Web Portal
+var server = "https://your-octopus-url";
+var apiKey = "API-YOUR-KEY";             // Get this from your 'profile' page in the Octopus Web Portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 var repository = new OctopusRepository(endpoint);
 ```
@@ -68,8 +68,8 @@ repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" 
 The easiest way to use the client is via the `OctopusAsyncClient`:
 
 ```csharp
-var server = "https://myoctopus.example.com/";
-var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus Web Portal
+var server = "https://your-octopus-url";
+var apiKey = "API-YOUR-KEY";             // Get this from your 'profile' page in the Octopus Web Portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 using (var client = await OctopusAsyncClient.Create(endpoint))
 {
@@ -129,8 +129,8 @@ Add-Type -Path $path
 
 ```powershell
 Add-Type -Path 'C:\PathTo\Octopus.Client.dll'
-$server = "https://myoctopus.example.com"
-$apiKey = "API-YOURKEY";              # Get this from your 'profile' page in the Octopus Web Portal
+$server = "https://your-octopus-url"
+$apiKey = "API-YOUR-KEY";              # Get this from your 'profile' page in the Octopus Web Portal
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($server, $apiKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 ```

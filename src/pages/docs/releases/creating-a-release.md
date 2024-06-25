@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-29
-modDate: 2024-04-29
+modDate: 2024-06-25
 title: Creating a release
 description: Learn how to create a release in Octopus Deploy  
 navOrder: 2
@@ -46,7 +46,7 @@ Deployments scheduled for the future can be viewed under the Project Overview pa
 For everyone using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli), you can use the following option:
 
 ```powershell
-octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld --releaseNumber=1.0.0 --deployto=Production --server=http://octopus/api --apiKey=ABCDEF123456
+octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld --releaseNumber=1.0.0 --deployto=Production --server=https://your-octopus-url --apiKey=API-YOUR-KEY
 ```
 
 ### Exclude steps from releases

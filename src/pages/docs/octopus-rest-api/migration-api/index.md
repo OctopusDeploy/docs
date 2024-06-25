@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Migration API
 description: Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely.
 navOrder: 90
@@ -58,7 +58,7 @@ Partial Export API parameters:
 | IncludeTaskLogs | [Optional] Include the task log folder as part of the export |
 | EncryptPackage | [Optional] Encrypt the contents of your migration package _(Uses the `Password` as a shared key so this can be decrypted by your destination server)_ |
 | DestinationApiKey=VALUE | [Optional] The API key of your destination server _(Where you'll be importing this exported package)_ |
-| DestinationPackageFeed=VALUE | [Optional] The destination Octopus Server base URL _(E.g. https://myOctopusServer.com)_ |
+| DestinationPackageFeed=VALUE | [Optional] The destination Octopus Server base URL _(e.g. https://your-octopus-url)_ |
 | SuccessCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on successful completion of the migration task _(Your Octopus Server will call this URL using a GET request, appending the `packageId` and `packageVersion` to the URL as querystring parameters)_ |
 | FailureCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on failure of the migration task _(Your Octopus Server will call this URL using a GET request)_ |
 | TaskId | [Response only] This will be populated with the TaskId that gets queued for this migration |
@@ -96,16 +96,16 @@ Request Method: POST
 Request URL: https://YOUR_SOURCE_OCTOPUS_SERVER/api/migrations/partialexport
 Request Headers:
 - Content-Type: application/json
-- X-Octopus-ApiKey: API-YOUR_SOURCE_API_KEY
+- X-Octopus-ApiKey: API-YOUR-SOURCE-KEY
 Request Body:
 {
     "PackageId": "MyAwesomeOctopusMigration",
     "PackageVersion": "1.0.0",
     "Password": "Demo1234",
-    "Projects": ["Rick Project", "Morty Project"],
+    "Projects": ["First Project", "Second Project"],
     "EncryptPackage": true,
     "IncludeTaskLogs": true,
-    "DestinationApiKey": "API-YOUR_DESTINATION_API_KEY",
+    "DestinationApiKey": "API-YOUR-DESTINATION-KEY",
     "DestinationPackageFeed": "https://YOUR_DESTINATION_OCTOPUS_SERVER"
 }
 ```
@@ -117,7 +117,7 @@ Request Method: POST
 Request URL: https://YOUR_DESTINATION_OCTOPUS_SERVER/api/migrations/import
 Request Headers:
 - Content-Type: application/json
-- X-Octopus-ApiKey: API-YOUR_DESTINATION_OCTOPUS_SERVER
+- X-Octopus-ApiKey: API-YOUR-DESTINATION-KEY
 Request Body:
 {
     "PackageId": "MyAwesomeOctopusMigration",
@@ -147,9 +147,9 @@ Here's an example showing you how that might look, performing a `partial-export`
 Add-Type -Path 'YOUR_LOCAL_PATH\Octopus.Client.dll'
 
 $sourceOctopusURI = 'https://SOURCE_OCTOPUS_SERVER'
-$sourceApikey = 'API-SOURCE_API_KEY'
+$sourceApikey = 'API-YOUR-SOURCE-KEY'
 $destinationOctopusURI = 'https://DESTINATION_OCTOPUS_SERVER'
-$destinationApikey = 'API-DESTINATION_API_KEY'
+$destinationApikey = 'API-YOUR-DESTINATION-KEY'
 
 # Spaces related
 $sourceSpaceId = 'Spaces-1'
@@ -158,7 +158,7 @@ $destinationPackageFeedSpaceId = 'Spaces-1'
 $migrationPackageId = 'MyAwesomeOctopusMigration'
 $migrationPackageVersion = '1.0.0'
 $migrationPassword = 'Demo1234'
-$isDryRun = $true # Only set this to false when you've reviewed the dry run and are happy to proceed with the migration for realz.
+$isDryRun = $true # Only set this to false when you've reviewed the dry run and are happy to proceed with the migration for real.
 
 $sourceEndpoint = New-Object Octopus.Client.OctopusServerEndpoint $sourceOctopusURI,$sourceApikey
 $sourceRepository = New-Object Octopus.Client.OctopusRepository $sourceEndpoint
@@ -167,7 +167,7 @@ $migrationExportResource = new-object Octopus.Client.Model.Migrations.MigrationP
 $migrationExportResource.PackageId = $migrationPackageId
 $migrationExportResource.PackageVersion = $migrationPackageVersion
 $migrationExportResource.Password = $migrationPassword
-$migrationExportResource.Projects = @('Rick Project', 'Morty Project')
+$migrationExportResource.Projects = @('First Project', 'Second Project')
 $migrationExportResource.IgnoreCertificates = $false
 $migrationExportResource.IgnoreMachines = $false
 $migrationExportResource.IgnoreDeployments = $false

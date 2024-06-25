@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "http://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $Description = "Health check started from Powershell script"
@@ -60,8 +60,8 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/tasks" -Body (
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $Description = "Health check started from Powershell script"
 $TimeOutAfterMinutes = 5
@@ -116,8 +116,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var description = "Health check started from C# script";
 var timeoutAfterMinutes = 5;
@@ -208,8 +208,8 @@ def convert(seconds):
       
     return "%d:%02d:%02d" % (hour, minutes, seconds)
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 description = 'Health check started from Python script'

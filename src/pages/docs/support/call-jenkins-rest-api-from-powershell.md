@@ -11,7 +11,7 @@ Although the typical deployment workflow sees a CI system like Jenkins triggerin
 
 ## Jenkins CSRF security
 
-Jenkins has a security feature to prevent [Cross Site Request Forgery](https://support.cloudbees.com/hc/en-us/articles/219257077-CSRF-Protection-Explained) attacks, which is found under **Jenkins ➜ Manage Jenkins ➜ Configure Global Security ➜ Prevent Cross Site Request Forgery exploits**.
+Jenkins has a security feature to prevent [Cross Site Request Forgery](https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/client-and-managed-controllers/csrf-protection-explained) attacks, which is found under **Jenkins ➜ Manage Jenkins ➜ Configure Global Security ➜ Prevent Cross Site Request Forgery exploits**.
 
 :::figure
 ![](/docs/support/images/csrf.png)
