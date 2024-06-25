@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2024-06-25
 title: Configure and apply Kubernetes resources
 description: Configure and apply Kubernetes resources.
 navOrder: 10
