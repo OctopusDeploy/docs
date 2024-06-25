@@ -250,7 +250,7 @@ func main() {
 
 	fmt.Printf("Looking for library variable set '%[1]s", libraryVariableSetName)
 
-	// Get the library set
+	// Get the variable set
 	librarySet := GetLibrarySet(client, space, libraryVariableSetName, 0)
 
 	// Get the variable set
@@ -303,12 +303,12 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 }
 
 func GetLibrarySet(client *octopusdeploy.Client, space *octopusdeploy.Space, librarySetName string, skip int) *octopusdeploy.LibraryVariableSet {
-	// Create library sets query
+	// Create variable sets query
 	librarySetsQuery := octopusdeploy.LibraryVariablesQuery{
 		PartialName: librarySetName,
 	}
 
-	// Get Library set
+	// Get Variable Set
 	librarySets, err := client.LibraryVariableSets.Get(librarySetsQuery)
 
 	if err != nil {

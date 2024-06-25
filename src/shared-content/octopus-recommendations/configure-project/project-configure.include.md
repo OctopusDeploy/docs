@@ -29,17 +29,17 @@ Adding an image to your project is a useful way to set them apart from other pro
 
 ### Sharing variables between projects
 
-We have the three projects set up, but we need to share some common variables between them.  The SQL Server that we are deploying to, the database name and the application name are variables that come to mind.  To accomplish this, we are going to create a library set for this specific application.
+We have the three projects set up, but we need to share some common variables between them.  The SQL Server that we are deploying to, the database name and the application name are variables that come to mind.  To accomplish this, we are going to create a variable set for this specific application.
 
 :::figure
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-projectlibraryset.png)
 :::
 
 :::div{.hint}
-A project can reference 0 to N number of library sets.  Variable naming is significant.  A good practice is to use a Namespace style syntax on naming, `[LibrarySetName].[ComponentName].[SubName]`.  Project variables can then be called `[Project].[ComponentName].[SubName]`.  Using detailed names allow you to distinguish project variables from library set variables when viewing project steps, and task log output.
+A project can reference 0 to N number of variable sets.  Variable naming is significant.  A good practice is to use a Namespace style syntax on naming, `[LibrarySetName].[ComponentName].[SubName]`.  Project variables can then be called `[Project].[ComponentName].[SubName]`.  Using detailed names allow you to distinguish project variables from variable set variables when viewing project steps, and task log output.
 :::
 
-It's also good to have a couple of other library variable sets to handle some non-project specific values.  For example, a global library set that stores any infrastructure as code (or IaC) variables.  The same naming convention applies as the project-specific variable set, for example, replacing **OctoFx** with **Global**.
+It's also good to have a couple of other library variable sets to handle some non-project specific values.  For example, a global variable set that stores any infrastructure as code (or IaC) variables.  The same naming convention applies as the project-specific variable set, for example, replacing **OctoFx** with **Global**.
 
 :::figure
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-globalvariables.png)
@@ -65,7 +65,7 @@ Next, we are going to add the manual intervention step for the DBAs to approve. 
 This project deploys a database package using [DBUp](https://github.com/DbUp/), a free database deployment tool.  Some tools provide the ability to generate a difference report before deployments, Octopus can store this report as an artifact, and a DBA can download and review.  In that case, it makes more sense to have the manual intervention occur after that report has been generated.
 :::
 
-Many [community step templates](https://library.octopus.com) have been created to help with some of this database scaffolding.  We will use the **SQL - Create Database If Not Exists** step template to create the database if it doesn't exist.  We are going to use variables from the library sets we included previously.  For now, we are going to execute this script on a Tentacle with the role `OctoFX-DB.`  Later in this guide, we will convert this to use workers.
+Many [community step templates](https://library.octopus.com) have been created to help with some of this database scaffolding.  We will use the **SQL - Create Database If Not Exists** step template to create the database if it doesn't exist.  We are going to use variables from the variable sets we included previously.  For now, we are going to execute this script on a Tentacle with the role `OctoFX-DB.`  Later in this guide, we will convert this to use workers.
 
 :::figure
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-createdatabaseifnotexists.png)
@@ -165,7 +165,7 @@ Let's repeat the same thing for the **OctoFX-WebUI**  project; add the project v
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-deployareleasemanualinterventionweb.png)
 :::
 
-Now we can configure the traffic cop project.  First, add in the same library sets as the other two projects.
+Now we can configure the traffic cop project.  First, add in the same variable sets as the other two projects.
 
 :::figure
 ![]/docs/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-trafficcopvariableset.png)

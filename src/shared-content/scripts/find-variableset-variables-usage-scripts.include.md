@@ -50,7 +50,7 @@ foreach ($project in $projects)
     # Get project variables
     $projectVariableSet = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/variables/$($project.VariableSetId)" -Headers $header
     
-    # Check to see if there are any project variable values that reference any of the library set variables.
+    # Check to see if there are any project variable values that reference any of the variable set variables.
     foreach($variable in $variables) {
         
         $matchingValueVariables = $projectVariableSet.Variables | Where-Object {$_.Value -like "*$($variable.Name)*"}
@@ -228,7 +228,7 @@ foreach ($project in $projects)
     # Get project variables
     $projectVariableSet = $repositoryForSpace.VariableSets.Get($project.VariableSetId)
     
-    # Check to see if there are any project variable values that reference any of the library set variables.
+    # Check to see if there are any project variable values that reference any of the variable set variables.
     foreach($variable in $variables) {
         
         $matchingValueVariables = $projectVariableSet.Variables | Where-Object {$_.Value -like "*$($variable.Name)*"}
@@ -415,7 +415,7 @@ var client = new OctopusClient(endpoint);
 var space = repository.Spaces.FindByName(spaceName);
 var repositoryForSpace = client.ForSpace(space);
 
-// Get library set
+// Get variable set
 var librarySet = repositoryForSpace.LibraryVariableSets.FindByName(variableSetVariableUsagesToFind);
 
 // Get variables
@@ -649,7 +649,7 @@ for project in projects:
     print('Checking project \'{0}\''.format(project_name))
     project_variable_set = get_octopus_resource('{0}/{1}/variables/{2}'.format(octopus_server_uri, space['Id'], project['VariableSetId']))
         
-    # Check to see if there are any project variable values that reference any of the library set variables.
+    # Check to see if there are any project variable values that reference any of the variable set variables.
     for library_variableset_variable in library_variableset_variables:
 
         matching_value_variables = [project_variable for project_variable in project_variable_set['Variables'] if project_variable['Value'] is not None and library_variableset_variable['Name'] in project_variable['Value']]
