@@ -50,7 +50,7 @@ foreach ($project in $projects)
     }
 }
 
-# Get all library sets
+# Get all variable set
 $variableSets = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header
 
 # Loop through variable sets
@@ -176,7 +176,7 @@ try
         repositoryForSpace.VariableSets.Modify(variableSet);
     }
 
-    // Loop through library sets
+    // Loop through variable set
     foreach (var librarySet in repositoryForSpace.LibraryVariableSets.FindAll())
     {
         var variableSet = repositoryForSpace.VariableSets.Get(librarySet.VariableSetId);

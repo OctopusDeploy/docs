@@ -20,7 +20,7 @@ There are multiple levels of variables in Octopus Deploy:
 
 Project, Tenant, and Step Template variables are associated with their specific item and cannot be shared.  Library set variables can be shared between 1 to N Projects and Tenants.  System variables are variables provided by Octopus Deploy you can use during deployments.
 
-During a deployment, Octopus will gather all the variables for the project, Tenant (when applicable), step template, associated library sets, and system variables and create a "variable manifest" for each step to use.
+During a deployment, Octopus will gather all the variables for the project, Tenant (when applicable), step template, associated variable set, and system variables and create a "variable manifest" for each step to use.
 
 :::div{.hint}
 Multi-tenancy is an advanced topic with its own set of recommendations.  Tenants were mentioned here so you could see the bigger picture of variables.

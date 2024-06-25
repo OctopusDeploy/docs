@@ -21,13 +21,13 @@ This can be useful if you have the same variables that are used across multiple 
 ## Adding the variable set to a project
 
 1. Navigate to your project by selecting the **Project** from the navigation menu and then clicking your project.
-2. Click **Variables ➜ Library Sets**.
+2. Click **Variables ➜ Variable Set**.
 3. Click **INCLUDE LIBRARY VARIABLE SETS**.
 4. Search for the Library Variable Set you'd like to include, click the check-box and **SAVE**.
 
 ## Viewing the variable set
 
-If you want to review the Library Variable Set you've created, from the Project Overview page you can navigate to **Variables ➜ Library Sets**.
+If you want to review the Library Variable Set you've created, from the Project Overview page you can navigate to **Variables ➜ Variable Set**.
 
 If you want to review the Project variables and the Library Variable Set, from the Project Overview you can navigate to **Variables ➜ All**.
 
