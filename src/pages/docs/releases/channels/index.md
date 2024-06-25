@@ -44,7 +44,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 Channels allow to you to configure rules to ensure that package versions and Git resources that meet specific criteria can be deployed using the channel.
 
-When creating a release for a channel with rules, an option can be configured on the project to allow the channel rules to be ignored. This option is disabled by default on new projects, but can be enabled using in project settings.
+When creating a release for a channel with rules, an option can be configured on the project to allow the channel rules to be ignored. This option is disabled by default on new projects, but can be enabled in project settings.
 
 ### Package version rules {#version-rules}
 
@@ -112,7 +112,7 @@ Git resource rules assist in ensuring that only the correct branches and tags ca
 Support for Git reference rules is currently rolling out to Octopus Cloud.
 :::
 
-Git reference rules assist in ensuring that only the correct branches and tags can be used as the Git reference for a release in the channel for version controlled projects. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
+Git reference rules assist in ensuring that only configured branches and tags can be used as the Git reference for a release in the channel for version controlled projects. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
 
 1. From the **New Channel** screen, expand the **Git Reference Rules** section.
 2. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases. Wildcard characters can be used, see [Glob patterns in Git rules](#git-rules-glob-patterns) for more information.
