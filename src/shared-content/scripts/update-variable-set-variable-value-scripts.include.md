@@ -303,7 +303,7 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 }
 
 func GetLibrarySet(client *octopusdeploy.Client, space *octopusdeploy.Space, librarySetName string, skip int) *octopusdeploy.LibraryVariableSet {
-	// Create variable set query
+	// Create variable sets query
 	librarySetsQuery := octopusdeploy.LibraryVariablesQuery{
 		PartialName: librarySetName,
 	}
