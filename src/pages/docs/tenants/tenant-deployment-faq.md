@@ -143,7 +143,7 @@ Yes, simply connect the tenant to a project and any number of environments that 
 
 ## Can I configure a standard set of variables that are required by each tenant like an alias or contact details?
 
-Yes, we recommend creating some variable templates in a library variable set, and connecting that library variable set to all of the projects where you require those variables. Now Octopus will prompt you for those standard variables, once for each tenant. We cover this in more detail in the [tenant variables](/docs/tenants/tenant-variables) section.
+Yes, we recommend creating some variable templates in a variable set, and connecting that variable set to all of the projects where you require those variables. Now Octopus will prompt you for those standard variables, once for each tenant. We cover this in more detail in the [tenant variables](/docs/tenants/tenant-variables) section.
 
 ## Can I use tenants and channels together?
 

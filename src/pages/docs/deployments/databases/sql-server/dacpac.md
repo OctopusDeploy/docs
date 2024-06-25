@@ -145,7 +145,7 @@ Now that the build server has been configured to push the artifact to the Octopu
 	- `Project.Database.Name`
 	- `Project.DACPAC.Name`
 
-It is considered best practice to namespace your variables.  Doing this helps prevent any variable name conflicts from library variable sets or step template variables.  Prefixing `Project.` to the front indicates that this is a project variable.
+It is considered best practice to namespace your variables.  Doing this helps prevent any variable name conflicts from variable sets or step template variables.  Prefixing `Project.` to the front indicates that this is a project variable.
 
 :::div{.hint}
 If you're using Integrated Authentication with Windows, you do not need either of the `Project.SQLServer.Admin*` variables.

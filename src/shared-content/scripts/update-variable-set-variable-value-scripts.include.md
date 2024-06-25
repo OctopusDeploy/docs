@@ -11,7 +11,7 @@ $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 # Specify the Space to search in
 $spaceName = ""
 
-# Library Variable Set
+# Variable Set
 $libraryVariableSetName = ""
 
 # Variable name to search for
@@ -22,12 +22,12 @@ $VariableValue = ""
 
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
-Write-Host "Looking for library variable set '$libraryVariableSet'"
+Write-Host "Looking for variable set '$libraryVariableSet'"
 $LibraryvariableSets = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets?contentType=Variables" -Headers $header)
 $LibraryVariableSet = $LibraryVariableSets.Items | Where-Object { $_.Name -eq $libraryVariableSetName }
 
 if ($null -eq $libraryVariableSet) {
-    Write-Warning "Library variable set not found with name '$libraryVariableSetName'."
+    Write-Warning "Variable Set not found with name '$libraryVariableSetName'."
     exit
 }
 
@@ -71,7 +71,7 @@ $client = New-Object Octopus.Client.OctopusClient($endpoint)
 $space = $repository.Spaces.FindByName($spaceName)
 $repositoryForSpace = $client.ForSpace($space)
 
-Write-Host "Looking for library variable set '$libraryVariableSetName'"
+Write-Host "Looking for variable set '$libraryVariableSetName'"
 
 $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($libraryVariableSetName)
 
@@ -118,7 +118,7 @@ string variableValue = "MyValue";
 var space = repository.Spaces.FindByName(spaceName);
 var repositoryForSpace = client.ForSpace(space);
 
-Console.WriteLine(string.Format("Looking for library variable set '{0}'", libraryVariableSetName));
+Console.WriteLine(string.Format("Looking for variable set '{0}'", libraryVariableSetName));
 
 var librarySet = repositoryForSpace.LibraryVariableSets.FindByName(libraryVariableSetName);
 
@@ -188,16 +188,16 @@ uri = '{0}/api/spaces'.format(octopus_server_uri)
 spaces = get_octopus_resource(uri, headers)
 space = next((x for x in spaces if x['Name'] == space_name), None)
 
-print('Looking for library variable set "{0}"'.format(library_variable_set_name))
+print('Looking for variable set "{0}"'.format(library_variable_set_name))
 
-# Get library variable set
+# Get variable set
 uri = '{0}/api/{1}/libraryvariablesets'.format(octopus_server_uri, space['Id'])
 library_variable_sets = get_octopus_resource(uri, headers)
 library_variable_set = next((l for l in library_variable_sets if l['Name'] == library_variable_set_name), None)
 
 # Check to see if something was returned
 if library_variable_set == None:
-    print('Library variable set not found with name "{0}"'.format(library_variable_set_name))
+    print('Variable Set not found with name "{0}"'.format(library_variable_set_name))
     exit
 
 # Get the variables
@@ -248,7 +248,7 @@ func main() {
 	// Create client for space
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
-	fmt.Printf("Looking for library variable set '%[1]s", libraryVariableSetName)
+	fmt.Printf("Looking for variable set '%[1]s", libraryVariableSetName)
 
 	// Get the variable set
 	librarySet := GetLibrarySet(client, space, libraryVariableSetName, 0)

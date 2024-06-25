@@ -15,5 +15,5 @@ You can use the REST API to create and manage your Octopus [variables](/docs/pro
 - [Find projects using variable set](/docs/octopus-rest-api/examples/variables/find-projects-using-library-set)
 - [Find variable usage](/docs/octopus-rest-api/examples/variables/find-variable-usage)
 - [Find variable value usage](/docs/octopus-rest-api/examples/variables/find-variable-value-usage)
-- [Find library variable set variables usage](/docs/octopus-rest-api/examples/variables/find-variableset-variables-usage)
+- [Find variable set variables usage](/docs/octopus-rest-api/examples/variables/find-variableset-variables-usage)
 - [Update variable set variable value](/docs/octopus-rest-api/examples/variables/update-variable-set-variable-value)

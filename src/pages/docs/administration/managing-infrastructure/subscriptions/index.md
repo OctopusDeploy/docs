@@ -216,7 +216,7 @@ The following is a list of all options for subscriptions including Event Groups,
 |Invitation|
 |Latest And Count|
 |Latest Successful Deployment To Machine|
-|Library Variable Set|
+|Variable Set|
 |Lifecycle|
 |Machine|
 |Machine Policy|

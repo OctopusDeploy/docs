@@ -25,7 +25,7 @@ Our recommendation is to create a script module when you need to share utility f
 
 ## Structure
 
-Our recommendation is to write script modules and step templates to be self-contained with no dependencies.  While they have full access to all projects, tenants, referenced variable set variables, and system variables, you don't know which project the step template or script module will be used.  Use parameters instead of directly referencing any project, library variable set, or system variables.  
+Our recommendation is to write script modules and step templates to be self-contained with no dependencies.  While they have full access to all projects, tenants, referenced variable set variables, and system variables, you don't know which project the step template or script module will be used.  Use parameters instead of directly referencing any project, variable set, or system variables.  
 
 If you are writing custom scripts, passing in parameters will allow you to copy those scripts to your IDE of choice, such as VS Code, and debug your scripts with few modifications.  
 

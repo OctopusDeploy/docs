@@ -53,7 +53,7 @@ To set the variable value for a tenant/environment, simply click the value and m
 
 ## Common templates
 
-To specify common variables that can be used across multiple tenants, you'll need to add a variable template to either an existing or new [library variable set](/docs/projects/variables/library-variable-sets). You'll also need to [include the variable set in the project](/docs/projects/variables/library-variable-sets#adding-the-library-variable-set-to-a-project) to manage any template values.
+To specify common variables that can be used across multiple tenants, you'll need to add a variable template to either an existing or new [variable set](/docs/projects/variables/library-variable-sets). You'll also need to [include the variable set in the project](/docs/projects/variables/library-variable-sets#adding-the-library-variable-set-to-a-project) to manage any template values.
 
 :::div{.hint}
 From **Octopus 2024.1**, we've improved the multi-tenancy variable management experience. For versions older than 2024.1, see [prior to 2024.1](#prior-to-2024-1)
@@ -61,9 +61,9 @@ From **Octopus 2024.1**, we've improved the multi-tenancy variable management ex
 
 To manage common template values, navigate to the **Tenant Variables** page in any project and select the **Common Templates** tab.
 
-The variable management experience for common templates is similar to project templates, however the side list will show included library variable sets and the values will be grouped by variable set.
+The variable management experience for common templates is similar to project templates, however the side list will show included variable sets and the values will be grouped by variable set.
 
-To edit a variable value, click the **Edit** icon on the right-side of a table row, update the value, then click **Update** to save the new value. Since the same library variable set may be included in multiple projects, any change to a tenant's value will also affect other projects the tenant is connected to.
+To edit a variable value, click the **Edit** icon on the right-side of a table row, update the value, then click **Update** to save the new value. Since the same variable set may be included in multiple projects, any change to a tenant's value will also affect other projects the tenant is connected to.
 
 ## Which variable templates apply to a tenant \{#which-variable-templates-apply-tenants}
 
@@ -88,9 +88,9 @@ Then to set the variable values for a tenant:
 
     ![](/docs/projects/variables/images/variable-templates-project-value.png "width=500")
 
-## Library variable set templates \{#adding-a-variable-template}
+## Variable Set templates \{#adding-a-variable-template}
 
-To specify common variables that can be used across multiple tenants, you need to add a variable template to either an existing or new library variable set:
+To specify common variables that can be used across multiple tenants, you need to add a variable template to either an existing or new variable set:
 
 1. Navigate to **Library ➜ Variable Sets** and click **ADD VARIABLE SET**.
 2. Give the variable set a name and an optional description, and click **SAVE**.
@@ -102,7 +102,7 @@ To specify common variables that can be used across multiple tenants, you need t
 :::
 
 :::div{.hint}
-If you can't see any variables in the Common Variables tab, ensure you have included the library variable set in the connected project.
+If you can't see any variables in the Common Variables tab, ensure you have included the variable set in the connected project.
 :::
 
 Alternatively, you can set common variable values on an individual tenant:
