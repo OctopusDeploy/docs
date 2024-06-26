@@ -22,7 +22,7 @@ There are limitations that must be accounted for as part of a migration.
 
 Octoterra reads the state of a space via the Octopus API and the API does not expose sensitive values. This means that octoterra can not export:
 
-* The value of sensitive variables associated with a project, tenant, or library variable set 
+* The value of sensitive variables associated with a project, tenant, or variable set 
 * Credentials defined in feeds, accounts, or git credentials
 * The contents of a certificate
 * Sensitive values defined in steps

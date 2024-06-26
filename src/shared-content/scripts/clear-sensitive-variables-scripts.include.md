@@ -50,7 +50,7 @@ foreach ($project in $projects)
     }
 }
 
-# Get all library sets
+# Get all variable sets
 $variableSets = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header
 
 # Loop through variable sets
@@ -122,7 +122,7 @@ try
         Clear-SensitiveVariables -VariableSetId $project.VariableSetId
     }
     
-    # Loop through library variable sets
+    # Loop through variable sets
     foreach ($librarySet in $repositoryForSpace.LibraryVariableSets.GetAll())
     {
         # Clear sensitive ones
@@ -176,7 +176,7 @@ try
         repositoryForSpace.VariableSets.Modify(variableSet);
     }
 
-    // Loop through library sets
+    // Loop through variable sets
     foreach (var librarySet in repositoryForSpace.LibraryVariableSets.FindAll())
     {
         var variableSet = repositoryForSpace.VariableSets.Get(librarySet.VariableSetId);
@@ -285,7 +285,7 @@ for variableSet in variableSets:
             variablesUpdated = True
 
     if variablesUpdated:
-        print ('Clearing sensitive variables for library set {0}'.format(variableSet['Name']))
+        print ('Clearing sensitive variables for variable set {0}'.format(variableSet['Name']))
         uri = '{0}{1}'.format(octopus_server_uri, variableSet['Links']['Variables'])
         response = requests.put(uri, headers=headers, json=libraryVariables)
         response.raise_for_status
@@ -340,7 +340,7 @@ func main() {
 		}
 	}
 
-	// Get reference to library variable sets
+	// Get reference to variable sets
 	librarySets := GetLibraryVariableSets(apiURL, APIKey, space)
 
 	// Loop through sets

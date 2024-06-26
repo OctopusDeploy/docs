@@ -137,7 +137,7 @@ You must ensure the Octopus Copilot extension is installed for your organization
 
 ## The Octopus extension is not available
 
-WHen you type the `@` character in the VSCode Copilot extension you should see a list of available extensions to "talk" to:
+When you type the `@` character in the VSCode Copilot extension you should see a list of available extensions to "talk" to:
 
 ![List of extensions in VSCode Copilot chat](/docs/administration/copilot/extension-list.png)
 

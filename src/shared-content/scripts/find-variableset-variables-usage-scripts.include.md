@@ -12,7 +12,7 @@ $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 # Specify the Space to search in
 $spaceName = "Default"
 
-# Specify the name of the Library VariableSet to use to find variables usage of
+# Specify the name of the VariableSet to use to find variables usage of
 $variableSetVariableUsagesToFind = "My-Variable-Set"
 
 # Search through Project's Deployment Processes?
@@ -33,7 +33,7 @@ $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Heade
 # Get first matching variable set record
 $libraryVariableSet = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header) | Where-Object {$_.Name -eq $variableSetVariableUsagesToFind} | Select-Object -First 1
 
-# Get variables for library variable set
+# Get variables for variable set
 $variableSet  = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/variables/$($libraryVariableSet.VariableSetId)" -Headers $header)
 $variables = $variableSet.Variables
 
@@ -50,7 +50,7 @@ foreach ($project in $projects)
     # Get project variables
     $projectVariableSet = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/variables/$($project.VariableSetId)" -Headers $header
     
-    # Check to see if there are any project variable values that reference any of the library set variables.
+    # Check to see if there are any project variable values that reference any of the variable set variables.
     foreach($variable in $variables) {
         
         $matchingValueVariables = $projectVariableSet.Variables | Where-Object {$_.Value -like "*$($variable.Name)*"}
@@ -185,7 +185,7 @@ $searchRunbookProcesses = $true
 $csvExportPath = "path:\to\variable.csv"
 
 
-# Specify the name of the Library VariableSet to use to find variables usage of
+# Specify the name of the VariableSet to use to find variables usage of
 $variableSetVariableUsagesToFind = "My-Variable-Set"
 
 # Search through Project's Deployment Processes?
@@ -209,7 +209,7 @@ $repositoryForSpace = $client.ForSpace($space)
 # Get first matching variable set record
 $libraryVariableSet = $repositoryForSpace.LibraryVariableSets.FindByName($variableSetVariableUsagesToFind)
 
-# Get variables for library variable set
+# Get variables for variable set
 $variableSet = $repositoryForSpace.VariableSets.Get($libraryVariableSet.VariableSetId)
 $variables = $variableSet.Variables
 
@@ -228,7 +228,7 @@ foreach ($project in $projects)
     # Get project variables
     $projectVariableSet = $repositoryForSpace.VariableSets.Get($project.VariableSetId)
     
-    # Check to see if there are any project variable values that reference any of the library set variables.
+    # Check to see if there are any project variable values that reference any of the variable set variables.
     foreach($variable in $variables) {
         
         $matchingValueVariables = $projectVariableSet.Variables | Where-Object {$_.Value -like "*$($variable.Name)*"}
@@ -415,7 +415,7 @@ var client = new OctopusClient(endpoint);
 var space = repository.Spaces.FindByName(spaceName);
 var repositoryForSpace = client.ForSpace(space);
 
-// Get library set
+// Get variable set
 var librarySet = repositoryForSpace.LibraryVariableSets.FindByName(variableSetVariableUsagesToFind);
 
 // Get variables
