@@ -89,7 +89,7 @@ The **Design Version Rule** window will show a list of the packages that will de
 
 6. Click **SAVE**.
 
-### Git resource rules
+### Git resource rules {#git-resource-rules}
 
 :::div{.hint}
 Support for Git resource rules is currently rolling out to Octopus Cloud.
