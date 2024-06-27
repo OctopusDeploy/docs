@@ -1,0 +1,40 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-06-27
+modDate: 2024-06-27
+title: Target tags
+description: Before you can deploy software to your deployment targets, you need to associate them with target tags. This ensures you deploy the right software to the right deployment targets.
+navOrder: 30
+---
+
+Before you can deploy software to your deployment targets, you need to associate them with target tags. This ensures you deploy the right software to the right deployment targets. Typical target tags include:
+- product-cluster
+- web-server
+- app-server
+- db-server
+
+Using target tags means the infrastructure in each of your environments doesn’t need to be identical and the deployment process will know which deployment targets to deploy your software to.
+
+Deployment targets:
+- Must have at least one tag
+- Can have multiple tags
+- Can share tags
+
+## Add target tags \{#create-target-roles}
+Target tags are created and saved in the database as soon as you assign them to a deployment target.
+
+Decide on the naming convention you’ll use before creating your first target tag as you can’t change the case after the target tag has been created. For example, you can’t switch from all lowercase to camel case.
+
+To create a target tag:
+1. Register a deployment target or click on an already registered deployment target and go to Settings.
+2. In the Target Tags field, enter the target tag you’d like to use (no spaces).
+3. Save the target settings.
+
+The target tag has been created and assigned to the deployment target and can be added to other deployment targets.
+
+You can check all the target tags assigned to your deployment targets from the **Infrastructure** tab.
+
+[Getting Started - Machine Roles](https://www.youtube.com/watch?v=AU8TBEOI-0M)
+
+## Older versions
+**Target roles** are **target tags** from Octopus Deploy 2024.2 onwards. The functionality remains the same. This is only a name change to make our terminology clearer.

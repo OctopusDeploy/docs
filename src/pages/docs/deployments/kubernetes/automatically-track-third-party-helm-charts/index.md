@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-02
-modDate: 2024-05-02
+modDate: 2024-06-27
 title: Automatically tracking third party helm charts
 description: External feed triggers allow you to automatically create a new release as a result of new container images or helm charts being pushed to their respective repositories.
 navOrder: 41
@@ -18,7 +18,7 @@ Octopus Deploy provides a full workflow to manage updates, either hands on or fu
 A Helm chart deployment like this is simple with Octopus Deploy.
 
 1. Start with the **Deploy a Helm chart** step
-2. Link it to the required Kubernetes clusters via [target tags](/docs/infrastructure/deployment-targets#target-roles)
+2. Link it to the required Kubernetes clusters via [target tags](/docs/infrastructure/deployment-targets/target-tags)
 3. Reference the desired Helm chart
 4. Configure the namespace and any values required for your application
 

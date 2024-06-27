@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
-modDate: 2024-06-21
+modDate: 2024-06-27
 title: Kubernetes agent
 navTitle: Overview
 navSection: Kubernetes agent
@@ -65,7 +65,7 @@ kubectl config view
 
 1. Enter a unique display name for the target. This name is used to generate the Kubernetes namespace, as well as the Helm release name
 2. Select at least one [environment](/docs/infrastructure/environments) for the target.
-3. Select at least one [target tag](/docs/infrastructure/deployment-targets/#target-roles) for the target.
+3. Select at least one [target tag](/docs/infrastructure/deployment-targets/target-tags) for the target.
 4. Optionally, add the name of an existing [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the agent to use. The storage class must support the ReadWriteMany [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).  
 If no storage class name is added, the default Network File System (NFS) storage will be used.
 

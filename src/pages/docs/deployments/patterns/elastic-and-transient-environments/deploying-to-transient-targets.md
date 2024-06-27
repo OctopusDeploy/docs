@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
+modDate: 2024-06-27
 title: Deploying to Transient Targets
 description: Transient deployment targets are targets that are intermittently available for a deployment.
 navOrder: 0
@@ -17,7 +17,7 @@ A typical Octopus deployment requires that all deployment targets are available 
 
 ## Deploying to Targets that become unavailable during a deployment {#targets-become-unavailable}
 
-This example uses the OctoFX project that does a deployment to two [target tags](/docs/infrastructure/deployment-targets/#target-roles): **RateServer** and **TradingWebServer**. We have decided to auto-scale the machines in the **TradingWebServer** tag and want to continue deploying the web site to the available machines, ignoring any machines that are no longer available, perhaps due to being scaled down.
+This example uses the OctoFX project that does a deployment to two [target tags](/docs/infrastructure/deployment-targets/target-tags): **RateServer** and **TradingWebServer**. We have decided to auto-scale the machines in the **TradingWebServer** tag and want to continue deploying the web site to the available machines, ignoring any machines that are no longer available, perhaps due to being scaled down.
 
 1. Navigate to the OctoFX project overview page.
 2. Select the **Settings** option and expand the **Deployment Target** section.
