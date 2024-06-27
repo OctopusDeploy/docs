@@ -147,6 +147,12 @@ If `@octopus-ai-app` is not in that list, try logging out:
 
 When you log back in, you will have an opportunity to authorize the Octopus Copilot extension.
 
+## An error is returned
+
+Errors like `Prompt failed validation with the reason: Invalid response token parameter. Please file an issue.` can often be resolved by starting a new chat. Click the plus icon at the top of the chat window to start a new chat and enter your prompt again.
+
+![Chat error](/docs/administration/copilot/chat-error.png)
+
 ## Source code
 
 The Octopus extension source code can be found on [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusCopilot).
