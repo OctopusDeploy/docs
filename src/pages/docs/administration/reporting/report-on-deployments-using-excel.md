@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-06-25
-title: Report on deployments using Excel & XML
-description: How to report on deployments using Excel & XML
+title: Report on deployments using Excel and XML
+description: How to report on deployments using Excel and XML
 navOrder: 10
 ---
 
