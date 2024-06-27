@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2024-06-27
 title: Amazon ECS cluster
 description: How to configure an Amazon ECS cluster target in Octopus Deploy
-navOrder: 30
+navOrder: 40
 ---
 
 ECS Cluster targets are used by the [ECS steps](/docs/deployments/aws) to define the context in which deployments and scripts are run.
