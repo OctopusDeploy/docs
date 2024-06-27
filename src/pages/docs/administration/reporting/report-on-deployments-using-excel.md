@@ -2,16 +2,12 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-06-25
-title: Report on deployments using Excel & XML
-description: How to report on deployments using Excel & XML
+title: Report on deployments using Excel and XML
+description: How to report on deployments using Excel and XML
 navOrder: 10
 ---
 
-:::div{.hint}
-Also take a look at the [Reporting features](/docs/administration/reporting) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
-:::
-
-Ever wonder how many deployments you did this month? In this page, we'll help you to answer this question by walking you through how to export your deployments to Excel, and then to view them in a pivot table.
+Ever wonder how many deployments you did this month? We'll help you answer this question by walking you through how to export your deployments to Excel, and how to view them in a pivot table.
 
 At a high-level, the steps are:
 
@@ -34,7 +30,7 @@ octo dump-deployments --server https://your-octopus-url --apiKey API-YOUR-KEY --
 ```
 
 :::div{.success}
-Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/), and [how to use the Octopus Cli](/docs/octopus-rest-api/octopus-cli)
+Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/), and [how to use the Octopus CLI](/docs/octopus-rest-api/octopus-cli)
 :::
 
 The output will appear as follows:
