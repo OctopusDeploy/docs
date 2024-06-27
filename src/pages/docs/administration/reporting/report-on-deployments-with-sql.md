@@ -28,7 +28,7 @@ The table is completely denormalized, and should have any information that you m
 
 ## How often is the data updated?
 
-The data in the table (and exposed by the feed) updates every time any data related to deployments changes. This includes changes such as changing the name of a project or environment, or changing the version number of a release. The data should always be up-to-date within the last 30 seconds, however if Octopus is performing many operations this may increase to several minutes.
+The data in the table (and exposed by the feed) updates every time any data related to deployments changes. This includes changes such as changing the name of a project or environment, or changing the version number of a release. The data should always be up-to-date, however if Octopus is performing many operations, data could be stale up to several minutes.
 
 Also note that the data:
 
