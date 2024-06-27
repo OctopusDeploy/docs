@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
+modDate: 2024-06-27
 title: Deploying a package to an Azure Service Fabric cluster
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Service Fabric clusters.
 navOrder: 20
@@ -35,7 +35,7 @@ Add a new Service Fabric application deployment step to your project. For inform
 
 ## Step 5: Configure your Service Fabric application step
 
-Select the [target tag](/docs/infrastructure/deployment-targets/#target-roles) you assigned your Service Fabric target and select your Service Fabric package from your package feed.
+Select the [target tag](/docs/infrastructure/deployment-targets/target-tags) you assigned your Service Fabric target and select your Service Fabric package from your package feed.
 
 Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deployments/azure/service-fabric)
 

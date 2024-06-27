@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
+modDate: 2024-06-27
 title: Rolling deployments
 description: Implementing rolling deployments, i.e. deploying to release to servers one-by-one, with Octopus.
 navOrder: 0
@@ -15,7 +15,7 @@ Normally, when executing a deployment process with multiple steps, Octopus runs 
 ![](/docs/deployments/patterns/images/normal-deployment.png)
 :::
 
-NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, identify machines via [target tags](/docs/infrastructure/deployment-targets/#target-roles), which may be associated with multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
+NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, identify machines via [target tags](/docs/infrastructure/deployment-targets/target-tags), which may be associated with multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
 
 - Deployment steps are run in sequence
 - The actions performed by each step are performed in parallel on all deployment targets

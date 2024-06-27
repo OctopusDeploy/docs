@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-25
+modDate: 2024-06-27
 title: Kubernetes API
 description: How to configure a Kubernetes cluster as a deployment target in Octopus
 navOrder: 20
@@ -77,7 +77,7 @@ users:
 2. Select **KUBERNETES** and click **ADD** on the Kubernetes API card.
 3. Enter a display name for the Kubernetes API target.
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.
-5. Select at least one [target tag](/docs/infrastructure/deployment-targets/#target-roles) for the target.
+5. Select at least one [target tag](/docs/infrastructure/deployment-targets/target-tags) for the target.
 6. Select the authentication method. Kubernetes targets support multiple [account types](https://oc.to/KubernetesAuthentication):
     - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password) account.
     - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens) account.

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-30
+modDate: 2024-06-27
 title: Cloud Target Discovery
 description: Cloud resources can be discovered and registered as deployment targets by Octopus
 navOrder: 90
@@ -92,7 +92,7 @@ Tags in cloud resource templates are in the format `octopus-{scope}` and support
 | Tag                   | Required | Description                                                                                                                                                                                  | Example                             |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
 | `octopus-environment` | Yes      | The name of the [environment](/docs/infrastructure/environments) the target can be used in during deployments. Only deployments matching the environment will discover the target.  | `octopus-environment = Development` |
-| `octopus-role`        | Yes      | The [target tag](/docs/infrastructure/deployment-targets/#target-roles) that should be applied to the target. Only deployments with a step that matches the target tag will discover the target. | `octopus-role = PetShotFrontEnd`    |
+| `octopus-role`        | Yes      | The [target tag](/docs/infrastructure/deployment-targets/target-tags) that should be applied to the target. Only deployments with a step that matches the target tag will discover the target. | `octopus-role = PetShotFrontEnd`    |
 | `octopus-space`       | No       | The name of the [space](/docs/administration/spaces) the target can be used in. If present only deployments within the matching space can discover the target.                      | `octopus-space = PetShopTeam`       |
 | `octopus-project`     | No       | The name of the [project](/docs/projects) the target will be discovered by. If present only deployments for the matching project can discover the target.                           | `octopus-project = PetShop`         |
 | `octopus-tenant`      | No       | The name of the [tenant](/docs/projects) the target can be discovered for. If present only deployments for the matching tenant will discover the target.                            | `octopus-tenant = MyClient`         |

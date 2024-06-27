@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-06
-modDate: 2024-03-06
+modDate: 2024-06-27
 title: Getting started with variables
 description: A guide to getting started with variables in Octopus Deploy.
 navOrder: 10
@@ -126,7 +126,7 @@ Generally, you can avoid mutually exclusive scopes by duplicating variable value
 
 ### Scoping variables to target tags \{#scoping-variables-to-target-roles}
 
-Variables can also be scoped to specific [target tags](/docs/infrastructure/deployment-targets/#target-roles). This means the variable will take the specified value only when it’s used on a deployment step that runs on a deployment target with the specified tag. This feature is useful when you want to use the same variable name multiple times and change their values depending on the target they’re running on.
+Variables can also be scoped to specific [target tags](/docs/infrastructure/deployment-targets/target-tags). This means the variable will take the specified value only when it’s used on a deployment step that runs on a deployment target with the specified tag. This feature is useful when you want to use the same variable name multiple times and change their values depending on the target they’re running on.
 
 Let’s say you have the following targets with their respective tags:
 
