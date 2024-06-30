@@ -30,7 +30,11 @@ To find the _Artifact Path Pattern_ go to **Administration ➜ Layouts ➜ Regul
 :::div{.warning}
 Important: To ensure that Octopus can correctly interact with Artifactory generic feeds, the custom layout pattern in Artifactory must include specific naming components. The layout pattern must specify the artifact name format as `[module]-[baseRev].[ext]`. It's crucial that the `[module]` and `[baseRev]` components are present, and that `[baseRev]` conforms to Semantic Versioning.
 
-For detailed guidance on configuring a custom layout that supports simple versioning, please refer to this tutorial: [Creating a Simple Versioning Custom Layout in Artifactory](http://localhost:3000/docs/packaging-applications/package-repositories/artifactory-generic-feeds).
+For detailed guidance on configuring a custom layout that supports simple versioning, please refer to follow tutorials: 
+* [Creating a Simple Versioning Custom Layout in Artifactory](https://jfrog.com/help/r/how-to-create-simple-versioning-custom-layout-in-artifactory/how-to-create-simple-versioning-custom-layout-in-artifactory).
+* [Modules and Path Patterns used by Repository Layouts](https://jfrog.com/help/r/jfrog-artifactory-documentation/modules-and-path-patterns-used-by-repository-layouts)
+
+
 
 :::
 :::figure
