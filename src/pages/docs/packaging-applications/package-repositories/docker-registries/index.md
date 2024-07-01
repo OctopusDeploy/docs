@@ -68,7 +68,7 @@ docker run -d -p 5000:5000 --name registry registry:2
 This image supports custom storage locations, certificates for HTTPS and authentication. For more details on setting up the registry checkout the [official docs](https://docs.docker.com/registry/deploying/).
 
 ## Other registry options {#DockerRegistriesasFeeds-OtherOptions}
-There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [Cloudsmith](https://www.cloudsmith.com), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
+There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [Cloudsmith](https://www.cloudsmith.com), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
 
 We have provided further details on setting up a Octopus Feed to the following Docker Registries:
 - [Docker Hub](/docs/packaging-applications/package-repositories/guides/container-registries/docker-hub)

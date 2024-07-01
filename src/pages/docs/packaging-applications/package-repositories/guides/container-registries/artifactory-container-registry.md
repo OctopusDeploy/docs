@@ -7,7 +7,7 @@ description: How to add Artifactory as an Octopus Deploy feed for use in Docker 
 navOrder: 20
 ---
 
-Artifactory offers both self hosted and cloud instances, both of which are capable of hosting [Docker registries](https://www.jfrog.com/confluence/display/JCR6X/Docker+Registry). The process for adding a Docker registry for either type is the same.
+Artifactory offers both self hosted and cloud instances, both of which are capable of hosting [Docker registries](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-container-registry). The process for adding a Docker registry for either type is the same.
 
 ## Adding Artifactory as an Octopus External Feed
 
@@ -27,6 +27,6 @@ To use an Artifactory Docker registry in Octopus Deploy, create an external feed
   - The repository name e.g. `my-local-repo`
 
   The example values above would result in the value: `mycompany.jfrog.io/my-local-repo` for use in the **Registry Path** field.
-- **Credentials:** By default, Artifactory requires a valid username and password/[access token](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens) combination to access the registry. However, anonymous authentication for reading from a registry [can be enabled](https://jfrog.com/knowledge-base/how-to-perform-anonymous-pulls-but-require-authentication-for-pushing-to-a-docker-repository/) with additional configuration in your Artifactory instance.
+- **Credentials:** By default, Artifactory requires a valid username and password/[access token](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens) combination to access the registry. However, anonymous authentication for reading from a registry [can be enabled](https://jfrog.com/help/r/how-to-perform-anonymous-pulls-but-require-authentication-for-pushing-to-a-docker-repository) with additional configuration in your Artifactory instance.
 
 ![Artifactory Registry Feed](/docs/packaging-applications/package-repositories/guides/container-registries/images/artifactory-docker-feed.png)
