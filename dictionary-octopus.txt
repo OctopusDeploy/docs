@@ -251,6 +251,7 @@ Petlife
 petshop
 PKCE
 pkcs
+planetside
 podannotation
 preproduction
 prerender
@@ -283,6 +284,7 @@ reprovisioned
 reprovisioning
 robocopy
 roboto
+rocksville
 rolename
 ROOTDIR
 rootelement
