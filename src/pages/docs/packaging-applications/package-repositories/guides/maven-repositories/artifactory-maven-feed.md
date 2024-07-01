@@ -36,7 +36,7 @@ When you've entered all of the settings, click **Save & Finish**.
 
 With the repository configured, the next step is to configure access so Octopus can retrieve package information.
 
-The recommended way is to either configure a [user](https://www.jfrog.com/confluence/display/JFROG/Users+and+Groups#UsersandGroups-ManagingUsers) with sufficient permissions, or use an [access token](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens). This user is the account which Octopus will use to authenticate with Artifactory.
+The recommended way is to either configure a [user](https://jfrog.com/help/r/jfrog-platform-administration-documentation/manage-users) with sufficient permissions, or use an [access token](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens). This user is the account which Octopus will use to authenticate with Artifactory.
 
 :::div{.warning}
 Every organization is different and the authentication example provided here is only intended to demonstrate functionality. Ensure you are complying with your company's security policies when you configure any user accounts and that your specific implementation matches your needs.
@@ -56,7 +56,7 @@ If you have an existing group to add the user to, you can do that here. Alternat
 
 When you've entered all of the settings, click **Save**.
 
-Next, we need to ensure the user is in a [group](https://www.jfrog.com/confluence/display/JFROG/Users+and+Groups#UsersandGroups-ManagingGroups) which can access our new repository.
+Next, we need to ensure the user is in a [group](https://jfrog.com/help/r/jfrog-platform-administration-documentation/manage-groups) which can access our new repository.
 
 From the Artifactory web portal, navigate to **Administration ➜ Identity and Access ➜ Groups** and select **New Group**.
 
@@ -68,7 +68,7 @@ Fill out the **Group Name** and any other settings. Ensure the user you created 
 
 When you've entered all of the settings, click **Save**.
 
-Lastly, we need to ensure the group has [permissions](https://www.jfrog.com/confluence/display/JFROG/Permissions) for Octopus to retrieve package information.
+Lastly, we need to ensure the group has [permissions](https://jfrog.com/help/r/jfrog-platform-administration-documentation/permissions) for Octopus to retrieve package information.
 
 From the Artifactory web portal, navigate to **Administration ➜ Identity and Access ➜ Permissions** and select **New Permission**.
 
@@ -114,9 +114,7 @@ You can also choose individual users to assign this permission to.
 
 ### Anonymous authentication
 
-An alternative to configuring a user is to enable [anonymous access](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories#NuGetRepositories-AnonymousAccesstoNuGetRepositories) on the NuGet repository.
-
-To learn more about setting up anonymous access to specific repositories, see this Artifactory [knowledge base article](https://jfrog.com/knowledge-base/how-to-grant-an-anonymous-user-access-to-specific-repositories/).
+An alternative to configuring a user is to enable [anonymous access](https://jfrog.com/help/r/jfrog-artifactory-documentation/anonymous-access-to-nuget-repositories) on the NuGet repository.
 
 ## Adding an Artifactory Local Maven repository as an Octopus External Feed
 
