@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $librarySetName = "MyLibrarySet"
 
@@ -14,7 +14,7 @@ $librarySetName = "MyLibrarySet"
 # Get space
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
-# Get library set reference
+# Get variable set reference
 $librarySet = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header) | Where-Object {$_.Name -eq $librarySetName}
 
 # Get all projects
@@ -41,8 +41,8 @@ foreach ($project in $projects)
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $librarySetName = "MyLibrarySet"
 
@@ -56,7 +56,7 @@ try
     $space = $repository.Spaces.FindByName($spaceName)
     $repositoryForSpace = $client.ForSpace($space)
 
-    # Get Library set
+    # Get variable set
     $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($librarySetName)
     
     # Get Projects
@@ -90,8 +90,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string librarySetName = "MyLibrarySet";
 
@@ -109,7 +109,7 @@ try
     // Get projects
     var projects = repositoryForSpace.Projects.GetAll();
 
-    // Get library set
+    // Get variable set
     var librarySet = repositoryForSpace.LibraryVariableSets.FindByName(librarySetName);
 
     // Loop through projects
@@ -137,8 +137,8 @@ catch (Exception ex)
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -152,10 +152,10 @@ def get_by_name(uri, name):
     return next((x for x in resources if x['Name'] == name), None)
 
 space_name = 'Default'
-libraryset_name = 'Your variable set name'
+library_set_name = 'Your variable set name'
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
-library_variable_set = get_by_name('{0}/{1}/libraryvariablesets/all'.format(octopus_server_uri, space['Id']), libraryset_name)
+library_variable_set = get_by_name('{0}/{1}/libraryvariablesets/all'.format(octopus_server_uri, space['Id']), library_set_name)
 library_variable_set_id = library_variable_set['Id']
 
 projects = get_octopus_resource('{0}/{1}/projects/all'.format(octopus_server_uri, space['Id']))
@@ -163,7 +163,7 @@ projects = get_octopus_resource('{0}/{1}/projects/all'.format(octopus_server_uri
 for project in projects:
     project_variable_sets = project['IncludedLibraryVariableSetIds']
     if library_variable_set_id in project_variable_sets:
-        print('Project \'{0}\' is using library variable set \'{1}\''.format(project['Name'], libraryset_name))
+        print('Project \'{0}\' is using variable set \'{1}\''.format(project['Name'], library_set_name))
 ```
 
 </details>
@@ -183,11 +183,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	librarySetName := "LibrarySetName"
 
@@ -197,7 +197,7 @@ func main() {
 	// Create client object
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
-	// Get library set
+	// Get variable set
 	librarySet := GetLibrarySet(apiURL, APIKey, space, librarySetName, 0)
 
 	// Get events
@@ -207,7 +207,7 @@ func main() {
 		log.Println(err)
 	}
 
-	fmt.Println("The following projects use library set " + librarySetName)
+	fmt.Println("The following projects use variable set " + librarySetName)
 
 	// Loop through projects
 	for i := 0; i < len(projects); i++ {

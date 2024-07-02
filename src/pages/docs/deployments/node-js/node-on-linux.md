@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
+modDate: 2024-06-27
 title: Deploying Node applications to Linux
 description: Learn how to package and deploy a Node.js application to a Linux deployment target over an SSH connection.
 ---
@@ -150,7 +150,7 @@ gulp.task('bump', function(){
 gulp.task('publish', ['bump', 'build'], function () {
   return gulp.src(['**/*', '!bin{,/**}', '!src{,/**}', '!gulpfile.js'])
       .pipe(octo.pack())
-      .pipe(octo.push({apiKey: 'API-ABCXYZ', host: 'http://10.0.0.134'}));
+      .pipe(octo.push({apiKey: 'API-YOUR-KEY', host: 'http://10.0.0.134'}));
 });
 ```
 
@@ -188,7 +188,7 @@ Modify the **gruntfile.js** file to add the following grunt tasks. Substitute th
 grunt.initConfig({
 	...
 	"octo-push": {
-		options: { host: 'http://10.0.0.134', apiKey: 'API-ABCXYZ'	},
+		options: { host: 'http://10.0.0.134', apiKey: 'API-YOUR-KEY'	},
 		src: ['./bin/**/*']
 	},
 	"octo-pack": {
@@ -265,7 +265,7 @@ The next step is to create a project that will extract the package.
 1. Navigate to the Projects page via **Projects ➜ All** and then click **Add Project**.
 2. Give the new project an appropriate name, save the project, and navigate to the project's *Process* page and click **Add Step ➜ Deploy a Package**.
  
-Ensure the [target tag](/docs/infrastructure/deployment-targets/#target-roles) matches the target tag that was associated with the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
+Ensure the [target tag](/docs/infrastructure/deployment-targets/target-tags) matches the target tag that was associated with the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
 
 :::figure
 ![](/docs/deployments/node-js/images/step-details.png)

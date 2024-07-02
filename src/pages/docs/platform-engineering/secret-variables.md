@@ -55,7 +55,7 @@ If the `Default Secrets to Dummy Values` option is disabled, no default value wi
 ```
 
 :::div{.hint}
-You may wish to define all space level secrets in a library variable set in the upstream space, exclude the library variable set from being exported, and pass the variable set values to the `terraform apply` argument when deploying space level resources.
+You may wish to define all space level secrets in a variable set in the upstream space, exclude the variable set from being exported, and pass the variable set values to the `terraform apply` argument when deploying space level resources.
 :::
 
 ## Supplying project secret variable values

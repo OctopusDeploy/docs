@@ -9,7 +9,7 @@ navOrder: 6
 
 [Serializing and deploying runbook resources](https://www.youtube.com/watch?v=mPBeqOwkY4Q)
 
-[Runbooks](/docs/runbooks) are a component of a project, sharing or referencing much of the project's configuration such as variables, connected library variable sets, tenants, and lifecycles.
+[Runbooks](/docs/runbooks) are a component of a project, sharing or referencing much of the project's configuration such as variables, connected variable sets, tenants, and lifecycles.
 
 However, it can be useful to treat runbooks as an independently deployable artifact. This allows a common runbook to be shared across many projects.
 
@@ -67,7 +67,7 @@ Many of the exported resources expose values, like resource names, as Terraform 
 
 ## Dealing with project variables
 
-The exported module defines only the runbook and the runbook deployment process. It does not define other project level resources like project variables or library variable sets. Any project that the exported runbook is added to is expected to define all the variables referenced by the runbook.
+The exported module defines only the runbook and the runbook deployment process. It does not define other project level resources like project variables or variable sets. Any project that the exported runbook is added to is expected to define all the variables referenced by the runbook.
 
 Any project level variables required by the runbook can be defined as Terraform resources and deployed alongside the exported runbook module. The instructions documented in the [Managing project resources](managing-project-resources) section can be used to export a project to a Terraform module. The project level variables can be copied from the exported project module and placed in their own module as needed. 
 

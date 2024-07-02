@@ -36,7 +36,7 @@ If you wish to do a one-time split of an instance and have no desire to keep any
 As you will soon see, a syncing process is complex an requires constant care and maintenance.  Even if we provided a built-in tool, you'd still need to monitor and maintain the process.  Below are the common reasons we hear for splitting an instance.  Please reach out to reach out to [customersuccess@octopus.com](mailto:customersuccess@octopus.com) if your use case is not mentioned and you'd like to discuss alternatives.
 
 :::div{.hint}
-We've been asked if splitting environments, tenants or deployment targets by space is a safer alternative.  [Spaces](/docs/administration/spaces) are hard walls and do not allow the sharing of environments, projects, library variable sets, step templates, script modules, deployment targets and more.  For all intents and purposes, a space is a unique instance.  Any problems you encounter when syncing instances will happen when trying to sync spaces.
+We've been asked if splitting environments, tenants or deployment targets by space is a safer alternative.  [Spaces](/docs/administration/spaces) are hard walls and do not allow the sharing of environments, projects, variable sets, step templates, script modules, deployment targets and more.  For all intents and purposes, a space is a unique instance.  Any problems you encounter when syncing instances will happen when trying to sync spaces.
 :::
 
 ### Built-in role-based access control
@@ -279,7 +279,7 @@ In our experience, it is far easier to group data by type and sync them all toge
     - Workers
     - Targets
     - Certificates
-    - Library Variable Sets
+    - Variable Sets
     - Projects
         - Project Settings
         - Channels (no channel version rules)
@@ -321,7 +321,7 @@ One or more environments are excluded from the syncing process in all those use 
 - Library
     - Certificates
     - Lifecycles
-    - Library Variable Sets
+    - Variable Sets
 - Tenants
 - Projects
     - Channels
@@ -373,7 +373,7 @@ A common use for environments is to scope them to steps in Deployment and Runboo
 
 ### Accounts and Certificates
 
-Both Accounts and Certificates are referenced by variables in either projects or library variable sets.  They can be scoped to environments directly or by environment variable scoping.  
+Both Accounts and Certificates are referenced by variables in either projects or variable sets.  They can be scoped to environments directly or by environment variable scoping.  
 
 Best practices recommend different AWS, GCP, and Azure accounts per environment or instance.  For example, an AWS account for **Non-Production** workloads and another account for **Production**.
 - Certificates can either be a wildcard, for example, `*.octopusdemos.app`, or tied to a specific domain and subdomain, for example, `mail.octopusdemos.app`.  We typically see either a different domain per environment, `testoctopusdemos.app` and `octopusdemos.app` or different subdomains, `test.octopusdemos.app` and `octopusdemos.app`.   
@@ -489,7 +489,7 @@ The one thing to watch out for is that it is possible to scope variables to spec
 
 ### Accounts and Certificates
 
-Both Accounts and Certificates are referenced by variables in either projects or library variable sets.  It is common to have different Accounts and Certificates per Tenant. 
+Both Accounts and Certificates are referenced by variables in either projects or variable sets.  It is common to have different Accounts and Certificates per Tenant. 
 
 In most cases, it doesn't make much sense to sync Accounts and Certificates.  But the variables referencing the Accounts and Certificates are used in Deployment and Runbook processes.  In this case, the best option is to re-use the same variable name but associate it with different Accounts or Certificates.
 

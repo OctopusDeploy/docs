@@ -183,9 +183,9 @@
 
 /docs/packaging-applications/create-packages/index.md @OctopusDeploy/team-server-at-scale
 
-# updates to the packaging applications builder servers page are reviewed by team-server-at-scale
+# updates to the packaging applications builder servers page are reviewed by team-modern-deployments
 
-/docs/packaging-applications/build-servers/index.md @OctopusDeploy/team-server-at-scale
+/docs/packaging-applications/build-servers/index.md @OctopusDeploy/team-modern-deployments
 
 # updates to the packaging applications packaging repositories page are reviewed by team-server-at-scale
 
@@ -450,3 +450,9 @@
 # updates to the deprecations page are reviewed by michaelnoonan and alexrolleyoctopus
 
 /docs/deprecations/index.md @michaelnoonan @alexrolleyoctopus
+
+# updates to the Kubernetes targets infrastructure pages are reviewed by modern-deployments
+
+/docs/infrastructure/deployment-targets/kubernetes @OctopusDeploy/team-modern-deployments
+/docs/infrastructure/deployment-targets/kubernetes-cluster @OctopusDeploy/team-modern-deployments
+/docs/infrastructure/deployment-targets/kubernetes-target @OctopusDeploy/team-modern-deployments

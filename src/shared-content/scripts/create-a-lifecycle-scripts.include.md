@@ -57,8 +57,8 @@ function Get-OctopusItems
     return $items
 }
 
-$apikey = 'API-YourAPIKey' # Get this from your profile
-$OctopusUrl = 'https://YourURL' # Your Octopus Server address
+$OctopusUrl = 'https://your-octopus-url' # Your Octopus Server address
+$apikey = 'API-YOUR-KEY' # Get this from your profile
 $spaceName = "Default"
 
 # Create headers for API calls
@@ -110,8 +110,8 @@ else
 ```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $lifecycleName = "MyLifecycle"
 
@@ -149,8 +149,8 @@ using System;
 using System.Linq;
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var lifecycleName = "MyLifecycle";
 
@@ -217,7 +217,7 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 # Define Octopus server variables
-octopus_server_uri = 'https://your.octopus.app'
+octopus_server_uri = 'https://your-octopus-url'
 octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
@@ -278,11 +278,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "MySpace"
 	lifecycleName := "MyLifecycle"
 

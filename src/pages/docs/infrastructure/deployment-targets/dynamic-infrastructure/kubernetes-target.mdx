@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-30
+modDate: 2024-06-27
 title: Create Kubernetes Target Command
 description: Cmdlet for creating a Kubernetes target
 navOrder: 40
@@ -17,7 +17,7 @@ Command: **_New-OctopusKubernetesTarget_**
 | `-name`                                  |                 | Name for the Octopus deployment target.                                                                                                             |
 | `-clusterUrl`                            |                 | The Kubernetes cluster URL. This must be a complete URL such as `https://mycluster.org`.                                                            |
 | `-octopusServerCertificateIdOrName`      |                 | The name of the Octopus certificate to use as the cluster CA.                                                                                       |
-| `-octopusRoles`                          |                 | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/#target-roles) to assign.                                                                                                            |
+| `-octopusRoles`                          |                 | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/target-tags) to assign.                                                                                                            |
 | `-octopusAccountIdOrName`                | Azure, AWS, GCE | The name of the Octopus account used for authentication with the cluster. This or the `-octopusClientCertificateIdOrName` option must be defined.   |
 | `-octopusClientCertificateIdOrName`      |                 | The name of the Octopus certificate used for authentication with the cluster. This or the `-octopusAccountIdOrName` option must be defined.         |
 | `-clusterResourceGroup`                  |                 | When using an Azure account, this defines the name of the resource group that holds the AKS cluster.                                                |

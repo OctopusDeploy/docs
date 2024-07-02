@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 Function Clear-SensitiveVariables
@@ -50,7 +50,7 @@ foreach ($project in $projects)
     }
 }
 
-# Get all library sets
+# Get all variable sets
 $variableSets = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header
 
 # Loop through variable sets
@@ -79,8 +79,8 @@ foreach ($variableSet in $variableSets)
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
@@ -122,7 +122,7 @@ try
         Clear-SensitiveVariables -VariableSetId $project.VariableSetId
     }
     
-    # Loop through library variable sets
+    # Loop through variable sets
     foreach ($librarySet in $repositoryForSpace.LibraryVariableSets.GetAll())
     {
         # Clear sensitive ones
@@ -145,8 +145,8 @@ catch
 #r "path\to\Octopus.Client.dll"
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "default";
 
 // Create repository object
@@ -176,7 +176,7 @@ try
         repositoryForSpace.VariableSets.Modify(variableSet);
     }
 
-    // Loop through library sets
+    // Loop through variable sets
     foreach (var librarySet in repositoryForSpace.LibraryVariableSets.FindAll())
     {
         var variableSet = repositoryForSpace.VariableSets.Get(librarySet.VariableSetId);
@@ -240,8 +240,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "MySpace"
 
@@ -285,7 +285,7 @@ for variableSet in variableSets:
             variablesUpdated = True
 
     if variablesUpdated:
-        print ('Clearing sensitive variables for library set {0}'.format(variableSet['Name']))
+        print ('Clearing sensitive variables for variable set {0}'.format(variableSet['Name']))
         uri = '{0}{1}'.format(octopus_server_uri, variableSet['Links']['Variables'])
         response = requests.put(uri, headers=headers, json=libraryVariables)
         response.raise_for_status
@@ -309,12 +309,12 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("http://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
-	spaceName := "MySace"
+	APIKey := "API-YOUR-KEY"
+	spaceName := "MySpace"
 
 	// Get reference to space
 	space := GetSpace(apiURL, APIKey, spaceName)
@@ -340,23 +340,23 @@ func main() {
 		}
 	}
 
-	// Get reference to library variable sets
+	// Get reference to variable sets
 	librarySets := GetLibraryVariableSets(apiURL, APIKey, space)
 
 	// Loop through sets
 	for i := 0; i < len(librarySets); i++ {
-		librarysetVariables := GetVariables(apiURL, APIKey, space, librarySets[i].ID)
+		librarySetVariables := GetVariables(apiURL, APIKey, space, librarySets[i].ID)
 		variablesUpdated := false
-		for j := 0; j < len(librarysetVariables.Variables); j++ {
-			if librarysetVariables.Variables[j].IsSensitive {
-				librarysetVariables.Variables[j].Value = ""
+		for j := 0; j < len(librarySetVariables.Variables); j++ {
+			if librarySetVariables.Variables[j].IsSensitive {
+				librarySetVariables.Variables[j].Value = ""
 				variablesUpdated = true
 			}
 		}
 
 		if variablesUpdated {
 			println("Variables for " + librarySets[i].Name + " have been updated")
-			UpdateVariables(apiURL, APIKey, space, librarysetVariables.OwnerID, librarysetVariables)
+			UpdateVariables(apiURL, APIKey, space, librarySetVariables.OwnerID, librarySetVariables)
 		}
 	}
 }

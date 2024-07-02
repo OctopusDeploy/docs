@@ -102,6 +102,7 @@ blockquote cite {
   font-size: var(--font-size-regular);
 }
 
+/* TODO: Refactor code snippets. This needs to be a component. */
 code {
   font-family: var(--code-font);
   background-color: var(--navy-200);
@@ -110,8 +111,10 @@ code {
 pre {
   padding: 0.5rem 1rem;
   white-space: break-spaces;
-  background-color: var(--blue-100) !important;
+  background-color: var(--code-background) !important;
   border-radius: var(--standard-radius);
+  font-family: var(--code-font);
+  color: var(--code-color);
 }
 
 pre code {
@@ -124,8 +127,19 @@ pre code {
   filter: invert(98%) hue-rotate(180deg);
 }
 
+/* TODO: Also will be removed once component is implemented */
+div.info code:not(pre code),
+div.success code:not(pre code),
+div.warning code:not(pre code),
+div.problem code:not(pre code),
+div.question code:not(pre code),
+div.hint code:not(pre code) {
+  background-color: var(--code-background);
+  color: var(--code-color);
+}
+
 html[data-theme='dark'] {
-  pre {
+  pre.astro-code code .line {
     filter: invert(98%) hue-rotate(180deg) brightness(1.1);
   }
 }
@@ -279,6 +293,16 @@ strong {
 .page-content > div.question > *:not(:last-child),
 .page-content > div.hint > *:not(:last-child) {
   margin-block-end: 1rem;
+}
+
+/* TODO: This is ugly but global styles above requires this to be set - Layout refactor is required to do first, then remove this. */
+.page-content > div.info > .copy-container,
+.page-content > div.success > .copy-container,
+.page-content > div.warning > .copy-container,
+.page-content > div.problem > .copy-container,
+.page-content > div.question > .copy-container,
+.page-content > div.hint > .copy-container {
+  margin: 0;
 }
 
 .page-content ul,
@@ -1020,6 +1044,7 @@ nav.skip-links a:focus {
   transition-duration: var(--duration-default);
   transition-timing-function: ease-in-out;
   height: fit-content;
+  box-sizing: border-box;
 }
 
 .icon-tile:hover {
@@ -1147,11 +1172,11 @@ nav.skip-links a:focus {
 }
 
 .site-nav ul {
-  padding-inline-start: var(--page-inline-margin);
+  padding-inline-start: 1.25rem;
 }
 
 .site-nav > .site-nav__list {
-  padding: 1.81rem 2rem 2rem 2.31rem;
+  padding: 1.81rem 1.19rem 2rem 2.31rem;
 }
 
 .site-nav li,
@@ -1210,6 +1235,7 @@ li.has-children .sub-nav ul li:hover > a,
 .sub-nav__summary:focus .sub-nav__summary-title,
 li.has-children .sub-nav ul li:focus > a {
   transform: translateX(0.25rem);
+  cursor: pointer;
 }
 
 .site-nav a:hover,
@@ -1225,6 +1251,16 @@ li.has-children .sub-nav ul li:focus > a {
   font-weight: bold;
 }
 
+.site-nav .site-nav__list-item {
+  cursor: pointer;
+}
+
+.site-nav .site-nav__list-item a[aria-current] {
+  font-weight: 700;
+  color: var(--color-menu-link-alt);
+  transform: translateX(0.25rem);
+}
+
 .site-nav details {
   border-inline-start: 1px solid transparent;
   position: relative;
@@ -1236,7 +1272,7 @@ li.has-children .sub-nav ul li:focus > a {
 } */
 
 .site-nav details[open] > .site-nav__list--sub {
-  margin: 1.38rem 0;
+  margin: 1.31rem 0;
   border-inline-start: 1px solid var(--border-color-menu-open);
 }
 
@@ -1310,9 +1346,30 @@ li.has-children .sub-nav ul li:focus > a {
   }
 }
 .site-nav > .site-nav__list {
-  /* 100vh - header & theme switcher */
-  height: calc(100vh - 10.625rem);
+  height: 100%;
   overflow-y: scroll;
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    width: 0.3125rem;
+    height: 5.0625rem;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 1.25rem;
+    background: var(--scrollbar-color);
+  }
+
+  @media (max-width: 1130px) {
+    & {
+      /* 100vh - header & theme switcher */
+      height: calc(100vh - 7.625rem);
+    }
+  }
 }
 
 .site-nav__mobile {
@@ -1449,6 +1506,10 @@ li.has-children .sub-nav ul li:focus > a {
   z-index: 1;
   /* Override image global styles */
   background: transparent;
+}
+
+.header__icon.fa-octopus:before {
+  padding-inline-end: 0;
 }
 
 .header__text {
@@ -2569,9 +2630,12 @@ a[data-youtube] {
 }
 
 .fa-brands {
-  width: 1.08em;
   overflow: hidden;
   display: block;
+}
+
+.octo-social .fa-brands {
+  width: 1.08em;
 }
 
 .fa-twitter:before {
@@ -2650,6 +2714,8 @@ a[data-youtube] {
   background-color: var(--color-base-primary);
   border-radius: 50%;
   padding: 2px;
+  width: 2.6rem;
+  height: 2.6rem;
 }
 
 .input-touch .magnify-icon {
@@ -2659,7 +2725,7 @@ a[data-youtube] {
 .magnify-icon:before {
   content: '\f00e';
   font-family: fa-solid;
-  font-size: 2rem;
+  font-size: 1.3rem;
   line-height: 2rem;
 }
 

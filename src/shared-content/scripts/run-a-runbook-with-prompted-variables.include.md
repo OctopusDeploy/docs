@@ -122,7 +122,7 @@ if ([string]::IsNullOrWhiteSpace($runbookPromptedVariables) -eq $false)
         $uniqueName = $element.Name
         $isRequired = $element.Control.Required
         
-        $promptedVariablefound = $false
+        $promptedVariableFound = $false
         
         Write-Host "Looking for the prompted variable value for $nameToSearchFor"
     	foreach ($promptedValue in $promptedValueList)
@@ -241,8 +241,8 @@ if ($runbookWaitForFinish -eq $true)
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "Default";
 string environmentName = "Development";
 string runbookName = "Runbook name";

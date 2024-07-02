@@ -2,8 +2,8 @@
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
-$octopusUrl = "YOUR URL"
-$octopusApiKey = "YOUR API KEY"
+$octopusUrl = "https://your-octopus-url"
+$octopusApiKey = "API-YOUR-KEY"
 $spaceName = "YOUR SPACE NAME"
 $projectName = "PROJECT NAME TO ADD"
 $environmentNameList =  "ENVIRONMENTS TO TIE TO" # "Development,Test"
@@ -102,7 +102,7 @@ function Invoke-OctopusApi
             Write-OctopusVerbose "Ignoring cache."    
         }
 
-        Write-OctopusVerbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-OctopusVerbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         if ($cachedResults.ContainsKey($url) -eq $true)
@@ -229,9 +229,9 @@ $spaceId = $space.Id
 $project = Get-OctopusItemByName -itemName $projectName -itemType "Project" -endpoint "projects" -spaceId $spaceId -defaultUrl $octopusUrl -octopusApiKey $octopusApiKey
 $projectId = $project.Id
 
-$splitEnvironmentlist = $environmentNameList -split ","
+$splitEnvironmentList = $environmentNameList -split ","
 $environmentList = @()
-foreach ($environmentName in $splitEnvironmentlist)
+foreach ($environmentName in $splitEnvironmentList)
 {
     $environment = Get-OctopusItemByName -itemName $environmentName -itemType "Environment" -endpoint "environments" -spaceId $spaceId -defaultUrl $octopusUrl -octopusApiKey $octopusApiKey
     $environmentList += $environment.Id
@@ -307,8 +307,8 @@ foreach ($item in $changeReport)
 Add-Type -Path 'C:\Octopus.Client\Octopus.Client.dll'
 
 # Declare variables
-$octopusUrl = "YOUR URL"
-$octopusApiKey = "YOUR API KEY"
+$octopusUrl = "https://your-octopus-url"
+$octopusApiKey = "API-YOUR-KEY"
 $spaceName = "YOUR SPACE NAME"
 $projectName = "PROJECT NAME TO ADD"
 $environmentNameList =  "ENVIRONMENTS TO TIE TO" # "Development,Test"
@@ -412,8 +412,8 @@ using System.Linq;
 
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var projectName = "MyProject";
 var environmentNameList = new string[] { "Environment", "List"};
@@ -545,10 +545,10 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourURL/api'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
-project_name = "MyProject"
+project_name = 'MyProject'
 environment_name_list = ['Environment', 'List']
 tenant_tag = 'TENANT TAG TO FILTER ON'  #Format = [Tenant Tag Set Name]/[Tenant Tag] "Tenant Type/Customer"
 max_number_tenants = 1
@@ -635,11 +635,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	projectName := "MyProject"
 	environmentNameList := []string{"Environment", "List"}

@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusBaseURL = "https://youroctourl/api"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusBaseURL = "https://your-octopus-url/api"
+$octopusAPIKey = "API-YOUR-KEY"
 $headers = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 $spaceName = "Default"
@@ -96,8 +96,8 @@ $tenantNames | ForEach-Object {
 ```powershell
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
-$octopusBaseURL = "https://youroctourl/"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusBaseURL = "https://your-octopus-url/"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusBaseURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
@@ -194,8 +194,8 @@ catch {
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
 var repository = new OctopusRepository(endpoint);
@@ -326,8 +326,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = 'Default'
 project_name = 'MyProject'
@@ -450,11 +450,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	channelName := "Default"
 	environmentName := "Development"
@@ -481,7 +481,7 @@ func main() {
 
 	releaseVersion := ""
 
-	// Check to see if the nexversionincrement property is nil
+	// Check to see if the next version increment property is nil
 	if nil == template["NextVersionIncrement"] {
 		// Project uses a package instead of a template, get the latest version of the package
 		deploymentProcess, err := client.DeploymentProcesses.GetByID(project.DeploymentProcessID)

@@ -1,17 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Report on deployments using Excel & XML
-description: How to report on deployments using Excel & XML
+modDate: 2024-06-25
+title: Report on deployments using Excel and XML
+description: How to report on deployments using Excel and XML
 navOrder: 10
 ---
 
-:::div{.hint}
-Also take a look at the [Reporting features](/docs/administration/reporting) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
-:::
-
-Ever wonder how many deployments you did this month? In this page, we'll help you to answer this question by walking you through how to export your deployments to Excel, and then to view them in a pivot table.
+Ever wonder how many deployments you did this month? We'll help you answer this question by walking you through how to export your deployments to Excel, and how to view them in a pivot table.
 
 At a high-level, the steps are:
 
@@ -23,18 +19,18 @@ At a high-level, the steps are:
 ![](/docs/administration/reporting/images/3278122.png)
 :::
 
-## Export all deployments to an XML file {#ReportondeploymentsusingExcel-ExportalldeploymentstoanXMLfile}
+## Export all deployments to an XML file
 
 Before we can report on the data using Excel, we need to export it in a format that Excel can import. The easiest way to do this is using an XML file.
 
 As of 2.5.10, the Octopus CLI can be used to export deployments to an XML file. The command looks like this:
 
 ```bash
-octo dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY1234 --filePath=Deployments.xml
+octo dump-deployments --server https://your-octopus-url --apiKey API-YOUR-KEY --filePath=Deployments.xml
 ```
 
 :::div{.success}
-Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/), and [how to use the Octopus Cli](/docs/octopus-rest-api/octopus-cli)
+Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key/), and [how to use the Octopus CLI](/docs/octopus-rest-api/octopus-cli)
 :::
 
 The output will appear as follows:
@@ -80,7 +76,7 @@ The command will produce an XML file with contents similar to the following:
 
 This file is now ready to be imported into Excel.
 
-## Import the XML file in Excel {#ReportondeploymentsusingExcel-ImporttheXMLfileinExcel}
+## Import the XML file in Excel
 
 Now that we have an XML file containing our deployments, we can import it into Microsoft Excel. In this example we are using Excel 2013.
 
@@ -94,7 +90,7 @@ Now that we have an XML file containing our deployments, we can import it into M
 
    ![](/docs/administration/reporting/images/3278131.png)
 
-## Report on the data using a pivot table {#ReportondeploymentsusingExcel-Reportonthedatausingapivottable}
+## Report on the data using a pivot table
 
 It's easy to turn the table of deployments into a pivot table for reporting.
 

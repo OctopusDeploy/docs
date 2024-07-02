@@ -2,8 +2,8 @@
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
-$octopusUrl = "https://local.octopusdemos.app" 
-$apiKey = "YOUR API KEY"
+$octopusUrl = "https://your-octopus-url" 
+$apiKey = "API-YOUR-KEY"
 $projectNameList = "WebAPI,Web UI"
 $sourceEnvironmentName = "Production" 
 $destinationEnvironmentName = "Staging"
@@ -41,7 +41,7 @@ function Invoke-OctopusApi
             return Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -Body $body -ContentType 'application/json; charset=utf-8' 
         }
 
-        Write-Host "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-Host "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         return $result               
@@ -160,7 +160,7 @@ foreach ($projectName in $splitProjectList)
         TenantId = $null
         UseGuidedFailure = $false
     }
-    $newDeployment = Invoke-OctopusApi -octopusUrl $octopusurl -apiKey $apiKey -method "POST" -spaceId $spaceId -item $newDeployment -endPoint "deployments"
+    $newDeployment = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $apiKey -method "POST" -spaceId $spaceId -item $newDeployment -endPoint "deployments"
 }
 ```
 
@@ -174,8 +174,8 @@ $ErrorActionPreference = "Stop";
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 # Define working variables
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $sourceEnvironmentName = "Production"
 $destinationEnvironmentName = "Test"
@@ -280,8 +280,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 using System.Linq;
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
@@ -411,8 +411,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = 'Default'
 source_environment_name = 'Production'
@@ -525,11 +525,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 
 	spaceName := "Default"
 	projectNames := []string{"MyProject"}

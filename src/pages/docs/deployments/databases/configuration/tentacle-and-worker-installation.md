@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
+modDate: 2024-06-27
 title: Install Tentacles and Workers for database deployments
 description: Where to install Tentacles and how to configure Workers.
 navOrder: 10
@@ -142,7 +142,7 @@ Next, create cloud region deployment targets (a cloud region is a group of deplo
 Cloud region deployment targets do not count against your license.
 :::
 
-Create a cloud region for each environment.  In this example, a new [target tag](/docs/infrastructure/deployment-targets/#target-roles) called `DbWorker` was created for these cloud regions. This will help differentiate these new deployment targets.  Make a note of the Worker pool for that cloud region, and select the one that matches your environment of choice:
+Create a cloud region for each environment.  In this example, a new [target tag](/docs/infrastructure/deployment-targets/target-tags) called `DbWorker` was created for these cloud regions. This will help differentiate these new deployment targets.  Make a note of the Worker pool for that cloud region, and select the one that matches your environment of choice:
 
 :::figure
 ![](/docs/deployments/databases/configuration/images/create-cloud-region.png)

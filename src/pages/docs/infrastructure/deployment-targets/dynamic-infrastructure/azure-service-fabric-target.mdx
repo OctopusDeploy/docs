@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-30
+modDate: 2024-06-27
 title: Create Azure Service Fabric target command
 description: Cmdlet for creating an Azure Service Fabric target
 navOrder: 30
@@ -23,7 +23,7 @@ Command: **_New-OctopusAzureServiceFabricTarget_**
 | `-certificateStoreLocation`         | (Optional) Override the default certificate store location  |
 | `-certificateStoreName`             | (Optional) Override the default certificate store name      |
 | `-octopusCertificateIdOrName`       | Name or Id of the Certificate Resource in Octopus           |
-| `-octopusRoles`                     | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/#target-roles) to assign                     |
+| `-octopusRoles`                     | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/target-tags) to assign                     |
 | `-updateIfExisting`                 | Will update an existing Service Fabric target with the same name, create if it doesn't exist |
 | `-octopusDefaultWorkerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional). Added in 2020.6.0. |
 

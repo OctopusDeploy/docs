@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-08
-modDate: 2023-10-04
+modDate: 2024-06-11
 title: Octopus extension for GitHub Copilot
 description: How to use the Octopus extension for GitHub Copilot
 navOrder: 100
@@ -11,32 +11,51 @@ hideInThisSection: true
 The Octopus extension for GitHub Copilot allows read only queries of cloud Octopus instances via GitHub Copilot.
 
 :::div{.warning}
-The Octopus extension is an experiment. It is not covered by service level agreements.
+The Octopus extension is in early access. It is not covered by service level agreements.
 :::
 
 The goal of the Octopus extension is to allow developers to remain in a state of flow by querying their Octopus instance from their favorite IDE or any platform that supports GitHub Copilot. The Octopus extension allows Devops teams to query the state of deployments, extract useful information from log files, build custom reports, and get answers to common questions with natural language prompts.
 
 ## Getting started
 
-The Octopus extension has 3 prerequisites:
+The Octopus extension has 4 prerequisites:
 
-* An Octopus Cloud instance
+* An Octopus instance
+  * A cloud instance or 
+  * An on-premises Octopus instance with a hostname accessible from the Octopus Copilot Extension service
 * An API key
 * A GitHub Copilot account
+* The Octopus for GitHub Copilot application
 
 ### Creating an Octopus cloud instance
 The Octopus extension is available for cloud Octopus instances. Click [here](https://octopus.com/start) to sign up for a trial cloud Octopus instance.
 
+### Integrating an on-premises Octopus instance
+
+The Octopus Copilot Extension is implemented as an Azure Function. The function must be able to call the Octopus API.
+
+On-premises Octopus instances must allow HTTP requests from the IP addresses listed in [this file](https://github.com/OctopusSolutionsEngineering/OctopusCopilot/blob/main/outboundips.txt) in order to integrate with the Octopus Copilot Extension. These IP addresses represent the possible addresses that the Octopus Copilot Extension may use when making API requests to an Octopus instance.
+
+:::div{.warning}
+It is not possible to integrate the Octopus Copilot Extension with an on-premises Octopus instance that can not accept HTTP requests from these public IP addresses.
+:::
+
 ### Creating the Octopus API key
 The Octopus extension requires an [API key](/docs/octopus-rest-api/how-to-create-an-api-key) to interact with the Octopus server.
 
-The Octopus extension only requires read access to the Octopus instance. It is recommended that you create a [service account](/docs/security/users-and-teams/service-accounts) that belongs to a team with read-only permissions. The documentation [here](https://github.com/OctopusSolutionsEngineering/OctopusCopilot?tab=readme-ov-file#creating-a-service-account) provides a sample Terraform module to create a read-only role, a team referencing the role, and a service account belonging to the team.
+A common use case for the Octopus extension is to query an Octopus instance. When used for read-only tasks, it is recommended that you create a [service account](/docs/security/users-and-teams/service-accounts) that belongs to a team with read-only permissions. The documentation [here](https://github.com/OctopusSolutionsEngineering/OctopusCopilot?tab=readme-ov-file#creating-a-service-account) provides a sample Terraform module to create a read-only role, a team referencing the role, and a service account belonging to the team.
+
+The Octopus extension can also be used to execute runbooks, create deployments, and release deployments. When used for these tasks, the associated API key must be linked to an account with the appropriate permissions.
 
 ### Creating a GitHub Copilot account
 
-You can sign up for a GitHub Copilot account [here](https://github.com/features/copilot).
+You can sign up for a GitHub Copilot account [here](https://github.com/features/copilot). You must also enable the required [policy settings](https://docs.github.com/en/copilot/github-copilot-chat/github-copilot-extensions/managing-github-copilot-extensions).
 
 You can also use the web based interface without GitHub Copilot. See the section "Test query website" for more details.
+
+### Installing Octopus for GitHub Copilot
+
+[Octopus for GitHub Copilot](https://github.com/marketplace/octopus-github-copilot-extension) can be found in the GitHub marketplace.
 
 ## Querying Octopus with Copilot
 
@@ -102,6 +121,37 @@ The following are example queries you can use to test the Octopus extension:
 ## Prompt engineering tips
 
 [This documentation](https://github.com/OctopusSolutionsEngineering/OctopusCopilot/wiki/Prompt-Engineering-with-Octopus) provides prompt engineering tips.
+
+## Troubleshooting
+
+## Prompts don't appear to work
+A response like `Sorry, I can't assist with that.` can occur if the prompt is not addressed to the Octopus extension, or if the user entering the prompt does not have permissions to use Copilot extensions. In the screenshot below you can see the response was provided by `GitHub Copilot` despite being addressed to the `@octopus-ai-app` extension:
+
+![Image of a failed request](/docs/administration/copilot/not-using-agent.png)
+
+A successful request highlights the `@octopus-ai-app` extension as part of the prompt, and the response is delivered by `Octopus AI App`:
+
+![Image of a successful request](/docs/administration/copilot/valid-request.png)
+
+You must ensure the Octopus Copilot extension is installed for your organization and that the required [policy settings](https://docs.github.com/en/copilot/github-copilot-chat/github-copilot-extensions/managing-github-copilot-extensions) are enabled.
+
+## The Octopus extension is not available
+
+When you type the `@` character in the VSCode Copilot extension you should see a list of available extensions to "talk" to:
+
+![List of extensions in VSCode Copilot chat](/docs/administration/copilot/extension-list.png)
+
+If `@octopus-ai-app` is not in that list, try logging out:
+
+![VSCode logout](/docs/administration/copilot/vscode-logout.png)
+
+When you log back in, you will have an opportunity to authorize the Octopus Copilot extension.
+
+## An error is returned
+
+Errors like `Prompt failed validation with the reason: Invalid response token parameter. Please file an issue.` can often be resolved by starting a new chat. Click the plus icon at the top of the chat window to start a new chat and enter your prompt again.
+
+![Chat error](/docs/administration/copilot/chat-error.png)
 
 ## Source code
 

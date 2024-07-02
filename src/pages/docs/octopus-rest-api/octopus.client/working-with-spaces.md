@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Working with Spaces
 description: How to work with Spaces in the Octopus.Client library.
 navOrder: 40
@@ -16,7 +16,7 @@ The first is the `OctopusClient.ForSpace` method:
 
 ```powershell
 # Create endpoint and client
-$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY")
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://your-octopus-url", "API-YOUR-KEY")
 $client = New-Object Octopus.Client.OctopusClient($endpoint)
 
 # Get default repository and get space by name
@@ -34,7 +34,7 @@ $projects = $repositoryForSpace.Projects.GetAll()
 
 ```csharp C#
 // Create endpoint and client
-var endpoint = new OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY");
+var endpoint = new OctopusServerEndpoint("https://your-octopus-url", "API-YOUR-KEY");
 var client = new OctopusClient(endpoint);
 
 // Get default repository and get space by name
@@ -55,7 +55,7 @@ The other method is `OctopusRepositoryExtensions.ForSpace`:
 
 ```powershell
 # Create endpoint and repository
-$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY")
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://your-octopus-url", "API-YOUR-KEY")
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 
 # Get space by name
@@ -72,7 +72,7 @@ $projects = $repositoryForSpace.Projects.GetAll()
 
 ```csharp
 // Create endpoint and repository
-var endpoint = new OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY");
+var endpoint = new OctopusServerEndpoint("https://your-octopus-url", "API-YOUR-KEY");
 var repository = new OctopusRepository(endpoint);
 
 // Get space by name

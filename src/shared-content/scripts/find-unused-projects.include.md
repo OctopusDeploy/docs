@@ -4,8 +4,8 @@
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-$octopusUrl = "https://local.octopusdemos.app" ## Octopus URL to look at
-$octopusApiKey = "YOUR API KEY" ## API key of user who has permissions to view all spaces, cancel tasks, and resubmit runbooks runs and deployments
+$octopusUrl = "https://your-octopus-url" ## Octopus URL to look at
+$octopusApiKey = "API-YOUR-KEY" ## API key of user who has permissions to view all spaces, cancel tasks, and resubmit runbooks runs and deployments
 $disableOldProjects = $false ## Tells the script to disable the projects that are older than the days since last release
 $daysSinceLastRelease = 90 ## The number of days since the last release to be considered unused.  Any project without a release created in [90] days is considered inactive.
 
@@ -64,7 +64,7 @@ function Invoke-OctopusApi
             Write-Verbose "Ignoring cache."    
         }
 
-        Write-Verbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-Verbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         if ($cachedResults.ContainsKey($url) -eq $true)
@@ -162,8 +162,8 @@ foreach ($project in $oldProjectList)
 ```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $daysSinceLastRelease = 90
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
@@ -235,8 +235,8 @@ foreach ($project in $oldProjects)
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 DateTime currentUtcTime = DateTime.Now.ToUniversalTime();
 System.Collections.Generic.List<string> oldProjects = new System.Collections.Generic.List<string>();
 int daysSinceLastRelease = 90;
@@ -335,8 +335,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 old_projects = []
 current_date = datetime.datetime.utcnow()
@@ -403,11 +403,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 
 	// Get client
 	client := octopusAuth(apiURL, APIKey, "")

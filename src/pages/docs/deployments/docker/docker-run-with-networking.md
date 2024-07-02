@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
+modDate: 2024-06-27
 title: Docker run with networking
 description: This guide demonstrates the basic functionality provided by the Octopus Docker steps.
 ---
@@ -22,7 +22,7 @@ If not, you'll need to configure a host for our sample application. We recommend
 
 1. Install Ubuntu.
 2. Configure your Ubuntu machine as either an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target/#configuring-ssh-targets) or [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux) in Octopus
-    * Make sure this Deployment Target has a [target tag](/docs/infrastructure/deployment-targets/#target-roles) like **docker-server**. We will configure the Docker steps to target this tag.
+    * Make sure this Deployment Target has a [target tag](/docs/infrastructure/deployment-targets/target-tags) like **docker-server**. We will configure the Docker steps to target this tag.
 
 :::figure
 ![](/docs/deployments/docker/images/my-docker-host.png)

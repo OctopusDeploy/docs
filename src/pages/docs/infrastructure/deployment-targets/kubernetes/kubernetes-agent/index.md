@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
-modDate: 2024-05-15
+modDate: 2024-06-27
 title: Kubernetes agent
 navTitle: Overview
 navSection: Kubernetes agent
@@ -65,7 +65,7 @@ kubectl config view
 
 1. Enter a unique display name for the target. This name is used to generate the Kubernetes namespace, as well as the Helm release name
 2. Select at least one [environment](/docs/infrastructure/environments) for the target.
-3. Select at least one [target tag](/docs/infrastructure/deployment-targets/#target-roles) for the target.
+3. Select at least one [target tag](/docs/infrastructure/deployment-targets/target-tags) for the target.
 4. Optionally, add the name of an existing [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the agent to use. The storage class must support the ReadWriteMany [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).  
 If no storage class name is added, the default Network File System (NFS) storage will be used.
 
@@ -120,9 +120,82 @@ If left open, the installation dialog waits for the agent to establish a connect
 A successful health check indicates that deployments can successfully be executed.
 :::
 
+## Configuring the agent with Tenants
+
+While the wizard doesn't support selecting Tenants or Tenant tags, the agent can be configured for tenanted deployments in two ways:
+
+1. Use the Deployment Target settings UI at **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Settings** to add a Tenant and set the Tenanted Deployment Participation as required. This is done after the agent has successfully installed and registered.
+
+:::figure
+![Kubernetes Agent ](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-settings-page-tenants.png)
+:::
+
+2. Set additional variables in the helm command to allow the agent to register itself with associated Tenants or Tenant tags. You also need to provider a value for the `TenantedDeploymentParticipation` value. Possible values are `Untenanted` (default), `Tenanted`, and `TenantedOrUntenanted`.
+
+example to add these values:
+```bash
+--set agent.tenants="{<tenant1>,<tenant2>}" \
+--set agent.tenantTags="{<tenantTag1>,<tenantTag2>}" \
+--set agent.tenantedDeploymentParticipation="TenantedOrUntenanted" \
+```
+
+:::div{.hint}
+You don't need to provide both Tenants and Tenant Tags, but you do need to provider the tenanted deployment participation value.
+:::
+
+In a full command:
+```bash
+helm upgrade --install --atomic \
+--set agent.acceptEula="Y" \
+--set agent.targetName="<name>" \
+--set agent.serverUrl="<serverUrl>" \
+--set agent.serverCommsAddress="<serverCommsAddress>" \
+--set agent.space="Default" \
+--set agent.targetEnvironments="{<env1>,<env2>}" \
+--set agent.targetRoles="{<targetRole1>,<targetRole2>}" \
+--set agent.tenants="{<tenant1>,<tenant2>}" \
+--set agent.tenantTags="{<tenantTag1>,<tenantTag2>}" \
+--set agent.tenantedDeploymentParticipation="TenantedOrUntenanted" \
+--set agent.bearerToken="<bearerToken>" \
+--version "1.*.*" \
+--create-namespace --namespace <namespace> \
+<release-name> \
+oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+```
+
+## Trusting custom/internal Octopus Server certificates
+
+:::div{.hint}
+Server certificate support was added in Kubernetes agent 1.7.0
+:::
+
+It is common for organizations to have their Octopus Deploy server hosted in an environment where it has an SSL/TLS certificate that is not part of the global certificate trust chain. As a result, the Kubernetes agent will fail to register with the target server due to certificate errors. A typical error looks like this:
+
+```
+2024-06-21 04:12:01.4189 | ERROR | The following certificate errors were encountered when establishing the HTTPS connection to the server: RemoteCertificateNameMismatch, RemoteCertificateChainErrors
+Certificate subject name: CN=octopus.corp.domain
+Certificate thumbprint:   42983C1D517D597B74CDF23F054BBC106F4BB32F
+```
+
+To resolve this, you need to provide the Kubernetes agent with a base64-encoded string of the public key of the certificate in either `.pem` or `.crt` format. When viewed as text, this will look similar to this:
+
+```
+-----BEGIN CERTIFICATE-----
+MII...
+-----END CERTIFICATE-----
+```
+
+Once encoded, this string can be provided as part of the agent installation helm command via the `agent.serverCertificate` helm value.
+
+To include this in the installation command, add the following to the generated installation command:
+
+```bash
+--set agent.serverCertificate="<base64-encoded-cert>"
+```
+
 ## Upgrading the Kubernetes agent
 
-The Kubernetes agent can be upgraded automatically by Octopus Server, manually in the the Octopus portal or via a `helm` command.
+The Kubernetes agent can be upgraded automatically by Octopus Server, manually in the Octopus portal or via a `helm` command.
 
 ### Automatic updates
 

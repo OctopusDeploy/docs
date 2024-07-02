@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $roleName = "My role"
@@ -50,8 +50,8 @@ foreach ($project in $projectList)
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $roleName = "My role"
 
@@ -95,8 +95,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string roleName = "My role";
 
@@ -149,8 +149,8 @@ catch (Exception ex)
 ```python
 import json
 import requests
-octopus_server_uri = 'https://your.octopus.app/'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 def get_octopus_resource(uri):
     response = requests.get(uri, headers=headers)
@@ -162,11 +162,11 @@ spaces = get_octopus_resource('{0}/api/spaces/all'.format(octopus_server_uri))
 space = next((x for x in spaces if x['Name'] == space_name), None)
 projects = get_octopus_resource('{0}/api/{1}/projects/all'.format(octopus_server_uri, space['Id']))
 for project in projects:
-    deploymentprocess_link = project['Links']['DeploymentProcess']
+    deployment_process_link = project['Links']['DeploymentProcess']
     if project['IsVersionControlled'] == True:
         default_branch = project['PersistenceSettings']['DefaultBranch']
-        deploymentprocess_link = deploymentprocess_link.replace('{gitRef}', default_branch)
-    uri = '{0}{1}'.format(octopus_server_uri, deploymentprocess_link)
+        deployment_process_link = deployment_process_link.replace('{gitRef}', default_branch)
+    uri = '{0}{1}'.format(octopus_server_uri, deployment_process_link)
     process = get_octopus_resource(uri)
     for step in process['Steps']:
         properties = step['Properties']
@@ -196,11 +196,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	roleName := "MyRole"
 

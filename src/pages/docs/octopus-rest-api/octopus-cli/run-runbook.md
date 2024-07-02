@@ -70,7 +70,7 @@ Run Runbook:
       --waitForRun           [Optional] Whether to wait synchronously for
                              deployment to finish.
       --progress             [Optional] Show progress of the runbook run
-      --runTimeout=VALUE     [Optional] Specifies maximum time (timespan
+      --runTimeout=VALUE     [Optional] Specifies maximum time (time span
                              format) that the console session will wait for
                              the runbook run to finish (default 00:10:00).
                              This will not stop the run. Requires --
@@ -78,7 +78,7 @@ Run Runbook:
       --cancelOnTimeout      [Optional] Whether to cancel the runbook run if
                              the run timeout is reached (flag, default false).
       --runCheckSleepCycle=VALUE
-                             [Optional] Specifies how much time (timespan
+                             [Optional] Specifies how much time (time span
                              format) should elapse between runbook run status
                              checks (default 00:00:10)
       --noRawLog             [Optional] Don't print the raw log of failed
@@ -140,7 +140,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Examples {#RunningRunbooks-Basicexamples}
+## Basic Examples {#basic-examples}
 
 This runs a runbook using the published snapshot:
 
@@ -148,19 +148,19 @@ This runs a runbook using the published snapshot:
 octo run-runbook --runbook="Hello World"  \
                  --project="Smurfs"       \
                  --environment="Test"     \
-                 --server="http://octopus/" \
-                 --apiKey="API-ABCDEF123456"
+                 --server="https://your-octopus-url" \
+                 --apiKey="API-YOUR-KEY"
 ```
 
-This runs a runbook using a specific snapshot (e.g., Snapshot KGHSL3L):
+This runs a runbook using a specific snapshot (e.g., Snapshot XXXXX):
 
 ```bash
 octo run-runbook --runbook="Hello World"       \
                  --project="Smurfs"            \
                  --environment="Test"          \
-                 --snapshot="Snapshot KGHSL3L" \
-                 --server="http://octopus/"    \
-                 --apiKey="API-ABCDEF123456"
+                 --snapshot="Snapshot XXXXX" \
+                 --server="https://your-octopus-url"    \
+                 --apiKey="API-YOUR-KEY"
 ```
 
 To specify multiple environments, you can use the following:
@@ -170,8 +170,8 @@ octo run-runbook --runbook="Hello World"  \
                  --project="Smurfs"       \
                  --environment="Test"     \
                  --environment="Dev"      \
-                 --server="http://octopus/" \
-                 --apiKey="API-ABCDEF123456"
+                 --server="https://your-octopus-url" \
+                 --apiKey="API-YOUR-KEY"
 ```
 
 :::div{.success}

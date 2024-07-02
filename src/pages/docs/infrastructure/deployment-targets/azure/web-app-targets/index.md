@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-30
+modDate: 2024-06-27
 title: Azure Web App targets
 description: Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by target tag during deployments.
 navOrder: 20
 ---
 
-Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by [target tag](/docs/infrastructure/deployment-targets/#target-roles) during deployments.
+Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by [target tag](/docs/infrastructure/deployment-targets/target-tags) during deployments.
 
 :::div{.hint}
 From version 2022.1 Octopus can discover Azure Web App targets using tags on your Web App cloud resource template.

@@ -7,7 +7,7 @@ That redeployment will work because a snapshot is taken when you create a releas
 
 - Deployment Process
 - Project Variables
-- Referenced Library Variables Sets
+- Referenced Variables Sets
 - Package Versions
 
 Re-deploying the previous release will re-run the deployment process as it existed when that release was created.  By default, the deploy package steps (such as deploy to IIS or deploy a Windows Service) will extract to a new folder each time a deployment is run, perform the [configuration transforms](/docs/projects/steps/configuration-features/structured-configuration-variables-feature/), and [run any scripts embedded in the package](/docs/deployments/custom-scripts/scripts-in-packages).  

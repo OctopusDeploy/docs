@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Push
 description: Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
 navOrder: 100
@@ -102,12 +102,12 @@ This example pushes a package to the built-in Octopus Deploy repository:
 Windows:
 
 ```
-octo push --package="c:\temp\MyPackage.1.0.0.0.zip" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+octo push --package="c:\temp\MyPackage.1.0.0.0.zip" --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 Linux:
 
 ```
-octo push --package="/tmp/MyPackage.1.0.0.0.zip" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+octo push --package="/tmp/MyPackage.1.0.0.0.zip" --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
 ## Learn more

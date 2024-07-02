@@ -1,9 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Octopus reporting with an excel template
-description: Octopus reporting with an excel template
+modDate: 2024-06-27
+title: Octopus reporting with an Excel template
+description: Octopus reporting with an Excel template
 navOrder: 100
 ---
 
@@ -13,7 +13,7 @@ To help you get started, we provide a sample Excel spreadsheet that you can conn
 ![](/docs/administration/reporting/images/3278354.png)
 :::
 
-## Getting started {#Reporting-Gettingstarted}
+## Getting started
 
 The fastest way to get started is to use our Excel spreadsheet template. The spreadsheet uses Pivot Tables and Pivot Charts to summarize the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
 
@@ -41,7 +41,7 @@ To change the source of the data:
 
    ![](/docs/administration/reporting/images/3278360.png)
 
-## Refreshing the data {#Reporting-Refreshingthedata}
+## Refreshing the data
 
 Once you have set up your connection, you can refresh the data from the source whenever you like. If you make your own customizations to the spreadsheet, you can save them, and simply refresh the data in the sheet whenever you like.
 
@@ -49,11 +49,11 @@ Once you have set up your connection, you can refresh the data from the source w
 ![](/docs/administration/reporting/images/3278361.png)
 :::
 
-## Using the XML feed {#Reporting-UsingtheXMLFeed}
+## Using the XML feed
 
 The best way to consume reporting data from Octopus is using the XML feed. The feed is always available at:
 
-`http://<OCTOPUS-SERVER>/api/reporting/deployments/xml?apikey=<API-KEY>`
+`https://<OCTOPUS-SERVER>/api/reporting/deployments/xml?apikey=<API-KEY>`
 
 Where:
 
@@ -63,7 +63,8 @@ Where:
 For example:
 
 `https://demo.octopus.app/api/reporting/deployments/xml?apikey=API-GUEST`
-`https://your.octopus.app/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
+
+`https://your-octopus-url/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
 
 The XML feed can be consumed programmatically, or via Excel or [Microsoft PowerBI](https://powerbi.microsoft.com/). We have a blog on how to do this using [PowerBI](https://octopus.com/blog/powerbi-report-for-octopus-deploy)
 
@@ -97,4 +98,4 @@ This is due to that the revocation information for the certificate is not retrie
 
 ## Learn more
 
-- [Reporting blog posts](https://octopus.com/blog/tag/reporting).
+- [Reporting blog posts](https://octopus.com/blog/tag/reporting)

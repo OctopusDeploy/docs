@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-06-23
+modDate: 2024-06-25
 title: Polling Tentacles over Standard HTTPS Port
 description: Octopus Polling Tentacles open a connection to the Octopus Server over port 443 to ask the Server if there is any work to do.
 navOrder: 50
@@ -29,7 +29,7 @@ The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud) inst
 ### Registering a new Tentacle
 
 ```powershell
-.\Tentacle register-with --instance MyInstance --server "https://<yoururl>.octopus.app" --server-comms-address "https://polling.<yoururl>.octopus.app" --comms-style TentacleActive --apiKey "API-YOURKEY" --environment "Test" --role "Web"
+.\Tentacle register-with --instance MyInstance --server "https://<yoururl>.octopus.app" --server-comms-address "https://polling.<yoururl>.octopus.app" --comms-style TentacleActive --apiKey "API-YOUR-KEY" --environment "Test" --role "Web"
 ```
 
 ### Changing an existing Tentacle
@@ -37,20 +37,20 @@ The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud) inst
 ```powershell
 .\Tentacle service --instance MyInstance --stop
 .\Tentacle configure --reset-trust
-.\Tentacle register-with --instance MyInstance --server "https://<yoururl>.octopus.app" --server-comms-address "https://polling.<yoururl>.octopus.app" --comms-style TentacleActive --apiKey "API-YOURKEY" --environment "Test" --role "Web"
+.\Tentacle register-with --instance MyInstance --server "https://<yoururl>.octopus.app" --server-comms-address "https://polling.<yoururl>.octopus.app" --comms-style TentacleActive --apiKey "API-YOUR-KEY" --environment "Test" --role "Web"
 .\Tentacle service --instance MyInstance --start
 ```
 
 ### Registering a new Worker
 ```powershell
-.\Tentacle register-worker --instance MyInstance --server "https://<yoururl>.octopus.app" --server-comms-address "https://polling.<yoururl>.octopus.app" --comms-style TentacleActive --apiKey "API-YOURKEY" --workerpool MyWorkerPool
+.\Tentacle register-worker --instance MyInstance --server "https://<yoururl>.octopus.app" --server-comms-address "https://polling.<yoururl>.octopus.app" --comms-style TentacleActive --apiKey "API-YOUR-KEY" --workerpool MyWorkerPool
 ```
 
 ### Changing an existing Worker
 ```powershell
 .\Tentacle service --instance MyInstance --stop
 .\Tentacle configure --reset-trust
-.\Tentacle register-worker --instance MyInstance --server "https://<yoururl>.octopus.app" --server-comms-address "https://polling.<yoururl>.octopus.app" --comms-style TentacleActive --apiKey "API-YOURKEY" --workerpool MyWorkerPool
+.\Tentacle register-worker --instance MyInstance --server "https://<yoururl>.octopus.app" --server-comms-address "https://polling.<yoururl>.octopus.app" --comms-style TentacleActive --apiKey "API-YOUR-KEY" --workerpool MyWorkerPool
 .\Tentacle service --instance MyInstance --start
 ```
 
@@ -81,7 +81,7 @@ The setup of a Polling Tentacle for your self-hosted instance over port 443 is t
 ### Registering a new Tentacle
 
 ```powershell
-.\Tentacle register-with --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOURKEY" --environment "Test" --role "Web"
+.\Tentacle register-with --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOUR-KEY" --environment "Test" --role "Web"
 ```
 
 ### Changing an existing Tentacle
@@ -89,20 +89,20 @@ The setup of a Polling Tentacle for your self-hosted instance over port 443 is t
 ```powershell
 .\Tentacle service --instance MyInstance --stop
 .\Tentacle configure --reset-trust
-.\Tentacle register-with --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOURKEY" --environment "Test" --role "Web"
+.\Tentacle register-with --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOUR-KEY" --environment "Test" --role "Web"
 .\Tentacle service --instance MyInstance --start
 ```
 
 ### Registering a new Worker
 ```powershell
-.\Tentacle register-worker --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOURKEY" --workerpool MyWorkerPool
+.\Tentacle register-worker --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOUR-KEY" --workerpool MyWorkerPool
 ```
 
 ### Changing an existing Worker
 ```powershell
 .\Tentacle service --instance MyInstance --stop
 .\Tentacle configure --reset-trust
-.\Tentacle register-worker --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOURKEY" --workerpool MyWorkerPool
+.\Tentacle register-worker --instance MyInstance --server "https://<your-octopus-url>" --server-comms-address "https://<your-polling-url>" --comms-style TentacleActive --apiKey "API-YOUR-KEY" --workerpool MyWorkerPool
 .\Tentacle service --instance MyInstance --start
 ```
 

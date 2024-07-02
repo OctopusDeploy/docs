@@ -17,6 +17,8 @@
         "package-lock.yaml",
         "pnpm-lock.yaml",
         "docs/credits.md",
+        ".octopus/**",
+        ".github/**",
         "src/pages/report/**",
         "public/docs/js/**",
         "node_modules/**",
