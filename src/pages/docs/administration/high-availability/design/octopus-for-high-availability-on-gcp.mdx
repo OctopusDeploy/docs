@@ -1,72 +1,9 @@
 ---
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-10-04
-title: Designing Octopus HA in GCP
-description: Information on configuring Octopus High Availability hosted in Google Cloud Platform (GCP).
-navOrder: 40
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/best-practices/self-hosted/high-availability
+pubDate:  2024-07-02
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import HighAvailabilityComputeRecommendations from 'src/shared-content/administration/high-availability-compute-recommendations.include.md';
-import HighAvailabilityDatabaseRecommendations from 'src/shared-content/administration/high-availability-database-recommendations.include.md';
-import HighAvailabilityDatabaseLogShippingMirroringNote from 'src/shared-content/administration/high-availability-db-logshipping-mirroring-note.include.md';
-import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
-
-This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Google Cloud Platform (GCP)](https://cloud.google.com/gcp).
-
-## Setting up Octopus: High Availability 
-
-This guide assumes that all of the servers used for your Octopus High Availability instance are hosted in GCP and are running Windows Server.
-
-**Some assembly required**
-
-Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Microsoft components. At a minimum:
-
-- You should be familiar with SQL Server failover clustering, [Cloud SQL](https://cloud.google.com/sql), or have DBAs available to create and manage the database.
-- You should be familiar with SANs, [Google Filestore](https://cloud.google.com/filestore), or other approaches to sharing storage between servers.
-- You should be familiar with load balancing for applications.
-
-:::div{.hint}
-**IaaS vs PaaS:**
-If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in GCP and don't intend to use their PaaS offerings (such as Cloud SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
-:::
-
-### Compute
-
-For a highly available Octopus configuration, you need a minimum of two Virtual Machines running Windows Server (ideally `2016+`) in GCP. 
-
-Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [GCP Compute instance machine families](https://cloud.google.com/compute/docs/machine-types) and select the type most suitable for your requirements. If you're still unsure the [General purpose](https://cloud.google.com/compute/docs/general-purpose-machines) machine family is a good option to start with as they are machines designed for common workloads, optimized for cost and flexibility.
-
-<HighAvailabilityComputeRecommendations />
-
-Google's Compute Engine also provides [machine type recommendations](https://cloud.google.com/compute/docs/instances/apply-machine-type-recommendations-for-instances). These are automatically generated based on system metrics over time from your virtual machines. Resizing your instances can allow you to use resources more efficiently.
-
-<OctopusInstanceMixedOSWarning />
-
-
-
-### Load balancing in Google Cloud
-
-To distribute traffic to the Octopus web portal on multiple nodes, you need to use a load balancer. Google Cloud provides two options you should consider to distribute HTTP/HTTPS traffic to your Compute Engine instances.
-
-* [External HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https)
-* [External TCP Network Load Balancer](https://cloud.google.com/load-balancing/docs/network)
-
-If you are *only* using [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended), we recommend using the HTTP(S) Load Balancer.
-
-However, [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) aren't compatible with the HTTP(S) Load Balancer, so instead, we recommend using the Network Load Balancer. It allows you to configure TCP Forwarding rules on a specific port to each compute engine instance, which is [one way to route traffic to each individual node](#using-a-unique-port) as required for Polling Tentacles when running Octopus High Availability. 
-
-To use Network Load Balancers exclusively for Octopus High Availability with Polling Tentacles you'd potentially need to configure multiple load balancer(s) / forwarding rules:
-
-- One to serve the Octopus Web Portal HTTP traffic to your backend pool of Compute engine instances:
-
-   ![Network Load Balancer for Web portal](/docs/administration/high-availability/design/images/gcp-octopus-nlb-web-portal.png "width=500")
-
-- One *for each* Compute engine instance for Polling Tentacles to connect to:
-
-   ![Network Load Balancer for Polling Tentacles](/docs/administration/high-availability/design/images/gcp-octopus-nlb-polling.png "width=500")
-
-With Network Load Balancers, you can configure a health check to ensure your Compute engine instances are healthy before traffic is served to them:
-
-:::figure
-![Network Load Balancer health check](/docs/administration/high-availability/design/images/gcp-octopus-nlb-health-check.png "width=500")
-:::

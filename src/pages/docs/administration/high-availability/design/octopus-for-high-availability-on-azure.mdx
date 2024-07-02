@@ -1,66 +1,9 @@
 ---
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Designing Octopus HA in Azure
-description: Information on configuring Octopus High Availability hosted in Microsoft Azure.
-navOrder: 20
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/best-practices/self-hosted/high-availability
+pubDate:  2024-07-02
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import HighAvailabilityComputeRecommendations from 'src/shared-content/administration/high-availability-compute-recommendations.include.md';
-
-import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
-
-This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/).
-
-## Setting up Octopus: High availability
-
-This guide assumes that all of the servers are hosted in Azure running Windows Server.
-
-**Some assembly required**
-
-Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Microsoft components. At a minimum:
-
-- You should be familiar with SQL Server failover clustering, [Azure SQL](https://azure.microsoft.com/products/azure-sql/), or have DBAs available to create and manage the database.
-- You should be familiar with SANs, [Azure Files](https://azure.microsoft.com/services/storage/files/), or other approaches to sharing storage between servers.
-- You should be familiar with load balancing for applications.
-
-:::div{.hint}
-**IaaS vs PaaS:**
-If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in Azure and don't intend to use their PaaS offerings (such as Azure SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
-:::
-
-### Compute
-
-For a highly available Octopus configuration, you need a minimum of two Virtual Machines in Azure. There are several items to consider when provisioning your Octopus Virtual Machines in Azure:
-
-- [Number and type of deployment targets](/docs/infrastructure/deployment-targets)
-- [Retention Policies](/docs/administration/retention-policies)
-- [Number of concurrent tasks](/docs/support/increase-the-octopus-server-task-cap)
-
-Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [Azure Virtual Machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-general) and select the size most suitable for your requirements.  
-
-<HighAvailabilityComputeRecommendations />
-
-<OctopusInstanceMixedOSWarning />
-
-
-
-
-### Load balancing in Azure
-
-To distribute HTTP load among Octopus Server nodes with a single point of access, we recommended using an HTTP load balancer. 
-
-Azure has a wide range of [load balancers](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that will work with Octopus in a highly-available configuration:
-
-- [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
-- [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
-- [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview)
-- [Kemp LoadMaster](https://kemptechnologies.com/uk/solutions/microsoft-load-balancing/loadmaster-azure/)
-- [F5 Big-IP Virtual Edition](https://www.f5.com/partners/technology-alliances/microsoft-azure)
-
-### Authentication providers
-
-We recommend [Active Directory](https://en.wikipedia.org/wiki/Active_Directory) for most installations. For this to work in Azure you need a domain controller setup locally in Azure.  Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility) for a full list of supported authentication providers.
-
-If you're hosting in Azure with Domain Controllers, it would be a similar setup as described in our [on-premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises) guide.

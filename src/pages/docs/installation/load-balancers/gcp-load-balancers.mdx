@@ -8,4 +8,27 @@ navOrder: 40
 hideInThisSection: true
 ---
 
-Lorem Ipsum
+To distribute traffic to the Octopus web portal on multiple nodes, you need to use a load balancer. Google Cloud provides two options you should consider to distribute HTTP/HTTPS traffic to your Compute Engine instances.
+
+* [External HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https)
+* [External TCP Network Load Balancer](https://cloud.google.com/load-balancing/docs/network)
+
+If you are *only* using [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended), we recommend using the HTTP(S) Load Balancer.
+
+However, [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) aren't compatible with the HTTP(S) Load Balancer, so instead, we recommend using the Network Load Balancer. It allows you to configure TCP Forwarding rules on a specific port to each compute engine instance, which is [one way to route traffic to each individual node](#using-a-unique-port) as required for Polling Tentacles when running Octopus High Availability. 
+
+To use Network Load Balancers exclusively for Octopus High Availability with Polling Tentacles you'd potentially need to configure multiple load balancer(s) / forwarding rules:
+
+- One to serve the Octopus Web Portal HTTP traffic to your backend pool of Compute engine instances:
+
+   ![Network Load Balancer for Web portal](/docs/administration/high-availability/design/images/gcp-octopus-nlb-web-portal.png "width=500")
+
+- One *for each* Compute engine instance for Polling Tentacles to connect to:
+
+   ![Network Load Balancer for Polling Tentacles](/docs/administration/high-availability/design/images/gcp-octopus-nlb-polling.png "width=500")
+
+With Network Load Balancers, you can configure a health check to ensure your Compute engine instances are healthy before traffic is served to them:
+
+:::figure
+![Network Load Balancer health check](/docs/administration/high-availability/design/images/gcp-octopus-nlb-health-check.png "width=500")
+:::
