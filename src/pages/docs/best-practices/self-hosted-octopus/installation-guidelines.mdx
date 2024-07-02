@@ -43,7 +43,7 @@ One question we get asked a lot is "should we have a single instance to deploy t
 Of the customers who opt for an instance per environment, we see them have an instance for **development** and **test** environments with another instance for **staging** and **production** environments. 
 
 If you chose this instance configuration, you would need a process to:
-- Clone all the library variables and project variables, and notify you when a new scoped variable is added.
+- Clone all the variable sets and project variables, and notify you when a new scoped variable is added.
 - Sync the deployment and runbook processes, but skip over steps assigned to **development** and **test**.
 - Update any user step templates to the latest version.
 - Ensure the same lifecycle names exist on both instances but not have the same phases.

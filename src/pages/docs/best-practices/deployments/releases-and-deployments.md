@@ -40,7 +40,7 @@ Release creation triggers have the following limitations:
 
 ## Updating a release
 
-The release includes a snapshot containing the deployment process, variables (including Library Variable Sets), and package versions.  
+The release includes a snapshot containing the deployment process, variables (including Variable Sets), and package versions.  
 
 You can update the following in a release:
 
