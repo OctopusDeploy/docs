@@ -27,7 +27,7 @@ As the agent is already running inside the target cluster, Octopus Server no lon
 
 ### Cluster-aware tooling
 
-As the agent is running in the cluster, it can retrieve the cluster's version and correctly use tooling that's specific to that version. You also need a lot less tooling as there are no longer any requirements for custom authentication plugins. See the [agent provided tooling](#agent-supported-tooling) section for more details.
+As the agent is running in the cluster, it can retrieve the cluster's version and correctly use tooling that's specific to that version. You also need a lot less tooling as there are no longer any requirements for custom authentication plugins. See the [agent tooling](#agent-tooling) section for more details.
 
 ## Requirements
 
@@ -193,9 +193,9 @@ To include this in the installation command, add the following to the generated 
 --set agent.serverCertificate="<base64-encoded-cert>"
 ```
 
-## Agent supported tooling
+## Agent tooling
 
-By default, the agent will look for an [container image](/docs/projects/steps/execution-containers-for-workers) for the workload it's executing against the cluster. If one isn't specified, Octopus will execute the Kubernetes workload using the `octopusdeploy/kubernetes-agent-tools-base` container. It will correctly select the version of the image that's specific to the cluster's version. 
+By default, the agent will look for a [container image](/docs/projects/steps/execution-containers-for-workers) for the workload it's executing against the cluster. If one isn't specified, Octopus will execute the Kubernetes workload using the `octopusdeploy/kubernetes-agent-tools-base` container. It will correctly select the version of the image that's specific to the cluster's version. 
 
 This image contains the minimum required tooling to run Kubernetes workloads for Octopus Deploy, namely:
 
