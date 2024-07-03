@@ -21,6 +21,21 @@ It's worth noting that you need to have created the folders within the Azure Fil
 
 [Install Octopus](/docs/installation) and then run the following:
 
+If the shared folders are going to exist in the same root location, you can use a single command to set the root and it will automatically set the individual components to subfolders within the root
+
+```powershell
+& 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --clusterShared "Z:\SharedFolder"
+```
+
+The resulting folder structure will look something like this:
+Z:\SharedFolder\Artifacts
+Z:\SharedFolder\TaskLogs
+Z:\SharedFolder\Packages
+Z:\SharedFolder\Imports
+Z:\SharedFolder\EventExports
+
+In the event you need the locations to be in different locations, you have the flexibility to set the paths to the individual items
+
 ```powershell
 # Set the path 
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --artifacts "Z:\Artifacts"
