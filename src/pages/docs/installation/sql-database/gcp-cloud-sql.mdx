@@ -1,0 +1,30 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-05-22
+title: GCP Cloud SQL
+description: Guidelines and recommendations for configuring GCP Cloud SQL to host the Octopus Deploy Database.
+navOrder: 40
+hideInThisSection: true
+---
+
+Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in GCP, there are two options to consider:
+
+- [SQL Server Virtual Machine instances](https://cloud.google.com/compute/docs/instances/sql-server/creating-sql-server-instances) -  To run SQL Server on a VM, please refer to our [self-managed SQL Server guide](/docs/installation/sql-database/self-managed-sql-server).
+- [Cloud SQL](https://cloud.google.com/sql/sqlserver)
+
+## High Availability
+
+The database is a critical component of Octopus Deploy.  If the database is lost or destroyed all your configuration will be lost with it.  We highly recommend leveraging a combination of backups and SQL Server's high availability functionality.  
+
+We recommend using [high availability](https://cloud.google.com/sql/docs/sqlserver/high-availability) with Cloud SQL to ensure the resilience and availability of your Octopus database. This will ensure that your data is replicated across multiple zones within your primary region. In the event of a failure of the primary zone Cloud SQL automatically switches to the secondary zone.
+
+## Disaster Recovery
+
+For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with Cloud SQL we recommend using [Replication](https://cloud.google.com/sql/docs/sqlserver/replication). All database transactions performed in the primary region will be asynchronously replicated to the secondary region.
+
+In the event of a primary region failure we recommend following Google's [documentation](https://cloud.google.com/sql/docs/sqlserver/replication/cross-region-replicas) to promote the replica. Following this you would need to re-configure your Octopus connection string to use the newly promoted replica.
+
+:::div{.warning}
+When a disaster occurs, any data not synchronized will be lost.  Depending on the replication speed, this could be up to a couple of minutes.
+:::
