@@ -15,10 +15,6 @@ After you have created your File Share, the best option is to add the Azure File
 
 For the purposes of this document, we will use `Z:\` as the drive letter.  Note: Use of a drive letter is for demonstration purposes, Azure Files supports UNC paths as well.
 
-:::div{.hint}
-It's worth noting that you need to have created the folders within the Azure File Share first before running this step. 
-:::
-
 [Install Octopus](/docs/installation) and then run the following:
 
 If the shared folders are going to exist in the same root location, you can use a single command to set the root and it will automatically set the individual components to subfolders within the root
@@ -35,6 +31,10 @@ Z:\SharedFolder\Imports
 Z:\SharedFolder\EventExports
 
 In the event you need the locations to be in different locations, you have the flexibility to set the paths to the individual items
+
+:::div{.hint}
+It's worth noting that you need to have created the folders within the Azure File Share first before running this step. 
+:::
 
 ```powershell
 # Set the path 
