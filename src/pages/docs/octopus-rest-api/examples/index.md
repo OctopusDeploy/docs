@@ -65,7 +65,7 @@ Explore the REST API examples further in this section:
 
 - [Accounts](/docs/octopus-rest-api/examples/accounts)
 - [Artifacts](/docs/octopus-rest-api/examples/artifacts)
-- [Certficates](/docs/octopus-rest-api/examples/certificates)
+- [Certificates](/docs/octopus-rest-api/examples/certificates)
 - [Channels](/docs/octopus-rest-api/examples/channels)
 - [Deployment process](/docs/octopus-rest-api/examples/deployment-process)
 - [Deployment targets](/docs/octopus-rest-api/examples/deployment-targets)
