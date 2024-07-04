@@ -1,0 +1,97 @@
+---
+import {
+  PostOrdering,
+  PostFiltering,
+  Accelerator,
+} from 'astro-accelerator-utils';
+import type { MarkdownInstance } from 'astro-accelerator-utils/types/Astro';
+import type { Page } from 'astro';
+import { SITE } from '@config';
+import PagingLinks from '@components/PagingLinks.astro';
+
+// Props
+type Props = {
+  title: string;
+  page: Page<MarkdownInstance>;
+  headings: { depth: number; slug: string; text: string }[];
+  pubDate: Date;
+};
+const { page } = Astro.props satisfies Props;
+const lang = SITE.default.lang;
+
+// Logic
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics(
+  'report/oldest-content/[page].astro'
+);
+stats.start();
+
+export async function getData() {
+  const accelerator = new Accelerator(SITE);
+  const allPages = accelerator.posts.all();
+  const pageCount = allPages.length;
+  const pages = allPages
+    .filter(PostFiltering.isListable)
+    .sort(PostOrdering.sortByModDate);
+
+  return pages;
+}
+
+export async function getStaticPaths({ paginate }: any) {
+  let data = await getData();
+
+  return paginate(data, {
+    pageSize: 50,
+  });
+}
+
+// Page Links
+const pageLinks = accelerator.paging.links(
+  SITE.pageLinks,
+  page.lastPage,
+  page.currentPage,
+  page.url.current
+);
+
+stats.stop();
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Oldest content</title>
+    <link rel="stylesheet" href="/css/report.css" />
+  </head>
+  <body>
+    <h2>Report: Oldest content (Page <Fragment content={page.currentPage} />)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Published</th>
+          <th>Modified</th>
+        </tr>
+      </thead>
+      {
+        page.data.map((p) => (
+          <tr>
+            <td>
+              {PostFiltering.isListable(p) && (
+                <a href={accelerator.urlFormatter.formatAddress(p.url)}>
+                  {p.frontmatter.title}
+                </a>
+              )}
+              {PostFiltering.isListable(p) == false && (
+                <span>{p.frontmatter.title}</span>
+              )}
+            </td>
+            <td>{p.frontmatter.pubDate}</td>
+            <td>{p.frontmatter.modDate}</td>
+          </tr>
+        ))
+      }
+    </table>
+    <PagingLinks lang={lang} page={page} pageLinks={pageLinks} />
+  </body>
+</html>
