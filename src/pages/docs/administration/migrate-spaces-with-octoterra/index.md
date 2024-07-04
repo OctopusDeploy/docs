@@ -41,7 +41,7 @@ Some steps rely on a new framework. Steps that use the new framework are not cur
 
 Octoterra will display an error like this when an unsupported step is encountered:
 
-```Bash
+```bash
 Action <step name> has the "Items" property, which indicates that it is from the new step framework. These steps are not supported and are not exported.
 ```
 
@@ -88,7 +88,7 @@ Recreating the space level resources is optional if the destination space alread
 
 To export the space level resources, run the following command in Linux and macOS:
 
-```Bash
+```bash
 ./octoterra \
   -url https://yourinstance.octopus.app \
   -space Spaces-1234 \
@@ -99,7 +99,7 @@ To export the space level resources, run the following command in Linux and macO
 
 Here is the command for Windows and Powershell:
 
-```Powershell
+```powershell
 ./octoterra `
   -url https://yourinstance.octopus.app `
   -space Spaces-1234 `
@@ -111,7 +111,7 @@ Here is the command for Windows and Powershell:
 :::div{.hint}
 Use the `-terraformBackend` option to define a custom remote backend. The following example defines the [s3](https://developer.hashicorp.com/terraform/language/settings/backends/s3) remote backend:
 
-```Bash
+```bash
 ./octoterra \
   -url https://yourinstance.octopus.app \
   -space Spaces-1234 \
@@ -126,19 +126,19 @@ In this example, the Terraform module is created in the directory `~/Desktop/spa
 
 To recreate the space, enter the directory:
 
-```Bash
+```bash
 cd ~/Desktop/space/space_population
 ```
 
 Initialize the Terraform module:
 
-```Bash
+```bash
 terraform init
 ```
 
 Then apply the module:
 
-```Bash
+```bash
 terraform apply
 ```
 
@@ -147,7 +147,7 @@ Terraform prompts you for the Octopus server URL, API Key, space ID, and for the
 :::div{.hint}
 If you would rather manually enter any sensitive values after the space has been imported, use the `-dummySecretVariableValues` option with octoterra, for example:
 
-```Bash
+```bash
 ./octoterra \
   -url https://yourinstance.octopus.app \
   -space Spaces-1234 \
@@ -166,7 +166,7 @@ Any resources with a sensitive value must be manually updated after the module i
 
 Here is the command to export a project to a Terraform module for Linux and macOS:
 
-```Bash
+```bash
 ./octoterra \
   -url https://yourinstance.octopus.app \
   -space Spaces-1234 \
@@ -178,7 +178,7 @@ Here is the command to export a project to a Terraform module for Linux and macO
 
 Here is the command for Windows and Powershell:
 
-```Powershell
+```powershell
 ./octoterra `
   -url https://yourinstance.octopus.app `
   -space Spaces-1234 `
@@ -191,7 +191,7 @@ Here is the command for Windows and Powershell:
 :::div{.hint}
 If your project or runbooks include step templates and the project will be recreated in a new space, you must detach the step templates using the `-detachProjectTemplates` argument:
 
-```Bash
+```bash
 ./octoterra \
   -url https://yourinstance.octopus.app \
   -space Spaces-1234 \
@@ -207,7 +207,7 @@ When the project is recreated, the step template steps will be recreated in a de
 
 If you get an error like this when applying a module, it can mean that a project or runbook is referencing a step template that does not exist in the target space, and you must use the `-detachProjectTemplates` argument:
 
-```Bash
+```bash
 Error: Octopus API error: Resource is not found or it doesn't exist in the current space context. Please contact your administrator for more information. [] 
 ```
 :::
@@ -216,19 +216,19 @@ In this example, the Terraform module is created in the directory `~/Desktop/pro
 
 To recreate the project, enter the directory:
 
-```Bash
+```bash
 cd ~/Desktop/project/space_population
 ```
 
 Initialize the Terraform module:
 
-```Bash
+```bash
 terraform init
 ```
 
 Then apply the module:
 
-```Bash
+```bash
 terraform apply
 ```
 
@@ -237,7 +237,7 @@ Terraform will prompt you for the Octopus server URL, API Key, space ID, and for
 :::div{.hint}
 The `-dummySecretVariableValues` option with can also be used when exporting projects to place a dummy value into any exported sensitive variables:
 
-```Bash
+```bash
 ./octoterra \
   -url https://yourinstance.octopus.app \
   -space Spaces-1234 \
@@ -301,7 +301,7 @@ variable "project_my_project_git_url" {
 
 The default value of this variable is the URL of the Git repo configured for the source project. To override this value when applying the module, pass the argument `-var=project_my_project_git_url=https://github.com/organization/new_repo_name.git`, for example:
 
-```Bash
+```bash
 terraform apply -var=project_my_project_git_url=https://github.com/organization/new_repo_name.git
 ```
 
@@ -317,7 +317,7 @@ The combination of these two arguments essentially exports a CaC project as if i
 
 This is an example command for Linux and macOS: 
 
-```Bash
+```bash
 ./octoterra \
   -url https://yourinstance.octopus.app \
   -space Spaces-1234 \
@@ -332,7 +332,7 @@ This is an example command for Linux and macOS:
 
 This is an example command for Windows Powershell:
 
-```Powershell
+```powershell
 ./octoterra `
   -url https://yourinstance.octopus.app `
   -space Spaces-1234 `
@@ -357,7 +357,7 @@ The first step is to export a Terraform module that embeds the deployment proces
 
 This is an example command for Linux and macOS:
 
-```Bash
+```bash
 ./octoterra \
   -url https://yourinstance.octopus.app \
   -space Spaces-1234 \
@@ -372,7 +372,7 @@ This is an example command for Linux and macOS:
 
 This is an example command for Windows Powershell:
 
-```Powershell
+```powershell
 ./octoterra `
   -url https://yourinstance.octopus.app `
   -space Spaces-1234 `
@@ -387,7 +387,7 @@ This is an example command for Windows Powershell:
 
 When the module is applied, the Git repository URL needs to be set to the location of the target repository that the project will use once it is converted back to CaC:
 
-```Bash
+```bash
 terraform apply -var=project_my_project_git_url=https://github.com/organization/new_repo_name.git
 ```
 

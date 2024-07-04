@@ -28,7 +28,7 @@ A Helm chart deployment like this is simple with Octopus Deploy.
 
 Sample OCL for version controlled projects:
 
-```ocl
+```ruby
 step "deploy-ingress-nginx-helm-chart" {
     name = "Deploy Ingress Nginx Helm Chart"
     properties = {
@@ -71,7 +71,7 @@ You can change our releases to track the Helm chart version by heading to the pr
 
 Sample OCL for version controlled projects:
 
-```ocl
+```ruby
 versioning_strategy {
     donor_package {
         step = "deploy-ingress-nginx-helm-chart"
