@@ -37,6 +37,17 @@ All package uploads are sent as a POST to the REST API endpoint `/api/[SPACE-ID]
 - Timeout: Octopus is designed to handle 1 GB+ packages, which takes longer than the typical http/https timeout to upload.
 - Request Size: Octopus does not have a size limit on the request body for packages.  Some load balancers only allow 2 or 3 MB files by default.
 
+## Polling Tentacles
+
+Polling tentacles deserve special attention due to how they work with Octopus Deploy.  Each node that processes tasks must be registered with every polling tentacle.
+
+We recommend having a dedicated URL for each node in the primary region and routing all traffic through a load balancer or a traffic manager.  When you have to fail over to the secondary region, update the dedicated URLs to point to a corresponding node in the secondary region.
+
+:::div{.warning}
+Important! You must configure the traffic to be “pass through” with no SSL off-loading.  The tentacles and Octopus Deploy establish a two-way trust via certificates.  If a third unknown certificate is introduced, the tentacle and Octopus deploy will reject the connection.
+:::
+
+
 ## Third Party Load Balancers
 
 This section contains information on how to set up third-party load balancers for use with Octopus High Availability:
