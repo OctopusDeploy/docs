@@ -9,7 +9,24 @@ hideInThisSection: true
 ---
 import FileStorageHA from 'src/shared-content/installation/file-storage-ha.include.md';
 
-AWS offers file storage called `Amazon FSx`, It's a native Windows file system built on Windows Server. It includes full support for the SMB protocol, Windows NTFS, and requires Microsoft Active Directory (AD) integration. This makes it an ideal choice for connecting to your EC2 instances hosting Octopus to store all your Octopus packages and log files.
+AWS has multiple storage options to choose from:
+- Elastic Block Store (EBS)
+- Elastic File System (EFS)
+- FSx
+
+## Elastic Block Store (EBS)
+AWS EBS is limited in that it can be attached to only one EC2 or container instance and is not an option for High Availiblity.
+
+## Elastic File System (EFS)
+EFS is perhaps the most versatile storage options that AWS offers.  EFS works with EC2 instances, ECS services, and EKS clusters.  If you intend on running [Octopus Deploy Server as a Linux Container](https://octopus.com/docs/installation/octopus-server-linux-container), EFS is likely going to be your only option.
+
+### EC2
+Amazon provies an [easy way](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEFS.html) to connect Linux based EC2 instances to EFS.  As noted on https://docs.aws.amazon.com/efs/latest/ug/mounting-fs.html, Amazon does not support mounting EFS to EC2 instances running Windows.  Windows, however, has an NFS client that can be installed to configure and access NFS shares.
+
+<reference the windows-nfs.md file here>
+
+## FSx
+`Amazon FSx` includes full support for the SMB protocol, Windows NTFS, and **requires** Microsoft Active Directory (AD) integration. This makes it an ideal choice for connecting to your EC2 instances hosting Octopus to store all your Octopus packages and log files.
 
 If you choose to go with Amazon FSx there are some resources that will help you get started:
 - AWS have a [starter guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html) which explains how to configure Amazon FSx and connect it up to an EC2 machine.
