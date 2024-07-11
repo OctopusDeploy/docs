@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-07-09
 title: Docker Container Registry
 description: A Docker Registry is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 navOrder: 20
@@ -76,13 +76,14 @@ We have provided further details on setting up a Octopus Feed to the following D
 - [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/guides/container-registries/amazon-ec2-container-services)
 - [Cloudsmith](/docs/packaging-applications/package-repositories/guides/cloudsmith-feed)
 
-Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 
-:::div{.problem}
+### Known limitations
+In the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 
-**Searching in a v2 Registry**
+Authentication to [GitLab container registries using a GitLab deploy token](https://github.com/OctopusDeploy/Issues/issues/8156) is not supported.
+
+
 Although a search feature is available in the v1 registry API, as of the time of writing there is no built-in search ability in the v2 specifications. There are ongoing discussions around an open [GitHub ticket](https://github.com/docker/distribution/issues/206) in the Docker registry Github repository however there is no clear indication if one will be provided due to changes in the philosophy behind the registry responsibilities. The current workaround, and one that Octopus Deploy uses when a v2 Docker registry is provided, is to retrieve the full catalog via the [/v2/\_catalog](https://docs.docker.com/registry/spec/api/#/listing-repositories) endpoint and search for the required image locally.
-:::
 
 ## Troubleshooting Registry Connections ##
 If your Octopus Deploy instance is having problems trying to connect with your Docker Registry when running the **Save and Test** operation, it may failing due to reasons outside the control of Octopus Deploy.
