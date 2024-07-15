@@ -1,0 +1,66 @@
+/** @format */
+
+:root {
+    --pop: #0d80d8;
+
+    --color-header-bg: var(--pop);
+    --color-header-fg: #fff;
+    --color-row-border: #ddd;
+    --color-table-border: var(--pop);
+    --color-row-bg: #f9f9f9;
+    --color-row-bg-alt: #f3f3f3;
+    --color-row-bg-focus: #e5e5e5;
+
+    --block-radius: 0.3rem;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2em;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead tr {
+    background-color: var(--color-header-bg);
+    color: var(--color-header-fg);
+    text-align: left;
+    border-radius: var(--block-radius) var(--block-radius) 0 0;
+}
+
+table th:first-child {
+    border-radius: var(--block-radius) 0 0 0;
+}
+
+table th:last-child {
+    border-radius: 0 var(--block-radius) 0 0;
+}
+
+th,
+td {
+    padding: 12px 15px;
+}
+
+tbody tr {
+    background-color: var(--color-row-bg);
+    border-bottom: 1px solid var(--color-row-border);
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: var(--color-row-bg-alt);
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid var(--color-table-border);
+}
+
+tbody tr:hover {
+    background-color: var(--color-row-bg-focus);
+}

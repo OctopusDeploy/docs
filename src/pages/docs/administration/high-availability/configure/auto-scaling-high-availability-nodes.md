@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Auto Scaling High Availability Nodes
 description: What to consider if you want to use auto-scaling technology to scale out your Octopus Server High Availability Cluster automatically.
 navOrder: 50
@@ -15,7 +15,7 @@ At this time, we don't recommend auto-scaling if you are using polling tentacles
 
 ## Adding new nodes with Scale-out events
 
-A scale-out event is when auto-scaling technology decides it is time to create a new virtual machine via a schedule or a metric-based trigger.  Octopus High Availablity is designed for new nodes to come online at random intervals.  When you create a new node, an entry is added to the `OctopusServerNodes` table with a default task cap of `5`.  That node will start picking up tasks to process within 60 seconds.  A scale-out event is treated no differently than a person manually creating a VM and configuring as a new node via the UI.
+A scale-out event is when auto-scaling technology decides it is time to create a new virtual machine via a schedule or a metric-based trigger.  Octopus High Availability is designed for new nodes to come online at random intervals.  When you create a new node, an entry is added to the `OctopusServerNodes` table with a default task cap of `5`.  That node will start picking up tasks to process within 60 seconds.  A scale-out event is treated no differently than a person manually creating a VM and configuring as a new node via the UI.
 
 The sections below will walk you through _how_ to automate adding new nodes via a script.
 
@@ -49,11 +49,11 @@ $msiFileName = "Octopus.$versionToDownload-x64.msi"
 $downloadUrl = "https://download.octopusdeploy.com/octopus/$msiFileName"
 $downloadFileName = "$downloadLocation\$msiFileName"
 
-## Bits transfer is much faster than invoke-restmethod or invoke-webrequest for downloading files
+## Bits transfer is much faster than Invoke-RestMethod or Invoke-WebRequest for downloading files
 Write-Output "Downloading $downloadUrl to $outfile"
 Start-BitsTransfer -source $downloadUrl -destination $outfile
 
-$msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $downloadFileNam /quiet" -Wait -Passthru).ExitCode 
+$msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $downloadFileNam /quiet" -Wait -PassThru).ExitCode 
 Write-Output "Server MSI installer returned exit code $msiExitCode" 
 ```
 
@@ -94,13 +94,13 @@ $masterKey = "YOUR MASTER KEY"
 $databaseServer = "YOUR DATABASE SERVER"
 $databaseName = "YOUR DATABASE NAME"
 $userName = "YOUR DOMAIN SERVICE ACCOUNT USER NAME"
-$password = "YOUR DOMAIN SERVCIE ACCOUNT PASSWORD"
+$password = "YOUR DOMAIN SERVICE ACCOUNT PASSWORD"
 $taskCapSize = "5" ##set this to 0 for UI-only nodes!
 
 ## Add your network mapping script here!
 
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" create-instance --instance "Default" --config "C:\Octopus\OctopusServer.config"
-& "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" database --instance "Default" --masterKey "$masterkey" --connectionString "Data Source=$databaseserver;Initial Catalog=$databaseName;Integrated Security=True;"
+& "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" database --instance "Default" --masterKey "$masterKey" --connectionString "Data Source=$databaseServer;Initial Catalog=$databaseName;Integrated Security=True;"
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" configure --instance "Default" --webForceSSL "False" --webListenPrefixes "http://localhost:80/" --commsListenPort "10943"
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --stop
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --user "$userName" --password "$password"  --install --reconfigure --start
@@ -123,7 +123,7 @@ $taskCapSize = "5" ##set this to 0 for UI-only nodes!
 ## Add your network mapping script here!
 
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" create-instance --instance "Default" --config "C:\Octopus\OctopusServer.config"
-& "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" database --instance "Default" --masterKey "$masterkey" --connectionString "Data Source=$databaseServer;Initial Catalog=$databaseName;Integrated Security=False;User ID=$userName;Password=$password"
+& "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" database --instance "Default" --masterKey "$masterKey" --connectionString "Data Source=$databaseServer;Initial Catalog=$databaseName;Integrated Security=False;User ID=$userName;Password=$password"
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" configure --instance "Default" --webForceSSL "False" --webListenPrefixes "http://localhost:80/" --commsListenPort "10943"
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --stop
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --user "$userName" --password "$password"  --install --reconfigure --start
@@ -226,8 +226,8 @@ The user required to run this script will need `Administrator` rights to your cl
 :::
 
 ```powershell
-$octopusUrl = "URL of your instances" # e.g. https://samples.octopus.app
-$octopusApiKey = "YOUR API KEY"
+$octopusUrl = "https://your-octopus-url"
+$octopusApiKey = "API-YOUR-KEY"
 $nodeName = "Name of node to delete"
 
 function Write-OctopusVerbose
@@ -303,7 +303,7 @@ function Invoke-OctopusApi
             return Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -Body $body -ContentType 'application/json; charset=utf-8' 
         }
 
-        Write-OctopusVerbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-OctopusVerbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         return $result               

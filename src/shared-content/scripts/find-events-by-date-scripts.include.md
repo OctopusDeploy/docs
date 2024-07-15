@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $eventDate = "8/1/2021"
 function Get-OctopusItems
 {
@@ -86,8 +86,8 @@ foreach ($event in $events)
 Add-Type -Path "path:\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $eventDate = "8/1/2021"
 
@@ -138,8 +138,8 @@ using System.Text.RegularExpressions;
 
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "Default";
 DateTime eventDate = new DateTime(2021, 8, 1);
 
@@ -215,8 +215,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourUrl'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 event_date = "8/1/2021"
@@ -256,11 +256,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	eventDate := "8/1/2021"
 

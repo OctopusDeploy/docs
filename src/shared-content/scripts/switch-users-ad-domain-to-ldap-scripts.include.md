@@ -4,8 +4,8 @@
 ```powershell
 $ErrorActionPreference = "Stop"
 
-$octopusURL = "https://your.octopus.app" # Replace with your instance URL
-$octopusAPIKey = "API-YOURKEY" # Replace with a service account API Key
+$octopusURL = "https://your-octopus-url" # Replace with your instance URL
+$octopusAPIKey = "API-YOUR-KEY" # Replace with a service account API Key
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # The max number of records you want to update in this batch
@@ -126,7 +126,7 @@ while ($True) {
                             $claimName = $claimName.Name
                             $claim = $identity.Claims.$ClaimName
                         
-                            if ($null -ne $claim.Value -and $claim.Value.ToLower() -eq $expectedMatch.Tolower() -and $claim.IsIdentifyingClaim -eq $true) {
+                            if ($null -ne $claim.Value -and $claim.Value.ToLower() -eq $expectedMatch.ToLower() -and $claim.IsIdentifyingClaim -eq $true) {
                                 Write-Host "Found the user's LDAP record, add that to Octopus Deploy"
                                 $LdapIdentity = $identity
                                 $ldapMatchFound = $true

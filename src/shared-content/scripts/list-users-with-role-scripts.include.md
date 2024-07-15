@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusBaseURL = "https://youroctourl/api"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusBaseURL = "https://your-octopus-url/api"
+$octopusAPIKey = "API-YOUR-KEY"
 $headers = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 $roleName = "Project Deployer"
@@ -97,8 +97,8 @@ foreach ($team in $teams)
 
 ```powershell
 # Define working variables
-$octopusBaseURL = "https://youroctourl/api"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusBaseURL = "https://your-octopus-url/api"
+$octopusAPIKey = "API-YOUR-KEY"
 
 # Load the Octopus.Client assembly from where you have it located.
 Add-type -Path "C:\Octopus.Client\Octopus.Client.dll"
@@ -184,8 +184,8 @@ catch
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
-var octopusBaseURL = "https://youroctourl/api";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusBaseURL = "https://your-octopus-url/api";
+var octopusAPIKey = "API-YOUR-KEY";
 
 var endpoint = new OctopusServerEndpoint(octopusBaseURL, octopusAPIKey);
 var repository = new OctopusRepository(endpoint);
@@ -304,8 +304,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 role_name = 'Project deployer'
 space_name = 'Default'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
@@ -371,11 +371,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 
 	//spaceName := "Default"
 	userRoleName := "Project deployer"

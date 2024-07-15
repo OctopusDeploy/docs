@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$apiKey = "Your API Key"
-$OctopusURL = "https://yoururl.octopus.app/"
+$OctopusURL = "https://your-octopus-url"
+$apiKey = "API-YOUR-KEY"
 
 $ProjectName = "Your Project Name"
 $EnvironmentName = "Your Environment Name"
@@ -44,7 +44,7 @@ foreach($element in $deploymentPreview.Form.Elements)
     $uniqueName = $element.Name
     $isRequired = $element.Control.Required
     
-    $promptedVariablefound = $false
+    $promptedVariableFound = $false
     
     Write-Host "Looking for the prompted variable value for $nameToSearchFor"
     foreach ($promptedValue in $promptedValueList)
@@ -92,8 +92,8 @@ Invoke-RestMethod -Uri "$OctopusURL/api/$spaceId/deployments" -Method Post -Head
 ```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $projectName = "MyProject"
 $releaseVersion = "0.0.1"
@@ -163,8 +163,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 using System.Linq;
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var projectName = "MyProject";
 var releaseVersion = "0.0.1";
@@ -261,8 +261,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 project_name = "MyProject"
@@ -340,11 +340,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-MyAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	projectName := "MyProject"
 	releaseVersion := "0.0.1"
@@ -453,14 +453,14 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 
 func GetProjectReleases(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, project *octopusdeploy.Project) []interface{} {
 	// Define api endpoint
-	projectReleasesEndoint := octopusURL.String() + "/api/" + space.ID + "/projects/" + project.ID + "/releases"
+	projectReleasesEndpoint := octopusURL.String() + "/api/" + space.ID + "/projects/" + project.ID + "/releases"
 
 	// Create http client
 	httpClient := &http.Client{}
 	skipAmount := 0
 
 	// Make request
-	request, _ := http.NewRequest("GET", projectReleasesEndoint, nil)
+	request, _ := http.NewRequest("GET", projectReleasesEndpoint, nil)
 	request.Header.Set("X-Octopus-ApiKey", APIKey)
 	response, err := httpClient.Do(request)
 

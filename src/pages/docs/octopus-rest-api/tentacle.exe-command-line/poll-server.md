@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Poll server
 description: Using the Tentacle.exe command line executable to configure the Octopus Server this Tentacle will poll.
 ---
@@ -48,5 +48,5 @@ Or one of the common options:
 This example configures the Octopus Server that the polling Tentacle polls:
 
 ```
-tentacle poll-server --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+tentacle poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```

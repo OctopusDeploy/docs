@@ -126,13 +126,13 @@ If you wish to use a new URL, you will need to run this script on each machine h
 Windows:
 
 ```
-C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=https://your.octopus.server --apikey=API-MyApiKey --server-comms-port=10943
+C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=https://your-octopus-url --apikey=API-YOUR-KEY --server-comms-port=10943
 ```
 
 Linux:
 
 ```
-/opt/octopus/tentacle/Tentacle poll-server --server=httpa://your.octopus.server --apikey=API-MyApiKey --server-comms-port=10943
+/opt/octopus/tentacle/Tentacle poll-server --server=https://your-octopus-url --apikey=API-YOUR-KEY --server-comms-port=10943
 ```
 
 ## Folder paths

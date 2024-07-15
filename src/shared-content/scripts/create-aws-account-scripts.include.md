@@ -35,8 +35,8 @@ function Get-OctopusItems
     return $items
 }
 
-$apikey = 'API-YOURAPIKEY' # Get this from your profile
-$OctopusUrl = 'https://youroctourl' # Your Octopus Server address
+$OctopusUrl = 'https://your-octopus-url' # Your Octopus Server address
+$apikey = 'API-YOUR-KEY' # Get this from your profile
 $spaceName = "default"
 $spaceId = ""
 
@@ -65,7 +65,7 @@ $jsonPayload = @{
     }
     Name = $accountName
     Description = $accountDescription
-    TenantedDeploymentparticipation = $accountTenantParticipation
+    TenantedDeploymentParticipation = $accountTenantParticipation
     TenantTags = $accountTenantTags
     TenantIds = $accountTenantIds
     EnvironmentIds = $accountEnvironmentIds
@@ -93,8 +93,8 @@ Invoke-RestMethod -Method Post -Uri "$OctopusUrl/api/$spaceId/accounts" -Body ($
 ```powershell
 # Load assembly
 Add-Type -Path 'C:\Octopus.Client\Octopus.Client.dll'
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 
 # AWS Credentials
 $awsAccessKey = "AWSAccessKey"
@@ -151,8 +151,8 @@ catch
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var OctopusURL = "https://youroctourl";
-var OctopusAPIKey = "API-YOURAPIKEY";
+var OctopusURL = "https://your-octopus-url";
+var OctopusAPIKey = "API-YOUR-KEY";
 
 // Azure specific details
 string awsAccessKey = "AWS Access Key";
@@ -207,8 +207,8 @@ catch (Exception ex)
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 space_name = 'Default'
@@ -261,11 +261,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	awsAccountName := "MyAWSAccount"
 	awsAccessKey := "MyAccessKey"
 	awsSecretKey := "MySecretKey"

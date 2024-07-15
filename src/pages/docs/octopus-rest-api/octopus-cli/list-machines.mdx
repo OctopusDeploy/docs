@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: List machines
 description: Lists all machines
 navOrder: 100
@@ -98,25 +98,25 @@ Common options:
 This example lists all machines on the instance:
 
 ```
-octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+octo list-machines --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
 This example lists all machines that are in the Test environment:
 
 ```
-octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Test"
+octo list-machines --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --environment="Test"
 ```
 
 This example lists all machines that are in the Development environment and the Production environment:
 
 ```
-octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --environment="Production"
+octo list-machines --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --environment="Development" --environment="Production"
 ```
 
 This example lists all machines that need a Calamari upgrade in space [Target - Hybrid](https://samples.octopus.app/app#/Spaces-342):
 
 ```
-octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --calamari-outdated="true" --space="Target - Hybrid"
+octo list-machines --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --calamari-outdated="true" --space="Target - Hybrid"
 ```
 
 ## Learn more

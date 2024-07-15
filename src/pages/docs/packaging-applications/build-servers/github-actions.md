@@ -420,7 +420,7 @@ GitHub Action Integrations v3 no longer requires the Octo CLI to function. This 
 
 ### Migration Guides
 
-Migrations guides can be found on each [GitHub Action Integration Repo](https://github.com/OctopusDeploy/create-release-action/blob/main/migration-guide/).
+Migrations guides can be found on each [GitHub Action Integration Repo](https://github.com/OctopusDeploy/create-release-action/blob/main/migration-guide.md).
 
 ### New GitHub Actions
 

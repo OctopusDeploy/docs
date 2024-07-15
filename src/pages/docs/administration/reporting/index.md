@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-27
 title: Reporting
 description: Octopus reporting makes it easy to produce reports over your deployment history, using your preferred reporting tools.
 navOrder: 80
@@ -22,7 +22,7 @@ The data allows you to report on questions like:
 - How many deployments were successful? How many failed?
 - How long do deployments take on average?
 
-If you're using Octopus Cloud, you will only be able to work with the API for your Reporting needs, and if you're using Octopus Server on-premises or in the Cloud you will be able to use all approaches mentioned in the Reporting section.
+If you're using Octopus Cloud, you'll only be able to work with the API for your reporting needs. If you're self-hosting Octopus you'll be able to use either the API or the database.
 
 ## Learn more
 

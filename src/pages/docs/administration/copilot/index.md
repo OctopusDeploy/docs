@@ -137,7 +137,7 @@ You must ensure the Octopus Copilot extension is installed for your organization
 
 ## The Octopus extension is not available
 
-WHen you type the `@` character in the VSCode Copilot extension you should see a list of available extensions to "talk" to:
+When you type the `@` character in the VSCode Copilot extension you should see a list of available extensions to "talk" to:
 
 ![List of extensions in VSCode Copilot chat](/docs/administration/copilot/extension-list.png)
 
@@ -146,6 +146,12 @@ If `@octopus-ai-app` is not in that list, try logging out:
 ![VSCode logout](/docs/administration/copilot/vscode-logout.png)
 
 When you log back in, you will have an opportunity to authorize the Octopus Copilot extension.
+
+## An error is returned
+
+Errors like `Prompt failed validation with the reason: Invalid response token parameter. Please file an issue.` can often be resolved by starting a new chat. Click the plus icon at the top of the chat window to start a new chat and enter your prompt again.
+
+![Chat error](/docs/administration/copilot/chat-error.png)
 
 ## Source code
 

@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $hostName = "MyHost"
@@ -55,8 +55,8 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/machines" -Hea
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $hostName = "MyHost"
 $tentaclePort = "10933"
@@ -114,8 +114,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string hostName = "MyHost";
 int tentaclePort = 10933;
@@ -173,8 +173,8 @@ catch (Exception ex)
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 
@@ -262,11 +262,11 @@ type EndPoint struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 
 	spaceName := "Default"
 	hostName := "MyMachine"
@@ -277,7 +277,7 @@ func main() {
 	// Get the space object
 	space := GetSpace(apiURL, APIKey, spaceName)
 
-	// Creat client for space
+	// Create client for space
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get the environment ids

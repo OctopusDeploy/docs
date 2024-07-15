@@ -2,8 +2,8 @@
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
-$octopusUrl = "https://YOURURL"
-$octopusApiKey = "YOUR API KEY"
+$octopusUrl = "https://your-octopus-url"
+$octopusApiKey = "API-YOUR-KEY"
 $reportPath = "./Report.csv"
 $spaceFilter = "Permissions" # Supports "all" for everything, wild cards "hello*" will pull back everything that starts with hello, or specific names.  Comma separated "Hello*,Testing" will pull back everything that starts with Hello and matches Testing exactly 
 $environmentFilter = "Production" # Supports "all" for everything, wild cards "hello*" will pull back everything that starts with hello, or specific names.  Comma separated "Hello*,Testing" will pull back everything that starts with Hello and matches Testing exactly
@@ -100,7 +100,7 @@ function Invoke-OctopusApi
             Write-OctopusVerbose "Ignoring cache."    
         }
 
-        Write-OctopusVerbose "No data to post or put, calling bog standard invoke-restmethod for $url"
+        Write-OctopusVerbose "No data to post or put, calling bog standard Invoke-RestMethod for $url"
         $result = Invoke-RestMethod -Method $method -Uri $url -Headers @{"X-Octopus-ApiKey" = "$ApiKey" } -ContentType 'application/json; charset=utf-8'
 
         if ($cachedResults.ContainsKey($url) -eq $true)
@@ -584,8 +584,8 @@ foreach ($permission in $permissionsReport)
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $reportPath = "./Report.csv"
 $spaceFilter = "Permissions" # Supports "all" for everything, wild cards "hello*" will pull back everything that starts with hello, or specific names.  Comma separated "Hello*,Testing" will pull back everything that starts with Hello and matches Testing exactly 
 $environmentFilter = "Production" # Supports "all" for everything, wild cards "hello*" will pull back everything that starts with hello, or specific names.  Comma separated "Hello*,Testing" will pull back everything that starts with Hello and matches Testing exactly
@@ -1136,7 +1136,7 @@ class Permission
         }
     }
 
-    public bool IncludScope
+    public bool IncludeScope
     {
         get;
         set;
@@ -1280,7 +1280,7 @@ static System.Collections.Generic.List<string> GetEnvironmentsScopedToProject (P
             {
                 if (!scopedEnvironments.Contains(environmentId))
                 {
-                    Console.WriteLine(string.Format("Adding {0} to {1} environemnt list", environmentId, Project.Name));
+                    Console.WriteLine(string.Format("Adding {0} to {1} environment list", environmentId, Project.Name));
                     scopedEnvironments.Add(environmentId);
                 }
             }
@@ -1451,10 +1451,10 @@ static void WritePermissionList (string PermissionName, System.Collections.Gener
     }
 }
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceFilter = "all";
-string environmentfilter = "Development";
+string environmentFilter = "Development";
 string permissionToCheck = "DeploymentCreate";
 string reportPath = "path:\\to\\csv.file";
 string userFilter = "all";
@@ -1481,7 +1481,7 @@ foreach (var spaceName in spaceList)
     var projectList = repositoryForSpace.Projects.GetAll();
     var environmentList = repositoryForSpace.Environments.GetAll();
 
-    environmentList = FilterEnvironmentList(environmentList, environmentfilter);
+    environmentList = FilterEnvironmentList(environmentList, environmentFilter);
 
     var tenantList = repositoryForSpace.Tenants.GetAll();
 
@@ -1772,8 +1772,8 @@ def write_permission_list (permission_name, permission_list, permission, report_
         report.write('\n'.join(["{0},{1},{2},{3},{4},{5}".format(row['Space'], row['Project'], row['PermissionName'], row['User'], row['EnvironmentScope'], row['TenantScope'])]) + '\n')
         report.close()
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_filter = "all"
 environment_filter = "Development"
@@ -1910,11 +1910,11 @@ type PermissionTenant struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceFilter := "all"
 	environmentFilter := "Development"
 	permissionToCheck := "DeploymentCreate"

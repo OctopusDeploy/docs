@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $projectName = "MyProject"
@@ -71,8 +71,8 @@ Write-Host "Published runbook snapshot: $($runbookPublishedSnapshot.Id) ($($runb
 ```powershell
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $projectName = "MyProject"
 $runbook = "MyRunbook"
@@ -138,8 +138,8 @@ using System.Linq;
 
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 
-var octopusURL = "https://YourURL";
-var octopusAPIKey = "API-YourAPIKey";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var projectName = "MyProject";
 var runbookName = "MyRunbook";
@@ -229,8 +229,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = 'Default'
 project_name = 'MyProject'
@@ -322,7 +322,7 @@ type runbooksnapshot struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}

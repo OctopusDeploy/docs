@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: List releases
 description: List releases by project
 navOrder: 100
@@ -83,13 +83,13 @@ Common options:
 This example lists all releases for the Wingtip Toys project on the default space:
 
 ```
-octo list-releases --project="WingtipToys" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+octo list-releases --project="WingtipToys" --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
-This example lists all releases for projects `Dbup - AWS RDS`, `Flyway - AWS RDS`, and `RoundhousE - AWS RDS` on space [Target - MySQL](https://samples.octopus.app/app#/Spaces-242):
+This example lists all releases for projects `DbUp - AWS RDS`, `Flyway - AWS RDS`, and `RoundhousE - AWS RDS` on space [Target - MySQL](https://samples.octopus.app/app#/Spaces-242):
 
 ```
-octo list-releases --project="Dbup - AWS RDS" --project="Flyway - AWS RDS" --project="RoundhousE - AWS RDS" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - MySQL"
+octo list-releases --project="DbUp - AWS RDS" --project="Flyway - AWS RDS" --project="RoundhousE - AWS RDS" --server="https://samples.octopus.app" --apiKey="API-YOUR-KEY" --space="Target - MySQL"
 ```
 
 ## Learn more

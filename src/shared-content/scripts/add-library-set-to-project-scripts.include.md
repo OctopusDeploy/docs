@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $projectName = "MyProject"
 $librarySetName = "MyLibrarySet"
@@ -17,10 +17,10 @@ $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Heade
 # Get project
 $project = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/all" -Headers $header) | Where-Object {$_.Name -eq $projectName}
 
-# Get library set
+# Get variable set
 $librarySet = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets/all" -Headers $header) | Where-Object {$_.Name -eq $librarySetName}
 
-# Add the library set
+# Add the variable set
 $project.IncludedLibraryVariableSetIds += $librarySet.Id
 
 # Update the project
@@ -36,8 +36,8 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/projects/$($pro
 Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $projectName = "MyProject"
 $librarySetName = "MyLibrarySet"
@@ -55,7 +55,7 @@ try
     # Get project
     $project = $repositoryForSpace.Projects.FindByName($projectName)
 
-    # Get library set
+    # Get variable set
     $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($librarySetName)
 
     # Add set to project
@@ -81,8 +81,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string projectName = "MyProject";
 string librarySetName = "MyLibrarySet";
@@ -101,10 +101,10 @@ try
     // Get project
     var project = repositoryForSpace.Projects.FindByName(projectName);
 
-    // Get library set
+    // Get variable set
     var librarySet = repositoryForSpace.LibraryVariableSets.FindByName(librarySetName);
 
-    // Include library set to project
+    // Include variable set to project
     project.IncludedLibraryVariableSetIds.Add(librarySet.Id);
 
     // Update project
@@ -147,8 +147,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
 
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourUrl/api'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 project_name = "MyProject"
 library_set_name = "MyLibraryVariableSet"
@@ -167,23 +167,23 @@ uri = '{0}/{1}/projects'.format(octopus_server_uri, space['Id'])
 projects = get_octopus_resource(uri, headers)
 project = next((x for x in projects if x['Name'] == project_name), None)
 
-# Get library set
+# Get variable set
 uri = '{0}/{1}/libraryvariablesets'.format(octopus_server_uri, space['Id'])
-librarysets = get_octopus_resource(uri, headers)
-libraryset = next((x for x in librarysets if x['Name'] == library_set_name), None)
+library_sets = get_octopus_resource(uri, headers)
+library_set = next((x for x in library_sets if x['Name'] == library_set_name), None)
 
 # Check to see if project is none
 if project != None:
-    if libraryset != None:
+    if library_set != None:
         # Add set to project
-        project['IncludedLibraryVariableSetIds'].append(libraryset['Id'])
+        project['IncludedLibraryVariableSetIds'].append(library_set['Id'])
 
         # Update project
         uri = '{0}/{1}/projects/{2}'.format(octopus_server_uri, space['Id'], project['Id'])
         response = requests.put(uri, headers=headers, json=project)
         response.raise_for_status
     else:
-        print ("Library set {0} not found!".format(library_set_name))
+        print ("Variable Set {0} not found!".format(library_set_name))
 else:
     print ("Project {0} not found!".format(project_name))
 ```
@@ -206,11 +206,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	projectName := "MyProject"
 	librarySetName := "MyLibrarySet"
@@ -221,7 +221,7 @@ func main() {
 	// Get reference to project
 	project := GetProject(apiURL, APIKey, space, projectName)
 
-	// Get reference to library set
+	// Get reference to variable set
 	librarySet := GetLibrarySet(apiURL, APIKey, space, librarySetName, 0)
 
 	// Add set to project
