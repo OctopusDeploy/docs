@@ -95,7 +95,7 @@ The **Design Version Rule** window will show a list of the packages that will de
 Support for Git resource rules is currently rolling out to Octopus Cloud.
 :::
 
-Git resource rules assist in ensuring that only the correct branches and tags can be used in the channel for steps that source files from an external Git repository. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
+Git resource rules assist in ensuring that only configured branches and tags can be used in the channel for steps that source files from an external Git repository. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
 
 1. From the **New Channel** screen, click **Add Rule** in the Git Resource Rules section.
 2. Select the step(s) that use external Git repositories the rule will be applied to.
