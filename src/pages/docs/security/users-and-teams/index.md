@@ -40,7 +40,7 @@ There are some things to be aware of when deleting or disabling an Octopus User:
 
 ## Inviting users {#inviting-users}
 :::div{.warning}
-This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/getting-started/managing-octopus-subscriptions.md#access-control).
+This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/getting-started/managing-octopus-subscriptions/#access-control).
 :::
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
