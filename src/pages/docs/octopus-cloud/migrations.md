@@ -155,7 +155,7 @@ A Windows or Linux server can have [1 to N tentacle instances](/docs/administrat
 1. Original Tentacle Instance -> connects to your Octopus Server.
 2. New Tentacle Instance -> connects to Octopus Cloud.
 
-We have a [script to help create](https://github.com/OctopusDeployLabs/SpaceCloner/blob/master/docs/UseCase-CopyExistingTentacles/) a cloned tentacle instance pointing to Octopus Cloud.  You can copy a listening tentacle as a polling tentacle, a polling tentacle as a polling tentacle, or a listening tentacle as a listening tentacle. 
+We have a [script to help create](https://github.com/OctopusDeployLabs/SpaceCloner/blob/master/docs/UseCase-CopyExistingTentacles.md) a cloned tentacle instance pointing to Octopus Cloud.  You can copy a listening tentacle as a polling tentacle, a polling tentacle as a polling tentacle, or a listening tentacle as a listening tentacle. 
 
 :::div{.hint}
 That script requires PowerShell 5.1 or greater for Windows.  We recommend PowerShell 7.

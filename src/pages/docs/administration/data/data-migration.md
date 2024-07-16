@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-07-08
+modDate: 2024-07-15
 title: Data Migration
 description: Octopus comes with a data migrator that can help with specific scenarios, such as exporting configuration for storage and audit and single-direction copying of projects from one Octopus Server to another.
-navOrder: 900
+navOrder: 30
 ---
 
 Octopus has a data migrator that can help with specific scenarios, such as exporting configuration for storage and audit with a source control repository and single-direction copying of projects from one Octopus Server to another.
