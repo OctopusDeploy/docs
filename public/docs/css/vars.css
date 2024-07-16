@@ -4,22 +4,6 @@
 */
 
 @font-face {
-  font-family: 'Inter-Regular';
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url('/docs/css/Inter-Regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter-Bold';
-  font-style: normal;
-  font-weight: 700;
-  font-display: block;
-  src: url('/docs/css/Inter-Bold.woff2') format('woff2');
-}
-
-@font-face {
   font-family: 'fa-solid';
   font-style: normal;
   font-weight: 900;
@@ -218,10 +202,10 @@
   --font-family-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
-  --font-family: 'Inter', var(--font-family-system);
-  --heading-font: Inter-Bold, var(--font-family-system);
-  --body-font: Inter-Regular, var(--font-family-system);
-  --bold-font: Inter-Bold, var(--font-family-system);
+  --font-family: var(--font-family-system);
+  --heading-font: var(--font-family);
+  --body-font: var(--font-family);
+  --bold-font: var(--font-family);
   --code-font: Consolas, monaco, monospace;
 
   --header-bg: var(--white);
