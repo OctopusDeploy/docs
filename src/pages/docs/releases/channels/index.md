@@ -89,44 +89,44 @@ The **Design Version Rule** window will show a list of the packages that will de
 
 6. Click **SAVE**.
 
-### Git resource rules {#git-resource-rules}
+### Git protection rules {#git-protection-rules}
 
 :::div{.hint}
-Support for Git resource rules is currently rolling out to Octopus Cloud.
+Support for Git protection rules is currently rolling out to Octopus Cloud.
 :::
 
-Git resource rules assist in ensuring that only configured branches and tags can be used in the channel for steps that source files from an external Git repository. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
+Git protection rules allow you to control the use of files from Git repositories during deployments, ensuring that important environments such as Production are protected. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
 
-1. From the **New Channel** screen, click **Add Rule** in the Git Resource Rules section.
+#### External repository rules
+
+You can use external repository rules to restrict which branches and tags can be used for steps that source files from an external Git repository.
+
+1. From the **New Channel** screen, click **Add Rule** in the Git Protection Rules section.
 2. Select the step(s) that use external Git repositories the rule will be applied to.
 3. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases. Wildcard characters can be used, see [Glob patterns in Git rules](#git-rules-glob-patterns) for more information.
 4. Click **Save**.
 
 :::figure
-![Git resource rules example](/docs/releases/channels/images/git-resource-rules.png)
+![External repository rules example](/docs/releases/channels/images/git-resource-rules.png)
 :::
 
-### Git reference rules (version controlled projects)
+#### Project repository (version controlled projects)
 
-:::div{.hint}
-Support for Git reference rules is currently rolling out to Octopus Cloud.
-:::
+For projects that use the [Config as Code feature](/docs/projects/version-control), you can use rules to restrict which branches and tags can be used as the source of the deployment process and variables when creating a release. 
 
-Git reference rules assist in ensuring that only configured branches and tags can be used as the Git reference for a release in the channel for version controlled projects. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
-
-1. From the **New Channel** screen, expand the **Git Reference Rules** section.
+1. From the **New Channel** screen, expand the **Project Repository** section.
 2. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases. Wildcard characters can be used, see [Glob patterns in Git rules](#git-rules-glob-patterns) for more information.
 3. Click **Save**.
 
-When patterns are entered, a sample of the matching branches/tags from the Git repository used by the project will be shown to help in configuring the Git reference rules.
+When patterns are entered, a sample of the matching branches/tags from the Git repository used by the project will be shown to help in configuring the rules.
 
 :::figure
-![Git reference rules example](/docs/releases/channels/images/git-reference-rules.png)
+![Project repository example](/docs/releases/channels/images/git-reference-rules.png)
 :::
 
 ## Glob patterns in Git rules {#git-rules-glob-patterns}
 
-Branch and tag patterns used in Git resource and Git reference rules support glob patterns and can include the following wildcard characters:
+Branch and tag patterns used in Git protection rules support glob patterns and can include the following wildcard characters:
 
 | **Character** | **Description** | **Example** |
 | --- | --- | --- |
