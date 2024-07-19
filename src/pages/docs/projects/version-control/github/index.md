@@ -10,7 +10,7 @@ navOrder: 30
 The Octopus Deploy GitHub App provides seamless integration between Octopus Deploy and GitHub.
 
 :::div{.hint}
-The Octopus Deploy GitHub App is currently rolling out to early access customers and is only supported on Octopus Cloud instances. 
+The Octopus Deploy GitHub App is only supported on Octopus Cloud instances. 
 :::
 
 To get started, go to the GitHub Connections page in the Library of your Octopus cloud instance, and follow the prompts.
