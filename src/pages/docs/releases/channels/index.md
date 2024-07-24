@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-25
+modDate: 2024-07-24
 title: Channels
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
 navOrder: 15
