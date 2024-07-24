@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2024-01-01
 modDate: 2024-01-01
 title: Kubernetes
-navTitle: Overview
+navTitle: Kubernetes
 description: Octopus Deploy provides support for deploying Kubernetes resources.
 navOrder: 570
 hideInThisSectionHeader: true
