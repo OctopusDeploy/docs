@@ -4,22 +4,6 @@
 */
 
 @font-face {
-  font-family: 'RobotoRegular';
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url('/docs/css/roboto-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'RobotoBold';
-  font-style: normal;
-  font-weight: 700;
-  font-display: block;
-  src: url('/docs/css/roboto-bold.woff2') format('woff2');
-}
-
-@font-face {
   font-family: 'fa-solid';
   font-style: normal;
   font-weight: 900;
@@ -215,11 +199,13 @@
   --octo-blue-lighter: #2f95e3ff;
   --octo-blue-lightest: #1fc0ffff;
 
-  --heading-font: RobotoBold, Roboto, 'Helvetica Neue', Helvetica, Arial,
-    sans-serif;
-  --body-font: RobotoRegular, Roboto, 'Helvetica Neue', Helvetica, Arial,
-    sans-serif;
-  --bold-font: RobotoBold, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family: var(--font-family-system);
+  --heading-font: var(--font-family);
+  --body-font: var(--font-family);
+  --bold-font: var(--font-family);
   --code-font: Consolas, monaco, monospace;
 
   --header-bg: var(--white);
