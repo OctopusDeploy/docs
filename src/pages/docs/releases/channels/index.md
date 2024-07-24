@@ -107,7 +107,7 @@ You can use external repository rules to restrict which branches and tags can be
 4. Click **Save**.
 
 :::figure
-![External repository rules example](/docs/releases/channels/images/git-resource-rules.png)
+![External repository rules example](/docs/releases/channels/images/external-repository-rules.png)
 :::
 
 #### Project repository (version controlled projects)
@@ -121,10 +121,10 @@ For projects that use the [Config as Code feature](/docs/projects/version-contro
 When patterns are entered, a sample of the matching branches/tags from the Git repository used by the project will be shown to help in configuring the rules.
 
 :::figure
-![Project repository example](/docs/releases/channels/images/git-reference-rules.png)
+![Project repository example](/docs/releases/channels/images/project-repository.png)
 :::
 
-## Glob patterns in Git rules {#git-rules-glob-patterns}
+#### Glob patterns in Git protection rules {#git-rules-glob-patterns}
 
 Branch and tag patterns used in Git protection rules support glob patterns and can include the following wildcard characters:
 
@@ -135,6 +135,26 @@ Branch and tag patterns used in Git protection rules support glob patterns and c
 | `?` | Matches a single character | Tag pattern of `v?` will match a tag of `v1` but not `v1.0.0` |
 | `[0-9]` | Matches a single character in the range | Tag pattern of `v[0-9].[0-9].[0-9]` will match a tag `v1.0.0` |
 | `[abc]` | Matches a single character from the set | Branch pattern of `release/[abc]*` will match branch `release/a-new-branch` but not `release/my-new-branch` |
+
+#### Advanced patterns
+
+Some Git providers support Git references outside of branches and tags. For example when a pull request is created in a GitHub repository, a merge branch will be created with a Git reference of `refs/pulls/{id}/merge`, containing the merged code between the source and target branches of the pull request.
+
+To target these references in Git protection rules, you can click the **Advanced** button for project repository and external repository rules and enter advanced patterns to match on. These patterns must be fully-qualified, any existing branches or tags that were entered will be fully-qualified for you. 
+
+If the patterns entered in advanced section only contain branches or tags, then you can click the **Basic** button to return to entering branches and tags without needing to fully-qualify these.
+
+Some examples:
+
+| **Type** | **Basic pattern** | **Fully-qualified pattern** |
+| --- | --- | --- |
+| Branch | `main` | `refs/heads/main` |
+| Tag | `v[0-9]` | `refs/tags/v[0-9]` |
+| GitHub pull request | N/A | `refs/pulls/*/merge` |
+
+:::figure
+![Advanced patterns example](/docs/releases/channels/images/project-repository.png)
+:::
 
 ## Using channels {#using-channels}
 
