@@ -64,5 +64,41 @@ If you are using the default NFS storage however, then the script pod would be d
 - being moved or restarted as part of routine cluster operation
 
 
-## FAQ
-*WIP*
+## Frequently Asked Questions {#FAQ}
+
+### Can the agent work with Octopus running in an HA Cluster setup?
+Yes! See the [Kubernetes agent HA Cluster Support](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/ha-cluster-support) page.
+
+
+### Can a proxy be specified when setting up the Kubernetes agent? 
+Yes! Proxy servers for the polling connection that takes place between the agent and Octopus Server. These can be supplied for setup via the `.pollingProxy.*`  helm values.
+
+Define the polling proxy server through the `agent.pollingProxy.host`, `agent.pollingProxy.port`, `agent.pollingProxy.username` and `agent.pollingProxy.password` values via the [octopusdeploy/kubernetes-agent](https://hub.docker.com/r/octopusdeploy/kubernetes-agent) helm chart.
+
+### I hit a 404 error when setting up the NFS Pod.
+
+First see if this known issue is impacting you. Where Helm fails to retrieve a remote chart if there are [local repos that are not cached](https://github.com/helm/helm/issues/11961). If that doesn't help, please [get in touch](https://octopus.com/support).
+
+### When trying to install the Kubernetes Agent on an existing cluster, I get an 401: Unauthorized response.
+
+Check where and how the particular command being executed is running, and if the expected auth context is set up. For example: are you logged in to Docker Hub locally if that's where you're doing the setup from.
+
+### Do I need to have the NFS CSI Driver?
+Not for all configurations. It depends, the installation wizard will guide you.
+
+If you are using `azurefile` then you don't need the NFS CSI driver. 
+
+If you're using a new/clean AKS instance then you will need to install the NFS CSI Driver, as that AKS instance will not have the NFS CSI driver installed.
+
+### I have unexpected behavior with the polling endpoints in a HA configuration.
+This could be a variety of issues. First check that different PORTS and/or URLs are used for each node. 
+
+Check what was supplied to `agent.serverCommsAddresses` as they must be unique for [each Octopus node being registered against](https://octopus.com/docs/administration/high-availability/maintain/polling-tentacles-with-ha#connecting-polling-tentacles).
+
+If that doesn't help, please [get in touch](https://octopus.com/support).
+
+### I'm having strange behavior relating to ingress in a HA configuration.
+Carefully look and see that there is a `serverCommsAddress` property for backwards compatibility, and a `serverCommsAddresses` the latter supporting an array input, mistyping these can happen. This has presented itself as a variety of errors depending on the broader configuration, e.g. you may see "it failed to allocate the public ip" if using load balancers.
+
+### The Script Pod seems to hang during a deployment
+The times this has been brought up it's been specific to the deployment process being executed. Run subsets of your process to narrow down the cause, or [get in touch](https://octopus.com/support) with info on how we can reproduce what you're seeing.
