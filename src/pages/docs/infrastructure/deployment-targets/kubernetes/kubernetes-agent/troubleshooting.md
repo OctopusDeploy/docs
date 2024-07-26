@@ -62,3 +62,7 @@ If you are using the default NFS storage however, then the script pod would be d
 
 - being evicted due to exceeding its storage quota
 - being moved or restarted as part of routine cluster operation
+
+
+## FAQ
+*WIP*
