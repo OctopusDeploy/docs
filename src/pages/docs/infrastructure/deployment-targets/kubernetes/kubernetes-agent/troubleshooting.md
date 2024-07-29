@@ -63,7 +63,6 @@ If you are using the default NFS storage however, then the script pod would be d
 - being evicted due to exceeding its storage quota
 - being moved or restarted as part of routine cluster operation
 
-
 ## Frequently Asked Questions {#FAQ}
 
 ### Can the agent work with Octopus running in an HA Cluster setup?
@@ -74,10 +73,6 @@ Yes! See the [Kubernetes agent HA Cluster Support](/docs/infrastructure/deployme
 Yes! Proxy servers for the polling connection that takes place between the agent and Octopus Server. These can be supplied for setup via the `.pollingProxy.*`  helm values.
 
 Define the polling proxy server through the `agent.pollingProxy.host`, `agent.pollingProxy.port`, `agent.pollingProxy.username` and `agent.pollingProxy.password` values via the [octopusdeploy/kubernetes-agent](https://hub.docker.com/r/octopusdeploy/kubernetes-agent) helm chart.
-
-### I hit a 404 error when setting up the NFS Pod.
-
-First see if this known issue is impacting you, where Helm fails to retrieve a remote chart if there are [local repos that are not cached](https://github.com/helm/helm/issues/11961). If that doesn't help, please [get in touch](https://octopus.com/support).
 
 ### When trying to install the Kubernetes Agent on an existing cluster, I get an 401: Unauthorized response.
 
