@@ -44,6 +44,14 @@ If the Agent install command fails with a timeout error, it could be that:
 - (if using the NFS storage solution) The NFS CSI driver has not been installed
 - (if using a custom Storage Class) the Storage Class name doesn't match
 
+#### 404 error when setting up the NFS Pod.
+
+Check if your version of help is up to date. In versions the error message you might be experiencing is [not shown]([url](https://github.com/helm/helm/blob/1ec0aacb8865d5b1f7ef1cb884bbf9b12579ecef/pkg/action/install.go#L753-L769)).
+
+Once you version of help is up to date, run `helm repo update` and try again.
+ 
+If you're still having issues where Helm fails to retrieve a remote chart if there are [local repos that are not cached](https://github.com/helm/helm/issues/11961) look at work arounds provided on that helm-issue page. If that doesn't help, please [get in touch](https://octopus.com/support).
+
 ## Script Execution Issues
 
 ### `Unexpected Script Pod log line number, expected: expected-line-no, actual: actual-line-no` 
