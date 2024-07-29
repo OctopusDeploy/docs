@@ -6,7 +6,7 @@ title: Kubernetes
 navTitle: Overview
 navSection: Kubernetes
 description: Octopus Deploy provides support for deploying Kubernetes resources.
-navOrder: 570
+navOrder: 25
 ---
 
 import RecentlyUpdated from '@components/RecentlyUpdated.astro';

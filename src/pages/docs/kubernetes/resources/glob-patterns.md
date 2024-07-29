@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01 #update-this
+modDate: 2023-01-01
 title: Glob Pattern Cheat Sheet  
 description: Learn more about glob patterns usages.
 navOrder: 90

@@ -1,8 +1,8 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/kubernetes/tutorials/helm
-pubDate:  1000-01-01 #update-this
+redirect: /docs/kubernetes/steps/helm
+pubDate:  2024-07-29
 navSearch: false
 navSitemap: false
 navMenu: false
