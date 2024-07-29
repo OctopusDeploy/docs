@@ -50,7 +50,7 @@ Check if your version of help is up to date. In versions the error message you m
 
 Once you version of help is up to date, run `helm repo update` and try again.
  
-If you're still having issues where Helm fails to retrieve a remote chart if there are [local repos that are not cached](https://github.com/helm/helm/issues/11961) look at work arounds provided on that helm-issue page. If that doesn't help, please [get in touch](https://octopus.com/support).
+If you're still having issues where Helm fails to retrieve a remote chart if there are [local repos that are not cached](https://github.com/helm/helm/issues/11961) look at workarounds provided on that helm-issue page. If that doesn't help, please [get in touch](https://octopus.com/support).
 
 ## Script Execution Issues
 
