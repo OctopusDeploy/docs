@@ -77,7 +77,7 @@ Define the polling proxy server through the `agent.pollingProxy.host`, `agent.po
 
 ### I hit a 404 error when setting up the NFS Pod.
 
-First see if this known issue is impacting you. Where Helm fails to retrieve a remote chart if there are [local repos that are not cached](https://github.com/helm/helm/issues/11961). If that doesn't help, please [get in touch](https://octopus.com/support).
+First see if this known issue is impacting you, where Helm fails to retrieve a remote chart if there are [local repos that are not cached](https://github.com/helm/helm/issues/11961). If that doesn't help, please [get in touch](https://octopus.com/support).
 
 ### When trying to install the Kubernetes Agent on an existing cluster, I get an 401: Unauthorized response.
 
