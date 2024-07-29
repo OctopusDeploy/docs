@@ -55,9 +55,11 @@ Using the Octopus Deploy API, all of that is possible; however, it will require 
 
 ## Run the Octopus Service, SQL server, and files on separate infrastructure
 
-It is possible to run the Octopus Deploy service, SQL Server, and file storage on the same Windows Server. That is not recommended for production instances of Octopus Deploy. Aside from having a single point of failure, it can lead to performance issues. 
+It is possible to run the Octopus Deploy service, SQL Server, and file storage on the same Windows Server or container orchestrator. That is not recommended for production instances of Octopus Deploy. Aside from having a single point of failure, it can lead to performance issues. 
 
 The database should run on a dedicated SQL Server, or using a managed SQL Server like AWS RDS, or Azure SQL. The files should be stored on a NAS, SAN, or on a managed file storage platform like Azure File Storage that supports SMB/CIFS. Shared services like these are managed by dedicated individuals, such as DBAs or Network Admins. They provide common day 2 maintenance such as backups, restoring, and performance monitoring.
+
+While it is possible to run SQL Server in container, we do not recommend it for production use.  Whenever possible use a managed SQL Server like AWS RDS or Azure SQL, or use a SQL Server already managed by DBAs.  
 
 ## Use a load balancer for the Octopus Deploy UI
 
@@ -97,7 +99,7 @@ Use the following table below as a starting point for your compute resources. Yo
 
 ## Use High Availability at scale
 
-While it is possible to configure an instance to process 100+ deployments concurrently, it is not something we recommend. Once you go beyond 20 concurrent deployments, we recommend using Octopus Deploy's High Availability to scale horizontally. 40 to 80 concurrent deployments per Octopus Deploy node tends to the "sweet spot" for the maximum number of concurrent deployments. 
+While it is possible to configure a single-node instance to process 100+ deployments concurrently, it is not something we recommend. Once you go beyond 40 concurrent deployments, we recommend using Octopus Deploy's High Availability to scale horizontally. 40 to 80 concurrent deployments per Octopus Deploy node tends to the "sweet spot" for the maximum number of concurrent deployments. 
 
 Please see our [implementation guide for High Availability](/docs/best-practices/self-hosted-octopus/high-availability) for more details.
 
