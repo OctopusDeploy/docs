@@ -86,7 +86,7 @@ The *Replace* filter performs a regular expression replace function on the varia
 | `abc`       | `#{MyVar \| Replace "(.)b(.)" "$2X$1" }`  | `cXa`                                      |
 | `abc`       | `#{MyVar \| Replace #{match} #{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
 | `abc`       | `#{MyVar \| Replace #{match} _}`          | `a_c` (when `match`=`b`)                   |
-| `a\b`       | `#{MyVar \| Replace "\\" "\\"}`           | `a\\b`                                     |
+| `a\b`       | `#{MyVar \| Replace "\\" "\\\\"}`         | `a\\b`                                     |
 
 
 ### Substring
