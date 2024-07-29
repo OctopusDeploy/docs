@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-27
 title: Rolling deployments
 description: Implementing rolling deployments, i.e. deploying to release to servers one-by-one, with Octopus.
 navOrder: 0
@@ -15,14 +15,14 @@ Normally, when executing a deployment process with multiple steps, Octopus runs 
 ![](/docs/deployments/patterns/images/normal-deployment.png)
 :::
 
-NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
+NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, identify machines via [target tags](/docs/infrastructure/deployment-targets/target-tags), which may be associated with multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
 
 - Deployment steps are run in sequence
 - The actions performed by each step are performed in parallel on all deployment targets
 
 However, sometimes this isn't desired. If you are deploying to a farm of 10 web servers, it might be nice to deploy to one machine at a time, or to batches of machines at a time. This is called a **rolling deployment**.
 
-## Configuring a rolling deployment {#Rollingdeployments-Configuringarollingdeployment}
+## Configuring a rolling deployment {#configure-rolling-deployment}
 
 Rolling deployments can be configured on a PowerShell or NuGet package step by clicking **Configure a rolling deployment**.
 
@@ -43,10 +43,10 @@ The window size controls how many deployment targets can be deployed to at once.
 
 :::div{.hint}
 **Window size with Octopus.Action.MaxParallelism**
-If you include the variable `Octopus.Action.MaxParallelism` in your Project with a value higher than your **Window size** set in a rolling deployment, you will find the `Octopus.Action.MaxParallelism` value is no longer respected. This is expected behavior as Octopus also uses this variable to limit the number of deployment targets on which the rolling deployment step will run concurrently. A warning will also be printed in the Task Log.
+If you include the variable `Octopus.Action.MaxParallelism` in your Project you will find the **Window size** value is no longer respected. This is expected behavior as Octopus also uses this variable to limit the number of deployment targets on which the rolling deployment step will run concurrently. To set a **Window size** for the rolling deployment, add a variable value to `Octopus.Action.MaxParallelism` and scope it to the rolling steps. A warning will also be printed in the Task Log.
 :::
 
-## Child steps {#Rollingdeployments-Childsteps}
+## Child steps {#child-steps}
 
 Rolling deployments allow you to wait for a step to finish on one deployment target before starting the step on the next deployment target. But what if you need to perform a series of steps on one target, before starting that series of steps on the next target? To support this, Octopus allows you to create **Child Steps**.
 
@@ -84,12 +84,12 @@ All child steps run on the same machine at the same time, and you can add more t
 ![](/docs/deployments/patterns/images/rolling-deployments-reorder.png)
 :::
 
-You can edit the parent step to change the roles that the steps run on or the window size.
+You can edit the parent step to change the target tags that the steps run on or the window size.
 
 With this configuration, we run the entire website deployment step - taking the machine out of the load balancer, deploying the site, and returning it to the load balancer - on each machine in sequence as part of a rolling deployment step.
 
 
-### Child step variable run conditions {#Rollingdeployments-childstepvariablerunconditions}
+### Child step variable run conditions {#child-step-variable-run-conditions}
 
 It's possible to add variable [run conditions](/docs/projects/steps/conditions) to child steps in a rolling deployment. Both [variable expressions](/docs/projects/steps/conditions/#variable-expressions) and [machine-level](/docs/projects/steps/conditions/#machine-level-variable-expressions) variable expressions are supported. This allows you to customize the deployment process for machines taking part in a rolling deployment based on your specific needs.
 

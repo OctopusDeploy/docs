@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Varying Azure subscription by environment
 description: Information on how to use a different Azure subscription when deploying to different environments.
 navOrder: 5
@@ -16,7 +16,7 @@ You may want to use a different Azure subscription depending on which environmen
    ​    
    The Account ID is the value after the last `/` in the URL.
 
-2. Create a variable in your project and set the Account ID or Account Name as its value. Make sure to scope this variable to the Environment/Role/Target where you'll be using it.
+2. Create a variable in your project and set the Account ID or Account Name as its value. Make sure to scope this variable to the Environment/Target tag/Target where you'll be using it.
 
    ![variable](/docs/deployments/azure/images/varying-variable.png)
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-06-25
 title: Create release
 description: Using the Octopus CLI to create releases.
 navOrder: 100
@@ -72,7 +72,7 @@ Deployment:
       --waitForDeployment    [Optional] Whether to wait synchronously for
                              deployment to finish.
       --deploymentTimeout=VALUE
-                             [Optional] Specifies maximum time (timespan
+                             [Optional] Specifies maximum time (time span
                              format) that the console session will wait for
                              the deployment to finish(default 00:10:00). This
                              will not stop the deployment. Requires --
@@ -81,7 +81,7 @@ Deployment:
                              the deployment timeout is reached (flag, default
                              false).
       --deploymentCheckSleepCycle=VALUE
-                             [Optional] Specifies how much time (timespan
+                             [Optional] Specifies how much time (time span
                              format) should elapse between deployment status
                              checks (default 00:00:10).
       --guidedFailure=VALUE  [Optional] Whether to use guided failure mode.
@@ -187,33 +187,33 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Examples {#Creatingreleases-Basicexamples}
+## Basic Examples
 
 This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning) project setting: 
 
 ```bash
-octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
+octo create-release --project HelloWorld --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
 This creates a release with a specified release number, overriding the [Release Versioning](/docs/releases/release-versioning) project setting:
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
+octo create-release --project HelloWorld --version 1.0.3 --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
-## Version controlled projects {#Creatingreleases-version-controlled}
+## Version controlled projects
 
 For projects that use the [Config as Code feature](/docs/projects/version-control) (they are version controlled), you can create a release pointing at a git reference, e.g. a branch name or tag. This example creates a release using the branch name of `main`:
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456 --gitRef main
+octo create-release --project HelloWorld --version 1.0.3 --server https://your-octopus-url --apiKey API-YOUR-KEY --gitRef main
 ```
 
 :::div{.warning}
 If the provided project is **not a version controlled one**, passing `--gitRef` (or `--gitCommit`) will result in an error as these parameters are only valid for projects that are version controlled.
 :::
 
-## Specifying the Package Version {#Creatingreleases-Specifyingthepackageversion}
+## Specifying the Package Version
 
 For each step that has a package, the version is determined in the following order:
 
@@ -228,7 +228,7 @@ For each step that has a package, the version is determined in the following ord
 This creates a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --packageVersion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
+octo create-release --project HelloWorld --version 1.0.3 --packageVersion 1.0.1 --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
 ### Option --package
@@ -236,13 +236,13 @@ octo create-release --project HelloWorld --version 1.0.3 --packageVersion 1.0.1 
 This creates a release for a project with multiple packages, each with a different version. You can specify a step name and version pair with this option, allowing you to use different versions of the same package for different steps:
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --package StepB:1.0.2 --server http://octopus/ --apiKey API-ABCDEF123456
+octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --package StepB:1.0.2 --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
 If you want to use a specific version of a package for `StepA`, and the latest version of the package available for `StepB`, you can simply omit the parameter for the second step/package:
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
+octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
 The example above uses `1.0.1` for `StepA`, and the latest version available at the moment for `StepB`.
@@ -251,7 +251,7 @@ For steps which have multiple packages (e.g. _Run a Script_ steps can [reference
 )), the format `StepName:PackageName:Version` can also be used:  
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --package StepA:Acme.Web:1.0.0 --package StepA:Acme.Data:2.0.0 --server http://octopus/ --apiKey API-ABCDEF123456
+octo create-release --project HelloWorld --version 1.0.3 --package StepA:Acme.Web:1.0.0 --package StepA:Acme.Data:2.0.0 --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
 In the example above, `StepA` uses `1.0.0` for `Acme.Web` and `2.0.0` for `Acme.Data`.
@@ -261,15 +261,15 @@ In the example above, `StepA` uses `1.0.0` for `Acme.Web` and `2.0.0` for `Acme.
 This creates a release for a project with multiple packages, by taking the version for each package from a folder containing the packages (this approach works well if your build server has just built the packages):
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packages --server http://octopus/ --apiKey API-ABCDEF123456
+octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packages --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
-## Deploying a release after creating it {#Creatingreleases-Deployingareleaseaftercreatingit}
+## Deploying a release after creating it
 
 To create a release **and** deploy it to an environment named Production:
 
 ```bash
-octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress
+octo create-release --project HelloWorld --deployto Production --server https://your-octopus-url --apiKey API-YOUR-KEY --progress
 ```
 
 :::div{.hint}
@@ -279,8 +279,8 @@ If the `--deployTo` parameter is specified and the [lifecycle](/docs/releases/li
 
 ## Release notes supported syntax
 
-We use [showdownjs](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
-Showdownjs supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.
+We use [Showdown](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
+Showdown supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.
 
 ## Learn more
 

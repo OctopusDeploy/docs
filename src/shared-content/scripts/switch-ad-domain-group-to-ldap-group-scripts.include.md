@@ -4,14 +4,14 @@
 ```powershell
 $ErrorActionPreference = "Stop"
 
-$octopusURL = "https://your.octopus.app" # Replace with your instance URL
-$octopusAPIKey = "API-YOURKEY" # Replace with a service account API Key
+$octopusURL = "https://your-octopus-url" # Replace with your instance URL
+$octopusAPIKey = "API-YOUR-KEY" # Replace with a service account API Key
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Script options
 
 # Provide the domain. This is needed to look up the group to ensure it's a valid AD Group we're working on.
-$AD_Domain = "YOURDOMAIN"
+$AD_Domain = "YOUR_DOMAIN"
 # Set this to $False if you want the Script to perform the update on Octopus Teams.
 $WhatIf = $True
 # Set this to $True if you want the Script to remove old Active Directory teams once the LDAP group has been found and added.
@@ -38,7 +38,7 @@ foreach ($team in $teams) {
         $teamExternalGroups = $team.ExternalSecurityGroups
 
         if ($teamExternalGroups.Count -eq 0) {
-            Write-Verbose "Team: '$($team.Name)' doesnt have any external groups, skipping"
+            Write-Verbose "Team: '$($team.Name)' doesn't have any external groups, skipping"
             continue 
         }
         else {

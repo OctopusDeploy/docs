@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-03-04
+modDate: 2024-06-27
 title: Kubernetes API
 description: How to configure a Kubernetes cluster as a deployment target in Octopus
 navOrder: 20
@@ -28,8 +28,8 @@ From **Octopus 2022.3**, you can configure the well-known variables used to disc
 To discover targets use the following steps:
 
 - Add an Azure account variable named **Octopus.Azure.Account** or the appropriate AWS authentication variables ([more info here](/docs/infrastructure/deployment-targets/cloud-target-discovery/#aws)) to your project.
-- [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/#tag-cloud-resources) to your cluster so that Octopus can match it to your deployment step and environment.
-- Add any of the Kubernetes built-in steps to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Kubernetes targets to deploy to.
+- [Add cloud resource template tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/#tag-cloud-resources) to your cluster so that Octopus can match it to your deployment step and environment.
+- Add any of the Kubernetes built-in steps to your deployment process. During deployment, the target tag on the step will be used along with the environment being deployed to, to discover Kubernetes targets to deploy to.
 
 Kubernetes targets discovered will not have a namespace set, the namespace on the step will be used during deployment (or the default namespace in the cluster if no namespace is set on the step).
 
@@ -77,7 +77,7 @@ users:
 2. Select **KUBERNETES** and click **ADD** on the Kubernetes API card.
 3. Enter a display name for the Kubernetes API target.
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.
-5. Select at least one [target role](/docs/infrastructure/deployment-targets/#target-roles) for the target.
+5. Select at least one [target tag](/docs/infrastructure/deployment-targets/target-tags) for the target.
 6. Select the authentication method. Kubernetes targets support multiple [account types](https://oc.to/KubernetesAuthentication):
     - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password) account.
     - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens) account.
@@ -178,7 +178,7 @@ To make use of the Kubernetes steps, the Octopus Server or workers that will run
 11. Click **SAVE**.
 
 :::div{.warning}
-Setting the Worker Pool directly on the Deployment Target will override the Worker Pool defined in a Deployment Process.  
+Setting the Worker Pool in a Deployment Process will override the Worker Pool defined directly on the Deployment Target.  
 :::
 
 ## Create service accounts
@@ -269,6 +269,15 @@ kubectl get secret $(kubectl get serviceaccount jenkins-deployer -o jsonpath="{.
 ```
 
 The token can then be saved as a Token Octopus account, and assigned to the Kubernetes target.
+
+:::div{.warning}
+Kubernetes versions 1.24+ no longer automatically create tokens for service accounts and they need to be manually created using the **create token** command:
+```bash
+kubectl create token jenkins-deployer
+```
+
+From Kubernetes version 1.29, a warning will be displayed when using automatically created Tokens. Make sure to rotate any Octopus Token Accounts to use manually created tokens via **create token** instead.   
+:::
 
 ## Kubectl
 
@@ -378,7 +387,7 @@ exit 0
 
 ### API calls failing
 
-If you are finding that certain API calls are failing, for example `https://your.octopus.app/api/users/Users-1/apikeys?take=2147483647`, it's possible that your WAF is blocking the traffic. To confirm this you should investigate your WAF logs to determine why the API call is being blocked and make the necessary adjustments to your WAF rules.
+If you are finding that certain API calls are failing, for example `https://your-octopus-url/api/users/Users-1/apikeys?take=2147483647`, it's possible that your WAF is blocking the traffic. To confirm this you should investigate your WAF logs to determine why the API call is being blocked and make the necessary adjustments to your WAF rules.
 
 ## Learn more
 

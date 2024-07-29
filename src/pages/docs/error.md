@@ -11,6 +11,6 @@ description: This page couldn't be found
 robots: noindex, follow
 ---
 
-We couldn't find the page you tried to visit. Sorry!
+We couldn't find the page you tried to visit, sorry.
 
-You can head over to [the docs home page](https://octopus.com/docs), try performing a [search](https://octopus.com/docs/search), or head back up to our [home page](https://octopus.com).
+You might like to go to [the docs home page](https://octopus.com/docs), try a [search](https://octopus.com/docs/search), or head to the [Octopus home page](https://octopus.com).

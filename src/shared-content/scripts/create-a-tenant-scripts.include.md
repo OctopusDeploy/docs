@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 # Provide the space name
 $spaceName = "Default"
@@ -16,7 +16,7 @@ $tenantName = "MyTenant"
 $projectNames = @("MyProject")
 # provide the environments to connect to the projects.
 $environmentNames = @("Development", "Test")
-# Optionally, provide existing tenant tagsets you wish to apply.
+# Optionally, provide existing tenant tag sets you wish to apply.
 $tenantTags = @("MyTagSet/Beta", "MyTagSet/Stable") # Format: TagSet/Tag
 
 # Get space
@@ -65,8 +65,8 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/tenants" -Body
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctopusurl"
-$octopusAPIKey = "API-KEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "default"
 $tenantName = "MyTenant"
 $projectNames = @("MyProject")
@@ -89,7 +89,7 @@ try
     # Get projects
     $projects = $repositoryForSpace.Projects.GetAll() | Where-Object {$projectNames -contains $_.Name}
     
-    # Create projectenvironments
+    # Create project environments
     $projectEnvironments = New-Object Octopus.Client.Model.ReferenceCollection
     foreach ($environment in $environments)
     {
@@ -133,8 +133,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string tenantName = "MyTenant";
 string[] projectNames = { "MyProject" };
@@ -158,7 +158,7 @@ try
     // Get environments
     var environments = repositoryForSpace.Environments.FindByNames(environmentNames);
 
-    // Create projectenvironments
+    // Create project environments
     Octopus.Client.Model.ReferenceCollection projectEnvironments = new ReferenceCollection();
     foreach (var environment in environments)
     {
@@ -230,8 +230,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     return items
 
 # Define Octopus server variables
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = 'Default'
 tenant_name = 'MyTenant'
@@ -300,11 +300,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	tenantName := "MyTenant"
 	environmentNames := []string{"Development", "Test"}

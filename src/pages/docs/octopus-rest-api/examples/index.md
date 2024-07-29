@@ -15,7 +15,6 @@ As you work with the Octopus API, you may need some guidance on how to perform c
 - C# using Octopus.Client.
 - Python using the REST API.
 - Go using the [Go API Client for Octopus Deploy](https://github.com/OctopusDeploy/go-octopusdeploy).
-- Java using the [java-octopus-deploy](https://github.com/OctopusDeployLabs/java-octopus-deploy) Client.
 - TypeScript using the [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts).
 
 In addition, we also have a wide range of some of the more common examples here as well.
@@ -66,7 +65,7 @@ Explore the REST API examples further in this section:
 
 - [Accounts](/docs/octopus-rest-api/examples/accounts)
 - [Artifacts](/docs/octopus-rest-api/examples/artifacts)
-- [Certficates](/docs/octopus-rest-api/examples/certificates)
+- [Certificates](/docs/octopus-rest-api/examples/certificates)
 - [Channels](/docs/octopus-rest-api/examples/channels)
 - [Deployment process](/docs/octopus-rest-api/examples/deployment-process)
 - [Deployment targets](/docs/octopus-rest-api/examples/deployment-targets)

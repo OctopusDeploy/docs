@@ -1,11 +1,7 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Managing licenses
-description: Managing your licenses for Octopus Server and Octopus Cloud.
-navOrder: 60
-hideInThisSectionHeader: true
+modDate: 2024-04-15
+title: Redirect
+redirect: https://octopus.com/docs/administration/
 ---
-
-This section provides important information for managing your licenses for Octopus Server and Octopus Cloud.

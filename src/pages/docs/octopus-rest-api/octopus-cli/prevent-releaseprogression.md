@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Prevent release progression
 description: Prevents a release from progressing to next phase
 navOrder: 100
@@ -82,7 +82,7 @@ Common options:
 
 This example prevents release 1.0.0.0 of WingtipToys from being deployed to the next environment:
 ```
-octo prevent-releaseprogression --project="WingtipToys" --releaseNumber="1.0.0.0" --reason="Invalid cast conversion exception" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+octo prevent-releaseprogression --project="WingtipToys" --releaseNumber="1.0.0.0" --reason="Invalid cast conversion exception" --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
 ## Learn more

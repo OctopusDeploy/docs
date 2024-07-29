@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Deploy Amazon ECS Service
 description: Deploy a service to an Amazon ECS cluster.
 ---
@@ -57,7 +57,7 @@ The benefits of using deployment targets for ECS are outlined in the [ECS RFC bl
 
 Add the `Deploy Amazon ECS Service` step to the project, and provide it a name.
 
-As the step is using a deployment target a target role will also need to be specified. The role will be used to determine which ECS cluster to deploy to. Use the same role that you applied to your deployment target in Step 2.
+As the step is using a deployment target a [target tag](/docs/infrastructure/deployment-targets/#target-roles) will also need to be specified. The tag will be used to determine which ECS cluster to deploy to. Use the same tag that you applied to your deployment target in Step 2.
 
 :::figure
 ![ECS Step General Settings](/docs/deployments/aws/ecs/images/ecs-step-1.png)
@@ -112,7 +112,7 @@ Specify the Security Groups and Subnets in the clusters VPC that will be attache
 Specify whether to enable Amazon ECS managed tags. Changing this value will force the service to be re-created.
 
 :::div{.hint}
-Octopus automatically adds stack-level tags that propagate to the task definition and the service. The full list of these auto-generated tags can be found in our [Architecture repository](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/StepDesignGuidelines/#tags-and-labels).
+Octopus automatically adds stack-level tags that propagate to the task definition and the service. The full list of these auto-generated tags can be found in our [Architecture repository](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/StepDesignGuidelines.md#tags-and-labels).
 :::
 
 No more than 20 additional tags can be provided.

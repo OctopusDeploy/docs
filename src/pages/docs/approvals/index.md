@@ -1,8 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2024-05-24
 title: Approvals
+subtitle: Defining your change approval process
+icon: fa-solid fa-square-check
 navTitle: Overview
 navSection: Approvals
 description: Octopus Deploy can integrate with supported ITSM tools for deployment control using Change Request approvals

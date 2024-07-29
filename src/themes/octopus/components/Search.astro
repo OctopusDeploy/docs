@@ -3,6 +3,10 @@ import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
 import { Translations, Lang } from '@util/Languages';
 import { SITE } from '@config';
 
+const accelerator = new Accelerator(SITE);
+const stats = new accelerator.statistics('octopus/components/Search.astro');
+stats.start();
+
 // Properties
 type Props = {
   lang: string;
@@ -14,12 +18,13 @@ const _ = Lang(lang);
 
 // Logic
 const siteUrl = Astro.site ? Astro.site.href : '';
-const accelerator = new Accelerator(SITE);
 const search =
   accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
 const searchUrl =
   (search && accelerator.urlFormatter.formatAddress(search.url)) ||
   SITE.search.fallbackUrl;
+
+stats.stop();
 ---
 
 <div class="site-search__wrapper" data-site-search-wrapper>
@@ -40,6 +45,7 @@ const searchUrl =
         value={'site:' + siteUrl}
       />
       <svg
+        class="site-search__icon"
         xmlns="http://www.w3.org/2000/svg"
         width="20"
         height="19"
@@ -95,7 +101,7 @@ const searchUrl =
     >
       <path
         d="M19.0524 16.4267L15.3727 12.7273C15.2067 12.5603 14.9815 12.4675 14.7453 12.4675H14.1437C15.1624 11.1577 15.7676 9.5102 15.7676 7.718C15.7676 3.45455 12.3316 0 8.09097 0C3.85035 0 0.414307 3.45455 0.414307 7.718C0.414307 11.9814 3.85035 15.436 8.09097 15.436C9.87358 15.436 11.5123 14.8275 12.8151 13.8033V14.4082C12.8151 14.6456 12.9073 14.872 13.0734 15.039L16.7531 18.7384C17.1 19.0872 17.661 19.0872 18.0042 18.7384L19.0487 17.6883C19.3956 17.3395 19.3956 16.7755 19.0524 16.4267ZM8.09097 12.4675C5.48164 12.4675 3.36687 10.3451 3.36687 7.718C3.36687 5.09462 5.47795 2.96846 8.09097 2.96846C10.7003 2.96846 12.8151 5.09091 12.8151 7.718C12.8151 10.3414 10.704 12.4675 8.09097 12.4675Z"
-        fill="#274B66"></path>
+        fill="var(--hamburger-lines-color)"></path>
     </svg>
   </a>
 </div>

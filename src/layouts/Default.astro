@@ -1,11 +1,10 @@
 ---
 import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
-import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { getImageInfo } from '@util/custom-markdown.mjs';
 
 // Theme components
-import TableOfContents from '@components/TableOfContents.astro';
 import Head from '@components/HtmlHead.astro';
 import Footer from '@components/Footer.astro';
 import SkipLinks from '@components/SkipLinks.astro';
@@ -15,6 +14,8 @@ import Authors from '@components/Authors.astro';
 import Taxonomy from '@components/Taxonomy.astro';
 
 // Custom components
+import ArticleHeader from '../components/ArticleHeader.astro';
+import ArticleNav from '../components/ArticleNav.astro';
 import Copyright from '../components/Copyright.astro';
 import Header from '../components/Header.astro';
 import Related from '../components/Related.astro';
@@ -23,6 +24,11 @@ import Feedback from '../components/Feedback.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import LastUpdated from '../components/LastUpdated.astro';
 import Plausible from 'src/components/Plausible.astro';
+
+// Extend Frontmatter with icon
+type Frontmatter = OriginalFrontmatter & {
+  icon?: string; // Add the icon property
+};
 
 type Props = {
   frontmatter: Frontmatter;
@@ -49,6 +55,10 @@ const subtitle = frontmatter.subtitle
   ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.subtitle)
   : null;
 
+const icon = frontmatter.icon
+  ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.icon)
+  : null;
+
 const site_url = SITE.url;
 const site_features = SITE.featureFlags;
 const search =
@@ -65,7 +75,7 @@ const showSearch = !isSearchPage;
 
 <html dir={textDirection} lang={lang} class="initial">
   <Head frontmatter={frontmatter} headings={headings} lang={lang} />
-  <body>
+  <body data-theme="dark">
     <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
     <Header
       frontmatter={frontmatter}
@@ -82,16 +92,12 @@ const showSearch = !isSearchPage;
           breadcrumbs={breadcrumbs}
         />
         <article itemscope itemtype="https://schema.org/Article">
-          <header>
-            <h1 itemprop="name headline"><Fragment set:html={title} /></h1>
-            {
-              subtitle && (
-                <p>
-                  <Fragment set:html={subtitle} />
-                </p>
-              )
-            }
-          </header>
+          <ArticleHeader
+            icon={icon}
+            lang={lang}
+            subtitle={subtitle}
+            title={title}
+          />
           <div class="page-content anim-show-parent" itemprop="articleBody">
             <slot />
             <Feedback
@@ -122,12 +128,13 @@ const showSearch = !isSearchPage;
       </main>
       <Navigation lang={lang} />
       <div class="side-nav">
-        <TableOfContents
+        <!-- <TableOfContents
           expanded={930}
           frontmatter={frontmatter}
           headings={headings}
           lang={lang}
-        />
+        /> -->
+        <ArticleNav headings={headings} lang={lang} />
       </div>
     </div>
     <Related frontmatter={frontmatter} headings={headings} lang={lang} />

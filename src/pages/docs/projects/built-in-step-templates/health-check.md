@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-27
 title: Health check step
 description: Health check steps allow you to perform a health check on deployment targets as part of a deployment or runbook, and take action based on the result.
 navOrder: 30
@@ -28,7 +28,7 @@ Health check steps are added to deployment and runbook processes in the same way
 1. Add a new `Health Check` step to your [project's deployment process](/docs/projects/steps).
 
     ![Health check step](/docs/projects/built-in-step-templates/images/health-check-step-select.png)
-2. In the **On Behalf Of** section, select the [target roles](/docs/infrastructure/deployment-targets/#target-roles) that match the deployment targets you want to run a health check against. 
+2. In the **On Behalf Of** section, select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the deployment targets you want to run a health check against. 
 
 3. In the **Health check** section select an option for **Health check type**:
     - Perform a full health check - this will run the [health check script](/docs/infrastructure/deployment-targets/machine-policies/#custom-health-check-scripts) defined by the machine policy.

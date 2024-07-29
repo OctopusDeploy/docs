@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-07-15
 title: Exposing Octopus
 description: You can keep your Octopus installation inside your corporate network, or you may want to expose it to the Internet. This section describes how to safely expose your Octopus installation and the security implications you should consider.
 navOrder: 20
@@ -21,7 +21,7 @@ We undertake routine penetration testing and security audits. These reports are 
 
 ## Where to host your Octopus Server
 
-The Octopus Server is the central component of your Octopus installation. It hosts the Octopus HTTP API and the Octopus Web Portal, and is the central communication hub for deploying your applications. It needs direct access to your [SQL Server Database](/docs/administration/data/octopus-database) and a file store, which can be on a local disk, or a network file share.
+The Octopus Server is the central component of your Octopus installation. It hosts the Octopus HTTP API and the Octopus Web Portal, and is the central communication hub for deploying your applications. It needs direct access to your [SQL Server Database](/docs/administration/data) and a file store, which can be on a local disk, or a network file share.
 
 You should host your Octopus Server in the best location based on your scenario. As a general rule of thumb, you should host your Octopus Server where it has the best access to the machines where you deploy your applications, and to the users who design and perform deployments.
 

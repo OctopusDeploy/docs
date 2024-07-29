@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-05-01
 title: Script modules
 description: Script modules allow users to create collections of functions that can be used in deployment processes across multiple projects.
 navOrder: 120
@@ -75,7 +75,7 @@ Say-Hello -name "George"
 Once you're done, hit **Save.**
 
 :::div{.success}
-Make sure to select a **Role**, an **Environment** and to put a **Step Name**
+Make sure to select a **Target Tag**, an **Environment** and to put a **Step Name**
 :::
 
 3.  Create and Deploy a release.

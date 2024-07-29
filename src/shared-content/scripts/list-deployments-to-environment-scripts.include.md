@@ -5,8 +5,8 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-KEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Space name
@@ -42,8 +42,8 @@ Write-Output "Retrieved $($deployments.Count) deployments to environment $($envi
 
 ```powershell
 Add-Type -Path "path\to\Octopus.Client.dll"
-$octopusURL = "https://your.octopus.app"
-$octopusAPIKey = "API-KEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 
 $spaceName = "Default"
 $environmentName = "Development"
@@ -88,8 +88,8 @@ Write-Host "Retrieved $($deployments.Count) deployments to environment $($enviro
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-KEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
 var repository = new OctopusRepository(endpoint);

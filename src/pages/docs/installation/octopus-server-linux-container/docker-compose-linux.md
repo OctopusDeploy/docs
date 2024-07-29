@@ -131,7 +131,7 @@ It is also highly recommended that you create a new master key with the command 
 Start both containers by running:
 
 ```
-docker-compose --project-name Octopus up -d
+docker-compose --project-name octopus up -d
 ```
 
 When both containers are healthy, you can browse directly to `http://localhost:8080` from your host machine.

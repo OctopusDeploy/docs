@@ -9,7 +9,7 @@ navOrder: 10
 
 The [Package ID](/docs/packaging-applications/#package-id), version number, and [package format](/docs/packaging-applications/#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/#supported-formats), [releases](/docs/releases/), and [channels](/docs/releases/channels), which will help you design a versioning scheme that suits your needs.
 
-## Choosing a versioning scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
+## Choosing a versioning scheme {#choose-version-scheme}
 
 The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](#semver) for your applications, unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds), in which case, you need to use [Maven Versions](#maven).
 
@@ -50,11 +50,11 @@ In strict SemVer 2.0, a version like `1.5.2-rc.1` is considered a **pre-release*
 
 When it comes to application versioning, we suggest the pre-release tag (the bit after the `-`) can be used however works best for you. For example, you could build version `1.5.2-rc` of your application and configure a [Channel](/docs/releases/channels) to promote packages like `*-rc` to Staging and eventually Production.
 
-If you are using the [Deployment Notes](/docs/releases/deployment-notes) features, note that pre-releases are handled differently to other releases by that feature and you may need to take that into consideration in your [versioning](/docs/releases/deployment-notes/#versioning) strategy.
+If you are using [deployment changes](/docs/releases/deployment-changes), note that pre-releases are handled differently to other releases by that feature and you may need to take that into consideration in your [versioning](/docs/releases/deployment-changes/#versioning) strategy.
 
 Learn more about Semantic Version at [semver.org](http://semver.org/).
 
-### How Octopus Deploy treats semantic versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
+### How Octopus Deploy treats semantic versions {#semantic-version-treatment}
 
 Octopus uses a string-based approach to version numbers. These are the decisions we made on handling versions:
 

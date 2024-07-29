@@ -4,7 +4,7 @@ title: Search
 navOrder: 1000
 navSearch: false
 navSitemap: false
-pubDate: 2022-09-17
+pubDate: 2024-07-04
 keywords: docs,search
 description: Search the Octopus docs.
 robots: noindex, follow

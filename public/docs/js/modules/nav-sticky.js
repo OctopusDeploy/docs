@@ -59,7 +59,7 @@ function addStickyNavigation(
   function hideNavigation() {
     const navigation = qs(navigationSelector);
 
-    if (window.innerWidth <= 930) {
+    if (window.innerWidth <= 1130) {
       navigation.style.display = 'none';
     } else {
       navigation.style.display = 'block';

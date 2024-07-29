@@ -4,14 +4,14 @@
 ```powershell
 $ErrorActionPreference = "Stop";
 # Define working variables
-$octopusURL = "http://your.octopus.app/"
-$octopusAPIKey = "YOUR-APIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
 # Specify the Space to search in
 $spaceName = ""
 
-# Library Variable Set
+# Variable Set
 $libraryVariableSetName = ""
 
 # Variable name to search for
@@ -22,12 +22,12 @@ $VariableValue = ""
 
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
-Write-Host "Looking for library variable set '$libraryVariableSet'"
-$LibraryvariableSets = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets?contentType=Variables" -Headers $header)
+Write-Host "Looking for variable set '$libraryVariableSet'"
+$LibraryVariableSets = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/libraryvariablesets?contentType=Variables" -Headers $header)
 $LibraryVariableSet = $LibraryVariableSets.Items | Where-Object { $_.Name -eq $libraryVariableSetName }
 
 if ($null -eq $libraryVariableSet) {
-    Write-Warning "Library variable set not found with name '$libraryVariableSetName'."
+    Write-Warning "Variable set not found with name '$libraryVariableSetName'."
     exit
 }
 
@@ -56,8 +56,8 @@ $ErrorActionPreference = "Stop";
 # Load assembly
 Add-Type -Path 'path:\to\Octopus.Client.dll'
 # Define working variables
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $libraryVariableSetName = "MyLibraryVariableSet"
 $variableName = "MyVariable"
@@ -71,18 +71,18 @@ $client = New-Object Octopus.Client.OctopusClient($endpoint)
 $space = $repository.Spaces.FindByName($spaceName)
 $repositoryForSpace = $client.ForSpace($space)
 
-Write-Host "Looking for library variable set '$libraryVariableSetName'"
+Write-Host "Looking for variable set '$libraryVariableSetName'"
 
 $librarySet = $repositoryForSpace.LibraryVariableSets.FindByName($libraryVariableSetName)
 
 # Check to see if something was returned
 if ($null -eq $librarySet)
 {
-    Write-Warning "Library variable not found with name '$libraryVariabelSetName'"
+    Write-Warning "Variable not found with name '$libraryVariableSetName'"
     exit
 }
 
-# Get the variableset
+# Get the variable set
 $variableSet = $repositoryForSpace.VariableSets.Get($librarySet.VariableSetId)
 
 # Get the variable
@@ -103,8 +103,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 using System.Linq;
 
-var octopusURL = "https://your.octopus.app";
-var octopusAPIKey = "API-YOURKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
@@ -118,13 +118,13 @@ string variableValue = "MyValue";
 var space = repository.Spaces.FindByName(spaceName);
 var repositoryForSpace = client.ForSpace(space);
 
-Console.WriteLine(string.Format("Looking for library variable set '{0}'", libraryVariableSetName));
+Console.WriteLine(string.Format("Looking for variable set '{0}'", libraryVariableSetName));
 
 var librarySet = repositoryForSpace.LibraryVariableSets.FindByName(libraryVariableSetName);
 
 if (null == librarySet)
 {
-    throw new Exception(string.Format("Library variable not found with name '{0}'", libraryVariableSetName));
+    throw new Exception(string.Format("Variable Set not found with name '{0}'", libraryVariableSetName));
 }
 
 // Get the variable set
@@ -175,8 +175,8 @@ def get_octopus_resource(uri, headers, skip_count = 0):
     # return results
     return items
 
-octopus_server_uri = 'https://YourURL'
-octopus_api_key = 'API-YourAPIKey'
+octopus_server_uri = 'https://your-octopus-url'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 library_variable_set_name = "MyLibraryVariableSet"
@@ -188,16 +188,16 @@ uri = '{0}/api/spaces'.format(octopus_server_uri)
 spaces = get_octopus_resource(uri, headers)
 space = next((x for x in spaces if x['Name'] == space_name), None)
 
-print('Looking for library variable set "{0}"'.format(library_variable_set_name))
+print('Looking for variable set "{0}"'.format(library_variable_set_name))
 
-# Get library variable set
+# Get variable set
 uri = '{0}/api/{1}/libraryvariablesets'.format(octopus_server_uri, space['Id'])
 library_variable_sets = get_octopus_resource(uri, headers)
 library_variable_set = next((l for l in library_variable_sets if l['Name'] == library_variable_set_name), None)
 
 # Check to see if something was returned
 if library_variable_set == None:
-    print('Library variable set not found with name "{0}"'.format(library_variable_set_name))
+    print('Variable Set not found with name "{0}"'.format(library_variable_set_name))
     exit
 
 # Get the variables
@@ -231,11 +231,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 
 	spaceName := "Default"
 	libraryVariableSetName := "MyLibraryVariableSet"
@@ -248,9 +248,9 @@ func main() {
 	// Create client for space
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
-	fmt.Printf("Looking for library variable set '%[1]s", libraryVariableSetName)
+	fmt.Printf("Looking for variable set '%[1]s", libraryVariableSetName)
 
-	// Get the library set
+	// Get the variable set
 	librarySet := GetLibrarySet(client, space, libraryVariableSetName, 0)
 
 	// Get the variable set
@@ -303,12 +303,12 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 }
 
 func GetLibrarySet(client *octopusdeploy.Client, space *octopusdeploy.Space, librarySetName string, skip int) *octopusdeploy.LibraryVariableSet {
-	// Create library sets query
+	// Create variable sets query
 	librarySetsQuery := octopusdeploy.LibraryVariablesQuery{
 		PartialName: librarySetName,
 	}
 
-	// Get Library set
+	// Get variable set
 	librarySets, err := client.LibraryVariableSets.Get(librarySetsQuery)
 
 	if err != nil {

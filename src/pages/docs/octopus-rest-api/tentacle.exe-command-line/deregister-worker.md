@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Deregister Worker
 description: Using the Tentacle.exe command line executable to deregister a Worker from an Octopus Server.
 ---
@@ -41,11 +41,11 @@ Or one of the common options:
 This example deregisters a worker from the Octopus Server:
 
 ```
-tentacle deregister-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+tentacle deregister-worker --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
 This example deregisters the worker instance `MyNewInstance` from space `MyNewSpace`:
 
 ```
-tentacle deregister-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --instance="MyNewInstance" --space="MyNewSpace"
+tentacle deregister-worker --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --instance="MyNewInstance" --space="MyNewSpace"
 ```

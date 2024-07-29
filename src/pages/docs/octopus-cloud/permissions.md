@@ -11,7 +11,7 @@ Your Octopus Cloud instance includes permissions that relate to hosting Octopus 
 
 The **Octopus Administrators** team is still present, but it's only used by our **octoadmin** account, and if you ask us to log in to your instance for support.
 
-If you find there is something you think you ought to have access to as an **Octopus Manager**, but don't, [let us know](mailto:support@octopus.com) and we can review the permissions.
+If you find there is something you think you ought to have access to as an **Octopus Manager**, but don't, please contact our [support team](https://octopus.com/support) and we can review the permissions.
 
 ## Learn more
 

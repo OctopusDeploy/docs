@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: List deployments
 description: List a number of deployments by project, environment or by tenant.
 navOrder: 100
@@ -89,25 +89,25 @@ Common options:
 This example lists deployments for the specified project:
 
 ```
-octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS"
+octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-YOUR-KEY" --space="Tenants - SaaS"
 ```
 
 This example lists the latest 5 deployments for the specified project:
 
 ```
-octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS" --number="5"
+octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-YOUR-KEY" --space="Tenants - SaaS" --number="5"
 ```
 
 This example lists the latest 5 deployments to production:
 
 ```
-octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS" --number="5" --environment="Production"
+octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-YOUR-KEY" --space="Tenants - SaaS" --number="5" --environment="Production"
 ```
 
 This example lists the latest 5 deployments to production for tenant Petlife:
 
 ```
-octo list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS" --number="5" --environment="Production" --tenant="Petlife"
+octo list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-YOUR-KEY" --space="Tenants - SaaS" --number="5" --environment="Production" --tenant="Petlife"
 ```
 
 ## Learn more

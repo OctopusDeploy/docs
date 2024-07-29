@@ -27,6 +27,7 @@ addListImageIntersectionObserver('.post-list img');
 monitorInputType();
 enableSharing();
 highlightCurrentHeading('.page-toc a');
+highlightCurrentHeading('.article-nav a');
 
 // @ts-ignore
 const f = site_features ?? {};

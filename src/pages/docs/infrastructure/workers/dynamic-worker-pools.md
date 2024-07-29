@@ -21,7 +21,7 @@ Octopus Cloud will automatically destroy dynamic workers as soon as one of these
 - The worker has been idle for 60 minutes.
 - The worker has existed for 72 hours (3 days).
 
-Please reach out to [support@octopus.com](mailto:support@octopus.com) if you need these values to be adjusted for your instance.
+Please reach out to our [support team](https://octopus.com/support) if you need these values to be adjusted for your instance. 
 :::
 
 Worker VMs are provisioned with at least 20GB of available disk space, which is persistent until the worker is destroyed.

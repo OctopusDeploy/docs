@@ -11,7 +11,7 @@ navOrder: 4
 
 Octopus is conceptually split into two types of resources:
 
-1. Space level resources such as environments, feeds, accounts, lifecycles, certificates, workers, worker pools, and library variable sets
+1. Space level resources such as environments, feeds, accounts, lifecycles, certificates, workers, worker pools, and variable sets
 2. Project level resources such as the projects themselves, the project deployment process, runbooks, project variables, and project triggers
 
 Space level resources are shared by projects and do not tend to change as frequently as projects.
@@ -61,7 +61,7 @@ The following process serializes a space to a Terraform module:
    3. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used when accessing the instance defined in the `Octopus Server URL` field.
    4. Set the `Octopus Space ID` field to the ID of the space to be exported. The default value of `#{Octopus.Space.Id}` references the current space.
    5. Set the `Octopus Upload Space ID` field to the ID of another space to upload the resulting Terraform module zip file to the built-in feed of that space. Leave this field blank to upload the zip file to the built-in feed of the current space.
-   6. Set the `Ignored Library Variables Sets` field to a comma separated list of library variable sets to exclude from the Terraform module. Typically, this field is used when the values of the previous fields were sourced from a library variable set that should not be exported.
+   6. Set the `Ignored Variables Sets` field to a comma separated list of variable sets to exclude from the Terraform module. Typically, this field is used when the values of the previous fields were sourced from a variable set that should not be exported.
    7. Set the `Ignored Tenants` field to a comma separated list of tenants to exclude from the Terraform module. Typically, this is used to exclude tenants that are used to run this export step but do not make sense to reimport in a new space.
    8. Tick the `Ignore All Targets` to exclude all [targets](/docs/infrastructure/deployment-targets) from the exported Terraform module. Targets are typically space specific and should not be shared between spaces.
    9. Tick the `Default Secrets to Dummy Values` to set all secret values, such as account and feed passwords, to dummy values. This setting allows you to apply the resulting Terraform module without specifying any secret values, after which you can manually update the values in the new space as needed. If this value is not ticked, the resulting Terraform module exposes Terraform variables for every Octopus secret, and you must supply the secret values when applying the Terraform module.
@@ -113,7 +113,7 @@ Executing the runbook will create a new space and populate it with the space lev
 Typically, downstream spaces are represented by tenants in the upstream space. For example, the space called `Acme` is represented by a tenant wth the same name. Configuring the `__ 2. Deploy Space` runbook to run against a tenant allows you to manage the creation and updates of downstream spaces with a typical tenant based deployment process. This is why the `Octopus - Create Octoterra Space` step defaults the `Octopus Space Name` field to the name of the current tenant.
 
 :::div{.hint}
-If you ticked the `Default Secrets to Dummy Values` option when exporting a space, all resources with secret values like accounts, feeds, certificates, library variables sets, and git credentials will have dummy values set for the passwords or secret values. You must manually update these values after the new space has been created to allow deployments and runbooks to work correctly.
+If you ticked the `Default Secrets to Dummy Values` option when exporting a space, all resources with secret values like accounts, feeds, certificates, variables sets, and git credentials will have dummy values set for the passwords or secret values. You must manually update these values after the new space has been created to allow deployments and runbooks to work correctly.
 :::
 
 ### Updating space level resources

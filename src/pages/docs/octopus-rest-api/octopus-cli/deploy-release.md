@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Deploy release
 description: Using the Octopus CLI to deploy releases.
 navOrder: 100
@@ -24,7 +24,7 @@ Deployment:
       --waitForDeployment    [Optional] Whether to wait synchronously for
                              deployment to finish.
       --deploymentTimeout=VALUE
-                             [Optional] Specifies maximum time (timespan
+                             [Optional] Specifies maximum time (time span
                              format) that the console session will wait for
                              the deployment to finish(default 00:10:00). This
                              will not stop the deployment. Requires --
@@ -33,7 +33,7 @@ Deployment:
                              the deployment timeout is reached (flag, default
                              false).
       --deploymentCheckSleepCycle=VALUE
-                             [Optional] Specifies how much time (timespan
+                             [Optional] Specifies how much time (time span
                              format) should elapse between deployment status
                              checks (default 00:00:10).
       --guidedFailure=VALUE  [Optional] Whether to use guided failure mode.
@@ -147,24 +147,24 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Examples {#Deployingreleases-Basicexamples}
+## Basic Examples {#basic-examples}
 
 This example deploys release 1.0.0 of the *HelloWorld* project to the Production environment:
 
 ```bash
-octo deploy-release --project HelloWorld --releaseNumber 1.0.0 --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
+octo deploy-release --project HelloWorld --releaseNumber 1.0.0 --deployto Production --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
 This deploys the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the Production environment:
 
 ```bash
-octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
+octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
 This deploys the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the Production environment for the Tenants tagged as *Upgrade Ring/Early Adopters*:
 
 ```bash
-octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --tenantTag "Upgrade Ring/Early Adopters" --server http://octopus/ --apiKey API-ABCDEF123456
+octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --tenantTag "Upgrade Ring/Early Adopters" --server https://your-octopus-url --apiKey API-YOUR-KEY
 ```
 
 :::div{.success}

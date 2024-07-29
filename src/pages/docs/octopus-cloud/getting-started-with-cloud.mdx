@@ -1,0 +1,100 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-05-07
+title: Getting started with Cloud
+navOrder: 5
+description: Learn how to setup your Cloud instance, add users to your instance, and set the maintenance window
+---
+
+## Create an Octopus account \{#create-an-octopus-account}
+An Octopus account lets you manage your instances of Octopus Cloud. You can register for your Octopus account at [octopus.com/register](https://octopus.com/register).
+
+You can sign up with your existing Google or Microsoft account or create a unique login for Octopus:
+
+1. Enter your name.
+2. Provide your email address and create a password.
+3. On the next screen, verify your email address.
+4. After your email has been verified, you’ll be logged into your Octopus account.
+
+After you create an Octopus account, you can create a new instance of Octopus Cloud.
+
+## Create a Cloud instance \{#create-a-cloud-instance}
+
+To create a new instance of Octopus Cloud, make sure you’re logged in to your Octopus account:
+
+1. Click **Create a new cloud instance**.
+2. Enter the URL you’d like to use to access your instance: `your-url.octopus.app` . If the URL isn’t available, enter a different URL.
+3. Select the region where you’d like to host your instance.
+4. Add your company name.
+5. Review the terms of our customer agreement, privacy policy, and acceptable usage policy.
+6. Click **Agree, deploy my Octopus**!
+
+You’ll be taken to the account provisioning screen. Your Octopus Cloud instance should be ready in a minute or so. You’ll receive an email when the instance is ready to use.
+
+When the instance is ready, you’ll see it (and any other instances you have access to) the next time you log in to your Octopus account at [octopus.com/signin](https://octopus.com/signin).
+
+## Uploading packages to Octopus Cloud servers \{#uploading-packages-to-octopus-cloud-servers}
+
+Factors like geographical distance, network bandwidth, and network congestion may cause package uploads to your Octopus Cloud Server to take longer than expected.
+
+If you’re having difficulty uploading packages to your Octopus built-in package feed in the default timeout threshold, typically within 5 minutes, you might be affected by one or more of the factors mentioned above. In this case, you can try increasing the timeout threshold of the Octopus CLI or nuget.exe to a value that suits you. We also recommend using the Octopus CLI, **Octopus.Client**, or the **TeamCity Plugin (v4.41.0+)** because they use delta compression.
+
+## Change your password \{#change-your-password}
+
+To change your password for the Octopus instance and Octopus account:
+1. Go to [octopus.com/signin](https://octopus.com/signin).
+2. Click the drop-down menu next to your username in the top right corner.
+3. Click **Profile**.
+4. Click the **Change Password** link.
+5. Enter your new password.
+6. Confirm the new password, and click **Change password**.
+
+## Reset the Octopus account password \{#reset-the-octopus-account-password}
+
+If you forget your username or password for your Octopus account or instance, you can reset them via octopus.com.
+
+1. Visit [octopus.com/signin](https://octopus.com/signin).
+2. Click **Forgot your password?**
+3. Reset your credentials and log into your Octopus account. You can now launch your Octopus instance from the accounts dashboard.
+
+## Invite users to your Octopus Cloud instance \{#inviting-octopus-cloud-users}
+
+### Inviting users via Control Center
+
+You can invite users to your Octopus Cloud instance from the Control Center. To learn how to invite users and the levels of access you can give them, visit the [Managing Octopus subscriptions](https://octopus.com/docs/getting-started/managing-octopus-subscriptions#access-control) page.
+
+### Managing user permissions in Octopus Cloud
+Users are only added to the Octopus Cloud instance after they sign in for the first time. After the first sign in, users get assigned to the **“Everyone”** team (if they’re a Cloud User) or the **“Octopus Managers”** team (if they’re a Cloud Owner). You can add users to different teams to give them appropriate permissions.
+
+1. In the product, go to **Configuration**.
+2. Select **Teams**.
+3. Create or select an existing team such as **Space Managers**.
+4. Select **Add Member**.
+5. Click **Add** and then **Save**.
+
+## Set the maintenance window \{#set-the-maintenance-window}
+
+To keep Octopus Cloud running smoothly, we must perform occasional [maintenance](https://octopus.com/docs/octopus-cloud/maintenance-window), including updates and optimizations on your instance. 
+Please pick a two-hour maintenance window in the control center. Set a time outside of your normal business hours that is unlikely to include any scheduled deployments. 
+
+1. Log in to your Octopus account.
+2. Select your cloud instance.
+3. Click Configuration.
+4. Scroll down to Maintenance Window.
+5. Select the time in UTC, providing a window of at least 2 hours, and click Save maintenance window.
+
+## Log in to your Octopus Cloud instance \{#log-in-to-your-octopus-cloud-instance}
+
+You can access your Octopus Cloud instance at the URL you defined during the registration process. Where `your-url` is the part of the URL you provided:
+
+```
+https://your-url.octopus.app/app#/users/sign-in
+```
+
+## Find out the Octopus Cloud version \{#octopus-cloud-version}
+
+We keep your instance of Octopus Cloud up-to-date and running the latest version of Octopus Deploy. To check which version your instance is running: 
+
+1. Log into the Octopus Web Portal, and click the drop-down menu that appears next to your name in the top right corner. 
+2. The version is shown at the top of the display.

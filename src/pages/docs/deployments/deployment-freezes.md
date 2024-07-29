@@ -1,23 +1,24 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-25
-modDate: 2024-04-10
+modDate: 2024-05-22
 title: Deployment freezes
 description: Deployment freezes allow you to pause deployments for a specified time range
 navOrder: 170
 ---
 
-:::div{.hint}
-Deployment freezes will be available for early access from Octopus Deploy **2024.2**. Please contact michelle.obrien@octopus.com if you would like to turn this feature on.
-:::
-
-Deployment freezes allow you to pause deployments across all spaces for a configured amount of time. This is useful when you want to prevent certain projects deploying to certain environments within a specific time frame. Without deployment freezes, you would need to manually disable specific projects or machines to stop the deployments. 
+Deployment freezes allow you to prevent deployments for a configured amount of time. This is useful when you want to prevent certain projects deploying to certain environments within a specific time frame. Without deployment freezes, you would need to manually disable specific projects or machines to stop the deployments. 
 
 An example of how deployment freezes could be used is:
 
 - Freezing deployments for all projects to the production environment during the holiday shut-down period.
 
 As deployment freezes are scoped to projects and environments, both projects and environments will need to be assigned to the freeze. This will ensure that projects and environments that are not frozen will still deploy.
+
+While a deployment freeze is in place for a project and environment:
+- New deployments are prevented from being created
+- Any existing deployments that start executing during the freeze will fail
+- Automatically triggered deployments fail, except for deployments created by machine triggers
 
 
 ## Pre-requisites
@@ -49,6 +50,7 @@ For example, imagine a deployment freeze that applies to
 
 You will be allowed to view this deployment freeze on the **Deployment Freezes** page if your user doesn't have the DeploymentFreezeAdminister system permission. If your user has the DeploymentFreezeAdminister system permission and permissions scoped to the Car Rental project and Production environment, they will be able to view, edit and override this freeze.
 
+The DeploymentFreezeAdminister permission is included in the System Administrator, System Manager and Space Manager roles.
 
 ## Overriding a freeze
 Following on from the example above, imagine a scenario where a deployment freeze is currently active for the Car Rental project to the Production environment. While the freeze is active, a developer discovers that there is a bug in the production code and a fix needs to be rolled out immediately. In this scenario, the freeze can be overridden to deploy the fix to Production even while the freeze is active. After the fix is deployed, the freeze will still be in place and behave as expected. 
@@ -69,16 +71,10 @@ To override a freeze:
 ![Override a deployment freeze confirmation dialog](/docs/deployments/deployment-freeze-override-dialog-confirm.png)
 :::
 
+## Deployment freezes and automatic deployments
+During deployment freezes, automatic deployments based on deployment target triggers are allowed. This ensures that your deployment targets will be updated with the latest deployments when you scale up.
 
-## Current limitations
-
-:::div{.hint}
-As this is an early access feature, we are aware of some flaws in the UI when assigning projects and environments to the deployment freeze. If you have feedback regarding this feature please contact michelle.obrien@octopus.com.
-:::
-
-- Deployment freezes are not yet integrated with our [Executions API](https://octopus.com/blog/faster-deployments-with-the-executions-api).
-- Deployment freezes currently block [automatic deployments](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure/#ImmutableInfrastructure-Automaticallydeploying)
-
+All other automatic deployments, such as scheduled deployment or automatic lifecycle promotions, are blocked by deployment freezes.
 
 ## Learn more
 

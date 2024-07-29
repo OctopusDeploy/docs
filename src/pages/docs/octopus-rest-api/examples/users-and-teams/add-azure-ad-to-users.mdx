@@ -1,11 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-06-25
 title: Add Azure Active Directory login to users
 description: An example script to add Azure Active Directory login details to Octopus user accounts.
 ---
-import AddAzureADIdentityToUsersScripts from 'src/shared-content/scripts/add-azuread-identity-to-users-scripts.include.md';
+import AddAzureADIdentityToUsersScripts from 'src/shared-content/scripts/add-azure-ad-identity-to-users-scripts.include.md';
 
 Octopus supports a number of external [authentication providers](/docs/security/authentication/), including [Azure Active Directory Authentication](/docs/security/authentication/azure-ad-authentication). If you want to use Azure Active Directory to authenticate but re-use existing Octopus user accounts, the easiest way is to add an Azure AD login:
 
@@ -34,13 +34,13 @@ Provide values for:
 ### Add Azure AD identities to single user
 
 ```powershell PowerShell (REST API)
-AddAzureADLogins -OctopusURL "https://your.octopus.app/" -OctopusAPIKey "API-KEY" -OctopusUsername "OctoUser" -AzureEmailAddress "octouser@exampledomain.com" -AzureDisplayName "Octo User" -ContinueOnError $False -Force $False -WhatIf $False -DebugLogging $False
+AddAzureADLogins -OctopusURL "https://your-octopus-url/" -OctopusAPIKey "API-YOUR-KEY" -OctopusUsername "OctoUser" -AzureEmailAddress "octouser@exampledomain.com" -AzureDisplayName "Octo User" -ContinueOnError $False -Force $False -WhatIf $False -DebugLogging $False
 ```
 
 ### Add Azure AD identities for multiple users from CSV file
 
 ```powershell PowerShell (REST API)
-AddAzureADLogins -OctopusURL "https://your.octopus.app/" -OctopusAPIKey "API-KEY" -Path "/path/to/user_azure_ad_logins.csv" -ContinueOnError $False -Force $False -WhatIf $False -DebugLogging $False
+AddAzureADLogins -OctopusURL "https://your-octopus-url/" -OctopusAPIKey "API-YOUR-KEY" -Path "/path/to/user_azure_ad_logins.csv" -ContinueOnError $False -Force $False -WhatIf $False -DebugLogging $False
 ```
 
 ### Example CSV file

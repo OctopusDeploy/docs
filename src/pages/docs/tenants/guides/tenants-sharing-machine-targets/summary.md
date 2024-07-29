@@ -14,7 +14,7 @@ By updating the `Octopus.Task.ConcurrencyTag` variable, we can run tenanted depl
 
 The exact results you see from using this approach will depend on many factors specific to your environment. It is highly recommended to test this approach in a non-production environment before applying to your production deployments.
 
-If you have any questions about this scenario, please reach out to <support@octopus.com>
+If you have any questions about this scenario, please reach out our [support team](https://octopus.com/support).
 
 ## FAQ
 
@@ -28,6 +28,6 @@ It is highly dependent on what is being deployed and how. This is a risk of fail
 
 **Can I deploy my app to all tenants within a single task?**
 
-No, each tenant requires a separate task per deployment. If you always deploy to all tenants in a hosting group concurrently, it is worth considering another way of modeling your tenants. You can contact <support@octopus.com> for advice on how to model your scenario.
+No, each tenant requires a separate task per deployment. If you always deploy to all tenants in a hosting group concurrently, it is worth considering another way of modeling your tenants. You can contact our [support team](https://octopus.com/support) for advice on how to model your scenario.
 
 <span><a class="button btn-success" href="/docs/tenants/guides/tenants-sharing-machine-targets/deploying-after-concurrency-tag">Previous</a></span>

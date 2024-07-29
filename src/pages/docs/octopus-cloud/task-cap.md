@@ -28,7 +28,7 @@ A task can be:
 The most common tasks are deployments and runbook runs.
 
 The default task cap for Octopus Cloud instances is based on the license tier:
-- Community: 5
+- Starter: 5
 - Professional: 5
 - Enterprise: 20
 
@@ -38,7 +38,7 @@ Self-hosted customers have more control over their task cap.  As such, every sel
 Octopus Cloud customers must reach out to sales@octopus.com to increase the task cap.  
 
 Octopus Cloud provides the following Task Cap options:
-- Community: 5
+- Starter: 5
 - Professional: 5, 10, 20
 - Enterprise: 20, 40, 80, 160
 

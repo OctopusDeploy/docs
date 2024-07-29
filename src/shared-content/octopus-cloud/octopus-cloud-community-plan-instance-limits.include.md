@@ -1,5 +1,0 @@
-- Deploy to 5 targets
-- Limit of 5 users
-- Limit of 5 projects
-- Limit of 20 worker hours per month
-- [Community Slack](https://octopus.com/slack) 

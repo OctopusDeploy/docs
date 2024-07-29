@@ -5,15 +5,15 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 
 # Certificate details
 $certificateName = "MyCertificate"
 $certificateNotes = ""
-$certificateFilePath = "path\to\pfxfile.pfx"
+$certificateFilePath = "path\to\pfx_file.pfx"
 $certificatePfxPassword = "PFX-file-password"
 $certificateEnvironmentIds = @()
 $certificateTenantIds = @()
@@ -58,8 +58,8 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/certificates" 
 Add-Type -Path 'path\to\Octopus.Client.dll' 
 
 # Declare working variables
-$apikey = 'API-YOURAPIKEY' # Get this from your profile
-$octopusURI = 'https://youroctourl' # Your server address
+$octopusURI = 'https://your-octopus-url' # Your server address
+$apikey = 'API-YOUR-KEY' # Get this from your profile
 $spaceName = 'default'
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI,$apikey 
@@ -73,7 +73,7 @@ try
     $repositoryForSpace = $client.ForSpace($space)
     
     # Fill in certificate details
-    $pfxFilePath = "path\to\pfxfile.pfx" # note: other file formats are supported https://octopus.com/docs/deploying-applications/certificates/file-formats  
+    $pfxFilePath = "path\to\pfx_file.pfx" # note: other file formats are supported https://octopus.com/docs/deploying-applications/certificates/file-formats  
     $pfxBase64 = [Convert]::ToBase64String((Get-Content -Path $pfxFilePath -Encoding Byte)) 
     $pfxPassword = "PFX-file-password"
     $certificateName = "MyCertificate" # The display name in Octopus
@@ -100,9 +100,9 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
-string pfxFilePath = "path\\to\\pfxfile.pfx";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
+string pfxFilePath = "path\\to\\pfx_file.pfx";
 string pfxFilePassword = "PFX-file-password";
 string certificateName = "MyCertificate";
 string spaceName = "default";
@@ -141,8 +141,8 @@ import json
 import requests
 import base64
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 def get_octopus_resource(uri):
@@ -222,11 +222,11 @@ import (
 
 func main() {
 
-	apiURL, err := url.Parse("https://YourURL")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOUR-KEY"
 	spaceName := "Default"
 	certificateName := "MyCertificate"
 	pathToCertificate := "path:\\To\\PFXFile.pfx"

@@ -5,14 +5,14 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $azureServicePrincipalName = "MyAzureAccount"
 $azureResourceGroupName = "MyResourceGroup"
 $environmentNames = @("Development", "Production")
-$roles = @("Myrole")
+$roles = @("MyRole")
 $environmentIds = @()
 $azureWebAppName = "MyAzureWebAppName"
 
@@ -55,8 +55,8 @@ Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/machines" -Hea
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
+$octopusURL = "https://your-octopus-url"
+$octopusAPIKey = "API-YOUR-KEY"
 $azureServicePrincipalName = "MyAzureAccount"
 $azureResourceGroupName = "MyResourceGroup"
 $azureWebAppName = "MyAzureWebApp"
@@ -127,8 +127,8 @@ using Octopus.Client.Model;
 
 
 // Declare working variables
-var octopusURL = "https://youroctourl";
-var octopusAPIKey = "API-YOURAPIKEY";
+var octopusURL = "https://your-octopus-url";
+var octopusAPIKey = "API-YOUR-KEY";
 string spaceName = "default";
 string[] environmentNames = { "Development", "Production" };
 string[] roles = { "MyRole" };
@@ -198,8 +198,8 @@ catch (Exception ex)
 import json
 import requests
 
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your-octopus-url/api'
+octopus_api_key = 'API-YOUR-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
 
@@ -265,12 +265,12 @@ func main() {
 	azureWebAppName := "MyWebApp"
 	azureResourceGroupName := "MyResourceGroup"
 
-	apiURL, err := url.Parse("https://youroctourl")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
 		log.Println(err)
 	}
 
-	APIKey := "API-YOURKEY"
+	APIKey := "API-YOUR-KEY"
 
 	// Get space to work with
 	space := GetSpace(apiURL, APIKey, spaceName)

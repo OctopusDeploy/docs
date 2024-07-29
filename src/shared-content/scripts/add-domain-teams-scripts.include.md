@@ -4,8 +4,8 @@
 ```powershell
 $ErrorActionPreference = "Stop"
 
-$octopusURL = "https://yoururl.com" # Replace with your instance URL
-$octopusAPIKey = "YOUR API KEY" # Replace with a service account API Key
+$octopusURL = "https://your-octopus-url.com" # Replace with your instance URL
+$octopusAPIKey = "API-YOUR-KEY" # Replace with a service account API Key
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $maxRecordsToUpdate = 2 # The max number of records you want to update in this batch
 
