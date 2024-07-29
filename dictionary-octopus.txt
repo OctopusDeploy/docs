@@ -386,6 +386,7 @@ websockets
 WEBSVR
 WFLYUT
 Wildfly
+Wireshark
 WIXUI
 workerpool
 workerpools
