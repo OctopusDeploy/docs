@@ -4,7 +4,7 @@ pubDate: 2024-04-29
 modDate: 2024-04-29
 title: Permissions
 description: Information about what permissions are required and how to adjust them
-navOrder: 10
+navOrder: 20
 ---
 
 The Kubernetes agent uses service accounts to manage access to cluster objects.
@@ -45,7 +45,7 @@ The service account for script pods can be customized in a few ways:
 <br/>
 
 **command:**
-```Bash
+```bash
 helm upgrade --install --atomic \
 --set scriptPods.serviceAccount.targetNamespaces="{development,preproduction}" \
 --set agent.acceptEula="Y" \
@@ -104,7 +104,7 @@ agent:
 <br/>
 
 **command:**
-```Bash
+```bash
 helm upgrade --install --atomic \
 --values values.yaml \
 --version "1.*.*" \
