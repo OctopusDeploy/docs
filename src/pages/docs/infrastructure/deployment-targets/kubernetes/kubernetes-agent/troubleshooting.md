@@ -82,9 +82,14 @@ Yes! Proxy servers for the polling connection that takes place between the agent
 
 Define the polling proxy server through the `agent.pollingProxy.host`, `agent.pollingProxy.port`, `agent.pollingProxy.username` and `agent.pollingProxy.password` values via the [octopusdeploy/kubernetes-agent](https://hub.docker.com/r/octopusdeploy/kubernetes-agent) helm chart.
 
-### When trying to install the Kubernetes Agent on an existing cluster, I get an 401: Unauthorized response.
+### When trying to install the Kubernetes Agent on an existing cluster, I get an 401: Unauthorized error.
 
-Check where and how the particular command being executed is running, and if the expected auth context is set up. For example: are you logged in to Docker Hub locally if that's where you're doing the setup from.
+```
+Error: GET "https://registry-1.docker.io/v2/octopusdeploy/kubernetes-agent/tags/list":
+GET "https://auth.docker.io/token?scope=repository%3Aoctopusdeploy%2Fkubernetes-agent%3Apull&service=registry.docker.io": unexpected status code 401: Unauthorized
+```
+1. If you are running this command locally are you logged in?
+2. If this is running from another automation, does that process have valid authentication and authorization?
 
 ### Do I need to have the NFS CSI Driver?
 Not for all configurations. It depends, the installation wizard will guide you.
