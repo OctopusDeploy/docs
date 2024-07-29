@@ -31,3 +31,4 @@ This section provides configuration walkthroughs for the popular storage options
 - [AWS File Storage](/docs/installation/file-storage/aws-file-storage)
 - [Azure File Storage](/docs/installation/file-storage/azure-file-storage)
 - [GCP File Storage](/docs/installation/file-storage/gcp-file-storage)
+- [NFS File Storage](/docs/installation/file-storage/windows-nfs)
