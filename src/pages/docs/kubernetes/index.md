@@ -1,14 +1,11 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2024-01-01
-modDate: 2024-01-01
+pubDate: 2023-01-01
+modDate: 2024-03-26
 title: Kubernetes
-navTitle: Overview
-navSection: Kubernetes
 description: Octopus Deploy provides support for deploying Kubernetes resources.
 navOrder: 25
 ---
-
 import RecentlyUpdated from '@components/RecentlyUpdated.astro';
 import Card from 'src/components/Card.astro';
 
@@ -73,7 +70,7 @@ When you’re ready to apply Octopus to a real scenario, we recommend that you:
 
 ## Deployments at scale
 Learn more about deploying to multiple apps with Octopus, with these guides:
-- Release triggers [link] and [channels](https://octopus.com/docs/releases/channels) to automate deployments
+- [Release triggers](https://octopus.com/docs/projects/project-triggers/external-feed-triggers) and [channels](https://octopus.com/docs/releases/channels) to automate deployments
 - [Step templates](https://octopus.com/docs/projects/custom-step-templates) to create new pipelines with ease
 - [Configuration as Code](https://octopus.com/docs/projects/version-control) to manage deployment pipeline versions
 - [Users, roles, and teams](https://octopus.com/docs/getting-started/best-practices/users-roles-and-teams)
