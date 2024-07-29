@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-07-24
 title: Channels
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
 navOrder: 15
@@ -22,7 +22,7 @@ When you are implementing a deployment process that uses channels you can scope 
 - [Variables](#variables)
 - [Tenants](#deploy-to-tenants)
 
-You can also define versioning rules per channel to ensure that only versions which meet specific criteria are deployed to specific channels.
+You can also define rules per channel to ensure that only package versions and Git resources which meet specific criteria are deployed to specific channels.
 
 ## Managing channels
 
@@ -40,15 +40,21 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 4. If you want to make this the default Channel for the project, click the **Default Channel** check-box.
 5. Design the [version rules](#version-rules) that will be used to enforce which versions of your packages are deployed to this channel.
 
-## Design the version rules {#version-rules}
+## Channel rules
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
+Channels allow to you to configure rules to ensure that package versions and Git resources that meet specific criteria can be deployed using the channel.
+
+When creating a release for a channel with rules, an option can be configured on the project to allow the channel rules to be ignored. This option is disabled by default on new projects, but can be enabled in project settings.
+
+### Package version rules {#version-rules}
+
+Package version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
 
 :::div{.hint}
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
 :::
 
-1. From the **New Channel** screen, click **ADD VERSION RULE**.
+1. From the **New Channel** screen, click **ADD VERSION RULE** in the Package Version Rules section.
 2. Select the package step(s) (and as such the packages) the version rule will be applied to.
 3. Enter the version range in the **Version Range** field. You can use either [Nuget](https://oc.to/NuGetVersioning) or [Maven](https://oc.to/MavenVersioning) versioning syntax to specify the range of versions to include.
 
@@ -82,6 +88,73 @@ The **Design Version Rule** window will show a list of the packages that will de
 :::
 
 6. Click **SAVE**.
+
+### Git protection rules {#git-protection-rules}
+
+:::div{.hint}
+Support for Git protection rules is currently rolling out to Octopus Cloud.
+:::
+
+Git protection rules allow you to control the use of files from Git repositories during deployments, ensuring that important environments such as Production are protected. They are used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
+
+#### External repository rules
+
+You can use external repository rules to restrict which branches and tags can be used for steps that source files from an external Git repository.
+
+1. From the **New Channel** screen, click **Add Rule** in the Git Protection Rules section.
+2. Select the step(s) that use external Git repositories the rule will be applied to.
+3. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases. Wildcard characters can be used, see [Glob patterns in Git rules](#git-rules-glob-patterns) for more information.
+4. Click **Save**.
+
+:::figure
+![External repository rules example](/docs/releases/channels/images/external-repository-rules.png)
+:::
+
+#### Project repository (version controlled projects)
+
+For projects that use the [Config as Code feature](/docs/projects/version-control), you can use rules to restrict which branches and tags can be used as the source of the deployment process and variables when creating a release. 
+
+1. From the **New Channel** screen, expand the **Project Repository** section.
+2. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases. Wildcard characters can be used, see [Glob patterns in Git rules](#git-rules-glob-patterns) for more information.
+3. Click **Save**.
+
+When patterns are entered, a sample of the matching branches/tags from the Git repository used by the project will be shown to help in configuring the rules.
+
+:::figure
+![Project repository example](/docs/releases/channels/images/project-repository.png)
+:::
+
+#### Glob patterns in Git protection rules {#git-rules-glob-patterns}
+
+Branch and tag patterns used in Git protection rules support glob patterns and can include the following wildcard characters:
+
+| **Character** | **Description** | **Example** |
+| --- | --- | --- |
+| `*` | Matches multiple characters except `/` | Branch pattern of `release/*` will match branch `release/1.0.0` but not `release/1.0.0/hotfix1` |
+| `**` | Matches multiple characters including `/` | Branch pattern of `release/**` will match branch `release/1.0.0` and `release/1.0.0/hotfix1` |
+| `?` | Matches a single character | Tag pattern of `v?` will match a tag of `v1` but not `v1.0.0` |
+| `[0-9]` | Matches a single character in the range | Tag pattern of `v[0-9].[0-9].[0-9]` will match a tag `v1.0.0` |
+| `[abc]` | Matches a single character from the set | Branch pattern of `release/[abc]*` will match branch `release/a-new-branch` but not `release/my-new-branch` |
+
+#### Advanced patterns
+
+Some Git providers support Git references outside of branches and tags. For example when a pull request is created in a GitHub repository, a merge branch will be created with a Git reference of `refs/pulls/{id}/merge`, containing the merged code between the source and target branches of the pull request.
+
+To target these references in Git protection rules, you can click the **Advanced** button for project repository and external repository rules and enter advanced patterns to match on. These patterns must be fully-qualified, any existing branches or tags that were entered will be fully-qualified for you. 
+
+If the patterns entered in advanced section only contain branches or tags, then you can click the **Basic** button to return to entering branches and tags without needing to fully-qualify these.
+
+Some examples:
+
+| **Type** | **Basic pattern** | **Fully-qualified pattern** |
+| --- | --- | --- |
+| Branch | `main` | `refs/heads/main` |
+| Tag | `v[0-9]` | `refs/tags/v[0-9]` |
+| GitHub pull request | N/A | `refs/pulls/*/merge` |
+
+:::figure
+![Advanced patterns example](/docs/releases/channels/images/project-repository.png)
+:::
 
 ## Using channels {#using-channels}
 

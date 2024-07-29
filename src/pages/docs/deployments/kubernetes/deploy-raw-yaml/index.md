@@ -106,7 +106,7 @@ There are a few different ways to take advantage of this feature:
 
 1. You can list several paths by separating them with a new line.
 
-   ```glob
+   ```text
    deployments/apply-first.yaml
    services/apply-second.yml
    ```
@@ -115,7 +115,7 @@ There are a few different ways to take advantage of this feature:
 
 2. You can use a glob pattern to select multiple files in a single path.
 
-   ```glob
+   ```text
    **/*.{yaml,yml}
    ```
 

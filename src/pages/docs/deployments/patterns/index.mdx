@@ -1,0 +1,78 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-07-04
+title: Patterns and practices
+description: Common deployment patterns and practices, and their practical implementation with Octopus.
+navOrder: 180
+---
+import Card from 'src/components/Card.astro';
+
+This section describes a number of common deployment patterns and practices, and their practical implementation with Octopus.
+
+<div class="docs-home simple-grid">
+<Card
+	description="Rolling deployments are a pattern whereby, instead of deploying a package to all servers at once, we slowly roll out the release by deploying it to each server one-by-one."
+	imgAlt="Black and blue server icon with a rotating arrow"
+	imgSrc="/docs/deployments/patterns/images/rolling-deployments.png"
+	link="/docs/deployments/patterns/rolling-deployments"
+	title="Rolling deployments"
+	variant="padded"
+/>
+<Card
+	description="Being able to roll back to a known good state of code is often just as important as deploying software."
+	imgAlt="Octopus logo"
+	imgSrc="/docs/img/octopus-deploy-logo.png"
+	link="/docs/deployments/patterns/rollbacks"
+	title="Rollbacks"
+	variant="padded"
+/>
+<Card
+	description="Implementing multi-region deployments, i.e. deploying to multiple geographic regions, with Octopus."
+	imgAlt="Globe showing connected Kubernetes icons"
+	imgSrc="/docs/img/octopus-deploy-logo.png"
+	link="/docs/deployments/patterns/multi-region-deployment-pattern"
+	title="Multi-region deployment pattern"
+	variant="padded"
+/>
+<Card
+	description="Blue/green deployments are a pattern whereby we reduce downtime during production deployments by having two separate production environments (“blue” and “green”)."
+	imgAlt="Blue and green characters sitting on a see-saw with a white silhouette of a city in the background"
+	imgSrc="/docs/deployments/patterns/images/blue-green.png"
+	link="/docs/deployments/patterns/blue-green-deployments"
+	title="Blue/green deployments"
+	variant="padded"
+/>
+<Card
+	description="Elastic and transient environments is a group of features to facilitate deploying to machines that are intermittently available for deployment."
+	imgAlt="Octopus cowboy lassoing servers with bull horns"
+	imgSrc="/docs/deployments/patterns/images/elastic.png"
+	link="/docs/deployments/patterns/elastic-and-transient-environments"
+	title="Elastic and transient environments"
+	variant="padded"
+/>
+<Card
+	description="Canary deployments are a pattern for rolling out releases to a subset of users or servers."
+	imgAlt="Octopus logo"
+	imgSrc="/docs/img/octopus-deploy-logo.png"
+	link="/docs/deployments/patterns/canary-deployments"
+	title="Canary deployments"
+	variant="padded"
+/>
+<Card
+	description="This section describes how different branching strategies can be modeled in Octopus Deploy."
+	imgAlt="Octopus logo"
+	imgSrc="/docs/img/octopus-deploy-logo.png"
+	link="/docs/deployments/patterns/branching"
+	title="Branching strategies"
+	variant="padded"
+/>
+<Card
+	description="With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code."
+	imgAlt="Octopus logo"
+	imgSrc="/docs/img/octopus-deploy-logo.png"
+	link="/docs/deployments/patterns/deployment-process-as-code"
+	title="Deployment process as code"
+	variant="padded"
+/>
+</div>

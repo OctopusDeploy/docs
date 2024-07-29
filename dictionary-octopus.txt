@@ -24,6 +24,7 @@ awsaccount
 azureaccount
 azureactivedirectory
 azurefile
+bacpac
 Bento
 bootstrap
 bootstrapped
@@ -325,6 +326,7 @@ sqlvolume
 srcset
 SSDT
 SSIS
+SSPI
 SSRS
 statefulset
 statefulsets
@@ -369,6 +371,7 @@ urlset
 useronboarding
 userroles
 utcnow
+VARCHAR
 variablename
 variableset
 vhdx
@@ -383,6 +386,7 @@ websockets
 WEBSVR
 WFLYUT
 Wildfly
+Wireshark
 WIXUI
 workerpool
 workerpools

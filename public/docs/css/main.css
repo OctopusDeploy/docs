@@ -1256,7 +1256,7 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .site-nav .site-nav__list-item a[aria-current] {
-  font-weight: 700;
+  font-family: var(--bold-font);
   color: var(--color-menu-link-alt);
   transform: translateX(0.25rem);
 }
