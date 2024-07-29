@@ -7,5 +7,4 @@ navTitle: Overview
 navSection: Steps
 description: Kubernetes Steps
 navOrder: 10
-hideInThisSectionHeader: true
 ---
