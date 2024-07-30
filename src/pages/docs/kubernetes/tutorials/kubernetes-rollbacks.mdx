@@ -87,7 +87,7 @@ When viewing the deployment process at a glance, it is not readily apparent that
 
 ## Complex rollback process
 
-A feature of Kubernetes is the revision history of the cluster components.  The command `kubectl rollout history deployment.v1.apps/<deploymentname>` lists all deployment revisions.
+A feature of Kubernetes is the revision history of the cluster components.  The command `kubectl rollout history deployment.v1.apps/<deployment-name>` lists all deployment revisions.
 
 ```
 REVISION  CHANGE-CAUSE
@@ -132,7 +132,7 @@ The revision history command for Kubernetes showed that there were multiple revi
 ![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-k8s-deployment-annotation.png)
 :::
 
-Running `kubectl rollout history deployment.v1.apps/<deploymentname>` would now show something like this.
+Running `kubectl rollout history deployment.v1.apps/<deployment-name>` would now show something like this.
 
 ```
 REVISION  CHANGE-CAUSE
