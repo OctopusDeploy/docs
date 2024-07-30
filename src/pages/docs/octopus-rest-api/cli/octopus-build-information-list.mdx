@@ -1,0 +1,51 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-07-30
+title: octopus build-information list
+description: List build information
+navOrder: 29
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+List build information in Octopus Deploy
+
+```
+Usage:
+  octopus build-information list [flags]
+
+Aliases:
+  list, ls
+
+Flags:
+  -q, --filter string       filter build information by version that contains the filter
+      --latest              only return the latest build information according to SemVer
+  -p, --package-id string   filter build information by package id
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus build-information list
+$ octopus build-information ls
+$ octopus build-info list
+$ octopus build-info ls --package-id ThePackage
+$ octopus build-info ls --package-id ThePackage --filter 1.2.3
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
