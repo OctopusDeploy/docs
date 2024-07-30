@@ -184,7 +184,7 @@ If you wish to learn more about how to configure Octopus Deploy with a specific 
 - [Self-Managed SQL Server](/docs/installation/sql-database/self-managed-sql-server)
 - [AWS RDS](/docs/installation/sql-database/aws-rds)
 - [Azure SQL](/docs/installation/sql-database/azure-sql)
-- [GCP SQL](/docs/installation/sql-database/gcp-sql)
+- [GCP SQL](/docs/installation/sql-database/gcp-cloud-sql)
 
 ### File Storage
 
@@ -210,9 +210,9 @@ Whichever way you provide the shared storage, there are a few considerations to 
 Your file storage should be hosted in the same data center or cloud region as the Octopus Server nodes. We've included guides for the most common file storage options we encounter.
 
 - [Local File Storage](/docs/installation/file-storage/local-storage)
-- [AWS File Storage](/docs/installation/file-storage/aws-storage)
-- [Azure File Storage](/docs/installation/file-storage/azure-storage)
-- [GCP File Storage](/docs/installation/file-storage/gcp-storage)
+- [AWS File Storage](/docs/installation/file-storage/aws-file-storage)
+- [Azure File Storage](/docs/installation/file-storage/azure-file-storage)
+- [GCP File Storage](/docs/installation/file-storage/gcp-file-storage)
 
 ### Load Balancer
 
@@ -409,7 +409,7 @@ C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=Octo2.dom
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=Octo3.domain.com:10943 --apikey=YOUR_API_KEY
 ```
 
-More details at [Polling Tentacles with Octopus High Availability](/docs/administration/high-availability/maintain/polling-tentacles-with-ha)
+More details at [Polling Tentacles with Octopus High Availability](/docs/administration/high-availability/polling-tentacles-with-ha)
 
 ## Maintenance
 
@@ -478,7 +478,7 @@ The process for removing a node is:
 
 The complexity of removing a node is due to having to invoke the API to drain the node and waiting for the node to complete any in-flight tasks. For cloud providers such as Azure or AWS that typically means leveraging a function or a Lambda. 
 
-For scripts and examples, please refer to the [auto-scaling high availability nodes page](/docs/administration/high-availability/configure/auto-scaling-high-availability-nodes).
+For scripts and examples, please refer to the [auto-scaling high availability nodes page](/docs/administration/high-availability/auto-scaling-high-availability-nodes).
 
 ### Connectivity issues with the database
 
