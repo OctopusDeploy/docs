@@ -9,17 +9,13 @@ navOrder: 30
 
 [Ask Octopus Episode #14 - Configure your HA Cluster](https://www.youtube.com/watch?v=1tXVA5pyuqQ)
 
-You may already have an existing Octopus Server that you wish to make highly available. The process to migrate to Octopus High Availability is the same as the process detailed in [Configuring High Availability for Octopus](/docs/administration/high-availability/configure), except your existing server will be the **first node** in the cluster.  Migrating to HA will involve:
+You may already have an existing Octopus Server that you wish to make highly available. The process to migrate to Octopus High Availability is the same as the process detailed in [High Availability Implementation Guide](/docs/best-practices/self-hosted-octopus/high-availability), except your existing server will be the **first node** in the cluster.  Migrating to HA will involve:
 
 1. Moving the SQL Server Database to a dedicated SQL Server.
 1. Moving all the task logs, packages, artifacts, imports, event exports etc., to a shared storage folder (BLOB data).
 1. Configuring a load balancer.
 
-This guide is generic and purposely avoids mentioning specific technologies such as Azure File Storage, AWS RDS SQL Server, etc.  Please refer to the guide matching your hosting solution for specifics.
-
-- [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises)
-- [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure)
-- [Designing Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws)
+This guide is generic and purposely avoids mentioning specific technologies such as Azure File Storage, AWS RDS SQL Server, etc.  Please see our [High Availability Implementation Guide](/docs/best-practices/self-hosted-octopus/high-availability) for more details.
 
 ## Prep Work
 

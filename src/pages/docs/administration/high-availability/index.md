@@ -71,4 +71,4 @@ If you do not have that node in your license key then you are limited to a singl
 
 ## Implementing High Availability
 
-Please see our [implementation guide](/docs/best-practices/self-hosted/high-availability) for step by step instructions on how to install and implement high availability.
+Please see our [implementation guide](/docs/best-practices/self-hosted-octopus/high-availability) for step by step instructions on how to install and implement high availability.

@@ -1,3 +1,14 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-07-30
+title: Windows NFS File Storage
+description: Guidelines and recommendations for configuring NFS File Storage with Octopus Deploy.
+navOrder: 80
+hideInThisSection: true
+---
+Follow the steps below to configure NFS on a Windows Server for Octopus Deploy to use.
+
 1. Install NFS on the Windows VM 
 
    On the Windows VM, open PowerShell as an administrator, and install the NFS client:
