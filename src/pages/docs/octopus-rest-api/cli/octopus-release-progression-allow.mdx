@@ -1,26 +1,22 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2024-02-01
-title: octopus release
-description: Manage releases
-navOrder: 95
+pubDate: 2024-08-01
+modDate: 2024-08-01
+title: octopus release progression allow
+description: Allows a release to progress to the next phase
+navOrder: 99
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-Manage releases in Octopus Deploy
+Allows a release to progress to the next phase in Octopus Deploy.
 
 ```
 Usage:
-  octopus release [command]
+  octopus release progression allow [flags]
 
-Available Commands:
-  create Create a release
-  delete Delete a release
-  deploy Deploy releases
-  help Help about any command
-  list List releases
-  progression Manage progression of a release
+Flags
+  -p, --project string   Name or ID of the project.
+  -v, --version string   Release version/number.
 
 Global Flags:
   -h, --help                   Show help for a command
@@ -28,8 +24,6 @@ Global Flags:
   -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
   -s, --space string           Specify the space for operations
 
-
-Use "octopus release [command] --help" for more information about a command.
 ```
 
 ## Examples
@@ -37,8 +31,9 @@ Use "octopus release [command] --help" for more information about a command.
 <SamplesInstance />
 
 ```
-$ octopus release list
-
+$ octopus release progression allow
+$ octopus release progression allow --project MyProject --version 1.2.3
+$ octopus release progression allow -p MyProject -v 1.2.3
 ```
 
 ## Learn more
