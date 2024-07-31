@@ -195,7 +195,13 @@ To include this in the installation command, add the following to the generated 
 
 ## Agent tooling
 
-By default, the agent will look for a [container image](/docs/projects/steps/execution-containers-for-workers) for the workload it's executing against the cluster. If one isn't specified, Octopus will execute the Kubernetes workload using the `octopusdeploy/kubernetes-agent-tools-base` container. It will correctly select the version of the image that's specific to the cluster's version. 
+For all Kubernetes steps, except the `Run a kubectl script` step, the agent uses the `octopusdeploy/kubernetes-agent-tools-base` default container image to execute it's workloads. It will correctly select the version of the image that's specific to the cluster's version.
+
+For the `Run a kubectl script` step, if there is a [container image](/docs/projects/steps/execution-containers-for-workers) defined in the step, then that container image is used. If one is not specified, the default container image is used.
+
+:::div{.warning}
+In Octopus Server versions prior to `2024.3.7669`, the Kubernetes agent erroneously used container images defined in _all_ Kubernetes steps, not just the `Run a kubectl script` step.
+:::
 
 This image contains the minimum required tooling to run Kubernetes workloads for Octopus Deploy, namely:
 
