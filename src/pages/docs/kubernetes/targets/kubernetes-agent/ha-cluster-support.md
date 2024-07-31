@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-14
-modDate: 2024-05-14
+modDate: 2024-07-31
 title: HA Cluster Support
 description: How to install/update the agent when running Octopus in an HA Cluster
 navOrder: 60

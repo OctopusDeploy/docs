@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-29
-modDate: 2024-04-29
+modDate: 2024-07-31
 title: Permissions
 description: Information about what permissions are required and how to adjust them
 navOrder: 20

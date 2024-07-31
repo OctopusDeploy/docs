@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-14
-modDate: 2024-05-14
+modDate: 2024-07-31
 title: Automated Installation
 description: How to automate the installation and management of the Kubernetes agent
 navOrder: 50

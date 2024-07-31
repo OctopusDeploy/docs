@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2024-07-31
 title: Configure and apply a Kubernetes Ingress
 description: Configure and apply a Kubernetes Ingress.
 navOrder: 70

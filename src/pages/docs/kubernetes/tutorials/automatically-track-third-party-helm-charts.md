@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-02
-modDate: 2024-06-27
+modDate: 2024-07-31
 title: Automatically tracking third party helm charts
 description: External feed triggers allow you to automatically create a new release as a result of new container images or helm charts being pushed to their respective repositories.
 navOrder: 30

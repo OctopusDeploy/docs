@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 1000-01-01
-modDate: 1000-01-01
+pubDate: 2024-07-31
+modDate: 2024-07-31
 navSection: Resources
 title: Kubernetes Object Status  
 description: Kubernetes Object Status guide.

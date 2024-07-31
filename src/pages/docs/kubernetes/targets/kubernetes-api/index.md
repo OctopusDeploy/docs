@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2024-07-31
 title: Kubernetes API
 navTitle: Overview
 navSection: Kubernetes API

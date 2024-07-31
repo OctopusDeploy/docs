@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-07-31
 title: OpenShift Kubernetes cluster
 description: How to configure an OpenShift Kubernetes cluster as a deployment target in Octopus.
 navOrder: 40
