@@ -18,7 +18,7 @@ There are multiple levels of variables in Octopus Deploy:
 4.  Variable Set
 5.  System Variables
 
-Project, Tenant, and Step Template variables are associated with their specific item and cannot be shared.  Variable set can be shared between 1 to N Projects and Tenants.  System variables are variables provided by Octopus Deploy you can use during deployments.
+Project, Tenant, and Step Template variables are associated with their specific item and cannot be shared.  Variable Sets can be shared between 1 to N Projects and Tenants.  System variables are variables provided by Octopus Deploy you can use during deployments.
 
 During a deployment, Octopus will gather all the variables for the project, Tenant (when applicable), step template, associated variable sets, and system variables and create a "variable manifest" for each step to use.
 
@@ -35,14 +35,14 @@ In addition to having the above levels of variables, there are also two categori
 
 ## Variable naming
 
-Without established naming conventions, variable name collisions are possible.  A common example is when a project and a variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/#scope-specificity).  But sometimes, the variables are scoped equally.  If this occurs, Octopus will choose project-defined variables ahead of variable set ones.
+Without established naming conventions, variable name collisions are possible.  A common example is when a project and a variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/getting-started/#scope-specificity).  But sometimes, the variables are scoped equally.  If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
 
 The recommendation is to avoid name collisions in the first place by following these naming standards.
 
 1. Project: `Project.[Component].[Name]` - for example, **Project.Database.UserName.**
 2. Tenant: `[ProjectName].[Component].[Name]` - for example, **OctoPetShopWebUI.URL.Port**.
 3. Step Template: `[TemplateShortName].[Component].[Name]` - for example, **SlackNotification.Message.Body**.
-4. Variable Set: `Library.[VariableSetName].[Component].[Name]` - for example, **Library.Notification.Slack.Message**.
+4. Variable Set: `Library.[LibrarySetName].[Component].[Name]` - for example, **Library.Notification.Slack.Message**.
 
 These naming conventions only apply to variables used for a deployment or runbook run.  Variables used for configuration file replacement have a specific naming convention to follow.  The above naming convention makes it easier to distinguish between the two.
 
@@ -78,7 +78,7 @@ For other items,
 
 ## Variable Sets
 
-[Variable sets](/docs/projects/variables/library-variable-sets) are a great way to share variables between projects.  We recommend the following when creating variable sets.
+[Variable Sets](/docs/projects/variables/library-variable-sets) are a great way to share variables between projects.  We recommend the following when creating variable sets.
 
 - Don't have a single "global" variable set.  This becomes a "junk drawer" of values and quickly becomes unmanageable.  And not every project will need all those variables.
 - Group common variables into a variable set.  Examples include Notifications, Azure, AWS, Naming, and so on.
@@ -90,7 +90,7 @@ A common scenario we've talked to customers about is restricting variable edit a
 
 Our recommendations for variable edit permissions are:
 - Variable edit permissions should be all or nothing, either a person can edit variables, or they cannot.  Don't scope permissions to environments.  Anyone responsible for the application should have permission to update variables (developers, lead developers, DB developers, etc.) along with operations (DBAs, web admins, sys admins) who can create and update service accounts and passwords.  
-- Variable sets can be shared across multiple projects.  Limit who can edit variable set variables to more experienced Octopus Deploy users, or people who understand "with great power comes great responsibility."  Typically, we see senior or lead developers along with operations people who have these permissions.  If you want to isolate an application, consider using [spaces](/docs/administration/spaces).
+- Variable Sets can be shared across multiple projects.  Limit who can edit variable set variables to more experienced Octopus Deploy users, or people who understand "with great power comes great responsibility."  Typically, we see senior or lead developers along with operations people who have these permissions.  If you want to isolate an application, consider using [spaces](/docs/administration/spaces).
 - Leverage [sensitive variables](/docs/projects/variables/sensitive-variables) to encrypt and hide sensitive values such as usernames and passwords.  Sensitive variables are write-only in the Octopus UI and Octopus API.  
 - Use [composite variables](/docs/projects/variables/variable-substitutions/#binding-variables) to combine sensitive and non-sensitive values.  A typical use case is database connection strings.  Each language has a specific syntax.  In the screenshot below `Project.Database.ConnectionString` is the composite variable, with the username and password referenced by the composite variable, but they are separate sensitive variables. 
 

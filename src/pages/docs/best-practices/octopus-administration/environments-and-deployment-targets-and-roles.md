@@ -8,7 +8,7 @@ navOrder: 30
 hideInThisSection: true
 ---
 
-[Deployment targets](/docs/infrastructure/deployment-targets/) are what Octopus Deploy deploys to. They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more. Please refer to the [Deployment targets](/docs/infrastructure/deployment-targets/) for an up to date list on deployment targets. [Environments](/docs/infrastructure/environments) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline. These stages are typically given names such as **development**, **test**, and **production**. [Target tags](/docs/infrastructure/deployment-targets/target-tags) (formerly target roles) are a filter to select specific deployment targets in an environment.
+[Deployment targets](/docs/infrastructure/deployment-targets/) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more.  Please refer to the [Deployment targets](/docs/infrastructure/deployment-targets/) for an up to date list on deployment targets.  [Environments](/docs/infrastructure/environments) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  [Target tags](/docs/infrastructure/deployment-targets/target-tags) (formerly target roles) are a filter to select specific deployment targets in an environment.
 
 ## Deployment Target, Environment, and Target Tag relationship \{#deployment-target-environment-and-role-relationship}
 Environments are how you group deployment targets in a stage in your deployment pipeline.  Target tags are how you identify which deployment targets you wish to deploy to in that specific stage.
@@ -111,4 +111,4 @@ For further reading on environments, deployment targets, and target tags in Octo
 
 - [Deployment Targets](/docs/infrastructure/deployment-targets)
 - [Environments](/docs/infrastructure/environments)
-- [Target Tags](/docs/infrastructure/deployment-targets/target-tags#create-target-role)
+- [Target Tags](/docs/infrastructure/deployment-targets/target-tags#create-target-roles)
