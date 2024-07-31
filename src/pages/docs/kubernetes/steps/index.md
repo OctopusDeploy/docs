@@ -18,4 +18,4 @@ You can use the built-in Kubernetes steps to configure Kubernetes deployments. T
 | [Deploy with Kustomize](/docs/kubernetes/steps/kustomize)                               | Deploy to Kubernetes with Kustomize                             |
 | [Configure and apply Kubernetes resources](/docs/kubernetes/steps/kubernetes-resources) | Creates a Kubernetes deployment, service, and ingress resources |
 | [Configure and apply a Kubernetes Service](/docs/kubernetes/steps/kubernetes-service)   | Creates a Kubernetes service resource                           |
-| [Configure and apply a Kubernetes Ingress](/docs/kubernetes/steps/kubernetes-ingress)   | Creates a Kubernetes ingress resrouce                           |
+| [Configure and apply a Kubernetes Ingress](/docs/kubernetes/steps/kubernetes-ingress)   | Creates a Kubernetes ingress resource                           |
