@@ -26,7 +26,7 @@ An Octopus High Availability configuration requires four main components:
 - **Shared storage**
   Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
 
-## How High Availablity Works
+## How High Availability Works
 
 High Availability (HA) distributes load between multiple nodes.  There are two kinds of load an Octopus Server node encounters:
 
