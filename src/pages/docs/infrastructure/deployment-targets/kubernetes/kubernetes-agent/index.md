@@ -200,7 +200,7 @@ For all Kubernetes steps, except the `Run a kubectl script` step, the agent uses
 For the `Run a kubectl script` step, if there is a [container image](/docs/projects/steps/execution-containers-for-workers) defined in the step, then that container image is used. If one is not specified, the default container image is used.
 
 :::div{.warning}
-Octopus Server versions prior to `2024.3.7669` erroneously used container images defined in _all_ Kubernetes steps, not just the `Run a kubectl script` step.
+In Octopus Server versions prior to `2024.3.7669`, the Kubernetes agent erroneously used container images defined in _all_ Kubernetes steps, not just the `Run a kubectl script` step.
 :::
 
 This image contains the minimum required tooling to run Kubernetes workloads for Octopus Deploy, namely:
