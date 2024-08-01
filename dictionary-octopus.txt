@@ -49,6 +49,7 @@ configmap
 Conjur
 contoso
 cooldown
+corepack
 Cpath
 creds
 crossorigin
@@ -124,6 +125,7 @@ hostnames
 hotfix
 hotfixes
 HSTS
+htdocs
 HTTPAPI
 hyperthread
 hyperthreading
