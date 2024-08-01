@@ -16,4 +16,3 @@ The topics covered are:
 
 - [Installation Guidelines](/docs/best-practices/self-hosted-octopus/installation-guidelines)
 - [High Availability](/docs/best-practices/self-hosted-octopus/high-availability)
-- [Disaster Recovery](/docs/best-practices/self-hosted-octopus/disaster-recovery)
