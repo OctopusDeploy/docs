@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-06-27
 title: Reporting
+icon: fa-solid fa-file
 description: Octopus reporting makes it easy to produce reports over your deployment history, using your preferred reporting tools.
 navOrder: 80
 ---

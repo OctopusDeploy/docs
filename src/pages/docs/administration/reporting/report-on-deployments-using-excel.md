@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-06-25
 title: Report on deployments using Excel and XML
+icon: fa-solid fa-file-excel
 description: How to report on deployments using Excel and XML
 navOrder: 10
 ---
