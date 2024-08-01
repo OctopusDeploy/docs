@@ -78,16 +78,16 @@ Remove-Item "$filepath\file.txt"
 An example PowerShell script using RoboCopy will be:
 
 ```powershell
-robocopy C:\Octopus\TaskLogs \\YOURFILESHARE\OctopusHA\TaskLogs /mir /r:5
-robocopy C:\Octopus\Artifacts \\YOURFILESHARE\OctopusHA\Artifacts /mir /r:5
-robocopy C:\Octopus\Packages \\YOURFILESHARE\OctopusHA\Packages /mir /r:5
-robocopy C:\Octopus\Imports \\YOURFILESHARE\OctopusHA\Imports /mir /r:5
-robocopy C:\Octopus\EventExports \\YOURFILESHARE\OctopusHA\EventExports /mir /r:5
+robocopy C:\Octopus\TaskLogs \\your-file-share\OctopusHA\TaskLogs /mir /r:5
+robocopy C:\Octopus\Artifacts \\your-file-share\OctopusHA\Artifacts /mir /r:5
+robocopy C:\Octopus\Packages \\your-file-share\OctopusHA\Packages /mir /r:5
+robocopy C:\Octopus\Imports \\your-file-share\OctopusHA\Imports /mir /r:5
+robocopy C:\Octopus\EventExports \\your-file-share\OctopusHA\EventExports /mir /r:5
 ```
 
 ### Configure load balancer
 
-Octopus Deploy must sit behind a load balancer when configured in HA mode.  We recommend creating a new URL for your Octopus HA cluster.  For example, if the current URL for your Octopus Instance is `octopus.mydomain.local`, the load-balanced URL could be `octopusha.mydomain.local`.  
+Octopus Deploy must sit behind a load balancer when configured in HA mode.  We recommend creating a new URL for your Octopus HA cluster.  For example, if the current URL for your Octopus Instance is `octopus.your-domain.local`, the load-balanced URL could be `octopus-ha.your-domain.local`.  
 
 The advantage of a new URL is:
 1. You can still access each server directly (if need be).

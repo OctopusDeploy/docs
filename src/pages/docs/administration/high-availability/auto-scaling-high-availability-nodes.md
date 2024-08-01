@@ -53,7 +53,7 @@ $downloadFileName = "$downloadLocation\$msiFileName"
 Write-Output "Downloading $downloadUrl to $outfile"
 Start-BitsTransfer -source $downloadUrl -destination $outfile
 
-$msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $downloadFileNam /quiet" -Wait -Passthru).ExitCode 
+$msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $downloadFileNam /quiet" -Wait -PassThru).ExitCode 
 Write-Output "Server MSI installer returned exit code $msiExitCode" 
 ```
 

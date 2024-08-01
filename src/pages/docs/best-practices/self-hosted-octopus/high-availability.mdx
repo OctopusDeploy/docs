@@ -299,7 +299,7 @@ Follow these steps if you elect to host Octopus Deploy on Windows Servers.
 1. Download the latest MSI from [Octopus Downloads](https://octopus.com/downloads)
 1. Install the MSI on the Windows Server. Once complete, it will start the Octopus Setup Wizard.
 1. Follow the wizard and complete the configuration.
-1. Once the setup wizard is complete, you'll be taken to the Octopus Manager. Now is a good time to [retrieving the master key](/docs/security/data-encryption#Securityandencryption-YourMasterKey). That master key is required to add additional nodes to your High Availability Cluster.
+1. Once the setup wizard is complete, you'll be taken to the Octopus Manager. Now is a good time to [retrieving the master key](/docs/security/data-encryption#your-master-key). That master key is required to add additional nodes to your High Availability Cluster.
 1. Run the following script to configure the BLOB storage.
 
 ```
@@ -329,7 +329,7 @@ Migrating an existing instance is possible, and for most configurations can be c
 
 Before getting started, it is important to ensure you have a backup of the master key. The master key is used by Octopus Deploy to encrypt and decrypt data within the Octopus Deploy database. If this master key is lost, you will have to reset all the encrypted items in your database. 
 
-Learn more about [retrieving the master key](/docs/security/data-encryption#Securityandencryption-YourMasterKey).
+Learn more about [retrieving the master key](/docs/security/data-encryption#your-master-key).
 
 #### Migrating Database
 
@@ -375,7 +375,7 @@ $filePath = "YOUR ROOT DIRECTORY"
 
 - Turn back on your Octopus Deploy service.
 
-Learn more about [moving the Octopus Server folders](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory#MovingOctopusServerfolders-Other).
+Learn more about [moving the Octopus Server folders](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory#move-other-folders).
 
 #### Migrating to the Load Balancer
 

@@ -13,7 +13,7 @@ This section will provide a set of best practices and implementation guides to u
 
 ## Whitepapers
 
-For longform best practices and recommendations please refer to our whitepapers.
+For long-form best practices and recommendations please refer to our whitepapers.
 
 - [Best Practices for Self-Hosted Octopus Deploy HA/DR](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr)
 

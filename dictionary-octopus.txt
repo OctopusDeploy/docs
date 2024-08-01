@@ -31,11 +31,13 @@ bootstrapped
 bootstrapper
 bufio
 Ceph
+certkeyName
 changeit
 checkservices
 childelement
 choco
 cicd
+CIFS
 classiclink
 clientcertificate
 cloudapi
@@ -86,6 +88,7 @@ DWORD
 elif
 Elyton
 emptytitle
+entra
 environmentids
 expressjs
 externalgroups
@@ -103,6 +106,7 @@ filestore
 FIPS
 fontawesome
 frontmatter
+g3662re9njtelsyfhm7t
 gcloud
 getenv
 gifs
@@ -110,16 +114,19 @@ gitcredential
 globbing
 Gluster
 googleaccount
+gpedit
 groff
 Groupsand
 gruntfile
 gulpfile
+GZRS
 hasattr
 Hashtable
 hastscript
 healthcheck
 Helloworld
 HKEY
+HKLM
 HKLM
 hostnames
 hotfix
@@ -160,6 +167,7 @@ kustomization
 kustomize
 lastmod
 latestdeployments
+lbvserver
 libicu
 libraryvariablesets
 lifecycles
@@ -210,6 +218,7 @@ noreferrer
 nosniff
 notcontains
 notlike
+NTFS
 NTLM
 nupkg
 NVARCHAR
@@ -226,6 +235,7 @@ octopackjs
 Octopub
 octopusartifact
 octopusbob
+octopusdemos
 octopusdemos.app
 octopusdeploy
 octopusid
@@ -246,6 +256,7 @@ openon
 outfile
 outputformat
 OWASP
+Ozar
 packageversion
 passout
 pemstore
@@ -277,6 +288,7 @@ redeploy
 redeployment
 redeployments
 Redgate
+Regedit
 rehype
 reindexing
 releaseprogression
@@ -378,6 +390,7 @@ variablename
 variableset
 vhdx
 Voltron
+vserver
 WCAG
 webapps
 WEBDEPLOY

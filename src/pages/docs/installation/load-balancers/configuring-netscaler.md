@@ -25,14 +25,14 @@ add lb vserver octopusdeploy_LB HTTP 0.0.0.0 0
 bind lb vserver octopusdeploy_LB octopusdeploy_GRP
 
 #HTTP CS
-add cs vserver octopusdeploy_CS_HTTP HTTP 10.0.0.1 80 -cltTimeout 180 -Listenpolicy None
+add cs vserver octopusdeploy_CS_HTTP HTTP 10.0.0.1 80 -cltTimeout 180 -listenPolicy None
 bind cs vserver octopusdeploy_CS_HTTP -lbvserver ssl-only-redirect_LB
 
 #HTTP CS
-add cs vserver octopusdeploy_CS_HTTPS SSL 10.0.0.1 443 -cltTimeout 180 -Listenpolicy None
+add cs vserver octopusdeploy_CS_HTTPS SSL 10.0.0.1 443 -cltTimeout 180 -listenPolicy None
 bind cs vserver octopusdeploy_CS_HTTPS -lbvserver octopusdeploy_LB
 
 #Cipher and Cert Bindings
 bind ssl vserver octopusdeploy_CS_HTTPS -cipherName DEFAULT_HA_CIPHERS
-bind ssl vserver octopusdeploy_CS_HTTPS -certkeyName mydomain.com
+bind ssl vserver octopusdeploy_CS_HTTPS -certkeyName your-domain.com
 ```
