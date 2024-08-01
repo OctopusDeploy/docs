@@ -71,8 +71,6 @@ With Octopus Deploy's [High Availability](/docs/administration/high-availability
 
 The database can be configured in either a hot/cold or hot/warm configuration.
 
-Please refer to [our guide](/administration/data/failing-over-to-secondary-data-center) on failing over and recovering from a secondary data center.
-
 ### Hot/cold
 
 For hot/cold, you are limited to a single option, [Database Backups](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-overview-sql-server).  After the backup is complete, copy it to the secondary data center.  
@@ -81,7 +79,7 @@ For hot/cold, you are limited to a single option, [Database Backups](https://lea
 When a disaster occurs, any data modified since the last backup will be lost.  If you doing a backup every 15 minutes, that means you can lose up to 15 minutes of work.
 :::
 
-When the disaster occurs, you create the Octopus Deploy database from the most recent backup.  Depending on the size of the database this can be accomplished as quickly as a few minutes.  However, you'll encounter challenges when you fail back to the primary data center, as you'll need to take a backup of the database in the secondary data center and overwrite what is in the primary data center.  Failure to do so will result in a [split-brain scenario](https://en.wikipedia.org/wiki/Split-brain_(computing)).
+When a disaster occurs, you create the Octopus Deploy database from the most recent backup.  Depending on the size of the database this can be accomplished as quickly as a few minutes.  However, you'll encounter challenges when you fail back to the primary data center, as you'll need to take a backup of the database in the secondary data center and overwrite what is in the primary data center.  Failure to do so will result in a [split-brain scenario](https://en.wikipedia.org/wiki/Split-brain_(computing)).
 
 ### Hot/warm
 
@@ -94,5 +92,7 @@ You have a couple of options for a hot/warm configuration with SQL Server.
 When a disaster occurs, any data not synchronized will be lost.  Depending on the connection speed, this could be up to a couple of minutes.
 :::
 
-Fundamentally, both options are the same.  They asynchronously transfer database transactions to a secondary data center.  However, there are pros and cons to either approach.  And there might be additional licensing costs or limits.  We are not experts in configuring a local SQL Server, our recommendation is to consult a DBA on which option they prefer.  
+Fundamentally, both options are the same.  They asynchronously transfer database transactions to a secondary data center.  When a disaster occurs, you perform the necessary steps as detailed by Microsoft to make the secondary database the primary.  
+
+There are pros and cons to either approach.  And there might be additional licensing costs or limits.  Our recommendation is to consult your DBA on which option they prefer.  
 
