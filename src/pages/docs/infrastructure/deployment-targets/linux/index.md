@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-02-20
+modDate: 2024-08-02
 title: Linux targets
 description: Configuring Linux servers as deployment targets in Octopus.
 navOrder: 30
