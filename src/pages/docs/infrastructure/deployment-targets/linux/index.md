@@ -36,17 +36,14 @@ Any Linux server which meets these minimum requirements will be able to be confi
 
 The following platforms are explicitly supported (we run automated tests against them):
 
-- Ubuntu 18.04 LTS
-- Ubuntu 16.04 LTS
-- Redhat (RHEL) 7.9
-- Centos 7.7
+- Ubuntu 22.04 LTS
+- Redhat (RHEL) 8.10
 - Amazon Linux 2
-- Debian 9.12
-- Fedora 23
+- Debian 11
+- Fedora 39
 - MacOS 12.6.3
-- openSUSE 15.1
-- SUSE LES 12 SP5
-- FreeBSD 11.3
+- openSUSE 15.6
+- SUSE LES 15 SP5
 
 ## Learn more
 
