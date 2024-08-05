@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-02
 title: Retention policy Tentacle cleanup and troubleshooting
+icon: fa-bug
 description: Reviewing and troubleshooting why some files aren't cleaned up by Octopus retention policies.
 ---
 
@@ -73,13 +74,13 @@ Defining retention policies is done within lifecycles. Each phase can have a dif
 ![](/docs/administration/retention-policies/images/default-lifecycle-retention-policy.png)
 :::
 
-In this example the default for the Lifecycle is to Keep 3 releases on both Octopus Server and Tentacle.
+In this example the default for the lifecycle is to keep 3 releases on both Octopus Server and Tentacle.
 
-Learn more about [Lifecycles](/docs/releases/lifecycles/) and [Retention Policies](/docs/administration/retention-policies) on their own detailed pages.
+Learn more about [lifecycles](/docs/releases/lifecycles/) and [retention policies](/docs/administration/retention-policies) on their own detailed pages.
 
 ## Retention policies with channels {#retention-policy-channels}
 
-[Channels](/docs/releases/channels) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag under `Deployment settings` on the **Project ➜ Settings** page.
+[Channels](/docs/releases/channels) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the "Discrete Channel Releases" option on the **Project Settings** page.
 
 :::figure
 ![Discrete Channel Release](/docs/administration/retention-policies/images/discrete-channel-release.png)
@@ -87,9 +88,9 @@ Learn more about [Lifecycles](/docs/releases/lifecycles/) and [Retention Policie
 
 ## When the retention policy is run {#retention-policies-run}
 
-For a Tentacle the retention policy is run at the end of a deployment, for that project only. So for this example the deployment looks for the project (project-1) and finds all releases within the deployment journal. It finds 4 in total (current is never counted) leaving 3, knowing it just deployed one, it deletes one copy of each package.
+For a Tentacle the retention policy is run at the end of a deployment, for that project only. So for this example the deployment looks for the project (Project-1) and finds all releases within the deployment journal. It finds 4 in total (current is never counted) leaving 3, knowing it just deployed one, it deletes one copy of each package.
 
-So for Project-1 we have 8 packages and directories still remaining on the server after the deployment. The current, and then the 3 defined by the policy. This is for each package. Any packages for other projects (project-2) were not evaluated and not removed, even if it was the same package version. Project 2 is considered it's own trigger for that retention policy, and is assumed to have different variables and transformations, thus a unique set of extracted files.
+So for Project-1 we have 8 packages and directories still remaining on the server after the deployment. The current, and then the 3 defined by the policy. This is for each package. Any packages for other projects (Project-2) were not evaluated and not removed, even if it was the same package version. Project 2 is considered its own trigger for that retention policy, and is assumed to have different variables and transformations, thus a unique set of extracted files.
 
 See below the messages you will have in your raw deployment logs at the end of a deployment to that environment for the specific project:
 
@@ -115,10 +116,6 @@ See below the messages you will have in your raw deployment logs at the end of a
 You can find your packages in the `<Tentacle Home>\Files` directory.
 or `<Tentacle Home>\[Instance Name])\Files` if you have multiple 
 Tentacle instances on one machine.
-- For Windows Tentacles, the default directory is: `C:\Octopus\Files`
-- For Linux Tentacles, the default directory is: `/etc/octopus/files`
-
-Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/#Tentacleconfigurationandfilestorage-Filestorage).
 
 :::figure
 ![](/docs/administration/retention-policies/images/3278387.png)
@@ -126,7 +123,7 @@ Learn more about where Tentacle [files are stored](/docs/administration/managing
 
 By default your extracted package files can be found under `<Tentacle Home>\Applications\[environment name]\[package name]\`
 
-So if you have multiple packages you will have multiple directories.
+If you have multiple packages, you will have multiple directories.
 
 :::figure
 ![](/docs/administration/retention-policies/images/3278389.png)
@@ -134,7 +131,7 @@ So if you have multiple packages you will have multiple directories.
 
 ![](/docs/administration/retention-policies/images/3278388.png)
 
-If you have more directories than you think you should, check if they have a value in the deployment journal, if they do not they will have to be manually deleted.
+If you have more directories than you think you should, check if they have a value in the deployment journal. If they don't, you'll need to manually delete them.
 
 You can have multiple directories for the same version of each package like the following example:
 
@@ -146,6 +143,6 @@ This occurs when you have the same package in two different steps inside a singl
 
 ## Troubleshooting {#retention-policy-troubleshooting}
 
-If you upgraded from Tentacle 2.x to a modern version of Tentacle the deployment journal location moved. Your choices are to clean up any old deployments manually, merge your deployment journals to the new location or run this [PowerShell Script](https://gist.github.com/vanessalove/dbc656b01df40939dcf8) on your Tentacles.
+If you upgraded from Tentacle 2.x to a modern version of Tentacle, the deployment journal location moved. Your choices are to clean up any old deployments manually, merge your deployment journals to the new location, or run this [PowerShell script](https://gist.github.com/vanessalove/dbc656b01df40939dcf8) on your Tentacles.
 
 If your deployment journal is deleted for any reason, you will need to manually remove any remaining packages and package extraction directories that are not in the new deployment journal (which is automatically created on the next deployment).
