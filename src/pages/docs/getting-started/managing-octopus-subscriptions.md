@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-05
 title: Managing Octopus subscriptions
 description: Control Center is where you manage your Octopus subscriptions and their associated user access. 
 navOrder: 40
@@ -20,7 +20,7 @@ This page focuses on Control Center V2, our new system for managing Octopus subs
 
 ### Explaining the two versions of Control Center
 
-In October 2022, we moved to Stripe as our payment gateway, so we needed a new system for integration with Stripe. We refer to the new system as Control Center V2, and it will replace Control Center later this year. During 2023, we'll migrate your subscriptions from V1 to V2 as you pay or renew. After the migration is complete, we'll deprecate V1.
+In October 2022, we moved to Stripe as our payment gateway, so we needed a new system for integration with Stripe. We refer to the new system as Control Center V2, and it replaces the original Control Center V1.
 
 ### I can't work out how to do something in Control Center V2 that I used to do in V1
 
@@ -30,11 +30,7 @@ If you can't see how to do something in V2 that you could do in V1, please conta
 
 ### Locating subscriptions
 
-All your subscriptions (Cloud instances and Server licenses) are accessible from Control Center V1. Only subscriptions we've migrated to Control Center V2 are accessible from V2.
-
-### Migration of subscriptions
-
-Trial subscriptions are created in Control Center V1. Subscriptions in Control Center V1 migrate to V2 when you change to a paid subscription or a yearly renewal. This is why you may have some subscriptions in Control Center V1 and others in V2 until they're all transferred to V2. 
+Most subscriptions (Cloud instances and Server licenses) are accessible from Control Center V2. Some legacy subscriptions are only accessible from Control Center V1.
 
 ## Finance 
 
@@ -42,34 +38,32 @@ Trial subscriptions are created in Control Center V1. Subscriptions in Control C
 
 Cloud instance:
 
-1. Navigate to your Cloud Instance in Control Center V1.
-2. Click **CHANGE PLAN**. 
+1. Navigate to your Cloud Instance in Control Center V2.
+2. Click **UPGRADE PLAN**. 
 3. Choose your plan and complete the purchase through Stripe. 
 
-Server license: 
+Server license:
 
-1. Navigate to your Server License in Control Center V1.
-2. Click **UPGRADE LICENSE**. 
+1. Navigate to your Server License in Control Center V2.
+2. Click **UPGRADE PLAN**. 
 3. Choose your plan and complete the purchase through Stripe. 
-
-In both cases, upgrading a trial to a paid subscription will migrate your subscription to Control Center V2. 
 
 ### Changing payment method or billing information (Cloud only)
 
 1. Navigate to your Cloud instance or Server License.
 2. Click **FINANCE** in the left sidebar.
-3. Click **MANAGE WITH STRIPE**.
+3. Click **MANAGE SUBSCRIPTION**.
 4. Use the options to edit and/or add payment methods and update your billing information.
 
-### Viewing orders (Cloud only)
+### Viewing orders
 
 1. Navigate to your subscription.
 2. Click **FINANCE** in the left sidebar.
 3. Choose your option for viewing orders:
-  - For recent orders, click **VIEW IN STRIPE**.
-  - For older orders, click **VIEW IN CONTROL CENTER V1**.
+  - For recent orders, click **VIEW SUBSCRIPTION**.
+  - For older orders, click **CONTACT SALES**.
 
-### Configuring maximum deployment targets (Cloud only)
+### Configuring maximum deployment targets (legacy Cloud only)
 
 To help you manage your monthly spend, you can set a maximum number of deployment targets for a Cloud instance.
 
