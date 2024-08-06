@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-06
 title: Static IP address
 navOrder: 10
 description: How to find the list of static IP addresses for your Octopus Cloud instance
@@ -15,10 +15,10 @@ With a static IP address, you can lock down the ingress and egress communication
 
 :::div{.hint}
 **Note:**
-The built-in worker for your Octopus Cloud Server does not use an IP address from the range of static IP addresses.
+The Octopus-hosted [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools) do not fall within the static IP range of your Octopus Cloud Server. If a known/static IP is required for your worker, please consider provisioning your own [external worker](/docs/infrastructure/workers#external-workers-external-workers).
 :::
 
-The range of IP Addresses that your Octopus Cloud Server will use can be found within the technical section of the instance details page. 
+The range of IP Addresses that your Octopus Cloud Server will use is listed in the technical section of the instance details page. 
 
 1. Log in to [Octopus.com](https://octopus.com).
 1. Click your profile in the upper right, followed by clicking **Control Center**.
