@@ -15,7 +15,7 @@ With a static IP address, you can lock down the ingress and egress communication
 
 :::div{.hint}
 **Note:**
-The Octopus-hosted [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools) do not fall within the static IP range of your Octopus Cloud Server. If a known/static IP is required for your worker, please consider provisioning your own [external worker](/docs/infrastructure/workers/index.mdx#external-workers-external-workers).
+The Octopus-hosted [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools) do not fall within the static IP range of your Octopus Cloud Server. If a known/static IP is required for your worker, please consider provisioning your own [external worker](/docs/infrastructure/workers#external-workers-external-workers).
 :::
 
 The range of IP Addresses that your Octopus Cloud Server will use is listed in the technical section of the instance details page. 
