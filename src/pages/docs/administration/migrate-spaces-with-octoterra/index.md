@@ -14,30 +14,25 @@ robots: noindex, follow
 
 [Octoterra](github.com/OctopusSolutionsEngineering/OctopusTerraformExport/actions) exports Octopus projects, runbooks, and spaces to a Terraform module. Octoterra can be used to migrate resources between spaces and instances.
 
-## Limitations of octoterra and migrating projects between instances
+Octoterra Wizard prepares a source space to allow the space and projects to be migrated to a new space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.\
+
+This documentation provides details on how to use the Octoterra Wizard to migrate a space from one instance to another, as well as noting the limitations and any special requirements of the process.
+
+## Limitations of Octoterra and migrating projects between instances
 
 There are limitations that must be accounted for as part of a migration.
 
 ### Sensitive values
 
-Octoterra reads the state of a space via the Octopus API and the API does not expose sensitive values. This means that octoterra can not export:
+Sensitive values are not exposed by the Octopus API and therefore are not captured in the Terraform configuration created by Octoterra.
 
-* The value of sensitive variables associated with a project, tenant, or variable set 
-* Credentials defined in feeds, accounts, or git credentials
-* The contents of a certificate
-* Sensitive values defined in steps
+Sensitive variables can be passed to the Terraform module if the source Octopus instance deploys the Terraform configuration itself, as Octopus exposes sensitive values to a deployment process or runbook. In order to ensure sensitive variables can be passed to the Terraform configuration, all sensitive variables must be unscoped and have a unique name. Existing sensitive variables can be modified to fulfil these requirements by spreading them. See the section on variable spreading for more information.
 
-Octoterra creates Terraform variables to allow the value of these fields to be defined when the module is applied.
-
-### Step templates
-
-The Octopus Terraform provider does not yet support defining step templates. Because step templates are assigned a unique ID in each space, it is not possible to export a project or runbook that references a step template across spaces.
-
-As a workaround, octoterra can detach step templates while exporting a project or runbook. Projects or runbooks with detached step templates can be recreated in a new space.
+The sensitive values associated with feed, account, and Git credentials, the contents of certificate, sensitive values embedded in steps (such as the `Deploy to IIS` step), and sensitive values defined as parameters on step templates can not be captured by Octoterra. These values are replaced with placeholder values and must be manually reentered on the destination instance once the space has been migrated.
 
 ### New step framework
 
-Some steps rely on a new framework. Steps that use the new framework are not currently supported by the Terraform provider. These steps can not be exported by octoterra.
+Some steps rely on a new framework. Steps that use the new framework are not currently supported by the Terraform provider. These steps can not be exported by Octoterra.
 
 Octoterra will display an error like this when an unsupported step is encountered:
 
@@ -47,15 +42,32 @@ Action <step name> has the "Items" property, which indicates that it is from the
 
 ### Config-as-Code (CaC) repositories
 
-Two projects can not share the same CaC Git repository. When reimporting a CaC project, it must be configured with a new Git repo.
+Octoterra converts CaC projects back to regular projects as part of the migration. The project can be converted back to CaC on the destination space. 
 
-### CaC and step templates
+However, be aware that Octopus does not support sharing project CaC configuration between two projects. You are prevented from doing so with multiple projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared CaC project configuration from multiple Octopus instance, there are cases where the CaC configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project CaC configuration hosted in Git.
 
-CaC repositories reference step templates by ID. The ID of a step template is unique in each space and instance. If you create a new CaC project in a new space and point it to an existing CaC repository that references step templates, the project will fail to load.
+The recommended solution is to convert the projects in the destination space to a new directory or Git repository. This ensures that the new projects have valid CaC configuration.
 
-## Teams and users
+### Other settings
 
-Octoterra does not currently export teams and users.
+The following is a non-exhaustive list of settings that are not exported by Octoterra:
+
+* Users, teams, and roles
+* Authentication settings
+* Packages in the built-in feed
+* Audit logs
+* Releases and deployments
+* Runbook runs
+* Subscriptions
+* API Keys
+* SIEM settings
+* GitHub app connections
+* License details
+* Node configuration
+* SMTP settings
+* Insights dashboards
+
+## Spreading sensitive variables
 
 ## Prerequisites
 
