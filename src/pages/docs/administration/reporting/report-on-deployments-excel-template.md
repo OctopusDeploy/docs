@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-06-27
 title: Octopus reporting with an Excel template
+icon: fa-solid fa-file-excel
 description: Octopus reporting with an Excel template
 navOrder: 100
 ---
