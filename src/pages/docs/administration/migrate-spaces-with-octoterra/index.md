@@ -88,6 +88,7 @@ These are the prerequisites for migrating projects with octoterra:
 * [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance
 * [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the destination Octopus instance
 * Create a remote [Terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) to maintain the state of the Terraform resources. [AWS S3](https://developer.hashicorp.com/terraform/language/settings/backends/s3) and [Azure Storage Accounts](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) are supported.
+* Install any required local tools. See the "Local Tools vs Container Images" section for more details.
 
 ## Running the wizard
 
