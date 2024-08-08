@@ -14,7 +14,7 @@ robots: noindex, follow
 
 [Octoterra](github.com/OctopusSolutionsEngineering/OctopusTerraformExport/actions) exports Octopus projects, runbooks, and spaces to a Terraform module. Octoterra can be used to migrate resources between spaces and instances.
 
-Octoterra Wizard prepares a source space to allow the space and projects to be migrated to a new space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.\
+[Octoterra Wizard](https://github.com/OctopusSolutionsEngineering/OctoterraWizard) prepares a source space to allow the space and projects to be migrated to a new space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.\
 
 This documentation provides details on how to use the Octoterra Wizard to migrate a space from one instance to another, as well as noting the limitations and any special requirements of the process.
 
@@ -66,6 +66,27 @@ The following is a non-exhaustive list of settings that are not exported by Octo
 * Node configuration
 * SMTP settings
 * Insights dashboards
+* OIDC accounts
+
+## Prerequisites
+
+These are the prerequisites for migrating projects with octoterra:
+
+* Download the Octoterra Wizard from [GitHub](https://github.com/mcasperson/OctoterraWizard)
+* Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation
+* [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance
+* [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the destination Octopus instance
+* Create a remote [Terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) to maintain the state of the Terraform resources. [AWS S3](https://developer.hashicorp.com/terraform/language/settings/backends/s3) and [Azure Storage Accounts](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) are supported.
+
+## Running the wizard
+
+The Octoterra Wizard presents a wizard that prompts you for the details of your source Octopus space, the destination Octopus space, and the Terraform backend.
+
+You are also prompted to spread sensitive variables after confirming that you understand the implications of modifying variables in this manner. See the section called Spreading sensitive variables for more details on the implications of this step.
+
+You are given the choice to use local tools or container images when running the runbooks to create and apply the Terraform modules. See the section called Local Tools vs Container Images for more information on making this choice.
+
+The final steps do not involve any input. They manage the process of installing the required community step template steps into the source space, creating runbooks to export the space level resources and projects, and finally running the runbooks. See the section Space vs project level resources for more information on the distinction between these resources.
 
 ## Spreading sensitive variables
 
@@ -91,12 +112,92 @@ Note there are security considerations to take into account with variable spread
 It is important to understand the implications of variable spreading before migrating projects with the Octoterra Wizard.
 :::
 
-## Prerequisites
+## Local Tools vs Container Images
 
-These are the prerequisites for migrating projects with octoterra:
+The runbooks created by the Octoterra Wizard have the option to use locally installed tools or run the runbooks from a container image that provides the required tools.
 
-* Download octoterra from [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport)
-* Install [Terraform](https://developer.hashicorp.com/terraform/install)
-* An API key for the source Octopus instance
-* An API key for the destination Octopus instance
-* A remote [Terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) is to maintain the state of the Terraform resources. AWS S3 and Azure Storage Accounts are supported.
+Container images require that the source server or the default worker pool used by the source server have Docker installed. This is common on Linux servers (especially as Octopus is distributed as a Linux container for on-premises Linux users), and is available on the dynamic workers provided by cloud Octopus instances, but less common on on-premises Windows servers.
+
+Local tools are locally installed versions of the tool listed in the Required local tools section. Using this option does not require Docker to be installed on the source server.
+
+If you are migrating from an on-premises Windows server, you will likely select the `Local tools` options.
+
+### Required local tools
+
+If you select the Local tools option, your on-premises server or default worker pool must have the following tools installed:
+
+* [Terraform](https://developer.hashicorp.com/terraform/install)
+* [Python](https://www.python.org/downloads/)
+* [PowerShell Core](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
+
+## Space vs project level resources
+
+Octoterra distinguishes between space and project level resources. Broadly speaking, project level resources include deployment projects and everything directly attached to projects such as project variables, runbooks, triggers, channels, and project settings.
+
+:::div{.hint}
+Octoterra does not export releases or deployments.
+:::
+
+Space level resources include everything else including feeds, accounts, tenants, library variable sets, certificates, workers, worker pools, project groups etc.
+
+The relationship between a tenant and a project, including project level tenant variables, are considered to be project level resources.
+
+Migrating a space involves:
+
+1. Migrating space level resources
+2. Migrating individual projects
+   1. Reestablishing the link between a tenant and a project
+
+Projects can typically be migrated independently of each other. However, some steps, such as the `Deploy a release` step, reference other projects. The projects referenced by `Deploy a release` steps must be migrated before the project that defines the step.
+
+## Migration strategies
+
+Because the Octoterra Wizard serialized and Octopus space to Terraform modules, there are a number of strategies that can be implemented for migrating spaces:
+
+* Big bang migration, where the migration is done all at once
+* Incremental migration, where projects are migrated over time
+* Continual migration, where the destination server is updated as changes are made to the source server
+
+### Big bang migration
+
+This is conceptually the easiest migration as it means migrating Octopus resources from the source server to the destination server once, shutting down the source server, and switching to the destination server.
+
+To perform a big bang migration, run the wizard to completion. This will migrate the space level resources and all projects for you.
+
+Consider a big bang migration strategy when:
+
+* You can migrate the space and project level resources in one operation
+* You are confident that the migrated resources work as expected
+* You can perform all the post-migration steps before the destination server is put into operation
+
+### Incremental migration
+
+Incremental migrations require the space level resources to be migrated from the source server to the destination server.
+
+To perform an incremental migration, complete the `Migrate Space Level Resources` step and then exit the wizard. This ensures that the space level resources are migrated.
+
+Then, when a project is ready to be migrated, run the `__ 1. Serialize Project` runbook, followed by the `__ 2. Deploy Project` runbook. This will serialize and then migrate a single project.
+
+You may consider disabling the project on the source server once it has been migrated to prevent deployments taking place on both the source and the destination server.
+
+Consider an incremental migration strategy when:
+
+* You need to break down the migration into multiple steps
+* Your projects have different risk profiles i.e. you have low risk projects you can migrate first, and only when they are successful can you migrate high risk projects
+* You wish to delegate the process of migrating projects to different teams who will perform the migration on their own schedule
+
+### Continual migration
+
+Continual migration means updating the project on the destination server with any changes from the source server after the initial migration.
+
+Continual migrations are useful when both the source and destination servers must run side by side for some time. A typical scenario is testing the migrated projects on the destination server while the associated projects on the source server are still in active use, and redeploying the projects to update the destination server with any changes made to the source server.
+
+:::div{.hint}
+The source server is considered the source of truth for space and project level resources until the source server is decommissioned. The configuration of the destination server will be replaced each time space and project level resources are redeployed.
+:::
+
+Consider a continual migration strategy when:
+
+* You wish to perform the bulk of the migration up front
+* You need to test the destination server while the source service is still actively used
+* You need to update the destination server with any changes made to the source server while testing the migration
