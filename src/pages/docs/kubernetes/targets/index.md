@@ -9,7 +9,7 @@ description: Kubernetes deployment targets
 navOrder: 50
 ---
 
-To deploy your application to a Kubernetes cluster, you need Octopus Deploy to know that the cluster exists and how to access it. The cluster is your deployment destination. To represent deployment distanations, Octopus uses [deployment targets](docs/infrastructure/deployment-targets) (a virtual entity). 
+To deploy your application to a Kubernetes cluster, you need Octopus Deploy to know that the cluster exists and how to access it. The cluster is your deployment destination. To represent deployment destinations, Octopus uses [deployment targets](docs/infrastructure/deployment-targets) (a virtual entity). 
 
 There are two different deployment targets for deploying to Kubernetes, the [Kubernetes Agent](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent) and the [Kubernetes API](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api) targets.
 
