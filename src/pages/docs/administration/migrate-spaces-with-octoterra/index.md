@@ -84,7 +84,7 @@ The following is a non-exhaustive list of settings that are not exported by Octo
 These are the prerequisites for migrating projects with Octoterra:
 
 * [Backup](https://octopus.com/docs/administration/data/backup-and-restore) and [update](https://octopus.com/docs/administration/upgrading) your Octopus instance
-* [Backup your Octopus instance](https://octopus.com/docs/administration/data/backup-and-restore)
+* [Backup your Octopus instance again before the migration](https://octopus.com/docs/administration/data/backup-and-restore)
 * Download the Octoterra Wizard from [GitHub](https://github.com/mcasperson/OctoterraWizard)
 * Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation
 * [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance
