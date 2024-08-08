@@ -26,8 +26,7 @@ Typically, you would choose the Import/Export tool to perform a migration. Howev
 
 * You wish to migrate CaC projects, as the Import/Export tool does not support CaC projects
 * You wish to recreate targets, as the Import/Export tool does not migrate targets
-
-
+* You wish to "own" the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON formation
 
 ## Limitations of Octoterra and migrating projects between instances
 
