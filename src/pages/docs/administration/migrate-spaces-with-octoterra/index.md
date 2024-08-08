@@ -201,3 +201,81 @@ Consider a continual migration strategy when:
 * You wish to perform the bulk of the migration up front
 * You need to test the destination server while the source service is still actively used
 * You need to update the destination server with any changes made to the source server while testing the migration
+
+
+## Post-migration steps
+
+The migration of space and project level resources will transfer most, but not all, configuration from the source to the destination server. There are a number of post-migration steps that must be completed before the destination server is fully operational.
+
+### Update sensitive values
+
+A number of sensitive values can not be migrated by Octoterra including:
+
+* Account credentials
+* Feed credentials
+* Git credentials
+* Certificates
+* Secret values define in steps such as the `Deploy to IIS` and `Deploy to Tomcat` steps
+* Sensitive values defined for secret step templates parameters
+
+All these values must be manually reconfigured on the destination server.
+
+### Convert projects back to CaC
+
+CaC projects are converted back to regular projects during the migration. These projects must be manually converted back to CaC on the destination server.
+
+:::div{.warning}
+You can not assume that you can point the projects back to their original configuration stored in Git. Values like step template IDs are hard coded in CaC configuration but are different between servers. Octopus also does not support pointing two projects to the same directory in a Git repository, so the source and destination servers can not reference the same Git repository and directory at the same time.
+:::
+
+### Migrate packages from built-in feed
+
+Packages must be manually copied from the source to the destination server. [The documentation for the import/export tool](https://octopus.com/docs/projects/export-import#packages) includes a link to a script that copies packages between servers.
+
+### Reconfigure firewalls
+
+Any firewall rules relating to the Octopus server must be updated to reflect the new address of the destination server.
+
+### Regenerate API keys
+
+Any external scripts and platforms to connect to Octopus must make use of a new [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key).
+
+### Reconfigure polling tentacles
+
+[Polling tentacles](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/tentacle-communication#polling-tentacles) must be configured with the address of the Octopus server they connect to. This means that any polling tentacles must be reconfigured to point to the destination server.
+
+The [poll-server](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/poll-server) command is used to configure a tentacle with a new server.
+
+You also need to deregister polling tentacles from the source server. The [deregister-from](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/deregister-from) command is used to deregister a tentacle from a server.
+
+A polling tentacle can be configured against both the source and destination servers when performing an incremental or continual migration, and deregistered from the source server with the migration is complete.
+
+### Update CI servers
+
+Any CI servers must be reconfigured to point to the destination server.
+
+You will likely configure your CI server to push packages to the built-in feed for both the source and destination servers when performing an incremental or continual migration, and remove the steps that interact with the source server when the migration is complete.
+
+### Reconfigure subscriptions
+
+[Subscriptions](https://octopus.com/docs/administration/managing-infrastructure/subscriptions) must be manually recreated on the destination server.
+
+If subscriptions are used to trigger external events based on project events, you must take care to incrementally migrate subscriptions as part of a incremental or continual migration.
+
+### Reconfigure SEIM connections
+
+You must manually configure the [audit stream](https://octopus.com/docs/security/users-and-teams/auditing/audit-stream) to SEIM tools like Sumo or Splunk on the destination server.
+
+### Reconfigure ITSM connection
+
+You must manually configure the link to ITSM tools like [Service Now](https://octopus.com/docs/approvals/servicenow) and [Jira Service Management](https://octopus.com/docs/approvals/jira-service-management) on the destination server.
+
+### Recreate Insights dashboards
+
+You must manually recreate any [Insights dashboards](https://octopus.com/docs/insights) on the destination server.
+
+### Users and teams
+
+You must manually recreate any [users and teams](https://octopus.com/docs/security/users-and-teams) on the destination server.
+
+
