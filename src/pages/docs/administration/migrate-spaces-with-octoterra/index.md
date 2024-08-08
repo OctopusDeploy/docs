@@ -18,6 +18,17 @@ robots: noindex, follow
 
 This documentation provides details on how to use the Octoterra Wizard to migrate a space from one instance to another, as well as noting the limitations and any special requirements of the process.
 
+## Choosing between Octoterra and the Import/Export tool
+
+The [Import/Export tool](https://octopus.com/docs/projects/export-import) is built into Octopus and provides much of the same functionality as the Octoterra Wizard.
+
+Typically, you would choose the Import/Export tool to perform a migration. However, there are cases where the Import/Export tool is not suitable:
+
+* You wish to migrate CaC projects, as the Import/Export tool does not support CaC projects
+* You wish to recreate targets, as the Import/Export tool does not migrate targets
+
+
+
 ## Limitations of Octoterra and migrating projects between instances
 
 There are limitations that must be accounted for as part of a migration.
