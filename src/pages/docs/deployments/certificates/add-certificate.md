@@ -17,8 +17,8 @@ To add a certificate to Octopus, navigate to **Deploy ➜ Certificates ➜ Add C
 When selecting your certificate file for upload, it must be one of the [supported file-formats](/docs/deployments/certificates).
 
 :::div{.hint}
-**Security Recommendation: Scope your certificates to the appropriate Environments**
+**Security Recommendation: Scope your certificates to the appropriate environments**
 
 If your certificate contains a production private-key, it is strongly recommended to scope your certificate to the appropriate environment.
-This allows you to assign permissions based on Environments, ensuring that only users with appropriate permissions in the scoped Environments will be able to access the private-key.
+This allows you to assign permissions based on environments, ensuring that only users with appropriate permissions in the scoped environments will be able to access the private-key.
 :::
