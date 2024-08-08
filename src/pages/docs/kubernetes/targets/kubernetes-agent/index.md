@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
-modDate: 2024-07-31
+modDate: 2024-08-08
 title: Kubernetes agent
 navTitle: Overview
 navSection: Kubernetes agent
