@@ -264,6 +264,14 @@ You also need to deregister polling tentacles from the source server. The [dereg
 
 A polling tentacle can be configured against both the source and destination servers when performing an incremental or continual migration, and deregistered from the source server with the migration is complete.
 
+### Reconfigure listening tentacles
+
+Listening tentacles are set to trust a certificate that is unique to each Octopus server.
+
+It is possible to export the certificate from an on-premises Octopus server and import it into another on-premises server using [these instructions](https://octopus.com/docs/security/octopus-tentacle-communication/regenerate-certificates-with-octopus-server-and-tentacle).
+
+It is not possible to change the certificate used by an Octopus cloud instance. Each listening tentacle must be updated to trust the new certificate of the Octopus cloud instance using the [configure](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/configure) command with the `--trust` argument.
+
 ### Update CI servers
 
 Any CI servers must be reconfigured to point to the destination server.
