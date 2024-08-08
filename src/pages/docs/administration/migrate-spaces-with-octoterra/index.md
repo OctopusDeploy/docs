@@ -60,7 +60,8 @@ The following is a non-exhaustive list of settings that are not exported by Octo
 * Runbook runs
 * Subscriptions
 * API Keys
-* SIEM settings
+* SEIM settings
+* ITSM settings
 * GitHub app connections
 * License details
 * Node configuration
@@ -277,5 +278,9 @@ You must manually recreate any [Insights dashboards](https://octopus.com/docs/in
 ### Users and teams
 
 You must manually recreate any [users and teams](https://octopus.com/docs/security/users-and-teams) on the destination server.
+
+### SMPT settings
+
+You must manually configure the [SMTP settings](https://octopus.com/docs/projects/built-in-step-templates/email-notifications#smtp-configuration) on the destination server.
 
 
