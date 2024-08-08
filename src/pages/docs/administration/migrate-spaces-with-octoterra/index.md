@@ -279,7 +279,7 @@ You must manually recreate any [Insights dashboards](https://octopus.com/docs/in
 
 You must manually recreate any [users and teams](https://octopus.com/docs/security/users-and-teams) on the destination server.
 
-### SMPT settings
+### SMTP settings
 
 You must manually configure the [SMTP settings](https://octopus.com/docs/projects/built-in-step-templates/email-notifications#smtp-configuration) on the destination server.
 
