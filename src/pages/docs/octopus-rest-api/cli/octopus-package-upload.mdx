@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-02-01
+modDate: 2024-07-30
 title: octopus package upload
 description: upload one or more packages to Octopus Deploy
-navOrder: 66
+navOrder: 76
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-upload one or more packages to Octopus Deploy. Glob patterns are supported.
+upload one or more packages to Octopus Deploy. Glob patterns are supported. Delta compression is off by default.
 
 ```
 Usage:
@@ -20,7 +20,8 @@ Aliases:
 Flags:
   -p, --package stringArray     Package to upload, may be specified multiple times. Any arguments without flags will be treated as packages
       --overwrite-mode string   Action when a package already exists. Valid values are 'fail', 'overwrite', 'ignore'. Default is 'fail'
-      --continue-on-error       When uploading multiple packages, controls whether the CLI continues after a failed upload. Default is to abort.
+      --continue-on-error       When uploading multiple packages, controls whether the CLI continues after a failed upload. Default is to abort
+  -d, --use-delta-compression   Attempt to use delta compression when uploading. Off by default. As a recent addition to the CLI, it should be considered in beta.
 
 
 Global Flags:
@@ -41,6 +42,8 @@ $ octopus package upload SomePackage.1.0.0.tar.gz --overwrite-mode overwrite
 $ octopus package push SomePackage.1.0.0.zip	
 $ octopus package upload bin/**/*.zip --continue-on-error
 $ octopus package upload PkgA.1.0.0.zip PkgB.2.0.0.tar.gz PkgC.1.0.0.nupkg
+$ octopus package upload --package SomePackage.2.0.0.zip --use-delta-compression
+$ octopus package upload SomePackage.2.0.0.zip --delta # alias for --use-delta-compression
 
 
 ```
