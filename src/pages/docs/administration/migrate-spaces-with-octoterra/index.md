@@ -294,4 +294,9 @@ You must manually recreate any [users and teams](https://octopus.com/docs/securi
 
 You must manually configure the [SMTP settings](https://octopus.com/docs/projects/built-in-step-templates/email-notifications#smtp-configuration) on the destination server.
 
+## Licensing considerations
+
+You will increase the count of resources that impact licensing during the migration, including projects, tenants, and machines.
+
+Contact [sales@octopus.com](sales@octopus.com) to discuss any impacts to licensing while performing a migration. 
 
