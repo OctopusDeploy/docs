@@ -83,6 +83,7 @@ The following is a non-exhaustive list of settings that are not exported by Octo
 
 These are the prerequisites for migrating projects with Octoterra:
 
+* [Backup](https://octopus.com/docs/administration/data/backup-and-restore) and [update](https://octopus.com/docs/administration/upgrading) your Octopus instance
 * [Backup your Octopus instance](https://octopus.com/docs/administration/data/backup-and-restore)
 * Download the Octoterra Wizard from [GitHub](https://github.com/mcasperson/OctoterraWizard)
 * Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation
@@ -318,3 +319,12 @@ A: It is unlikely that two spaces can be automatically merged together, as the n
 Q: Can I mix the Import/Export tool with the Octoterra Wizard?
 
 A: Yes. You may create a placeholder project on the source server, link all library variable sets, certificates, accounts, and feeds to the project, export the project and import it on the destination server. This has the benefit of migrating sensitive values that Octoterra can not export. You can then migrate individual projects using the runbooks created by the Octoterra Wizard.
+
+Q: Does the source and destination server need to be the same Octopus version?
+
+A: Technically no, but it is recommended that the two servers be updated to the latest version of Octopus before migrating to minimize the chance that Octoterra and the generated Terraform configuration files are incompatible with either server.
+
+Q: Can I migrate previous Octopus versions with the Octoterra Wizard?
+
+A: No, Octoterra only supports the supported LTS versions of Octopus.
+
