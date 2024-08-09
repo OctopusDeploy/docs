@@ -7,7 +7,6 @@ description: Octopus High Availability (HA) enables you to run multiple Octopus 
 hideInThisSection: true
 navOrder: 10
 ---
-import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
 
 Octopus: High Availability (HA) enables you to run multiple Octopus Server nodes, distributing load and tasks between them. We designed it for enterprises that need to deploy around the clock and rely on the Octopus Server being available.
 
