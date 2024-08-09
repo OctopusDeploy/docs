@@ -150,6 +150,7 @@ Itoa
 ITSM
 jjones
 jsondecode
+JSSE
 jwks
 keyrings
 keyserver

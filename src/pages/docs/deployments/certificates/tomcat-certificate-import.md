@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Import certificates into Tomcat
+icon: fa-solid fa-lock
 description: Configure Tomcat with a certificate managed by Octopus.
 navOrder: 40
 ---
@@ -11,9 +12,9 @@ With the `Deploy a certificate to Tomcat` step, certificates managed by Octopus 
 
 ## Prerequisites
 
-Before a certificate can be deployed to a Tomcat instance, the certificate itself must be uploaded to Octopus. [Add a Certificate to Octopus](/docs/deployments/certificates/add-certificate) provides instructions on how to add a new certificate to the Octopus library.
+Before a certificate can be deployed to a Tomcat instance, the certificate itself must be uploaded to Octopus. [Add a certificate to Octopus](/docs/deployments/certificates/add-certificate) provides instructions on how to add a new certificate to the Octopus library.
 
-Once uploaded, the certificate has to be referenced by a variable. [Certificate Variables](/docs/projects/variables/certificate-variables) provides instructions on how to define a certificate variable.
+Once uploaded, the certificate has to be referenced by a variable. [Certificate variables](/docs/projects/variables/certificate-variables) provides instructions on how to define a certificate variable.
 
 ## Deploying a certificate to Tomcat
 
