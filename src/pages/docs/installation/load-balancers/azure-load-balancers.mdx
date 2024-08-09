@@ -1,0 +1,21 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-07-08
+title: Azure Load Balancers
+description: Guidelines and recommendations for configuring Octopus Deploy to use Azure Load Balancers.
+navOrder: 30
+hideInThisSection: true
+---
+To distribute HTTP load among Octopus Server nodes with a single point of access, we recommended using an HTTP load balancer. 
+
+Azure has a wide range of [load balancers](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that will work with Octopus in a highly-available configuration:
+
+- [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)
+- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
+- [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+- [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview)
+- [Kemp LoadMaster](https://kemptechnologies.com/uk/solutions/microsoft-load-balancing/loadmaster-azure/)
+- [F5 Big-IP Virtual Edition](https://www.f5.com/partners/technology-alliances/microsoft-azure)
+
+For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). Azure's [recommendation](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=graph%2Ccli#active-passive-architecture) of using Azure Front Door is a great way to achieve this. This method will allow you to easily route traffic to the secondary region in the event of a primary region failure.

@@ -11,7 +11,7 @@ navOrder: 60
 
 Similarly to Polling Tentacles, the Kubernetes agent must have a URL for each individual node in the HA Cluster so that it receive commands from all clusters. These URLs must be provided when registering the agent or some deployments may fail depending on which node the tasks are executing.
 
-To read more about selecting the right URL for your nodes, see [Polling Tentacles and Kubernetes agents with HA](/docs/administration/high-availability/maintain/polling-tentacles-with-ha).
+To read more about selecting the right URL for your nodes, see [Polling Tentacles and Kubernetes agents with HA](/docs/administration/high-availability/polling-tentacles-with-ha).
 
 ## Agent Installation on an HA Cluster
 

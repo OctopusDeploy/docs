@@ -1,9 +1,8 @@
 ﻿---
 layout: src/layouts/Redirect.astro
+pubDate: 2023-01-01
+modDate: 2024-04-15
 title: Redirect
-redirect: https://octopus.com/docs/administration/high-availability/configure/octopus-without-active-directory
-pubDate:  2023-01-01
-navSearch: false
-navSitemap: false
-navMenu: false
+redirect: https://octopus.com/docs/best-practices/self-hosted/high-availability
+description: Configuring HA Octopus without Active Directory
 ---

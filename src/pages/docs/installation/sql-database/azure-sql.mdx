@@ -1,0 +1,42 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-05-22
+title: Azure SQL
+navTitle: Azure SQL
+description: Guidelines and recommendations for configuring Azure SQL to host the Octopus Deploy Database.
+navOrder: 30
+hideInThisSection: true
+---
+
+Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in Azure, there are two options to consider:
+
+- [SQL Server on a Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview/) -  To run SQL Server on a VM, please refer to our [self-managed SQL Server guide](/docs/installation/sql-database/self-managed-sql-server).
+- [Azure SQL Database as a Service](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview/)
+
+
+## Using Microsoft Entra in Azure SQL \{#using-entra-in-azure-sql}
+
+Octopus Deploy supports using [Microsoft Entra](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#setting-azure-active-directory-authentication) for authentication. This includes the ability to use a [Managed Identity](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#using-active-directory-managed-identity-authentication) when connecting to your Octopus database hosted in Azure SQL.
+
+:::div{.hint}
+For self-hosted installations of Octopus Deploy, you will need to click on the `Advanced` link to set the connection string to the Azure SQL instance during the installation process.
+:::
+
+## High Availability
+
+The database is a critical component of Octopus Deploy.  If the database is lost or destroyed all your configuration will be lost with it. 
+
+We recommend using [zone-redundant availability](https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell#zone-redundant-availability) with Azure SQL to ensure the resilience and availability of your Octopus database. This will ensure that your replicated is spread across three Azure availability zones in the primary region. In the event of a failure of the primary zone Azure SQL automatically switches to another zone.
+
+## Disaster Recovery
+
+For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with Azure we recommend using [Active geo-replication](https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview?view=azuresql) or [Failover groups](https://learn.microsoft.com/en-us/azure/azure-sql/database/failover-group-sql-db?view=azuresql) in conjunction with zone-redundant availability. This will ensure that data is replicated asynchronously to a secondary region alongside the zone replication within the primary region.
+
+When deciding between these two options the main consideration would be how many databases you have running in Azure SQL. Active geo-replication is a great lightweight option for a single database. If you have other, non-Octopus, databases running in Azure SQL then Failover groups may be a better fit. This is especially true if you already have a group configured for your existing databases.
+
+In the event of a failover it would be necessary to re-configure the database connection string within Octopus to the secondary region. Azure's guide on [outage recovery](https://learn.microsoft.com/en-us/azure/azure-sql/database/disaster-recovery-guidance?view=azuresql#configure-your-database-after-recovery) covers other recommend steps and checks in more detail.
+
+:::div{.warning}
+When a disaster occurs, any data not synchronized will be lost.  Depending on the replication speed, this could be up to a couple of minutes.
+:::

@@ -1,0 +1,73 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-05-22
+title: Azure Files
+description: Guidelines and recommendations for configuring Octopus Deploy to use Azure Files.
+navOrder: 30
+hideInThisSection: true
+---
+import FileStorageHA from 'src/shared-content/installation/file-storage-ha.include.md';
+
+If your Octopus Server is running in Microsoft Azure we recommend [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that can be shared across all of your Octopus servers.
+
+After you have created your File Share, the best option is to add the Azure File Share as a file share.  Follow the instructions from [Microsoft's documentation](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows#mount-the-azure-file-share).  
+
+For the purposes of this document, we will use `Z:\` as the drive letter.  Note: Use of a drive letter is for demonstration purposes, Azure Files supports UNC paths as well.
+
+[Install Octopus](/docs/installation) and then run the following:
+
+If the shared folders are going to exist in the same root location, you can use a single command to set the root and it will automatically set the individual components to subfolders within the root
+
+```powershell
+& 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --clusterShared "Z:\SharedFolder"
+```
+
+The resulting folder structure will look something like this:
+Z:\SharedFolder\Artifacts
+Z:\SharedFolder\TaskLogs
+Z:\SharedFolder\Packages
+Z:\SharedFolder\Imports
+Z:\SharedFolder\EventExports
+
+In the event you need the locations to be in different locations, you have the flexibility to set the paths to the individual items
+
+:::div{.hint}
+It's worth noting that you need to have created the folders within the Azure File Share first before running this step. 
+:::
+
+```powershell
+# Set the path 
+& 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --artifacts "Z:\Artifacts"
+& 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --taskLogs "Z:\TaskLogs"
+& 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --nugetRepository "Z:\Packages"
+& 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --imports "Z:\Imports"
+& 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --eventExports "Z:\EventExports"
+```
+## High Availability
+
+<FileStorageHA />
+
+## Disaster Recovery
+
+For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with Azure you have several options available. Further details on the redundancy options available for Azure Storage can be found [here](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy).
+
+### Zone-redundant Storage
+
+Zone-redundant storage (ZRS) will replicate your storage account synchronously across three Azure availability zones in the primary region. This protects against the failure of an entire datacenter within the primary region. The main drawback of this option is that it does not protect against data loss in the event the primary region is destroyed. This can be mitigated through the use of [snapshots](https://learn.microsoft.com/en-us/azure/storage/files/storage-snapshots-files) and [azure file share backup](https://learn.microsoft.com/en-us/azure/backup/azure-file-share-backup-overview?tabs=snapshot).
+
+### Geo-redundant Storage
+
+Geo-redundant storage (GRS) copies your data synchronously three times within a single physical location in the primary region using Locally Redundant storage (LRS). It then copies your data asynchronously to a single physical location in a secondary region that is hundreds of miles away from the primary region. The main drawback of this option is that data is only replicated within a single location in the primary region. Any failure of this location would require a failover to the secondary region.
+
+:::div{.warning}
+Because data is replicated to the secondary region asynchronously, a failure that affects the primary region may result in data loss if the primary region cannot be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. The Azure Storage platform typically has an RPO of less than 15 minutes, although there's currently no SLA on how long it takes to replicate data to the secondary region.
+:::
+
+### Geo-zone-redundant Storage
+
+Geo-zone-redundant storage (GZRS) combines ZRS and GRS. It will protect against a failure of availability zones within the primary region and a failure of the entire primary region.
+
+:::div{.hint}
+When using GRS or GZRS a failure of the primary region would require a [manual failover](https://learn.microsoft.com/en-us/azure/storage/common/storage-failover-customer-managed-unplanned?tabs=grs-ra-grs) to be triggered within Azure which would update the the Azure Storage DNS entry to point to the secondary region. This process can take up to an hour.
+:::

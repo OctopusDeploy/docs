@@ -21,7 +21,7 @@ Whether you are running Octopus in a Container using Docker or Kubernetes, or ru
 - A Highly available [SQL Server database](/docs/installation/sql-server-database)
 - A shared file system for [Artifacts, Packages, Task Logs, and Event Exports](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/#file-storage)
 - A [Load balancer](/docs/administration/high-availability/load-balancing) for traffic to the Octopus Web Portal 
-- Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha)
+- Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha)
 
 The following sections describe these in more detail.
 
@@ -121,7 +121,7 @@ If you use the YAML definition above, remember to change the `SA_PASSWORD` from 
 
 ### Load balancer \{#load-balancer}
 
-A Load balancer is required to direct traffic to the Octopus Web Portal, and optionally a way to access each of the Octopus Server nodes in an Octopus High Availability cluster may be required if you're using [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha).
+A Load balancer is required to direct traffic to the Octopus Web Portal, and optionally a way to access each of the Octopus Server nodes in an Octopus High Availability cluster may be required if you're using [Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha).
 
 ### Octopus Web Portal load balancer \{#octopus-web-portal-load-balancer}
 
@@ -199,7 +199,7 @@ Note the selectors of:
 
 These labels are added to pods created as part of a [Stateful Set](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset), and the values are the combination of the Stateful Set name and the pod index.
 
-For more information on Polling Tentacles with High Availability refer to our [documentation](/docs/administration/high-availability/maintain/polling-tentacles-with-ha) on the topic.
+For more information on Polling Tentacles with High Availability refer to our [documentation](/docs/administration/high-availability/polling-tentacles-with-ha) on the topic.
 
 ### File Storage \{#file-storage}
 

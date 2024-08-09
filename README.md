@@ -24,6 +24,9 @@ When you need to use an example value in docs, please use the below:
 - Octopus URL: `https://your-octopus-url`
 - Octopus API key: `API-YOUR-KEY`
 - Snapshot name: `Snapshot XXXXX`
+- SubscriptionId: `g3662re9njtelsyfhm7t`
+
+In general, try to use "your" rather than "my". For example, `your-value`.
 
 ## Required checks
 

@@ -110,7 +110,7 @@ If you are using [built-in package repository triggers](/docs/projects/project-t
 
 ## Moving the location of the built-in repository {#PackageRepositories-MovingTheLocationOfTheBuilt-InRepository}
 
-See [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#MovingOctopusServerfolders-OctopusHome).
+See [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-octopus-home-folder).
 
 ## Built-in repository reindexing
 
