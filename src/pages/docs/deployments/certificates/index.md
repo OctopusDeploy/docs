@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-09
 title: Certificates
 icon: fa-solid fa-lock
 description: Manage X.509 certificates with Octopus Deploy
