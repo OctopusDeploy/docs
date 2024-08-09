@@ -3,15 +3,12 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-12-07
 title: Connecting projects
+icon: fa-solid fa-users-gear
 description: By connecting tenants to projects, you can control which projects will be deployed into which environments for each tenant.
 navOrder: 20
 ---
 
 By connecting tenants to projects, you can control which projects will be deployed into which environments for each tenant.
-
-:::div{.info}
-The project connection feature was updated to allow bulk selection in Octopus Deploy **2023.4**. If you are running an older version of Octopus the dialog will only allow selecting a single project at a time.
-:::
 
 1. Navigate to your tenant.
 2. Click on the **CONNECT PROJECTS** button.
@@ -37,3 +34,5 @@ You can connect each tenant to any number of projects and, for each project, any
 - You can offer specific projects to some tenants and not to others.
 - You can also provide most of your tenants with a single environment while offering specific customers extra environments. For example, you could give particular customers a test/staging/acceptance environment where they can test new releases before upgrading their production environment.
 
+## Older versions
+The project connection feature was updated to allow bulk selection in Octopus Deploy **2023.4**. If you are running an older version of Octopus the dialog will only allow selecting a single project at a time.
