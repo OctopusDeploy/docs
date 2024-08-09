@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Export a certificate to a Java KeyStore
+icon: fa-solid fa-lock
 description: Export a Java KeyStore from a certificate managed by Octopus.
 navOrder: 70
 ---
