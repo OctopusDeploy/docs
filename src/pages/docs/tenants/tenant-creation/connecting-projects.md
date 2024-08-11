@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-12-07
 title: Connecting projects
-icon: fa-solid fa-users-gear
+icon: fa-solid fa-share-nodes
 description: By connecting tenants to projects, you can control which projects will be deployed into which environments for each tenant.
 navOrder: 20
 ---
@@ -27,7 +27,10 @@ Not seeing the environment you want? Make sure at least one lifecycle used by yo
 :::
 
 6. A preview of the selected projects and environments is shown in the connection preview panel. The selected environments will be assigned to each project based on whether they are part of any lifecycle in the project. If an environment is not part of any lifecycle in the project, it will not be assigned to the project.
-7. Click **CONNECT <N> PROJECTS**
+
+   ![](/docs/tenants/tenant-creation/images/multi-tenant-connect-environments.png)
+
+7. Click **CONNECT PROJECTS**
 
 You can connect each tenant to any number of projects and, for each project, any combination of environments that each project can target. This gives you the most flexibility when designing your multi-tenant deployments.
 
