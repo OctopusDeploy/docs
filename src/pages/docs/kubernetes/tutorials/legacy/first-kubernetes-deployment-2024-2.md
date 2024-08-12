@@ -2,18 +2,15 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-07-31
 modDate: 2024-07-31
-title: First Kubernetes deployment
-description: This guide will walk you through how to configure your first deployment to Kubernetes in Octopus Deploy.
-navSection: Tutorials
-navOrder: 10
+title: First Kubernetes deployment (2024.2 and below)
+description: This guide will walk you through how to configure your first deployment to Kubernetes in Octopus Deploy versions 2024.2 and below
+navMenu: false
 hideInThisSectionHeader: true
 ---
 
 :::div{.hint}
-For **Octopus 2024.2** or below, please refer to the previous [First Kubernetes deployment guide](/docs/kubernetes/tutorials/legacy/first-kubernetes-deployment-2024-2).
+This guide only applies to **Octopus 2024.2** or below. For more recent versions of Octopus, please refer to the current [First Kubernetes deployment guide](/docs/kubernetes/tutorials/first-kubernetes-deployment).
 :::
-
-- - - - Update guide contents below - - - - 
 
 👋 Welcome to Octopus Deploy!
 
