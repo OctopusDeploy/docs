@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-12-07
+modDate: 2024-08-12
 title: Tenanted deployments
+icon: fa-solid fa-users-viewfinder
 description: Control how the multi-tenancy feature in Octopus is used in your Projects.
 navOrder: 10
 ---
