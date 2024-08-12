@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-12-07
+modDate: 2024-08-12
 title: Connecting projects
 icon: fa-solid fa-share-nodes
 description: By connecting tenants to projects, you can control which projects will be deployed into which environments for each tenant.
