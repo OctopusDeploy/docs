@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-13
 title: Blue-green deployments in IIS
 description: Implementing blue-green deployments in IIS with Octopus.
 navOrder: 20
@@ -20,7 +20,7 @@ In this case the blue/green are not separate environments, they are different we
 Changing the configuration of a web site in IIS (like physical path or bindings) **always** results in the application pool being recycled. The default [IIS websites and application pools](/docs/deployments/windows/iis-websites-and-application-pools) step in Octopus will try to reuse an existing web site in IIS (or create one for you), and as the last step it will [update the physical path in IIS](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1). This causes a minimum of downtime, especially if you have [allowed overlapping rotation on your application pool](https://msdn.microsoft.com/en-us/library/microsoft.web.administration.applicationpoolrecycling.disallowoverlappingrotation(v=vs.90).aspx). However, to achieve truly zero-downtime deployments of IIS Web Applications, you must use a reverse-proxy or some kind of routing technology.
 :::
 
-## General steps for zero-downtime deployments in IIS {#Blue-greendeploymentsinIIS-Generalstepsforzero-downtimedeploymentsinIIS}
+## General steps for zero-downtime deployments in IIS
 
 :::div{.hint}
 Every scenario is slightly different which is why this page is written more as a general guide than a step-by-step walk-through. This rough example should provide a strong starting point to reduce downtime for your deployments to IIS.
@@ -42,11 +42,11 @@ The general steps for this kind of deployment would be:
   * The name for the previous instance can be calculated by an expression like this: `MyApp-#{Octopus.Release.PreviousForEnvironment.Number}`.
   * You may want to wait for outstanding web requests to finish processing using something like this: `Get-Item IIS:\AppPools\MyApp-#{Octopus.Release.PreviousForEnvironment.Number} | Get-WebRequest`.
 
-### Using application request routing (ARR) {#Blue-greendeploymentsinIIS-UsingApplicationRequestRouting(ARR)}
+### Using application request routing (ARR)
 
 You can achieve this kind of result by using [ARR](https://www.iis.net/downloads/microsoft/application-request-routing) as a reverse proxy to your Web Site. You will need to configure a [Web Farm](https://www.iis.net/learn/web-hosting/scenario-build-a-web-farm-with-iis-servers/overview-build-a-web-farm-with-iis-servers) in IIS and use ARR to route requests to the Web Farm. You can then choose how you want to switch between active instances of your application. [Kevin Reed](https://kevinareed.com/) has written a nice blog post on how he achieves [Blue/Green deployments using ARR](https://kevinareed.com/2015/11/07/how-to-deploy-anything-in-iis-with-zero-downtime-on-a-single-server/).
 
-### Using NGINX {#Blue-greendeploymentsinIIS-UsingNGINX}
+### Using NGINX
 
 You can achieve this kind of result using an NGINX server as a reverse proxy to your Web Site. The latest versions of NGINX provide easier support for [on-the-fly reconfiguration](https://www.nginx.com/products/on-the-fly-reconfiguration/).
 
