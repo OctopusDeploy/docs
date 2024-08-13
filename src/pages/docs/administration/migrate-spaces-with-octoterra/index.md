@@ -36,7 +36,7 @@ There are limitations that must be accounted for as part of a migration.
 
 Sensitive values are not exposed by the Octopus API and are therefore not captured in the Terraform configuration created by Octoterra.
 
-Sensitive variables can be passed to the Terraform module when the source Octopus instance deploys Terraform configuration, as Octopus exposes sensitive values to a deployment process or runbook. The core feature of the Octoterra Wizard is to configure the source Octopus server to execute the Terraform modules created by Octoterra in order to expose the sensitive values held by Octopus.
+However, sensitive variables can be passed to the Terraform module when the source Octopus instance deploys Terraform configuration, as Octopus exposes sensitive values to a deployment process or runbook. The core purpose of the Octoterra Wizard is to configure the source Octopus server to execute the Terraform modules created by Octoterra in order to expose the sensitive values held by Octopus.
 
 In order to ensure sensitive variables can be passed to the Terraform configuration, all sensitive variables must be unscoped and have a unique name. Existing sensitive variables can be modified to fulfil these requirements by spreading them. See the section "Spreading sensitive variables" for more information.
 
@@ -56,7 +56,7 @@ Action <step name> has the "Items" property, which indicates that it is from the
 
 Octoterra converts CaC projects back to regular projects as part of the migration. The project can be converted back to CaC on the destination space. 
 
-However, be aware that Octopus does not support sharing project CaC configuration between two projects. You are prevented from doing so with multiple projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared CaC project configuration from multiple Octopus instance, there are cases where the CaC configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project CaC configuration hosted in Git.
+However, be aware that Octopus does not support sharing project CaC configuration between two projects. You are prevented from doing so with multiple projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared CaC project configuration from multiple Octopus instances, there are cases where the CaC configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project CaC configuration hosted in Git.
 
 The recommended solution is to convert the projects in the destination space to a new directory or Git repository. This ensures that the new projects have valid CaC configuration.
 
