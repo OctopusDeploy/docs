@@ -169,17 +169,17 @@ Migrating a space involves:
 3. Serializing individual projects
 4. Deploying individual projects
    1. Reestablishing the link between a tenant and a project
-   2. Referencing existing space level resources
+   2. Recreating project tenant variables
 
 Projects can typically be migrated independently of each other. However, some steps, such as the `Deploy a release` step, reference other projects. The projects referenced by `Deploy a release` steps must be migrated before the project that defines the step.
 
 ## Migration strategies
 
-Because the Octoterra Wizard serializes Octopus resources to Terraform modules, it we can use the flexibility provided by Terraform to implement a number of strategies for migrating spaces:
+Because the Octoterra Wizard serializes Octopus resources to Terraform modules, we can use the functionality of Terraform to implement a number of strategies for migrating spaces:
 
-* Big bang migration, where the migration is done all at once
-* Incremental migration, where projects are migrated over time
-* Continual migration, where the destination server is updated as changes are made to the source server
+* Big bang migration, where the migration is done all at once.
+* Incremental migration, where projects are migrated over time.
+* Continual migration, where the destination server is updated as changes are made to the source server.
 
 ### Big bang migration
 
@@ -189,9 +189,9 @@ To perform a big bang migration, run the wizard to completion. This will migrate
 
 Consider a big bang migration strategy when:
 
-* You can migrate the space and project level resources in one operation
-* You are confident that the migrated resources work as expected
-* You can perform all the post-migration steps before the destination server is put into operation
+* You can migrate the space and project level resources in one operation.
+* You are confident that the migrated resources work as expected.
+* You can perform all the post-migration steps before the destination server is put into operation.
 
 ### Incremental migration
 
@@ -209,9 +209,9 @@ You may consider disabling the project on the source server once it has been mig
 
 Consider an incremental migration strategy when:
 
-* You need to break down the migration into multiple steps
-* Your projects have different risk profiles i.e. you have low risk projects you can migrate first, and only when they are successful can you migrate high risk projects
-* You wish to delegate the process of migrating projects to different teams who will perform the migration on their own schedule
+* You need to break down the migration into multiple steps.
+* Your projects have different risk profiles i.e. you have low risk projects you can migrate first, and only when they are successful can you migrate high risk projects.
+* You wish to delegate the process of migrating projects to different teams who will perform the migration on their own schedule.
 
 ### Continual migration
 
@@ -229,9 +229,9 @@ The source server is considered the source of truth for space and project level 
 
 Consider a continual migration strategy when:
 
-* You wish to perform the bulk of the migration up front
-* You need to test the destination server while the source service is still actively used
-* You need to update the destination server with any changes made to the source server while testing the migration
+* You wish to perform the bulk of the migration up front.
+* You need to test the destination server while the source service is still actively used.
+* You need to update the destination server with any changes made to the source server while testing the migration.
 
 
 ## Post-migration steps
