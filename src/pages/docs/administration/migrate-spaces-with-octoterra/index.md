@@ -98,9 +98,9 @@ These are the prerequisites for migrating an Octopus space with the Octoterra Wi
 
 The Octoterra Wizard presents a sequence of prompts for the details of your source Octopus space, the destination Octopus space, and the Terraform backend.
 
-You are also prompted to spread sensitive variables after confirming that you understand the implications of modifying variables in this manner. See the "Spreading sensitive variables" section for more details on the implications of this step.
+The wizard also prompts you to spread sensitive variables after confirming that you understand the implications of modifying variables in this manner. See the "Spreading sensitive variables" section for more details on the implications of this step.
 
-You are given the choice to use local tools or container images when running the runbooks to create and apply the Terraform modules. See the "Local Tools vs Container Images" section for more information on making this choice.
+You are given the choice to use local tools or [container images](https://octopus.com/docs/projects/steps/execution-containers-for-workers) when running the runbooks to create and apply the Terraform modules. See the "Local Tools vs Container Images" section for more information on making this choice.
 
 The final prompts do not involve any input. They automate the process of installing the required community step template steps into the source space, creating runbooks to export the space level resources and projects, and finally running the runbooks. See the "Space vs project level resources" section for more information on the distinction between these types of resources.
 
@@ -110,13 +110,13 @@ Each sensitive variable must have a unique name and no scopes in order for Octop
 
 However, it is common for sensitive variables to share a name use scopes to define unique values for different contexts. For example, you may have two sensitive variables called `Database.Password`, with the first variable scoped to the `Dev` environment, and the second scoped to the `Production` environment. This is demonstrated in the screenshot below:
 
-![Sensitive project variables](sensitive-variables.png)
+![Sensitive project variables](../../../../../public/docs/administration/migrate-spaces-with-octoterra/sensitive-variables.png)
 
 The process of renaming sensitive variables, removing their scopes, and recursively referencing them via regular variables that have the names and scopes of the original sensitive variables is called "variable spreading".
 
 Here is a screenshot that shows the spread variables:
 
-![Spread sensitive variables](spread-variables.png)
+![Spread sensitive variables](../../../../../public/docs/administration/migrate-spaces-with-octoterra/spread-variables.png)
 
 Existing steps that referenced the variable `Database.Password` continue to function, as the value of that variable is recursively resolved from the Octostache template syntax in the regular variable to return the value held by the referenced sensitive variable.
 
