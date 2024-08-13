@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-13
 title: Blue-green deployments in Octopus using Environments
 description: Implementing blue/green deployments in Octopus using Environments.
 navOrder: 10
 ---
 
-To implement blue/green deployments in Octopus using [Environments](/docs/infrastructure/environments), create two environments - one for blue, and one for green:
+To implement [blue/green deployments](https://octopus.com/devops/software-deployments/blue-green-deployment/) in Octopus using [Environments](/docs/infrastructure/environments), create two environments - one for blue, and one for green:
 
 :::figure
 ![](/docs/deployments/patterns/blue-green-deployments/images/blue-green-create-envs.png)
