@@ -91,7 +91,7 @@ The currently-running machine could be substituted in this expression:
 
 This will evaluate to `True` on Web01 and `False` on Web02.
 
-Machine-level variable expressions are also supported in [rolling deployments](/docs/deployments/patterns/rolling-deployments) using child steps.
+Machine-level variable expressions are also supported in [rolling deployments](/docs/deployments/patterns/rolling-deployments-with-octopus) using child steps.
 
 ### Variable filters in run conditions
 
@@ -110,7 +110,7 @@ When you review a process with two steps that run in parallel, you'll notice two
 
 There is no limitation on the number of steps that can run in parallel. 
 
-The `Octopus.Action.MaxParallelism` variable allows for specifying the number of machines on which the action will concurrently execute which is the same variable used for [Rolling Deployments](https://octopus.com/docs/deployments/patterns/rolling-deployments).
+The `Octopus.Action.MaxParallelism` variable allows for specifying the number of machines on which the action will concurrently execute which is the same variable used for [Rolling Deployments](https://octopus.com/docs/deployments/patterns/rolling-deployments-with-octopus).
 
 
 ### Steps in parallel on the same deployment target

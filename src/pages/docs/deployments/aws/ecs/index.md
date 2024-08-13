@@ -179,7 +179,7 @@ To enable FireLens configuration, your Deploy Amazon ECS Service step needs to b
 
 ### Deployment section
 
-Specify the minimum and maximum health percentages for the resulting service. These settings enable scenarios such as [Rolling deployments](/docs/deployments/patterns/rolling-deployments). When the maximum health percentage is set above 100% ECS will attempt to start new tasks before bringing down old ones. On the other hand, the minimum health percentage will allow ECS to bring down tasks when the cluster does not have enough capacity to handle the load.
+Specify the minimum and maximum health percentages for the resulting service. These settings enable scenarios such as [rolling deployments](https://octopus.com/devops/software-deployments/rolling-deployment/). When the maximum health percentage is set above 100% ECS will attempt to start new tasks before bringing down old ones. On the other hand, the minimum health percentage will allow ECS to bring down tasks when the cluster does not have enough capacity to handle the load.
 
 :::figure
 ![ECS Step Deployment section](/docs/deployments/aws/ecs/images/ecs-deployment.png)

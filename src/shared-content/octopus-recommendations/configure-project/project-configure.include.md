@@ -136,7 +136,7 @@ You will then see the **Rolling Deployment** section, where you can set the wind
 :::
 
 :::div{.hint} 
-Take a look at our documentation on how to [configure a rolling deployment](/docs/deployments/patterns/rolling-deployments).
+Take a look at our documentation on how to [configure a rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus).
 :::
 
 Just like with the database project, don't worry about the individual steps used.  This is just an example to show you how we would configure a simple IIS web application deployment.  The most important thing to take away from this section is the **WebUI** project is only concerned with deploying the **WebUI**, and it will work if it's being deployed for the first time, or the 100th time.
