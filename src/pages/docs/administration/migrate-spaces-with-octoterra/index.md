@@ -54,8 +54,9 @@ Action <step name> has the "Items" property, which indicates that it is from the
 
 ### Config-as-Code (CaC) repositories
 
-Octoterra converts CaC projects back to regular projects as part of the migration. The project can be converted back to CaC on the destination space. 
-However, be aware that Octopus does not support sharing project CaC configuration between two projects. You are prevented from doing so with multiple projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared CaC project configuration from multiple Octopus instances, there are cases where the CaC configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project CaC configuration hosted in Git.
+Octoterra converts CaC projects back to regular projects as part of the migration. The project can be converted back to CaC on the destination space once the migration is complete.
+
+However, be aware that Octopus does not support sharing project CaC configuration between two projects. You are prevented from doing so with multiple CaC projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared CaC project configuration from multiple Octopus instances, there are cases where the CaC configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project CaC configuration hosted in Git.
 
 The recommended solution is to convert the projects in the destination space to a new directory or Git repository. This ensures that the new projects have valid CaC configuration.
 
@@ -82,10 +83,10 @@ The following is a non-exhaustive list of settings that are not exported by Octo
 
 ## Prerequisites
 
-These are the prerequisites for migrating projects with the Octoterra Wizard:
+These are the prerequisites for migrating an Octopus space with the Octoterra Wizard:
 
 * [Backup](https://octopus.com/docs/administration/data/backup-and-restore) and [update](https://octopus.com/docs/administration/upgrading) your Octopus instance.
-* [Backup your Octopus instance again before the migration](https://octopus.com/docs/administration/data/backup-and-restore).
+* [Backup](https://octopus.com/docs/administration/data/backup-and-restore) your Octopus instance again before the migration.
 * Download the Octoterra Wizard from [GitHub](https://github.com/mcasperson/OctoterraWizard).
 * Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation.
 * [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance.
@@ -361,4 +362,8 @@ A: Technically no, but it is recommended that the two servers be updated to the 
 Q: Can I migrate previous Octopus versions with the Octoterra Wizard?
 
 A: No, Octoterra only supports the supported LTS versions of Octopus.
+
+Q: How do I fix the `unexpected token while parsing list: IDENT` error when applying Terraform modules.
+
+A: This is most likely caused by running an old version of Terraform. In particular, you will see this error if you rely on the version of Terraform bundled with Octopus (version 0.11.15) which is too old to apply the Terraform modules created by Octoterra. The Octopus logs capture the Terraform version used for the deployment and will display a message like `Your version of Terraform is out of date!` if using an old Terraform version.
 
