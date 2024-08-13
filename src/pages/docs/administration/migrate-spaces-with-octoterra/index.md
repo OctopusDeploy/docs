@@ -83,14 +83,14 @@ The following is a non-exhaustive list of settings that are not exported by Octo
 
 ## Prerequisites
 
-These are the prerequisites for migrating projects with Octoterra:
+These are the prerequisites for migrating projects with the Octoterra Wizard:
 
-* [Backup](https://octopus.com/docs/administration/data/backup-and-restore) and [update](https://octopus.com/docs/administration/upgrading) your Octopus instance
-* [Backup your Octopus instance again before the migration](https://octopus.com/docs/administration/data/backup-and-restore)
-* Download the Octoterra Wizard from [GitHub](https://github.com/mcasperson/OctoterraWizard)
-* Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation
-* [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance
-* [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the destination Octopus instance
+* [Backup](https://octopus.com/docs/administration/data/backup-and-restore) and [update](https://octopus.com/docs/administration/upgrading) your Octopus instance.
+* [Backup your Octopus instance again before the migration](https://octopus.com/docs/administration/data/backup-and-restore).
+* Download the Octoterra Wizard from [GitHub](https://github.com/mcasperson/OctoterraWizard).
+* Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation.
+* [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance.
+* [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the destination Octopus instance.
 * Create a remote [Terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) to maintain the state of the Terraform resources. [AWS S3](https://developer.hashicorp.com/terraform/language/settings/backends/s3) and [Azure Storage Accounts](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) are supported.
 * Install any required local tools. See the "Local Tools vs Container Images" section for more details.
 
@@ -102,27 +102,29 @@ You are also prompted to spread sensitive variables after confirming that you un
 
 You are given the choice to use local tools or container images when running the runbooks to create and apply the Terraform modules. See the "Local Tools vs Container Images" section for more information on making this choice.
 
-The final prompts do not involve any input. They manage the process of installing the required community step template steps into the source space, creating runbooks to export the space level resources and projects, and finally running the runbooks. See the "Space vs project level resources" section for more information on the distinction between these resources.
+The final prompts do not involve any input. They automate the process of installing the required community step template steps into the source space, creating runbooks to export the space level resources and projects, and finally running the runbooks. See the "Space vs project level resources" section for more information on the distinction between these types of resources.
 
 ## Spreading sensitive variables
 
-In order for Octopus to expose sensitive variables defined in the project and in library variable sets to the Terraform module created by Octoterra, each sensitive variable must have a unique name and no scopes.
+Each sensitive variable must have a unique name and no scopes in order for Octopus to expose sensitive variables defined in the project and in library variable sets to the Terraform module created by Octoterra.
 
 However, it is common for sensitive variables to share a name use scopes to define unique values for different contexts. For example, you may have two sensitive variables called `Database.Password`, with the first variable scoped to the `Dev` environment, and the second scoped to the `Production` environment. This is demonstrated in the screenshot below:
 
 ![Sensitive project variables](sensitive-variables.png)
 
-The process of renaming the sensitive variables, removing their scopes, and recursively referencing them via regular variables that have the names and scopes of the original sensitive variables is called "spreading" the variables.
+The process of renaming sensitive variables, removing their scopes, and recursively referencing them via regular variables that have the names and scopes of the original sensitive variables is called "variable spreading".
 
 Here is a screenshot that shows the spread variables:
 
 ![Spread sensitive variables](spread-variables.png)
 
-Existing steps that referenced the variable `Database.Password` will continue to function, as the value of that variable is recursively resolved from the Octostache template syntax in the regular variable to return the value held by the referenced sensitive variable.
+Existing steps that referenced the variable `Database.Password` continue to function, as the value of that variable is recursively resolved from the Octostache template syntax in the regular variable to return the value held by the referenced sensitive variable.
 
 Because each sensitive variable now has a unique name and no scope, the value of sensitive variables can be reliably passed to a Terraform module applied by Octopus, effectively allowing sensitive variables to be migrated.
 
 Note there are security considerations to take into account with variable spreading. Notably, every sensitive variable is exposed to every deployment or runbook run.
+
+Also note that there is no automated process to collapse spread variables. This can be done by hand if necessary.
 
 :::div{.warning}
 It is important to understand the implications of variable spreading before migrating projects with the Octoterra Wizard.
