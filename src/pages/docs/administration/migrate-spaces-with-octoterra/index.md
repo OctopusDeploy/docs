@@ -175,7 +175,7 @@ Projects can typically be migrated independently of each other. However, some st
 
 ## Migration strategies
 
-Because the Octoterra Wizard serializes Octopus resources to Terraform modules, we can use the Terraform's functionality to implement a number of strategies for migrating spaces:
+Because the Octoterra Wizard serializes Octopus resources to Terraform modules, we can use Terraform's functionality to implement a number of strategies for migrating spaces:
 
 * Big bang migration, where the migration is done all at once.
 * Incremental migration, where projects are migrated over time.
