@@ -221,7 +221,7 @@ Consider an incremental migration strategy when:
 
 Continual migration means updating projects on the destination server with any changes from the source server after the initial migration.
 
-Continual migrations are useful when both the source and destination servers must run side by side for some time. A typical scenario is testing the migrated projects on the destination server while the associated projects on the source server are still in active use, and redeploying the projects to update the destination server with any changes made to the source server.
+Continual migrations are useful when both the source and destination servers must run side by side for some time. A typical scenario is testing the migrated projects on the destination server while the associated projects on the source server are still in active use, and then redeploying the projects to update the destination server with any changes made to the source server.
 
 :::div{.warning}
 Note that locking strategies normally implemented by an Octopus server, such as blocking tasks that share a target, will not be implemented when the source and destination server share targets because the source and destination server do not communicate with each other to schedule tasks. It is your responsibility to ensure that the source and destination servers do not attempt to deploy to the same target at the same time.
@@ -238,7 +238,7 @@ The source server is considered the source of truth for space and project level 
 Consider a continual migration strategy when:
 
 * You wish to perform the bulk of the migration up front.
-* You need to test the destination server while the source service is still actively used.
+* You need to test the destination server while the source server is still actively used.
 * You need to update the destination server with any changes made to the source server while testing the migration.
 
 
@@ -277,7 +277,7 @@ Any firewall rules relating to the Octopus server must be updated to reflect the
 
 ### Regenerate API keys
 
-Any external scripts and platforms to connect to Octopus must make use of a new [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key).
+Any external scripts and platforms to connect to the destination Octopus server must make use of a new [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key).
 
 ### Reconfigure polling tentacles
 
@@ -291,7 +291,7 @@ A polling tentacle can be configured against both the source and destination ser
 
 ### Reconfigure listening tentacles
 
-Listening tentacles are set to trust a certificate that is unique to each Octopus server.
+Listening tentacles are configured to trust a certificate that is unique to each Octopus server.
 
 It is possible to export the certificate from an on-premises Octopus server and import it into another on-premises server using [these instructions](https://octopus.com/docs/security/octopus-tentacle-communication/regenerate-certificates-with-octopus-server-and-tentacle).
 
@@ -301,35 +301,35 @@ Listening tentacles cen be configured to trust both the source and destination s
 
 ### Update CI servers
 
-Any CI servers must be reconfigured to point to the destination server.
+Any CI servers must be reconfigured to point to the destination Octopus server.
 
-You will likely configure your CI server to push packages to the built-in feed for both the source and destination servers when performing an incremental or continual migration, and remove the steps that interact with the source server when the migration is complete.
+You will likely configure your CI server to push packages to the built-in feed for both the source and destination Octopus servers when performing an incremental or continual migration, and remove the steps that interact with the source Octopus server when the migration is complete.
 
 ### Reconfigure subscriptions
 
-[Subscriptions](https://octopus.com/docs/administration/managing-infrastructure/subscriptions) must be manually recreated on the destination server.
+[Subscriptions](https://octopus.com/docs/administration/managing-infrastructure/subscriptions) must be manually recreated on the destination Octopus server.
 
 If subscriptions are used to trigger external events based on project events, you must take care to incrementally migrate subscriptions as part of a incremental or continual migration.
 
 ### Reconfigure SEIM connections
 
-You must manually configure the [audit stream](https://octopus.com/docs/security/users-and-teams/auditing/audit-stream) to SEIM tools like Sumo or Splunk on the destination server.
+You must manually configure the [audit stream](https://octopus.com/docs/security/users-and-teams/auditing/audit-stream) to SEIM tools like Sumo or Splunk on the destination Octopus server.
 
 ### Reconfigure ITSM connection
 
-You must manually configure the link to ITSM tools like [Service Now](https://octopus.com/docs/approvals/servicenow) and [Jira Service Management](https://octopus.com/docs/approvals/jira-service-management) on the destination server.
+You must manually configure the link to ITSM tools like [Service Now](https://octopus.com/docs/approvals/servicenow) and [Jira Service Management](https://octopus.com/docs/approvals/jira-service-management) on the destination Octopus server.
 
 ### Recreate Insights dashboards
 
-You must manually recreate any [Insights dashboards](https://octopus.com/docs/insights) on the destination server.
+You must manually recreate any [Insights dashboards](https://octopus.com/docs/insights) on the destination Octopus server.
 
 ### Reconfigure Users and teams
 
-You must manually recreate any [users and teams](https://octopus.com/docs/security/users-and-teams) on the destination server.
+You must manually recreate any [users and teams](https://octopus.com/docs/security/users-and-teams) on the destination Octopus server.
 
 ### Reconfigure SMTP settings
 
-You must manually configure the [SMTP settings](https://octopus.com/docs/projects/built-in-step-templates/email-notifications#smtp-configuration) on the destination server.
+You must manually configure the [SMTP settings](https://octopus.com/docs/projects/built-in-step-templates/email-notifications#smtp-configuration) on the destination Octopus server.
 
 ## Licensing considerations
 
