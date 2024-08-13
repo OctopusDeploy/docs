@@ -122,9 +122,9 @@ Existing steps that referenced the variable `Database.Password` continue to func
 
 Because each sensitive variable now has a unique name and no scope, the value of sensitive variables can be reliably passed to a Terraform module applied by Octopus, effectively allowing sensitive variables to be migrated.
 
-Note there are security considerations to take into account with variable spreading. Notably, every sensitive variable is exposed to every deployment or runbook run.
+Note there are security considerations to take into account with variable spreading. Notably, every sensitive variable is exposed to every deployment or runbook run because they have no scope.
 
-Also note that there is no automated process to collapse spread variables. This can be done by hand if necessary.
+Also note that there is no automated process to collapse spread variables back to their original configuration. This can be done by hand if necessary.
 
 :::div{.warning}
 It is important to understand the implications of variable spreading before migrating projects with the Octoterra Wizard.
@@ -134,7 +134,7 @@ It is important to understand the implications of variable spreading before migr
 
 The runbooks created by the Octoterra Wizard have the option to use locally installed tools or run the runbooks from a [container image](https://octopus.com/docs/projects/steps/execution-containers-for-workers) that provides the required tools.
 
-Container images require that the source server or the default worker pool used by the source server have Docker installed. This is common on Linux servers (especially as Octopus is distributed as a Linux container for on-premises Linux users), and is available on the dynamic workers provided by cloud Octopus instances, but less common on on-premises Windows servers.
+Container images require that the source server or the default worker pool used by the source server have Docker installed. This is common on Linux servers (especially as Octopus is distributed as a Linux container for on-premises Linux users), and is available on the dynamic workers provided by cloud Octopus instances, but is less common on on-premises Windows servers.
 
 Local tools are locally installed versions of the tools listed in the "Required local tools" section. Using this option does not require Docker to be installed on the source server.
 
