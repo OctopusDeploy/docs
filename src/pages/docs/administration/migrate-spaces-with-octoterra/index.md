@@ -16,7 +16,7 @@ robots: noindex, follow
 
 [Octoterra Wizard](https://github.com/OctopusSolutionsEngineering/OctoterraWizard) prepares a source space to allow the space and projects to be migrated to a new space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.\
 
-This documentation provides details on how to use the Octoterra Wizard to migrate a space from one instance to another, as well as noting the limitations and any special requirements of the process.
+This documentation provides details on how to use the Octoterra Wizard to migrate a space from one instance to another, as well as noting the limitations of the tooling and any post-migration steps that need to be implemented.
 
 ## Choosing between Octoterra and the Import/Export tool
 
@@ -36,7 +36,9 @@ There are limitations that must be accounted for as part of a migration.
 
 Sensitive values are not exposed by the Octopus API and therefore are not captured in the Terraform configuration created by Octoterra.
 
-Sensitive variables can be passed to the Terraform module if the source Octopus instance deploys the Terraform configuration itself, as Octopus exposes sensitive values to a deployment process or runbook. In order to ensure sensitive variables can be passed to the Terraform configuration, all sensitive variables must be unscoped and have a unique name. Existing sensitive variables can be modified to fulfil these requirements by spreading them. See the section on variable spreading for more information.
+Sensitive variables can be passed to the Terraform module when the source Octopus instance deploys the Terraform configuration itself, as Octopus exposes sensitive values to a deployment process or runbook. Configuration the source Octopus server to execute the Terraform modules created by Octoterra is the core feature of the Octoterra Wizard.
+
+In order to ensure sensitive variables can be passed to the Terraform configuration, all sensitive variables must be unscoped and have a unique name. Existing sensitive variables can be modified to fulfil these requirements by spreading them. See the section on variable spreading for more information.
 
 The sensitive values associated with feed, account, and Git credentials, the contents of certificate, sensitive values embedded in steps (such as the `Deploy to IIS` step), and sensitive values defined as parameters on step templates can not be captured by Octoterra. These values are replaced with placeholder values and must be manually reentered on the destination instance once the space has been migrated.
 
@@ -94,13 +96,13 @@ These are the prerequisites for migrating projects with Octoterra:
 
 ## Running the wizard
 
-The Octoterra Wizard presents a wizard that prompts you for the details of your source Octopus space, the destination Octopus space, and the Terraform backend.
+The Octoterra Wizard presents a sequence of prompts for the details of your source Octopus space, the destination Octopus space, and the Terraform backend.
 
 You are also prompted to spread sensitive variables after confirming that you understand the implications of modifying variables in this manner. See the section called Spreading sensitive variables for more details on the implications of this step.
 
 You are given the choice to use local tools or container images when running the runbooks to create and apply the Terraform modules. See the section called Local Tools vs Container Images for more information on making this choice.
 
-The final steps do not involve any input. They manage the process of installing the required community step template steps into the source space, creating runbooks to export the space level resources and projects, and finally running the runbooks. See the section Space vs project level resources for more information on the distinction between these resources.
+The final prompts do not involve any input. They manage the process of installing the required community step template steps into the source space, creating runbooks to export the space level resources and projects, and finally running the runbooks. See the section Space vs project level resources for more information on the distinction between these resources.
 
 ## Spreading sensitive variables
 
@@ -158,15 +160,18 @@ The relationship between a tenant and a project, including project level tenant 
 
 Migrating a space involves:
 
-1. Migrating space level resources
-2. Migrating individual projects
+1. Serializing space level resources
+2. Deploying space level resources
+3. Serializing individual projects
+4. Deploying individual projects
    1. Reestablishing the link between a tenant and a project
+   2. Referencing existing space level resources
 
 Projects can typically be migrated independently of each other. However, some steps, such as the `Deploy a release` step, reference other projects. The projects referenced by `Deploy a release` steps must be migrated before the project that defines the step.
 
 ## Migration strategies
 
-Because the Octoterra Wizard serialized and Octopus space to Terraform modules, there are a number of strategies that can be implemented for migrating spaces:
+Because the Octoterra Wizard serializes Octopus resources to Terraform modules, it we can use the flexibility provided by Terraform to implement a number of strategies for migrating spaces:
 
 * Big bang migration, where the migration is done all at once
 * Incremental migration, where projects are migrated over time
@@ -190,7 +195,11 @@ Incremental migrations require the space level resources to be migrated from the
 
 To perform an incremental migration, complete the `Migrate Space Level Resources` step and then exit the wizard. This ensures that the space level resources are migrated.
 
-Then, when a project is ready to be migrated, run the `__ 1. Serialize Project` runbook, followed by the `__ 2. Deploy Project` runbook. This will serialize and then migrate a single project.
+Then, when a project is ready to be migrated, run its associated `__ 1. Serialize Project` runbook, followed by the `__ 2. Deploy Project` runbook. This will serialize and then migrate a single project.
+
+:::div{.warning}
+Note that locking strategies normally implemented by an Octopus server, such as blocking tasks that share a target, will not be implemented when the source and destination server share targets because the source and destination server do not communicate with each other to schedule tasks. It is your responsibility to ensure that the source and destination servers do not attempt to deploy to the same target at the same time.
+:::
 
 You may consider disabling the project on the source server once it has been migrated to prevent deployments taking place on both the source and the destination server.
 
@@ -202,9 +211,13 @@ Consider an incremental migration strategy when:
 
 ### Continual migration
 
-Continual migration means updating the project on the destination server with any changes from the source server after the initial migration.
+Continual migration means updating projects on the destination server with any changes from the source server after the initial migration.
 
 Continual migrations are useful when both the source and destination servers must run side by side for some time. A typical scenario is testing the migrated projects on the destination server while the associated projects on the source server are still in active use, and redeploying the projects to update the destination server with any changes made to the source server.
+
+:::div{.warning}
+Note that locking strategies normally implemented by an Octopus server, such as blocking tasks that share a target, will not be implemented when the source and destination server share targets because the source and destination server do not communicate with each other to schedule tasks. It is your responsibility to ensure that the source and destination servers do not attempt to deploy to the same target at the same time.
+:::
 
 :::div{.hint}
 The source server is considered the source of truth for space and project level resources until the source server is decommissioned. The configuration of the destination server will be replaced each time space and project level resources are redeployed.
@@ -230,7 +243,7 @@ A number of sensitive values can not be migrated by Octoterra including:
 * Git credentials
 * Certificates
 * Secret values define in steps such as the `Deploy to IIS` and `Deploy to Tomcat` steps
-* Sensitive values defined for secret step templates parameters
+* Sensitive values defined for sensitive step templates parameters
 
 All these values must be manually reconfigured on the destination server.
 
@@ -262,7 +275,7 @@ The [poll-server](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command
 
 You also need to deregister polling tentacles from the source server. The [deregister-from](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/deregister-from) command is used to deregister a tentacle from a server.
 
-A polling tentacle can be configured against both the source and destination servers when performing an incremental or continual migration, and deregistered from the source server with the migration is complete.
+A polling tentacle can be configured against both the source and destination servers when performing an incremental or continual migration, and deregistered from the source server when the migration is complete.
 
 ### Reconfigure listening tentacles
 
@@ -271,6 +284,8 @@ Listening tentacles are set to trust a certificate that is unique to each Octopu
 It is possible to export the certificate from an on-premises Octopus server and import it into another on-premises server using [these instructions](https://octopus.com/docs/security/octopus-tentacle-communication/regenerate-certificates-with-octopus-server-and-tentacle).
 
 It is not possible to change the certificate used by an Octopus cloud instance. Each listening tentacle must be updated to trust the new certificate of the Octopus cloud instance using the [configure](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/configure) command with the `--trust` argument.
+
+Listening tentacles cen be configured to trust both the source and destination servers when performing an incremental or continual migration, and the trust removed from the source server when the migration is complete.
 
 ### Update CI servers
 
@@ -296,11 +311,11 @@ You must manually configure the link to ITSM tools like [Service Now](https://oc
 
 You must manually recreate any [Insights dashboards](https://octopus.com/docs/insights) on the destination server.
 
-### Users and teams
+### Reconfigure Users and teams
 
 You must manually recreate any [users and teams](https://octopus.com/docs/security/users-and-teams) on the destination server.
 
-### SMTP settings
+### Reconfigure SMTP settings
 
 You must manually configure the [SMTP settings](https://octopus.com/docs/projects/built-in-step-templates/email-notifications#smtp-configuration) on the destination server.
 
