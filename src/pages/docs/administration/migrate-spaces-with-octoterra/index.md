@@ -14,9 +14,9 @@ robots: noindex, follow
 
 [Octoterra](github.com/OctopusSolutionsEngineering/OctopusTerraformExport/actions) exports Octopus projects, runbooks, and spaces to a Terraform module. Octoterra can be used to migrate resources between spaces and instances.
 
-[Octoterra Wizard](https://github.com/OctopusSolutionsEngineering/OctoterraWizard) prepares a source space to allow the space and projects to be migrated to a new space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.\
+[Octoterra Wizard](https://github.com/OctopusSolutionsEngineering/OctoterraWizard) prepares a source space to allow the space and projects to be migrated to a new space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.
 
-This documentation provides details on how to use the Octoterra Wizard to migrate a space from one instance to another, as well as noting the limitations of the tooling and any post-migration steps that need to be implemented.
+This documentation provides details on for using the Octoterra Wizard to migrate a space from one instance to another, as well as noting the limitations of the tooling and any post-migration steps that must be implemented.
 
 ## Choosing between Octoterra and the Import/Export tool
 
@@ -24,9 +24,9 @@ The [Import/Export tool](https://octopus.com/docs/projects/export-import) is bui
 
 Typically, you would choose the Import/Export tool to perform a migration. However, there are cases where the Import/Export tool is not suitable:
 
-* You wish to migrate CaC projects, as the Import/Export tool does not support CaC projects
+* You wish to migrate Config-as-Code (CaC) projects, as the Import/Export tool does not support CaC projects
 * You wish to recreate targets, as the Import/Export tool does not migrate targets
-* You wish to "own" the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON formation
+* You wish to "own" or modify the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON formation
 
 ## Limitations of Octoterra and migrating projects between instances
 
@@ -38,7 +38,7 @@ Sensitive values are not exposed by the Octopus API and therefore are not captur
 
 Sensitive variables can be passed to the Terraform module when the source Octopus instance deploys the Terraform configuration itself, as Octopus exposes sensitive values to a deployment process or runbook. Configuration the source Octopus server to execute the Terraform modules created by Octoterra is the core feature of the Octoterra Wizard.
 
-In order to ensure sensitive variables can be passed to the Terraform configuration, all sensitive variables must be unscoped and have a unique name. Existing sensitive variables can be modified to fulfil these requirements by spreading them. See the section on variable spreading for more information.
+In order to ensure sensitive variables can be passed to the Terraform configuration, all sensitive variables must be unscoped and have a unique name. Existing sensitive variables can be modified to fulfil these requirements by spreading them. See the section "Spreading sensitive variables" for more information.
 
 The sensitive values associated with feed, account, and Git credentials, the contents of certificate, sensitive values embedded in steps (such as the `Deploy to IIS` step), and sensitive values defined as parameters on step templates can not be captured by Octoterra. These values are replaced with placeholder values and must be manually reentered on the destination instance once the space has been migrated.
 
@@ -98,11 +98,11 @@ These are the prerequisites for migrating projects with Octoterra:
 
 The Octoterra Wizard presents a sequence of prompts for the details of your source Octopus space, the destination Octopus space, and the Terraform backend.
 
-You are also prompted to spread sensitive variables after confirming that you understand the implications of modifying variables in this manner. See the section called Spreading sensitive variables for more details on the implications of this step.
+You are also prompted to spread sensitive variables after confirming that you understand the implications of modifying variables in this manner. See the "Spreading sensitive variables" section for more details on the implications of this step.
 
-You are given the choice to use local tools or container images when running the runbooks to create and apply the Terraform modules. See the section called Local Tools vs Container Images for more information on making this choice.
+You are given the choice to use local tools or container images when running the runbooks to create and apply the Terraform modules. See the "Local Tools vs Container Images" section for more information on making this choice.
 
-The final prompts do not involve any input. They manage the process of installing the required community step template steps into the source space, creating runbooks to export the space level resources and projects, and finally running the runbooks. See the section Space vs project level resources for more information on the distinction between these resources.
+The final prompts do not involve any input. They manage the process of installing the required community step template steps into the source space, creating runbooks to export the space level resources and projects, and finally running the runbooks. See the "Space vs project level resources" section for more information on the distinction between these resources.
 
 ## Spreading sensitive variables
 
@@ -134,7 +134,7 @@ The runbooks created by the Octoterra Wizard have the option to use locally inst
 
 Container images require that the source server or the default worker pool used by the source server have Docker installed. This is common on Linux servers (especially as Octopus is distributed as a Linux container for on-premises Linux users), and is available on the dynamic workers provided by cloud Octopus instances, but less common on on-premises Windows servers.
 
-Local tools are locally installed versions of the tool listed in the Required local tools section. Using this option does not require Docker to be installed on the source server.
+Local tools are locally installed versions of the tool listed in the "Required local tools" section. Using this option does not require Docker to be installed on the source server.
 
 If you are migrating from an on-premises Windows server, you will likely select the `Local tools` options.
 
