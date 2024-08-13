@@ -18,7 +18,7 @@ In this case you could modify your deployment process to become multi-region by:
  2. Scoping the existing region-specific variables to the Asia/Pacific cloud region
  3. Creating new region-specific variables and scoping those to the appropriate cloud region
  
-Now when you deploy OctoFX you can create a [rolling deployment](/docs/deployments/patterns/rolling-deployments) targeting these regions one at a time, or in parallel.
+Now when you deploy OctoFX you can create a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus) targeting these regions one at a time, or in parallel.
 :::
 
 :::div{.success}

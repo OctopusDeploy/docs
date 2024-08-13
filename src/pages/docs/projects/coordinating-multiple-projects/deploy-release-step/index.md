@@ -115,7 +115,7 @@ A project can contain multiple _Deploy a Release_ steps which deploy a combinati
 
 ## Rolling deployments
 
-_Deploy a Release_ steps may be added as child steps, to be used in a [rolling deployment](/docs/deployments/patterns/rolling-deployments).
+_Deploy a Release_ steps may be added as child steps, to be used in a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus).
 
 When executing a rolling deployment containing a _Deploy a Release_ step, child deployments will be created per deployment target, as each target is rolled over.  i.e. if the rolling step specifies a target role which matches 10 deployment targets, then 10 child deployments will be created. 
 

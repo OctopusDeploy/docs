@@ -17,7 +17,7 @@ If you're looking for example deployments, see the [Deploying Applications examp
 
 6. If you are deploying to deployment targets or running the step on the server on behalf of deployment targets, you can deploy to all targets in parallel (default) or configure a rolling deployment. To configure a rolling deployment click *configure a rolling deployment* and specify the window size for the deployment. The window size controls how many deployment targets will be deployed to in parallel.
 
-Learn more about [rolling deployments](/docs/deployments/patterns/rolling-deployments).
+Learn more about [rolling deployments](/docs/deployments/patterns/rolling-deployments-with-octopus).
 
 7. The next section of the step is where you specify the actions for the step to take, if you are running a script or deploying a package this is where you provide the details. This section will vary depending on the type of step you're configuring. For example deployments, see the [Deploying Applications examples](/docs/deployments/). If you're deploying packages you'll likely need to set your [configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature).
 8. After providing the actions the steps takes, you can set the conditions for the step. You can set the following conditions:
