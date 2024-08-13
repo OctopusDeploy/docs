@@ -24,23 +24,23 @@ The [Import/Export tool](https://octopus.com/docs/projects/export-import) is bui
 
 Typically, you would choose the Import/Export tool to perform a migration. However, there are cases where the Import/Export tool is not suitable:
 
-* You wish to migrate Config-as-Code (CaC) projects, as the Import/Export tool does not support CaC projects
-* You wish to recreate targets, as the Import/Export tool does not migrate targets
-* You wish to "own" or modify the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON formation
+* You wish to migrate Config-as-Code (CaC) projects, as the Import/Export tool does not support CaC projects.
+* You wish to recreate targets, as the Import/Export tool does not migrate targets.
+* You wish to "own" or modify the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON format.
 
 ## Limitations of Octoterra and migrating projects between instances
 
-There are limitations that must be accounted for as part of a migration.
+There are limitations that must be accounted for as part of a migration managed by the Octoterra Wizard.
 
 ### Sensitive values
 
-Sensitive values are not exposed by the Octopus API and are therefore not captured in the Terraform configuration created by Octoterra.
+Sensitive values are not exposed by the Octopus API and are therefore not captured in the Terraform modules created by Octoterra.
 
 However, sensitive variables can be passed to the Terraform module when the source Octopus instance deploys Terraform configuration, as Octopus exposes sensitive values to a deployment process or runbook. The core purpose of the Octoterra Wizard is to configure the source Octopus server to execute the Terraform modules created by Octoterra in order to expose the sensitive values held by Octopus.
 
 In order to ensure sensitive variables can be passed to the Terraform configuration, all sensitive variables must be unscoped and have a unique name. Existing sensitive variables can be modified to fulfil these requirements by spreading them. See the section "Spreading sensitive variables" for more information.
 
-The sensitive values associated with feed, account, and Git credentials, the contents of certificate, sensitive values embedded in steps (such as the `Deploy to IIS` step), and sensitive values defined as parameters on step templates can not be captured by Octoterra. These values are replaced with placeholder values and must be manually reentered on the destination instance once the space has been migrated.
+The sensitive values associated with feed, account, and Git credentials, the contents of certificates, sensitive values embedded in steps (such as the `Deploy to IIS` step), and sensitive values defined as parameters on step templates can not be captured by Octoterra. These values are replaced with placeholder values and must be manually reentered on the destination instance once the space has been migrated. See the "Post-migration steps" for more details.
 
 ### New step framework
 
@@ -55,7 +55,6 @@ Action <step name> has the "Items" property, which indicates that it is from the
 ### Config-as-Code (CaC) repositories
 
 Octoterra converts CaC projects back to regular projects as part of the migration. The project can be converted back to CaC on the destination space. 
-
 However, be aware that Octopus does not support sharing project CaC configuration between two projects. You are prevented from doing so with multiple projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared CaC project configuration from multiple Octopus instances, there are cases where the CaC configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project CaC configuration hosted in Git.
 
 The recommended solution is to convert the projects in the destination space to a new directory or Git repository. This ensures that the new projects have valid CaC configuration.
