@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2099-01-01
 modDate: 2099-01-01
-title: Migrating spaces with octoterra
+title: Migrating spaces with Octoterra
 description: How to migrate spaces using the octoterra tool
 navOrder: 100
 hideInThisSection: true
@@ -14,9 +14,9 @@ robots: noindex, follow
 
 [Octoterra](github.com/OctopusSolutionsEngineering/OctopusTerraformExport/actions) exports Octopus projects, runbooks, and spaces to a Terraform module. Octoterra can be used to migrate resources between spaces and instances.
 
-[Octoterra Wizard](https://github.com/OctopusSolutionsEngineering/OctoterraWizard) prepares a source space to allow the space and projects to be migrated to a new space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.
+[Octoterra Wizard](https://github.com/OctopusSolutionsEngineering/OctoterraWizard) prepares a source space to allow the space and project level resources to be migrated to a destination space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.
 
-This documentation provides details on for using the Octoterra Wizard to migrate a space from one instance to another, as well as noting the limitations of the tooling and any post-migration steps that must be implemented.
+This documentation provides details on using the Octoterra Wizard to migrate a space from one instance to another as well as noting the limitations of the tooling and any post-migration steps that must be implemented.
 
 ## Choosing between Octoterra and the Import/Export tool
 
