@@ -157,6 +157,7 @@ Itoa
 ITSM
 jjones
 jsondecode
+JSSE
 jwks
 keyrings
 keyserver
@@ -318,6 +319,7 @@ SAMEORIGIN
 Schannel
 scopeduserroles
 secureclientcertificate
+SEIM
 servedby
 servername
 serverstatus

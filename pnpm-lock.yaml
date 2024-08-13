@@ -27,6 +27,9 @@ importers:
       cspell:
         specifier: ^8.8.1
         version: 8.8.1
+      gray-matter:
+        specifier: ^4.0.3
+        version: 4.0.3
       hast-util-from-selector:
         specifier: ^3.0.0
         version: 3.0.0

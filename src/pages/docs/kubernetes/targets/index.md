@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-07-31
+modDate: 2024-08-08
 title: Kubernetes Targets
 navTitle: Overview
 navSection: Targets
@@ -9,11 +9,21 @@ description: Kubernetes deployment targets
 navOrder: 50
 ---
 
-There are two different deployment targets for deploying to Kubernetes using Octopus Deploy, the [Kubernetes Agent](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent) and the [Kubernetes API](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api) targets.
+To deploy your application to a Kubernetes cluster, you need Octopus Deploy to know that the cluster exists and how to access it. The cluster is your deployment destination. To represent deployment destinations, Octopus uses [deployment targets](docs/infrastructure/deployment-targets) (a virtual entity). 
+
+There are two different deployment targets for deploying to Kubernetes, the [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) and the [Kubernetes API](/docs/kubernetes/targets/kubernetes-api) targets.
+
+The Kubernetes API target allows the Octopus Server to connect to a cluster via the API. In this scenario, your deployment tasks run outside of a cluster, typically on a worker.
+
+The Kubernetes agent target requires the installation of a small executable in a cluster (agent).  Octopus Server connects to the agent for deployments. In this scenario, your deployment tasks run inside the cluster.
+
+:::figure
+![Kubernetes agent and Kubernetes API diagram](/docs/infrastructure/deployment-targets/kubernetes/diagram-kubernetes-targets.png)
+:::
 
 The following table summarizes the key differences between the two targets.
 
-|                                                      | [Kubernetes Agent](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent)                                                                         | [Kubernetes API](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api)                 |
+|                                                      | [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent)                                                                         | [Kubernetes API](/docs/kubernetes/targets/kubernetes-api)                 |
 | :--------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
 | Connection method                                    | [Polling agent](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication#polling-tentacles) in cluster                                                                                                                                        | Direct API communication                                                                            |
 | Setup complexity                                     | Generally simpler                                                                                                                                               | Requires more setup                                                                                 |

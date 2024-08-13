@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-08-02
 title: Retention policy Tentacle cleanup and troubleshooting
-icon: fa-bug
+icon: fa-solid fa-bug
 description: Reviewing and troubleshooting why some files aren't cleaned up by Octopus retention policies.
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
-modDate: 2024-07-31
+modDate: 2024-08-08
 title: Kubernetes agent
 navTitle: Overview
 navSection: Kubernetes agent
@@ -9,13 +9,13 @@ description: How to configure a Kubernetes agent as a deployment target in Octop
 navOrder: 10
 ---
 
-Kubernetes agent targets are a mechanism for executing [Kubernetes steps](/docs/deployments/kubernetes) from inside the target Kubernetes cluster, rather than via an external API connection.
+Kubernetes agent targets are a mechanism for executing [Kubernetes steps](/docs/kubernetes/steps) from inside the target Kubernetes cluster, rather than via an external API connection.
 
 Similar to the [Octopus Tentacle](/docs/infrastructure/deployment-targets/tentacle), the Kubernetes agent is a small, lightweight application that is installed into the target Kubernetes cluster.
 
 ## Benefits of the Kubernetes agent
 
-The Kubernetes agent provides a number of improvements over the [Kubernetes API](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api) target:
+The Kubernetes agent provides a number of improvements over the [Kubernetes API](/docs/kubernetes/targets/kubernetes-api) target:
 
 ### Polling communication
 
@@ -28,6 +28,44 @@ As the agent is already running inside the target cluster, Octopus Server no lon
 ### Cluster-aware tooling
 
 As the agent is running in the cluster, it can retrieve the cluster's version and correctly use tooling that's specific to that version. You also need a lot less tooling as there are no longer any requirements for custom authentication plugins. See the [agent tooling](#agent-tooling) section for more details.
+
+## How the agent works
+
+When you install the agent, several resources will be created within a cluster, all running in the same namespace. Please refer to the diagram below (some details such as ServiceAccounts have been omitted).
+
+:::figure
+![Kubernetes agent component diagram](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-diagram-components.png)
+:::
+
+- Certain resource names may vary based on the target name and any overrides.
+
+- The NFS section to the right is created only when a user-defined storageClassName is not included.
+
+- `tentacle-certificate` is only created if you provide your own certificate during installation.
+
+- `octopus-server-certificate` is created when you provide the full chain cert for communicating back to the Octopus Server (e.g. if it is self-signed).
+
+During a deployment, the agent generates temporary pods for each deployment task. These pods are not shown in the diagram above as they are not part of the installation process. Refer to the next diagram to understand how they are created and removed.
+
+:::figure
+![Kubernetes agent how it works diagram](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-diagram-how-it-works.png)
+:::
+
+1. Octopus Tentacle, which runs inside the `kubernetes-agent-tentacle` pod, maintains a connection to the Octopus Server.
+
+2. Prior to task execution, various files and tools are transferred from the Octopus Server to a shared storage location. This location will later be accessible by the tasks themselves.
+
+3. Octopus Tentacle creates a new pod to run each individual task, where all user-defined operations will take place.
+
+4. The pod is created. Multiple pods can run simultaneously, to accommodate various tasks within the cluster.
+
+5. The task accesses the shared storage and retrieves any required tools or scripts.
+
+6. The task is executed, and the customer application resources are created.
+
+7. While the task is running, the Octopus Tentacle Pod streams the task pod logs back to the Octopus Server.
+
+Upon completion of the task, the pod will terminate itself.
 
 ## Requirements
 

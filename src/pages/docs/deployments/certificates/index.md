@@ -1,14 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-09
 title: Certificates
+icon: fa-solid fa-lock
 description: Manage X.509 certificates with Octopus Deploy
 navOrder: 80
 hideInThisSectionHeader: true
 ---
 
-X.509 certificates are a key component of many deployment processes. Octopus Deploy provides the ability to securely store and manage your certificates, and easily use them in your Octopus Projects.  
+X.509 certificates are a key component of many deployment processes. Octopus Deploy provides the ability to securely store and manage your certificates, and easily use them in your Octopus projects.  
 
 ## Supported certificate file formats
 
@@ -31,7 +32,7 @@ The following certificate formats are supported in Octopus Deploy:
 
 ## Configure subscriptions for expiry notifications
 
-[Octopus Subscriptions](/docs/administration/managing-infrastructure/subscriptions) can be used to configure notifications when certificates are close to expiry or have expired.
+[Subscriptions](/docs/administration/managing-infrastructure/subscriptions) can be used to configure notifications when certificates are close to expiry or have expired.
 
 There is a "Certificate expiry events" event-group, and three events:  
 
@@ -78,4 +79,4 @@ Note that certificates can not be selected directly when configuring a deploymen
 
 ## Learn more
 
-- [Lets Encrypt runbook examples](/docs/runbooks/runbook-examples/routine/lets-encrypt-renew-certificate).
+- [Let's Encrypt runbook examples](/docs/runbooks/runbook-examples/routine/lets-encrypt-renew-certificate).
