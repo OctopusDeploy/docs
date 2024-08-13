@@ -34,9 +34,9 @@ There are limitations that must be accounted for as part of a migration.
 
 ### Sensitive values
 
-Sensitive values are not exposed by the Octopus API and therefore are not captured in the Terraform configuration created by Octoterra.
+Sensitive values are not exposed by the Octopus API and are therefore not captured in the Terraform configuration created by Octoterra.
 
-Sensitive variables can be passed to the Terraform module when the source Octopus instance deploys the Terraform configuration itself, as Octopus exposes sensitive values to a deployment process or runbook. Configuration the source Octopus server to execute the Terraform modules created by Octoterra is the core feature of the Octoterra Wizard.
+Sensitive variables can be passed to the Terraform module when the source Octopus instance deploys Terraform configuration, as Octopus exposes sensitive values to a deployment process or runbook. The core feature of the Octoterra Wizard is to configure the source Octopus server to execute the Terraform modules created by Octoterra in order to expose the sensitive values held by Octopus.
 
 In order to ensure sensitive variables can be passed to the Terraform configuration, all sensitive variables must be unscoped and have a unique name. Existing sensitive variables can be modified to fulfil these requirements by spreading them. See the section "Spreading sensitive variables" for more information.
 
@@ -44,7 +44,7 @@ The sensitive values associated with feed, account, and Git credentials, the con
 
 ### New step framework
 
-Some steps rely on a new framework. Steps that use the new framework are not currently supported by the Terraform provider. These steps can not be exported by Octoterra.
+Some steps rely on a new steps framework. Steps that use the new steps framework are not currently supported by the Terraform provider, meaning these steps can not be exported by Octoterra.
 
 Octoterra will display an error like this when an unsupported step is encountered:
 
