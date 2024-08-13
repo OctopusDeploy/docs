@@ -307,6 +307,7 @@ SAMEORIGIN
 Schannel
 scopeduserroles
 secureclientcertificate
+SEIM
 servedby
 servername
 serverstatus
