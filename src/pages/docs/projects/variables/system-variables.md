@@ -803,7 +803,7 @@ Example: *teams-123,teams-124*
 
 `Octopus.Action.MaxParallelism`
 
-The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments). *(Number - Default: 10)*.
+The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus). *(Number - Default: 10)*.
 
 **Note:** Some built-in steps have their own concurrent limit and will ignore this value if set.
 
@@ -1390,7 +1390,7 @@ Example: 3
 
 `Octopus.Action.MaxParallelism`
 
-The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments). *(Number - Default: 10)*.
+The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus). *(Number - Default: 10)*.
 
 Example: *5*
 

@@ -14,7 +14,7 @@ The guide demonstrates how to perform a VIP swap when deploying to Azure Cloud S
 
 ## Using VIP swaps for blue/green deployments
 
-VIP swap is a great way for you to implement [Blue-green deployments](/docs/deployments/patterns/blue-green-deployments) using Azure Cloud Services and Octopus Deploy. The typical process is to:
+VIP swap is a great way for you to implement [blue/green deployments](https://octopus.com/devops/software-deployments/blue-green-deployment/) using Azure Cloud Services and Octopus Deploy. The typical process is to:
 
 1. Deploy a fully configured application into the "staging" slot in Azure.
 2. Run manual/automated tests on your "staging" slot.
@@ -24,7 +24,7 @@ VIP swap is a great way for you to implement [Blue-green deployments](/docs/depl
 
 In order to complete this guide you should have a Cloud Service project set up in Octopus Deploy that is deploying to the staging or production slot.  Please see our documentation for [setting up an Azure Cloud Services deployment in Octopus](/docs/deployments/azure/cloud-services) for more information.
 
-## Environment configuration \{#VIPSwap-Environmentconfiguration}
+## Environment configuration
 
 The easiest way to configure Octopus for VIP swapping is to map Cloud Service slots to Octopus environments. By default a Cloud Service has a staging and production slot.  In order to map this in Octopus, create Staging and Production environments:
 
@@ -46,7 +46,7 @@ With this setting enabled Octopus will attempt to swap the staging and productio
 ![](/docs/deployments/azure/cloud-services/vip-swap-binding.png "width=500")
 :::
 
-## Performing a VIP swap \{#VIPSwap-PerformingaVIPswap}
+## Performing a VIP swap
 
 In order to perform a VIP swap you must have a deployment in your Cloud Service production slot. The first time you create a release and deploy it to Staging and then Production it will not VIP swap. On subsequent deployments to Staging and then Production a VIP swap will occur:
 

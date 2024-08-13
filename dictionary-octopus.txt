@@ -83,6 +83,7 @@ dpkg
 dryrun
 Dspring
 DWORD
+elbv2
 elif
 Elyton
 emptytitle
@@ -127,6 +128,7 @@ hotfixes
 HSTS
 htdocs
 HTTPAPI
+Humpty
 hyperthread
 hyperthreading
 icontains
