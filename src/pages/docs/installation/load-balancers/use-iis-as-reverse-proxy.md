@@ -55,7 +55,7 @@ Set-Location ($env:ProgramFiles + "\Microsoft\Web Platform Installer")
 1. Click **Add**.
 1. Select **https**.
 1. A drop-down box will appear with your installed certificates displayed.
-1. Select your installed certificate. If you don't see your certificate listed, refer back to [this MSDN Article](https://msdn.microsoft.com/en-us/library/ff720335.aspx).
+1. Select your installed certificate. If you don't see your certificate listed, refer back to [Microsoft Article](https://learn.microsoft.com/en-us/dotnet/framework/wcf/samples/iis-server-certificate-installation-instructions).
 1. Optional: Fill in your correct IP address and/or hostname, and click **OK**.
 1. Optional: Remove the HTTP (non-SSL) binding - this is a recommended security practice.
 
