@@ -175,7 +175,7 @@ Projects can typically be migrated independently of each other. However, some st
 
 ## Migration strategies
 
-Because the Octoterra Wizard serializes Octopus resources to Terraform modules, we can use the functionality of Terraform to implement a number of strategies for migrating spaces:
+Because the Octoterra Wizard serializes Octopus resources to Terraform modules, we can use the Terraform's functionality to implement a number of strategies for migrating spaces:
 
 * Big bang migration, where the migration is done all at once.
 * Incremental migration, where projects are migrated over time.
@@ -183,7 +183,7 @@ Because the Octoterra Wizard serializes Octopus resources to Terraform modules, 
 
 ### Big bang migration
 
-This is conceptually the easiest migration as it means migrating Octopus resources from the source server to the destination server once, shutting down the source server, and switching to the destination server.
+This is conceptually the easiest migration as it means migrating Octopus resources from the source server to the destination server once, shutting down the source server, and immediately switching to the destination server.
 
 To perform a big bang migration, run the wizard to completion. This will migrate the space level resources and all projects for you.
 
@@ -197,12 +197,16 @@ Consider a big bang migration strategy when:
 
 Incremental migrations require the space level resources to be migrated from the source server to the destination server.
 
-To perform an incremental migration, complete the `Migrate Space Level Resources` step and then exit the wizard. This ensures that the space level resources are migrated.
+To perform an incremental migration, complete the `Migrate Space Level Resources` step and then exit the wizard. This ensures that the space level resources are migrated and the runbooks required to migrate individual projects are created.
 
 Then, when a project is ready to be migrated, run its associated `__ 1. Serialize Project` runbook, followed by the `__ 2. Deploy Project` runbook. This will serialize and then migrate a single project.
 
 :::div{.warning}
 Note that locking strategies normally implemented by an Octopus server, such as blocking tasks that share a target, will not be implemented when the source and destination server share targets because the source and destination server do not communicate with each other to schedule tasks. It is your responsibility to ensure that the source and destination servers do not attempt to deploy to the same target at the same time.
+:::
+
+:::div{.warning}
+You will likely want to disable any triggers on projects on the destination server while testing to ensure only the source server triggers deployments.
 :::
 
 You may consider disabling the project on the source server once it has been migrated to prevent deployments taking place on both the source and the destination server.
@@ -221,6 +225,10 @@ Continual migrations are useful when both the source and destination servers mus
 
 :::div{.warning}
 Note that locking strategies normally implemented by an Octopus server, such as blocking tasks that share a target, will not be implemented when the source and destination server share targets because the source and destination server do not communicate with each other to schedule tasks. It is your responsibility to ensure that the source and destination servers do not attempt to deploy to the same target at the same time.
+:::
+
+:::div{.warning}
+You will likely want to disable any triggers on projects on the destination server while testing to ensure only the source server triggers deployments.
 :::
 
 :::div{.hint}
