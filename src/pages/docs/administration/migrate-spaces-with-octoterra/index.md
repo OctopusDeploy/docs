@@ -132,17 +132,19 @@ It is important to understand the implications of variable spreading before migr
 
 ## Local Tools vs Container Images
 
-The runbooks created by the Octoterra Wizard have the option to use locally installed tools or run the runbooks from a container image that provides the required tools.
+The runbooks created by the Octoterra Wizard have the option to use locally installed tools or run the runbooks from a [container image](https://octopus.com/docs/projects/steps/execution-containers-for-workers) that provides the required tools.
 
 Container images require that the source server or the default worker pool used by the source server have Docker installed. This is common on Linux servers (especially as Octopus is distributed as a Linux container for on-premises Linux users), and is available on the dynamic workers provided by cloud Octopus instances, but less common on on-premises Windows servers.
 
-Local tools are locally installed versions of the tool listed in the "Required local tools" section. Using this option does not require Docker to be installed on the source server.
+Local tools are locally installed versions of the tools listed in the "Required local tools" section. Using this option does not require Docker to be installed on the source server.
 
+:::div{.hint}
 If you are migrating from an on-premises Windows server, you will likely select the `Local tools` options.
+:::
 
 ### Required local tools
 
-If you select the Local tools option, your on-premises server or default worker pool must have the following tools installed:
+If you select the `Local tools` option, your on-premises server or default worker pool must have the following tools installed:
 
 * [Terraform](https://developer.hashicorp.com/terraform/install)
 * [Python](https://www.python.org/downloads/)
