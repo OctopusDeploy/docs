@@ -1,0 +1,45 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-05-22
+title: GCP File Storage
+description: Guidelines and recommendations for configuring Octopus Deploy to store files on GCP File Storage.
+navOrder: 40
+hideInThisSection: true
+---
+import FileStorageHA from 'src/shared-content/installation/file-storage-ha.include.md';
+
+Google Cloud offers its own managed file storage option known as [Filestore](https://cloud.google.com/filestore), however it's only accessible via the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System) (v3).
+
+:::div{.hint}
+Typically, NFS shares are better suited to Linux or macOS clients, although it is possible to access NFS shares on Windows Servers. NFS shares on Windows are mounted per-user and are not persisted when the server reboots. It's for these reasons that Octopus recommends using SMB storage over NFS when running on Windows Servers.
+:::
+
+You can see the different file server options Google Cloud has in their [File Storage on Compute Engine](https://cloud.google.com/architecture/filers-on-compute-engine) overview.
+
+## Filestore using NFS
+
+Once you have [created a Filestore instance](https://cloud.google.com/filestore/docs/creating-instances), the best option is to mount the NFS share using the `LocalSystem` account, and then create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\OctopusShared\` for the Artifacts, Packages, TaskLogs, Imports, and EventExports folders which need to be available to all nodes.
+
+See more information about [Windows NFS and Octopus Deploy](/docs/installation/file-storage/windows-nfs).
+
+## High Availability
+
+<FileStorageHA />
+
+## Disaster Recovery
+For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with GCP you have several options available. Further details on the redundancy options available for Filestore can be found [here](https://cloud.google.com/architecture/filers-on-compute-engine#filestore-basic).
+
+### Zonal
+
+Zonal availability provided by GCP will replicate your data across a single zone. This will protect against simple hardware failure but provides no protection against a zone or region failure.
+
+### Regional
+
+Regional availability provided by GCP will replicate your data across several zones within the same region. This will protect against the failure of one or more zones but provides no protection against a region failure.
+
+Whether you use Zonal or Regional availability, it would be necessary to create [backups](https://cloud.google.com/filestore/docs/backups#backing_up_data_for_disaster_recovery) of the Filestore in a different region to ensure data resilience. The backup can be configured within a [scheduled job](https://cloud.google.com/filestore/docs/scheduling-backups).
+
+:::div{.warning}
+In the event of a failure of the primary region, it would be necessary to restore the backup of your Filestore to a secondary region and reconfigure Octopus to point to the new region. There may be some data loss to consider in this scenario based on how often your Filestore backups are taken.
+:::
