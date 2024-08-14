@@ -202,10 +202,6 @@ To perform an incremental migration, complete the `Migrate Space Level Resources
 Then, when a project is ready to be migrated, run its associated `__ 1. Serialize Project` runbook, followed by the `__ 2. Deploy Project` runbook. This will serialize and then migrate a single project.
 
 :::div{.warning}
-Note that locking strategies normally implemented by an Octopus server, such as blocking tasks that share a target, will not be implemented when the source and destination server share targets because the source and destination server do not communicate with each other to schedule tasks. It is your responsibility to ensure that the source and destination servers do not attempt to deploy to the same target at the same time.
-:::
-
-:::div{.warning}
 You will likely want to disable any triggers on projects on the destination server while testing to ensure only the source server triggers deployments.
 :::
 
@@ -224,10 +220,6 @@ Continual migration means updating projects on the destination server with any c
 Continual migrations are useful when both the source and destination servers must run side by side for some time. A typical scenario is testing the migrated projects on the destination server while the associated projects on the source server are still in active use, and then redeploying the projects to update the destination server with any changes made to the source server.
 
 :::div{.warning}
-Note that locking strategies normally implemented by an Octopus server, such as blocking tasks that share a target, will not be implemented when the source and destination server share targets because the source and destination server do not communicate with each other to schedule tasks. It is your responsibility to ensure that the source and destination servers do not attempt to deploy to the same target at the same time.
-:::
-
-:::div{.warning}
 You will likely want to disable any triggers on projects on the destination server while testing to ensure only the source server triggers deployments.
 :::
 
@@ -241,6 +233,25 @@ Consider a continual migration strategy when:
 * You need to test the destination server while the source server is still actively used.
 * You need to update the destination server with any changes made to the source server while testing the migration.
 
+## Considerations when running multiple instances
+
+Some deployment strategies involve running multiple Octopus instances in parallel while performing testing or completing a migration. There are implications that you must consider for these migration strategies.
+
+### Task locking
+
+By default, Octopus will [only run one process on each deployment target at a time](https://octopus.com/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously), queuing the rest.
+
+This task blocking is not available when two independent servers share deployment targets, as may be the case when implementing the incremental or continuous migration strategies.
+
+Depending on the target type and how deployments are configured, there may be no issue with concurrent deployments. Unfortunately, there is no simple rule for determining if a target or deployment process supports concurrent deployments.
+
+You must determine if concurrent deployments have the potential to cause issues, and if so, manually ensure that multiple Octopus servers do not attempt to deploy to the same target at the same time.
+
+There are a number of strategies you can implement to prevent or manage concurrent deployments:
+
+* Use a [named mutex](https://octopus.com/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously#named-mutex-for-shared-resources).
+* Disable projects to ensure only the source or destination server can run a migrated project.
+* Disable targets to ensure only the source or destination server can interact with a migrated target.
 
 ## Post-migration steps
 
