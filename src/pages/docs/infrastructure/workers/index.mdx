@@ -17,6 +17,7 @@ import PowerShellNamedMutex from 'src/shared-content/tentacle/powershell-named-m
 import Workers from 'src/shared-content/infrastructure/workers.include.md';
 import WorkersIndividualProcessExclusively from 'src/shared-content/tentacle/workers-individual-process-exclusively.include.md';
 import WorkersMultipleSimultaneousProcesses from 'src/shared-content/tentacle/workers-multiple-simultaneous-processes.include.md';
+import ConfigureK8sAgentWorker from 'src/shared-content/tentacle/configure-k8s-agent-worker.include.md';
 
 [Getting Started - Worker and Worker Pools](https://www.youtube.com/watch?v=v6621BId7fE)
 
@@ -114,7 +115,7 @@ You can choose between:
 - [Registering a Windows Listening Tentacle as a Worker](#registering-windows-listening-worker).
 - [Registering a Linux Listening Tentacle as a Worker](#registering-linux-listening-worker).
 - [Registering an SSH deployment target as a Worker](#registering-ssh-connection-worker).
-- [Registering a Kubernetes Agent as a Worker](/docs/kubernetes/workers/registering-as-worker)
+- [Registering a Kubernetes Agent as a Worker](#registering-a-kubernetes-agent-as-a-worker)
 
 After you have saved the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
 
@@ -149,6 +150,10 @@ The Tentacle agent will need to be installed on the target server to communicate
 <ConfigureLinuxPollingWorker />
 
 The new Polling Tentacle will automatically show up in the Workers list.
+
+### Registering a Kubernetes Agent as a Worker
+
+<ConfigureK8sAgentWorker />
 
 ### Registering Workers with the Tentacle executable \{#registering-workers-with-the-tentacle-executable}
 

@@ -9,12 +9,15 @@ description: Kubernetes workers
 navOrder: 60
 ---
 
-[Workers](/docs/infrastructure/workers) are a core component of Octopus Deploy, required for executing tasks that don't need to be run on Octopus Server or individual
+[Workers](/docs/infrastructure/workers) are a core component of Octopus Deploy; they provide the compute-resources required for executing tasks that don't need to be run on Octopus Server or individual
 deployment targets.
 
-You can now host your workers in a kubernetes cluster - reducing the number of machines (real or virtual) you need to manage.
+A worker's ability to run workloads in parallel is constrained only by the available resources - however, during idle periods, being able to release
 
-When running worker(s) in a Kubernetes Cluster, every operation is executed in its own pod - meaning workloads will automatically scale as necessary.
+A single worker may run multiple workloads in parallel - or none during idle periods. As such, the ability to scale the worker's resources
+to match its demands is critical
+
+When running worker(s) in a Kubernetes Cluster, every operation is executed in its own pod - meaning workloads will automatically scale as necessary
 
 ## Installing the Kubernetes Worker
 The Kubernetes Worker is installed using [Helm](https://helm.sh) via the [octopusdeploy/kubernetes-agent](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) chart (which is published to [dockerhub](octopusdeploy)).
