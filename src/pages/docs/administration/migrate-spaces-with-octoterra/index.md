@@ -201,10 +201,6 @@ To perform an incremental migration, complete the `Migrate Space Level Resources
 
 Then, when a project is ready to be migrated, run its associated `__ 1. Serialize Project` runbook, followed by the `__ 2. Deploy Project` runbook. This will serialize and then migrate a single project.
 
-:::div{.warning}
-You will likely want to disable any triggers on projects on the destination server while testing to ensure only the source server triggers deployments.
-:::
-
 You may consider disabling the project on the source server once it has been migrated to prevent deployments taking place on both the source and the destination server.
 
 Consider an incremental migration strategy when:
@@ -218,10 +214,6 @@ Consider an incremental migration strategy when:
 Continual migration means updating projects on the destination server with any changes from the source server after the initial migration.
 
 Continual migrations are useful when both the source and destination servers must run side by side for some time. A typical scenario is testing the migrated projects on the destination server while the associated projects on the source server are still in active use, and then redeploying the projects to update the destination server with any changes made to the source server.
-
-:::div{.warning}
-You will likely want to disable any triggers on projects on the destination server while testing to ensure only the source server triggers deployments.
-:::
 
 :::div{.hint}
 The source server is considered the source of truth for space and project level resources until the source server is decommissioned. The configuration of the destination server will be replaced each time space and project level resources are redeployed.
@@ -252,6 +244,10 @@ There are a number of strategies you can implement to prevent or manage concurre
 * Use a [named mutex](https://octopus.com/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously#named-mutex-for-shared-resources).
 * Disable projects to ensure only the source or destination server can run a migrated project.
 * Disable targets to ensure only the source or destination server can interact with a migrated target.
+
+### Duplicated triggers
+
+Project and runbook triggers are duplicated on the destination server as part of the migration. It is likely that you only want these triggers to run on either the source or destination servers, but not both. Triggers can be stopped by disabling the individual triggers or disabling the projects.
 
 ## Post-migration steps
 
