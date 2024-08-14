@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2099-01-01
 modDate: 2099-01-01
-title: Migrating spaces with octoterra
+title: Migrating spaces with Octoterra
 description: How to migrate spaces using the octoterra tool
 navOrder: 100
 hideInThisSection: true
@@ -14,9 +14,9 @@ robots: noindex, follow
 
 [Octoterra](github.com/OctopusSolutionsEngineering/OctopusTerraformExport/actions) exports Octopus projects, runbooks, and spaces to a Terraform module. Octoterra can be used to migrate resources between spaces and instances.
 
-[Octoterra Wizard](https://github.com/OctopusSolutionsEngineering/OctoterraWizard) prepares a source space to allow the space and projects to be migrated to a new space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.
+[Octoterra Wizard](https://github.com/OctopusSolutionsEngineering/OctoterraWizard) prepares a source space to allow the space and project level resources to be migrated to a destination space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.
 
-This documentation provides details on for using the Octoterra Wizard to migrate a space from one instance to another, as well as noting the limitations of the tooling and any post-migration steps that must be implemented.
+This documentation provides details on using the Octoterra Wizard to migrate a space from one instance to another as well as noting the limitations of the tooling and any post-migration steps that must be implemented.
 
 ## Choosing between Octoterra and the Import/Export tool
 
@@ -24,23 +24,23 @@ The [Import/Export tool](https://octopus.com/docs/projects/export-import) is bui
 
 Typically, you would choose the Import/Export tool to perform a migration. However, there are cases where the Import/Export tool is not suitable:
 
-* You wish to migrate Config-as-Code (CaC) projects, as the Import/Export tool does not support CaC projects
-* You wish to recreate targets, as the Import/Export tool does not migrate targets
-* You wish to "own" or modify the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON formation
+* You wish to migrate Config-as-Code (CaC) projects, as the Import/Export tool does not support CaC projects.
+* You wish to recreate targets, as the Import/Export tool does not migrate targets.
+* You wish to "own" or modify the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON format.
 
 ## Limitations of Octoterra and migrating projects between instances
 
-There are limitations that must be accounted for as part of a migration.
+There are limitations that must be accounted for as part of a migration managed by the Octoterra Wizard.
 
 ### Sensitive values
 
-Sensitive values are not exposed by the Octopus API and are therefore not captured in the Terraform configuration created by Octoterra.
+Sensitive values are not exposed by the Octopus API and are therefore not captured in the Terraform modules created by Octoterra.
 
 However, sensitive variables can be passed to the Terraform module when the source Octopus instance deploys Terraform configuration, as Octopus exposes sensitive values to a deployment process or runbook. The core purpose of the Octoterra Wizard is to configure the source Octopus server to execute the Terraform modules created by Octoterra in order to expose the sensitive values held by Octopus.
 
 In order to ensure sensitive variables can be passed to the Terraform configuration, all sensitive variables must be unscoped and have a unique name. Existing sensitive variables can be modified to fulfil these requirements by spreading them. See the section "Spreading sensitive variables" for more information.
 
-The sensitive values associated with feed, account, and Git credentials, the contents of certificate, sensitive values embedded in steps (such as the `Deploy to IIS` step), and sensitive values defined as parameters on step templates can not be captured by Octoterra. These values are replaced with placeholder values and must be manually reentered on the destination instance once the space has been migrated.
+The sensitive values associated with feed, account, and Git credentials, the contents of certificates, sensitive values embedded in steps (such as the `Deploy to IIS` step), and sensitive values defined as parameters on step templates can not be captured by Octoterra. These values are replaced with placeholder values and must be manually reentered on the destination instance once the space has been migrated. See the "Post-migration steps" for more details.
 
 ### New step framework
 
@@ -54,9 +54,9 @@ Action <step name> has the "Items" property, which indicates that it is from the
 
 ### Config-as-Code (CaC) repositories
 
-Octoterra converts CaC projects back to regular projects as part of the migration. The project can be converted back to CaC on the destination space. 
+Octoterra converts CaC projects back to regular projects as part of the migration. The project can be converted back to CaC on the destination space once the migration is complete.
 
-However, be aware that Octopus does not support sharing project CaC configuration between two projects. You are prevented from doing so with multiple projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared CaC project configuration from multiple Octopus instances, there are cases where the CaC configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project CaC configuration hosted in Git.
+However, be aware that Octopus does not support sharing project CaC configuration between two projects. You are prevented from doing so with multiple CaC projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared CaC project configuration from multiple Octopus instances, there are cases where the CaC configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project CaC configuration hosted in Git.
 
 The recommended solution is to convert the projects in the destination space to a new directory or Git repository. This ensures that the new projects have valid CaC configuration.
 
@@ -83,10 +83,10 @@ The following is a non-exhaustive list of settings that are not exported by Octo
 
 ## Prerequisites
 
-These are the prerequisites for migrating projects with the Octoterra Wizard:
+These are the prerequisites for migrating an Octopus space with the Octoterra Wizard:
 
 * [Backup](https://octopus.com/docs/administration/data/backup-and-restore) and [update](https://octopus.com/docs/administration/upgrading) your Octopus instance.
-* [Backup your Octopus instance again before the migration](https://octopus.com/docs/administration/data/backup-and-restore).
+* [Backup](https://octopus.com/docs/administration/data/backup-and-restore) your Octopus instance again before the migration.
 * Download the Octoterra Wizard from [GitHub](https://github.com/mcasperson/OctoterraWizard).
 * Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation.
 * [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance.
@@ -98,9 +98,9 @@ These are the prerequisites for migrating projects with the Octoterra Wizard:
 
 The Octoterra Wizard presents a sequence of prompts for the details of your source Octopus space, the destination Octopus space, and the Terraform backend.
 
-You are also prompted to spread sensitive variables after confirming that you understand the implications of modifying variables in this manner. See the "Spreading sensitive variables" section for more details on the implications of this step.
+The wizard also prompts you to spread sensitive variables after confirming that you understand the implications of modifying variables in this manner. See the "Spreading sensitive variables" section for more details on the implications of this step.
 
-You are given the choice to use local tools or container images when running the runbooks to create and apply the Terraform modules. See the "Local Tools vs Container Images" section for more information on making this choice.
+You are given the choice to use local tools or [container images](https://octopus.com/docs/projects/steps/execution-containers-for-workers) when running the runbooks to create and apply the Terraform modules. See the "Local Tools vs Container Images" section for more information on making this choice.
 
 The final prompts do not involve any input. They automate the process of installing the required community step template steps into the source space, creating runbooks to export the space level resources and projects, and finally running the runbooks. See the "Space vs project level resources" section for more information on the distinction between these types of resources.
 
@@ -110,21 +110,21 @@ Each sensitive variable must have a unique name and no scopes in order for Octop
 
 However, it is common for sensitive variables to share a name use scopes to define unique values for different contexts. For example, you may have two sensitive variables called `Database.Password`, with the first variable scoped to the `Dev` environment, and the second scoped to the `Production` environment. This is demonstrated in the screenshot below:
 
-![Sensitive project variables](sensitive-variables.png)
+![Sensitive project variables](/docs/administration/migrate-spaces-with-octoterra/sensitive-variables.png)
 
 The process of renaming sensitive variables, removing their scopes, and recursively referencing them via regular variables that have the names and scopes of the original sensitive variables is called "variable spreading".
 
 Here is a screenshot that shows the spread variables:
 
-![Spread sensitive variables](spread-variables.png)
+![Spread sensitive variables](/docs/administration/migrate-spaces-with-octoterra/spread-variables.png)
 
 Existing steps that referenced the variable `Database.Password` continue to function, as the value of that variable is recursively resolved from the Octostache template syntax in the regular variable to return the value held by the referenced sensitive variable.
 
 Because each sensitive variable now has a unique name and no scope, the value of sensitive variables can be reliably passed to a Terraform module applied by Octopus, effectively allowing sensitive variables to be migrated.
 
-Note there are security considerations to take into account with variable spreading. Notably, every sensitive variable is exposed to every deployment or runbook run.
+Note there are security considerations to take into account with variable spreading. Notably, every sensitive variable is exposed to every deployment or runbook run because they have no scope.
 
-Also note that there is no automated process to collapse spread variables. This can be done by hand if necessary.
+Also note that there is no automated process to collapse spread variables back to their original configuration. This can be done by hand if necessary.
 
 :::div{.warning}
 It is important to understand the implications of variable spreading before migrating projects with the Octoterra Wizard.
@@ -134,7 +134,7 @@ It is important to understand the implications of variable spreading before migr
 
 The runbooks created by the Octoterra Wizard have the option to use locally installed tools or run the runbooks from a [container image](https://octopus.com/docs/projects/steps/execution-containers-for-workers) that provides the required tools.
 
-Container images require that the source server or the default worker pool used by the source server have Docker installed. This is common on Linux servers (especially as Octopus is distributed as a Linux container for on-premises Linux users), and is available on the dynamic workers provided by cloud Octopus instances, but less common on on-premises Windows servers.
+Container images require that the source server or the default worker pool used by the source server have Docker installed. This is common on Linux servers (especially as Octopus is distributed as a Linux container for on-premises Linux users), and is available on the dynamic workers provided by cloud Octopus instances, but is less common on on-premises Windows servers.
 
 Local tools are locally installed versions of the tools listed in the "Required local tools" section. Using this option does not require Docker to be installed on the source server.
 
@@ -175,7 +175,7 @@ Projects can typically be migrated independently of each other. However, some st
 
 ## Migration strategies
 
-Because the Octoterra Wizard serializes Octopus resources to Terraform modules, we can use the Terraform's functionality to implement a number of strategies for migrating spaces:
+Because the Octoterra Wizard serializes Octopus resources to Terraform modules, we can use Terraform's functionality to implement a number of strategies for migrating spaces:
 
 * Big bang migration, where the migration is done all at once.
 * Incremental migration, where projects are migrated over time.
@@ -362,4 +362,8 @@ A: Technically no, but it is recommended that the two servers be updated to the 
 Q: Can I migrate previous Octopus versions with the Octoterra Wizard?
 
 A: No, Octoterra only supports the supported LTS versions of Octopus.
+
+Q: How do I fix the `unexpected token while parsing list: IDENT` error when applying Terraform modules.
+
+A: This is most likely caused by running an old version of Terraform. In particular, you will see this error if you rely on the version of Terraform bundled with Octopus (version 0.11.15) which is too old to apply the Terraform modules created by Octoterra. The Octopus logs capture the Terraform version used for the deployment and will display a message like `Your version of Terraform is out of date!` if using an old Terraform version.
 
