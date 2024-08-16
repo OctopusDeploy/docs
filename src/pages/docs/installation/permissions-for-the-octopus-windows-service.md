@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Permissions for the Octopus Windows Service
 description: Information about the permissions required by the Octopus windows service to operate.
-navOrder: 4
+navOrder: 5
 ---
 
 When you install the Octopus Server, you'll be asked whether Octopus should run as the Local System account, or as a custom user. It's a good practice to set up a dedicated user account for the Octopus Server.
@@ -22,7 +22,7 @@ The following table acts as a guide for the minimal permission set that Octopus 
 | --- | --- | --- | --- |
 | Full control | The Octopus "Home" folder, e.g. `C:\Octopus` | Octopus stores logs, temporary data, and dynamic configuration in this folder. | Windows Explorer |
 | Read | The directory Octopus was installed to (typically C:\Program Files\Octopus Deploy) | Octopus needs these files in order to run. | Windows Explorer |
-| Read | The `HLKM\Software\Octopus` registry key | Octopus determines the location of its configuration files from this key. | Regedit |
+| Read | The `HKLM\Software\Octopus` registry key | Octopus determines the location of its configuration files from this key. | Regedit |
 | Full control | The `OctopusDeploy` Windows Service | Octopus must be able to upgrade and restart itself for remote administration. | SC.EXE |
 | Listen | Port **10943** | Octopus accepts commands from polling Tentacles on this port. | NETSH.EXE |
 | Listen | Port **80** | The Octopus Server responds to browser requests on this port. | NETSH.EXE |

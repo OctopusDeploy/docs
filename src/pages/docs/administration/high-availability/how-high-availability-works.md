@@ -83,11 +83,11 @@ Once the outage is finished, repeat the same steps, but select **Disable Drain N
 
 Not all outages can be planned.  The underlying hypervisor hosting VM the node is running on could crash.  A data center could go offline.  When that happens you can use this [API Script](/docs/octopus-rest-api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown) to re-run those canceled deployments and runbook runs.
 
-### Several smaller nodes are better than a few large ones
+### Number of nodes
 
-We recommend several smaller nodes, each with 4 CPUs and 8 GB of RAM, over two or three large nodes, each with 16 CPUs and 64 GB of RAM.  In our testing, 4 CPUs and 8 GB of RAM can handle around 20 concurrent tasks.  
+We recommend a minimum of two nodes, each with 4 CPUs and 8 GB of RAM.  In our testing, 4 CPUs and 8 GB of RAM can process between 20 and 30 concurrent tasks.  
 
-Assuming you'd want to be able to process 80 tasks concurrently.  
+When given the option, we recommend scaling horizontally over vertically.  Assuming you'd want to be able to process 80 tasks concurrently.  
 
 - If you had two nodes, each with a task cap of 40, an outage on one node would reduce your capacity by 50%.
 - If you had four nodes, each with a task cap of 20, an outage on one node would reduce your capacity by 25%.

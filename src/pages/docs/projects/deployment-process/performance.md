@@ -63,7 +63,7 @@ If a particular operation seems slow during deployment, test that single operati
 
 If the applications running on your deployment targets are busy, this will slow down your deployment. Similarly, when you run a deployment it will be taking resources from your running applications. Octopus does not perform any kind of throttling on the deployment target - it will attempt to run your deployment process on your targets as fast as possible.
 
-One of the best ways to reduce load on your deployment targets is to temporarily remove them from the active pool of servers. For example, with web applications you can do this by removing the server from your load balancer, perhaps using a [rolling deployment](/docs/deployments/patterns/rolling-deployments).
+One of the best ways to reduce load on your deployment targets is to temporarily remove them from the active pool of servers. For example, with web applications you can do this by removing the server from your load balancer, perhaps using a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus).
 
 If you don't want to take this kind of approach, you can safely deploy your application to an active server, but you should take some time to understand the impact this has on your running applications and the speed of your deployments.
 
@@ -136,7 +136,7 @@ Imagine you have a step in your deployment process that runs across all deployme
 
 Alternatively, if you constrain your process to a single deployment target at a time, the Octopus Server and your deployment targets will be inactive the majority of the time. This also results in your deployments taking longer.
 
-Consider using a [rolling deployment](/docs/deployments/patterns/rolling-deployments) to deploy to a subset of these deployment targets at any one time. Rolling deployments allow you to define a "window" which is the maximum number of deployment targets that will run the step at any one time.
+Consider using a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus) to deploy to a subset of these deployment targets at any one time. Rolling deployments allow you to define a "window" which is the maximum number of deployment targets that will run the step at any one time.
 
 :::div{.info}
 This default behavior is sensible for smaller installations, but is an unsafe default for larger installations. We are looking to [change this default behavior in a future version of Octopus](https://github.com/OctopusDeploy/Issues/issues/3305).
