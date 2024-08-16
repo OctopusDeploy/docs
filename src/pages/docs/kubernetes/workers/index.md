@@ -9,34 +9,48 @@ description: Kubernetes workers
 navOrder: 60
 ---
 
-[Workers](/docs/infrastructure/workers) are a core component of Octopus Deploy; they provide the compute-resources required for executing tasks that don't need to be run on Octopus Server or individual
-deployment targets.
+Read up on [Workers](/docs/infrastructure/workers) to understand their role in an Octopus environment, then come back to 
+see how Kubernetes can simplify maintaining them.
 
-A worker's ability to run workloads in parallel is constrained only by the available resources - however, during idle periods, being able to release
+Now that you've seen why workers are required, and how to install their various flavours, its worth describing how the
+kubernetes specific version can work for you.
 
-A single worker may run multiple workloads in parallel - or none during idle periods. As such, the ability to scale the worker's resources
-to match its demands is critical
+For all outward intents, the Kubernetes Worker _is_ a standard Octopus Worker, but brings with it unique Kubernetes capabilities
+to ensure hardware utilisation scales fluidly with the demanded workload.
 
-When running worker(s) in a Kubernetes Cluster, every operation is executed in its own pod - meaning workloads will automatically scale as necessary
+## Default Behaviour
+The installation process defined in [Workers](/docs/infrastructure/workers) installs a worker which will, out of the box,
+work for 90% of all workloads.
 
-## Installing the Kubernetes Worker
-The Kubernetes Worker is installed using [Helm](https://helm.sh) via the [octopusdeploy/kubernetes-agent](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) chart (which is published to [dockerhub](octopusdeploy)).
+It uses the `worker-tools` image to ensure sufficient tooling is available for the desired operations.
 
-To simplify this, there is an installation wizard in octopus to generate the required values.
+If custom-steps require specific tooling, you are able to set the desired container on the deployment step - the Kubernetes
+Agent will honour this setting, as per any other worker.
 
-:::div{.warning}
-Helm will use your current kubectl config, so make sure your kubectl config is pointing to the correct cluster before executing the following helm commands.
-You can see the current kubectl config by executing:
-```bash
-kubectl config view
-```
-:::
+## Customisations
+The behaviour Kubernetes Worker can be modified through it [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `values`.
 
-1. In the Octopus Web Portal, navigate to the **Infrastructure** tab, select **Workers**, and click **ADD WORKER**
-2. Choose **Kubernetes** and click **ADD* on the Kubernetes Worker card.
-3. Enter a **Name** for the worker, and select the **Worker Pools** in which the worker should belong, and select **NEXT**
-   4. Click **Show advanced** to provide a custom Storage class or override the Octopus Server URL if required
-5. Select the desired language (bash or powershell), then copy and execute the supplied helm install command in a terminal configured with your k8s cluster, and click **NEXT**
-   6. This step is not required if the NFS driver already exists in your cluster (due to prior installs of k8s worker or deployment target)
-7. Select the desired language (bash or powershell), then copy and execute the supplied helm install command in a terminal configured with your k8s cluster, and wait.
+These values can be set at initial installation, or at any time via a Helm upgrade.
 
+Of note:
+
+| Value | Purpose                                                                   |
+| --- |---------------------------------------------------------------------------|
+| scriptPods.worker.image | Specifies the docker container image to be used when running an operation |
+| scriptPods.resources.requests | Specifies the average cpu/memory usage required to execute an operation |
+
+
+If you are experiencing difficulties with your Kubernetes Cluster's autoscaling, modifying `scriptPods.resources.requests.*`
+may provide a solution.
+
+If this value is too low (i.e. lower than your actual CPU usage) - the cluster will not enable new nodes when required.
+If this value is too large (i.e. higher than actual usage) - the cluster will scale too early, and may leave your script
+pods pending for longer than necessary.
+
+## Limitations
+Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.
+Which means certain operations which are typically valid, will not be possible.
+Specifically:
+* Creating an execution container, inline, on a deployment step
+* Fetching docker images (when used as secondary pacakges)
+* Arbitrary scripts which use docker
