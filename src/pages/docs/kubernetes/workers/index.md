@@ -16,9 +16,9 @@ Now that you've seen why workers are required, and how to install their various 
 kubernetes specific version can work for you.
 
 For all outward intents, the Kubernetes Worker _is_ a standard Octopus Worker, but brings with it unique Kubernetes capabilities
-to ensure hardware utilisation scales fluidly with the demanded workload.
+to ensure hardware utilization scales fluidly with the demanded workload.
 
-## Default Behaviour
+## Default Behavior
 The installation process defined in [Workers](/docs/infrastructure/workers) installs a worker which will, out of the box,
 work for 90% of all workloads.
 
@@ -27,8 +27,8 @@ It uses the `worker-tools` image to ensure sufficient tooling is available for t
 If custom-steps require specific tooling, you are able to set the desired container on the deployment step - the Kubernetes
 Agent will honour this setting, as per any other worker.
 
-## Customisations
-The behaviour Kubernetes Worker can be modified through it [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `values`.
+## Customizations
+The behavior Kubernetes Worker can be modified through it [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `values`.
 
 These values can be set at initial installation, or at any time via a Helm upgrade.
 
@@ -52,5 +52,5 @@ Being securely hosted inside a kubernetes cluster comes with some limitations - 
 Which means certain operations which are typically valid, will not be possible.
 Specifically:
 * Creating an execution container, inline, on a deployment step
-* Fetching docker images (when used as secondary pacakges)
+* Fetching docker images (when used as secondary packages)
 * Arbitrary scripts which use docker
