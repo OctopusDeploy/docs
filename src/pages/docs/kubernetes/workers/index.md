@@ -6,23 +6,23 @@ title: Kubernetes Workers
 navTitle: Workers
 navSection: Workers
 description: Kubernetes workers
-navOrder: 60
+navOrder: 10
 ---
 
 Read up on [Workers](/docs/infrastructure/workers) to understand their role in an Octopus environment, then come back to 
 see how Kubernetes can simplify maintaining them.
 
-Now that you've seen why workers are required, and how to install their various flavours, its worth describing how the
-kubernetes specific version can work for you.
+Now that you've seen why workers are required, and how to install their various flavours, it's worth describing how the
+Kubernetes specific version can work for you.
 
-For all outward intents, the Kubernetes Worker _is_ a standard Octopus Worker, but brings with it unique Kubernetes capabilities
-to ensure hardware utilization scales fluidly with the demanded workload.
+For all intents and purposes, the Kubernetes Worker _is_ a standard Octopus Worker, but brings with it unique Kubernetes capabilities
+to ensure hardware utilization scales fluidly with demanded workload.
 
 ## Default Behavior
-The installation process defined in [Workers](/docs/infrastructure/workers) installs a worker which will, out of the box,
-work for 90% of all workloads.
+The vanilla [installation process]((/docs/infrastructure/workers)) installs a worker which will work for 90% of all workloads.
 
-It uses the `worker-tools` image to ensure sufficient tooling is available for the desired operations.
+When the Kubernetes Worker executes a deployment step, it executes the operation within a [worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) container,
+meaning sufficient tooling is available for most deployment activities.
 
 If custom-steps require specific tooling, you are able to set the desired container on the deployment step - the Kubernetes
 Agent will honour this setting, as per any other worker.
