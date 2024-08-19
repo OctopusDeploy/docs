@@ -12,7 +12,7 @@ navMenu: false
 robots: noindex, follow
 ---
 
-[Octoterra](github.com/OctopusSolutionsEngineering/OctopusTerraformExport/actions) exports Octopus projects, runbooks, and spaces to a Terraform module. Octoterra can be used to migrate resources between spaces and instances.
+[Octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport) exports Octopus projects, runbooks, and spaces to a Terraform module. Octoterra can be used to migrate resources between spaces and instances.
 
 [Octoterra Wizard](https://github.com/OctopusSolutionsEngineering/OctoterraWizard) prepares a source space to allow the space and project level resources to be migrated to a destination space or instance. It configures runbooks on the source space to run Octoterra and to apply the Terraform modules created by Octoterra.
 
