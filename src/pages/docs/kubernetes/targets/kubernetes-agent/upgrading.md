@@ -2,18 +2,22 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-08-22
 modDate: 2024-08-22
-title: Upgrading the agent
-navTitle: Overview
+title: Upgrading the Agent
+navTitle: Upgrading
 navSection: Kubernetes agent
 description: How a Kubernetes Agent is upgraded
-navOrder: 10
+navOrder: 70
 ---
 
 Recent changes to the Kubernetes-Agent Helm Chart have necessitated a breaking change, meaning existing installations
 of the v1 Kubernetes-Agent helm chart are (currently) unable to automatically upgrade to thew new version (v2).
 
-The version of a Kuberentes Agent is found by going to Infrastructure->DeploymentTargets, then click on the 
-**Kubernetes Agent** of interest. On the **Connectivity** sub-page you will see 'Current Version'.
+The version of a Kubernetes Agent is found by going to **Infrastructure** then into **DeploymentTargets**; from there click on the 
+**Kubernetes Agent** of interest; on it's **Connectivity** sub-page you will see 'Current Version'.
+
+:::figure
+![Kubernetes Agent default namespace](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-version.png)
+:::
 
 Installed v1 instances will continue to operate as expected, however they will receive no further updates (bugfixes or enhancements). 
 While you may continue to use v1 of the helm-chart, it is highly recommended to perform a manual upgrade to v2
