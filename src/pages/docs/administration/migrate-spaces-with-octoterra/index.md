@@ -240,7 +240,7 @@ For example, creating a new project group, moving a project, and deleting the ol
 
 This limitation applies to many other space level resources like library variable sets, git credentials, accounts, feeds etc.
 
-The recommended approach is to apply these changes in multiple steps:
+The first approach is to apply these changes in multiple steps:
 
 1. On the source server, create the new space level resources and update projects to point to them. Do not delete any resources.
 2. Deploy both the space and project level changes to the destination server.
@@ -248,12 +248,30 @@ The recommended approach is to apply these changes in multiple steps:
 4. Delete the old space level resources on the source server.
 5. Deploy the space level changes to the destination server.
 
-The alternative approach is to delete any projects on the destination server and recreate them with the new settings:
+The second approach is to delete any projects on the destination server and recreate them with the new settings:
 
 1. On the source server, create the new space level resources and update projects to point to them.
 2. One the destination server, delete any projects that were modified on the source server.
 3. At this point no projects on either the source or destination server refer to the old space level resources.
 4. Deploy both the space and project level changes to the destination server.
+
+:::div{.hint}
+Projects are configured to ignore changes to the `project_group_id` and `name`:
+
+```
+  lifecycle {
+    ignore_changes = ["`project_group_id`", "name"]
+  }
+```
+
+This allows projects on the destination server to be moved to a new project group and have their name updated while allowing other settings to be updated. This means you must do one of the following to reflect a change to a project group or project name on the source server:
+
+* Manually move the projects on the destination server to reflect the changes on the source server.
+* Manually update the project name to reflect the changes on the source server.
+* Use the second approach where the project on the destination server is deleted and recreated.
+* Manually edit the Terraform module to remove `project_group_id` from the list of ignored changes.
+
+:::
 
 ## Considerations when running multiple instances
 
