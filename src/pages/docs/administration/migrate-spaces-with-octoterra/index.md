@@ -225,6 +225,36 @@ Consider a continual migration strategy when:
 * You need to test the destination server while the source server is still actively used.
 * You need to update the destination server with any changes made to the source server while testing the migration.
 
+#### Limitations of continual migration
+
+The fundamental idea behind a continual migration strategy is the ability to make changes on the source server and reflect those changes on the destination server. This process works well for small tweaks to space level resources and project settings.
+
+However, some care must be taken when changing the source server, as certain changes can not be immediately deployed to the destination server. Notably, any change to the source server that deletes space level resources and updates project level resources to no longer use them will be very difficult to deploy to the destination server.
+
+For example, creating a new project group, moving a project, and deleting the old project group on the source server is very difficult to replicate on the destination server. This is because the change involved deleting a space level resource (the old project group) and changing a project level resources (the project group that the project belongs to). Attempting to synchronize these changes to the destination server will fail because:
+
+1. The space level resources are serialized to Terraform, and no longer include the deleted project group.
+2. The space level resources are applied to the destination server.
+3. Terraform compares the new Terraform configuration to the existing state and determines that the project group must be removed.
+4. The Octopus API fails to remove the project group because it contains a project.
+
+This limitation applies to many other space level resources like library variable sets, git credentials, accounts, feeds etc.
+
+The recommended approach is to apply these changes in multiple steps:
+
+1. On the source server, create the new space level resources and update projects to point to them. Do not delete any resources.
+2. Deploy both the space and project level changes to the destination server.
+3. At this point no projects on either the source or destination server refer to the old space level resources.
+4. Delete the old space level resources on the source server.
+5. Deploy the space level changes to the destination server.
+
+The alternative approach is to delete any projects on the destination server and recreate them with the new settings:
+
+1. On the source server, create the new space level resources and update projects to point to them.
+2. One the destination server, delete any projects that were modified on the source server.
+3. At this point no projects on either the source or destination server refer to the old space level resources.
+4. Deploy both the space and project level changes to the destination server.
+
 ## Considerations when running multiple instances
 
 Some deployment strategies involve running multiple Octopus instances in parallel while performing testing or completing a migration. There are implications that you must consider for these migration strategies.
