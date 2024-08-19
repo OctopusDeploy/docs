@@ -256,7 +256,7 @@ The second approach is to delete any projects on the destination server and recr
 4. Deploy both the space and project level changes to the destination server.
 
 :::div{.hint}
-Projects are configured to ignore changes to the `project_group_id` and `name`:
+Projects are configured to ignore changes to the `project_group_id` and `name` with the following [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle:
 
 ```
   lifecycle {
