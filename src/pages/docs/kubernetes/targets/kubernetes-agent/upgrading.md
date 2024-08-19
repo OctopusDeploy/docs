@@ -12,9 +12,12 @@ navOrder: 10
 Recent changes to the Kubernetes-Agent Helm Chart have necessitated a breaking change, meaning existing installations
 of the v1 Kubernetes-Agent helm chart are (currently) unable to automatically upgrade to thew new version (v2).
 
-Installed v1 instances will continue to operate as expected, however no further development work (bugfixes or enhancements)
-will be performed on the v1 helm chart. While you may continue to use v1 of the helm-chart, it is highly recommended to perform a manual upgrade to v2
-to ensure you receive ongoing functional and security updates.
+The version of a Kuberentes Agent is found by going to Infrastructure->DeploymentTargets, then click on the 
+**Kubernetes Agent** of interest. On the **Connectivity** sub-page you will see 'Current Version'.
+
+Installed v1 instances will continue to operate as expected, however they will receive no further updates (bugfixes or enhancements). 
+While you may continue to use v1 of the helm-chart, it is highly recommended to perform a manual upgrade to v2
+ensuring you receive ongoing functional and security updates.
 
 Steps required to manually upgrade a v1 instance can be found in the Kubernetes Agent [documentation](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/migrations.md).
 
