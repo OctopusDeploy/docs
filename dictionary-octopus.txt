@@ -340,6 +340,7 @@ speculationrules
 Sprintf
 sqlcmd
 SQLEXPRESS
+sqlpackage
 sqlvolume
 srcset
 SSDT

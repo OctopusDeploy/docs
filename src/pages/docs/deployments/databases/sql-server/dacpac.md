@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-19
 title: SQL Server DACPAC deployment
 description: How to do database deployments with DACPAC.
 navOrder: 20
@@ -163,25 +163,25 @@ With variables defined, we can add steps to our deployment process.
 
 1. Click the **Process** tab.
 2. Click  **ADD STEP**.
-3. Search for `dacpac` steps, select the **SQL - Deploy DACPAC from Package Parameter** step, and enter the following details:
+3. Search for `dacpac` steps, select the **SQL - Deploy DACPAC using SqlPackage** step, and enter the following details:
 	- **DACPACPackageName**: The name of the dacpac file.  The `Project.DACPAC.Name` variable was created for this field.
 	- **Publish profile name**: Complete this field if you use Publish profiles.
 	- **Report**: True.
 	- **Script**: True.
 	- **Deploy**: False.
-	- **Extract target database to dacpac**: False.
 	- **Target Servername**: `Project.SQLServer.Name` variable.
 	- **Target Database**: `Project.Database.Name` variable.
-	- **Target Database Version**: Select from the drop-down if DLLs are locally installed, otherwise you can leave it blank.
-	- **Use Integrated Security**: False (if using SQL Authentication).
-	- **Username**: `Project.SQLServer.Admin.User.Name` variable.
-	- **Password**: `Project.SQLServer.Admin.User.Password` variable.
-	- **Enable multi subnet failover**
-	- **Additional deployment contributors**
-	- **DACPAC Package**: The package from the repository, OctoFXDemo.dacpac for this guide.
+	- **Authentication type**: Choose the authentication for your use case.
+	- **Username**: `Project.SQLServer.Admin.User.Name` variable (used only with SQL Authentication type).
+	- **Password**: `Project.SQLServer.Admin.User.Password` variable (used only with SQL Authentication type).
+	- **DACPAC Package**: The package from the repository, OctoFXDemo.dacpac for this guide.	
+	- **Command Timeout**: Override the default script execution timeout.
+	- **SqlPackage executable location**: If you have the sqlpackage.exe installed, specify the location, otherwise, leave blank to dynamically download it.
+	- **Additional arguments**: Any additional sqlpackage.exe arguments not provided by the template.
+
 
 4. Add a manual intervention step, scoped to production, so the report from the previous step can be examined before deploying to production.
-5. Add another **SQL - Deploy DACPAC from Referenced Package** step, and change the Report and Script values to `False`, and the Deploy value to `True`.
+5. Add another **SQL - Deploy DACPAC using SqlPackage** step, and change the Report and Script values to `False`, and the Deploy value to `True`.
 
 The deployment process should look like this:
 
