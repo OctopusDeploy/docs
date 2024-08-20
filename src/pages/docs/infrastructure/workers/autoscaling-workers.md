@@ -7,25 +7,37 @@ navOrder: 60
 --- 
 
 Workers are only utilized during the execution of a Deployment Process - which means they need to be able to handle high
-workloads intermittently, but remain idle otherwise.
+workloads intermittently but remain idle otherwise.
 
 Workers installed on virtual or physical machines will require minimal resources during quiet times, meaning the machine 
 is under-utilized for a majority of its life.
 
-This issue goes away when using the Kubernetes Worker - a worker which can be installed in a Kubernetes Cluster, and make
+This issue goes away when using the Kubernetes Worker - a worker which can be installed in a Kubernetes Cluster and makes
 use of the cluster's ability to add/remove hardware resources as workloads fluctuate.
 
 For all intents and purposes, the Kubernetes Worker _is_ a standard Octopus Worker, but brings with it unique Kubernetes capabilities
 to ensure hardware utilization scales fluidly with demanded workload.
 
+The Kubernetes worker can deploy to any deployment target, and will remain responsive even under high workloads due to the
+underlying Kubernetes horizontal scaling.
+
 ## Default Behavior
-The vanilla [installation process]((/docs/infrastructure/workers)) installs a worker which will work for 90% of all workloads.
+The vanilla [installation process](/docs/infrastructure/workers#registering-a-kubernetes-agent-as-a-worker) installs a worker which will work for 90% of all workloads.
 
 When the Kubernetes Worker executes a deployment step, it executes the operation within a [worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) container,
 meaning sufficient tooling is available for most deployment activities.
 
 If custom-steps require specific tooling, you are able to set the desired container on the deployment step - the Kubernetes
-Agent will honour this setting, as per any other worker.
+Agent honours this setting as per other worker types.
+
+## How Kubernetes Worker Automatically Scales
+The Kubernetes agent creates a new Pod for each requested operation - with each pod requesting a given amount of cpu/memory
+(as defined in your `values.yaml` file). Once the requested resources reaches a threshold, the cluster will provision new nodes
+via [Cluster Autoscaling](https://kubernetes.io/docs/concepts/cluster-administration/cluster-autoscaling/) ensuring all pods in
+the cluster to continue to receive required resources.
+
+If finer grained control of auto-scaling is required tooling such as [Kubernetes Event-driven Autoscaling](https://keda.sh/) is available.
+
 
 ## Customizations
 The behavior of the Kubernetes Worker can be modified through [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `values`.
@@ -52,6 +64,7 @@ The Kubernetes Worker is limited to modifying its local namespace, ensuring it i
 The Kubernetes Worker is permitted unfettered access to its local namespace, ensuring it is able to update itself, and
 create new pods for each requested operation.
 
+
 ## Limitations
 Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.
 Which means certain operations which are typically valid, will not be possible.
@@ -59,3 +72,13 @@ Specifically:
 * Creating an execution container, inline, on a deployment step
 * Fetching docker images (when used as secondary packages)
 * Arbitrary scripts which use docker
+
+
+## Getting Started
+You can get started with the Kubernetes Worker by installing it into a local "playground" Kubernetes cluster.
+
+We recommend setting a cluster in your local environment using either:
+* [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download))
+* [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
+
+From there, you follow the Kubernetes Agent install workflow to enable scalable workers! 

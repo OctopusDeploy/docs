@@ -4,7 +4,7 @@ pubDate: 2024-04-29
 modDate: 2024-07-31
 title: Storage
 description: How to configure storage for a Kubernetes worker
-navOrder: 30
+navOrder: 20
 ---
 
 The Kubernetes Worker requires a common filesystem to share packages with its spawned operation pods. This filesystem is
