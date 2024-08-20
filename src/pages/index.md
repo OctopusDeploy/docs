@@ -28,7 +28,7 @@ This page is not shown on the production site.
 
 ## Examples
 
-### Boxes
+### Boxes 
 
 Front Matter snippet: "Information box".
 
