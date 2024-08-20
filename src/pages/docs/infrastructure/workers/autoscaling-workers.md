@@ -6,13 +6,13 @@ title: Auto Scaling
 navOrder: 60
 --- 
 
-Workers are only utilised during the execution of a Deployment Process - which means they need to be able to handle high
+Workers are only utilized during the execution of a Deployment Process - which means they need to be able to handle high
 workloads intermittently, but remain idle otherwise.
 
 Workers installed on virtual or physical machines will require minimal resources during quiet times, meaning the machine 
-is underutilised for a majority of its life.
+is under-utilized for a majority of its life.
 
-This issue goes away when using the Kubernetes Worker - a worker whiich can be installed in a Kuberentes Cluster, and make
+This issue goes away when using the Kubernetes Worker - a worker which can be installed in a Kubernetes Cluster, and make
 use of the cluster's ability to add/remove hardware resources as workloads fluctuate.
 
 For all intents and purposes, the Kubernetes Worker _is_ a standard Octopus Worker, but brings with it unique Kubernetes capabilities
