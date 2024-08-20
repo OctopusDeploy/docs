@@ -201,14 +201,6 @@ To perform an incremental migration, complete the `Migrate Space Level Resources
 
 Then, when a project is ready to be migrated, run its associated `__ 1. Serialize Project` runbook, followed by the `__ 2. Deploy Project` runbook. This will serialize and then migrate a single project.
 
-:::div{.warning}
-Note that locking strategies normally implemented by an Octopus server, such as blocking tasks that share a target, will not be implemented when the source and destination server share targets because the source and destination server do not communicate with each other to schedule tasks. It is your responsibility to ensure that the source and destination servers do not attempt to deploy to the same target at the same time.
-:::
-
-:::div{.warning}
-You will likely want to disable any triggers on projects on the destination server while testing to ensure only the source server triggers deployments.
-:::
-
 You may consider disabling the project on the source server once it has been migrated to prevent deployments taking place on both the source and the destination server.
 
 Consider an incremental migration strategy when:
@@ -223,14 +215,6 @@ Continual migration means updating projects on the destination server with any c
 
 Continual migrations are useful when both the source and destination servers must run side by side for some time. A typical scenario is testing the migrated projects on the destination server while the associated projects on the source server are still in active use, and then redeploying the projects to update the destination server with any changes made to the source server.
 
-:::div{.warning}
-Note that locking strategies normally implemented by an Octopus server, such as blocking tasks that share a target, will not be implemented when the source and destination server share targets because the source and destination server do not communicate with each other to schedule tasks. It is your responsibility to ensure that the source and destination servers do not attempt to deploy to the same target at the same time.
-:::
-
-:::div{.warning}
-You will likely want to disable any triggers on projects on the destination server while testing to ensure only the source server triggers deployments.
-:::
-
 :::div{.hint}
 The source server is considered the source of truth for space and project level resources until the source server is decommissioned. The configuration of the destination server will be replaced each time space and project level resources are redeployed.
 :::
@@ -241,6 +225,77 @@ Consider a continual migration strategy when:
 * You need to test the destination server while the source server is still actively used.
 * You need to update the destination server with any changes made to the source server while testing the migration.
 
+#### Limitations of continual migration
+
+The fundamental idea behind a continual migration strategy is the ability to make changes on the source server and reflect those changes on the destination server. This process works well for small tweaks to space level resources and project settings.
+
+However, some care must be taken when changing the source server, as certain changes can not be immediately deployed to the destination server. Notably, any change to the source server that deletes space level resources and updates project level resources to no longer use them will be very difficult to deploy to the destination server.
+
+For example, creating a new project group, moving a project, and deleting the old project group on the source server is very difficult to replicate on the destination server. This is because the change involved deleting a space level resource (the old project group) and changing a project level resources (the project group that the project belongs to). Attempting to synchronize these changes to the destination server will fail because:
+
+1. The space level resources are serialized to Terraform, and no longer include the deleted project group.
+2. The space level resources are applied to the destination server.
+3. Terraform compares the new Terraform configuration to the existing state and determines that the project group must be removed.
+4. The Octopus API fails to remove the project group because it contains a project.
+
+This limitation applies to many other space level resources like library variable sets, git credentials, accounts, feeds etc.
+
+The first approach is to apply these changes in multiple steps:
+
+1. On the source server, create the new space level resources and update projects to point to them. Do not delete any resources.
+2. Deploy both the space and project level changes to the destination server.
+3. At this point no projects on either the source or destination server refer to the old space level resources.
+4. Delete the old space level resources on the source server.
+5. Deploy the space level changes to the destination server.
+
+The second approach is to delete any projects on the destination server and recreate them with the new settings:
+
+1. On the source server, create the new space level resources and update projects to point to them.
+2. One the destination server, delete any projects that were modified on the source server.
+3. At this point no projects on either the source or destination server refer to the old space level resources.
+4. Deploy both the space and project level changes to the destination server.
+
+:::div{.hint}
+Projects are configured to ignore changes to the `project_group_id` and `name` with the following [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle:
+
+```
+  lifecycle {
+    ignore_changes = ["`project_group_id`", "name"]
+  }
+```
+
+This allows projects on the destination server to be moved to a new project group and have their name updated while allowing other settings to be updated. This means you must do one of the following to reflect a change to a project group or project name on the source server:
+
+* Manually move the projects on the destination server to reflect the changes on the source server.
+* Manually update the project name to reflect the changes on the source server.
+* Use the second approach where the project on the destination server is deleted and recreated.
+* Manually edit the Terraform module to remove `project_group_id` from the list of ignored changes.
+
+:::
+
+## Considerations when running multiple instances
+
+Some deployment strategies involve running multiple Octopus instances in parallel while performing testing or completing a migration. There are implications that you must consider for these migration strategies.
+
+### Task locking
+
+By default, Octopus will [only run one process on each deployment target at a time](https://octopus.com/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously), queuing the rest.
+
+This task blocking is not available when two independent servers share deployment targets, as may be the case when implementing the incremental or continuous migration strategies.
+
+Depending on the target type and how deployments are configured, there may be no issue with concurrent deployments. Unfortunately, there is no simple rule for determining if a target or deployment process supports concurrent deployments.
+
+You must determine if concurrent deployments have the potential to cause issues, and if so, manually ensure that multiple Octopus servers do not attempt to deploy to the same target at the same time.
+
+There are a number of strategies you can implement to prevent or manage concurrent deployments:
+
+* Use a [named mutex](https://octopus.com/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously#named-mutex-for-shared-resources).
+* Disable projects to ensure only the source or destination server can run a migrated project.
+* Disable targets to ensure only the source or destination server can interact with a migrated target.
+
+### Duplicated triggers
+
+Project and runbook triggers are duplicated on the destination server as part of the migration. It is likely that you only want these triggers to run on either the source or destination servers, but not both. Triggers can be stopped by disabling the individual triggers or disabling the projects.
 
 ## Post-migration steps
 
