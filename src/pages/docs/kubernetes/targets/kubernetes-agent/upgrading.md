@@ -19,7 +19,7 @@ The version of a Kubernetes Agent is found by going to **Infrastructure** then i
 ![Kubernetes Agent default namespace](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-version.png)
 :::
 
-Installed v1 instances will continue to operate as expected, however they will receive no further updates (bugfixes or enhancements). 
+Installed v1 instances will continue to operate as expected, however they will receive no further updates other than security updates. 
 While you may continue to use v1 of the helm-chart, it is highly recommended to perform a manual upgrade to v2
 ensuring you receive ongoing functional and security updates.
 
@@ -27,5 +27,5 @@ Steps required to manually upgrade a v1 instance can be found in the Kubernetes 
 
 Alternatively, existing v1 Kubernetes Agents can be deleted from your server instance, and recreated as v2 Agents via the installation workflow available in Octopus Server. 
 
-Octopus Server is being upgraded to support automated upgrades across major Helm Chart versions, and will be released as part of the 2024.4.
+Octopus Server is being upgraded to support automated upgrades across major Helm Chart versions, and will be available as part of the 2024.4.
 This capability will be available to cloud instances in  September 2024, and December 2024 for self-hosted instances. 
