@@ -27,5 +27,5 @@ Steps required to manually upgrade a v1 instance can be found in the Kubernetes 
 
 Alternatively, existing v1 Kubernetes Agents can be deleted from your server instance, and recreated as v2 Agents via the installation workflow available in Octopus Server. 
 
-Octopus Server is being upgraded to support automated upgrades across major Helm Chart versions, however this will not be available until
-September 2024 for cloud instances, and December 2024 for self-hosted instances. 
+Octopus Server is being upgraded to support automated upgrades across major Helm Chart versions, and will be released as part of the 2024.4.
+This capability will be available to cloud instances in  September 2024, and December 2024 for self-hosted instances. 

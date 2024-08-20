@@ -6,16 +6,14 @@ title: Auto Scaling
 navOrder: 60
 --- 
 
-Workers are  only utilised during the execution of a Deployment Process - which means they are infrequently used for
-high workloads, then left idle for the remainder of the time.
+Workers are only utilised during the execution of a Deployment Process - which means they need to be able to handle high
+workloads intermittently, but remain idle otherwise.
 
+Workers installed on virtual or physical machines will require minimal resources during quiet times, meaning the machine 
+is underutilised for a majority of its life.
 
-
-Read up on [Workers](/docs/infrastructure/workers) to understand their role in an Octopus environment, then come back to 
-see how Kubernetes can simplify maintaining them.
-
-Now that you've seen why workers are required, and how to install their various flavours, it's worth describing how the
-Kubernetes specific version can work for you.
+This issue goes away when using the Kubernetes Worker - a worker whiich can be installed in a Kuberentes Cluster, and make
+use of the cluster's ability to add/remove hardware resources as workloads fluctuate.
 
 For all intents and purposes, the Kubernetes Worker _is_ a standard Octopus Worker, but brings with it unique Kubernetes capabilities
 to ensure hardware utilization scales fluidly with demanded workload.
@@ -30,7 +28,7 @@ If custom-steps require specific tooling, you are able to set the desired contai
 Agent will honour this setting, as per any other worker.
 
 ## Customizations
-The behavior Kubernetes Worker can be modified through [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `values`.
+The behavior of the Kubernetes Worker can be modified through [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `values`.
 
 These values can be set at initial installation, or at any time via a Helm upgrade.
 
