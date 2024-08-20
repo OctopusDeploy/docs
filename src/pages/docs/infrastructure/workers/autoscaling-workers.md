@@ -30,7 +30,7 @@ Agent will honour this setting, as per any other worker.
 ## Customizations
 The behavior of the Kubernetes Worker can be modified through [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `values`.
 
-These values can be set at initial installation, or at any time via a Helm upgrade.
+These values can be set at initial installation (by editing the Octopus Server supplied command line), or at any time via a Helm upgrade.
 
 Of note:
 
@@ -39,13 +39,18 @@ Of note:
 | scriptPods.worker.image | Specifies the docker container image to be used when running an operation |
 | scriptPods.resources.requests | Specifies the average cpu/memory usage required to execute an operation |
 
-
 If you are experiencing difficulties with your Kubernetes Cluster's autoscaling, modifying `scriptPods.resources.requests.*`
 may provide a solution.
 
 If this value is too low (i.e. lower than your actual CPU usage) - the cluster will not enable new nodes when required.
 If this value is too large (i.e. higher than actual usage) - the cluster will scale too early, and may leave your script
 pods pending for longer than necessary.
+
+## Permissions
+The Kubernetes Worker is limited to modifying its local namespace, ensuring it is unable to pollute the cluster at large.
+
+The Kubernetes Worker is permitted unfettered access to its local namespace, ensuring it is able to update itself, and
+create new pods for each requested operation.
 
 ## Limitations
 Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.
