@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2024-08-14
+pubDate: 2024-08-22
+modDate: 2024-08-22
 title: Auto Scaling
 navOrder: 60
 ---
@@ -9,11 +9,11 @@ navOrder: 60
 Workers are only utilized during the execution of a Deployment Process - which means they need to be able to handle high
 workloads intermittently but remain idle otherwise.
 
-Workers installed on virtual or physical machines will require minimal resources during quiet times, meaning the machine 
-is under-utilized for a significant portion of its life.
+Workers installed on virtual or physical machines require minimal resources during quiet times, leaving the machine 
+under-utilized for much of its life.
 
-This issue goes away when using the Kubernetes Worker - a worker which can be installed in a Kubernetes cluster and makes
-use of the cluster's ability to add/remove hardware resources as workloads fluctuate.
+Using the Kubernetes Worker resolves this issue. You can install it in a Kubernetes cluster, which leverages the cluster's
+ability to scale hardware as workloads change.
 
 Auto-scaling benefits aside, the Kubernetes Worker _is_ a standard Octopus worker:
 * It must be included in 1 or more worker pools
