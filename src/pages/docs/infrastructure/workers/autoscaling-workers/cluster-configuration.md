@@ -7,18 +7,18 @@ description: Cluster Configurations
 navOrder: 20
 ---
 
-The Kubernetes worker has been proven to be effective on a variety of installations, but definitely some are more complex than others!
+The Kubernetes worker has been proven to be effective on a variety of installations.
+But some configurations are more complex than others!
 
-There's three factors which affect the effort required to ensure successful execution:
-1. Kubernetes Distribution (eg AKS, EKS, GKE ...)
+There's three factors which affect the effort the likelihood of success:
+1. Kubernetes distribution (eg AKS, EKS, GKE ...)
 2. Storage provider type (i.e. the filesystem shared between worker and pods)
 3. The Operating System of the Kubernetes nodes
 
 When trying to determine the best combination of these for your situation, it may be simplest to start small and iterate.
 
-## Maturity Growth
 
-### First Steps
+## First Steps
 There are a variety of Kubernetes implementations which can be used locally, as you start out with the Kubernetes worker.
 The following distributions were used extensively during our development, and work well for exploratory testing: 
 * [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download))
@@ -30,7 +30,7 @@ These have all bee proven to work well with the default NFS storage solution, so
 Such a setup is unsuitable for production deployments, but will get a Kubernetes worker running quickly so you can
 see how it works, and determine how you may make the most of it.
 
-### And Onwards
+## And Onwards
 The Kubernetes worker installs and works with the cloud-based Kubernetes services offered by Azure (AKS), Aws (EKS) and Google (GKE).
 The NFS storage solution works well in these environments, though other storage solutions become available eg [Azure Files](https://learn.microsoft.com/en-us/azure/aks/azure-csi-files-storage-provision)
 which may offers greater durability by moving storage out of the cluster.
