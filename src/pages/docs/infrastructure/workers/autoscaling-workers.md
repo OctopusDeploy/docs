@@ -30,14 +30,6 @@ meaning sufficient tooling is available for most deployment activities.
 If custom-steps require specific tooling, you are able to set the desired container on the deployment step - the Kubernetes
 Agent honours this setting as per other worker types.
 
-## How Kubernetes Worker Automatically Scales
-The Kubernetes agent creates a new Pod for each requested operation - with each pod requesting a given amount of cpu/memory
-(as defined in your `values.yaml` file). Once the requested resources reaches a threshold, the cluster will provision new nodes
-via [Cluster Autoscaling](https://kubernetes.io/docs/concepts/cluster-administration/cluster-autoscaling/) ensuring all pods in
-the cluster to continue to receive required resources.
-
-If finer grained control of auto-scaling is required tooling such as [Kubernetes Event-driven Autoscaling](https://keda.sh/) is available.
-
 ## Customizations
 The behavior of the Kubernetes Worker can be modified through [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `values`.
 
@@ -56,9 +48,6 @@ may provide a solution.
 If this value is too low (i.e. lower than your actual CPU usage) - the cluster will not enable new nodes when required.
 If this value is too large (i.e. higher than actual usage) - the cluster will scale too early, and may leave your script
 pods pending for longer than necessary.
-
-## The Paved Road
-
 
 ## Permissions
 The Kubernetes Worker is limited to modifying its local namespace, ensuring it is unable to pollute the cluster at large.
