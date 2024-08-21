@@ -7,8 +7,7 @@ description: Cluster Configurations
 navOrder: 20
 ---
 
-The Kubernetes worker has been proven to be effecive on a variety of installations, but definitely some introduce less
-complexity than others!
+The Kubernetes worker has been proven to be effective on a variety of installations, but definitely some are more complex than others!
 
 There's three factors which affect the effort required to ensure successful execution:
 1. Kubernetes Distribution (eg AKS, EKS, GKE ...)
