@@ -1,6 +1,6 @@
-The Kubernetes Worker is installed using [Helm](https://helm.sh) via the [octopusdeploy/kubernetes-agent](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) chart (which is published to [dockerhub](octopusdeploy)).
+You can install the Kubernetes Worker using [Helm](https://helm.sh/) through the [octopusdeploy/kubernetes-agent](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) chart. This chart is hosted on [Dockerhub](https://hub.docker.com/r/octopusdeploy/kubernetes-agent) and can be pulled directly via the Helm CLI. 
 
-To simplify this, there is an installation wizard in octopus to generate the required values.
+To make things easier, Octopus provides an installation wizard that generates the Helm command for you to run.
 
 :::div{.warning}
 Helm will use your current kubectl config, so make sure your kubectl config is pointing to the correct cluster before executing the following helm commands.
