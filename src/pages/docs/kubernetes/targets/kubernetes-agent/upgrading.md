@@ -10,7 +10,7 @@ navOrder: 70
 ---
 
 Recent changes to the Kubernetes-Agent Helm Chart have necessitated a breaking change, meaning existing installations
-of the v1 Kubernetes-Agent helm chart are (currently) unable to automatically upgrade to thew new version (v2).
+of the v1 Kubernetes-Agent helm chart are (currently) unable to automatically upgrade to the new version (v2).
 
 The version of a Kubernetes Agent is found by going to **Infrastructure** then into **DeploymentTargets**; from there click on the 
 **Kubernetes Agent** of interest; on it's **Connectivity** sub-page you will see 'Current Version'.
