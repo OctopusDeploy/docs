@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2024-04-29
-modDate: 2024-07-31
+pubDate: 2024-08-22
+modDate: 2024-08-22
 title: Storage
 description: How to configure storage for a Kubernetes worker
 navOrder: 20

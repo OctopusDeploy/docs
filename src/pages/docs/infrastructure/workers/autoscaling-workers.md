@@ -4,25 +4,25 @@ pubDate: 2023-01-01
 modDate: 2024-08-14
 title: Auto Scaling
 navOrder: 60
---- 
+---
 
 Workers are only utilized during the execution of a Deployment Process - which means they need to be able to handle high
 workloads intermittently but remain idle otherwise.
 
 Workers installed on virtual or physical machines will require minimal resources during quiet times, meaning the machine 
-is under-utilized for a majority of its life.
+is under-utilized for a significant portion of its life.
 
-This issue goes away when using the Kubernetes Worker - a worker which can be installed in a Kubernetes Cluster and makes
+This issue goes away when using the Kubernetes Worker - a worker which can be installed in a Kubernetes cluster and makes
 use of the cluster's ability to add/remove hardware resources as workloads fluctuate.
 
-For all intents and purposes, the Kubernetes Worker _is_ a standard Octopus Worker, but brings with it unique Kubernetes capabilities
-to ensure hardware utilization scales fluidly with demanded workload.
-
-The Kubernetes worker can deploy to any deployment target, and will remain responsive even under high workloads due to the
-underlying Kubernetes horizontal scaling.
+Auto-scaling benefits aside, the Kubernetes Worker _is_ a standard Octopus worker:
+* It must be included in 1 or more worker pools
+* Supports deployments to any deployment target
+* Will be kept up to date via machine health checks & updates
+* Can execute operations in custom containers (as defined on the deployment step)
 
 ## Default Behavior
-The vanilla [installation process](/docs/infrastructure/workers#registering-a-kubernetes-agent-as-a-worker) installs a worker which will work for 90% of all workloads.
+The web portal's [installation process](/docs/infrastructure/workers#installing-a-kubernetes-agent-as-a-worker) installs a worker which will work for 90% of all workloads.
 
 When the Kubernetes Worker executes a deployment step, it executes the operation within a [worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) container,
 meaning sufficient tooling is available for most deployment activities.
@@ -37,7 +37,6 @@ via [Cluster Autoscaling](https://kubernetes.io/docs/concepts/cluster-administra
 the cluster to continue to receive required resources.
 
 If finer grained control of auto-scaling is required tooling such as [Kubernetes Event-driven Autoscaling](https://keda.sh/) is available.
-
 
 ## Customizations
 The behavior of the Kubernetes Worker can be modified through [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `values`.
@@ -58,12 +57,14 @@ If this value is too low (i.e. lower than your actual CPU usage) - the cluster w
 If this value is too large (i.e. higher than actual usage) - the cluster will scale too early, and may leave your script
 pods pending for longer than necessary.
 
+## Gold
+
+
 ## Permissions
 The Kubernetes Worker is limited to modifying its local namespace, ensuring it is unable to pollute the cluster at large.
 
 The Kubernetes Worker is permitted unfettered access to its local namespace, ensuring it is able to update itself, and
 create new pods for each requested operation.
-
 
 ## Limitations
 Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.
