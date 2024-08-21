@@ -59,7 +59,7 @@ create new pods for each requested operation.
 Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.
 Which means certain operations which are typically valid, will not be possible.
 Specifically:
-* Creating an execution container, inline, on a deployment step
+* Creating an execution container, [inline on a deployment step](../../projects/steps/execution-containers-for-workers#inline-execution-containers)
 * Fetching docker images (when used as secondary packages)
 * Arbitrary scripts which use docker
 
