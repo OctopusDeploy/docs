@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-08-22
 modDate: 2024-08-22
-title: Storage
+title: Scaling Behaviour
 description: How the worker scales
 navOrder: 30
 ---
