@@ -20,7 +20,7 @@ The table below outlines the backward compatibility between Octopus Server and r
 | 2018.2 ➜ 2018.12 | 4.30.7 ➜ 4.47.0                    | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
 | 2019.1*           | 5.0.0 ➜ 5.2.7                      | 3.5 ➜ latest    | 4.0 ➜ latest | 5.0 ➜ latest    |
 | 2019.2* ➜ latest | 6.0.0 ➜ latest                     | 3.5 ➜ latest    | 4.0 ➜ latest | 5.0 ➜ latest    | 
-| 2022.4* ➜ latest | 6.0.0 ➜ latest                     | 3.5 ➜ latest    | 4.0 ➜ latest | 5.0 ➜ latest    | 2.0 -> latest
+| 2022.4* ➜ latest | 6.0.0 ➜ latest                     | 3.5 ➜ latest    | 4.0 ➜ latest | 5.0 ➜ latest    | 2.0 ➜ latest
 
 ### **&ast; Partial forward compatibility**
 
