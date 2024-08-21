@@ -22,7 +22,7 @@ Auto-scaling benefits aside, the Kubernetes Worker _is_ a standard Octopus worke
 * Can execute operations in custom containers (as defined on the deployment step)
 
 ## Default Behavior
-The web portal's [installation process](/docs/infrastructure/workers#installing-a-kubernetes-agent-as-a-worker) installs a worker which will work for 90% of all workloads.
+The web portal's [installation process](/docs/infrastructure/workers#installing-a-kubernetes-agent-as-a-worker) installs a worker which will work for a majority of all workloads.
 
 When the Kubernetes Worker executes a deployment step, it executes the operation within a [worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) container,
 meaning sufficient tooling is available for most deployment activities.

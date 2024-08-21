@@ -34,4 +34,4 @@ see how it works, and determine how you may make the most of it.
 ### And Onwards
 The Kubernetes Worker installs and works with the cloud-based Kubernetes services offered by Azure (AKS), Aws (EKS) and Google (GKE).
 The NFS storage solution works well in these environments, though other storage solutions become available eg [Azure Files](https://learn.microsoft.com/en-us/azure/aks/azure-csi-files-storage-provision)
-which may offer you greater.
+which may offers greater durability by moving storage out of the cluster.
