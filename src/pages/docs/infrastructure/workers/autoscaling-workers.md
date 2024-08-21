@@ -57,7 +57,7 @@ If this value is too low (i.e. lower than your actual CPU usage) - the cluster w
 If this value is too large (i.e. higher than actual usage) - the cluster will scale too early, and may leave your script
 pods pending for longer than necessary.
 
-## Gold
+## The Paved Road
 
 
 ## Permissions
