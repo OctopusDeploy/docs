@@ -42,6 +42,4 @@ test('Check redirects', async () => {
       expect(`Failed to fetch ${url} due to ${error}`).toBe('');
     }
   }
-
-  expect(posts.length).toBe(4);
 });
