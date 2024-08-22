@@ -22,7 +22,7 @@ test('Check redirects', async () => {
       const redirectText = await redirectPage.text();
       const matches = redirectText.match(regex);
 
-      if (matches && matches.length > 1) {
+      if (matches && matches.length > 1 && matches[1].charAt(0) === '/') {
         // Check the new location works
         const targetPage = await fetch(new URL(baseUrl + matches[1]))
         expect(targetPage.status, `Expected a 200 OK response for target page ${matches[1]}`).toBe(200);
