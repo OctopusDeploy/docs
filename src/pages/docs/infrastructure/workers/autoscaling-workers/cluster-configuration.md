@@ -21,7 +21,7 @@ When trying to determine the best combination of these for your situation, it ma
 ## First Steps
 There are a variety of Kubernetes implementations which can be used locally, as you start out with the Kubernetes worker.
 The following distributions were used extensively during our development, and work well for exploratory testing: 
-* [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download))
+* [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download)
 * [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 * [MicroK8s](https://microk8s.io/)
 

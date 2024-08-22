@@ -22,7 +22,7 @@ Auto-scaling benefits aside, the Kubernetes Worker _is_ a standard Octopus worke
 * Can execute operations in custom containers (as defined on the deployment step)
 
 ## Default Behavior
-The web portal's [installation process](/docs/infrastructure/workers#installing-a-kubernetes-agent-as-a-worker) installs a worker which will work for a majority of workloads.
+The web portal's [installation process](/docs/infrastructure/workers#installing-a-kubernetes-worker) installs a worker which will work for a majority of workloads.
 
 When the Kubernetes worker executes a deployment step, it executes the operation within a [worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) container,
 meaning sufficient tooling is available for most deployment activities.
@@ -54,6 +54,8 @@ The Kubernetes Worker is limited to modifying its local namespace, preventing it
 
 The Kubernetes Worker is permitted unfettered access to its local namespace, ensuring it is able to update itself, and
 create new pods for each requested operation.
+
+These default permissions can be overriden via Helm values.
 
 ## Limitations
 Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.
