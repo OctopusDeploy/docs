@@ -260,7 +260,7 @@ Projects are configured to ignore changes to the `project_group_id` and `name` w
 
 ```
   lifecycle {
-    ignore_changes = ["`project_group_id`", "name"]
+    ignore_changes = ["project_group_id", "name"]
   }
 ```
 
@@ -363,7 +363,7 @@ Here is a sample PowerShell command for Windows tentacles (or Linux tentacles wh
 # TentacleExecutablePath is an environment variable pointing to the tentacle executable
 # The server url in the command below (i.e. the value passed to --server) and the API key
 # (i.e. the value passed to --apiKey) replaced with the value specific to your server
-& "${TentacleExecutablePath}" poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
+& $env:TentacleExecutablePath poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
 ![Script Console](/docs/administration/migrate-spaces-with-octoterra/polling-tentacle-update.png)
@@ -386,8 +386,8 @@ Here is a sample bash command for Linux tentacles:
 
 ```bash
 # TentacleExecutablePath is an environment variable pointing to the tentacle executable
-# The thumbprint in the command below (i.e. the value passed to the --trust argument) is an example 
-# and must be replaced with the value specific to your server
+# The thumbprint in the command below (i.e. the value passed to the --trust argument) 
+# is an example and must be replaced with the value specific to your server
 "${TentacleExecutablePath}" configure --trust=D21887C5EB73D21DDC3DEAB3E8840A47E6279F21
 ```
 
@@ -395,9 +395,9 @@ Here is a sample PowerShell command for Windows tentacles (or Linux tentacles wh
 
 ```powershell
 # TentacleExecutablePath is an environment variable pointing to the tentacle executable
-# The thumbprint in the command below (i.e. the value passed to the --trust argument) is an example 
-# and must be replaced with the value specific to your server
-& "${TentacleExecutablePath}" configure --trust=D21887C5EB73D21DDC3DEAB3E8840A47E6279F21
+# The thumbprint in the command below (i.e. the value passed to the --trust argument) 
+# is an example and must be replaced with the value specific to your server
+& $env:TentacleExecutablePath configure --trust=D21887C5EB73D21DDC3DEAB3E8840A47E6279F21
 ```
 
 ![Script Console](/docs/administration/migrate-spaces-with-octoterra/listening-tentacle-update.png)
