@@ -344,6 +344,30 @@ You also need to deregister polling tentacles from the source server. The [dereg
 
 A polling tentacle can be configured against both the source and destination servers when performing an incremental or continual migration, and deregistered from the source server when the migration is complete.
 
+#### Updating polling tentacles in bulk
+
+It is possible to use the script console on the source server to update polling tentacles in bulk. Running one of the commands below against all the individual targets reconfigures them to poll a new Octopus server.
+
+Here is a sample bash command for Linux tentacles:
+
+```bash
+# TentacleExecutablePath is an environment variable pointing to the tentacle executable
+# The server url in the command below (i.e. the value passed to --server) and the API key
+# (i.e. the value passed to --apiKey) replaced with the value specific to your server
+"${TentacleExecutablePath}" poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
+```
+
+Here is a sample PowerShell command for Windows tentacles (or Linux tentacles where PowerShell Core is installed):
+
+```powershell
+# TentacleExecutablePath is an environment variable pointing to the tentacle executable
+# The server url in the command below (i.e. the value passed to --server) and the API key
+# (i.e. the value passed to --apiKey) replaced with the value specific to your server
+& "${TentacleExecutablePath}" poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
+```
+
+![Script Console](/docs/administration/migrate-spaces-with-octoterra/listening-tentacle-update.png)
+
 ### Reconfigure listening tentacles
 
 Listening tentacles are configured to trust a certificate that is unique to each Octopus server.
@@ -353,6 +377,30 @@ It is possible to export the certificate from an on-premises Octopus server and 
 It is not possible to change the certificate used by an Octopus cloud instance. Each listening tentacle must be updated to trust the new certificate of the Octopus cloud instance using the [configure](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/configure) command with the `--trust` argument.
 
 Listening tentacles cen be configured to trust both the source and destination servers when performing an incremental or continual migration, and the trust removed from the source server when the migration is complete.
+
+#### Updating listening tentacles in bulk
+
+It is possible to use the script console on the source server to update listening tentacles in bulk. Running one of the commands below against all the individual targets reconfigures them to trust a new Octopus server.
+
+Here is a sample bash command for Linux tentacles:
+
+```bash
+# TentacleExecutablePath is an environment variable pointing to the tentacle executable
+# The thumbprint in the command below (i.e. the value passed to the --trust argument) is an example 
+# and must be replaced with the value specific to your server
+"${TentacleExecutablePath}" configure --trust=D21887C5EB73D21DDC3DEAB3E8840A47E6279F21
+```
+
+Here is a sample PowerShell command for Windows tentacles (or Linux tentacles where PowerShell Core is installed):
+
+```powershell
+# TentacleExecutablePath is an environment variable pointing to the tentacle executable
+# The thumbprint in the command below (i.e. the value passed to the --trust argument) is an example 
+# and must be replaced with the value specific to your server
+& "${TentacleExecutablePath}" configure --trust=D21887C5EB73D21DDC3DEAB3E8840A47E6279F21
+```
+
+![Script Console](/docs/administration/migrate-spaces-with-octoterra/listening-tentacle-update.png)
 
 ### Update CI servers
 
