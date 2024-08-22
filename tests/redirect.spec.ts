@@ -8,6 +8,7 @@ const redirectMatcher = /redirect:\s?(.*?)\r?\n/;
 const posts = await glob('src/pages/docs/**/*.{md,mdx}');
 
 test('Check redirects', async () => {
+  let count = 0;
 
   for (let post of posts) {
     let url = null;
@@ -15,13 +16,15 @@ test('Check redirects', async () => {
     const redirectMatches = content.match(redirectMatcher);
 
     if (redirectMatches) {
-      url = baseUrl + redirectMatches[1];
+      url = redirectMatches[1];
     }
 
     try {
       if (url && url.startsWith('/docs')) {
+        count++;
+
         // Get the redirect page
-        const redirectPage = await fetch(new URL(url));
+        const redirectPage = await fetch(new URL(baseUrl + url));
         expect(redirectPage.status, `Expected a 200 OK response for page ${url}`).toBe(200);
 
         // Get the new location
@@ -42,9 +45,10 @@ test('Check redirects', async () => {
           }
         }
       }
-
     } catch(error) {
       expect(`Failed to fetch redirect target ${url} found on ${post} due to ${error}`).toBe('');
     }
   }
+
+  console.log(`Checked ${count} redirects`);
 });

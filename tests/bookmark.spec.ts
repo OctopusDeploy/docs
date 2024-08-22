@@ -92,5 +92,3 @@ for (let bookmark of bookmarks) {
     await expect(page.locator(url.hash)).toBeVisible()
   });
 }
-
-console.log(`Checked ${bookmarks.length} bookmarks.`);
