@@ -5,11 +5,12 @@ test('Check bookmarks', async ({ page }) => {
   for (let bookmark of bookmarks) {
     const url = new URL(bookmark, baseUrl);
 
-    console.log('Checking bookmark', url.href);
     await page.goto(url.href);
 
     await expect(page.locator(url.hash)).toBeVisible()
   }
+
+  console.log(`Checked ${bookmarks.length} bookmarks.`)
 });
 
 const bookmarks = [

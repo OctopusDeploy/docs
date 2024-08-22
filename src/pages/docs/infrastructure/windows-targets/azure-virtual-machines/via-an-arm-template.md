@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template
+redirect: /docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

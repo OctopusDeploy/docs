@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/octopus-rest-api/cli/octopus-project-group-create
+redirect: /docs/octopus-rest-api/cli/octopus-project-group-create
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

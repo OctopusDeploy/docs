@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/projects/steps/configuration-features/xml-configuration-variables-feature
+redirect: /docs/projects/steps/configuration-features/xml-configuration-variables-feature
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

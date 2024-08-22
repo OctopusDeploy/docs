@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/security/authentication/troubleshooting-authentication-problems
+redirect: /docs/security/authentication/troubleshooting-authentication-problems
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

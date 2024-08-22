@@ -28,6 +28,7 @@
         "astro": "^4.14.4",
         "astro-accelerator-utils": "^0.3.17",
         "cspell": "^8.14.2",
+        "glob": "^11.0.0",
         "gray-matter": "^4.0.3",
         "hast-util-from-selector": "^3.0.0",
         "html-to-text": "^9.0.5",

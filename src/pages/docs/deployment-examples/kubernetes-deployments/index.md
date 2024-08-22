@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/deployments/kubernetes
+redirect: /docs/deployments/kubernetes
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false
