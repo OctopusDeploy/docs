@@ -17,6 +17,20 @@ There's three factors which affect the effort the likelihood of success:
 
 When trying to determine the best combination of these for your situation, it may be simplest to start small and iterate.
 
+| Distribution | Storage Solution | Approach                                               |
+|---|----------------|--------------------------------------------------------|
+| AKS | NFS              | No additional configuration required                   |
+|    | Azure Files      | No additional configuration required                   |
+| GKE  | NFS              | No additional configuration required                   |
+| EKS | NFS              | No additional configuration required                   |
+|   | CSI EBS Driver | No additional configuration required                   |
+| RKE2 | Longhorn         | Requires pre-configured storage - reach out to support |
+| OpenShift | NFS | Requires specific configuration - reach out to support |
+
+:::div{.warning}
+The NFS Storage solution cannot be used with [BottleRocket](https://aws.amazon.com/bottlerocket/?amazon-bottlerocket-whats-new.sort-by=item.additionalFields.postDateTime&amazon-bottlerocket-whats-new.sort-order=desc) nodes
+as [selinux](https://github.blog/developer-skills/programming-languages-and-frameworks/introduction-to-selinux/)  enforcement prevents NFS container execution.
+:::
 
 ## First Steps
 There are a variety of Kubernetes implementations which can be used locally, as you start out with the Kubernetes worker.

@@ -13,7 +13,7 @@ Recent changes to the Kubernetes-Agent Helm Chart have necessitated a breaking c
 of the v1 Kubernetes-Agent helm chart are (currently) unable to automatically upgrade to the new version (v2).
 
 The version of a Kubernetes Agent is found by going to **Infrastructure** then into **DeploymentTargets**; from there click on the 
-**Kubernetes Agent** of interest; on it's **Connectivity** sub-page you will see 'Current Version'.
+**Kubernetes Agent** of interest; on its **Connectivity** sub-page you will see 'Current Version'.
 
 :::figure
 ![Kubernetes Agent default namespace](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-version.png)
@@ -27,5 +27,11 @@ Steps required to manually upgrade a v1 instance can be found in the Kubernetes 
 
 Alternatively, existing v1 Kubernetes Agents can be deleted from your server instance, and recreated as v2 Agents via the installation workflow available in Octopus Server. 
 
+## Automatic Updates (coming in 2023.4)
 Octopus Server is being upgraded to support automated upgrades across major Helm Chart versions, and will be available as part of the 2024.4.
 This capability will be available to cloud instances in  September 2024, and December 2024 for self-hosted instances. 
+
+## Impacts to Terraform Installation
+Existing Terraform scripts installing the Kubernetes Helm chart will continue to work, provided a version constraint is specified (1.\*\*).
+Otherwise, you will be required to update your scripts according to the supplied [documentation](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/migrations.md), to ensure values are set
+correctly.

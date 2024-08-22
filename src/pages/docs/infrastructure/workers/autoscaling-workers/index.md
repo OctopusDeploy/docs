@@ -27,8 +27,8 @@ The web portal's [installation process](/docs/infrastructure/workers#installing-
 When the Kubernetes worker executes a deployment step, it executes the operation within a [worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) container,
 meaning sufficient tooling is available for most deployment activities.
 
-If a step require specific tooling, you are able to set the desired container on the step - the Kubernetes
-Agent honours this setting as per other worker types.
+If a step requires specific tooling, you are able to set the desired container on the step - the Kubernetes
+Worker honours this setting as per other worker types.
 
 ## Customizations
 The behavior of the Kubernetes Worker can be modified through [Helm chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/kubernetes-agent) `Values`.
@@ -55,7 +55,7 @@ The Kubernetes Worker is limited to modifying its local namespace, preventing it
 The Kubernetes Worker is permitted unfettered access to its local namespace, ensuring it is able to update itself, and
 create new pods for each requested operation.
 
-These default permissions can be overriden via Helm values.
+The Kubernetes Worker allows execution permissions to be overwritten in the same way as the [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent/permissions).
 
 ## Limitations
 Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.
