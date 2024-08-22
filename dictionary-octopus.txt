@@ -30,6 +30,7 @@ bootstrap
 bootstrapped
 bootstrapper
 bufio
+buildevent
 Ceph
 certkeyName
 changeit
@@ -115,6 +116,7 @@ gitcredential
 globbing
 Gluster
 googleaccount
+googleapps
 gpedit
 groff
 Groupsand
@@ -182,6 +184,7 @@ Liquibase
 lstrip
 ltsc
 machinepolicies
+machinepolicy
 maintenanceconfiguration
 majeure
 makedirs
@@ -203,6 +206,7 @@ myapplication
 myfeature
 navigationid
 NETBIOS
+netcore
 Netscaler
 netsh
 netstandard
@@ -234,6 +238,7 @@ Octodiff
 octofxjs
 octoha
 octojs
+octopack
 octopackjs
 Octopub
 octopusartifact
@@ -241,6 +246,7 @@ octopusbob
 octopusdemos
 octopusdemos.app
 octopusdeploy
+octopusdsc
 octopusid
 octopuslabs
 octopusservernodes
@@ -296,6 +302,7 @@ rehype
 reindexing
 releaseprogression
 remoting
+removecloudformation
 replicasets
 reprioritize
 reprovisioned
