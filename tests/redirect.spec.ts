@@ -20,7 +20,7 @@ test('Check redirects', async () => {
 
     try {
       if (url && url.startsWith('/docs')) {
-        // Get the know redirect page
+        // Get the redirect page
         const redirectPage = await fetch(new URL(url));
         expect(redirectPage.status, `Expected a 200 OK response for page ${url}`).toBe(200);
 

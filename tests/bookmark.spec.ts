@@ -1,18 +1,6 @@
 import { test, expect } from '@playwright/test';
 const baseUrl = 'http://[::1]:3000';
 
-test('Check bookmarks', async ({ page }) => {
-  for (let bookmark of bookmarks) {
-    const url = new URL(bookmark, baseUrl);
-
-    await page.goto(url.href);
-
-    await expect(page.locator(url.hash)).toBeVisible()
-  }
-
-  console.log(`Checked ${bookmarks.length} bookmarks.`)
-});
-
 const bookmarks = [
   '/docs/administration/managing-infrastructure/diagnostics#system-integrity-check',
   '/docs/administration/spaces#default-space',
@@ -94,3 +82,15 @@ const bookmarks = [
   '/docs/security/users-and-teams#inviting-users',
   '/docs/security/users-and-teams/auditing#accessing-archived-logs',
 ];
+
+for (let bookmark of bookmarks) {
+  const url = new URL(bookmark, baseUrl);
+  
+  test(`Check bookmark for ${bookmark}`, async ({ page }) => {
+    await page.goto(url.href);
+
+    await expect(page.locator(url.hash)).toBeVisible()
+  });
+}
+
+console.log(`Checked ${bookmarks.length} bookmarks.`);
