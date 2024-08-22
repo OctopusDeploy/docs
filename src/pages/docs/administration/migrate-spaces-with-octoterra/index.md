@@ -366,7 +366,7 @@ Here is a sample PowerShell command for Windows tentacles (or Linux tentacles wh
 & "${TentacleExecutablePath}" poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
-![Script Console](/docs/administration/migrate-spaces-with-octoterra/listening-tentacle-update.png)
+![Script Console](/docs/administration/migrate-spaces-with-octoterra/polling-tentacle-update.png)
 
 ### Reconfigure listening tentacles
 
