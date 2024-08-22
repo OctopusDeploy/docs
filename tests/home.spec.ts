@@ -35,7 +35,7 @@ test('Crawl for bad URIs', async () => {
     discoveredLinks = [];
 
     for (let i = 0; i < links.length; i++) {
-      //await crawl(links[i], url);
+      await crawl(links[i], url);
     }
   };
 
