@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/packaging-applications/package-repositories/guides/container-registries/google-container-registry
+redirect: https://octopus.com/docs/packaging-applications/package-repositories/guides/container-registries/google-container-registry
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/administration/managing-infrastructure/applying-operating-system-upgrades
+redirect: https://octopus.com/docs/administration/managing-infrastructure/applying-operating-system-upgrades
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

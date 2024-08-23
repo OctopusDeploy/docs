@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/projects
+redirect: https://octopus.com/docs/projects
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

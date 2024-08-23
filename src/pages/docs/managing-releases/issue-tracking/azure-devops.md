@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/releases/issue-tracking/azure-devops
+redirect: https://octopus.com/docs/releases/issue-tracking/azure-devops
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/installation/automating-installation
+redirect: https://octopus.com/docs/installation/automating-installation
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

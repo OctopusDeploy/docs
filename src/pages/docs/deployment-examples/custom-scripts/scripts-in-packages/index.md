@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/deployments/custom-scripts/scripts-in-packages
+redirect: https://octopus.com/docs/deployments/custom-scripts/scripts-in-packages
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

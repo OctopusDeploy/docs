@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/security/authentication/okta-authentication
+redirect: https://octopus.com/docs/security/authentication/okta-authentication
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

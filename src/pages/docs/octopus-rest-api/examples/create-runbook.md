@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/octopus-rest-api/examples/runbooks/create-runbook
+redirect: https://octopus.com/docs/octopus-rest-api/examples/runbooks/create-runbook
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

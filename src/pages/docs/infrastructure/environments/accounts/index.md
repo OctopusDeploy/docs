@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/infrastructure/accounts
+redirect: https://octopus.com/docs/infrastructure/accounts
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

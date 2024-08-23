@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/octopus-rest-api/cli/octopus-release
+redirect: https://octopus.com/docs/octopus-rest-api/cli/octopus-release
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

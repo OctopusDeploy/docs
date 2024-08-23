@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/security/built-in-worker
+redirect: https://octopus.com/docs/security/built-in-worker
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/deployments/nginx/configure-octopus-deploy-project
+redirect: https://octopus.com/docs/deployments/nginx/configure-octopus-deploy-project
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

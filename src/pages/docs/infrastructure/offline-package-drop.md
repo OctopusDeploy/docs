@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/infrastructure/deployment-targets/offline-package-drop
+redirect: https://octopus.com/docs/infrastructure/deployment-targets/offline-package-drop
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false
