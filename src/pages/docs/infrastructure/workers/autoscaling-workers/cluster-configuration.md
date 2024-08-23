@@ -24,8 +24,8 @@ When trying to determine the best combination of these for your situation, it ma
 |      GKE      |        NFS        | No additional configuration required                   |
 |      EKS      |        NFS        | No additional configuration required                   |
 |               |        EFS        | Requires Octopus Server 2024.3+                        |
-|     RKE2      |     Longhorn      | Requires pre-configured storage - reach out to support |
-|   OpenShift   |        NFS        | Requires specific configuration - reach out to support |
+|     RKE2      |     Longhorn      | Requires pre-configured storage - email [support@octopus.com](mailto:support@octopus.com) |
+|   OpenShift   |        NFS        | Requires specific configuration - email [support@octopus.com](mailto:support@octopus.com) |
 
 The Kubernetes worker is compatible with most Ubuntu-based nodes and also those running Amazon Linux.
 
@@ -34,7 +34,7 @@ The Kubernetes worker is compatible with most Ubuntu-based nodes and also those 
 The NFS Storage solution cannot be used with [BottleRocket](https://aws.amazon.com/bottlerocket/?amazon-bottlerocket-whats-new.sort-by=item.additionalFields.postDateTime&amazon-bottlerocket-whats-new.sort-order=desc) nodes
 as [selinux](https://github.blog/developer-skills/programming-languages-and-frameworks/introduction-to-selinux/)  enforcement prevents NFS container execution.
 
-The Kubernetes worker is not compatible with Windows nodes, and will not create script-pods based on Windows images.
+The Kubernetes worker is not compatible with Windows nodes, and currently unable to create script-pods based on Windows images.
 :::
 
 ## First Steps
