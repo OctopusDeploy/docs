@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/security/fips-and-octopus-deploy
+redirect: /docs/security/fips-and-octopus-deploy
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

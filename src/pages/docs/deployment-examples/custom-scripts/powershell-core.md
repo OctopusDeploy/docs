@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/deployments/custom-scripts/powershell-core
+redirect: /docs/deployments/custom-scripts/powershell-core
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

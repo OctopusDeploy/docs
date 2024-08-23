@@ -11,7 +11,7 @@ If you run into any issues, refer to the documentation for the type of deploymen
 - [Windows](/docs/infrastructure/deployment-targets/tentacle/windows)
 - [Linux](/docs/infrastructure/deployment-targets/linux)
 - [Azure](/docs/infrastructure/deployment-targets/azure)
-- [Kubernetes](/docs/infrastructure/deployment-targets/kubernetes-target)
+- [Kubernetes](/docs/kubernetes/targets/kubernetes-api)
 - [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop)
 - [Cloud region](/docs/infrastructure/deployment-targets/cloud-regions)
 
@@ -24,8 +24,8 @@ As you configure your deployment targets, select the environment, they will belo
 [Getting Started - Machine Roles](https://www.youtube.com/watch?v=AU8TBEOI-0M)
 
 1. Enter *dev-server-01* in the **Display Name**
-1. In **Environments** select *Development*.
-1. In your deployment target select enter in **hello-world** as the target role. 
-1. Click on the **SAVE** button.
+2. In **Environments** select *Development*.
+3. In your deployment target select enter in **hello-world** as the target role. 
+4. Click on the **SAVE** button.
 
 ![Deployment target with roles](/docs/shared-content/concepts/images/target-with-roles.png)

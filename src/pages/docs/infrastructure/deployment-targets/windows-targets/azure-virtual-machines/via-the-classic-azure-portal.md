@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-the-classic-azure-portal
+redirect: /docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-the-classic-azure-portal
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

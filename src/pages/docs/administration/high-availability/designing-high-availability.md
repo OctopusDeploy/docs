@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/administration/high-availability/design
+redirect: /docs/administration/high-availability/design
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

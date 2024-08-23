@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/tenants/tenant-variables
+redirect: /docs/tenants/tenant-variables
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false
