@@ -59,7 +59,7 @@ The Kubernetes Worker allows execution permissions to be overwritten in the same
 
 ## Limitations
 Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.
-Which means certain operations which are typically valid, will not be possible.
+Which means certain operations which are typically valid, may not be possible.
 Specifically:
 * Creating an [inline execution container](../../projects/steps/execution-containers-for-workers#inline-execution-containers) 
 * Fetching docker images (when used as secondary packages)
