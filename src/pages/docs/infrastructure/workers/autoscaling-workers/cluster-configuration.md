@@ -48,7 +48,7 @@ The following distributions were used extensively during our development, and wo
 * [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 * [MicroK8s](https://microk8s.io/)
 
-These have all bee proven to work well with the default NFS storage solution, so no advanced setup is required.
+These have all been proven to work well with the default NFS storage solution, so no advanced setup is required.
 
 Such a setup is unsuitable for production deployments, but will get a Kubernetes worker running quickly so you can
 see how it works, and determine how you may make the most of it.
