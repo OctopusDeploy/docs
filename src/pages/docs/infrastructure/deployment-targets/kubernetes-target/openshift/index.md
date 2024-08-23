@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/infrastructure/deployment-targets/kubernetes/kubernetes-api/openshift
+redirect: https://octopus.com/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api/openshift
 pubDate:  2024-04-23
 navSearch: false
 navSitemap: false

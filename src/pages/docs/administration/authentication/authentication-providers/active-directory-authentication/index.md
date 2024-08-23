@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/security/authentication/active-directory
+redirect: https://octopus.com/docs/security/authentication/active-directory
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

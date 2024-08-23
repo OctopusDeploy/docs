@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/releases/deleting-releases
+redirect: https://octopus.com/docs/releases/deleting-releases
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

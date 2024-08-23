@@ -137,7 +137,7 @@ To the new location:
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/security/authentication/azure-ad-authentication
+redirect: https://octopus.com/docs/security/authentication/azure-ad-authentication
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

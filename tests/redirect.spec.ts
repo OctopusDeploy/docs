@@ -16,7 +16,7 @@ test('Check redirects', async () => {
     const redirectMatches = content.match(redirectMatcher);
 
     if (redirectMatches) {
-      url = redirectMatches[1];
+      url = redirectMatches[1].replace('https://octopus.com/', '/');
     }
 
     try {

@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/approvals/servicenow
+redirect: https://octopus.com/docs/approvals/servicenow
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

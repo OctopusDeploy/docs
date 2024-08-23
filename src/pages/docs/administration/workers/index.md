@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/infrastructure/workers
+redirect: https://octopus.com/docs/infrastructure/workers
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

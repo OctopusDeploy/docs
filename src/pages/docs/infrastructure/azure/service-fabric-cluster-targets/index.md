@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets
+redirect: https://octopus.com/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

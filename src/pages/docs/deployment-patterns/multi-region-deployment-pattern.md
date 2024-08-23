@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/deployments/patterns/multi-region-deployment-pattern
+redirect: https://octopus.com/docs/deployments/patterns/multi-region-deployment-pattern
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

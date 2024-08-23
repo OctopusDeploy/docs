@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/runbooks/runbook-examples/aws/delete-stack
+redirect: https://octopus.com/docs/runbooks/runbook-examples/aws/delete-stack
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

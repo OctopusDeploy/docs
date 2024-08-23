@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/deployments/azure/cloud-services
+redirect: https://octopus.com/docs/deployments/azure/cloud-services
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

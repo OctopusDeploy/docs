@@ -1,27 +1,34 @@
 import { test, expect } from '@playwright/test';
 const baseUrl = 'http://[::1]:3000';
 
+/**
+ * IMPORTANT NOTE! If these tests fail, it's because short.io links must be updated
+ * to reflect a moved documentation page. Don't edit these tests before updating
+ * the short.io link. Please tag #website-requests if in doubt!
+ * 
+ */
+
 const bookmarks = [
   '/docs/administration/managing-infrastructure/diagnostics#system-integrity-check',
   '/docs/administration/spaces#default-space',
   '/docs/administration/spaces#modify-a-space',
-  '/docs/deployments/kubernetes/deploy-container#active-deadline-seconds',
-  '/docs/deployments/kubernetes/deploy-container#add-label',
-  '/docs/deployments/kubernetes/deploy-container#backoff-limit',
-  '/docs/deployments/kubernetes/deploy-container#blue-green-deployment-strategy',
-  '/docs/deployments/kubernetes/deploy-container#completions',
-  '/docs/deployments/kubernetes/deploy-container#deployment-name',
-  '/docs/deployments/kubernetes/deploy-container#parallelism',
-  '/docs/deployments/kubernetes/deploy-container#pod-termination-grace-period',
-  '/docs/deployments/kubernetes/deploy-container#progression-deadline',
-  '/docs/deployments/kubernetes/deploy-container#recreate-deployment-strategy',
-  '/docs/deployments/kubernetes/deploy-container#replicas',
-  '/docs/deployments/kubernetes/deploy-container#revision-history-limit',
-  '/docs/deployments/kubernetes/deploy-container#rolling-update-deployment-strategy',
-  '/docs/deployments/kubernetes/deploy-container#volumes',
+  '/docs/kubernetes/steps/kubernetes-resources#active-deadline-seconds',
+  '/docs/kubernetes/steps/kubernetes-resources#add-label',
+  '/docs/kubernetes/steps/kubernetes-resources#backoff-limit',
+  '/docs/kubernetes/steps/kubernetes-resources#blue-green-deployment-strategy',
+  '/docs/kubernetes/steps/kubernetes-resources#completions',
+  '/docs/kubernetes/steps/kubernetes-resources#deployment-name',
+  '/docs/kubernetes/steps/kubernetes-resources#parallelism',
+  '/docs/kubernetes/steps/kubernetes-resources#pod-termination-grace-period',
+  '/docs/kubernetes/steps/kubernetes-resources#progression-deadline',
+  '/docs/kubernetes/steps/kubernetes-resources#recreate-deployment-strategy',
+  '/docs/kubernetes/steps/kubernetes-resources#replicas',
+  '/docs/kubernetes/steps/kubernetes-resources#revision-history-limit',
+  '/docs/kubernetes/steps/kubernetes-resources#rolling-update-deployment-strategy',
+  '/docs/kubernetes/steps/kubernetes-resources#volumes',
   '/docs/projects/steps/configuration-features/structured-configuration-variables-feature#variable-replacement',
-  '/docs/deployment-process/performance#task-logs',
-  '/docs/deployment-process/steps/email-notifications#smtp-configuration',
+  '/docs/projects/deployment-process/performance#task-logs',
+  '/docs/projects/built-in-step-templates/email-notifications#smtp-configuration',
   '/docs/deployments/aws/cloudformation#aws-login-error-0005',
   '/docs/deployments/aws/cloudformation#aws-login-error-0006',
   '/docs/deployments/aws/ecs#ecs-deployment-deploy-failed',
@@ -30,8 +37,8 @@ const bookmarks = [
   '/docs/deployments/custom-scripts/run-a-script-step#package-reference-fields-name',
   '/docs/deployments/custom-scripts/run-a-script-step#referencing-packages',
   '/docs/deployments/custom-scripts/script-modules#powershell',
-  '/docs/deployments/kubernetes/deploy-raw-yaml#glob-patterns-and-multiple-paths',
-  '/docs/deployments/kubernetes/helm-update#helm-client-tool',
+  '/docs/kubernetes/steps/yaml#glob-patterns-and-multiple-paths',
+  '/docs/kubernetes/steps/helm#helm-client-tool',
   '/docs/deployments/kubernetes/helm-update#known-limitations',
   '/docs/deployments/kubernetes/kustomize#kustomization-file-directory',
   '/docs/deployments/nginx/configure-target-machine#enable-sudo-without-password',

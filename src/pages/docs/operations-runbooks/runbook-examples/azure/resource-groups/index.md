@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/runbooks/runbook-examples/azure/resource-groups
+redirect: https://octopus.com/docs/runbooks/runbook-examples/azure/resource-groups
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

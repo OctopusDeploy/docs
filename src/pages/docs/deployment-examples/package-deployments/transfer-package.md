@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/deployments/packages/transfer-package
+redirect: https://octopus.com/docs/deployments/packages/transfer-package
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

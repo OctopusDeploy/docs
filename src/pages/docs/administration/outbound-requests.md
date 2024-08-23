@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/security/outbound-requests
+redirect: https://octopus.com/docs/security/outbound-requests
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

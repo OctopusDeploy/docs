@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/octopus-rest-api/octopus.migrator.exe-command-line/export
+redirect: https://octopus.com/docs/octopus-rest-api/octopus.migrator.exe-command-line/export
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

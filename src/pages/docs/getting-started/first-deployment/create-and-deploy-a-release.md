@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release
+redirect: https://octopus.com/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

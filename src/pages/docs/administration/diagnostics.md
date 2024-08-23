@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/administration/managing-infrastructure/diagnostics
+redirect: https://octopus.com/docs/administration/managing-infrastructure/diagnostics
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/security/authentication/googleapps-authentication
+redirect: https://octopus.com/docs/security/authentication/googleapps-authentication
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false
