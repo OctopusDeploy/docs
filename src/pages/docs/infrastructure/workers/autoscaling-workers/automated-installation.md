@@ -27,7 +27,7 @@ To ensure that the Kubernetes Worker is correctly installed in Octopus, certain 
 terraform {
   required_providers {
     octopusdeploy = {
-      source  = "octopus.com/com/octopusdeploy"
+      source  = "OctopusDeployLabs/octopusdeploy"
       version = "0.23.0"
     }
 

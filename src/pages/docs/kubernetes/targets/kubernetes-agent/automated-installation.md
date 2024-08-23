@@ -27,7 +27,7 @@ To ensure that the Kubernetes Agent is correctly installed as a deployment targe
 terraform {
   required_providers {
     octopusdeploy = {
-      source  = "octopus.com/com/octopusdeploy"
+      source  = "OctopusDeployLabs/octopusdeploy"
       version = "0.20.0"
     }
 
