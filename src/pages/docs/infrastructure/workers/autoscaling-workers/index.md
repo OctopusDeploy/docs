@@ -50,7 +50,7 @@ Too large (i.e. higher than actual usage) then the cluster will scale too early,
 pods pending for longer than necessary.
 
 ## Permissions
-The Kubernetes Worker is limited to modifying its local namespace, preventing it from pollute the cluster at large.
+The Kubernetes Worker is limited to modifying its local namespace, preventing it from polluting the cluster at large.
 
 The Kubernetes Worker is permitted unfettered access to its local namespace, ensuring it is able to update itself, and
 create new pods for each requested operation.
