@@ -27,7 +27,7 @@ When trying to determine the best combination of these for your situation, it ma
 |     RKE2      |     Longhorn      | Requires pre-configured storage - email [support@octopus.com](mailto:support@octopus.com) |
 |   OpenShift   |        NFS        | Requires specific configuration - email [support@octopus.com](mailto:support@octopus.com) |
 
-While the above defines configurations extensively tested, there are many other configurations which are likely to 
+While the above defines extensively tested configurations, there are many other configurations which are likely to 
 produce a valid system.
 Any Storage class which support being mounted in [ReadWriteMany](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 mode is likely to satisfy the Kubernetes worker's storage requirements.
