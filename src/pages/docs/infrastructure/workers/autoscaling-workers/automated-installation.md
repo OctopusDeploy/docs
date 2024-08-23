@@ -8,7 +8,7 @@ navOrder: 30
 --- 
 
 ## Automated installation via Terraform
-The Kubernetes Worker can be installed and managed using a combination of the [Helm chart >= v2.0.2](https://hub.docker.com/r/octopusdeploy/kubernetes-agent), [Octopus Deploy >= v0.31.0 Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest) and/or [Helm Terraform provider](https://registry.terraform.io/providers/hashicorp/helm).
+The Kubernetes Worker can be installed and managed using a combination of the [Helm chart >= v2.0.2](https://hub.docker.com/r/octopusdeploy/kubernetes-agent), [Octopus Deploy >= v0.23.0 Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest) and/or [Helm Terraform provider](https://registry.terraform.io/providers/hashicorp/helm).
 
 ### Octopus Deploy & Helm
 Using a combination of the Octopus Deploy and Helm providers you can completely manage the Kubernetes Worker via Terraform. 
@@ -28,7 +28,7 @@ terraform {
   required_providers {
     octopusdeploy = {
       source  = "octopus.com/com/octopusdeploy"
-      version = "0.31.0"
+      version = "0.23.0"
     }
 
     helm = {
