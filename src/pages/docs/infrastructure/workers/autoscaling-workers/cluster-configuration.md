@@ -44,7 +44,7 @@ The Kubernetes worker is not compatible with Windows nodes, and currently unable
 ## First Steps
 There are a variety of Kubernetes implementations which can be used locally, as you start out with the Kubernetes worker.
 The following distributions were used extensively during our development, and work well for exploratory testing: 
-* [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download)
+* [Minikube](https://minikube.sigs.k8s.io/docs/start)
 * [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 * [MicroK8s](https://microk8s.io/)
 
