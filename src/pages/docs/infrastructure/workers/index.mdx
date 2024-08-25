@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-11-17
+modDate: 2024-08-22
 title: Workers
 description: External workers are machines that can execute steps that don't need to be performed on the Octopus Server or deployment targets.
 navOrder: 30
@@ -17,6 +17,7 @@ import PowerShellNamedMutex from 'src/shared-content/tentacle/powershell-named-m
 import Workers from 'src/shared-content/infrastructure/workers.include.md';
 import WorkersIndividualProcessExclusively from 'src/shared-content/tentacle/workers-individual-process-exclusively.include.md';
 import WorkersMultipleSimultaneousProcesses from 'src/shared-content/tentacle/workers-multiple-simultaneous-processes.include.md';
+import ConfigureK8sWorker from 'src/shared-content/tentacle/configure-k8s-worker.include.md';
 
 [Getting Started - Worker and Worker Pools](https://www.youtube.com/watch?v=v6621BId7fE)
 
@@ -89,6 +90,7 @@ Learn more about configuring and using [dynamic worker pools](/docs/infrastructu
 An **External Worker** is either:
 - A [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux) Tentacle.
 - An [SSH machine](/docs/infrastructure/deployment-targets/linux/ssh-target) that has been registered with the Octopus Server as a worker.  
+- A [Kubernetes Worker](/docs/infrastructure/workers/autoscaling-workers) that has been installed in a k8s cluster, and has self-registered with the Octopus Server
 
 The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/tentacle/windows/) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target), except that instead of being added to an environment, a worker is added to a [worker pool](/docs/infrastructure/workers/worker-pools/).
 
@@ -113,6 +115,7 @@ You can choose between:
 - [Registering a Windows Listening Tentacle as a Worker](#registering-windows-listening-worker).
 - [Registering a Linux Listening Tentacle as a Worker](#registering-linux-listening-worker).
 - [Registering an SSH deployment target as a Worker](#registering-ssh-connection-worker).
+- [Installing a Kubernetes Worker](#installing-a-kubernetes-worker)
 
 After you have saved the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
 
@@ -140,13 +143,17 @@ The Tentacle agent will need to be installed on the target server to communicate
 
 The new Polling Tentacle will automatically show up in the Workers list.
 
-### Registering a Linux Polling Tentacle as a Worker \{#registering-linux-polling-worker}
+### Registering a Linux Polling Tentacle as a Worker \{#registering-linux-polling-worker}`
 
 The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux) for more details.
 
 <ConfigureLinuxPollingWorker />
 
 The new Polling Tentacle will automatically show up in the Workers list.
+
+### Installing a Kubernetes Worker
+
+<ConfigureK8sWorker />
 
 ### Registering Workers with the Tentacle executable \{#registering-workers-with-the-tentacle-executable}
 
