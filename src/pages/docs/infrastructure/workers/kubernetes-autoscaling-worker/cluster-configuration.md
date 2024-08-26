@@ -41,7 +41,7 @@ The Kubernetes worker is compatible with most Ubuntu-based nodes and also those 
 
 :::div{.warning}
 The NFS Storage solution cannot be used with [BottleRocket](https://aws.amazon.com/bottlerocket/?amazon-bottlerocket-whats-new.sort-by=item.additionalFields.postDateTime&amazon-bottlerocket-whats-new.sort-order=desc) nodes
-as [selinux](https://github.blog/developer-skills/programming-languages-and-frameworks/introduction-to-selinux/)  enforcement prevents NFS container execution.
+as [a current issue with SELinux enforcement](https://github.com/bottlerocket-os/bottlerocket/issues/4116) prevents execution from the NFS share.
 
 The Kubernetes worker is not compatible with Windows nodes, and currently unable to create script-pods based on Windows images.
 :::
