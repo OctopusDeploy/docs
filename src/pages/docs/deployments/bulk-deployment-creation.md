@@ -8,10 +8,6 @@ description: Octopus Deploy can use bulk deployment creation when deploying to m
 navOrder: 170
 ---
 
-:::div{.hint}
-Bulk deployment creation will be available from Octopus Deploy **2023.4**
-:::
-
 With bulk deployment creation, you will be redirected to a new server task upon deploying a release to multiple environments or tenants through Octopus Portal. There you will find each requested deployment as task summary items, which will display progress and any errors.
 
 :::figure
@@ -41,3 +37,7 @@ You will only be allowed to view, retry, cancel or edit the server task if your 
 
 # Retention
 Bulk deployment creation server tasks older than 90 days become eligible for retention and will automatically be removed by Octopus Server.
+
+## Older versions
+
+Bulk deployment creation is available from Octopus **2023.4**. Older versions of Octopus will create individual server tasks for each deployment.
