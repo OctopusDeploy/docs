@@ -90,7 +90,7 @@ Learn more about configuring and using [dynamic worker pools](/docs/infrastructu
 An **External Worker** is either:
 - A [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux) Tentacle.
 - An [SSH machine](/docs/infrastructure/deployment-targets/linux/ssh-target) that has been registered with the Octopus Server as a worker.  
-- A [Kubernetes Worker](/docs/infrastructure/workers/autoscaling-workers) that has been installed in a Kubernetes cluster, and has self-registered with the Octopus Server
+- A [Kubernetes Worker](/docs/infrastructure/workers/kubernetes-worker) that has been installed in a Kubernetes cluster, and has self-registered with the Octopus Server
 
 The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/tentacle/windows/) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target), except that instead of being added to an environment, a worker is added to a [worker pool](/docs/infrastructure/workers/worker-pools/).
 
