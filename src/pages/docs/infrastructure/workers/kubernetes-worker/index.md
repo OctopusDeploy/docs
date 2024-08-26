@@ -2,20 +2,17 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-08-22
 modDate: 2024-08-22
-title: Auto Scaling
+title: Kubernetes Worker
 navOrder: 60
 ---
+The Kubernetes Worker allows worker operations to be executed within a Kubernetes cluster in a scalable manner.
+This allows compute resources used during the execution of a Deployment process (or runbook) are released
+when the Deployment completes.
 
-Workers are only utilized during the execution of a Deployment Process - which means they need to be able to handle high
-workloads intermittently but remain idle otherwise.
+The Octopus Web portal provides a wizard which constructs guides you through the creation of a Helm installation command
+which installs the Kubernetes Worker in your cluster.
 
-Workers installed on virtual or physical machines require minimal resources during quiet times, leaving the machine 
-under-utilized for much of its life.
-
-Using the Kubernetes Worker resolves this issue. You can install it in a Kubernetes cluster, which leverages the cluster's
-ability to scale hardware as workloads change.
-
-Auto-scaling benefits aside, the Kubernetes Worker _is_ a standard Octopus worker:
+Once installed, the Kubernetes Worker functions as a standard Octopus worker:
 * It must be included in 1 or more worker pools
 * Supports deployments to any deployment target
 * Will be kept up to date via machine health checks & updates
