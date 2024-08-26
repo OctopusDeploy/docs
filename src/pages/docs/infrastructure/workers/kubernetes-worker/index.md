@@ -9,6 +9,12 @@ The Kubernetes Worker allows worker operations to be executed within a Kubernete
 This allows compute resources used during the execution of a Deployment process (or runbook) are released
 when the Deployment completes.
 
+:::div{.info}
+The Kubernetes Worker is in "Early Access" and may not cover every scenario immediately, but it is maturing.
+Your feedback will help drive its direction, so please post your thoughts and experiences in our [community slack](https://octopususergroup.slack.com/archives/CBQ3FPQAH)
+or [ProductBoard](https://portal.productboard.com/octopusdeploy/1-octopus-deploy-roadmap/c/108-workers-on-kubernetes).
+:::
+
 The Octopus Web portal provides a wizard which constructs guides you through the creation of a Helm installation command
 which installs the Kubernetes Worker in your cluster.
 
