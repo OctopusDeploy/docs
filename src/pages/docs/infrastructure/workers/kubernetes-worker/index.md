@@ -10,7 +10,7 @@ This allows compute resources used during the execution of a Deployment process 
 when the Deployment completes.
 
 :::div{.info}
-The Kubernetes worker is in EAP, It may not cover every scenario immediately, but it is still maturing.
+The Kubernetes worker is in EAP and may not cover every scenario immediately, but it is maturing.
 Your feedback will help drive its direction, so please post your thoughts and experiences in our [community slack](https://octopususergroup.slack.com/archives/CBQ3FPQAH).
 :::
 
