@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Automatic Step Template Updates
+modDate: 2024-08-26
+title: Automatic step template updates
+icon: fa-solid fa-arrows-rotate
 description: How automatic updates of built-in steps using the new step package format work
 navOrder: 40
 ---
