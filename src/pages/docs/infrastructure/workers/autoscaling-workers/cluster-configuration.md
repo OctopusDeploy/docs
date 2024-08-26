@@ -11,7 +11,7 @@ The Kubernetes worker has been proven to be effective on a variety of installati
 But some configurations are more complex than others!
 
 There's three factors which affect the likelihood of success:
-1. Kubernetes distribution (eg AKS, EKS, GKE ...)
+1. Kubernetes distribution/Manged Service (eg AKS, EKS, GKE ...)
 2. Storage provider type (i.e. the filesystem shared between worker and pods)
 3. The Operating System of the Kubernetes nodes
 
@@ -20,18 +20,18 @@ When trying to determine the best combination of these for your situation, it ma
 The following table defines known good configurations, though there are many other configurations which are likely to
 produce a valid system.
 
-| Distribution | Storage Solution: | Approach                                               |
-|:------------:|:-----------------:|--------------------------------------------------------|
-|   Minikube   | NFS | No additional configuration required, recommended for PoC only |
-|   MicroK8s   | NFS | No additional configuration required, recommended for PoC only |
-|     Kind     | NFS | No additional configuration required, recommended for PoC only |
-|     AKS      |        NFS        | No additional configuration required                   |
-|              |    Azure Files    | No additional configuration required                   |
-|     GKE      |        NFS        | No additional configuration required                   |
-|     EKS      |        NFS        | No additional configuration required                   |
-|              |        EFS        | Requires Octopus Server 2024.3+                        |
-|     RKE2     |     Longhorn      | Requires pre-configured storage - email [support@octopus.com](mailto:support@octopus.com) |
-|  OpenShift   |        NFS        | Requires specific configuration - email [support@octopus.com](mailto:support@octopus.com) |
+| Distribution / Managed Servicer | Storage Solution: | Approach                                                                                  |
+|:-------------------------------:|:-----------------:|-------------------------------------------------------------------------------------------|
+|            Minikube             | NFS | No additional configuration required - recommended for local or edge usage                |
+|            MicroK8s             | NFS | No additional configuration required - recommended for local or edge usage                             |
+|              Kind               | NFS | No additional configuration required - recommended for local or edge usage                             |
+|               AKS               |        NFS        | No additional configuration required                                                      |
+|                                 |    Azure Files    | No additional configuration required                                                      |
+|               GKE               |        NFS        | No additional configuration required                                                      |
+|               EKS               |        NFS        | No additional configuration required                                                      |
+|                                 |        EFS        | Requires Octopus Server 2024.3+                                                           |
+|              RKE2               |     Longhorn      | Requires pre-configured storage - email [support@octopus.com](mailto:support@octopus.com) |
+|            OpenShift            |        NFS        | Requires specific configuration - email [support@octopus.com](mailto:support@octopus.com) |
 
 
 Any Storage class which supports being mounted in [ReadWriteMany](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
