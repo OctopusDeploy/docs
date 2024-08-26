@@ -2,11 +2,11 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-08-22
 modDate: 2024-08-22
-title: Kubernetes Auto-scaling Worker
+title: Kubernetes Worker
 navOrder: 60
 ---
 The Kubernetes Worker allows worker operations to be executed within a Kubernetes cluster in a scalable manner.
-This allows compute resources used during the execution of a Deployment process are released
+This allows compute resources used during the execution of a Deployment process (or runbook) are released
 when the Deployment completes.
 
 The Octopus Web portal provides a wizard which constructs guides you through the creation of a Helm installation command

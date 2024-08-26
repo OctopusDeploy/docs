@@ -43,7 +43,7 @@ Resource requests limits can be defined manually via the `.Values.scriptPods.res
 [Kubernetes structures](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
 ### Advanced Options
-Kubernetes supports [Kubernetes event-Drive Autoscaling](https://keda.sh/) which allows Kubernetes nodes to be added/remove
+Kubernetes supports [Kubernetes Event Driven Autoscaling](https://keda.sh/) which allows Kubernetes nodes to be added/remove
 according to user-defined rules (eg cpu usage, rather than request).
 
 This may be an appropriate solution for complex deployment systems.
