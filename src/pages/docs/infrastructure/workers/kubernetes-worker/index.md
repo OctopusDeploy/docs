@@ -11,7 +11,8 @@ when the Deployment completes.
 
 :::div{.info}
 The Kubernetes worker is in EAP and may not cover every scenario immediately, but it is maturing.
-Your feedback will help drive its direction, so please post your thoughts and experiences in our [community slack](https://octopususergroup.slack.com/archives/CBQ3FPQAH).
+Your feedback will help drive its direction, so please post your thoughts and experiences in our [community slack](https://octopususergroup.slack.com/archives/CBQ3FPQAH)
+or [ProductBoard](https://portal.productboard.com/octopusdeploy/1-octopus-deploy-roadmap/c/108-workers-on-kubernetes).
 :::
 
 The Octopus Web portal provides a wizard which constructs guides you through the creation of a Helm installation command
