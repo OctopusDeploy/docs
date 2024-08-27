@@ -1,15 +1,12 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-08-27
 title: API
+icon: fa-solid fa-globe
 description: The Insights API
 navOrder: 160
 ---
-
-:::div{.warning}
-The DevOps Insights feature is still in development.  You can use this API; however, please keep in mind that it could change at anytime.
-:::
 
 ## Insights Reports API
 

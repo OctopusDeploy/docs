@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-08-27
 title: Space Level Insights
+icon: fa-solid fa-chart-pie
 description: Space level insights
 navOrder: 140
 ---
@@ -74,7 +75,7 @@ Below that there are tables showing a particular measure grouped by project, env
 
 ## Permissions
 
-Permissions are available to help you manage access to Insights reports. You can limit your team's ability to view, edit, delete and create Insights reports by customizing the roles. During the EAP period, the whole feature may be disabled via the **Configuration ➜ Features** page.
+Permissions are available to help you manage access to Insights reports. You can limit your team's ability to view, edit, delete and create Insights reports by customizing the roles. 
 
 :::div{.warning}
 By creating a report, permission to view the aggregated data is granted to anyone with the `InsightsReportView` permission. Someone who has restricted view permissions will be able to see the aggregated data but not the name of the object.
