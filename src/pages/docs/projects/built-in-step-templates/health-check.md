@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2024-08-27
 title: Health check step
+icon: fa-solid fa-heart
 description: Health check steps allow you to perform a health check on deployment targets as part of a deployment or runbook, and take action based on the result.
 navOrder: 30
 ---
@@ -21,16 +22,16 @@ This step allows a deployment target that was created in the currently executing
 
 Similarly, it allows you to confirm that the Tentacle service on a deployment target is running prior to attempting to perform an action against it.
 
-## Configure a Health check step
+## Configure a health check step
 
 Health check steps are added to deployment and runbook processes in the same way as other steps:
 
-1. Add a new `Health Check` step to your [project's deployment process](/docs/projects/steps).
+1. Add a new *Health Check* step to your [project's deployment process](/docs/projects/steps).
 
     ![Health check step](/docs/projects/built-in-step-templates/images/health-check-step-select.png)
-2. In the **On Behalf Of** section, select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the deployment targets you want to run a health check against. 
+2. Select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the deployment targets you want to run a health check against. 
 
-3. In the **Health check** section select an option for **Health check type**:
+3. In the **Health check** section, select an option for **Health check type**:
     - Perform a full health check - this will run the [health check script](/docs/infrastructure/deployment-targets/machine-policies/#custom-health-check-scripts) defined by the machine policy.
     - Perform a connection-only test - this only checks the machine is available (connected).
 
@@ -43,12 +44,12 @@ Health check steps are added to deployment and runbook processes in the same way
 
 ## Maximum number of concurrent health checks
 
-There is a limit to the number of concurrent health checks possible when running the health check step. This ensures that the step doesn't adversely effect the performance of your Octopus Server.
+There is a limit to the number of concurrent health checks possible when running the health check step. This ensures that the step doesn't adversely affect the performance of your Octopus Server.
 
 The number of concurrent health checks will be double the Octopus Server's logical processor count which is a minimum of 2 and will not exceed 32.
 
 ## Health check for workers
 
-Whilst the built-in Health check step works for deployment targets, it was not designed for [Workers](/docs/infrastructure/workers).
+Whilst the built-in *Health check* step works for deployment targets, it was not designed for [workers](/docs/infrastructure/workers).
 
 To check the health of a worker in a deployment or runbook, there is a [Worker - Health check](https://library.octopus.com/step-templates/c6c23c7b-876d-4758-a908-511f066156d7/actiontemplate-worker-health-check) community step template.
