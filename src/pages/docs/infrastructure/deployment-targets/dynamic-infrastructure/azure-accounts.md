@@ -16,9 +16,9 @@ _**New-OctopusAzureServicePrincipalAccount** allows you to create an Azure Servi
 |-------------------------------|------------------------------------------------------------------------------------------------------------|
 | `-name`                       | Name for the Azure Service Principal account                                                             |
 | `-azureSubscription`          | GUID Id of the Azure Subscription                                                                          |
-| `-azureApplicationId`         | GUID Id of the Azure Application                                                                           |
-| `-azureTenantId`              | GUID Id of the Azure AD Tenant                                                                             |
-| `-azurePassword`              | Azure AD Password                                                                                          |
+| `-azureApplicationId`         | GUID Id of the Microsoft Entra ID Application                                                                           |
+| `-azureTenantId`              | GUID Id of the Microsoft Entra ID Tenant                                                                             |
+| `-azurePassword`              | Microsoft Entra ID Password                                                                                          |
 | `-azureEnvironment`           | Azure Environment Identifier,  see [Azure Environment Options](#azure-environment-options) below           |
 | `-azureBaseUri`               | Azure Base Login URI, see [Azure Environment Options](#azure-environment-options) below                    |
 | `-azureResourceManagementUri` | Azure Resource Management URI,  see [Azure Environment Options](#azure-environment-options) below          |

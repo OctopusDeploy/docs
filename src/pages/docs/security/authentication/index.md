@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Authentication providers
-description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Azure AD, Okta, and GoogleApps.
+description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Microsoft Entra ID, Okta, and Google Workspace.
 navOrder: 50
 ---
 
@@ -11,8 +11,8 @@ Octopus Deploy supports the most common authentication providers out-of-the-box,
 
 - [Username and Password](/docs/security/authentication/username-password)
 - [Active Directory Authentication](/docs/security/authentication/active-directory)
-- [Azure Active Directory Authentication](/docs/security/authentication/azure-ad-authentication)
-- [GoogleApps Authentication](/docs/security/authentication/googleapps-authentication)
+- [Microsoft Entra ID Authentication](/docs/security/authentication/azure-ad-authentication)
+- [Google Workspace Authentication](/docs/security/authentication/googleapps-authentication)
 - [LDAP Authentication](/docs/security/authentication/ldap)
 - [Okta Authentication](/docs/security/authentication/okta-authentication)
 - [Octopus ID](/docs/security/authentication/octopusid-authentication)
@@ -44,8 +44,8 @@ In Octopus, you can group your users into teams and use the role-based permissio
 You can manually manage the members of your teams, or you can configure certain external authentication providers to manage your teams for you automatically.
 
 - Learn about [automatically managing teams with Active Directory](/docs/security/authentication/active-directory).
-- Learn about [automatically managing teams with Azure Active Directory](/docs/security/authentication/azure-ad-authentication).
-- Learn about [automatically managing teams with Okta](/docs/security/authentication/azure-ad-authentication).
+- Learn about [automatically managing teams with Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication).
+- Learn about [automatically managing teams with Okta](/docs/security/authentication/okta-authentication).
 
 ## Auto login {#AuthenticationProviders-AutoLogin}
 
@@ -68,9 +68,9 @@ In versions up to 3.5, only a single Authentication Provider could be enabled at
 
 Let's consider that we have UsernamePassword enabled and we create some users, and we've set their email address to their Active Directory domain email address.  The users can now log in with the username and password stored against their user record.  If we now enable the Active Directory authentication provider, then the users can authenticate using either their original username and password, or they can use a username of user@domain or domain\user along with their domain password, or they can use the Integrated authentication button.  In the first scenario they are actually logging in via the UsernamePassword provider, in the latter 2 scenarios they are using the Active Directory provider, but in all of the cases they end up logged in as the same user (this is the driver behind the fallback checks described in the next section).
 
-This scenario would work equally with Azure AD or GoogleApps in place of Active Directory.
+This scenario would work equally with Microsoft Entra ID or Google Workspace in place of Active Directory.
 
-You can also specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using GoogleApps. Whichever option is actually used to login, Octopus will identify them as the same user.
+You can also specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using Google Workspace. Whichever option is actually used to login, Octopus will identify them as the same user.
 
 ### Matching external identities to Octopus users {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
 

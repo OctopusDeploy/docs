@@ -21,8 +21,8 @@ The following table shows login support for each authentication provider in Octo
 |---------------------------------------|:------------------:|:---------------:|:-----------------------:|
 | Username and Password                 | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> <span class="inline-note">[**\***](#table-note-1)</span> | <i class="fa-circle-check"></i> |
 | Active Directory Authentication       | <i class="fa-circle-check"></i> | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> |
-| Azure Active Directory Authentication | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> |
-| GoogleApps Authentication             | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> |
+| Microsoft Entra ID Authentication | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> |
+| Google Workspace Authentication             | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> |
 | LDAP Authentication (**2021.2+**)| <i class="fa-circle-check"></i> | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-circle-check"></i> |
 | Okta Authentication                   | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> | <i class="fa-circle-check"></i> |
 | GitHub                                | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-circle-check"></i> <span class="inline-note">[**\***](#table-note-1)</span> | <i class="fa-solid fa-circle-xmark"></i> |
@@ -38,14 +38,14 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 |----------------------------------------------|:----------------------------------------:|:----------------------------------------:|:----------------------------------------:|
 | Username and Password                        | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> |
 | Active Directory Authentication              |     <i class="fa-circle-check"></i>      | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> |
-| Azure Active Directory Authentication [**\***](#table-note-2) |     <i class="fa-circle-check"></i>      |     <i class="fa-circle-check"></i>      |     <i class="fa-circle-check"></i>      |
-| GoogleApps Authentication                    | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> |
+| Microsoft Entra ID Authentication [**\***](#table-note-2) |     <i class="fa-circle-check"></i>      |     <i class="fa-circle-check"></i>      |     <i class="fa-circle-check"></i>      |
+| Google Workspace Authentication                    | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> |
 | LDAP Authentication (**2021.2+**)            |     <i class="fa-circle-check"></i>      | <i class="fa-solid fa-circle-xmark"></i> |     <i class="fa-circle-check"></i>      |
 | Okta Authentication [**†**](#table-note-3)                    |     <i class="fa-circle-check"></i>      |     <i class="fa-circle-check"></i>      |     <i class="fa-circle-check"></i>      |
 | GitHub                                       | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> |
 | Guest Login                                  | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> | <i class="fa-solid fa-circle-xmark"></i> |
 
-<span id="table-note-2">**\***</span> For Azure Active Directory (AAD) users and groups, these must also be mapped in the Azure App Registration. Please read the [Mapping AAD users into Octopus teams](/docs/security/authentication/azure-ad-authentication/#mapping-aad-users-into-octopus-teams-optional) section for more details. For Octopus Cloud, external groups and roles cannot be configured for Azure AD when using [Octopus ID](/docs/security/authentication/octopusid-authentication).
+<span id="table-note-2">**\***</span> For Microsoft Entra ID users and groups, these must also be mapped in the Entra ID App Registration. Please read the [Mapping Entra ID users into Octopus teams](/docs/security/authentication/azure-ad-authentication/#mapping-aad-users-into-octopus-teams-optional) section for more details. For Octopus Cloud, external groups and roles cannot be configured for Azure AD when using [Octopus ID](/docs/security/authentication/octopusid-authentication).
 
 <span id="table-note-3">**†**</span> For Okta groups to flow through to Octopus, you'll need to change the _Groups claim_ fields. Please read the [Okta group integration](/docs/security/authentication/okta-authentication/#okta-groups) section for more details.
 
