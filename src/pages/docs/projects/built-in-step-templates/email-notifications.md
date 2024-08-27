@@ -49,7 +49,7 @@ Email steps are added to deployment processes in the same way as other steps.
 
 1. Navigate to your [project](/docs/projects).
 2. Click **Process** and **Add step** to add a step to an existing process. Alternatively, if this is a new deployment process, click the **Create process** button.
-3. Find the **Send an Email** step, hover over the step, and click **Add step**.
+3. Find the **Send an Email** step and click **Add step**.
 4. Give the step a short memorable name.
 5. Choose the recipients of the email. You have several options:
 

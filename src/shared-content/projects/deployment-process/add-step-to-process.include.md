@@ -2,7 +2,7 @@
 
 1. Navigate to your [project](/docs/projects).
 2. Click the **Create process** button.
-3. Find the step template you need, hover over the step and click **Add**.
+3. Find the step template you need and click **Add step**.
 
 At this point, you have the choice of choosing from the built-in **Installed Step Templates** or the [Community Contributed Step Templates](/docs/projects/community-step-templates).
 
