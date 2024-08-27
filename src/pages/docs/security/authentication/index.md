@@ -22,7 +22,7 @@ Octopus Deploy supports the most common authentication providers out-of-the-box,
 Support for authentication providers differ between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/). Please see our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information. 
 :::
 
-## Configuring authentication providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
+## Configuring authentication providers
 
 You can use the Octopus Web Portal to configure authentication providers by navigating to **Configuration ➜ Settings**.
 
@@ -47,7 +47,7 @@ You can manually manage the members of your teams, or you can configure certain 
 - Learn about [automatically managing teams with Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication).
 - Learn about [automatically managing teams with Okta](/docs/security/authentication/okta-authentication).
 
-## Auto login {#AuthenticationProviders-AutoLogin}
+## Auto login
 
 When using an external authentication provider, you can configure Octopus to work in one of two ways:
 
@@ -62,7 +62,7 @@ Note that even when enabled, **this functionality is only active when there is a
 
 When using the Active Directory provider, auto login will only be active when the **Configuration ➜ Settings ➜ Active Directory ➜ Allow Forms Authentication For Domain Users** setting is **false**.
 
-## Associating users with multiple external identities {#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders}
+## Associating users with multiple external identities
 
 In versions up to 3.5, only a single Authentication Provider could be enabled at a time (either Domain or UsernamePassword).  In that scenario Users were managed based on the currently enabled provider and switching providers meant re-configuring Users.  With 3.5 comes the ability to have multiple Authentication Providers enabled simultaneously and as such the User management has been adjusted to be provider agnostic.  What does that mean?  Let's consider an example scenario.
 
@@ -72,7 +72,7 @@ This scenario would work equally with Microsoft Entra ID or Google Workspace in 
 
 You can also specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using Google Workspace. Whichever option is actually used to login, Octopus will identify them as the same user.
 
-### Matching external identities to Octopus users {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
+### Matching external identities to Octopus users {#matching-external-identities}
 
 When someone signs in to Octopus using an external authentication provider, Octopus will try to find their user account by looking for matching identifiers. It starts by looking for a matching identifiers from the external authentication provider, and will eventually fall back to match on email address.
 

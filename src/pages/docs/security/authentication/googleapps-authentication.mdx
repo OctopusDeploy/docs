@@ -10,9 +10,9 @@ import AdminUser from 'src/shared-content/installation/admin-user.include.md';
 
 To use Google Workspace authentication with Octopus Server, Google Workspace must be configured to trust Octopus - by setting it up as an app. This section covers the details on how to configure the app.
 
-## Configure Google Workspace \{#GoogleAppsauthentication-ConfiguringGoogleApps}
+## Configure Google Workspace
 
-### Configure an app \{#GoogleAppsauthentication-SetupanApp}
+### Configure an app
 
 To configure an app within Google Workspace, you must have a Developer account at [https://developers.google.com](https://developers.google.com).  This account will own the app configuration, so we recommend you create an account for company use, rather than using an individual account.
 
@@ -41,7 +41,7 @@ Once you have an account, log in to [https://console.developers.google.com](http
 Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration) making it easier to setup SSL on your Octopus Server.
 :::
 
-## Configure Octopus Server \{#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
+## Configure Octopus Server
 
 You can configure the Google Workspace settings from the command line. You will need the **Client ID** and **Client secret** from the Credentials tab and your **hosted domain name**.
 
@@ -52,7 +52,7 @@ Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**.
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
 ```powershell
-Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsClientSecret=ClientSecret --googleAppsHostedDomain=yourdomain.com
+Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsClientSecret=ClientSecret --googleAppsHostedDomain=your-domain.com
 ```
 
 Alternatively these settings can be defined through the user interface by selecting **Configuration ➜ Settings ➜ GoogleApps** and populating the fields `Is Enabled`, `Hosted Domain`, `Client ID` and `Client Secret`.
@@ -61,7 +61,7 @@ Alternatively these settings can be defined through the user interface by select
 ![Settings](/docs/security/authentication/images/google.png "width=500")
 :::
 
-### Octopus user accounts are still required \{#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
+### Octopus user accounts are still required
 
 Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
@@ -77,11 +77,11 @@ If you already have Octopus user accounts and you want to enable external authen
 
 <AdminUser />
 
-## Troubleshooting \{#GoogleAppsauthentication-Troubleshooting}
+## Troubleshooting
 
 We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with Google Workspace, be sure to check your [server logs](/docs/support/log-files) for warnings.
 
-### Double and triple check your configuration \{#GoogleAppsauthentication-DoubleandTriplecheckyourconfiguration}
+### Double and triple check your configuration
 
 Unfortunately security-related configuration is sensitive to everything. Make sure:
 
@@ -89,11 +89,11 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 - Remember things are case-sensitive.
 - Remember to remove or add slash characters as we've instructed - they matter too!
 
-### Check OpenID Connect metadata is working \{#GoogleAppsauthentication-CheckOpenIDConnectmetadataisworking}
+### Check OpenID Connect metadata is working
 
 You can see the OpenID Connect metadata by going to [https://accounts.google.com/.well-known/openid-configuration](https://accounts.google.com/.well-known/openid-configuration).
 
-### Inspect the contents of the security token \{#GoogleAppsauthentication-Inspectthecontentsofthesecuritytoken}
+### Inspect the contents of the security token
 
 Perhaps the contents of the security token sent back by Google Workspace aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the Google Workspace user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from Google Workspace to Octopus via your browser. To inspect the contents of your security token:
 
