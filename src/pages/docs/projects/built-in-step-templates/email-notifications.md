@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-27
 title: Email notification step
+icon: fa-solid fa-envelope
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
 navOrder: 10
 ---
@@ -30,19 +31,13 @@ To add your SMTP configuration navigate to **Configuration ➜ SMTP** and set th
 | From Address       | The address which all emails will be sent 'From'. | octopus@mydomain.com |
 | Credentials        | Optional SMTP login / password if your SMTP server requires authentication. | mylogin@mydomain.com / SuperSecretPa$$word |
 
-Click **SAVE AND TEST** to save the SMTP configuration and verify the values are valid:
+Click **Save and test** to save the SMTP configuration and verify the values are valid:
 
 :::figure
 ![](/docs/projects/built-in-step-templates/images/smtp-configuration.png)
 :::
 
-You will be prompted for an email address to send a test email to:
-
-:::figure
-![](/docs/projects/built-in-step-templates/images/smtp-test-email.png)
-:::
-
-Enter a test email address and click **OK**. A Send test email task will start to verify your SMTP Configuration:
+You will be prompted for an email address to send a test email to. Enter a test email address and click **Ok**. A *Send test email* task will start to verify your SMTP Configuration:
 
 :::figure
 ![](/docs/projects/built-in-step-templates/images/smtp-verify-task.png)
@@ -52,30 +47,27 @@ Enter a test email address and click **OK**. A Send test email task will start t
 
 Email steps are added to deployment processes in the same way as other steps.
 
-1. Navigate to your [project's](/docs/projects) overview page by selecting **Projects** and clicking on the project you are working with.
-2. Click **PROCESS** and **ADD STEP** to add a step to an existing process. Alternatively, if this is a new deployment process, click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
-3. Find the **Send Email** step, hover over the step, and click **ADD**.
+1. Navigate to your [project](/docs/projects).
+2. Click **Process** and **Add step** to add a step to an existing process. Alternatively, if this is a new deployment process, click the **Create process** button.
+3. Find the **Send an Email** step, hover over the step, and click **Add step**.
 4. Give the step a short memorable name.
-5. The step will run on the Octopus Server.
-6. Choose the recipients of the email. You have several options:
+5. Choose the recipients of the email. You have several options:
 
    - Enter a comma-separated list of email addresses.
-   - Bind to a [variable](/docs/projects/variables) which defines a list of email addresses (this is really useful for tailoring your recipient list per-environment).
+   - Bind to a [variable](/docs/projects/variables) which defines a list of email addresses (this is useful for tailoring your recipient list per-environment).
    - Choose [one or more teams](/docs/security/users-and-teams) to include members of those teams in the recipient list.
    - Use a combination of all of these options.
+  
+Octopus will build the resulting recipient list during the deployment, remove duplicate email addresses, and send the email to each recipient.
 
-Octopus will build the resulting recipient list during the deployment, remove duplicate emails addresses, and send the email to each recipient.
-docs
-
-7. Provide a subject line for the emails. The subject can contain Octopus [basic variable syntax](/docs/projects/variables/variable-substitutions/#basic-syntax-variablesubstitutionsyntax-basicsyntax).
-8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/projects/variables/variable-substitutions/#extended-syntax) to include information about the deployment in the email. See the [Email Template Examples](#email-template-examples) below.
-9. You can set conditions to determine when the step should run. For instance:
+6. Provide a subject line for the emails. The subject can contain Octopus [basic variable syntax](/docs/projects/variables/variable-substitutions/#basic-syntax-variablesubstitutionsyntax-basicsyntax).
+7. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/projects/variables/variable-substitutions/#extended-syntax) to include information about the deployment in the email. See the [email template examples](#email-template-examples) below.
+8. You can set conditions to determine when the step should run. For instance:
 
    - Send the email only for successful deployments to certain environments.
    - Send a specific email for failed deployments.
-   - Send an email based on the value of a variable expression which works really well with [output variables](/docs/projects/variables/output-variables).
-
-10. Save the step.
+   - Send an email based on the value of a variable expression which works well with [output variables](/docs/projects/variables/output-variables).
+9.  Save the deployment process.
 
 ## Email template examples
 
@@ -118,11 +110,9 @@ The output of the template will be an HTML email like:
 ![](/docs/projects/built-in-step-templates/images/email-output.png)
 :::
 
-### Including step status
+### Step status summary template
 
 The outcome of each step can be included using a template like the one below:
-
-**Step status summary template**
 
 ```xml
 <h3>Task summary</h3>
@@ -142,9 +132,10 @@ The outcome of each step can be included using a template like the one below:
 
 :::div{.hint}
 **Step error detail**
+
 `step.Status.Error` and `step.Status.ErrorDetail` will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 
-See [System variables](/docs/projects/variables/system-variables)
+See [system variables](/docs/projects/variables/system-variables) for more detail.
 :::
 
 ### Referencing package metadata
@@ -162,7 +153,7 @@ This example displays package ID and version numbers for any steps that referenc
 ```
 
 :::div{.hint}
-Iterating over `Octopus.Action` like this above is a useful way to retrieve data from all steps in your process without having to refer to a hard coded step name that could potentially change.
+Iterating over `Octopus.Action` like above is a useful way to retrieve data from all steps in your process without having to refer to a hard-coded step name that could potentially change.
 :::
 
 #### Referencing additional package metadata
@@ -180,7 +171,3 @@ Using [custom scripts](/docs/deployments/custom-scripts) you can include additio
   #{/each}
 #{/each}
 ```
-
-:::div{.hint}
-Iterating over both `Octopus.Action` and `action.Package` like this above is a useful way to retrieve data from all steps in your process without having to refer to a hard coded step or package reference name that could potentially change over time.
-:::
