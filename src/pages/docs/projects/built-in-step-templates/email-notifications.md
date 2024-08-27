@@ -58,7 +58,7 @@ Email steps are added to deployment processes in the same way as other steps.
    - Choose [one or more teams](/docs/security/users-and-teams) to include members of those teams in the recipient list.
    - Use a combination of all of these options.
   
-Octopus will build the resulting recipient list during the deployment, remove duplicate email addresses, and send the email to each recipient.
+   Octopus will build the resulting recipient list during the deployment, remove duplicate email addresses, and send the email to each recipient.
 
 6. Provide a subject line for the emails. The subject can contain Octopus [basic variable syntax](/docs/projects/variables/variable-substitutions/#basic-syntax-variablesubstitutionsyntax-basicsyntax).
 7. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/projects/variables/variable-substitutions/#extended-syntax) to include information about the deployment in the email. See the [email template examples](#email-template-examples) below.
