@@ -2,31 +2,31 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-10-13
-title: Azure Active Directory authentication
-description: Octopus Deploy can use Azure AD authentication to identify users.
+title: Microsoft Entra ID authentication
+description: Octopus Deploy can use Microsoft Entra ID authentication to identify users.
 navOrder: 10
 ---
 import AdminUser from 'src/shared-content/installation/admin-user.include.md';
 
-You can use Azure Active Directory (AAD) to authenticate when logging in to the Octopus Web Portal. To use Azure Active Directory (AAD) authentication with Octopus, you will need to do the following:
+You can use Microsoft Entra ID, formerly known as Azure Active Directory (AAD), to authenticate when logging in to the Octopus Server. To use Microsoft Entra ID authentication with Octopus, you will need to do the following:
 
-1. Configure AAD to trust your Octopus Deploy instance by setting it up as an App in AAD.
-2. Optionally map AAD Users into Roles so you the users can be automatically connected to Octopus Teams.
-3. Configure your Octopus Deploy instance to trust and use AAD as an Identity Provider.
+1. Configure Microsoft Entra ID to trust your Octopus Deploy instance by setting it up as an App in your Microsoft Azure Portal.
+2. Optionally, map Entra ID Users into Roles so you the users can be automatically connected to Octopus Teams.
+3. Configure your Octopus Deploy instance to trust and use Microsoft Entra ID as an Identity Provider.
 
 :::div{.hint}
-If your Octopus database is running in Azure SQL, it's also possible to configure an Azure Active Directory (AAD) Managed identity for use with your SQL database. See our [Using Azure Active Directory (AAD) in Azure SQL](/docs/installation/sql-server-database/#using-aad-in-azure-sql) section for further information.
+If your Octopus database is running in Azure SQL, it's also possible to configure an Microsoft Entra ID Managed identity for use with your SQL database. See our [Using Microsoft Entra ID in Azure SQL](/docs/installation/sql-server-database/#using-aad-in-azure-sql) section for further information.
 :::
 
-## Configure Azure Active Directory (AAD)
+## Configure Microsoft Entra ID
 
-First, you need to configure your Azure Active Directory to trust your instance of Octopus Deploy by configuring an App in your AAD.
+First, you need to configure your Microsoft ENtra ID to trust your instance of Octopus Deploy by configuring an App in your Microsoft Azure Portal.
 
-### Configure Octopus Deploy as an App in your AAD
+### Configure Octopus Deploy as an App in your Azure Portal
 
 :::div{.success}
-**Get the right permissions for your Azure Active Directory tenant before starting**
-To configure your instance of Octopus Deploy as an App, you need administrator permissions to the desired Azure Active Directory tenant in your subscription.
+**Get the right permissions for your Microsoft Entra ID tenant before starting**
+To configure your instance of Octopus Deploy as an App, you need administrator permissions to the desired Microsoft Entra ID tenant in your subscription.
 :::
 
 1. Log in to the [Azure Portal](https://portal.azure.com), click on your account positioned at the top-right of the screen, then select your desired directory:
@@ -35,19 +35,19 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
 ![Switch Azure Directories](/docs/security/authentication/images/aad-portal.png "width=500")
 :::
 
-2. Select the hamburger menu in the [Azure Portal](https://portal.azure.com)  and select **Azure Active Directory** from the Azure menu:
+2. Select the hamburger menu in the [Azure Portal](https://portal.azure.com)  and select **Microsoft Entra ID** from the Azure menu:
 
 :::figure
-![Open AzureAD service](/docs/security/authentication/images/aad-service.png "width=500")
+![Open Microsoft Entra ID service](/docs/security/authentication/images/aad-service.png "width=500")
 :::
 
-3. Select **App registrations** then choose **New application registration**:
+1. In the top menu, select *Add** then choose **App registration**:
 
 :::figure
-![New App registration](/docs/security/authentication/images/aad-new-app-registration.png "width=500")
+![New App registration](/docs/security/authentication/images/aad-new-app-registration.png "width=500") -- FIX
 :::
 
-4. Choose a **Name** like *Octopus Deploy*, select the correct **Supported account type**  for Single or Multi-Tenant, and enter a value for **Redirect URI** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.
+4. Choose a **Name** such as *Octopus Deploy*, select the correct **Supported account type** for Single or Multi-Tenant, choose **Web** from the drop down and enter a value for **Redirect URI** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.
  - The URL must use HTTPS.
  - When users input their credentials, the value you specify for **Name** will appear at the top of the Azure authentication page.
  - The value you specify for **Redirect URI** should be the URL to your Octopus Server. This address is only linked within your browser, so it only has to be resolvable on your network, not from the public Internet.
@@ -67,7 +67,7 @@ Take care when you add this URL. They are **case-sensitive** and can be sensitiv
 Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. This step is **not required** for any newer versions of Octopus. Instead we suggest following the instructions for [generating a client secret](#generate-the-client-secret) below.
 :::
 
-1. Within your new App registration in AzureAD navigate to Authentication.
+1. Within your new App registration in Microsoft Entra ID, navigate to Manage > Authentication.
 2. Ensure the ID Tokens box is enabled:
 
 :::figure
@@ -76,20 +76,20 @@ Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**.
 
 #### Enable Logout URL if using Single Sign-On (optional)
 
-1. Within your new App registration in AzureAD navigate to Authentication.
+1. Within your new App registration in Microsoft Entra ID, navigate to Authentication.
 2. Input logout URL and enter `https://octopus.example.com/app#/users/sign-out` substituting your URL.
 
 :::figure
 ![Configure Logout URL](/docs/security/authentication/images/aad_logout_url.png "width=500")
 :::
 
-#### Mapping AAD users into Octopus teams (optional)
+#### Mapping Microsoft Entra ID users into Octopus teams (optional)
 
-If you want to manage user/team membership via AAD, you must configure Roles for your App. To add Role(s), you can create and assign a new App Role in the Azure Portal or directly edit the App's manifest.
+If you want to manage user/team membership via Microsoft Entra ID, you must configure Roles for your App. To add Role(s), you can create and assign a new App Role in the Azure Portal or directly edit the App's manifest.
 
-##### Create and Assign a new AAD App Role
+##### Create and Assign a new Microsoft Entra ID App Role
 
-1. Under App Roles, select **Create app role**.
+1. On the left hand side menu, select **App roles** and click the **Create app role** button.
 
    ![Creating new App Role](/docs/security/authentication/images/aad-new-app-role-create.png "width=500")
 
@@ -101,7 +101,7 @@ If you want to manage user/team membership via AAD, you must configure Roles for
    The **Value** property is the most important field. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams/external-groups-and-roles/#ExternalGroupsandRoles-AddExternalRole) in Octopus Deploy.
    :::
 
-##### Edit AAD App Manifest
+##### Edit Microsoft Entra ID App Manifest
 
 1. Under the App Registration, select **Manifest**, and then you can start editing your manifest file as required.
 
@@ -112,7 +112,7 @@ If you want to manage user/team membership via AAD, you must configure Roles for
 The example below illustrates two roles, one for administrators and one for application testers. You need to create each required group in the Manifest file.
 
 :::div{.success}
-Make sure you replace the `NEWGUID`s with a generated GUID (unique per entry). You can find these online and use them as required. An example is [guidgenerator.com](https://guidgenerator.com/).
+Make sure you replace the `NEWGUID`s with a generated GUID (unique per entry). You can find these online and use them as required. An example is the [Online GUID / UUID Generator](https://guidgenerator.com/).
 :::
 
 ```json
@@ -154,9 +154,9 @@ The **value** property is the most important one. This value becomes the externa
 For more advanced scenarios, please see the [Azure manifest file documentation](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-manifest/).
 :::
 
-#### Configure users and groups in Azure AD (optional)
+#### Configure users and groups in Microsoft Entra ID (optional)
 
-After the App Role(s) have been defined, users/groups from Azure AD may be mapped into these Roles.
+After the App Role(s) have been defined, users/groups from Microsoft Entra ID may be mapped into these Roles.
 
 1. Under the App Registration, select your App registrations name under **Managed application in local directory**.
 
@@ -164,9 +164,9 @@ After the App Role(s) have been defined, users/groups from Azure AD may be mappe
 ![Editing App registration users](/docs/security/authentication/images/aad-edit-app-registration-users.png "width=500")
 :::
 
-2. Choose **Users and groups** and select **Add user** to create a new role assignment.
+1. Choose **Assign users and groups** and select **Add user/group** to create a new role assignment.
 
-3. Select the users you would like to assign roles to. Next, under **Select Role**, specify one of the AppRoles that you added to the App registration manifest.
+2. Select the users you would like to assign roles to. Next, under **Select Role**, specify one of the AppRoles that you added to the App registration manifest.
 
 :::figure
 ![Editing App registration users role](/docs/security/authentication/images/aad-edit-app-registration-users-role.png "width=500")
@@ -180,7 +180,7 @@ If you only have one role it will be automatically assigned. If you have **multi
 
 ## Configure Octopus Server
 
-There are three values you need from the Azure AD configuration to complete the Octopus configuration: the **Client ID**, **Client Secret** and **Issuer**.
+There are three values you need from the Microsoft Entra ID configuration to complete the Octopus configuration: the **Client ID**, **Client Secret** and **Issuer**.
 
 ### Get the Client ID and Issuer
 
@@ -205,14 +205,14 @@ Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**.
 :::
 
 :::div{.hint}
-If using Azure AD to synchronize external groups with the 'group' role claim type and the user is a member of more than 200 Azure groups, the client secret field is required.
+If using Microsoft Entra ID to synchronize external groups with the 'group' role claim type and the user is a member of more than 200 Microsoft Entra ID groups, the client secret field is required.
 :::
 
-To configure Octopus to use Azure AD authentication you'll need:
+To configure Octopus to use Microsoft Entra ID authentication you'll need:
 
 - The **Client ID**, which should be a GUID. This is the **Application (client) ID** in the Azure App Registration Portal.
 - The **Client secret**, which should be a long string value. This is the **Value** of a client secret in the Azure App Registration Portal.
-- The **Issuer**, which should be a URL like `https://login.microsoftonline.com/GUID` where the `GUID` is a particular GUID identifying your Azure Active Directory tenant. This is the **Directory (tenant) ID** in the Azure App Registration Portal.
+- The **Issuer**, which should be a URL like `https://login.microsoftonline.com/GUID` where the `GUID` is a particular GUID identifying your Microsoft Entra ID tenant. This is the **Directory (tenant) ID** in the Azure App Registration Portal.
 
 When you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
@@ -258,11 +258,11 @@ When the security token is returned from the external identity provider, Octopus
 :::div{.hint}
 **Existing Octopus user accounts**
 
-If you already have Octopus user accounts and you want to enable Azure Active Directory (AAD) authentication:
+If you already have Octopus user accounts and you want to enable Microsoft Entra ID authentication:
 - Make sure the **Email Address** and **Username** values for Octopus user accounts are both identical.
-- Confirm the Octopus user **Email Address** and **Username** are matched to the email address configured in Azure Active Directory (AAD).
+- Confirm the Octopus user **Email Address** and **Username** are matched to the email address configured in Microsoft Entra ID.
 
-This will maximize the chance for your existing users to sign in using Azure Active Directory (AAD) and prevent duplicate Octopus user accounts from being created.
+This will maximize the chance for your existing users to sign in using Microsoft Entra ID and prevent duplicate Octopus user accounts from being created.
 :::
 
 ### Getting permissions
@@ -277,7 +277,7 @@ You should also consider disabling any authentication providers you aren't using
 
 ## Troubleshooting
 
-If you are having difficulty configuring Octopus to authenticate with Azure Active Directory, check your [server logs](/docs/support/log-files) for warnings.
+If you are having difficulty configuring Octopus to authenticate with Microsoft Entra ID, check your [server logs](/docs/support/log-files) for warnings.
 
 ### Triple check your configuration
 
@@ -293,7 +293,7 @@ You can see the OpenID Connect metadata by going to the Issuer address in your b
 
 ### Inspect the contents of the security token
 
-Sometimes the contents of the security token sent back by Azure AD aren't exactly what Octopus expects; certain claims might be missing or named differently. This will usually result in the Azure AD user incorrectly mapping to a different Octopus user than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT), which is sent from Azure AD to Octopus via your browser. To inspect the contents of your security token:
+Sometimes the contents of the security token sent back by Microsoft Entra ID aren't exactly what Octopus expects; certain claims might be missing or named differently. This will usually result in the Microsoft Entra ID user incorrectly mapping to a different Octopus user than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT), which is sent from Microsoft Entra ID to Octopus via your browser. To inspect the contents of your security token:
 
 1. Open the Developer Tools of your browser and enable Network logging, making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools, this is called "Preserve Log".
@@ -302,7 +302,7 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 ![Preserve Logs](/docs/security/authentication/images/5866122.png "width=500")
 :::
 
-3. Attempt to sign into Octopus using Azure AD and find the HTTP POST coming back to your Octopus instance from Azure AD on a route like `/api/users/authenticatedToken/azureAD`. You should see an **id_token** field in the HTTP POST body.
+3. Attempt to sign into Octopus using Microsoft Entra ID and find the HTTP POST coming back to your Octopus instance from Microsoft Entra ID on a route like `/api/users/authenticatedToken/azureAD`. You should see an **id_token** field in the HTTP POST body.
 4. Grab the contents of the **id_token** field and paste that into [https://jwt.io/](https://jwt.io/), which will decode the token for you.
 
 :::figure

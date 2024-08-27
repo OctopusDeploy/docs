@@ -26,7 +26,7 @@ This document will provide you with guidelines and recommendations for self-host
 
 Our recommendation is to host Octopus Deploy Windows Server over the Octopus Server Linux Container unless you are okay with **all** these conditions:
 
-- You plan on using LDAP, Okta, Azure AD, Google Auth, or the built-in username and password to authenticate users. The current version of the Octopus Server Linux Container only supports Active Directory authentication via LDAP.
+- You plan on using LDAP, Okta, Microsoft Entra ID, Google Workspace, or the built-in username and password to authenticate users. The current version of the Octopus Server Linux Container only supports Active Directory authentication via LDAP.
 - You are okay running at least one [worker](/docs/infrastructure/workers) to handle tasks typically done by the Octopus Server. The Octopus Server Linux Container doesn't include PowerShell Core or Python.
 - You are familiar with Docker concepts, specifically around debugging containers, volume mounting, and networking.
 - You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.

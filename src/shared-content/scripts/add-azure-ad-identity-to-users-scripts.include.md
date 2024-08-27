@@ -108,21 +108,21 @@ function AddAzureADLogins(
                     continue
                 }
 
-                # Check for existing Azure AD Identity first.
+                # Check for existing Microsoft Entra ID Identity first.
                 $azureAdIdentity = $existingOctopusUser.Identities | Where-Object {$_.IdentityProviderName -eq "Azure AD"} | Select-Object -First 1
                 if($null -ne $azureAdIdentity) {
-                    Write-Debug "Found existing AzureAD login for user $($user.OctopusUsername)"
+                    Write-Debug "Found existing Microsoft Entra ID login for user $($user.OctopusUsername)"
                     if($Force -eq $True) {
-                        Write-Debug "Force set to true. Replacing existing AzureAD Claims for Display Name and Email for user $($user.OctopusUsername)"
+                        Write-Debug "Force set to true. Replacing existing Microsoft Entra ID Claims for Display Name and Email for user $($user.OctopusUsername)"
                         $azureAdIdentity.Claims.email.Value = $User.AzureEmailAddress
                         $azureAdIdentity.Claims.dn.Value = $User.AzureDisplayName
                     }
                     else {
-                        Write-Debug "Force set to false. Skipping replacing existing AzureAD Claims for Display Name and Email for user $($user.OctopusUsername)"
+                        Write-Debug "Force set to false. Skipping replacing existing Microsoft Entra ID Claims for Display Name and Email for user $($user.OctopusUsername)"
                     }
                 }
                 else {
-                    Write-Debug "No existing AzureAD login found for user $($user.OctopusUsername), creating new"
+                    Write-Debug "No existing Microsoft Entra ID login found for user $($user.OctopusUsername), creating new"
                     $newAzureADIdentity = @{
                         IdentityProviderName = "Azure AD"
                         Claims = @{
@@ -292,25 +292,25 @@ function AddAzureLogins
                     continue
                 }
 
-                # Check to see if there's already an Azure identity
+                # Check to see if there's already an Microsoft Entra ID identity
                 $azureAdIdentity = $existingOctopusUser.Identities | Where-Object {$_.IdentityProviderName -eq "Azure AD"}
                 if($null -ne $azureAdIdentity) 
                 {
-                    Write-Debug "Found existing AzureAD login for user $($user.OctopusUsername)"
+                    Write-Debug "Found existing Microsoft Entra ID login for user $($user.OctopusUsername)"
                     if($Force -eq $True) 
                     {
-                        Write-Debug "Force set to true. Replacing existing AzureAD Claims for Display Name and Email for user $($user.OctopusUsername)"
+                        Write-Debug "Force set to true. Replacing existing Microsoft Entra ID Claims for Display Name and Email for user $($user.OctopusUsername)"
                         $azureAdIdentity.Claims.email.Value = $User.AzureEmailAddress
                         $azureAdIdentity.Claims.dn.Value = $User.AzureDisplayName
                     }
                     else 
                     {
-                        Write-Warning "Force set to false. Skipping replacing existing AzureAD Claims for Display Name and Email for user $($user.OctopusUsername)"
+                        Write-Warning "Force set to false. Skipping replacing existing Microsoft Entra ID Claims for Display Name and Email for user $($user.OctopusUsername)"
                     }
                 }
                 else 
                 {
-                    Write-Debug "No existing AzureAD login found for user $($user.OctopusUsername), creating new"
+                    Write-Debug "No existing Microsoft Entra ID login found for user $($user.OctopusUsername), creating new"
                     $newAzureADIdentity = New-Object Octopus.Client.Model.IdentityResource
                     $newAzureADIdentity.IdentityProviderName = "Azure AD"
                     
@@ -495,7 +495,7 @@ public static void AddAzureLogins(string OctopusUrl, string ApiKey, string Path 
                     Console.WriteLine(string.Format("{0} is not an active account, skipping ...", userToUpdate.OctopusUserName));
                 }
 
-                // Get existing azure identity, if exists
+                // Get existing Microsoft Entra ID identity, if exists
                 var azureAdIdentity = existingOctopusUser.Identities.FirstOrDefault(i => i.IdentityProviderName == "Azure AD");
 
                 // Check to see if something was returned
@@ -663,7 +663,7 @@ WhatIf=False):
                 azureAdIdentity = next((u for u in existingUser["Identities"] if u["IdentityProviderName"] == "Azure AD"), None)
                 
                 if (azureAdIdentity != None):
-                    print (f"Found existing Azure AD identity for {user.OctopusUsername} ...")
+                    print (f"Found existing Microsoft Entra ID identity for {user.OctopusUsername} ...")
                     
                     if(Force):
                         print("Force is set to true, overwriting values")
@@ -768,7 +768,7 @@ func main() {
 				// Loop through Identities collection
 				for j := 0; j < len(existingUser.Identities); j++ {
 					if existingUser.Identities[i].IdentityProviderName == "Azure AD" {
-						fmt.Println("User has existing Azure AD identity")
+						fmt.Println("User has existing Microsoft Entra ID identity")
 						identityIndex = j
 						break
 					}
