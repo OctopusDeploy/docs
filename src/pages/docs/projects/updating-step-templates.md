@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-08-28
-title: Update step templates
+title: Updating step templates
 icon: fa-solid fa-arrows-rotate
 description: How to update steps that are based on a step templates
 navOrder: 70
