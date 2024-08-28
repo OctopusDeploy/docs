@@ -29,8 +29,6 @@ The first step in this guide is to [create a new lifecycle](/docs/releases/lifec
 
 Give the lifecycle a name, an optional description, and four phases. The lifecycle should ensure all releases are deployed to Development, Test, *optionally* to Staging, then lastly into Production. 
 
-In the next step, we'll [create the project](/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants) needed for this scenario.
-
 ## Creating the project
 
 From the Projects page, click **Add Project** and create a project with the name **Vet Clinic**. In the **Project Settings** of your newly created project, ensure tenanted deployments are enabled by setting the **Multi-tenant Deployments** option to either *Allow deployments with or without a tenant*, or *Require a tenant for all deployments*.
