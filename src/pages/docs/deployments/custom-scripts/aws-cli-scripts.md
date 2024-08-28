@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2024-08-26
 title: AWS CLI and PowerShell scripts
 description: AWS CLI and PowerShell Scripts allow you to manage your AWS resources as part of your deployment process.
+icon: fa-regular fa-file-code
 navOrder: 90
 ---
 
@@ -19,8 +20,6 @@ If this is not an option in your scenario, we recommend that you provision your 
 
 :::div{.warning}
 Using the AWS tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the [AWS PowerShell modules](https://aws.amazon.com/powershell/) and [AWS CLI](https://aws.amazon.com/cli/). These were originally provided as convenience mechanisms for users wanting to run scripts against AWS targets. The versions bundled are now out of date, and we will not be updating them further.
-
-From **Octopus 2021.2**, a warning will also appear in the deployment logs if the AWS tools bundled with Octopus Deploy are used in a step.
 :::
 
 When executing scripts against AWS, Octopus Deploy will configure an environment that authenticates you using the AWS account that was configured for the step.
@@ -120,7 +119,7 @@ The third option is to run a script from a package. This is done by selecting th
 ![AWS script package](/docs/deployments/custom-scripts/images/step-aws-package.png)
 :::
 
-## Running Scripts in Octopus Cloud
+## Running scripts in Octopus Cloud
 
 Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools). Octopus provides these, and you cannot easily install custom versions of the AWS tools on them.
 
@@ -128,3 +127,7 @@ To use your own version of the AWS CLI or AWS Powershell cmdlets when using Dyna
 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers).
 - Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the AWS CLI or AWS Powershell cmdlets that you would like to use.
+
+## Older versions
+
+In Octopus 2021.2 a warning will also appear in the deployment logs if the AWS tools bundled with Octopus Deploy are used in a step. Older versions of Octopus will not display this warning.
