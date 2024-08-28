@@ -12,7 +12,7 @@ Calamari examines the exit code of the script engine to determine whether the sc
 
 Syntax errors and unhandled exceptions will result in a non-zero exit code from the script engine, which will fail the deployment
 
-## Error handling in PowerShell scripts {#Customscripts-ErrorHandlingInPowerShellScripts}
+## Error handling in PowerShell scripts {#error-handling-powershell}
 
 For PowerShell scripts Calamari also sets the `$ErrorActionPreference` to **Stop** before invoking your script. This means that if a command fails, the rest of the script won't be executed. For example:
 
