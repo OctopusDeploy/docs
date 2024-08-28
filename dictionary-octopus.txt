@@ -387,6 +387,7 @@ Traefik
 Trivy
 tsconfigs
 typeof
+Tzdb
 umoci
 undeployed
 Unmarshal
