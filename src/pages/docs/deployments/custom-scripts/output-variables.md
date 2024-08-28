@@ -1,21 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-27
 title: Output variables
 description: Your scripts can emit variables that are available in subsequent deployment steps.
+icon: fa-solid fa-file-export
 navOrder: 70
 ---
 
 Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/projects/variables/output-variables) for more information.
-
-This example is from the sample project in the [Channels Walk-through](https://octopus.com/blog/channels-walkthrough#prerequisites).
-
-Step 1 calculates a name by convention, which is used by subsequent steps.
-
-:::figure
-![Deployment Process](/docs/deployments/custom-scripts/images/deployment-process.png)
-:::
 
 ## Creating an output variable
 

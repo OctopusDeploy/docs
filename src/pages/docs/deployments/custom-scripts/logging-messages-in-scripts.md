@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-07-18
 title: Logging messages from scripts
 description: When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message.
+icon: fa-solid fa-clock-rotate-left
 navOrder: 50
 ---
 

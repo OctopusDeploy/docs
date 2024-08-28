@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Passing parameters to scripts
 description: Octopus can pass parameters to your custom script files for any of the supported scripting languages.
+icon: fa-solid fa-arrow-right-to-bracket
 navOrder: 40
 ---
 

@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Error handling
 description: Error handling for scripts in Octopus.
+icon: fa-regular fa-circle-exclamation
 navOrder: 60
 ---
 

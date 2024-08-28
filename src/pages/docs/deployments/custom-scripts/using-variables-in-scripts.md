@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Using variables in scripts
 description: With Octopus you can define variables for use with your custom scripts.
+icon: fa-regular fa-file-code
 navOrder: 30
 ---
 
