@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-28
 title: Built-in package repository triggers
+icon: fa-solid fa-box
 description: Built-in package repository triggers allows you to automatically create a new release when a new package is pushed to the built-in package repository.
 navOrder: 15
 ---
