@@ -23,7 +23,7 @@ If you use the [built-in Octopus package repository](/docs/packaging-application
 This trigger only supports the [built-in package repository](/docs/packaging-applications/package-repositories). There is some support for external feeds using the [external feed triggers](/docs/projects/project-triggers/external-feed-triggers).
 :::
 
-From the project's trigger tab, click **Add Trigger**, and then select **Built-in package repository**:
+From the project's trigger tab, click **Add Trigger**, and then select **Built-in package repository**.
 
 As a project can contain multiple packages you need to select the package that will upload *last* in your build and push CI process. If you have multiple packages, make sure you select the package that is always uploaded last.
 
