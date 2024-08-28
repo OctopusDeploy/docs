@@ -12,6 +12,7 @@ approot
 appsettings
 Appstep
 Appsteps
+argparse
 ASPNET
 aspnetcore
 astro
@@ -33,6 +34,7 @@ bufio
 buildevent
 Ceph
 certkeyName
+Certstore
 changeit
 checkservices
 childelement
@@ -61,6 +63,7 @@ cscfg
 cspkg
 Csvg
 customisation
+Customscripts
 cutover
 dacpac
 Datacenter
@@ -93,9 +96,12 @@ Elyton
 emptytitle
 entra
 environmentids
+echoerror
+eprintfn
 expressjs
 externalgroups
 externalusers
+failstep
 fanout
 Fargate
 feedcred
@@ -282,6 +288,10 @@ prerender
 prerenderingchange
 printfn
 Println
+printhighlight
+printverbose
+printwait
+printwarning
 PROGRAMFILES
 projectgroup
 projectgroups
@@ -324,6 +334,7 @@ runbooksnapshot
 runbooksnapshots
 runbooksnapshottemplate
 RUNMANAGERONEXIT
+Runspace
 runtimes
 SAMEORIGIN
 Schannel
@@ -388,6 +399,7 @@ Trivy
 tsconfigs
 typeof
 umoci
+updateprogress
 undeployed
 Unmarshal
 upgradeavailability

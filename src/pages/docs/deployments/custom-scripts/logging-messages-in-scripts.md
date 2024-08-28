@@ -99,7 +99,7 @@ Progress messages will display and update a progress bar on your deployment task
 
 ```ps PowerShell
 Update-Progress 10
-Update-Progress 50 "Woah, we're halfway there!"
+Update-Progress 50 "We're halfway there!"
 ```
 
 </details>
@@ -108,7 +108,7 @@ Update-Progress 50 "Woah, we're halfway there!"
 
 ```csharp
 Octopus.UpdateProgress(10);
-Octopus.UpdateProgress(50, "Woah, we're halfway there!");
+Octopus.UpdateProgress(50, "We're halfway there!");
 ```
 
 </details>
@@ -117,7 +117,7 @@ Octopus.UpdateProgress(50, "Woah, we're halfway there!");
 
 ```bash
 update_progress 10
-update_progress 50 "Woah, we're halfway there!"
+update_progress 50 "We're halfway there!"
 ```
 
 </details>
@@ -126,7 +126,7 @@ update_progress 50 "Woah, we're halfway there!"
 
 ```fsharp
 Octopus.updateProgress 10
-Octopus.updateProgress 50 "Woah, we're halfway there!"
+Octopus.updateProgress 50 "We're halfway there!"
 ```
 
 </details>
@@ -135,7 +135,7 @@ Octopus.updateProgress 50 "Woah, we're halfway there!"
 
 ```python
 updateprogress(10)
-updateprogress(50, 'Woah, we\'re halfway there!')
+updateprogress(50, 'We\'re halfway there!')
 ```
 
 </details>
@@ -189,12 +189,12 @@ def updateprogress(progress, message=None):
 <summary>Bash</summary>
 
 ```bash
-function encode_servicemessagevalue
+function encode_service_message_value
 {
 	echo -n "$1" | openssl enc -base64 -A
 }
 
-echo "##octopus[progress percentage='$(encode_servicemessagevalue "$1")' message='$(encode_servicemessagevalue "$2")']"
+echo "##octopus[progress percentage='$(encode_service_message_value "$1")' message='$(encode_service_message_value "$2")']"
 ```
 
 </details>
