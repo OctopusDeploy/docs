@@ -1,16 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-29
 title: Prompted variables
+icon: fa-solid fa-terminal
 description: Prompted variables allow you to prompt a user to enter a value rather than storing it in Octopus.
 navOrder: 40
 ---
 As you work with [variables](/docs/projects/variables) in Octopus, there may be times when the value of a variable isn't known and you need a user to enter the variable at deployment time. Octopus can handle this using **Prompted variables**.
 
-## Defining a prompted variable {#Promptedvariables-Definingapromptedvariable}
+## Defining a prompted variable {#defining-prompted-variable}
 
-To make a variable a **prompted variable**, enter the variable editor when creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
+To make a variable a **prompted variable**, enter the variable editor when creating or editing the variable. On the variable value field, click **Open Editor**:
 
 :::figure
 ![Open variable editor](/docs/projects/variables/images/open-variable-editor.png)
@@ -36,7 +37,7 @@ You can select one of several different data types. This controls the user inter
 - Checkbox
 :::
 
-## Providing a value for the variable {#Promptedvariables-Providingavalueforthevariable}
+## Providing a value for the variable {#providing-value-for-variable}
 
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:
 
