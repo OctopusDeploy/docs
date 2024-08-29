@@ -37,7 +37,7 @@ To start quickly, you can fork our sample GitHub repository, which includes pre-
 2. In the top-right corner of the page, click **Fork**.
 3. Provide an **Owner and repository name**, for example `OctoPetShop`.
 4. Keep the **Copy the master branch only** checkbox selected.
-5. Click **Create ForkK**.
+5. Click **Create Fork**.
 6. Wait for the process to complete (this should only take a few seconds).
 
 Now you're ready, let’s begin deploying your first application to Kubernetes. 
@@ -59,7 +59,7 @@ Octopus lets you store your deployment process, settings, and non-sensitive vari
 
 3. For this example, keep the default **Octopus** option selected.
 4. For **Deploy to**, select the **Kubernetes** option.
-5. For Manage with, select the **YAML files** option.
+5. For **Manage with**, select the **YAML files** option.
 6. Click **Next**.
 
 :::figure
@@ -121,9 +121,9 @@ In Advanced settings, you can provide an optional Kubernetes namespace and Stora
 
 ### Install NFS CSI Driver
 The Kubernetes agent will run as a pod, and will need some resilient storage. For this tutorial we can install the NFS driver, and let the agent provision some shared storage for it to use. 
-Copy the Helm command and run it in the terminal connected to your target cluster.
 
-14. Click **Next**.
+14. **Copy** the Helm command and run it in the terminal connected to your target cluster.
+15. Click **Next**.
 
 :::figure
 ![Install NFS CSI Driver dialog](/docs/getting-started/first-kubernetes-deployment/images/install-nfs-csi-driver.png)
@@ -139,7 +139,7 @@ Octopus generates a Helm command that you copy and paste into a terminal connect
 ![Install Kubernetes Agent dialog](/docs/getting-started/first-kubernetes-deployment/images/install-agent.png)
 :::
 
-18. After the agent has successfully registered and passed the health check, Close the dialog.
+18. After the agent has successfully registered and passed the health check, **Close** the dialog.
 19. Click **Next**.
 
 ## Create deployment process
@@ -148,13 +148,13 @@ The next step is creating your deployment process. This is where you define the 
 1. Click **Thanks, got it**.
 
 ### Step Name
-You can leave this as the default Deploy Kubernetes YAML.
+You can leave this as the default _Deploy Kubernetes YAML_.
 
 ### Target Tags
 2. Octopus pre-selected the target tag you created while configuring the Kubernetes agent ( `tutorial-cluster`).
 
 :::figure
-![Target tags expander with tutorial-cluster tag selected.](/docs/getting-started/first-kubernetes-deployment/images/target-tags.png)
+![Target tags expander with tutorial-cluster tag selected](/docs/getting-started/first-kubernetes-deployment/images/target-tags.png)
 :::
 
 ### YAML source
@@ -169,7 +169,7 @@ Sourcing from a Git Repository can streamline your deployment process by reducin
 3. Select **Git Repository** as your YAML source.
 
 :::figure
-![YAML source expander where users can select where to source YAML files from.](/docs/getting-started/first-kubernetes-deployment/images/yaml-source.png)
+![YAML source expander where users can select where to source YAML files from](/docs/getting-started/first-kubernetes-deployment/images/yaml-source.png)
 :::
 
 ### Repository URL
@@ -177,12 +177,12 @@ Sourcing from a Git Repository can streamline your deployment process by reducin
 4. Enter the full URL to the Git repository where you store the YAML files you want to deploy, for example, `https://github.com/your-user/OctoPetShop.git`
 
 :::figure
-![Repository URL expander where the user's YAML files are stored.](/docs/getting-started/first-kubernetes-deployment/images/repo-url.png)
+![Repository URL expander where the user's YAML files are stored](/docs/getting-started/first-kubernetes-deployment/images/repo-url.png)
 :::
 
 ### Git repository details
 
-5. Select Git credentials and click the + icon to add new credentials.
+5. Select **Git credentials** and click the **+** icon to add new credentials.
 6. Enter a name for your Git credential so you can identify it later.
 7. Provide your GitHub username.
 
@@ -193,9 +193,9 @@ Sourcing from a Git Repository can streamline your deployment process by reducin
 ### Generate GitHub personal access token
 Github.com now requires token-based authentication (this excludes GitHub Enterprise Server). 
 
-Follow the steps below to create a personal access token, or learn more in the **GitHub documentation**.
+Follow the steps below to create a personal access token, or learn more in the [GitHub documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
-1. Navigate to **github.com** and log in to your account.
+1. Navigate to [github.com](http://github.com) and log in to your account.
 2. Click your profile picture in the top right corner.
 3. Click **Settings**.
 4. Scroll down to the bottom of the page and click **Developer settings**.
@@ -210,7 +210,7 @@ Follow the steps below to create a personal access token, or learn more in the *
 13. Click **Generate token** and copy the token.
 
 :::figure
-![A GitHub settings page where users can manage permissions for fine-grained tokens.](/docs/getting-started/first-kubernetes-deployment/images/generate-token.png)
+![A GitHub settings page where users can manage permissions for fine-grained tokens](/docs/getting-started/first-kubernetes-deployment/images/generate-token.png)
 :::
 
 ### Git repository details
@@ -220,21 +220,21 @@ Follow the steps below to create a personal access token, or learn more in the *
 Your new Git credential should now be selected in the **Authentication** dropdown.
 
 :::figure
-![Authentication expander with a Git repository selected from the library.](/docs/getting-started/first-kubernetes-deployment/images/authentication.png)
+![Authentication expander with a Git repository selected](/docs/getting-started/first-kubernetes-deployment/images/authentication.png)
 :::
 
 ### Branch settings
 10. Provide the default branch you want to use. For example, `master` if you’re using the sample repo.
 
 :::figure
-![Branch setting expander where user can configure default branch.](/docs/getting-started/first-kubernetes-deployment/images/branch-settings.png)
+![Branch setting expander where user can configure default branch](/docs/getting-started/first-kubernetes-deployment/images/branch-settings.png)
 :::
 
 ### File Paths
 11. Enter the relative path(s) to the YAML files you want to deploy to your cluster. If you’re using the sample repo, use `k8s/*.yaml` to select all YAML files in the k8s root folder.
 
 :::figure
-![File paths expander where user can configure path to YAML files.](/docs/getting-started/first-kubernetes-deployment/images/file-paths.png)
+![File paths expander where user can configure path to YAML files](/docs/getting-started/first-kubernetes-deployment/images/file-paths.png)
 :::
 
 ### Namespace
@@ -252,10 +252,10 @@ A release is a snapshot of the deployment process and the associated assets (Git
 
 1. Click the **Create Release** button.
 
-You’ll see a summary of the Git resources you provided in the Deploy Kubernetes YAML step.
+You’ll see a summary of the Git resources you provided in the _Deploy Kubernetes YAML_ step.
 
 :::figure
-![Release summary showing Git resources.](/docs/getting-started/first-kubernetes-deployment/images/release-summary.png)
+![Release summary showing Git resources](/docs/getting-started/first-kubernetes-deployment/images/release-summary.png)
 :::
 
 2. Click **Save**.
@@ -264,17 +264,17 @@ You’ll see a summary of the Git resources you provided in the Deploy Kubernete
 Deployments typically occur in a defined environment order (for example, Development ➜ Staging ➜ Production), starting with the first one. Later you can configure Lifecycles with complex promotion rules to accurately reflect how you want to release software.
 
 1. Click **Deploy to Development** to deploy to the development environment associated with your cluster.
-2. Review the preview summary and when you’re ready, click Deploy.
+2. Review the preview summary and when you’re ready, click **Deploy**.
 
 Your first deployment may take slightly longer as we download and extract the necessary tools to run steps. 
 
 ### Watch the deployment complete
 The **Task Summary** tab will show you in real-time how the deployment steps are progressing. You can also view the status of Kubernetes resources being deployed on the cluster itself.
 
-3. Navigate to the Kubernetes Object Status tab to see the live status of your Kubernetes objects as the deployment progresses.
+3. Navigate to the **Kubernetes Object Status** tab to see the live status of your Kubernetes objects as the deployment progresses.
 
 :::figure
-![Kubernetes Object Status dashboard showing a successful deployment.](/docs/getting-started/first-kubernetes-deployment/images/deployment-success.png)
+![Kubernetes Object Status dashboard showing a successful deployment](/docs/getting-started/first-kubernetes-deployment/images/deployment-success.png)
 :::
 
 You successfully completed your first deployment to Kubernetes! 🎉
