@@ -98,7 +98,7 @@ Regardless of where you’re deploying your software, these machines and service
 :::
 
 ### Name
-10. Provide a name to identify this cluster in Octopus, for example, `K8s Tutorial`.
+10. Provide a name to identify this cluster in Octopus, for example, `K8s Tutorial Cluster`.
 
 ### Environments
 For now, we’ll use one cluster for all environments, and use separate namespaces for each. Later, you can add additional clusters and scope them to individual environments.
@@ -108,7 +108,7 @@ For now, we’ll use one cluster for all environments, and use separate namespac
 ### Target Tags
 Octopus uses target tags to select which clusters (known in Octopus as a deployment target) a project should deploy to. Later, you’ll add the same target tag to your deployment process. You can deploy to multiple clusters simply by adding this tag. 
 
-12. Add a new target tag by typing it into the field. For this example, we’ll use `tutorial-clusters`.
+12. Add a new target tag by typing it into the field. For this example, we’ll use `tutorial-cluster`.
 
 ### Advanced settings
 In Advanced settings, you can provide an optional Kubernetes namespace and Storage class. These are advanced features that you can skip for this tutorial.
@@ -151,10 +151,10 @@ The next step is creating your deployment process. This is where you define the 
 You can leave this as the default Deploy Kubernetes YAML.
 
 ### Target Tags
-2. Octopus pre-selected the target tag you created while configuring the Kubernetes agent ( `tutorial-clusters`).
+2. Octopus pre-selected the target tag you created while configuring the Kubernetes agent ( `tutorial-cluster`).
 
 :::figure
-![Target tags with tutorial-clusters tag selected.](/docs/getting-started/first-kubernetes-deployment/target-tags.png)
+![Target tags with tutorial-cluster tag selected.](/docs/getting-started/first-kubernetes-deployment/target-tags.png)
 :::
 
 ### YAML source
