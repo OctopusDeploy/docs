@@ -210,7 +210,7 @@ Follow the steps below to create a personal access token, or learn more in the *
 13. Click **Generate token** and copy the token.
 
 :::figure
-![A GitHub settings page where users can manage permissions for fine-grained tokens.](/docs/getting-started/first-kubernetes-deployment/images/genterate-token.png)
+![A GitHub settings page where users can manage permissions for fine-grained tokens.](/docs/getting-started/first-kubernetes-deployment/images/generate-token.png)
 :::
 
 ### Git repository details
