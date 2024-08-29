@@ -2,7 +2,7 @@
 
 Lifecycles give you control over the way releases of your software are promoted between your environments. You can also use them to automate deployments and set retention policies.
 
-Lifecycles are managed from the library page by navigating to **Library ➜ Lifecycles**:
+Lifecycles are managed from the library page by navigating to **Deploy ➜ Lifecycles**:
 
 :::figure
 ![The lifecycles area of the Octopus Web Portal](/docs/shared-content/releases/images/lifecycles.png)
