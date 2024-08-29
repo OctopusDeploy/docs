@@ -63,7 +63,7 @@ Octopus lets you store your deployment process, settings, and non-sensitive vari
 6. Click **Next**.
 
 :::figure
-![Create project screen](/docs/getting-started/first-kubernetes-deployment/create-project.png)
+![Add new project screen](/docs/getting-started/first-kubernetes-deployment/add-new-project.png)
 :::
 
 ## Add environments
@@ -136,7 +136,7 @@ Octopus generates a Helm command that you copy and paste into a terminal connect
 17. After the NFS Helm command has finished running, **paste** and run the agent Helm command in the terminal connected to your target cluster.
 
 :::figure
-![Install Kubernetes Agent dialog](/docs/getting-started/first-kubernetes-deployment/install-nfs-csi-driver.png)
+![Install Kubernetes Agent dialog](/docs/getting-started/first-kubernetes-deployment/install-agent.png)
 :::
 
 18. After the agent has successfully registered and passed the health check, Close the dialog.
