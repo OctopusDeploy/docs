@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-08-21
 modDate: 2023-08-21
 title: Deploying after the concurrency tag is changed
+icon: fa-solid fa-users-rectangle
 description: Shows the impact of setting the concurrency tag on deployments to the same target
 navOrder: 70
 hideInThisSectionHeader: true
