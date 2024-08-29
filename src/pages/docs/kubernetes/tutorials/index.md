@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2024-07-31
 modDate: 2024-08-29
 title: First Kubernetes deployment
-description: This guide will walk you through how to configure your first deployment to Kubernetes in Octopus Deploy.
+description: This tutorial will walk you through sourcing YAML files from a Git repository, and deploying them to a Kubernetes cluster. 
 navSection: Tutorials
 navOrder: 10
 hideInThisSectionHeader: true
