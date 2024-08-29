@@ -3,13 +3,10 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-04-29
 title: Worker Pool variables
+icon: fa-solid fa-water-ladder
 description: Create a worker pool variable and use it in deployment steps
 navOrder: 60
 ---
-
-:::div{.hint}
-Worker pool variables are only available in **Octopus 2020.1** and later.
-:::
 
 Worker pool variables are [variables](/docs/projects/variables/) which can be used to select where a deployment or a [runbook](/docs/runbooks/) is executed. Steps that use workers can specify a worker pool directly on the step or have the step depend on a worker pool variable.  Before you can use worker pool variables, you must set up your [worker](/docs/infrastructure/workers/) and [worker pool](/docs/infrastructure/workers/worker-pools) infrastructure.
 
@@ -60,7 +57,7 @@ Worker pool variables have multiple use cases for consideration during set up. T
 
 ### Environment
 
-The most common would be to use environment-specific worker pools to separate this for development, test, and production. Often these sit in different network segments, and often production is in the cloud or in a DMZ, which would help with Security.
+The most common example would be to use separate environment-specific worker pools for development, test, and production. Often these environments sit in different network segments, and often production is in the cloud or in a DMZ, which would help with security.
 
 :::figure
 ![Environment-specific worker pool variables](/docs/projects/variables/images/workerpoolvariable-environments.png)
@@ -99,6 +96,9 @@ Licensing requirements of software installed on workers may mean that the softwa
 :::figure
 ![multi-cloud worker pool variable](/docs/projects/variables/images/workerpoolvariable-multicloud.png)
 :::
+
+## Older versions
+* Worker pool variables are available from Octopus Deploy **2020.1.0** onwards.
 
 ## Learn more
 

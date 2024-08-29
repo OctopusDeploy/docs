@@ -1,14 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-06
-modDate: 2024-06-27
+modDate: 2024-08-28
 title: Getting started with variables
+icon: fa-solid fa-play
 description: A guide to getting started with variables in Octopus Deploy.
 navOrder: 10
 ---
 import Card from 'src/components/Card.astro';
 
-You can manage the variables for your projects, by navigating to your project in the Project tab of the Octopus Web Portal and selecting Project Variables:
+You can manage the variables for your projects, by navigating to your project in Octopus and selecting Project Variables:
 
 :::figure
 ![Project variables in Octopus Deploy](/docs/projects/variables/images/project-variables.png)
@@ -18,22 +19,22 @@ You can manage the variables for your projects, by navigating to your project in
 
 In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
 
-1. To add a variable to your [project](/docs/projects), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
+1. To add a variable to your [project](/docs/projects), navigate to **Project Variables** to access the variable editor.
 2. Give the variable a name, for instance, *Greeting*.
 3. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
 4. Define the scope for the value, for instance, by selecting the *Test* environment.
-5. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello, Production*.
+5. Click **Add another value** and enter the second value for the variable, for instance, *Hello, Production*.
 6. Define the scope for this value, for instance, by selecting the *Production* environment.
 :::figure
 ![Adding a project variable in Octopus Deploy](/docs/projects/variables/images/add-project-variable.png)
 :::
-7. Save the variable by clicking **SAVE**.
+7. Save the variable by clicking **Save**.
 8. In this example, we’ll reference this variable from a **Run a Script** step.
-9. Define your step (Click **Process ➜ ADD STEP ➜ Run A Script**) and in the **Script Content** section, enter the following PowerShell script into the script editor:
+9. Define your step (Click **Process ➜ Add Step ➜ Run A Script**) and in the **Script** section, enter the following PowerShell script into the script editor:
 ```
 Write-Host
 ```
-10. Select the variable Greeting from the insert variable tool (**#{}**) next to the script editor, and click **SAVE**.
+10. Select the variable Greeting from the insert variable tool (**#\{\}**) in the script editor, and click **Save**.
 :::figure
 ![Using a variable in a Hello World script in Octopus Deploy](/docs/projects/variables/images/hello-world-greeting-script.png)
 :::
@@ -63,7 +64,7 @@ During deployment, Octopus will try to select the most specifically scoped varia
 
 ### Assigning scopes \{#assigning-scopes}
 
-You can set the scope of a variable values when you are creating or editing your variables, either from the **Project Variable** section of the project, or in the **Variable Sets** section of the Library. However, when you assign scope to variables that are part of a variable set, the variables cannot be scoped to deployment steps or channels.
+You can set the scope of variable values when you are creating or editing your variables, either from the **Project Variable** section of the project, or in the **Variable Sets** section. However, when you assign scope to variables that are part of a variable set, the variables cannot be scoped to deployment steps or channels.
 
 :::figure
 ![Variable Sets in Octopus Deploy](/docs/projects/variables/images/library-variable-sets-scoping.png)

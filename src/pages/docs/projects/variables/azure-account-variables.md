@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-29
 title: Azure account variables
+icon: fa-brands fa-microsoft
 description: Create an Azure account variable to use it in Azure deployment steps
 navOrder: 70
 ---

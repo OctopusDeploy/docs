@@ -1,15 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-29
+modDate: 2024-08-28
 title: System variables
+icon: fa-solid fa-desktop
 description: System variables are variables provided by Octopus that can be used in your deployments.
 navOrder: 20
 ---
 
 This page lists built-in [variables](/docs/projects/variables/) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployments/custom-scripts).
 
-Most of the variables listed here are available in modern versions of Octopus and Calamari. However, some are only available from a specific version. Where this is the case, the version will be noted alongside the variable.
+Most of the variables listed here are available in modern versions of Octopus and Calamari. However, some are only available from a specific version. See [Older versions](#older-versions) for more detail on when variables became available. 
 
 :::div{.warning}
 **All variables are strings**
@@ -282,19 +283,19 @@ For projects that have [version control](/docs/projects/version-control) enabled
 
  `Octopus.Release.Git.BranchName`
  
- The branch name. This variable was added in Octopus **2021.3.0**.
+ The branch name.
  
  Example: *features/some-new-feature*
 
  `Octopus.Release.Git.CommitHash`
  
- The commit hash. This variable was added in Octopus **2021.3.0**.
+ The commit hash. 
  
  Example: *0c708fdec272bc4446c6cabea4f0022c2b616eba*
 
  `Octopus.Release.Git.Ref`
  
- The git reference. This variable was added in Octopus **2021.3.0**.
+ The git reference.
  
  Example: *Version 1*
 
@@ -406,19 +407,19 @@ Example: machines-123,machines-124
 
 `Octopus.Deployment.Tenant.Id`
 
-The ID of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present.
+The ID of the Tenant being deployed for. If the deployment is untenanted then this variable will not be present.
 
 Example: *Tenants-123*
 
 `Octopus.Deployment.Tenant.Name`
 
-The name of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present.
+The name of the Tenant being deployed for. If the deployment is untenanted then this variable will not be present.
 
 Example: *Acme Corp*
 
 `Octopus.Deployment.Tenant.Tags`
 
-Comma delimited list of tags that belong the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present.
+Comma delimited list of tags that belong the Tenant being deployed for. If the deployment is untenanted then this variable will not be present.
 
 Example: *Tenant type/External, Upgrade ring/Early adopter*
 
@@ -767,7 +768,7 @@ This provides a dictionary of objects with ID and Name properties, keyed on ID. 
 
 ## Action {#action}
 
-Action-level variables are available during execution of an action. Indexer notion such as `Octopus.Action[Website].TargetRoles` can be used to refer to values for different actions.
+Action-level variables are available during execution of an action. Indexer notation such as `Octopus.Action[Website].TargetRoles` can be used to refer to values for different actions.
 
 `Octopus.Action.Container.Image`
 
@@ -1077,7 +1078,7 @@ Example: *True*
 
 `Octopus.Action.Azure.DeploymentLabel`
 
-If set, the custom deployment label will be used for the Azure cloud service deployment. **Introduced in Calamari version 3.4.1.**.
+If set, the custom deployment label will be used for the Azure cloud service deployment.
 
 Example: my custom label for build 3.x.x
 
@@ -1121,7 +1122,7 @@ Example: *True*
 
 ## Output
 
-Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/projects/variables/output-variables).
+Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath` to refer to values based on the action and machine that produced them. See also [Output variables](/docs/projects/variables/output-variables).
 
 `Octopus.Action[_name_].Output.\_property\_`
 
@@ -1167,19 +1168,19 @@ Example: *alice*
 
 `Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentID`
 
-The ID of the completed Azure Cloud Service deployment. **Introduced in Calamari version 3.7.81.**.
+The ID of the completed Azure Cloud Service deployment. 
 
 Example: *c9f52da2b00a4313b3b64bb2ad0f409f*
 
 `Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentUrl`
 
-The Url of the completed Azure Cloud Service deployment. **Introduced in Calamari version 3.7.81**.
+The Url of the completed Azure Cloud Service deployment.
 
 Example: *http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/*
 
 ## Step
 
-Step-level variables are available during execution of a step. Indexer notion such as `Octopus.Step[Website].Number` can be used to refer to values for different steps.
+Step-level variables are available during execution of a step. Indexer notation such as `Octopus.Step[Website].Number` can be used to refer to values for different steps.
 
 `Octopus.Step.Id`
 
@@ -1274,7 +1275,7 @@ Example: *[https://my-octopus](https://my-octopus)*
 
 `Octopus.Web.ServerUri`
 
-The default URL at which the server portal can be accessed, as configured in the **Configuration ➜ Nodes** settings. This variable was added in Octopus **2019.4.0**.
+The default URL at which the server portal can be accessed, as configured in the **Configuration ➜ Nodes** settings. 
 
 *[https://my-octopus](https://my-octopus)*
 
@@ -1408,19 +1409,19 @@ Example: True
 
 `OctopusSkipFreeDiskSpaceCheck`
 
-Set to "True" to skip the check for available free disk space when deploying packages. **Introduced in Calamari version 3.1.30.**.
+Set to "True" to skip the check for available free disk space when deploying packages.
 
 Example: True
 
 `OctopusFreeDiskSpaceOverrideInMegaBytes`
 
-The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available. **Introduced in Calamari version 3.1.30**.
+The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available. 
 
 Example: 100
 
 `Octopus.Action.PowerShell.CustomPowerShellVersion`
 
-If specified, Windows PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0*.<br/>PowerShell Core scripts will be invoked using the installed version of PowerShell core which matches the specified value. The value must match one of the directories contained within `%PROGRAMFILES%\PowerShell`. Example values include *6* and *7-preview*.<br/>**Introduced in Calamari version 3.3.13.**.
+If specified, Windows PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0*.<br/>PowerShell Core scripts will be invoked using the installed version of PowerShell core which matches the specified value. The value must match one of the directories contained within `%PROGRAMFILES%\PowerShell`. Example values include *6* and *7-preview*.
 
 Example: 2.0
 
@@ -1432,25 +1433,25 @@ Example: False
 
 `Octopus.Action.Script.SuppressEnvironmentLogging`
 
-To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. **Introduced in Calamari version 3.6.5.**.
+To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. 
 
 Example: True
 
 `Octopus.Action.PowerShell.ExecuteWithoutProfile`
 
-Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+).
+Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps.
 
 Example: True
 
 `OctopusSuppressDuplicateVariableWarning`
 
-Set to `true` to have the duplicate variable message logged as verbose instead of warning. **Do this if you are aware of the duplication and that it isn't causing any issues in your deployment**  (available in version 3.17.0+).
+Set to `true` to have the duplicate variable message logged as verbose instead of warning. **Do this if you are aware of the duplication and that it isn't causing any issues in your deployment**.
 
 Example: True
 
 `Octopus.Action.Package.RunScripts`
 
-Set to `false` to prevent scripts inside packages from executing. **Do this if you are aware of the duplication and that it isn't causing any issues in your deployment**  (available in version 4.1.10+).
+Set to `false` to prevent scripts inside packages from executing. 
 
 Example: True
 
@@ -1474,6 +1475,11 @@ Note: This value applies to both deployment processes and runbooks, as long as i
 Octopus will run one task at a time for a given concurrency tag. Set the variable to run tasks in parallel instead of serial or in serial instead of parallel. For example, tenanted deployments run in parallel by default. Removing tenants from the concurrency tag will run them serially: #{Octopus.Project.Id}/#{Octopus.Environment.Id}
 
 Example: #{Octopus.Deployment.Tenant.Id}/#{Octopus.Project.Id}/#{Octopus.Environment.Id}
+
+## Older versions {#older-versions}
+* `Octopus.Release.Git.BranchName`, `Octopus.Release.Git.CommitHash` and `Octopus.Release.Git.Ref` is available from Octopus Deploy **2021.3** onwards.
+* `Octopus.Web.ServerUri` is available from Octopus Deploy **2019.4.0** onwards.
+* `Octopus.Deployment.Tenant.Id`, `Octopus.Deployment.Tenant.Name` and `Octopus.Deployment.Tenant.Tags` is available from Octopus Deploy **3.4** onwards.
 
 ## Learn more
 
