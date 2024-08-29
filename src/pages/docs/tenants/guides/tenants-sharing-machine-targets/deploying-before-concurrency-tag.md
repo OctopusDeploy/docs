@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-08-21
 modDate: 2023-08-21
 title: Deploying before the concurrency tag is changed
+icon: fa-solid fa-users-rectangle
 description: Shows the impact of the deployment mutex on concurrent deployments to the same target
 navOrder: 50
 hideInThisSectionHeader: true
