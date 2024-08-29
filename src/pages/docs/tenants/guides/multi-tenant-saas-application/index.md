@@ -17,7 +17,7 @@ This guide will introduce you to Software as a Service (SaaS) multi-tenant deplo
 
 In addition, customers can choose to take advantage of custom features, such as custom branding, on their instance of the Vet Clinic application.
 
-The following resources have been pre-configured in Octopus 
+The following resources have been pre-configured in Octopus:
 
 * Four environments: Development, Test, Staging and Production.
 * The guide deploys to Azure Web Apps. These have already been pre-configured in Azure. To create some Azure resources you can follow [this](/docs/runbooks/runbook-examples/azure/provision-app-service/
