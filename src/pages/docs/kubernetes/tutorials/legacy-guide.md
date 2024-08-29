@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-07-31
-modDate: 2024-07-31
+modDate: 2024-08-29
 title: First Kubernetes deployment
 description: This guide will walk you through how to configure your first deployment to Kubernetes in Octopus Deploy.
 navSection: Tutorials
@@ -12,6 +12,10 @@ hideInThisSectionHeader: true
 👋 Welcome to Octopus Deploy!
 
 This tutorial will help you complete your first deployment to Kubernetes with Octopus Deploy. We’ll walk you through the steps to deploy YAML files to your Kubernetes cluster. 
+
+:::div{.hint}
+If you’re using **Octopus 2024.3** or newer, please refer to the updated [Kubernetes First deployment](https://octopus.com/docs/kubernetes/tutorials) guide.
+:::
 
 ## Before you start
 
