@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-12-07
 title: Tenant variables
+icon: fa-solid fa-square-root-variable
 description: Tenant variables in Octopus allow you to specify which variables are required to deploy a project to a tenant successfully; Project variables are values that differ between projects and environments. Common variables are common across multiple tenants that require a unique value per tenant.
 navOrder: 30
 ---
@@ -42,7 +43,13 @@ You can specify the variable type for the project template, just like regular va
 ![](/docs/tenants/images/project-template-edit.png "width=500")
 :::
 
-On the tenant variable screen, you can set values for these variables.
+You can view and edit values for project's tenants and environments on a single screen
+
+:::figure
+![](/docs/tenants/images/project-template-screen-edit.png "width=500")
+:::
+
+You can set values for these variables also on the tenant variables screen.
 
 :::figure
 ![](/docs/tenants/images/project-template-tenant-value.png "width=500")
@@ -71,7 +78,9 @@ To include common variables for a tenant, you must add the variable set in the t
 
 Just like project variables, common variable values are supplied at the tenant level.
 
+:::figure
 ![](/docs/tenants/images/common-variable-tenant-value.png "width=500")
+:::
 
 ### Common variable permissions
 
