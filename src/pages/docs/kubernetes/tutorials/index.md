@@ -185,15 +185,15 @@ Follow the steps below to create a personal access token, or learn more in the *
 
 1. Navigate to **github.com** and log in to your account.
 2. Click your profile picture in the top right corner.
-3. Click **SETTINGS**.
-4. Scroll down to the bottom of the page and click **DEVELOPER SETTINGS**.
-5. Under Personal access tokens, click **FINE-GRAINED TOKENS**.
-6. Click **GENERATE NEW TOKEN**.
+3. Click **Settings**.
+4. Scroll down to the bottom of the page and click **Developer settings**.
+5. Under Personal access tokens, click **Fine-grained tokens**.
+6. Click **Generate new token**.
 7. Under **Token name**, enter a name for the token.
 8. Under **Expiration**, provide an expiration for the token.
 9. Select a Resource Owner.
-10. Under **Repository Access**, choose **Only select repositories** and select the **OctoPetShop** repository from the dropdown.
-11. Click on **REPOSITORY PERMISSIONS**, scroll down to **Contents**, and select **Read-only**.
+10. Under **Repository access**, choose **Only select repositories** and select the **OctoPetShop** repository from the dropdown.
+11. Click on **Repository permissions**, scroll down to **Contents**, and select **Read-only**.
 12. Scroll down to the Overview, and you should have 2 permissions for one of your repositories (contents and metadata).
 13. Click **Generate token** and copy the token.
 
