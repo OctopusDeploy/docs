@@ -11,7 +11,7 @@
    ![](/docs/shared-content/tenants/images/blank-or-clone-tenant.png)
    :::
 
-3. Enter the name you want to use for the tenant and click the **SAVE** button:
+3. Enter the name you want to use for the tenant and click the **Save** button:
 
    :::figure
     ![](/docs/shared-content/tenants/images/creating-new-tenant.png)
