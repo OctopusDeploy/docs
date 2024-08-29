@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-12-07
 title: Tenant types
+icon: fa-solid fa-boxes-stacked
 description: There are several different types of tenants that can be supported with Octopus Deploy.
 navOrder: 10
 ---
