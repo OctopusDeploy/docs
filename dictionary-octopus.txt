@@ -409,6 +409,7 @@ upgrader
 urllib
 urlset
 useronboarding
+userrole
 userroles
 utcnow
 VARCHAR

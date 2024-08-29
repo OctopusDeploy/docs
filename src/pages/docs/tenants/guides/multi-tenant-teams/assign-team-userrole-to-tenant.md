@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-29
 title: Assigning a team to a tenant
+icon: fa-solid fa-arrow-pointer
 description: This part of the guide demonstrates scoping an Octopus Team to a Tenant
 navOrder: 30
 hideInThisSectionHeader: true
@@ -12,19 +13,19 @@ The Octo Pet Shop application has two development teams (Avengers and Radical) t
 
 ## Scoping a team to a tenant
 
-Once you've created your team, click on the **USER ROLES** tab.
+Once you've created your team, click on the **User Roles** tab.
 
 :::figure
 ![](/docs/tenants/guides/multi-tenant-teams/images/octopus-teams-avenger.png)
 :::
 
-Click on **INCLUDE USER ROLE** then select the role to include for the team.  After the role has been selected, click on **DEFINE SCOPE**
+Click on **Include User Role** then select the role to include for the team.  After the role has been selected, click on **Define scope**
 
 :::figure
 ![](/docs/tenants/guides/multi-tenant-teams/images/octopus-teams-roles.png)
 :::
 
-Select the tenant and click **APPLY**
+Select the tenant and click **Apply**
 
 :::figure
 ![](/docs/tenants/guides/multi-tenant-teams/images/octopus-teams-role-tenant.png)
