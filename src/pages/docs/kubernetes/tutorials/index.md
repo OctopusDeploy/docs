@@ -14,7 +14,7 @@ hideInThisSectionHeader: true
 This tutorial will walk you through sourcing YAML files from a Git repository, and deploying them to a Kubernetes cluster. 
 
 :::div{.hint}
-If you’re using Octopus 2024.2 or earlier, please visit the legacy [Kubernetes First deployment](https://octopus.com/docs/kubernetes/tutorials/legacy-guide) guide.
+If you’re using Octopus **2024.2** or earlier, please visit the legacy [Kubernetes First deployment](https://octopus.com/docs/kubernetes/tutorials/legacy-guide) guide.
 :::
 
 ## Before you start
