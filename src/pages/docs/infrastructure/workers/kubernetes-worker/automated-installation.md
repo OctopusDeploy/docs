@@ -13,7 +13,7 @@ The Kubernetes Worker can be installed and managed using a combination of the [H
 ### Octopus Deploy & Helm
 Using a combination of the Octopus Deploy and Helm providers you can completely manage the Kubernetes Worker via Terraform. 
 
-:::div{.warning}
+:::div{.info}
 To ensure that the Kubernetes Worker is correctly installed in Octopus, certain criteria must hold for the following Terraform resource properties:
 
 | **Kubernetes Worker resource** | | **Helm resource (chart value)** |
@@ -21,6 +21,12 @@ To ensure that the Kubernetes Worker is correctly installed in Octopus, certain 
 | `octopusdeploy_kubernetes_agent_worker.name` | must be the same value as | `agent.name` |
 | `octopusdeploy_kubernetes_agent_worker.uri` | must be the same value as | `agent.serverSubscriptionId` |
 | `octopusdeploy_kubernetes_agent_worker.thumbprint` | is the thumbprint calculated from the certificate used in | `agent.certificate` |
+:::
+
+:::div{.warning}
+Always specify the major version in the **version** property on the **helm_release** resource (e.g. `version = "2.*.*"`) to prevent Terraform from defaulting to the latest Helm chart version. This is important, as a newer major version of the Kubernetes Worker Helm chart could introduce breaking changes.
+
+When upgrading to a new major version of the Kubernetes Worker, create a separate resource to ensure the Helm values match the updated schema. [Automatic upgrade support](./upgrading#automatic-updates-coming-in-20234) is expected in version 2023.4.
 :::
 
 ```hcl

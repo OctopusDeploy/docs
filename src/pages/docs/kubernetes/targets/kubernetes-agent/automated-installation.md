@@ -13,7 +13,7 @@ The Kubernetes Agent can be installed and managed using a combination of the Kub
 ### Octopus Deploy & Helm
 Using a combination of the Octopus Deploy and Helm providers you can completely manage the Kubernetes Agent via Terraform. 
 
-:::div{.warning}
+:::div{.info}
 To ensure that the Kubernetes Agent is correctly installed as a deployment target in Octopus, certain criteria must hold for the following Terraform resource properties:
 
 | **Kubernetes Agent resource** | | **Helm resource (chart value)** |
@@ -21,6 +21,12 @@ To ensure that the Kubernetes Agent is correctly installed as a deployment targe
 | `octopusdeploy_kubernetes_agent_deployment_target.name` | must be the same value as | `agent.name` |
 | `octopusdeploy_kubernetes_agent_deployment_target.uri` | must be the same value as | `agent.serverSubscriptionId` |
 | `octopusdeploy_kubernetes_agent_deployment_target.thumbprint` | is the thumbprint calculated from the certificate used in | `agent.certificate` |
+:::
+
+:::div{.warning}
+Always specify the major version in the **version** property on the **helm_release** resource (e.g. `version = "2.*.*"`) to prevent Terraform from defaulting to the latest Helm chart version. This is important, as a newer major version of the Agent Helm chart could introduce breaking changes.
+
+When upgrading to a new major version of the Agent, create a separate resource to ensure the Helm values match the updated schema. [Automatic upgrade support](./upgrading#automatic-updates-coming-in-20234) is expected in version 2023.4.
 :::
 
 ```hcl
