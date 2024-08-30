@@ -26,7 +26,7 @@ To ensure that the Kubernetes Worker is correctly installed in Octopus, certain 
 :::div{.warning}
 Always specify the major version in the **version** property on the **helm_release** resource (e.g. `version = "2.*.*"`) to prevent Terraform from defaulting to the latest Helm chart version. This is important, as a newer major version of the Kubernetes Worker Helm chart could introduce breaking changes.
 
-When upgrading to a new major version of the Kubernetes Worker, create a separate resource to ensure the Helm values match the updated schema. [Automatic upgrade support](./upgrading#automatic-updates-coming-in-20234) is expected in version 2023.4.
+When upgrading to a new major version of the Kubernetes Worker, create a separate resource to ensure the Helm values match the updated schema. [Automatic upgrade support](../../../kubernetes/targets/kubernetes-agent/upgrading#automatic-updates-coming-in-20234) is expected in version 2023.4.
 :::
 
 ```hcl
