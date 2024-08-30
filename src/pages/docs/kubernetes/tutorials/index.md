@@ -20,8 +20,7 @@ If you’re using Octopus **2024.2** or earlier, please visit the legacy [Kubern
 ## Before you start
 To follow this tutorial, you need:
 
-* **An Octopus instance.** If you don’t already have one, you can start a free trial of [Octopus Cloud](https://octopus.com/start)
-* Kubernetes cluster
+* **An Octopus instance.** If you don’t already have one, you can start a free trial of [Octopus Cloud](https://octopus.com/start).
 * **A Kubernetes cluster** you have terminal access to. If you don’t have one you can [install minikube locally](https://oc.to/minikube).
 * A [GitHub account](https://github.com/) with access to a repository with YAML files to deploy, or you can fork our sample repository below.
 
@@ -160,9 +159,9 @@ You can leave this as the default _Deploy Kubernetes YAML_.
 ### YAML source
 You can source YAML files via 3 methods:
 
-* Directly from a **Git Repository**, loaded at deployment time
-* Contained within a **Package**, like a ZIP or NuGet file
-* **Inline YAML** that you paste directly into the step
+* Directly from a **Git Repository**, loaded at deployment time.
+* Contained within a **Package**, like a ZIP or NuGet file.
+* **Inline YAML** that you paste directly into the step.
 
 Sourcing from a Git Repository can streamline your deployment process by reducing the steps to get your YAML into Octopus.
 
