@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2024-08-22
-modDate: 2024-08-22
+pubDate: 2024-08-30
+modDate: 2024-08-30
 title: Automated Installation
 description: How to automate the installation and management of the Kubernetes Worker
 navOrder: 40
 --- 
 
 ## Automated installation via Terraform
-The Kubernetes Worker can be installed and managed using a combination of the [Helm chart >= v2.0.2](https://hub.docker.com/r/octopusdeploy/kubernetes-agent), [Octopus Deploy >= v0.30.0 Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest) and/or [Helm Terraform provider](https://registry.terraform.io/providers/hashicorp/helm).
+The Kubernetes Worker can be installed and managed using a combination of the [Helm chart >= v2.2.1](https://hub.docker.com/r/octopusdeploy/kubernetes-agent), [Octopus Deploy >= v0.30.0 Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest) and/or [Helm Terraform provider](https://registry.terraform.io/providers/hashicorp/helm).
 
 ### Octopus Deploy & Helm
 Using a combination of the Octopus Deploy and Helm providers you can completely manage the Kubernetes Worker via Terraform. 

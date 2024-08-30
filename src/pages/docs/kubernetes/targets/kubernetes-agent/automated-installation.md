@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-14
-modDate: 2024-07-31
+modDate: 2024-08-30
 title: Automated Installation
 description: How to automate the installation and management of the Kubernetes Agent
 navOrder: 50
 ---
 
 ## Automated installation via Terraform
-The Kubernetes Agent can be installed and managed using a combination of the Kubernetes Agent [Helm chart >= v1.1.0](https://hub.docker.com/r/octopusdeploy/kubernetes-agent), [Octopus Deploy >= v0.20.0 Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest) and/or [Helm Terraform provider](https://registry.terraform.io/providers/hashicorp/helm).
+The Kubernetes Agent can be installed and managed using a combination of the Kubernetes Agent [Helm chart >= v2.2.1](https://hub.docker.com/r/octopusdeploy/kubernetes-agent), [Octopus Deploy >= v0.30.0 Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest) and/or [Helm Terraform provider](https://registry.terraform.io/providers/hashicorp/helm).
 
 ### Octopus Deploy & Helm
 Using a combination of the Octopus Deploy and Helm providers you can completely manage the Kubernetes Agent via Terraform. 
@@ -28,7 +28,7 @@ terraform {
   required_providers {
     octopusdeploy = {
       source  = "OctopusDeployLabs/octopusdeploy"
-      version = "0.20.0"
+      version = "0.30.0"
     }
 
     helm = {
@@ -81,7 +81,7 @@ resource "helm_release" "octopus_agent" {
   name             = "octopus-agent-release"
   repository       = "oci://registry-1.docker.io"
   chart            = "octopusdeploy/kubernetes-agent"
-  version          = "1.*.*"
+  version          = "2.*.*"
   atomic           = true
   create_namespace = true
   namespace        = "octopus-agent-target"
@@ -92,7 +92,7 @@ resource "helm_release" "octopus_agent" {
   }
 
   set {
-    name  = "agent.targetName"
+    name  = "agent.name"
     value = octopusdeploy_kubernetes_agent_deployment_target.agent.name
   }
 
@@ -126,13 +126,18 @@ resource "helm_release" "octopus_agent" {
     value = octopusdeploy_space.agent_space.name
   }
 
+  set {
+    name  = "agent.deploymentTarget.enabled"
+    value = "true"
+  }
+
   set_list {
-    name  = "agent.targetEnvironments"
+    name  = "agent.deploymentTarget.initial.environments"
     value = octopusdeploy_kubernetes_agent_deployment_target.agent.environments
   }
 
   set_list {
-    name  = "agent.targetRoles"
+    name  = "agent.deploymentTarget.initial.tags"
     value = octopusdeploy_kubernetes_agent_deployment_target.agent.roles
   }
 }
@@ -169,7 +174,7 @@ resource "helm_release" "octopus_agent" {
   name             = "octopus-agent-release"
   repository       = "oci://registry-1.docker.io"
   chart            = "octopusdeploy/kubernetes-agent"
-  version          = "1.*.*"
+  version          = "2.*.*"
   atomic           = true
   create_namespace = true
   namespace        = "octopus-agent-target"
@@ -204,14 +209,18 @@ resource "helm_release" "octopus_agent" {
     value = "Default"
   }
 
+  set {
+    name  = "agent.deploymentTarget.enabled"
+    value = "true"
+  }
+
   set_list {
-    name  = "agent.targetEnvironments"
+    name  = "agent.deploymentTarget.initial.environments"
     value = ["Development"]
   }
 
-
   set_list {
-    name  = "agent.targetRoles"
+    name  = "agent.deploymentTarget.initial.tags"
     value = ["Role-1"]
   }
 }
