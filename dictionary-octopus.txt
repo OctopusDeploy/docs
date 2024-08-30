@@ -12,6 +12,7 @@ approot
 appsettings
 Appstep
 Appsteps
+argparse
 ASPNET
 aspnetcore
 astro
@@ -30,8 +31,10 @@ bootstrap
 bootstrapped
 bootstrapper
 bufio
+buildevent
 Ceph
 certkeyName
+Certstore
 changeit
 checkservices
 childelement
@@ -53,12 +56,14 @@ contoso
 cooldown
 corepack
 Cpath
+createartifact
 creds
 crossorigin
 cscfg
 cspkg
 Csvg
 customisation
+Customscripts
 cutover
 dacpac
 Datacenter
@@ -91,9 +96,12 @@ Elyton
 emptytitle
 entra
 environmentids
+echoerror
+eprintfn
 expressjs
 externalgroups
 externalusers
+failstep
 fanout
 Fargate
 feedcred
@@ -115,6 +123,7 @@ gitcredential
 globbing
 Gluster
 googleaccount
+googleapps
 gpedit
 groff
 Groupsand
@@ -182,6 +191,7 @@ Liquibase
 lstrip
 ltsc
 machinepolicies
+machinepolicy
 maintenanceconfiguration
 majeure
 makedirs
@@ -203,6 +213,7 @@ myapplication
 myfeature
 navigationid
 NETBIOS
+netcore
 Netscaler
 netsh
 netstandard
@@ -234,6 +245,7 @@ Octodiff
 octofxjs
 octoha
 octojs
+octopack
 octopackjs
 Octopub
 octopusartifact
@@ -241,6 +253,7 @@ octopusbob
 octopusdemos
 octopusdemos.app
 octopusdeploy
+octopusdsc
 octopusid
 octopuslabs
 octopusservernodes
@@ -275,6 +288,10 @@ prerender
 prerenderingchange
 printfn
 Println
+printhighlight
+printverbose
+printwait
+printwarning
 PROGRAMFILES
 projectgroup
 projectgroups
@@ -296,6 +313,7 @@ rehype
 reindexing
 releaseprogression
 remoting
+removecloudformation
 replicasets
 reprioritize
 reprovisioned
@@ -316,6 +334,7 @@ runbooksnapshot
 runbooksnapshots
 runbooksnapshottemplate
 RUNMANAGERONEXIT
+Runspace
 runtimes
 SAMEORIGIN
 Schannel
@@ -379,7 +398,9 @@ Traefik
 Trivy
 tsconfigs
 typeof
+Tzdb
 umoci
+updateprogress
 undeployed
 Unmarshal
 upgradeavailability
@@ -388,6 +409,7 @@ upgrader
 urllib
 urlset
 useronboarding
+userrole
 userroles
 utcnow
 VARCHAR

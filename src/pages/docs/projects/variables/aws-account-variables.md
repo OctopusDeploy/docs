@@ -1,13 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-29
 title: AWS account variables
+icon: fa-brands fa-aws
 description: Create an AWS account to use it in AWS-related deployment steps
 navOrder: 80
 ---
 
-[AWS accounts](/docs/infrastructure/accounts/aws/) are included in a project through a project [variable](/docs/projects/variables/) of the type **Amazon Web Services Account**. Before you create an **AWS account Variable**, you need to [create an AWS account](/docs/infrastructure/accounts/aws) in Octopus:
+[AWS accounts](/docs/infrastructure/accounts/aws/) are included in a project through a project [variable](/docs/projects/variables/) of the type **AWS Account**. Before you create an **AWS account variable**, you need to [create an AWS account](/docs/infrastructure/accounts/aws) in Octopus:
 
 :::figure
 ![AWS account variable](/docs/projects/variables/images/aws-account-variable.png)

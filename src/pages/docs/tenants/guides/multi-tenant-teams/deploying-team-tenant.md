@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-29
 title: Deploying to a team tenant
+icon: fa-solid fa-arrows-to-dot
 description: This part of the guide demonstrates deploying to a team tenant
 navOrder: 50
 hideInThisSectionHeader: true
@@ -25,7 +26,7 @@ Developers for Team Avengers have the ability to create a release, but only depl
 ![](/docs/tenants/guides/multi-tenant-teams/images/team-avengers-deploy.png)
 :::
 
-Depending on how you scope your team for Environment, because the `OctoPetShop-Team-Avengers` tenant is only scoped for Development, attempting to deploy to test will result in a missing resource and the **DEPLOY** button disabled.
+Depending on how you scope your team for Environment, because the `OctoPetShop-Team-Avengers` tenant is only scoped for Development, attempting to deploy to test will result in a missing resource and the **Deploy** button disabled.
 
 :::figure
 ![](/docs/tenants/guides/multi-tenant-teams/images/team-avengers-deploy-to-test.png)

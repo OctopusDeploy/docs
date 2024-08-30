@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-28
 title: Scheduled deployment triggers
+icon: fa-solid fa-clock
 description: Automatic deployment triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
 navOrder: 2
 ---
@@ -21,16 +22,16 @@ Scheduled deployment triggers provide a way to configure your projects to create
 
 ## Add a scheduled trigger
 
-1. In a project, select **Deployments ➜ Triggers**, then **ADD TRIGGER ➜ Scheduled trigger**.
+1. In a project, select **Triggers**, then **Add Trigger ➜ Scheduled**.
 2. Give the trigger a name.
 3. Set the trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can schedule a trigger based on either days of the week, or dates of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
 4. Select the action the trigger should take when executed.
-  - **Deploy latest release** re-deploys a release or promote a release between environments. You need to specify the **source environment** and the **destination environment**. The latest successful release in the source environment will be deployed to the destination environment.
-  - **Deploy new release** deploys a new release which will deployed to the environment you specify in the **destination environment**.
+   - **Deploy latest release** re-deploys a release or promote a release between environments. You need to specify the **source environment** and the **destination environment**. The latest successful release in the source environment will be deployed to the destination environment.
+   - **Deploy new release** deploys a new release which will deployed to the environment you specify in the **destination environment**.
 
-If you are using [channels](/docs/releases/channels) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
+    If you are using [channels](/docs/releases/channels) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
 
-If you are using [tenants](/docs/tenants) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
+    If you are using [tenants](/docs/tenants) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
 
 5. Save the trigger.
 

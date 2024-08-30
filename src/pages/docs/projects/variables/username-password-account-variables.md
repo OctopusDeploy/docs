@@ -1,13 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-27
-modDate: 2023-11-24
+modDate: 2024-08-29
 title: Username and password account variables
+icon: fa-solid fa-id-card
 description: Create a Username and password account variable to use in any deployment step
 navOrder: 90
 ---
 
-[Username and password accounts](/docs/infrastructure/accounts/username-and-password/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **UsernamePassword account**. Before you create a Username and Password account Variable, you need to create a Username and Password account in Octopus:
+[Username and password accounts](/docs/infrastructure/accounts/username-and-password/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Username Password account**. Before you create a Username and Password account Variable, you need to create a Username and Password account in Octopus:
 
 :::figure
 ![Username Password account variable](/docs/projects/variables/images/username-password-account-variable.png)

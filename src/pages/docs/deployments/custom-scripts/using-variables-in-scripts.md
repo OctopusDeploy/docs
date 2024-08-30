@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Using variables in scripts
 description: With Octopus you can define variables for use with your custom scripts.
+icon: fa-regular fa-file-code
 navOrder: 30
 ---
 
@@ -84,7 +85,7 @@ print(connectionString)
 To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/FSharp/Bootstrap.fsi).
 :::
 
-## Variables in PowerShell scripts {#Customscripts-VariablesinPowerShellscripts}
+## Variables in PowerShell scripts {#variables-in-powershell}
 
 In PowerShell we have pre-defined some script-scoped variables for you as a convenience. Consider the same example as before, a variable named "MyApp.ConnectionString" will be available as both:
 

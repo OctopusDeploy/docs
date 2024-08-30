@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2024-08-27
 title: Run a script step
 description: Standalone scripts allow you to run scripts contained in a package, in a git repository, or ad-hoc scripts you've saved as part of the step.
+icon: fa-regular fa-file-code
 navOrder: 10
 ---
 
@@ -57,7 +58,7 @@ Using scripts from inside a package or a git repository are a great way to versi
 :::
 
 :::div{.hint}
-From Octopus **2024.1**, if you are storing your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the files.
+If you are storing your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the files.
 
 You can find more information about this feature in this [blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
 :::
@@ -145,3 +146,7 @@ If the package reference was configured to be extracted, then the package will b
 If the package reference was _not_ configured to be extracted, then the un-extracted package file will be placed in the working directory. The file will be named as the package reference name, with the same extension as the original package file.  For example, for a package reference named `Acme`, which resolved to a zip package, the file would be copied to a path such as `C:\Octopus\Work\20180821060923-7117-31\Acme.zip` (for Linux: `/home/ubuntu/.octopus/Work/20180821062148-7121-35/Acme.zip`).
 
 These locations were designed to be convenient for use from custom scripts, as the relative path can be predicted, e.g. `./Acme` or `./Acme.zip`.  If the absolute path is required the variables above may be used.
+
+## Older versions
+
+Scripts sourced from your Projects Git Repository was added in Octopus **2024.1**. In Octopus versions prior, the Git Repository source is not available.

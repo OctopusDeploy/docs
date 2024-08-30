@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2024-05-20
 title: Release versioning
 description: Select how the next release number is generated when creating a release.
+icon: fa-solid fa-code-commit
 navOrder: 125
 ---
 

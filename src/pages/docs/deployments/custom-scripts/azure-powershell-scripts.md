@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2024-08-26
 title: Azure CLI and PowerShell Scripts
 description: Azure CLI and PowerShell Scripts allow you to manage your Azure resources as part of your deployment process.
+icon: fa-regular fa-file-code
 navOrder: 80
 ---
 
@@ -21,8 +22,6 @@ If this is not an option in your scenario, we recommend that you provision your 
 
 :::div{.warning}
 Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
-
-From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
 
 We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules/) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli).
 :::
@@ -42,7 +41,7 @@ Azure supports two authentication methods, each of which provides access to a di
 
 Learn more about [configuring the right Azure Account](/docs/infrastructure/accounts/azure).
 
-## Running Scripts in Octopus Cloud
+## Running scripts in Octopus Cloud
 
 Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools). Octopus provides these, and you cannot easily install custom versions of the Azure tools on them.
 
@@ -70,3 +69,7 @@ New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```
 
 ![](/docs/deployments/custom-scripts/images/create-staging-slot.png)
+
+## Older versions
+
+In Octopus 2021.2 a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step. Older versions of Octopus will not display this warning.

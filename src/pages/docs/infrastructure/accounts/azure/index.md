@@ -11,7 +11,7 @@ You can deploy software to the Azure cloud by adding your Azure subscription to 
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy.
 
-## Azure account authentication method {#CreatingAnAzureAccount-AuthenticationMethod}
+## Microsoft Entra ID account authentication method {#CreatingAnAzureAccount-AuthenticationMethod}
 
 When you add an Azure account to Octopus, there are two ways to authenticate with Azure in Octopus. These represent the different interfaces in Azure, and the interface you need will dictate which authentication method you use.
 
@@ -20,15 +20,15 @@ When you add an Azure account to Octopus, there are two ways to authenticate wit
 
 You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
 
-Azure Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Azure Active Directory will let you configure finely grained authorization for your Octopus Server.
+Microsoft Entra ID Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Microsoft Entra ID will let you configure finely grained authorization for your Octopus Server.
 
 :::div{.warning}
 Management Certificates are used to authenticate with Service Management APIs, those are being deprecated by Microsoft.  See our [blog post](https://octopus.com/blog/azure-management-certs) for more details.  Instructions remain only for legacy purposes.  Please migrate to service principals as soon as possible.
 :::
 
-## Creating an Azure Service Principal account {#azure-service-principal}
+## Creating an Microsoft Entra ID Service Principal account {#azure-service-principal}
 
-Before creating an Octopus Azure Service Principal account, you will need an Azure App Registration. If you do not currently have an Azure App Registration follow the [App Registration](https://oc.to/create-azure-app-registration) guide, or create it with a [script](#create-app-registration-via-script).
+Before creating an Octopus Microsoft Entra ID Service Principal account, you will need an Microsoft Entra ID App Registration. If you do not currently have an Microsoft Entra ID App Registration follow the [App Registration](https://oc.to/create-azure-app-registration) guide, or create it with a [script](#create-app-registration-via-script).
 
 After creating the App Registration, make a note of the following:
 
@@ -36,31 +36,31 @@ After creating the App Registration, make a note of the following:
 - **Tenant ID**
 - **Application ID**
 
-There are two supported types of credentials to allow your Octopus instance to authenticate with an Azure Service Principal: Client Secrets and Federated Credentials.
+There are two supported types of credentials to allow your Octopus instance to authenticate with an Microsoft Entra ID Service Principal: Client Secrets and Federated Credentials.
 
-### Create a client secret credential for an Azure Service Principal
+### Create a client secret credential for an Microsoft Entra ID Service Principal
 
-To manually create a client secret follow the [Add a client secret](https://oc.to/create-azure-credentials) section in the Azure AD documentation, or create it with a [script](#create-a-client-secret-via-script).
+To manually create a client secret follow the [Add a client secret](https://oc.to/create-azure-credentials) section in the Microsoft Entra ID documentation, or create it with a [script](#create-a-client-secret-via-script).
 
 Following this process you will be given the client secret, make a note of this as you cannot retrieve it afterward.
 
 Next, you need to configure your [resource permissions](#resource-permissions).
 
-### Create a federated credential for an Azure Service Principal
+### Create a federated credential for a Microsoft Entra ID Service Principal
 
 :::div{.warning}
-Support for OpenID Connect authentication to Azure requires Octopus Server version 2023.4
+Support for OpenID Connect authentication to Microsoft Entra ID requires Octopus Server version 2023.4
 :::
 
-To use OpenID Connect to authenticate with Azure, you will need to create a federated credential for the Azure Service Principal
+To use OpenID Connect to authenticate with Microsoft Entra ID, you will need to create a federated credential for the Microsoft Entra ID Service Principal
 
 #### Octopus Server configuration
 
 To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). 
 
-#### Azure Service Principal configuration 
+#### Microsoft Entra ID Service Principal configuration 
 
-To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-credentials) section in the Azure AD documentation, or create it with a [script](#create-federated-credential-via-script).
+To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-credentials) section in the Microsoft Entra ID documentation, or create it with a [script](#create-federated-credential-via-script).
 
 The federated credential will need the **Issuer** value set to the publicly accessible Octopus Server URI configured in the previous step, this value must also not have a trailing slash (/), for example `https://samples.octopus.app`.
 
@@ -101,19 +101,19 @@ Next, if you want to get even more granular you can constrain the service princi
 
 The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployments/azure/ase/#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
 
-### Create an Azure App Registration via script {#create-app-registration-via-script}
+### Create a Microsoft Entra ID App Registration via script {#create-app-registration-via-script}
 
-This step shows you how to script the creation of an Azure Active Directory App Registration
+This step shows you how to script the creation of an Microsoft Entra ID App Registration
 
 :::div{.hint}
-During the script, you will be prompted to authenticate with Azure. The authenticated user must have administrator permissions in the Active Directory in which the Service Principal is being created.
+During the script, you will be prompted to authenticate with Microsoft Azure. The authenticated user must have administrator permissions in the directory in which the Service Principal is being created.
 :::
 
 <details data-group="infrastructure-accounts-azure">
 <summary>Az CLI</summary>
 
 ```bash
-# this script will create a new Azure AD App Registration
+# this script will create a new Microsoft Entra ID App Registration
 
 subscription='' # Replace with the name or id of your subscription
 appName='' # Replace with your app registration name
@@ -129,7 +129,7 @@ az account show  --query "{Name:name,SubscriptionId:id,TenantId:tenantId}" -o ta
 <summary>Az PowerShell</summary>
 
 ```powershell
-# this script will create a new Azure AD App Registration
+# this script will create a new Microsoft Entra ID App Registration
 
 $AzureTenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982" # Replace with your Tenant Id
 $AzureSubscriptionName = "YOUR SUBSCRIPTION NAME" # Replace with your subscription name
@@ -156,22 +156,22 @@ $ExistingApplication = Get-AzADApplication -DisplayName "$AzureApplicationName"
 
 if ($null -eq $ExistingApplication)
 {
-    Write-Host "The Azure Active Directory Application does not exist, creating Azure Active Directory application"
+    Write-Host "The Microsoft Entra ID Application does not exist, creating Microsoft Entra ID application"
     $azureAdApplication = New-AzADApplication -DisplayName "$AzureApplicationName"
     
-    Write-Host "Azure App Registration successfully created"
+    Write-Host "Microsoft Entra ID App Registration successfully created"
     $AzureApplication = $azureAdApplication
 }
 else 
 {
-    Write-Host "The Azure service principal $AzureApplicationName already exists"        
+    Write-Host "The Microsoft Entra ID service principal $AzureApplicationName already exists"        
     $AzureApplication = $ExistingApplication
 }
 
 Write-Host "Important information to know when registering this subscription with Octopus Deploy:"
-Write-Host "    1) The Azure Tenant Id is: $AzureTenantId"
-Write-Host "    2) The Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
-Write-Host "    3) The Azure Application Id: $(AzureApplication.AppId)"
+Write-Host "    1) The Microsoft Entra ID Tenant Id is: $AzureTenantId"
+Write-Host "    2) The Microsoft Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
+Write-Host "    3) The Microsoft Entra ID Application Id: $(AzureApplication.AppId)"
 
 ```
 </details>
@@ -181,7 +181,7 @@ Write-Host "    3) The Azure Application Id: $(AzureApplication.AppId)"
 This step shows you how to create a Service Principal Client Secret with the script below.
 
 :::div{.hint}
-During the script, you will be prompted to authenticate with Azure. The authenticated user must have administrator permissions in the Active Directory in which the Service Principal is being created.
+During the script, you will be prompted to authenticate with Microsoft Azure. The authenticated user must have administrator permissions in the directory in which the Service Principal is being created.
 :::
 
 
@@ -224,7 +224,7 @@ else
 Write-Host "Loading the Azure Az Module.  This may cause the screen to freeze while loading the module."
 Import-Module -Name Az
 
-Write-Host "Logging into Azure"
+Write-Host "Logging into Microsoft Entra ID"
 Connect-AzAccount -Tenant $AzureTenantId -Subscription $AzureSubscriptionName
 
 $endDate = (Get-Date).AddDays($AzurePasswordEndDays)
@@ -235,17 +235,17 @@ $ExistingApplication = Get-AzADApplication -DisplayName "$AzureApplicationName"
 if ($null -eq $ExistingApplication) {
     Write-host "Unable to find application with name '$AzureApplicationName'"
 } else {
-    Write-Host "The Azure service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
+    Write-Host "The Microsoft Entra ID service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
     $credential = New-Object Microsoft.Azure.PowerShell.Cmdlets.Resources.MSGraph.Models.ApiV10.MicrosoftGraphPasswordCredential
     $credential.EndDateTime = $endDate 
     $credential.DisplayName = "$AzureApplicationName"
     $newCredential = New-AzADAppCredential -PasswordCredentials @($credential) -ApplicationId $ExistingApplication.AppId 
-    Write-Host "Azure Service Principal successfully password successfully created."
+    Write-Host "Microsoft Entra ID Service Principal successfully password successfully created."
 
     Write-Host "Important information to know when registering this subscription with Octopus Deploy:"
-    Write-Host "    1) The Azure Tenant Id is: $AzureTenantId"
-    Write-Host "    2) The Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
-    Write-Host "    3) The Azure Application Id: $($ExistingApplication.AppId)"
+    Write-Host "    1) The Microsoft Entra ID Tenant Id is: $AzureTenantId"
+    Write-Host "    2) The Microsoft Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
+    Write-Host "    3) The Microsoft Entra ID Application Id: $($ExistingApplication.AppId)"
     Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
 }
 ```
@@ -253,7 +253,7 @@ if ($null -eq $ExistingApplication) {
 
 - **Subscription ID**: The ID of the Azure subscription the account will interact with.
 - **Password**: A secret value created by you. Make sure you record it, as you will need to enter it into Octopus Deploy.
-- **Tenant ID**: The ID of the Active Directory tenant. You can find this in the Azure Portal by navigating to **Azure Active Directory ➜ Properties** in the **Tenant ID** field.
+- **Tenant ID**: The ID of the Microsoft Entra ID tenant. You can find this in the Azure Portal by navigating to **Microsoft Entra ID ➜ Properties** in the **Tenant ID** field.
 
 The Service Principal will default to expiring in 1 year from the time of creation.
 
@@ -271,7 +271,7 @@ Now, you can [add the Service Principal Account in Octopus](#add-service-princip
 This step shows you how to create a Service Principal Client Secret with the script below.
 
 :::div{.hint}
-During the script, you will be prompted to authenticate with Azure. The authenticated user must have administrator permissions in the Active Directory in which the Service Principal is being created.
+During the script, you will be prompted to authenticate with Microsoft Azure. The authenticated user must have administrator permissions in the directory in which the Service Principal is being created.
 :::
 
 
@@ -334,25 +334,25 @@ $ExistingApplication = Get-AzADApplication -DisplayName "$AzureApplicationName"
 if ($null -eq $ExistingApplication) {
     Write-host "Unable to find application with name '$AzureApplicationName'"
 } else {
-    Write-Host "The Azure service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
+    Write-Host "The Microsoft Entra ID service principal $AzureApplicationName already exists, creating a new password for Octopus Deploy to use."        
     $credential = New-Object Microsoft.Azure.PowerShell.Cmdlets.Resources.MSGraph.Models.ApiV10.MicrosoftGraphPasswordCredential
     $credential.EndDateTime = $endDate 
     $credential.DisplayName = "$AzureApplicationName"
     $newCredential = New-AzADAppCredential -PasswordCredentials @($credential) -ApplicationId $ExistingApplication.AppId 
-    Write-Host "Azure Service Principal successfully password successfully created."
+    Write-Host "Microsoft Entra ID Service Principal successfully password successfully created."
 
     Write-Host "Important information to know when registering this subscription with Octopus Deploy:"
-    Write-Host "    1) The Azure Tenant Id is: $AzureTenantId"
-    Write-Host "    2) The Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
-    Write-Host "    3) The Azure Application Id: $($ExistingApplication.AppId)"
+    Write-Host "    1) The Microsoft Entra ID Tenant Id is: $AzureTenantId"
+    Write-Host "    2) The Microsoft Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
+    Write-Host "    3) The Microsoft Entra ID Application Id: $($ExistingApplication.AppId)"
     Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
 }
 ```
 </details>
 
-- **Subscription ID**: The ID of the Azure subscription the account will interact with.
+- **Subscription ID**: The ID of the Microsoft Azure subscription the account will interact with.
 - **Password**: A secret value created by you. Make sure you record it, as you will need to enter it into Octopus Deploy.
-- **Tenant ID**: The ID of the Active Directory tenant. You can find this in the Azure Portal by navigating to **Azure Active Directory ➜ Properties** in the **Tenant ID** field.
+- **Tenant ID**: The ID of the Active Directory tenant. You can find this in the Azure Portal by navigating to **Microsoft Entra ID ➜ Properties** in the **Tenant ID** field.
 
 The Service Principal will default to expiring in 1 year from the time of creation.
 
@@ -763,11 +763,11 @@ $ExistingApplication | Format-Table
 
 if ($null -eq $ExistingApplication)
 {
-    Write-OctopusVerbose "The Azure Active Directory Application does not exist, creating Azure Active Directory application"
+    Write-OctopusVerbose "The Microsoft Entra ID Application does not exist, creating Microsoft Entra ID application"
     $azureAdApplication = New-AzADApplication -DisplayName "$AzureServicePrincipalName" -HomePage "http://octopus.com" -IdentifierUris "http://octopus.com/$($AzureServicePrincipalName)" -Password $securePassword -EndDate $endDate
     $azureAdApplication | Format-Table
 
-    Write-OctopusVerbose "Creating Azure Active Directory service principal"
+    Write-OctopusVerbose "Creating Microsoft Entra ID service principal"
     $servicePrincipal = New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     $servicePrincipal | Format-Table
 
@@ -776,9 +776,9 @@ if ($null -eq $ExistingApplication)
 }
 else 
 {
-    Write-OctopusVerbose "The azure service principal $AzureServicePrincipalName already exists, creating a new password for Octopus Deploy to use."        
+    Write-OctopusVerbose "The Microsoft Entra ID service principal $AzureServicePrincipalName already exists, creating a new password for Octopus Deploy to use."        
     New-AzADAppCredential -DisplayName "$AzureServicePrincipalName" -Password $securePassword -EndDate $endDate     
-    Write-OctopusSuccess "Azure Service Principal successfully password successfully created."
+    Write-OctopusSuccess "Microsoft Entra ID Service Principal successfully password successfully created."
     $AzureApplicationId = $ExistingApplication.ApplicationId
 }
 
@@ -812,10 +812,10 @@ if ($null -eq $existingAccount)
         EnvironmentIds = @($OctopusEnvironmentIdList)
     }
 
-    Write-OctopusVerbose "Adding Azure Service Principal that was just created to Octopus Deploy"    
+    Write-OctopusVerbose "Adding Microsoft Entra ID Service Principal that was just created to Octopus Deploy"    
     Invoke-OctopusApi -EndPoint "accounts" -item $jsonPayload -method "POST" -SpaceId $spaceInfo.Id -apiKey $OctopusApiKey -OctopusURL $OctopusURL
 
-    Write-OctopusSuccess "Successfully added the Azure Service Principal account to Octopus Deploy"
+    Write-OctopusSuccess "Successfully added the Microsoft Entra ID Service Principal account to Octopus Deploy"
 }
 else 
 {
@@ -828,8 +828,8 @@ else
 }
 
 Write-OctopusSuccess "Important information to know for future usage:"
-Write-OctopusVerbose "    1) The Azure Tenant Id is: $AzureTenantId"
-Write-OctopusVerbose "    2) The Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
-Write-OctopusVerbose "    3) The Azure Application Id: $AzureApplicationId"
+Write-OctopusVerbose "    1) The Microsoft Entra ID Tenant Id is: $AzureTenantId"
+Write-OctopusVerbose "    2) The Microsoft Azure Subscription Id: $($azureSubscription.SubscriptionId)"  
+Write-OctopusVerbose "    3) The Microsoft Entra ID Application Id: $AzureApplicationId"
 Write-OctopusVerbose "    4) The new password is: $password - this is the only time you'll see this password, please store it in a safe location."
 ```

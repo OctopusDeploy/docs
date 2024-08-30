@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-28
 title: Scripts in packages
 description: Octopus will run scripts included in your package when the script matches a naming convention.
+icon: fa-solid fa-cubes
 navOrder: 20
 ---
 

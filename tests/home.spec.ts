@@ -17,7 +17,6 @@ test('Crawl for bad URIs', async () => {
       return;
     }
 
-    console.log(url, foundOn);
     crawled.push(url);
 
     try {
@@ -38,7 +37,7 @@ test('Crawl for bad URIs', async () => {
     for (let i = 0; i < links.length; i++) {
       await crawl(links[i], url);
     }
-  }
+  };
 
   // Kick off the crawl
   await crawl(baseUrl + startPath, 'First Page');

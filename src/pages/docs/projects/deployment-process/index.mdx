@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-12-07
+modDate: 2024-08-28
 title: Deployment process
+icon: fa-solid fa-bars-staggered
 description: Deploying applications starts with defining a project's deployment process.
 hideInThisSection: false
 navOrder: 10
@@ -18,16 +19,16 @@ Now that you have access to an Octopus Server, your [infrastructure is configure
 
 ## Create a release
 
-1. From the project's overview page, click **CREATE RELEASE**, and then click **Save**.
-1. Click **DEPLOY TO TEST**, then click **DEPLOY**.
+1. From the process page, click **Create Release**, and then click **Save**.
+1. Click **Deploy to Development...**, then click **Deploy**.
 
-This will deploy the release. In the task summary, you'll see the release was deployed to your *Test* environment, and the step *Hello world* ran on the deployment target, in this case *TWeb01*.
+This will deploy the release. In the task summary, you'll see the release was deployed to your *Development* environment, and the step *Run Hello world script* ran on the Octopus Server or selected worker.
 
 :::figure
 ![Hello world task summary](/docs/projects/deployment-process/images/hello-world.png "width=500")
 :::
 
-This is an example of a very simple process, the following sections go into more detail about each part of the process.
+This is an example of a very simple process. The following sections go into more detail about each part of the process.
 
 ## Projects
 
@@ -75,7 +76,7 @@ Learn more about [releases](/docs/releases).
 
 ## Working with the Octopus API
 
-Octopus Deploy is built API-first, which means everything you can do through the Octopus UI can be done with the API. In the API we model the deployment process the same way, starting at the Project:
+Octopus Deploy is built API-first, which means everything you can do through the Octopus UI can be done with the API. In the API we model the deployment process the same way, starting at the project:
 
 - Project
 - Deployment process

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: /docs/kubernetes/tutorials/first-kubernetes-deployment
+redirect: https://octopus.com/docs/kubernetes/tutorials/first-kubernetes-deployment
 pubDate:  2024-07-29
 navSearch: false
 navSitemap: false

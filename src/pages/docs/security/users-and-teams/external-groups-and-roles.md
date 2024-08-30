@@ -45,10 +45,10 @@ Domain trust is the only constraint when Active Directory users authenticate wit
 
 ## Add external role {#ExternalGroupsandRoles-AddExternalRole}
 
-This button appears if you have an external authentication provider enabled (e.g. Azure AD), and when activated you will see the following dialog
+This button appears if you have an external authentication provider enabled (e.g. Microsoft Entra ID), and when activated you will see the following dialog
 
 :::figure
 ![](/docs/security/users-and-teams/images/add-external-role.png)
 :::
 
-The Role Id corresponds to the role id from the external provider (learn more about [roles for Azure AD](/docs/security/authentication/azure-ad-authentication)), Display Name is purely for display in the Team page.
+The Role Id corresponds to the role id from the external provider (learn more about [roles for Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication)), Display Name is purely for display in the Team page.
