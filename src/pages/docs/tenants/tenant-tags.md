@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-12-07
+modDate: 2024-08-30
 title: Tenant tags
+icon: fa-solid fa-tags
 description: Tenant Tags help you to classify your tenants with custom tags so you can tailor your tenanted deployments accordingly.
 navOrder: 40
 ---
@@ -28,7 +29,7 @@ Octopus allows you to group similar tags into tag sets, making it easier to work
 
 ## Managing tenant tags {#managing-tenant-tags}
 
-Go to **Library ➜ Tenant Tag Sets** to create, modify and reorder tag sets and tags.
+Go to **Deploy ➜ Tenant Tag Sets** to create, modify and reorder tag sets and tags.
 
 :::figure
 ![](/docs/tenants/images/tenant-importance.png)
@@ -145,7 +146,7 @@ Now it's time to deploy using tenant tags as a way to select multiple tenants ea
 ![](/docs/tenants/images/multi-tenant-deploy-test.png)
 :::
 
-You can also use the project overview to deploy to groups of tenants by grouping the dashboard, selecting a release, and clicking the **DEPLOY ALL...** button.
+You can also use the project overview to deploy to groups of tenants by grouping the dashboard, selecting a release, and clicking the **Deploy all...** button.
 
 :::figure
 ![](/docs/tenants/images/multi-tenant-deploy-all.png)
