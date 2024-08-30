@@ -49,7 +49,7 @@ Now you're ready, let’s begin deploying your first application to Kubernetes.
 1. Log in to your Octopus instance and click **GET STARTED**.
 
 :::figure
-![Get started welcome screen](/docs/getting-started/first-kubernetes-deployment/legacy-get-started.png)
+![Get started welcome screen](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/get-started.png)
 :::
 
 ## Add project
