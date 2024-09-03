@@ -17,7 +17,7 @@ Learn more about [how Octopus handles security and encryption of your data](/doc
 
 Learn more about [how Octopus communicates with Tentacle](/docs/security/octopus-tentacle-communication).
 
-We undertake routine penetration testing and security audits. These reports are available on request by contacting our [support team](https://octopus.com/support).
+We undertake routine penetration testing and security audits. These reports are available on request from our [Trust Center](https://trust.octopus.com/).
 
 ## Where to host your Octopus Server
 
