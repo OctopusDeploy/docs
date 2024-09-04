@@ -161,6 +161,8 @@ This functionality is available on all other steps.
 ### Retries
 Enabling Retries gives you the ability to automatically retry a step if it fails, with up to three attempts. This feature is particularly useful when dealing with steps that commonly fail due to temporary or transient errors during deployment.
 
+By default, the backoff interval for retries is 15 seconds, however this value can be adjusted as required.
+
  You can also [recover from communication errors with a tentacle](/docs/infrastructure/deployment-targets/machine-policies/#recover-from-communication-errors) to reduce deployment failures that occur when Tentacle is on an unstable network connection.
 
 ### Timeouts
