@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-08-27
-title: Raw scripting
+title: Raw scripting in Octopus
+navTitle: Raw scripting
 description: Raw Scripting allows you to transfer packages and execute scripts against SSH deployment targets where you are unable to install and run Mono.
 icon: fa-regular fa-file-code
 navOrder: 70

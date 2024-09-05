@@ -2,11 +2,10 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Service
+title: Start, stop, install, and configure the Tentacle service
+navTitle: Service
 description: Using the Tentacle.exe command line executable to start, stop, install and configure the Tentacle service.
 ---
-
-Start, stop, install and configure the Tentacle service.
 
 **Service options**
 

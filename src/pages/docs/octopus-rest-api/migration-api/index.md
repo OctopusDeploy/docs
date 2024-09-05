@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-06-25
-title: Migration API
+title: Migration API in Octopus
+navTitle: Migration API
 description: Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely.
 navOrder: 90
 ---

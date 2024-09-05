@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-08-09
-title: Certificate chains
+title: Certificate chains in Octopus
+navTitle: Certificate chains
 icon: fa-solid fa-lock
 description: Manage certificate files containing a chain of certificates
 navOrder: 15
