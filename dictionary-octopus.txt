@@ -19,6 +19,7 @@ astro
 astrojs
 auditability
 augeas
+australiaeast
 auths
 autodeployoverride
 awsaccount
@@ -74,6 +75,7 @@ deallocated
 dearmor
 decryptable
 defaultpackageversion
+Deplo
 deployers
 deploymentannotation
 deploymentprocess
@@ -211,6 +213,7 @@ MSSQLSERVER
 MTTR
 myapplication
 myfeature
+mytentaclevm
 navigationid
 NETBIOS
 netcore
@@ -275,6 +278,7 @@ OWASP
 Ozar
 packageversion
 passout
+Passw
 pemstore
 petclinic
 Petlife
@@ -299,6 +303,7 @@ projecttriggers
 proxied
 proxying
 pscustomobject
+publicip
 pwsh
 pycryptodome
 querystring
@@ -340,6 +345,7 @@ SAMEORIGIN
 Schannel
 scopeduserroles
 secureclientcertificate
+securestring
 SEIM
 servedby
 servername
@@ -389,6 +395,8 @@ Tentacleinstallers
 tentaclethumbprint
 testoctopusdemos.app
 testproject
+tfvar
+tfvars
 TFVC
 thepassword
 tmpfs
@@ -412,10 +420,12 @@ useronboarding
 userrole
 userroles
 utcnow
+uniquestring
 VARCHAR
 variablename
 variableset
 vhdx
+vnet
 Voltron
 vserver
 WCAG
