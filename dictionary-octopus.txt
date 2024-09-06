@@ -75,7 +75,6 @@ deallocated
 dearmor
 decryptable
 defaultpackageversion
-Deplo
 deployers
 deploymentannotation
 deploymentprocess
@@ -92,13 +91,13 @@ dpkg
 dryrun
 Dspring
 DWORD
+echoerror
 elbv2
 elif
 Elyton
 emptytitle
 entra
 environmentids
-echoerror
 eprintfn
 expressjs
 externalgroups
@@ -213,7 +212,6 @@ MSSQLSERVER
 MTTR
 myapplication
 myfeature
-mytentaclevm
 navigationid
 NETBIOS
 netcore
@@ -279,7 +277,6 @@ OWASP
 Ozar
 packageversion
 passout
-Passw
 pemstore
 petclinic
 Petlife
@@ -292,8 +289,8 @@ preproduction
 prerender
 prerenderingchange
 printfn
-Println
 printhighlight
+Println
 printverbose
 printwait
 printwarning
@@ -409,9 +406,10 @@ tsconfigs
 typeof
 Tzdb
 umoci
-updateprogress
 undeployed
+uniquestring
 Unmarshal
+updateprogress
 upgradeavailability
 upgradelog
 upgrader
@@ -421,7 +419,6 @@ useronboarding
 userrole
 userroles
 utcnow
-uniquestring
 VARCHAR
 variablename
 variableset

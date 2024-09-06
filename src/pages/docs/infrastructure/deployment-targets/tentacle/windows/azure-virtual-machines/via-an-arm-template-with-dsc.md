@@ -448,10 +448,10 @@ Note that if you are using a private Azure storage location that requires a SAS 
       "value": "AdminUser"
     },
     "vmAdminPassword": {
-      "value": "MySuperSecretPassw0rd"
+      "value": "your-password"
     },
     "vmDnsName": {
-      "value": "mytentaclevm"
+      "value": "your-tentacle-vm"
     },
     "vmSize": {
       "value": "Standard_D2_v2"
