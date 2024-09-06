@@ -272,6 +272,7 @@ oldthumbprint
 oneshot
 onlylogs
 openon
+operationalize
 outfile
 outputformat
 OWASP
