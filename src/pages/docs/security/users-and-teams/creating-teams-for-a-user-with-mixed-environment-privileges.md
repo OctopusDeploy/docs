@@ -56,6 +56,6 @@ We can repeat this process as many times as necessary to configure the team to y
 
 When you are happy with these changes hit **Save** to make them effective.
 
-## Summary {#Creatingteamsforauserwithmixedenvironmentprivileges-Summary}
+## Summary {#Summary}
 
 The permissions system in Octopus Deploy provides a very flexible way of defining broad access to system functionality, while still allowing it to be constrained to very specific environments or projects. In this guide we have seen how a developer can have their permissions configured so they can have full access to the first few stages of the deployment lifecycle, while restricting access to the business critical production areas.
