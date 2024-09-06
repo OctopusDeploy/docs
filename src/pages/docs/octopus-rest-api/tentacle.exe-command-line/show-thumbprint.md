@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Show thumbprint
+title: Show thumbprint of the Octopus Tentacle's certificate
+navTitle: Show thumbprint
 description: Using the Tentacle.exe command line executable to show the thumbprint of the Tentacle's certificate.
 ---
 

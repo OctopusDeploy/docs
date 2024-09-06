@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-06-27
-title: Docker run with networking
+title: Docker run with networking in Octopus
+navTitle: Docker run with networking
 description: This guide demonstrates the basic functionality provided by the Octopus Docker steps.
 ---
 

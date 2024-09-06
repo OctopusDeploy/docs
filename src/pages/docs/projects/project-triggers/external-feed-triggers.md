@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-03-21
 modDate: 2024-08-28
-title: External feed triggers
+title: External feed triggers in Octopus
+navTitle: External feed triggers
 icon: fa-solid fa-arrow-up-right-from-square
 description: External feed triggers allow you to automatically create a new release as a result of new container images or helm charts being pushed to their respective repositories.
 navOrder: 12

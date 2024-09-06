@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-08-28
-title: Multi-tenant SaaS applications
+title: Multi-tenant SaaS applications in Octopus
+navTitle: Multi-tenant SaaS applications
 icon: fa-solid fa-users
 description: A guide showing you how to use tenants to deploy a multi-tenant SaaS application using Octopus Deploy.
 navOrder: 10

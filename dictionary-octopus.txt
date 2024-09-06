@@ -19,6 +19,7 @@ astro
 astrojs
 auditability
 augeas
+australiaeast
 auths
 autodeployoverride
 awsaccount
@@ -90,13 +91,13 @@ dpkg
 dryrun
 Dspring
 DWORD
+echoerror
 elbv2
 elif
 Elyton
 emptytitle
 entra
 environmentids
-echoerror
 eprintfn
 expressjs
 externalgroups
@@ -269,6 +270,7 @@ oldthumbprint
 oneshot
 onlylogs
 openon
+operationalize
 outfile
 outputformat
 OWASP
@@ -287,8 +289,8 @@ preproduction
 prerender
 prerenderingchange
 printfn
-Println
 printhighlight
+Println
 printverbose
 printwait
 printwarning
@@ -299,6 +301,7 @@ projecttriggers
 proxied
 proxying
 pscustomobject
+publicip
 pwsh
 pycryptodome
 querystring
@@ -340,6 +343,7 @@ SAMEORIGIN
 Schannel
 scopeduserroles
 secureclientcertificate
+securestring
 SEIM
 servedby
 servername
@@ -389,6 +393,8 @@ Tentacleinstallers
 tentaclethumbprint
 testoctopusdemos.app
 testproject
+tfvar
+tfvars
 TFVC
 thepassword
 tmpfs
@@ -400,9 +406,10 @@ tsconfigs
 typeof
 Tzdb
 umoci
-updateprogress
 undeployed
+uniquestring
 Unmarshal
+updateprogress
 upgradeavailability
 upgradelog
 upgrader
@@ -416,6 +423,7 @@ VARCHAR
 variablename
 variableset
 vhdx
+vnet
 Voltron
 vserver
 WCAG

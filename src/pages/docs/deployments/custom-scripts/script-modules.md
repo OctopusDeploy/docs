@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-08-28
-title: Script modules
+title: Script modules in Octopus
+navTitle: Script modules
 description: Script modules allow users to create collections of functions that can be used in deployment processes across multiple projects.
 icon: fa-regular fa-file-code
 navOrder: 120

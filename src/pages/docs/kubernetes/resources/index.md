@@ -3,7 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2024-07-31
 modDate: 2024-07-31
 navSection: Resources
-title: Kubernetes Object Status  
+title: Kubernetes Object Status in Octopus
+navTitle: Kubernetes Object Status
 description: Kubernetes Object Status guide.
 navOrder: 40
 hideInThisSectionHeader: true

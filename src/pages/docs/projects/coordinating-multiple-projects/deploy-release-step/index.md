@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Deploy a release step
+title: Deploy a release step in Octopus
+navTitle: Deploy a release step
 description: The deploy a release step allows you to trigger the deployment of a release of a project from another project
 ---
 
