@@ -10,9 +10,9 @@ navOrder: 10
 
 A common scenario some users may face, is the desire to provide full access to one environment, but only read access to the next stage. For example, the developers might be able to fully manage deployments to the development and staging environments, but only view the production deployments.
 
-## Creating teams for users with mixed environment privileges {#Creatingteamsforauserwithmixedenvironmentprivileges2019-1}
+## Creating teams for users with mixed environment privileges {#MixedEnvironmentPrivileges}
 
-### Creating the developers team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;Developers&quot;Team}
+### Creating the developers team {#CreatingDevelopersTeam}
 
 Start by clicking the **Teams** tab under **Configuration** in the Octopus Web Portal.  Then click **Add team**.
 

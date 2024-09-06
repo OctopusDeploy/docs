@@ -25,11 +25,11 @@ To be compatible with Octopus's automated Azure CLI login behavior, the Azure CL
 
 The procedure to configure this differs depending on which version of Octopus Deploy you are using:
 
-## Octopus 2020.1 or newer {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2020.1(ornewer)}
+## Octopus 2020.1 or newer {#Configuring-Octopus2020-1}
 
 The Azure Script step has an option called "Azure Tools". Toggle the setting to **Use Azure Tools pre-installed on the worker** if it is not already selected.
 
-## Octopus 2018.5.5 to 2019.13.7 {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2018.5.5-to-2019.13.7}
+## Octopus 2018.5.5 to 2019.13.7 {#Configuring-Octopus2018-5-5-to-2019-13-7}
 
 Create a [variable](/docs/projects/variables) named **OctopusUseBundledAzureCLI** and set its value to **False**.
 
