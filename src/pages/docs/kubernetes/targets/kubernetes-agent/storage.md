@@ -57,7 +57,7 @@ Many managed Kubernetes offerings will provide storage that require little effor
 |[Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine/docs/concepts/storage-overview)    |`filestore.csi.storage.gke.io`     |`standard-rwx`                      |
 
 :::div{.info}
-See this [blog post](https://octopus.com/blog/efs-eks) for a tutorial on connecing EFS to and EKS cluster.
+See this [blog post](https://octopus.com/blog/efs-eks) for a tutorial on connecting EFS to and EKS cluster.
 :::
 
 If you manage your own cluster and don’t have offerings from cloud providers available, there are some in-cluster options you could explore:
