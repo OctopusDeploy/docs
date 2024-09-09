@@ -85,7 +85,7 @@ The field displayed when "From Octopus" option is selected stores data as plain 
 
 ### Template contained in a package {#packaged-template}
 
-By selecting *File inside a Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
+By selecting *Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
 
 :::figure
 ![](/docs/runbooks/runbook-examples/azure/resource-groups/arm-package-source-template.png)
