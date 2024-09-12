@@ -1,0 +1,49 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-09-12
+title: octopus release progression prevent
+description: Prevents a release from progression to the next phase
+navOrder: 114
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Prevents a release from progression to the next phase in Octopus Deploy
+
+```
+Usage:
+  octopus release progression prevent [flags]
+
+Aliases:
+  prevent, prevent-releaseprogression
+
+Flags:
+  -p, --project string   Name or ID of the project.
+  -v, --version string   Release version/number.
+  -r, --reason string    Reason to prevent this release from progressing to the next phase.
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus release progression prevent --project MyProject --version 1.2.3 --reason "It's broken"
+$ octopus release progression prevent -p MyProject -v 1.2.3 -r "It's broken"
+$ octopus release progression prevent -p MyProject -v 1.2.3 -r "It's broken" --no-prompt
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

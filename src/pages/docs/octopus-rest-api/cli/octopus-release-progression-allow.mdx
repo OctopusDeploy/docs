@@ -1,0 +1,48 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-09-12
+title: octopus release progression allow
+description: Allows a release to progress to the next phase.
+navOrder: 113
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Allows a release to progress to the next phase in Octopus Deploy.
+
+```
+Usage:
+  octopus release progression allow [flags]
+
+Aliases:
+  allow, allow-releaseprogression
+
+Flags:
+  -p, --project string   Name or ID of the project.
+  -v, --version string   Release version/number.
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus release progression allow --project MyProject --version 1.2.3
+$ octopus release progression allow -p MyProject -v 1.2.3
+$ octopus release progression allow -p MyProject -v 1.2.3 --no-prompt
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
