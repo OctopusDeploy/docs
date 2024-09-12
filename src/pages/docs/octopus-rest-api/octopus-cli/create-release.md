@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-25
+modDate: 2024-09-12
 title: Create release
 description: Using the Octopus CLI to create releases.
 navOrder: 100
@@ -44,6 +44,13 @@ Release creation:
                              an asterisk. An asterisk will be assumed for
                              StepName, PackageID, or PackageName if they are
                              omitted.
+                             Can be specified multiple times.
+      --git-resource=VALUE   [Optional] Git ref to use for a Git resource in 
+                             the release. Format: StepName:GitRef or 
+                             StepName:GitResourceName:GitRef. GitRef can be 
+                             replaced with an asterisk. An asterisk means 
+                             use the step-defined default branch.
+                             Can be specified multiple times.
       --packagesFolder=VALUE [Optional] A folder containing NuGet packages
                              from which we should get versions.
       --releaseNotes=VALUE   [Optional] Release Notes for the new release.
