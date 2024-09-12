@@ -110,9 +110,3 @@ We keep your instance of Octopus Cloud up-to-date and running the latest version
 2. In the bottom left corner, look for the Octopus logo, or your Gravatar if you have one setup. 
 3. Click the Octopus logo (or your Gravatar) to open the menu. 
 2. The version is shown under your name.
-
-## Uploading packages to Octopus Cloud servers \{#uploading-packages-to-octopus-cloud-servers}
-
-Factors like geographical distance, network bandwidth, and network congestion may cause package uploads to your Octopus Cloud Server to take longer than expected.
-
-If you’re having difficulty uploading packages to your Octopus built-in package feed in the default timeout threshold, typically within 5 minutes, you might be affected by one or more of the factors mentioned above. In this case, you can try increasing the timeout threshold of the Octopus CLI or nuget.exe to a value that suits you. We also recommend using the Octopus CLI, **Octopus.Client**, or the **TeamCity Plugin (v4.41.0+)** because they use delta compression.
