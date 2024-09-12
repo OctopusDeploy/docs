@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-20
-modDate: 2024-06-19
+modDate: 2024-09-12
 title: Prioritize Tasks
 description: Tasks can be manually prioritized to run before other earlier queued tasks.
 ---
@@ -16,4 +16,4 @@ Ensure any other queued deployments to the same environment are cancelled when p
 
 ## Lifecycle phases
 
-Octopus **2024.2** adds a feature to mark a phase within a lifecycle as a priority. See [lifecycle phases with priority](/docs/releases/lifecycles#phases-with-priority) for more information.
+To mark a phase within a lifecycle as a priority, see [lifecycle phases with priority](/docs/releases/lifecycles#phases-with-priority) for more information. 
