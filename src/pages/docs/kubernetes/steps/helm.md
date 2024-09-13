@@ -144,11 +144,11 @@ Except for **Files in the chart**, you can source template values from the same 
 
 #### Reordering values sources
 
-The order of the template values sources dictates the prededence of how the values are applied. Sources are passed in reverse order into the `helm upgrade` command with the `-f` argument, which means that sources (and their values) higher in the list have a higher precedence and will override the same value in a source with lower prededence. See more information regarding values files prededence in the Helm [documentation](https://helm.sh/docs/chart_template_guide/values_files/).
+The order of the template values sources dictates the precedence of how the values are applied. Sources are passed in reverse order into the `helm upgrade` command with the `-f` argument, which means that sources (and their values) higher in the list have a higher precedence and will override the same value in a source with lower precedence. See more information regarding values files precedence in the Helm [documentation](https://helm.sh/docs/chart_template_guide/values_files/).
 
 To reorder the sources, click the **Reorder** button.
 
-In the following figure, the **Key values** source value for the **drink** key will take prededence over the value for the same key in the **Inline YAML** source. The value for the **drink** key defined in the charts default `values.yaml` file will be overridden.
+In the following figure, the **Key values** source value for the **drink** key will take precedence over the value for the same key in the **Inline YAML** source. The value for the **drink** key defined in the charts default `values.yaml` file will be overridden.
 
 :::figure
 ![Ordering Template Values](/docs/deployments/kubernetes/helm-update/reorder-template-values.png)
