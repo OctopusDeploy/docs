@@ -129,15 +129,31 @@ Since it is quite common to have different versions of Helm across your deployme
 ### Template values
 
 :::figure
-![Template Values](/docs/deployments/kubernetes/helm-update/template-values.png)
+![Template Values](/docs/deployments/kubernetes/helm-update/new-template-values.png)
 :::
 
-The configuration for the Kubernetes resources required in a Helm Chart can be provided by making use of [Chart Templates](https://docs.helm.sh/chart_template_guide/). In each of the following options, the values file are passed into the `helm upgrade` command with the `-f` argument. The template values are applied in the order that they are displayed (i.e. with values provided the `Explicit key values` option taking a higher precedence than the same value obtained via the `Raw values YAML` option).
+The configuration for the Kubernetes resources required in a Helm Chart can be provided by making use of [Chart Templates](https://docs.helm.sh/chart_template_guide/). In each of the following options, the values file are passed into the `helm upgrade` command with the `-f` argument. The values sources are applied in the order that they are listed (i.e. with values sourced higher in the list taking a higher precedence than the same value obtained by a source lower in the list).
 
-- **Explicit Key Values:** This option provides the ability to quickly provide key/value pairs of template configuration.
-- **Raw values YAML:** Standard Octopus [variable substitution syntax](/docs/projects/variables/variable-substitutions) can be used so long as the final contents are a valid YAML file.
-- **Files in Chart Package:** If there are any other values files contained within the selected chart (by default, `./values.yaml` in the root of the package is picked up by helm), they can be referenced with this option. Octopus Variable replacement will be performed on the file before being used.
-- **Files in Additional Packages:** When using publicly available Helm Charts as the package source for this step, you may want to source your custom values files from outside Octopus, for example, through files committed to a [GitHub feed](/docs/packaging-applications/package-repositories/github-feeds). Files obtained through this option will have Octopus Variable replacement performed before being used.
+- **Files in the chart:** If there are any other values files contained within the selected chart (by default, `./values.yaml` in the root of the package is picked up by helm), they can be referenced with this option. Octopus Variable replacement will be performed on the file before being used. This works with charts sourced from Packages or Git repositories.
+- **Files in a Git repository:** When using publicly available Helm Charts as the package source for this step, you may want to source your custom values files from outside Octopus, for example, through files committed to Git repository. Files obtained through this option will have Octopus Variable replacement performed before being used.
+- **Files in a package:** When using publicly available Helm Charts as the package source for this step, you may want to source your custom values files from outside Octopus, for example, through files committed to a package repository. Files obtained through this option will have Octopus Variable replacement performed before being used.
+- **Key values:** This option provides the ability to quickly provide key/value pairs of template configuration.
+- **Inline YAML:** Standard Octopus [variable substitution syntax](/docs/projects/variables/variable-substitutions) can be used so long as the final contents are a valid YAML file.
+
+Except for **Files in the chart**, you can source template values from the same source type multiple times (e.g. you can source values from multiple different Git repositories).
+
+#### Reordering values sources
+
+The order of the template values sources dictates the precendence of how the values are applied. Sources applied in reverse order in the `helm upgrade` command, which means that sources (and their values) higher in the list have a higher precedence and will override the same value in a source with lower precendence.
+
+To redorder the sources, click the **Reorder** button.
+
+In the following figure, the **Key values** source value for the **drink** key will take precendence over the value for the same key in the **Inline YAML** source.
+
+:::figure
+![Ordering Template Values](/docs/deployments/kubernetes/helm-update/reorder-template-values.png)
+:::
+
 
 ## Separating image updates from Helm chart updates
 
