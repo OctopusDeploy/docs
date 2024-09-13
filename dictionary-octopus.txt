@@ -33,6 +33,7 @@ bootstrapped
 bootstrapper
 bufio
 buildevent
+buildinfo
 Ceph
 certkeyName
 Certstore
