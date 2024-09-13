@@ -48,6 +48,7 @@ cloudapi
 Cloudsmith
 cmdkey
 Cmdn
+Codefresh
 combinational
 comms
 COMPUTERNAME
