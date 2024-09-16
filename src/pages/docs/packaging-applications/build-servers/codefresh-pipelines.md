@@ -141,6 +141,38 @@ Octopus Deploy steps and examples are available from the [Codefresh Marketplace]
 
 Each step includes one or two examples to help with setting up a workflow. Basic examples include only required arguments, and complex examples include both required and optional arguments.
 
+## Create a release
+
+To create a release, use the **octopusdeploy/create-release** step. Provide the details for your Octopus instance, and the project you would like to create a release for:
+
+```yaml
+create-release:
+  type: octopusdeploy/create-release
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: "Default"
+    PROJECT: "Project Name"
+```
+
+Additional optional arguments help to customize the creation of the release. You can specify version control details, select packages and provide release notes:
+
+```yaml
+create-release:
+  type: octopusdeploy/create-release
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: "Default"
+    PROJECT: "Project Name"
+    RELEASE_NUMBER: "1.0.0-hotfix1"
+    CHANNEL: "Hotfix"
+    GIT_REF: "refs/heads/main"
+    PACKAGES:
+      - "Sample:1.0.0-hotfix1"
+    RELEASE_NOTES: This is a release note
+```
+
 ## Run a runbook
 
 To run a runbook, use the `octopusdeploy/run-runbook` step. Provide the name of the runbook that you want to run, as well as the project and environment name(s).
