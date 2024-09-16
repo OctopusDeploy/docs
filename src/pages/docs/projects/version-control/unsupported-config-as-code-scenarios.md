@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2024-09-16
 title: Unsupported Configuration as Code Scenarios
 description: Unsupported scenarios for the Configuration as Code feature in Octopus Deploy.
+icon: fa-brands fa-git-alt
 navOrder: 50 
 ---
 
