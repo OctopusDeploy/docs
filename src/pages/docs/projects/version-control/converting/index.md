@@ -6,6 +6,7 @@ title: Converting projects to Git
 description: Converting a project to leverage the configuration as a code feature.
 navOrder: 10
 hideInThisSection: true
+icon: fa-brands fa-git-alt
 ---
 
 Git settings are configured per project and are accessed via the **Settings ➜ Version Control** link in the project navigation menu. This page will walk through how to convert a project to Git.
