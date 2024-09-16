@@ -234,6 +234,6 @@ Public sites such as [jwt.io](https://jwt.io/) can be used to inspect and valida
 IMPORTANT: Access tokens are credentials to your Octopus Server in the same way that API keys are, be careful where you paste them!
 :::
 
-## Versions
+## Older Versions
 
 - The `login` command was added to the Octopus CLI in version `2.1.0`.
