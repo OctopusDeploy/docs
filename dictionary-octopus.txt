@@ -91,6 +91,7 @@ dpkg
 dryrun
 Dspring
 DWORD
+EBNF
 echoerror
 elbv2
 elif
