@@ -155,7 +155,7 @@ create-release:
     PROJECT: "Project Name"
 ```
 
-Additional optional arguments help to customize the creation of the release. You can specify version control details, select packages and provide release notes:
+Optional arguments help to customize the creation of the release. You can specify version control details, select packages and provide release notes:
 
 ```yaml
 create-release:
