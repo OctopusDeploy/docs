@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-27
-modDate: 2024-01-15
+modDate: 2024-09-16
 title: Using OpenID Connect with the Octopus API
 description: External systems can use OpenID Connect with service accounts to access the Octopus API without needing to provision API keys
 navOrder: 30
@@ -11,7 +11,7 @@ hideInThisSection: true
 Octopus supports using [OpenID Connect (OIDC)](https://openid.net/) to access the Octopus API without needing to provision API keys.
 
 :::div{.hint}
-Using OIDC to access the Octopus API is used for machine-to-machine scenarios such as a automating release creation in CI servers.
+OIDC to access the Octopus API is used for machine-to-machine scenarios such as automating release creation in CI servers.
 
 See [authentication providers](/docs/security/authentication) for information on configuring user authentication into Octopus Deploy.
 :::
@@ -60,13 +60,13 @@ Multiple OIDC identities can be added for a service account, these could be for 
 
 ### Add the `OctopusDeploy/login` action to your workflow
 
-After the OIDC identity for GitHub Actions has been created a snippet of the `OctopusDeploy/login` step will be provided which you can use in your workflow to configure the workflow run job to use OIDC authentication.
+After the OIDC identity for GitHub Actions has been created, a snippet of the `OctopusDeploy/login` step will be provided which you can use in your workflow to configure the workflow run job to use OIDC authentication.
 
 :::figure
 !['OctopusDeploy/login' snippet](/docs/octopus-rest-api/images/oidc-github-actions-details.png "width=500")
 :::
 
-1. Click the Copy to clipboard to copy the `OctopusDeploy/login` step.
+1. Click Copy to Clipboard to copy the `OctopusDeploy/login` step.
 2. Paste the `OctopusDeploy/login` step into your workflow job.
 3. Add `id-token: write` to the `permissions` on the workflow job. This is required to allow the `OctopusDeploy/login` action to request an OIDC token from GitHub to use.
 
