@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-27
-modDate: 2023-09-27
+modDate: 2024-09-16
 title: Using OpenID Connect with Octopus and GitHub Actions
 description: How to use OpenID Connect to interact with Octopus in GitHub Actions
 navOrder: 30
@@ -37,10 +37,6 @@ The [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) action obtai
 
 The ID token that GitHub generates contains a subject (the `sub` property in the ID token), which is generated based on the details of the workflow that is being run. The subject of the OIDC identity in Octopus needs to match this subject exactly in order for the access token to be issued, the Octopus Portal will help you to generate this subject correctly.
 
-:::div{.hint}
-Currently there is no support for wildcards when filtering workflow runs, support for this may be available in a future version of Octopus.
-:::
-
 The details of the subject that GitHub Actions will generate follow specific rules including:
 
 - Whether a GitHub `environment` is being used within the workflow
@@ -56,9 +52,7 @@ When configuring an OIDC identity for GitHub Actions you need to choose a filter
 - Pull Requests: Workflow runs triggered from pull requests will be allowed to connect using the OIDC identity.
 - Tag: Workflow runs for the specific tag will be allowed to connect using the OIDC identity. The prefix for the git ref does not need to be supplied e.g. Use `v1` instead of `refs/tags/v1`.
 
-:::div{.hint}
-Support for wildcards when matching a subject is available from Octopus 2024.1. To match multiple characters in a subject use `*`, and to match a single character use `?`.
-:::
+To match multiple characters in a subject use `*`, and to match a single character use `?`.
 
 ### Customized subject claims
 
@@ -174,3 +168,7 @@ jobs:
 It is recommended to use OIDC over API keys due to the benefits it provides, however the [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) action also supports using an API key, for scenarios where using OIDC is not available. When using an API key the remainder of the workflow job will be configured to use the Server URL and API key automatically via environment variables, eliminating the need to supply these to any other Octopus actions or to the `octopus` cli.
 
 See the [readme](https://github.com/OctopusDeploy/login?tab=readme-ov-file#api-key) for more information.
+
+## Older Versions
+
+- Support for wildcards when matching a subject was added in Octopus 2024.1.
