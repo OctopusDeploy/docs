@@ -20,7 +20,7 @@ You must consider a disaster recovery solution for each of the following compone
 - **URL / load balancer** How users will access with the Octopus Deploy UI of the Disaster Recovery instance.  Will it be a unique URL for the DR instance, or will it be the same URL?  
 - **Octopus Server nodes** These run the Octopus Server service. They serve user traffic and orchestrate deployments.  You will need to create or start these nodes in the secondary data center.
 - **A database** Most data used by the Octopus Server nodes is stored in this database.  You'll need to have a mechanism to backup the data in the database to the secondary data center and access it once a DR event occurs.
-- **Shared storage** Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.  Similar to the database, you'll need a mechanism to backup the shared storage to the secondary data center and access it once a DR event occurs.
+- **Shared storage** Similar to the database, you'll need a mechanism to backup the shared storage to the secondary data center and access it once a DR event occurs.
 
 ## High Availability configuration required
 
@@ -67,12 +67,12 @@ Below are a series of steps to perform when you need to start an instance in the
   - "Fail over" or promote the read-only file storage to be the primary file storage.
 - If forgoing geo-replication:
   - Create the database and file storage from the most recent backup.
-- Update the connection string and file storage configuration entries to the database and file storage in the secondary region.
+- [Update the connection string and file storage configuration](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database#step-by-step-process) entries to the database and file storage in the secondary region.
 
 #### Octopus Deploy
 
 - Create or start the Octopus nodes in the secondary region
-- Enable [maintenance mode](https://octopus.com/docs/administration/managing-infrastructure/maintenance-mode)<sup>25</sup>
+- Enable [maintenance mode](https://octopus.com/docs/administration/managing-infrastructure/maintenance-mode)
 - Update the task cap on the nodes from 0 to your desired amount.
 - Perform test deployments
 - Disable maintenance mode
