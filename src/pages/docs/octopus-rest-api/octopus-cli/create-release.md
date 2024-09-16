@@ -45,8 +45,8 @@ Release creation:
                              StepName, PackageID, or PackageName if they are
                              omitted.
                              Can be specified multiple times.
-      --git-resource=VALUE   [Optional] Git ref to use for a Git resource in 
-                             the release. Format: StepName:GitRef or 
+      --git-resource=VALUE   [Optional] Git reference to use for a Git resource 
+                             in the release. Format: StepName:GitRef or 
                              StepName:GitResourceName:GitRef. GitRef can be 
                              replaced with an asterisk. An asterisk means 
                              use the step-defined default branch.
