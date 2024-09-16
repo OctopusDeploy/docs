@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-09-16
 title: Configuration as Code reference
 description: Details about the configuration as code feature.
 navOrder: 20 
