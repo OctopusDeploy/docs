@@ -158,7 +158,7 @@ The access token obtained from the token exchange must be supplied in the `Autho
 
 ## Using the Octopus CLI with OIDC
 
-From version `2.1.0`, the [Octopus CLI](https://github.com/OctopusDeploy/cli) supports a new command `octopus login` which can be used to authenticate using OIDC, providing the Octopus Server URL, the id of the service account and the ID token from your OIDC provider. This can be used as part of your CI server workflows where you are using the CLI but currently provisioning an API key.
+The [Octopus CLI](https://github.com/OctopusDeploy/cli) supports a command `login` which can be used to authenticate using OIDC, providing the Octopus Server URL, the id of the service account and the ID token from your OIDC provider. This can be used as part of your CI server workflows where you are using the CLI but currently provisioning an API key.
 
 After authenticating using OIDC, the `login` command will configure the CLI environment to be used.
 
@@ -233,3 +233,7 @@ Public sites such as [jwt.io](https://jwt.io/) can be used to inspect and valida
 
 IMPORTANT: Access tokens are credentials to your Octopus Server in the same way that API keys are, be careful where you paste them!
 :::
+
+## Versions
+
+- The `login` command was added to the Octopus CLI in version `2.1.0`.
