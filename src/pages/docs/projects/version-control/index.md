@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-09-17
 title: Configuration as Code
 description: Projects can be version-controlled as text in a Git repository 
+icon: fa-brands fa-git-alt
 navOrder: 110 
 hideInThisSection: true
 ---
