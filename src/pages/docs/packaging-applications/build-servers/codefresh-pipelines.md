@@ -89,3 +89,52 @@ steps:
 ```
 
 
+# Octopus Deploy steps
+
+Octopus Deploy steps and examples are available from the [Codefresh Marketplace](https://codefresh.io/steps/).
+
+Each step includes one or two examples to help with setting up a workflow. Basic examples include only required arguments, and complex examples include both required and optional arguments.
+
+## Run a runbook
+
+In addition to common build steps, we also have an action that can Run a Runbook.
+
+### Basic example
+
+```yaml
+run-runbook:
+  type: octopusdeploy/run-runbook
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: Spaces 1
+    PROJECT: Project Name
+    NAME: Runbook Name
+    ENVIRONMENTS:
+      - Development
+      - Production
+```
+
+### Complex example
+
+```yaml
+run-runbook:
+  type: octopusdeploy/run-runbook
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: Spaces 1
+    PROJECT: Project Name
+    NAME: Runbook Name
+    ENVIRONMENTS:
+      - Development
+      - Production
+    VARIABLES:
+      - 'Label:Value'
+    TENANTS:
+      - Tenant 1
+    TENANT_TAGS:
+      - Tenant tag 1
+    USE_GUIDED_FAILURE: 'false'
+
+```
