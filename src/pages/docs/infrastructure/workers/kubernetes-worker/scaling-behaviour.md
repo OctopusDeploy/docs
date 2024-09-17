@@ -4,7 +4,7 @@ pubDate: 2024-08-22
 modDate: 2024-08-22
 title: Scaling Behavior
 description: How the worker scales
-navOrder: 30
+navOrder: 40
 ---
 We have developed Kubernetes worker as a scalable solution for running your deployment tasks efficiently. The Worker is designed to make the most of your infrastructure resources, minimizing usage when deployments are not active while allowing you to run many deployments simultaneously.
 

@@ -4,7 +4,7 @@ pubDate: 2024-08-22
 modDate: 2024-08-22
 title: Cluster Configuration
 description: Cluster Configurations
-navOrder: 20
+navOrder: 30
 ---
 
 The Kubernetes worker has been proven to be effective on a variety of installations.

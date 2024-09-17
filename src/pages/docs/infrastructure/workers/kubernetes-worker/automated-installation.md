@@ -4,7 +4,7 @@ pubDate: 2024-08-30
 modDate: 2024-08-30
 title: Automated Installation
 description: How to automate the installation and management of the Kubernetes Worker
-navOrder: 40
+navOrder: 50
 --- 
 
 ## Automated installation via Terraform
