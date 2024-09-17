@@ -38,7 +38,7 @@ We recommend using Octopus Deploy's high availability functionality for a hot/co
 
 - Hot/hot configurations between cloud regions or data centers are unsupported.  
   - Octopus Deploy is sensitive to network latency, so any nodes in the secondary data center will have a degraded experience.  
-  - Expect a nearly unusable experience on the nodes running in the secondary data center if the secondary data center requires a connection via an undersea cable (North America -> Europe, Europe -> APAC, etc.).  
+  - Expect a nearly unusable experience on the nodes running in the secondary data center if the secondary data center requires a connection via an undersea cable (North America -> Europe, Europe -> Australia, etc.).  
   - Due to latency, Public cloud providers do not provide a hot/hot configuration for their managed services between their cloud regions.
 - Hot/hot configurations between availability zones within a cloud region in a public cloud provider are supported.  That should cover 90% of all possible disaster recovery use cases.
 - Because of those factors, a hot/warm configuration will cost a lot of money per year for something that is almost never used.
