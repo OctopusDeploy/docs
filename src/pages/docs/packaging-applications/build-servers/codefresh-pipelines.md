@@ -182,3 +182,72 @@ run-runbook:
     USE_GUIDED_FAILURE: 'false'
 
 ```
+
+## Push build information
+
+To push build information for a project, use the `octopusdeploy/push-build-information` step. Provide a list of packages that need build information, a build information json file and a version number. 
+
+By default, the step will fail if build information already exists, but this can be configured using the `OVERWRITE_MODE` option ('fail', 'overwrite', or 'ignore').
+
+```yaml
+push-build-information:
+  type: octopusdeploy/push-build-information
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: Spaces 1
+    PACKAGE_IDS:
+      - SomePackage
+      - SomeOtherPackage
+    FILE: SomeFile.json
+    VERSION: 1.0.0
+    OVERWRITE_MODE: fail
+```
+
+Sample build information json file:
+
+```json
+{
+  "BuildEnvironment": "BitBucket",
+  "Branch": "main",
+  "BuildNumber": "288",
+  "BuildUrl": "https://bitbucket.org/octopussamples/petclinic/addon/pipelines/home#!/results/288",
+  "VcsType": "Git",
+  "VcsRoot": "http://bitbucket.org/octopussamples/petclinic",
+  "VcsCommitNumber": "12345",
+  "Commits":
+  [
+    {
+      "Id": "12345",
+      "Comment": "Sample commit message"
+    }
+  ]
+}
+```
+
+# Error handling
+
+Codefresh provides inbuilt error handling for all steps. Retry of failed steps is enabled using the `retry` settings.  See the [Codefresh documentation on retrying a step](https://codefresh.io/docs/docs/pipelines/what-is-the-codefresh-yaml/#retrying-a-step) for more details.
+
+```yaml
+version: "1.0"
+stages:
+  - "Deploy project"
+
+steps:
+  deploy:
+    type: octopusdeploy/deploy-release
+    stage: "Deploy project"
+    retry:
+      maxAttempts: 5
+      delay: 5
+      exponentialFactor: 2
+    arguments:
+      OCTOPUS_API_KEY: <<YOUR_API_KEY>>
+      OCTOPUS_URL: "https://example.octopustest.app/"
+      OCTOPUS_SPACE: "Spaces-1"
+      PROJECT: "Create Release Test"
+      RELEASE_NUMBER: "1.0.2"
+      ENVIRONMENTS:
+        - "Development"
+```
