@@ -141,6 +141,42 @@ Octopus Deploy steps and examples are available from the [Codefresh Marketplace]
 
 Each step includes one or two examples to help with setting up a workflow. Basic examples include only required arguments, and complex examples include both required and optional arguments.
 
+## Deploy a tenanted release
+To deploy a tenanted release, use the **octopusdeploy/deploy-release-tenanted** step. Provide the details for your Octopus instance, and the tenants you want to deploy to. You will need to provide either tenants or tenant tags. To deploy an untenanted release, use the **octopusdeploy/deploy-release** step.
+
+```yaml
+deploy-release-tenanted:
+  type: octopusdeploy/deploy-release-tenanted
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: Spaces 1
+    PROJECT: Project Name
+    RELEASE_NUMBER: 5.0.0
+    ENVIRONMENT: Development
+    TENANTS:
+      - Tenant 1
+```
+
+Optional arguments help to customize the deployment of the release. You can specify prompted varible values, tenants, tenant tags, and guided failure mode.
+
+```yaml
+deploy-release-tenanted:
+  type: octopusdeploy/deploy-release-tenanted
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: Spaces 1
+    PROJECT: Project Name
+    RELEASE_NUMBER: 5.0.0
+    ENVIRONMENT: Development
+    VARIABLES:
+      - 'Label:Value'
+    TENANT_TAGS:
+      - Tenant tag 1
+    USE_GUIDED_FAILURE: false
+```
+
 ## Run a runbook
 
 To run a runbook, use the `octopusdeploy/run-runbook` step. Provide the name of the runbook that you want to run, as well as the project and environment name(s).
