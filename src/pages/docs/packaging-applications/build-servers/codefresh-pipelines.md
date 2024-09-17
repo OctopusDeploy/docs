@@ -143,9 +143,7 @@ Each step includes one or two examples to help with setting up a workflow. Basic
 
 ## Run a runbook
 
-In addition to common build steps, we also have an action that can Run a Runbook.
-
-### Basic example
+To run a runbook, use the `octopusdeploy/run-runbook` step. Provide the name of the runbook that you want to run, as well as the project and environment name(s).
 
 ```yaml
 run-runbook:
@@ -161,7 +159,7 @@ run-runbook:
       - Production
 ```
 
-### Complex example
+Optional arguments include variables to use within the runbook, the option to run for specific tenants or tenant tags, as well as the option to use guided failure mode.
 
 ```yaml
 run-runbook:
