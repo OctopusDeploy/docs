@@ -6,7 +6,7 @@ title: Upgrading the Agent
 navTitle: Upgrading
 navSection: Kubernetes agent
 description: How a Kubernetes Agent is upgraded
-navOrder: 70
+navOrder: 60
 ---
 
 Recent changes to the Kubernetes-Agent Helm Chart have necessitated a breaking change, meaning existing installations

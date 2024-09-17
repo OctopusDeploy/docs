@@ -4,7 +4,7 @@ pubDate: 2024-05-08
 modDate: 2024-09-17
 title: Troubleshooting
 description: How to troubleshoot common Kubernetes Agent issues
-navOrder: 40
+navOrder: 70
 ---
 
 This page will help you diagnose and solve issues with the Kubernetes agent.
