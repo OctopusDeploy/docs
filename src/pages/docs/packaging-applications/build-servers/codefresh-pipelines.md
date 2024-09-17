@@ -27,7 +27,9 @@ Octopus Deploy has several custom pipeline steps available:
 - [Push Build Information](https://codefresh.io/steps/step/octopusdeploy%2Fpush-build-information)
 
 
-# Codefresh Step Secrets
+## Codefresh Pipeline step configuration
+
+When creating your first Codefresh Pipeline, the pipeline workflow can be defined in the codefresh UI or within a git-based repository. The workflow yaml defines the steps to run and any arguments required to run each step. 
 
 The details of an Octopus instance are required to run all Octopus Codefresh steps:
 
@@ -37,9 +39,16 @@ The details of an Octopus instance are required to run all Octopus Codefresh ste
 | `OCTOPUS_API_KEY` | The Octopus Deploy API Key required for authentication |
 | `OCTOPUS_SPACE` | The Space to run steps on |
 
-## Codefresh Pipelines configuration
+## Codefresh step secrets
+To store sensitive information such as Octopus Deploy API keys, you can use Codefresh's encrypted variables in your workflow. These can be set by clicking **Add Variable** from the **Variable** menu of your Codefresh Pipeline.
 
-When creating your first Codefresh Pipeline, the pipeline workflow can be defined in the codefresh UI or within a git-based repository. The workflow yaml defines the steps to run and any arguments required to run each step. 
+Enter your variable name and value. To encrypt the variable, click on the lock next to the variable value. To insert the variable in yur workflow, use the codefresh variable syntax ```${{YOUR_VARIABLE_NAME}}}```
+
+:::figure
+![Use encrypted variables in your codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-encrypted-variable.png)
+:::
+
+For more details on codefresh pipeline variables, see the Codefresh documentation on [Variables in pipelines](https://codefresh.io/docs/docs/pipelines/variables/).
 
 ## Triggering a build
 
