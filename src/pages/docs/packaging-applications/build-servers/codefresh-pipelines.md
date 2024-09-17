@@ -161,6 +161,22 @@ Octopus Deploy steps and examples are available from the [Codefresh Marketplace]
 
 Each step includes one or two examples to help with setting up a workflow. Basic examples include only required arguments, and complex examples include both required and optional arguments.
 
+## Package artifacts
+Create zip packages of your deployment artifacts by using the **octopusdeploy/create-package** step. Specify the files to include in each package, the location of those files and the details of the artifact to create. The following step packages all `.txt` files in the `/codefresh/volume` directory into the zip file `/codefresh/volume/Fresh.1.0.0.zip`:
+
+```yaml
+  create-package:
+    title: "Create package"
+    type: octopusdeploy/create-package
+    arguments:
+      ID: "Fresh"
+      VERSION: "1.0.0"
+      BASE_PATH: "/codefresh/volume"
+      OUT_FOLDER: "/codefresh/volume"
+      INCLUDE:
+        - "*.txt"
+```
+
 ## Push artifacts to Octopus Server
 Once the artifacts are packaged, use the **octopusdeploy/push-package** step to push the packages to the Octopus Server built-in repository:
 
