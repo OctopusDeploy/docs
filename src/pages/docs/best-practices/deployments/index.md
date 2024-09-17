@@ -14,7 +14,9 @@ This section covers our recommendations and implementation guides for configurin
 
 The topics covered are:
 
+- [Environments, deployment targets, and target tags](/docs/best-practices/deployments/environments-and-deployment-targets-and-roles)
 - [Lifecycles and Environments](/docs/best-practices/deployments/lifecycles-and-environments)
+- [Projects and Project group structure](/docs/best-practices/deployments/projects-and-project-groups)
 - [Deployment and Runbook Process](/docs/best-practices/deployments/deployment-and-runbook-processes)
 - [Variables](/docs/best-practices/deployments/variables)
 - [Step Templates and Script Modules](/docs/best-practices/deployments/step-templates-and-script-modules)

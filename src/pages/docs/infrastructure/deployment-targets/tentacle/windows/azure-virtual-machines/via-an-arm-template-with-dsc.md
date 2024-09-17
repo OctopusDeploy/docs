@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Installing the Tentacle via DSC in an ARM template
+title: Installing the Tentacle via DSC in an ARM template with Octopus
+navTitle: Installing the Tentacle via DSC in an ARM template
 description: How to install the Tentacle using Desired State configuration (DSC) in Azure Resource Manager (ARM) Template
 navOrder: 1
 ---
@@ -447,10 +448,10 @@ Note that if you are using a private Azure storage location that requires a SAS 
       "value": "AdminUser"
     },
     "vmAdminPassword": {
-      "value": "MySuperSecretPassw0rd"
+      "value": "your-password"
     },
     "vmDnsName": {
-      "value": "mytentaclevm"
+      "value": "your-tentacle-vm"
     },
     "vmSize": {
       "value": "Standard_D2_v2"

@@ -3,6 +3,6 @@ layout: src/layouts/Redirect.astro
 pubDate: 2023-01-01
 modDate: 2024-04-15
 title: Redirect
-redirect: https://octopus.com/docs/best-practices/self-hosted/high-availability
+redirect: https://octopus.com/docs/best-practices/self-hosted-octopus/high-availability
 description: Configuring HA Octopus without Active Directory
 ---

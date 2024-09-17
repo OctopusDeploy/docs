@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Multi-tenant deployment guides
 description: Guides showing you how to use the multi-tenancy feature in Octopus for common scenarios.
+icon: fa-solid fa-book
 navOrder: 80
 hideInThisSectionHeader: true
 ---

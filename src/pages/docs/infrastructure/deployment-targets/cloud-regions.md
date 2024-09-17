@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-03-05
-title: Cloud regions
+title: Cloud regions with Octopus
+navTitle: Cloud regions
 description: Cloud regions deployment targets allow steps to be executed multiple times to support deploying cloud applications in numerous geographic regions.
 navOrder: 80
 ---

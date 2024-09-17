@@ -2,6 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
+icon: fa-solid fa-chart-bar
 title: Metrics
 description: DORA Metrics
 navOrder: 110

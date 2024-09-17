@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-01
-title: Varying Azure subscription by environment
+title: Varying Azure subscription by environment with Octopus
+navTitle: Varying Azure subscription by environment
 description: Information on how to use a different Azure subscription when deploying to different environments.
 navOrder: 5
 ---

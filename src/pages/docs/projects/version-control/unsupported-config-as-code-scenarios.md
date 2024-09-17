@@ -1,13 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-09-16
 title: Unsupported Configuration as Code Scenarios
 description: Unsupported scenarios for the Configuration as Code feature in Octopus Deploy.
+icon: fa-brands fa-git-alt
 navOrder: 50 
 ---
 
-The Configuration as Code feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios. This document will describe each one as well as provide alternatives.
+The Configuration as Code feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes and non-sensitive variables. While it has many benefits, there are some unsuitable use cases and scenarios. This document will describe each one as well as provide alternatives.
 
 ## Core design decision
 
@@ -35,7 +36,7 @@ The configuration as code feature is not designed to allow two or more projects 
 While it may work initially, it will be harder and harder to manage over time. You will need to keep _all_ the scaffolding data in sync across multiple instances. That is [easier said than done](/docs/administration/sync-instances).  Step templates will be the most difficult, as having the same step template on all instances, the version has to match. Otherwise, you'll have to worry about settings such as parameters, scripts, package versions, feeds, and more.
 
 :::div{.warning}
-The first version of Configuration as Code only stores the deployment process in the git repo. It does not store variables or runbook processes. Once variables are added, the amount of scaffolding data will increase.  
+Configuration as Code currently supports storing the deployment process and non-sensitive variables for a project in the Git repo. It does not store or runbook processes or sensitive variables.  
 :::
 
 Typically, having two instances results from splitting an Octopus Deploy instance by environment (one instance has Dev/Test the other has Staging/Prod), by Tenant (one instance has test tenants, the other has customers), or both. Pointing multiple instances at the same folder will only work if they _are all exactly the same forever_.

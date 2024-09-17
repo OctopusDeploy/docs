@@ -1,31 +1,40 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-14
-modDate: 2024-07-31
+modDate: 2024-08-30
 title: Automated Installation
-description: How to automate the installation and management of the Kubernetes agent
+description: How to automate the installation and management of the Kubernetes Agent
 navOrder: 50
 ---
 
 ## Automated installation via Terraform
-The Kubernetes agent can be installed and managed using a combination of the Kubernetes agent [Helm chart <= v1.1.0](https://hub.docker.com/r/octopusdeploy/kubernetes-agent), [Octopus Deploy <= v0.20.0 Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest) and/or [Helm Terraform provider](https://registry.terraform.io/providers/hashicorp/helm).
+The Kubernetes Agent can be installed and managed using a combination of the Kubernetes Agent [Helm chart >= v2.2.1](https://hub.docker.com/r/octopusdeploy/kubernetes-agent), [Octopus Deploy >= v0.30.0 Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest) and/or [Helm Terraform provider](https://registry.terraform.io/providers/hashicorp/helm).
 
 ### Octopus Deploy & Helm
-Using a combination of the Octopus Deploy and Helm providers you can completely manage the Kubernetes agent via Terraform. 
+Using a combination of the Octopus Deploy and Helm providers you can completely manage the Kubernetes Agent via Terraform. 
+
+:::div{.info}
+To ensure that the Kubernetes Agent is correctly installed as a deployment target in Octopus, certain criteria must hold for the following Terraform resource properties:
+
+| **Kubernetes Agent resource** | | **Helm resource (chart value)** |
+|----------|----------|----------|
+| `octopusdeploy_kubernetes_agent_deployment_target.name` | must be the same value as | `agent.name` |
+| `octopusdeploy_kubernetes_agent_deployment_target.uri` | must be the same value as | `agent.serverSubscriptionId` |
+| `octopusdeploy_kubernetes_agent_deployment_target.thumbprint` | is the thumbprint calculated from the certificate used in | `agent.certificate` |
+:::
 
 :::div{.warning}
-To ensure that the Kubernetes agent and the deployment target within Octopus associate with each other correctly the some of the Helm chart values and deployment target properties must meet the following criteria: 
-`octopusdeploy_kubernetes_agent_deployment_target.name` and `agent.targetName` have the same values.
-`octopusdeploy_kubernetes_agent_deployment_target.uri` and `agent.serverSubscriptionId` have the same values.
-`octopusdeploy_kubernetes_agent_deployment_target.thumbprint` is the thumbprint calculated from the certificate used in `agent.certificate`.
+Always specify the major version in the **version** property on the **helm_release** resource (e.g. `version = "2.*.*"`) to prevent Terraform from defaulting to the latest Helm chart version. This is important, as a newer major version of the Agent Helm chart could introduce breaking changes.
+
+When upgrading to a new major version of the Agent, create a separate resource to ensure the Helm values match the updated schema. [Automatic upgrade support](./upgrading#automatic-updates-coming-in-20234) is expected in version 2023.4.
 :::
 
 ```hcl
 terraform {
   required_providers {
     octopusdeploy = {
-      source  = "octopus.com/com/octopusdeploy"
-      version = "0.20.0"
+      source  = "OctopusDeployLabs/octopusdeploy"
+      version = "0.30.0"
     }
 
     helm = {
@@ -78,7 +87,7 @@ resource "helm_release" "octopus_agent" {
   name             = "octopus-agent-release"
   repository       = "oci://registry-1.docker.io"
   chart            = "octopusdeploy/kubernetes-agent"
-  version          = "1.*.*"
+  version          = "2.*.*"
   atomic           = true
   create_namespace = true
   namespace        = "octopus-agent-target"
@@ -89,7 +98,7 @@ resource "helm_release" "octopus_agent" {
   }
 
   set {
-    name  = "agent.targetName"
+    name  = "agent.name"
     value = octopusdeploy_kubernetes_agent_deployment_target.agent.name
   }
 
@@ -123,20 +132,27 @@ resource "helm_release" "octopus_agent" {
     value = octopusdeploy_space.agent_space.name
   }
 
+  set {
+    name  = "agent.deploymentTarget.enabled"
+    value = "true"
+  }
+
   set_list {
-    name  = "agent.targetEnvironments"
+    name  = "agent.deploymentTarget.initial.environments"
     value = octopusdeploy_kubernetes_agent_deployment_target.agent.environments
   }
 
   set_list {
-    name  = "agent.targetRoles"
+    name  = "agent.deploymentTarget.initial.tags"
     value = octopusdeploy_kubernetes_agent_deployment_target.agent.roles
   }
 }
 ```
 
 ### Helm
-The Kubernetes agent can be installed using just the Helm provider but the associated deployment target that is created in Octopus when the agent registers itself cannot be managed solely using the Helm provider, as the Helm chart values relating to the deployment target are only used on initial installation and any modifications to them will not trigger an update to the deployment target unless you perform a complete reinstall of the agent. This option is useful if you plan on managing the configuration of the deployment target via means such as the Portal or API.
+The Kubernetes Agent can be installed using just the Helm provider alone. However, the associated deployment target that is created in Octopus cannot be managed solely using the Helm provider. This is because the Helm chart values relating to the agent are only used on initial installation. Any further modifications to them will not trigger an update to the deployment target unless you perform a complete reinstall of the agent. 
+
+If you don't intend to manage the Kubernetes Agent configuration through Terraform (choosing to handle it via the Octopus Portal or API instead), this option will be beneficial to you as it is simpler to set up.
 
 ```hcl
 terraform {
@@ -164,7 +180,7 @@ resource "helm_release" "octopus_agent" {
   name             = "octopus-agent-release"
   repository       = "oci://registry-1.docker.io"
   chart            = "octopusdeploy/kubernetes-agent"
-  version          = "1.*.*"
+  version          = "2.*.*"
   atomic           = true
   create_namespace = true
   namespace        = "octopus-agent-target"
@@ -199,14 +215,18 @@ resource "helm_release" "octopus_agent" {
     value = "Default"
   }
 
+  set {
+    name  = "agent.deploymentTarget.enabled"
+    value = "true"
+  }
+
   set_list {
-    name  = "agent.targetEnvironments"
+    name  = "agent.deploymentTarget.initial.environments"
     value = ["Development"]
   }
 
-
   set_list {
-    name  = "agent.targetRoles"
+    name  = "agent.deploymentTarget.initial.tags"
     value = ["Role-1"]
   }
 }

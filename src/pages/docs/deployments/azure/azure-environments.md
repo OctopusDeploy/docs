@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Azure environments
+title: Azure environments with Octopus
+navTitle: Azure environments
 description: Information on how to use alternate Azure environments.
 navOrder: 6
 ---

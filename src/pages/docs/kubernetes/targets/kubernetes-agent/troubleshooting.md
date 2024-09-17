@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-08
-modDate: 2024-07-31
+modDate: 2024-09-17
 title: Troubleshooting
 description: How to troubleshoot common Kubernetes Agent issues
 navOrder: 40
@@ -62,3 +62,35 @@ If you are using the default NFS storage however, then the script pod would be d
 
 - being evicted due to exceeding its storage quota
 - being moved or restarted as part of routine cluster operation
+
+## Health Checks and Upgrades
+
+### `error looking up service account octopus-agent-XXX/octopus-agent-auto-upgrader: serviceaccount \"octopus-agent-auto-upgrader\" not found`
+
+This error occurs when certain versions of Octopus Server attempt to run a health check using a Kubernetes service account that was added in a later version of the Kubernetes agent.
+
+In version `2024.3.11946` onwards and all `2024.4` versions, Octopus Server uses the `octopus-agent-auto-upgrader` service account to perform health checks and upgrades. However, this service account was added in `1.16.0` and `2.2.0` of the Kubernetes agent Helm chart.
+
+This means, that if your version of Octopus Server is trying to use that service account, but the installed agent is on version before the version it was added, you will receive an error like
+
+```
+Operation returned an invalid status code 'Forbidden', response body {"kind":"Status","apiVersion":"v1","metadata":{},"status":"Failure","message":"pods \"octopus-script-xxx\" is forbidden: error looking up service account octopus-agent-XXX/octopus-agent-auto-upgrader: serviceaccount \"octopus-agent-auto-upgrader\" not found","reason":"Forbidden","details":{"name":"octopus-script-xxx","kind":"pods"},"code":403}
+```
+
+To fix this issue, the agent must be manually upgraded to a version greater than `1.16.0` or `2.2.0`, depending on the installed major version. Once this has been done, then health checks and automatic upgrades will work again.
+
+To manually upgrade, run the command below that matches the major version range of your installed agent/worker. This can be found by going to the **Connectivity** page on the **Deployment Target** or **Worker** details page and noting the **Current Version**. You should also note the **Helm Release Name** and **Namespace**, which are used in the command.
+
+#### V1
+
+```bash
+helm upgrade --atomic --namespace [NAMESPACE] --version "1.*.*" [HELM-RELEASE-NAME] oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+```
+
+#### V2
+
+```bash
+helm upgrade --atomic --namespace [NAMESPACE] --version "2.*.*" [HELM-RELEASE-NAME] oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+```
+
+Executing this command in a terminal connected to the Kubernetes cluster will result in the agent/worker being upgraded to the latest version as well as re-enabling health checks and automatic upgrades.

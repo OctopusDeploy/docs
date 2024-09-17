@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Create Azure Service Principal account command
+title: Create Azure Service Principal account command in Octopus
+navTitle: Create Azure Service Principal account command
 description: New-OctopusAzureServicePrincipalAccount allows you to create an Azure Service Principal account in Octopus from within a running deployment
 navOrder: 10
 ---
@@ -16,9 +17,9 @@ _**New-OctopusAzureServicePrincipalAccount** allows you to create an Azure Servi
 |-------------------------------|------------------------------------------------------------------------------------------------------------|
 | `-name`                       | Name for the Azure Service Principal account                                                             |
 | `-azureSubscription`          | GUID Id of the Azure Subscription                                                                          |
-| `-azureApplicationId`         | GUID Id of the Azure Application                                                                           |
-| `-azureTenantId`              | GUID Id of the Azure AD Tenant                                                                             |
-| `-azurePassword`              | Azure AD Password                                                                                          |
+| `-azureApplicationId`         | GUID Id of the Microsoft Entra ID Application                                                                           |
+| `-azureTenantId`              | GUID Id of the Microsoft Entra ID Tenant                                                                             |
+| `-azurePassword`              | Microsoft Entra ID Password                                                                                          |
 | `-azureEnvironment`           | Azure Environment Identifier,  see [Azure Environment Options](#azure-environment-options) below           |
 | `-azureBaseUri`               | Azure Base Login URI, see [Azure Environment Options](#azure-environment-options) below                    |
 | `-azureResourceManagementUri` | Azure Resource Management URI,  see [Azure Environment Options](#azure-environment-options) below          |

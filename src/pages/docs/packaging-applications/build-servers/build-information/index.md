@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-20
-title: Build information
+title: Passing build information to Octopus
+navTitle: Build information
 description: Integrate your commits and work items with Octopus Deploy.
 navOrder: 5
 hideInThisSection: true

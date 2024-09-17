@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-27
-modDate: 2023-09-27
+modDate: 2024-09-16
 title: Using OpenID Connect in Octopus with other issuers
 description: How to use OpenID Connect to interact with Octopus using other issuers
+icon: fa-brands fa-openid
 navOrder: 30
 hideInThisSection: true
 ---
@@ -27,10 +28,6 @@ The first step is to create an OIDC identity for your issuer to access the Octop
    2. The URL should be the base where the OIDC Discovery endpoint (`/.well-known/openid-configuration`) endpoint can be found. For example if the discovery endpoint is `https://my-oidc-issuer.com/.well-known/openid-configuration` then the issuer should be set to `https://my-oidc-issuer.com`.
 6. Enter the subject of the identity. This must match the subject that is provided in the OIDC token and is _case-sensitive_, wildcards for matching multiple characters `*` and single characters `?` can be used. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
 7. Click Save.
-
-:::div{.hint}
-Support for wildcards when matching a subject is available from Octopus 2024.1. To match multiple characters in a subject use `*`, and to match a single character use `?`.
-:::
 
 :::div{.hint}
 Multiple OIDC identities can be added for a service account.
@@ -113,3 +110,7 @@ To use the access token as authentication for a request to the Octopus API, it m
 ```
 Authorization: Bearer {the-access-token-obtained-from-octopus}
 ```
+
+## Older Versions
+
+- Support for wildcards when matching a subject was added in Octopus 2024.1.

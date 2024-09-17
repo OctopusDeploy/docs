@@ -18,6 +18,10 @@ robots: noindex, follow
 
 This documentation provides details on using the Octoterra Wizard to migrate a space from one instance to another as well as noting the limitations of the tooling and any post-migration steps that must be implemented.
 
+:::div{.warning}
+This process is experimental and is only to be used when directed by the support or sales team.
+:::
+
 ## Choosing between Octoterra and the Import/Export tool
 
 The [Import/Export tool](https://octopus.com/docs/projects/export-import) is built into Octopus and provides much of the same functionality as the Octoterra Wizard.

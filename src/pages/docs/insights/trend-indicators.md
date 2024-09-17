@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Trend indicators
+icon: fa-solid fa-arrow-trend-up
 description: Insights helps spot performance trends
 navOrder: 120
 ---

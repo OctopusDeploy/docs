@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Reports
+title: Generate reports with the Octopus REST API
+navTitle: Reports
 description: This section includes examples of how to use the REST API to generate comma separated reports using the Octopus Deploy API.
 navOrder: 150
 hideInThisSectionHeader: true
