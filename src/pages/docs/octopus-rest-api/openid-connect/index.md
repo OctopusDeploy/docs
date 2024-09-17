@@ -236,4 +236,4 @@ IMPORTANT: Access tokens are credentials to your Octopus Server in the same way 
 
 ## Older Versions
 
-- The `login` command was added to the Octopus CLI in version `2.1.0`.
+- In versions prior to `2.1.0`, the Octopus CLI did not support OpenID Connect.
