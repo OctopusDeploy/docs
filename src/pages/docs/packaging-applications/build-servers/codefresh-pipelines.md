@@ -27,7 +27,9 @@ Octopus Deploy has several custom pipeline steps available:
 - [Push Build Information](https://codefresh.io/steps/step/octopusdeploy%2Fpush-build-information)
 
 
-# Codefresh Step Secrets
+## Codefresh Pipeline step configuration
+
+When creating your first Codefresh Pipeline, the pipeline workflow can be defined in the codefresh UI or within a git-based repository. The workflow yaml defines the steps to run and any arguments required to run each step. 
 
 The details of an Octopus instance are required to run all Octopus Codefresh steps:
 
@@ -37,9 +39,27 @@ The details of an Octopus instance are required to run all Octopus Codefresh ste
 | `OCTOPUS_API_KEY` | The Octopus Deploy API Key required for authentication |
 | `OCTOPUS_SPACE` | The Space to run steps on |
 
-## Codefresh Pipelines configuration
+## Codefresh variables 
 
-When creating your first Codefresh Pipeline, the pipeline workflow can be defined in the codefresh UI or within a git-based repository. The workflow yaml defines the steps to run and any arguments required to run each step. 
+It is recommended to use codefresh variables to set the `OCTOPUS_URL` and an encrypted variable to set the `OCTOPUS_API_KEY`. This way, you can simply insert the variable for all octopus deploy steps in your workflow.
+
+These can be set by clicking **Add Variable** from the **Variable** menu of your Codefresh Pipeline.
+
+Enter your variable name and value. To insert the variable in your workflow, use the codefresh variable syntax `${{YOUR_VARIABLE_NAME}}`
+
+:::figure
+![Use variables in your codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables.png)
+:::
+
+For more details on codefresh pipeline variables, see the Codefresh documentation on [Variables in pipelines](https://codefresh.io/docs/docs/pipelines/variables/).
+
+## Codefresh encrypted variables
+
+To store sensitive information such as Octopus Deploy API keys, you can use Codefresh's encrypted variables in your workflow. To encrypt the variable, click on the lock next to the variable value. 
+
+:::figure
+![Encrypt variables in your codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables-encrypt.png)
+:::
 
 ## Triggering a build
 
@@ -213,4 +233,73 @@ run-runbook:
       - Tenant tag 1
     USE_GUIDED_FAILURE: 'false'
 
+```
+
+## Push build information
+
+To push build information for a project, use the `octopusdeploy/push-build-information` step. Provide a list of packages that need build information, a build information json file and a version number. 
+
+By default, the step will fail if build information already exists, but this can be configured using the `OVERWRITE_MODE` option ('fail', 'overwrite', or 'ignore').
+
+```yaml
+push-build-information:
+  type: octopusdeploy/push-build-information
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: Spaces 1
+    PACKAGE_IDS:
+      - SomePackage
+      - SomeOtherPackage
+    FILE: SomeFile.json
+    VERSION: 1.0.0
+    OVERWRITE_MODE: fail
+```
+
+Sample build information json file:
+
+```json
+{
+  "BuildEnvironment": "BitBucket",
+  "Branch": "main",
+  "BuildNumber": "288",
+  "BuildUrl": "https://bitbucket.org/octopussamples/petclinic/addon/pipelines/home#!/results/288",
+  "VcsType": "Git",
+  "VcsRoot": "http://bitbucket.org/octopussamples/petclinic",
+  "VcsCommitNumber": "12345",
+  "Commits":
+  [
+    {
+      "Id": "12345",
+      "Comment": "Sample commit message"
+    }
+  ]
+}
+```
+
+# Error handling
+
+Codefresh provides inbuilt error handling for all steps. Retry of failed steps is enabled using the `retry` settings.  See the [Codefresh documentation on retrying a step](https://codefresh.io/docs/docs/pipelines/what-is-the-codefresh-yaml/#retrying-a-step) for more details.
+
+```yaml
+version: "1.0"
+stages:
+  - "Deploy project"
+
+steps:
+  deploy:
+    type: octopusdeploy/deploy-release
+    stage: "Deploy project"
+    retry:
+      maxAttempts: 5
+      delay: 5
+      exponentialFactor: 2
+    arguments:
+      OCTOPUS_API_KEY: <<YOUR_API_KEY>>
+      OCTOPUS_URL: "https://example.octopustest.app/"
+      OCTOPUS_SPACE: "Spaces-1"
+      PROJECT: "Create Release Test"
+      RELEASE_NUMBER: "1.0.2"
+      ENVIRONMENTS:
+        - "Development"
 ```
