@@ -71,7 +71,7 @@ This error occurs when certain versions of Octopus Server attempt to run a healt
 
 In version `2024.3.11946` onwards and all `2024.4` versions, Octopus Server uses the `octopus-agent-auto-upgrader` service account to perform health checks and upgrades. However, this service account was added in `1.16.0` and `2.2.0` of the Kubernetes agent Helm chart.
 
-This means, that if you version of Octopus Server is trying to use that service account, but the installed agent is on version before the version it was added, you will receive an error like
+This means, that if your version of Octopus Server is trying to use that service account, but the installed agent is on version before the version it was added, you will receive an error like
 
 ```
 Operation returned an invalid status code 'Forbidden', response body {"kind":"Status","apiVersion":"v1","metadata":{},"status":"Failure","message":"pods \"octopus-script-xxx\" is forbidden: error looking up service account octopus-agent-XXX/octopus-agent-auto-upgrader: serviceaccount \"octopus-agent-auto-upgrader\" not found","reason":"Forbidden","details":{"name":"octopus-script-xxx","kind":"pods"},"code":403}
