@@ -161,6 +161,20 @@ Octopus Deploy steps and examples are available from the [Codefresh Marketplace]
 
 Each step includes one or two examples to help with setting up a workflow. Basic examples include only required arguments, and complex examples include both required and optional arguments.
 
+## Push artifacts to Octopus Server
+Once the artifacts are packaged, use the **octopusdeploy/push-package** step to push the packages to the Octopus Server built-in repository:
+
+```yaml
+  push-package:
+    type: octopusdeploy/push-package
+    arguments:
+      OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+      OCTOPUS_URL: '${{OCTOPUS_URL}}'
+      OCTOPUS_SPACE: "Default"
+      PACKAGES:
+        - "/codefresh/volume/Fresh.1.0.0.zip"
+```
+
 ## Create a release
 
 To create a release, use the **octopusdeploy/create-release** step. Provide the details for your Octopus instance, and the project you would like to create a release for:
