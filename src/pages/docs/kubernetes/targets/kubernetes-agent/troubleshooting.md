@@ -74,7 +74,7 @@ In version `2024.3.11946` onwards and all `2024.4` versions, Octopus Server uses
 This means, that if you version of Octopus Server is trying to use that service account, but the installed agent is on version before the version it was added, you will receive an error like
 
 ```
-Operation returned an invalid status code 'Forbidden', response body {"kind":"Status","apiVersion":"v1","metadata":{},"status":"Failure","message":"pods \"octopus-script-kqssiima8u6u2oz8zvwgvw\" is forbidden: error looking up service account octopus-agent-XXX/octopus-agent-auto-upgrader: serviceaccount \"octopus-agent-auto-upgrader\" not found","reason":"Forbidden","details":{"name":"octopus-script-kqssiima8u6u2oz8zvwgvw","kind":"pods"},"code":403}
+Operation returned an invalid status code 'Forbidden', response body {"kind":"Status","apiVersion":"v1","metadata":{},"status":"Failure","message":"pods \"octopus-script-xxx\" is forbidden: error looking up service account octopus-agent-XXX/octopus-agent-auto-upgrader: serviceaccount \"octopus-agent-auto-upgrader\" not found","reason":"Forbidden","details":{"name":"octopus-script-xxx","kind":"pods"},"code":403}
 ```
 
 To fix this issue, the agent will need to manually upgraded to a version greater than `1.16.0` and `2.2.0`. Once this has been done, then health checks and automatic upgrades will work again.
