@@ -29,13 +29,13 @@ Octopus Deploy has several custom pipeline steps available:
 
 # Codefresh Step Secrets
 
-For example:
+The details of an Octopus instance are required to run all Octopus Codefresh steps:
 
 | Variable name       | Description|
 | ------------- | ------- |
-| `OCTOPUS_SERVER_URL` | The Octopus Server URL you wish to run your steps on |
-| `OCTOPUS_SERVER_API_KEY` | The Octopus Deploy API Key required for authentication |
-| `OCTOPUS_SERVER_SPACE` | The Space to run steps on |
+| `OCTOPUS_URL` | The Octopus Server URL you wish to run your steps on |
+| `OCTOPUS_API_KEY` | The Octopus Deploy API Key required for authentication |
+| `OCTOPUS_SPACE` | The Space to run steps on |
 
 ## Codefresh Pipelines configuration
 
