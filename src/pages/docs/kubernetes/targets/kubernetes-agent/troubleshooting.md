@@ -77,7 +77,7 @@ This means, that if your version of Octopus Server is trying to use that service
 Operation returned an invalid status code 'Forbidden', response body {"kind":"Status","apiVersion":"v1","metadata":{},"status":"Failure","message":"pods \"octopus-script-xxx\" is forbidden: error looking up service account octopus-agent-XXX/octopus-agent-auto-upgrader: serviceaccount \"octopus-agent-auto-upgrader\" not found","reason":"Forbidden","details":{"name":"octopus-script-xxx","kind":"pods"},"code":403}
 ```
 
-To fix this issue, the agent will need to manually upgraded to a version greater than `1.16.0` and `2.2.0`. Once this has been done, then health checks and automatic upgrades will work again.
+To fix this issue, the agent must be manually upgraded to a version greater than `1.16.0` or `2.2.0`, depending on the installed major version. Once this has been done, then health checks and automatic upgrades will work again.
 
 To manually upgrade, run the command below that matches the major version range of your installed agent/worker. This can be found by going to the **Connectivity** page on the **Deployment Target** or **Worker** details page and noting the **Current Version**. You should also note the **Helm Release Name** and **Namespace**, which are used in the command.
 
