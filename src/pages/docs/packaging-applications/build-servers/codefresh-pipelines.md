@@ -223,6 +223,41 @@ create-release:
     RELEASE_NOTES: This is a release note
 ```
 
+## Deploy a release
+
+To deploy a release, use the **octopusdeploy/deploy-release** step. Provide details for your Octopus instance, and the project and release you want to deploy:
+
+```yaml
+deploy-release:
+  type: octopusdeploy/deploy-release
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: "Default"
+    PROJECT: "Project Name"
+    RELEASE_NUMBER: "0.0.1"
+    ENVIRONMENTS:
+      - "Development"
+```
+
+Additionally, you can provide optional arguments to specify guided failure mode and variables:
+
+```yaml
+deploy-release:
+  type: octopusdeploy/deploy-release
+  arguments:
+    OCTOPUS_API_KEY: '${{OCTOPUS_API_KEY}}'
+    OCTOPUS_URL: '${{OCTOPUS_URL}}'
+    OCTOPUS_SPACE: "Default"
+    PROJECT: "Project Name"
+    RELEASE_NUMBER: "0.0.1"
+    ENVIRONMENTS:
+      - "Development"
+    VARIABLES:
+      - "Greeting:Hello"
+    USE_GUIDED_FAILURE: "false"
+```
+
 ## Run a runbook
 
 To run a runbook, use the **octopusdeploy/run-runbook** step. Provide the name of the runbook that you want to run, as well as the project and environment name(s).
