@@ -68,4 +68,4 @@ Installing and authorizing are both GitHub concepts. If you want to find out mor
 
 ## Older versions
 
-- Prior to 2024.3.12703 when the new UI navigation was introduced, the GitHub Connections page is located in the Library section of Octopus.
+- Prior to version 2024.3.12703 when the new UI navigation was introduced, the GitHub Connections page is located in the Library section of Octopus.
