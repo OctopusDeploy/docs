@@ -4,6 +4,7 @@ pubDate: 2023-09-27
 modDate: 2024-09-16
 title: Using OpenID Connect with Octopus and GitHub Actions
 description: How to use OpenID Connect to interact with Octopus in GitHub Actions
+icon: fa-brands fa-openid
 navOrder: 30
 hideInThisSection: true
 ---
