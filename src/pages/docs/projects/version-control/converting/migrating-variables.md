@@ -8,7 +8,7 @@ navOrder: 110
 hideInThisSection: true
 ---
 
-Support for storing non-sensitive variables in Git will be available to everyone in an upcoming version of Octopus. All newly configured Git projects will automatically have variables migrated when converting the project to Git. For existing Git projects, you will need to migrate these manually.
+All newly configured Git projects will automatically have non-sensitive variables migrated when converting the project to Git. For existing Git projects, you will need to migrate these manually.
 
 :::div{.hint}
 We recommend migrating your variables to Git as soon as practical. We will continue to support Git projects with variables that haven't been migrated for now, but we will remove support for this at some point in the future.
@@ -82,3 +82,7 @@ If you migrated the variables to any branch other than the default, be sure merg
 If you're a frequent user of branching within Octopus, you will want to ensure you get the variables to all of your active branches as quickly as possible.
 
 Once the variables have been merged to the default branch, you can update your branches as you would with any other files in your repository - pull the latest changes into your branch, and you'll be good to go.
+
+## Older versions
+
+- Support for migrating variables was introduced in 2022.3.10382
