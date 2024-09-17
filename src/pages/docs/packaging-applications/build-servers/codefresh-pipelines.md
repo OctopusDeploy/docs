@@ -12,7 +12,7 @@ Codefresh is a docker-native CI/CD platform
 [Codefresh Pipelines](https://codefresh.io/docs/docs/pipelines/introduction-to-codefresh-pipelines/) are workflows that form Codefresh's continuous integration (CI) platform. 
 
 # Integrating with Codefresh Pipelines
-Codefresh pipelines allow you to customise steps to create, deploy and promote releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The steps do this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) inside a docker container.
+Codefresh pipelines allow you to customize steps to create, deploy and promote releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The steps do this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) inside a docker container.
 
 Octopus Deploy has several custom pipeline steps available: 
 
@@ -29,13 +29,13 @@ Octopus Deploy has several custom pipeline steps available:
 
 # Codefresh Step Secrets
 
-For example:
+The details of an Octopus instance are required to run all Octopus Codefresh steps:
 
 | Variable name       | Description|
 | ------------- | ------- |
-| `OCTOPUS_SERVER_URL` | The Octopus Server URL you wish to run your steps on |
-| `OCTOPUS_SERVER_API_KEY` | The Octopus Deploy API Key required for authentication |
-| `OCTOPUS_SERVER_SPACE` | The Space to run steps on |
+| `OCTOPUS_URL` | The Octopus Server URL you wish to run your steps on |
+| `OCTOPUS_API_KEY` | The Octopus Deploy API Key required for authentication |
+| `OCTOPUS_SPACE` | The Space to run steps on |
 
 ## Codefresh Pipelines configuration
 
@@ -143,9 +143,7 @@ Each step includes one or two examples to help with setting up a workflow. Basic
 
 ## Run a runbook
 
-In addition to common build steps, we also have an action that can Run a Runbook.
-
-### Basic example
+To run a runbook, use the `octopusdeploy/run-runbook` step. Provide the name of the runbook that you want to run, as well as the project and environment name(s).
 
 ```yaml
 run-runbook:
@@ -161,7 +159,7 @@ run-runbook:
       - Production
 ```
 
-### Complex example
+Optional arguments include variables to use within the runbook, the option to run for specific tenants or tenant tags, as well as the option to use guided failure mode.
 
 ```yaml
 run-runbook:
