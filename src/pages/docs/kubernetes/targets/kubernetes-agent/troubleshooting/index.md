@@ -2,7 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-05-08
 modDate: 2024-09-17
+navTitle: General Troubleshooting
 title: Troubleshooting
+navSection: Troubleshooting
 description: How to troubleshoot common Kubernetes Agent issues
 navOrder: 70
 ---
@@ -87,10 +89,20 @@ To manually upgrade, run the command below that matches the major version range 
 helm upgrade --atomic --namespace [NAMESPACE] --version "1.*.*" [HELM-RELEASE-NAME] oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
-### V2
+#### V2
 
 ```bash
 helm upgrade --atomic --namespace [NAMESPACE] --version "2.*.*" [HELM-RELEASE-NAME] oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
 Executing this command in a terminal connected to the Kubernetes cluster will result in the agent/worker being upgraded to the latest version as well as re-enabling health checks and automatic upgrades.
+
+## SSL Connection Issues
+
+### The Tentacle pod fails with the error `Checking that server communications are open failed with message The SSL connection could not be established, see inner exception`
+
+This error indicates that the agent was unable to complete the initial SSL handshake with the Octopus Server.
+
+There are various reasons why this error may occur, but a likely cause is incompatibility with the SSL certificate configuration. Specifically, the agent **does not support SHA1RSA certificates when the Octopus Server is running on Windows Server 2012 R2**. If your setup matches this configuration and the inner exception in the error stack includes a message like `error:0A00042E:SSL routines::tlsv1 alert protocol version`, this likely indicates that the SSL connection issue is due to the certificate incompatibility. 
+
+For detailed instructions on diagnosing and resolving this issue, please refer to the guide on this [page](troubleshooting/sha1-certificate-incompatibility).
