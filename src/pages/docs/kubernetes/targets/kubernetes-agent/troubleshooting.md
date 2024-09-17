@@ -87,7 +87,7 @@ To manually upgrade, run the command below that matches the major version range 
 helm upgrade --atomic --namespace [NAMESPACE] --version "1.*.*" [HELM-RELEASE-NAME] oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
-### V2
+#### V2
 
 ```bash
 helm upgrade --atomic --namespace [NAMESPACE] --version "2.*.*" [HELM-RELEASE-NAME] oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
