@@ -4,6 +4,7 @@ pubDate: 2024-03-14
 modDate: 2024-09-17
 title: GitHub integration 
 description: Octopus Deploy GitHub integration
+icon: fa-brands fa-github
 navOrder: 30
 ---
 
@@ -13,7 +14,7 @@ The Octopus Deploy GitHub App provides seamless integration between Octopus Depl
 The Octopus Deploy GitHub App is only supported on Octopus Cloud instances. 
 :::
 
-To get started, go to the GitHub Connections page in the Library of your Octopus cloud instance, and follow the prompts.
+To get started, go to the GitHub Connections page in the Deploy -> Manage section of your Octopus cloud instance, and follow the prompts.
 
 ## GitHub App Connections
 GitHub Connections is the recommended way to connect Octopus to your GitHub accounts (organizations or users). It provides seamless and secure connection via the Octopus GitHub App, without using personal access tokens.
