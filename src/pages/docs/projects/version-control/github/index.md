@@ -65,3 +65,7 @@ Installing and authorizing are both GitHub concepts. If you want to find out mor
 - [GitHub Apps documentation](https://docs.github.com/en/apps/using-github-apps/about-using-github-apps)
 - [Installing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party)
 - [Authorizing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/authorizing-github-apps)
+
+## Older versions
+
+- Prior to 2024.3.12703 when the new UI navigation was introduced, the GitHub Connections page is located in the Library section of Octopus.
