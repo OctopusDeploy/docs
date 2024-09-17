@@ -4,6 +4,7 @@ pubDate: 2023-09-27
 modDate: 2024-09-16
 title: Using OpenID Connect in Octopus with other issuers
 description: How to use OpenID Connect to interact with Octopus using other issuers
+icon: fa-brands fa-openid
 navOrder: 30
 hideInThisSection: true
 ---
