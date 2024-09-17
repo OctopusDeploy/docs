@@ -158,7 +158,7 @@ deploy-release-tenanted:
       - Tenant 1
 ```
 
-Optional arguments help to customize the deployment of the release. You can specify prompted varible values, tenants, tenant tags, and guided failure mode.
+Optional arguments help to customize the deployment of the release. You can specify prompted variable values, tenants, tenant tags, and guided failure mode.
 
 ```yaml
 deploy-release-tenanted:
