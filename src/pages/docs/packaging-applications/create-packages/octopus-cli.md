@@ -96,7 +96,7 @@ msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
 ```
 
-## Packaging your application from a folder {#UsingOctopusCli-Packagingyourapplicationfromafolder}
+## Packaging your application from a folder
 
 If you have a build process that places all build outputs into a final destination folder (such as gulp, grunt, or webpack), you can package it using the Octopus CLI as well. For example, if you've defined an npm script which runs your build and places all associated content into the `dist` folder:
 
