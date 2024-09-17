@@ -41,11 +41,11 @@ The details of an Octopus instance are required to run all Octopus Codefresh ste
 
 ## Codefresh variables 
 
-It is recommended to use codefresh variables to set the `OCTOPUS_URL` and an encrypted variable to set the `OCTOPUS_API_KEY`. This way, you can simply insert the variable for all octopus deploy steps in the workflow.
+It is recommended to use codefresh variables to set the `OCTOPUS_URL` and an encrypted variable to set the `OCTOPUS_API_KEY`. This way, you can simply insert the variable for all octopus deploy steps in your workflow.
 
 These can be set by clicking **Add Variable** from the **Variable** menu of your Codefresh Pipeline.
 
-Enter your variable name and value. To insert the variable in your workflow, use the codefresh variable syntax `${{YOUR_VARIABLE_NAME}}}`
+Enter your variable name and value. To insert the variable in your workflow, use the codefresh variable syntax `${{YOUR_VARIABLE_NAME}}`
 
 :::figure
 ![Use variables in your codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables.png)
