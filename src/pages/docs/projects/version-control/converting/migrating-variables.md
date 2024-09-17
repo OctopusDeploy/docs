@@ -6,7 +6,7 @@ title: Migrating variables to Git
 description: Variables needs to be manually migrated to Git for existing projects
 navOrder: 110
 hideInThisSection: true
-icon: fa-solid fa-code
+icon: fa-brands fa-git-alt
 ---
 
 All newly configured Git projects will automatically have non-sensitive variables migrated when converting the project to Git. For existing Git projects, you will need to migrate these manually.
