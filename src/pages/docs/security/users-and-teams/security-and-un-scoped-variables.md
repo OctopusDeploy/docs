@@ -9,7 +9,7 @@ navOrder: 1
 
 Sometimes, a team will be granted contributor access to a project, but be restricted in the environments that it can access. By default, Octopus's security system will then prevent members of the team editing [variables](/docs/projects/variables) that apply outside of their allowed environments. During development this can be inconvenient, as variables frequently need to be added in support of new application features.
 
-## Why restrict editing of unscoped variables? {#Securityandun-scopedvariables-Whyrestricteditingofun-scopedvariables?}
+## Why restrict editing of unscoped variables? {#why-restrict-editing-of-unscoped-variables}
 
 Octopus uses variables to control almost every aspect of the deployment process. This provides a great deal of flexibility - for example, variables can control:
 
@@ -23,7 +23,7 @@ The default permissions applied to unscoped variable editing are restrictive bec
 
 This default behavior can be changed by granting an additional permission to the team.
 
-## Granting unscoped variable editing permission {#Securityandun-scopedvariables-Grantingun-scopedvariableeditingpermission}
+## Granting unscoped variable editing permission {#granting-unscoped-variable-editing-permission}
 
 As an administrator, open **Configuration ➜ User Roles**. In the list of user roles shown, either create a new role to assign to the team, or select a built-in role like **Project contributors** to modify.
 
