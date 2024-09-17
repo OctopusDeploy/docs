@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-14
-modDate: 2024-03-14
+modDate: 2024-09-17
 title: GitHub integration 
 description: Octopus Deploy GitHub integration
 navOrder: 30
@@ -21,7 +21,9 @@ GitHub Connections is the recommended way to connect Octopus to your GitHub acco
 ### Connecting a GitHub account
 Before you can use an GitHub account in Octopus Deploy, you need to connect the account to the Space.
 
+:::figure
 ![Screenshot of Octopus Deploy GitHub Connections screen showing OctopusPetShop organization connected and OctopusDeploy organization not connected](/docs/api-and-integration/github/github-connections-screen.png)
+:::
 
 To connect a new account, select any currently disconnected account to go to the new connection screen where you can select the repositories and complete the connection. You can only connect each GitHub account once per Space. Once connected, the account will show at the top of the list with a Connected label.
 
@@ -32,7 +34,9 @@ When you first open the GitHub connection page, you will be in view mode. This w
 
 You will not be able to save the connection unless you have at least 1 repository selected. To remove all of the repositories, disconnect the account completely using the Disconnect button in the overflow menu.
 
+:::figure
 ![Screenshot of Octopus Deploy GitHub Connections screen showing OctopusPetShop connection with overflow menu expanded showing disconnect button](/docs/api-and-integration/github/github-connection-disconnect.png)
+:::
 
 ### Selecting repositories on the GitHub Connection
 Each GitHub Connection defines its own set of repositories (this is on top of the list of repositories configured on the installation in GitHub).
@@ -42,7 +46,9 @@ GitHub accounts can only have a single GitHub App installation, so this installa
 #### If you can't see a repository
 Octopus can only see repositories that are available to the app installation and the current user. If you can't see a repository that you expect to see on this screen, it may not be accessible to either you or the installation. To configure more repositories on a connection, follow the link at the bottom of the repository selection screen to configure more repositories on GitHub.
 
+:::figure
 ![Screenshot of Octopus Deploy GitHub Connections screen for OctopusPetShow in edit mode showing PetShop and ProductAPI repositories selected and UserAPI deselected. Configure repository access in the Octopus Deploy app on GitHub link is shown at the bottom of the page](/docs/api-and-integration/github/github-connection-edit.png)
+:::
 
 #### Only repository administrators can connect repositories
 To connect a repository, you must be an administrator of the repository on GitHub. If you're not an administrator (but can view the repository), you will still see the repository in the list, but will not be able to select it.
