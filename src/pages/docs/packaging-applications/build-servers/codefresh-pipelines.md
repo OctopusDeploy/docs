@@ -39,16 +39,27 @@ The details of an Octopus instance are required to run all Octopus Codefresh ste
 | `OCTOPUS_API_KEY` | The Octopus Deploy API Key required for authentication |
 | `OCTOPUS_SPACE` | The Space to run steps on |
 
-## Codefresh step secrets
-To store sensitive information such as Octopus Deploy API keys, you can use Codefresh's encrypted variables in your workflow. These can be set by clicking **Add Variable** from the **Variable** menu of your Codefresh Pipeline.
+## Codefresh variables 
 
-Enter your variable name and value. To encrypt the variable, click on the lock next to the variable value. To insert the variable in yur workflow, use the codefresh variable syntax ```${{YOUR_VARIABLE_NAME}}}```
+It is recommended to use codefresh variables to set the `OCTOPUS_URL` and an encrypted variable to set the `OCTOPUS_API_KEY`. This way, you can simply insert the variable for all octopus deploy steps in the workflow.
+
+These can be set by clicking **Add Variable** from the **Variable** menu of your Codefresh Pipeline.
+
+Enter your variable name and value. To insert the variable in your workflow, use the codefresh variable syntax `${{YOUR_VARIABLE_NAME}}}`
 
 :::figure
-![Use encrypted variables in your codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-encrypted-variable.png)
+![Use variables in your codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables.png)
 :::
 
 For more details on codefresh pipeline variables, see the Codefresh documentation on [Variables in pipelines](https://codefresh.io/docs/docs/pipelines/variables/).
+
+## Codefresh encrypted variables
+
+To store sensitive information such as Octopus Deploy API keys, you can use Codefresh's encrypted variables in your workflow. To encrypt the variable, click on the lock next to the variable value. 
+
+:::figure
+![Encrypt variables in your codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables-encrypt.png)
+:::
 
 ## Triggering a build
 
