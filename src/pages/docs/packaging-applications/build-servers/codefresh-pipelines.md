@@ -224,3 +224,30 @@ Sample build information json file:
   ]
 }
 ```
+
+# Error handling
+
+Codefresh provides inbuilt error handling for all steps. Retry of failed steps is enabled using the `retry` settings.  See the [Codefresh documentation on retrying a step](https://codefresh.io/docs/docs/pipelines/what-is-the-codefresh-yaml/#retrying-a-step) for more details.
+
+```yaml
+version: "1.0"
+stages:
+  - "Deploy project"
+
+steps:
+  deploy:
+    type: octopusdeploy/deploy-release
+    stage: "Deploy project"
+    retry:
+      maxAttempts: 5
+      delay: 5
+      exponentialFactor: 2
+    arguments:
+      OCTOPUS_API_KEY: <<YOUR_API_KEY>>
+      OCTOPUS_URL: "https://example.octopustest.app/"
+      OCTOPUS_SPACE: "Spaces-1"
+      PROJECT: "Create Release Test"
+      RELEASE_NUMBER: "1.0.2"
+      ENVIRONMENTS:
+        - "Development"
+```
