@@ -91,6 +91,7 @@ dpkg
 dryrun
 Dspring
 DWORD
+EBNF
 echoerror
 elbv2
 elif
@@ -142,7 +143,6 @@ HKLM
 hostnames
 hotfix
 hotfixes
-Howtousecustomcertificateswith
 HSTS
 htdocs
 HTTPAPI
@@ -212,6 +212,7 @@ mssqldb
 MSSQLSERVER
 MTTR
 myapplication
+Myatt
 myfeature
 navigationid
 NETBIOS
@@ -284,6 +285,7 @@ Petlife
 petshop
 PKCE
 pkcs
+PKWARE
 planetside
 podannotation
 preproduction
@@ -347,10 +349,8 @@ secureclientcertificate
 securestring
 SEIM
 servedby
-Serverand
 servername
 serverstatus
-Servertousecustomcertificates
 serviceaccount
 Sesna
 setspn
@@ -394,7 +394,6 @@ tenanttype
 Tentacleinstallation
 Tentacleinstallers
 tentaclethumbprint
-Tentacletousecustomcertificates
 testoctopusdemos.app
 testproject
 tfvar
