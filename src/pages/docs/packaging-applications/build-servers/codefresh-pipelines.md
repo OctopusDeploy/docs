@@ -171,9 +171,10 @@ deploy-release-tenanted:
     RELEASE_NUMBER: 5.0.0
     ENVIRONMENT: Development
     VARIABLES:
-      - 'Label:Value'
+      - 'LabelA:ValueA'
     TENANT_TAGS:
-      - Tenant tag 1
+      - tagSetA/someTagB
+      - tagSetC/someTagD
     USE_GUIDED_FAILURE: false
 ```
 
