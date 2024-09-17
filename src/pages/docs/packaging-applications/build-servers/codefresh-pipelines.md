@@ -209,7 +209,7 @@ create-release:
 
 ## Run a runbook
 
-To run a runbook, use the `octopusdeploy/run-runbook` step. Provide the name of the runbook that you want to run, as well as the project and environment name(s).
+To run a runbook, use the **octopusdeploy/run-runbook** step. Provide the name of the runbook that you want to run, as well as the project and environment name(s).
 
 ```yaml
 run-runbook:
@@ -251,7 +251,7 @@ run-runbook:
 
 ## Push build information
 
-To push build information for a project, use the `octopusdeploy/push-build-information` step. Provide a list of packages that need build information, a build information json file and a version number. 
+To push build information for a project, use the **octopusdeploy/push-build-information** step. Provide a list of packages that need build information, a build information json file and a version number. 
 
 By default, the step will fail if build information already exists, but this can be configured using the `OVERWRITE_MODE` option ('fail', 'overwrite', or 'ignore').
 
