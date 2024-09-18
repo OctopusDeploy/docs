@@ -33,7 +33,7 @@ This error will occur when the agent attempts to connect to the server, typicall
 To resolve this issue and continue using the Kubernetes agent with your Octopus Server, you have two options, both of which are recommended regardless of the current issue:
 
 ### Option 1: Rotate the SSL certificate
-Replace the current SHA1 certificate with a more secure **SHA256** certificate. This will ensure that the Tentacle Agent can successfully complete the SSL handshake with the server.
+Replace the current SHA1 certificate with a more secure **SHA256** certificate. This will ensure that the Kubernetes agent can successfully complete the SSL handshake with the server.
 
 #### Steps to rotate the certificate
 1. Generate a new self-signed certificate using the SHA256RSA algorithm.
