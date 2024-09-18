@@ -22,7 +22,6 @@ Octopus Deploy has several custom pipeline steps available:
 - [Create a release](https://codefresh.io/steps/step/octopusdeploy%2Fcreate-release)
 - [Deploy a release](https://codefresh.io/steps/step/octopusdeploy%2Fdeploy-release)
 - [Deploy a tenanted release](https://codefresh.io/steps/step/octopusdeploy%2Fdeploy-release-tenanted)
-- [Await Task](https://codefresh.io/steps/step/octopusdeploy%2Fawait-task)
 - [Run a Runbook](https://codefresh.io/steps/step/octopusdeploy%2Frun-runbook)
 - [Push Build Information](https://codefresh.io/steps/step/octopusdeploy%2Fpush-build-information)
 
