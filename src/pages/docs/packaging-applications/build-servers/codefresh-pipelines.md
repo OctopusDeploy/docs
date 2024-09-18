@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2024-10-01
-modDate: 2024-10-01
+pubDate: 2024-09-19
+modDate: 2024-09-19
 title: Codefresh Pipelines
 description: Codefresh pipelines can leverage the Octopus CLI to build, push, and create releases for Octopus Deploy.
 navOrder: 50
