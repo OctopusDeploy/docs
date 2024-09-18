@@ -211,7 +211,7 @@ Create zip packages of your deployment artifacts by using the **octopusdeploy-cr
       INCLUDE:
         - "*.txt"
 ```
-This step returns a json object with property "Path".
+This step returns a json object with property `Path`.
 
 ## Push packages to Octopus Server
 Once the artifacts are packaged, use the **octopusdeploy-push-package** step to push the packages to the Octopus Server built-in repository:
@@ -259,7 +259,7 @@ create-release:
       - "Sample:1.0.0-hotfix1"
     RELEASE_NOTES: This is a release note
 ```
-This returns a json object with properties "Channel" and "Version" for the release that was created.
+This returns a json object with properties `Channel` and `Version` for the release that was created.
 
 ## Deploy a release
 
@@ -296,7 +296,7 @@ deploy-release:
     USE_GUIDED_FAILURE: "false"
 ```
 
-This returns a json array of created deployments, with properties "DeploymentId" and "ServerTaskId".
+This returns a json array of created deployments, with properties `DeploymentId` and `ServerTaskId`.
 
 ## Deploy a tenanted release
 To deploy a tenanted release, use the **octopusdeploy-deploy-release-tenanted** step. Provide the details for your Octopus instance, and the tenants you want to deploy to. You will need to provide either tenants or tenant tags. To deploy an untenanted release, use the **octopusdeploy-deploy-release** step.
@@ -335,7 +335,7 @@ deploy-release-tenanted:
     USE_GUIDED_FAILURE: false
 ```
 
-This returns a json array of created deployments, with properties "DeploymentId" and "ServerTaskId".
+This returns a json array of created deployments, with properties `DeploymentId` and `ServerTaskId`.
 
 ## Run a runbook
 
@@ -379,13 +379,13 @@ run-runbook:
 
 ```
 
-This returns a json array of created runbook runs, with properties "RunbookRunId" and "ServerTaskId".
+This returns a json array of created runbook runs, with properties `RunbookRunId` and `ServerTaskId`.
 
 ## Push build information
 
 To push build information for a project, use the **octopusdeploy-push-build-information** step. Provide a list of packages that need build information, a build information json file and a version number. 
 
-By default, the step will fail if build information already exists, but this can be configured using the `OVERWRITE_MODE` option ('fail', 'overwrite', or 'ignore').
+By default, the step will fail if build information already exists, but this can be configured using the `OVERWRITE_MODE` option (`fail`, `overwrite`, or `ignore`).
 
 ```yaml
 push-build-information:
