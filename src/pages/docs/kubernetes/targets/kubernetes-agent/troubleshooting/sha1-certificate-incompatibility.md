@@ -15,7 +15,7 @@ navOrder: 71
 If your Octopus Server is still using a SHA1 certificate and is running on Windows Server 2012 R2, you may encounter issues when trying to connect with the Kubernetes Agent. This is due to a known incompatibility between the agent and older Windows systems using SHA1 certificates.
 
 ## Why This Happens
-Windows Server 2012 R2 lacks support for certain modern cipher suites and hash algorithms required by the Kubernetes Agent. Specifically, the agent fails during SSL negotiation because it cannot find the necessary SHA1RSA signature hash algorithm in the system's cryptographic libraries. This results in a failure to establish a secure connection between the Tentacle Agent and the Octopus Server.
+Windows Server 2012 R2 lacks support for certain modern cipher suites and hash algorithms required by the Kubernetes agent. Specifically, the agent fails during SSL negotiation because it cannot find the necessary SHA1RSA signature hash algorithm in the system's cryptographic libraries. This results in a failure to establish a secure connection between the Tentacle agent and the Octopus Server.
 
 ## Diagnosis
 To confirm that the issue is caused by SHA1 compatibility, check each of the following signs:
