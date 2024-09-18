@@ -16,14 +16,13 @@ Codefresh pipelines allow you to customize steps to create, deploy and promote r
 
 Octopus Deploy has several custom pipeline steps available: 
 
-- [Login to Octopus](https://codefresh.io/steps/step/octopusdeploy-login)
 - [Create a package](https://codefresh.io/steps/step/octopusdeploy-create-package)
 - [Push a package](https://codefresh.io/steps/step/octopusdeploy-push-package)
 - [Create a release](https://codefresh.io/steps/step/octopusdeploy-create-release)
 - [Deploy a release](https://codefresh.io/steps/step/octopusdeploy-deploy-release)
 - [Deploy a tenanted release](https://codefresh.io/steps/step/octopusdeploy%2Fdeploy-release-tenanted)
-- [Run a Runbook](https://codefresh.io/steps/step/octopusdeploy-run-runbook)
-- [Push Build Information](https://codefresh.io/steps/step/octopusdeploy-push-build-information)
+- [Run a runbook](https://codefresh.io/steps/step/octopusdeploy-run-runbook)
+- [Push build information](https://codefresh.io/steps/step/octopusdeploy-push-build-information)
 
 
 ## Codefresh Pipeline step configuration
