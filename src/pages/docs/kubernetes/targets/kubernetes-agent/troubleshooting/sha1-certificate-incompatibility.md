@@ -30,7 +30,7 @@ This error will occur when the agent attempts to connect to the server, typicall
 :::
 
 ## Solutions
-To resolve this issue and continue using the Kubernetes Agent with your Octopus Server, you have two options, both of which are recommended regardless of the current issue:
+To resolve this issue and continue using the Kubernetes agent with your Octopus Server, you have two options, both of which are recommended regardless of the current issue:
 
 ### Option 1: Rotate the SSL certificate
 Replace the current SHA1 certificate with a more secure **SHA256** certificate. This will ensure that the Tentacle Agent can successfully complete the SSL handshake with the server.
