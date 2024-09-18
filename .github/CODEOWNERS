@@ -175,6 +175,14 @@
 
 /docs/infrastructure/index.mdx @OctopusDeploy/team-marketing
 
+# updates to the dynamic worker pools overview page are reviewed by team-cloud-platform
+
+/docs/infrastructure/workers/dynamic-worker-pools.md @OctopusDeploy/team-cloud-platform
+
+# updates to the dynamic worker pools section are reviewed by team-cloud-platform
+
+/docs/infrastructure/workers/dynamic-worker-pools/ @OctopusDeploy/team-cloud-platform
+
 # updates to the packaging applications overview page are reviewed by team-marketing
 
 /docs/packaging-applications/index.md @OctopusDeploy/team-marketing
@@ -247,9 +255,9 @@
 
 /docs/deployments/databases/ @OctopusDeploy/team-backend-foundations
 
-# updates to the deployments docker section are reviewed by team-cloud-platform
+# updates to the deployments docker section are reviewed by team-modern-deployments
 
-/docs/deployments/docker/ @OctopusDeploy/team-cloud-platform
+/docs/deployments/docker/ @OctopusDeploy/team-modern-deployments
 
 # updates to the deployments packages page are reviewed by team-server-at-scale
 
@@ -387,9 +395,9 @@
 
 /docs/security/script-integrity.md @OctopusDeploy/team-modern-deployments
 
-# updates to the hardening octopus page are reviewed by team-cloud-platform
+# updates to the hardening octopus page are reviewed by team-backend-foundations
 
-/docs/security/hardening-octopus.mdx @OctopusDeploy/team-cloud-platform
+/docs/security/hardening-octopus.mdx @OctopusDeploy/team-backend-foundations
 
 # updates to the exposing octopus page are reviewed by team-backend-foundations
 
