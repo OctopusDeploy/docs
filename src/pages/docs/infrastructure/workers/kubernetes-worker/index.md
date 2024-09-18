@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2024-08-22
 modDate: 2024-08-22
 title: Kubernetes Worker
-navOrder: 60
+navOrder: 10
 ---
 The Kubernetes Worker allows worker operations to be executed within a Kubernetes cluster in a scalable manner.
 This allows compute resources used during the execution of a Deployment process (or runbook) are released

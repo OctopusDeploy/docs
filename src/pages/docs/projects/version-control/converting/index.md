@@ -1,11 +1,12 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-09-16
 title: Converting projects to Git
 description: Converting a project to leverage the configuration as a code feature.
 navOrder: 10
 hideInThisSection: true
+icon: fa-brands fa-git-alt
 ---
 
 Git settings are configured per project and are accessed via the **Settings ➜ Version Control** link in the project navigation menu. This page will walk through how to convert a project to Git.
@@ -60,8 +61,8 @@ Using config-as-code, you can perform a one-way conversion of existing projects 
 
 Select the project you would like to convert and click on the **Settings ➜ Version Control** link on the project navigation menu.
 Enter the connection information for your Git repository. You need to provide: 
-- The URL for your git repository
-- A Username and password / personal access token (or anonymous for a public repository)
+- The URL for your Git repository
+- A username and password / personal access token (or anonymous for a public repository)
 - The directory you would like Octopus to store the deployment process in
 - The name of the default branch
 

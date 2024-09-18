@@ -6,12 +6,12 @@ title: Create packages with the Octopus CLI
 description: Using the Octopus CLI (octo) command line tool to create packages for deployment.
 navOrder: 30
 ---
-
+# spell-checker:ignore Myatt's, PKWARE, Packagingyourapplicationfromafolder
 The Octopus CLI (`octo`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/) and includes a [pack](/docs/octopus-rest-api/octopus-cli/pack) command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
 
 ## Installation
 
-The [Octopus CLI downloads page](https://octopus.com/downloads/octopuscli) provides installation options for various platforms.
+The [Octopus CLI downloads page](https://github.com/OctopusDeploy/OctopusCLI/releases) provides installation options for various platforms.
 
 After installation, you can run the following to verify the version of the Octopus CLI that was installed (if you're using Windows, remember to open a new command prompt):
 
@@ -96,7 +96,7 @@ msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
 ```
 
-## Packaging your application from a folder {#UsingOctopusCli-Packagingyourapplicationfromafolder}
+## Packaging your application from a folder
 
 If you have a build process that places all build outputs into a final destination folder (such as gulp, grunt, or webpack), you can package it using the Octopus CLI as well. For example, if you've defined an npm script which runs your build and places all associated content into the `dist` folder:
 

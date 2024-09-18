@@ -92,6 +92,7 @@ dpkg
 dryrun
 Dspring
 DWORD
+EBNF
 echoerror
 elbv2
 elif
@@ -212,6 +213,7 @@ mssqldb
 MSSQLSERVER
 MTTR
 myapplication
+Myatt
 myfeature
 navigationid
 NETBIOS
@@ -284,6 +286,7 @@ Petlife
 petshop
 PKCE
 pkcs
+PKWARE
 planetside
 podannotation
 preproduction
@@ -398,6 +401,7 @@ tfvar
 tfvars
 TFVC
 thepassword
+tlsv1
 tmpfs
 Toolsets
 toptags

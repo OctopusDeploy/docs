@@ -1,0 +1,223 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2024-09-17
+modDate: 2024-09-17
+title: Disaster Recovery
+description: Guideline for configuring a DR instance of Octopus Deploy.
+hideInThisSection: true
+navOrder: 30
+---
+import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md';
+
+This guide will help you set up a hot/cold disaster recovery configuration for an Octopus Deploy instance.
+
+:::div{.hint}
+This implementation guide will help set up a hot/cold disaster configuration. In our research, a multi-zonal high-availability instance will cover 90% of disaster recovery cases.  A secondary, or disaster recovery instance, is meant when an entire cloud region goes offline.  If you are looking for more details on our recommendations, please refer to our white paper on [Best Practices for Self-Hosted Octopus Deploy HA/DR](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr).
+:::
+
+You must consider a disaster recovery solution for each of the following components of Octopus Deploy.
+
+- **URL / load balancer** The UI, API, and Polling tentacle ingress for the DR Octopus Deploy instance.  Ideally, you'd have two URLs, one specific for the DR instance for testing and a global URL to switch between the primary and secondary data center instances.
+- **Octopus Server nodes** These run the Octopus Server service. They serve user traffic and orchestrate deployments.  You must create or start these nodes in the secondary data center.
+- **A database** This database stores Most of the data used by the Octopus Server nodes. You'll need a mechanism to back up the database's data to the secondary data center and access it once a DR event occurs.
+- **Shared storage** Similar to the database, you'll need a mechanism to back up the shared storage to the secondary data center and access it once a DR event occurs.
+
+## High Availability configuration required
+
+For a disaster recovery plan to work, you must configure your Octopus Deploy instance to support high availability.  The default installation of Octopus Deploy will configure SQL Server and the file share to run on the same virtual machine or Kubernetes cluster as the Octopus instance.  Configuring an instance for high availability will require you to:
+
+- Move the database to an SQL Server hosted on a different server than the Octopus Deploy instance.  
+- Move the files to a network file share hosted on a different server, such as the Octopus Deploy instance.
+- Leverage a load balancer or network traffic device for user access to the UI and API.
+
+## High Availability and Disaster Recovery
+
+Before setting up a disaster recovery instance, we recommend following our guide for configuring [High Availability](/docs/best-practices/self-hosted-octopus/high-availability).  If you are hosting your Octopus Deploy instance in a cloud provider, you can leverage availability zones within each cloud region.  Managed services, such as Azure SQL or AWS RDS, often provide zonal redundancy with minimal configuration.  They will automatically fail over to an availability zone if one of the zones were to go offline.
+
+We recommend using Octopus Deploy's high availability functionality for a hot/cold configuration between cloud regions or self-managed data centers.    
+
+- Hot/hot configurations between cloud regions or data centers are unsupported.  
+  - Octopus Deploy is sensitive to network latency, so any nodes in the secondary data center will have a degraded experience.  
+  - Expect a nearly unusable experience on the nodes running in the secondary data center if the secondary data center requires a connection via an undersea cable (North America -> Europe, Europe -> Australia, etc.).  
+  - Due to latency, Public cloud providers do not provide a hot/hot configuration for their managed services between their cloud regions.
+- Hot/hot configurations between availability zones within a cloud region in a public cloud provider are supported.  That should cover 90% of all possible disaster recovery use cases.
+- Because of those factors, a hot/warm configuration will cost a lot of money per year for something that is almost never used.
+
+## Disaster Recovery Events
+
+A disaster recovery event consists of two sub-events.
+
+- Starting the Octopus Deploy instance in the secondary data center or cloud regions.
+- Restarting the Octopus Deploy instance in the primary data center or cloud regions.
+
+The challenge you'll face for either is getting data and files copied between data centers or cloud regions and keeping any data loss to a minimum.  Most tooling and managed services must asynchronously copy data due to latency.  
+
+### Failover to Secondary
+
+Below are steps to perform when starting an instance in the secondary data center or cloud region.
+
+:::div{.hint}
+**Important:** Before failing over to the secondary region or data center, consider why the outage happened. Was it a DNS configuration, and will the region return online in under an hour? Was it a weather event that caused power outages with no expected time frame for recovery? Or was it an earthquake that destroyed all the availability zones in the region? It might be best to wait until the primary region is back online.
+:::
+
+- Database and File Storage
+  - If using geo-replication:
+    - Promote the read-only database in the secondary region as the primary database.
+    - "Failover" or promote the read-only file storage as the primary one.
+  - If forgoing geo-replication:
+    - Create the database and file storage from the most recent backup.
+    - [Update the connection string and file storage configuration](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database#step-by-step-process) entries to the database and file storage in the secondary region.
+- Octopus Deploy
+  - Create or start the Octopus nodes in the secondary region.
+  - Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode).
+  - Ensure you remove all the nodes from the primary region by going to **Configuration -> Nodes.** 
+  - Update the task cap on the nodes in the secondary to your desired amount (the default is five).
+  - Perform test deployments.
+  - Disable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode).
+- Load Balancer
+  - Update the load balancer direct user and polling tentacle traffic to the secondary region
+
+:::div{.hint}
+**Important:** All nodes must run the same version of Octopus Deploy.  During a disaster recovery event, avoid upgrading Octopus Deploy unless directed by our support engineers.  If you upgrade the secondary data center, you'll need to upgrade your nodes in the primary data center when it comes back online.
+:::
+
+### Move back to Primary
+
+Below are steps to perform once the disaster recovery event is over and you can return to the primary data center or region.
+
+- Octopus Deploy:
+  - Turn off all the nodes in the primary region.
+  - Turn off all the nodes in the secondary region.
+- Database: 
+  - If using geo-replication - follow the cloud provider's documentation to "failover" to the primary region. Wait until the replication has finished replicating all data to the primary region.
+  - If forgoing geo-replication - create a backup of the secondary region's database and restore it over the existing database in the primary region.
+- File Storage:
+  - If using geo-replication - follow the cloud provider's documentation to "failover" to the primary region. Wait until the replication has finished.
+  - If forgoing geo-replication - copy all the files from the secondary region to the primary region. 
+- Octopus Deploy:
+  - Turn on all the Octopus nodes in the primary region.
+  - Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode).
+  - Remove any nodes from the secondary region by going to **Configuration -> Nodes.**   
+  - Perform test deployments.
+  - Disable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode).
+- Load Balancer
+  - Route user and polling tentacle traffic back to the primary region.
+- After verifying the primary region is back online, destroy or turn off the virtual machines or delete the containers in the secondary region.
+
+### Disaster recovery test recommendations
+
+All disaster recovery plans must be periodically tested so you know they'll work when a disaster occurs.
+
+If you are using managed services, you'll likely impact users when you test the disaster recovery plan. That's because you use the managed services' "failover" functionality and route all user traffic to the secondary region. To test your disaster recovery plan without impacting your users, you must create a new file system and database from backups. Create new Octopus nodes and point them to those new resources. You can use this [script from our documentation](https://oc.to/disable-all-resources-script) to disable all the targets, triggers, and anything else to prevent accidental deployment.
+
+Whatever your disaster recovery plan, we recommend testing it to be as realistic as possible.
+
+### Mitigating Risk
+
+Using a public cloud provider has multiple benefits. Most managed services natively support geo-redundancy, have well-documented business continuity plans, and more.  
+
+However, what is rarely discussed is what happens if all the zones in a cloud region go offline.  Everyone in that region will start executing their disaster recovery plans.  Some cloud providers, such as Azure, have a preferred secondary region via their region pairs.  That means everyone else using the primary region will attempt to create virtual machines and other resources in the secondary region.  That can delay your recovery time.
+
+If Octopus Deploy is a critical application for your company, we recommend staging the infrastructure.  All the cloud resources are pre-configured but turned off to save costs. When hosting Octopus on Windows virtual machines (VMs), we recommend creating new VMs in the secondary region each time you upgrade the instance. That's preferred over long-lasting VMs. Long-lasting VMs are typically outdated, with older versions of Octopus, or haven't had the latest Windows patches.
+
+When hosting Octopus on Kubernetes, ECS, or ACS containers, you only need to ensure the clusters are running. The Octopus container already has Octopus installed. We do not clean up old versions of images. You can pull them on demand.  If speed is an issue, you can pre-fetch images. How you pre-pull images will depend on the provider. We recommend consulting your provider's documentation.
+
+<OctopusInstanceMixedOSWarning />
+
+## Infrastructure
+
+Below are our recommendations for configuring the necessary infrastructure for a disaster recovery instance.
+
+### Database recommendations
+
+For the SQL Server, we recommend using a managed SQL Server, such as AWS RDS, Azure SQL, or GCP Cloud SQL: Configure zonal redundancy or always-on high availability groups.
+
+- [Azure SQL zone redundant databases](https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell)
+- [AWS SQL Server Always On availability groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerMultiAZ.html)
+- [GCP Cloud SQL for SQL Server high availability](https://cloud.google.com/sql/docs/sqlserver/high-availability)
+
+In the secondary region, create a read-only copy - or read replica - and use asynchronous geo-replication. The only time this database will get used is when all availability zones in the primary region go offline. 
+
+- [Azure failover groups](https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview?view=azuresql)
+- [AWS - Creating a read-only replica in a second region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html#USER_ReadRepl.XRgn)
+- [GCP - Cross-region read replica](https://cloud.google.com/sql/docs/postgres/replication/cross-region-replicas#promote-a-replica)
+
+If you wish to learn more about how to configure Octopus Deploy with a specific hosting option, please refer to our installation guides.
+
+- [Self-Managed SQL Server](/docs/installation/sql-database/self-managed-sql-server)
+- [AWS RDS](/docs/installation/sql-database/aws-rds)
+- [Azure SQL](/docs/installation/sql-database/azure-sql)
+- [GCP SQL](/docs/installation/sql-database/gcp-cloud-sql)
+
+### File storage recommendations
+
+We recommend using managed file storage, such as AWS FSx or EFS, Azure File Storage, or GCP Filestore. Ensure you configure the file share for at least zonal replication. 
+
+If available, consider geo-replication for a read-only copy in the secondary cloud region. Depending on the cloud provider, you can have a read-only copy of the file storage automatically created. For example, Azure File Storage's GZRS creates 3 copies of the files in the primary region, with a fourth automatically created in the secondary region.
+
+We've included guides for the most common file storage options we encounter.
+
+- [Local File Storage](/docs/installation/file-storage/local-storage)
+- [AWS File Storage](/docs/installation/file-storage/aws-file-storage)
+- [Azure File Storage](/docs/installation/file-storage/azure-file-storage)
+- [GCP File Storage](/docs/installation/file-storage/gcp-file-storage)
+
+### Load balancer recommendations
+
+Use a global load balancer to route Octopus Deploy http/https traffic between the primary and secondary regions. You benefit from having a single URL for users to access Octopus. In a DR event, route all traffic to the secondary regions.
+
+Octopus Deploy only has two possible inbound connections.
+
+1. Web UI / Web API over http/https (ports 80/443)
+2. Polling Tentacles over TCP (port 10943)
+
+#### User Interface Load Balancer
+
+We've created guides for configuring many popular load balancers.
+
+- Local Options
+  - [Using NGINX as a reverse proxy with Octopus](/docs/installation/load-balancers/use-nginx-as-reverse-proxy)
+  - [Using IIS as a reverse proxy with Octopus](/docs/installation/load-balancers/use-iis-as-reverse-proxy)
+  - [Configuring Netscaler](/docs/installation/load-balancers/configuring-netscaler)
+- [AWS Load Balancers](/docs/installation/load-balancers/aws-load-balancers)
+- [Azure Load Balancers](/docs/installation/load-balancers/azure-load-balancers)
+- [GCP Load Balancers](/docs/installation/load-balancers/gcp-load-balancers)
+
+#### Polling Tentacles
+
+Polling Tentacles deserve special attention due to how they work with Octopus Deploy. You must register each node that processes tasks with every Polling Tentacle.
+
+We recommend a dedicated URL for each node in the primary region and routing all traffic through a load balancer or a traffic manager. When you fail over to the secondary region, update the dedicated URLs to point to a corresponding node in the secondary region.
+
+For example, a unique address per node with the default port of `10943` would be:
+- Node1: Octo1.domain.com:10943
+- Node2: Octo2.domain.com:10943
+- Node3: Octo3.domain.com:10943
+
+### Octopus Deploy Nodes
+
+Generally, during a disaster recovery event, you'll need to add nodes to an existing high availability cluster.  The difference is you will be replacing all the existing nodes from the primary data center or region.  Octopus Deploy stores the nodes in the database.  Because you restored a copy of the database, all the nodes in the primary data center will still be in the database.  Part of the replacement process will remove those pre-existing nodes.  
+
+:::div{.hint}
+**Important:** All nodes must run the same version of Octopus Deploy.  During a disaster recovery event, avoid upgrading Octopus Deploy unless directed by our support engineers.  If you upgrade the secondary data center, you'll need to upgrade your nodes in the primary data center when it comes back online.
+:::
+
+The process for replacing a node is:
+
+1. Ensure the new host, Windows or Containers, can connect to the Octopus Deploy database and file storage.
+1. Run a script to configure the Octopus Server node instance on a Windows machine or start a new container. You'll need to provide the master key and database connection information. For containers, you'll also need to provide the volume mounts.
+1. Add that new node to the load balancers.
+1. Update the virtual address for the polling tentacles to point to the new node.
+1. Remove the previously existing node from the nodes table by going to **Configuration -> Nodes** in the Octopus Deploy UI (click the overflow menu `...` next to the node to remove).  Failure to do so could result in your instance being out of compliance with your license, and you'll be unable to deploy.
+
+<OctopusInstanceMixedOSWarning />
+
+:::div{.hint}
+Because all the configurations are stored in the database and blob storage, you can delete all the nodes and create new ones if desired.
+:::
+
+We recommend writing scripts to automate this process.  Below are some scripts to start automating the adding of nodes to existing clusters.
+
+- [Octopus Server on Windows](/docs/installation/automating-installation)
+- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container)
+- [Octopus Server in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes)

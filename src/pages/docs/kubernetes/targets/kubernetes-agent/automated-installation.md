@@ -4,7 +4,7 @@ pubDate: 2024-05-14
 modDate: 2024-08-30
 title: Automated Installation
 description: How to automate the installation and management of the Kubernetes Agent
-navOrder: 50
+navOrder: 40
 ---
 
 ## Automated installation via Terraform
