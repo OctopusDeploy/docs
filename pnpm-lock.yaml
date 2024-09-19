@@ -16,8 +16,8 @@ importers:
         specifier: ^2.3.1
         version: 2.3.1(astro@4.14.4(rollup@4.21.0)(typescript@5.5.4))
       '@pnpm/exe':
-        specifier: ^9.7.1
-        version: 9.7.1
+        specifier: ^9.10.0
+        version: 9.10.0
       astro:
         specifier: ^4.14.4
         version: 4.14.4(rollup@4.21.0)(typescript@5.5.4)
@@ -700,42 +700,42 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@pnpm/exe@9.7.1':
-    resolution: {integrity: sha512-ezxzkeMoGMMe/MoupTRL9RpRCDPHCozbhsQQ2ld94WPko69LNZLP2qo+RNMP/ZuyIdJeBQgwmv5ZT/UzzPnKZg==}
+  '@pnpm/exe@9.10.0':
+    resolution: {integrity: sha512-d9psHhEX7o0i0H6F5gM2wvHSl6MT7RGnyoYclRxF45eIt9tHTXAQOtSS65yy6G9ICEPKk7zlwtqueHh/9rSYqw==}
     hasBin: true
 
-  '@pnpm/linux-arm64@9.7.1':
-    resolution: {integrity: sha512-DBhmUgUZJI2UCKlvEFU8/OoMkfOhKGt7C2/OReOnCz4/NkPW3F8NcZjD51PdCAG6rIRCd+E6fbAB+bhSURm5ig==}
+  '@pnpm/linux-arm64@9.10.0':
+    resolution: {integrity: sha512-uWHOhV/1MTLC9gDzIU6eC9TgPq+58qppYPf5xN1/HF0WOdB4oaSadu3INIqbC9pixr2FzwIkyot/dFCQyo8WUQ==}
     cpu: [arm64]
     os: [linux]
     hasBin: true
 
-  '@pnpm/linux-x64@9.7.1':
-    resolution: {integrity: sha512-FRdxHvUCfQSna9WVuW67/iy0lHYsxV7j2Q10Cqx4Gf5SptuuCXmupQeBYBtq4i0KDDNl/tqZ+qe89al1wmFnXg==}
+  '@pnpm/linux-x64@9.10.0':
+    resolution: {integrity: sha512-M70qCC7dPv9ettjs9ksIH5X4dzuAK5/l0lx7bCqrma5sdM5I3SrVzgI1OIrw7QgF8qGRKdjiTT3WbKfdXp8HDQ==}
     cpu: [x64]
     os: [linux]
     hasBin: true
 
-  '@pnpm/macos-arm64@9.7.1':
-    resolution: {integrity: sha512-sY6UkHUoSMraxAekdWBmtoWy28Qv/Qr19H/5j73wXwi7+vPGMQENwDkMQAQWU4Wsm1OXbeD5n452L5j+Ilhm9A==}
+  '@pnpm/macos-arm64@9.10.0':
+    resolution: {integrity: sha512-oPWC1w09PsA8FcoUt8rjsQdxWT/u16T32ESUITkpVgdGFUdqiwWDwxRbekLF/llooUmFa4JPfzV5arnpkerzfA==}
     cpu: [arm64]
     os: [darwin]
     hasBin: true
 
-  '@pnpm/macos-x64@9.7.1':
-    resolution: {integrity: sha512-BWv/217BkCstIp4hRdiu3Gc7KHew7S4H+1wtAIsHjzbJP0VBNqezNnAwOXMKpIveulC+LoEtFvC7G7m7dVOF/Q==}
+  '@pnpm/macos-x64@9.10.0':
+    resolution: {integrity: sha512-gJydidOrI5cFtjd5An8pb+8B+vYxfS6DmgiAA8tOvxludK9bQavmHD5i94WBWlofWUQFDwYD5mujX8yzT6bSxQ==}
     cpu: [x64]
     os: [darwin]
     hasBin: true
 
-  '@pnpm/win-arm64@9.7.1':
-    resolution: {integrity: sha512-8MGWwXY1m6vLLoPgrFCQmq7RB4nTo6do2WaN18aGnde5enfH9fs9WpoTa8626J2JlbGL1gItHLqlHHbUsKnKng==}
+  '@pnpm/win-arm64@9.10.0':
+    resolution: {integrity: sha512-eCKwSTXxvKPB6vYjjjoFkbmP/KxZx6zkG0H0z1ZqPERUd8OOAM7diMXPP3N9Ka06cPY+4apnuH6rUtDv0nshDg==}
     cpu: [arm64]
     os: [win32]
     hasBin: true
 
-  '@pnpm/win-x64@9.7.1':
-    resolution: {integrity: sha512-FUPdKR878DucohzIWwMzVexUDQnPOEGKbQnqZ3HCNJYjOE1g88JbnnTA6DQe1XcqI45dgxWaenBs1eFt45IwCg==}
+  '@pnpm/win-x64@9.10.0':
+    resolution: {integrity: sha512-fFup7+/8bmUZYoTd4TUGRo9YEbkdJAksl/B1L5jWctBqoyE5/ajGXZIU/8uSvnBEnKlYJ26FTTZsEmPAVBcxrA==}
     cpu: [x64]
     os: [win32]
     hasBin: true
@@ -3499,31 +3499,31 @@ snapshots:
     dependencies:
       playwright: 1.46.1
 
-  '@pnpm/exe@9.7.1':
+  '@pnpm/exe@9.10.0':
     optionalDependencies:
-      '@pnpm/linux-arm64': 9.7.1
-      '@pnpm/linux-x64': 9.7.1
-      '@pnpm/macos-arm64': 9.7.1
-      '@pnpm/macos-x64': 9.7.1
-      '@pnpm/win-arm64': 9.7.1
-      '@pnpm/win-x64': 9.7.1
+      '@pnpm/linux-arm64': 9.10.0
+      '@pnpm/linux-x64': 9.10.0
+      '@pnpm/macos-arm64': 9.10.0
+      '@pnpm/macos-x64': 9.10.0
+      '@pnpm/win-arm64': 9.10.0
+      '@pnpm/win-x64': 9.10.0
 
-  '@pnpm/linux-arm64@9.7.1':
+  '@pnpm/linux-arm64@9.10.0':
     optional: true
 
-  '@pnpm/linux-x64@9.7.1':
+  '@pnpm/linux-x64@9.10.0':
     optional: true
 
-  '@pnpm/macos-arm64@9.7.1':
+  '@pnpm/macos-arm64@9.10.0':
     optional: true
 
-  '@pnpm/macos-x64@9.7.1':
+  '@pnpm/macos-x64@9.10.0':
     optional: true
 
-  '@pnpm/win-arm64@9.7.1':
+  '@pnpm/win-arm64@9.10.0':
     optional: true
 
-  '@pnpm/win-x64@9.7.1':
+  '@pnpm/win-x64@9.10.0':
     optional: true
 
   '@rollup/pluginutils@5.1.0(rollup@4.21.0)':
