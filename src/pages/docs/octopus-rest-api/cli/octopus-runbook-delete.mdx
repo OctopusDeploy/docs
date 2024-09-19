@@ -1,0 +1,48 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-09-19
+title: octopus runbook delete
+description: Delete a runbook
+navOrder: 116
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Delete a runbook in Octopus Deploy
+
+```
+Usage:
+  octopus runbook delete {<name> | <id>} [flags]
+
+Aliases:
+  delete, del, rm, remove
+
+Flags:
+  -y, --confirm          Don't ask for confirmation before deleting the runbook.
+  -p, --project string   Name or ID of the project to delete a runbook from
+  -r, --runbook string   Name or ID of the runbook to delete
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus runbook delete
+$ octopus runbook rm
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
