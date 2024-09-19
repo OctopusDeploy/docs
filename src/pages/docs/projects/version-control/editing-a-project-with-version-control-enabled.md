@@ -16,7 +16,7 @@ Editing via the Octopus Deploy UI works the same whether you are saving to a git
 
 ### Branch switcher 
 
-The first difference is the addition of a branch-switcher. When editing the deployment process via the Octopus UI, the branch is selected in the branch-switcher at the top of page if it is version-controlled. 
+The first difference is the addition of a branch-switcher. When editing the deployment process via the Octopus UI, the branch is selected in the branch-switcher at the top of page. 
 
 :::figure
 ![Branch-switcher user-interface](/docs/projects/version-control/branch-switcher-ui.png)
