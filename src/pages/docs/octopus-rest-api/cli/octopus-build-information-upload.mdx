@@ -1,0 +1,51 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-09-19
+title: octopus build-information upload
+description: upload build information for one or more packages to Octopus Deploy
+navOrder: 30
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+upload build information one or more packages to Octopus Deploy.
+
+```
+Usage:
+  octopus build-information upload [flags]
+
+Aliases:
+  upload, push
+
+Flags:
+  -p, --package-id stringArray   The ID of the package, may be specified multiple times. Any arguments without flags will be treated as package IDs
+      --version string           The version of the package
+      --file string              Path to Octopus Build Information Json file
+      --overwrite-mode string    Action when a build information already exists. Valid values are 'fail', 'overwrite', 'ignore'. Default is 'fail'
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus build-information upload --package-id SomePackage --version 1.0.0 --file buildinfo.octopus
+$ octopus build-information upload SomePackage --version 1.0.0 --file buildinfo.octopus --overwrite-mode overwrite
+$ octopus build-information push SomePackage --version 1.0.0 --file buildinfo.octopus
+$ octopus build-information upload PkgA PkgB PkgC --version 1.0.0 --file buildinfo.octopus
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
