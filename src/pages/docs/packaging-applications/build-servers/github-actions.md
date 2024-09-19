@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2024-06-13
 title: GitHub Actions
 description: GitHub Actions can leverage the Octopus CLI to pack, build, push, and create releases for Octopus Deploy.
+icon: fa-brands fa-github
 navOrder: 55
 ---
 
