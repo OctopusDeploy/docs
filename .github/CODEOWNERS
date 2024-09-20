@@ -253,7 +253,7 @@
 
 # updates to the deployments databases section are reviewed by team-backend-foundations
 
-/docs/deployments/databases/ @OctopusDeploy/team-backend-foundations
+/docs/deployments/databases/ @OctopusDeploy/team-modern-deployments
 
 # updates to the deployments docker section are reviewed by team-modern-deployments
 
