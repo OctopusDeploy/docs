@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-05
+modDate: 2024-09-23
 title: Octopus Cloud Maintenance Window
 navOrder: 55
 description: Details about the Octopus Cloud maintenance window
@@ -15,7 +15,7 @@ Most of these won't affect your instance's availability, but occasionally, we mi
 We don’t need to perform actions on your instance daily, and most of our maintenance actions won’t take your instance offline. At most, you might notice a performance impact. The steps that require an outage typically only take a short time to complete.
 :::
 
-At the time of publishing this (April 2024), our maintenance tasks that require downtime average 15 minutes per week.
+At the time of publishing this (April 2024), our maintenance tasks require an average of 15 minutes downtime per week.
 
 
 
@@ -30,8 +30,8 @@ Setting up your maintenance window to suit your business needs is easy. Just fol
 1. Log in to your Octopus account.
 2. Select your cloud instance.
 3. Click **Configuration.**
-4. Scroll down to the **Outage Window** section.
-5. Select the time in UTC, providing a window of at least two hours and click **Save Outage window.**
+4. Scroll down to the **Maintenance window** section.
+5. Select the time in UTC, providing a window of at least two hours and click **Submit**.
 
 
 
@@ -45,14 +45,14 @@ Those tasks include (but are not limited to) the following:
 - Moving your instance to new infrastructure. These operations don't happen as often, but are required when we roll out improvements to the underlying infrastructure. 
 - Processing any billing events, such as applying the latest license key to the instance or changing the task cap.
 
-Most maintenance operations can be performed without taking the instance offline, such as database maintenance. Your instance may feel a little slower while any online maintenance operations are running.  For tasks that cause an outage, typically only a subset of steps requiring the instance to be offline. For all the other steps, we keep the instance online.
+Most maintenance operations can be performed without taking the instance offline, such as database maintenance. Your instance may feel a little slower while any online maintenance operations are running.  For tasks that cause an outage, typically only a subset of steps require the instance to be offline. For all the other steps, we keep the instance online.
 
 Many of those tasks have guard clauses. For example, we won't de-fragment a database that has 10% fragmentation. In addition, we would only attempt to upgrade an instance if a new version exists. 
 
 It is important to note that most maintenance tasks do not start at the beginning of your maintenance window. We host thousands of customer instances. Because of that, we perform maintenance tasks in bulk. When we run a maintenance task, your instance might be the first, somewhere in the middle, or at the end of the list of instances. In some cases, by the time we finish processing other instances, your maintenance window is about to end. When that happens, your instance is skipped and that task won't be processed until the next day. That typically happens when performing upgrades. 
 
 :::div{.hint}
-Upgrading an instance is the primary cause of outages. The most noticeable impact of an outage is deployments and runbook runs will fail. We are actively working on [Resilient Scalable Deployments](https://roadmap.octopus.com/c/95-alpha-program-resilient-scalable-deployments-in-octopus-cloud) to allow the deployments and runbook runs to continue post-upgrade.  
+Upgrading an instance is the primary cause of outages. The most noticeable impact of an outage is deployments and runbook runs may fail. We are actively working on [Resilient Scalable Deployments](https://roadmap.octopus.com/c/95-alpha-program-resilient-scalable-deployments-in-octopus-cloud) to allow deployments and runbook runs to continue post-upgrade.  
 :::
 
 ## Taking your instance offline
