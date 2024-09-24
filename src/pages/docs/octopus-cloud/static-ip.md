@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-06
+modDate: 2024-09-24
 title: Static IP address
 navOrder: 10
 description: How to find the list of static IP addresses for your Octopus Cloud instance
