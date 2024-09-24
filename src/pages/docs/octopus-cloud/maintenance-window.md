@@ -27,9 +27,9 @@ You can adjust your maintenance window anytime, but make sure to do it before yo
 ## View or change your maintenance window
 Setting up your maintenance window to suit your business needs is easy. Just follow these steps:
 
-1. Log in to your Octopus account.
+1. Log in to [Octopus.com](https://octopus.com).
 2. Select your cloud instance.
-3. Click **Configuration.**
+3. Click **Configuration**.
 4. Scroll down to the **Maintenance window** section.
 5. Select the time in UTC, providing a window of at least two hours and click **Submit**.
 
