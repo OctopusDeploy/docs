@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-01-09
+modDate: 2024-09-24
 title: Dynamic Worker pools
 description: Dynamic Worker pools are used in our cloud product to dynamically create and assign workers to running tasks.  This page describes how dynamic worker pools work.
 navOrder: 50
 ---
 
-Dynamic Worker Pools provide a quick and easy way to use [workers](/docs/infrastructure/workers) for your deployments. They are a special type of [worker pool](/docs/infrastructure/workers/worker-pools) available on [Octopus Cloud](/docs/octopus-cloud).
+Dynamic Worker pools provide a quick and easy way to use [workers](/docs/infrastructure/workers) for your deployments. They are a special type of [worker pool](/docs/infrastructure/workers/worker-pools) available on [Octopus Cloud](/docs/octopus-cloud).
 
 Dynamic workers are isolated virtual machines, created on-demand to run your deployments and runbook steps. They run on Azure and are created and managed by Octopus Cloud, which means you don't need to configure or maintain additional infrastructure.
 
@@ -50,13 +50,13 @@ The default image is a good option to choose if you are:
 - Running a simple script that doesn't require specific tools or operating system versions
 - Running a step [inside a container](/docs/projects/steps/execution-containers-for-workers)
 
-If you're writing a script that relies on a specific version of tooling (e.g., helm), then we recommend using [execution containers for workers](/docs/projects/steps/execution-containers-for-workers) to run the script in a Docker container with the tool versions you need. 
+If you're writing a script that relies on a specific version of tooling (e.g., Helm), then we recommend using [execution containers for workers](/docs/projects/steps/execution-containers-for-workers) to run the script in a Docker container with the tool versions you need. 
 
 Alternatively, you can choose a specific worker image, instead of the "default" options, to prevent worker image upgrades from impacting your deployments.
 
-|Type | Pros | Cons |
-|-----|------|------|
-| Default (eg `Ubuntu (default)`) | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned.| The versions of dependencies (e.g. helm) are not fixed. Deployments that rely on specific versions of dependencies or operating system specific features may break during upgrades. |
+|Type | Pros | Cons                                                                                                                                                                                                                         |
+|-----|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Default (eg `Ubuntu (default)`) | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned.| The versions of dependencies (e.g. Helm) are not fixed. Deployments that rely on specific versions of dependencies or operating system specific features may break during upgrades.                                          |
 | Specific (e.g., `Ubuntu Linux 22.04`) | The version of the operating system and dependencies are fixed and can be relied upon. | When a worker image is marked as deprecated, warnings will start to appear in your deployment logs. When a worker image is decommissioned, you will need to take action to update your worker pool or deployments will fail. |
 
 ### Deprecation
@@ -71,12 +71,11 @@ You should validate that your deployments and runbooks work with the new version
 
 ### Modifying the worker pool 
 
-If the Worker Pool has been configured to specifically use a deprecated worker type, you will need to update the Worker Image on the Worker Pool.
+If the worker pool has been configured to specifically use a deprecated worker type, you will need to update the worker image on the worker pool.
 
-The Worker Pool with a deprecated Worker Type will show a `Deprecated` label next to the worker pool, available by navigating to **Infrastructure ➜ Worker Pools**:
-![Worker Pool list with deprecated worker](/docs/infrastructure/workers/images/deprecated-worker-pool-overview.png)
+Navigate to your space, then go to **Infrastructure ➜ Worker Pools**. Worker pools with a deprecated worker image will show a `Deprecated` label next to the worker pool.
 
-The Worker Type can be modified by editing the Worker Pool and changing the Worker Type to a different option, such as `Windows (default)` or a specific operating system version.
+Click the overflow menu (`...`) and click **Edit**. You can then select a new worker image from the dropdown list, such as `Ubuntu (default)` or a specific operating system version.
 
 ## Available Dynamic Worker Images 
 
@@ -98,11 +97,6 @@ Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools includ
 Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
 :::
 
-### Ubuntu 18.04
-
-:::div{.warning}
-Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to [Ubuntu 18.04 End-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life) for further details.
-:::
 
 ### Windows Server Core 2022
 
@@ -133,11 +127,6 @@ Windows 2022 workers are capable of running [execution worker containers](/docs/
 We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
 :::
 
-### Windows Server Core 2019
-
-:::div{.warning}
-Windows 2019 images are no longer available as of 9 January 2024. Please refer to [Windows 2019 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/windows-2019-end-of-life) for further details.
-:::
 
 ## kubectl on Windows Images
 
@@ -165,11 +154,11 @@ Octopus does not recommend installing additional software on Dynamic Workers.
 
 By default, every dynamic worker is destroyed after it has been idle for 60 minutes or allocated for over 72 hours. In addition Octopus cannot guarantee that the dynamic worker leased to run one step will be the same worker leased to other executing steps in a deployment or runbook run. 
 
-For deployments and runbook runs that require additional software dependencies on a Dynamic worker, our recommendation is to leverage [execution containers for workers](/docs/projects/steps/execution-containers-for-workers).  Octopus provides execution containers with a baseline of tools (`octopusdeploy/worker-tools`) pre-installed. These tools won't include every possible software combination you might need. If you require a specific set of software and tooling we recommend [building your own custom docker images for use with execution containers](/docs/projects/steps/execution-containers-for-workers/#custom-docker-images).
+For deployments and runbook runs that require additional software dependencies on a dynamic worker, our recommendation is to leverage [execution containers for workers](/docs/projects/steps/execution-containers-for-workers).  Octopus provides execution containers with a baseline of tools (`octopusdeploy/worker-tools`) pre-installed. These tools won't include every possible software combination you might need. If you require a specific set of software and tooling we recommend [building your own custom docker images for use with execution containers](/docs/projects/steps/execution-containers-for-workers/#custom-docker-images).
 
 :::div{.hint}
 **Octopus worker-tools are cached on Dynamic Workers**  
-The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows [Worker Tool](/docs/infrastructure/workers/worker-tools-versioning-and-caching) images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic Worker.
+The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows [Worker Tools](/docs/infrastructure/workers/worker-tools-versioning-and-caching) images on a dynamic worker when it's created. This makes them an excellent choice over installing additional software on a dynamic worker.
 
 :::
 
