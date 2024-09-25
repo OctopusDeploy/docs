@@ -311,6 +311,19 @@ Sometimes the contents of the security token sent back by Microsoft Entra ID are
 
 5. Octopus uses most of the data to validate the token but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior.
 
+### EntraID Users with 200+ security groups
+
+:::div{.hint}
+
+If a user has more than 200 security groups assigned we need to retrieve the user's security groups using the Graph API, this requires the `aio` claim to be present in the `id token` we send to the Graph API.
+
+If this claim is missing, check the following:
+
+- You don't have any wildcards `*` in the **Redirect URI**.
+- You have enabled `ID Tokens` in the **App Registration**.
+
+:::
+
 ### Contact Octopus Support
 
 If you aren't able to resolve the authentication problems yourself using these troubleshooting tips, please reach out to our [support team](https://octopus.com/support) with:
