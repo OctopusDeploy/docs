@@ -24,3 +24,8 @@ kubectl config view
 6. A green 'success' bar will appear when the Helm Chart has completed installation, and the worker has registered with the Octopus Server.
 7. Click the **View Worker** button to display the settings of the created worker, or  **Cancel** to return to the **Add Worker** page
 
+:::div{.warning}
+As the display name is used for the Helm release name, this name must be unique for a given cluster. This means that if you have a Kubernetes agent and Kubernetes worker with the same name (e.g. `production`), then they will clash during installation.
+
+If you do want a Kubernetes agent and Kubernetes worker to have the same name, Then prepend the type to the name (e.g. `worker production` and `agent production`) during installation. This will install them with unique Helm release names, avoiding the clash. After installation, the worker & target names can then be changed in the Octopus Server UI to the desired name to remove the prefix.
+:::
