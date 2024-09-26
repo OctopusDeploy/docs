@@ -108,6 +108,12 @@ kubectl config view
 4. Optionally, add the name of an existing [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the agent to use. The storage class must support the ReadWriteMany [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).  
 If no storage class name is added, the default Network File System (NFS) storage will be used.
 
+:::div{.warning}
+As the display name is used for the Helm release name, this name must be unique for a given cluster. This means that if you have a Kubernetes agent and Kubernetes worker with the same name (e.g. `production`), then they will clash during installation.
+
+If you do want a Kubernetes agent and Kubernetes worker to have the same name, Then prepend the type to the name (e.g. `worker production` and `agent production`) during installation. This will install them with unique Helm release names, avoiding the clash. After installation, the worker & target names can then be changed in the Octopus Server UI to the desired name to remove the prefix.
+:::
+
 #### Advanced options
 
 :::figure
