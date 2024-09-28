@@ -31,7 +31,7 @@ See each action above for examples of how to include it in your own GitHub Actio
 
 ## How to use our Actions in your Workflow
 
-Octopus Deploy GitHub Actions can be easily incorporated into your GitHub Action workflow by including them as steps in your workflow YAML. Here is a simple GitHub Action workflow YAML to get you started.
+Octopus Deploy GitHub Actions can be easily incorporated into your GitHub Action workflow by including them as steps in your workflow YAML. Here is a simple GitHub Action workflow YAML to get you started:
 
 ### Example YAML - Create and Deploy a Release
 ```
@@ -94,5 +94,24 @@ jobs:
         git_commit: ${{ github.sha }}
 ```
 
+## ✍️ Environment Variables
 
+| Name              | Description                                                                                                                                          |
+| :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OCTOPUS_SPACE`   | The Name of a space within which this command will be executed.                                                                                      |
+| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a GitHub secret. |
+| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a GitHub secret.                                |
+
+## 📥 Inputs
+
+| Name                  | Description                                                                                                                                          |
+| :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `project`             | The name of the Project associated with this Release.                                                                                                |
+| `release_number`      | The number for the new Release. If omitted, Octopus Deploy will generate a Release number.                                                           |
+| `environments`        | A list of environments in Octopus Deploy in which to run (i.e. Dev, Test, Prod). Add each environment on a new line.                                 |
+| `variables`           | A list of variables to use the the Deployment in `key: value` format. Add each variable on a new line.                                               |
+| `git_ref`             | The Git branch from which to source the project code. Required for Projects using version control in Octopus.                                        |
+| `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus.                                        |
+| `server`              | The URL of your Octopus server. Required only if using the login action.                                                                             |
+| `service_account_id`  | The id of the service account you wish to login as. Required only if using the login action.                                                         |
 
