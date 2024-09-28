@@ -12,9 +12,9 @@ navOrder: 55
 
 Integrating Github Actions with Octopus Deploy allows you to trigger events in Octopus (e.g. create a release) based on events in Github (e.g. pushing to main). 
 
-## What can you do with Octopus Deploy GitHub Actions
+## Octopus Deploy Actions
 
-Octopus Deploy provides custom GitHub Actions which enable you to: <!-- Custom workflow extensions -->
+Octopus Deploy provides custom GitHub Actions which enable you to:
 - [Login to Octopus Deploy](https://github.com/marketplace/actions/login-to-octopus-deploy)
 - [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli)
 - [Create a Release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
@@ -25,13 +25,13 @@ Octopus Deploy provides custom GitHub Actions which enable you to: <!-- Custom w
 - [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy)
 - [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy)
 - [Push Packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
-- [Wait/watch an Execution Task](https://github.com/marketplace/actions/wait-watch-an-execution-task-in-octopus-deploy)
+- [Wait for/ watch an Execution Task](https://github.com/marketplace/actions/wait-watch-an-execution-task-in-octopus-deploy)
 
-See each action above for examples of how to include it in your own GitHub Action workflow.
+See each action above for detailed examples of how they can be used.
 
-## How to use our Actions in your Workflow
+## Getting Started
 
-Octopus Deploy GitHub Actions can be easily incorporated into your GitHub Action workflow by including them as steps in your workflow YAML. Here is a simple GitHub Action workflow YAML to get you started:
+Octopus Deploy GitHub Actions can be easily incorporated into your GitHub Action workflow by including them as steps in your workflow YAML. Here is a simple GitHub Action workflow YAML to get you started.
 
 ### Example YAML - Create and Deploy a Release
 ```
@@ -96,11 +96,11 @@ jobs:
 
 ## ✍️ Environment Variables
 
-| Name              | Description                                                                                                                                          |
-| :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OCTOPUS_SPACE`   | The Name of a space within which this command will be executed.                                                                                      |
-| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a GitHub secret. |
-| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a GitHub secret.                                |
+| Name              | Description                                                                                                                                              |
+| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OCTOPUS_SPACE`   | The Name of a space within which this command will be executed.                                                                                          |
+| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a GitHub secret.     |
+| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a GitHub secret.                                    |
 
 ## 📥 Inputs
 
