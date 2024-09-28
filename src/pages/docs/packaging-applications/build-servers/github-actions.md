@@ -1,557 +1,217 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-13
+modDate: 2024-09-27
 title: GitHub Actions
-description: GitHub Actions can leverage the Octopus CLI to pack, build, push, and create releases for Octopus Deploy.
+description: Integrating Octopus Deploy into your GitHub Action workflows
 icon: fa-brands fa-github
 navOrder: 55
 ---
 
-[GitHub](https://github.com/) is a popular git-based source-control platform.
+Use [GitHub Actions](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions) to orchestrate Octopus from your CI pipeline for a seamless CI/CD workflow. 
 
-[GitHub Actions](https://github.com/features/actions) is GitHub's cloud-based continuous integration server.
+Integrating GitHub Actions with Octopus Deploy allows you to trigger events in Octopus (like creating a Release) based on events in GitHub (like pushing to main) for an effortless transition from CI to CD.
 
-:::div{.warning}
-The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner) require your Octopus Server to be accessible over the Internet.  Otherwise you must [self-host your runners](https://help.github.com/en/actions/hosting-your-own-runners).
-:::
+## Octopus Deploy Actions
 
-## Integrating with GitHub Actions
-
-Octopus Deploy has several custom GitHub Actions available:
+Octopus Deploy provides GitHub Actions which enable you to:
+- [Login to Octopus Deploy](https://github.com/marketplace/actions/login-to-octopus-deploy)
 - [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli)
-- [Push packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
-- [Create a release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
-- [Run a runbook](https://github.com/marketplace/actions/run-runbook-in-octopus-deploy)
+- [Create a Release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
+- [Deploy a Release](https://github.com/marketplace/actions/deploy-a-release-in-octopus-deploy)
+- [Deploy a Tenanted Release](https://github.com/marketplace/actions/deploy-a-tenanted-release-in-octopus-deploy)
+- [Run a Runbook](https://github.com/marketplace/actions/run-runbook-in-octopus-deploy)
 - [Push Build Information](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
+- [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy)
+- [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy)
+- [Push Packages to Octopus Deploy](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
+- [Wait for/ watch an Execution Task](https://github.com/marketplace/actions/wait-watch-an-execution-task-in-octopus-deploy)
 
-All of the Actions are compatible with following runner types:
+## Getting started
 
-- Windows
-- MacOS
-- Linux
-- Self-Hosted Runners
+Octopus Deploy GitHub Actions can be easily incorporated into your own GitHub Action workflows by including them as steps in your workflow YAML. Here is a simple GitHub Action workflow YAML to get you started.
 
-
-## GitHub Actions secrets
-
-You can use [encrypted secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) in your workflow (available from the **Settings ➜ Secrets** menu of your GitHub repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is not something you should store in your source control).
-
-For example:
-
-| Variable name       | Description|
-| ------------- | ------- |
-| `OCTOPUS_SERVER_URL` | The Octopus Server URL you wish to push the final package to |
-| `OCTOPUS_SERVER_API_KEY` | The Octopus Deploy API Key required for authentication |
-| `OCTOPUS_SERVER_SPACE` | The Space to push packages to |
-
-:::figure
-![GitHub Actions Secrets](/docs/packaging-applications/build-servers/images/github-actions-secrets.png)
-:::
-
-## GitHub Actions configuration
-
-When you create your first GitHub Action for your repository, GitHub stores the actions as workflows in the `.github/workflows` folder in your repository. You need to modify those files to run the build, pack, and/or push package commands.
-
-### Triggering a build
-
-A build within GitHub Actions can be triggered in a few different ways such as:
-
-- Pull requests on a branch
-- Push
-- Schedule
-- On-demand
-
-All build triggers are defined in the `on` section of the GitHub Actions YAML file.
-
-#### Pull requests
-
-To configure your build to be triggered from a pull request on a branch, add a `pull_request` element to the `on` section of the YAML file.  Branches are listed in an array so you can define more than one.  In this example, the build can be triggered from a pull request on the `main` branch:
-
+### Example workflow - Create and deploy a release
 ```yaml
-name: MyBuild
+# .github/workflows/hello-octopus-deploy.yml
+name: Hello Octopus Deploy
 
 on:
-  pull_request:
-    branches: [ main ]
-```
-
-#### Push
-
-A common method for triggering a build is to initiate the build whenever something is pushed to the repository.  Adding `push` will trigger a build whenever a push is made to the repository:
-
-```yaml
-name: MyBuild
-
-on:
-  push:
-```
-
-#### Schedule
-
-A GitHub Actions build can also be triggered on a schedule.  Schedules are defined using the unix `cron` format.  The following example configures the build to execute at 7AM every day:
-
-```yaml
-name: MyBuild
-
-on:
-  schedule:
-    - cron: "0 07 * * *"
-```
-
-:::div{.warning}
-If your repo has been inactive for over 60 days, cron jobs will stop building.
-:::
-
-#### On-demand
-
-It's also possible to manually trigger a GitHub Actions build on-demand.  To configure manual builds, add `workflow_dispatch` to your build file:
-
-```yaml
-name: MyBuild
-
-on:
-  workflow_dispatch:
-```
-
-Adding `workflow_dispatch` will enable the `Run workflow` button that will allow manual runs.
-
-:::figure
-![GitHub Actions Run Workflow](/docs/packaging-applications/build-servers/images/github-actions-run-workflow.png)
-:::
-
-### Building with GitHub Actions
-
-GitHub Actions builds consist of **jobs** which in turn consist of **steps**.  By default, GitHub Actions jobs will run in parallel with each other while the steps within a job are executed sequentially.  It's possible to configure jobs to run sequentially using the `jobs.<job_id>.need` keyword. See the GitHub documentation on [Using jobs in a workflow](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) for more details.
-
-Before defining the steps for your job, you must first tell GitHub Actions what type of runner to use. The [GitHub documentation](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job) explains the different types to choose from.
-
-```yaml
-name: MyBuild
-
-on:
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: "0 07 * * *"
   workflow_dispatch:
 
 jobs:
-  build:
+  octopus-deployment:
     runs-on: ubuntu-latest
-```
 
-#### Example .NET Core build
+    permissions:
+      id-token: write # Required by login action
 
-The following example demonstrates a GitHub Actions build of our example application, [OctoPetShop](https://github.com/OctopusSamples/OctoPetShop).  This application is written in .NET Core and consists of four components:
-
-- OctopusSamples.OctoPetShop.Database - Database updates using DBUp
-- OctopusSamples.OctoPetShop.Web - Web front end
-- OctopusSamples.OctoPetShop.ProductService - Product service API
-- OctopusSamples.OctoPetShop.ShoppingCartService - Shopping cart service API
-
-To build this application, you'll need the following steps:
-
-- Checkout the source code
-- Configure the runner with the appropriate version of .NET core
-- Restore any NuGet packages required by the solution
-- Build the solution
-- Create folders to store published/compiled artifacts
-- Publish each project to their respective artifact folders
-
-Below is an example GitHub Actions workflow which includes these steps:
-
-```yaml
-name: MyBuild
-
-on:
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: "0 07 * * *"
-  workflow_dispatch:
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
+    env:
+      OCTOPUS_SPACE: 'Outer Space'
+      # Supply the following values if not using the login action:
+      # OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
+      # OCTOPUS_URL: ${{ secrets.SERVER }}
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set Version
-      run: echo "PACKAGE_VERSION=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Your own build steps go here!
+    - name: Your build ✨
+      run: echo "Your build steps!"
+
+    # Action to Login to Octopus Deploy
+    - name: Login to Octopus Deploy 🐙
+      uses: OctopusDeploy/login@v1
+      with: 
+        server: ${{ secrets.SERVER }}
+        service_account_id: a1a1a1a1-b2b2-c3c3-d4d4-e5e5e5e5e5e5
+    
+    # Action to Create a Release
+    - name: Create a release in Octopus Deploy 🐙
+      uses: OctopusDeploy/create-release-action@v3
       with:
-        dotnet-version: 6.0.x
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Create artifacts folder
-      run: |
-        mkdir "$GITHUB_WORKSPACE/artifacts"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ShoppingCartService"
-    - name: Publish OctoPetShopDatabase
-      run: dotnet publish OctopusSamples.OctoPetShop.Database/OctopusSamples.OctoPetShop.Database.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database"
-    - name: Publish OctoPetShopWeb
-      run: dotnet publish OctopusSamples.OctoPetShop.Web/OctopusSamples.OctoPetShop.Web.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
-    - name: Publish OctoPetShopProductService
-      run: dotnet publish OctopusSamples.OctoPetShop.ProductService/OctopusSamples.OctoPetShop.ProductService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
-    - name: Publish OctoPetShopShoppingCartService
-      run: dotnet publish OctopusSamples.OctoPetShop.ShoppingCartService/OctopusSamples.OctoPetShop.ShoppingCartService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService"
+        project: 'MyProject'
+        release_number: '1.0.0'
+        git_ref: ${{ github.ref }}
+        git_commit: ${{ github.sha }}
+    
+    # Action to Deploy a Release
+    - name: Deploy a release in Octopus Deploy 🐙
+      uses: OctopusDeploy/deploy-release-action@v3
+      with:
+        project: 'MyProject'
+        release_number: '1.0.0'
+        environments: |
+            Dev
+            Test
+        variables: |
+            Flip: Bling
+            Fizz: Buzz
+        git_ref: ${{ github.ref }}
+        git_commit: ${{ github.sha }}
 ```
 
-### Packaging artifacts
+### ✍️ Environment variables
 
-To package your artifacts for deployment, configure your build to use the `OctopusDeploy/install-octopus-cli-action` developed by Octopus Deploy by adding the following step (previous steps excluded for brevity):
+| Name              | Description                                                                                                                                              |
+| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OCTOPUS_SPACE`   | The Name of the Space where this command will be executed.                                                                                               |
+| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
+| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
 
+
+### 📥 Inputs
+
+| Name                  | Description                                                                                                                                          |
+| :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `project`             | The name of the Project associated with this Release.                                                                                                |
+| `release_number`      | The number for the new Release. If omitted, Octopus Deploy will generate a Release number.                                                           |
+| `environments`        | A list of Environments in Octopus Deploy in which to run (i.e. Dev, Test, Prod). Add each environment on a new line.                                 |
+| `variables`           | A list of Variables to use in the Deployment in `key: value` format. Add each variable on a new line.                                                |
+| `git_ref`             | The Git branch from which to source the project code. Required for Projects using version control in Octopus.                                        |
+| `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus.                                        |
+| `server`              | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
+| `service_account_id`  | The id of the service account you wish to login as.                                                                                                  |
+
+
+## Handling packages
+
+To help you package your files for deployment, Octopus Deploy provides actions to [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy) or [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy). 
+
+Alternatively, you can [Install the Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) and create packages using the [pack command](https://octopus.com/docs/octopus-rest-api/octopus-cli/pack). 
+
+Once your packages are created, simply push them to the Octopus Server built-in repository using our [Push Packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy) Octopus Action. 
+
+You can confirm that your packages have been successfully added by checking for them in your Space under 'Packages'.
+
+Here is a simple example of how to create, push and use a Zip package in a Release.
+
+### Example workflow - Working with packages
 ```yaml
-    - name: Install Octopus CLI
-      uses: OctopusDeploy/install-octopus-cli-action@v1
-
-      with:
-        version: latest
-```
-
-Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](/docs/octopus-rest-api/octopus-cli/).  Using the [pack](/docs/octopus-rest-api/octopus-cli/pack) command, you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above:
-
-```yaml
-    - name: Install Octopus CLI
-      uses: OctopusDeploy/install-octopus-cli-action@v1
-
-      with:
-        version: latest
-    - name: Package OctoPetShopDatabase
-      run: |
-        octo pack --id="OctoPetShop.Database" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Package OctoPetShopWeb
-      run: |
-        octo pack --id="OctoPetShop.Web" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Package OctoPetShopProductService
-      run: |
-        octo pack --id="OctoPetShop.ProductService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Package OctoPetShopShoppingCartService
-      run: |
-        octo pack --id="OctoPetShop.ShoppingCartService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService" --outFolder="$GITHUB_WORKSPACE/artifacts"
-```
-
-### Pushing artifacts to Octopus Server
-
-Once the artifacts are packaged, use the **OctopusDeploy/push-package-action** Action to push the packages to the Octopus Server built-in repository.  The following example pushes the packages created from the previous `pack` operation:
-
-```yaml
-    - name: Push OctoPetShop packages
-      uses: OctopusDeploy/push-package-action@v1
-      with:
-        api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
-        server: ${{ secrets.OCTOPUS_SERVER_URL }}
-        packages: "artifacts/OctoPetShop.Database.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.Web.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ProductService.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ShoppingCartService.${{ env.PACKAGE_VERSION }}.zip"
-        space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
-```
-
-### Creating a release
-
-To create a release, use the **OctopusDeploy/create-release-action**.  This action also contains the ability to deploy the newly created release.  Use either the `progress` or `wait_for_deployment` options to have the build wait for the deployment to complete and report success or failure. Using  `progress` will display messages from Octopus itself whereas `wait_for_deployment` will simply wait for Octopus to report success or failure:
-
-```yaml
-    - name: Create and deploy release
-      uses: OctopusDeploy/create-release-action@v1
-      with:
-        api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
-        server: ${{ secrets.OCTOPUS_SERVER_URL }}
-        space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
-        project: "Octo Pet Shop"
-        deploy_to: "Development"
-        progress: true
-```
-
-:::div{.warning}
-The variable **PACKAGE_VERSION** must be referenced like **${{ env.PACKAGE_VERSION }}** for both **push-package-action** and **create-release-action**
-:::
-
-### Complete build example
-The previous sections displayed only the portions relevant to the topic being discussed.  The entire build YAML for the Octo Pet Shop is located below:
-
-<details>
-  <summary>Click here to view the entire example build YAML</summary>
-
-```yaml
-name: MyBuild
+# .github/workflows/hello-octopus-packages.yml
+name: Hello Octopus Packages
 
 on:
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: "0 07 * * *"
   workflow_dispatch:
-    logLevel:
-      description: 'Log level'
-      required: true
-      default: 'warning'
 
 jobs:
-  build:
-
+  octopus-packages:
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write # Required by login action
+
+    env:
+      OCTOPUS_SPACE: 'Outer Space'
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Set Version
-      run: echo "PACKAGE_VERSION=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 2.2.207
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
-    - name: Create artifacts folder
-      run: |
-        mkdir "$GITHUB_WORKSPACE/artifacts"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ShoppingCartService"
-    - name: Publish OctoPetShopDatabase
-      run: dotnet publish OctopusSamples.OctoPetShop.Database/OctopusSamples.OctoPetShop.Database.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database"
-    - name: Publish OctoPetShopWeb
-      run: dotnet publish OctopusSamples.OctoPetShop.Web/OctopusSamples.OctoPetShop.Web.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
-    - name: Publish OctoPetShopProductService
-      run: dotnet publish OctopusSamples.OctoPetShop.ProductService/OctopusSamples.OctoPetShop.ProductService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
-    - name: Publish OctoPetShopShoppingCartService
-      run: dotnet publish OctopusSamples.OctoPetShop.ShoppingCartService/OctopusSamples.OctoPetShop.ShoppingCartService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService"
-    - name: Install Octopus CLI
-      uses: OctopusDeploy/install-octopus-cli-action@v1
-      with:
-        version: latest
-    - name: Package OctoPetShopDatabase
-      run: |
-        octo pack --id="OctoPetShop.Database" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Package OctoPetShopWeb
-      run: |
-        octo pack --id="OctoPetShop.Web" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Package OctoPetShopProductService
-      run: |
-        octo pack --id="OctoPetShop.ProductService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Package OctoPetShopShoppingCartService
-      run: |
-        octo pack --id="OctoPetShop.ShoppingCartService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Push OctoPetShop packages
-      uses: OctopusDeploy/push-package-action@v1
-      with:
-        api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
-        server: ${{ secrets.OCTOPUS_SERVER_URL }}
-        packages: "artifacts/OctoPetShop.Database.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.Web.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ProductService.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ShoppingCartService.${{ env.PACKAGE_VERSION }}.zip"
-        space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
-    - name: Create and deploy release
-      uses: OctopusDeploy/create-release-action@v1
-      with:
-        api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
-        server: ${{ secrets.OCTOPUS_SERVER_URL }}
-        space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
-        project: "Octo Pet Shop"
-        deploy_to: "Development"
-        progress: true
-```
-</details>
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-
-### Run a runbook
-In addition to common build steps, we also have an action that can Run a Runbook.
-
-```yaml
-  - name: Run a runbook in Octopus Deploy
-    uses: OctopusDeploy/run-runbook-action@1.0.1
-    with:
-      api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
-      environments: 'Development'
-      project: 'Octo Pet Shop'
-      runbook: 'Restart IIS App pool'
-      server: ${{ secrets.OCTOPUS_SERVER_URL }}
-      space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
-      show_progress: 'true'
+      # Action to Login to Octopus Deploy
+      - name: Login to Octopus Deploy 🐙
+        uses: OctopusDeploy/login@v1
+        with: 
+          server: ${{ secrets.SERVER }}
+          service_account_id: a1a1a1a1-b2b2-c3c3-d4d4-e5e5e5e5e5e5
+      
+      # Action to Create a Zip Package
+      - name: Create a Zip package 🐙
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: 'HelloPackage'
+          version: '1.0.0'
+          output_folder: './packages/'
+          base_path: './src/files-to-package/'
+          files: |
+            **/*.*
+      
+      # Action to Push Packages to Octopus Deploy
+      - name: Push a package to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-package-action@v3
+        with:
+          packages: |
+            packages/**/*.zip
+      
+      # Using your Package in a Release
+      - name: Use the Package in a Release 🎉
+        uses: OctopusDeploy/create-release-action@v3
+        with:
+          project: 'MyProject'
+          release_number: '1.0.0'
+          git_ref: ${{ github.ref }}
+          git_commit: ${{ github.sha }}
+          packages: |
+            HelloPackage:1.0.0
 ```
 
-### Push Build Information
+### 📥 Additional inputs
 
-[Build information](/docs/packaging-applications/build-servers/build-information) contains a link
-to the build which produced the package, details of the source
-commits related to the build, and issue references parsed from the commit messages.
+| Name                  | Description                                                                                                      |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------|
+| `package_id`          | The name of the package.                                                                                         |
+| `version`             | The version of the package.                                                                                      |
+| `output_folder`       | The folder to put the resulting package in, relative to the current working directory.                           |
+| `base_path`           | The path to the folder containing the files to be used in the package                                            |
+| `files`               | A list of files to be included in the package relative to the base path. Add each item on a new line.            |
+| `packages`            | Used by the Push Packages action. A list of packages to push to Octopus Deploy. Add each item on a new line.     |
+| `packages`            | Used by the Create Release action. A list of packages to be used in the Release. Add each item on a new line.    |
 
-Build information is generated and pushed to Octopus with the
-`OctopusDeploy/push-build-information-action` step:
+## Runners
 
-```yaml
-  - name: Generate Octopus Deploy build information
-    uses: OctopusDeploy/push-build-information-action@v1
-    env:
-      OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_API_TOKEN }}
-      OCTOPUS_HOST: ${{ secrets.OCTOPUS_SERVER_URL }}
-    with:
-      version: ${{ env.PACKAGE_VERSION }}
-      packages: OctoPetShopWeb
-      overwrite_mode: OverwriteExisting
-```
+Octopus Deploy GitHub Actions can be run on every available type of [runner](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#runners) (Ubuntu Linux, Microsoft Windows, macOS, and Self-Hosted). 
 
-:::div{.warning}
-Commits will only be included when a workflow is triggered by a [push event](https://docs.github.com/en/webhooks/webhook-events-and-payloads#push). 
-:::
+If your Octopus Server is not accessible over the internet, you can connect to it using a [Self-Hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
-:::div{.success}
-**Example GitHub Actions Repo:**
 
-View a working GitHub Actions examples on our [samples GitHub repository](https://github.com/OctopusSamples).
-- [.NET Core](https://github.com/OctopusSamples/OctoPetShop/blob/master/.github/workflows/dotnet-core.yml)
-- [Java using Maven](https://github.com/OctopusSamples/RandomQuotes-Java/blob/master/.github/workflows/maven.yml)
-:::
+## Sequencing tasks
 
-## GitHub Action Integrations v3
+It can be useful to run multiple Octopus Deploy GitHub Actions in sequence as part of a larger workflow. To do this, simply include each Octopus Action as a step within a single job. 
 
-GitHub Action Integrations v3 no longer requires the Octo CLI to function. This new native approach brings many benefits to the table, including but not limited too:
-- Smaller actions
-- Faster runtimes
-- Performance benefits through the [Executions API](https://octopus.com/blog/faster-deployments-with-the-executions-api)
+If you need to run sequential actions in separate jobs, you can also configure your jobs to run sequentially by [defining prerequisite jobs](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow#defining-prerequisite-jobs).
 
-### Migration Guides
 
-Migrations guides can be found on each [GitHub Action Integration Repo](https://github.com/OctopusDeploy/create-release-action/blob/main/migration-guide.md).
+## Previous versions
 
-### New GitHub Actions
-
-The following GitHub actions have been created in collaboration with Github Action v3.
-
-### Deploy Release
-
-Incorporate the following actions in your workflow to deploy a release in Octopus Deploy using an API key, a target instance (i.e. server), and a project:
-
-```yaml
-env:
-
-steps:
-  # ...
-  - name: Deploy a release in Octopus Deploy 🐙
-    uses: OctopusDeploy/deploy-release-action@v3
-    env:
-      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
-      OCTOPUS_URL: ${{ secrets.SERVER }}
-      OCTOPUS_SPACE: 'Outer Space'
-    with:
-      project: 'MyProject'
-      release_number: '1.0.0'
-      environments: |
-        Dev
-        Test
-      variables: |
-        Foo: Bar
-        Fizz: Buzz
-```
-
-### Deploy Release Tenanted
-
-```yaml
-env:
-
-steps:
-  # ...
-  - name: Deploy a release in Octopus Deploy 🐙
-    uses: OctopusDeploy/deploy-release-tenanted-action@v3
-    env:
-      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
-      OCTOPUS_URL: ${{ secrets.SERVER }}
-      OCTOPUS_SPACE: 'Outer Space'
-    with:
-      project: 'MyProject'
-      release_number: '1.0.0'
-      environment: 'Dev'
-      tenants: |
-        'Some Tenant A'
-        'Some Tenant B'
-      tenant_tags: |
-        'setA/someTagB'
-        'setC/someTagD'
-      variables: |
-        'Foo: Bar'
-        'Fizz: Buzz'
-```
-
-### Await Task
-
-Incorporate the following actions in your workflow to wait for a task to complete in Octopus Deploy:
-
-```yaml
-env:
-
-steps:
-  # ...
-  - name: Await task in Octopus Deploy 🐙
-    uses: OctopusDeploy/await-task-action@v3
-    env:
-      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
-      OCTOPUS_URL: ${{ secrets.SERVER }}
-      OCTOPUS_SPACE: 'Outer Space'
-    with:
-      server_task_id: ${{ fromJson(steps.some_previous_deployment_step.outputs.server_tasks)[0].serverTaskId }}
-```
-
-### Create Nuget Package
-
-Create NuGet package(s) to push to Octopus Deploy.
-
-```yaml
-steps:
-  - uses: actions/checkout@v3
-
-  # create a NuGet package from files in the "reports" folder; create package in "packaging" folder
-  - name: Create a NuGet package 🐙
-    uses: OctopusDeploy/create-nuget-package-action@v3
-    with:
-      package_id: 'DemoPackage'
-      version: '1.0.0'
-      output_folder: 'packaging'
-      base_path: reports
-      files: |
-        **/*.*
-      nuspec_description: package description
-      nuspec_authors: |
-        author 1
-        author 2
-      nuspec_release_notes: |
-        This is a multiline
-        release note
-```
-
-### Create Zip Package
-
-Create Zip package(s) to push to Octopus Deploy.
-
-```yaml
-steps:
-  - uses: actions/checkout@v3
-
-  # create a Zip package from files in the "reports" folder; create package in "packaging" folder
-  - name: Create a Zip package 🐙
-    uses: OctopusDeploy/create-zip-package-action@v3
-    with:
-      package_id: 'DemoPackage'
-      version: '1.0.0'
-      output_folder: './packaging'
-      base_path: reports
-      files: |
-        **/*.*
-```
-
-### Install Octopus CLI Action v3
-
-Although the CLI is not required for GitHub Actions v3, the install Octopus CLI Action v3 will now install the new [Octopus CLI](https://octopus.com/docs/octopus-rest-api/cli).
-
-:::div{.warning}
-If you require the use of the original Octo CLI, you can use `OctopusDeploy/install-octopus-cli-action@v1`.
-:::
-
+Since the release of v3, Octopus Deploy GitHub Actions no longer need the [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) package to be installed before running. [Each Octopus Action](#octopus-deploy-actions) introduced before v3 provides a guide to migrating to v3.
