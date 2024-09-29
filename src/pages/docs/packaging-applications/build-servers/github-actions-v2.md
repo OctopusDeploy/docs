@@ -10,7 +10,7 @@ navOrder: 55
 
 <!-- // cc Move into old file when done -->
 
-Integrating Github Actions with Octopus Deploy allows you to trigger events in Octopus (e.g. create a release) based on events in Github (e.g. pushing to main). 
+Integrating [GitHub Actions](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions) with Octopus Deploy allows you to trigger events in Octopus (e.g. create a Release) based on events in GitHub (e.g. pushing to main). 
 
 ## Octopus Deploy Actions
 
@@ -31,10 +31,10 @@ See each action above for detailed examples of how they can be used.
 
 ## Getting Started
 
-Octopus Deploy GitHub Actions can be easily incorporated into your GitHub Action workflow by including them as steps in your workflow YAML. Here is a simple GitHub Action workflow YAML to get you started.
+Octopus Deploy GitHub Actions can be easily incorporated into your own GitHub Action workflows by including them as steps in your workflow YAML. Here is a simple GitHub Action workflow YAML to get you started.
 
-### Example YAML - Create and Deploy a Release
-```
+### Example Workflow - Create and Deploy a Release
+```yaml
 # .github/workflows/hello-octopus-deploy.yml
 name: Hello Octopus Deploy
 
@@ -94,15 +94,16 @@ jobs:
         git_commit: ${{ github.sha }}
 ```
 
-## ✍️ Environment Variables
+### ✍️ Environment Variables
 
 | Name              | Description                                                                                                                                              |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `OCTOPUS_SPACE`   | The Name of a space within which this command will be executed.                                                                                          |
-| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a GitHub secret.     |
-| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a GitHub secret.                                    |
+| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)     |
+| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)                                    |
 
-## 📥 Inputs
+
+### 📥 Inputs
 
 | Name                  | Description                                                                                                                                          |
 | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -114,4 +115,10 @@ jobs:
 | `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus.                                        |
 | `server`              | The URL of your Octopus server. Required only if using the login action.                                                                             |
 | `service_account_id`  | The id of the service account you wish to login as. Required only if using the login action.                                                         |
+
+## Runners
+
+Octopus Deploy GitHub Actions can be run on every available type of [runners](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#runners) (Ubuntu Linux, Microsoft Windows, macOS, and Self-Hosted). 
+
+If your Octopus Server is not accessible over the internet, you can connect to it using a [Self-Hosted runner.](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)
 
