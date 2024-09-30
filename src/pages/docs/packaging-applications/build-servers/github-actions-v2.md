@@ -122,3 +122,14 @@ Octopus Deploy GitHub Actions can be run on every available type of [runners](ht
 
 If your Octopus Server is not accessible over the internet, you can connect to it using a [Self-Hosted runner.](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)
 
+
+## Sequencing Tasks
+
+In the example above, Octopus Deploy GitHub Actions are run in sequence as part of a larger workflow. To run multiple Octopus Actions in sequence, include them as steps within a single job. 
+
+If you need to run sequential Octopus Actions in separate jobs, you can also configure your jobs to run sequentially by [defining prerequisite jobs](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow#defining-prerequisite-jobs).
+
+
+## Previous Versions
+
+Since the release of v3, Octopus Deploy GitHub Actions no longer need the Install Octopus CLI package to be installed before running. See each of the Octopus Actions introduced before v3, for a guide to migrating to v3.
