@@ -27,8 +27,6 @@ Octopus Deploy provides custom GitHub Actions which enable you to:
 - [Push Packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
 - [Wait for/ watch an Execution Task](https://github.com/marketplace/actions/wait-watch-an-execution-task-in-octopus-deploy)
 
-See each action above for detailed examples of how they can be used.
-
 ## Getting Started
 
 Octopus Deploy GitHub Actions can be easily incorporated into your own GitHub Action workflows by including them as steps in your workflow YAML. Here is a simple GitHub Action workflow YAML to get you started.
@@ -46,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      id-token: write # Required by the login action below
+      id-token: write # Required by login action
 
     env:
       OCTOPUS_SPACE: 'Outer Space'
@@ -66,7 +64,7 @@ jobs:
     - name: Login to Octopus Deploy 🐙
       uses: OctopusDeploy/login@v1
       with: 
-        server: https://my-octopus.octopus.app
+        server: ${{ secrets.SERVER }}
         service_account_id: a1a1a1a1-b2b2-c3c3-d4d4-e5e5e5e5e5e5
     
     # Action to Create a Release
@@ -98,9 +96,9 @@ jobs:
 
 | Name              | Description                                                                                                                                              |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OCTOPUS_SPACE`   | The Name of a space within which this command will be executed.                                                                                          |
-| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)     |
-| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)                                    |
+| `OCTOPUS_SPACE`   | The Name of the Space where this command will be executed.                                                                                               |
+| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) |
+| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) |
 
 
 ### 📥 Inputs
@@ -109,12 +107,12 @@ jobs:
 | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `project`             | The name of the Project associated with this Release.                                                                                                |
 | `release_number`      | The number for the new Release. If omitted, Octopus Deploy will generate a Release number.                                                           |
-| `environments`        | A list of environments in Octopus Deploy in which to run (i.e. Dev, Test, Prod). Add each environment on a new line.                                 |
-| `variables`           | A list of variables to use the the Deployment in `key: value` format. Add each variable on a new line.                                               |
+| `environments`        | A list of Environments in Octopus Deploy in which to run (i.e. Dev, Test, Prod). Add each environment on a new line.                                 |
+| `variables`           | A list of Variables to use in the Deployment in `key: value` format. Add each variable on a new line.                                                |
 | `git_ref`             | The Git branch from which to source the project code. Required for Projects using version control in Octopus.                                        |
 | `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus.                                        |
-| `server`              | The URL of your Octopus server. Required only if using the login action.                                                                             |
-| `service_account_id`  | The id of the service account you wish to login as. Required only if using the login action.                                                         |
+| `server`              | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) |
+| `service_account_id`  | The id of the service account you wish to Login as.                                                                                                  |
 
 ## Runners
 
@@ -125,11 +123,11 @@ If your Octopus Server is not accessible over the internet, you can connect to i
 
 ## Sequencing Tasks
 
-In the example above, Octopus Deploy GitHub Actions are run in sequence as part of a larger workflow. To run multiple Octopus Actions in sequence, include them as steps within a single job. 
+It can be useful to run multiple Octopus Deploy GitHub Actions in sequence as part of a larger workflow. To do this, simplly include each Octopus Action as a step within a single job. 
 
 If you need to run sequential Octopus Actions in separate jobs, you can also configure your jobs to run sequentially by [defining prerequisite jobs](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow#defining-prerequisite-jobs).
 
 
 ## Previous Versions
 
-Since the release of v3, Octopus Deploy GitHub Actions no longer need the Install Octopus CLI package to be installed before running. See each of the Octopus Actions introduced before v3, for a guide to migrating to v3.
+Since the release of v3, Octopus Deploy GitHub Actions no longer need the [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) package to be installed before running. Each Octopus Action introduced before v3, provides a guide to migrating to v3.
