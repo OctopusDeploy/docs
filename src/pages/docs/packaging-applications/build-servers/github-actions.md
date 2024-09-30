@@ -12,7 +12,7 @@ Integrating [GitHub Actions](https://docs.github.com/en/actions/about-github-act
 
 ## Octopus Deploy Actions
 
-Octopus Deploy provides custom GitHub Actions which enable you to:
+Octopus Deploy provides GitHub Actions which enable you to:
 - [Login to Octopus Deploy](https://github.com/marketplace/actions/login-to-octopus-deploy)
 - [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli)
 - [Create a Release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
@@ -46,7 +46,7 @@ jobs:
 
     env:
       OCTOPUS_SPACE: 'Outer Space'
-      # Supply the following values to skip the login action:
+      # Supply the following values if not using the login action:
       # OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
       # OCTOPUS_URL: ${{ secrets.SERVER }}
 
@@ -95,8 +95,8 @@ jobs:
 | Name              | Description                                                                                                                                              |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `OCTOPUS_SPACE`   | The Name of the Space where this command will be executed.                                                                                               |
-| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) |
-| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) |
+| `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
+| `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
 
 
 ### 📥 Inputs
@@ -109,14 +109,14 @@ jobs:
 | `variables`           | A list of Variables to use in the Deployment in `key: value` format. Add each variable on a new line.                                                |
 | `git_ref`             | The Git branch from which to source the project code. Required for Projects using version control in Octopus.                                        |
 | `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus.                                        |
-| `server`              | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret.](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) |
+| `server`              | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
 | `service_account_id`  | The id of the service account you wish to Login as.                                                                                                  |
 
 ## Runners
 
-Octopus Deploy GitHub Actions can be run on every available type of [runners](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#runners) (Ubuntu Linux, Microsoft Windows, macOS, and Self-Hosted). 
+Octopus Deploy GitHub Actions can be run on every available type of [runner](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#runners) (Ubuntu Linux, Microsoft Windows, macOS, and Self-Hosted). 
 
-If your Octopus Server is not accessible over the internet, you can connect to it using a [Self-Hosted runner.](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)
+If your Octopus Server is not accessible over the internet, you can connect to it using a [Self-Hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 
 ## Sequencing Tasks
@@ -128,4 +128,4 @@ If you need to run sequential Octopus Actions in separate jobs, you can also con
 
 ## Previous Versions
 
-Since the release of v3, Octopus Deploy GitHub Actions no longer need the [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) package to be installed before running. Each Octopus Action introduced before v3, provides a guide to migrating to v3.
+Since the release of v3, Octopus Deploy GitHub Actions no longer need the [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) package to be installed before running. Each Octopus Action introduced before v3 provides a guide to migrating to v3.
