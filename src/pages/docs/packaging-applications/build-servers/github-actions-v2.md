@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-09-27
 title: GitHub Actions
-description: GitHub Actions can leverage the Octopus CLI to pack, build, push, and create releases for Octopus Deploy.
+description: Integrating Octopus Deploy into your GitHub Action workflows
 icon: fa-brands fa-github
 navOrder: 55
 ---
@@ -123,7 +123,7 @@ If your Octopus Server is not accessible over the internet, you can connect to i
 
 ## Sequencing Tasks
 
-It can be useful to run multiple Octopus Deploy GitHub Actions in sequence as part of a larger workflow. To do this, simplly include each Octopus Action as a step within a single job. 
+It can be useful to run multiple Octopus Deploy GitHub Actions in sequence as part of a larger workflow. To do this, simply include each Octopus Action as a step within a single job. 
 
 If you need to run sequential Octopus Actions in separate jobs, you can also configure your jobs to run sequentially by [defining prerequisite jobs](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow#defining-prerequisite-jobs).
 
