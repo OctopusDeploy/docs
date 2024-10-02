@@ -67,6 +67,12 @@ Verbose logging can be used to include more detail in the build logs. This inclu
 
 :::
 
+:::div{.hint}
+
+BuildInformationPush permission is required to push build information to Octopus. If `Overwrite Mode` is set to `Overwrite Existing` BuildInformationAdminister permission is also required.
+
+:::
+
 ## Viewing build information {#viewing-build-information}
 
 As of Octopus **2019.10.0**, the build information for a package can be viewed by navigating to **Library ➜ Build Information**
