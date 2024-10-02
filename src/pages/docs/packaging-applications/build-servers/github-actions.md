@@ -22,7 +22,7 @@ Octopus Deploy provides GitHub Actions which enable you to:
 - [Push Build Information](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
 - [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy)
 - [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy)
-- [Push Packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
+- [Push Packages to Octopus Deploy](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
 - [Wait for/ watch an Execution Task](https://github.com/marketplace/actions/wait-watch-an-execution-task-in-octopus-deploy)
 
 ## Getting Started
@@ -111,6 +111,16 @@ jobs:
 | `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus.                                        |
 | `server`              | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
 | `service_account_id`  | The id of the service account you wish to Login as.                                                                                                  |
+
+## Packaging Artifacts
+
+To package your artifacts for deployment, we recommend using our Octopus Actions to [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy) or [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy). 
+
+Alternatively, you can use our Octopus Action to [Install the Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) and package your artifacts using the [pack command](https://octopus.com/docs/octopus-rest-api/octopus-cli/pack). 
+
+Once your artifacts are packaged, simply push them to the Octopus Server built-in repository using our [Push Packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy) Octopus Action.
+
+// TODO: WIP - Add an example here
 
 ## Runners
 
