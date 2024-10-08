@@ -101,7 +101,7 @@ jobs:
         if: ${{ env.SHOULD_DEPLOY }}
         with:
           version: "${{ env.PACKAGE_VERSION }}"
-          packages: "Docs Microsite"
+          packages: ${{ steps.package.outputs.package_file_path }}
 
       - name: Create a release in Octopus Deploy 🐙
         id: "create_release"
