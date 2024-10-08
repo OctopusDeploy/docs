@@ -8,7 +8,7 @@ icon: fa-brands fa-github
 navOrder: 55
 ---
 
-Integrating [GitHub Actions](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions) with Octopus Deploy allows you to trigger events in Octopus (e.g. create a Release) based on events in GitHub (e.g. pushing to main). 
+Use [GitHub Actions](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions) to orchestrate Octopus from your CI pipeline for a seamless CI/CD workflow. Integrating GitHub Actions with Octopus Deploy allows you to trigger events in Octopus (like creating a Release) based on events in GitHub (like pushing to main) for an effortless transition from CI to CD.
 
 ## Octopus Deploy Actions
 
@@ -114,7 +114,7 @@ jobs:
 
 ## Packaging Artifacts
 
-To package your artifacts for deployment, we recommend using our Octopus Actions to [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy) or [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy). 
+To package your artifacts for deployment, we recommend using our Octopus Actions to [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy) or [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy). 
 
 Alternatively, you can use our Octopus Action to [Install the Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) and package your artifacts using the [pack command](https://octopus.com/docs/octopus-rest-api/octopus-cli/pack). 
 
@@ -138,4 +138,4 @@ If you need to run sequential Octopus Actions in separate jobs, you can also con
 
 ## Previous Versions
 
-Since the release of v3, Octopus Deploy GitHub Actions no longer need the [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) package to be installed before running. Each Octopus Action introduced before v3 provides a guide to migrating to v3.
+Since the release of v3, Octopus Deploy GitHub Actions no longer need the [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) package to be installed before running. [Each Octopus Action](#octopus-deploy-actions) introduced before v3 provides a guide to migrating to v3.
