@@ -112,12 +112,12 @@ jobs:
 | `git_ref`             | The Git branch from which to source the project code. Required for Projects using version control in Octopus.                                        |
 | `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus.                                        |
 | `server`              | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
-| `service_account_id`  | The id of the service account you wish to Login as.                                                                                                  |
+| `service_account_id`  | The id of the service account you wish to login as.                                                                                                  |
 
 
 ## Handling packages
 
-To help you to package your files for deployment, Octopus provides actions to [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy) or [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy). 
+To help you package your files for deployment, Octopus Deploy provides actions to [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy) or [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy). 
 
 Alternatively, you can [Install the Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) and create packages using the [pack command](https://octopus.com/docs/octopus-rest-api/octopus-cli/pack). 
 
@@ -186,7 +186,7 @@ jobs:
             HelloPackage:1.0.0
 ```
 
-### 📥 Additional Inputs
+### 📥 Additional inputs
 
 | Name                  | Description                                                                                                      |
 | :-------------------- | :----------------------------------------------------------------------------------------------------------------|
