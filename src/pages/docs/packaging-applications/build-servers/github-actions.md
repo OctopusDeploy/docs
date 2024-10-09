@@ -8,7 +8,9 @@ icon: fa-brands fa-github
 navOrder: 55
 ---
 
-Use [GitHub Actions](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions) to orchestrate Octopus from your CI pipeline for a seamless CI/CD workflow. Integrating GitHub Actions with Octopus Deploy allows you to trigger events in Octopus (like creating a Release) based on events in GitHub (like pushing to main) for an effortless transition from CI to CD.
+Use [GitHub Actions](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions) to orchestrate Octopus from your CI pipeline for a seamless CI/CD workflow. 
+
+Integrating GitHub Actions with Octopus Deploy allows you to trigger events in Octopus (like creating a Release) based on events in GitHub (like pushing to main) for an effortless transition from CI to CD.
 
 ## Octopus Deploy Actions
 
@@ -38,7 +40,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  say_hello:
+  octopus-deployment:
     runs-on: ubuntu-latest
 
     permissions:
@@ -112,15 +114,79 @@ jobs:
 | `server`              | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
 | `service_account_id`  | The id of the service account you wish to Login as.                                                                                                  |
 
-## Packaging Artifacts
 
-To package your artifacts for deployment, we recommend using our Octopus Actions to [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy) or [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy). 
+## Handling Packages
 
-Alternatively, you can use our Octopus Action to [Install the Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) and package your artifacts using the [pack command](https://octopus.com/docs/octopus-rest-api/octopus-cli/pack). 
+To package files for deployment, we provide actions to [Create a Zip Package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy) or [Create a NuGet Package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy). 
 
-Once your artifacts are packaged, simply push them to the Octopus Server built-in repository using our [Push Packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy) Octopus Action.
+Alternatively, you can use our action to [Install the Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) and create your packages using the [pack command](https://octopus.com/docs/octopus-rest-api/octopus-cli/pack). 
 
-// TODO: WIP - Add an example here
+Once your packages are created, simply push them to the Octopus Server built-in repository using our [Push Packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy) Octopus Action. 
+
+You can confirm that your package has been successfully added by checking for it in your Space under 'Packages'.
+
+Here is a simple example showing how to create, push and use a Zip package.
+
+### Example Workflow - Working with Packages
+```yaml
+# .github/workflows/hello-octopus-packages.yml
+name: Hello Octopus Packages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  octopus-packages:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Required by login action
+
+    env:
+      OCTOPUS_SPACE: 'Outer Space'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Action to Login to Octopus Deploy
+      - name: Login to Octopus Deploy 🐙
+        uses: OctopusDeploy/login@v1
+        with: 
+          server: ${{ secrets.SERVER }}
+          service_account_id: a1a1a1a1-b2b2-c3c3-d4d4-e5e5e5e5e5e5
+      
+      # Action to Create a Zip Package
+      - name: Create a Zip package 🐙
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: 'HelloPackage'
+          version: '1.0.0'
+          output_folder: './packages/'
+          base_path: './src/files-to-package/'
+          files: |
+            **/*.*
+      
+      # Action to Push Packages to Octopus Deploy
+      - name: Push a package to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-package-action@v3
+        with:
+          packages: |
+            packages/**/*.zip
+      
+      # Use the Package in a Release
+      - name: Use the Package in a Release 🎉
+        uses: OctopusDeploy/create-release-action@v3
+        with:
+          project: 'MyProject'
+          release_number: '1.0.0'
+          git_ref: ${{ github.ref }}
+          git_commit: ${{ github.sha }}
+          packages: |
+            HelloPackage:1.0.0
+```
+
+TODO: add variables here
 
 ## Runners
 
@@ -133,7 +199,7 @@ If your Octopus Server is not accessible over the internet, you can connect to i
 
 It can be useful to run multiple Octopus Deploy GitHub Actions in sequence as part of a larger workflow. To do this, simply include each Octopus Action as a step within a single job. 
 
-If you need to run sequential Octopus Actions in separate jobs, you can also configure your jobs to run sequentially by [defining prerequisite jobs](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow#defining-prerequisite-jobs).
+If you need to run sequential actions in separate jobs, you can also configure your jobs to run sequentially by [defining prerequisite jobs](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow#defining-prerequisite-jobs).
 
 
 ## Previous Versions
