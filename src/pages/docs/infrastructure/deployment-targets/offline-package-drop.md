@@ -9,7 +9,7 @@ navOrder: 70
 
 The offline package drop deployment target makes it possible for Octopus to bundle all the files needed to perform a deployment to a deployment target, even when a direct connection to the deployment target isn't always possible, for instance, if a security policy, compliance control, or network topology make a direct connection impossible.
 
-You can treat the offline package drop just like any other target, but instead of the application being deployed Octopus will bundle up all of the files needed to perform the deployment on the *actual* target server.
+You can treat the offline package drop just like any other target, but instead of deploying the application Octopus will bundle up all the files needed to perform the deployment on the *actual* target server.
 
 ## Configuring the target {#target-configuration}
 
