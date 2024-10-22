@@ -11,6 +11,10 @@ The offline package drop deployment target makes it possible for Octopus to bund
 
 You can treat the offline package drop just like any other target, but instead of deploying the application Octopus will bundle up all the files needed to perform the deployment on the *actual* target server.
 
+:::div{.info}
+Offline package drop currently only supports Windows operating systems as the target machine.
+:::
+
 ## Configuring the target {#target-configuration}
 
 Offline package drop is available as a deployment target.
