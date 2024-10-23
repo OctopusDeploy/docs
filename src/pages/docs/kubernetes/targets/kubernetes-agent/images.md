@@ -102,3 +102,20 @@ The default image used for deployments when running as a deployment target. If n
 **Purpose**
 
 The default image used for workloads when running as a worker.
+
+
+:::div{.hint}
+
+For ARM workloads use **octopuslabs/k8s-workertools** or your own [custom docker image](/docs/projects/steps/execution-containers-for-workers#custom-docker-images). 
+
+### octopuslabs/k8s-workertools
+
+**Default registry**
+
+[Docker Hub](https://hub.docker.com/r/octopuslabs/k8s-workertools)
+
+**Source code**
+
+[GitHub](https://github.com/OctopusDeployLabs/workertools)
+
+:::
