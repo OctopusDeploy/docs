@@ -44,6 +44,19 @@ If the Agent install command fails with a timeout error, it could be that:
 - (if using the NFS storage solution) The NFS CSI driver has not been installed
 - (if using a custom Storage Class) the Storage Class name doesn't match
 
+#### Setting scriptPod Service Account annotations
+To add an annotation to the Service Account for the `scriptPods`, use the following syntax
+
+```
+--set scriptPods.serviceAccount.annotations."<Annotation name>"="<Annotation>"
+```
+
+**Note:**  If the annotation name contains a `.`, you will need to JSON escape it (`\.`).  Below is an example of setting the role-arn annotation for an EKS cluster where the annotation name is `eks.amazonaws.com/role-arn`.
+
+```
+--set scriptPods.serviceAccount.annotations."eks\.amazonaws\.com/role-arn"="arn:aws:iam::<account-id>:role/<iam-role-name>"
+```
+
 ## Script Execution Issues
 
 ### `Unexpected Script Pod log line number, expected: expected-line-no, actual: actual-line-no` 

@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "@astrojs/mdx": "^2.3.1",
+        "@octopus/docs": "file:",
         "@pnpm/exe": "^9.7.1",
         "astro": "^4.14.4",
         "astro-accelerator-utils": "^0.3.17",
