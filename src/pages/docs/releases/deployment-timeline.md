@@ -15,7 +15,7 @@ It can be access by clicking the **Timeline** button within the deployment detai
 ![The Deployment Timeline button](/docs/releases/timeline/timeline-button.png)
 :::
 
-A drawer opens showing all deployments related to the release you are viewing, sorted by when the deployment was created, 
+A drawer opens showing all deployments for the current Environment, Project and Tenant you are viewing, sorted by when the deployment was created.
 
 :::figure
 ![The deployment Timeline with overflow menu for last successful deployment](/docs/releases/timeline/timeline.png)
