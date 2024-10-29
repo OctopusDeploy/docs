@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2024-10-28
 modDate: 2024-10-28
 title: Deployment Timeline
-description: View and interact with the deployment Timeline
+description: View and interact with the Deployment Timeline
 navOrder: 132
 ---
 
