@@ -18,6 +18,7 @@ aspnetcore
 astro
 astrojs
 auditability
+aufs
 augeas
 australiaeast
 auths
@@ -28,6 +29,7 @@ azureactivedirectory
 azurefile
 bacpac
 Bento
+Blkio
 bootstrap
 bootstrapped
 bootstrapper
@@ -59,6 +61,8 @@ contoso
 cooldown
 corepack
 Cpath
+Cpus
+Cpuset
 createartifact
 creds
 crossorigin
@@ -88,6 +92,7 @@ Directorygroup
 Distro
 Dockerfiles
 dockerhub
+Domainname
 DONTVALIDATEPATH
 dpkg
 dryrun
@@ -161,6 +166,7 @@ inkey
 INSTALLLOCATION
 internalcustomer
 ioutil
+IPAM
 ipify
 isdir
 Istio
@@ -194,6 +200,7 @@ Linq
 Liquibase
 lstrip
 ltsc
+LXRR3
 machinepolicies
 machinepolicy
 maintenanceconfiguration
@@ -219,6 +226,7 @@ myfeature
 navigationid
 NETBIOS
 netcore
+netns
 Netscaler
 netsh
 netstandard
@@ -286,6 +294,7 @@ pemstore
 petclinic
 Petlife
 petshop
+Pids
 PKCE
 pkcs
 PKWARE
@@ -327,12 +336,15 @@ replicasets
 reprioritize
 reprovisioned
 reprovisioning
+resolv.conf
+ResolvConfPath
 robocopy
 roboto
 rocksville
 rolename
 ROOTDIR
 rootelement
+Rootfs
 RSASSA
 rstrip
 runbook
@@ -342,6 +354,7 @@ runbooks
 runbooksnapshot
 runbooksnapshots
 runbooksnapshottemplate
+runc
 RUNMANAGERONEXIT
 Runspace
 runtimes
@@ -357,6 +370,7 @@ serverstatus
 serviceaccount
 Sesna
 setspn
+sfproj
 shiki
 SIEM
 signingkeys
@@ -412,6 +426,7 @@ Trivy
 tsconfigs
 typeof
 Tzdb
+Ulimits
 umoci
 undeployed
 uniquestring
@@ -422,6 +437,7 @@ upgradelog
 upgrader
 urllib
 urlset
+Userns
 useronboarding
 userrole
 userroles
@@ -450,25 +466,9 @@ workerpools
 workertools
 writeheader
 writerow
+xcopy
 xlarge
 xmark
 xvzf
 xxlarge
 youtu
-sfproj
-xcopy
-ResolvConfPath
-resolv.conf
-aufs
-Rootfs
-Userns
-runc
-Blkio
-Cpuset
-Pids
-Ulimits
-Cpus
-Domainname
-netns
-IPAM
-LXRR3
