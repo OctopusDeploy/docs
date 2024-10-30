@@ -9,7 +9,7 @@ navOrder: 60
 
 This section describes how different branching strategies can be modeled in Octopus Deploy.
 
-## Branching strategies {#Branching-Branchingstrategies}
+## Branching strategies
 
 When thinking about branching and Octopus, keep this rule in mind:
 
@@ -21,7 +21,7 @@ Octopus, on the other hand, only sees packages. It doesn't particularly care whi
 
 The section below describes some common branching strategies, and what they mean in terms of NuGet packages and releases in Octopus.
 
-### No branches {#Branching-Nobranches}
+### No branches
 
 The simplest branching workflow is, of course, no branches - all developers work directly on `trunk` or the `main` (default) branch. For small projects with few developers, and when the project isn't really in "production" yet, this strategy can work well.
 
@@ -35,7 +35,7 @@ Builds from this single branch will produce a NuGet package, and that package go
 ![](/docs/deployments/patterns/images/3278468.png)
 :::
 
-### Release branches {#Branching-Releasebranches}
+### Release branches
 
 Sometimes developers work on new features that aren't quite ready to ship, whilst also maintaining a current production release. Bugs can be fixed on the release branch, and deployed, without needing to also ship the half-baked features.
 
@@ -45,7 +45,7 @@ Sometimes developers work on new features that aren't quite ready to ship, whils
 
 So long as one release branch never overlaps another, from an Octopus point of view, the process is similar to the "no branches" scenario above - new NuGet packages are built, and those packages go into a release, which is deployed. Octopus doesn't care that they came from a branch; to Octopus, there's just a stream of new, incrementing package versions.
 
-### Multiple active release branches {#Branching-Multipleactivereleasebranches}
+### Multiple active release branches
 
 Multiple release branches may be supported over a period of time. For example, you may have customers who are using your 2.x versions of your software in production, and early adopters testing your 3.x versions while you work to make it stable. You'll need to fix bugs in the 2.x version as well as the 3.x version, and deploy them both.
 
@@ -85,7 +85,7 @@ It's important to realize that **branches will map to different channels over ti
 Eventually, `release/v3` will become more and more stable, and packages from it will eventually go to your Stable channel, while `release/v4` packages will begin to go to your Early Adopter channel.
 :::
 
-### Feature branches {#Branching-Featurebranches}
+### Feature branches
 
 Feature branches are usually short lived, and allow developers to work on a new feature in isolation. When the feature is complete, it is merged back to the `trunk` or the `main` (default) branch. Often, feature branches are not deployed, and so don't need to be mapped in Octopus.
 
@@ -105,7 +105,7 @@ Again, channels can be used to make it easier to create releases for feature bra
 ![](/docs/deployments/patterns/images/3278471.png)
 :::
 
-### Environment branches {#Branching-Environmentbranches}
+### Environment branches
 
 A final branching strategy that we see is to use a branch per environment that gets deployed to. Code is promoted from one environment to another by merging code between branches.
 
@@ -123,11 +123,11 @@ You can make this work in Octopus, by creating a package for each environment an
 
 However, on the whole, this isn't a scenario we've set out to support in Octopus, and we don't believe it's a good idea in general.
 
-## Other considerations {#Branching-Otherconsiderations}
+## Other considerations
 
 The above section describes common branching strategies and how they map to NuGet packages, releases and channels in Octopus. However, depending on your release process, there may be other things to consider. Below are some issues that often come up in relation to branching and Octopus.
 
-### multiple branches can be "currently deployed" at the same time {#Branching-Multiplebranchescanbe&quot;currentlydeployed&quot;atthesametime}
+### multiple branches can be "currently deployed" at the same time
 
 Normally in Octopus, a single release for a project is deployed to a single environment at a time - for example, only one release is "currently" in Production. When you have multiple active release branches, or sometimes even feature branches, it might be that you actually have more than one "current" release.
 
@@ -143,7 +143,7 @@ Your dashboard in Octopus should reflect this reality by displaying each channel
 ![](/docs/deployments/patterns/images/3278472.png)
 :::
 
-### My branches are very different, and i need my deployment process to work differently between them {#Branching-Mybranchesareverydifferent,andIneedmydeploymentprocesstoworkdifferentlybetweenthem}
+### My branches are very different, and i need my deployment process to work differently between them
 
 Sometimes a new branch might introduce a new component that needs to be deployed, which doesn't exist in the old branch. If you use channels, you can scope deployment steps and variables to channels to support this.
 
@@ -161,7 +161,7 @@ Likewise, it has variables that only apply on Early Adopter:
 
 For more advanced uses, you may need to clone your project.
 
-### We sometimes need to make hotfixes that are deployed straight to staging/production {#Branching-Wesometimesneedtomakehotfixesthataredeployedstraighttostaging/production}
+### We sometimes need to make hotfixes that are deployed straight to staging/production
 
 Hotfixes are a special kind of release branch, but typically have a shorter lifecycle - they may need to go directly to production to fix a critical issue, and might skip certain deployment steps.
 
@@ -185,7 +185,7 @@ While stable releases still follow the usual testing lifecycle:
 ![](/docs/deployments/patterns/images/3278477.png)
 :::
 
-### We need to deploy different components depending on whether it's a "full" release or a "partial" release {#Branching-Weneedtodeploydifferentcomponentsdependingonwhetherit&#39;sa&quot;full&quot;releaseora&quot;partial&quot;release}
+### We need to deploy different components depending on whether it's a "full" release or a "partial" release
 
 You might have a large project with many components. Sometimes you only need to deploy a single component, while other times you may need to deploy all components together.
 

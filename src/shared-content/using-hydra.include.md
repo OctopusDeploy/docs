@@ -37,7 +37,7 @@ The scheduled task is set to run as `SYSTEM` to ensure the MSI installation will
 Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Service Account is reset to `Local System`. If you need your Tentacles to run under a different account, you will have to make the change after the upgrade completes (after you've re-established a connection from 2018.10 LTS). You can do this manually, or using the following script:
 
 ```powershell
-Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=accountpassword --start --console
+Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=your-password --start --console
 ```
 #### Let's upgrade these Tentacles!
 
