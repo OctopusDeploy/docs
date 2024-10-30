@@ -186,7 +186,7 @@ Note that for each output variable/deployment target combination:
 For some practical examples of using output variables, and how scoping rules are applied, see the following blog posts:
 
 - [Fun with output variables](https://octopus.com/blog/fun-with-output-variables)
-- [Changing website ports using output variables](http://octopus.com/blog/changing-website-port-on-each-deployment)
+- [Changing website ports using output variables](https://octopus.com/blog/changing-website-port-on-each-deployment)
 
 ## Output from a Deploy a Release step {#deploy-release-output}
 
