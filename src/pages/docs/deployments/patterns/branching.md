@@ -113,7 +113,7 @@ A final branching strategy that we see is to use a branch per environment that g
 ![](/docs/deployments/patterns/images/3278444.png)
 :::
 
-We do not like or recommend this strategy, as it violates the principle of [Build your Binaries Once](http://octopus.com/blog/build-your-binaries-once).
+We do not like or recommend this strategy, as it violates the principle of [Build your Binaries Once](https://octopus.com/blog/build-your-binaries-once).
 
 - The code that will eventually run in production may not match 100% the code run during testing.
 - It's easy for a merge to go wrong and result in different code than you expected running in production.
