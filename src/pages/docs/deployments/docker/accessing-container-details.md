@@ -24,9 +24,9 @@ Keep in mind when using the results of Octopus Deploy's automatic inspection tha
 Variables that are a JSON object can now be [parsed natively](/docs/projects/variables/variable-substitutions) and sub properties within the document can now be used for general variable substitution. This makes accessing information about your container from subsequent steps trivial.
 :::
 
-## Common examples {#AccessingContainerDetails-Commonexamples}
+## Common examples {#AccessingContainerDetails-CommonExamples}
 
-### Creating a Network then adding a container {#AccessingContainerDetails-Creatinganetworkthenaddingacontainer}
+### Creating a Network then adding a container {#AccessingContainerDetails-CreatingANetworkThenAddingAContainer}
 
 A typical project may involve one step that first creates a network, and then creates a container that is attached to that network. Assuming that your subsequent Docker Run step needs to be connected to that network, you would select the network type *Custom Network* and then for the network name use the name of the network generated from the previous step that is now stored in its inspection output variable
 
@@ -38,7 +38,7 @@ A typical project may involve one step that first creates a network, and then cr
 ![](/docs/deployments/docker/images/5865817.png)
 :::
 
-### Obtain container IP address inside custom network {#AccessingContainerDetails-ObtainContainerIPaddressinsidecustomnetwork}
+### Obtain container IP address inside custom network {#AccessingContainerDetails-ObtainContainerIPAddressInsideCustomNetwork}
 
 Once a container has started and is attached to a network, an IP address will be assigned to it. Since the container may get attached to more than one network, the network details are stored in the JSON as an object indexed by the network name. When trying to get the IP address assigned to a container which has been added to a custom network, there are two steps to the variable substitution. First we need the network name, then we need to inspect the container and find the network information that corresponds to that network name.
 
@@ -59,7 +59,7 @@ For instance, in the examples outlined above, the network name was needed severa
 ```
 :::
 
-## Sample inspection output {#AccessingContainerDetails-Sampleinspectionoutputcommandexample}
+## Sample inspection output {#AccessingContainerDetails-SampleInspectionOutputCommandExample}
 
 The following JSON objects are real outputs from docker inspect commands to provide some indication of what to expect in the output variable.
 
