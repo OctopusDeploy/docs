@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-09-19
-modDate: 2024-09-19
+modDate: 2024-10-31
 title: Codefresh Pipelines
 description: Codefresh pipelines can leverage the Octopus CLI to build, push, and create releases for Octopus Deploy.
 navOrder: 50
@@ -32,12 +32,29 @@ When creating your first Codefresh Pipeline, the pipeline workflow can be define
 
 The details of an Octopus instance are required to run all Octopus Codefresh steps:
 
-| Variable name          | Description                                                                                                   |
-|------------------------|---------------------------------------------------------------------------------------------------------------|
-| `OCTOPUS_URL`          | The Octopus Server URL you wish to run your steps on                                                          |
-| `OCTOPUS_ACCESS_TOKEN` | This value is set by the octopusdeploy/login step, and should be passed as an argument to all following steps |
-| `AUDIENCE`             | The Octopus Deploy audience or service account ID required for authentication                                 |
-| `OCTOPUS_SPACE`        | The Space to run steps on                                                                                     |
+| Variable name          | Description                                                                                                         |
+|------------------------|---------------------------------------------------------------------------------------------------------------------|
+| `OCTOPUS_URL`          | The Octopus Server URL you wish to run your steps on                                                                |
+| `OCTOPUS_API_KEY`      | The Octopus Deploy API Key required for authentication                                                              |
+| `OCTOPUS_ACCESS_TOKEN` | This value is set by the **octopusdeploy-login** step, and should be passed as an argument to all following steps   |
+| `AUDIENCE`             | The Octopus Deploy audience or service account ID required for authentication                                       |
+| `OCTOPUS_SPACE`        | The Space to run steps on                                                                                           |
+
+### Authentication to Octopus server
+
+The following steps require Octopus server authentication:
+
+- [Push a package](https://codefresh.io/steps/step/octopusdeploy-push-package)
+- [Create a release](https://codefresh.io/steps/step/octopusdeploy-create-release)
+- [Deploy a release](https://codefresh.io/steps/step/octopusdeploy-deploy-release)
+- [Deploy a tenanted release](https://codefresh.io/steps/step/octopusdeploy%2Fdeploy-release-tenanted)
+- [Run a runbook](https://codefresh.io/steps/step/octopusdeploy-run-runbook)
+- [Push build information](https://codefresh.io/steps/step/octopusdeploy-push-build-information)
+
+There are two options for authentication. You can:
+
+1. Use the [Login to Octopus step](https://codefresh.io/steps/step/octopusdeploy-login) and provide `OCTOPUS_ACCESS_TOKEN` as an argument for each step.
+2. Skip the login step and provide an `OCTOPUS_API_KEY` as an argument for each step.
 
 ## Codefresh variables 
 
@@ -105,13 +122,17 @@ steps:
       ...
 ```
 
-# Example Pipeline build
+# Example Pipeline builds
 
-The following example demonstrates a Codefresh Pipeline build of an application sourced from Github.
+The following examples demonstrate a Codefresh Pipeline build of an application sourced from Github.
+
+## When using the Login step
 
 To build and deploy this application, you'll need the following steps:
 
 - Clone the source code
+- Obtain OIDC token (available from the [Codefresh Marketplace](https://codefresh.io/steps/))
+- Login
 - Create a package
 - Push package to Octopus Deploy instance
 - Create a release for an existing project (get started with the basics of [setting up a project](/docs/projects/setting-up-projects))
@@ -147,7 +168,7 @@ steps:
     stage: "Login"
 
   login:
-    type: octopusdeploy/login
+    type: octopusdeploy-login
     title: Login
     stage: "login"
     arguments:
@@ -171,7 +192,7 @@ steps:
     type: octopusdeploy-push-package
     stage: "build and push"
     arguments:
-      # OCTOPUS_ACCESS_TOKEN is set as an environment variable by the octopusdeploy/login step
+      # OCTOPUS_ACCESS_TOKEN is set as an environment variable by the octopusdeploy-login step
       OCTOPUS_ACCESS_TOKEN: ${{OCTOPUS_ACCESS_TOKEN}}
       OCTOPUS_URL: ${{OCTOPUS_URL}}
       OCTOPUS_SPACE: "Spaces-42"
@@ -208,6 +229,91 @@ steps:
 ```
 </details>
 
+## When using an API key
+
+To build and deploy this application, you'll need the following steps:
+
+- Clone the source code
+- Create a package
+- Push package to Octopus Deploy instance
+- Create a release for an existing project (get started with the basics of [setting up a project](/docs/projects/setting-up-projects))
+- Deploy
+
+Below is an example Codefresh Pipeline workflow which includes these steps:
+
+<details>
+  <summary>Click here to view the entire example build YAML</summary>
+
+```yaml
+version: "1.0"
+
+stages:
+  - "build and push"
+  - "deploy"
+
+steps:
+  clone:
+    title: "Cloning repository"
+    type: "git-clone"
+    stage: "build and push"
+    repo: <<YOUR REPO URL>>
+    revision: "main"
+    working_directory: "/codefresh/volume"
+    credentials:
+      username: ${{GITHUB_USERNAME}}
+      password: ${{GITHUB_PASSWORD}}
+
+  create-package:
+    title: "Create package"
+    type: octopusdeploy-create-package
+    stage: "build and push"
+    arguments:
+      ID: "Hello"
+      VERSION: "1.0.0-${{CF_BUILD_ID}}"
+      BASE_PATH: "/codefresh/volume"
+      OUT_FOLDER: "/codefresh/volume"
+
+  push-package:
+    title: "Push package"
+    type: octopusdeploy-push-package
+    stage: "build and push"
+    arguments:
+      OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
+      OCTOPUS_URL: ${{OCTOPUS_URL}}
+      OCTOPUS_SPACE: "Spaces-42"
+      PACKAGES:
+        - "/codefresh/volume/Hello.1.0.0-${{CF_BUILD_ID}}.zip"
+      OVERWRITE_MODE: 'overwrite'
+
+  create-release:
+    type: octopusdeploy-create-release
+    title: "Create release"
+    stage: "deploy"
+    arguments:
+      OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
+      OCTOPUS_URL: ${{OCTOPUS_URL}}
+      OCTOPUS_SPACE: "Spaces-42"
+      PROJECT: "Demo Project"
+      RELEASE_NUMBER: "1.0.0-${{CF_BUILD_ID}}"
+      PACKAGES:
+       - "Hello:1.0.0-${{CF_BUILD_ID}}"
+      RELEASE_NOTES: This is a release note
+
+  deploy:
+    type: octopusdeploy-deploy-release
+    title: "Deploy release"
+    stage: "deploy"
+    arguments:
+      OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
+      OCTOPUS_URL: ${{OCTOPUS_URL}}
+      OCTOPUS_SPACE: "Spaces-42"
+      PROJECT: "Demo Project"
+      RELEASE_NUMBER: "1.0.0-${{CF_BUILD_ID}}"
+      ENVIRONMENTS:
+        - "Development"
+```
+</details>
+
 # Octopus Deploy steps
 
 Octopus Deploy steps and examples are available from the [Codefresh Marketplace](https://codefresh.io/steps/).
@@ -222,7 +328,7 @@ The **octopusdeploy-login** step requires an `ID_TOKEN`, which can be generated 
 
 ```yaml
   login:
-    type: octopusdeploy/login
+    type: octopusdeploy-login
     arguments:
       ID_TOKEN: '${{ID_TOKEN}}'
       OCTOPUS_URL: '${{OCTOPUS_URL}}'
@@ -255,7 +361,7 @@ Once the artifacts are packaged, use the **octopusdeploy-push-package** step to 
   push-package:
     type: octopusdeploy-push-package
     arguments:
-      OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+      OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
       OCTOPUS_URL: '${{OCTOPUS_URL}}'
       OCTOPUS_SPACE: "Default"
       PACKAGES:
@@ -271,7 +377,7 @@ To create a release, use the **octopusdeploy-create-release** step. Provide the 
 create-release:
   type: octopusdeploy-create-release
   arguments:
-    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: "Default"
     PROJECT: "Project Name"
@@ -283,7 +389,7 @@ Optional arguments help to customize the creation of the release. You can specif
 create-release:
   type: octopusdeploy-create-release
   arguments:
-    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: "Default"
     PROJECT: "Project Name"
@@ -304,7 +410,7 @@ To deploy a release, use the **octopusdeploy-deploy-release** step. Provide deta
 deploy-release:
   type: octopusdeploy-deploy-release
   arguments:
-    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: "Default"
     PROJECT: "Project Name"
@@ -319,7 +425,7 @@ Additionally, you can provide optional arguments to specify guided failure mode 
 deploy-release:
   type: octopusdeploy-deploy-release
   arguments:
-    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: "Default"
     PROJECT: "Project Name"
@@ -340,7 +446,7 @@ To deploy a tenanted release, use the **octopusdeploy-deploy-release-tenanted** 
 deploy-release-tenanted:
   type: octopusdeploy-deploy-release-tenanted
   arguments:
-    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: Spaces 1
     PROJECT: Project Name
@@ -356,7 +462,7 @@ Optional arguments help to customize the deployment of the release. You can spec
 deploy-release-tenanted:
   type: octopusdeploy-deploy-release-tenanted
   arguments:
-    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: Spaces 1
     PROJECT: Project Name
@@ -380,7 +486,7 @@ To run a runbook, use the **octopusdeploy-run-runbook** step. Provide the name o
 run-runbook:
   type: octopusdeploy-run-runbook
   arguments:
-    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: Spaces 1
     PROJECT: Project Name
@@ -396,7 +502,7 @@ Optional arguments include variables to use within the runbook, the option to ru
 run-runbook:
   type: octopusdeploy-run-runbook
   arguments:
-    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: Spaces 1
     PROJECT: Project Name
@@ -426,7 +532,7 @@ By default, the step will fail if build information already exists, but this can
 push-build-information:
   type: octopusdeploy-push-build-information
   arguments:
-    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}'
+    OCTOPUS_ACCESS_TOKEN: '${{OCTOPUS_ACCESS_TOKEN}}' # Option to replace with OCTOPUS_API_KEY: ${{OCTOPUS_API_KEY}}
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: Spaces 1
     PACKAGE_IDS:
@@ -477,7 +583,7 @@ steps:
     stage: "Login"
 
   login:
-    type: octopusdeploy/login
+    type: octopusdeploy-login
     title: Login
     stage: "login"
     arguments:
