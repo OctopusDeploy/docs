@@ -11,7 +11,7 @@ This section focuses on securing data in the [Octopus database](/docs/administra
 
 When an Octopus Server is installed, we generate a special key used for encryption, called the **Master Key**. The Master Key is then encrypted asymmetrically, using [Windows Data Protection](https://learn.microsoft.com/en-us/previous-versions/ms995355(v=msdn.10)), and stored in the Octopus configuration file.
 
-The Master Key is then used along with [AES-128](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt certain sensitive data in the Octopus database, including:
+The Master Key is then used along with [AES-256](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt certain sensitive data in the Octopus database, including:
 
 - [Sensitive variables](/docs/projects/variables/sensitive-variables).
 - Private keys used for [Octopus/Tentacle](/docs/security/octopus-tentacle-communication/) communication, and for authenticating with [Azure](/docs/infrastructure/accounts/azure/) and [SSH endpoints](/docs/infrastructure/deployment-targets/linux/ssh-target).
@@ -43,7 +43,6 @@ When Octopus is installed, it generates a random string which will be used as th
 
 Depending on the version of Octopus Server you are using you may need to use a slightly different parsing:
 
-</details>
 <details data-group="data-encryption">
 <summary>Using text</summary>
 

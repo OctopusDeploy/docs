@@ -13,7 +13,7 @@ As you work with [variables](/docs/projects/variables) in Octopus, there will be
 Sensitive variables can be sourced from either:
 
 - A Secret Manager/Key Vault using one of our Community step templates.
-- Octopus itself, with values stored securely using **AES128 encryption**.
+- Octopus itself, with values stored securely using **AES-256 encryption**.
 
 ## Values from a Secret Manager/Key Vault {#values-from-key-vaults}
 
@@ -70,7 +70,12 @@ For variable type, select **Sensitive**.
 Learn more about [security and encryption](/docs/security/data-encryption) in Octopus Deploy.
 :::
 
-When dealing with sensitive variables, Octopus encrypts these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/projects/variables), with two notable exceptions:
+When dealing with sensitive variables, Octopus encrypts these values using:
+
+- **AES-256** encryption when they are stored in the Octopus database
+- **AES-128 encryption** any time they are in transmission, or when they are stored on a deployment target as part of a deployment. 
+
+You can use these sensitive values in your deployment process just like normal [variables](/docs/projects/variables), with two notable exceptions:
 
 - Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/octopus-rest-api) or the Octopus Web Portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.

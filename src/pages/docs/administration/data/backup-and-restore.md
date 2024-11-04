@@ -18,7 +18,7 @@ A successful disaster recovery plan for Octopus Deploy requires the ability to r
 :::div{.problem}
 
 **Without your Master Key, backups are useless**
-Sensitive information is encrypted using AES128 with the Master Key as the encryption key. Without this Master Key you will lose your sensitive variables, passwords, and other encrypted data. Make sure you've taken a copy of the key! [Learn more about backing up the Master Key](/docs/security/data-encryption).
+Sensitive information is encrypted using AES-256 with the Master Key as the encryption key. Without this Master Key you will lose your sensitive variables, passwords, and other encrypted data. Make sure you've taken a copy of the key! [Learn more about backing up the Master Key](/docs/security/data-encryption).
 
 :::
 
@@ -58,6 +58,6 @@ When connecting to an existing database, you will be prompted for this key durin
 :::div{.problem}
 
 **Without your Master Key, backups are useless**
-Sensitive information is encrypted using AES128 with the Master Key as the encryption key. Without this Master Key you will lose sensitive variables, passwords, and other encrypted data. Make sure you've taken a copy of the key! [Learn more about backing up the Master Key](/docs/security/data-encryption).
+Sensitive information is encrypted using AES-256 with the Master Key as the encryption key. Without this Master Key you will lose sensitive variables, passwords, and other encrypted data. Make sure you've taken a copy of the key! [Learn more about backing up the Master Key](/docs/security/data-encryption).
 
 :::
