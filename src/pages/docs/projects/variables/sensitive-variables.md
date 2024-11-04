@@ -72,7 +72,8 @@ Learn more about [security and encryption](/docs/security/data-encryption) in Oc
 
 When dealing with sensitive variables, Octopus encrypts these values using:
 
-- **AES-256** encryption when they are stored in the Octopus database
+- **AES-256** encryption when they are stored in the Octopus database in versions 2024.4 and newer.
+- **AES-128** encryption when they are stored in the Octopus database in versions prior to 2024.4.
 - **AES-128 encryption** any time they are in transmission, or when they are stored on a deployment target as part of a deployment. 
 
 You can use these sensitive values in your deployment process just like normal [variables](/docs/projects/variables), with two notable exceptions:
