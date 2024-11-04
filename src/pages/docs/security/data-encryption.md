@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-07-15
+modDate: 2024-10-04
 title: Data encryption
 description: This section describes how Octopus Deploy encrypts sensitive data at rest.
 navOrder: 50

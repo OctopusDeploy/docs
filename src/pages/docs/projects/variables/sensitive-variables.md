@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-29
+modDate: 2024-10-04
 title: Sensitive variables
 icon: fa-solid fa-key
 description: Sensitive variables allow you to define secret values used in your applications that can be securely stored in Octopus, or retrieved from a Secret Manager/Key Vault using one of our community step templates.
