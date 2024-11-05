@@ -4,6 +4,7 @@ const synonyms = {
   logs: 'log',
   //logs: 'log files',
   // Join words
+  a: '',
   and: '',
   for: '',
   if: '',
