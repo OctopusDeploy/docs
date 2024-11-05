@@ -19,6 +19,17 @@ function enabled(settings, option) {
 }
 
 /**
+ *
+ * @param {any} value
+ * @param {number} index
+ * @param {any[]} array
+ * @returns
+ */
+function unique(value, index, array) {
+  return array.indexOf(value) === index;
+}
+
+/**
 @typedef {
     {
         text: string;
@@ -30,6 +41,7 @@ function enabled(settings, option) {
 @typedef {
     {
         foundWords: number;
+        foundTerms: string[];
         score: number;
         depth: number;
         title: string;
@@ -277,7 +289,7 @@ function initializeSearch() {
     }
 
     /** @type {SearchEntry[]} */
-    const needles = [];
+    let needles = [];
 
     // Clean the input
     const cleanQuery = sanitise(s);
@@ -303,6 +315,7 @@ function initializeSearch() {
     cleanQuery.length > 0 &&
       haystack.forEach((item) => {
         item.foundWords = 0;
+        item.foundTerms = [];
         item.score = 0;
         item.matchedHeadings = [];
 
@@ -338,6 +351,8 @@ function initializeSearch() {
         // Part 2 - Term Matches, i.e. "Kitchen" or "Sink"
 
         let foundWords = 0;
+        /** @type{string[]} */
+        let foundTerms = [];
 
         allTerms.forEach((term) => {
           let isTermFound = false;
@@ -345,6 +360,7 @@ function initializeSearch() {
           // Title
           if (contains(item.safeTitle, term)) {
             item.score = item.score + scoring.termTitle;
+            item.foundWords += (scores.headingContains / 2);
             isTermFound = true;
           }
 
@@ -384,10 +400,14 @@ function initializeSearch() {
 
           if (isTermFound) {
             foundWords++;
+            foundTerms.push(term);
           }
         });
 
         item.foundWords += foundWords;
+        item.foundTerms = item.foundTerms
+          .concat(foundTerms)
+          .filter(unique);
 
         if (item.score > 0) {
           needles.push(item);
@@ -408,13 +428,19 @@ function initializeSearch() {
       }
     });
 
-    needles.sort(function (a, b) {
-      if (b.foundWords === a.foundWords) {
-        return b.score - a.score;
+    needles = needles.sort(function (a, b) {
+      if (b.foundTerms.length === a.foundTerms.length) {
+        if (b.foundWords === a.foundWords) {
+            return b.score - a.score;
+        }
+
+        return b.foundWords - a.foundWords;
       }
 
-      return b.foundWords - a.foundWords;
+      return b.foundTerms.length - a.foundTerms.length;
     });
+
+    console.log(needles);
 
     const total = needles.reduce(function (accumulator, needle) {
       return accumulator + needle.score;
