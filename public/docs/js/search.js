@@ -64,6 +64,7 @@ function initializeSearch() {
   var currentQuery = '';
   var dataUrl = siteSearchElement.dataset.sourcedata;
 
+  // Legacy scoring
   var scoring = {
     depth: 5,
     phraseTitle: 60,
@@ -75,6 +76,14 @@ function initializeSearch() {
     termTags: 15,
     termKeywords: 15,
   };
+
+  // Found word scoring
+  const scores = {
+    titleExact: 20,
+    titleContains: 15,
+    headingContains: 10,
+    contentContains: 1
+  }
 
   var ready = false;
   var scrolled = false;
@@ -226,21 +235,27 @@ function initializeSearch() {
     return _synonyms ?? {};
   }
 
-  /**
-   * Replaces synonyms
-   * @param {string[]} queryTerms
-   */
-  async function replaceSynonyms(queryTerms) {
-    const synonyms = await getSynonyms();
+    /**
+     * Replaces synonyms
+     * @param {string[]} queryTerms
+     * @returns {Promise<string[]>}
+     */
+    async function replaceSynonyms(queryTerms) {
+      const synonyms = await getSynonyms();
 
-    for (let i = 0; i < queryTerms.length; i++) {
-      const term = queryTerms[i];
-      if (synonyms[term] != null) {
-        queryTerms.push(synonyms[term]);
+      for (let i = 0; i < queryTerms.length; i++) {
+          const term = queryTerms[i];
+          if (synonyms[term] != null) {
+              if (synonyms[term].length === 0) {
+                  // @ts-ignore
+                  queryTerms[i] = null;
+              } else {
+                  queryTerms.push(synonyms[term]);
+              }
+          }
       }
-    }
 
-    return queryTerms;
+      return queryTerms.filter((qt) => qt != null);
   }
 
   /**
@@ -297,12 +312,12 @@ function initializeSearch() {
 
         // Title
         if (item.safeTitle === currentQuery) {
-          item.foundWords += 2;
+          item.foundWords += scores.titleExact;
         }
 
         if (contains(item.safeTitle, currentQuery)) {
           item.score = item.score + scoring.phraseTitle;
-          item.foundWords += 2;
+          item.foundWords += scores.titleContains;
         }
 
         // Headings
@@ -310,14 +325,14 @@ function initializeSearch() {
           if (contains(c.safeText, currentQuery)) {
             item.score = item.score + scoring.phraseHeading;
             item.matchedHeadings.push(c);
-            item.foundWords++;
+            item.foundWords += scores.headingContains;
           }
         });
 
         // Description
         if (contains(item.description, currentQuery)) {
           item.score = item.score + scoring.phraseDescription;
-          item.foundWords++;
+          item.foundWords += scores.contentContains;
         }
 
         // Part 2 - Term Matches, i.e. "Kitchen" or "Sink"
