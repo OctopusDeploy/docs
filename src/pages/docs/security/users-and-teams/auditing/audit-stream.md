@@ -20,7 +20,7 @@ You can configure the audit stream from the **Audit** page in the **Configuratio
 ![Audit Stream Not Configured](/docs/security/users-and-teams/auditing/images/audit-stream-not-configured.png)
 :::
 
-Currently we support streaming to **Splunk** and **Sumo Logic**.
+Currently we support streaming to **OpenTelemetry (OTLP)** compatible providers as well as directly to **Splunk** and **Sumo Logic**.
 
 :::figure
 ![Audit Stream Configure Dialog](/docs/security/users-and-teams/auditing/images/audit-stream-configure-dialog.png)
@@ -29,6 +29,23 @@ Currently we support streaming to **Splunk** and **Sumo Logic**.
 :::div{.hint}
 Looking to connect to a SIEM solution that is not currently supported? Let us know in our [feedback form](https://oc.to/AuditStreamFeedbackForm).
 :::
+
+### Streaming to OpenTelemetry (OTLP)
+
+Refer to your SIEM solution's documentation on how to set up collection via OpenTelemetry. Some providers may support OTLP directly, while others recommend hosting your own [OpenTelmetry Collector](https://github.com/open-telemetry/opentelemetry-collector) and use one of the [exporters](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter) to forward the data to the SIEM.
+
+Once you have set up the collector, you will need to provide the connection details in Octopus:
+- **OpenTelmetry Endpoint URL** - The collection endpoint. In most cases you will need to append `/v1/logs` to the url
+- **OTLP Protocol** - The protocol to use, `HTTP/protobuf` (also known as `OTLP/HTTP`) or `gRPC`
+- **Secret** - The authentication token to use, see below
+- **Header** - Any HTTP headers that are required by the collector
+
+There is no standard authentication mechanism for OpenTelemetry, so it has to be configured to suit the collector. If there is no authentication, leave the `Secret` blank. You can use the `#{Secret}` replacement token to insert the secret into the URL or the header values.
+
+Common configurations are:
+- **Token in the URL** - Remove the token from the URL and replace it with `#{Secret}`. Place the token into the `Secret` field.
+- **Custom Header** - Add a header with the required key and value of `#{Secret}`
+- **Bearer Authentication** - Add a header with key `Authorization` and value `Bearer #{Secret}` or `Bearer #{Secret | ToBase64}` if the secret needs to be Base64 encoded
 
 ### Streaming to Splunk
 
