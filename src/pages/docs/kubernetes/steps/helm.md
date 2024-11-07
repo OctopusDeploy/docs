@@ -191,12 +191,10 @@ To ensure a smooth deployment experience, we recommend setting a larger Octopus 
 - [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
 
 :::div{.hint}
-### Step updates
-#### 2024.1
+**Step updates**
+**2024.1:**
 - `Upgrade a Helm Chart` was renamed to `Deploy a Helm chart`.
 - Support was added for Helm charts stored in Git repositories. You can learn more in [this blog post](https://octopus.com/blog/git-resources-in-deployments).
-#### 2023.3.4127
+**2023.3.4127**
 - Support was added for Helm repositories stored in OCI-based registries.
 :::
-
-

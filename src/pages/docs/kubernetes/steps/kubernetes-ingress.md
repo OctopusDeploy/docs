@@ -78,7 +78,7 @@ When there are no matching ingress rules, traffic can be sent to the service con
 - [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
 
 :::div{.hint}
-### Step updates
-#### 2024.1
+**Step updates**
+**2024.1:**
 - `Deploy Kubernetes ingress resource` was renamed to `Configure and apply a Kubernetes Ingress`.
 :::

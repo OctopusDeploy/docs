@@ -112,10 +112,10 @@ There are a few different ways to take advantage of this feature:
 [Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns).
 
 :::div{.hint}
-### Step updates
-#### 2024.1
+**Step updates**
+**2024.1:**
 - `Deploy Raw Kubernetes YAML` was renamed to `Deploy Kubernetes YAML`.
 - If you store your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source your YAML from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the YAML files. You can learn more in [this blog post](https://octopus.com/blog/git-resources-in-deployments).
-#### 2023.3
+**2023.3:**
 - Sourcing from Git Repositories was added. You can learn more in [this blog post](https://octopus.com/blog/manifests-from-git).
 :::

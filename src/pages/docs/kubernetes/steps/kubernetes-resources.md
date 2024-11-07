@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-07-31
+modDate: 2024-11-07
 title: Configure and apply Kubernetes resources
 description: Configure and apply Kubernetes resources.
 navOrder: 50
@@ -1052,7 +1052,7 @@ For example, to change the name assigned to the ConfigMap resource to include th
 - [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
 
 :::div{.hint}
-### Step updates
-#### 2024.1
+**Step updates**
+**2024.1:**
 - `Deploy Kubernetes containers` was renamed to `Configure and apply Kubernetes resources`.
 :::

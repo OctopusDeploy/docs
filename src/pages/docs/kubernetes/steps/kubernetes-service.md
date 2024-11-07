@@ -78,7 +78,7 @@ There are some advanced use cases where creating a Service resource without sele
 - [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
 
 :::div{.hint}
-### Step updates
-#### 2024.1
+**Step updates**
+**2024.1:**
 - `Deploy Kubernetes service resource` was renamed to `Configure and apply a Kubernetes Service`.
 :::
