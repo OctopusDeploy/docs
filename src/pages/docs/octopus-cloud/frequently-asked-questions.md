@@ -8,13 +8,28 @@ navOrder: 70
 description: Commonly asked questions about Octopus Cloud, along with answers and links to more detail.
 ---
 This page answers the most commonly asked questions about Octopus Cloud, with links to more detail. If you have a question not yet covered here, please use the "Send Feedback" button at the foot of this page or [contact our Sales team](https://octopus.com/company/contact).
+
 ## Getting started
+
 ### What is Octopus Cloud?
 Octopus Cloud is the easiest way to start with Octopus Deploy; we take care of everything for you. Octopus Cloud has the same functionality as Octopus Server, delivered as a highly available, scalable, secure SaaS application hosted for you. 
+
 ### Where do I begin?
-Many customers begin with our [getting started](/docs/getting-started) guide, which covers the key concepts and terminology we use.
+Many customers begin with our [getting started](/docs/getting-started) guide, which covers the key concepts and terminology we use. When you’re ready, [start a free trial](https://octopus.com/start) to explore Octopus.
+
 ### How is Octopus Cloud built? 
 Our [Octopus Cloud architecture](https://octopus.com/blog/octopus-cloud-architecture) overview describes how Octopus Cloud is delivered. 
+
+## Training & Setup
+
+### What training is available?
+Our [Resource Center](https://octopus.com/resource-center) provides many high-quality webinars, blog posts, white papers and free tools. We also offer [books with free PDF versions](https://octopus.com/publications) covering Octopus and wider DevOps topics. We pride ourselves on the quality of our [developer documentation](/docs) and offer free [training video tutorials](https://www.youtube.com/playlist?list=PLAGskdGvlaw268i2ZTPC1ZrxwFjjKIdKH). We support a [community Slack channel](https://octopususergroup.slack.com/join/shared_invite/zt-170c1xzfl-J_pWvCeNZ4H_LmGVE4XNtw#/shared-invite/email) where our staff regularly assist with customer enquiries.
+
+Our Professional and Enterprise tier customers also receive access to our Support team and expert-guided onboarding. Enterprise tier customers can add-on Technical Account Management services. Enterprise-tier customers with licenses over $50,000 USD are assigned a Customer Success Manager. 
+
+### Can we get support for our initial setup?
+Our Professional and Enterprise tier customers receive our expert-guided onboarding Support, and our [Sales and Support teams](https://octopus.com/company/contact) are highly responsive and available to every customer. 
+
 
 ## Purchasing
 
@@ -38,7 +53,92 @@ Our Sales team can [provide a quote](https://octopus.com/company/contact) that m
 ### How do I use a purchase order?
 For customers purchasing or renewing on our Starter tier, when you fill out the online form, there is a field to enter a Customer Reference. This value will appear on the quote or invoice PDF that we generate. You can use this field to put your own internal purchase order number. For customers on Professional or Enterprise tiers, please provide our Sales team with your purchase order and it will be included in your quote or invoice.
 
-### Where is more pricing information?
+### Where can I learn more about pricing?
 Please refer to our dedicated [Octopus pricing](https://octopus.com/pricing/overview) overview, and additionally our [Octopus Cloud pricing FAQ](https://octopus.com/pricing/faq#octopus-cloud-section). Alternatively please [contact our Sales team](https://octopus.com/company/contact) who can answer any other questions you may have.
 
+## Data Centers
+
+### Where is Octopus Cloud hosted? 
+We [host Octopus Cloud](https://octopus.com/docs/octopus-cloud#octopus-cloud-hosting-locations) in the following Azure regions:
+* West US 2
+* West Europe
+* Australia East
+  
+Each customer's Octopus Cloud is wholly located within a single Azure region.
+
+### Where are the data centers located? 
+Each customer's Octopus Cloud is wholly located within a single Azure region. The data centers for each Azure region are [published by Microsoft](https://datacenters.microsoft.com/). 
+
+### Can we choose another Azure region?
+Please [contact our sales team](https://octopus.com/company/contact) to discuss this.
+
+### Can I move my Octopus Cloud to another region?
+Yes. Simply [contact Support]((https://octopus.com/company/contact)) to arrange the relocation.
+
 ## Security
+
+### How does Octopus Cloud approach security?
+We pride ourselves on making Octopus Deploy a [secure product](/docs/security#octopus-cloud). In addition, Octopus Cloud instances are [secure and compliant](/docs/octopus-cloud#secure-and-compliant-out-of-the-box) out of the box. 
+
+### Is Octopus Cloud compliant with GDPR?
+Octopus complies with the European Union's General Data Protection Regulation ([GDPR](https://octopus.com/legal/gdpr)). 
+
+### Is Octopus Cloud compliant with SOC 2?
+We are regularly audited and maintain a SOC 2 Type II certification. You can request access to our confirmation from our [Trust Center](https://octopus.com/company/trust).
+
+### Is Octopus Cloud compliant with ISO 27001?
+Our information security management system has been assessed and found to conform with ISO 27001:2013. Our certificate can be viewed via our [Trust Center](https://octopus.com/company/trust).
+
+### Is Octopus Cloud compliant with HIPAA?
+Octopus Deploy is not a covered entity under HIPAA. We do not process personally identifiable health data directly or on behalf of our customers. Octopus Cloud has global healthcare industry customers operating on our platform. 
+
+### Where can I learn more about Octopus Deploy compliance?
+The security and privacy of our customers' personal, company, and intellectual property data are top priorities at Octopus. We're dedicated to maintaining and continuously improving our security and compliance programs, the details of which are published on our [Trust Center](https://octopus.com/company/trust).
+
+### Which authentication providers are supported?
+Octopus Cloud supports most common [authentication providers](/docs/security/authentication/auth-provider-compatibility#login-support) out of the box.
+
+### What level of encryption is used between an Octopus Server and a Tentacle?
+All communication between the Tentacle and Octopus is performed over a secure TLS connection. We recommend TLS1.2+. The [trust relationship](/docs/security/octopus-tentacle-communication) between the Octopus Server and a Tentacle is configured using public-key cryptography. The server and Tentacle establish the trust relationship using [X.509 self-signed certificates](/docs/security/octopus-tentacle-communication#Octopus-Tentaclecommunication-Octopuscertificates), which are generated upon installation and use 2048-bit private keys.
+
+### How secure is Tentacle communication?
+Octopus Cloud communicates with Tentacles you deploy on your targets via SSL-encrypted data transmitted over a TCP connection. [Tentacle communication](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/tentacle-communication) modes can be set up as listening (acting as the TCP server) or polling (acting as the TCP client). Many customers prefer polling for greater security of the Tentacle host.
+
+### Can a Tentacle access customer data?
+Every process within a Tentacle is executed by the user account configured on its service. Tentacles can be configured to run under a [specific user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account) if for instance elevated or alternative permissions are required. The Tentacle's access to data is constrained by the user account configured.
+
+### Does Octopus Cloud have any security vulnerabilities? 
+We make a list of all [our security advisories](https://advisories.octopus.com/) public, including any current vulnerabilities. We practice responsible disclosure as detailed in our [security disclosure policy](https://octopus.com/security/disclosure).
+
+### Has Octopus Cloud had any vulnerabilities in the past?
+Yes. We pride ourselves on making Octopus Deploy a secure product, but no software is ever bug-free, and occasionally, there have been security issues. We have published [all of our historical advisories](https://advisories.octopus.com/) since 2021. 
+
+## Migration from self hosted
+
+### How do I migrate from self-hosted Octopus Server to Octopus Cloud? 
+We have a [step-by-step](https://octopus.com/docs/octopus-cloud/migrations) guide. 
+The benefits of migrating to Octopus Cloud include:
+* Likely lower total cost of hosting - taking into account the saving of having your people focused on your mission, not maintenance
+* Cloud customers get access to the latest features and functionality.
+* Lower risk - Once a CVE or bug is found, we issue a patch and automatically apply it. 
+* We perform maintenance that many customers do not (rebuild indexes, backup files and databases, have a recovery plan)
+* Monitoring and uptime - We monitor every instance to ensure it is online, when it goes offline, we attempt to automatically recover it, and failing that, we start paging our support teams.
+
+### Can we trial Octopus Cloud while we decide on migration? 
+Yes. We can arrange temporary licenses to ensure you are not being double-billed during the trial. [Contact our Sales team](https://octopus.com/company/contact) to arrange.
+
+### How can I determine my current Octopus Server usage? 
+We have diagnostic scripts we can share with you that make gathering metrics about your configuration and usage easy. [Contact our Support team](https://octopus.com/company/contact) to request access.
+
+## Updates
+
+### How often is Octopus Cloud updated?
+Octopus Cloud is a modern SaaS application that receives frequent updates. New features become available in Octopus Cloud before they become available to our self-host customers. Bug fixes and improvements are performed regularly and, when necessary, applied in your [maintenance window](/docs/octopus-cloud/maintenance-window), typically once or twice a week. 
+
+### When are updates performed?
+Regular maintenance and product updates are applied during your [maintenance window](/docs/octopus-cloud/maintenance-window), typically once or twice a week. Critical security patches may be applied outside of this schedule, and our Support team contacts customers in advance if such a patch is required.
+
+### How do I know what has been upgraded?
+We publish our [release updates](https://octopus.com/whatsnew) and provide a [release comparison tool](https://octopus.com/downloads/compare). Our [product roadmap](https://roadmap.octopus.com) is public and shows the [features released recently](https://roadmap.octopus.com/tabs/3-released).
+
+
