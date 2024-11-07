@@ -32,10 +32,10 @@ Looking to connect to a SIEM solution that is not currently supported? Let us kn
 
 ### Streaming to OpenTelemetry (OTLP)
 
-Refer to your SIEM solution's documentation on how to set up collection via OpenTelemetry. Some providers may support OTLP directly, while others recommend hosting your own [OpenTelmetry Collector](https://github.com/open-telemetry/opentelemetry-collector) and use one of the [exporters](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter) to forward the data to the SIEM.
+Refer to your SIEM solution's documentation on how to set up collection via OpenTelemetry. Some providers may support OTLP directly, while others recommend hosting your own [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) and use one of the [exporters](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter) to forward the data to the SIEM.
 
 Once you have set up the collector, you will need to provide the connection details in Octopus:
-- **OpenTelmetry Endpoint URL** - The collection endpoint. In most cases you will need to append `/v1/logs` to the url
+- **OpenTelemetry Endpoint URL** - The collection endpoint. In most cases you will need to append `/v1/logs` to the url
 - **OTLP Protocol** - The protocol to use, `HTTP/protobuf` (also known as `OTLP/HTTP`) or `gRPC`
 - **Secret** - The authentication token to use, see below
 - **Header** - Any HTTP headers that are required by the collector
