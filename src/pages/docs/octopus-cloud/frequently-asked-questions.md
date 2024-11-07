@@ -1,11 +1,11 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2024-10-30
-modDate: 2024-10-30
+pubDate: 2024-11-08
+modDate: 2024-11-08
 title: Octopus Cloud Frequently Asked Questions
 navTitle: Octopus Cloud FAQ
 navOrder: 70
-description: Commonly asked questions about Octopus Cloud, along with answers and links to more detail.
+description: Common questions about Octopus Cloud, with answers and links to more detail.
 ---
 This page answers the most common questions about Octopus Cloud. 
 
