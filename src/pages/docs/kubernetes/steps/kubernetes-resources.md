@@ -7,10 +7,6 @@ description: Configure and apply Kubernetes resources.
 navOrder: 50
 ---
 
-:::div{.hint}
-`Deploy Kubernetes containers` was renamed to `Configure and apply Kubernetes resources` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
-:::
-
 Octopus supports the deployment of Kubernetes resources through the `Configure and apply Kubernetes resources` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](https://oc.to/KubernetesDeploymentResource), a [Service resource](https://oc.to/KubernetesServiceResource), and an [Ingress resource](https://oc.to/KubernetesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
 
 ## Configure and apply Kubernetes resources step
@@ -1053,5 +1049,10 @@ For example, to change the name assigned to the ConfigMap resource to include th
 
 ## Learn more
 
-- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes)
 - [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
+
+:::div{.hint}
+### Step updates
+#### 2024.1
+- `Deploy Kubernetes containers` was renamed to `Configure and apply Kubernetes resources`.
+:::
