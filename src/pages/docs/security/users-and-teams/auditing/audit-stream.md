@@ -32,6 +32,10 @@ Looking to connect to a SIEM solution that is not currently supported? Let us kn
 
 ### Streaming to OpenTelemetry (OTLP)
 
+:::div{.hint}
+OpenTelemetry support is only available from **Octopus 2024.4.6705** onwards.
+:::
+
 Refer to your SIEM solution's documentation on how to set up collection via OpenTelemetry. Some providers may support OTLP directly, while others recommend hosting your own [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) and use one of the [exporters](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter) to forward the data to the SIEM.
 
 Once you have set up the collector, you will need to provide the connection details in Octopus:
