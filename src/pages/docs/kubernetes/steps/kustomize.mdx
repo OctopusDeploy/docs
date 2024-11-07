@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-07-31
+modDate: 2024-11-07
 title: Deploy with Kustomize
 description: Use Deploy with Kustomize to deploy resources to a Kubernetes cluster.
 navOrder: 40
@@ -9,25 +9,15 @@ navOrder: 40
 
 import Image from "src/components/Image.astro";
 
-:::div{.hint}
-`Kustomize` was renamed to `Deploy with Kustomize` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
-:::
-
 Octopus supports the deployment of Kubernetes resources through the `Deploy with Kustomize` step.
 
 This step lets you source your **Kustomize** files from git, perform variable substitutions based on your environment and/or tenant and apply the changes to your Kubernetes clusters.
 
 [Kustomize](https://kustomize.io) introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications.
 
-:::div{.info}
-From Octopus **2024.1**, if you are storing your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source your Kustomize files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the Kustomize files.
+## Recommended step usages
 
-You can find more information about this feature in this [blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
-:::
-
-## Recommended usages for this step
-
-We list a few different scenarios below to help you figure out what is the best setup for you to deploy your applications to a Kubernetes cluster with Octopus.
+We list a few scenarios below to help you figure out what is the best setup for you to deploy your applications to a Kubernetes cluster with Octopus.
 
 ### When you use Kustomize for one application configuration
 
@@ -99,3 +89,9 @@ images:
 
 The "`#{Octopus.Action.Package[nginx].PackageVersion}`" Octostache expression will be resolved to the selected image version during the deployment.
 
+:::div{.hint}
+**Step updates**
+**2024.1:**
+- `Kustomize` was renamed to `Deploy with Kustomize`.
+- If you store your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source your Kustomize files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the Kustomize files. You can learn more in [this blog post](https://octopus.com/blog/git-resources-in-deployments).
+:::
