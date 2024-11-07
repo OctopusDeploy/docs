@@ -7,7 +7,9 @@ navTitle: Octopus Cloud FAQ
 navOrder: 70
 description: Commonly asked questions about Octopus Cloud, along with answers and links to more detail.
 ---
-This page answers the most commonly asked questions about Octopus Cloud, with links to more detail. If you have a question not yet covered here, please use the "Send Feedback" button at the foot of this page or [contact our Sales team](https://octopus.com/company/contact).
+This page answers the most common questions about Octopus Cloud. 
+
+If you have an unanswered question, please use the "Send Feedback" button at the foot of this page or [contact our Sales team](https://octopus.com/company/contact).
 
 ## Getting started
 
@@ -15,7 +17,7 @@ This page answers the most commonly asked questions about Octopus Cloud, with li
 Octopus Cloud is the easiest way to start with Octopus Deploy; we take care of everything for you. Octopus Cloud has the same functionality as Octopus Server, delivered as a highly available, scalable, secure SaaS application hosted for you. 
 
 ### Where do I begin?
-Many customers begin with our [getting started](/docs/getting-started) guide, which covers the key concepts and terminology we use. When you’re ready, [start a free trial](https://octopus.com/start) to explore Octopus.
+Many customers begin with our [getting started](/docs/getting-started) guide, which covers the key concepts and terminology we use. When you’re ready, [start a free trial](https://octopus.com/start) to explore Octopus Cloud.
 
 ### How is Octopus Cloud built? 
 Our [Octopus Cloud architecture](https://octopus.com/blog/octopus-cloud-architecture) overview describes how Octopus Cloud is delivered. 
@@ -25,19 +27,19 @@ Our [Octopus Cloud architecture](https://octopus.com/blog/octopus-cloud-architec
 ### What training is available?
 Our [Resource Center](https://octopus.com/resource-center) provides high-quality webinars, blog posts, white papers, and free tools. We also offer [books with free PDF versions](https://octopus.com/publications) covering Octopus and broader DevOps topics. We pride ourselves on the quality of our [developer documentation](/docs) and provide free [training video tutorials](https://www.youtube.com/playlist?list=PLAGskdGvlaw268i2ZTPC1ZrxwFjjKIdKH). We support a [community Slack channel](https://octopususergroup.slack.com/join/shared_invite/zt-170c1xzfl-J_pWvCeNZ4H_LmGVE4XNtw#/shared-invite/email) where our staff regularly assist with customer inquiries.
 
-Our Professional and Enterprise tier customers also receive access to our Support team and expert-guided onboarding. Enterprise tier customers can add on Technical Account Management services. Enterprise tier customers with over USD $50,000 licenses are assigned a Customer Success Manager. 
+Professional and Enterprise tier customers receive access to our Support team and expert-guided onboarding. Enterprise tier customers can add on Technical Account Management services. Enterprise tier customers with over USD $50,000 licenses are assigned a Customer Success Manager. 
 
 ### Can we get support for our initial setup?
-Our Professional and Enterprise tier customers receive our expert-guided onboarding Support, and our [Sales and Support teams](https://octopus.com/company/contact) are highly responsive and available to every customer. 
+Professional and Enterprise tier customers receive our expert-guided onboarding Support. Our [Sales and Support teams](https://octopus.com/company/contact) are highly responsive and available to every customer. 
 
 
 ## Purchasing
 
 ### How do I purchase Octopus Cloud?
-We recommend new customers [start a free trial](https://octopus.com/pricing/overview) to get 30 days of access to Octopus Cloud Professional tier, with no credit card required. At any point during the trial period, [contact our Sales team](https://octopus.com/company/contact) to convert your instance to an annual subscription with no data loss. 
+We recommend new customers [start a free trial](https://octopus.com/pricing/overview) to get 30 days of access to Octopus Cloud Professional. A credit card is not required. [Contact Sales](https://octopus.com/company/contact) during the trial period to convert to an annual subscription with no data loss. 
 
 ### How can I trial Enterprise tier?
-Please [contact our Sales team](https://octopus.com/company/contact) to trial Octopus Cloud Enterprise tier, which provides more projects, tenants, machines, and a more significant task cap than the Professional tier. Enterprise tier trials come with dedicated support from our Customer Success and Solution Engineering teams.
+Please [contact Sales](https://octopus.com/company/contact) to trial Octopus Cloud Enterprise tier. Enterprise provides more projects, tenants, machines, and a higher task cap.
 
 ### What does Octopus Cloud cost?
 We license Octopus Cloud in tiers. Our Starter tier costs USD $360 per year, and it allows ten projects, ten tenants, ten machines, and a task cap of five. There are no additional platform fees.
@@ -51,8 +53,8 @@ No. Annual billing is the only option for Octopus Cloud subscriptions.
 Our Sales team can [provide a quote](https://octopus.com/company/contact) that meets your requirements. 
 
 ### How do I use a purchase order?
-For customers purchasing or renewing on our Starter tier, when you fill out the online form, there is a field to enter a Customer Reference. This value will appear on the quote or invoice PDF that we generate. 
-For customers on Professional or Enterprise tiers, please provide our Sales team with your purchase order, which will be included in your quote or invoice.
+For customers purchasing or renewing on Starter, simply enter a Customer Reference in the online form. This value will appear on the quote or invoice PDF that we generate. 
+For customers on Professional or Enterprise, please provide our Sales team with your purchase order, which will be included in your quote or invoice.
 
 ### Where can I learn more about pricing?
 Please refer to our dedicated [Octopus pricing](https://octopus.com/pricing/overview) overview and our [Octopus Cloud pricing FAQ](https://octopus.com/pricing/faq#octopus-cloud-section). Alternatively, please [contact our Sales team](https://octopus.com/company/contact) who can answer any other questions you may have.
@@ -74,7 +76,7 @@ Each customer's Octopus Cloud is wholly located within a single Azure region. Mi
 Please [contact our sales team](https://octopus.com/company/contact) to discuss this.
 
 ### Can I move my Octopus Cloud to another region?
-Yes. Simply [contact Support]((https://octopus.com/company/contact)) to arrange the relocation.
+Yes. [Contact Support]((https://octopus.com/company/contact)) to arrange the relocation.
 
 ## Security
 
@@ -150,7 +152,7 @@ Octopus Cloud's monthly [uptime SLO](/docs/octopus-cloud/uptime-slo) is 99.5%, m
 ### How is uptime monitored?
 Our Cloud Platform team observes uptime and planned downtime durations as part of frequent health checks. We use a third-party vendor to assess availability every minute of the day.
 
-### How can we monitor status?
+### How can we check Octopus Cloud's status?
 We publish Octopus Cloud's [operational status](https://status.octopus.com/). You can subscribe to status change emails from our [operational status page](https://status.octopus.com/).
 
 ## Logs & Data
@@ -159,7 +161,7 @@ We publish Octopus Cloud's [operational status](https://status.octopus.com/). Yo
 Deployment and access logs can be viewed and downloaded from Octopus Cloud. Enterprise-tier customers can [stream audit logs](/docs/security/users-and-teams/auditing/audit-stream) to their SIEM system.
 
 ### What is the data backup and retention policy?  
-Our [retention policies](/docs/administration/retention-policies) allow you to control how Octopus decides which releases, packages, and files are kept. The retention policy is set to 30 days by default. [Backups](/docs/administration/data/backup-and-restore) are subject to [storage thresholds](/docs/octopus-cloud#octopus-cloud-storage-limits), 1TB by default, but more can be arranged via our Sales team if required. 
+Our [retention policies](/docs/administration/retention-policies) allow you to control how Octopus decides which releases, packages, and files are kept. The retention policy is set to 30 days by default. [Backups](/docs/administration/data/backup-and-restore) are subject to [storage thresholds](/docs/octopus-cloud#octopus-cloud-storage-limits), 1TB by default. You can arrange more via our Sales team if required. 
 
 ### What access do Octopus staff have to our data?
 All access is protected by Multi-Factor Authentication (MFA), Role-Based Access Control (RBAC), and the Principle of Least Privilege (PLP).
@@ -167,7 +169,7 @@ In case of issues related to your data or the availability of your Cloud instanc
 
 Microsoft Azure may have infrastructure access and, as such, would also have access, as controlled by our service agreements with them.
 
-In addition, all Octopus Cloud instances publish [limited telemetry](/docs/security/outbound-requests/telemetry), which we use to monitor the quality of service.
+Also, Octopus Cloud publishes [limited telemetry](/docs/security/outbound-requests/telemetry), which we use to track quality of service.
 
 ### Is access to our data logged? 
 We log all access to Octopus Cloud instance databases and file storage.
@@ -185,5 +187,5 @@ All data storage is redundant. We use [Azure Storage](https://learn.microsoft.co
 Octopus Cloud has a well-defined [disaster recovery](/docs/octopus-cloud/disaster-recovery) process.
 
 ### How often are backups performed? 
-Octopus Cloud database backups are taken using Azure’s [automated backup](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql&tabs=single-database#backup-frequency) process. Full backups are performed weekly, differential backups every 12 or 24 hours, and transaction log backups approximately every 10 minutes.
+We take Octopus Cloud database backups using Azure’s [automated backup](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql&tabs=single-database#backup-frequency) process. Full backups are performed weekly, differential backups every 12 or 24 hours, and transaction log backups approximately every 10 minutes.
 
