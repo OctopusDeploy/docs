@@ -59,7 +59,7 @@ Please refer to our dedicated [Octopus pricing](https://octopus.com/pricing/over
 ## Data Centers
 
 ### Where is Octopus Cloud hosted? 
-We [host Octopus Cloud](https://octopus.com/docs/octopus-cloud#octopus-cloud-hosting-locations) in the following Azure regions:
+We [host Octopus Cloud](/docs/octopus-cloud#octopus-cloud-hosting-locations) in the following Azure regions:
 * West US 2
 * West Europe
 * Australia East
@@ -102,7 +102,7 @@ Octopus Cloud supports most common [authentication providers](/docs/security/aut
 All communication between the Tentacle and Octopus is performed over a secure TLS connection. We recommend TLS1.2+. The [trust relationship](/docs/security/octopus-tentacle-communication) between the Octopus Server and a Tentacle is configured using public-key cryptography. The server and Tentacle establish the trust relationship using [X.509 self-signed certificates](/docs/security/octopus-tentacle-communication#Octopus-Tentaclecommunication-Octopuscertificates), which are generated upon installation and use 2048-bit private keys.
 
 ### How secure is Tentacle communication?
-Octopus Cloud communicates with Tentacles you deploy on your targets via SSL-encrypted data transmitted over a TCP connection. [Tentacle communication](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/tentacle-communication) modes can be set up as listening (acting as the TCP server) or polling (acting as the TCP client). Many customers prefer polling for greater security of the Tentacle host.
+Octopus Cloud communicates with Tentacles you deploy on your targets via SSL-encrypted data transmitted over a TCP connection. [Tentacle communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication) modes can be set up as listening (acting as the TCP server) or polling (acting as the TCP client). Many customers prefer polling for greater security of the Tentacle host.
 
 ### Can a Tentacle access customer data?
 Every process within a Tentacle is executed by the user account configured on its service. Tentacles can be configured to run under a [specific user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account) if for instance elevated or alternative permissions are required. The Tentacle's access to data is constrained by the user account configured.
@@ -113,11 +113,11 @@ We make a list of all [our security advisories](https://advisories.octopus.com/)
 ### Has Octopus Cloud had any vulnerabilities in the past?
 Yes. We pride ourselves on making Octopus Deploy a secure product, but no software is ever bug-free, and occasionally, there have been security issues. We have published [all of our historical advisories](https://advisories.octopus.com/) since 2021. 
 
-## Migration from self hosted
+## Migration
 
 ### How do I migrate from self-hosted Octopus Server to Octopus Cloud? 
-We have a [step-by-step](https://octopus.com/docs/octopus-cloud/migrations) guide. 
-The benefits of migrating to Octopus Cloud include:
+We have a [step-by-step](/docs/octopus-cloud/migrations) guide. 
+The benefits of migrating from self-hosted to Octopus Cloud include:
 * Likely lower total cost of hosting - taking into account the saving of having your people focused on your mission, not maintenance
 * Cloud customers get access to the latest features and functionality.
 * Lower risk - Once a CVE or bug is found, we issue a patch and automatically apply it. 
@@ -141,4 +141,48 @@ Regular maintenance and product updates are applied during your [maintenance win
 ### How do I know what has been upgraded?
 We publish our [release updates](https://octopus.com/whatsnew) and provide a [release comparison tool](https://octopus.com/downloads/compare). Our [product roadmap](https://roadmap.octopus.com) is public and shows the [features released recently](https://roadmap.octopus.com/tabs/3-released).
 
+## Availability
+
+### What is Octopus Cloud’s uptime SLO?
+Octopus Cloud's monthly [uptime SLO](/docs/octopus-cloud/uptime-slo) is 99.5% measured at the 95% percentile of Cloud instances. This target includes all downtime, including scheduled maintenance.
+
+### How is uptime monitored?
+Our Cloud Platform team observes uptime and planned downtime durations as part of frequent health checks. We use a third-party vendor to assess availability every minute of the day.
+
+### How can we monitor status?
+We publish Octopus Cloud's [operational status](https://status.octopus.com/). You can subscribe to status change emails from our [operational status page](https://status.octopus.com/).
+
+## Logs & Data
+
+### How do we access deployment and audit logs? 
+Deployment and access logs can be viewed and downloaded from Octopus Cloud. Enterprise-tier customers can [stream audit logs](/docs/security/users-and-teams/auditing/audit-stream) to their SIEM system.
+
+### What is the data backup and retention policy?  
+Our [retention policies](/docs/administration/retention-policies) allow you to control how Octopus decides which releases, packages, and files are kept. The retention policy is set to 30 days by default. [Backups](/docs/administration/data/backup-and-restore) are subject to [storage thresholds](/docs/octopus-cloud#octopus-cloud-storage-limits), 1TB by default, but more can be arranged via our Sales team if required. 
+
+### What access do Octopus staff have to our data?
+All access is protected by Multi-Factor Authentication (MFA), Role Based Access Control (RBAC) and the Principle of Least Privilege (PLP).
+In case of issues related to your data or the availability of your Cloud instance, Support Users can be granted temporary access to your Cloud instance, and queries can be run against your Cloud instance database. Only competent, trained, background-checked, and authorized engineers can gain such access. These activities are tightly controlled and have automatic revocation of access mechanisms.
+
+Microsoft Azure may have infrastructure access and, as such, would also have access, as controlled by our service agreements with them.
+
+In addition, all Octopus Cloud instances publish [limited telemetry](/docs/security/outbound-requests/telemetry), which we use to monitor the quality of service.
+
+### Is access to our data logged? 
+All access to Octopus Cloud instance databases and file storage is logged.
+
+### Is data access actively monitored? 
+Our SecOps team has monitoring and alerting in place based on patterns of suspicious activity. Monitoring focuses on Support Users being granted temporary access to a Cloud instance and queries being run by our staff against Cloud instance databases. Both of these activities are tightly controlled, logged, and have automatic revocation of access mechanisms.
+Only authorized, skilled, and trained engineers who are employed by Octopus Deploy may be granted temporary access. 
+
+Microsoft Azure may have infrastructure access and, as such, would also have access, as controlled by our service agreements with them.
+
+### How is data storage redundancy provided?
+All data storage is redundant. We use [Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy), allowing us to have geo-redundant backups of your Octopus Cloud database and zone-redundant backups of your Octopus Cloud file share. 
+
+### What is your disaster recovery process?
+Octopus Cloud has a well-defined [disaster recovery](/docs/octopus-cloud/disaster-recovery) process.
+
+### How often are backups performed? 
+Octopus Cloud database backups are taken using Azure’s [automated backup](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql&tabs=single-database#backup-frequency) process, with full backups every week, differential backups every 12 or 24 hours, and transaction log backups approximately every 10 minutes.
 
