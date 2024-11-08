@@ -99,7 +99,7 @@ Octopus Deploy is not a covered entity under HIPAA. We do not process personally
 The security and privacy of our customers' personal, company, and intellectual property data are top priorities at Octopus. We're dedicated to maintaining and continuously improving our security and compliance programs, which we publish on our [Trust Center](https://octopus.com/company/trust).
 
 ### Which authentication providers are supported?
-Octopus Cloud supports the most common [authentication providers](/docs/security/authentication/auth-provider-compatibility#login-support) out of the box.
+Octopus Cloud supports these [authentication providers](/docs/security/authentication/auth-provider-compatibility#login-support) for login. We have narrower provider support for [external groups and roles](/docs/security/authentication/auth-provider-compatibility#external-groups-and-roles).
 
 ### What level of encryption is used between an Octopus Server and a Tentacle?
 All communication between the Tentacle and Octopus is performed over a secure TLS connection. We recommend TLS1.2+. We configure the [trust relationship](/docs/security/octopus-tentacle-communication) between Octopus Server and a Tentacle using public-key cryptography. The server and Tentacle establish the trust relationship using [X.509 self-signed certificates](/docs/security/octopus-tentacle-communication#Octopus-Tentaclecommunication-Octopuscertificates) generated upon installation and using 2048-bit private keys.
