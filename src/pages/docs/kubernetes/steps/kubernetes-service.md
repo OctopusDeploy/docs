@@ -79,6 +79,8 @@ There are some advanced use cases where creating a Service resource without sele
 
 :::div{.hint}
 **Step updates**
+
 **2024.1:**
+
 - `Deploy Kubernetes service resource` was renamed to `Configure and apply a Kubernetes Service`.
 :::

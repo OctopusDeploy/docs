@@ -1053,6 +1053,8 @@ For example, to change the name assigned to the ConfigMap resource to include th
 
 :::div{.hint}
 **Step updates**
+
 **2024.1:**
+
 - `Deploy Kubernetes containers` was renamed to `Configure and apply Kubernetes resources`.
 :::
