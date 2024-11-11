@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-20
-modDate: 2024-09-12
+modDate: 2024-11-11
 title: Prioritize Tasks
 description: Tasks can be manually prioritized to run before other earlier queued tasks.
 ---
@@ -17,10 +17,12 @@ Ensure any other queued deployments to the same environment are cancelled when p
 :::
 
 ## Task queue priority
+
 In Octopus **2024.4** we have redesigned the task system. Tasks are processed based on their priority, in this order:
-* Queued tasks that are moved to the top
-* Tasks created from a prioritized deployment or runbook
-* Regular tasks
+
+- Queued tasks that are moved to the top
+- Tasks created from a prioritized deployment or runbook
+- Regular tasks
 
 Within each category, tasks are handled on a first in, first out basis.
 
