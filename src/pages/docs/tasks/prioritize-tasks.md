@@ -17,13 +17,13 @@ Ensure any other queued deployments to the same environment are cancelled when p
 :::
 
 ## Task queue priority
-In Octopus **2024.2** we have redesigned the task system. Tasks are processed based on their priority, in this order:
+In Octopus **2024.4** we have redesigned the task system. Tasks are processed based on their priority, in this order:
 * Queued tasks that are moved to the top
 * Tasks created from a prioritized deployment or runbook
 * Regular tasks
 
 Within each category, tasks are handled on a first in, first out basis.
 
-
 ## Lifecycle phases
-To mark a phase within a lifecycle as a priority, see [lifecycle phases with priority](/docs/releases/lifecycles#phases-with-priority) for more information. 
+
+Octopus **2024.4** adds a feature to mark a phase within a lifecycle as a priority. See [lifecycle phases with priority](/docs/releases/lifecycles#phases-with-priority) for more information.
