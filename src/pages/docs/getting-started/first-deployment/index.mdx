@@ -14,7 +14,10 @@ import OctopusDeploySetupOptions from 'src/shared-content/concepts/octopus-deplo
 This tutorial will help you complete your first deployment in Octopus Deploy. We’ll walk you through the steps to deploy a sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers.
 
 :::div{.hint}
-If you are using **Octopus 2024.3** or earlier, please visit the legacy [First deployment guide](/docs/getting-started/first-deployment/legacy-guide/2024)
+If you're using **Octopus 2024.2** or earlier, please visit one of these legacy guides:
+
+* **Octopus 2022.2** or earlier legacy [First deployment guide](/docs/getting-started/first-deployment/legacy-guide/2024)
+* **Octopus 2024.2** or earlier legacy [First deployment guide](/docs/getting-started/first-deployment/legacy-guide/2024)
 :::
 
 ## Before you start
@@ -29,7 +32,7 @@ To follow this tutorial, you will need an Octopus Deploy instance. If you haven�
 1. Log in to your Octopus instance and click **New Project**.
 
 :::figure
-![Get started welcome screen](ADD IMAGE PATH)
+![Get started welcome screen](/docs/getting-started/first-deployment/images/get-started.png)
 :::
 
 ## Add project
@@ -43,7 +46,7 @@ Octopus lets you store your deployment process, settings, and non-sensitive vari
 3. Leave the rest as is and click **Create Project**.
 
 :::figure
-![Add new project screen](ADD IMAGE PATH)
+![Add new project screen](/docs/getting-started/first-deployment/images/add-new-project.png)
 :::
 
 ## Add environments
@@ -54,7 +57,7 @@ Environments are how you organize your infrastructure into groups representing t
 4. Keep the default environments and click **Create Environments**.
 
 :::figure
-![Environment selection options and deployment lifecycle visuals](ADD IMAGE PATH)
+![Environment selection options and deployment lifecycle visuals](/docs/getting-started/first-deployment/images/get-started.png)
 :::
 
 ## Create deployment process
@@ -70,7 +73,7 @@ Octopus lands you in the process step template library.
 2. In the **Featured** category, locate the Run a Script card and click **Add Step**.
 
 :::figure
-![Featured step templates](ADD IMAGE PATH)
+![Featured step templates](/docs/getting-started/first-deployment/images/add-step.png)
 :::
 
 ### Step Name
@@ -87,7 +90,7 @@ You can source script files via three different methods:
 3. Select **Inline script** as your script source. 
 
 :::figure
-![Script source expander where users can select where to source scripts from](ADD IMAGE PATH)
+![Script source expander where users can select where to source scripts from](/docs/getting-started/first-deployment/images/script-source.png)
 :::
 
 ### Inline Source Code
@@ -100,7 +103,7 @@ Write-Host "Hello, World!"
 ```
 
 :::figure
-![Inline source code expander where users type a script](ADD IMAGE PATH)
+![Inline source code expander where users type a script](/docs/getting-started/first-deployment/images/inline-source-code.png)
 :::
 
 ### Execution Location
@@ -109,7 +112,7 @@ Write-Host "Hello, World!"
 7. If you’re using a self-hosted Octopus instance, select **Run once on the Octopus Server**.
 
 :::figure
-![Execution location expander where users can select where this step will run](ADD IMAGE PATH)
+![Execution location expander where users can select where this step will run](/docs/getting-started/first-deployment/images/execution-location.png)
 :::
 
 ### Worker Pool
@@ -118,7 +121,7 @@ Write-Host "Hello, World!"
 9. If you’re using Octopus Cloud and a Bash script language, select the Hosted Ubuntu option from the dropdown. The Default Worker Pool is running Windows and doesn’t have Bash installed.
 
 :::figure
-![Img description](ADD IMAGE PATH)
+![Img description](/docs/getting-started/first-deployment/images/worker-pool.png)
 :::
 
 You can skip the other sections of this page for this tutorial.
@@ -144,7 +147,7 @@ Deployments typically occur in a defined environment order (e.g. **Development �
 The **Task Log** shows you in real time the tasks Octopus is taking to run your Hello World script.
 
 :::figure
-![First deployment](/docs/getting-started/first-deployment/images/img-successfulrelease.png "width=500")
+![First deployment](/docs/getting-started/first-deployment/images/successful-deployment.png)
 :::
 
 You successfully completed your first deployment! 🎉 
