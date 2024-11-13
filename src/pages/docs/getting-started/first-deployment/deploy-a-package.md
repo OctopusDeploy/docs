@@ -57,7 +57,7 @@ You have now completed the deployment tutorial!  This tutorial has focused on ru
 
 ### All guides in this tutorial series
 
-1. [First deployment](/docs/getting-started/first-deployment/index)
+1. [First deployment](/docs/getting-started/first-deployment)
 2. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables)
 3. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions)
 4. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets)
