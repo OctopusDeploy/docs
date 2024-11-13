@@ -48,7 +48,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 8. Click **SAVE**.
 
-The next step will [create a release and deploy it](/docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release).
+The next step will [create a release and deploy it](/docs/getting-started/first-deployment/legacy-guide/2022/create-and-deploy-a-release).
 
 **Further Reading**
 
