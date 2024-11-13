@@ -1,36 +1,45 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-11-13
 title: Define and use variables
-description: Step by step guide on how to define and use variables in an Octopus Deploy deployment.
+description: This tutorial will walk you through defining and using variables in an Octopus Deploy deployment.
 navOrder: 50
 hideInThisSection: true
 ---
 
 [Getting Started - Variables](https://www.youtube.com/watch?v=Hd71uhcD61E)
 
-Octopus allows you to define variables and scope them for use in different phases of your deployments.  Variables allow you to have a consistent deployment process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
+Octopus lets you define variables and scope them for use in different phases of your deployments. Variables allow you to have a consistent deployment process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
 
-1. From the *Hello world* project you created earlier, click **Variables** in the left menu.
-1. Enter **Helloworld.Greeting** into the variable name column on the first row of the table.
-1. Add **Hello, Development** into the value column.
-1. Click the **Scope** column and select the `Development` environment.
-1. Click **ADD ANOTHER VALUE** button.
-1. Add **Hello, Test** and scope it to the `Test` environment.
-1. Click **ADD ANOTHER VALUE** button.
-1. Add **Hello, Production** and scope it to the `Production` environment.
-1. Click the **SAVE** button.
+## Add a variable
+
+1. From the *Hello world* project you created earlier, click **Project Variables** in the left menu.
+2. Click **Create Variables**.
+3. Add `Helloworld.Greeting` in the **Name** column,
+4. Add `Hello, Development` in the **Value** column, 
+5. Click the **Scope** column and select the `Development` environment.
+6. Click **Add another value**.
+7. Add `Hello, Staging` and scope it to the `Staging` environment.
+8. Click **Add another value**.
+9. Add `Hello, Production` and scope it to the `Production` environment.
+10. Click **Save**.
 
 :::figure
-![The hello world variables](/docs/getting-started/first-deployment/images/img-variables.png)
+![The hello world variables](/docs/getting-started/first-deployment/images/project-variables.png)
 :::
 
-Steps in the deployment process can reference the variables.
+## Update deployment process
 
-1. Click Process on the left menu.
-1. Select the previously created Run a Script step.
-1. Replace the inline source code script based on your selected language:
+Steps in the deployment process can reference variables.
+
+1. Click **Process** in the left menu.
+2. Select the previously created **Run a Script** step.
+
+### Inline Source Code
+
+3. Based on your selected language, copy the appropriate script from below.
+4. Replace the script in the code editor with the new script.
 
 <details data-group="getting-started-first-deployment-define-and-use-variables">
 <summary>PowerShell</summary>
@@ -54,23 +63,33 @@ echo $greeting
 If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
 :::
 
-4. Click the **SAVE** button and create a new release.
+5. Click **Save**
+6. Click **Create Release**.
 
 :::div{.hint}
 A release snapshots everything about your project, including variables and the deployment process. You have to create a new release to see any changes.
 :::
 
+7. Click **Deploy to Development...**
+8. Click **Deploy**
+ 
 As you promote through the environments, you will see the greeting change.
 
 :::figure
-![The results of the hello world deployment with variables](/docs/getting-started/first-deployment/images/img-environmentvariables.png)
+![The results of the hello world deployment with variables](/docs/getting-started/first-deployment/images/environment-variables.png)
 :::
 
-The next step will [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions). 
+Great job! Next, let's build on your deployment process and [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions). 
 
-**Further Reading**
+### All guides in this tutorial series
 
-For further reading on variables in Octopus Deploy please see:
+1. [First deployment](/docs/getting-started/first-deployment/index)
+2. Define and use variables (this page)
+3. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions)
+4. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets)
+5. [Deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package)
+
+### Further reading for variables
 
 - [Variable Documentation](/docs/projects/variables)
 - [Deployment Documentation](/docs/deployments)

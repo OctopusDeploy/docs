@@ -41,9 +41,15 @@ Please create a new release and deploy it through to **Production**.  You will s
 
 The next step will [add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets).
 
-**Further Reading**
+### All guides in this tutorial series
 
-For further reading on approvals in Octopus Deploy please see:
+1. [First deployment](/docs/getting-started/first-deployment/index)
+2. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables)
+3. Approvals with manual interventions (this page)
+4. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets)
+5. [Deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package)
+
+### Further reading for approvals
 
 - [Manual Intervention and Approvals](/docs/projects/built-in-step-templates/manual-intervention-and-approvals)
 - [Deployment Documentation](/docs/deployments)
