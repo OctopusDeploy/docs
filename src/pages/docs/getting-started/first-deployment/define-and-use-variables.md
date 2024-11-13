@@ -69,9 +69,6 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 :::div{.hint}
 A release snapshots everything about your project, including variables and the deployment process. You have to create a new release to see any changes.
 :::
-
-7. Click **Deploy to Development...**
-8. Click **Deploy**
  
 As you promote through the environments, you will see the greeting change.
 
