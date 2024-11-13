@@ -43,7 +43,7 @@ The next step will [add deployment targets](/docs/getting-started/first-deployme
 
 ### All guides in this tutorial series
 
-1. [First deployment](/docs/getting-started/first-deployment/index)
+1. [First deployment](/docs/getting-started/first-deployment)
 2. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables)
 3. Approvals with manual interventions (this page)
 4. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets)
