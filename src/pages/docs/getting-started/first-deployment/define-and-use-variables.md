@@ -80,7 +80,7 @@ Great job! Next, let's build on your deployment process and [add an approval pro
 
 ### All guides in this tutorial series
 
-1. [First deployment](/docs/getting-started/first-deployment/index)
+1. [First deployment](/docs/getting-started/first-deployment)
 2. Define and use variables (this page)
 3. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions)
 4. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets)
