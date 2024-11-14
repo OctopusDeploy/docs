@@ -59,7 +59,7 @@ Octopus lets you store your deployment process, settings, and non-sensitive vari
 3. For this example, keep the default **Octopus** option selected.
 4. For **Deploy to**, select the **Kubernetes** option.
 5. For **Manage with**, select the **YAML files** option.
-6. Click **Next**.
+6. Click **Create Project**.
 
 :::figure
 ![Add new project screen](/docs/getting-started/first-kubernetes-deployment/images/add-new-project.png)
@@ -70,7 +70,7 @@ You'll need an environment to deploy to.
 
 Environments are how you organize your infrastructure into groups representing the different stages of your deployment pipeline. For example, Development, Staging, and Production.
 
-7. Keep the default environments and click **Next**.
+7. Keep the default environments and click **Create Environments**.
 
 :::figure
 ![Environment selection options and deployment lifecycle visuals](/docs/getting-started/first-kubernetes-deployment/images/select-environments.png)
