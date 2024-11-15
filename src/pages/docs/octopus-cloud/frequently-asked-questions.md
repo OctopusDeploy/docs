@@ -23,9 +23,9 @@ Many customers begin with our [getting started](/docs/getting-started) guide, wh
 
 ### How is Octopus Cloud built? 
 
-Our [Octopus Cloud architecture](https://octopus.com/blog/octopus-cloud-architecture) overview describes how Octopus Cloud is delivered. 
+Our [Octopus Cloud architecture](https://octopus.com/blog/octopus-cloud-architecture) overview describes how we deliver Octopus Cloud. 
 
-## Training & Setup
+## Training and setup
 
 ### What training is available?
 
