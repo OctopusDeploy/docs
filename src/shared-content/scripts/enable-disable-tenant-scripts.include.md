@@ -135,16 +135,16 @@ def get_by_name(uri, name):
 
 
 space_name = 'Default'
-target_name = 'Your Target Name'
-disable_target = False
+tenant_name = 'Your Tenant Name'
+disable_tenant = False
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
-target = get_by_name('{0}/{1}/tenants/all'.format(octopus_server_uri, space['Id']), target_name)
+tenant = get_by_name('{0}/{1}/tenants/all'.format(octopus_server_uri, space['Id']), tenant_name)
 
-target['IsDisabled'] = disable_target
+tenant['IsDisabled'] = disable_tenant
 
-uri = '{0}/{1}/tenants/{2}'.format(octopus_server_uri, space['Id'], target['Id'])
-response = requests.put(uri, headers=headers, json=target)
+uri = '{0}/{1}/tenants/{2}'.format(octopus_server_uri, space['Id'], tenant['Id'])
+response = requests.put(uri, headers=headers, json=tenant)
 response.raise_for_status()
 ```
 
@@ -165,32 +165,31 @@ import (
 )
 
 func main() {
-	apiURL, err := url.Parse("http://localhost:8066")
+	apiURL, err := url.Parse("https://your-octopus-url")
 	if err != nil {
-		log.Fatalf("Error parsing API URL: %v", err)
+		log.Println(err)
 	}
-
-	APIKey := "API-K6JR7YR2UTPH2BQZH1INRZUICEXHDF"
-	spaceName := "Another One"
-	tenantName := "Another Tenant"
+	APIKey := "API-YOUR-KEY"
+	spaceName := "Default"
+	tenantName := "MyTenant"
 	enabled := true
 
 	space := GetSpace(apiURL, APIKey, spaceName)
 	if space == nil {
-		log.Fatalf("Space '%s' not found", spaceName)
+		log.Println(err)
 	}
 
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	tenant := GetTenantByName(client, tenantName)
 	if tenant == nil {
-		log.Fatalf("Tenant '%s' not found", tenantName)
+		log.Println(err)
 	}
 
 	tenant.IsDisabled = !enabled
 	updatedTenant, err := client.Tenants.Update(tenant)
 	if err != nil {
-		log.Fatalf("Error updating tenant: %v", err)
+		log.Println(err)
 	}
 
 	log.Printf("Tenant '%s' updated successfully. IsDisabled: %v", updatedTenant.Name, updatedTenant.IsDisabled)
@@ -199,7 +198,7 @@ func main() {
 func octopusAuth(octopusURL *url.URL, APIKey string, spaceID string) *client.Client {
 	client, err := client.NewClient(nil, octopusURL, APIKey, spaceID)
 	if err != nil {
-		log.Fatalf("Error creating Octopus client: %v", err)
+		log.Println(err)
 	}
 	return client
 }
@@ -213,7 +212,7 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *spaces.Spac
 
 	spaces, err := client.Spaces.Get(spaceQuery)
 	if err != nil {
-		log.Fatalf("Error retrieving spaces: %v", err)
+		log.Println(err)
 	}
 
 	for _, space := range spaces.Items {
@@ -232,7 +231,7 @@ func GetTenantByName(client *client.Client, tenantName string) *tenants.Tenant {
 
 	tenants, err := client.Tenants.Get(tenantQuery)
 	if err != nil {
-		log.Fatalf("Error retrieving tenants: %v", err)
+		log.Println(err)
 	}
 
 	if len(tenants.Items) == 1 {
@@ -241,6 +240,7 @@ func GetTenantByName(client *client.Client, tenantName string) *tenants.Tenant {
 
 	return nil
 }
+
 
 ```
 
