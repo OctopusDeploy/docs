@@ -1,4 +1,4 @@
-<details data-group="enable-disable-tenant-scripts">
+<details data-group="deactivate-tenant-scripts">
 <summary>PowerShell (REST API)</summary>
 
 ```powershell
@@ -25,7 +25,7 @@ Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/tenants/$($tena
 ```
 
 </details>
-<details data-group="enable-disable-tenant-scripts">
+<details data-group="deactivate-tenant-scripts">
 <summary>PowerShell (Octopus.Client)</summary>
 
 ```powershell
@@ -65,7 +65,7 @@ catch
 ```
 
 </details>
-<details data-group="enable-disable-tenant-scripts">
+<details data-group="deactivate-tenant-scripts">
 <summary>C#</summary>
 
 ```csharp
@@ -110,7 +110,7 @@ catch (Exception ex)
 ```
 
 </details>
-<details data-group="enable-disable-tenant-scripts">
+<details data-group="deactivate-tenant-scripts">
 <summary>Python3</summary>
 
 ```python
@@ -149,7 +149,7 @@ response.raise_for_status()
 ```
 
 </details>
-<details data-group="enable-disable-tenant-scripts">
+<details data-group="deactivate-tenant-scripts">
 <summary>Go</summary>
 
 ```go

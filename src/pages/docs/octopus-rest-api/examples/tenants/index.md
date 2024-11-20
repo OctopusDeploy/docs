@@ -11,3 +11,4 @@ You can use the REST API to create and manage Server tasks in Octopus. Typical t
 
 - [Create a tenant](/docs/octopus-rest-api/examples/tenants/create-tenant)
 - [Update tenant variables](/docs/octopus-rest-api/examples/tenants/update-tenant-variable)
+- [Deactivate tenants](/docs/octopus-rest-api/examples/projects/deactivate-tenant)
