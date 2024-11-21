@@ -91,7 +91,7 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
     In the Octopus Web Portal, navigate to **Configuration ➜ Settings ➜ Jira Integration** and copy the following values from the Jira App configuration page:
 
-    - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., https://your-jira-instance.atlassian.net.
+    - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., `https://your-jira-instance.atlassian.net`.
     - **Jira Connect App Password**.
 
     Ensure the **Is Enabled** property is set.
