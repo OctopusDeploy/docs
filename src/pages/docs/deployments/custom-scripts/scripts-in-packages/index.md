@@ -59,7 +59,7 @@ However, not all package steps support script hooks. As a general rule, any of t
 
 ## Running a script when a step fails
 
-You can create a file named `DeployFailed.<ext>`, which will be invoked if the step fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
+You can create a file named `DeployFailed.<ext>`, which will be invoked if the step fails.
 
 ## How Octopus executes your scripts
 
