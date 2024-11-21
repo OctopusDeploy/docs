@@ -33,7 +33,7 @@ To use the Docker Hub registry in Octopus Deploy, create an external feed with t
 
 - **Feed Type:** Docker Container Registry
 - **Name:** DockerHub (or anything else that makes sense to you)
-- **URL:** ht<span>tps://</span>index.docker.io
+- **URL:** `https://index.docker.io`
 - **Registry Path:** *leave blank*
 - **Credentials:** Username and Password (Login for your DockerHub account, this is required for accessing public repositories)
 
