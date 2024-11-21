@@ -82,7 +82,7 @@ The results will show:
 - The teams of which the user is a member of. There are two separate Permission context that you can check.
    - **Show System permissions** will show [System level permissions](/docs/security/users-and-teams/system-and-space-permissions)
    - **Show permissions within a specific space** will show [Space specific Permissions](/docs/security/users-and-teams/system-and-space-permissions).
-- A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
+- A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](https://www.convertcsv.com/csv-viewer-editor.htm).
 
 :::figure
 ![](/docs/security/users-and-teams/images/systempermissions.png)
