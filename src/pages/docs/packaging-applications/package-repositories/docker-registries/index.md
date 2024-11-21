@@ -54,7 +54,7 @@ When you create a release in Octopus, you need to choose the "version" of the Im
 
 :::div{.hint}
 **Container images are downloaded directly by the Deployment Target or Worker**
-Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
+Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/#supported-formats). That being said, the layered architecture of images allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
 :::
 
 ## Private registry {#private-registry}
