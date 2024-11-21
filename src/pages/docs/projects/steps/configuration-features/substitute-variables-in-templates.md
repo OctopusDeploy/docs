@@ -77,7 +77,7 @@ If you include a configuration file that you are also doing a [transformation](/
 By default **warnings** will be treated as **errors** when replacing variables in files using this feature. To override this behavior, set the variable **Octopus.Action.Package.IgnoreVariableReplacementErrors** to **True** in your project. By doing this, warnings will be treated as such and the deployment will not be marked as failed.
 :::
 
-## Examples {#SubstituteVariablesinFiles-SomeExamples}
+## Examples {#SubstituteVariablesInFiles-SomeExamples}
 
 ### Swapping design elements
 
