@@ -26,8 +26,8 @@ The following example shows you how to use the Substitute Variables in Templates
 
 | Variable Name    | Value     | Scope    |
 | ----------------------- | --------------- | -------- |
-| LoginURL | ht<span>tps://</span>test.example.com/login | Test |
-| LoginURL | ht<span>tps://</span>example.com/login | Production |
+| LoginURL | `https://test.example.com/login` | Test |
+| LoginURL | `https://example.com/login` | Production |
 
 2. Include the loginURL variable in the app you're deploying, by adding the variable `#{LoginURL}`. For instance:
 
