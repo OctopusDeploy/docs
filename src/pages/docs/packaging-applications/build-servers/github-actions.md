@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-09-27
+modDate: 2024-11-21
 title: GitHub Actions
 description: Integrating Octopus Deploy into your GitHub Action workflows
 icon: fa-brands fa-github
@@ -88,8 +88,6 @@ jobs:
         variables: |
             Flip: Bling
             Fizz: Buzz
-        git_ref: ${{ github.ref }}
-        git_commit: ${{ github.sha }}
 ```
 
 ### ✍️ Environment variables
@@ -99,6 +97,7 @@ jobs:
 | `OCTOPUS_SPACE`   | The Name of the Space where this command will be executed.                                                                                               |
 | `OCTOPUS_URL`     | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
 | `OCTOPUS_API_KEY` | The API key used to access Octopus Deploy. It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
+| `SERVER`          | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
 
 
 ### 📥 Inputs
@@ -109,10 +108,9 @@ jobs:
 | `release_number`      | The number for the new Release. If omitted, Octopus Deploy will generate a Release number.                                                           |
 | `environments`        | A list of Environments in Octopus Deploy in which to run (i.e. Dev, Test, Prod). Add each environment on a new line.                                 |
 | `variables`           | A list of Variables to use in the Deployment in `key: value` format. Add each variable on a new line.                                                |
-| `git_ref`             | The Git branch from which to source the project code. Required for Projects using version control in Octopus.                                        |
-| `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus.                                        |
-| `server`              | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). |
-| `service_account_id`  | The id of the service account you wish to login as.                                                                                                  |
+| `git_ref`             | The Git branch from which to source the project code. Required for Projects using version control in Octopus. The example above sources this value from the main action's [contextual information.](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context) |
+| `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus. The example above sources this value from the main action's [contextual information.](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context) |
+| `service_account_id`  | The id of the OIDC service account you wish to login as. Service accounts can be viewed and created on the Octopus app under 'Users' on the configuration menu. |
 
 
 ## Handling packages
