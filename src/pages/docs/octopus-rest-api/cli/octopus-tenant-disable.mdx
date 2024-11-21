@@ -2,20 +2,17 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-11-20
-title: octopus account azure-oidc list
-description: List Azure OpenID Connect accounts
-navOrder: 10
+title: octopus tenant disable
+description: Disable a tenant
+navOrder: 133
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-List Azure OpenID Connect accounts in Octopus Deploy
+Disable a tenant in Octopus Deploy
 
 ```
 Usage:
-  octopus account azure-oidc list [flags]
-
-Aliases:
-  list, ls
+  octopus tenant disable {<name> | <id>} [flags]
 
 Global Flags:
   -h, --help                   Show help for a command
@@ -30,7 +27,9 @@ Global Flags:
 <SamplesInstance />
 
 ```
-$ octopus account azure-oidc list
+$ octopus tenant disable Tenants-1
+$ octopus tenant disable 'Tenant'
+
 
 ```
 

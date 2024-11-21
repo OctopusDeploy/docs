@@ -98,7 +98,7 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus package list](/docs/octopus-rest-api/cli/octopus-package-list)**:  List packages.
 - **[octopus package nuget](/docs/octopus-rest-api/cli/octopus-package-nuget)**:  Package as NuPkg.
 - **[octopus package nuget create](/docs/octopus-rest-api/cli/octopus-package-nuget-create)**:  Create nuget.
-- **[octopus package upload](/docs/octopus-rest-api/cli/octopus-package-upload)**:  upload one or more packages to Octopus Deploy.
+- **[octopus package upload](/docs/octopus-rest-api/cli/octopus-package-upload)**:  Upload one or more packages to Octopus Deploy.
 - **[octopus package versions](/docs/octopus-rest-api/cli/octopus-package-versions)**:  List versions of a package.
 - **[octopus package zip](/docs/octopus-rest-api/cli/octopus-package-zip)**:  Package as zip.
 - **[octopus package zip create](/docs/octopus-rest-api/cli/octopus-package-zip-create)**:  Create zip.
@@ -155,7 +155,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus tenant connect](/docs/octopus-rest-api/cli/octopus-tenant-connect)**:  Connect a tenant to a project.
 - **[octopus tenant create](/docs/octopus-rest-api/cli/octopus-tenant-create)**:  Create a tenant.
 - **[octopus tenant delete](/docs/octopus-rest-api/cli/octopus-tenant-delete)**:  Delete a tenant.
+- **[octopus tenant disable](/docs/octopus-rest-api/cli/octopus-tenant-disable)**:  Disable a tenant.
 - **[octopus tenant disconnect](/docs/octopus-rest-api/cli/octopus-tenant-disconnect)**:  Disconnect a tenant from a project.
+- **[octopus tenant enable](/docs/octopus-rest-api/cli/octopus-tenant-enable)**:  Enable a tenant.
 - **[octopus tenant list](/docs/octopus-rest-api/cli/octopus-tenant-list)**:  List tenants.
 - **[octopus tenant tag](/docs/octopus-rest-api/cli/octopus-tenant-tag)**:  Override tags for a tenant.
 - **[octopus tenant variables](/docs/octopus-rest-api/cli/octopus-tenant-variables)**:  Manage tenant variables.
