@@ -94,7 +94,7 @@ Learn about [script integrity](/docs/security/script-integrity).
 
 We recommend the following approaches for developing and testing your scripts, in order of preference:
 
- 1. Build your script to use script arguments as inputs so it can be invoked with equal fidelity from Octopus or directly in your development environment. You can test your scripts by invoking them directly in a development environment with a very fast feedback cycle. Learn about [passing parameters to scripts](passing-parameters-to-scripts/). The only difference in this approach may be the user context the script runs in.
+ 1. Build your script to use script arguments as inputs so it can be invoked with equal fidelity from Octopus or directly in your development environment. You can test your scripts by invoking them directly in a development environment with a very fast feedback cycle. Learn about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts). The only difference in this approach may be the user context the script runs in.
  2. Build your script as a reusable step template and test it using the `Run Now` feature. [Learn about step templates](/docs/projects/custom-step-templates). The only difference to this approach is the absence of deployment-specific variables provided by Octopus when actually running a deployment.
  3. Put your script in a test process and run that process in a test environment.
  4. Put your script in a real process and run that process in a test environment.
