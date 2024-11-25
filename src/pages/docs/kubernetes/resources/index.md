@@ -73,7 +73,7 @@ A user needs to create and deploy a new release after one saves the new configur
 
 ### Helm
 
-Helm has an existing mechanism for tracking the status of deployed resources, the [`--wait`](https://helm.sh/docs/helm/helm_upgrade/#options) parameter on the upgrade command. Rather than Octopus providing another mechanism on top of this, Octopus adds this parameter to the upgrade parameters and relys on Helm to track the deployed resources and fail the step if the resource fails
+Helm has an existing mechanism for tracking the status of deployed resources, the [`--wait`](https://helm.sh/docs/helm/helm_upgrade/#options) parameter on the upgrade command. Rather than Octopus providing another mechanism on top of this, Octopus adds this parameter to the upgrade parameters and relies on Helm to track the deployed resources and fail the step if the resource fails
 
 ### Other steps
 
