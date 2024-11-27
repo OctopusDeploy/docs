@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-09-23
+modDate: 2024-11-27
 title: Octopus Cloud Maintenance Window
 navOrder: 55
 description: Details about the Octopus Cloud maintenance window
@@ -15,17 +15,18 @@ Most of these won't affect your instance's availability, but occasionally, we mi
 We don’t need to perform actions on your instance daily, and most of our maintenance actions won’t take your instance offline. At most, you might notice a performance impact. The steps that require an outage typically only take a short time to complete.
 
 In the 4 months up to and including October 2024, Octopus Cloud instances: 
- * had an average downtime of fewer than 8 minutes per week
- * experienced any downtime on average fewer than 2 days a week
+- Had an average downtime of fewer than 8 minutes per week
+- Experienced any downtime on average fewer than 2 days a week
 :::
 
 
 ## You’re in control of the schedule
+
 You get to choose a two-hour time slot for maintenance activities. Pick a time outside your regular business hours to minimize potential impact.
 You can adjust your maintenance window anytime, but make sure to do it before your current window begins to avoid interrupting ongoing maintenance tasks. 
 
-
 ## View or change your maintenance window
+
 Setting up your maintenance window to suit your business needs is easy. Just follow these steps:
 
 1. Log in to [Octopus.com](https://octopus.com).
@@ -34,13 +35,12 @@ Setting up your maintenance window to suit your business needs is easy. Just fol
 4. Scroll down to the **Maintenance window** section.
 5. Select the time in UTC, providing a window of at least two hours and click **Submit**.
 
-
-
 ## During a Maintenance Window
 
 At the start of each window, an evaluation is performed to determine which maintenance operations need to be performed on each Octopus Cloud instance. There may be several operations that need to be performed in sequence on your instance during a single maintenance window.
 
 Those tasks include (but are not limited to) the following:
+
 - Database maintenance. This involves reindexing and compacting your Octopus Cloud instance database so that it can perform at its best. 
 - Performing any Octopus Server software upgrades.
 - Moving your instance to new infrastructure. These operations don't happen as often, but are required when we roll out improvements to the underlying infrastructure. 
@@ -57,6 +57,7 @@ Upgrading an instance is the primary cause of outages. The most noticeable impac
 :::
 
 ## Taking your instance offline
+
 If we need to take your instance offline to perform any maintenance:
 - Your instance will be given a few minutes to shut down cleanly. This will allow any in-progress tasks to complete. Any tasks still running at the end of the timeout will be abandoned.
 - A maintenance page will be displayed to users and any requests to the API will return a 503 Service Unavailable status code.
@@ -66,5 +67,6 @@ If we need to take your instance offline to perform any maintenance:
 
 
 ## How we communicate maintenance windows
+
 - **Routine maintenance:** During a regular maintenance window, a maintenance page will be displayed to users, and any requests to the API will return a 503 Service Unavailable status code
 - **Other maintenance:** There may be rare occasions outside of your normal maintenance window where we need to perform maintenance on your instance. Our Support team will contact you in these scenarios to coordinate the work.
