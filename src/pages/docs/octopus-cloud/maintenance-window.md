@@ -13,10 +13,11 @@ Most of these won't affect your instance's availability, but occasionally, we mi
 
 :::div{.hint}
 We don’t need to perform actions on your instance daily, and most of our maintenance actions won’t take your instance offline. At most, you might notice a performance impact. The steps that require an outage typically only take a short time to complete.
+
+In the 4 months up to and including October 2024, Octopus Cloud instances: 
+ * had an average downtime of fewer than 8 minutes per week
+ * experienced any downtime on average fewer than 2 days a week
 :::
-
-At the time of publishing this (April 2024), our maintenance tasks require an average of 15 minutes downtime per week.
-
 
 
 ## You’re in control of the schedule
