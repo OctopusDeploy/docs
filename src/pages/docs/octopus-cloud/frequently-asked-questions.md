@@ -185,11 +185,16 @@ We publish our [release updates](https://octopus.com/whatsnew) and provide a [re
 
 ### What is Octopus Cloud’s uptime SLO?
 
-Octopus Cloud's monthly [uptime SLO](/docs/octopus-cloud/uptime-slo) is 99.5%, measured for the 95th percentile of Cloud instances. This target includes all downtime, including scheduled maintenance.
+Octopus Cloud's monthly [uptime SLO](/docs/octopus-cloud/uptime-slo) is 99.99%, measured for the 95th percentile of paid Cloud instances. We calculate uptime as 100% of the month, less all unplanned downtime. 
 
 ### How is uptime monitored?
 
 Our Cloud Platform team observes uptime and planned downtime durations as part of frequent health checks. We use a third-party vendor to assess availability every minute of the day.
+
+### Where can I see Octopus Cloud uptime data?
+
+We publish Octopus Cloud’s [uptime track record](/docs/octopus-cloud/uptime-slo) monthly.
+
 
 ### How can we check Octopus Cloud's status?
 
