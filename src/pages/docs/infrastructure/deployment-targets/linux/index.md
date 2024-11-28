@@ -40,7 +40,6 @@ The following platforms are explicitly supported (we run automated tests against
 - Redhat (RHEL) 8.10
 - Amazon Linux 2
 - Debian 11
-- Fedora 39
 - MacOS 12.6.3
 - openSUSE 15.6
 - SUSE LES 15 SP5
