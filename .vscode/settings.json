@@ -5,4 +5,9 @@
     },
     "[markdown]": {
     },
+    "markdownlint.run": "onSave",
+    "markdownlint.config": {
+        "no-inline-html": false,
+        "ul-style": { "style": "dash" }
+    },
 }
