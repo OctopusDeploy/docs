@@ -23,7 +23,8 @@ We list our achieved uptime percentage and the average amount of unplanned downt
 
 | Month  | Uptime % | Average weekly unplanned downtime | Uptime % incl. planned maintenance | Average weekly downtime incl. planned maintenance |
 | :----- | ------: | ------: |------: | ------: |
-| October 2024 | 99.9973% | 5 s | 99.917% | 309 s |
+| November 2024 | 100% | 2s | 99.8895% | 446s |
+| October 2024 | 99.9973% | 5s | 99.917% | 309s |
 | September 2024 | 99.9977% | 4s | 99.9165% | 313s |
 | August 2024 | 99.9955% | 8s | 99.8978% | 447s |
 | July 2024 | 99.9978% | 6s | 99.8602% | 616s |
@@ -34,13 +35,12 @@ We list our achieved uptime percentage and the average amount of unplanned downt
 | February 2024 | 100% | 2s |- | - |
 | January 2024 | 99.9976% | 3s |- | - |
 | December 2023 | 99.998% | 5s |- | - |
-| November 2023 | 99.9957% | 4s |- | - |
 
 \* We began capturing planned downtime metrics on June 10, 2024.
 
 ### How we calculate uptime
 
-We calculate uptime as 100% minus the percentage of unplanned downtime seconds out of the total seconds in a calendar month. We measure uptime performance at the 95th percentile of all paid subscriptions (95% of customers would meet or exceed the listed uptime %).
+We calculate uptime as 100% minus the percentage of unplanned downtime seconds out of the total seconds in a calendar month. We measure uptime performance at the 95th percentile of all paid subscriptions (95% of customers experienced at minimum the listed uptime %).
 
 We exclude downtime that arises from planned or customer-requested maintenance from our uptime SLO calculation, but we measure and report it for transparency. 
 Some Octopus Cloud customers use [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools). As the name implies, these workers are dynamically assigned to a cloud instance and are spun up and down as required by the Deployment or Runbook executed. We exclude Dynamic Workers from our calculation of uptime.
