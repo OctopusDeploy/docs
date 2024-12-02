@@ -17,6 +17,12 @@ While fully automated deployment is a great goal, there are times when a human n
 
 The **Manual intervention step** is a step that can be added to deployment processes to pause the deployment to wait for a member of a specified team to either allow the deployment to proceed or to be aborted.
 
+:::div{.hint}
+Manual interventions result in either a success or failure outcome based on the user’s input. Subsequent steps evaluate this outcome according to their run conditions. By default, the run condition is set to "Success: only run when previous steps succeed." This means manual interventions can prevent these steps from executing, causing the deployment to fail.
+
+However, if "Always Run" is selected for subsequent steps, they will proceed regardless of the manual intervention outcome. For steps with the condition "Variable: only run when the variable expression is true," the manual intervention's outcome must be included in the variable expression to determine whether the step should run.
+:::
+
 [Getting Started - Manual Intervention](https://www.youtube.com/watch?v=ePQjCClGfZQ)
 
 ## Add a manual intervention step
@@ -72,6 +78,13 @@ When a manual step is completed, details of the interruption are saved as variab
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Username` | The username of the user who submitted the interruption form | *j_jones* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.DisplayName` | The display name of the user who submitted the interruption form | *Jamie Jones* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who submitted the interruption form | *jamie.jones@example.com* |
+
+## Evaluating manual intervention output in following steps
+If you want to control subsequent steps based on the outcome of the manual intervention step, you can use "Variable: only run when the variable expression is true". Use the following to evaluate the outcome of the manual intervention step":
+
+```
+#{unless Octopus.Deployment.Error}true#{/unless}
+```
 
 ## Learn more
 
