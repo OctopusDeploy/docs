@@ -91,7 +91,7 @@ These are the prerequisites for migrating an Octopus space with the Octoterra Wi
 
 * [Backup](https://octopus.com/docs/administration/data/backup-and-restore) and [update](https://octopus.com/docs/administration/upgrading) your Octopus instance.
 * [Backup](https://octopus.com/docs/administration/data/backup-and-restore) your Octopus instance again before the migration.
-* Download the Octoterra Wizard from [GitHub](https://github.com/mcasperson/OctoterraWizard).
+* Download the Octoterra Wizard from [GitHub](https://github.com/OctopusSolutionsEngineering/OctoterraWizard).
 * Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation.
 * [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance.
 * [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the destination Octopus instance.
@@ -112,7 +112,7 @@ The final prompts do not involve any input. They automate the process of install
 
 Each sensitive variable must have a unique name and no scopes in order for Octopus to expose sensitive variables defined in the project and in library variable sets to the Terraform module created by Octoterra.
 
-However, it is common for sensitive variables to share a name use scopes to define unique values for different contexts. For example, you may have two sensitive variables called `Database.Password`, with the first variable scoped to the `Dev` environment, and the second scoped to the `Production` environment. This is demonstrated in the screenshot below:
+However, it is common for sensitive variables to share a name and use scopes to define unique values for different contexts. For example, you may have two sensitive variables called `Database.Password`, with the first variable scoped to the `Dev` environment, and the second scoped to the `Production` environment. This is demonstrated in the screenshot below:
 
 ![Sensitive project variables](/docs/administration/migrate-spaces-with-octoterra/sensitive-variables.png)
 
@@ -255,12 +255,12 @@ The first approach is to apply these changes in multiple steps:
 The second approach is to delete any projects on the destination server and recreate them with the new settings:
 
 1. On the source server, create the new space level resources and update projects to point to them.
-2. One the destination server, delete any projects that were modified on the source server.
+2. On the destination server, delete any projects that were modified on the source server.
 3. At this point no projects on either the source or destination server refer to the old space level resources.
 4. Deploy both the space and project level changes to the destination server.
 
 :::div{.hint}
-Projects are configured to ignore changes to the `project_group_id` and `name` with the following [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle:
+Projects are configured to ignore changes to the `project_group_id` and `name` with the following [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle):
 
 ```
   lifecycle {
