@@ -80,10 +80,14 @@ When a manual step is completed, details of the interruption are saved as variab
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who submitted the interruption form | *jamie.jones@example.com* |
 
 ## Evaluating manual intervention output in following steps
-If you want to control subsequent steps based on the outcome of the manual intervention step, you can use "Variable: only run when the variable expression is true". Use the following to evaluate the outcome of the manual intervention step":
+If you want to control subsequent steps based on the outcome of the manual intervention step, you can use "Variable: only run when the variable expression is true", and use the `Octopus.Deployment.Error` variable as the conditional. For example:
 
 ```
-#{unless Octopus.Deployment.Error}true#{/unless}
+#{unless Octopus.Deployment.Error}RESULT IF MANUAL INTERVENTION PROCEEDED{/unless}
+```
+or
+```
+#{if Octopus.Deployment.Error}RESULT IF MANUAL INTERVENTION WAS ABORTED{/if}
 ```
 
 ## Learn more
