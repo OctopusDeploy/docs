@@ -13,14 +13,14 @@ Google Cloud Accounts were added in Octopus **2021.2**, Generic OpenId Connect A
 
 To deploy infrastructure to Google Cloud Platform, you can define a Google cloud or Generic OpenId Connect account in Octopus.
 
-The Generic OpenId Connect Account generates a JWT that can be used for [OpenID Connect](/docs/infrastructure/openid-connect.md) authentication. The Google cloud account uses the JSON key file credentials that can be retrieved from the service account assigned to the instance that is executing the deployment.
+The Generic OpenId Connect Account generates a JWT that can be used for [OpenID Connect](/docs/infrastructure/accounts/openid-connect.md) authentication. The Google cloud account uses the JSON key file credentials that can be retrieved from the service account assigned to the instance that is executing the deployment.
 
 ## Generic OpenId Connect Account
 Google Cloud steps can use a Generic OpenId Connect Account for authentication.
 
 1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **Generic Oidc Account**.
 1. Add a memorable name for the account.
-1. Set the [Deployments and Runbooks](/docs/infrastructure/openid-connect.md) subject generator
+1. Set the [Deployments and Runbooks](/docs/infrastructure/accounts/openid-connect.md) subject generator
 1. set an audience, this should match the audience set on the Workload Identity Federation. By default this is `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/providers/{provider-id}`
 1. Click the **SAVE**, to test the account set it as the account on a gcloud script step.
 
