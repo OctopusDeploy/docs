@@ -38,6 +38,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus account gcp](/docs/octopus-rest-api/cli/octopus-account-gcp)**:  Manage Google Cloud accounts.
 - **[octopus account gcp create](/docs/octopus-rest-api/cli/octopus-account-gcp-create)**:  Create a Google Cloud account.
 - **[octopus account gcp list](/docs/octopus-rest-api/cli/octopus-account-gcp-list)**:  List Google Cloud accounts.
+- **[octopus account generic-oidc](/docs/octopus-rest-api/cli/octopus-account-generic-oidc)**:  Manage Generic OpenID Connect accounts.
+- **[octopus account generic-oidc create](/docs/octopus-rest-api/cli/octopus-account-generic-oidc-create)**:  Create an Generic OpenID Connect account.
+- **[octopus account generic-oidc list](/docs/octopus-rest-api/cli/octopus-account-generic-oidc-list)**:  List Generic OpenID Connect accounts.
 - **[octopus account list](/docs/octopus-rest-api/cli/octopus-account-list)**:  List accounts.
 - **[octopus account ssh](/docs/octopus-rest-api/cli/octopus-account-ssh)**:  Manage SSH Key Pair accounts.
 - **[octopus account ssh create](/docs/octopus-rest-api/cli/octopus-account-ssh-create)**:  Create a SSH Key Pair account.
