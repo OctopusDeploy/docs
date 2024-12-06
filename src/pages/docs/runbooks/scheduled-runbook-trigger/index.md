@@ -10,7 +10,7 @@ navOrder: 40
 Scheduled runbook triggers allow you to define an unattended behavior for your [runbook](/docs/runbooks) that will cause an automatic runbook run to environments of your choosing.
 
 :::div{.hint}
-Only published snapshots can be used to create a scheduled runbook trigger, draft snapshots cannot be used to create a scheduled trigger.
+Only published snapshots can be used to create a scheduled runbook trigger, draft snapshots cannot be used to create a scheduled trigger. For config-as-code runbooks, scheduled runbook triggers will always run the runbook from the latest commit on your default branch.
 :::
 
 ## Schedule

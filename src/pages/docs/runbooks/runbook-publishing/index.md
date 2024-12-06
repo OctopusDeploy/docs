@@ -7,6 +7,10 @@ description: Publishing makes a runbook available to scheduled triggers and cons
 navOrder: 30
 ---
 
+:::div{.success}
+Config-as-code runbooks use branches instead of publishing. If your project uses config-as-code runbooks, read about [managing runbooks permissions using branches](/docs/runbooks/config-as-code-runbooks#permissions-by-branch) instead. 
+:::
+
 Runbooks and deployments define their processes in exactly the same way. However, where a deployment has a [release](/docs/releases), a runbook has what is called a Snapshot. 
 
 ## Snapshots
