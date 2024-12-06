@@ -50,7 +50,7 @@ Provide values for:
 This example takes packages specified in the `packages.json` file, finding all versions found in the source Octopus instance which have a published date greater than `2021-02-11` and synchronizing them with the destination Octopus instance:
 
 ```powershell
-/SyncPackages.ps1 `
+./SyncPackages.ps1 `
 -VersionSelection AllVersions `
 -PackageListFilePath "packages.json" `
 -SourceUrl https://source.octopus.app `
