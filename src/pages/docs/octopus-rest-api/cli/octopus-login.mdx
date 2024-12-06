@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-11-20
+modDate: 2024-12-05
 title: octopus login
 description: Login to Octopus
-navOrder: 69
+navOrder: 72
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -17,6 +17,7 @@ Usage:
 Flags:
       --api-key string              The API key to login with if using API keys
       --id-token string             The ID token from your OIDC provider to login with if using OIDC
+      --ignore-ssl-errors           Whether to ignore SSL errors
       --server string               The URL of the Octopus Server to login to
       --service-account-id string   The ID of the service account to login with if using OIDC
 
