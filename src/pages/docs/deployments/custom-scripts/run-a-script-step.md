@@ -147,6 +147,17 @@ If the package reference was _not_ configured to be extracted, then the un-extra
 
 These locations were designed to be convenient for use from custom scripts, as the relative path can be predicted, e.g. `./Acme` or `./Acme.zip`.  If the absolute path is required the variables above may be used.
 
+#### Docker image package variables
+In the scenario where your package reference is a Docker image some additional variables will be contributed. These variables are (assuming a package-reference named `Acme`):
+
+| Variable name and description                                                                                                                                | Example                      |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| `Octopus.Action.Package[Acme].Image` <br/>The fully qualified image name                                                                                     | *index.docker.io/Acme:1.4.0* |
+| `Octopus.Action.Package[Acme].Registry` <br/>The URI of the registry from the feed where the image was acquired from                                         | *index.docker.io*            |
+| `Octopus.Action.Package[Acme].Version` <br/>The version of the image included in the release                                                                 | *1.4.0*                      |
+| `Octopus.Action.Package[Acme].Feed.UserName` <br/>The username from the feed where the image was acquired from (if the feed is configured to use credentials) | *Alice*                      |
+| `Octopus.Action.Package[Acme].Feed.Password` <br/>The password from the feed where the image was acquired from (if the feed is configured to use credentials) | *Password01!*                |
+
 ## Older versions
 
 Scripts sourced from your Projects Git Repository was added in Octopus **2024.1**. In Octopus versions prior, the Git Repository source is not available.
