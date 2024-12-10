@@ -1,25 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-12-11
 title: Calamari
-description: Calamari is the command-line tool invoked by Tentacle during a deployment. It knows how to extract and install NuGet packages, run the Deploy.ps1 etc. conventions, modify configuration files, and all the other things that happen during an deployment.
 navOrder: 70
+description: Calamari is the command-line tool invoked by Tentacle during a deployment. It knows how to extract and install packages, deploy to Kubernetes, run scripts, conventions, modify configuration files, and all the other things that happen during a deployment.
 ---
-
-Prior to **Octopus 3.0**, Tentacles were responsible for performing deployment steps. Tentacles were *smart*. They knew how to transform configuration files, modify IIS, and much, much more.
-
-:::figure
-![](/docs/octopus-rest-api/images/3278198.png)
-:::
-
-There were a few cons to this architecture:
-
-- To add or modify features, a new version of the Tentacle service was required.  And some folks have a *lot* of Tentacles.
-- Deploying to a target which shouldn't require a Tentacle (e.g. an Azure WebSite), required that the deployment go via a Tentacle.
-- This wouldn't support SSH targets.  All SSH can do is to run commands and move files. All the logic and conventions for .NET configuration transforms, etc. would need to be pushed from the Octopus Server.
-
-And so the *communication channel* (Tentacle) was decoupled from the *deployment engine*: Calamari was born.
 
 Calamari is an [open-source](https://github.com/OctopusDeploy/Calamari), console-application.  It supports many commands, which are responsible for performing deployment-steps.  For example:
 
@@ -29,13 +15,15 @@ Calamari deploy-package --package MyPackage.nupkg --variables Variables.json
 
 Calamari has commands to support:
 
+- Deploying to Kubernetes via Helm/Kustomize/Yaml.
 - Deploying NuGet packages.
 - Running scripts (PowerShell, ScriptCS, Bash, F#).
-- Deploying packages to Azure targets (Cloud Services, WebApps).
+- Deploying packages to Cloud services (WebApps, Functions etc.).
 - Various other deployment related activities.
 
-Each deployment, if it is not already present, the latest version of the Calamari executable is pushed to wherever it needs to be. This may be to:
+On each deployment, if it is not already present, the latest version of the Calamari executable is pushed to wherever it needs to be. This may be to:
 
+- A Kubernetes Agent
 - A Tentacle.
 - Via SSH to a Linux machine.
 - A network-drive for Offline-Package-Drop targets.
@@ -48,7 +36,7 @@ Deployments now proceed as follows:
 3. The deployment target invokes Calamari to perform each deployment step.
 4. Calamari performs the deployment step.
 
-Now that Calamari is open-source, it might help answer any questions you had around what happens during a deployment.  For example, did you ever wonder what order conventions run in when deploying a package?
+Since Calamari is open-source, it might help answer any questions you had around what happens during a deployment.  For example, did you ever wonder what order conventions run in when deploying a package?
 
 ```csharp
 var conventions = new List<IConvention>
@@ -78,4 +66,4 @@ var conventions = new List<IConvention>
 };
 ```
 
-Calamari is published under the Apache license, and we'll continue to work on it in the open.  One of the benefits of this architecture is that you can [fork the project](https://github.com/OctopusDeploy/Calamari), make your own changes, and then tell your **Octopus 3.0** server to use your own Calamari package.
+Calamari is published under the Apache license, and we'll continue to [work on it in the open]([url](https://github.com/OctopusDeploy/Calamari)).
