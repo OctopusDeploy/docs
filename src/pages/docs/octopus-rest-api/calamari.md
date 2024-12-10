@@ -66,4 +66,4 @@ var conventions = new List<IConvention>
 };
 ```
 
-Calamari is published under the Apache license, and we'll continue to [work on it in the open]([url](https://github.com/OctopusDeploy/Calamari)).
+Calamari is open-source and published under the Apache license. You can find the source code [here](https://github.com/OctopusDeploy/Calamari).
