@@ -36,7 +36,7 @@ Deployments now proceed as follows:
 3. The deployment target invokes Calamari to perform each deployment step.
 4. Calamari performs the deployment step.
 
-Since Calamari is open-source, it might help answer any questions you had around what happens during a deployment.  For example, did you ever wonder what order conventions run in when deploying a package?
+Since Calamari is open-source, it might help answer any questions you have around what happens during a deployment.  For example, did you ever wonder what order conventions run in when deploying a package?
 
 ```csharp
 var conventions = new List<IConvention>
@@ -66,4 +66,4 @@ var conventions = new List<IConvention>
 };
 ```
 
-Calamari is open-source and published under the Apache license. You can find the source code [here](https://github.com/OctopusDeploy/Calamari).
+Calamari is published under the Apache license, you can find the source code [here](https://github.com/OctopusDeploy/Calamari).
