@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-12-10
 title: Google Workspace authentication
-description: Octopus Deploy can use GOogle Workspace authentication to identify users.
+description: Octopus Deploy can use Google Workspace authentication to identify users.
 navOrder: 15
 ---
 import AdminUser from 'src/shared-content/installation/admin-user.include.md';
 
-To use Google Workspace authentication with Octopus Server, Google Workspace must be configured to trust Octopus - by setting it up as an app. This section covers the details on how to configure the app.
+To use Google Workspace authentication with Octopus Server, Google Workspace must be configured to trust Octopus by setting it up as an app. This section covers the details of configuring the app.
 
 ## Configure Google Workspace
 
@@ -23,22 +23,22 @@ Once you have an account, log in to [https://console.developers.google.com](http
 3. Click the **Configure consent screen** button.
 4. Select the User Type **Internal** and click **Create**.
 5. Fill out the **App information**, including a descriptive **App name** such as Octopus Server or Octopus Cloud, and select an appropriate **User support email**. 
-6. Fill out the the **App logo** details, upload a logo to make it easy to identify the application. You can download the Octopus logo [here](https://octopus.com/images/company/Logo-Blue_140px_rgb.png "width=500").
+6. Fill out the **App logo** details and upload a logo to make it easy to identify the application. You can download the Octopus logo [here](https://octopus.com/images/company/Logo-Blue_140px_rgb.png "width=500").
 7. Fill out the **App domain** information, providing `https://octopus.com` as the **Application home page**, `https://octopus.com/privacy` as the **Application privacy policy link** and `https://octopus.com/legal/customer-agreement` as the **Application Terms of Service link**. Add the Top Level Domain of your Octopus instance to the **Authorized domains** list. If you are setting Google Workspaces up for **Octopus Cloud** this will be `octopus.app` and `octopus.com`.
 8. Fill out the **Developer contact information**.
 9. Click **Save and continue**.
 10. On the **Scopes** screen, click **Save and continue**.
 11. Click **Back to dashboard**
 12. Select **Credentials** tab and click **Create credentials**, selecting **Create Oauth client ID**.
-13. Under **Application type**, select `Web application`, In the **Name** field enter `Octopus`, click **Add URI** and enter `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the url of your Octopus Server) to the **Authorized redirect URIs** and click **Create**.
+13. Under **Application type**, select `Web application`, In the **Name** field enter `Octopus`, click **Add URI**, and enter `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the URL of your Octopus Server) to the **Authorized redirect URIs** and click **Create**.
 14. Enter a **Name** for identification, e.g. Octopus.  This is the name that will appear when the user is asked to allow access to their details.
 15. Take note of the **Client ID** and **Client secret** from the `OAuth client created` modal.
 
 :::div{.hint}
 **Tips:**
-- **Reply URLs are case-sensitive** - Be aware that the path in this URL after the domain name was **case sensitive** during our testing.
-- **Not using SSL?** - We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
-Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration) making it easier to setup SSL on your Octopus Server.
+- **Reply URLs are case-sensitive** - Be aware that the path in this URL after the domain name was **case-sensitive** during our testing.
+- **Not using SSL?** We highly recommend using SSL, but we know it's not always possible. If you do not have SSL enabled on your Octopus Server, you can use `http`. Please beware of the security implications of accepting a security token over an insecure channel.
+Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration), making it easier to set up SSL on your Octopus Server.
 :::
 
 ## Configure Octopus Server
@@ -81,9 +81,9 @@ If you already have Octopus user accounts and you want to enable external authen
 
 We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with Google Workspace, be sure to check your [server logs](/docs/support/log-files) for warnings.
 
-### Double and triple check your configuration
+### Double and triple-check your configuration
 
-Unfortunately security-related configuration is sensitive to everything. Make sure:
+Unfortunately, security-related configuration is sensitive to everything. Make sure:
 
 - You don't have any typos or copy-paste errors.
 - Remember things are case-sensitive.
@@ -95,9 +95,9 @@ You can see the OpenID Connect metadata by going to [https://accounts.google.com
 
 ### Inspect the contents of the security token
 
-Perhaps the contents of the security token sent back by Google Workspace aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the Google Workspace user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from Google Workspace to Octopus via your browser. To inspect the contents of your security token:
+Perhaps the contents of the security token sent back by Google Workspace aren't exactly the way Octopus expected, especially certain claims that may be missing or named differently. This will usually result in the Google Workspace user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from Google Workspace to Octopus via your browser. To inspect the contents of your security token:
 
-1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
+1. Open your browser's Developer Tools and enable Network logging, making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log":
 
 :::figure
@@ -117,5 +117,5 @@ Perhaps the contents of the security token sent back by Google Workspace aren't 
 :::
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Google Workspace.
-6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
+6. Octopus uses most of the data to validate the token, but it primarily uses the `sub`, `email`, and `name` claims. If these claims are not present, you will likely see unexpected behavior.
 7. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
