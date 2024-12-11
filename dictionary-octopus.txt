@@ -392,6 +392,7 @@ SSPI
 SSRS
 statefulset
 statefulsets
+stepsprodpackages.blob.core.windows.net
 sthumb
 strconv
 struct
@@ -472,8 +473,3 @@ xmark
 xvzf
 xxlarge
 youtu
-Outboundrequests
-Outboundrequestsby
-stepsprodpackages
-Whatinformationisincludedwhen
-Octopuschecksforupdates
