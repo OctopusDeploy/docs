@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-12-11
 modDate: 2024-12-11
-title: Supported Versions of Kubernetes Policy
+title: Support Policy for Kubernetes Versions
 navTitle: Supported Versions Policy
 navSection: Kubernetes agent
 description: Policy for which versions of Kubernetes are supported by the Kubernetes agent
