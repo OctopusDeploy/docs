@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2024-12-11
 title: Calamari
 navOrder: 70
-description: Calamari is the command-line tool invoked by Tentacle during a deployment. It knows how to extract and install packages, deploy to Kubernetes, run scripts, conventions, modify configuration files, and all the other things that happen during a deployment.
+description: Calamari is the command-line tool invoked by Tentacle during a deployment. It knows how to deploy to Kubernetes, extract and install packages, run scripts and conventions, modify configuration files, and all the other things that happen during a deployment.
 ---
 
 Calamari is an [open-source](https://github.com/OctopusDeploy/Calamari), console-application.  It supports many commands, which are responsible for performing deployment-steps.  For example:
@@ -36,7 +36,7 @@ Deployments now proceed as follows:
 3. The deployment target invokes Calamari to perform each deployment step.
 4. Calamari performs the deployment step.
 
-Since Calamari is open-source, it might help answer any questions you have around what happens during a deployment.  For example, did you ever wonder what order conventions run in when deploying a package?
+Since Calamari is open-source, you can see the actions that are performed during a deployment.  For example, did you ever wonder what order conventions run in when deploying a package?
 
 ```csharp
 var conventions = new List<IConvention>
