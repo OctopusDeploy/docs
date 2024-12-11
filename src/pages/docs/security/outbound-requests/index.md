@@ -31,6 +31,7 @@ The Octopus Server makes the following outbound requests:
 5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates) (if enabled).
 6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates) (if enabled).
 7. Behavioral telemetry is sent to https://telemetry.octopus.com (if enabled).
+8. Email address is sent to https://experiences.octopus.com via In-App messaging (if enabled).
 
 ### Built-in step templates
 
@@ -72,3 +73,5 @@ In isolated/air-gapped scenarios without access to the internet, it may prove be
   * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --sendTelemetry=false`
 * Dynamic Extensions
   * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
+* In-App Messaging via Chameleon
+  * Please contact [support@octopus.com](mailto:support@octopus.com) for assistance disabling In-App Messaging
