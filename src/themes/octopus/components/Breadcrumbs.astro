@@ -52,7 +52,7 @@ stats.stop();
             property="item"
             typeof="WebPage"
             href={accelerator.urlFormatter.formatAddress(page.url)}
-            aria-current={page.ariaCurrent}
+            aria-current={page.ariaCurrent ? page.ariaCurrent : null}
             rel={page.rel}
           >
             <span property="name">{page.title}</span>
@@ -69,7 +69,7 @@ stats.stop();
               property="item"
               typeof="WebPage"
               href={accelerator.urlFormatter.formatAddress(crumb.url)}
-              aria-current={crumb.ariaCurrent}
+              aria-current={crumb.ariaCurrent ? crumb.ariaCurrent : null}
             >
               <span property="name">{crumb.title}</span>
             </a>

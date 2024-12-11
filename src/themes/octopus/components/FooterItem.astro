@@ -31,7 +31,7 @@ stats.stop();
             <li>
               <a
                 href={child.url}
-                aria-current={child.ariaCurrent}
+                aria-current={child.ariaCurrent ? child.ariaCurrent : null}
                 rel={child.rel}
               >
                 {child.title}

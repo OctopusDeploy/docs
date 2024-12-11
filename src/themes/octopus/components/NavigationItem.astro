@@ -27,7 +27,7 @@ stats.stop();
     <li class="site-nav__list-item">
       <a
         href={accelerator.urlFormatter.formatAddress(page.url)}
-        aria-current={page.ariaCurrent}
+        aria-current={page.ariaCurrent ? page.ariaCurrent : null}
         rel={page.rel}
         title={linkTitle}
       >
