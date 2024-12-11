@@ -540,6 +540,11 @@ nav.skip-links a:focus {
   max-height: 45px;
 }
 
+.octo-header__logo {
+  height: 50px;
+  width: auto;
+}
+
 .octo-site-nav ul {
   list-style: none;
   text-align: center;
