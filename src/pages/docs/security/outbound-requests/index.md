@@ -60,6 +60,8 @@ The Octopus.com site is hosted on Microsoft Azure, so you will see traffic going
 
 ## Disabling outbound requests
 
+In isolated/air-gapped scenarios without access to the internet, it may prove beneficial to disable attempts to contact these external services to prevent failed tasks and/or errors in the logs. Details on how to disable each feature are as follows:
+
 - Octopus Server updates
   - Via the Web Portal: **Configuration ➜ Settings ➜ Updates**
   - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --upgradeCheck=false`
