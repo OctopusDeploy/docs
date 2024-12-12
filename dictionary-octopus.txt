@@ -392,6 +392,7 @@ SSPI
 SSRS
 statefulset
 statefulsets
+stepsprodpackages.blob.core.windows.net
 sthumb
 strconv
 struct
