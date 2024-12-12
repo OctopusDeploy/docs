@@ -80,6 +80,8 @@ The Kubernetes agent follows [semantic versioning](https://semver.org/), so a ma
 
 Additionally, the Kubernetes agent only supports **Linux AMD64** and **Linux ARM64** Kubernetes nodes.
 
+See our [support policy](/docs/kubernetes/targets/kubernetes-agent/supported-versions-policy) for more information.
+
 ## Installing the Kubernetes agent
 
 The Kubernetes agent is installed using [Helm](https://helm.sh) via the [octopusdeploy/kubernetes-agent](https://hub.docker.com/r/octopusdeploy/kubernetes-agent) chart.
