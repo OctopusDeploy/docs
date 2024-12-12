@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2024-12-12
 title: Azure Web App targets
 description: Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by target tag during deployments.
 navOrder: 20
@@ -17,7 +17,7 @@ From version 2022.1 Octopus can discover Azure Web App targets using tags on you
 
 - You need an [Azure Service Principal account](/docs/infrastructure/accounts/azure/#azure-service-principal) that references your Azure subscription.
 
-- Once your Azure account is setup, you need an existing Azure Web App / App Service setup within your Azure subscription. To learn more about App Services, see the [Azure App Services documentation](https://docs.microsoft.com/en-us/azure/app-service/) that can help you get started. If you are dynamically creating the web app during your deployment, check our section about [creating Web App targets by scripts using service messages](#creating-web-app-targets-by-scripts).
+- Once your Azure account is setup, you need an existing Azure Web App / App Service setup within your Azure subscription. To learn more about App Services, see the [Azure App Services documentation](https://docs.microsoft.com/en-us/azure/app-service/) that can help you get started. If you are dynamically creating the web app during your deployment, check our section about [discovering web app targets](#discovering-web-app-targets) or [creating Web App targets by scripts using service messages](#creating-web-app-targets-by-scripts).
 
 ## Discovering web app targets
 
@@ -47,8 +47,8 @@ Once you have an App Service configured within your Azure subscription, you are 
 
 To create an Azure Web App target within Octopus:
 
-- Navigate to **Infrastructure ➜ Deployment Target ➜ Add Deployment Target**.
-- Select **Azure Web App** from the list of available targets and click _Next_.
+- Navigate to **Deploy ➜ Infrastructure ➜ Deployment Targets ➜ Add Deployment Target**.
+- Select **Azure tab** and then select **Azure Web App** from the list of available targets and click _Next_.
 - Fill out the necessary fields, being sure to provide a unique target tag (formerly target role) that clearly identifies your Azure Web App target.
 
 :::figure
