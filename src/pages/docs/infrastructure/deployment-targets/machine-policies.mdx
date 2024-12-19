@@ -210,7 +210,7 @@ By default, health checks fail if any deployment targets are unavailable during 
 By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (i.e., a warning will be reported or the health check will fail with an error).
 
 ### Connection timeout and retries
-Machine policies define rules for how long should be waited for a connection to be established to a Tentacle or SSH target as well as how it should retry the connection if the initial attempts do not succeed.
+Machine policies define rules for how long to wait for a connection to be established to a Tentacle or SSH target as well as how it should retry the connection if the initial attempts do not succeed.
 :::figure
 ![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-timeout-retries.png)
 :::
@@ -230,7 +230,7 @@ How long to wait between connection retries.
 **Retry time limit**
 
 Maximum time limit for how long retries can be attempted for.
-For example you have the following configuration:
+For example, if you have the following configuration:
 - Retry time limit: 1 minute.
 - Retry attempts: 4.
 - Retry interval: 30 seconds.
