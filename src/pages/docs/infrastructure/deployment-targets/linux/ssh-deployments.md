@@ -76,7 +76,7 @@ By making all paths relative to the user's home directory, you can then theoreti
 
 ## Package acquisition
 
-Leveraging Calamari means that the deployment can obtain the package via the same methods as a target running the Tentacle agent; either pushed from the server or directly from a NuGet repository. There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
+Leveraging Calamari means that the deployment can obtain the package via the same methods as a target running the Tentacle agent; either pushed from the server or directly from a supported [external repository](/docs/packaging-applications/package-repositories). There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
 
 ## Calamari
 
