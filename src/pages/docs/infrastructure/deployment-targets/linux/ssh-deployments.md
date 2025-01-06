@@ -29,18 +29,17 @@ If you are writing a cross-platform script, be aware of the differences between 
 :::div{.hint}
 **Bash (and other shell) variables**
 Octopus Deploy will log into the SSH target via a non-interactive shell. Because of this, startup files like `.bashrc` are not fully evaluated. If you are referencing bash variables `export`ed in these files, you should move them before the following common code block at the top of the file:
-<!--- cspell:disable -->
-```
+
+```bash
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 ```
-<!--- cspell:enable -->
+
 This will ensure that they are evaluated on non-interactive logins.
 :::
-
 
 ### Example: Using variables in Bash
 
@@ -50,18 +49,18 @@ Your script can use a [variable value](/docs/projects/variables) by invoking the
 
 You can also set an [output variable](/docs/projects/variables/output-variables):
 
-> ```
-> set_octopusvariable RandomNumber 3
-> ```
+```bash
+set_octopusvariable RandomNumber 3
+```
 
 ### Example: Collecting an artifact
 
 Your script can tell Octopus to collect a file and store it as a [deployment artifact](/docs/projects/deployment-process/artifacts):
-<!--- cspell:disable -->
-> ```
-> new_octopusartifact "./subdir/anotherdir/myfile"
-> ```
-<!--- cspell:enable -->
+
+```bash
+new_octopusartifact "./subdir/another_dir/my_file"
+```
+
 which results in the server retrieving that file, at the end of that step. Keep in mind that this means the file must be accessible over SFTP using the same credentials as that used during execution.
 
 ## Transport
