@@ -23,6 +23,7 @@ We list our achieved uptime percentage and the average amount of unplanned downt
 
 | Month  | Uptime % | Average weekly unplanned downtime | Uptime % incl. planned maintenance | Average weekly downtime incl. planned maintenance |
 | :----- | ------: | ------: |------: | ------: |
+| December 2024 | 100% | 2s | 99.9666% | 114s |
 | November 2024 | 100% | 2s | 99.8895% | 446s |
 | October 2024 | 99.9973% | 5s | 99.917% | 309s |
 | September 2024 | 99.9977% | 4s | 99.9165% | 313s |
@@ -34,7 +35,6 @@ We list our achieved uptime percentage and the average amount of unplanned downt
 | March 2024 | 99.9914% | 10s |- | - |
 | February 2024 | 100% | 2s |- | - |
 | January 2024 | 99.9976% | 3s |- | - |
-| December 2023 | 99.998% | 5s |- | - |
 
 \* We began capturing planned downtime metrics on June 10, 2024.
 
