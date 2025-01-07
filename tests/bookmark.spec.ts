@@ -51,7 +51,7 @@ const bookmarks = [
   '/docs/infrastructure/accounts/openid-connect#subject-keys',
   '/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api#add-a-kubernetes-target',
   '/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api#vendor-authentication-plugins',
-  '/docs/infrastructure/deployment-targets/windows-targets#configure-a-polling-tentacle',
+  '/docs/infrastructure/deployment-targets/tentacle/windows#configure-a-polling-tentacle',
   '/docs/infrastructure/deployment-targets/machine-policies#custom-health-check-scripts',
   '/docs/infrastructure/deployment-targets/machine-policies#tentacle-update-account',
   '/docs/infrastructure/workers#built-in-worker',
