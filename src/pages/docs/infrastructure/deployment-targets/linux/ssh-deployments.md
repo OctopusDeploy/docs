@@ -31,15 +31,12 @@ If you are writing a cross-platform script, be aware of the differences between 
 Octopus Deploy will log into the SSH target via a non-interactive shell. Because of this, startup files like `.bashrc` are not fully evaluated. If you are referencing bash variables `export`ed in these files, you should move them before the following common code block at the top of the file:
 
 ```bash
-
-```bash
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 ```
-
 
 This will ensure that they are evaluated on non-interactive logins.
 :::
@@ -52,9 +49,6 @@ Your script can use a [variable value](/docs/projects/variables) by invoking the
 
 You can also set an [output variable](/docs/projects/variables/output-variables):
 
-```bash
-set_octopusvariable RandomNumber 3
-```
 ```bash
 set_octopusvariable RandomNumber 3
 ```
