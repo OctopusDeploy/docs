@@ -58,7 +58,7 @@ set_octopusvariable RandomNumber 3
 Your script can tell Octopus to collect a file and store it as a [deployment artifact](/docs/projects/deployment-process/artifacts):
 
 ```bash
-new_octopusartifact "./subdir/another_dir/my-file"
+new_octopusartifact "./subdir/another_dir/my_file"
 ```
 
 which results in the server retrieving that file, at the end of that step. Keep in mind that this means the file must be accessible over SFTP using the same credentials as that used during execution.
