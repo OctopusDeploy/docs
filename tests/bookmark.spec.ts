@@ -72,7 +72,6 @@ const bookmarks = [
   '/docs/packaging-applications#version-numbers',
   '/docs/packaging-applications/create-packages/octopus-cli#create-zip-packages',
   '/docs/packaging-applications/create-packages/octopus-cli#packaging-a-net-core-application',
-  '/docs/packaging-applications/octo.exe#create-zip-packages',
   '/docs/packaging-applications/package-repositories/built-in-repository#built-in-repository-reindexing',
   '/docs/projects/coordinating-multiple-projects/deploy-release-step#variables',
   '/docs/projects/export-import#packages',
