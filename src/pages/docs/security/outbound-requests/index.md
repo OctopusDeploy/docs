@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-12-13
 title: Outbound requests
 description: Traffic details of network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 navOrder: 25
@@ -9,6 +9,7 @@ navOrder: 25
 
 This page describes any outbound network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 
+## Outbound requests by Tentacle
 ## Outbound requests by Tentacle
 
 For security reasons, we minimize the number of outbound requests made by the Tentacle deployment agent. The only outbound requests you should see are for:
@@ -21,6 +22,7 @@ For security reasons, we minimize the number of outbound requests made by the Te
 It's possible that scripts in your packages may make outbound requests; in this case you should take care when deploying packages created by a third party.
 
 ## Outbound requests by Octopus
+## Outbound requests by Octopus
 
 The Octopus Server makes the following outbound requests:
 
@@ -31,6 +33,7 @@ The Octopus Server makes the following outbound requests:
 5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates) (if enabled).
 6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates) (if enabled).
 7. Behavioral telemetry is sent to `https://telemetry.octopus.com` (if enabled).
+8. Email address is sent to `https://experiences.octopus.com` via In-App messaging (if enabled).
 
 ### Built-in step templates
 
@@ -43,6 +46,7 @@ From **Octopus 2022.1** some built-in step templates can be automatically update
 
 Our community contributed step template integration queries `library.octopus.com` for updates.
 
+## What information is included when Octopus checks for updates?
 ## What information is included when Octopus checks for updates?
 
 By default, Octopus will periodically check for new releases. You can opt-out of checking for updates by navigating to **Configuration ➜ Settings ➜ Updates** in Octopus.
@@ -73,3 +77,5 @@ In isolated/air-gapped scenarios without access to the internet, it may prove be
   - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --sendTelemetry=false`
 - Dynamic Extensions
   - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
+- In-App Messaging via Chameleon
+  - Please contact [support@octopus.com](mailto:support@octopus.com) for assistance disabling In-App Messaging

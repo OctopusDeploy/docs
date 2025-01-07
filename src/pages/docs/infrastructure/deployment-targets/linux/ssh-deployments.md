@@ -31,12 +31,15 @@ If you are writing a cross-platform script, be aware of the differences between 
 Octopus Deploy will log into the SSH target via a non-interactive shell. Because of this, startup files like `.bashrc` are not fully evaluated. If you are referencing bash variables `export`ed in these files, you should move them before the following common code block at the top of the file:
 
 ```bash
+
+```bash
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 ```
+
 
 This will ensure that they are evaluated on non-interactive logins.
 :::
@@ -49,6 +52,9 @@ Your script can use a [variable value](/docs/projects/variables) by invoking the
 
 You can also set an [output variable](/docs/projects/variables/output-variables):
 
+```bash
+set_octopusvariable RandomNumber 3
+```
 ```bash
 set_octopusvariable RandomNumber 3
 ```
@@ -77,11 +83,11 @@ By making all paths relative to the user's home directory, you can then theoreti
 
 ## Package acquisition
 
-Leveraging Calamari means that the deployment can obtain the package via the same methods as a target running the Tentacle agent; either pushed from the server or directly from a NuGet repository. There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
+Leveraging Calamari means that the deployment can obtain the package via the same methods as a target running the Tentacle agent; either pushed from the server or directly from a supported [external repository](/docs/packaging-applications/package-repositories). There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
 
 ## Calamari
 
-Calamari is the tool Octopus uses to execute deployments on a remote computer. Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not, we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a `.tar.gz` so it can be extracted with minimal dependencies. This means the server needs to be able to un-tar that package, however, this should be available by default in most distros.
+Calamari is the tool Octopus uses to execute deployments on a remote computer. Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not, we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a `.tar.gz` so it can be extracted with minimal dependencies. This means the server needs to be able to un-tar that package, however, this should be available by default in most distributions.
 
 ## Learn more
 
