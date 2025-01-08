@@ -1,59 +1,85 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-19
+modDate: 2025-01-7
 title: Deploy a sample package
 description: Step by step guide on how to deploy a sample package Octopus Deploy
 navOrder: 80
 hideInThisSection: true
 ---
 
-Octopus Deploy's primary purpose is to push software packages, .zip, .jar, .war, .tar, .nupkg, etc., to your deployment targets.  Octopus Deploy requires all your assets, binaries, configuration files, CSS files, and more to run your application to be packaged up.  Typically this is done by your build server.
+Deploying software with Octopus often involves deploying packages, for example, `.zip`, `.nupkg`, `.jar`, `.tar`, etc. In this section, we'll walk you through the steps to deploy a sample hello world package to your deployment target.
 
-Packages must have the following attributes:
-
-- Package ID. i.e., `hello-world`.
-- Version number, i.e., `1.0.0`. 
-- Package format, i.e., `.zip`.
-
-:::div{.success}
-To learn more about supported formats, versioning, and packaging applications, refer to the [packaging documentation](/docs/packaging-applications).
+:::div{.hint}
+To learn about supported formats, versioning, and packaging applications, refer to the [packaging documentation](/docs/packaging-applications).
 :::
 
-The following is a sample package that could be deployed with Octopus Deploy:
+## Before your start
 
-> [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
+Please download our sample package:
 
-You can manually upload that package to the Octopus built-in repository in the Octopus Web Portal.
+- [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 
-1. Navigating to the **Library** tab.
-1. Click **UPLOAD PACKAGE**.
-1. Select the package you want to upload and click **UPLOAD**.
+## Upload package
 
-Add a step to the hello world deployment process to push that package to the desired deployment target.
-
-1. Click the **Projects** link in the top menu.
-1. Select the **Hello World** project.
-1. Click the **Process** link in the left menu.
-1. Click the **ADD STEP** button.
-1. Select the **Package** tile.
-1. Click **ADD** on the **Deploy a Package** tile.
-1. Leave the **Step Name** and the **Enabled** check-box as is.
-1. Select *hello-world* as the tag in **Target Tags**.
-1. Select *hello-world* as the **Package ID**.
-1. Click the **SAVE** button.
+1. From the left Deploy menu, click **Packages**.
 
 :::figure
-![Deploy a package step with target tag and package selected](/docs/getting-started/first-deployment/images/img-deploypackage.png)
+![Packages page](/docs/getting-started/first-deployment/images/packages-page.png)
 :::
 
-Please create a new release and deploy it to *Development*.  The release will deploy the *hello world* package to *dev-server-01*.
+2. Click **Upload Package**.
+3. Select the package you want to upload.
+
+
+## Add deploy package step
+
+Add a step to the deployment process to push that package to your deployment target.
+
+1. From the left Deploy menu, click **Projects**.
+2. Select the **Hello world deployment** project.
+3. Click **Process** in the left menu.
+4. Click **Add Step**.
+5. Select the **Package** category to filter the types of steps.
+6. Locate the Deploy a Package card and click **Add Step**.
 
 :::figure
-![Deploy a package results](/docs/getting-started/first-deployment/images/img-releasehwpackage.png)
+![Add Deploy a Package step to deployment process](/docs/getting-started/first-deployment/images/deploy-package-step.png)
 :::
 
-You have now completed the deployment tutorial!  This tutorial has focused on running sample scripts and deploying sample packages to your servers.  It is now time to add your applications to Octopus Deploy.  
+### Step name
+
+You can leave this as the default *Deploy a Package*.
+
+### Target tags
+
+7. Select **tutorial-target** from the **Target Tags** dropdown list.
+
+### Package
+
+8. Select **hello-world** from the **Package ID** dropdown list.
+
+You can skip the other sections of this page for this tutorial.
+
+**Save** your deployment process and you can move on to create and deploy a release.
+
+:::figure
+![Deploy a package step with target tag and package selected](/docs/getting-started/first-deployment/images/deploy-package-step-form.png)
+:::
+
+## Release and deploy
+
+1. Create a new release and deploy it to the Development environment.
+
+The release will deploy the *hello world* package to the *Hello world tutorial target*.
+
+:::figure
+![Task log of deploying a package to the Hello world tutorial target](/docs/getting-started/first-deployment/images/deploy-package-task-log.png)
+:::
+
+You completed the first deployment tutorial, well done! 🎉  
+
+In this series you built a multi-step deployment process, used scoped variables, and deployed a sample package to a deployment target. It's now time to add your applications to Octopus Deploy.
 
 ### All guides in this tutorial series
 
@@ -65,7 +91,7 @@ You have now completed the deployment tutorial!  This tutorial has focused on ru
 
 ### Further reading for deploying packages and integrating your CI/CD pipeline
 
-- [Deployment Process Documentation](/docs/projects/deployment-process)
-- [Deployment Documentation](/docs/deployments)
+- [Packaging Applications](/docs/packaging-applications)
+- [Deployment Processes](/docs/projects/deployment-process)
+- [Deployments](/docs/deployments)
 - [Patterns and Practices](/docs/deployments/patterns)
-- [Customizable End to End CI/CD Tutorials](https://octopus.com/docs/guides)

@@ -88,6 +88,6 @@ Great job! Next, let's build on your deployment process and [add an approval pro
 
 ### Further reading for variables
 
-- [Variable Documentation](/docs/projects/variables)
-- [Deployment Documentation](/docs/deployments)
+- [Variables](/docs/projects/variables)
+- [Deployments](/docs/deployments)
 - [Patterns and Practices](/docs/deployments/patterns)
