@@ -73,10 +73,16 @@ The Kubernetes agent follows [semantic versioning](https://semver.org/), so a ma
 
 | Kubernetes agent | Octopus Server           | Kubernetes cluster   |
 | ---------------- | ------------------------ | -------------------- |
-| 1.\*.\*          | **2024.2.6580** or newer | **1.26** to **1.29** |
-| 2.\*.\*          | **2024.2.9396** or newer | **1.26** to **1.29** |
+| 1.0.0 - 1.16.1   | **2024.2.6580** or newer | **1.26** to **1.29** |
+| 1.17.0 - 1.19.2  | **2024.2.6580** or newer | **1.27** to **1.30** |
+| 1.20.0 - 1.\*.\* | **2024.2.6580** or newer | **1.28** to **1.31** |
+| 2.0.0 - 2.2.1    | **2024.2.9396** or newer | **1.26** to **1.29** |
+| 2.3.0 - 2.8.2    | **2024.2.9396** or newer | **1.27** to **1.30** |
+| 2.9.0 - 2.\*.\*  | **2024.2.9396** or newer | **1.28** to **1.31** |
 
 Additionally, the Kubernetes agent only supports **Linux AMD64** and **Linux ARM64** Kubernetes nodes.
+
+See our [support policy](/docs/kubernetes/targets/kubernetes-agent/supported-versions-policy) for more information.
 
 ## Installing the Kubernetes agent
 

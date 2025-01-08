@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-11-20
+modDate: 2024-12-05
 title: octopus runbook list
 description: List runbooks
-navOrder: 117
+navOrder: 120
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -19,6 +19,7 @@ Aliases:
 
 Flags:
   -q, --filter string    filter runbooks to match only ones with a name containing the given string
+      --git-ref string   Git reference to list runbooks for e.g. refs/heads/main. Only relevant for config-as-code projects where runbooks are stored in Git.
       --limit int32      limit the maximum number of results that will be returned
   -p, --project string   Name or ID of the project to list runbooks for
 

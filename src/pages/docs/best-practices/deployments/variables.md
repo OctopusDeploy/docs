@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2023-11-18
 title: Variable Recommendations
 description: Guidelines and recommendations for configuring variables in Octopus Deploy.
 navOrder: 60
@@ -73,8 +73,6 @@ For configurations that differ per environment, our recommendation is to use a c
 - Tenant-specific configuration file (appSettings.MyTenantName.json)
 
 Octopus Deploy can set an environment variable or configuration value during deployment to indicate which environment-specific configuration file to use.  Or, if you are using .NET Framework, you can leverage [configuration file transforms](/docs/projects/steps/configuration-features/configuration-transforms).
-
-For other items,   
 
 ## Variable Sets
 

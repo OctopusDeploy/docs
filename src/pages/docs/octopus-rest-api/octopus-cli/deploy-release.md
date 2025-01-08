@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-25
+modDate: 2024-12-16
 title: Deploy release
 description: Using the Octopus CLI to deploy releases.
 navOrder: 100
@@ -24,7 +24,7 @@ Deployment:
       --waitForDeployment    [Optional] Whether to wait synchronously for
                              deployment to finish.
       --deploymentTimeout=VALUE
-                             [Optional] Specifies maximum time (time span
+                             [Optional] Specifies maximum time (timespan
                              format) that the console session will wait for
                              the deployment to finish(default 00:10:00). This
                              will not stop the deployment. Requires --
@@ -33,7 +33,7 @@ Deployment:
                              the deployment timeout is reached (flag, default
                              false).
       --deploymentCheckSleepCycle=VALUE
-                             [Optional] Specifies how much time (time span
+                             [Optional] Specifies how much time (timespan
                              format) should elapse between deployment status
                              checks (default 00:00:10).
       --guidedFailure=VALUE  [Optional] Whether to use guided failure mode.
