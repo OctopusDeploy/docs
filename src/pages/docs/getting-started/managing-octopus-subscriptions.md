@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-05
+modDate: 2025-01-09
 title: Managing Octopus subscriptions
 description: Control Center is where you manage your Octopus subscriptions and their associated user access. 
 navOrder: 40
@@ -14,71 +14,54 @@ There are 2 types of Octopus subscriptions:
 1. **Cloud instances**: Deployments-as-a-service
 2. **Server licenses**: Octopus on your infrastructure
 
-This page focuses on Control Center V2, our new system for managing Octopus subscriptions.
-
-## Control Center V1 and V2 
-
-### Explaining the two versions of Control Center
-
-In October 2022, we moved to Stripe as our payment gateway, so we needed a new system for integration with Stripe. We refer to the new system as Control Center V2, and it replaces the original Control Center V1.
-
-### I can't work out how to do something in Control Center V2 that I used to do in V1
-
-There are some Control Center V1 features that we haven't included in V2 yet. This is only temporary while we gain feature-parity for Control Center V2.
-
-If you can't see how to do something in V2 that you could do in V1, please contact our [support team](https://octopus.com/support). 
-
-### Locating subscriptions
-
-Most subscriptions (Cloud instances and Server licenses) are accessible from Control Center V2. Some legacy subscriptions are only accessible from Control Center V1.
-
-## Finance 
+## Billing 
 
 ### Upgrading a trial to a paid subscription 
 
 Cloud instance:
 
-1. Navigate to your Cloud Instance in Control Center V2.
+1. Navigate to your Cloud instance in Control Center.
 2. Click **UPGRADE PLAN**. 
-3. Choose your plan and complete the purchase through Stripe. 
+3. Choose your plan and complete the purchase through our checkout. 
 
 Server license:
 
-1. Navigate to your Server License in Control Center V2.
+1. Navigate to your Server License in Control Center.
 2. Click **UPGRADE PLAN**. 
-3. Choose your plan and complete the purchase through Stripe. 
+3. Choose your plan and complete the purchase through our checkout.
 
-### Changing payment method or billing information (Cloud only)
+### Paying an invoice
 
-1. Navigate to your Cloud instance or Server License.
-2. Click **FINANCE** in the left sidebar.
-3. Click **MANAGE SUBSCRIPTION**.
-4. Use the options to edit and/or add payment methods and update your billing information.
+We will share a unique payment link with you to pay your invoice via Zuora's secure payment page. Be weary of phishing attempts and ensure the correct invoice number is displayed to verify the pages authenticity.
+
+### Updating billing information
+
+Please contact sales to update your billing information. We'll continue to improve the billing experience throughout 2025.
 
 ### Viewing orders
 
 1. Navigate to your subscription.
-2. Click **FINANCE** in the left sidebar.
-3. Choose your option for viewing orders:
-  - For recent orders, click **VIEW SUBSCRIPTION**.
-  - For older orders, click **CONTACT SALES**.
+2. Click **BILLING** in the left sidebar.
+3. Click **CONTACT SALES**.
+4. Complete the form and we'll get back to you with the order details.
 
-### Configuring maximum deployment targets (legacy Cloud only)
-
-To help you manage your monthly spend, you can set a maximum number of deployment targets for a Cloud instance.
-
-1. Navigate to your Cloud instance.
-2. Click **FINANCE** in the left sidebar.
-3. Click **SET MAXIMUM TARGETS** to configure a maximum number of targets.
-
-### Canceling your plan (Cloud only)
+### Changing your plan
 
 To modify your plan:
 
-1. Navigate to your Cloud instance.
-2. Click **FINANCE** in the left sidebar.
-3. Click **CANCEL SUBSCRIPTION**.
-4. A confirmation dialog will appear for you to confirm cancellation.
+1. Navigate to your subscription.
+2. Click **BILLING** in the left sidebar.
+3. Click **GET IN TOUCH** under the change plan section.
+4. A contact sales dialog will appear for you to request changes to your plan.
+
+### Canceling your plan
+
+To cancel your plan:
+
+1. Navigate to your subscription.
+2. Click **BILLING** in the left sidebar.
+3. Click **GET IN TOUCH** under the change plan section.
+4. A contact sales dialog will appear for you to cancel your plan.
 
 ## Configuration 
 
@@ -108,8 +91,6 @@ There are 2 levels of access you can provide users in Control Center. Each level
 1. **Subscription Group access** provides management of a group of subscriptions plus access to all current and future subscriptions in the group. 
 2. **Direct access** provides access to individual subscriptions.
 
-Changes to access control in Control Center V1 will only affect subscriptions located in Control Center V1 and changes in Control Center V2 will only affect subscriptions located in Control Center V2.
-
 ### Subscription Group access
 
 Below are the roles for Subscription Group access, the permissions they provide for the group, and the subscriptions in the group:
@@ -126,6 +107,8 @@ Below are the roles for Subscription Group access, the permissions they provide 
 | Cloud: Manage Configuration    | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Cloud: Manage Access Control   | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Instance access                | <i class="fa-circle-check"></i> Admin       | <i class="fa-circle-check"></i> Octopus Manager | <i class="fa-solid fa-circle-xmark"></i>           |
+
+**Note:** Management of billing information will be handled via the sales team temporarily while we enhance this functionality throughout 2025.
 
 #### Inviting users to Subscription Group access
 
@@ -184,3 +167,19 @@ Deleting Direct access users:
 2. Click **ACCESS CONTROL** in the left sidebar.
 3. Locate the user in the table and click the trash icon.
 4. Click **DELETE** in the confirmation dialog.
+
+
+## Help and support
+
+The question mark icon in the top right of the Control Center provides a menu of helpful links to the docs, to contact support, and to upload support files.
+
+## FAQ
+
+### Locating subscriptions
+
+Most subscriptions (Cloud instances and Server licenses) are accessible from the dashboard of Control Center. Some legacy subscriptions are only accessible from the legacy Control Center V1.
+If you need help please contact our [support team](https://octopus.com/support). 
+
+### What is Control Center V1?
+
+Control Center V1 is the legacy Control Center and currently provides access to legacy subscriptions, you'll only have access to Control Center V1 if you need it to manage a legacy subscription.
