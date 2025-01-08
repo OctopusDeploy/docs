@@ -107,6 +107,7 @@ emptytitle
 entra
 environmentids
 eprintfn
+esac
 expressjs
 externalgroups
 externalusers
@@ -418,6 +419,7 @@ tfvar
 tfvars
 TFVC
 thepassword
+timespan
 tlsv1
 tmpfs
 Toolsets
