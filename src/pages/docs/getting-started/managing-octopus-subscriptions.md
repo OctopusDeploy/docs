@@ -101,9 +101,11 @@ Below are the roles for Subscription Group access, the permissions they provide 
 | Delete and rename group        | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Access Control                 | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | **Subscriptions within Group** |
-| Server: View Overview          | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
-| Cloud: View Overview           | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-circle-check"></i>    |
-| Cloud: Manage Billing          | <i class="fa-circle-check"></i>             | <i class="fa-solid fa-circle-xmark"></i>                        | <i class="fa-circle-check"></i>    |
+| Server: View License Key       | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
+| Server: Manage Billing         | <i class="fa-circle-check"></i>             | <i class="fa-solid fa-circle-xmark"></i>        | <i class="fa-circle-check"></i>                    |
+| Server: Manage Access Control  | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
+| Cloud: View Overview           | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-circle-check"></i>                    |
+| Cloud: Manage Billing          | <i class="fa-circle-check"></i>             | <i class="fa-solid fa-circle-xmark"></i>        | <i class="fa-circle-check"></i>                    |
 | Cloud: Manage Configuration    | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Cloud: Manage Access Control   | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Instance access                | <i class="fa-circle-check"></i> Admin       | <i class="fa-circle-check"></i> Octopus Manager | <i class="fa-solid fa-circle-xmark"></i>           |
@@ -117,23 +119,33 @@ Below are the roles for Subscription Group access, the permissions they provide 
 3. Click **INVITE USER**.
 4. Enter the user's details and click **INVITE**.
 
-The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Octopus instance. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
+The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the related subscriptions and instances. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
 
 If the invited user already has an Octopus ID, they must still accept the invite sent via email to complete the process.
 
-### Direct access (Cloud only)
+### Direct access
 
 Below are the roles available for Direct access:
 
 |                              | Cloud Owner | Cloud User |
 | ---------------------------- | ----------- | ---------- |
-| Cloud: View Overview         | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>          |
+| Cloud: View Overview         | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>                          |
 | Cloud: Manage Billing        | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
 | Cloud: Manage Configuration  | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
 | Cloud: Manage Access Control | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
-| Instance access              | <i class="fa-circle-check"></i> Admin     | <i class="fa-circle-check"></i> User     |
+| Instance access              | <i class="fa-circle-check"></i> Admin     | <i class="fa-circle-check"></i> User                     |
+
+|                              | Server License Owner | Server License Viewer |
+| ---------------------------- | ----------- | ---------- |
+| Server: View License Key      | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>                          |
+| Server: Manage Billing        | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
+| Server: Manage Access Control | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
+
+**Note:** Management of billing information will be handled via the sales team temporarily while we enhance this functionality throughout 2025.
 
 #### Inviting users to Direct access
+
+##### Cloud
 
 1. Navigate to your Cloud instance.
 2. Click **ACCESS CONTROL** in the left sidebar.
@@ -147,6 +159,17 @@ If the invited user already has an Octopus ID, they must still accept the invite
 :::div{.hint}
 **Note:** The user is only added to the Octopus Cloud instance after they sign in for the first time. After signing in, that user gets assigned to the **“Everyone”** team (if they’re a Cloud User) or the **“Octopus Managers”** team (if they’re a Cloud Owner).
 :::
+
+##### Server
+
+1. Navigate to your Server License.
+2. Click **ACCESS CONTROL** in the left sidebar.
+3. Click **INVITE USER**.
+4. Enter the user's details and click **INVITE**.
+
+The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Server License.
+
+If the invited user already has an Octopus ID, they must still accept the invite sent via email to complete the process.
 
 ### Changing user roles 
 
@@ -163,11 +186,10 @@ Deleting Subscription Group access users:
 
 Deleting Direct access users:
 
-1. Navigate to your Cloud instance.
+1. Navigate to your subscription.
 2. Click **ACCESS CONTROL** in the left sidebar.
 3. Locate the user in the table and click the trash icon.
 4. Click **DELETE** in the confirmation dialog.
-
 
 ## Help and support
 
