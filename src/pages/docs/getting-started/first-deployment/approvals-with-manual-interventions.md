@@ -8,8 +8,6 @@ navOrder: 60
 hideInThisSection: true
 ---
 
-[Getting Started - Manual Intervention](https://www.youtube.com/watch?v=ePQjCClGfZQ)
-
 The **Manual Intervention Required** step lets you add approvals or manual checks to your deployment process. When manual intervention occurs, the deployment will pause and wait for approval or rejection from a member of a nominated responsible team.
 
 ## Add manual intervention step
