@@ -21,13 +21,13 @@ There are 2 types of Octopus subscriptions:
 Cloud instance:
 
 1. Navigate to your Cloud instance in Control Center.
-2. Click **UPGRADE PLAN**. 
+2. Click **Upgrade Plan**. 
 3. Choose your plan and complete the purchase through our checkout. 
 
 Server license:
 
 1. Navigate to your Server License in Control Center.
-2. Click **UPGRADE PLAN**. 
+2. Click **Upgrade Plan**. 
 3. Choose your plan and complete the purchase through our checkout.
 
 ### Paying an invoice
@@ -41,8 +41,8 @@ Please contact sales to update your billing information. We'll continue to impro
 ### Viewing orders
 
 1. Navigate to your subscription.
-2. Click **BILLING** in the left sidebar.
-3. Click **CONTACT SALES**.
+2. Click **Billing** in the left sidebar.
+3. Click **Contact Sales**.
 4. Complete the form and we'll get back to you with the order details.
 
 ### Changing your plan
@@ -50,8 +50,8 @@ Please contact sales to update your billing information. We'll continue to impro
 To modify your plan:
 
 1. Navigate to your subscription.
-2. Click **BILLING** in the left sidebar.
-3. Click **GET IN TOUCH** under the change plan section.
+2. Click **Billing** in the left sidebar.
+3. Click **Get in Touch** under the change plan section.
 4. A contact sales dialog will appear for you to request changes to your plan.
 
 ### Canceling your plan
@@ -59,8 +59,8 @@ To modify your plan:
 To cancel your plan:
 
 1. Navigate to your subscription.
-2. Click **BILLING** in the left sidebar.
-3. Click **GET IN TOUCH** under the change plan section.
+2. Click **Billing** in the left sidebar.
+3. Click **Get in Touch** under the change plan section.
 4. A contact sales dialog will appear for you to cancel your plan.
 
 ## Configuration 
@@ -69,18 +69,18 @@ To cancel your plan:
 
 We use outage windows to perform updates to the Octopus Deploy software, so you can take advantage of fixes and enhancements.
 1. Navigate to your subscription.
-2. Click **CONFIGURATION** in the left sidebar.
-3. Click **CHANGE OUTAGE WINDOW**.
+2. Click **Configuration** in the left sidebar.
+3. Click **Change Window**.
 4. Specify the start and end times.
-5. Click **SUBMIT**.
+5. Click **Submit**.
 
 ### Changing the instance URL (Cloud only)
 
 1. Navigate to your subscription
-2. Click **CONFIGURATION** in the left sidebar.
-3. Click **CHANGE URL**.
+2. Click **Configuration** in the left sidebar.
+3. Click **Change URL**.
 4. Specify the new URL.
-5. Click **SUBMIT**.
+5. Click **Submit**.
 
 ## Access control
 
@@ -115,9 +115,9 @@ Below are the roles for Subscription Group access, the permissions they provide 
 #### Inviting users to Subscription Group access
 
 1. Navigate to the dashboard and locate your subscription group.
-2. Click **ACCESS CONTROL**.
-3. Click **INVITE USER**.
-4. Enter the user's details and click **INVITE**.
+2. Click **Access Control**.
+3. Click **Invite User**.
+4. Enter the user's details and click **Invite**.
 
 The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the related subscriptions and instances. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
 
@@ -148,9 +148,9 @@ Below are the roles available for Direct access:
 ##### Cloud
 
 1. Navigate to your Cloud instance.
-2. Click **ACCESS CONTROL** in the left sidebar.
-3. Click **INVITE USER**.
-4. Enter the user's details and click **INVITE**.
+2. Click **Access Control** in the left sidebar.
+3. Click **Invite User**.
+4. Enter the user's details and click **Invite**.
 
 The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Octopus instance. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
 
@@ -163,9 +163,9 @@ If the invited user already has an Octopus ID, they must still accept the invite
 ##### Server
 
 1. Navigate to your Server License.
-2. Click **ACCESS CONTROL** in the left sidebar.
-3. Click **INVITE USER**.
-4. Enter the user's details and click **INVITE**.
+2. Click **Access Control** in the left sidebar.
+3. Click **Invite User**.
+4. Enter the user's details and click **Invite**.
 
 The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Server License.
 
@@ -180,16 +180,16 @@ To change a user's role, you must remove that user's access and then re-invite t
 Deleting Subscription Group access users:
 
 1. Navigate to the dashboard and locate your subscription group.
-2. Click **ACCESS CONTROL**.
+2. Click **Access Control**.
 3. Locate the user in the table and click the trash icon.
-4. Click **DELETE** in the confirmation dialog.
+4. Click **Delete** in the confirmation dialog.
 
 Deleting Direct access users:
 
 1. Navigate to your subscription.
-2. Click **ACCESS CONTROL** in the left sidebar.
+2. Click **Access Control** in the left sidebar.
 3. Locate the user in the table and click the trash icon.
-4. Click **DELETE** in the confirmation dialog.
+4. Click **Delete** in the confirmation dialog.
 
 ## Help and support
 
