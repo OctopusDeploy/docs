@@ -6,6 +6,7 @@ ALLUSERSPROFILE
 anglin
 Anglin
 anotherdir
+Antiforgery
 apikey
 apikeys
 APPNAME
@@ -96,6 +97,7 @@ Dockerfiles
 dockerhub
 Domainname
 DONTVALIDATEPATH
+DPAPI
 dpkg
 dryrun
 Dspring
@@ -396,7 +398,7 @@ SSPI
 SSRS
 statefulset
 statefulsets
-stepsprodpackages.blob.core.windows.net
+stepsprodpackages
 sthumb
 strconv
 struct
