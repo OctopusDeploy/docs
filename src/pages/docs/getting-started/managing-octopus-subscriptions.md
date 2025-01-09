@@ -36,7 +36,7 @@ We will share a unique payment link with you to pay your invoice via Zuora's sec
 
 ### Updating billing information
 
-Please contact sales to update your billing information. We'll continue to improve the billing experience throughout 2025.
+Please [contact sales](https://octopus.com/company/contact) to update your billing information. We'll continue to improve the billing experience throughout 2025.
 
 ### Viewing orders
 
