@@ -1,17 +1,67 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-01-07
 title: Add deployment targets
 description: Step by step guide on how to add deployment targets in Octopus Deploy.
 navOrder: 70
 hideInThisSection: true
 ---
-import AddDeploymentTargets from 'src/shared-content/concepts/add-deployment-targets.include.md';
+With Octopus, you can deploy software to:
 
-<AddDeploymentTargets />
+- Kubernetes
+- Windows
+- Linux
+- Azure
+- AWS
+- Offline package drop
+- Cloud region
 
-The next step will [deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package) to those deployment targets.
+Regardless of where you’re deploying your software, these machines and services are known as your deployment targets.
+
+## Add deployment target
+
+1. From the left Deploy menu, click **Deployment Targets**.
+
+:::figure
+![Deployment Targets page](/docs/getting-started/first-deployment/images/deployment-targets-page.png)
+:::
+
+2. Click **Add Deployment Target**.
+3. Use the category tabs to filter by deployment target type.
+4. Click **Add** on the deployment target you want to add.
+
+### Name
+
+Give your deployment target a descriptive name, for example, `Hello world tutorial target`.
+
+### Environments
+
+We’ll scope this deployment target to one environment. Later, you can add additional targets and scope them to your other environments.
+
+5. Select **Development** from the **Environments** dropdown list.
+
+### Target Tags
+
+Octopus uses target tags to select which deployment target a project should deploy to. Later, you’ll add the same target tag to your deployment process. You can deploy to multiple targets simply by adding this tag.
+
+6. Add a new target tag by typing it into the field. For this example, we’ll use `tutorial-target`.
+
+:::figure
+![Deployment target form](/docs/getting-started/first-deployment/images/deployment-target-form.png)
+:::
+
+Fill in the other sections of the deployment target form. If you need guidance, please refer to the relevant documentation:
+
+- [Kubernetes](/docs/kubernetes/targets)
+- [Windows](/docs/infrastructure/deployment-targets/tentacle/windows)
+- [Linux](/docs/infrastructure/deployment-targets/linux)
+- [Azure](/docs/infrastructure/deployment-targets/azure)
+- [AWS](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target)
+- [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop)
+- [Cloud region](/docs/infrastructure/deployment-targets/cloud-regions)
+
+Next, let’s [deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package) to your deployment target.
 
 ### All guides in this tutorial series
 
@@ -24,5 +74,6 @@ The next step will [deploy a sample package](/docs/getting-started/first-deploym
 ### Further reading for deployment targets
 
 - [Deployment Targets](/docs/infrastructure/deployment-targets)
-- [Deployment Documentation](/docs/deployments)
+- [Targets Tags](/docs/infrastructure/deployment-targets/target-tags)
+- [Deployments](/docs/deployments)
 - [Patterns and Practices](/docs/deployments/patterns)
