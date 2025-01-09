@@ -5,6 +5,7 @@ advfirewall
 ALLUSERSPROFILE
 anglin
 Anglin
+anotherdir
 apikey
 apikeys
 APPNAME
@@ -90,6 +91,7 @@ DESTKEY
 DIND
 Directorygroup
 Distro
+distros
 Dockerfiles
 dockerhub
 Domainname
@@ -224,6 +226,7 @@ MTTR
 myapplication
 Myatt
 myfeature
+myfile
 navigationid
 NETBIOS
 netcore
@@ -475,3 +478,4 @@ xmark
 xvzf
 xxlarge
 youtu
+Zuora
