@@ -117,6 +117,8 @@ externalusers
 failstep
 fanout
 Fargate
+Favorited
+Favoriting
 feedcred
 Feedz.io
 fieldnames
