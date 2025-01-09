@@ -2,7 +2,7 @@
 // warning: This file is overwritten by Astro Accelerator
 
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
-import Author from '@layouts/Author.astro';
+import AuthorLayout from '@layouts/Author.astro';
 
 // Properties
 
@@ -13,6 +13,6 @@ type Props = {
 const { frontmatter, headings } = Astro.props satisfies Props;
 ---
 
-<Author frontmatter={frontmatter} headings={headings}>
+<AuthorLayout frontmatter={frontmatter} headings={headings}>
   <slot />
-</Author>
+</AuthorLayout>

@@ -19,11 +19,13 @@ const { lang, page } = Astro.props satisfies Props;
 // Logic
 const linkTitle = page.title === page.fullTitle ? null : page.fullTitle;
 
+// Backstop logic
+const displayLink = page.title != null;
+
 stats.stop();
 ---
-
 {
-  page.children.length == 0 && (
+  displayLink && page.children.length == 0 && (
     <li class="site-nav__list-item">
       <a
         href={accelerator.urlFormatter.formatAddress(page.url)}
@@ -37,7 +39,7 @@ stats.stop();
   )
 }
 {
-  page.children.length > 0 && (
+  displayLink && page.children.length > 0 && (
     <li class="site-nav__list-item has-children">
       <details class="sub-nav" open={page.isOpen}>
         <summary class="sub-nav__summary">
