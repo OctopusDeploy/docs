@@ -36,7 +36,7 @@ We will share a unique payment link with you to pay your invoice via Zuora's sec
 
 ### Updating billing information
 
-Please [contact sales](https://octopus.com/company/contact) to update your billing information. We'll continue to improve the billing experience throughout 2025.
+Please [contact sales](https://octopus.com/company/contact) to update your billing information.
 
 ### Viewing orders
 
@@ -110,8 +110,6 @@ Below are the roles for Subscription Group access, the permissions they provide 
 | Cloud: Manage Access Control   | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Instance access                | <i class="fa-circle-check"></i> Admin       | <i class="fa-circle-check"></i> Octopus Manager | <i class="fa-solid fa-circle-xmark"></i>           |
 
-**Note:** Management of billing information will be handled via the sales team temporarily while we enhance this functionality throughout 2025.
-
 #### Inviting users to Subscription Group access
 
 1. Navigate to the dashboard and locate your subscription group.
@@ -140,8 +138,6 @@ Below are the roles available for Direct access:
 | Server: View License Key      | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>                          |
 | Server: Manage Billing        | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
 | Server: Manage Access Control | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
-
-**Note:** Management of billing information will be handled via the sales team temporarily while we enhance this functionality throughout 2025.
 
 #### Inviting users to Direct access
 
