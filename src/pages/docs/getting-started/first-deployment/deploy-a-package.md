@@ -55,6 +55,15 @@ You can leave this as the default *Deploy a Package*.
 
 7. Select **tutorial-target** from the **Target Tags** dropdown list.
 
+:::div{.hint}
+**Context for target tags**
+
+When configuring your deployment process, you can click a target tag to see the deployment targets and environments the step will run on.
+
+:::figure
+![Target tags popover that shows correlating deployment targets](/docs/getting-started/first-deployment/images/target-tags-popover.png)
+:::
+
 ### Package
 
 8. Select **hello-world** from the **Package ID** dropdown list.
