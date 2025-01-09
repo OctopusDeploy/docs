@@ -73,10 +73,16 @@ The Kubernetes agent follows [semantic versioning](https://semver.org/), so a ma
 
 | Kubernetes agent | Octopus Server           | Kubernetes cluster   |
 | ---------------- | ------------------------ | -------------------- |
-| 1.\*.\*          | **2024.2.6580** or newer | **1.26** to **1.29** |
-| 2.\*.\*          | **2024.2.9396** or newer | **1.26** to **1.29** |
+| 1.0.0 - 1.16.1   | **2024.2.6580** or newer | **1.26** to **1.29** |
+| 1.17.0 - 1.19.2  | **2024.2.6580** or newer | **1.27** to **1.30** |
+| 1.20.0 - 1.\*.\* | **2024.2.6580** or newer | **1.28** to **1.31** |
+| 2.0.0 - 2.2.1    | **2024.2.9396** or newer | **1.26** to **1.29** |
+| 2.3.0 - 2.8.2    | **2024.2.9396** or newer | **1.27** to **1.30** |
+| 2.9.0 - 2.\*.\*  | **2024.2.9396** or newer | **1.28** to **1.31** |
 
 Additionally, the Kubernetes agent only supports **Linux AMD64** and **Linux ARM64** Kubernetes nodes.
+
+See our [support policy](/docs/kubernetes/targets/kubernetes-agent/supported-versions-policy) for more information.
 
 ## Installing the Kubernetes agent
 
@@ -240,7 +246,13 @@ To include this in the installation command, add the following to the generated 
 
 ## Agent tooling
 
-By default, the agent will look for a [container image](/docs/projects/steps/execution-containers-for-workers) for the workload it's executing against the cluster. If one isn't specified, Octopus will execute the Kubernetes workload using the `octopusdeploy/kubernetes-agent-tools-base` container. It will correctly select the version of the image that's specific to the cluster's version. 
+For all Kubernetes steps, except the `Run a kubectl script` step, the agent uses the `octopusdeploy/kubernetes-agent-tools-base` default container image to execute it's workloads. It will correctly select the version of the image that's specific to the cluster's version.
+
+For the `Run a kubectl script` step, if there is a [container image](/docs/projects/steps/execution-containers-for-workers) defined in the step, then that container image is used. If one is not specified, the default container image is used.
+
+:::div{.warning}
+In Octopus Server versions prior to `2024.3.7669`, the Kubernetes agent erroneously used container images defined in _all_ Kubernetes steps, not just the `Run a kubectl script` step.
+:::
 
 This image contains the minimum required tooling to run Kubernetes workloads for Octopus Deploy, namely:
 

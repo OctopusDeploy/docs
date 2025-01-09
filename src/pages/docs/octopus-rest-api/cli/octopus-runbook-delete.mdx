@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-09-19
+modDate: 2024-12-05
 title: octopus runbook delete
 description: Delete a runbook
-navOrder: 116
+navOrder: 119
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -19,6 +19,7 @@ Aliases:
 
 Flags:
   -y, --confirm          Don't ask for confirmation before deleting the runbook.
+      --git-ref string   Git reference to delete runbook for e.g. refs/heads/main. Only relevant for config-as-code projects where runbooks are stored in Git.
   -p, --project string   Name or ID of the project to delete a runbook from
   -r, --runbook string   Name or ID of the runbook to delete
 

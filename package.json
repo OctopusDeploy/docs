@@ -23,14 +23,14 @@
         "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
     },
     "dependencies": {
-        "@astrojs/mdx": "^2.3.1",
-        "@pnpm/exe": "^9.12.3",
-        "astro": "^4.16.10",
-        "astro-accelerator-utils": "^0.3.27",
-        "cspell": "^8.16.0",
+        "@astrojs/mdx": "^4.0.1",
+        "@pnpm/exe": "^9.15.0",
+        "astro": "^5.0.3",
+        "astro-accelerator-utils": "^0.3.32",
+        "cspell": "^8.16.1",
         "glob": "^11.0.0",
         "gray-matter": "^4.0.3",
-        "hast-util-from-selector": "^3.0.0",
+        "hast-util-from-selector": "^3.0.1",
         "html-to-text": "^9.0.5",
         "keyword-extractor": "^0.0.28",
         "optional": "^0.1.4",
@@ -39,12 +39,12 @@
         "sharp": "^0.33.5"
     },
     "devDependencies": {
-        "@playwright/test": "^1.48.2",
-        "csv-parse": "^5.5.6",
+        "@playwright/test": "^1.49.0",
+        "csv-parse": "^5.6.0",
         "npm-run-all": "^4.1.5",
         "onchange": "^7.1.0",
-        "prettier": "^3.3.3",
-        "prettier-plugin-astro": "^0.13.0"
+        "prettier": "^3.4.2",
+        "prettier-plugin-astro": "^0.14.1"
     },
     "pnpm": {
         "overrides": {

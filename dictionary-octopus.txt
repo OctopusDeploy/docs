@@ -5,6 +5,7 @@ advfirewall
 ALLUSERSPROFILE
 anglin
 Anglin
+Antiforgery
 apikey
 apikeys
 APPNAME
@@ -90,10 +91,12 @@ DESTKEY
 DIND
 Directorygroup
 Distro
+distros
 Dockerfiles
 dockerhub
 Domainname
 DONTVALIDATEPATH
+DPAPI
 dpkg
 dryrun
 Dspring
@@ -107,6 +110,7 @@ emptytitle
 entra
 environmentids
 eprintfn
+esac
 expressjs
 externalgroups
 externalusers
@@ -392,6 +396,7 @@ SSPI
 SSRS
 statefulset
 statefulsets
+stepsprodpackages
 sthumb
 strconv
 struct
@@ -417,6 +422,7 @@ tfvar
 tfvars
 TFVC
 thepassword
+timespan
 tlsv1
 tmpfs
 Toolsets

@@ -38,6 +38,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus account gcp](/docs/octopus-rest-api/cli/octopus-account-gcp)**:  Manage Google Cloud accounts.
 - **[octopus account gcp create](/docs/octopus-rest-api/cli/octopus-account-gcp-create)**:  Create a Google Cloud account.
 - **[octopus account gcp list](/docs/octopus-rest-api/cli/octopus-account-gcp-list)**:  List Google Cloud accounts.
+- **[octopus account generic-oidc](/docs/octopus-rest-api/cli/octopus-account-generic-oidc)**:  Manage Generic OpenID Connect accounts.
+- **[octopus account generic-oidc create](/docs/octopus-rest-api/cli/octopus-account-generic-oidc-create)**:  Create an Generic OpenID Connect account.
+- **[octopus account generic-oidc list](/docs/octopus-rest-api/cli/octopus-account-generic-oidc-list)**:  List Generic OpenID Connect accounts.
 - **[octopus account list](/docs/octopus-rest-api/cli/octopus-account-list)**:  List accounts.
 - **[octopus account ssh](/docs/octopus-rest-api/cli/octopus-account-ssh)**:  Manage SSH Key Pair accounts.
 - **[octopus account ssh create](/docs/octopus-rest-api/cli/octopus-account-ssh-create)**:  Create a SSH Key Pair account.
@@ -98,7 +101,7 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus package list](/docs/octopus-rest-api/cli/octopus-package-list)**:  List packages.
 - **[octopus package nuget](/docs/octopus-rest-api/cli/octopus-package-nuget)**:  Package as NuPkg.
 - **[octopus package nuget create](/docs/octopus-rest-api/cli/octopus-package-nuget-create)**:  Create nuget.
-- **[octopus package upload](/docs/octopus-rest-api/cli/octopus-package-upload)**:  upload one or more packages to Octopus Deploy.
+- **[octopus package upload](/docs/octopus-rest-api/cli/octopus-package-upload)**:  Upload one or more packages to Octopus Deploy.
 - **[octopus package versions](/docs/octopus-rest-api/cli/octopus-package-versions)**:  List versions of a package.
 - **[octopus package zip](/docs/octopus-rest-api/cli/octopus-package-zip)**:  Package as zip.
 - **[octopus package zip create](/docs/octopus-rest-api/cli/octopus-package-zip-create)**:  Create zip.
@@ -155,7 +158,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus tenant connect](/docs/octopus-rest-api/cli/octopus-tenant-connect)**:  Connect a tenant to a project.
 - **[octopus tenant create](/docs/octopus-rest-api/cli/octopus-tenant-create)**:  Create a tenant.
 - **[octopus tenant delete](/docs/octopus-rest-api/cli/octopus-tenant-delete)**:  Delete a tenant.
+- **[octopus tenant disable](/docs/octopus-rest-api/cli/octopus-tenant-disable)**:  Disable a tenant.
 - **[octopus tenant disconnect](/docs/octopus-rest-api/cli/octopus-tenant-disconnect)**:  Disconnect a tenant from a project.
+- **[octopus tenant enable](/docs/octopus-rest-api/cli/octopus-tenant-enable)**:  Enable a tenant.
 - **[octopus tenant list](/docs/octopus-rest-api/cli/octopus-tenant-list)**:  List tenants.
 - **[octopus tenant tag](/docs/octopus-rest-api/cli/octopus-tenant-tag)**:  Override tags for a tenant.
 - **[octopus tenant variables](/docs/octopus-rest-api/cli/octopus-tenant-variables)**:  Manage tenant variables.

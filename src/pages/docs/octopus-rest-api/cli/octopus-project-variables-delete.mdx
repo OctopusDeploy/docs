@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-02-01
+modDate: 2024-12-05
 title: octopus project variables delete
 description: Delete a project variable
-navOrder: 95
+navOrder: 98
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -19,6 +19,7 @@ Aliases:
 
 Flags:
   -y, --confirm          Don't ask for confirmation before deleting the project variable.
+      --git-ref string   The GitRef for the Config-As-Code branch
       --id string        The id of the specific variable value to delete
   -n, --name string      The name of the variable
   -p, --project string   The project
@@ -37,8 +38,9 @@ Global Flags:
 <SamplesInstance />
 
 ```
-$ octopus project variable delete "Database Name" --project "Deploy Site" 
-$ octopus project variable delete "Database Name" --id 26a58596-4cd9-e072-7215-7e15cb796dd2 --project "Deploy Site" --confirm 
+$ octopus project variable delete --name "variable Name" --project "Deploy Site" 
+$ octopus project variable delete --name "variable Name" --id 26a58596-4cd9-e072-7215-7e15cb796dd2 --project "Deploy Site" --confirm 
+$ octopus project variable delete --name "variable Name" --project "Deploy Site" --git-ref "refs/heads/main"
 
 
 ```

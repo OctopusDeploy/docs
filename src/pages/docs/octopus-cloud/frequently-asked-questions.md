@@ -23,15 +23,15 @@ Many customers begin with our [getting started](/docs/getting-started) guide, wh
 
 ### How is Octopus Cloud built? 
 
-Our [Octopus Cloud architecture](https://octopus.com/blog/octopus-cloud-architecture) overview describes how Octopus Cloud is delivered. 
+Our [Octopus Cloud architecture](https://octopus.com/blog/octopus-cloud-architecture) overview describes how we deliver Octopus Cloud. 
 
-## Training & Setup
+## Training and setup
 
 ### What training is available?
 
 Our [Resource Center](https://octopus.com/resource-center) provides high-quality webinars, blog posts, white papers, and free tools. We also offer [books with free PDF versions](https://octopus.com/publications) covering Octopus and broader DevOps topics. We pride ourselves on the quality of our [developer documentation](/docs) and provide free [training video tutorials](https://www.youtube.com/playlist?list=PLAGskdGvlaw268i2ZTPC1ZrxwFjjKIdKH). We support a [community Slack channel](https://octopususergroup.slack.com/join/shared_invite/zt-170c1xzfl-J_pWvCeNZ4H_LmGVE4XNtw#/shared-invite/email) where our staff regularly assist with customer inquiries.
 
-Professional and Enterprise tier customers receive access to our Support team and expert-guided onboarding. Enterprise tier customers can add on Technical Account Management services. Enterprise tier customers with over USD $50,000 licenses are assigned a Customer Success Manager. 
+Professional and Enterprise tier customers receive access to our Support team and expert-guided onboarding. Enterprise tier customers can add on Technical Account Management services. For Enterprise tier customers with over USD $50,000 licenses, we assign a Customer Success Manager. 
 
 ### Can we get support for our initial setup?
 
@@ -49,9 +49,9 @@ Please [contact Sales](https://octopus.com/company/contact) to trial Octopus Clo
 
 ### What does Octopus Cloud cost?
 
-We license Octopus Cloud in tiers. Our Starter tier costs USD $360 per year, and it allows ten projects, ten tenants, ten machines, and a task cap of five. There are no additional platform fees.
+We license Octopus Cloud in tiers. Our Starter tier costs USD $360 per year, and it allows 10 projects, 10 tenants, 10 machines, and task cap of 5. There are no additional platform fees.
 
-Our Professional and Enterprise tiers are [annual licenses priced per project](https://octopus.com/pricing/overview), with tenants and machines sold as add-ons to suit your requirements. Additionally, we charge Professional and Enterprise tier customers a [flat annual platform fee](https://octopus.com/pricing/faq#what-is-the-pricing-for-octopus-cloud) based on the task cap selected, which defines the number of concurrent deployments/runbook runs your instance can perform. 
+Our Professional and Enterprise tiers are [annual licenses priced per project](https://octopus.com/pricing/overview), with tenants and machines sold as add-ons to suit your requirements. We also charge Professional and Enterprise tier customers a [flat annual platform fee](https://octopus.com/pricing/faq#what-is-the-pricing-for-octopus-cloud) based on the task cap selected, which defines the number of concurrent deployments/runbook runs your instance can perform. 
 
 ### Do you support monthly billing?
 
@@ -59,19 +59,19 @@ No. Annual billing is the only option for Octopus Cloud subscriptions.
 
 ### How do I get a quote?
 
-Our Sales team can [provide a quote](https://octopus.com/company/contact) that meets your requirements. 
+Our Sales team can [provide a quote](https://octopus.com/company/contact) that meets your needs. 
 
 ### How do I use a purchase order?
 
-For customers purchasing or renewing on Starter, simply enter a Customer Reference in the online form. This value will appear on the quote or invoice PDF that we generate. 
+For customers purchasing or renewing on Starter, simply enter a Customer Reference in the online form. This value will appear on our quote or invoice PDF. 
 
-For customers on Professional or Enterprise, please provide our Sales team with your purchase order, which will be included in your quote or invoice.
+For customers on Professional or Enterprise, please provide our Sales team with your purchase order, which we'll include in your quote or invoice.
 
 ### Where can I learn more about pricing?
 
-Please refer to our dedicated [Octopus pricing](https://octopus.com/pricing/overview) overview and our [Octopus Cloud pricing FAQ](https://octopus.com/pricing/faq#octopus-cloud-section). Alternatively, please [contact our Sales team](https://octopus.com/company/contact) who can answer any other questions you may have.
+Please refer to our dedicated [Octopus pricing overview page](https://octopus.com/pricing/overview) and our [Octopus Cloud pricing FAQ](https://octopus.com/pricing/faq#octopus-cloud-section). Or, please [contact our Sales team](https://octopus.com/company/contact) who can answer any other questions you may have.
 
-## Data Centers
+## Data centers
 
 ### Where is Octopus Cloud hosted? 
 
@@ -81,15 +81,15 @@ We [host Octopus Cloud](/docs/octopus-cloud#octopus-cloud-hosting-locations) in 
 - West Europe
 - Australia East
   
-Each customer's Octopus Cloud is wholly located within a single Azure region.
+Each customer's Octopus Cloud is wholly located in a single Azure region.
 
 ### Where are the data centers located? 
 
-Each customer's Octopus Cloud is wholly located within a single Azure region. Microsoft publishes [data center information](https://datacenters.microsoft.com/) for each Azure region. 
+Each customer's Octopus Cloud is wholly located in a single Azure region. Microsoft publishes [data center information](https://datacenters.microsoft.com/) for each Azure region. 
 
 ### Can we choose another Azure region?
 
-Please [contact our sales team](https://octopus.com/company/contact) to discuss this.
+Please [contact our Sales team](https://octopus.com/company/contact) to discuss this.
 
 ### Can I move my Octopus Cloud to another region?
 
@@ -99,7 +99,7 @@ Yes. [Contact Support](https://octopus.com/company/contact) to arrange the reloc
 
 ### How does Octopus Cloud approach security?
 
-We pride ourselves on making Octopus Deploy a [secure product](/docs/security#octopus-cloud). In addition, Octopus Cloud instances are [secure and compliant](/docs/octopus-cloud#secure-and-compliant-out-of-the-box) out of the box. 
+We pride ourselves on making Octopus Deploy a [secure product](/docs/security#octopus-cloud). In addition, Octopus Cloud instances are [secure and compliant](/docs/octopus-cloud#secure-and-compliant-out-of-the-box) out-of-the-box. 
 
 ### Is Octopus Cloud compliant with GDPR?
 
@@ -107,7 +107,7 @@ Octopus complies with the European Union's General Data Protection Regulation ([
 
 ### Is Octopus Cloud compliant with SOC 2?
 
-We are regularly audited and maintain a SOC 2 Type II certification. You can request access to our confirmation from our [Trust Center](https://octopus.com/company/trust).
+We're regularly audited and maintain a SOC 2 Type II certification. You can request access to our confirmation from our [Trust Center](https://octopus.com/company/trust).
 
 ### Is Octopus Cloud compliant with ISO 27001?
 
@@ -115,7 +115,7 @@ Our information security management system has been assessed and found to confor
 
 ### Is Octopus Cloud compliant with HIPAA?
 
-Octopus Deploy is not a covered entity under HIPAA. We do not process personally identifiable health data directly or on behalf of our customers. Octopus Cloud has global healthcare industry customers operating on our platform. 
+Octopus Deploy is not a covered entity under HIPAA. We don't process personally identifiable health data directly or on behalf of our customers. Octopus Cloud has global healthcare industry customers operating on our platform. 
 
 ### Where can I learn more about Octopus Deploy compliance?
 
@@ -123,7 +123,7 @@ The security and privacy of our customers' personal, company, and intellectual p
 
 ### Which authentication providers are supported?
 
-Octopus Cloud supports these [authentication providers](/docs/security/authentication/auth-provider-compatibility#login-support) for login. We have narrower provider support for [external groups and roles](/docs/security/authentication/auth-provider-compatibility#external-groups-and-roles).
+We have a table that lists the [authentication providers](/docs/security/authentication/auth-provider-compatibility#login-support) Octopus Cloud supports for login. We have narrower provider support for [external groups and roles](/docs/security/authentication/auth-provider-compatibility#external-groups-and-roles).
 
 ### What level of encryption is used between an Octopus Server and a Tentacle?
 
@@ -135,7 +135,7 @@ Octopus Cloud communicates with Tentacles you deploy on your targets via TLS-enc
 
 ### Can a Tentacle access customer data?
 
-Every process within a Tentacle is executed by the user account configured on its service. Tentacles can be configured to run under a [specific user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account) if elevated or alternative permissions are required. The user account configured constrains the Tentacle's access to data.
+Every process within a Tentacle is executed by the user account configured on its service. You can configure Tentacles to run under a [specific user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account) if you need elevated or alternative permissions. The user account configured constrains the Tentacle's access to data.
 
 ### Does Octopus Cloud have any security vulnerabilities? 
 
@@ -143,7 +143,7 @@ We make a list of all [our security advisories](https://advisories.octopus.com/)
 
 ### Has Octopus Cloud had any vulnerabilities in the past?
 
-Yes. We pride ourselves on making Octopus Deploy a secure product, but no software is ever bug-free, and occasionally, there have been security issues. We have published [all of our historical advisories](https://advisories.octopus.com/) since 2021. 
+Yes. We pride ourselves on making Octopus Deploy a secure product, but no software is ever bug-free, and occasionally, there have been security issues. We've published [all of our historical advisories](https://advisories.octopus.com/) since 2021. 
 
 ## Migration
 
@@ -153,19 +153,19 @@ We have a [step-by-step](/docs/octopus-cloud/migrations) guide.
 
 The benefits of migrating from self-hosted to Octopus Cloud include:
 
-- Likely lower total cost of hosting - taking into account the saving of having your people focused on your mission, not maintenance
+- Likely lower total cost of hosting - taking into account the saving of having your people focused on your mission, not maintenance.
 - Cloud customers get access to the latest features and functionality.
 - Lower risk - Once a CVE or bug is found, we issue a patch and automatically apply it. 
-- We perform maintenance that many customers do not (rebuild indexes, backup files and databases, have a recovery plan)
-- Monitoring and uptime - We monitor every instance to ensure it is online. When it goes offline, we attempt to automatically recover it, and failing that, we start paging our support teams.
+- We perform maintenance that many customers do not (rebuild indexes, backup files and databases, have a recovery plan).
+- Monitoring and uptime - We monitor every instance to ensure it's online. When it goes offline, we attempt to automatically recover it, and failing that, we start paging our Support teams.
 
 ### Can we trial Octopus Cloud while we decide on migration? 
 
-Yes. We can arrange temporary licenses to ensure you are not being double-billed during the trial. [Contact our Sales team](https://octopus.com/company/contact) to arrange.
+Yes. We can arrange temporary licenses to ensure you're not being double-billed during the trial. Please [contact our Sales team](https://octopus.com/company/contact) to arrange this.
 
-### How can I determine my current Octopus Server usage? 
+### How can I determine my current Octopus Server use? 
 
-We have diagnostic scripts we can share with you that make gathering metrics about your configuration and usage easy. [Contact our Support team](https://octopus.com/company/contact) to request access.
+We have diagnostic scripts we can share with you that make it easy to gather metrics about your configuration and use. [Contact our Support team](https://octopus.com/company/contact) to request access.
 
 ## Updates
 
@@ -175,7 +175,7 @@ Octopus Cloud is a modern SaaS application that receives frequent updates. New f
 
 ### When are updates performed?
 
-Regular maintenance and product updates are applied during your [maintenance window](/docs/octopus-cloud/maintenance-window), typically once or twice weekly. We may need to apply critical security patches outside of this schedule, and our Support team contacts customers in advance if such a patch is required.
+We apply regular maintenance and product updates during your [maintenance window](/docs/octopus-cloud/maintenance-window), typically once or twice weekly. We may need to apply critical security patches outside of this schedule. In this case, our Support team contacts customers in advance.
 
 ### How do I know what was upgraded?
 
@@ -185,31 +185,36 @@ We publish our [release updates](https://octopus.com/whatsnew) and provide a [re
 
 ### What is Octopus Cloud’s uptime SLO?
 
-Octopus Cloud's monthly [uptime SLO](/docs/octopus-cloud/uptime-slo) is 99.5%, measured for the 95% percentile of Cloud instances. This target includes all downtime, including scheduled maintenance.
+Octopus Cloud's monthly [uptime SLO](/docs/octopus-cloud/uptime-slo) is 99.99%, measured for the 95th percentile of paid Cloud instances. We calculate uptime as 100% of the month, less all unplanned downtime. 
 
 ### How is uptime monitored?
 
 Our Cloud Platform team observes uptime and planned downtime durations as part of frequent health checks. We use a third-party vendor to assess availability every minute of the day.
 
+### Where can I see Octopus Cloud uptime data?
+
+We publish Octopus Cloud’s [uptime track record](/docs/octopus-cloud/uptime-slo) monthly.
+
+
 ### How can we check Octopus Cloud's status?
 
 We publish Octopus Cloud's [operational status](https://status.octopus.com/). You can subscribe to status change emails from our [operational status page](https://status.octopus.com/).
 
-## Logs & Data
+## Logs and data
 
 ### How do we access deployment and audit logs? 
 
-Deployment and access logs can be viewed and downloaded from Octopus Cloud. Enterprise-tier customers can [stream audit logs](/docs/security/users-and-teams/auditing/audit-stream) to their SIEM system.
+You can view and download deployment and access logs from Octopus Cloud. Enterprise-tier customers can [stream audit logs](/docs/security/users-and-teams/auditing/audit-stream) to their SIEM system.
 
 ### What is the data backup and retention policy?  
 
-Our [retention policies](/docs/administration/retention-policies) allow you to control how Octopus decides which releases, packages, and files are kept. The retention policy is set to 30 days by default. [Backups](/docs/administration/data/backup-and-restore) are subject to [storage thresholds](/docs/octopus-cloud#octopus-cloud-storage-limits), 1TB by default. You can arrange more via our Sales team if required. 
+Our [retention policies](/docs/administration/retention-policies) let you control which releases, packages, and files Octopus will keep. The retention policy is set to 30 days by default. [Backups](/docs/administration/data/backup-and-restore) are subject to [storage thresholds](/docs/octopus-cloud#octopus-cloud-storage-limits), 1TB by default. You can arrange more with our Sales team if required. 
 
 ### What access do Octopus staff have to our data?
 
-All access is protected by Multi-Factor Authentication (MFA), Role-Based Access Control (RBAC), and the Principle of Least Privilege (PLP).
+We protect all access with multi-factor authentication (MFA), role-based access control (RBAC), and the principle of least privilege (PLP).
 
-In case of issues related to your data or the availability of your Cloud instance, Support Users can be granted temporary access to your Cloud instance, and queries can be run against your Cloud instance database. Only competent, trained, background-checked, and authorized engineers can gain such access. These activities are tightly controlled and have automatic revocation of access mechanisms.
+In case of issues related to your data or the availability of your Cloud instance, Support Users can be granted temporary access to your Cloud instance, and queries can be run against your Cloud instance database. Only competent, trained, background-checked, and authorized engineers can gain this access. These activities are tightly controlled and have automatic revocation of access mechanisms.
 
 Microsoft Azure may have infrastructure access and, as such, would also have access, as controlled by our service agreements with them.
 
@@ -223,7 +228,7 @@ We log all access to Octopus Cloud instance databases and file storage.
 
 Our SecOps team has monitoring and alerting in place based on patterns of suspicious activity. Monitoring focuses on Support Users being granted temporary access to a Cloud instance and queries being run by our staff against Cloud instance databases. Both of these activities are tightly controlled and logged, and access mechanisms are automatically revoked.
 
-Only authorized, skilled, and trained engineers who are employed by Octopus Deploy may be granted temporary access. 
+Only authorized, skilled, and trained engineers employed by Octopus Deploy may be granted temporary access. 
 
 Microsoft Azure may have infrastructure access and, as such, would also have access, as controlled by our service agreements with them.
 
@@ -237,5 +242,9 @@ Octopus Cloud has a well-defined [disaster recovery](/docs/octopus-cloud/disaste
 
 ### How often are backups performed? 
 
-We take Octopus Cloud database backups using Azure’s [automated backup](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql&tabs=single-database#backup-frequency) process. Full backups are performed weekly, differential backups every 12 or 24 hours, and transaction log backups approximately every 10 minutes.
+We take Octopus Cloud database backups using Azure’s [automated backup](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql&tabs=single-database#backup-frequency) process. We perform: 
+
+- Full backups weekly
+- Differential backups every 12 or 24 hours
+- Transaction log backups approximately every 10 minutes
 
