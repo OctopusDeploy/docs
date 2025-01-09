@@ -10,6 +10,7 @@ navOrder: 25
 This page describes any outbound network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 
 ## Outbound requests by Tentacle
+## Outbound requests by Tentacle
 
 For security reasons, we minimize the number of outbound requests made by the Tentacle deployment agent. The only outbound requests you should see are for:
 
@@ -20,6 +21,7 @@ For security reasons, we minimize the number of outbound requests made by the Te
 
 It's possible that scripts in your packages may make outbound requests; in this case you should take care when deploying packages created by a third party.
 
+## Outbound requests by Octopus
 ## Outbound requests by Octopus
 
 The Octopus Server makes the following outbound requests:
@@ -44,6 +46,7 @@ From **Octopus 2022.1** some built-in step templates can be automatically update
 
 Our community contributed step template integration queries `library.octopus.com` for updates.
 
+## What information is included when Octopus checks for updates?
 ## What information is included when Octopus checks for updates?
 
 By default, Octopus will periodically check for new releases. You can opt-out of checking for updates by navigating to **Configuration ➜ Settings ➜ Updates** in Octopus.

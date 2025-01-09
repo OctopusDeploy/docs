@@ -67,7 +67,7 @@ which results in the server retrieving that file, at the end of that step. Keep 
 
 The package and any supporting deployment files are uploaded via SFTP.
 
-## File footprint {#SSHTargets-Footprint}
+## File footprint
 
 - The root directory for all Octopus work is `$HOME/.octopus`
 - All packages are deployed to a relative location at `$HOME/.octopus/Applications/#{instance}/#{environment}/#{package}/#{version}`.

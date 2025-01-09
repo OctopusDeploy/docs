@@ -5,6 +5,7 @@ advfirewall
 ALLUSERSPROFILE
 anglin
 Anglin
+Antiforgery
 apikey
 apikeys
 APPNAME
@@ -90,10 +91,12 @@ DESTKEY
 DIND
 Directorygroup
 Distro
+distros
 Dockerfiles
 dockerhub
 Domainname
 DONTVALIDATEPATH
+DPAPI
 dpkg
 dryrun
 Dspring
@@ -393,7 +396,7 @@ SSPI
 SSRS
 statefulset
 statefulsets
-stepsprodpackages.blob.core.windows.net
+stepsprodpackages
 sthumb
 strconv
 struct
