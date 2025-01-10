@@ -5,6 +5,7 @@ advfirewall
 ALLUSERSPROFILE
 anglin
 Anglin
+anotherdir
 Antiforgery
 apikey
 apikeys
@@ -229,6 +230,7 @@ MTTR
 myapplication
 Myatt
 myfeature
+myfile
 navigationid
 NETBIOS
 netcore
@@ -480,3 +482,4 @@ xmark
 xvzf
 xxlarge
 youtu
+Zuora
