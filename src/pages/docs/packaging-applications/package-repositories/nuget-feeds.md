@@ -17,6 +17,13 @@ In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or loc
 ![](/docs/packaging-applications/package-repositories/images/add-external-feed.png)
 :::
 
+:::div{.info}
+If you're using a file share or local directory path, your system administrator must enable this feature before you can proceed.
+1. Navigate to **Configuration ➜ Features**.
+2. Expand the **Allow creation with Local or SMB paths** section by clicking on it.
+3. Toggle the selection to either **Enabled** or **Disabled**, and click **SAVE**.
+:::
+
 On the test page, you can check whether the feed is working by searching for packages:
 
 :::figure
