@@ -36,7 +36,7 @@ There are additional dependency requirements to be aware of for both [SSH target
 
 ## Supported distributions
 
-Since tooling used to invoke Octopus workloads is based on .NET 6, Octopus Server supports running those workloads on the following distributions that are [supported by .NET 6](https://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md#linux) itself.
+Since tooling used to invoke Octopus workloads is based on .NET 6, Octopus Server supports running workloads on the following distributions as per the [.NET 6 supported platform details](https://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md#linux).
 
 OS                              | Versions                        
 ------------------------------- | --------------------------- |
@@ -49,9 +49,9 @@ OS                              | Versions
 [SUSE Enterprise Linux](https://www.suse.com/)| 15.6, 15.5, 12.5
 [Ubuntu](https://ubuntu.com/)| 24.04, 22.04, 20.04
 
-Although the tooling requires the platform to support .NET Core, since runs as a self-contained .NET deployment there is no .NET installation prerequisite.
+Although the tooling requires the platform to support .NET Core, since it runs as a self-contained .NET deployment there is no .NET _installation_ prerequisite.
 
-In addition to the .NET 6 requirement, Octopus will only support those Operating Systems that are themselves still considered as supported by the platform vendors themselves.
+In addition to the .NET 6 requirement, Octopus will only support those Operating Systems which are themselves still considered as supported by the platform vendors themselves.
 ## Learn more
 
 - [Linux blog posts](https://octopus.com/blog/tag/linux)
