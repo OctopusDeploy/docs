@@ -207,6 +207,7 @@ Linq
 Liquibase
 lstrip
 ltsc
+Lucene
 LXRR3
 machinepolicies
 machinepolicy
