@@ -13,7 +13,7 @@ We pride ourselves on making Octopus Deploy a secure product. The security and i
 
 This section provides information about the responsibility we take to provide a secure software product, and considerations for you as the host and administrator of your Octopus Deploy installation.
 
-## Our Certifications 
+## Our Certifications
 
 Octopus Deploy is compliant with cybersecurity standards such as ISO27001 & SOC II. Every year Octopus undergoes a security review conducted by a third-party company. We also run several public bug bounty programs to encourage the security community to help us keep our customers safer. We are an active member of MITRE through its CVE program as a CNA, meaning that we're responsible for disclosing any vulnerabilities in our product to allow customers security teams to make informed decisions.
 
@@ -103,7 +103,7 @@ The following sections describe the security controls you can put in place when 
 
 ### Identity and access control
 
-Before a person can access your Octopus Deploy installation, they must validate their identity. We provide built-in support for the most commonly used authentication providers including Active Directory (NTLM and Kerberos), Google Apps, and Microsoft Azure Active Directory. Octopus Deploy works natively with Open ID Connect (OIDC) so you can connect to other identity providers. If you don't want to use an external identity providers, you can let Octopus Deploy securely manage your usernames and passwords for you.
+Before a person can access your Octopus Deploy installation, they must validate their identity. We provide built-in support for the most commonly used authentication providers including Active Directory (NTLM and Kerberos), Google Apps, and Microsoft Azure Active Directory. Octopus Deploy works natively with Open ID Connect (OIDC) so you can connect to other identity providers. If you don't want to use an external identity provider, you can let Octopus Deploy securely manage your usernames and passwords for you.
 
 Learn about [authentication providers](/docs/security/authentication).
 
