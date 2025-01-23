@@ -41,7 +41,6 @@ Since tooling used to invoke Octopus workloads is based on .NET 6, Octopus Serve
 
 | OS                                                     | Versions               |
 |--------------------------------------------------------|------------------------|
-| [Alpine](https://alpinelinux.org)                      | 3.20, 3.19, 3.18, 3.17 |
 | [CentOS Stream](https://centos.org/)                   | 9                      |
 | [Debian](https://www.debian.org/)                      | 12, 11                 |
 | [Fedora](https://fedoraproject.org/)                   | 40, 39                 |
