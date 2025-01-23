@@ -26,14 +26,14 @@ If you operate in a highly secure environment, where it's not possible to open a
 ## Dependencies
 
 - The `$HOME` environment variable must be available.
-- `bash` 3+ is available* at `/bin/bash`
+- `bash` 3+ is available at `/bin/bash`
 - `tar` is available. This is used to unpack Calamari.
 - `base64` is available. This is used for encoding and decoding variables.
 - `grep` is available.
 
 There are additional dependency requirements to be aware of for both [SSH targets](/docs/infrastructure/deployment-targets/linux/ssh-requirements) and [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/#requirements).
 
-*The `bash` requirement is not required if exclusively utilizing [Raw Scripts](https://octopus.com/docs/deployments/custom-scripts/raw-scripting).
+These dependencies are not required if exclusively utilizing [Raw Scripts](https://octopus.com/docs/deployments/custom-scripts/raw-scripting).
 
 ## Supported distributions
 
