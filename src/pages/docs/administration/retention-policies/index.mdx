@@ -50,7 +50,7 @@ Note that if you use the [Custom Installation Directory ](/docs/projects/steps/c
 
 #### Packages
 
-Packages that are transfered during the deployment are managed based on free disk space. For each deployment, prior to acquiring the package, the free disk space is checked and if less than 20% it will delete the “least used” package(s) from the Tentacle file store location. Packages that gets removed will be reacquired if needed for another deployment.
+Packages that are transferred during the deployment are managed based on free disk space. For each deployment, prior to acquiring the package, the free disk space is checked and if less than 20% it will delete the “least used” package(s) from the Tentacle file store location. Packages that gets removed will be reacquired if needed for another deployment.
 The disk space calculation for both targets and workers looks at the entire disk, however Octopus only cleans up in the file store.
 
 ### Built-in repository \{#built-in-repo-whats-deleted}
