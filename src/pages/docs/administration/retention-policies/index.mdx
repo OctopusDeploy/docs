@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-02
+modDate: 2025-01-28
 title: Retention policies
 icon: fa-solid fa-broom
 description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
@@ -45,7 +45,7 @@ We talk about Tentacles here, but the same process and logic applies to [SSH Tar
 Retention policies are applied to target Tentacle machines via the Retention Policy set in the Lifecycle. They clean up the files (and folders) that are deployed, e.g., the contents of a package extracted to a folder. They are run as the last step in the deployment. Retention Policies are applied to Environment/Project/Tenant/Step/Machine combinations. For example, the last three releases to the machine for the given step of a project deployed to environment/tenant will be kept.
 Workers also clean up any files and folders older than 90 days.
 
-Note that if you use the [Custom Installation Directory ](/docs/projects/steps/configuration-features/custom-installation-directory) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
+Note that if you use the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
 
 
 #### Packages
