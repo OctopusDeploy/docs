@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-01-20
+modDate: 2025-01-27
 title: Linux targets
 description: Configuring Linux servers as deployment targets in Octopus.
 navOrder: 30
@@ -41,7 +41,6 @@ Since tooling used to invoke Octopus workloads is based on .NET 6, Octopus Serve
 
 | OS                                                     | Versions               |
 |--------------------------------------------------------|------------------------|
-| [Alpine](https://alpinelinux.org)                      | 3.20, 3.19, 3.18, 3.17 |
 | [CentOS Stream](https://centos.org/)                   | 9                      |
 | [Debian](https://www.debian.org/)                      | 12, 11                 |
 | [Fedora](https://fedoraproject.org/)                   | 40, 39                 |
