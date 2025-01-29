@@ -236,6 +236,12 @@ MII...
 -----END CERTIFICATE-----
 ```
 
+You can create a base64-encoded string in a nubmer of ways, including the following methods:
+
+- `cat certificate.pem | base64`
+- Passing in your certificate string (including the `BEGIN CERTIFICATE` and `END CERTIFICATE` lines) to `echo <your_certificate_string> | base64`
+- From a Windows Certificate Store, exporting your certificate by opening it, going to the `Details` tab, clicking `Copy to file` and choosing `Base-64 encoded X.509 (.CER)` as the format.
+
 Once encoded, this string can be provided as part of the agent installation helm command via the `agent.serverCertificate` helm value.
 
 To include this in the installation command, add the following to the generated installation command:
