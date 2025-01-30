@@ -1421,7 +1421,7 @@ Example: 100
 
 `OctopusShouldFailDeploymentOnSubstitutionFails`
 
-If set to "True", the deployment will fail if any variable substitution fails.
+If set to "True", the deployment will fail if any variable substitution fails. This variable was added in Octopus 2025.1.0.
 
 Example: True
 
