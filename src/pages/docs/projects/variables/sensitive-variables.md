@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-10-04
 title: Sensitive variables
+icon: fa-solid fa-key
 description: Sensitive variables allow you to define secret values used in your applications that can be securely stored in Octopus, or retrieved from a Secret Manager/Key Vault using one of our community step templates.
 navOrder: 50
 ---
@@ -12,7 +13,7 @@ As you work with [variables](/docs/projects/variables) in Octopus, there will be
 Sensitive variables can be sourced from either:
 
 - A Secret Manager/Key Vault using one of our Community step templates.
-- Octopus itself, with values stored securely using **AES128 encryption**.
+- Octopus itself, with values stored securely using **AES-256 encryption**.
 
 ## Values from a Secret Manager/Key Vault {#values-from-key-vaults}
 
@@ -45,13 +46,13 @@ View working examples of all of our Secrets Management community step templates 
 
 Variables, such as passwords or API keys can be marked as **sensitive**. 
 
-Just like non-sensitive variables they can [reference other variables](/docs/projects/variables/#use-variables-in-step-definitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](/docs/projects/variables/sensitive-variables/#substitution-syntax-mistakes) as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
+Just like non-sensitive variables they can [reference other variables](/docs/projects/variables/#use-variables-in-step-definitions) but be careful with any part of your sensitive variable that could unintentionally be interpreted as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
 
 ### Configuring sensitive variables {#configure-sensitive-variables}
 
 To make a variable a **sensitive variable**, either select **Change Type** when entering the value and select **Sensitive**, or enter the variable editor when you are creating or editing the variable. 
 
-If using the variable editor, on any of the variable fields, click **OPEN EDITOR**:
+If using the variable editor, on the variable value, click **Open editor**:
 
 :::figure
 ![Open Variable Editor](/docs/projects/variables/images/open-variable-editor.png)
@@ -69,7 +70,13 @@ For variable type, select **Sensitive**.
 Learn more about [security and encryption](/docs/security/data-encryption) in Octopus Deploy.
 :::
 
-When dealing with sensitive variables, Octopus encrypts these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/projects/variables), with two notable exceptions:
+When dealing with sensitive variables, Octopus encrypts these values using:
+
+- **AES-256** encryption when they are stored in the Octopus database in versions 2024.4 and newer.
+- **AES-128** encryption when they are stored in the Octopus database in versions prior to 2024.4.
+- **AES-128 encryption** any time they are in transmission, or when they are stored on a deployment target as part of a deployment. 
+
+You can use these sensitive values in your deployment process just like normal [variables](/docs/projects/variables), with two notable exceptions:
 
 - Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/octopus-rest-api) or the Octopus Web Portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.
@@ -94,14 +101,14 @@ You could also make `DB.Username` or any of the other components of this templat
 
 Here are some common pitfalls to avoid:
 
-- **Avoid logging your sensitive values**: you won't really get any benefit from logging your sensitive variables since they will be masked by Octopus. The masking is in provided in case a downstream system logs the sensitive value inadvertently logging it to the Octopus deployment logs.
+- **Avoid logging your sensitive values**: you won't really get any benefit from logging your sensitive variables since they will be masked by Octopus. The masking is provided in case a downstream system logs the sensitive value, inadvertently logging it to the Octopus deployment logs.
 - **Avoid short values:** only sensitive variables with length **greater than 3** characters will be masked. This is done to prevent false positives causing excessive obfuscation of the logs. Consider 8-30 characters depending on the requirements of your deployment.
 - **Avoid common language**: see the example below of "broke", use a password generator with high entropy [like this one](https://www.passwordsgenerators.net/).
 - **Avoid sequences that are interpreted by your scripting language of choice**: For example, certain escape sequences like `$^` will be misinterpreted by PowerShell potentially logging out your sensitive variable in clear-text.
 - **Sensitivity is not transitive/infectious**: For example, imagine you have a sensitive variable called `DB.Password` and another variable called `DB.ConnectionString` with the value `Server=#{DB.Server};...;Password=#{DB.Password}`; the `DB.ConnectionString` does not become sensitive just because `DB.Password` is sensitive. However, if you happen to write the database connection string to the task log, the password component will be masked like this `Server=db01.my-company.com;...;Password=*****` which is probably the desired outcome.
 - **Avoid mixing binding expressions and sensitivity**: For example, if you have a variable called `Service.Credential` with the value `Password=#{Service.Password}` and make that variable sensitive, Octopus treats the **literal** value `Password=#{Service.Password}` as sensitive instead of treating the **evaluated** value as sensitive, which might be different to what you would expect. Instead, you should make the variable called `Service.Password` sensitive so the password itself will be encrypted in the database, and subsequently masked in any logs like this `Password=*****`.
 - **Avoid treating entire files as sensitive**: Imagine you're consuming a YAML file from a variable, and that YAML file contains a secret. Rather than treating the whole YAML file as sensitive, you should create two variables: one sensitive variable containing just the secret, and one non-sensitive variable for the YAML file which uses [variable substitution](/docs/projects/variables/variable-substitutions) to substitute in the sensitive variable. This gives Octopus a much tighter scope when looking for sensitive variables to mask.
-- **Avoid sequences that are part of the variable substitution syntax** {#substitution-syntax-mistakes}: For example, the sequence `##{` will be replaced by `#{` by logic that's part of [referencing variables](/docs/projects/variables/#use-variables-in-step-definitions) so you would need to escape it by modifying it to be `###{` which will result in `##{`, see also [variable substitution syntax](/docs/projects/variables/variable-substitutions).
+- **Avoid sequences that are part of the variable substitution syntax**: For example, the sequence `##{` will be replaced by `#{` by logic that's part of [referencing variables](/docs/projects/variables/#use-variables-in-step-definitions) so you would need to escape it by modifying it to be `###{` which will result in `##{`, see also [variable substitution syntax](/docs/projects/variables/variable-substitutions).
 - **Octopus is not a 2-way key vault**: use a [Secret Manager/Key Vault](#values-from-key-vaults) instead.
 
 ## Logging {#logging}

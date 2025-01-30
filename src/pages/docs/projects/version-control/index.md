@@ -1,16 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-09-17
 title: Configuration as Code
 description: Projects can be version-controlled as text in a Git repository 
+icon: fa-brands fa-git-alt
 navOrder: 110 
 hideInThisSection: true
 ---
 
 ## Introduction 
 
-The Configuration as Code (config-as-code) feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, only the _deployment process_, _deployment settings_, and _non-sensitive variables_ can be version-controlled.
+The Configuration as Code (config-as-code) feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, your _deployment process_, _runbook processes_, _deployment settings_, and _non-sensitive variables_ can be version-controlled.
 
 The Octopus UI needed to remain fully functional for version-controlled projects, and it has. You can continue to use the UI exactly as you always have, but with an additional superpower: Git branches are now exposed in the UI, allowing editing of currently supported project configuration on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes too.
 
@@ -20,17 +21,11 @@ The Octopus UI needed to remain fully functional for version-controlled projects
 
 Of course, there is now a text representation of the process in the Git repository, and if you prefer editing text, open your favorite editor and go for it. We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
 
-That means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases, the relevant branch can be selected. We have also added [branch system variables](/docs/projects/variables/system-variables/#release-branch-information) that can be used in your custom deployment scripts.
+That means that where previously there was only a single current version of the deployment or runbook process, it is now possible to have many. When creating releases, the relevant branch can be selected. We have also added [branch system variables](/docs/projects/variables/system-variables/#release-branch-information) that can be used in your custom deployment scripts.
 
 :::div{.warning}
 Config-as-code only supports [git](https://git-scm.com/) repositories.  Before using this feature, you should be familiar with [git concepts](https://git-scm.com/doc) such as distributed version control, pushing, pulling, branching, merging, and fetching.
 :::
-
-### What's next?
-
-We have some strong opinions on what's next. The latest release of config-as-code supports _deployment processes_, _deployment settings_, and _non-sensitive variables_.  
-
-We have plans for future releases of config-as-code to support Runbooks. In addition, we'd like to evolve the OCL schema to make it friendlier for editing by hand.
 
 ### We want your feedback
 
@@ -45,6 +40,10 @@ You can provide feedback through whichever of the following channels you feel mo
 ## Configuring a project to be version-controlled 
 
 Version-control is configured per project and is accessed via the **Settings ➜ Version Control** navigation menu item. 
+
+New version controlled projects will automatically have config-as-code for both deployment and runbook processes. 
+
+You can [migrate an existing version controlled project](/docs/runbooks/config-as-code-runbooks#cac-runbooks-on-an-existing-version-controlled-project) to use config as code runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
 
 Learn more about [Configuring version control on a project](/docs/projects/version-control/converting).
 

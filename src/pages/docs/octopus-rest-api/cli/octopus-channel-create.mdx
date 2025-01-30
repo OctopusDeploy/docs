@@ -1,0 +1,47 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-12-05
+title: octopus channel create
+description: Create a channel
+navOrder: 36
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Create a channel in Octopus Deploy
+
+```
+Usage:
+  octopus channel create [flags]
+
+Flags:
+      --default              Set this channel as default
+  -d, --description string   Description of the channel
+  -l, --lifecycle string     The lifecycle to use for the channel
+  -n, --name string          Name of the channel
+  -p, --project string       Project to create channel in
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus channel create
+$ octopus channel create --name "The Channel" --project "The Project" --lifecycle "Default Lifecycle" --default
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

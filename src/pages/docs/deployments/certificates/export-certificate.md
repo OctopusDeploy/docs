@@ -1,19 +1,18 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-09
 title: Export a certificate
+icon: fa-solid fa-lock
 description: Export a certificate managed by Octopus as a selected file-format
 navOrder: 60
 ---
 
-Certificates can be downloaded from the Octopus Portal to your local machine.  The certificate may be exported in any of the [supported file-formats](/docs/deployments/certificates), or exactly as it was originally uploaded.
+Certificates can be downloaded from Octopus to your local machine.  The certificate may be exported in any of the [supported file-formats](/docs/deployments/certificates), or exactly as it was originally uploaded.
 
 :::figure
 ![](/docs/deployments/certificates/images/download-certificate-btn.png)
 :::
-
-![](/docs/deployments/certificates/images/download-certificate-dialog.png)
 
 ## Private-keys
 

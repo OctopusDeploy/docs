@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-09
 title: Replace a certificate
+icon: fa-solid fa-lock
 description: Replace a certificate managed by Octopus Deploy
 navOrder: 80
 ---
@@ -18,7 +19,3 @@ To replace a certificate, navigate to the certificate details page and click 'Re
 :::figure
 ![](/docs/deployments/certificates/images/replace-certificate-btn.png)
 :::
-
-Select the replacement certificate file and password (if required):
-
-![](/docs/deployments/certificates/images/replace-certificate-dialog.png)

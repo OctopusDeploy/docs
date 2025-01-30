@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-25
+modDate: 2024-12-16
 title: Create release
 description: Using the Octopus CLI to create releases.
 navOrder: 100

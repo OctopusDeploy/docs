@@ -1,0 +1,46 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-12-05
+title: octopus build-information bulk-delete
+description: Bulk delete build information
+navOrder: 30
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Bulk delete build information in Octopus Deploy
+
+```
+Usage:
+  octopus build-information bulk-delete [flags]
+
+Flags:
+  -y, --confirm               Don't ask for confirmation before deleting the build information.
+      --package-id string     the package id of the build information.
+      --version stringArray   the version of the build information, may be specified multiple times.
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus build-information bulk-delete
+$ octopus build-info --package-id ThePackage
+$ octopus build-info --package-id ThePackage --version 1.0.0 --version 1.0.1
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

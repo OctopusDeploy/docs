@@ -2,7 +2,7 @@
 
 Octopus supports multiple [package formats](/docs/packaging-applications/#supported-formats) for deploying your software. TeamCity can be configured to monitor your source control and package your applications when changes are made.
 
-You configure TeamCity to package your applications by creating a [build configuration](https://www.jetbrains.com/help/teamcity/build-configuration.html), and adding a step to the configuration of runner type, **Octopus Deploy: Pack**.
+You configure TeamCity to package your applications by creating a [build configuration](https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html), and adding a step to the configuration of runner type, **Octopus Deploy: Pack**.
 
 1. Give the step a name.
 2. Enter the [package ID](/docs/packaging-applications/#package-id).

@@ -2,16 +2,17 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Teams with mixed environment privileges
+title: Teams with mixed environment privileges in Octopus
+navTitle: Teams with mixed environment privileges
 description: This guide describes how to create a teams for a user with mixed environment privileges.
 navOrder: 10
 ---
 
 A common scenario some users may face, is the desire to provide full access to one environment, but only read access to the next stage. For example, the developers might be able to fully manage deployments to the development and staging environments, but only view the production deployments.
 
-## Creating teams for users with mixed environment privileges {#Creatingteamsforauserwithmixedenvironmentprivileges2019-1}
+## Creating teams for users with mixed environment privileges {#MixedEnvironmentPrivileges}
 
-### Creating the developers team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;Developers&quot;Team}
+### Creating the developers team {#CreatingDevelopersTeam}
 
 Start by clicking the **Teams** tab under **Configuration** in the Octopus Web Portal.  Then click **Add team**.
 
@@ -55,6 +56,6 @@ We can repeat this process as many times as necessary to configure the team to y
 
 When you are happy with these changes hit **Save** to make them effective.
 
-## Summary {#Creatingteamsforauserwithmixedenvironmentprivileges-Summary}
+## Summary {#Summary}
 
 The permissions system in Octopus Deploy provides a very flexible way of defining broad access to system functionality, while still allowing it to be constrained to very specific environments or projects. In this guide we have seen how a developer can have their permissions configured so they can have full access to the first few stages of the deployment lifecycle, while restricting access to the business critical production areas.

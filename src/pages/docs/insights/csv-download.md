@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-27
 title: CSV download
+icon: fa-solid fa-file-csv
 description: Download your data as a CSV
 navOrder: 150
 ---
@@ -18,7 +19,7 @@ any deployments that you do not have permission to view are omitted.
 The same data is available in JSON format via an API call.
 
 :::div{.warning}
-The columns included and their order may vary in the future, particularly during the EAP period. Please take this into account if ingesting the file into an automated process.
+The columns included and their order may vary in the future. Please take this into account if ingesting the file into an automated process.
 :::
 
 The CSV contains the following columns

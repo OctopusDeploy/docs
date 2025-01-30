@@ -22,7 +22,7 @@ $templates.Items | ForEach-Object {
     $template = $_
     $name = $template.Name.Replace(" ", "-")
     Write-Host "Writing $PSScriptRoot/step-templates/$name.json"
-    ($template | ConvertTo-Json) | Out-File -FilePath "$PSScriptRoot/step-templates/$name.json"
+    ($template | ConvertTo-Json -Depth 100) | Out-File -FilePath "$PSScriptRoot/step-templates/$name.json"
 }
 ```
 

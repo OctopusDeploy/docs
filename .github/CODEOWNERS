@@ -39,9 +39,9 @@
 
 /docs/getting-started/first-runbook-run/ @OctopusDeploy/team-product-growth
 
-# updates to the managing octopus subscriptions page are reviewed by team-product-growth
+# updates to the managing octopus subscriptions page are reviewed by team-billing-experience
 
-/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/team-product-growth
+/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/team-billing-experience
 
 # updates to the samples instance page are reviewed by team-solutions
 
@@ -53,7 +53,7 @@
 
 # updates to the projects deployment process page are reviewed by team-modelling-at-scale
 
-/docs/projects/deployment-process/index.mdx @OctopusDeploy/team-modelling-at-scale
+/docs/projects/deployment-process/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the project recommendations page are reviewed by team-support
 
@@ -69,7 +69,7 @@
 
 # updates to the built in step templates page are reviewed by team-modelling-at-scale
 
-/docs/projects/built-in-step-templates/index.mdx @OctopusDeploy/team-modelling-at-scale
+/docs/projects/built-in-step-templates/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the exporting and importing projects page are reviewed by team-backend-foundations
 
@@ -85,15 +85,15 @@
 
 # updates to the variables page are reviewed by team-modelling-at-scale
 
-/docs/projects/variables/index.mdx @OctopusDeploy/team-modelling-at-scale
+/docs/projects/variables/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the tenants page are reviewed by team-modelling-at-scale
 
-/docs/projects/tenants/index.mdx @OctopusDeploy/team-modelling-at-scale
+/docs/projects/tenants/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the project triggers page are reviewed by team-modelling-at-scale
 
-/docs/projects/project-triggers/index.md @OctopusDeploy/team-modelling-at-scale
+/docs/projects/project-triggers/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the coordinating multiple projects section are reviewed by team-support
 
@@ -101,7 +101,7 @@
 
 # updates to the config as code section are reviewed by team-modern-deployments
 
-/docs/projects/version-control/ @OctopusDeploy/team-modern-deployments
+/docs/projects/version-control/ @OctopusDeploy/team-devex
 
 # updates to the tenants section are reviewed by team-modelling-at-scale
 
@@ -141,7 +141,7 @@
 
 # updates to the tenants multi-tenant deployment guide page are reviewed by team-modelling-at-scale
 
-/docs/tenants/guides/index.md @OctopusDeploy/team-modelling-at-scale
+/docs/tenants/guides/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the tenants multi-tenant deployments faq page are reviewed by team-modelling-at-scale
 
@@ -175,6 +175,14 @@
 
 /docs/infrastructure/index.mdx @OctopusDeploy/team-marketing
 
+# updates to the dynamic worker pools overview page are reviewed by team-cloud-platform
+
+/docs/infrastructure/workers/dynamic-worker-pools.md @OctopusDeploy/team-cloud-platform
+
+# updates to the dynamic worker pools section are reviewed by team-cloud-platform
+
+/docs/infrastructure/workers/dynamic-worker-pools/ @OctopusDeploy/team-cloud-platform
+
 # updates to the packaging applications overview page are reviewed by team-marketing
 
 /docs/packaging-applications/index.md @OctopusDeploy/team-marketing
@@ -185,7 +193,7 @@
 
 # updates to the packaging applications builder servers page are reviewed by team-modern-deployments
 
-/docs/packaging-applications/build-servers/index.md @OctopusDeploy/team-modern-deployments
+/docs/packaging-applications/build-servers/ @OctopusDeploy/team-modern-deployments
 
 # updates to the packaging applications packaging repositories page are reviewed by team-server-at-scale
 
@@ -197,11 +205,11 @@
 
 # updates to the lifecycles page are reviewed by team-modelling-at-scale
 
-/docs/releases/lifecycles/index.mdx @OctopusDeploy/team-modelling-at-scale
+/docs/releases/lifecycles/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the channels page are reviewed by team-modelling-at-scale
 
-/docs/releases/channels/index.md @OctopusDeploy/team-modelling-at-scale
+/docs/releases/channels/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the guided failures page are reviewed by team-server-at-scale
 
@@ -241,15 +249,15 @@
 
 # updates to the deployments certificates page are reviewed by team-modelling-at-scale
 
-/docs/deployments/certificates/index.md @OctopusDeploy/team-modelling-at-scale
+/docs/deployments/certificates/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the deployments databases section are reviewed by team-backend-foundations
 
-/docs/deployments/databases/ @OctopusDeploy/team-backend-foundations
+/docs/deployments/databases/ @OctopusDeploy/team-modern-deployments
 
-# updates to the deployments docker section are reviewed by team-cloud-platform
+# updates to the deployments docker section are reviewed by team-modern-deployments
 
-/docs/deployments/docker/ @OctopusDeploy/team-cloud-platform
+/docs/deployments/docker/ @OctopusDeploy/team-modern-deployments
 
 # updates to the deployments packages page are reviewed by team-server-at-scale
 
@@ -361,7 +369,7 @@
 
 # updates to the openid connect page are reviewed by team-devex
 
-/docs/octopus-rest-api/openid-connect/index.md @OctopusDeploy/team-devex
+/docs/octopus-rest-api/openid-connect/ @OctopusDeploy/team-devex
 
 # updates to the administration section are reviewed by team-backend-foundations
 
@@ -373,11 +381,11 @@
 
 # updates to the retention policies page are reviewed by team-modelling-at-scale
 
-/docs/administration/retention-policies/index.mdx @OctopusDeploy/team-modelling-at-scale
+/docs/administration/retention-policies/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the administration reporting page are reviewed by team-modelling-at-scale
 
-/docs/administration/reporting/index.mdx @OctopusDeploy/team-modelling-at-scale
+/docs/administration/reporting/ @OctopusDeploy/team-modelling-at-scale
 
 # updates to the security overview page are reviewed by team-marketing
 
@@ -387,9 +395,9 @@
 
 /docs/security/script-integrity.md @OctopusDeploy/team-modern-deployments
 
-# updates to the hardening octopus page are reviewed by team-cloud-platform
+# updates to the hardening octopus page are reviewed by team-backend-foundations
 
-/docs/security/hardening-octopus.mdx @OctopusDeploy/team-cloud-platform
+/docs/security/hardening-octopus.mdx @OctopusDeploy/team-backend-foundations
 
 # updates to the exposing octopus page are reviewed by team-backend-foundations
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-24
+modDate: 2024-08-27
 title: Insights
 subtitle: Deployment metrics to help celebrate wins or find improvements
 icon: fa-solid fa-chart-line
@@ -46,7 +46,7 @@ Throughput metrics measure the health of your deployment pipeline, while the sta
 
 ## Octopus built-in DORA metrics with Insights
 
-Octopus **2022.3** adds out-of-the-box support for the following DevOps metrics:
+Octopus adds out-of-the-box support for the following DevOps metrics:
 
 **Deployment Lead Time**
 
@@ -88,7 +88,7 @@ Project level insights are available to all customers out-of-the-box, meaning yo
 
 ## Gain insight across projects and teams with the Space level insights
 
-Octopus **2022.3** also includes additional insights capabilities for customers with an [enterprise subscription](https://octopus.com/pricing). For customers at larger companies, we have built additional capabilities that make it easier to gain insight using DORA metrics in larger multi-team, multi-site and multi-project scenarios.
+Octopus also includes additional insights capabilities for customers with an [enterprise subscription](https://octopus.com/pricing). For customers at larger companies, we have built additional capabilities that make it easier to gain insight using DORA metrics in larger multi-team, multi-site and multi-project scenarios.
 
 Space level insights are available via the Insights tab and provide actionable DORA metrics for more complex scenarios across projects, project groups, environments, or tenants. This enables managers and decision-makers to get far more insight into the DevOps performance of their organization in line with their business context, such as team, portfolio, or platform. Space level insights:
 
@@ -105,3 +105,6 @@ Users who have view permissions to Space-level Insights reports will see sanitiz
 :::
 
 Space level DevOps insights are available to customers with an [enterprise subscription](https://octopus.com/pricing).
+
+## Older versions
+Project and space level insights are available from Octopus **2022.3** onwards.

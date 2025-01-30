@@ -2,7 +2,7 @@
 // warning: This file is overwritten by Astro Accelerator
 
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
-import Redirect from '@layouts/Redirect.astro';
+import RedirectLayout from '@layouts/Redirect.astro';
 
 // Properties
 type Props = {
@@ -12,6 +12,6 @@ type Props = {
 const { frontmatter, headings } = Astro.props satisfies Props;
 ---
 
-<Redirect frontmatter={frontmatter} headings={headings}>
+<RedirectLayout frontmatter={frontmatter} headings={headings}>
   <slot />
-</Redirect>
+</RedirectLayout>

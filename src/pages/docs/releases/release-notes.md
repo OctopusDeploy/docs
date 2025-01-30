@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-29
 title: Release notes
 description: Enrich your releases with notes
+icon: fa-solid fa-pen-to-square
 navOrder: 135
 ---
 
@@ -13,7 +14,9 @@ When you create a release, you can add notes:
 ![Editing release notes](/docs/releases/images/release-notes-edit.png)
 :::
 
+:::figure
 ![Viewing release notes](/docs/releases/images/release-notes-view.png)
+:::
 
 ## Using variables in release notes
 

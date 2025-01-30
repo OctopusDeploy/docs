@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: OCL Syntax for Config as Code
 description: A description of Octopus Deploy's OCL file format.
+icon: fa-solid fa-code
 navOrder: 70
 ---
 

@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-06-27
 title: Report on deployments using SQL
+icon: fa-solid fa-database
 description: How to report on deployments using SQL
 navOrder: 15
 ---

@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-13
 modDate: 2023-11-13
-title: Web App reference architecture
+title: Web App reference architecture in Octopus
+navTitle: Web App reference architecture
 description: Populate an Octopus space with example projects deploying to an Azure web app
 navOrder: 2
 ---

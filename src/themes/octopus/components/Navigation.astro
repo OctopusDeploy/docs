@@ -1,7 +1,7 @@
 ---
 import { Accelerator } from 'astro-accelerator-utils';
 import { Translations, Lang } from '@util/Languages';
-import { getNavigationItems } from '@util/getNavigationItems';
+import { menu } from '@data/navigation';
 import NavigationItem from '@components/NavigationItem.astro';
 import { SITE } from '@config';
 
@@ -20,7 +20,7 @@ const _ = Lang(lang);
 
 // Logic
 const currentUrl = new URL(Astro.request.url);
-const pages = await getNavigationItems(currentUrl, lang);
+const pages = accelerator.navigation.menu(currentUrl, SITE.subfolder, menu);
 
 stats.stop();
 ---

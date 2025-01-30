@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-29
 title: Output variables
+icon: fa-solid fa-diagram-next
 description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
 navOrder: 30
 ---
@@ -178,16 +179,16 @@ In this scenario, the following output variables would be captured:
 
 Note that for each output variable/deployment target combination:
 
-- A variable is created with the deployment target name contained in the variable name: this allows you to reference output variables from set by one deployment target from another deployment target.
+- A variable is created with the deployment target name contained in the variable name: this allows you to reference output variables set by one deployment target from another deployment target.
 - A variable is created that is [scoped](/docs/projects/variables/getting-started/#scoping-variables) to the deployment target. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set.
 - A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be non-deterministic, but it allows scripts to use the value without knowing which deployment target set it.
 
 For some practical examples of using output variables, and how scoping rules are applied, see the following blog posts:
 
 - [Fun with output variables](https://octopus.com/blog/fun-with-output-variables)
-- [Changing website ports using output variables](http://octopus.com/blog/changing-website-port-on-each-deployment)
+- [Changing website ports using output variables](https://octopus.com/blog/changing-website-port-on-each-deployment)
 
-## Output from deploy a release steps {#deploy-release-output}
+## Output from a Deploy a Release step {#deploy-release-output}
 
 Output variables from deployments triggered by a _Deploy a Release_ step are captured and exposed as output variables on the _Deploy a Release_ step.
 

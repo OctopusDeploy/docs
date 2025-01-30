@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-02-01
+modDate: 2024-12-05
 title: octopus release deploy
 description: Deploy releases
-navOrder: 98
+navOrder: 113
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -19,7 +19,7 @@ Flags:
       --version string                          Release version to deploy
   -e, --environment stringArray                 Deploy to this environment (can be specified multiple times)
       --tenant stringArray                      Deploy to this tenant (can be specified multiple times)
-      --tenant-tag stringArray                  Deploy to tenants matching this tag (can be specified multiple times)
+      --tenant-tag stringArray                  Deploy to tenants matching this tag (can be specified multiple times). Format is 'Tag Set Name/Tag Name', such as 'Regions/South'.
       --deploy-at string                        Deploy at a later time. Deploy now if omitted. TODO date formats and timezones!
       --deploy-at-expiry string                 Cancel the deployment if it hasn't started within this time period.
   -v, --variable stringArray                    Set the value for a prompted variable in the format Label:Value

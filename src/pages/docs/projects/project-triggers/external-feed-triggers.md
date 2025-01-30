@@ -1,8 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-21
-modDate: 2024-03-21
-title: External feed triggers
+modDate: 2024-08-28
+title: External feed triggers in Octopus
+navTitle: External feed triggers
+icon: fa-solid fa-arrow-up-right-from-square
 description: External feed triggers allow you to automatically create a new release as a result of new container images or helm charts being pushed to their respective repositories.
 navOrder: 12
 ---
@@ -29,13 +31,7 @@ The details of these container images and Helm Charts are already known in Octop
 
 ## Getting started {#ExternalFeedTriggers-GettingStarted}
 
-Navigate to your project’s triggers page by selecting Projects and clicking on the project you are working with. Click **Triggers** option on the left, under **Deployments**. You are now presented with an empty triggers list.
-
-Click the **ADD TRIGGER** on the right-hand side of the page, and select **External feed**.
-
-:::figure
-![Project triggers list](/docs/projects/project-triggers/images/add-trigger-popup.png)
-:::
+Navigate to your project and click **Triggers**. Click **Add Trigger** on the right-hand side of the page, and select **External feed**.
 
 Enter a name and description for your trigger. The name should be short, memorable, and unique. Example: Nginx Docker Update.
 
@@ -43,7 +39,7 @@ Enter a name and description for your trigger. The name should be short, memorab
 
 If your project contains multiple [channels](/docs/releases/channels), you have the option of selecting which channel this trigger will apply to. Any pushed packages must satisfy the selected channel's [versioning rules](/docs/releases/channels#version-rules) to trigger release creation. The releases created by the trigger will use this channel.
 
-The versions used for those releases is guided by the [release versioning](/docs/releases/release-versioning) settings under **Deployments Settings**. They will use the rules defined there.
+The versions used for those releases is guided by [release versioning](/docs/releases/release-versioning) under **Settings**. They will use the rules defined there.
 
 Unlike the existing [built-in package repository triggers](/docs/projects/project-triggers/built-in-package-repository-triggers) (formerly Automatic Release Creation), you can create multiple external feed triggers per project. This can enable you to automatically create releases for multiple channels.
 
@@ -51,7 +47,7 @@ Unlike the existing [built-in package repository triggers](/docs/projects/projec
 ![Channel selection](/docs/projects/project-triggers/images/external-trigger-channel.png)
 :::
 
-A preview of the [lifecycle](/docs/releases/lifecycles) used by the selected channel is displayed. You can modify the [lifecycles phases](/docs/releases/lifecycles/#Lifecycles-LifecyclePhases) to have a release created and deployed to selected environments whenever a new package is pushed.
+A preview of the [lifecycle](/docs/releases/lifecycles) used by the selected channel is displayed. You can modify the [lifecycle's phases](/docs/releases/lifecycles/#Lifecycles-LifecyclePhases) to have a release created and deployed to selected environments whenever a new package is pushed.
 
 ## Trigger sources
 
@@ -65,9 +61,9 @@ Please note that for [configuration as code](/docs/projects/version-control/conf
 
 ## History
 
-The history section contains information about the last time the trigger was evaluated and the last release that was created by trigger. By default, triggers are evaluated every three minutes and results will be reported here.
+The history section contains information about the last time the trigger was evaluated and the last release that was created by the trigger. By default, triggers are evaluated every three minutes and results will be reported here.
 
-- Outcome: Tells us if there was any action taken, or if there was an error during processing.
+- Outcome: Tells you if there was any action taken, or if there was an error during processing.
 - Reason: Additional information about the outcome.
 - Last executed at: The time the task was run.
 - Discovered packages: A full list of watched packages, container images or Helm charts and the versions that were found in this execution.
@@ -90,7 +86,7 @@ If you have a chain of dependencies with your external feed packages, make sure 
 
 When you are using external feed triggers there are a few reasons why a release may not be created successfully. Take some time to consider the following troubleshooting steps:
 
-1. **Inspect the task list** for errors in the **Task** menu - Octopus will log the reason why external feed triggers failed as errors or warnings. Note that external feed triggers are system tasks, and do not display in the list by default. Use the **SHOW ADVANCED FILTERS** option and select **Include system tasks** to show them.
+1. **Inspect the task list** for errors in the **Task** menu - Octopus will log the reason why external feed triggers failed as errors or warnings. Note that external feed triggers are system tasks, and do not display in the list by default. Use the **Show advanced filters** option and select **Include system tasks** to show them.
 
 2. Ensure you are pushing the package to a **supported external feed type**. While capability has been verified against most major docker providers, compatibility is not guaranteed - please contact Octopus Deploy support if you encounter any problems.
 

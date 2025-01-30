@@ -1,21 +1,23 @@
+# Octopus docs
+
 This repository contains the documentation for [Octopus Deploy](https://octopus.com/docs).
 
 Contributions to help improve this documentation are welcome, however, you must sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs) before we can accept your contribution.
 
 See the [Octopus style guide](https://www.octopus.design/932c0f1a9/p/26f741-writing) for information including:
 
-* [Markdown quick reference](https://www.octopus.design/932c0f1a9/p/074e30-markdown-reference)
-* [Capitalization](https://www.octopus.design/932c0f1a9/p/457bc4-grammar-rules/t/03e016)
-* [Working with images](https://www.octopus.design/932c0f1a9/p/5061d7-working-with-images)
+- [Markdown quick reference](https://www.octopus.design/932c0f1a9/p/074e30-markdown-reference)
+- [Capitalization](https://www.octopus.design/932c0f1a9/p/457bc4-grammar-rules/t/03e016)
+- [Working with images](https://www.octopus.design/932c0f1a9/p/5061d7-working-with-images)
 
 ## How to contribute a change to the docs
 
-* The `main` branch has the latest version of the docs
-* Fork this repo and create a branch for your changes
-* Make the changes you'd like to contribute
-* Submit a pull request (PR) to master with your changes and include a comment explaining the changes
-* Sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs)
-* We'll review your PR and accept it or suggest changes
+- The `main` branch has the latest version of the docs
+- Fork this repo and create a branch for your changes
+- Make the changes you'd like to contribute
+- Submit a pull request (PR) to master with your changes and include a comment explaining the changes
+- Sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs)
+- We'll review your PR and accept it or suggest changes
 
 ### Default values
 
@@ -24,6 +26,9 @@ When you need to use an example value in docs, please use the below:
 - Octopus URL: `https://your-octopus-url`
 - Octopus API key: `API-YOUR-KEY`
 - Snapshot name: `Snapshot XXXXX`
+- SubscriptionId: `g3662re9njtelsyfhm7t`
+
+In general, try to use "your" rather than "my". For example, `your-value`.
 
 ## Required checks
 
@@ -36,7 +41,7 @@ When you raise a pull request, the following checks will take place:
 
 You can run the tests locally using:
 
-```
+```bash
 pnpm test
 ```
 
@@ -49,7 +54,7 @@ The most common failures are:
 
 You can run the spell check locally using:
 
-```
+```bash
 pnpm spellcheck
 ```
 
@@ -100,13 +105,13 @@ You can use the Front Matter dashboard to find content, media, and snippets - or
 
 The pages are in the exact page shown on the website, so you can easily translate them. For example:
 
-```
+```bash
 https://octopus.com/docs/infrastructure/deployment-targets/tentacle
 ```
 
 Can be found in the exact same path within `src/pages/`
 
-```
+```bash
 \docs\src\pages\docs\infrastructure\deployment-targets\tentacle
 ```
 
@@ -120,17 +125,17 @@ No page should ever be deleted! When a page moves or is retired, it should be ch
 
 The below shows the complete contents of a redirect page that sends users from:
 
-```
+```bash
 /docs/administration/authentication/authentication-providers/azure-ad-authentication
 ```
 
 To the new location:
 
-```
+```bash
 /docs/security/authentication/azure-ad-authentication
 ```
 
-```
+```yaml
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
@@ -192,13 +197,15 @@ Within an MDX file, this looks like a code block and will error. Escape the stat
 ## Switching between spaces \{#switching-between-spaces}
 ```
 
+MDX files don't allow short-form links, instead of using `<https://example.com>` use `[https://example.com](https://example.com)`, or even better - put in useful link text, like `[example website](https://example.com)`.
+
 ## Docs page layout guidelines
 
 ### Title icons
 
 If you are updating a page in Docs which doesn't already have a title icon, please add one. Title icons can be added in the frontmatter for each page by adding a Font Awesome class in the `icon` entry: 
 
-```
+```yaml
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
@@ -218,7 +225,7 @@ hideInThisSectionHeader: true
 
 Product screenshots used in Docs should reflect the UI in the latest version of Octopus. The `figure` component will automatically add a curved border and outline to your image:
 
-```
+```markdown
 :::figure
 ![](/docs/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
 :::
@@ -230,6 +237,6 @@ Images should be uploaded to the folder that relates to the position of the page
 
 Do not use call out / info boxes in the main body of docs pages to reference how features worked in earlier versions of Octopus. This information should be moved to the bottom of docs pages under an 'Older versions' heading. For example, you might add a note like this under the 'Older versions' heading:
 
-```
+```markdown
 In versions earlier than 2024.x, you'll find the page to add a feed under the Projects menu -> Tenant Variables
 ```

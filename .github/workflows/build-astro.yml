@@ -35,7 +35,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9.1.0
+          version: 9.10.0
           run_install: false
 
       - name: Setup Node
@@ -59,6 +59,7 @@ jobs:
           export NODE_OPTIONS=--max_old_space_size=4096
           pnpm dev:img
           pnpm test
+          node ./src/themes/octopus/utilities/page-report.js
 
       - name: Set Version
         run: |
@@ -89,7 +90,7 @@ jobs:
           packages: ${{ steps.package.outputs.package_file_path }}
 
       - name: Let people download package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ ! env.SHOULD_DEPLOY }}
         with:
           name: docs-microsite
@@ -100,7 +101,7 @@ jobs:
         if: ${{ env.SHOULD_DEPLOY }}
         with:
           version: "${{ env.PACKAGE_VERSION }}"
-          packages: "Docs Microsite"
+          packages: ${{ steps.package.outputs.package_file_path }}
 
       - name: Create a release in Octopus Deploy 🐙
         id: "create_release"

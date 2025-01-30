@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-06-25
-title: Create auto deployment override
+title: Create auto deployment overrides in Octopus
+navTitle: Create auto deployment override
 description: Using the Octopus CLI to create automatic deployment release overrides.
 navOrder: 100
 ---

@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
-title: Raw scripting
+modDate: 2024-08-27
+title: Raw scripting in Octopus
+navTitle: Raw scripting
 description: Raw Scripting allows you to transfer packages and execute scripts against SSH deployment targets where you are unable to install and run Mono.
+icon: fa-regular fa-file-code
 navOrder: 70
 ---
 
-## Design intentions {#RawScripting-DesignIntentions}
+## Design intentions {#design-intentions}
 
-Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/octopus-rest-api/calamari). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experimental feature was added in **Octopus 3.9**, accessible via a project variable which will simply open a connection to the remote server and execute a deployment script within that session.
+Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/octopus-rest-api/calamari). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari.
 
 :::div{.hint}
 **Feature Tradeoffs**
@@ -54,6 +56,10 @@ While raw scripting does not require a Transfer a Package step, the below scenar
 
 5. Create a release and deploy the project. You should notice that unlike a typical deployment, there are no calls to upload or run Calamari and the whole thing runs a bit faster due to the reduced overhead. If you check your *~/.octopus* directory on the remote endpoint, you should also notice that there are no Calamari dependencies that have had to be uploaded for this deployment.  
 
-## Raw Tentacles {#RawScripting-RawTentacles}
+## Raw Tentacles {#raw-tentacles}
 
 Raw scripting is also supported on standard Windows based Tentacles however in this case the scripts will always be executed in the context of a PowerShell session. Keep in mind that this still means that you need a fully functioning Tentacle actually running on the remote target.
+
+## Older versions
+
+Raw scripting was added as an experimental feature in **Octopus 3.9**, accessible via a project variable which will simply open a connection to the remote server and execute a deployment script within that session. Older versions of Octopus do not include this feature.

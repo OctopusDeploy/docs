@@ -68,19 +68,8 @@ $httpClientHandler = New-Object System.Net.Http.HttpClientHandler
 $httpClient = New-Object System.Net.Http.HttpClient $httpClientHandler
 $httpClient.DefaultRequestHeaders.Add("X-Octopus-ApiKey", $ApiKey)
 
-$packageFileStream = New-Object System.IO.FileStream @($filePathToUpload, [System.IO.FileMode]::Open)
-
-$contentDispositionHeaderValue = New-Object System.Net.Http.Headers.ContentDispositionHeaderValue "form-data"
-$contentDispositionHeaderValue.Name = "fileData"
-$contentDispositionHeaderValue.FileName = [System.IO.Path]::GetFileName($filePathToUpload)
-
-$streamContent = New-Object System.Net.Http.StreamContent $packageFileStream
-$streamContent.Headers.ContentDisposition = $contentDispositionHeaderValue
-$ContentType = "multipart/form-data"
-$streamContent.Headers.ContentType = New-Object System.Net.Http.Headers.MediaTypeHeaderValue $ContentType
-
-$content = New-Object System.Net.Http.MultipartFormDataContent
-$content.Add($streamContent)
+$bytes = Get-Content $filePathToUpload -AsByteStream
+$content = New-Object System.Net.Http.ByteArrayContent -ArgumentList @(,$bytes)
 
 $uploadUrl = "$OctopusUrl/api/$spaceId/artifacts/$artifactId/content"
 Write-Host "Uploading file $filePathToUpload to $uploadUrl"

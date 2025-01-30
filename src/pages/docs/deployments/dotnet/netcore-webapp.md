@@ -11,7 +11,7 @@ ASP.NET Core is fast becoming the de-facto web framework in .NET. Compared to ea
 
 If you are new to ASP.NET Core you can start with the [Tutorial: Get Started ASP.Net Core tutorial](https://docs.microsoft.com/en-us/aspnet/core/getting-started/?view=aspnetcore-5.0).
 
-## Publishing and packing the website {#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite}
+## Publishing and packing the website {#publishing-and-packing-the-website}
 
 When your application is ready, it needs to be published:
 
@@ -29,7 +29,7 @@ octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
 
 For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).
 
-If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli/#create-zip-packages). 
+If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli#create-zip-packages).
 
 When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories).
 
@@ -54,7 +54,7 @@ When running under IIS, ensure the .NET CLR Version is set to `No Managed Code`.
 
 The `.AspNetCore.Antiforgery` cookie created by ASP.NET Core uses the application path to generate its hash. By default Octopus will deploy to a new path every time, which causes a new cookie to be set every deploy. This results in many unneeded cookies in the browser. See this [blog post](http://blog.novanet.no/a-pile-of-anti-forgery-cookies/) for more details. To change this behavior, set the Antiforgery token in your `startup.cs` like this:
 
-```
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddAntiforgery(opts => opts.CookieName = "AntiForgery.MyAppName");
@@ -65,7 +65,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Similar to antiforgery cookies, cookie authentication in ASP.NET Core 2 uses Microsoft's data protection API (DPAPI) which can use the application path to isolates applications from one another.  This can cause older cookies to simply not work. To change this behavior, you need to set the application name in your `startup.cs` like this:
 
-```
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddDataProtection().SetApplicationName("my application");
@@ -75,7 +75,6 @@ public void ConfigureServices(IServiceCollection services)
 ## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
 Refer to [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) on how to setup configuration.
-
 
 ## Learn more
 

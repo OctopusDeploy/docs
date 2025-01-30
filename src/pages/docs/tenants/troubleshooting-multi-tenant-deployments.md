@@ -2,7 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Troubleshooting multi-tenant deployments
+title: Troubleshooting multi-tenant deployments in Octopus
+navTitle: Troubleshooting multi-tenant deployments
+icon: fa-solid fa-circle-question
 description: Diagnose and solve issues with multi-tenant deployments.
 navOrder: 100
 ---

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2024-09-24
 title: Migrating from Octopus Server to Octopus Cloud
 navOrder: 30
 description:  Migrating from Octopus Server to Octopus Cloud.
@@ -12,7 +12,7 @@ This guide will walk you through a general set of steps to take to migrate your 
 It is impossible to cover every last use case in a single guide, and as such, if you have any questions, please contact our [support team](https://octopus.com/support). We're always happy to help, and we can provide more specific information when you are ready to migrate.
 
 :::div{.hint}
-This guide will follow the recommended approach to migrating to Octopus Cloud using the **Export/Import Projects** feature released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import).
+This guide will follow the recommended approach to migrating to Octopus Cloud using the **[Export/Import Projects](/docs/projects/export-import)** feature.
 :::
 
 :::div{.problem}
@@ -41,8 +41,8 @@ The deployments will **not** include:
 Before starting your migration to Octopus Cloud, you will need to address the following:
 
 1. Understand the differences between Octopus Cloud and your Octopus Server.
-1. Upgrading your Octopus Server instance to the latest major/minor release of Octopus Deploy (2021.1, 2021.2, etc.).
-1. Determine if you are using [Polling or Listening tentacles](/docs/infrastructure/deployment-targets/tentacle/windows) for your deployment targets and workers.
+1. Upgrading your Octopus Server instance to the latest release of Octopus Deploy.
+1. Determine if you are using [Polling or Listening tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication) for your deployment targets and workers.
 1. Creating your Octopus Cloud instance.
 1. Configuring any firewall settings for your tentacles.
 1. Configuring workers and worker pools.
@@ -54,7 +54,7 @@ Before starting your migration to Octopus Cloud, you will need to address the fo
 Octopus Cloud and Octopus Server are built on the same code base.  The differences stem from the additional configuration steps we perform during the Octopus Cloud build.  The differences are:
 
 - Octopus Cloud users cannot be Octopus Administrators, the "highest" level of permission possible is [Octopus Manager](/docs/octopus-cloud/permissions).
-- Octopus Cloud has a subset of auth providers available to the Octopus Server.  Most notably, Octopus Cloud does not include Active Directory or LDAP.  Please see the [authentication provider compatibility page](/docs/security/authentication/auth-provider-compatibility) for an up to date list of what is available.
+- Octopus Cloud has a subset of the auth providers available to Octopus Server.  Most notably, Octopus Cloud does not include Active Directory or LDAP.  Please see the [authentication provider compatibility page](/docs/security/authentication/auth-provider-compatibility) for an up to date list of what is available.
 - Octopus Cloud is subject to [storage limits and default retention policies](/docs/octopus-cloud/#octopus-cloud-storage-limits).
 - Octopus Cloud does not support running tasks on the server itself.  Everything must run on a deployment target or worker.  To help, Octopus Cloud includes [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools) with both Windows and Linux workers.
 
@@ -115,11 +115,11 @@ Set up a couple of sample projects to deploy to your servers.  That will be a fi
 
 ### User migration
 
-The project export/import feature does not include users.  All users must be created from scratch.  If you are using an external authentication provider, such as Azure AD, or Okta, you can turn on "auto-create users" feature.
+The project export/import feature does not include users.  All users must be created from scratch.  If you are using an external authentication provider, such as Azure AD, or Okta, you can turn on the [Automatic user creation](/docs/security/authentication/auto-user-creation) feature.
 
 ## Migration
 
-The migration will use the **Export/Import Projects** feature in **Octopus 2021.1**. That feature was specifically designed for [migrating from Octopus Server to Octopus Cloud](/docs/projects/export-import).  Our recommendations when using this tool are:
+The migration will use the **Export/Import Projects** feature. This feature was specifically designed for [migrating from Octopus Server to Octopus Cloud](/docs/projects/export-import).  Our recommendations when using this tool are:
 
 - Migrate using a phased approach over migrating everything at once.  Migrate a project group or suite of applications to Octopus Cloud, test some deployments, then move onto the next batch.
 - The first couple of projects will take more time as you work through any configuration issues.  As such, pick some non-mission-critical projects or applications first.
@@ -155,7 +155,7 @@ A Windows or Linux server can have [1 to N tentacle instances](/docs/administrat
 1. Original Tentacle Instance -> connects to your Octopus Server.
 2. New Tentacle Instance -> connects to Octopus Cloud.
 
-We have a [script to help create](https://github.com/OctopusDeployLabs/SpaceCloner/blob/master/docs/UseCase-CopyExistingTentacles/) a cloned tentacle instance pointing to Octopus Cloud.  You can copy a listening tentacle as a polling tentacle, a polling tentacle as a polling tentacle, or a listening tentacle as a listening tentacle. 
+We have a [script to help create](https://github.com/OctopusDeployLabs/SpaceCloner/blob/main/docs/UseCase-CopyExistingTentacles.md) a cloned tentacle instance pointing to Octopus Cloud.  You can copy a listening tentacle as a polling tentacle, a polling tentacle as a polling tentacle, or a listening tentacle as a listening tentacle. 
 
 :::div{.hint}
 That script requires PowerShell 5.1 or greater for Windows.  We recommend PowerShell 7.
@@ -183,7 +183,7 @@ After the build server has been updated, create a small change to trigger your C
 
 Disabling a project will prevent it from being able to create and deploy releases.  It is also an excellent signal to all Octopus users that the project has been migrated.  
 
-1. Go to **Project ➜ Settings ➜ General**
+1. Go to **Project Settings**
 2. Click the overflow menu (`...`)
 3. Select **Disable** on the menu
 
@@ -200,6 +200,10 @@ At this point, we recommend deleting all the tentacle instances still pointing t
 ```
 
 In our experience, most people turn off their Octopus Server in about three to six months.  When you decide to turn off your Octopus server, first take a full backup of the database and delete all the appropriate resources.
+
+## Older versions
+
+The **Export/Import Projects** feature is available from Octopus Deploy **2021.1** onwards.
 
 ## No longer offered or supported
 

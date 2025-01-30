@@ -3,6 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-04-10
 title: Import certificates into WildFly and JBoss EAP
+icon: fa-solid fa-lock
 description: Configure WildFly or JBoss EAP with a certificate managed by Octopus.
 navOrder: 50
 ---
@@ -11,7 +12,7 @@ With the `Configure certificate for WildFly or EAP` step, certificates managed b
 
 ## Prerequisites
 
-If a new KeyStore is to be created as part of the deployment, the certificate being deployed must be referenced by a variable. [Add a Certificate to Octopus](/docs/deployments/certificates/add-certificate/) provides instructions on how to add a new certificate to the Octopus library, and [Certificate Variables](/docs/projects/variables/certificate-variables) provides instructions on how to define a certificate variable.
+If a new KeyStore is to be created as part of the deployment, the certificate being deployed must be referenced by a variable. [Add a certificate to Octopus](/docs/deployments/certificates/add-certificate/) provides instructions on how to add a new certificate to the Octopus library, and [Certificate variables](/docs/projects/variables/certificate-variables) provides instructions on how to define a certificate variable.
 
 ## Common connection settings
 

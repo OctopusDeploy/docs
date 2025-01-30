@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Installing Apache
+title: Installing Apache runbook in Octopus
+navTitle: Installing Apache
 description: With Octopus Deploy you can install Apache with a runbook as part of a routine operations task.
 navOrder: 80
 ---

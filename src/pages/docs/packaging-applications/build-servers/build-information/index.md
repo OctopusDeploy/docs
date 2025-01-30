@@ -2,7 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-20
-title: Build information
+title: Passing build information to Octopus
+navTitle: Build information
 description: Integrate your commits and work items with Octopus Deploy.
 navOrder: 5
 hideInThisSection: true
@@ -57,12 +58,18 @@ The build information step requires
 - Octopus URL: URL of your Octopus server
 - API Key: API key to use for uploading
 - (Optional) Space name: Name of the space to upload the build information to
-- Package ID: List of package IDs to associate the build information to
+- Package ID: List of package IDs to associate the build information to. For maven packages hosted in external feeds the groupID and packageID are required, for more information see our [maven documentation](/docs/packaging-applications/package-repositories/maven-feeds#troubleshooting-maven-feeds)).
 - Package version: The version of the packages
 
 :::div{.hint}
 
 Verbose logging can be used to include more detail in the build logs. This includes a complete output of all of the build information being passed to Octopus, which can be useful when troubleshooting.
+
+:::
+
+:::div{.hint}
+
+BuildInformationPush permission is required to push build information to Octopus. If `Overwrite Mode` is set to `Overwrite Existing` BuildInformationAdminister permission is also required.
 
 :::
 

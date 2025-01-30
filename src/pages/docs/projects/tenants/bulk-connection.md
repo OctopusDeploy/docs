@@ -1,24 +1,21 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-01
-modDate: 2023-09-01
+modDate: 2024-08-28
 title: Bulk connection
+icon: fa-solid fa-envelopes-bulk
 description: The bulk tenant connection feature allows you to connect thousands of tenants to a project in a single operation.
 navOrder: 10
 ---
 
-:::div{.hint}
-The Project bulk tenant connection feature was added in Octopus Deploy **2023.3**
-:::
-
 Using the bulk tenant connection feature, you can connect tens, hundreds or thousands of tenants to a project in a single operation.
 
 1. From the project's main page, select **Tenants**.
-2. Click **CONNECT TENANTS**
+2. Click **Connect Tenants**
 3. Choose the tenants you want to connect to your project, by clicking any tenant in the left-hand panel of the wizard. Click the **-** button of a tenant in the right-hand panel to deselect that tenant.
-4. Once you have selected the tenants you want to connect, click **NEXT**.
+4. Once you have selected the tenants you want to connect, click **Next**.
 5. Choose the [environments](/docs/infrastructure/environments) you want the selected tenants to be connected to. You can select just one or two from the drop-down menu, or click **Assign all available environments** to select all available environments.
-6. A preview of the selected tenants and environments is shown in the Connection preview panel. Once you are happy with the selected tenants and environments they will be connected to, click **CONNECT <N> TENANTS**
+6. A preview of the selected tenants and environments is shown in the Connection preview panel. Once you are happy with the selected tenants and environments they will be connected to, click **Connect \<N\> Tenants**
 7. Octopus will start connecting your selected tenants to the project in the background. You can navigate away from the page and Octopus will continue the operation until it's done.
 
 :::div{.hint}
@@ -31,7 +28,7 @@ If some of your tenants should be connected to a different subset of environment
 :::
 You can use the Name and Tenant Tag filters to find a specific tenant or set of tenants to connect to your project. Tenant Tag filters can be accessed by clicking **Expand Filters**.
 
-When filters are active, clicking **SELECT ALL <N> RESULTS** will add all tenants that match your filters to your selection. You can perform multiple rounds of filtering and selecting to select the exact set of Tenants you want to connect to the project.
+When filters are active, clicking **Select all \<N\> results** will add all tenants that match your filters to your selection. You can perform multiple rounds of filtering and selecting to select the exact set of Tenants you want to connect to the project.
 
 ### During the connection operation
 :::figure
@@ -48,3 +45,6 @@ Only one bulk connection may be performed at a time, per project. If there's a c
 :::
 
 The results of the most recent connection operation for a project will be shown for 24 hours after the operation completes.
+
+## Older versions
+The project bulk tenant connection feature is available from Octopus Deploy **2023.3** onwards.

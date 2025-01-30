@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2024-08-28
 title: Scripts in packages
 description: Octopus will run scripts included in your package when the script matches a naming convention.
+icon: fa-solid fa-cubes
 navOrder: 20
 ---
 
@@ -58,7 +59,7 @@ However, not all package steps support script hooks. As a general rule, any of t
 
 ## Running a script when a step fails
 
-You can create a file named `DeployFailed.<ext>`, which will be invoked if the step fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
+You can create a file named `DeployFailed.<ext>`, which will be invoked if the step fails.
 
 ## How Octopus executes your scripts
 

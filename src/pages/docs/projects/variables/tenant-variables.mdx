@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-03-08
-modDate: 2023-03-08
+modDate: 2024-08-29
 title: Tenant variables
+icon: fa-solid fa-house-chimney-user
 description: Tenant variables allow you to specify variables that can have different values for each tenant.
 navOrder: 100
 ---
@@ -26,10 +27,6 @@ View a working example on our [samples instance](https://oc.to/samples-tenant-va
 ## Project templates \{#project-templates}
 
 Project templates allow you to specify variables that can have different values per tenant/environment combination. A perfect example would be a connection string or a database server. With project templates, you define them at the project level.
-
-:::div{.hint}
-From **Octopus 2024.1**, we've improved the multi-tenancy variable management experience. For versions older than 2024.1, see [prior to 2024.1](#prior-to-2024-1)
-:::
 
 To add a project template:
 1. Navigate to the **Tenant Variables** page in any project.
@@ -55,10 +52,6 @@ To set the variable value for a tenant/environment, simply click the value and m
 
 To specify common variables that can be used across multiple tenants, you'll need to add a variable template to either an existing or new [variable set](/docs/projects/variables/library-variable-sets). You'll also need to [include the variable set in the project](/docs/projects/variables/library-variable-sets#adding-the-library-variable-set-to-a-project) to manage any template values.
 
-:::div{.hint}
-From **Octopus 2024.1**, we've improved the multi-tenancy variable management experience. For versions older than 2024.1, see [prior to 2024.1](#prior-to-2024-1)
-:::
-
 To manage common template values, navigate to the **Tenant Variables** page in any project and select the **Common Templates** tab.
 
 The variable management experience for common templates is similar to project templates, however the side list will show included variable sets and the values will be grouped by variable set.
@@ -69,7 +62,8 @@ To edit a variable value, click the **Edit** icon on the right-side of a table r
 
 <TenantsWhichVariableTemplatesApply />
 
-## Prior to 2024.1 \{#prior-to-2024-1}
+## Older versions
+The following multi-tenancy variable management experience applies prior to Octopus Deploy 2024.1.
 
 ### Project templates
 
@@ -88,7 +82,7 @@ Then to set the variable values for a tenant:
 
     ![](/docs/projects/variables/images/variable-templates-project-value.png "width=500")
 
-## Variable set templates \{#adding-a-variable-template}
+### Variable set templates \{#adding-a-variable-template}
 
 To specify common variables that can be used across multiple tenants, you need to add a variable template to either an existing or new variable set:
 

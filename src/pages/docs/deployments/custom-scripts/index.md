@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-11-01
 title: Custom scripts
 description: Custom scripts allows you to script anything you want using PowerShell, ScriptCS, F#, Python, or Bash.
+icon: fa-regular fa-file-code
 navOrder: 150
 ---
 
@@ -53,7 +54,7 @@ Octopus can execute scripts from a variety of locations, all with different bene
 
   1. You can author and store your scripts directly in Octopus. Learn about the [run a script step](/docs/deployments/custom-scripts/run-a-script-step/) and [deploy a package step](/docs/deployments/packages).
   2. You can author your scripts and publish them as step templates for other projects to use. Learn about [step templates](/docs/projects/custom-step-templates).
-  3. You can develop your scripts and store them in a source control repository, like git, and Octopus can execute these scripts from within a package. Learn about [deployment process as code](/docs/deployments/patterns/deployment-process-as-code/) and [running scripts in packages](/docs/deployments/custom-scripts/scripts-in-packages).
+  3. You can develop your scripts and store them in a source control repository, like git, and Octopus can execute these scripts from within a package. Learn about [deployment process as code](/docs/deployments/patterns/deployment-process-as-code) and [running scripts in packages](/docs/deployments/custom-scripts/scripts-in-packages).
   4. You can develop your scripts and store them in GitHub, then publish them as a release, which can be consumed by Octopus. Learn about [using the GitHub feed](/docs/packaging-applications/package-repositories/github-feeds).
   5. And finally you can also store your scripts in git, and source them directly from the git repository. Learn about [run a script step](/docs/deployments/custom-scripts/run-a-script-step#choosing-where-to-source-scripts)
 
@@ -93,7 +94,7 @@ Learn about [script integrity](/docs/security/script-integrity).
 
 We recommend the following approaches for developing and testing your scripts, in order of preference:
 
- 1. Build your script to use script arguments as inputs so it can be invoked with equal fidelity from Octopus or directly in your development environment. You can test your scripts by invoking them directly in a development environment with a very fast feedback cycle. Learn about [passing parameters to scripts](passing-parameters-to-scripts/). The only difference in this approach may be the user context the script runs in.
+ 1. Build your script to use script arguments as inputs so it can be invoked with equal fidelity from Octopus or directly in your development environment. You can test your scripts by invoking them directly in a development environment with a very fast feedback cycle. Learn about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts). The only difference in this approach may be the user context the script runs in.
  2. Build your script as a reusable step template and test it using the `Run Now` feature. [Learn about step templates](/docs/projects/custom-step-templates). The only difference to this approach is the absence of deployment-specific variables provided by Octopus when actually running a deployment.
  3. Put your script in a test process and run that process in a test environment.
  4. Put your script in a real process and run that process in a test environment.

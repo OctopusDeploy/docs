@@ -7,6 +7,11 @@ description: How to use custom certificates with Octopus Server and Tentacle.
 navOrder: 1
 ---
 
+
+:::div{.info}
+**Custom certificates are only supported on Self-Hosted instances of Octopus Server**
+:::
+
 Octopus uses self-signed certificates to securely communicate between Tentacles and the server. However, if you have a requirement to use your own certificates, you can use the import-certificate command to import your own certificate.  Octopus Server and Tentacle supports the import-certificate command.  The import command supports importing certificates in the Personal Information Exchange (PFX) files with an optional password.  Octopus requires PFX files contain the certificate private key.
 
 For more information on self-signed certificates, see the [blog post](https://octopus.com/blog/why-self-signed-certificates) on the topic.
@@ -16,7 +21,7 @@ For more information on self-signed certificates, see the [blog post](https://oc
 It's important to consider the impact of updating an existing Octopus Server or Tentacle as changes are required to ensure each component trusts the other. Read the information below carefully.
 :::
 
-## Configuring Octopus Server to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringOctopusServertousecustomcertificates}
+## Configuring Octopus Server to use custom certificates
 
 This assumes you have already installed Octopus on the target server.
 
@@ -73,7 +78,7 @@ Then import the new certificate (see step 2 above).
 Tentacle.exe configure --trust NewOctopusServerCertificateThumbprint --console
 ```
 
-## Configuring Tentacle to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringTentacletousecustomcertificates}
+## Configuring Tentacle to use custom certificates 
 
 This assumes you have already installed a Tentacle on the target server.
 

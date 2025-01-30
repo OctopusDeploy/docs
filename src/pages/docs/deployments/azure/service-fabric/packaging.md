@@ -75,7 +75,7 @@ Once this line is added to the sfproj file, the target will get executed wheneve
 
 ## Package for Octopus with the Octopus CLI
 
-Whichever option from above that you select, the objective is to get the `PublishProfiles` and the `ApplicationParameters` folders from the Service Fabric project into the same folder as its package output. The Octopus CLI can then be used to create a package that is compatible with the Octopus package feed. You can get the Octopus CLI from the [Octopus downloads](http://octopus.com/downloads) page.
+Whichever option from above that you select, the objective is to get the `PublishProfiles` and the `ApplicationParameters` folders from the Service Fabric project into the same folder as its package output. The Octopus CLI can then be used to create a package that is compatible with the Octopus package feed. You can get the Octopus CLI from the [Octopus downloads](https://octopus.com/downloads) page.
 
 <details data-group="deployments-azure-service-fabric">
 <summary>PowerShell</summary>

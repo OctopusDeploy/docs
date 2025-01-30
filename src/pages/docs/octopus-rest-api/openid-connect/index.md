@@ -1,9 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-27
-modDate: 2024-01-15
+modDate: 2024-09-16
 title: Using OpenID Connect with the Octopus API
 description: External systems can use OpenID Connect with service accounts to access the Octopus API without needing to provision API keys
+icon: fa-brands fa-openid
 navOrder: 30
 hideInThisSection: true
 ---
@@ -11,7 +12,7 @@ hideInThisSection: true
 Octopus supports using [OpenID Connect (OIDC)](https://openid.net/) to access the Octopus API without needing to provision API keys.
 
 :::div{.hint}
-Using OIDC to access the Octopus API is used for machine-to-machine scenarios such as a automating release creation in CI servers.
+OIDC to access the Octopus API is used for machine-to-machine scenarios such as automating release creation in CI servers.
 
 See [authentication providers](/docs/security/authentication) for information on configuring user authentication into Octopus Deploy.
 :::
@@ -60,13 +61,13 @@ Multiple OIDC identities can be added for a service account, these could be for 
 
 ### Add the `OctopusDeploy/login` action to your workflow
 
-After the OIDC identity for GitHub Actions has been created a snippet of the `OctopusDeploy/login` step will be provided which you can use in your workflow to configure the workflow run job to use OIDC authentication.
+After the OIDC identity for GitHub Actions has been created, a snippet of the `OctopusDeploy/login` step will be provided which you can use in your workflow to configure the workflow run job to use OIDC authentication.
 
 :::figure
 !['OctopusDeploy/login' snippet](/docs/octopus-rest-api/images/oidc-github-actions-details.png "width=500")
 :::
 
-1. Click the Copy to clipboard to copy the `OctopusDeploy/login` step.
+1. Click Copy to Clipboard to copy the `OctopusDeploy/login` step.
 2. Paste the `OctopusDeploy/login` step into your workflow job.
 3. Add `id-token: write` to the `permissions` on the workflow job. This is required to allow the `OctopusDeploy/login` action to request an OIDC token from GitHub to use.
 
@@ -158,7 +159,7 @@ The access token obtained from the token exchange must be supplied in the `Autho
 
 ## Using the Octopus CLI with OIDC
 
-From version `2.1.0`, the [Octopus CLI](https://github.com/OctopusDeploy/cli) supports a new command `octopus login` which can be used to authenticate using OIDC, providing the Octopus Server URL, the id of the service account and the ID token from your OIDC provider. This can be used as part of your CI server workflows where you are using the CLI but currently provisioning an API key.
+The [Octopus CLI](https://github.com/OctopusDeploy/cli) supports a command `login` which can be used to authenticate using OIDC, providing the Octopus Server URL, the id of the service account and the ID token from your OIDC provider. This can be used as part of your CI server workflows where you are using the CLI but currently provisioning an API key.
 
 After authenticating using OIDC, the `login` command will configure the CLI environment to be used.
 
@@ -233,3 +234,7 @@ Public sites such as [jwt.io](https://jwt.io/) can be used to inspect and valida
 
 IMPORTANT: Access tokens are credentials to your Octopus Server in the same way that API keys are, be careful where you paste them!
 :::
+
+## Older Versions
+
+- In versions prior to `2.1.0`, the Octopus CLI did not support OpenID Connect.

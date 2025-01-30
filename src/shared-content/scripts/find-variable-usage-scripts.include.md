@@ -36,6 +36,81 @@ $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Heade
 
 Write-Host "Looking for usages of variable named $variableToFind in space: '$spaceName'"
 
+# Function to process deployment steps
+function Process-DeploymentSteps {
+    param(
+        $steps,
+        $project,
+        $gitRef = $null
+    )
+    
+    $results = @()
+    # Loop through steps
+    foreach ($step in $steps) {
+        $props = $step | Get-Member | Where-Object { $_.MemberType -eq "NoteProperty" }
+        foreach ($prop in $props) {
+            $propName = $prop.Name
+            $json = $step.$propName | ConvertTo-Json -Compress -Depth 10
+            if ($null -ne $json -and ($json -like "*$variableToFind*")) {
+                $result = [pscustomobject]@{
+                    Project           = $project.Name
+                    VariableSet       = $null
+                    MatchType         = "Step"
+                    Context           = $step.Name
+                    Property          = $propName
+                    AdditionalContext = $null
+                    Link              = "$octopusURL$($project.Links.Web)/deployments/process/steps?actionId=$($step.Actions[0].Id)"
+                }
+
+                if ($gitRef) {
+                    $result | Add-Member -MemberType NoteProperty -Name "GitRef" -Value $gitRef
+                }
+
+                $results += $result
+            }
+        }
+    }
+    return $results
+}
+
+# Function to process runbook steps
+function Process-RunbookSteps {
+    param(
+        $steps,
+        $project,
+        $runbook,
+        $gitRef = $null
+    )
+    
+    $results = @()
+    # Loop through steps
+    foreach ($step in $steps) {
+        $props = $step | Get-Member | Where-Object { $_.MemberType -eq "NoteProperty" }
+        foreach ($prop in $props) {
+            $propName = $prop.Name
+            $json = $step.$propName | ConvertTo-Json -Compress -Depth 10
+            if ($null -ne $json -and ($json -like "*$variableToFind*")) {
+                $result = [pscustomobject]@{
+                    Project           = $project.Name
+                    VariableSet       = $null
+                    MatchType         = "Runbook Step"
+                    Context           = $runbook.Name
+                    Property          = $propName
+                    AdditionalContext = $step.Name
+                    Link              = "$octopusURL$($project.Links.Web)/operations/runbooks/$($runbook.Id)/process/$($runbook.RunbookProcessId)/steps?actionId=$($step.Actions[0].Id)"
+                }
+
+                if ($gitRef) {
+                    $result | Add-Member -MemberType NoteProperty -Name "GitRef" -Value $gitRef
+                }
+
+                $results += $result
+            }
+        }
+    }
+    return $results
+}
+
 # Get all projects
 $projects = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/all" -Headers $header
 
@@ -44,6 +119,20 @@ foreach ($project in $projects) {
     Write-Host "Checking project '$($project.Name)'"
     # Get project variables
     $projectVariableSet = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/variables/$($project.VariableSetId)" -Headers $header
+
+    # Get all GitRefs for CaC project
+    if ($project.IsVersionControlled) {
+        $gitBranches = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)/git/branches" -Headers $header
+        $gitTags = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)/git/tags" -Headers $header
+
+        $gitRefs = @()
+        foreach($branch in $gitBranches.Items) {
+            $gitRefs += $branch.CanonicalName
+        }
+        foreach($tag in $gitTags.Items) {
+            $gitRefs += $tag.CanonicalName
+        }
+    }
 
     # Check to see if variable is named in project variables.
     $matchingNamedVariables = $projectVariableSet.Variables | Where-Object { $_.Name -ieq "$variableToFind" }
@@ -84,29 +173,22 @@ foreach ($project in $projects) {
 
     # Search Deployment process if enabled
     if ($searchDeploymentProcesses -eq $True) {
-        # Get project deployment process
-        $deploymentProcess = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header)
-
-        # Loop through steps
-        foreach ($step in $deploymentProcess.Steps) {
-            $props = $step | Get-Member | Where-Object { $_.MemberType -eq "NoteProperty" }
-            foreach ($prop in $props) {
-                $propName = $prop.Name
-                $json = $step.$propName | ConvertTo-Json -Compress -Depth 10
-                if ($null -ne $json -and ($json -like "*$variableToFind*")) {
-                    $result = [pscustomobject]@{
-                        Project           = $project.Name
-                        VariableSet       = $null
-                        MatchType         = "Step"
-                        Context           = $step.Name
-                        Property          = $propName
-                        AdditionalContext = $null
-                        Link              = "$octopusURL$($project.Links.Web)/deployments/process/steps?actionId=$($step.Actions[0].Id)"
-                    }
-                    # Add and de-dupe later
-                    $variableTracking += $result
-                }
+        if ($project.IsVersionControlled) {
+            # For CaC Projects, loop through GitRefs
+            foreach ($gitRef in $gitRefs) {
+                $escapedGitRef = [Uri]::EscapeDataString($gitRef)
+                $processUrl = "$octopusURL/api/$($space.Id)/projects/$($project.Id)/$($escapedGitRef)/deploymentprocesses"
+                # Get project deployment process
+                $deploymentProcess = (Invoke-RestMethod -Method Get -Uri $processUrl -Headers $header)
+                # Add and de-dupe later
+                $variableTracking += Process-DeploymentSteps -steps $deploymentProcess.Steps -project $project -gitRef $gitRef
             }
+        }
+        else {
+            # Get project deployment process
+            $deploymentProcess = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header)
+            # Add and de-dupe later
+            $variableTracking += Process-DeploymentSteps -steps $deploymentProcess.Steps -project $project
         }
     }
 
@@ -118,29 +200,22 @@ foreach ($project in $projects) {
 
         # Loop through each runbook
         foreach ($runbook in $runbooks.Items) {
-            # Get runbook process
-            $runbookProcess = (Invoke-RestMethod -Method Get -Uri "$octopusURL$($runbook.Links.RunbookProcesses)" -Headers $header)
-
-            # Loop through steps
-            foreach ($step in $runbookProcess.Steps) {
-                $props = $step | Get-Member | Where-Object { $_.MemberType -eq "NoteProperty" }
-                foreach ($prop in $props) {
-                    $propName = $prop.Name
-                    $json = $step.$propName | ConvertTo-Json -Compress -Depth 10
-                    if ($null -ne $json -and ($json -like "*$variableToFind*")) {
-                        $result = [pscustomobject]@{
-                            Project           = $project.Name
-                            VariableSet       = $null
-                            MatchType         = "Runbook Step"
-                            Context           = $runbook.Name
-                            Property          = $propName
-                            AdditionalContext = $step.Name
-                            Link              = "$octopusURL$($project.Links.Web)/operations/runbooks/$($runbook.Id)/process/$($runbook.RunbookProcessId)/steps?actionId=$($step.Actions[0].Id)"
-                        }
-                        # Add and de-dupe later
-                        $variableTracking += $result
-                    }
+            # For CaC Projects, loop through GitRefs
+            if ($project.IsVersionControlled) {
+                foreach ($gitRef in $gitRefs) {
+                    $escapedGitRef = [Uri]::EscapeDataString($gitRef)
+                    $processUrl = "$octopusURL/api/$($space.Id)/projects/$($project.Id)/$($escapedGitRef)/runbookprocesses/$($runbook.RunbookProcessId)"
+                    # Get runbook process
+                    $runbookProcess = (Invoke-RestMethod -Method Get -Uri $processUrl -Headers $header)
+                    # Add and de-dupe later
+                    $variableTracking += Process-RunbookSteps -steps $runbookProcess.Steps -project $project -runbook $runbook -gitRef $gitRef
                 }
+            }
+            else {
+                # Get runbook process
+                $runbookProcess = (Invoke-RestMethod -Method Get -Uri "$octopusURL$($runbook.Links.RunbookProcesses)" -Headers $header)
+                # Add and de-dupe later
+                $variableTracking += Process-RunbookSteps -steps $runbookProcess.Steps -project $project -runbook $runbook
             }
         }
     }

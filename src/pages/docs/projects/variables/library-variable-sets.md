@@ -1,8 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-29
+modDate: 2024-08-29
 title: Variable sets
+icon: fa-solid fa-box
 description: Variable sets allow you to define and share common variables between your Octopus projects.
 navOrder: 110
 ---
@@ -13,38 +14,38 @@ This can be useful if you have the same variables that are used across multiple 
 
 ## Creating a variable set
 
-1. Navigate to **Library ➜ Variable Sets** and click **ADD NEW VARIABLE SET**.
-2. Give the variable set a name, a description, and click **SAVE**.
+1. Navigate to **Deploy ➜ Variable Sets** and click **Add Variable Set**.
+2. Give the variable set a name, a description, and click **Save**.
 3. Define the variables. As with project variables, variable sets can be [scoped](/docs/projects/variables/getting-started/#scoping-variables) to environment, deployment target, or target tags.
-4. Save the variable set by clicking **SAVE**.
+4. Save the variable set by clicking **Save**.
 
 ## Adding the variable set to a project
 
-1. Navigate to your project by selecting the **Project** from the navigation menu and then clicking your project.
+1. Navigate to your project
 2. Click **Variable Sets**.
-3. Click **INCLUDE VARIABLE SETS**.
-4. Search for the Variable Set you'd like to include, click the check-box and **SAVE**.
+3. Click **Include Variable Sets**.
+4. Search for the Variable Set you'd like to include, click the check-box and **Save**.
 
 ## Viewing the variable set
 
-If you want to review the Variable Set you've created, from the Project Overview page you can navigate to **Variable Set**.
+If you want to review the Variable Set you've created, from a project you can navigate to **Variable Set**.
 
-If you want to review the Project variables and the Variable Set, from the Project Overview you can navigate to **All Variables**.
+If you want to review the Project variables and the Variable Set, from a project you can navigate to **All Variables**.
 
 ## Rename a variable set
 
-1. Navigate to **Library ➜ Variable Sets**.
+1. Navigate to **Deploy ➜ Variable Sets**.
 2. Select the variable set.
 3. Click settings, and expand the **Name** section.
-4. Enter the new name and click **SAVE**.
+4. Enter the new name and click **Save**.
 
-## View the variable audit trail
+## View the variable set audit trail
 
 Viewing the audit trail for a Variable Set will show you what changes have been made to the variable, when the changes were made, and which user made the changes.  
 
-1. Navigate to **Library ➜ Variable Sets**.
+1. Navigate to **Deploy ➜ Variable Sets**.
 2. Select the variable set. Click the ... overflow menu and select **Audit Trail**.
-3. Click **SHOW DETAILS** on an event to see what changed
+3. Click on an event to see what changed
 
 To filter the audit trail by **date**, click the date range. Select a predefined date range or enter a custom date range.
 

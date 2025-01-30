@@ -4,6 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Reference files within a package
 description: How to reference files within a package.
+icon: fa-solid fa-cubes
 navOrder: 80
 ---
 
