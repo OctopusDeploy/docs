@@ -236,7 +236,7 @@ MII...
 -----END CERTIFICATE-----
 ```
 
-You can create a base64-encoded string in a nubmer of ways, including the following methods:
+You can create a base64-encoded certificate string in a number of ways, including the following methods:
 
 - Converting your `.pem` or `.crt` certificate with `cat certificate.pem | base64`
 - Passing in your certificate string (including the `BEGIN CERTIFICATE` and `END CERTIFICATE` lines) to `echo <your_certificate_string> | base64`
