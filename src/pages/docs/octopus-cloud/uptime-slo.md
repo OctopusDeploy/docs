@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-01-08
+modDate: 2025-02-03
 title: Octopus Cloud Uptime SLO
 navOrder: 50
 description: The uptime SLO for Octopus Cloud instances
@@ -23,6 +23,7 @@ We list our achieved uptime percentage and the average amount of unplanned downt
 
 | Month  | Uptime % | Average weekly unplanned downtime | Uptime % incl. planned maintenance | Average weekly downtime incl. planned maintenance |
 | :----- | ------: | ------: |------: | ------: |
+| January 2025 | 99.9924% | 30s | 99.9397% | 209s |
 | December 2024 | 100% | 2s | 99.9666% | 114s |
 | November 2024 | 100% | 2s | 99.8895% | 446s |
 | October 2024 | 99.9973% | 5s | 99.917% | 309s |
@@ -34,7 +35,6 @@ We list our achieved uptime percentage and the average amount of unplanned downt
 | April 2024 | 99.9687% | 17s |- | - |
 | March 2024 | 99.9914% | 10s |- | - |
 | February 2024 | 100% | 2s |- | - |
-| January 2024 | 99.9976% | 3s |- | - |
 
 \* We began capturing planned downtime metrics on June 10, 2024.
 
