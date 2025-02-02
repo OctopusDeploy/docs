@@ -1443,6 +1443,13 @@ The amount (in megabytes) of available free disk space we should check for (over
 
 Example: 100
 
+
+`OctopusShouldFailDeploymentOnSubstitutionFails`
+
+If set to "True", the deployment will fail if any variable substitution fails. This variable was added in Octopus 2025.1.0.
+
+Example: True
+
 `Octopus.Action.PowerShell.CustomPowerShellVersion`
 
 If specified, Windows PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0*.<br/>PowerShell Core scripts will be invoked using the installed version of PowerShell core which matches the specified value. The value must match one of the directories contained within `%PROGRAMFILES%\PowerShell`. Example values include *6* and *7-preview*.
