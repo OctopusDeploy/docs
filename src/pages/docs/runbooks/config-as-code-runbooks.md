@@ -82,3 +82,8 @@ The information that was previously found on the **Snapshot** page is still avai
 
 [Runbook triggers](/docs/runbooks/scheduled-runbook-trigger) will always run CaC Runbooks from the latest commit on your default branch, just as non-CaC runbook triggers will only run published runbooks.
 
+## Custom automated scripts
+
+If you use automated scripts that run runbooks via the Octopus Server API and you convert your runbooks to Config As Code the URL for the runbook will change to include a branch reference (e.g. `refs/heads/main`) as a result you need to update your scripts to include the branch reference where the runbook is stored. 
+
+- [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Runbooks/RunConfigAsCodeRunbook.ps1)
