@@ -18,7 +18,7 @@ When you add an Azure account to Octopus, there are two ways to authenticate wit
 - [Service Principal](#azure-service-principal) (default) is used with resource manager mode (ARM), along with the `az` command line interface.
 - [Management certificate](#azure-management-certificate) is used with service management mode (ASM) or legacy mode.
 
-You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
+You can read about the differences in [this document](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/deployment-models).
 
 Microsoft Entra ID Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Microsoft Entra ID will let you configure finely grained authorization for your Octopus Server.
 

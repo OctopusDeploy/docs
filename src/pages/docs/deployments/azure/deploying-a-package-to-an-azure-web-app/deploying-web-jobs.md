@@ -6,13 +6,13 @@ title: Deploying Web Jobs
 description: Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure Web Jobs.
 ---
 
-[Azure Web Jobs](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/) can either be packaged and deployed along with the Web App that they live under, or packaged and deployed independently.
+Azure Web Jobs can either be packaged and deployed along with the Web App that they live under, or packaged and deployed independently.
 
 ## Location {#DeployingWebJobs-Location}
 
 Web jobs are deployed to either `app_data/jobs/triggered/{job_name}` or `app_data/jobs/continuous/{job_name}`, depending on whether the job is *triggered* or *continuous*.
 
-## Packaged with the web app {#DeployingWebJobs-PackagedwiththeWebApp}
+## Packaged with the web app {#DeployingWebJobs-PackagedWithTheWebApp}
 
 If you are packaging and deploying your Web App and Web Job together, the Web Job must be packaged in it's location under the App\_Data directory.
 

@@ -13,7 +13,7 @@ The Octopus Server Windows container is deprecated, and no longer maintained. We
 
 ## Ensure you've accepted the EULA
 
-When you create an Octopus Server container, you must agree with the [Octopus Deploy EULA](https://octopus.com/company/legal).
+When you create an Octopus Server container, you must agree with the [Octopus Deploy EULA](https://octopus.com/company/trust).
 
 If you get an error similar to:
 

@@ -7,7 +7,7 @@ description: Deploy an Azure Resource Manager (ARM) template.
 navOrder: 10
 ---
 
-From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/):
+From [Authoring Azure Resource Manager Templates](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview):
 
 > Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation.
 
@@ -43,7 +43,7 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
 
 1. Select the **Resource Group** to place the created resources in. This can be selected from the drop-down of available resources or bound to a variable. The resource group must exist when the step is executed.
 
-1. Set the **Deployment Mode**. It can be either [Incremental or Complete](https://azure.microsoft.com/en-in/documentation/articles/resource-group-template-deploy/#incremental-and-complete-deployments).
+1. Set the **Deployment Mode**. It can be either [Incremental or Complete](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes).
 1. Choose the **Template Source**. It can be either [JSON entered directly](#json-template) into the step, or a file [contained in a package](#packaged-template).
 1. Enter any values for parameters if they are present.
 
@@ -77,7 +77,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
 :::
 
-The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter).
+The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/key-vault-parameter) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/key-vault-parameter).
 
 :::figure
 ![](/docs/runbooks/runbook-examples/azure/resource-groups/arm-sensitive-data.png)

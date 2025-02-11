@@ -15,6 +15,7 @@ appsettings
 Appstep
 Appsteps
 argparse
+asax
 ASPNET
 aspnetcore
 astro
@@ -194,6 +195,7 @@ Kubelet
 kubelogin
 kustomization
 kustomize
+lanman
 lastmod
 latestdeployments
 lbvserver
@@ -370,6 +372,7 @@ runtimes
 SAMEORIGIN
 Schannel
 scopeduserroles
+secpol
 secureclientcertificate
 securestring
 SEIM
@@ -414,6 +417,7 @@ tabindex
 tabpanel
 tagset
 tagsets
+TCPIP
 templateid
 templating
 tenanttag
@@ -431,6 +435,7 @@ timespan
 tlsv1
 tmpfs
 Toolsets
+Topshelf
 toptags
 Traefik
 Trivy
