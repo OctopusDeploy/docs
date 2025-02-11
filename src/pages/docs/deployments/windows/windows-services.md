@@ -166,7 +166,6 @@ Test-Privilege -Identity #{ServiceAccountName} -Privilege SeBatchLogonRight
 > Managed Service Accounts (MSA) allow you to eliminate those never-expire-service-accounts. An MSA is a special domain account that can be managed by the computer that uses it. That computer will change its password periodically without the need of an administrator.
 >
 >
-> *[http://www.zeda.nl/index.php/en/en-managed-service-accounts](http://www.zeda.nl/index.php/en/en-managed-service-accounts)*
 
 To configure the Windows Service to use a Managed Service Account:
 
