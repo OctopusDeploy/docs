@@ -7,7 +7,7 @@ description: View and interact with the Deployment Timeline
 navOrder: 132
 ---
 
-The Deployment Timeline provides visual representation of all deployments made to an [Environment](docs/infrastructure/environments) for a [Project](/docs/projects) within a [Tenant](docs/tenants). In additional to providing an easy to understand view of deployment data, the Deployment Timeline allows easy access to perform common workflows, such as deploying the last successful/stable deployment into your environment.
+The Deployment Timeline provides visual representation of all deployments made to an [Environment](/docs/infrastructure/environments) for a [Project](/docs/projects) within a [Tenant](docs/tenants). In additional to providing an easy to understand view of deployment data, the Deployment Timeline allows easy access to perform common workflows, such as deploying the last successful/stable deployment into your environment.
 
 It can be access by clicking the **Timeline** button within the deployment details page.
 
