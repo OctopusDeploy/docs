@@ -21,7 +21,7 @@ A drawer opens showing all deployments for the current Environment, Project and 
 ![The deployment Timeline with overflow menu for last successful deployment](/docs/releases/timeline/timeline.png)
 :::
 
-For releases that have not been deleted, either manually or via [Retention policies](docs/administration/retention-policies), an overflow menu provides actions that can be triggered:
+For releases that have not been deleted, either manually or via [Retention policies](/docs/administration/retention-policies), an overflow menu provides actions that can be triggered:
 
 1. **Redeploy...** - Redeploys the release
 2. **Deploy to...** - Allows deployment of the release into another environment
