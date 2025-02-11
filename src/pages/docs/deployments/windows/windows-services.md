@@ -14,17 +14,17 @@ When deploying, `sc.exe` is used to create a Windows Service using the configure
 To deploy a Windows Service, add a *Deploy a Windows Service* step. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
 
-## Configuring the step {#WindowsServices-ConfiguringtheStep}
+## Configuring the step {#WindowsServices-ConfiguringTheStep}
 
 :::figure
 ![Windows service configuration](/docs/deployments/windows/images/windows-service-configuration.png)
 :::
 
-### Step 1: Select a package {#WindowsServices-Step1-SelectaPackage}
+### Step 1: Select a package {#WindowsServices-Step1-SelectAPackage}
 
 Use the Package Feed and Package ID fields to select the [package](/docs/packaging-applications) containing the executable (.exe) to be installed as a Windows Service.
 
-### Step 2: Configure Windows Service options {#WindowsServices-Step2-ConfigureWindowsServiceoptions}
+### Step 2: Configure Windows Service options {#WindowsServices-Step2-ConfigureWindowsServiceOptions}
 
 | Field               | Meaning                                  |
 | ------------------- | ---------------------------------------- |
@@ -38,7 +38,7 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 | **State**           | The state of the service after the deployment has completed |
 | **Dependencies**    | Any dependencies that the service has. Separate the names using forward slashes (/). For example: `LanmanWorkstation/TCPIP` |
 
-## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowdoesOctopusactuallydeploymyWindowsService?}
+## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowDoesOctopusActuallyDeployMyWindowsService?}
 
 Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering).
 
@@ -91,7 +91,7 @@ This table shows how the combination of the `Start Mode`, `State` and the state 
 | Manual | Default | n/a | n/a | Stopped |
 | Unchanged | Default | n/a | n/a | Stopped |
 
-## Setting advanced configuration options {#WindowsServices-Settingadvancedconfigurationoptions}
+## Setting advanced configuration options {#WindowsServices-SettingAdvancedConfigurationOptions}
 
 Windows Services support some advanced settings not exposed by this feature. You can customize your Windows Service by including a `PostDeploy.ps1` [custom script](/docs/deployments/custom-scripts).
 
@@ -113,7 +113,7 @@ This script will run after the Windows Service has been created (or reconfigured
 This Microsoft TechNet [article](https://technet.microsoft.com/en-us/library/cc754599.aspx) is a great reference on the sc.exe utility including the failure action above.
 :::
 
-## Deploying Services built with Topshelf {#WindowsServices-DeployingServicesbuiltwithTopshelf}
+## Deploying Services built with Topshelf {#WindowsServices-DeployingServicesBuiltWithTopshelf}
 
 [Topshelf](http://topshelf-project.com/) is a library to build and work with Windows Services easily by allowing your code to run (and be debugged) inside a Console Application, but giving you the option to install and run as a Windows Service.
 
