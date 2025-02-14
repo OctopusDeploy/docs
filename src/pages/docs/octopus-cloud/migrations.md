@@ -46,7 +46,7 @@ Use this checklist to guide you as to the complexity of your migration. The more
 
 | **Question**         | **Considerations** | **Your answer** |
 | ------------------------- | ---- | ----------- |
-| What version of Octopus are you using?       | You should run the most recent release before migration to minimise feature differences with Octopus Cloud. At a minimum, [Export/Import Projects](https://octopus.com/docs/projects/export-import) is only available in Octopus 2021.1.x or higher. ||
+| What version of Octopus are you using?       | You should run the most recent release before migration to minimize feature differences with Octopus Cloud. At a minimum, [Export/Import Projects](https://octopus.com/docs/projects/export-import) is only available in Octopus 2021.1.x or higher. ||
 | How many projects do you have? | The more projects you have the more time your migration is likely to take. ||
 | How many runbooks do you have? | Runbooks may need to be updated manually where worker pools have changed, and sensitive values or variables are used. ||
 | How many Tentacles do you manage? | You’ll need to achieve connectivity between Octopus Cloud and all the Tentacles you use.<br/><br/> We also recommend converting Listening Tentacles to Polling Tentacles for a Cloud Instance. ||
