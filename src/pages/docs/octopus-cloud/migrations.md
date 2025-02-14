@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2025-02-14
 title: Migrating to Octopus Cloud
 navOrder: 30
-description:  Migrating to Octopus Cloud.
+description:  This guide outlines the benefits of Octopus Cloud, the effort involved in migrating, and step-by-step instructions to help you have a smooth transition.
 ---
 
 Migrating from a self-hosted instance of Octopus Deploy to Octopus Cloud can streamline your deployment processes by removing infrastructure overhead while ensuring you continue to enjoy the robust capabilities of Octopus.
