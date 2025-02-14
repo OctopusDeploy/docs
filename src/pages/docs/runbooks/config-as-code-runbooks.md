@@ -87,3 +87,9 @@ The information that was previously found on the **Snapshot** page is still avai
 If you use automated scripts that run runbooks via the Octopus Server API and you convert your runbooks to Config As Code the URL for the runbook will change to include a branch reference (e.g. `refs/heads/main`) as a result you need to update your scripts to include the branch reference where the runbook is stored. 
 
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Runbooks/RunConfigAsCodeRunbook.ps1)
+
+## Deleting required resources
+
+Once your Runbooks are version controlled, it's up to you to take care to avoid deleting any Octopus resources required by your Runbooks. See our [core design decisions](docs\projects\version-control\unsupported-config-as-code-scenarios#core-design-decisions) for more information. 
+
+

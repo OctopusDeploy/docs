@@ -26,7 +26,7 @@ That scaffolding data includes (but is not limited to):
 That data is not stored in source control because it is shared across multiple projects.
 
 :::div{.warning}
-An error will occur when Octopus Deploy attempts to load a process from source control with one or more of those items missing. You'll be unable to create releases until those errors are resolved.
+An error will occur when Octopus Deploy attempts to load a process from source control with one or more of those items missing. You'll be unable to create releases or access runbooks until those errors are resolved.
 :::
 
 ## Syncing multiple instances
