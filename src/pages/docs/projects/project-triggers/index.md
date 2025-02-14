@@ -12,9 +12,9 @@ Project triggers allow you to automate your deployments by responding to events
 
 Choose from a subset of **events** that can occur in Octopus Deploy, apply a **filter** to those events, and decide what **action** you want performed after the trigger fires.
 
-## Example trigger
+## Trigger example
 
-The example below is an automatic deployment trigger that fires when a [deployment target](/docs/infrastructure/) in the **Production** [environment](/docs/infrastructure/environments) becomes available and is tagged with the **web-server** [target tag](/docs/infrastructure/deployment-targets/target-tags).
+The example below is an automatic deployment trigger that fires when a [deployment target](/docs/infrastructure/) that belongs to the **Production** [environment](/docs/infrastructure/environments) becomes available and is tagged with the **web-server** [target tag](/docs/infrastructure/deployment-targets/target-tags).
 
 :::figure
 ![](/docs/projects/project-triggers/images/octopus-triggers-diagram.png)
