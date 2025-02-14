@@ -49,6 +49,7 @@ $ octopus release deploy --project MyProject --version 1.0 --environment Dev
 $ octopus release deploy --project MyProject --version 1.0 --tenant-tag Regions/East --tenant-tag Regions/South
 $ octopus release deploy -p MyProject --version 1.0 -e Dev --skip InstallStep --variable VarName:VarValue
 $ octopus release deploy -p MyProject --version 1.0 -e Dev --force-package-download --guided-failure true -f basic
+$ octopus release deploy -p MyProject --version 1.0 -e Dev --no-prompt -f basic | octopus task wait --progress  # deploy and wait with detailed task progress
 
 
 ```
