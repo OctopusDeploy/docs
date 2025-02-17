@@ -8,11 +8,7 @@ description: Built-in package repository triggers allows you to automatically cr
 navOrder: 15
 ---
 
-:::div{.hint}
-**Built-in package repository triggers were formerly known as Automatic Release Creation**
-
-We have renamed the feature and refreshed the UI, but it still works the same way behind the scenes.
-:::
+Formerly known as ***Automatic Release Creation***. Functionality remains the same.
 
 ## Getting started {#BuiltInPackageRepositoryTriggers-GettingStarted}
 
