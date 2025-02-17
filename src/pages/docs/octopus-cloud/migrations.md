@@ -30,7 +30,6 @@ If you're uncertain whether Octopus Cloud is the right choice for your organizat
 
 ## Migration assessment and planning
 ### Estimating Migration Effort
-#### Estimate rough guide
 
 Before you start planning your migration, it’s worth setting some expectations upfront about the level of effort involved. No two instances are identical, so this doesn't cover every possible scenario. Based on our experience, the figures here are estimates you can use to plan how long your own migration may take.
 
@@ -44,27 +43,27 @@ Before you start planning your migration, it’s worth setting some expectations
 
 Use this checklist to guide you as to the complexity of your migration. The more effort factors you need to resolve, the longer or more complex your migration will be. 
 
-| **Question**         | **Considerations** | **Your answer** |
-| ------------------------- | ---- | ----------- |
-| What version of Octopus are you using?       | You should run the most recent release before migration to minimize feature differences with Octopus Cloud. At a minimum, [Export/Import Projects](https://octopus.com/docs/projects/export-import) is only available in Octopus 2021.1.x or higher. ||
-| How many projects do you have? | The more projects you have the more time your migration is likely to take. ||
-| How many runbooks do you have? | Runbooks may need to be updated manually where worker pools have changed, and sensitive values or variables are used. ||
-| How many Tentacles do you manage? | You’ll need to achieve connectivity between Octopus Cloud and all the Tentacles you use.<br/><br/> We also recommend converting Listening Tentacles to Polling Tentacles for a Cloud Instance. ||
-| Are all the resources you need access to reachable from Octopus Cloud?<br/><ul><li>Private, self-hosted package repositories (Artifactory, Nexus, etc)</li><li>On-prem listening tentacle or ssh targets and workers</li><li>An internal SMTP server</li><li>Other on-prem integrations that are not reachable from Octopus Cloud</li></ul>|You’ll need to achieve connectivity between Octopus Cloud and all the integrations and resources you use.<br/><br/>How are firewall and VPN configurations typically managed to ensure secure connections? Do you anticipate any network, firewall, or VPN configuration updates will be needed to support this migration? ||
-| Do you have specific security requirements or policies around accessing deployment targets or managing API keys? | You will need to manage these through the migration.  ||
-| Do you need to retain historical data and task logs? | Historical data and task logs are **not supported by Export/Import Projects**. You will need to continue to host the older version to retain historical data. ||
-| How long are your Audit log retention policies? | Octopus Cloud archived audit logs has **a max of 365 days** ||
-| Do you have any Projects using Config-as-Code? | Config-as-Code Projects are **not supported by Export/Import Projects** ||
-| Do you store build information?  | You will need to continue to host the older version to retain historical data, as build information **is not migrated**. ||
-| Do you have any subscriptions? | Subscription migration is **not supported by Export/Import Projects**. These will need to be migrated manually or with a script. ||
-| How many variable sets do you use? | Variable sets should be named uniquely. When importing, if a variable set with the same name already exists, the variables will be merged. If a variable in the export doesn’t exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched. ||
-| Do you use project triggers? | Project trigger migration is **not supported by Export/Import Projects**. These will need to be migrated manually or with a script. ||
-| Are you using the built-in package repository? | Package repository migration is supported via [this script](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Feeds/SyncPackages.ps1). ||
-| Do any Projects use the Built-in Octopus Worker? | The Built-in Octopus Worker is **not a feature available in Octopus Cloud.** ||
-| Are you using any Targets with older, unsupported operating systems (RHEL 6, Windows 2008, etc)? | Octopus Cloud is the most up-to-date version of Octopus, and Targets running older operating systems are **not supported**. ||
-| Are you using Active Directory or LDAP authentication? | Active Directory or LDAP authentication is **not a feature available in Octopus Cloud**. ||
-| Do you have any ITSM integrations or other automated processes? | Automated processes and shared settings, such as workflows for routine tasks or usage of library variable sets across projects, need to be set up again after migration. This includes common scripts, standardized settings, or configurations supporting multiple projects. ||
-| What are your cutover requirements? Can you stagger the migration or incur downtime?| A big-bang migration, where everything is transitioned simultaneously, is harder than an incremental approach, where you migrate project-by-project or in defined phases. ||
+| **Question**         | **Considerations** |
+| ------------------------- | ----------- |
+| What version of Octopus are you using?       | You should run the most recent release before migration to minimize feature differences with Octopus Cloud. At a minimum, [Export/Import Projects](https://octopus.com/docs/projects/export-import) is only available in Octopus 2021.1.x or higher. |
+| How many projects do you have? | The more projects you have the more time your migration is likely to take. |
+| How many runbooks do you have? | Runbooks may need to be updated manually where worker pools have changed, and sensitive values or variables are used. |
+| How many Tentacles do you manage? | You’ll need to achieve connectivity between Octopus Cloud and all the Tentacles you use.<br/><br/> We also recommend converting Listening Tentacles to Polling Tentacles for a Cloud Instance. |
+| Are all the resources you need access to reachable from Octopus Cloud?<br/><ul><li>Private, self-hosted package repositories (Artifactory, Nexus, etc)</li><li>On-prem listening tentacle or ssh targets and workers</li><li>An internal SMTP server</li><li>Other on-prem integrations that are not reachable from Octopus Cloud</li></ul>|You’ll need to achieve connectivity between Octopus Cloud and all the integrations and resources you use.<br/><br/>How are firewall and VPN configurations typically managed to ensure secure connections? Do you anticipate any network, firewall, or VPN configuration updates will be needed to support this migration? |
+| Do you have specific security requirements or policies around accessing deployment targets or managing API keys? | You will need to manage these through the migration.  |
+| Do you need to retain historical data and task logs? | Historical data and task logs are **not supported by Export/Import Projects**. You will need to continue to host the older version to retain historical data. |
+| How long are your Audit log retention policies? | Octopus Cloud archived audit logs has **a max of 365 days** |
+| Do you have any Projects using Config-as-Code? | Config-as-Code Projects are **not supported by Export/Import Projects** |
+| Do you store build information?  | You will need to continue to host the older version to retain historical data, as build information **is not migrated**. |
+| Do you have any subscriptions? | Subscription migration is **not supported by Export/Import Projects**. These will need to be migrated manually or with a script. |
+| How many variable sets do you use? | Variable sets should be named uniquely. When importing, if a variable set with the same name already exists, the variables will be merged. If a variable in the export doesn’t exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched. |
+| Do you use project triggers? | Project trigger migration is **not supported by Export/Import Projects**. These will need to be migrated manually or with a script. |
+| Are you using the built-in package repository? | Package repository migration is supported via [this script](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Feeds/SyncPackages.ps1). |
+| Do any Projects use the Built-in Octopus Worker? | The Built-in Octopus Worker is **not a feature available in Octopus Cloud.** |
+| Are you using any Targets with older, unsupported operating systems (RHEL 6, Windows 2008, etc)? | Octopus Cloud is the most up-to-date version of Octopus, and Targets running older operating systems are **not supported**. |
+| Are you using Active Directory or LDAP authentication? | Active Directory or LDAP authentication is **not a feature available in Octopus Cloud**. |
+| Do you have any ITSM integrations or other automated processes? | Automated processes and shared settings, such as workflows for routine tasks or usage of library variable sets across projects, need to be set up again after migration. This includes common scripts, standardized settings, or configurations supporting multiple projects. |
+| What are your cutover requirements? Can you stagger the migration or incur downtime?| A big-bang migration, where everything is transitioned simultaneously, is harder than an incremental approach, where you migrate project-by-project or in defined phases. |
 
 If your instance includes **unsupported features** or matches several of the **effort factors**, migration complexity increases. For these cases, our **Sales team** can help you identify workarounds, plan for manual adjustments, or determine if Octopus Cloud is the right fit for you.
 
@@ -80,7 +79,9 @@ If you need more precise estimates or to understand the complexity of the challe
 ## Self-directed migration using Export/Import
 ### Overview
 
-This guide uses the [Export/Import Projects](https://octopus.com/docs/projects/export-import) feature as the recommended approach to migrating to Octopus Cloud.
+:::div{.hint}
+This guide uses the **[Export/Import Projects](https://octopus.com/docs/projects/export-import)** feature as the recommended approach to migrating to Octopus Cloud.
+:::
 
 Using this guide as a basis for your migration, your project will roughly break down into the following phases:
 
@@ -91,6 +92,7 @@ Using this guide as a basis for your migration, your project will roughly break 
 
 We’ll step through each of these phases and provide pointers and tips to ensure a successful outcome at each stage.
 
+:::div{.problem}
 **Historical Data is not included in the migration.**
 
 The Export/Import Projects feature will create releases and “shells” of your deployments. The releases are created so you can promote existing releases through your environments. The deployments are created because lifecycle conditions need to be met prior to those releases being promoted.
@@ -108,6 +110,7 @@ We recommend making a backup of your self-hosted DB including historical data sh
   - Manual Intervention logs
 - Audit History
 - Event Exports
+:::
 
 ## 1. Preparation
 
@@ -140,7 +143,6 @@ Before starting your migration, please ensure you are familiar with these fundam
 You must be running Octopus **2021.1.x** or higher to leverage the [Export/Import Projects](https://octopus.com/docs/projects/export-import) feature in order to migrate your projects. We recommend upgrading to the latest version of Octopus Deploy prior to starting your upgrade.
 
 ### 3. Determine whether you need to convert your [Listening tentacles to Polling Tentacles](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/tentacle-communication) for your deployment targets and workers 
-
 Listening Tentacles require an inbound connection from Octopus Cloud to your infrastructure. Listening tentacles are required to have a public hostname or IP address Octopus Cloud can see. Polling Tentacles require an outbound connection from your infrastructure to Octopus Cloud. Because of that difference, our customers tend to use Polling Tentacles.
 
 ### 4. Create your Octopus Cloud instance
@@ -149,13 +151,15 @@ The remaining prep work involves testing connectivity. You will need to create a
 ### 5. Firewall settings for your Tentacles
 Regardless of your tentacle communication mode, ensure you have the appropriate firewall rules configured. The default rules are:
 - Listening Tentacle
-    - Port 443 outbound (to register the tentacle with Octopus Cloud)
-    - Port 10933 inbound (communications)
+    - Port `443` outbound (to register the tentacle with Octopus Cloud)
+    - Port `10933` inbound (communications)
 - Polling Tentacle
-    - Port 443 outbound (to register the tentacle with Octopus Cloud)
-    - Port 10943 or 443 outbound (communications). [We recommend using Port 10943](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443).
+    - Port `443` outbound (to register the tentacle with Octopus Cloud)
+    - Port `10943` or `443` outbound (communications). [We recommend using Port 10943](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443).
 
+:::div{.hint}
 Our recommendation is to create a test server in each of your data centers, install a tentacle on it with the desired communication mode, and register it with Octopus Cloud. Work out any firewall configuration issues before starting the migration. 
+:::
 
 ### 6. Configuring Workers and Worker Pools
 Octopus Cloud does not support running steps directly on the server. Instead, we provide each Octopus Cloud instance with [dynamic workers](https://octopus.com/docs/infrastructure/workers/dynamic-worker-pools). The dynamic workers are there to help get you started but have the following limitations.
@@ -167,10 +171,12 @@ Our recommendation is to:
 1. Create a worker pool (or pools) per local data center or cloud provider. For example, if you have a data center in Omaha and are using AWS, you’d have two worker pools, one for your Omaha data center and another for AWS.
 1. If you already use or are comfortable using Kubernetes, we recommend using Kubernetes worker — a scalable worker developed for optimal use of compute when running multiple deployment tasks. To use the Kubernetes worker, you need to install a worker once on a cluster and [configure autoscaling](https://octopus.com/blog/kubernetes-worker).
 <br/>If you cannot use Kubernetes, create virtual machines and install tentacles as workers for each worker pool. For redundancy, we recommend a minimum of two (2) workers per worker pool. Install any required software on each worker.
-2. Consider leveraging [execution containers](https://octopus.com/docs/projects/steps/execution-containers-for-workers). If you use Kubernetes worker, these containers will run as pods on a cluster. If you use virtual machines, the containers will run in Docker.
-3. Change your deployment and runbook processes to target the appropriate worker pool. You can leverage [worker pool variables](https://octopus.com/docs/projects/variables/worker-pool-variables) to change worker pools per environment. Ensure all deployments and runbooks work as expected.
+1. Consider leveraging [execution containers](https://octopus.com/docs/projects/steps/execution-containers-for-workers). If you use Kubernetes worker, these containers will run as pods on a cluster. If you use virtual machines, the containers will run in Docker.
+1. Change your deployment and runbook processes to target the appropriate worker pool. You can leverage [worker pool variables](https://octopus.com/docs/projects/variables/worker-pool-variables) to change worker pools per environment. Ensure all deployments and runbooks work as expected.
 
+:::div{.warning}
 Please do not skip Step 4. In doing step 4, you will start your migration in a known good state. If you change to workers after migration to Octopus Cloud, you will have changed two things (workers and your instance), making it much harder to troubleshoot.
+:::
 
 ### 7. Testing External Package Repository Connectivity
 If you use an external package repository, such as a self-hosted Artifactory instance, you’ll need to test that Octopus Cloud can see and connect to it. You might have to expose that server to the internet, or leverage a [proxy server](https://octopus.com/docs/infrastructure/deployment-targets/proxy-support/#external-nuget-feed).
@@ -194,7 +200,9 @@ Your process for each project or application will generally follow these steps.
 
 We recommend choosing an “off-cycle” or “slow time” whenever possible to keep any potential impact to a minimum. The last thing you want is to change your deployment process in the middle of a project with a tight deadline.
 
-Following this approach, you will have a time period with both an Octopus Server instance and an Octopus Cloud instance.
+:::div{.hint}
+Following this approach, you will have a time period with both an Octopus Server instance and an Octopus Cloud instance.  
+:::
 
 ### 1. Export and import the project
 Follow the instructions on [exporting and importing page](https://octopus.com/docs/projects/export-import) to export and import a project. Make a note of what is *not* exported. Releases and deployments are exported, but only “shells” (not the full deployment) to ensure any pre-existing releases can be promoted.
@@ -208,7 +216,11 @@ A Windows or Linux server can have [1 to N tentacle instances](https://octopus.c
 1. New Tentacle Instance -> connects to Octopus Cloud.
 
 We have a [script to help create](https://github.com/OctopusDeployLabs/SpaceCloner/blob/main/docs/UseCase-CopyExistingTentacles.md) a cloned tentacle instance pointing to Octopus Cloud. You can copy a listening tentacle as a polling tentacle, a polling tentacle as a polling tentacle, or a listening tentacle as a listening tentacle.
-That script requires PowerShell 5.1 or greater for Windows. We recommend PowerShell 7.
+
+:::div{.hint}
+That script requires PowerShell 5.1 or greater for Windows.  We recommend PowerShell 7.
+:::
+
 That script only works for servers running tentacles. Any other deployment targets, such as Azure Web Apps, Kubernetes clusters, or SSH targets, will need to be manually recreated.
 
 ### 4. Update your build server
@@ -226,19 +238,19 @@ After the build server has been updated, create a small change to trigger your C
 ### 6. Disable the project in your Octopus Server instance
 Disabling a project will prevent it from being able to create and deploy releases. It is also an excellent signal to all Octopus users that the project has been migrated.
 - Go to **Project Settings**
-- Click the overflow menu (...)
+- Click the overflow menu (`...`)
 - Select **Disable** on the menu
 
 If anything goes wrong immediately after the migration, you can re-enable this project so your application can still be deployed while troubleshooting the migration.
 
-## **Clean up & deprecate**
-### Deprecate your Octopus Server instance
+## 3. Clean up & deprecate
+### 3.1 Deprecate your Octopus Server instance
 
 Eventually, you will migrate all your projects over to Octopus Cloud. When that day comes, we recommend [turning on maintenance mode](https://octopus.com/docs/administration/managing-infrastructure/maintenance-mode/) and setting the [task cap to 0](https://octopus.com/docs/support/increase-the-octopus-server-task-cap) on your Octopus Server. That will make your Octopus Server read-only. No new deployments will be triggered. Keep this running for a short while to review any old audit logs.
 
 At this point, we recommend deleting all the tentacle instances still pointing to your Octopus Server instance. You can run this script in the [script console](https://octopus.com/docs/administration/managing-infrastructure/script-console) to delete the original tentacle instance. Please test this on a few non-production servers first.
 
-```bash
+```powershell
 & "C:\Program Files\Octopus Deploy\tentacle\tentacle.exe" delete-instance --instance="Tentacle"
 ```
 In our experience, most people turn off their Octopus Server in about three to six months. When you decide to turn off your Octopus server, first take a full backup of the database and delete all the appropriate resources.
@@ -249,4 +261,4 @@ The **Export/Import Projects** feature is available from Octopus Deploy **2021.1
 ## No longer offered or supported
 Please note that our existing [Migration API](https://octopus.com/docs/octopus-rest-api/migration-api) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
 
-The legacy[ Data Migration](https://octopus.com/docs/administration/data/data-migration) included with Octopus Deploy is **not supported** for migrations to cloud instances. That tool is a Windows command-line application that must be run directly on the server hosting Octopus Deploy via an RDP session. Octopus Cloud runs on our Linux Container image on a Kubernetes Cluster and therefore access to the Container is not permitted for security reasons.
+The legacy [Data Migration](https://octopus.com/docs/administration/data/data-migration) included with Octopus Deploy is **not supported** for migrations to cloud instances. That tool is a Windows command-line application that must be run directly on the server hosting Octopus Deploy via an RDP session. Octopus Cloud runs on our Linux Container image on a Kubernetes Cluster and therefore access to the Container is not permitted for security reasons.
