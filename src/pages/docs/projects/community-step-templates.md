@@ -9,7 +9,7 @@ navOrder: 50
 
 Community step templates are publicly available step templates that have been contributed by the Octopus Community, they're third party code that is licensed under [the Apache 2.0 license](https://github.com/OctopusDeploy/Library/blob/master/LICENSE.txt).
 
-If you can't find a built-in step template that includes the actions you need, you should check the community step template. There is a large number and variety of step templates (and it's growing all the time) that can help you automate your deployments without writing any scripts yourself.
+If you can't find a built-in step template that includes the actions you need, you should check the community step template library. There is a large number and variety of step templates (and it's growing all the time) that can help you automate your deployments without writing any scripts yourself.
 
 Octopus Community step templates integration is enabled by default, but it can be disabled.
 
@@ -68,7 +68,7 @@ After the step template has been installed, it will be available alongside the b
 
 ## Adding an updated version of a community step template
 
-Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, you will be taken to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated from the library as needed.
+Sometimes updates are available for step templates. In this case, you will notice the step template has an option to update the step. If you select update, you will be taken to the community step details with the option to update the latest version of the step template. Community step templates can also be updated from the library as needed.
 
 ## Raising issues with a community step template
 
@@ -76,10 +76,10 @@ Issues can occur with community step templates, just as they can with built-in s
 
 If you run into any problems with a community step template, don't worry - [we are always here to help!](https://octopus.com/support)
 
-Our community step templates live in our [Library repository](https://github.com/OctopusDeploy/Library) on GitHub. If you're familiar with GitHub, you can raise an [issue](https://github.com/OctopusDeploy/Library/issues), and a member of the Octopus team will triage the issue and work with you to get the issue resolved. 
+Our community step templates live in our [Library repository](https://github.com/OctopusDeploy/Library) on GitHub. If you're familiar with GitHub, you can raise an [issue](https://github.com/OctopusDeploy/Library/issues), and a member of the Octopus team will triage the issue and work with you to get the issue resolved.
 
 In addition, as the code is open-source, you can also submit a [pull request](https://github.com/OctopusDeploy/Library/pulls) to fix an issue. We have [contributing guidelines](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) that we recommend reading before submitting a change.
 
-## Security 
+## Security
 
-Community step templates are created, updated, and fixed by the Octopus team and the Octopus community. The Octopus team reviews all contributions before they are added to the Octopus library so that the step template only does what the template is designed to do and nothing malicious. 
+Community step templates are created, updated, and fixed by the Octopus team and the Octopus community. The Octopus team reviews all contributions before they are added to the Octopus library so that the step template only does what the template is designed to do and nothing malicious.
