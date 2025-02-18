@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-30
+modDate: 2025-02-18
 title: Tenant tags
 icon: fa-solid fa-tags
 description: Tenant Tags help you to classify your tenants with custom tags so you can tailor your tenanted deployments accordingly.
@@ -61,6 +61,8 @@ This example of configuring a tenanted deployment target shows how the tenant fi
 ### Removing tenant tags
 
 If tenant tags are tied to specific tenants, included in project/runbook release [variable snapshots](/docs/releases#variable-snapshot) (via project/variable sets), or captured in published runbooks, you will not be able to delete the relevant tag(s) until these associations are removed (by removing these from the tenant, deleting the associated release(s), or deleting published runbook snapshot(s)). Alternatively, in the case of release variable snapshots and assuming you've removed the tenant tag(s) association in the underlying project/variable set, you can update the variable snapshot that is associated with the release(s) to remove this association.
+
+For projects using Config as Code, there are fewer guardrails in place. It's up to you to take care to avoid deleting any tenant tags required by your deployments. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
 
 ## Tag-based filters {#tag-based-filters}
 

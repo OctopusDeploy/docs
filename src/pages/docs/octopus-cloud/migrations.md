@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-14
+modDate: 2025-02-18
 title: Migrating to Octopus Cloud
 navOrder: 30
 description:  This guide outlines the benefits of Octopus Cloud, the effort involved in migrating, and step-by-step instructions to help you have a smooth transition.
@@ -10,7 +10,7 @@ description:  This guide outlines the benefits of Octopus Cloud, the effort invo
 Migrating from a self-hosted instance of Octopus Deploy to Octopus Cloud can streamline your deployment processes by removing infrastructure overhead while ensuring you continue to enjoy the robust capabilities of Octopus.
 This guide outlines the benefits of Octopus Cloud, the effort involved in migrating, and step-by-step instructions to help you have a smooth transition.
 
-For large or complex migrations, unsupported scenarios or any questions, we strongly recommend contacting our **Sales team**. We’re always happy to help, and we can provide more specific information when you are ready to migrate.
+For large or complex migrations, unsupported scenarios or any questions, we strongly recommend contacting our [Sales team](mailto:sales@octopus.com). We’re always happy to help, and we can provide more specific information when you are ready to migrate.
 
 ## Benefits of migrating to Octopus Cloud
 
@@ -26,7 +26,7 @@ Before diving into the migration process, it’s worth evaluating the benefits o
 - **Cost Efficiency**: Reduce infrastructure and operational costs.
 
 In short, Octopus Cloud offloads your maintenance burden and provides the best experience for the majority of our customers. However, if your organization primarily uses self-hosted tools, you may encounter some challenges enabling connectivity between Octopus Cloud and other resources and tools within your ecosystem. 
-If you're uncertain whether Octopus Cloud is the right choice for your organization, contact our **Sales team** to discuss your needs and determine the best fit.
+If you're uncertain whether Octopus Cloud is the right choice for your organization, contact our [Sales team](mailto:sales@octopus.com) to discuss your needs and determine the best fit.
 
 ## Migration assessment and planning
 ### Estimating Migration Effort
@@ -65,12 +65,12 @@ Use this checklist to guide you as to the complexity of your migration. The more
 | Do you have any ITSM integrations or other automated processes? | Automated processes and shared settings, such as workflows for routine tasks or usage of library variable sets across projects, need to be set up again after migration. This includes common scripts, standardized settings, or configurations supporting multiple projects. |
 | What are your cutover requirements? Can you stagger the migration or incur downtime?| A big-bang migration, where everything is transitioned simultaneously, is harder than an incremental approach, where you migrate project-by-project or in defined phases. |
 
-If your instance includes **unsupported features** or matches several of the **effort factors**, migration complexity increases. For these cases, our **Sales team** can help you identify workarounds, plan for manual adjustments, or determine if Octopus Cloud is the right fit for you.
+If your instance includes **unsupported features** or matches several of the **effort factors**, migration complexity increases. For these cases, our [Sales team](mailto:sales@octopus.com) can help you identify workarounds, plan for manual adjustments, or determine if Octopus Cloud is the right fit for you.
 
 ### Migration approach: self-serve or supported?
 
 If you’re confident Octopus Cloud is right for you, and you have a relatively straightforward migration path, we encourage you to use this guide to get started and wish you a speedy and smooth migration. 
-If you're uncertain whether Octopus Cloud is the right choice for your organization or there are complicating factors in your migration, we recommend you contact our **Sales team** to discuss your needs and determine the best fit. We can discuss several options, from extending your trial during a longer migration to connecting you with a professional services partner who can help you complete the migration.
+If you're uncertain whether Octopus Cloud is the right choice for your organization or there are complicating factors in your migration, we recommend you contact our [Sales team](mailto:sales@octopus.com) to discuss your needs and determine the best fit. We can discuss several options, from extending your trial during a longer migration to connecting you with a professional services partner who can help you complete the migration.
 
 #### Pilot project migration
 
@@ -134,10 +134,10 @@ Octopus Cloud and Octopus Server are built on the same code base. The difference
 | Compliance | Your responsibility.  | ISO 27001 and SOC II certifications with regular audits, ensuring your deployments and data are safe and secure |
 | Roles | Highest level of user privileges is the role of Octopus Administrator | Highest level of user privileges is the role of Octopus Manager |
 | Auth | | Octopus Cloud does not support Active Directory or LDAP. Please see the [authentication provider compatibility page](https://octopus.com/docs/security/authentication/auth-provider-compatibility) for an up to date list of what is available.
-| Storage limits | Your responsibility. | Octopus Cloud is subject to [storage limits and default retention policies](https://octopus.com/docs/octopus-cloud/#octopus-cloud-storage-limits). <br/><br/><ul><li>Maximum file storage for artifacts, task logs, packages, package cache, and event exports is limited to 1 TB.</li><li>Maximum database size for configuration data (for example, projects, deployment processes, and inline scripts) is limited to 100 GB.</li><li>Maximum size for any single package is 5 GB.</li><li>[Retention policies](https://octopus.com/docs/administration/retention-policies) default to 30 days, but you can change this figure as needed.<br/>If any of these limits are a concern for your migration, please reach out to our Sales team.</li></ul> |
+| Storage limits | Your responsibility. | Octopus Cloud is subject to [storage limits and default retention policies](https://octopus.com/docs/octopus-cloud/#octopus-cloud-storage-limits). <br/><br/><ul><li>Maximum file storage for artifacts, task logs, packages, package cache, and event exports is limited to 1 TB.</li><li>Maximum database size for configuration data (for example, projects, deployment processes, and inline scripts) is limited to 100 GB.</li><li>Maximum size for any single package is 5 GB.</li><li>[Retention policies](https://octopus.com/docs/administration/retention-policies) default to 30 days, but you can change this figure as needed.<br/>If any of these limits are a concern for your migration, please reach out to our [Sales team](mailto:sales@octopus.com).</li></ul> |
 | Functional differences | | Octopus Cloud does not support running tasks on the server itself. Everything must run on a deployment target or worker. To help, Octopus Cloud includes [dynamic worker pools](https://octopus.com/docs/infrastructure/workers/dynamic-worker-pools) with both Windows and Linux workers. |
 
-Before starting your migration, please ensure you are familiar with these fundamental differences (and limitations). Depending on your requirements, Octopus Cloud, in its current form, might not be suitable for you. If any of these limitations are deal-breakers, we’d love to know; please contact our sales team. We are constantly improving Octopus Cloud; a current limit has a strong likelihood of changing in the future.
+Before starting your migration, please ensure you are familiar with these fundamental differences (and limitations). Depending on your requirements, Octopus Cloud, in its current form, might not be suitable for you. If any of these limitations are deal-breakers, we’d love to know; please contact our [Sales team](mailto:sales@octopus.com). We are constantly improving Octopus Cloud; a current limit has a strong likelihood of changing in the future.
 
 ### 2. Upgrading your Octopus Server instance to the latest release of Octopus Deploy
 You must be running Octopus **2021.1.x** or higher to leverage the [Export/Import Projects](https://octopus.com/docs/projects/export-import) feature in order to migrate your projects. We recommend upgrading to the latest version of Octopus Deploy prior to starting your upgrade.

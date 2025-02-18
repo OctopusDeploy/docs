@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-27
+modDate: 2025-02-18
 title: Custom step templates
 icon: fa-solid fa-shapes
 description: How to create reusable steps
@@ -119,6 +119,10 @@ All steps have a name, which is used to identify the step.
 :::div{.warning}
 Be careful when changing names. Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example, you can use [output variables](/docs/projects/variables/output-variables) to chain steps together, and you use the name as the indexer for the output variable. E.g. `#{Octopus.Action[StepA].Output.TestResult}`
 :::
+
+## Removing step templates
+
+For projects using Config as Code, it's up to you to take care to avoid deleting any step templates required by your deployments or runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
 
 ## Learn more
 

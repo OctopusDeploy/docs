@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-12-16
+modDate: 2025-02-18
 title: Unsupported Configuration as Code Scenarios
 description: Unsupported scenarios for the Configuration as Code feature in Octopus Deploy.
 icon: fa-brands fa-git-alt
@@ -26,7 +26,7 @@ That scaffolding data includes (but is not limited to):
 That data is not stored in source control because it is shared across multiple projects.
 
 :::div{.warning}
-An error will occur when Octopus Deploy attempts to load a process from source control with one or more of those items missing. You'll be unable to create releases until those errors are resolved.
+An error will occur when Octopus Deploy attempts to load a process from source control with one or more of those items missing. You'll be unable to create releases or access runbooks until those errors are resolved.
 :::
 
 ## Syncing multiple instances
