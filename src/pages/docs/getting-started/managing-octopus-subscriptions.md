@@ -1,51 +1,53 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-01-09
+modDate: 2025-02-20
 title: Managing Octopus subscriptions
 description: Control Center is where you manage your Octopus subscriptions and their associated user access. 
 navOrder: 40
 ---
 
-Control Center is where you manage your Octopus subscriptions and their associated user access. 
+Control Center is where you manage your Octopus subscriptions and their associated user access.
 
-There are 2 types of Octopus subscriptions:
+There are two types of Octopus subscriptions:
 
 1. **Cloud instances**: Deployments-as-a-service
 2. **Server licenses**: Octopus on your infrastructure
 
-## Billing 
+## Billing
 
-### Upgrading a trial to a paid subscription 
+### Upgrade a trial to a paid subscription
 
 Cloud instance:
 
 1. Navigate to your Cloud instance in Control Center.
-2. Click **Upgrade Plan**. 
-3. Choose your plan and complete the purchase through our checkout. 
+2. Click **Upgrade Plan**.
+3. Choose your plan and complete the purchase through our checkout.
 
 Server license:
 
 1. Navigate to your Server License in Control Center.
-2. Click **Upgrade Plan**. 
+2. Click **Upgrade Plan**.
 3. Choose your plan and complete the purchase through our checkout.
 
-### Paying an invoice
+### Pay an invoice
 
-We will share a unique payment link with you to pay your invoice via Zuora's secure payment page. Be weary of phishing attempts and ensure the correct invoice number is displayed to verify the pages authenticity.
+We will send you a unique payment link to pay your invoice through Zuora's secure payment page.
 
-### Updating billing information
+Please be cautious of phishing attempts. You can verify the payment page's authenticity by checking it displays the correct invoice number.
+
+### Update billing information
 
 Please [contact sales](https://octopus.com/company/contact) to update your billing information.
 
-### Viewing orders
+### View orders
 
 1. Navigate to your subscription.
 2. Click **Billing** in the left sidebar.
 3. Click **Contact Sales**.
 4. Complete the form and we'll get back to you with the order details.
 
-### Changing your plan
+### Change your plan
 
 To modify your plan:
 
@@ -54,7 +56,7 @@ To modify your plan:
 3. Click **Get in Touch** under the change plan section.
 4. A contact sales dialog will appear for you to request changes to your plan.
 
-### Canceling your plan
+### Cancel your plan
 
 To cancel your plan:
 
@@ -63,18 +65,19 @@ To cancel your plan:
 3. Click **Get in Touch** under the change plan section.
 4. A contact sales dialog will appear for you to cancel your plan.
 
-## Configuration 
+## Configuration
 
-### Changing outage windows (Cloud only)
+### Change outage window (Cloud only)
 
-We use outage windows to perform updates to the Octopus Deploy software, so you can take advantage of fixes and enhancements.
+To keep Octopus Cloud running smoothly, we use outage windows to perform updates. To minimize disruptions to your deployments, please pick a two-hour [maintenance window](/docs/octopus-cloud/maintenance-window) outside of your regular business hours.
+
 1. Navigate to your subscription.
 2. Click **Configuration** in the left sidebar.
 3. Click **Change Window**.
 4. Specify the start and end times.
 5. Click **Submit**.
 
-### Changing the instance URL (Cloud only)
+### Change instance URL (Cloud only)
 
 1. Navigate to your subscription
 2. Click **Configuration** in the left sidebar.
@@ -82,96 +85,112 @@ We use outage windows to perform updates to the Octopus Deploy software, so you 
 4. Specify the new URL.
 5. Click **Submit**.
 
-## Access control
+## Manage user access
 
-### Understanding access control
+### Access levels in Control Center
 
-There are 2 levels of access you can provide users in Control Center. Each level has associated user roles.
+There are two access levels in Control Center:
 
-1. **Subscription Group access** provides management of a group of subscriptions plus access to all current and future subscriptions in the group. 
-2. **Direct access** provides access to individual subscriptions.
+- **Subscription Group access**: provides access to manage a subscription group and access to all current and future subscriptions in the group.
+- **Direct access**: provides access to a specific subscription.
+
+Each access level has associated user roles.
 
 ### Subscription Group access
 
-Below are the roles for Subscription Group access, the permissions they provide for the group, and the subscriptions in the group:
+#### Invite a user to Subscription Group access
 
-|                                | Administrator | Technical Manager | Billing Manager |
-| ------------------------------ | ------------- | ----------------- | --------------- |
-| **Subscription Group**         |
-| Delete and rename group        | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
-| Access Control                 | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
-| **Subscriptions within Group** |
-| Server: View License Key       | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
-| Server: Manage Billing         | <i class="fa-circle-check"></i>             | <i class="fa-solid fa-circle-xmark"></i>        | <i class="fa-circle-check"></i>                    |
-| Server: Manage Access Control  | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
-| Cloud: View Overview           | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-circle-check"></i>                    |
-| Cloud: Manage Billing          | <i class="fa-circle-check"></i>             | <i class="fa-solid fa-circle-xmark"></i>        | <i class="fa-circle-check"></i>                    |
-| Cloud: Manage Configuration    | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
-| Cloud: Manage Access Control   | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
-| Instance access                | <i class="fa-circle-check"></i> Admin       | <i class="fa-circle-check"></i> Octopus Manager | <i class="fa-solid fa-circle-xmark"></i>           |
+Invite a user to manage a subscription group and access all current and future subscriptions in the group.
 
-#### Inviting users to Subscription Group access
-
-1. Navigate to the dashboard and locate your subscription group.
+1. Locate your subscription group in [Control Center V2](https://billing.octopus.com/).
 2. Click **Access Control**.
 3. Click **Invite User**.
-4. Enter the user's details and click **Invite**.
+4. Enter the user’s details.
+5. Select which role to give the user ([see role permissions below](#role-permissions-for-subscription-group-access)).
+6. Click **Invite**.
 
-The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the related subscriptions and instances. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
+:::figure
+![Invite users to a subscription group in Control Center V2](/docs/getting-started/managing-octopus-subscriptions/images/subscription-group-access.png)
+:::
 
-If the invited user already has an Octopus ID, they must still accept the invite sent via email to complete the process.
+
+The invited user will receive an email invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they just need to click **Accept invite** from the email and then **Sign in** to view the related subscriptions and instances. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to.
+
+If the invited user already has an Octopus ID, they must still accept the email invite to gain access to the subscription group.
+
+#### Role permissions for Subscription Group access
+
+|                                    | Administrator                                                    | Technical Manager                                                | Billing Manager                                                  |
+| ---------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Subscription group-level**                                                                                                                                                                                                                |
+| Delete and rename group            | <i class="fa-circle-check"></i>                                  | <i class="fa-circle-check"></i>                                  | <i class="fa-solid fa-circle-xmark"></i>                         |
+| Access Control                     | <i class="fa-circle-check"></i>                                  | <i class="fa-circle-check"></i>                                  | <i class="fa-solid fa-circle-xmark"></i>                         |
+| **Subscription-level**                                                                                                                                                                                                                      |
+| View License Key (**Server only**)     | <i class="fa-circle-check"></i>                                  | <i class="fa-circle-check"></i>                                  | <i class="fa-solid fa-circle-xmark"></i>                         |
+| View Overview (**Cloud only**)         | <i class="fa-circle-check"></i>                                  | <i class="fa-circle-check"></i>                                  | <i class="fa-circle-check"></i>                                  |
+| Manage Configuration (**Cloud only**)  | <i class="fa-circle-check"></i>                                  | <i class="fa-circle-check"></i>                                  | <i class="fa-solid fa-circle-xmark"></i>                         |
+| Manage Billing                     | <i class="fa-circle-check"></i>                                  | <i class="fa-solid fa-circle-xmark"></i>                         | <i class="fa-circle-check"></i>                                  |
+| Manage Access Control              | <i class="fa-circle-check"></i>                                  | <i class="fa-circle-check"></i>                                  | <i class="fa-solid fa-circle-xmark"></i>                         |
+| Instance access                    | <i class="fa-circle-check"></i> “Octopus Administrators” team    | <i class="fa-circle-check"></i> “Octopus Managers” team          | <i class="fa-solid fa-circle-xmark"></i>                         |
+
+:::div{.hint}
+Octopus uses a team-based system to manage user permissions. The “**Octopus Administrators**” team and “**Octopus Managers**” team provide different levels of access in your instance. Read more about [users and teams](/docs/security/users-and-teams).
+:::
 
 ### Direct access
 
-Below are the roles available for Direct access:
+#### Invite a user to Direct access
 
-|                              | Cloud Owner | Cloud User |
-| ---------------------------- | ----------- | ---------- |
-| Cloud: View Overview         | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>                          |
-| Cloud: Manage Billing        | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
-| Cloud: Manage Configuration  | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
-| Cloud: Manage Access Control | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
-| Instance access              | <i class="fa-circle-check"></i> Admin     | <i class="fa-circle-check"></i> User                     |
+Invite a user to access a specific subscription.
 
-|                              | Server License Owner | Server License Viewer |
-| ---------------------------- | ----------- | ---------- |
-| Server: View License Key      | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>                          |
-| Server: Manage Billing        | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
-| Server: Manage Access Control | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
+1. Navigate to your Cloud instance or Server license in [Control Center V2](https://billing.octopus.com/).
+2. Click **Access Control** in the left sidebar.
+3. Click **Invite User**.
+4. Enter the user’s details.
+5. Select which role to give the user ([see role permissions below](#role-permissions-for-direct-access)).
+6. Click **Invite**.
 
-#### Inviting users to Direct access
+:::figure
+![Invite users to a specific subscription in Control Center V2](/docs/getting-started/managing-octopus-subscriptions/images/direct-access.png)
+:::
+
+The invited user will receive an email invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they just need to click **Accept invite** from the email and then **Sign in** to view the Octopus instance. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to.
+
+If the invited user already has an Octopus ID, they must still accept the email invite to gain access to the subscription.
+
+:::div{.hint}
+**Cloud instances note:** Users are only added to the Octopus Cloud instance after they sign in for the first time.
+:::
+
+#### Role permissions for Direct access
 
 ##### Cloud
 
-1. Navigate to your Cloud instance.
-2. Click **Access Control** in the left sidebar.
-3. Click **Invite User**.
-4. Enter the user's details and click **Invite**.
-
-The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Octopus instance. Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to. 
-
-If the invited user already has an Octopus ID, they must still accept the invite sent via email to complete the process.
+|                             | Cloud Subscription Owner                                  | Cloud Subscription User                          |
+| --------------------------- | --------------------------------------------------------- | ------------------------------------------------ |
+| View Overview               | <i class="fa-circle-check"></i>                           | <i class="fa-circle-check"></i>                  |
+| Manage Billing              | <i class="fa-circle-check"></i>                           | <i class="fa-solid fa-circle-xmark"></i>         |
+| Manage Configuration        | <i class="fa-circle-check"></i>                           | <i class="fa-solid fa-circle-xmark"></i>         |
+| Manage Access Control       | <i class="fa-circle-check"></i>                           | <i class="fa-solid fa-circle-xmark"></i>         |
+| Instance access             | <i class="fa-circle-check"></i> “Octopus Managers” team   | <i class="fa-circle-check"></i> “Everyone” team  |
 
 :::div{.hint}
-**Note:** The user is only added to the Octopus Cloud instance after they sign in for the first time. After signing in, that user gets assigned to the **“Everyone”** team (if they’re a Cloud User) or the **“Octopus Managers”** team (if they’re a Cloud Owner).
+Octopus uses a team-based system to manage user permissions. The “**Octopus Administrators**” team and “**Everyone**” team provide different levels of access in your instance. Read more about [users and teams](/docs/security/users-and-teams).
 :::
 
 ##### Server
 
-1. Navigate to your Server License.
-2. Click **Access Control** in the left sidebar.
-3. Click **Invite User**.
-4. Enter the user's details and click **Invite**.
+|                              | Server License Owner | Server License Viewer |
+| ---------------------------- | ----------- | ---------- |
+| View License Key      | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>                          |
+| Manage Billing        | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
+| Manage Access Control | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
 
-The invited user will receive an email to accept the invitation. If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they can accept the invite and **Sign in** to view the Server License.
-
-If the invited user already has an Octopus ID, they must still accept the invite sent via email to complete the process.
-
-### Changing user roles 
+### Change a user's role
 
 To change a user's role, you must remove that user's access and then re-invite them to the role you want them to have.
 
-### Deleting users
+### Delete a user
 
 Deleting Subscription Group access users:
 
