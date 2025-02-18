@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-14
+modDate: 2025-02-18
 title: Unsupported Configuration as Code Scenarios
 description: Unsupported scenarios for the Configuration as Code feature in Octopus Deploy.
 icon: fa-brands fa-git-alt
