@@ -43,7 +43,7 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
 
 1. Select the **Resource Group** to place the created resources in. This can be selected from the drop-down of available resources or bound to a variable. The resource group must exist when the step is executed.
 
-1. Set the **Deployment Mode**. It can be either [Incremental or Complete](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes).
+1. Set the **Deployment Mode**. It can be either [Incremental or Complete](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-resource-group?tabs=azure-cli).
 1. Choose the **Template Source**. It can be either [JSON entered directly](#json-template) into the step, or a file [contained in a package](#packaged-template).
 1. Enter any values for parameters if they are present.
 
