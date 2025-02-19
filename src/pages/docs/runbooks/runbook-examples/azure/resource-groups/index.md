@@ -77,7 +77,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
 :::
 
-The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/key-vault-parameter) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/key-vault-parameter).
+The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/key-vault-parameter) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/key-vault-parameter?tabs=azure-cli).
 
 :::figure
 ![](/docs/runbooks/runbook-examples/azure/resource-groups/arm-sensitive-data.png)
