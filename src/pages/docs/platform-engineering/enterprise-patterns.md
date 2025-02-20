@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-02-20
 title: Octopus enterprise patterns
 description: This section describes common patterns for deploying octopus in enterprise environments.
 navOrder: 2
