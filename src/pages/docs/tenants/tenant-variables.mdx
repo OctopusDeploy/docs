@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-30
+modDate: 2024-03-10
 title: Tenant variables
 icon: fa-solid fa-square-root-variable
 description: Tenant variables in Octopus allow you to specify which variables are required to deploy a project to a tenant successfully; Project variables are values that differ between projects and environments. Common variables are common across multiple tenants that require a unique value per tenant.
@@ -61,6 +61,12 @@ The great thing about project template variables is that they are treated like a
 ![](/docs/tenants/images/project-template-variable-value-in-step.png "width=500")
 :::
 
+:::hint
+From octopus version 2025.2, project variables will be scoped by environments. To assign a scope to your project variable, use the **Tenant Variables** section of the project's page, or the **Tenant Variables** section of the tenant's page. 
+
+For more information on assigning scope, see [assigning scopes](/docs/projects/variables/getting-started.md#using-multiple-scopes).
+:::
+
 
 ## Common variables \{#common-variables}
 
@@ -82,6 +88,12 @@ Just like project variables, common variable values are supplied at the tenant l
 ![](/docs/tenants/images/common-variable-tenant-value.png "width=500")
 :::
 
+:::hint
+From octopus version 2025.2, common variables will be scoped by environments. To assign a scope to your common variable, use the **Tenant Variables** section of the project's page, or the **Tenant Variables** section of the tenant's page. The common variable will then be used in the environments across all projects that are connected to that environment. 
+
+For more information on assigning scope, see [assigning scopes](/docs/projects/variables/getting-started.md#using-multiple-scopes).
+:::
+
 ### Common variable permissions
 
 When editing common variables for a tenant, a user requires variable editing permission (`VariableEdit`) for the tenant as well as **all projects** linked to the tenant. 
@@ -90,6 +102,15 @@ This can be achieved by scoping a user role to:
 - All projects individually 
 - The correct project groups 
 - A combination of individual projects and project groups
+
+:::hint
+From octopus version 2025.2, a user will require variable editing permission for the tenant, all projects and all environments to edit common variables for a tenant. In addition to above, a user may also need the (`VariableEdit`) permission scoped to:
+- For scoped common variables, all environments in the variable's scope
+- For unscoped common variables, all environments connected to the tenant
+- Unrestricted `VariableEdit` access for environments
+
+To view a common variable, a user will require view permissions to at least one environment in the variable's scope. 
+:::
 
 If you don't have the necessary permissions, you will receive an error like this:
 
