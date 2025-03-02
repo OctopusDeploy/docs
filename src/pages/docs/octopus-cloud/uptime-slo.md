@@ -22,7 +22,8 @@ This table lists Octopus Cloud's monthly uptime statistics for the last 12 month
 We list our achieved uptime percentage and weekly unplanned downtime duration. We also show these data points including planned maintenance. Data points measured at 95th percentile of all paid subscriptions.
 
 | Month  | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
-| :----- | ------: | ------: |------: | ------: |
+| :----- | ------: | ------: | ------: | ------: |
+| February 2025 | 100% | 0s | 99.9212% | 483s |
 | January 2025 | 99.9924% | 49s | 99.9397% | 371s |
 | December 2024 | 100% | 0s | 99.9666% | 203s |
 | November 2024 | 100% | 0s | 99.8895% | 672s |
@@ -31,10 +32,9 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 | August 2024 | 99.9955% | 28s | 99.8978% | 623s |
 | July 2024 | 99.9978% | 14s | 99.8602% | 847s |
 | June 2024 | 99.9931% | 49s | 99.9196% | * 490s |
-| May 2024 | 99.9976% | 21s |- | - |
-| April 2024 | 99.9687% | 189s |- | - |
-| March 2024 | 99.9914% | 56s |- | - |
-| February 2024 | 100% | 0s |- | - |
+| May 2024 | 99.9976% | 21s | - | - |
+| April 2024 | 99.9687% | 189s | - | - |
+| March 2024 | 99.9914% | 56s | - | - |
 
 \* We began capturing planned downtime metrics on June 10, 2024.
 
