@@ -76,7 +76,7 @@ Octopus uses a string-based approach to version numbers. These are the decisions
 
 Maven versions are used by Octopus when an artifact is sourced from an external [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds/). SemVer is still required when versioning any artifact to be deployed to the [built-in](/docs/packaging-applications/package-repositories/built-in-repository) library or an external [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds), and the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
 
-The Maven versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
+The Maven versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/sonatype/maven-demo/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
 
 Maven version strings have 5 parts:
 

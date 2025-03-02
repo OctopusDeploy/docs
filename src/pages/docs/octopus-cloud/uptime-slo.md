@@ -1,21 +1,54 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-05
+modDate: 2025-02-04
 title: Octopus Cloud Uptime SLO
 navOrder: 50
 description: The uptime SLO for Octopus Cloud instances
 ---
 
-Each Octopus Cloud customer has their own instance of the Octopus Server and can use [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools). As the name implies, these workers are assigned to a cloud instance dynamically and are spun up and down as required by the Deployment or Runbook executed. The following uptime SLO (service level objective), therefore, refers to the customer's Cloud instance.
+Each Octopus Cloud customer has their own Octopus Server delivered as a highly available, scalable, secure SaaS application hosted for you. Octopus Deploy manages maintenance and resource provisioning for these hosted servers, letting our customers focus on happy deployments. 
 
-Each customer's instance may experience its own series of maintenance operations and reprovisioning for operational and upgrade reasons. Therefore the 95th percentile of monthly uptime is used as the basis for the Octopus Cloud uptime SLO. Operational downtime is, other than in exceptional circumstances, scheduled in the customer's [maintenance window](/docs/octopus-cloud/maintenance-window). All downtime (unplanned and planned) is used in the determination of the uptime SLO.
+Octopus Cloud's monthly uptime SLO is 99.99%. 
 
-## Uptime SLO
-Monthly uptime SLO: 99.5%
+We calculate uptime as 100% of the month, less all unplanned downtime. 
 
-**“Monthly uptime of an instance”** means 100% minus the percentage of downtime (planned and unplanned) minutes out of the total minutes in a calendar month.
+Planned maintenance is a key benefit of Octopus Cloud and is scheduled in advance, so we exclude it from our uptime SLO calculation. Other than in exceptional circumstances, planned maintenance occurs during the customer’s [maintenance window](/docs/octopus-cloud/maintenance-window). In the 7 months ending January 2025, planned maintenance averaged fewer than 6 minutes of downtime per week.
 
-**“Downtime of an instance”** means a period of time where the customer instance is unavailable according to Octopus Deploy's internal and external monitoring systems.
+## Uptime Track Record
 
-**Basis:** 95th percentile of the monthly average of paid subscriptions (95% of customers would be above 99.5%). Included in the downtime is any planned downtime during the customer's maintenance window.
+This table lists Octopus Cloud's monthly uptime statistics for the last 12 months. 
+
+We list our achieved uptime percentage and weekly unplanned downtime duration. We also show these data points including planned maintenance. Data points measured at 95th percentile of all paid subscriptions.
+
+| Month  | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
+| :----- | ------: | ------: |------: | ------: |
+| January 2025 | 99.9924% | 49s | 99.9397% | 371s |
+| December 2024 | 100% | 0s | 99.9666% | 203s |
+| November 2024 | 100% | 0s | 99.8895% | 672s |
+| October 2024 | 99.9973% | 21s | 99.917% | 504s |
+| September 2024 | 99.9977% | 14s | 99.9165% | 511s |
+| August 2024 | 99.9955% | 28s | 99.8978% | 623s |
+| July 2024 | 99.9978% | 14s | 99.8602% | 847s |
+| June 2024 | 99.9931% | 49s | 99.9196% | * 490s |
+| May 2024 | 99.9976% | 21s |- | - |
+| April 2024 | 99.9687% | 189s |- | - |
+| March 2024 | 99.9914% | 56s |- | - |
+| February 2024 | 100% | 0s |- | - |
+
+\* We began capturing planned downtime metrics on June 10, 2024.
+
+### How we calculate uptime
+
+We calculate uptime as 100% minus the percentage of unplanned downtime seconds out of the total seconds in a calendar month. We measure all data points at the 95th percentile of all paid subscriptions (95% of customers experienced the listed measurement *or better*).
+
+We exclude downtime that arises from planned or customer-requested maintenance from our uptime SLO calculation, but we measure and report it for transparency.
+
+Some Octopus Cloud customers use [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools). As the name implies, these workers are dynamically assigned to a cloud instance and are spun up and down as required by the Deployment or Runbook executed. We exclude Dynamic Workers from our calculation of uptime.
+
+**“Downtime”** means a period where the customer instance is unavailable, according to Octopus Deploy's internal and external monitoring systems.
+
+**"Weekly unplanned downtime"** is shown as seconds per week. We use the month's total unplanned downtime duration measured at the 95th percentile of all paid subscriptions to calculate a weekly average duration. It excludes planned and customer-requested maintenance.
+
+**"Weekly downtime incl. planned maintenance"** is shown as seconds per week. We use the month's total downtime duration measured at the 95th percentile of all paid subscriptions to calculate a weekly average duration. It includes unplanned downtime, as well as downtime arising from planned and customer-requested maintenance.
+

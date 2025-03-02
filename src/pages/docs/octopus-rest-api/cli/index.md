@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-02-23
-title: Octopus Command Line (CLI)
+modDate: 2023-01-01
+title: CLI
 description: The all-new Octopus CLI
-navOrder: 30
+navOrder: 100
 hideInThisSection: true
 ---
 
@@ -38,6 +38,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus account gcp](/docs/octopus-rest-api/cli/octopus-account-gcp)**:  Manage Google Cloud accounts.
 - **[octopus account gcp create](/docs/octopus-rest-api/cli/octopus-account-gcp-create)**:  Create a Google Cloud account.
 - **[octopus account gcp list](/docs/octopus-rest-api/cli/octopus-account-gcp-list)**:  List Google Cloud accounts.
+- **[octopus account generic-oidc](/docs/octopus-rest-api/cli/octopus-account-generic-oidc)**:  Manage Generic OpenID Connect accounts.
+- **[octopus account generic-oidc create](/docs/octopus-rest-api/cli/octopus-account-generic-oidc-create)**:  Create an Generic OpenID Connect account.
+- **[octopus account generic-oidc list](/docs/octopus-rest-api/cli/octopus-account-generic-oidc-list)**:  List Generic OpenID Connect accounts.
 - **[octopus account list](/docs/octopus-rest-api/cli/octopus-account-list)**:  List accounts.
 - **[octopus account ssh](/docs/octopus-rest-api/cli/octopus-account-ssh)**:  Manage SSH Key Pair accounts.
 - **[octopus account ssh create](/docs/octopus-rest-api/cli/octopus-account-ssh-create)**:  Create a SSH Key Pair account.
@@ -48,6 +51,14 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus account username](/docs/octopus-rest-api/cli/octopus-account-username)**:  Manage Username/Password accounts.
 - **[octopus account username create](/docs/octopus-rest-api/cli/octopus-account-username-create)**:  Create a Username/Password account.
 - **[octopus account username list](/docs/octopus-rest-api/cli/octopus-account-username-list)**:  List Username/Password accounts.
+- **[octopus build-information](/docs/octopus-rest-api/cli/octopus-build-information)**:  Manage build information.
+- **[octopus build-information bulk-delete](/docs/octopus-rest-api/cli/octopus-build-information-bulk-delete)**:  Bulk delete build information.
+- **[octopus build-information delete](/docs/octopus-rest-api/cli/octopus-build-information-delete)**:  Delete a build information.
+- **[octopus build-information list](/docs/octopus-rest-api/cli/octopus-build-information-list)**:  List build information.
+- **[octopus build-information upload](/docs/octopus-rest-api/cli/octopus-build-information-upload)**:  upload build information for one or more packages to Octopus Deploy.
+- **[octopus build-information view](/docs/octopus-rest-api/cli/octopus-build-information-view)**:  View a build information.
+- **[octopus channel](/docs/octopus-rest-api/cli/octopus-channel)**:  Manage channels.
+- **[octopus channel create](/docs/octopus-rest-api/cli/octopus-channel-create)**:  Create a channel.
 - **[octopus config](/docs/octopus-rest-api/cli/octopus-config)**:  Manage CLI configuration.
 - **[octopus config get](/docs/octopus-rest-api/cli/octopus-config-get)**:  Gets the value of config key for Octopus CLI.
 - **[octopus config list](/docs/octopus-rest-api/cli/octopus-config-list)**:  List values from config file.
@@ -80,15 +91,17 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus deployment-target ssh view](/docs/octopus-rest-api/cli/octopus-deployment-target-ssh-view)**:  View a SSH deployment target.
 - **[octopus deployment-target view](/docs/octopus-rest-api/cli/octopus-deployment-target-view)**:  View a deployment target.
 - **[octopus environment](/docs/octopus-rest-api/cli/octopus-environment)**:  Manage environments.
+- **[octopus environment create](/docs/octopus-rest-api/cli/octopus-environment-create)**:  Create an environment.
 - **[octopus environment delete](/docs/octopus-rest-api/cli/octopus-environment-delete)**:  Delete an environment.
 - **[octopus environment list](/docs/octopus-rest-api/cli/octopus-environment-list)**:  List environments.
 - **[octopus login](/docs/octopus-rest-api/cli/octopus-login)**:  Login to Octopus.
 - **[octopus logout](/docs/octopus-rest-api/cli/octopus-logout)**:  Logout of Octopus.
 - **[octopus package](/docs/octopus-rest-api/cli/octopus-package)**:  Manage packages.
+- **[octopus package delete](/docs/octopus-rest-api/cli/octopus-package-delete)**:  Delete a package.
 - **[octopus package list](/docs/octopus-rest-api/cli/octopus-package-list)**:  List packages.
 - **[octopus package nuget](/docs/octopus-rest-api/cli/octopus-package-nuget)**:  Package as NuPkg.
 - **[octopus package nuget create](/docs/octopus-rest-api/cli/octopus-package-nuget-create)**:  Create nuget.
-- **[octopus package upload](/docs/octopus-rest-api/cli/octopus-package-upload)**:  upload one or more packages to Octopus Deploy.
+- **[octopus package upload](/docs/octopus-rest-api/cli/octopus-package-upload)**:  Upload one or more packages to Octopus Deploy.
 - **[octopus package versions](/docs/octopus-rest-api/cli/octopus-package-versions)**:  List versions of a package.
 - **[octopus package zip](/docs/octopus-rest-api/cli/octopus-package-zip)**:  Package as zip.
 - **[octopus package zip create](/docs/octopus-rest-api/cli/octopus-package-zip-create)**:  Create zip.
@@ -101,7 +114,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus project convert](/docs/octopus-rest-api/cli/octopus-project-convert)**:  Convert a project to use Config As Code.
 - **[octopus project create](/docs/octopus-rest-api/cli/octopus-project-create)**:  Create a project.
 - **[octopus project delete](/docs/octopus-rest-api/cli/octopus-project-delete)**:  Delete a project.
+- **[octopus project disable](/docs/octopus-rest-api/cli/octopus-project-disable)**:  Disable a project.
 - **[octopus project disconnect](/docs/octopus-rest-api/cli/octopus-project-disconnect)**:  Disconnect a tenant from a project.
+- **[octopus project enable](/docs/octopus-rest-api/cli/octopus-project-enable)**:  Enable a project.
 - **[octopus project list](/docs/octopus-rest-api/cli/octopus-project-list)**:  List projects.
 - **[octopus project variables](/docs/octopus-rest-api/cli/octopus-project-variables)**:  Manage project variables.
 - **[octopus project variables create](/docs/octopus-rest-api/cli/octopus-project-variables-create)**:  Create a variable for a project.
@@ -122,9 +137,15 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus release delete](/docs/octopus-rest-api/cli/octopus-release-delete)**:  Delete a release.
 - **[octopus release deploy](/docs/octopus-rest-api/cli/octopus-release-deploy)**:  Deploy releases.
 - **[octopus release list](/docs/octopus-rest-api/cli/octopus-release-list)**:  List releases.
+- **[octopus release progression](/docs/octopus-rest-api/cli/octopus-release-progression)**:  Manage progression of a release.
+- **[octopus release progression allow](/docs/octopus-rest-api/cli/octopus-release-progression-allow)**:  Allows a release to progress to the next phase..
+- **[octopus release progression prevent](/docs/octopus-rest-api/cli/octopus-release-progression-prevent)**:  Prevents a release from progression to the next phase.
 - **[octopus runbook](/docs/octopus-rest-api/cli/octopus-runbook)**:  Manage runbooks.
+- **[octopus runbook delete](/docs/octopus-rest-api/cli/octopus-runbook-delete)**:  Delete a runbook.
 - **[octopus runbook list](/docs/octopus-rest-api/cli/octopus-runbook-list)**:  List runbooks.
 - **[octopus runbook run](/docs/octopus-rest-api/cli/octopus-runbook-run)**:  Run runbooks in Octopus Deploy.
+- **[octopus runbook snapshot](/docs/octopus-rest-api/cli/octopus-runbook-snapshot)**:  Manage runbook snapshots.
+- **[octopus runbook snapshot list](/docs/octopus-rest-api/cli/octopus-runbook-snapshot-list)**:  List runbook snapshots.
 - **[octopus space](/docs/octopus-rest-api/cli/octopus-space)**:  Manage spaces.
 - **[octopus space create](/docs/octopus-rest-api/cli/octopus-space-create)**:  Create a space.
 - **[octopus space delete](/docs/octopus-rest-api/cli/octopus-space-delete)**:  Delete a space.
@@ -137,7 +158,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus tenant connect](/docs/octopus-rest-api/cli/octopus-tenant-connect)**:  Connect a tenant to a project.
 - **[octopus tenant create](/docs/octopus-rest-api/cli/octopus-tenant-create)**:  Create a tenant.
 - **[octopus tenant delete](/docs/octopus-rest-api/cli/octopus-tenant-delete)**:  Delete a tenant.
+- **[octopus tenant disable](/docs/octopus-rest-api/cli/octopus-tenant-disable)**:  Disable a tenant.
 - **[octopus tenant disconnect](/docs/octopus-rest-api/cli/octopus-tenant-disconnect)**:  Disconnect a tenant from a project.
+- **[octopus tenant enable](/docs/octopus-rest-api/cli/octopus-tenant-enable)**:  Enable a tenant.
 - **[octopus tenant list](/docs/octopus-rest-api/cli/octopus-tenant-list)**:  List tenants.
 - **[octopus tenant tag](/docs/octopus-rest-api/cli/octopus-tenant-tag)**:  Override tags for a tenant.
 - **[octopus tenant variables](/docs/octopus-rest-api/cli/octopus-tenant-variables)**:  Manage tenant variables.

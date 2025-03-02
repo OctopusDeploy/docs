@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-13
-modDate: 2023-10-13
+modDate: 2024-09-23
 title: Octopus Cloud Task Cap
 navOrder: 60
 description: How to increase the task cap on an Octopus Cloud Instance.
@@ -22,7 +22,7 @@ A task can be:
 - Sync built-in package repository
 - Sync community library step-templates
 - Tentacle upgrade
-- Upgrade calamari
+- Upgrade Calamari
 - Active Directory sync
 
 The most common tasks are deployments and runbook runs.
@@ -42,16 +42,16 @@ Octopus Cloud provides the following Task Cap options:
 - Professional: 5, 10, 20
 - Enterprise: 20, 40, 80, 160
 
-Increasing the task cap will incur a corresponding increase in platform fees.  Deployments and runbook runs are computationally expensive.  More concurrent deployments and runbook runs requires more resources from the Cloud Platform.
+Increasing the task cap will incur a corresponding increase in platform fees.  Deployments and runbook runs are computationally expensive.  More concurrent deployments and runbook runs requires more resources from the Octopus Cloud platform.
 
-We assign resources to the instance based on the task cap.  Changing the task cap changes those resources.  That requires a small outage as the instance and database are reprovisioned.  We will wait until your next maintenance window to perform that reprovisioning.  You might not see a change in the task cap until the next day.
+We assign resources to each Octopus Cloud instance based on the task cap.  Changing the task cap changes those resources.  That requires a small outage as the instance and database are reprovisioned.  We will wait until your next maintenance window to perform that reprovisioning.  You might not see a change in the task cap until the next day.
 
 **Please note:** If you need a task cap higher than 160 please reach out to sales@octopus.com to discuss your use case.  These options are meant to cover the majority of use cases.  
 
 **Important:** 5, 10, 20, 40, 80, and 160 are the only options we offer.  If you want an instance with a task cap above 160, again, reach out to sales@octopus.com.  There are no options between those tiers.  For example, no Octopus Cloud instance can have a task cap of 15, 34, 45, or 68.  
 
 ## How to choose a task cap
-We recommend the number of deployments required for a production deployment.  Deployments and runbook runs are the most common tasks.  Deployments typically take longer than runbook runs.  Production deployments are time constrained.  They are done off-hours during an outage window.
+We recommend task caps based upon the number and duration of deployments required for a production deployment.  Deployments and runbook runs are the most common tasks.  Deployments typically take longer than runbook runs.  Production deployments are time constrained.  They are done off-hours during an outage window.
 
 **Important:** These tables represent the _MAX_ number of deployments.  Additional tasks such as runbook runs, retention policies, or health checks can reduce the number.  Use these tables as guidelines.
 

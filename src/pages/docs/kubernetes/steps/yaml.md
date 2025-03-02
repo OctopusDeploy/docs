@@ -1,15 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-07-28
-modDate: 2024-07-31
+modDate: 2024-11-07
 title: Deploy Kubernetes YAML
 description: Deploy Kubernetes YAML.
 navOrder: 20
 ---
-
-:::div{.hint}
-`Deploy Raw Kubernetes YAML` was renamed to `Deploy Kubernetes YAML` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
-:::
 
 Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes YAML` step.
 
@@ -25,18 +21,6 @@ You can source your YAML from three different sources:
 - Inline Script
 
 ### Git Repository
-
-:::div{.hint}
-Sourcing from Git Repositories was added in Octopus **2023.3**.
-
-You can find more information about this feature in [this blog post](https://octopus.com/blog/manifests-from-git).
-:::
-
-:::div{.info}
-From Octopus **2024.1**, if you are storing your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source your YAML from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the YAML files.
-
-You can find more information about this feature in this [blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
-:::
 
 :::div{.warning}
 Sourcing from a Git repository clones the whole repository onto Octopus Server during a deployment. Ensure that you **do not have any sensitive data** in your git repository.
@@ -74,7 +58,7 @@ To configure a package source, select the `Package` option as your YAML Source.
 The simplest way to get going with this step is to use Inline YAML.
 You can create your YAML resources in the inline editor which will be saved in the project in Octopus.
 
-To configure an inline YAML source, select the `Inline YAML` as your YAML Source, click `Add Source Code` and start writing!
+To configure an inline YAML source, select the `Inline YAML` as your YAML Source.
 
 :::figure
 ![Deploy Kubernetes YAML with an Inline Script](/docs/deployments/kubernetes/deploy-raw-yaml/inline-yaml.png)
@@ -126,3 +110,16 @@ There are a few different ways to take advantage of this feature:
    **Note:** *If multiple glob patterns find the same file, the file will be applied twice.*
 
 [Learn more about glob patterns](/docs/deployments/kubernetes/glob-patterns).
+
+:::div{.hint}
+**Step updates**
+
+**2024.1:**
+
+- `Deploy Raw Kubernetes YAML` was renamed to `Deploy Kubernetes YAML`.
+- If you store your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source your YAML from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the YAML files. You can learn more in [this blog post](https://octopus.com/blog/git-resources-in-deployments).
+
+**2023.3:**
+
+- Sourcing from Git Repositories was added. You can learn more in [this blog post](https://octopus.com/blog/manifests-from-git).
+:::

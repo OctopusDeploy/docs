@@ -66,10 +66,7 @@ const search =
 const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url);
 const isSearchPage =
   accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
-console.log(
-  accelerator.urlFormatter.formatAddress(Astro.url.pathname),
-  searchUrl
-);
+
 const showSearch = !isSearchPage;
 ---
 

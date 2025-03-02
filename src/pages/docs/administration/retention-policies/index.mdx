@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-02
+modDate: 2025-01-28
 title: Retention policies
 icon: fa-solid fa-broom
 description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
@@ -36,11 +36,22 @@ Octopus will never remove the latest release or the release previous to the late
 
 ### Tentacle files \{#targets-whats-deleted}
 
-The Tentacle settings delete **packages**, and **files and folders** extracted from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/projects/steps/configuration-features/custom-installation-directory) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
-
 :::div{.hint}
 We talk about Tentacles here, but the same process and logic applies to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target) also.
 :::
+
+#### Deployed files
+
+Retention policies are applied to target Tentacle machines via the Retention Policy set in the Lifecycle. They clean up the files (and folders) that are deployed, e.g., the contents of a package extracted to a folder. They are run as the last step in the deployment. Retention Policies are applied to Environment/Project/Tenant/Step/Machine combinations. For example, the last three releases to the machine for the given step of a project deployed to environment/tenant will be kept.
+Workers also clean up any files and folders older than 90 days.
+
+Note that if you use the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
+
+
+#### Packages
+
+Packages that are transferred during the deployment are managed based on free disk space. For each deployment, prior to acquiring the package, the free disk space is checked and if less than 20% it will delete the “least used” package(s) from the Tentacle file store location. Packages that gets removed will be reacquired if needed for another deployment.
+The disk space calculation for both targets and workers looks at the entire disk, however Octopus only cleans up in the file store.
 
 ### Built-in repository \{#built-in-repo-whats-deleted}
 

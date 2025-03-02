@@ -1337,6 +1337,30 @@ The date and time at which the runbook was run in UTC format.
 
 Example: *3/13/20 6:23:38 AM +00:00*
 
+`Octopus.RunbookRun.Git.BranchName`
+
+The branch name if the runbook run was created from a branch
+
+*branch-abc*
+
+`Octopus.RunbookRun.Git.CommitHash`
+
+The commit hash used when creating this run on a version controlled runbook
+
+Example: *14677f79e59df2a55e3904a7020fd14e96b8a1e9*
+
+`Octopus.RunbookRun.Git.Ref`
+
+The full git ref used when creating this run on a version controlled runbook
+
+Example: *refs/heads/branch-abc*
+
+`Octopus.RunbookRun.Git.TagName`
+
+The tag name if the runbook run was created for a tag
+
+"v1.0.234"
+
 `Octopus.RunbookRun.Id`
 
 The ID of the run.
@@ -1418,6 +1442,13 @@ Example: True
 The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available. 
 
 Example: 100
+
+
+`OctopusShouldFailDeploymentOnSubstitutionFails`
+
+If set to "True", the deployment will fail if any variable substitution fails. This variable was added in Octopus 2025.1.0.
+
+Example: True
 
 `Octopus.Action.PowerShell.CustomPowerShellVersion`
 

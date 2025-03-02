@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-02-01
+modDate: 2025-02-19
 title: octopus release create
 description: Create a release
-navOrder: 96
+navOrder: 111
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -25,8 +25,11 @@ Flags:
   -v, --version string              Override the Release Version
   -x, --ignore-existing             If a release with the same version exists, do nothing instead of failing.
       --ignore-channel-rules        Allow creation of a release where channel rules would otherwise prevent it.
-      --package stringArray         Version specification a specific packages.
-                                    Format as {package}:{version}, {step}:{version} or {packageOrStep}:{package-ref-name}:{version}
+      --package stringArray         Version specification for a specific package.
+                                    Format as {package}:{version}, {step}:{version} or {package-ref-name}:{packageOrStep}:{version}
+                                    You may specify this multiple times
+      --git-resource stringArray    Git reference for a specific Git resource.
+                                    Format as {step}:{git-ref}, {step}:{git-resource-name}:{git-ref}
                                     You may specify this multiple times
 
 
@@ -46,7 +49,6 @@ Global Flags:
 $ octopus release create --project MyProject --channel Beta --version 1.2.3
 $ octopus release create -p MyProject -c Beta -v 1.2.3
 $ octopus release create -p MyProject -c default --package "utils:1.2.3" --package "utils:InstallOnly:5.6.7"
-$ octopus release create -p MyProject -c default --package "utils:1.2.3" --package "Run a Script:app_package_ref:1.1.1"
 $ octopus release create -p MyProject -c Beta --no-prompt
 
 

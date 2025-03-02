@@ -6,7 +6,7 @@ title: Create packages with the Octopus CLI
 description: Using the Octopus CLI (octo) command line tool to create packages for deployment.
 navOrder: 30
 ---
-# spell-checker:ignore Myatt's, PKWARE, Packagingyourapplicationfromafolder
+<!-- spell-checker:ignore Myatt's, PKWARE, Packagingyourapplicationfromafolder -->
 The Octopus CLI (`octo`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/) and includes a [pack](/docs/octopus-rest-api/octopus-cli/pack) command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
 
 ## Installation
@@ -76,7 +76,7 @@ dotnet publish ./OctoWeb.csproj --output ./dist
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
 ```
 
-Please refer to [Microsoft's publish and packing](/docs/deployments/dotnet/netcore-webapp/#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
+Please refer to [Microsoft's publish and packing](/docs/deployments/dotnet/netcore-webapp/#publishing-and-packing-the-website) documentation for more information.
 
 ## Packaging a .NET Core library
 

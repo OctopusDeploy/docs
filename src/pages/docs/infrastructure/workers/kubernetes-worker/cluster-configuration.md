@@ -20,18 +20,21 @@ When trying to determine the best combination of these for your situation, it ma
 The following table defines known good configurations, though there are many other configurations which are likely to
 produce a valid system.
 
-| Distribution / Managed Servicer | Storage Solution: | Approach                                                                                  |
-|:-------------------------------:|:-----------------:|-------------------------------------------------------------------------------------------|
-|            Minikube             | NFS | No additional configuration required - recommended for local or edge usage                |
-|            MicroK8s             | NFS | No additional configuration required - recommended for local or edge usage                             |
-|              Kind               | NFS | No additional configuration required - recommended for local or edge usage                             |
-|               AKS               |        NFS        | No additional configuration required                                                      |
-|                                 |    Azure Files    | No additional configuration required                                                      |
-|               GKE               |        NFS        | No additional configuration required                                                      |
-|               EKS               |        NFS        | No additional configuration required                                                      |
-|                                 |        EFS        | Requires Octopus Server 2024.3+                                                           |
-|              RKE2               |     Longhorn      | Requires pre-configured storage - email [support@octopus.com](mailto:support@octopus.com) |
-|            OpenShift            |        NFS        | Requires specific configuration - email [support@octopus.com](mailto:support@octopus.com) |
+| Distribution / Managed Servicer | Storage Solution: | Approach                                     |
+|:-------------------------------:|:-----------------:|----------------------------------------------|
+|            Minikube             | NFS | No additional configuration required&dagger; |
+|            MicroK8s             | NFS | No additional configuration required&dagger; |
+|              Kind               | NFS | No additional configuration required&dagger; |
+|               AKS               |        NFS        | No additional configuration required         |
+|                                 |    Azure Files    | No additional configuration required         |
+|               GKE               |        NFS        | No additional configuration required         |
+|               EKS               |        NFS        | No additional configuration required         |
+|                                 |        EFS        | Requires Octopus Server 2024.3+              |
+|              RKE2               |     Longhorn      | Requires pre-configured storage&Dagger;      |
+|            OpenShift            |        NFS        | Requires specific configuration&Dagger;      |
+
+_&dagger; Recommended for local development or edge usage_  
+_&Dagger; Please [contact support](https://octopus.com/support) for additional information_ 
 
 
 Any Storage class which supports being mounted in [ReadWriteMany](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)

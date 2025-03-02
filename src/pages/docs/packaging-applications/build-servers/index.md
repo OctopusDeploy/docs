@@ -36,6 +36,7 @@ The following tools are available to integrate your continuous integration/build
  - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops)
  - [Bamboo](/docs/packaging-applications/build-servers/bamboo)
  - [BitBucket Pipelines](/docs/packaging-applications/build-servers/bitbucket-pipelines)
+ - [Codefresh Pipelines](/docs/packaging-applications/build-servers/codefresh-pipelines)
  - [Continua CI](/docs/packaging-applications/build-servers/continua-ci)
  - [Github Actions](/docs/packaging-applications/build-servers/github-actions)
  - [Jenkins](/docs/packaging-applications/build-servers/jenkins)

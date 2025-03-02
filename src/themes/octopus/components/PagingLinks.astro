@@ -40,7 +40,7 @@ stats.stop();
     pageLinks.map((link) => (
       <a
         href={accelerator.urlFormatter.formatAddress(link.url)}
-        aria-current={link.ariaCurrent}
+        aria-current={link.ariaCurrent ? link.ariaCurrent : null}
         class={link.class}
       >
         {link.title}

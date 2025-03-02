@@ -39,9 +39,9 @@
 
 /docs/getting-started/first-runbook-run/ @OctopusDeploy/team-product-growth
 
-# updates to the managing octopus subscriptions page are reviewed by team-product-growth
+# updates to the managing octopus subscriptions page are reviewed by team-billing-experience
 
-/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/team-product-growth
+/docs/getting-started/managing-octopus-subscriptions.md @OctopusDeploy/team-billing-experience
 
 # updates to the samples instance page are reviewed by team-solutions
 
@@ -253,7 +253,7 @@
 
 # updates to the deployments databases section are reviewed by team-backend-foundations
 
-/docs/deployments/databases/ @OctopusDeploy/team-backend-foundations
+/docs/deployments/databases/ @OctopusDeploy/team-modern-deployments
 
 # updates to the deployments docker section are reviewed by team-modern-deployments
 

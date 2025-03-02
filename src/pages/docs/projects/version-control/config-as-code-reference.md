@@ -26,6 +26,12 @@ Currently, the Project level resources saved to Git are:
     - Transient Deployment Targets
     - Deployment Changes Template
     - Default Failure Mode
+- Runbook Process
+- Runbook Settings
+    - Multi-tenancy Mode
+    - Run Retention Policy
+    - Connectivity Policy
+    - Default Failure Mode
 - Variables (excluding Sensitive variables)
 
 :::div{.hint}
@@ -40,7 +46,6 @@ Currently, the Project level resources saved to SQL Server when version control 
 - Triggers
 - Releases
 - Deployments
-- Runbooks
 - Sensitive Variables
 - General Settings
     - Project Name
@@ -50,7 +55,7 @@ Currently, the Project level resources saved to SQL Server when version control 
     - Project Group
 
 :::div{.hint}
-Runbooks and Sensitive Variables are planned for future releases of config-as-code.
+Sensitive Variables are planned for future releases of config-as-code.
 :::
 
 ### Resources **not** version controlled by config-as-code
@@ -156,7 +161,7 @@ The _Default Branch Name_ is the branch on which the Octopus configuration will 
 For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
 
 :::div{.hint}
-When snapshotting a Runbook in a Git project, the variables will always be taken from the default branch.
+When snapshotting a Runbook in a Git project that is not yet using config-as-code Runbooks, the variables will always be taken from the default branch.
 :::
 
 #### Initial commit branch
@@ -175,12 +180,15 @@ You can also nominate protected branches for your Project. This will prevent use
 
 After successfully configuring a project to be version controlled, the specified Git repository will be populated with a set of Octopus Configuration Language (OCL) files. These files are created in the directory you define during setup. E.g. `./octopus/acme`
 
-Currently, Octopus creates the following files:
+Currently, Octopus creates the following files and folders:
 
 * deployment_process.ocl
 * deployment_settings.ocl
 * variables.ocl
 * schema_version.ocl
+* runbooks/
+
+The runbooks/ directory will contain runbook-name.ocl files for any published runbooks. 
 
 The _deployment_process.ocl_ file contains the configuration for your project's steps. Below is an example _deployment_process.ocl_ for a project containing a single _Deploy a Package_ step.
 

@@ -1,15 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-09-13
+modDate: 2024-11-07
 title: Deploy a Helm chart
 description: Deploy a Helm chart to a Kubernetes cluster.
 navOrder: 30
 ---
-
-:::div{.hint}
-`Upgrade a Helm Chart` was renamed to `Deploy a Helm chart` in the Octopus Deploy 2024.1 release. The functionality remains the same. This is only a name change to make our terminology clearer.
-:::
 
 Helm Charts are like a package manager for Kubernetes applications, allowing users to reuse and share complex resource configurations.
 
@@ -51,10 +47,6 @@ For more information about Helm Chart repositories and how to run your own priva
 
 ### OCI-based registry feed
 
-:::div{.info}
-Octopus version `2023.3.4127` added support for Helm repositories stored in OCI-based registries.
-:::
-
 The Open Container Initiative (OCI) is a lightweight, open governance structure (project), formed under the auspices of the Linux Foundation, for the express purpose of creating open industry standards around container formats and runtimes
 
 An OCI-based registry can contain zero or more Helm repositories and each of those repositories can contain zero or more packaged Helm charts.
@@ -66,12 +58,6 @@ An OCI-based registry can contain zero or more Helm repositories and each of tho
 For more information about using OCI-based registries and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/registries/).
 
 ### Git repository
-
-:::div{.info}
-Octopus version `2024.1` added support for Helm charts stored in Git repositories.
-
-You can find more information about this feature in this [blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
-:::
 
 Sourcing your Helm charts from a Git Repository can streamline your deployment process by reducing the amount of steps required to get them into Octopus.
 
@@ -202,5 +188,17 @@ To ensure a smooth deployment experience, we recommend setting a larger Octopus 
 
 ## Learn more
 
-- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes)
 - [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
+
+:::div{.hint}
+**Step updates**
+
+**2024.1:**
+
+- `Upgrade a Helm Chart` was renamed to `Deploy a Helm chart`.
+- Support was added for Helm charts stored in Git repositories. You can learn more in [this blog post](https://octopus.com/blog/git-resources-in-deployments).
+
+**2023.3.4127**
+
+- Support was added for Helm repositories stored in OCI-based registries.
+:::

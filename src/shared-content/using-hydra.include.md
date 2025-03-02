@@ -37,7 +37,7 @@ The scheduled task is set to run as `SYSTEM` to ensure the MSI installation will
 Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Service Account is reset to `Local System`. If you need your Tentacles to run under a different account, you will have to make the change after the upgrade completes (after you've re-established a connection from 2018.10 LTS). You can do this manually, or using the following script:
 
 ```powershell
-Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=accountpassword --start --console
+Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=your-password --start --console
 ```
 #### Let's upgrade these Tentacles!
 
@@ -54,7 +54,7 @@ These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Te
 ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278019.png)
 :::
 
-3. Import the [Hydra step template](http://library.octopus.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
+3. Import the [Hydra step template](https://library.octopus.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 
 :::figure
 ![](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278018.png)

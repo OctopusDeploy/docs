@@ -119,7 +119,6 @@ pre {
 
 pre code {
   background-color: unset;
-  font-size: var(--font-size-small);
 }
 
 .dark pre {
@@ -541,6 +540,11 @@ nav.skip-links a:focus {
   max-height: 45px;
 }
 
+.octo-header__logo {
+  height: 50px;
+  width: auto;
+}
+
 .octo-site-nav ul {
   list-style: none;
   text-align: center;
@@ -857,7 +861,7 @@ nav.skip-links a:focus {
   flex-direction: column;
   justify-content: center;
   list-style: none;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .article-nav__item {
@@ -868,7 +872,7 @@ nav.skip-links a:focus {
   display: flex;
   color: var(--color-subtitle);
   font-size: var(--font-size-medium);
-  line-height: 2.6rem;
+  line-height: 1.5rem;
   font-weight: 400;
   text-decoration: none;
   transition-property: font-weight, color, transform;

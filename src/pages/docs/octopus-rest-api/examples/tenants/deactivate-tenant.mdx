@@ -1,0 +1,27 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2024-11-18
+modDate: 2024-11-18
+title: Deactivate tenants
+description: An example script that activates or deactivates a tenant in Octopus.
+---
+import DeactivateTenantScripts from 'src/shared-content/scripts/deactivate-tenant-scripts.include.md';
+
+In 2025.1 Octopus has added support for deactivating tenants. Inactive tenants do not allow deployments or runbook runs but are able to be edited. They are also removed from license calculations allowing you to effectively archive unused tenants and re-enable them in the future.
+Inactive tenants are highlighted with grayed out text and are not available for selection on the deployment or runbook run pages. If deployments are created for inactive tenants via the API or CLI an exception will be thrown.
+
+This script demonstrates how to programmatically deactivate a tenant.
+
+## Usage
+
+Provide values for the following:
+
+- Octopus URL
+- Octopus API Key
+- Name of the space to use
+- Name of the tenant
+- Boolean value for enabled
+
+## Script
+
+<DeactivateTenantScripts />

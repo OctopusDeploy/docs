@@ -7,6 +7,9 @@ const regex = /<meta http-equiv="refresh" content="0; URL=(.*?)">/;
 const redirectMatcher = /redirect:\s?(.*?)\r?\n/;
 const posts = await glob('src/pages/docs/**/*.{md,mdx}');
 
+/**
+ * This looks up the targets of redirect pages to make sure they return a 200 response
+ */
 test('Check redirects', async () => {
   let count = 0;
 

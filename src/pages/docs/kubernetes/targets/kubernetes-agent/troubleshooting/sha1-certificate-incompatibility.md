@@ -8,7 +8,7 @@ navOrder: 71
 ---
 
 ## Background
-[Since 2017](../../../../security/cve/shattered-and-octopus-deploy#detecting-sha1-certificates-with-powershell), Octopus Server no longer supports SHA1 certificates due to their inherent security vulnerabilities. SHA1 is an outdated cryptographic hash algorithm that has been replaced by the more secure SHA256 standard, in line with industry best practices.
+[Since 2017](../../../../security/cve/shattered-and-octopus-deploy), Octopus Server no longer supports SHA1 certificates due to their inherent security vulnerabilities. SHA1 is an outdated cryptographic hash algorithm that has been replaced by the more secure SHA256 standard, in line with industry best practices.
 
 
 ## Compatibility Issue: SHA1 on Windows Server 2012 R2

@@ -164,5 +164,5 @@ For further information about the additional configuration of the SQL Server con
 
 ## Learn more
 
- - [Docker blog posts](http://octopus.com/blog/tag/docker)
+ - [Docker blog posts](https://octopus.com/blog/tag/docker)
  - [Linux blog posts](https://octopus.com/blog/tag/linux)

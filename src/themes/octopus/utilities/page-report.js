@@ -49,7 +49,7 @@ const source = './src/pages/docs';
 const dest = './dist/report/page-report.csv';
 const everything = getFiles(source);
 const output = 'Path,Title,Updated\n' +
-    everything.map(info => `"${noQuotes(info.url)}","${noQuotes(info.title)}","${info.date.toISOString()}"`).join('\n');
+    everything.map(info => `"${noQuotes(info.url)}","${noQuotes(info.title)}","${info.date}"`).join('\n');
 
 fs.writeFileSync(dest, output);
 

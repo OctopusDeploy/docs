@@ -27,11 +27,11 @@ Steps required to manually upgrade a v1 instance can be found in the Kubernetes 
 
 Alternatively, existing v1 Kubernetes Agents can be deleted from your server instance, and recreated as v2 Agents via the installation workflow available in Octopus Server. 
 
-## Automatic Updates (coming in 2023.4)
+## Automatic Updates (coming in 2024.4) \{#automatic-updates}
 Octopus Server is being upgraded to support automated upgrades across major Helm Chart versions, and will be available as part of the 2024.4.
 This capability will be available to cloud instances in  September 2024, and December 2024 for self-hosted instances. 
 
-## Impacts to Terraform Installation
+## Impacts to Terraform installations
 Existing Terraform scripts installing the Kubernetes Helm chart will continue to work, provided a version constraint is specified (1.\*\*).
 Otherwise, you will be required to update your scripts according to the supplied [documentation](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/migrations.md), to ensure values are set
 correctly.

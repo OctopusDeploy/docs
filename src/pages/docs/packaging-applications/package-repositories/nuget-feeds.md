@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-01-20
 title: NuGet feeds
 description: Configuring NuGet repositories as Octopus Feeds
 navOrder: 50
@@ -17,6 +17,16 @@ In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or loc
 ![](/docs/packaging-applications/package-repositories/images/add-external-feed.png)
 :::
 
+:::div{.info}
+
+If you're using a file share or local directory path, your system administrator must enable this feature before you can proceed.
+
+1. Navigate to **Configuration ➜ Features**.
+2. Expand the **Allow creation with Local or SMB paths** section by clicking on it.
+3. Toggle the selection to either **Enabled** or **Disabled**, and click **SAVE**.
+
+:::
+
 On the test page, you can check whether the feed is working by searching for packages:
 
 :::figure
@@ -25,7 +35,7 @@ On the test page, you can check whether the feed is working by searching for pac
 
 Learn more about [hosting your own NuGet Feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds)
 
-## NuGet.Server performance {#Packagerepositories-NuGet.Serverperformance}
+## NuGet.Server performance
 
 A popular external NuGet hosting option is **NuGet.Server**. However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
 
@@ -40,7 +50,7 @@ A good first step for diagnosing NuGet feed issues is to ensure that the NuGet c
 
 Run the command:
 
-```
+```bash
 nuget list -Source http://example.com/MyFeed/nuget/v3/index.json
 ```
 
@@ -50,13 +60,13 @@ If this command prompts for credentials, then the feed is most likely private, a
 
 If the repository can not be accessed, you will see an error like:
 
-```
+```text
 Unable to load the service index for source http://example.com/MyFeed/nuget/v3/index.json.
 ```
 
 along with additional details that can look like:
 
-* Response status code does not indicate success: 404 (Not Found).
-* An error occurred while sending the request. The remote name could not be resolved: 'hostname'.
+- Response status code does not indicate success: 404 (Not Found).
+- An error occurred while sending the request. The remote name could not be resolved: 'hostname'.
 
 These errors give you an indication as to why NuGet could not access the requested server.

@@ -19,6 +19,17 @@ function enabled(settings, option) {
 }
 
 /**
+ *
+ * @param {any} value
+ * @param {number} index
+ * @param {any[]} array
+ * @returns
+ */
+function unique(value, index, array) {
+  return array.indexOf(value) === index;
+}
+
+/**
 @typedef {
     {
         text: string;
@@ -30,6 +41,7 @@ function enabled(settings, option) {
 @typedef {
     {
         foundWords: number;
+        foundTerms: string[];
         score: number;
         depth: number;
         title: string;
@@ -64,6 +76,7 @@ function initializeSearch() {
   var currentQuery = '';
   var dataUrl = siteSearchElement.dataset.sourcedata;
 
+  // Legacy scoring
   var scoring = {
     depth: 5,
     phraseTitle: 60,
@@ -75,6 +88,14 @@ function initializeSearch() {
     termTags: 15,
     termKeywords: 15,
   };
+
+  // Found word scoring
+  const scores = {
+    titleExact: 20,
+    titleContains: 15,
+    headingContains: 10,
+    contentContains: 1
+  }
 
   var ready = false;
   var scrolled = false;
@@ -226,21 +247,27 @@ function initializeSearch() {
     return _synonyms ?? {};
   }
 
-  /**
-   * Replaces synonyms
-   * @param {string[]} queryTerms
-   */
-  async function replaceSynonyms(queryTerms) {
-    const synonyms = await getSynonyms();
+    /**
+     * Replaces synonyms
+     * @param {string[]} queryTerms
+     * @returns {Promise<string[]>}
+     */
+    async function replaceSynonyms(queryTerms) {
+      const synonyms = await getSynonyms();
 
-    for (let i = 0; i < queryTerms.length; i++) {
-      const term = queryTerms[i];
-      if (synonyms[term] != null) {
-        queryTerms.push(synonyms[term]);
+      for (let i = 0; i < queryTerms.length; i++) {
+          const term = queryTerms[i];
+          if (synonyms[term] != null) {
+              if (synonyms[term].length === 0) {
+                  // @ts-ignore
+                  queryTerms[i] = null;
+              } else {
+                  queryTerms.push(synonyms[term]);
+              }
+          }
       }
-    }
 
-    return queryTerms;
+      return queryTerms.filter((qt) => qt != null);
   }
 
   /**
@@ -262,7 +289,7 @@ function initializeSearch() {
     }
 
     /** @type {SearchEntry[]} */
-    const needles = [];
+    let needles = [];
 
     // Clean the input
     const cleanQuery = sanitise(s);
@@ -288,6 +315,7 @@ function initializeSearch() {
     cleanQuery.length > 0 &&
       haystack.forEach((item) => {
         item.foundWords = 0;
+        item.foundTerms = [];
         item.score = 0;
         item.matchedHeadings = [];
 
@@ -297,12 +325,12 @@ function initializeSearch() {
 
         // Title
         if (item.safeTitle === currentQuery) {
-          item.foundWords += 2;
+          item.foundWords += scores.titleExact;
         }
 
         if (contains(item.safeTitle, currentQuery)) {
           item.score = item.score + scoring.phraseTitle;
-          item.foundWords += 2;
+          item.foundWords += scores.titleContains;
         }
 
         // Headings
@@ -310,19 +338,21 @@ function initializeSearch() {
           if (contains(c.safeText, currentQuery)) {
             item.score = item.score + scoring.phraseHeading;
             item.matchedHeadings.push(c);
-            item.foundWords++;
+            item.foundWords += scores.headingContains;
           }
         });
 
         // Description
         if (contains(item.description, currentQuery)) {
           item.score = item.score + scoring.phraseDescription;
-          item.foundWords++;
+          item.foundWords += scores.contentContains;
         }
 
         // Part 2 - Term Matches, i.e. "Kitchen" or "Sink"
 
         let foundWords = 0;
+        /** @type{string[]} */
+        let foundTerms = [];
 
         allTerms.forEach((term) => {
           let isTermFound = false;
@@ -330,6 +360,7 @@ function initializeSearch() {
           // Title
           if (contains(item.safeTitle, term)) {
             item.score = item.score + scoring.termTitle;
+            item.foundWords += (scores.headingContains / 2);
             isTermFound = true;
           }
 
@@ -369,10 +400,14 @@ function initializeSearch() {
 
           if (isTermFound) {
             foundWords++;
+            foundTerms.push(term);
           }
         });
 
         item.foundWords += foundWords;
+        item.foundTerms = item.foundTerms
+          .concat(foundTerms)
+          .filter(unique);
 
         if (item.score > 0) {
           needles.push(item);
@@ -393,13 +428,19 @@ function initializeSearch() {
       }
     });
 
-    needles.sort(function (a, b) {
-      if (b.foundWords === a.foundWords) {
-        return b.score - a.score;
+    needles = needles.sort(function (a, b) {
+      if (b.foundTerms.length === a.foundTerms.length) {
+        if (b.foundWords === a.foundWords) {
+            return b.score - a.score;
+        }
+
+        return b.foundWords - a.foundWords;
       }
 
-      return b.foundWords - a.foundWords;
+      return b.foundTerms.length - a.foundTerms.length;
     });
+
+    console.log(needles);
 
     const total = needles.reduce(function (accumulator, needle) {
       return accumulator + needle.score;

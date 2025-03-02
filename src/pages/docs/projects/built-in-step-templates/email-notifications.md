@@ -43,6 +43,20 @@ You will be prompted for an email address to send a test email to. Enter a test 
 ![](/docs/projects/built-in-step-templates/images/smtp-verify-task.png)
 :::
 
+### Google OAuth 2.0 Credentials
+Optionally you can use Workload Identity Federation and OAuth 2.0 for Google SMTP authentication. To do this, set the following values:
+
+| Property           | Description                            | Example |
+| ------------------ | ------------------------------------   | ----------- |
+| Audience           | The audience set on the Workload Identity Federation | `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/providers/{provider-id}` |
+| Service Account    | The email of the service account which has been granted access | service-account-name@{project-id}.iam.gserviceaccount.com |
+
+See the [Google cloud documentation](https://cloud.google.com/iam/docs/workload-identity-federation-with-other-providers) for instructions on creating and configuring a Workload Identity Federation.
+
+When setting up the Workload Identity Federation:
+- When granting access to the service account, the principal must have the subject attribute name set to `smtp`. Example: `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/subject/smtp`.
+- The service account must have domain wide delegation with an OAuth scope of `https://mail.google.com/`, see [documentation](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority) on how to set this up.
+
 ## Add an email step
 
 Email steps are added to deployment processes in the same way as other steps.
