@@ -58,6 +58,11 @@ When setting up the Workload Identity Federation:
 - The service account must have domain wide delegation with an OAuth scope of `https://mail.google.com/`, see [documentation](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority) on how to set this up.
 
 ### Microsoft OAuth 2.0 Credentials
+
+:::div{.warning}
+Support for Microsoft OAuth 2.0 authentication requires Octopus Server version 2025.2
+:::
+
 Optionally for Microsoft SMTP authentication, you can use Federated Credentials and OAuth 2.0. To do this, set the following values:
 
 | Property           | Description                            | Example |
