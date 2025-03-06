@@ -57,6 +57,31 @@ When setting up the Workload Identity Federation:
 - When granting access to the service account, the principal must have the subject attribute name set to `smtp`. Example: `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/subject/smtp`.
 - The service account must have domain wide delegation with an OAuth scope of `https://mail.google.com/`, see [documentation](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority) on how to set this up.
 
+### Microsoft OAuth 2.0 Credentials
+Optionally for Microsoft SMTP authentication, you can use Federated Credentials and OAuth 2.0. To do this, set the following values:
+
+| Property           | Description                            | Example |
+| ------------------ | ------------------------------------   | ----------- |
+| Audience           | The audience set on the Federated Credential | Defaults to `api://AzureADTokenExchange` |
+| Client ID          | The Azure Active Directory Application ID/Client ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| Tenant ID          | The Azure Active Directory Tenant ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+
+For OAuth 2.0 you will need to:
+1. Set up a Microsoft Entra ID App Registration.
+    - See [documentation on registering an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=federated-credential%2Cexpose-a-web-api#register-an-application).
+    - Set the configuration properties `Client ID` and `Tenant ID` with the values from your registered application.
+2. Add a Federated Credential.
+    - See [documentation on adding credentials](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=federated-credential%2Cexpose-a-web-api#add-credentials).
+      - Set the Issuer value to a publicly accessible Octopus Server URI, this value must also not have a trailing slash (/).
+      - Set the Subject Identifier value to `smtp`.
+      - The Audience value can be left as the default, or set to a custom value if needed.
+    - Set the `Audience` configuration property with the value from your federated credential.
+3. Configure Microsoft Exchange SMTP settings.
+    - Add SMTP permissions for your Entra AD application, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-entra-ad-application).
+    - Register your application's service principal in Exchange, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#register-service-principals-in-exchange).
+
+
+
 ## Add an email step
 
 Email steps are added to deployment processes in the same way as other steps.
