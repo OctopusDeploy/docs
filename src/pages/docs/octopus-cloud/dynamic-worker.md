@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2025-03-02
-modDate: 2025-03-02
+pubDate: 2025-03-07
+modDate: 2025-03-07
 title: Dynamic workers
 navOrder: 45
 description: Describes what dynamic workers are, how they work, their limitations and other worker type options available for Octopus Cloud
