@@ -23,6 +23,11 @@ Deprecations are subject to change in detail or time frame. If you need help ass
 
 ## Planned Deprecations
 
+### System and Space Level `/events` API Endpoint in 2025.4
+The `GET /events` and `GET /{spaceId}/events` API endpoints will be replaced by new versions that don't return pagination properties. Events are created constantly, minimising the value of providing individual page numbers, and calculating the total number of results can be very expensive on instances with larger data sets.
+
+The `GET /events/v2` and `GET /{spaceId}/events/v2` endpoints will be available to retrieve events in JSON format. CSV exporting will be available with the `GET /events/export` and `GET /events/{spaceId}/export` endpoints.
+
 ### Dropping capability for Windows Server 2008 Workers and Targets in 2025.1
 Microsoft [dropped extended support](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008) for the Windows Server 2008 family in January 2020. This operating system is also the last Windows OS that does not support .NET Core, one of the languages used to build Octopus Deploy. The complexity required to support this legacy platform outweighs the value to our customers.
 
