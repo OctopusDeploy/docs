@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-27
+modDate: 2025-03-10
 title: Email notification step
 icon: fa-solid fa-envelope
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
