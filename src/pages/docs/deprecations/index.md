@@ -35,7 +35,7 @@ Further notes about this pending change can be found in the [2024.1 deprecation 
 ## Deprecations for 2025.1
 
 ### System and Space Level `/events` API Endpoint
-The `GET /events` and `GET /{spaceId}/events` API endpoints will be replaced by new versions that don't return pagination properties. Events are created constantly, minimising the value of providing individual page numbers, and calculating the total number of results can be very expensive on instances with larger data sets.
+The `GET /events` and `GET /{spaceId}/events` API endpoints will be replaced by new versions that don't return pagination properties. Events are created constantly, minimizing the value of providing individual page numbers, and calculating the total number of results can be very expensive on instances with larger data sets.
 
 For similar functionality without pagination, use the `GET /events/v2` and `GET /{spaceId}/events/v2` endpoints. To export events in CSV format, use the `GET /events/export` or `GET /events/{spaceId}/export` endpoints.
 
