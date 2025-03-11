@@ -32,7 +32,7 @@ To provide ample time to act, from Octopus Server `2024.1`, workloads that run o
 
 Further notes about this pending change can be found in the [2024.1 deprecation blog post](https://octopus.com/blog/2024-deprecated-features#windows-server-2008)
 
-## Deprecations for 2025.1
+## Deprecations for 2025.2
 
 ### System and Space Level `/events` API Endpoint
 The `GET /events` and `GET /{spaceId}/events` API endpoints will be replaced by new versions that don't return pagination properties. Events are created constantly, minimizing the value of providing individual page numbers, and calculating the total number of results can be very expensive on instances with larger data sets.
