@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-10
+modDate: 2025-03-11
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
