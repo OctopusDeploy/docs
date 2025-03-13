@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2025-03-13
 title: Update trust
 description: Replaces the trusted Octopus Server thumbprint of any matching polling or listening registrations with a new thumbprint to trust
 ---
@@ -145,7 +145,7 @@ foreach ($instance in $instanceList)
         {
             Write-ToLog "The server $($server.Address) does not trust anything, adding in the trust."
             & $tentacleExe service --instance="$($instance.InstanceName)" --stop
-            & $tentacleExe trust --oldThumbprint $currentThumbprint --newThumbprint $certThumbprint --instance="$($instance.InstanceName)"
+            & $tentacleExe update-trust --oldThumbprint $currentThumbprint --newThumbprint $certThumbprint --instance="$($instance.InstanceName)"
             & $tentacleExe service --instance="$($instance.InstanceName)" --start
         }
         elseif ($currentThumbprint -ne $certThumbprint)
