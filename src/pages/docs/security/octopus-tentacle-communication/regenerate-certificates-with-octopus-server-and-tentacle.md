@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-03-13
 title: How to regenerate certificates with Octopus Server and Tentacle
 description: How to regenerate the certificates used for communication between Octopus Server and its Tentacles.
 navOrder: 2
@@ -13,11 +13,11 @@ By default, Octopus will use a 100-year, self-signed certificate for Octopus - T
 
 Octopus uses self-signed certificates to securely communicate between Tentacles and the Octopus Server. Prior to Octopus 3.14, the certificates were SHA1, and following the [shattered](https://octopus.com/blog/shattered) exploit, the certificate generation was upgraded to SHA256. 
 
-This guide walks through the process of regenerating certificates to use the new algorithm. This is useful for upgrading from SHA1 to SHA256, and if you want to rotate certificates.
+This guide walks through the process of regenerating certificates to use the new algorithm. This is useful for upgrading from SHA1 to SHA256 and for rotating certificates.
 
 For more information on why Octopus uses self-signed certificates, please see the blog post [Why Octopus uses self-signed certificates](https://octopusdeploy.com/blog/why-self-signed-certificates).
 
-You can view the algorithm used by the Server certificate on the **Configuration ➜ Thumbprint** page. If the algorithm contains `sha1`, we recommend regenerating your certificate.
+The algorithm used by the Server certificate can be viewed on the **Configuration ➜ Thumbprint** page. If the algorithm contains `sha1,` we recommend regenerating your certificate.
 
 :::div{.warning}
 **Updating an existing Octopus Server or Tentacle**
@@ -35,7 +35,7 @@ At a high level, changing the certificate on an Octopus Server involves the foll
 * Remove the old trusted certificate from the Tentacles.
 
 :::div{.hint}
-At present, this process is more manual than we would prefer, and we are aiming to improve this process over time.
+At present, this process is more manual than we would prefer, but we aim to improve it over time.
 :::
 
 1. Backup your existing certificate by executing the following statement at an elevated command line on the server, from the directory where Octopus Deploy is installed (`C:\Program Files\Octopus Deploy\Octopus` by default):
@@ -72,7 +72,7 @@ Save this certificate and the specified password somewhere secure.
 If you see a warning message about `The X509 certificate CN=Octopus Portal was loaded but the private key was not loaded.`, you are most likely not running with elevated permissions. 
 :::
 
-2. Execute the following statement at a command-line on the same server:
+2. Execute the following statement at the command line on the same server:
 
 <details data-group="regenerate-certificate-export-pfx">
 <summary>Windows</summary>
@@ -237,7 +237,7 @@ C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe service --instance Tentacle
 
 </details>
 
-7. Run a healthcheck, and confirm all Tentacles are healthy.
+7. Run a health check, and confirm all Tentacles are healthy.
 
 8. Confirm on the **Configuration ➜ Thumbprint** page that the new certificate is using the `sha256` algorithm.
 
