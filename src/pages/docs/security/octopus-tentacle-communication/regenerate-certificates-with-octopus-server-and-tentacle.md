@@ -38,7 +38,7 @@ At a high level, changing the certificate on an Octopus Server involves the foll
 At present, this process is more manual than we would prefer, and we are aiming to improve this process over time.
 :::
 
-1. Backup your existing certificate by executing the following statement at an elevated command-line on the server, from the directory where Octopus Deploy is installed (`C:\Program Files\Octopus Deploy\Octopus` by default):
+1. Backup your existing certificate by executing the following statement at an elevated command line on the server, from the directory where Octopus Deploy is installed (`C:\Program Files\Octopus Deploy\Octopus` by default):
 
 <details data-group="regenerate-certificate-configure-new">
 <summary>Windows</summary>
@@ -104,14 +104,14 @@ A new certificate has been generated with thumbprint:
 The new certificate has been written to C:\PathToCertificate\newcert.pfx.
 ```
 
-Take a note of the thumbprint of the new certificate (`1234567890123456789012345678901234567890` in the output above). We will use this thumbprint when we update the Tentacles to trust the new certificate.
+Take note of the new certificate's thumbprint (`1234567890123456789012345678901234567890` in the output above). We will use this thumbprint when we update the Tentacles to trust the new certificate.
 
-3. The next step is to update all of the Tentacles to trust the new certificate. At present, this functionality is not exposed in the UI; it has to be done via the command-line. 
+3. The next step is to update all of the Tentacles to trust the new certificate. At present, this functionality is not exposed in the UI; it has to be done via the command line.
 
-On each Tentacle machine, execute the following command to trust the thumbprint of the newly-created certificate in the directory that the Tentacle agent is installed (`C:\Program Files\OctopusDeploy\Tentacle\` by default):
+On each Tentacle machine, execute the following command to trust the thumbprint of the newly-created certificate in the directory that the Tentacle agent is installed (Defaults: `C:\Program Files\OctopusDeploy\Tentacle\` and `/opt/octopus/tentacle/`):
 
 <details data-group="regenerate-certificate-tentacle-trust">
-<summary>Windows</summary>
+<summary>Windows - Listening Tentacles</summary>
 
 ```powershell
 Tentacle.exe configure --trust="1234567890123456789012345678901234567890"
@@ -119,20 +119,49 @@ Tentacle.exe configure --trust="1234567890123456789012345678901234567890"
 
 </details>
 <details data-group="regenerate-certificate-tentacle-trust">
-<summary>Linux</summary>
+<summary>Windows - Polling Tentacles</summary>
+
+```powershell
+Tentacle.exe update-trust --oldThumbprint "1111111111111111111111111111111111111111" --newThumbprint "1234567890123456789012345678901234567890"
+```
+This will display output similar to the following:
+```
+Updating Octopus servers thumbprint from 1111111111111111111111111111111111111111 to 1234567890123456789012345678901234567890
+Finding existing Octopus Server registrations trusting the thumbprint 1111111111111111111111111111111111111111 and updating them to trust the thumbprint 1234567890123456789012345678901234567890:
+Updating polling tentacle https://your.octopus.app:10943/ 1111111111111111111111111111111111111111 - changing to trust 1234567890123456789012345678901234567890
+These changes require a restart of the Tentacle.
+```
+
+</details>
+<details data-group="regenerate-certificate-tentacle-trust">
+<summary>Linux - Listening Tentacles</summary>
 
 ```bash
 ./Tentacle configure --trust="1234567890123456789012345678901234567890"
 ```
 
-</details>
-
 This will display output similar to the following:
-
 ```
 Adding 1 trusted Octopus Servers
 These changes require a restart of the Tentacle.
 ```
+
+</details>
+<details data-group="regenerate-certificate-tentacle-trust">
+<summary>Linux - Polling Tentacles</summary>
+
+```bash
+./Tentacle update-trust --oldThumbprint "1111111111111111111111111111111111111111" --newThumbprint "1234567890123456789012345678901234567890"
+```
+
+This will display output similar to the following:
+```
+Updating Octopus servers thumbprint from 1111111111111111111111111111111111111111 to 1234567890123456789012345678901234567890
+Finding existing Octopus Server registrations trusting the thumbprint 1111111111111111111111111111111111111111 and updating them to trust the thumbprint 1234567890123456789012345678901234567890:
+Updating polling tentacle https://your.octopus.app:10943/ 1111111111111111111111111111111111111111 - changing to trust 1234567890123456789012345678901234567890
+These changes require a restart of the Tentacle.
+```
+</details>
 
 You will need to restart each Tentacle at this point: 
 
@@ -187,7 +216,7 @@ These changes require a restart of the Octopus Server.
 
 5. Run a healthcheck on the associated Tentacles and confirm they are all healthy.
 
-6. Now we are trusting the new certificate, we can now stop the Tentacles trusting the old certificate. On each of the Tentacle machines run:
+6. Now we are trusting the new certificate, we can now stop the Listening Tentacles trusting the old certificate. On each of the Listening Tentacle machines run:
 
 <details data-group="regenerate-certificate-remove-trust">
 <summary>Windows</summary>
