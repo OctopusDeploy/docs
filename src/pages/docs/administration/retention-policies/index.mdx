@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-01-28
+modDate: 2025-03-12
 title: Retention policies
 icon: fa-solid fa-broom
 description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
@@ -75,6 +75,15 @@ When configuring the repository retention policy, it's also worth making note of
 - If the package is used by a release, it will be kept.
 - If the package is present in the built-in repository, and a package retention policy has been configured, then the record will be kept according to that value. If no package retention policy has been configured, then the build information record will be kept indefinitely.
 - If the package is not present in the built-in repository, it's assumed that the package belongs to an [external package repository](/docs/packaging-applications/package-repositories). The build information record will be kept for a fixed value of 100 days from when it was published to Octopus.
+
+### Tasks \{#tasks-whats-deleted}
+
+[Tasks](/docs/tasks) stored in Octopus are kept based on their time of completion.
+
+Octopus will retain:
+ - All incomplete tasks.
+ - The 20 most recently completed task per type.
+ - The 20,000 most recently completed task per type within the last 30 days.
 
 ## What isn't deleted \{#what-is-not-deleted}
 
