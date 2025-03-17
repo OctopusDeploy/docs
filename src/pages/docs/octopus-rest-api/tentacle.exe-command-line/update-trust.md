@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2025-03-13
 title: Update trust
 description: Replaces the trusted Octopus Server thumbprint of any matching polling or listening registrations with a new thumbprint to trust
 ---
@@ -58,9 +58,9 @@ if ((Test-Path $logLocation) -eq $false)
     New-Item $logLocation -ItemType Directory
 }
 
-if ((Test-Path $logfile) -eq $false)
+if ((Test-Path $logFile) -eq $false)
 {
-    New-Item $logfile -ItemType File
+    New-Item $logFile -ItemType File
 }
 
 function Write-ToLog
@@ -72,7 +72,7 @@ function Write-ToLog
     $currentDate = (Get-Date).ToString("HH:mm:ss yyyy/MM/dd")
 
     Write-Host "$currentDate $message"
-    Add-Content -value "$currentDate $message" -Path $logfile
+    Add-Content -value "$currentDate $message" -Path $logFile
 }
 
 $request = [System.Net.HttpWebRequest]::Create($uri)
@@ -104,15 +104,15 @@ if ($null -eq $certificate)
     exit 1
 }
 
-$certinfo = New-Object system.security.cryptography.x509certificates.x509certificate2($certificate)
-$thumbParts = $certinfo.Thumbprint.ToCharArray()
+$certInfo = New-Object system.security.cryptography.x509certificates.x509certificate2($certificate)
+$thumbParts = $certInfo.Thumbprint.ToCharArray()
 
 $thumbParts2 = New-Object System.Collections.ArrayList
 for ($i = 0; $i -lt $thumbParts.Length; $i = $i+2) {
     [Void]$thumbParts2.Add([string]$thumbParts[$i]+$thumbParts[$i+1])
 }
 
-$certThumbprint = ([String]::Join(':',$thumbParts2.toarray([string]))) -replace ":", ""
+$certThumbprint = ([String]::Join(':',$thumbParts2.ToArray([string]))) -replace ":", ""
 
 Write-ToLog "The certificate for $OctopusUrl is $certThumbprint"
 $instanceList = (& $tentacleExe list-instances --format="JSON") | Out-String | ConvertFrom-Json
@@ -145,7 +145,7 @@ foreach ($instance in $instanceList)
         {
             Write-ToLog "The server $($server.Address) does not trust anything, adding in the trust."
             & $tentacleExe service --instance="$($instance.InstanceName)" --stop
-            & $tentacleExe trust --oldThumbprint $currentThumbprint --newThumbprint $certThumbprint --instance="$($instance.InstanceName)"
+            & $tentacleExe update-trust --oldThumbprint $currentThumbprint --newThumbprint $certThumbprint --instance="$($instance.InstanceName)"
             & $tentacleExe service --instance="$($instance.InstanceName)" --start
         }
         elseif ($currentThumbprint -ne $certThumbprint)
