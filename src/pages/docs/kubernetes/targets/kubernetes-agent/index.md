@@ -78,7 +78,8 @@ The Kubernetes agent follows [semantic versioning](https://semver.org/), so a ma
 | 1.20.0 - 1.\*.\* | **2024.2.6580** or newer | **1.28** to **1.31** |
 | 2.0.0 - 2.2.1    | **2024.2.9396** or newer | **1.26** to **1.29** |
 | 2.3.0 - 2.8.2    | **2024.2.9396** or newer | **1.27** to **1.30** |
-| 2.9.0 - 2.\*.\*  | **2024.2.9396** or newer | **1.28** to **1.31** |
+| 2.9.0 - 2.11.3  | **2024.2.9396** or newer | **1.28** to **1.31** |
+| 2.12.0 - 2.\*.\*  | **2024.2.9396** or newer | **1.29** to **1.32** |
 
 Additionally, the Kubernetes agent only supports **Linux AMD64** and **Linux ARM64** Kubernetes nodes.
 
