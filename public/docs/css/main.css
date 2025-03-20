@@ -65,6 +65,10 @@ button[data-share] {
   stroke: var(--body-link-alt);
 }
 
+hr {
+  border-bottom: 1px solid var(--header-separator-color);
+}
+
 .page-content a:not(.link) {
   color: var(--octo-blue);
 }
