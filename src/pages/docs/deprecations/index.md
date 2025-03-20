@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-10
+modDate: 2025-03-11
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -31,6 +31,13 @@ It has been [noted for several years](https://octopus.com/docs/infrastructure/de
 To provide ample time to act, from Octopus Server `2024.1`, workloads that run on Windows 2008 Servers will begin logging warnings. We urge you to upgrade your targets to a later version of Windows Server before `2025.1` to prepare for the removal of functionality.
 
 Further notes about this pending change can be found in the [2024.1 deprecation blog post](https://octopus.com/blog/2024-deprecated-features#windows-server-2008)
+
+## Deprecations for 2025.2
+
+### System and Space Level `/events` API Endpoint
+The `GET /events` and `GET /{spaceId}/events` API endpoints will be replaced by new versions that don't return pagination properties. Events are created constantly, minimizing the value of providing individual page numbers, and calculating the total number of results can be very expensive on instances with larger data sets.
+
+For similar functionality without pagination, use the `GET /events/v2` and `GET /{spaceId}/events/v2` endpoints. To export events in CSV format, use the `GET /events/export` or `GET /events/{spaceId}/export` endpoints.
 
 ## Deprecations for 2024.3
 
