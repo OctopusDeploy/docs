@@ -8,7 +8,9 @@ description: Project deployment freezes allow you to pause deployments in a proj
 ---
 
 :::div{.hint}
-With multi-project deployment freezes becoming an **Enterprise** license feature, we are introducing per-project deployment freezes for **all customers** in Octopus Server version **2025.2**
+**Per-project deployment freezes**
+
+With [multi-project freezes](/docs/deployments/deployment-freezes) only available for enterprise customers, we are introducing per-project deployment freezes for **all customers** in Octopus Server version **2025.2**
 :::
 
 Project deployment freezes allow you to prevent deployments for a configured amount of time. This is useful when you want to prevent a project from deploying to certain environments within a specific time frame. Without deployment freezes, you would need to manually disable specific projects or machines to stop the deployments.

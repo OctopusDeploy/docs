@@ -9,8 +9,10 @@ hideInThisSectionHeader: true
 ---
 
 :::div{.warning}
-**Deployment Freezes is currently in early access.** When the feature becomes generally available, only enterprise customers will be able to create Deployment Freezes that apply to multiple projects.
-However, all customers will be able to create freezes on a per-project basis. Any freezes created prior to this change will be carried forward.
+**Multi-project deployment freezes**
+
+When this feature becomes generally available, only enterprise customers will be able to create deployment freezes that apply to multiple projects.
+However, all customers will be able to create [per-project deployment freezes](/docs/deployments/deployment-freezes/project-deployment-freezes) basis. Any freezes created prior to this change will still be able to be edited by customers on a non-enterprise license.
 :::
 
 Deployment freezes allow you to prevent deployments for a configured amount of time. This is useful when you want to prevent certain projects deploying to certain environments within a specific time frame. Without deployment freezes, you would need to manually disable specific projects or machines to stop the deployments.
