@@ -26,11 +26,11 @@ Kubernetes Live Object Status shows the live status of your Kubernetes resources
 
 ## Where it is available
 
-Kubernetes Live Object status is available for Kubernetes steps, except the kubectl script step, deployed to Kubernetes Agent targets.
+Kubernetes Live Object status is available for Kubernetes steps, except the kubectl script step, deployed to [Kubernetes Agent](docs/kubernetes/targets/kubernetes-agent) targets.
 
 ## Installation
 
-The Kubernetes Agent has a new component called the Kubernetes Monitor that is currently enabled for new installations. 
+The [Kubernetes Agent](docs/kubernetes/targets/kubernetes-agent) has a new component called the Kubernetes Monitor that is currently enabled for new installations. 
 
 :::figure
 ![A screenshot of the Agent install script with the Kubernetes Monitor enabled](/docs/deployments/kubernetes/live-object-status/agent-install-script.png)
@@ -44,7 +44,7 @@ You can use the health check page after installation to see the status of the Ku
 
 ## How to use
 
-Once you have the Kubernetes Monitor enabled on your Kubernetes Agent, simply toggle the switch on the dashboard to show live status in place of the deployment status.
+Once you have the Kubernetes Monitor enabled on your [Kubernetes Agent](docs/kubernetes/targets/kubernetes-agent), simply toggle the switch on the dashboard to show live status in place of the deployment status.
 
 :::figure
 ![A screenshot of the Space dashboard showing live status](/docs/deployments/kubernetes/live-object-status/space-dashboard-live-status.png)
