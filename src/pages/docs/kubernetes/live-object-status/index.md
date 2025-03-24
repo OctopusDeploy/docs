@@ -4,83 +4,76 @@ pubDate: 2024-07-31
 modDate: 2024-07-31
 navSection: Live Object Status
 title: Kubernetes Live Object Status
-navTitle: Kubernetes Live Object Status
+navTitle: Overview
 description: Kubernetes Live Object Status guide.
 navOrder: 45
 hideInThisSectionHeader: true
 ---
 
 :::div{.hint}
-The Kubernetes Live Object Status feature was added in Octopus **2025.2**.
+The Kubernetes Live Object Status feature is in early access, it is rolling out in Octopus Cloud now. This feature will be made available to self-hosted customers in Q3 2025.
 :::
 
-Summary...
+Kubernetes Live Object Status shows the live status of your Kubernetes resources after they have been deployed. This allows you to monitor and troubleshoot your Kubernetes application without needing to leave Octopus or learn another tool.
 
+:::figure
+![A screenshot of the Space dashboard showing live status](/docs/deployments/kubernetes/live-object-status/space-dashboard-live-status.png)
+:::
+
+:::figure
+![A screenshot of the live status page](/docs/deployments/kubernetes/live-object-status/live-status-page.png)
+:::
 
 ## Where it is available
 
-Kubernetes Live Object status is available for these steps.
+Kubernetes Live Object status is available for Kubernetes steps, except the kubectl script step, deployed to Kubernetes Agent targets.
 
-* Deploy Kubernetes YAML
-* Deploy a Helm Chart
-* Deploy with Kustomize
-* Configure and apply Kubernetes resources (except for the Blue/Green deployment strategy)
-* Configure and apply a Kubernetes ConfigMap
-* Configure and apply a Kubernetes Secret
-* Configure and apply a Kubernetes Ingress
-* Configure and apply a Kubernetes Service
+## Installation
 
-
-## How to configure
-
-### Helm
-
-Use the `Step Verification` section on the step configuration page.
+The Kubernetes Agent has a new component called the Kubernetes Monitor that is currently enabled for new installations. 
 
 :::figure
-![A screenshot of the Helm Step Verification configuration section](/docs/deployments/kubernetes/object-status/helm-step-verification.png)
+![A screenshot of the Agent install script with the Kubernetes Monitor enabled](/docs/deployments/kubernetes/live-object-status/agent-install-script.png)
 :::
 
-Enabling the option will add the Helm [`--wait`](https://helm.sh/docs/helm/helm_upgrade/#options) parameter to the upgrade command. Additionally, when enabled, you can also enable the use of the Helm parameter [`--wait-for-jobs`](https://helm.sh/docs/helm/helm_upgrade/#options) to wait for jobs to run before determining step success.
-
-### Other steps
-
-Use the `Kubernetes Object Status Check` section on the step configuration page.
+You can use the health check page after installation to see the status of the Kubernetes Monitor for the corresponding Agent.
 
 :::figure
-![A screenshot of the Kubernetes Object Status configuration section](/docs/deployments/kubernetes/object-status/kubernetes-object-status-check-configuration.png)
+![Health check showing status of the Kubernetes Monitor](/docs/deployments/kubernetes/live-object-status/kubernetes-agent-health-check.png)
 :::
 
-Use the first option to enable the feature (`Check that Kubernetes objects are running successfully`). Choosing `Don't do any verification checks` will disable the feature.
+## How to use
 
-One can configure two extra parameters:
+Once you have the Kubernetes Monitor enabled on your Kubernetes Agent, simply toggle the switch on the dashboard to show live status in place of the deployment status.
 
-* **Step timeout** refers to the maximum time a deployment step can run before termination (determined in seconds).
-This setting is intended to prevent a step from running indefinitely or causing delays in the overall deployment process. If one disables the parameter (checkbox), you allow the step to run indefinitely.
+:::figure
+![A screenshot of the Space dashboard showing live status](/docs/deployments/kubernetes/live-object-status/space-dashboard-live-status.png)
+:::
 
-* **Wait for Jobs to complete during deployment** determines if Octopus should wait for the successful completion of the jobs deployed at this step. If unchecked, Octopus considers a step execution successful once Jobs are created without waiting for their execution.
+Octopus display individual status at a resource level as well as summarized status for an Application.
 
-A user needs to create and deploy a new release after one saves the new configuration to see the changes.
+Resource status
+| Label                       | Status Icon                              |
+|:----------------------------|:----------------------------------------:|
+| In progress                 | <i class="fa-solid fa-spinner"></i>      |
+| Success                     | <i class="fa-solid fa-circle-check"></i> |
+| Error                       | <i class="fa-solid fa-circle-xmark"></i> |
+| Timed out while in progress | <i class="fa-solid fa-clock"></i>        |
+
+Application status
+| Label                       | Status Icon                              |
+|:----------------------------|:----------------------------------------:|
+| In progress                 | <i class="fa-solid fa-spinner"></i>      |
+| Success                     | <i class="fa-solid fa-circle-check"></i> |
+| Error                       | <i class="fa-solid fa-circle-xmark"></i> |
+| Timed out while in progress | <i class="fa-solid fa-clock"></i>        |
+
 
 ## How it works
 
-### Helm
+The Kubernetes Agent has a new component called the Kubernetes Monitor which also runs inside the Kubernetes cluster. The Kubernetes Monitor communicates with Octopus Server over gRPC on a new port (8443) to send back live status.
 
-Helm has an existing mechanism for tracking the status of deployed resources, the [`--wait`](https://helm.sh/docs/helm/helm_upgrade/#options) parameter on the upgrade command. Rather than Octopus providing another mechanism on top of this, Octopus adds this parameter to the upgrade parameters and relies on Helm to track the deployed resources and fail the step if the resource fails
-
-### Other steps
-
-When a deployment to a Kubernetes cluster is created, Octopus identifies the objects to create or update during this deployment. It then checks the status of these objects continuously throughout the deployment process. Apart from the objects that are defined directly in the project, Octopus also grabs the status of any children objects of them. For example, ReplicaSets and Pods that belong to a Deployment are included along with the Deployment itself, despite they are not defined directly.
-
-The step will succeed as soon as Kubernetes achieves the desired state.
-
-When the step timeout has been set, the step will fail if Kubernetes doesn't achieve the desired state within the timeout.
-
-The only exception to this rule is for a stand-alone pod (without a ReplicaSet about it) or a job. The step will fail early if these resources achieve an unrecoverable state.
-
-:::figure
-![A K8s object status diagram](/docs/deployments/kubernetes/object-status/K8s-object-status-logics.jpg)
-:::
+During a deployment, Octopus will capture any applied Kubernetes YAML and send it to the monitor. The monitor uses this list to track the deployed resources in the cluster.
 
 ## How to use
 
@@ -105,6 +98,13 @@ At a given point in time, an object can have one of four statuses:
 
 If there are multiple steps in deploying Kubernetes resources, each step will have a separate section on the tab.
 
+## Known issues and limitations
+
+### Skipped steps
+The desired resource list is compiled from resources that were applied during the last deployment. If steps are skipped during a deployment, then live status will not be shown for resources that were applied in those steps.
+
+Please avoid skipping steps that deploy Kubernetes resources.
+
 ## Useful links
 
-* [Find more details in the blog post](https://octopus.com/blog/live-updates-kubernetes-objects-deployments)
+* [Find more details in the blog post](https://octopus.com/blog/kubernetes-live-object-status)
