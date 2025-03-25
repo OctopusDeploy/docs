@@ -15,4 +15,4 @@ This page will help you diagnose and solve issues with Kubernetes Live Object St
 
 ### The Kubernetes Monitor can't connect gRPC port 8443
 
-blah blah
+Some firewalls may prevent the applications from making outbound connections over non-standard ports. If this is preventing the Kubernetes Monitor from connecting to your Octopus Server, configure your environment to allow outbound connections.

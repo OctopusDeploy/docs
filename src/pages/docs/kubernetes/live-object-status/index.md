@@ -62,21 +62,32 @@ Once you have the Kubernetes Monitor enabled on your [Kubernetes Agent](docs/kub
 
 Octopus display individual status at a resource level as well as summarized status for an Application.
 
-Resource status (TODO)
-| Label                       | Status Icon                              |
-|:----------------------------|:----------------------------------------:|
-| TODO                        | <i class="fa-solid fa-spinner"></i>      |
-| Success                     | <i class="fa-solid fa-circle-check"></i> |
-| Error                       | <i class="fa-solid fa-circle-xmark"></i> |
-| Timed out while in progress | <i class="fa-solid fa-clock"></i>        |
+### Resource status
 
-Application status (TODO)
 | Label                       | Status Icon                              |
 |:----------------------------|:----------------------------------------:|
-| TODO                        | <i class="fa-solid fa-spinner"></i>      |
-| Success                     | <i class="fa-solid fa-circle-check"></i> |
-| Error                       | <i class="fa-solid fa-circle-xmark"></i> |
-| Timed out while in progress | <i class="fa-solid fa-clock"></i>        |
+| Progressing                 | <i class="fa-solid fa-circle-notch"></i> |
+| Healthy                     | <i class="fa-solid fa-heart"></i>        |
+| Unknown                     | <i class="fa-solid fa-question"></i>     |
+| Degraded                    | <i class="fa-solid fa-heart-crack"></i>  |
+| Out of Sync                 | <i class="fa-solid fa-arrow-up"></i>     |
+| Missing                     | <i class="fa-solid fa-ghost"></i>        |
+| In Sync                     | <i class="fa-solid fa-check"></i>        |
+| Suspended                   | <i class="fa-solid fa-pause"></i>        |
+
+### Application status
+
+| Label                       | Status Icon                              |
+|:----------------------------|:----------------------------------------:|
+| Progressing                 | <i class="fa-solid fa-circle-notch"></i> |
+| Healthy                     | <i class="fa-solid fa-heart"></i>        |
+| Unknown                     | <i class="fa-solid fa-question"></i>     |
+| Degraded                    | <i class="fa-solid fa-heart-crack"></i>  |
+| Out of Sync                 | <i class="fa-solid fa-arrow-up"></i>     |
+| Missing                     | <i class="fa-solid fa-ghost"></i>        |
+| Unavailable                 | <i class="fa-solid fa-circle-exclamation"></i>|
+| Waiting                     | <i class="fa-solid fa-hourglass"></i>    |
+| Stale                       | <i class="fa-solid fa-bolt"></i>   |
 
 
 ## How it works
