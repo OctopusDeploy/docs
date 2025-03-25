@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-02-20
 title: Octopus enterprise patterns
 description: This section describes common patterns for deploying octopus in enterprise environments.
 navOrder: 2
@@ -166,11 +166,14 @@ You can find more information about the [Octopus REST API in our documentation](
 
 ![Multiple environments diagram](/docs/platform-engineering/multiple-environments.png "width=500")
 
-This solution creates Octopus installations in each environment. It treats Octopus upgrades and other maintenance tasks in the same manner as a regular application deployment by promoting the changes through environments like development, test, and production.
+This pattern creates Octopus installations in each environment. It treats Octopus upgrades and other maintenance tasks in the same manner as a regular application deployment by promoting the changes through environments like development, test, and production.
 
 You need to synchronize the Octopus installations to ensure their configuration is as similar to one another as possible.
 
 Unlike the previous patterns, this pattern is less concerned with providing the ability for teams and customers to log into Octopus installations. Rather, DevOps teams use non-production Octopus installations to test upgrades and validate project changes.
+
+This pattern may also use used to isolate Octopus installations for compliance reasons, such as PCI. Having a separate Octopus installation for the production environment makes it easy demonstrate access controls and other security measures when undertaking
+security audits.
 
 | Feature  | Solves  |
 |---|---|

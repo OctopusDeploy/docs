@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-24
-modDate: 2024-11-24
+modDate: 2025-02-18
 title: Config as Code runbooks
 description: Details about using configuration as code with runbooks.
 navOrder: 20
@@ -81,4 +81,15 @@ The information that was previously found on the **Snapshot** page is still avai
 ## Scheduled triggers
 
 [Runbook triggers](/docs/runbooks/scheduled-runbook-trigger) will always run CaC Runbooks from the latest commit on your default branch, just as non-CaC runbook triggers will only run published runbooks.
+
+## Custom automated scripts
+
+If you use automated scripts that run runbooks via the Octopus Server API and you convert your runbooks to Config As Code the URL for the runbook will change to include a branch reference (e.g. `refs/heads/main`) as a result you need to update your scripts to include the branch reference where the runbook is stored. 
+
+- [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Runbooks/RunConfigAsCodeRunbook.ps1)
+
+## Deleting required resources
+
+Once your Runbooks are version controlled, it's up to you to take care to avoid deleting any Octopus resources required by your Runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
+
 

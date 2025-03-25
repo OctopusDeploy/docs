@@ -31,9 +31,6 @@ For Octopus Server prior to **2024.2.6856** use the following:
 ssh-keygen -E md5 -lf /etc/ssh/ssh_host_ed25519_key.pub | awk '{ print $2 }' | cut -d':' -f2-
 ```
 
-10. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/octopus-rest-api/calamari) will be installed.
-
-  - [Calamari on Mono](#mono-calamari) built against the full .NET framework.
-  - [Self-contained version of Calamari](#self-contained-calamari) built against .NET Core.
+10. Select the **Platform** (OS and architecture) of the target server.
 
 11. Click **Save**.

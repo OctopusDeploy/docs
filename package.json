@@ -23,33 +23,34 @@
         "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
     },
     "dependencies": {
-        "@astrojs/mdx": "^4.0.5",
-        "@pnpm/exe": "^9.15.3",
-        "astro": "^5.1.5",
-        "astro-accelerator-utils": "^0.3.34",
-        "cspell": "^8.17.1",
+        "@astrojs/mdx": "^4.2.1",
+        "@pnpm/exe": "^10.6.5",
+        "astro": "^5.5.3",
+        "astro-accelerator-utils": "^0.3.39",
+        "cspell": "^8.17.5",
         "glob": "^11.0.1",
         "gray-matter": "^4.0.3",
         "hast-util-from-selector": "^3.0.1",
         "html-to-text": "^9.0.5",
         "keyword-extractor": "^0.0.28",
         "optional": "^0.1.4",
-        "remark-directive": "^3.0.0",
+        "remark-directive": "^4.0.0",
         "remark-heading-id": "^1.0.1",
         "sharp": "^0.33.5"
     },
     "devDependencies": {
-        "@playwright/test": "^1.49.1",
+        "@playwright/test": "^1.51.1",
         "csv-parse": "^5.6.0",
         "npm-run-all": "^4.1.5",
         "onchange": "^7.1.0",
-        "prettier": "^3.4.2",
+        "prettier": "^3.5.3",
         "prettier-plugin-astro": "^0.14.1"
     },
     "pnpm": {
         "overrides": {
             "postcss@<8.4.31": ">=8.4.31",
-            "zod@<=3.22.2": ">=3.22.3"
+            "zod@<=3.22.2": ">=3.22.3",
+            "esbuild": ">=0.25.0"
         }
     }
 }
