@@ -278,6 +278,9 @@ The **Task Summary** tab will show you in real-time how the deployment steps are
 
 You successfully completed your first deployment to Kubernetes! 🎉
 
+### Monitor and troubleshoot
+4. If you're deploying to the Kubernetes Agent, keep monitoring your application health using the [live status](/docs/kubernetes/live-object-status) feature.
+
 As you continue to explore Octopus Deploy, consider diving deeper into powerful features like [variables](https://octopus.com/docs/projects/variables), joining our [Slack community](http://octopususergroup.slack.com), or checking out our other tutorials to expand your knowledge. 
 
 ## Additional Kubernetes resources

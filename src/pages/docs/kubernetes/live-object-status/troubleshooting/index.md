@@ -13,6 +13,6 @@ This page will help you diagnose and solve issues with Kubernetes Live Object St
 
 ## Installation Issues
 
-### gRPC port 8443
+### The Kubernetes Monitor can't connect gRPC port 8443
 
 blah blah
