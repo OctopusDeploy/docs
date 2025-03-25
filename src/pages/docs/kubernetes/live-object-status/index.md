@@ -41,7 +41,13 @@ You can use the health check page after installation to see the status of the Ku
 :::figure
 ![Health check showing status of the Kubernetes Monitor](/docs/deployments/kubernetes/live-object-status/kubernetes-agent-health-check.png)
 :::
+### Upgrading an existing Kubernetes agent
 
+Coming soon, we will have a one click upgrade from within Octopus Deploy.
+
+For the moment, existing Kubernetes agents can be upgraded in place by filling in the following Helm command and running it against the Kubernetes cluster your current Kubernetes agent is installed
+
+<code snippet>
 ## How to use
 
 Once you have the Kubernetes Monitor enabled on your [Kubernetes Agent](docs/kubernetes/targets/kubernetes-agent), simply toggle the switch on the dashboard to show live status in place of the deployment status.
