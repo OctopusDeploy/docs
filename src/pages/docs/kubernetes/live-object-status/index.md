@@ -11,10 +11,10 @@ hideInThisSectionHeader: true
 ---
 
 :::div{.hint}
-The Kubernetes Live Object Status feature is in early access, it is rolling out in Octopus Cloud now. This feature will be made available to self-hosted customers in Q3 2025.
+The Kubernetes Live Object Status feature is in early access, it is rolling out in Octopus Cloud now. This feature will be made available to self-hosted customers in H2 2025.
 :::
 
-Kubernetes Live Object Status shows the live status of your Kubernetes resources after they have been deployed. This allows you to monitor and troubleshoot your Kubernetes application without needing to leave Octopus or learn another tool.
+Kubernetes Live Object Status shows the live status of your Kubernetes resources after they have been deployed. This allows you to monitor and safely troubleshoot your Kubernetes application without needing to leave Octopus or learn another tool.
 
 :::figure
 ![A screenshot of the Space dashboard showing live status](/docs/deployments/kubernetes/live-object-status/space-dashboard-live-status.png)
@@ -41,13 +41,17 @@ You can use the health check page after installation to see the status of the Ku
 :::figure
 ![Health check showing status of the Kubernetes Monitor](/docs/deployments/kubernetes/live-object-status/kubernetes-agent-health-check.png)
 :::
+
 ### Upgrading an existing Kubernetes agent
 
 Coming soon, we will have a one click upgrade from within Octopus Deploy.
 
 For the moment, existing Kubernetes agents can be upgraded in place by filling in the following Helm command and running it against the Kubernetes cluster your current Kubernetes agent is installed
 
-<code snippet>
+```bash
+TODO
+```
+
 ## How to use
 
 Once you have the Kubernetes Monitor enabled on your [Kubernetes Agent](docs/kubernetes/targets/kubernetes-agent), simply toggle the switch on the dashboard to show live status in place of the deployment status.
@@ -77,7 +81,7 @@ Application status (TODO)
 
 ## How it works
 
-The Kubernetes Agent has a new component called the Kubernetes Monitor which also runs inside the Kubernetes cluster. The Kubernetes Monitor communicates with Octopus Server over gRPC on a new port (8443) to send back live status.
+The Kubernetes Agent has a new component called the Kubernetes Monitor which also runs inside the Kubernetes cluster. Read more about the [Kubernetes Monitor](docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) here.
 
 During a deployment, Octopus will capture any applied Kubernetes YAML and send it to the monitor. The monitor uses this list to track the deployed resources in the cluster.
 
