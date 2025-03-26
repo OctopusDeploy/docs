@@ -107,6 +107,20 @@ At a given point in time, an object can have one of four statuses:
 
 If there are multiple steps in deploying Kubernetes resources, each step will have a separate section on the tab.
 
+### Resource manifests
+
+The manifest that deployed a particular resource can be viewed if the name of the resource is a link. Resources that are created by other resources , such as `ReplicaSets` or `Pods` from `Deployments` will not have a viewable manifest.
+
+:::figure
+![A screenshot of the Kubernetes Object Status resource name link](/docs/deployments/kubernetes/object-status/resource-drawer-link.png)
+:::
+
+Clicking the name will open a drawer showing the manifest for the resource.
+
+:::figure
+![A screenshot of the Kubernetes Object Status resource drawer](/docs/deployments/kubernetes/object-status/resource-drawer.png)
+:::
+
 ## Useful links
 
 * [Find more details in the blog post](https://octopus.com/blog/live-updates-kubernetes-objects-deployments)
