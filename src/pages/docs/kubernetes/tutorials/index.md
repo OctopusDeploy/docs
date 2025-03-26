@@ -5,7 +5,7 @@ modDate: 2024-08-29
 title: First Kubernetes deployment
 description: This tutorial will walk you through sourcing YAML files from a Git repository, and deploying them to a Kubernetes cluster. 
 navSection: Tutorials
-navOrder: 10
+navOrder: 40
 hideInThisSectionHeader: true
 ---
 
