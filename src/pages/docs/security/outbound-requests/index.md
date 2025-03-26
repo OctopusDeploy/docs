@@ -10,7 +10,6 @@ navOrder: 25
 This page describes any outbound network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 
 ## Outbound requests by Tentacle
-## Outbound requests by Tentacle
 
 For security reasons, we minimize the number of outbound requests made by the Tentacle deployment agent. The only outbound requests you should see are for:
 
@@ -21,7 +20,6 @@ For security reasons, we minimize the number of outbound requests made by the Te
 
 It's possible that scripts in your packages may make outbound requests; in this case you should take care when deploying packages created by a third party.
 
-## Outbound requests by Octopus
 ## Outbound requests by Octopus
 
 The Octopus Server makes the following outbound requests:
