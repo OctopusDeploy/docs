@@ -8,7 +8,7 @@ description: Applied Manifests guide
 navOrder: 20
 ---
 
-As part of your deploymentm, Octopus also captures the Kubernete manifests that were applied to the cluster. This allows you to validate and verify the exact manifests that were applied, allowing for easier debugging of any issues.
+As part of your deployment, Octopus also captures the Kubernetes manifests that were applied to the cluster. This allows you to validate and verify the exact manifests that were applied, allowing for easier debugging of any issues.
 
 Octopus will show a list of all the applied manifests on a deployment screen — the `Applied Manifests` view on the `KUBERNETES` tab.
 
@@ -60,7 +60,7 @@ To protect your Octopus sensitive values, Octopus will obfuscate these values if
 :::
 
 :::div{.warning}
-It is highly recommended that if you are using variable substition to add Octopus sensitive variables to your manifests that you store these variables in Kubernetes `Secret` resources.
+It is highly recommended that if you are using variable substitution to add Octopus sensitive variables to your manifests that you store these variables in Kubernetes `Secret` resources.
 You can correctly base64 format the sensitive variable using the following syntax
 `#{ MySensitiveValue | ToBase64 }
 :::
