@@ -6,7 +6,7 @@ title: Kubernetes Steps
 navTitle: Overview
 navSection: Steps
 description: Kubernetes Steps
-navOrder: 10
+navOrder: 20
 ---
 
 You can use the built-in Kubernetes steps to configure Kubernetes deployments. There are also [community-contributed Kubernetes step templates](https://octopus.com/integrations/kubernetes) available.
