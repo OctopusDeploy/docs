@@ -99,9 +99,18 @@ During a deployment, Octopus will capture any applied Kubernetes YAML and send i
 ## Known issues and limitations
 
 ### Skipped steps
+
 The desired resource list is compiled from resources that were applied during the last deployment. If steps are skipped during a deployment, then live status will not be shown for resources that were applied in those steps.
 
 Please avoid skipping steps that deploy Kubernetes resources.
+
+### Script steps
+
+Resources modified by script steps directly are not monitored. Support for script steps will be added in a future release. 
+
+### Runbooks not supported
+
+Resources modified by Runbooks are not monitored. Please deploy the resources via a Deployment if you want them to be monitored.
 
 ## Useful links
 
