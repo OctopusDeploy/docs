@@ -195,6 +195,7 @@ keyserver
 kubeconfig
 Kubelet
 kubelogin
+kubernetesmonitor
 kustomization
 kustomize
 lanman
