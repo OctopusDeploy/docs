@@ -122,18 +122,53 @@ The Kubernetes Agent has a new component called the Kubernetes Monitor which als
 
 During a deployment, Octopus will capture any applied Kubernetes manifests and send them to the monitor. The monitor uses these manifests to track the deployed objects in the cluster, keeping track of their synchronization and health.
 
+## User permissions
+
+Viewing the data returned from the Kubernetes monitor from within Octopus requires `DeploymentView` permissions.
+
+This data includes the resource and application status, as well as pod logs and events for objects being monitored. This may be a change in security posture that your team should carefully consider.
+
+## Secrets
+
+### Octopus sensitive variables
+
+As always, we treat secret data as carefully as we possibly can.
+
+Practically, this means that we redact any detected Octopus sensitive variables from:
+
+- Manifests
+- Logs
+- Events
+
+If we do not have all the required information to adequately redact something coming back from a Kubernetes cluster, we will opt to prevent the user from seeing this all together.
+
+With that said, we highly recommend:
+
+1. Containing all sensitive information to Kubernetes secrets so they can be redacted at the source
+2. Never logging sensitive values in containers
+  
+The flexibility that Octopus variables provide mean that sensitive variables can turn up in unexpected ways and so our redaction can only be best effort.
+
+### Kubernetes secrets
+
+The well defined structure of Kubernetes secrets allow us to confidently redact secret data.
+
+To ensure that we never exfiltrate secret data that Octopus is not privy to, the Kubernetes monitor salts and hashes the secret data using sha256. By hashing secrets Octopus can tell you when something changed in your secret, but Octopus will never know what the secrets are unless you have populated them using Octopus sensitive variables.
+
+Please be aware that outputting Kubernetes secrets into pod logs may result in them being sent un-redacted if they are not sourced from Octopus sensitive variables originally.
+
 ## Known issues and limitations
 
-### Skipped steps
+### Excluded steps
 
-The desired object list is compiled from objects that were applied during the last deployment. If steps are skipped during a deployment, then live status will not be shown for objects that were applied in those steps.
+The desired object list is compiled from objects that were applied during the last deployment. If steps are excluded during a deployment, then live status will not be shown for objects that were applied in those steps.
 
 Please avoid skipping steps that deploy Kubernetes objects.
 
-### Script steps
+### Script steps are not supported
 
-Objects modified by script steps directly are not monitored. Support for script steps is planned for a future release. 
+Objects modified by script steps directly are not monitored. Support for script steps is planned for a future release.
 
-### Runbooks not supported
+### Runbooks are not supported
 
 Objects modified by Runbooks are not monitored. Please deploy the objects via a Deployment if you want them to be monitored.
