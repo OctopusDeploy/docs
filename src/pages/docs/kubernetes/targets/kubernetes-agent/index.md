@@ -27,7 +27,7 @@ As the agent is already running inside the target cluster, Octopus Server no lon
 
 ### Application monitoring
 
-The agent also includes a component called the [Kubernetes Monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) that monitors and reports back application health to Octopus Server.
+The agent also includes a component called the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) that monitors and reports back application health to Octopus Server.
 
 ### Cluster-aware tooling
 
