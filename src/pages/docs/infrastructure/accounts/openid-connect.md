@@ -37,6 +37,7 @@ The subject can be modified for the three different uses within Octopus:
 - [Deployments and Runbooks](#deployments-and-runbooks)
 - [Health Checks](#health-checks)
 - [Account Test](#account-test)
+- [Feeds] (#feeds)
 
 ### Subject key parts
 
@@ -51,6 +52,7 @@ The subject can be modified for the three different uses within Octopus:
     - **Target**
     - **Account**
     - **Type**
+    - **Feed**
 
 
 ### Deployments and Runbooks {#deployments-and-runbooks}
@@ -64,6 +66,7 @@ The **Subject** claim for a deployment or a runbook supports the following parts
 - **Environment** slug
 - **Account** slug
 - **Type**
+- **Feed** slug
 
 The default format for a deployment and runbook is `space:[space-slug]:project:[project-slug]:tenant:[tenant-slug]:environment:[environment-slug]`.
 
@@ -88,4 +91,10 @@ The value for the type is `health`.
 The Account Test **Subject** claim supports the **Space** slug, the **Account** slug and the **Type**
 
 The default format for an account test is `space:[space-slug]:account:[account-slug]`.
+
+## Feeds {#feeds}
+
+The Feed **Subject** claim supports the **Space** slug and the **Feed** slug. This is subject is the same across runbooks, deployments, release creation and feed searches.
+
+The default format for feeds is `space:[space-slug]:feed:[feed-slug]`.
 
