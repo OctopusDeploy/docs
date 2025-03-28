@@ -31,7 +31,7 @@ Using Kubernetes Live Object Status requires the following:
 
 ## How to use Live Status
 
-Once you have the Kubernetes Monitor enabled on your [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent), simply toggle the switch on the dashboard to show live status in place of the deployment status.
+Once you have the Kubernetes monitor enabled on your [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent), simply toggle the switch on the dashboard to show live status in place of the deployment status.
 
 :::figure
 ![A screenshot of the Space dashboard showing live status](/docs/kubernetes/live-object-status/live-status-space-dashboard.png)
@@ -71,9 +71,41 @@ Octopus display individual status at an object level as well as summarized statu
 
 Take a look at our [troubleshooting guide](./troubleshooting/index.md) for details on why you may see some object statuses
 
+### Detailed object information
+
+Each object reported back by the Kubernetes monitor can be selected to provide detailed information including events, logs and the manifest currently on the cluster
+
+:::figure
+![Object summary](/docs/kubernetes/live-object-status/live-status-drawer-summary.png)
+:::
+
+#### Events
+
+Events are fetched on demand from the running object. Octopus reads and presents events in similar way to `kubectl`.
+
+:::figure
+![Object events](/docs/kubernetes/live-object-status/live-status-drawer-events.png)
+:::
+
+#### Logs
+
+Logs are fetched on demand from the running object. We do not currently support tailing logs, but it is on the roadmap in the near future.
+
+:::figure
+![Object logs](/docs/kubernetes/live-object-status/live-status-drawer-logs.png)
+:::
+
+#### Manifest
+
+The manifest shown here is the live manifest as reported by the cluster back to Octopus.
+
+:::figure
+![Object manifest](/docs/kubernetes/live-object-status/live-status-drawer-manifest.png)
+:::
+
 ## How it works
 
-The Kubernetes Agent has a new component called the Kubernetes Monitor which also runs inside the Kubernetes cluster. Read more about the [Kubernetes Monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) here.
+The Kubernetes Agent has a new component called the Kubernetes monitor which also runs inside the Kubernetes cluster. Read more about the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) here.
 
 During a deployment, Octopus will capture any applied Kubernetes manifests and send them to the monitor. The monitor uses these manifests to track the deployed objects in the cluster, keeping track of their synchronization and health.
 
