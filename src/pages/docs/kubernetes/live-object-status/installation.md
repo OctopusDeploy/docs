@@ -9,7 +9,7 @@ description: Kubernetes Live Object Status guide.
 navOrder: 50
 ---
 
-The [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) has a new component called the [Kubernetes monitor](/docs/kubernetes/targets/kubbernetes-agent/kubernetes-monitor) that is currently enabled for new installations.
+The [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) has a new component called the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) that is currently enabled for new installations.
 
 :::figure
 ![Kubernetes agent install script with the Kubernetes monitor enabled](/docs/kubernetes/live-object-status/kubernetes-agent-monitor-installation.png)
