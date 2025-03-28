@@ -138,6 +138,7 @@ gcloud
 getenv
 gifs
 gitcredential
+gitops
 globbing
 Gluster
 googleaccount
