@@ -279,7 +279,7 @@ The **Task Summary** tab will show you in real-time how the deployment steps are
 You successfully completed your first deployment to Kubernetes! 🎉
 
 ### Monitor and troubleshoot
-4. If you're deploying to the Kubernetes Agent, keep monitoring your application health using the [live status](/docs/kubernetes/live-object-status) feature.
+4. If you're deploying to the Kubernetes Agent, keep monitoring your application health using the [live object status](/docs/kubernetes/live-object-status) feature.
 
 :::figure
 ![A screenshot of the Space dashboard showing live status](/docs/deployments/kubernetes/live-object-status/space-dashboard-live-status.png)

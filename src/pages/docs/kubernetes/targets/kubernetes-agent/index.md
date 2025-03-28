@@ -9,9 +9,7 @@ description: How to configure a Kubernetes agent as a deployment target in Octop
 navOrder: 10
 ---
 
-TODO: Add OKM details somewhere
-
-Kubernetes agent targets are a mechanism for executing [Kubernetes steps](/docs/kubernetes/steps) from inside the target Kubernetes cluster, rather than via an external API connection.
+Kubernetes agent targets are a mechanism for executing [Kubernetes steps](/docs/kubernetes/steps) and monitoring application health from inside the target Kubernetes cluster, rather than via an external API connection.
 
 Similar to the [Octopus Tentacle](/docs/infrastructure/deployment-targets/tentacle), the Kubernetes agent is a small, lightweight application that is installed into the target Kubernetes cluster.
 
@@ -26,6 +24,10 @@ The agent uses the same [polling communication](/docs/infrastructure/deployment-
 ### In-cluster authentication
 
 As the agent is already running inside the target cluster, Octopus Server no longer needs authentication credentials to the cluster to perform deployments. It can use the in-cluster authentication support of Kubernetes to run deployments using Kubernetes Service Accounts and Kubernetes RBAC local to the cluster.
+
+### Application monitoring
+
+The agent also includes a component called the [Kubernetes Monitor](/docs/kubernetes/targets/kubbernetes-agent/kubernetes-monitor) that monitors and reports back application health to Octopus Server.
 
 ### Cluster-aware tooling
 
