@@ -235,6 +235,7 @@ myapplication
 Myatt
 myfeature
 myfile
+mykey
 navigationid
 NETBIOS
 netcore
