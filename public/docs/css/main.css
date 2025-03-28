@@ -2689,6 +2689,46 @@ a[data-youtube] {
   padding-inline-end: 1em;
 }
 
+.fa-heart-crack.red {
+  color: var(--red-500);
+}
+
+.fa-heart.green {
+  color: var(--green-500);
+}
+
+.fa-check.green {
+  color: var(--green-500);
+}
+
+.fa-circle-notch.blue {
+  color: var(--blue-500);
+}
+
+.fa-hourglass.blue {
+  color: var(--blue-500);
+}
+
+.fa-circle-exclamation.red {
+  color: var(--red-500);
+}
+
+.fa-question.grey {
+  color: var(--grey-500);
+}
+
+.fa-ghost.grey {
+  color: var(--grey-500);
+}
+
+.fa-pause.grey {
+  color: var(--grey-500);
+}
+
+.fa-arrow-up.orange {
+  color: var(--orange-500);
+}
+
 .i-right:after {
   content: '\f061';
   /* Arrow Right */

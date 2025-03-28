@@ -113,6 +113,7 @@ entra
 environmentids
 eprintfn
 esac
+exfiltrate
 expressjs
 externalgroups
 externalusers
@@ -137,6 +138,7 @@ gcloud
 getenv
 gifs
 gitcredential
+gitops
 globbing
 Gluster
 googleaccount
@@ -193,6 +195,7 @@ keyserver
 kubeconfig
 Kubelet
 kubelogin
+kubernetesmonitor
 kustomization
 kustomize
 lanman
@@ -230,10 +233,12 @@ msiexec
 mssqldb
 MSSQLSERVER
 MTTR
+myagent
 myapplication
 Myatt
 myfeature
 myfile
+mykey
 navigationid
 NETBIOS
 netcore

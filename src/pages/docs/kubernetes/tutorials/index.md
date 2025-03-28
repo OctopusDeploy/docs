@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-07-31
-modDate: 2024-08-29
+modDate: 2025-03-28
 title: First Kubernetes deployment
 description: This tutorial will walk you through sourcing YAML files from a Git repository, and deploying them to a Kubernetes cluster. 
 navSection: Tutorials
@@ -277,6 +277,13 @@ The **Task Summary** tab will show you in real-time how the deployment steps are
 :::
 
 You successfully completed your first deployment to Kubernetes! 🎉
+
+### Monitor and troubleshoot
+4. If you're deploying to the Kubernetes Agent, keep monitoring your application health using the [live object status](/docs/kubernetes/live-object-status) feature.
+
+:::figure
+![A screenshot of the Space dashboard showing live status](/docs/kubernetes/live-object-status/live-status-page.png)
+:::
 
 As you continue to explore Octopus Deploy, consider diving deeper into powerful features like [variables](https://octopus.com/docs/projects/variables), joining our [Slack community](http://octopususergroup.slack.com), or checking out our other tutorials to expand your knowledge. 
 
