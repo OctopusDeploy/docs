@@ -94,7 +94,7 @@ The default format for an account test is `space:[space-slug]:account:[account-s
 
 ## Feeds {#feeds}
 
-The Feed **Subject** claim supports the **Space** slug and the **Feed** slug. This is subject is the same across runbooks, deployments, release creation and feed searches.
+The Feed **Subject** claim supports the **Space** slug and the **Feed** slug. This subject is the same across runbooks, deployments, release creation and feed searches.
 
 The default format for feeds is `space:[space-slug]:feed:[feed-slug]`.
 
