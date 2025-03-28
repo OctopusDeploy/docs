@@ -2721,6 +2721,10 @@ a[data-youtube] {
   color: var(--grey-500);
 }
 
+.fa-pause.grey {
+  color: var(--grey-500);
+}
+
 .fa-arrow-up.orange {
   color: var(--orange-500);
 }
