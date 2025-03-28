@@ -38,7 +38,7 @@ Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `AWS E
 Save and test your registry to ensure that the connection is authorized successfully.
 
 ## Adding an AWS OpenID Connect ECR External feed
-As of 2025.2 Octopus has added support for OpenID Connect to ECR feeds. To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). The configuration of 
+Octopus Server `2025.2` adds support for OpenID Connect to ECR feeds. To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). The configuration of 
 
 
 1. Navigate to **Deploy ➜ External Feeds**, click the **Add Feed** and select **AWS Elastic Container Registry**.
