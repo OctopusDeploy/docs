@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-07-31
-modDate: 2024-08-29
+modDate: 2025-03-28
 title: First Kubernetes deployment
 description: This tutorial will walk you through sourcing YAML files from a Git repository, and deploying them to a Kubernetes cluster. 
 navSection: Tutorials

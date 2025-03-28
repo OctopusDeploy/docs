@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2024-04-29
-modDate: 2024-07-31
+pubDate: 2025-03-28
+modDate: 2025-03-28
 title: Kubernetes Monitor
 description: How to manage the Kubernetes monitor component
-navOrder: 30
+navOrder: 25
 ---
 
 The Kubernetes monitor is a component that runs alongside Tentacle in the cluster. The Kubernetes monitor tracks the health of resources deployed to the cluster via Octopus Server. 
