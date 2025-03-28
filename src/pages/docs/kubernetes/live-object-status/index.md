@@ -35,7 +35,7 @@ Using Kubernetes Live Object Status requires the following:
 
 ## Installation
 
-The [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) has a new component called the Kubernetes Monitor that is currently enabled for new installations. 
+The [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) has a new component called the [Kubernetes Monitor](/docs/kubernetes/targets/kubbernetes-agent/kubernetes-monitor) that is currently enabled for new installations.
 
 :::figure
 ![Kubernetes agent install script with the Kubernetes Monitor enabled](/docs/kubernetes/live-object-status/agent-install-script.png)
@@ -49,7 +49,7 @@ Once installed, you can confirm the status of the Kubernetes Monitor by looking 
 
 ### Upgrading an existing Kubernetes agent
 
-Coming soon, we will have a one click upgrade process from within Octopus Deploy.
+Coming soon, we are working on a one click upgrade process from within Octopus Deploy.
 
 If you can't wait until then, you can upgrade existing Kubernetes agents by running a Helm command on your cluster.
 
@@ -137,7 +137,3 @@ Objects modified by script steps directly are not monitored. Support for script 
 ### Runbooks not supported
 
 Objects modified by Runbooks are not monitored. Please deploy the objects via a Deployment if you want them to be monitored.
-
-## Useful links
-
-* [Find more details in the blog post](https://octopus.com/blog/kubernetes-live-object-status)

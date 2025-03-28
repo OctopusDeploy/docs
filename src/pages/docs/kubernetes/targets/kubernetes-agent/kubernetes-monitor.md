@@ -69,4 +69,4 @@ Please be aware that outputting Kubernetes secrets into pod logs may result in t
 
 ## Troubleshooting
 
-See [Kubernetes Live Object Status troubleshooting](../../live-object-status/troubleshooting/index.md)
+See [Kubernetes Live Object Status troubleshooting](../../live-object-status/troubleshooting)
