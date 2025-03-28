@@ -12,13 +12,13 @@ navOrder: 50
 The [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) has a new component called the [Kubernetes Monitor](/docs/kubernetes/targets/kubbernetes-agent/kubernetes-monitor) that is currently enabled for new installations.
 
 :::figure
-![Kubernetes agent install script with the Kubernetes Monitor enabled](/docs/kubernetes/live-object-status/agent-install-script.png)
+![Kubernetes agent install script with the Kubernetes Monitor enabled](/docs/kubernetes/live-object-status/kubernetes-agent-monitor-installation.png)
 :::
 
 Once installed, you can confirm the status of the Kubernetes Monitor by looking at the Connectivity j page for the corresponding Kubernetes agent target.
 
 :::figure
-![Health check showing status of the Kubernetes Monitor](/docs/kubernetes/live-object-status/kubernetes-agent-health-check.png)
+![Health check showing status of the Kubernetes Monitor](/docs/kubernetes/live-object-status/kubernetes-agent-monitor-health-check.png)
 :::
 
 ## Upgrading an existing Kubernetes agent
