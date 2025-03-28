@@ -17,10 +17,6 @@ The Kubernetes Live Object Status feature is in early access, it is rolling out 
 Kubernetes Live Object Status shows the live status of your Kubernetes objects after they have been deployed. This allows you to monitor and safely troubleshoot your Kubernetes application directly from within Octopus Deploy.
 
 :::figure
-![Space dashboard showing live status](/docs/kubernetes/live-object-status/space-dashboard-live-status.png)
-:::
-
-:::figure
 ![Live status page](/docs/kubernetes/live-object-status/live-status-page.png)
 :::
 
@@ -28,55 +24,10 @@ Kubernetes Live Object Status shows the live status of your Kubernetes objects a
 
 Using Kubernetes Live Object Status requires the following:
 
-- A Cloud Octopus Deploy instance
+- An Octopus Cloud instance
 - A [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) target
 - A project with a deployment process containing Kubernetes steps
   - The kubectl script step is currently unsupported
-
-## Installation
-
-The [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) has a new component called the [Kubernetes Monitor](/docs/kubernetes/targets/kubbernetes-agent/kubernetes-monitor) that is currently enabled for new installations.
-
-:::figure
-![Kubernetes agent install script with the Kubernetes Monitor enabled](/docs/kubernetes/live-object-status/agent-install-script.png)
-:::
-
-Once installed, you can confirm the status of the Kubernetes Monitor by looking at the Connectivity j page for the corresponding Kubernetes agent target.
-
-:::figure
-![Health check showing status of the Kubernetes Monitor](/docs/kubernetes/live-object-status/kubernetes-agent-health-check.png)
-:::
-
-### Upgrading an existing Kubernetes agent
-
-Coming soon, we are working on a one click upgrade process from within Octopus Deploy.
-
-If you can't wait until then, you can upgrade existing Kubernetes agents by running a Helm command on your cluster.
-
-Find the following values and replace them in the Helm command below
-
-|              |                                                 Value                                                  | Example                |
-| :----------- | :----------------------------------------------------------------------------------------------------: | :--------------------- |
-| INSTANCE_URL |              The URL you access your instance with, without https:// or a trailing slash               | my-instance.octopus.app |
-| API_KEY      | An [API key](/docs/octopus-rest-api/how-to-create-an-api-key) for your user, created from your profile | API-MYKEY              |
-| SPACE_ID     |              The ID of the space your agent is installed in, find this in any Octopus url              | Spaces-1               |
-| AGENT_NAME   |                                    The name of the Kubernetes agent                                    | My Agent               |
-| HELM_RELEASE |                   The name of the Helm release used to install the Kubernetes agent                    | my-agent                |
-
-```bash
-helm upgrade --atomic \
-  --namespace octopus-agent-upgrade \
-  --reuse-values \
-  --version "2.*.*" \
-  --set kubernetesMonitor.enabled="true" \
-  --set kubernetesMonitor.registration.serverApiUrl="https://$INSTANCE_URL/" \
-  --set kubernetesMonitor.monitor.serverGrpcUrl="grpc://$INSTANCE_URL:8443" \
-  --set kubernetesMonitor.registration.serverAccessToken="$API_KEY" \
-  --set kubernetesMonitor.registration.spaceId="$SPACE_ID" \
-  --set kubernetesMonitor.registration.machineName="$AGENT_NAME" \
-  $HELM_RELEASE \
-  oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
-```
 
 ## How to use Live Status
 
@@ -87,6 +38,10 @@ Once you have the Kubernetes Monitor enabled on your [Kubernetes Agent](/docs/ku
 :::
 
 Octopus display individual status at an object level as well as summarized status for an Application.
+
+:::figure
+![Live status page](/docs/kubernetes/live-object-status/live-status-page.png)
+:::
 
 ### Application status
 
