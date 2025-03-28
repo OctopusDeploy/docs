@@ -232,6 +232,7 @@ msiexec
 mssqldb
 MSSQLSERVER
 MTTR
+myagent
 myapplication
 Myatt
 myfeature

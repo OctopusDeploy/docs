@@ -282,7 +282,7 @@ You successfully completed your first deployment to Kubernetes! 🎉
 4. If you're deploying to the Kubernetes Agent, keep monitoring your application health using the [live object status](/docs/kubernetes/live-object-status) feature.
 
 :::figure
-![A screenshot of the Space dashboard showing live status](/docs/kubernetes/live-object-status/space-dashboard-live-status.png)
+![A screenshot of the Space dashboard showing live status](/docs/kubernetes/live-object-status/live-status-page.png)
 :::
 
 As you continue to explore Octopus Deploy, consider diving deeper into powerful features like [variables](https://octopus.com/docs/projects/variables), joining our [Slack community](http://octopususergroup.slack.com), or checking out our other tutorials to expand your knowledge. 
