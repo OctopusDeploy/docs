@@ -47,27 +47,27 @@ Octopus display individual status at an object level as well as summarized statu
 
 | Label       |                  Status Icon                   | Description                                                                 |
 | :---------- | :--------------------------------------------: | :-------------------------------------------------------------------------- |
-| Progressing |    <i class="fa-solid fa-circle-notch"></i>    | Objects in your application are currently in a progressing state            |
-| Healthy     |       <i class="fa-solid fa-heart"></i>        | The objects in your cluster match what was specified in the last deployment |
-| Unknown     |      <i class="fa-solid fa-question"></i>      | We’re having trouble getting live status updates for this application       |
-| Degraded    |    <i class="fa-solid fa-heart-crack"></i>     | Your objects experienced errors after the deployment completed              |
-| Out of Sync |      <i class="fa-solid fa-arrow-up"></i>      | The objects on your cluster no longer match what you last deployed          |
-| Missing     |       <i class="fa-solid fa-ghost"></i>        | Objects in your application are currently in a missing state                |
-| Unavailable | <i class="fa-solid fa-circle-exclamation"></i> | Application live status is unavailable because your last deployment failed  |
-| Waiting     |     <i class="fa-solid fa-hourglass"></i>      | Application live status will be available once the deployment completes     |
+| Progressing |    <i class="fa-solid fa-circle-notch blue"></i>    | Objects in your application are currently in a progressing state            |
+| Healthy     |       <i class="fa-solid fa-heart green"></i>        | The objects in your cluster match what was specified in the last deployment |
+| Unknown     |      <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting live status updates for this application       |
+| Degraded    |    <i class="fa-solid fa-heart-crack red"></i>     | Your objects experienced errors after the deployment completed              |
+| Out of Sync |      <i class="fa-solid fa-arrow-up orange"></i>      | The objects on your cluster no longer match what you last deployed          |
+| Missing     |       <i class="fa-solid fa-ghost grey"></i>        | Objects in your application are currently in a missing state                |
+| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application live status is unavailable because your last deployment failed  |
+| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>      | Application live status will be available once the deployment completes     |
 
 ### Object status
 
 | Label       |               Status Icon                | Description                                                                                |
 | :---------- | :--------------------------------------: | :----------------------------------------------------------------------------------------- |
-| Progressing | <i class="fa-solid fa-circle-notch"></i> | Object is attempting to reach the desired state                                            |
-| Healthy     |    <i class="fa-solid fa-heart"></i>     | Object is in sync and reporting that it is running as expected                             |
-| Unknown     |   <i class="fa-solid fa-question"></i>   | We don't have up-to-date information about the live status of this object                  |
-| Degraded    | <i class="fa-solid fa-heart-crack"></i>  | Object has run into a problem, check the logs or events to find out more                   |
-| Out of Sync |   <i class="fa-solid fa-arrow-up"></i>   | Object manifest is not the same as what was applied                                        |
-| Missing     |    <i class="fa-solid fa-ghost"></i>     | Object is missing from the cluster                                                         |
-| In Sync     |    <i class="fa-solid fa-check"></i>     | Object manifest matches what was applied, but does not report any additional health status |
-| Suspended   |    <i class="fa-solid fa-pause"></i>     | Job is not currently running                                                               |
+| Progressing | <i class="fa-solid fa-circle-notch blue"></i> | Object is attempting to reach the desired state                                            |
+| Healthy     |    <i class="fa-solid fa-heart green"></i>     | Object is in sync and reporting that it is running as expected                             |
+| Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have up-to-date information about the live status of this object                  |
+| Degraded    | <i class="fa-solid fa-heart-crack red"></i>  | Object has run into a problem, check the logs or events to find out more                   |
+| Out of Sync |   <i class="fa-solid fa-arrow-up orange"></i>   | Object manifest is not the same as what was applied                                        |
+| Missing     |    <i class="fa-solid fa-ghost grey"></i>     | Object is missing from the cluster                                                         |
+| In Sync     |    <i class="fa-solid fa-check green"></i>     | Object manifest matches what was applied, but does not report any additional health status |
+| Suspended   |    <i class="fa-solid fa-pause grey"></i>     | Job is not currently running                                                               |
 
 Take a look at our [troubleshooting guide](./troubleshooting/index.md) for details on why you may see some object statuses
 

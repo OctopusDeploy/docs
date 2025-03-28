@@ -44,12 +44,14 @@
 
   /* TODO: remove green-400 as it's being used in one place only */
   --green-400: #00ab62;
+  --green-500: #00874d;
   --green: #00e693ff;
   --light-green: #00ffa3ff;
 
   --red-500: #d63d3d;
 
   --orange-400: #ea7325;
+  --orange-500: #c45317;
 
   --blue-midnight-dark: #070e14ff;
   --blue-midnight-darker: #0a202fff;
@@ -65,6 +67,7 @@
   --blue-grey-smoke: #c5e6ff66;
 
   --grey: #555555ff; /* #777777 is low contrast (WCAG) */
+  --grey-500: #757575; /* #777777 is low contrast (WCAG) */
   --grey-light: #eef0f2ff;
   --grey-lighter: var(--navy-100);
 
@@ -199,9 +202,9 @@
   --octo-blue-lighter: #2f95e3ff;
   --octo-blue-lightest: #1fc0ffff;
 
-  --font-family-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-system: system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --font-family: var(--font-family-system);
   --heading-font: var(--font-family);
   --body-font: var(--font-family);
