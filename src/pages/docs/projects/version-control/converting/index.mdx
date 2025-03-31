@@ -8,6 +8,7 @@ navOrder: 10
 hideInThisSection: true
 icon: fa-brands fa-git-alt
 ---
+import VersionControlRepositoryUrlFormat from 'src/shared-content/version-control-repository-url-format.include.md';
 
 Git settings are configured per project and are accessed via the **Settings ➜ Version Control** link in the project navigation menu. This page will walk through how to convert a project to Git.
 
@@ -26,6 +27,8 @@ Click the **New Project** button and select **Use version control for this proje
 :::
 
 Once you click the **Save** button, you'll be sent to the version control screen to configure your version control settings. Enter the URL for your Git repository, your username and password / personal access token. 
+
+<VersionControlRepositoryUrlFormat />
 
 Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference).
 
