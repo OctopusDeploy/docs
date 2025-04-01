@@ -37,7 +37,7 @@ If the deployment step is a Helm deployment, Octopus retrieves the templated man
 
 ## How to use
 
-For each step that performs a Kubernetes deployment, there is a navigation tree with all the manifests listed under their deployment target and in the namespace they are deployed in. For non-namespaced resources, they are listed under the `Cluster-scoped` node.
+For each step that performs a Kubernetes deployment, there is a navigation tree with all the manifests listed under their deployment target and in their deployed namespace. For non-namespaced resources, they are listed under the `Cluster-scoped` node.
 
 :::figure
 ![A screenshot of the Kubernetes Applied Manifests navigation tree](/docs/deployments/kubernetes/deployment-verification/navigation-tree.png)
