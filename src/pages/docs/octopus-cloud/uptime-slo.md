@@ -13,7 +13,9 @@ Octopus Cloud's monthly uptime SLO is 99.99%.
 
 We calculate uptime as 100% of the month, less all unplanned downtime.  
 
-Planned maintenance is a key benefit of Octopus Cloud and is scheduled in advance, so we exclude it from our uptime SLO calculation. Other than in exceptional circumstances, planned maintenance occurs during the customer’s [maintenance window](/docs/octopus-cloud/maintenance-window). In the 8 months ending February 2025, planned maintenance averaged fewer than 9 minutes of downtime per week.
+Planned maintenance is a key benefit of Octopus Cloud and is scheduled in advance, so we exclude it from our uptime SLO calculation. Other than in exceptional circumstances, planned maintenance occurs during the customer’s [maintenance window](/docs/octopus-cloud/maintenance-window).
+
+In the 9 months ending February 2025, Octopus Cloud customers averaged fewer than 9 minutes of downtime per week, including all scheduled maintenance.
 
 ## Uptime Track Record
 
@@ -23,6 +25,7 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 
 | Month  | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
 | :----- | ------: | ------: | ------: | ------: |
+| March 2025 | 99.9809% | 119s | 99.9292% | 434s |
 | February 2025 | 100% | 0s | 99.9212% | 483s |
 | January 2025 | 99.9924% | 49s | 99.9397% | 371s |
 | December 2024 | 100% | 0s | 99.9666% | 203s |
@@ -34,7 +37,6 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 | June 2024 | 99.9931% | 49s | 99.9196% | * 490s |
 | May 2024 | 99.9976% | 21s | - | - |
 | April 2024 | 99.9687% | 189s | - | - |
-| March 2024 | 99.9914% | 56s | - | - |
 
 \* We began capturing planned downtime metrics on June 10, 2024.
 
