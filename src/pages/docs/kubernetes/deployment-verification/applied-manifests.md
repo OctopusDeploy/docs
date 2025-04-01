@@ -45,7 +45,7 @@ For each step that performs a Kubernetes deployment, there is a navigation tree 
 
 If Kubernetes Object Status/Step Verification is enabled, an icon indicating the health of the resource is shown on the resource. See [here](/docs/kubernetes/deployment-verification) for more information.
 
-On the right-hand side, the individual manifests are displayed in collapsible sections
+On the right-hand side, the individual manifests are displayed in collapsible sections.
 
 :::figure
 ![A screenshot of the Kubernetes Applied Manifests manifests list](/docs/deployments/kubernetes/deployment-verification/manifests.png)
@@ -53,14 +53,14 @@ On the right-hand side, the individual manifests are displayed in collapsible se
 
 ## Kubernetes Secret resources and Octopus sensitive variables
 
-To protect your Octopus sensitive values, Octopus will obfuscate these values if they are substituted into when displaying the manifest. For Kubernetes Secrets, we obfuscate _all_ values, no matter if they were sourced from Octopus sensitive variables or other mechanisms.
+To protect your Octopus sensitive values, Octopus will obfuscate these values if they are substituted into when displaying the manifest. For Kubernetes Secrets, we obfuscate _all_ values regardless of whether they came from Octopus sensitive variables or other sources.
 
 :::figure
 ![A screenshot of an obfuscated Kubernetes Secret manifests ](/docs/deployments/kubernetes/deployment-verification/secret.png)
 :::
 
 :::div{.warning}
-It is highly recommended that if you are using variable substitution to add Octopus sensitive variables to your manifests that you store these variables in Kubernetes `Secret` resources.
-You can correctly base64 format the sensitive variable using the following syntax
-`#{ MySensitiveValue | ToBase64 }
+It is highly recommended when using variable substitution to add Octopus sensitive variables to your manifests that you store these variables in Kubernetes `Secret` resources.
+You can correctly base64 format the sensitive variable using the following syntax:
+`#{ MySensitiveValue | ToBase64 }`
 :::
