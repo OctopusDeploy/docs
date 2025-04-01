@@ -2566,16 +2566,32 @@ a[data-youtube] {
   font-family: fa-solid;
 }
 
+.fa-spinner.blue {
+  color: var(--blue-500);
+}
+
 .fa-circle-check:before {
   content: '\f058';
   color: var(--green-400);
   font-family: fa-solid;
 }
 
+.fa-heart.green {
+  color: var(--green-400);
+}
+
 .fa-circle-xmark:before {
   content: '\f057';
   color: var(--red-500);
   font-family: fa-solid;
+}
+
+.fa-heart-crack.red {
+  color: var(--red-500);
+}
+
+.fa-clock.orange {
+  color: var(--orange-400);
 }
 
 .fa-clock:before {

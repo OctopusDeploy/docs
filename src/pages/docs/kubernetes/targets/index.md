@@ -6,7 +6,7 @@ title: Kubernetes Targets
 navTitle: Overview
 navSection: Targets
 description: Kubernetes deployment targets
-navOrder: 50
+navOrder: 10
 ---
 
 To deploy your application to a Kubernetes cluster, you need Octopus Deploy to know that the cluster exists and how to access it. The cluster is your deployment destination. To represent deployment destinations, Octopus uses [deployment targets](/docs/infrastructure/deployment-targets) (a virtual entity). 
