@@ -69,7 +69,7 @@ Octopus display individual status at an object level as well as summarized statu
 | In Sync     |    <i class="fa-solid fa-check green"></i>    | Object manifest matches what was applied, but does not report any additional health status |
 | Suspended   |    <i class="fa-solid fa-pause grey"></i>     | Job is not currently running                                                               |
 
-Take a look at our [troubleshooting guide](./troubleshooting/index.md) for details on why you may see some object statuses
+Take a look at our [troubleshooting guide](/docs/kubernetes/live-object-status/troubleshooting) for details on why you may see some object statuses
 
 ### Detailed object information
 
