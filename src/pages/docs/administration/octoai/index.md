@@ -51,28 +51,36 @@ It is not possible to integrate the Octopus Copilot Extension with an on-premise
 ## FAQ
 
 Q: What data is collected?
+
 A: We collect prompts entered into OctoAI. All logs are sanitized to remove personally identifiable information. We do not log:
 * Prompt responses
 * Sensitive values
 * Octopus configurations
 
 Q: Is my data used to train AI models?
+
 A: No, we do not train AI models on customer data. We use the Azure OpenAI platform, and [Azure does not use customer data to train models either](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy?tabs=azure-portal).
 
 Q: How do I turn off OctoAI?
+
 A: Disabling or uninstalling the Chrome extension will disable OctoAI.
 
 Q: How much does the service cost?
+
 A: The service is free during the Alpha phase.
 
 Q: How secure is the service?
+
 A: OctoAI is implemented as an external service that accesses Octopus via the API. This means OctoAI does not have access to any sensitive values, as the API never exposes sensitive values. It also means access to the Octopus instance is limited by the existing permissions of the current user. Additionally, OctoAI shares the same backend as the Octopus Copilot Extension, which has been audited by an independent external security team. The report is available via the [trust center](https://trust.octopus.com/).
 
 Q: Can I see the source code?
+
 A: Yes. The OctoAI backend source code is available from [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusCopilot).
 
 Q: Do I need to sign up for an account?
+
 A: No, OctoAI is self-contained and only requires access to an Octopus instance.
 
 Q: Is OctoAI a supported service?
+
 A: No, the OctoAI Alpha is not subject to any existing SLAs or support agreements. It is an experimental feature that may not be supported through regular channels. It may change drastically or may never ship.
