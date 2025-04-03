@@ -42,7 +42,7 @@ OctoAI is delivered via a Chrome extension which is available from the [Chrome S
 
 OctoAI is implemented as an Azure Function. The function must be able to call the Octopus API.
 
-On-premises Octopus instances must allow HTTP requests from the IP addresses listed in [this file](https://github.com/OctopusSolutionsEngineering/OctopusCopilot/blob/main/outboundips.txt) in order to integrate with the Octopus Copilot Extension. These IP addresses represent the possible addresses that the Octopus Copilot Extension may use when making API requests to an Octopus instance.
+On-premises Octopus instances must allow HTTP requests from the IP addresses listed in [this file](https://github.com/OctopusSolutionsEngineering/OctopusCopilot/blob/main/outboundips.txt) in order to integrate with the OctoAI backend. These IP addresses represent the possible addresses that the Octopus Copilot Extension may use when making API requests to an Octopus instance.
 
 :::div{.warning}
 It is not possible to integrate the Octopus Copilot Extension with an on-premises Octopus instance that can not accept HTTP requests from these public IP addresses.
@@ -70,3 +70,6 @@ A: OctoAI is implemented as an external service that accesses Octopus via the AP
 
 Q: Can I see the source code?
 A: Yes. The OctoAI backend source code is available from [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusCopilot).
+
+Q: Do I need to sign up for an account?
+A: No, OctoAI is self-contained and only requires access to an Octopus instance.
