@@ -53,7 +53,7 @@ Use this checklist to guide you as to the complexity of your migration. The more
 | Do you have specific security requirements or policies around accessing deployment targets or managing API keys? | You will need to manage these through the migration.  |
 | Do you need to retain historical data and task logs? | Historical data and task logs are **not supported by Export/Import Projects**. You will need to continue to host the older version to retain historical data. |
 | How long are your Audit log retention policies? | Octopus Cloud archived audit logs has **a max of 365 days** |
-| Do you have any Projects using Config-as-Code? | Config-as-Code Projects requires Octopus **2025.2.x** |
+| Do you have any Projects using Config-as-Code? | Config-as-Code Projects requires Octopus **2025.2.5601** |
 | Do you store build information?  | You will need to continue to host the older version to retain historical data, as build information **is not migrated**. |
 | Do you have any subscriptions? | Subscription migration is **not supported by Export/Import Projects**. These will need to be migrated manually or with a script. |
 | How many variable sets do you use? | Variable sets should be named uniquely. When importing, if a variable set with the same name already exists, the variables will be merged. If a variable in the export doesn’t exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched. |
