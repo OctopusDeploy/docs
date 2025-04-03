@@ -12,8 +12,8 @@ import OctopusCloudStorageLimits from 'src/shared-content/octopus-cloud/octopus-
 For full instructions on migrating to Octopus Cloud see our [migration docs](/docs/octopus-cloud/migrations) 
 :::
 
-:::div{.warning}
-**Version-controlled projects are not currently supported**
+:::div{.info}
+Support for version-controlled projects was added in Octopus **2025.2.x**
 :::
 
 :::div{.warning}
@@ -75,6 +75,7 @@ The root of the export/import is a project (or multiple projects).  The simple r
 - [Variable sets](#library-variable-sets) included in the project 
 - [Step templates](#step-templates) used in the deployment process or runbooks
 - Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step)
+- [Git credentials](#git-credentials) used for a projects version-control settings
 
 It is worth explicitly mentioning some things that are **not included**:
 
@@ -84,6 +85,7 @@ It is worth explicitly mentioning some things that are **not included**:
 - [Workers](#workers)
 - [Project logos](#project-logos) 
 - [Triggers](#triggers)
+- [GitHub connection](#github-connection) used for a projects version-control settings
 
 ### Shared resources \{#shared-resources}
 
@@ -187,6 +189,20 @@ The project logo will be available when exporting between spaces on the same ins
 ### Triggers
 
 Triggers are also not currently included, and will need to be reconfigured in the destination instance.  
+
+### Git Credentials \{#git-credentials}
+
+Git credentials used to connect a project to Git will be exported.
+
+:::div{.warning}
+Git credentials used on steps to source files from Git will not be exported.
+:::
+
+### GitHub Connection \{#github-connection}
+
+:::div{.warning}
+GitHub connection used by a version-controlled project will not be exported, due to that we can't re-configure GitHub connections on the destination side, because IDs and other detials are all instance-specific on the GitHub App side.
+:::
 
 ## Moving to Octopus Cloud \{#octopus-cloud}
 
