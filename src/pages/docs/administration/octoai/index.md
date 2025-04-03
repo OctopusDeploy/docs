@@ -8,7 +8,7 @@ navOrder: 100
 hideInThisSection: true
 ---
 
-OctoAI is a Alpha feature currently under development that integrates AI functionality into the Octopus user interface. The goal of OctoAI is:
+OctoAI is a Alpha feature currently under development to integrate AI functionality into the Octopus user interface. The goal of OctoAI is:
 
 * To support new Octopus users as they get started with the platform
 * To guide teams with large existing Octopus spaces with best practices and suggestions to optimize and scale their Octopus usage
