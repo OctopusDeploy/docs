@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2025-04-03
 title: Dynamically selecting packages at deployment time
 description: You can configure Octopus to dynamically resolve package details, including Feed and Package ID at deployment time by using variables. This can be useful if you want a different package feed for each environment, or a different package per environment or tenant.
 navOrder: 0
@@ -75,14 +75,18 @@ There are some downsides to using dynamic packages. Firstly it becomes complex q
 
 Where possible we recommend keeping the number and size of dynamic packages to a minimum. Some strategies which can help with this are:
 
-1. Try building any environment- or tenant-specific differences using configuration instead of requiring an entirely different package.
-2. Try to keep everything that is common about your application together, pushing environment- or tenant-specific differences into small satellite packages.
+1. Try building any environment or tenant-specific differences using configuration instead of requiring an entirely different package.
+2. Try to keep everything that is common about your application together, pushing environment or tenant-specific differences into small satellite packages.
 
 ### Dynamic packages and retention policies
 
-If you use a binding expression for the Package ID It becomes more difficult to look at a release and understand exactly which packages will be deployed. This prevents package retention policies from working properly for the built-in package feed, and on deployment targets.
+If you use a binding expression for the Package ID, it becomes more difficult to look at a release and understand exactly which packages will be deployed. This prevents package retention policies from working properly for the built-in package feed and on deployment targets.
 
 Learn about [retention policies](/docs/administration/retention-policies).
+
+### Dynamic packages and issue trackers
+
+When using a variable expression for the Package ID, you may lose the ability to use [issue tracking](/docs/releases/issue-tracking) in your releases and deployments. If Octopus can't evaluate the variable expression at the time of release creation, Octopus will be unable to link your packages with the associated [build information](/docs/packaging-applications/build-servers/build-information) records. The result will mean no commits or workitems (issues) will be included in the release. This also prevents Octopus updating any issue tracker with deployment information where supported e.g., [JIRA](/docs/releases/issue-tracking/jira).
 
 ## Troubleshooting
 
