@@ -73,3 +73,6 @@ A: Yes. The OctoAI backend source code is available from [GitHub](https://github
 
 Q: Do I need to sign up for an account?
 A: No, OctoAI is self-contained and only requires access to an Octopus instance.
+
+Q: Is OctoAI a supported service?
+A: No, the OctoAI Alpha is not subject to any existing SLAs or support agreements. It is an experimental feature that may not be supported through regular channels. It may change drastically or may never ship.
