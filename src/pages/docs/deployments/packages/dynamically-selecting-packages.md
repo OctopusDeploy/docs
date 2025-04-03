@@ -86,7 +86,7 @@ Learn about [retention policies](/docs/administration/retention-policies).
 
 ### Dynamic packages and issue trackers
 
-When using a variable expression for the Package ID, you may lose the ability to use [issue tracking](/docs/releases/issue-tracking) in your releases and deployments. If Octopus can't evaluate the variable expression at the time of release creation, Octopus will be unable to link your packages with the associated [build information](/docs/packaging-applications/build-servers/build-information) records. The result will mean no commits or Workitems (issues) will be included in the release. This also prevents Octopus updating any issue tracker with deployment information where supported e.g., [JIRA](/docs/releases/issue-tracking/jira).
+When using a variable expression for the Package ID, you may lose the ability to use [issue tracking](/docs/releases/issue-tracking) in your releases and deployments. If Octopus can't evaluate the variable expression at the time of release creation, Octopus will be unable to link your packages with the associated [build information](/docs/packaging-applications/build-servers/build-information) records. The result will mean no commits or work items (issues) will be included in the release. This also prevents Octopus updating any issue tracker with deployment information where supported e.g., [JIRA](/docs/releases/issue-tracking/jira).
 
 ## Troubleshooting
 
