@@ -117,4 +117,4 @@ Ensure you're using [pre-release versions](/docs/releases/deployment-changes#ver
 
 Build information may not appear in a release or deployment if you [dynamically select a package ID at deployment time](/docs/deployments/packages/dynamically-selecting-packages). 
 
-See the [dynamic package tradeoffs](docs/deployments/packages/dynamically-selecting-packages#dynamic-packages-and-issue-trackers) section for more information.
+See the [dynamic package tradeoffs](/docs/deployments/packages/dynamically-selecting-packages#dynamic-packages-and-issue-trackers) section for more information.
