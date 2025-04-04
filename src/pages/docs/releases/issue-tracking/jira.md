@@ -227,7 +227,7 @@ If you find your work items or other build information aren't showing up in your
 
 Build information and work items may not appear in a release or deployment if you [dynamically select a package ID at deployment time](/docs/deployments/packages/dynamically-selecting-packages). 
 
-See the [dynamic package tradeoffs](docs/deployments/packages/dynamically-selecting-packages#dynamic-packages-and-issue-trackers) section for more information.
+See the [dynamic package tradeoffs](/docs/deployments/packages/dynamically-selecting-packages#dynamic-packages-and-issue-trackers) section for more information.
 
  ## Learn more
 
