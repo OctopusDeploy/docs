@@ -6,6 +6,10 @@ title: OctoAI
 description: How to use OctoAI
 navOrder: 100
 hideInThisSection: true
+navSearch: false
+navSitemap: false
+navMenu: false
+robots: noindex, follow
 ---
 
 OctoAI is a Alpha feature currently under development to integrate AI functionality into the Octopus user interface. The goal of OctoAI is:
@@ -16,6 +20,15 @@ OctoAI is a Alpha feature currently under development to integrate AI functional
 :::div{.warning}
 The OctoAI Alpha is a feature released to an audience who has opted-in to provide feedback. The feature is not finished or fully tested. It may not be supported through regular channels. It may change drastically or may never ship.
 :::
+
+![OctoAI Screenshot](/docs/administration/octoai/octoai.png)
+
+## What can I do with OctoAI?
+
+* Onboard new DevOps teams to Octopus with prompts like `What is an Octopus Runbook?`
+* Generate Terraform configuration for the Octopus Terraform provider with prompts like `Generate a Terraform module that creates 3 environments called "Development", "Test", and "Production"`
+* Optimize your Octopus space with prompts like `Check the space for unused projects` and `Find unused variables in the project.`
+* Debug failed deployments with prompts like `Why did the deployment fail?`
 
 ## We want your feedback!
 
