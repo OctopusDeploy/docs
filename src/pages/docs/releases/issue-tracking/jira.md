@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2025-04-03
 title: Jira issue tracking
 description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 navOrder: 20
@@ -222,6 +222,12 @@ If you have a [built-in package repository trigger](/docs/projects/project-trigg
 ### Check the entire package ID {#troubleshooting-check-the-entire-package-id}
 
 If you find your work items or other build information aren't showing up in your releases, make sure your package ID as shown in the release is the exact same as it is found in the **Library ➜ Build Information** section. Some package ID values, particularly those found in external feeds must include the repository. For example, if you were pushing build information for the docker image `octopusdeploy/worker-tools`, the value for the package ID needs to include the repository name of `octopusdeploy/` as well as the name of the docker image, not just `worker-tools`. 
+
+### Check the package ID is not dynamically generated {#troubleshooting-check-dynamic-package-id}
+
+Build information and work items may not appear in a release or deployment if you [dynamically select a package ID at deployment time](/docs/deployments/packages/dynamically-selecting-packages). 
+
+See the [dynamic package tradeoffs](/docs/deployments/packages/dynamically-selecting-packages#dynamic-packages-and-issue-trackers) section for more information.
 
  ## Learn more
 

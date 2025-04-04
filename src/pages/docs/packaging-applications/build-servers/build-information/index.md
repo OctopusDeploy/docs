@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-20
+modDate: 2025-04-03
 title: Passing build information to Octopus
 navTitle: Build information
 description: Integrate your commits and work items with Octopus Deploy.
@@ -112,3 +112,9 @@ From Octopus **2024.2** build information can be viewed on deployments.
 :::div{.warning}
 Ensure you're using [pre-release versions](/docs/releases/deployment-changes#versioning) for any releases that aren't intended to be a production release. Any releases that aren't a pre-release will be treated as a full release by Octopus, which can result in deployments containing a larger amount of build information than intended.
 :::
+
+## Build information with dynamic packages {#build-info-with-dynamic-packages}
+
+Build information may not appear in a release or deployment if you [dynamically select a package ID at deployment time](/docs/deployments/packages/dynamically-selecting-packages). 
+
+See the [dynamic package tradeoffs](/docs/deployments/packages/dynamically-selecting-packages#dynamic-packages-and-issue-trackers) section for more information.
