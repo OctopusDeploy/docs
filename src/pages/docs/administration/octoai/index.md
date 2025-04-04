@@ -6,6 +6,10 @@ title: OctoAI
 description: How to use OctoAI
 navOrder: 100
 hideInThisSection: true
+navSearch: false
+navSitemap: false
+navMenu: false
+robots: noindex, follow
 ---
 
 OctoAI is a Alpha feature currently under development to integrate AI functionality into the Octopus user interface. The goal of OctoAI is:
