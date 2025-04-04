@@ -23,6 +23,13 @@ The OctoAI Alpha is a feature released to an audience who has opted-in to provid
 
 ![OctoAI Screenshot](/docs/administration/octoai/octoai.png)
 
+## What can I do with OctoAI?
+
+* Onboard new DevOps teams to Octopus with prompts like `What is an Octopus Runbook?`
+* Generate Terraform configuration for the Octopus Terraform provider with prompts like `Generate a Terraform module that creates 3 environments called "Development", "Test", and "Production"`
+* Optimize your Octopus space with prompts like `Check the space for unused projects` and `Find unused variables in the project.`
+* Debug failed deployments with prompts like `Why did the deployment fail?`
+
 ## We want your feedback!
 
 We are looking for feedback on the OctoAI feature, specifically:
