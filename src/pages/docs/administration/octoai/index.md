@@ -21,6 +21,8 @@ OctoAI is a Alpha feature currently under development to integrate AI functional
 The OctoAI Alpha is a feature released to an audience who has opted-in to provide feedback. The feature is not finished or fully tested. It may not be supported through regular channels. It may change drastically or may never ship.
 :::
 
+![OctoAI Screenshot](/docs/administration/octoai/octoai.png)
+
 ## We want your feedback!
 
 We are looking for feedback on the OctoAI feature, specifically:
