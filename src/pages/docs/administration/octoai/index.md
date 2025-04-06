@@ -55,7 +55,7 @@ OctoAI is delivered via a Chrome extension which is available from the [Chrome S
 
 OctoAI is implemented as an Azure Function. The function must be able to call the Octopus API.
 
-On-premises Octopus instances must allow HTTP requests from the IP addresses found in the [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) JSON file under the item named `AzureCloud.eastus`  in order to integrate with the OctoAI backend. These IP addresses represent the possible addresses that the OctoAI may use when making API requests to an Octopus instance.
+On-premises Octopus instances must allow HTTP requests from the IP addresses found in the [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) JSON file, under the item named `AzureCloud.eastus`, in order to integrate with the OctoAI backend. These IP addresses represent the possible addresses that the OctoAI may use when making API requests to an Octopus instance.
 
 This is the relevant [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-functions/ip-addresses?tabs=portal#find-outbound-ip-addresses):
 
