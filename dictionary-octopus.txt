@@ -103,6 +103,7 @@ dpkg
 dryrun
 Dspring
 DWORD
+eastus
 EBNF
 echoerror
 elbv2
