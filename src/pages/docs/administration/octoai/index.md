@@ -55,7 +55,7 @@ OctoAI is delivered via a Chrome extension which is available from the [Chrome S
 
 OctoAI is implemented as an Azure Function. The function must be able to call the Octopus API.
 
-On-premises Octopus instances must allow HTTP requests from the `51.8.40.170`.
+On-premises Octopus instances must allow HTTP requests from the IP address `51.8.40.170`.
 
 :::div{.warning}
 It is not possible to integrate OctoAI with an on-premises Octopus instance that can not accept HTTP requests from this public IP address.
