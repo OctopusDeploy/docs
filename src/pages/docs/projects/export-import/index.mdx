@@ -205,6 +205,11 @@ For version-controlled projects the following resources will not be exported
 GitHub connections used by version-controlled projects will not be exported, as we can't re-configure GitHub connections on the destination side because IDs and other details are all instance-specific on the GitHub App side.
 :::
 
+Version-controlled projects using GitHub connections can still be exported but with a couple of options before importing the project:
+
+- The original project needs to be deleted (as it will still point to the same folder as the imported project and this is not supported), or
+- The path to where the files are stored in Git needs to be changed on either the original or imported project, so they do not clash, before reconnecting the imported project to GitHub
+
 #### Resources used by steps referenced by slug
 
 The following resources that can be used on steps will not be exported but as they are referenced by their slug, recreating the resource in the destination with the same name/slug would link these back up without any other manual intervention.
