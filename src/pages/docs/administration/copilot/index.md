@@ -11,7 +11,7 @@ hideInThisSection: true
 The Octopus extension for GitHub Copilot allows read only queries of cloud Octopus instances via GitHub Copilot.
 
 :::div{.warning}
-The Octopus extension is in early access. It is not covered by service level agreements.
+The Octopus extension an Alpha release. It is not covered by service level agreements.
 :::
 
 The goal of the Octopus extension is to allow developers to remain in a state of flow by querying their Octopus instance from their favorite IDE or any platform that supports GitHub Copilot. The Octopus extension allows Devops teams to query the state of deployments, extract useful information from log files, build custom reports, and get answers to common questions with natural language prompts.
@@ -34,10 +34,10 @@ The Octopus extension is available for cloud Octopus instances. Click [here](htt
 
 The Octopus Copilot Extension is implemented as an Azure Function. The function must be able to call the Octopus API.
 
-On-premises Octopus instances must allow HTTP requests from the IP addresses listed in [this file](https://github.com/OctopusSolutionsEngineering/OctopusCopilot/blob/main/outboundips.txt) in order to integrate with the Octopus Copilot Extension. These IP addresses represent the possible addresses that the Octopus Copilot Extension may use when making API requests to an Octopus instance.
+On-premises Octopus instances must allow HTTP requests from the IP address `51.8.40.170`.
 
 :::div{.warning}
-It is not possible to integrate the Octopus Copilot Extension with an on-premises Octopus instance that can not accept HTTP requests from these public IP addresses.
+It is not possible to integrate the Octopus Copilot Extension with an on-premises Octopus instance that can not accept HTTP requests from this public IP address.
 :::
 
 ### Creating the Octopus API key
