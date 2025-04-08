@@ -115,7 +115,7 @@ This Microsoft TechNet [article](https://technet.microsoft.com/en-us/library/cc7
 
 ## Deploying Services built with Topshelf {#WindowsServices-DeployingServicesBuiltWithTopshelf}
 
-[Topshelf](http://topshelf-project.com/) is a library to build and work with Windows Services easily by allowing your code to run (and be debugged) inside a Console Application, but giving you the option to install and run as a Windows Service.
+Topshelf is a library to build and work with Windows Services easily by allowing your code to run (and be debugged) inside a Console Application, but giving you the option to install and run as a Windows Service.
 
 While Topshelf has its own command line options to make Service Registration easy, you can still use SC.EXE. This means that deploying a Topshelf enabled application as a Windows Service is easy using the Octopus service deploy feature. The only caveat is the value you specify in the Service Name parameter must match the Service Name specified in your Topshelf configuration code (in Program.cs) or the service will not start.
 
