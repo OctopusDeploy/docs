@@ -31,7 +31,12 @@ Once registered, this `Role` is deleted.
 Once the monitor is registered, the Kubernetes monitor is a read only entity.
 
 To enabled this a `ClusterRole` is created for use by the Kubernetes monitor with the `get`, `watch` and `list` verbs for all groups and resources.
- 
+
+## Upgrading
+
+The Kubernetes monitor's upgrade process is directly tied to the Kubernetes agent.
+
+See [how upgrades work for the Kubernetes agent here](./upgrading.md)
 
 ## Troubleshooting
 
