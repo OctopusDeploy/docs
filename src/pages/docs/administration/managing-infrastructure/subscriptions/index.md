@@ -224,84 +224,84 @@ The following is a list of all options for subscriptions including Event Groups,
 | Task canceled                                          |
 | User password changed                                  |
 
-| DOCUMENT TYPES                        |
-|---------------------------------------|
-| Account                               |
-| Action Template                       |
-| Action Template Version               |
-| Api Key                               |
-| Artifact                              |
-| Auto Deploy Queue Item                |
-| Build Information                     |
-| Certificate                           |
-| Channel                               |
-| Community Action Template             |
-| Connect Project to Tenants Task       |
-| Dashboard Configuration               |
-| Data Migration State                  |
-| Deleted Space                         |
-| Deployment                            |
-| Deployment Completion                 |
-| Deployment Environment                |
-| Deployment Freeze                     |
-| Deployment Freeze Override            |
-| Deployment History                    |
-| Deployment Process                    |
-| Deployment Settings                   |
-| Deployment Target Tag                 |
-| Deprecation Usage                     |
-| Event                                 |
-| Extension Configuration               |
-| Feature Toggle                        | 
+| DOCUMENT TYPES                       |
+|--------------------------------------|
+| Account                              |
+| Action Template                      |
+| Action Template Version              |
+| Api Key                              |
+| Artifact                             |
+| Auto Deploy Queue Item               |
+| Build Information                    |
+| Certificate                          |
+| Channel                              |
+| Community Action Template            |
+| Connect Project to Tenants Task      |
+| Dashboard Configuration              |
+| Data Migration State                 |
+| Deleted Space                        |
+| Deployment                           |
+| Deployment Completion                |
+| Deployment Environment               |
+| Deployment Freeze                    |
+| Deployment Freeze Override           |
+| Deployment History                   |
+| Deployment Process                   |
+| Deployment Settings                  |
+| Deployment Target Tag                |
+| Deprecation Usage                    |
+| Event                                |
+| Extension Configuration              |
+| Feature Toggle                       | 
 | Feature Toggle Publishing Signing Key |
-| Feed                                  |
-| Git Credential                        | 
-| Git Hub App Connection                |
-| Git Hub App Token                     |
-| Insights Report                       |
-| Interruption                          |
-| Invitation                            |
-| Kubernetes Monitor                    |
-| Kubernetes Resource Manifest          |
-| Kubernetes Task Resource Status       |
-| Library Variable Set                  |
-| Lifecycle                             |
-| Machine                               |
-| Machine Policy                        |
-| Octopus Server Node                   | 
-| Process Execution                     |
-| Project                               |
-| Project Group                         |
-| Project Intents                       |
-| Project Trigger                       |
-| Proxy                                 |
-| Release                               |
-| Runbook                               |
-| Runbook Process                       |
-| Runbook Run                           |
-| Runbook Run History                   |
-| Runbooks Snapshot                     |
-| Sample Project                        |
-| Scoped User Role                      |
-| Server Task                           |
-| Server Task Approval                  |
-| Server Account Oidc Identity          |
-| Signing Key                           |
-| Space                                 |
-| Subscription                          |
-| Tag Set                               |
-| Team                                  |
-| Tenant                                |
-| Tenant Variable                       |
-| User                                  |
-| User Favourite Project                |
-| User Onboarding                       |
-| User Role                             |
-| User Session                          |
-| Variable Set                          |
-| Worker                                |
-| Worker Pool                           |
-| Worker Task Lease                     |
+| Feed                                 |
+| Git Credential                       | 
+| Git Hub App Connection               |
+| Git Hub App Token                    |
+| Insights Report                      |
+| Interruption                         |
+| Invitation                           |
+| Kubernetes Monitor                   |
+| Kubernetes Resource Manifest         |
+| Kubernetes Task Resource Status      |
+| Library Variable Set                 |
+| Lifecycle                            |
+| Machine                              |
+| Machine Policy                       |
+| Octopus Server Node                  | 
+| Process Execution                    |
+| Project                              |
+| Project Group                        |
+| Project Intents                      |
+| Project Trigger                      |
+| Proxy                                |
+| Release                              |
+| Runbook                              |
+| Runbook Process                      |
+| Runbook Run                          |
+| Runbook Run History                  |
+| Runbooks Snapshot                    |
+| Sample Project                       |
+| Scoped User Role                     |
+| Server Task                          |
+| Server Task Approval                 |
+| Server Account Oidc Identity         |
+| Signing Key                          |
+| Space                                |
+| Subscription                         |
+| Tag Set                              |
+| Team                                 |
+| Tenant                               |
+| Tenant Variable                      |
+| User                                 |
+| User Favorite Project                |
+| User Onboarding                      |
+| User Role                            |
+| User Session                         |
+| Variable Set                         |
+| Worker                               |
+| Worker Pool                          |
+| Worker Task Lease                    |
 
 \* License key expiry events are only available in Octopus Server version `2025.2.6402` and later.
 
