@@ -28,3 +28,5 @@ If the validation checks fail, don't worry, install the [previously installed ve
 ### Database upgrades
 
 Each release of Octopus Deploy contains 0 to N database scripts to upgrade the database.  The scripts are run in a transaction; when an error occurs, the transaction is rolled back.  If a rollback does happen, gather the logs and send them to our [support team](https://octopus.com/support) for troubleshooting.  You can install the previous version to get your CI/CD pipeline back up and running.
+
+If you use PAAS to host your Octopus Deploy database it is recommended to consider scaling up the database prior to the upgrade, especially if the upgrade spans a large version range and will therefore have an increased number of database scripts to run.
