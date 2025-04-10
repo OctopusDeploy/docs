@@ -144,8 +144,8 @@ The following is a list of all options for subscriptions including Event Groups,
 | Deployment critical-events                    |
 | Deployment events                             |
 | Document events                               |
-| License key expiry events *                   |
-| License usage events **                       |
+| License key expiry events \*                  |
+| License usage events \*\*                     |
 | Machine becomes available for deployment      |
 | Machine critical-events                       |
 | Machine events                                |
@@ -184,13 +184,13 @@ The following is a list of all options for subscriptions including Event Groups,
 | Guided failure interruption raised                     |
 | Import complete                                        |
 | IP address banned                                      |
-| License key expired *                                  |
-| License key expiry 10-day warning *                    |
-| License key expiry 20-day warning *                    |
-| License usage at 80% warning **                        |
-| License usage at 90% warning **                        |
-| License usage at 95% warning **                        |
-| License usage at limit **                              |
+| License key expired \*                                 |
+| License key expiry 10-day warning \*                   |
+| License key expiry 20-day warning \*                   |
+| License usage at 80% warning \*\                       |
+| License usage at 90% warning \*\*                      |
+| License usage at 95% warning \*\*                      |
+| License usage at limit \*\*                            |
 | Login banned                                           |
 | Login failed                                           |
 | Login succeeded                                        |
@@ -305,4 +305,4 @@ The following is a list of all options for subscriptions including Event Groups,
 
 \* License key expiry events are only available in Octopus Server version `xxxx.y.z` and later.
 
-\** License usage events are only available in Octopus Server version `xxxx.y.z` and later.
+\*\* License usage events are only available in Octopus Server version `xxxx.y.z` and later.
