@@ -36,9 +36,9 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 
 | Field                       | Meaning                                  |
 | --------------------------------------- | ---------------------------------------- |
-| **VHD application path**          | The relative path to your application within your VHD. Octopus will use this to run deployment features, such as config transforms and variable substitution in files, only on this folder, rather than on the entire VHD. Examples: `MyApplication` and `PublishedApps\MyApplication`          |
-| **Add VHD to Hyper-V**  |  Attach the VHD to an existing Hyper-V virtual machine. Octopus will shutdown the virtual machine, add the VHD (replacing the current first virtual drive if there is one) then restart the virtual machine. |
-| **Virtual Machine Name**  |  The name of the virtual machine to add the VHD to. |
+| VHD application path          | The relative path to your application within your VHD. Octopus will use this to run deployment features, such as config transforms and variable substitution in files, only on this folder, rather than on the entire VHD. Examples: `MyApplication` and `PublishedApps\MyApplication`          |
+| Add VHD to Hyper-V  |  Attach the VHD to an existing Hyper-V virtual machine. Octopus will shutdown the virtual machine, add the VHD (replacing the current first virtual drive if there is one) then restart the virtual machine. |
+| Virtual Machine Name  |  The name of the virtual machine to add the VHD to. |
 
 ## Accessing the VHD in deployment scripts {#access-vhd-in-deployment-scripts}
 
