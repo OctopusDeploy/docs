@@ -224,7 +224,7 @@ The following is a list of all options for subscriptions including Event Groups,
 | Task canceled                                          |
 | User password changed                                  |
 
- | DOCUMENT TYPES                        |
+| DOCUMENT TYPES                        |
 |---------------------------------------|
 | Account                               |
 | Action Template                       |
