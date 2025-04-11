@@ -13,10 +13,6 @@ For full instructions on migrating to Octopus Cloud see our [migration docs](/do
 :::
 
 :::div{.warning}
-**Version-controlled projects are not currently supported**
-:::
-
-:::div{.warning}
 Migrations can only be performed from an earlier or equal version of Octopus Server. It cannot be used to migrate resources to an older version.
 :::
 
@@ -75,6 +71,7 @@ The root of the export/import is a project (or multiple projects).  The simple r
 - [Variable sets](#library-variable-sets) included in the project 
 - [Step templates](#step-templates) used in the deployment process or runbooks
 - Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step)
+- [Git credentials](#git-credentials) used for a projects version-control settings
 
 It is worth explicitly mentioning some things that are **not included**:
 
@@ -84,6 +81,7 @@ It is worth explicitly mentioning some things that are **not included**:
 - [Workers](#workers)
 - [Project logos](#project-logos) 
 - [Triggers](#triggers)
+- [Limitations for version-controlled projects](#limitations-for-version-controlled-projects)
 
 ### Shared resources \{#shared-resources}
 
@@ -188,6 +186,47 @@ The project logo will be available when exporting between spaces on the same ins
 
 Triggers are also not currently included, and will need to be reconfigured in the destination instance.  
 
+### Git Credentials
+
+Git credentials used to connect a project to Git will be exported.
+
+
+### Limitations for version-controlled projects
+
+For version-controlled projects the following resources will not be exported
+
+- [GitHub connections](/docs/projects/version-control/github)
+- Resources used by steps referenced by slug
+- Resources used by steps referenced by ID
+
+#### GitHub connections
+
+:::div{.warning}
+GitHub connections used by version-controlled projects will not be exported, as we can't re-configure GitHub connections on the destination side because IDs and other details are all instance-specific on the GitHub App side.
+:::
+
+Version-controlled projects using GitHub connections can still be exported but with a couple of options before importing the project:
+
+- The original project needs to be deleted (as it will still point to the same folder as the imported project and this is not supported), or
+- The path to where the files are stored in Git needs to be changed on either the original or imported project, so they do not clash, before reconnecting the imported project to GitHub
+
+#### Resources used by steps referenced by slug
+
+The following resources that can be used on steps will not be exported but as they are referenced by their slug, recreating the resource in the destination with the same name/slug would link these back up without any other manual intervention.
+
+- Feeds
+- Accounts used in variables that are stored in Git
+- Projects on `Deploy a Release` steps
+
+#### Resources used by steps referenced by ID
+
+The following resources that can be used on steps will not be exported and as they are referenced by their IDs, after recreating the resource in the destination you would then need to manually update the files stored in Git to use the correct ID of the resource again.
+
+- Git credentials used to source files from Git
+- Library step templates
+  - In addition to the ID needing to be update, the template version also needs to be updated
+- Certificates used in variables that are stored in Git
+
 ## Moving to Octopus Cloud \{#octopus-cloud}
 
 When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](/docs/octopus-cloud/#octopus-cloud-storage-limits) which should be considered.  Specifically:
@@ -207,3 +246,7 @@ You can use the [Octopus REST API](/docs/octopus-rest-api) to export or import O
 To find out more take a look at our examples:
 - [Export projects](/docs/octopus-rest-api/examples/projects/export-projects)
 - [Import projects](/docs/octopus-rest-api/examples/projects/import-projects)
+
+## Older versions
+
+- Prior to version **2025.2.5601**, version-controlled projects were not supported by the **Export/Import Projects** feature.
