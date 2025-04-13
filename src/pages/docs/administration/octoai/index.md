@@ -64,13 +64,13 @@ It is not possible to integrate OctoAI with an on-premises Octopus instance that
 ## Adding custom prompts
 
 OctoAI will present custom prompts defined in a Library Variable Set called `OctoAI Prompts`. The Library Variable set contains variables named:
-* `PageName[#].Prompt` - The prompt displayed in the UI
+* `PageName[#].Prompt` - The prompt displayed in the UI and passed to the LLM
 * `PageName[#].SystemPrompt` - Additional prompt instructions passed to the LLM but not shown in the UI
 
 Where:
 
 * `PageName` is one of the pages listed in the table below
-* `#` is a number starting from 0 to 4 inclusive for up to 5 prompts per page
+* `#` is a number from 0 to 4 inclusive for up to 5 prompts per page
 
 For example:
 
