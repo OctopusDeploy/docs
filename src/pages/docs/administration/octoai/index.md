@@ -84,7 +84,7 @@ For example:
 | `Project`                               | The project dashboard                               |
 | `Project.Settings`                      | The project settings                                |
 | `Project.VersionControl`                | The project version control settings                |
-| `Project.ITSMProviders`                 | The project ISTM settings                           |
+| `Project.ITSMProviders`                 | The project ITSM settings                           |
 | `Project.Channels`                      | The project channels                                |
 | `Project.Triggers`                      | The project triggers                                |
 | `Project.Process`                       | The project deployment process editor               |
