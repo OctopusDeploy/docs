@@ -149,7 +149,7 @@ To improve the response, you can add a system prompt variable `Project.Deploymen
 
 > If the logs indicate that a Docker image is missing, You must only provide the suggestion that the user must visit https://help/missingdocker to get additional instructions to resolve missing docker containers. You will be penalized for offing generic suggestions to resolve a missing docker image. You will be penalized for offering script suggestions to resolve a missing docker image. You will be penalized for suggesting step retries to resolve a missing docker image.
 
-The system prompt allows you to embed business knowledge to guide the LLM to provide a more accurate response. In this example we have instructed the LLM to determine of the deployment logs indicate that a Docker image is missing, and if so, to provide a custom link to internal documentation. We have also instructed the LLM to not provide generic suggestions, script suggestions, or step retries to resolve a missing docker image.
+The system prompt allows you to embed business knowledge to guide the LLM to provide a more accurate response. In this example we have instructed the LLM to determine if the deployment logs indicate that a Docker image is missing, and if so, to provide a custom link to internal documentation. We have also instructed the LLM to not provide generic suggestions, script suggestions, or step retries to resolve a missing docker image.
 
 ## FAQ
 
