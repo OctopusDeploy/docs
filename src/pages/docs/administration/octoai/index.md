@@ -104,29 +104,29 @@ For example:
 | `LibraryVariableSets`                   | The library variable sets                           |
 | `LibraryVariableSet.LibraryVariableSet` | An individual library variable set                  |
 | `Machines`                              | The targets dashboard                               |
-| `Machine.Machine`                              | An individual target                                |
-| `Accounts`                  | The accounts dashboard                              |
-| `Account.Account`                  | An individual account                               |
+| `Machine.Machine`                       | An individual target                                |
+| `Accounts`                              | The accounts dashboard                              |
+| `Account.Account`                       | An individual account                               |
 | `Workers`                               | The workers dashboard                               |
-| `WorkerPools`                         | The workerpool dashboard                            |
-| `MachinePolicies`                         | An machine policies dashboard                       |
-| `MachineProxies`             | An machine proxies dashboard                        |
-| `Feeds`                               | The feeds dashboard                                 |
-| `GitCredentials`                           | The git credentials dashboard                       |
-| `GitConnections`             | The GitHub App dashboard                            |
-| `Lifecycles`             | The lifecycles dashboard                            |
-| `Packages`             | The built-in feed dashboard                         |
-| `ScriptModules`             | The script modules dashboard                        |
-| `StepTemplates`             | The step templates dashboard                        |
-| `TagSets`             | The tag sets dashboard                              |
-| `TagSets.TagSet`             | An individual tag set                               |
-| `Tenants`             | The tenants dashboard                               |
-| `Tenant.Tenant`             | An individual tenant                                |
-| `Certificates`             | The certificates dashboard                          |
-| `Environments`             | The environments dashboard                          |
-| `Environment.Environment`             | An individual environment                           |
-| `Infrastructure`             | The infrastructure dashboard                        |
-| `BuildInformation`             | The build information dashboard                     |
+| `WorkerPools`                           | The workerpool dashboard                            |
+| `MachinePolicies`                       | An machine policies dashboard                       |
+| `MachineProxies`                        | An machine proxies dashboard                        |
+| `Feeds`                                 | The feeds dashboard                                 |
+| `GitCredentials`                        | The git credentials dashboard                       |
+| `GitConnections`                        | The GitHub App dashboard                            |
+| `Lifecycles`                            | The lifecycles dashboard                            |
+| `Packages`                              | The built-in feed dashboard                         |
+| `ScriptModules`                         | The script modules dashboard                        |
+| `StepTemplates`                         | The step templates dashboard                        |
+| `TagSets`                               | The tag sets dashboard                              |
+| `TagSets.TagSet`                        | An individual tag set                               |
+| `Tenants`                               | The tenants dashboard                               |
+| `Tenant.Tenant`                         | An individual tenant                                |
+| `Certificates`                          | The certificates dashboard                          |
+| `Environments`                          | The environments dashboard                          |
+| `Environment.Environment`               | An individual environment                           |
+| `Infrastructure`                        | The infrastructure dashboard                        |
+| `BuildInformation`                      | The build information dashboard                     |
 
 ## Writing custom prompts
 
