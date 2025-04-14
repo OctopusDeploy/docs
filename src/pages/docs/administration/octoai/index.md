@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-04-04
-modDate: 2025-04-04
+modDate: 2025-04-14
 title: OctoAI
 description: How to use OctoAI
 navOrder: 100
@@ -14,8 +14,8 @@ robots: noindex, follow
 
 OctoAI is a Alpha feature currently under development to integrate AI functionality into the Octopus user interface. The goal of OctoAI is:
 
-* To support new Octopus users as they get started with the platform
-* To guide teams with large existing Octopus spaces with best practices and suggestions to optimize and scale their Octopus usage
+- To support new Octopus users as they get started with the platform
+- To guide teams with large existing Octopus spaces with best practices and suggestions to optimize and scale their Octopus usage
 
 :::div{.warning}
 The OctoAI Alpha is a feature released to an audience who has opted-in to provide feedback. The feature is not finished or fully tested. It may not be supported through regular channels. It may change drastically or may never ship.
@@ -25,18 +25,18 @@ The OctoAI Alpha is a feature released to an audience who has opted-in to provid
 
 ## What can I do with OctoAI?
 
-* Onboard new DevOps teams to Octopus with prompts like `What is an Octopus Runbook?`
-* Generate Terraform configuration for the Octopus Terraform provider with prompts like `Generate a Terraform module that creates 3 environments called "Development", "Test", and "Production"`
-* Optimize your Octopus space with prompts like `Check the space for unused projects` and `Find unused variables in the project.`
-* Debug failed deployments with prompts like `Why did the deployment fail?`
+- Onboard new DevOps teams to Octopus with prompts like `What is an Octopus Runbook?`
+- Generate Terraform configuration for the Octopus Terraform provider with prompts like `Generate a Terraform module that creates 3 environments called "Development", "Test", and "Production"`
+- Optimize your Octopus space with prompts like `Check the space for unused projects` and `Find unused variables in the project.`
+- Debug failed deployments with prompts like `Why did the deployment fail?`
 
 ## We want your feedback!
 
 We are looking for feedback on the OctoAI feature, specifically:
 
-* What prompts do you want the service to respond to?
-* What would you change about the service?
-* Have the responses been helpful?
+- What prompts do you want the service to respond to?
+- What would you change about the service?
+- Have the responses been helpful?
 
 As part of the Alpha, we will invite you to a private channel in the [Octopus Community Slack](https://octopus.com/community) where you can provide feedback.
 
@@ -44,10 +44,10 @@ As part of the Alpha, we will invite you to a private channel in the [Octopus Co
 
 OctoAI has the following prerequisites:
 
-* An Octopus instance, either
-  * A cloud instance
-  * An on-premises Octopus instance with a hostname accessible from the OctoAI service (more on this requirement below)
-* Google Chrome
+- An Octopus instance, either
+  - A cloud instance
+  - An on-premises Octopus instance with a hostname accessible from the OctoAI service (more on this requirement below)
+- Google Chrome
 
 OctoAI is delivered via a Chrome extension which is available from the [Chrome Store](https://chromewebstore.google.com/detail/octoai/acpcjpmjmbdmfabgdpdkiaadnbkcgfon). Once the extension is installed, you will see a new icon in the top right corner of your Chrome browser. Click on the icon to open the OctoAI interface.
 
@@ -64,18 +64,19 @@ It is not possible to integrate OctoAI with an on-premises Octopus instance that
 ## Adding custom prompts
 
 OctoAI will present custom prompts defined in a Library Variable Set called `OctoAI Prompts`. The Library Variable set contains variables named:
-* `PageName[#].Prompt` - The prompt displayed in the UI and passed to the LLM
-* `PageName[#].SystemPrompt` - Additional prompt instructions passed to the LLM but not shown in the UI
+
+- `PageName[#].Prompt` - The prompt displayed in the UI and passed to the LLM
+- `PageName[#].SystemPrompt` - Additional prompt instructions passed to the LLM but not shown in the UI
 
 Where:
 
-* `PageName` is one of the pages listed in the table below
-* `#` is a number from 0 to 4 inclusive for up to 5 prompts per page
+- `PageName` is one of the pages listed in the table below
+- `#` is a number from 0 to 4 inclusive for up to 5 prompts per page
 
 For example:
 
-* `Project.Deployment[0].Prompt` - A prompt displayed when a project deployment is viewed
-* `Project.Deployment[0].SystemPrompt` - The system prompt passed to the LLM when the project deployment is viewed
+- `Project.Deployment[0].Prompt` - A prompt displayed when a project deployment is viewed
+- `Project.Deployment[0].SystemPrompt` - The system prompt passed to the LLM when the project deployment is viewed
 
 | Page Name                               | Description                                         |
 |-----------------------------------------|-----------------------------------------------------|
@@ -138,14 +139,12 @@ For example, the prompt variable `Project.Deployment[0].Prompt`, which is displa
 
 > Why did the deployment fail? If the deployment didn't fail, say so. Provide suggestions for resolving the issue.
 
-
 On its own, this prompt variable relies on the knowledge built into the LLM to provide an answer based on the context. The context for a project deployment is:
 
-* The deployment logs
-* The deployment process
+- The deployment logs
+- The deployment process
 
 To improve the response, you can add a system prompt variable `Project.Deployment[0].SystemPrompt`:
-
 
 > If the logs indicate that a Docker image is missing, You must only provide the suggestion that the user must visit https://help/missingdocker to get additional instructions to resolve missing docker containers. You will be penalized for offing generic suggestions to resolve a missing docker image. You will be penalized for offering script suggestions to resolve a missing docker image. You will be penalized for suggesting step retries to resolve a missing docker image.
 
@@ -156,9 +155,10 @@ The system prompt allows you to embed business knowledge to guide the LLM to pro
 Q: What data is collected?
 
 A: We collect prompts entered into OctoAI. All logs are sanitized to remove personally identifiable information. We do not log:
-* Prompt responses
-* Sensitive values
-* Octopus configurations
+
+- Prompt responses
+- Sensitive values
+- Octopus configurations
 
 Q: Is my data used to train AI models?
 
