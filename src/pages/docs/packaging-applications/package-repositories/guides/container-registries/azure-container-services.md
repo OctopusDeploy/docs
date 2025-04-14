@@ -21,7 +21,7 @@ Make sure you select **Enable** under the **Admin user** option. This is what wi
 ![Azure Container Services Access Key blade](/docs/packaging-applications/package-repositories/guides/container-registries/images/azure-blade.png)
 :::
 
-Azure Container Registries can be configured as an external feed in Octopus by navigation to **Library ➜ External Feeds** and adding an new feed of type `Azure Container Regsitry`. 
+Azure Container Registries can be configured as an external feed in Octopus by navigation to **Library ➜ External Feeds** and adding an new feed of type `Azure Container Registry`. 
 
 Once the service has been provisioned, go to the Container Registry details and load the **Access Key** blade. The login server indicates the HTTPS url that needs to be supplied into the Octopus Registry feed. In the case above this will be `https:\\myoctoregistry-on.azurecr.io`.
 
@@ -47,7 +47,7 @@ To manually create a Federated Credential follow the [Add a federated credential
 
 Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `Azure Container Registry` Feed type. With this selected you will need choose OpenID Connect as the authentication type.
 
-Add the following propertes to the feed credentials:
+Add the following properties to the feed credentials:
 - **Client ID:** _{{The Azure Active Directory Application ID (Client ID)}}_
 - **Tenant ID:** _{{The Azure Active Directory Tenant ID}}_
 - **Subject:** *Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) on how to customize the **Subject** value*
