@@ -21,7 +21,7 @@ Make sure you select **Enable** under the **Admin user** option. This is what wi
 ![Azure Container Services Access Key blade](/docs/packaging-applications/package-repositories/guides/container-registries/images/azure-blade.png)
 :::
 
-Azure Container Registries can be configured as an external feed in Octopus by navigation to **Library ➜ External Feeds** and adding an new feed of type `Azure Container Registry`. 
+Azure Container Registries can be configured as an external feed in Octopus by navigating to **Library ➜ External Feeds** and adding an new feed of type `Azure Container Registry`. 
 
 Once the service has been provisioned, go to the Container Registry details and load the **Access Key** blade. The login server indicates the HTTPS url that needs to be supplied into the Octopus Registry feed. In the case above this will be `https:\\myoctoregistry-on.azurecr.io`.
 
@@ -43,16 +43,16 @@ Before creating an OpenID Connect Azure Container Registry feed, you will need a
 
 If you do not currently have an Microsoft Entra ID App Registration follow the [App Registration](https://oc.to/create-azure-app-registration) guide.
 
-To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-credentials) section in the Microsoft Entra ID documentation. The federated credential will need the **Issuer** value set to the publicly accessible Octopus Server URI configured, this value must also not have a trailing slash (/), for example `https://samples.octopus.app`.
+To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-credentials) section in the Microsoft Entra ID documentation. The federated credential will need the **Issuer** value set to the configured Octopus Server URI. This URI must be publicly available and the value must not have a trailing slash (/). For example `https://samples.octopus.app`.
 
 Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `Azure Container Registry` Feed type. With this selected you will need choose OpenID Connect as the authentication type.
 
 Add the following properties to the feed credentials:
 - **Client ID:** _{{The Azure Active Directory Application ID (Client ID)}}_
 - **Tenant ID:** _{{The Azure Active Directory Tenant ID}}_
-- **Subject:** *Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) on how to customize the **Subject** value*
+- **Subject:** *Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) for how to customize the **Subject** value*
 - **Audience**  _{{The audience set on the Federated Credential}}_ *This can be set to the default of* `api://AzureADTokenExchange` *or a custom value if needed*
 
 :::div{.warning}
-At this time, OpenID Connect external feeds are not supported for use with Kubernetes containers because the short lived credentials they generate are not suitable for long running workloads.
+At this time, OpenID Connect external feeds are not supported for use with Kubernetes containers. This is because the short lived credentials they generate are not suitable for long running workloads.
 :::
