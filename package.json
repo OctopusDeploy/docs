@@ -23,11 +23,11 @@
         "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
     },
     "dependencies": {
-        "@astrojs/mdx": "^4.2.1",
-        "@pnpm/exe": "^10.6.5",
-        "astro": "^5.5.3",
-        "astro-accelerator-utils": "^0.3.39",
-        "cspell": "^8.17.5",
+        "@astrojs/mdx": "^4.2.3",
+        "@pnpm/exe": "^10.8.0",
+        "astro": "^5.6.1",
+        "astro-accelerator-utils": "^0.3.40",
+        "cspell": "^8.18.1",
         "glob": "^11.0.1",
         "gray-matter": "^4.0.3",
         "hast-util-from-selector": "^3.0.1",
