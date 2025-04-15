@@ -36,7 +36,7 @@ To enabled this a `ClusterRole` is created for use by the Kubernetes monitor wit
 
 The Kubernetes monitor's upgrade process is directly tied to the Kubernetes agent.
 
-See [how upgrades work for the Kubernetes agent here](./upgrading.md)
+See [how upgrades work for the Kubernetes agent here](./upgrading)
 
 ## Troubleshooting
 
