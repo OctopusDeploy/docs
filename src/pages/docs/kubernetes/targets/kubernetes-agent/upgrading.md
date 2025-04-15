@@ -13,7 +13,7 @@ The Kubernetes agent is automatically kept up to date by Octopus Server when run
 
 ## Disabling automatic upgrades
 
-Automatic upgrades can be disabled by updating the machine updates settings in your applied [machine policy](../../../infrastructure/machine-policies.md)
+Automatic upgrades can be disabled by updating the machine updates settings in your applied [machine policy](../../../infrastructure/machine-policies)
 
 ## V1
 
@@ -31,6 +31,6 @@ While you may continue to use v1 of the helm-chart, it is highly recommended to 
 
 As of Octopus Server 2024.4, version 1 Helm charts can be automatically upgraded to version 2 without manual intervention.
 
-For older versions of Octopus Server you can manually upgrade a v1 instance following the guide in the Kubernetes agent [documentation](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/migrations.md).
+For older versions of Octopus Server you can manually upgrade a v1 instance following the guide in the Kubernetes agent [documentation](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/migrations).
 
 Alternatively, existing v1 Kubernetes agents can be deleted from your server instance, and recreated as v2 agents via the installation workflow available in Octopus Server. 
