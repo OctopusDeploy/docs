@@ -305,4 +305,4 @@ The following is a list of all options for subscriptions including Event Groups,
 
 \* License key expiry events are only available in Octopus Server version `2025.2.6402` and later.
 
-\*\* License usage events are only available in Octopus Server version `xxxx.y.z` and later.
+\*\* License usage events are only available in Octopus Server version `2025.2.7065` and later.
