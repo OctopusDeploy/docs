@@ -14,15 +14,26 @@ The ServiceNow Integration feature is available from Octopus **2022.3** onwards 
 
 ## Overview
 
-The Octopus Deploy/ServiceNow integration allows you to block the execution of specifically configured deployments unless they have a corresponding approved ServiceNow **Change Request** (CR).
+The Octopus Deploy/ServiceNow integration allows you to block the execution of specifically configured deployments or runbooks unless they have a corresponding approved ServiceNow **Change Request** (CR).
 
-To enable this behavior, both the Octopus Project and Environment you are deploying to must be configured and the ServiceNow configuration is set up before deployments can be managed.
+To enable this behavior, both the Octopus Project and Environment you are deploying to, or running an enabled runbook in, must be configured and the ServiceNow configuration is set up before the execution can be managed.
+
+### Deployments
 
 | Project | Environment | Outcome |
 |--|--|--|
 | Change controlled| Change controlled| Approval required for deployment |
 | **_Not_** Change controlled| Change controlled| No approval required |
 | Change controlled| **_Not_** Change controlled| No approval required |
+
+### Runbooks
+
+| Project | Environment | Runbook | Outcome |
+|--|--|--|--|
+| Change controlled | Change controlled | Enabled | Approval required |
+| Change controlled | Change controlled | **_Not_** Enabled | No approval required |
+| **_Not_** Change controlled | Change controlled | Enabled | No approval required |
+| Change controlled | **_Not_** Change controlled | Enabled | No approval required |
 
 ## Getting started
 
@@ -118,32 +129,51 @@ To enable this feature navigate to **Configuration ➜ Settings ➜ ServiceNow I
 ![ServiceNow Integration Enable Work Notes](/docs/approvals/servicenow/images/servicenow-worknotes-settings.png)
 :::
 
-## Configuring deployments
+## Configuring approvals
+
+### Setting up deployments for CR approval
 
 To enforce a deployment to require an approved CR, the **Change Controlled** setting needs to be enabled in **both** the project and the environment it is being deployed to.
-
-### Setting up projects for CR approval
 
 To enable a project to enforce a requirement for an approved CR:
 
 1. Navigate to the project and then **Settings ➜ ITSM Providers**.
-2. Check the **Change-controlled** setting.
-3. Select your ServiceNow connection in the **ServiceNow Connection** setting and click **SAVE**.
+2. Check the **ServiceNow Integration ➜ Change Controlled** setting.
+3. Select your ServiceNow connection in the **ServiceNow Connection** setting, and then press **SAVE**.
 
 :::figure
 ![ServiceNow Integration Project settings](/docs/approvals/servicenow/images/servicenow-cd-project-settings.png)
 :::
 
+### Setting up runbooks for CR approval
+
+:::div{.warning}
+This feature is only available for version **2025.2.x** and later
+:::
+
+To enforce a runbook run to require and approved CR, the **Change Controlled** settings needs to be enabled in **both** the project and the environment the runbooks is run in and additionally the runbook needs to be included in the **Enabled Runbooks** setting.
+
+To enable a runbook to enforce a requirement for an approved CR:
+
+1. Navigate to the project and then **Settings ➜ ITSM Providers**.
+2. Check the **ServiceNow Integration ➜ Change Controlled** setting.
+3. Select your ServiceNow connection in the **ServiceNow Connection** setting.
+4. Select the runbooks you want to require an approved CR in the **Enabled Runbooks** setting, and then press **SAVE**
+
+:::figure
+![ServiceNow Integration Runbooks settings](/docs/approvals/servicenow/images/servicenow-cd-runbooks-settings.png)
+:::
+
 ### Standard, Normal, and Emergency Changes
 
-By default, deployments resulting in CR creation will produce a `Normal` change (i.e. one 
+By default, deployments and runbooks runs resulting in CR creation will produce a `Normal` change (i.e. one 
 requiring explicit approval).
 
 Setting the **Standard Change Template Name** setting under **ITSM Providers** to the name of an 
 active, approved **Standard Change Template** (as found in the Standard Change Catalog) will instead 
-result in deployments of the project creating a `Standard` (i.e. low-risk, pre-approved) change.
+result in deployments and runbook runs of the project creating a `Standard` (i.e. low-risk, pre-approved) change.
 
-From **2024.2** you can create an `Emergency` change by selecting the Emergency Change setting on the deployment creation page.
+From **2024.2** you can create an `Emergency` change by selecting the Emergency Change setting on the deployment or runbook run creation page.
 :::figure
 ![ServiceNow Integration Project settings](/docs/approvals/servicenow/images/servicenow-emergency-change.png)
 :::
@@ -152,7 +182,7 @@ From **2024.2** you can create an `Emergency` change by selecting the Emergency 
 
 If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/getting-started/#scoping-variables).
 
-From **2024.2** on this can be set under the `ServiceNow Change Request settings` section on the deployment creation page. Setting the CR number at the deployment level will override any predefined variable.
+From **2024.2** on this can be set under the `ServiceNow Change Request settings` section on the deployment or runbook run creation page. Setting the CR number at the deployment or runbook run level will override any predefined variable.
 
 ### Setting up environments for CR approval
 
@@ -288,3 +318,6 @@ The ServiceNow integration uses the following REST endpoints:
 |Approve Standard Change               | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  project **Automatic Transition** configuration |
 |Add work notes                        | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  **Work Notes Enabled** **ServiceNow** global configuration |
 
+## Older versions
+
+- Prior to version **2025.2.x** ServiceNow approvals for runbooks were not supported.

@@ -20,7 +20,7 @@ Octopus Deploy includes ITSM integrations for ServiceNow and Jira Service Manage
 
 Our support focuses on:
 
-1. **Productive teams** - Automatically create change requests and associate them with Octopus deployments so you can work with the right stakeholders to ensure your changes are compliant and approved. Octopus can also prevent deployments from executing until all approvals are complete. 
+1. **Productive teams** - Automatically create change requests and associate them with Octopus deployments or runbook runs so you can work with the right stakeholders to ensure your changes are compliant and approved. Octopus can also prevent deployments and runbook runs from executing until all approvals are complete. 
 2. **Compliant DevOps** - Be sure that no one is deploying unapproved changes to production. Your audits become a smooth process as you can demonstrate your company's processes are being adhered to with system reports.
 
 ## ServiceNow change management without friction
@@ -29,18 +29,18 @@ Our support focuses on:
 ![ServiceNow deployment waiting for approval](/docs/approvals/servicenow-task-status-with-cr.png)
 :::
 
-This new integration links Octopus deployments to ServiceNow change requests and automatically creates pre-populated, normal change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulations.
+This new integration links Octopus deployments and runbook runs to ServiceNow change requests and automatically creates pre-populated, normal change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment and runbook has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulations.
 What's included in our ServiceNow support?
 
 - Easy workflow configuration, so it's straightforward to integrate Octopus with ServiceNow.
-- Link a deployment to an existing change request to manually associate deployments with change requests.
-- Automatically create normal and emergency change requests at deployment time. Octopus pauses the deployment until the appropriate approvals are complete.
-- Let Octopus do the work for you by automating the transition between stages in the change request once created, leaving a deployment record in ServiceNow.
+- Link a deployment or runbook run to an existing change request to manually associate deployments with change requests.
+- Automatically create normal and emergency change requests at execution time. Octopus pauses the execution until the appropriate approvals are complete.
+- Let Octopus do the work for you by automating the transition between stages in the change request once created, leaving a deployment or runbook run record in ServiceNow.
 - Use change templates to auto-create standard change requests to reduce manual work and control what information is populated.
-- Ensure “Change Windows” are honored on existing change requests so deployments won't execute until the specified time window.
-- Add work notes to change requests with information about deployment start and finish time and whether it was successful or not.
+- Ensure “Change Windows” are honored on existing change requests so deployments or runbook runs won't execute until the specified time window.
+- Add work notes to change requests with information about deployment or runbook run start and finish time and whether it was successful or not.
 - Create change requests with pre-populated fields through variables.
-- View and export audit logs of controlled deployments for easy compliance and post-deployment reconciliation.
+- View and export audit logs of controlled deployments and runbook runs for easy compliance and post-execution reconciliation.
 
 Learn more about our [ServiceNow integration](/docs/approvals/servicenow).
 
@@ -58,14 +58,14 @@ To build on our ITSM change management support further, we are also pleased to a
 
 The Jira Service Management integration ensures that teams using this platform can access the benefits of creating change requests automatically in Octopus. It makes it easier to manage deployment pipelines at scale, reducing the complexity of change management. Integrating Octopus with Jira Service Management reduces the need for manually filling out change requests, making it faster and less prone to error. By using Octopus to create change requests automatically, you can create best practice change management easily. 
 
-This new integration links Octopus deployments to Jira Service Management change requests and automatically creates pre-populated “Request for change” change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulations.
+This new integration links Octopus deployments and runbook runbs to Jira Service Management change requests and automatically creates pre-populated “Request for change” change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment and runbook has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulations.
 
 What's included in our Jira Service Management support?
 
 - Easy workflow configuration, so it's straightforward to integrate Octopus with Jira Service Management
-- Link a deployment to an existing change request, to manually associate deployments with change requests
-- Automatically create "Request for change" requests at deployment time. Octopus pauses the deployment until the appropriate approvals are complete
-- View and export audit logs of controlled deployments for easy compliance and post-deployment reconciliation
+- Link a deployment or runbook run to an existing change request, to manually associate deployments and runbook runs with change requests
+- Automatically create "Request for change" requests at execution time. Octopus pauses the execution until the appropriate approvals are complete
+- View and export audit logs of controlled deployments and runbook runs for easy compliance and post-execution reconciliation
 
 If your team uses Jira Service Management change management, we'd love for you to try it and provide your feedback.
 
