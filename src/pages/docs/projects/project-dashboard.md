@@ -25,7 +25,7 @@ You’ll see a selection of releases and how they are deployed into environments
 From this view you can deploy releases, create releases, and filter by environments.
 
 :::figure
-![Project dashboard default view](/docs/projects/project-dashboard-default.png)
+![Project dashboard default view](/docs/projects/dashboard/project-dashboard-default.png)
 :::
 
 ### Which releases are shown?
@@ -45,7 +45,7 @@ You’ll see a selection of releases for each channel and how they are deployed 
 From this view you can deploy releases in your channels, create releases, and filter by environments. 
 
 :::figure
-![Project dashboard channels view](/docs/projects/project-dashboard-channels.png)
+![Project dashboard channels view](/docs/projects/dashboard/project-dashboard-channels.png)
 :::
 
 ### Which releases are shown?
@@ -64,7 +64,7 @@ You’ll see all of your tenants in your project and a selection of releases dep
 From this view you can filter by release and then deploy the selected release into each tenant’s environments. 
 
 :::figure
-![Project dashboard tenants view](/docs/projects/project-dashboard-tenants.png)
+![Project dashboard tenants view](/docs/projects/dashboard/project-dashboard-tenants.png)
 :::
 
 ### Which releases are shown?
