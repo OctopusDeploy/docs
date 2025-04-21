@@ -1,13 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-03-28
 title: AWS Elastic Container Registry (ECR)  
 description: How to add an AWS Elastic Container Registry as an Octopus feed 
 navOrder: 30
 ---
 
 AWS provides a Docker Image registry, known as [Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) . Support for EC2 Container registries is provided as a special feed type itself.
+
+:::div{.warning}
+The credentials used for ECR feeds [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). This may not be suitable for long lived container workloads.
+:::
 
 ## Configuring an AWS Elastic Container Registry (ECR)
 From the AWS Services dashboard go to `Elastic Container Registry`.
@@ -33,23 +37,54 @@ Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `AWS E
 
 Save and test your registry to ensure that the connection is authorized successfully.
 
-## Older versions of Octopus Deploy
+## Adding an AWS OpenID Connect ECR External feed
+Octopus Server `2025.2` adds support for OpenID Connect to ECR feeds. To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). The configuration of 
 
-The first class AWS ECR feed type is provided to handle the ephemeral authorization credentials provided by AWS that [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). If you are using an earlier version of Octopus Deploy, you will need to use a standard Docker Feed type.
 
-After configuring your registry in AWS as outlined above you will need to obtain the Docker Feed credentials by manually invoking a command via the AWS cli. Details for setting this up can be found in the [AWS installation guides](http://docs.aws.amazon.com/cli/latest/userguide/installing.html). With the cli installed, run (with the appropriate region)
+1. Navigate to **Deploy ➜ External Feeds**, click the **Add Feed** and select **AWS Elastic Container Registry**.
+2. Add a memorable name for the account.
+3. Set the **Audience** to the audience of the identity provider in AWS.
+4. Set the **Role ARN** to the ARN from the identity provider associated role.
+5. Click **SAVE** to save the account.
+6. Before you can test the account you need to add a condition to the identity provider in AWS under **IAM ➜ Roles ➜ {Your AWS Role} ➜ Trust Relationship** :
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+          "Federated": "arn:aws:iam::{aws-account}:oidc-provider/{your-identity-provider}"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "example.octopus.app:sub": "space:[space-slug]:feed:[slug-of-feed-created-above]",
+          "example.octopus.app:aud": "example.octopus.app"
+        }
+      }
+    }
+  ]
+}
 ```
-aws ecr get-login --region ap-southeast-1
-```
-and it will return the credentials you will need to authenticate your Docker Engine client with the AWS registry. e.g.
-```
-docker login -u AWS -p AQECAHid...j/nByScM -e none https://96802670493.dkr.ecr.ap-southeast-1.amazonaws.com
+7. Go back to the AWS feed in Octopus and click **TEST**, search for a package in any ECR feeds the role has access to.
+
+Refer to the AWS docs for [more information on the role permissions required for ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/images.html).
+Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) on how to customize the **Subject** value.
+
+By default, the role trust policy does not have any conditions on the subject identifier. To lock the role down to particular usages you need to modify the [trust policy conditions](https://oc.to/aws-iam-policy-conditions) and add a condition for the `sub`.
+
+For example, to lock an identity role to a specific Octopus environment, you can update the conditions:
+
+```json
+"Condition": {
+  "StringEquals": {
+        "example.octopus.app:sub": "space:default:feed:feed-slug",
+        "example.octopus.app:aud": "example.octopus.app:"
+  }
+}
 ```
 
-These are also the credentials that are needed by Octopus Deploy to access the exposed API (which are passed to your Docker Engine at deploy time). Take the username, password and url provided in this command and add them to Octopus Deploy in your Docker feed configuration.
+`default` and `feed-slug` are the slugs of their respective Octopus resources.
 
-:::figure
-![AWS EC2 Container Service Registry Feed](/docs/packaging-applications/package-repositories/guides/container-registries/images/aws-docker-feed.png)
-:::
-
-Note that this approach means that you will more than likely need to reset these credentials often.
+AWS policy conditions also support complex matching with wildcards and `StringLike` expressions. 

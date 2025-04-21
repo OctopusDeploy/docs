@@ -15,7 +15,7 @@ The [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) has a new comp
 ![Kubernetes agent install script with the Kubernetes monitor enabled](/docs/kubernetes/live-object-status/kubernetes-agent-monitor-installation.png)
 :::
 
-Once installed, you can confirm the status of the Kubernetes monitor by looking at the Connectivity j page for the corresponding Kubernetes agent target.
+Once installed, you can confirm the status of the Kubernetes monitor by looking at the Connectivity page for the corresponding Kubernetes agent target.
 
 :::figure
 ![Health check showing status of the Kubernetes monitor](/docs/kubernetes/live-object-status/kubernetes-agent-monitor-health-check.png)

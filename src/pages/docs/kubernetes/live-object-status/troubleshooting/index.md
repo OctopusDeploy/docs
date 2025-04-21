@@ -19,17 +19,27 @@ Some firewalls may prevent the applications from making outbound connections ove
 
 ## Runtime
 
-### Connection ID was not found
+### Failed to establish connection with Kubernetes Monitor \{#failed-to-establish–connection-with-kubernetes-monitor}
 
 Some actions, such as logs and events, require per request communication with the Kubernetes monitor running in your cluster. 
 
 If the Kubernetes monitor cannot be accessed, follow these steps to determine why:
 
 1. Confirm that the Kubernetes monitor is connected by reviewing the `Kubernetes monitor Status` on the Connectivity page of your Kubernetes agent
-2. Confirm that the Kubernetes monitor pod is running on your cluster. This pod is located in the same namespace that the Kubernetes agent is installed in, normally named started with `octopus-agent-`
+2. Confirm that the Kubernetes monitor pod is running on your cluster. This pod is located in the same namespace that the Kubernetes agent is installed in, normally named starting with `octopus-agent-`
 3. Confirm that the Kubernetes monitor pod logs report no errors. If the logs indicate failure, please confirm that connectivity to your Octopus server instance has not changed and reach out to support for assistance.
 
+In almost all cases, we have found restarting the Kubernetes monitor pod will re-establish connection if there are no external factors at play. Please reach out to support if you are finding cases of repeated, unexpected failure.
+
 ## Unexpected object statuses
+
+### Out of date or slow to update object statuses
+
+Kubernetes Live Object Status deals with potentially large and unbounded quantities of data. In the case of some deployments and workloads, very frequent updates as well.
+
+As a safe guard to ensure that your Octopus Server instance remains free from interference from this new feature, we have conservative rate limits in place to reduce load spikes during larger work loads. As we progress through the early access period, we will open up limitations and increase the ceiling of how many clusters and resources can be monitored.
+
+The rate limit is not a hard stop to messages being sent between Octopus Server and the Kubernetes monitor. Instead we are slowing messages down to better handle burst-y traffic.
 
 ### Why is an object out of sync?
 
