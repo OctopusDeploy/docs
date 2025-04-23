@@ -240,6 +240,7 @@ Myatt
 myfeature
 myfile
 mykey
+myoctoregistry
 navigationid
 NETBIOS
 netcore
@@ -304,6 +305,7 @@ outfile
 outputformat
 OWASP
 Ozar
+PAAS
 packageversion
 passout
 PathtoPublish

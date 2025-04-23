@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-04-10
+modDate: 2025-04-16
 title: Subscriptions
 description: Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly.
 navOrder: 1600
@@ -135,114 +135,174 @@ For example, to test whether the subscription webhooks are sending correctly fro
 
 The following is a list of all options for subscriptions including Event Groups, Events, and Document Types:
 
-|EVENT GROUPS|
-|---|
-|Auto-deploy events|
-|Auto-Deploy critical-events|
-|Deployment events|
-|Deployment critical-events|
-|Machine events|
-|Machine critical-events|
-|Machine becomes available for deployment|
-|Machine is no longer available for deployment|
-|Certificate expiry events|
-|Document events|
-|API key expiry events|
+| EVENT GROUPS                                  |
+|-----------------------------------------------|
+| API key expiry events                         |
+| Auto-deploy events                            |
+| Auto-Deploy critical-events                   |
+| Certificate expiry events                     |
+| Deployment critical-events                    |
+| Deployment events                             |
+| Document events                               |
+| License key expiry events \*                  |
+| License usage events \*\*                     |
+| Machine becomes available for deployment      |
+| Machine critical-events                       |
+| Machine events                                |
+| Machine health changed                        |
+| Machine is no longer available for deployment |
 
-|EVENTS|
-|---|
-|API key expired|
-|API key expiry 10-day warning|
-|API key expiry 20-day warning|
-|Auto-deploy trigger blocked|
-|Auto-deploy trigger succeeded|
-|Certificate expired|
-|Certificate expiry 10-day warning|
-|Certificate expiry 20-day warning|
-|Certificate private-key exported|
-|Certificate replaced|
-|Comment|
-|Deployment failed|
-|Deployment queued|
-|Deployment resumed|
-|Deployment started|
-|Deployment succeeded|
-|Document created|
-|Document deleted|
-|Document modified|
-|Export complete|
-|Guided failure interruption raised|
-|Import complete|
-|Machine cleanup failed|
-|Machine created|
-|Machine deleted|
-|Machine deployment-related property modified|
-|Machine disabled|
-|Machine enabled|
-|Machine found healthy|
-|Machine found to be unavailable|
-|Machine found to be unhealthy|
-|Machine found to have warnings|
-|Machine health changed|
-|Manual intervention interruption raised|
-|Task canceled|
+| EVENTS                                                 |
+|--------------------------------------------------------|
+| API key expired                                        |
+| API key expiry 10-day warning                          |
+| API key expiry 20-day warning                          |
+| Artifact content modified                              |
+| Attachment deleted                                     |
+| Auto-deploy trigger blocked                            |
+| Auto-deploy trigger succeeded                          |
+| Build Information created                              |
+| Build Information deleted                              |
+| Build Information modified                             |
+| Certificate expired                                    |
+| Certificate expiry 10-day warning                      |
+| Certificate expiry 20-day warning                      |
+| Certificate private-key exported                       |
+| Certificate replaced                                   |
+| Comment                                                |
+| Deployment failed                                      |
+| Deployment precondition evaluated                      |
+| Deployment queued                                      |
+| Deployment resumed                                     |
+| Deployment started                                     |
+| Deployment succeeded                                   |
+| Document created                                       |
+| Document deleted                                       |
+| Document modified                                      |
+| Export complete                                        |
+| File downloaded                                        |
+| Guided failure interruption raised                     |
+| Import complete                                        |
+| IP address banned                                      |
+| License key expired \*                                 |
+| License key expiry 10-day warning \*                   |
+| License key expiry 20-day warning \*                   |
+| License usage at 80% warning \*\                       |
+| License usage at 90% warning \*\*                      |
+| License usage at 95% warning \*\*                      |
+| License usage at limit \*\*                            |
+| Login banned                                           |
+| Login failed                                           |
+| Login succeeded                                        |
+| Machine cleanup failed                                 |
+| Machine created                                        |
+| Machine deleted                                        |
+| Machine deployment-related property modified           |
+| Machine disabled                                       |
+| Machine enabled                                        |
+| Machine found healthy                                  |
+| Machine found to be unavailable                        |
+| Machine found to be unhealthy                          |
+| Machine found to have warnings                         |
+| Manual intervention interruption raised                |
+| Package deleted by package repository index sync       |
+| Package deleted by package repository retention policy |
+| Package replaced                                       |
+| Project export complete                                |
+| Project export queued                                  |
+| Project import complete                                |
+| Project import queued                                  |
+| Release deleted by retention policy                    |
+| Runbook run deleted by retention policy                |
+| Runbook snapshot deleted by retention policy           |
+| Runbook snapshot published                             |
+| RunbookRun failed                                      |
+| RunbookRun queued                                      |
+| RunbookRun resumed                                     |
+| RunbookRun started                                     |
+| RunbookRun succeeded                                   |
+| Task canceled                                          |
+| User password changed                                  |
 
-|DOCUMENT TYPES|
-|---|
-|Account|
-|Action Template|
-|Action Template Version|
-|Api Key|
-|Artifact|
-|Auto Deploy Queue Item|
-|Build Information|
-|Certificate|
-|Channel|
-|Community Action Template|
-|Dashboard Configuration|
-|Dashboard Item|
-|Deleted Space|
-|Deployment|
-|Deployment Environment|
-|Deployment History|
-|Deployment Process|
-|Deployment Summary|
-|Event|
-|Extension Configuration|
-|Feed|
-|Has Id|
-|Indexed Package Summary|
-|Interruption|
-|Invitation|
-|Latest And Count|
-|Latest Successful Deployment To Machine|
-|Library Variable Set|
-|Lifecycle|
-|Machine|
-|Machine Policy|
-|Name Only|
-|Octopus Server Node| 
-|Project|
-|Project Group|
-|Project Trigger|
-|Proxy|
-|Release|
-|Runbook|
-|Runbook Run|
-|Runbook Run History|
-|Runbooks Dashboard Item|
-|Runbooks Snapshot|
-|Server Task|
-|Space|
-|Subscription|
-|Tag Set|
-|Team|
-|Tenant|
-|Tenant Variable|
-|Variable Set|
-|Worker|
-|Worker Pool|
-|Worker Task Lease|
-|User|
-|User Role|
-|Variable Set|
+| DOCUMENT TYPES                       |
+|--------------------------------------|
+| Account                              |
+| Action Template                      |
+| Action Template Version              |
+| Api Key                              |
+| Artifact                             |
+| Auto Deploy Queue Item               |
+| Build Information                    |
+| Certificate                          |
+| Channel                              |
+| Community Action Template            |
+| Connect Project to Tenants Task      |
+| Dashboard Configuration              |
+| Data Migration State                 |
+| Deleted Space                        |
+| Deployment                           |
+| Deployment Completion                |
+| Deployment Environment               |
+| Deployment Freeze                    |
+| Deployment Freeze Override           |
+| Deployment History                   |
+| Deployment Process                   |
+| Deployment Settings                  |
+| Deployment Target Tag                |
+| Deprecation Usage                    |
+| Event                                |
+| Extension Configuration              |
+| Feature Toggle                       | 
+| Feature Toggle Publishing Signing Key |
+| Feed                                 |
+| Git Credential                       | 
+| Git Hub App Connection               |
+| Git Hub App Token                    |
+| Insights Report                      |
+| Interruption                         |
+| Invitation                           |
+| Kubernetes Monitor                   |
+| Kubernetes Resource Manifest         |
+| Kubernetes Task Resource Status      |
+| Library Variable Set                 |
+| Lifecycle                            |
+| Machine                              |
+| Machine Policy                       |
+| Octopus Server Node                  | 
+| Process Execution                    |
+| Project                              |
+| Project Group                        |
+| Project Intents                      |
+| Project Trigger                      |
+| Proxy                                |
+| Release                              |
+| Runbook                              |
+| Runbook Process                      |
+| Runbook Run                          |
+| Runbook Run History                  |
+| Runbooks Snapshot                    |
+| Sample Project                       |
+| Scoped User Role                     |
+| Server Task                          |
+| Server Task Approval                 |
+| Server Account Oidc Identity         |
+| Signing Key                          |
+| Space                                |
+| Subscription                         |
+| Tag Set                              |
+| Team                                 |
+| Tenant                               |
+| Tenant Variable                      |
+| User                                 |
+| User Favorite Project                |
+| User Onboarding                      |
+| User Role                            |
+| User Session                         |
+| Variable Set                         |
+| Worker                               |
+| Worker Pool                          |
+| Worker Task Lease                    |
+
+\* License key expiry events are only available in Octopus Server version `2025.2.6402` and later.
+
+\*\* License usage events are only available in Octopus Server version `2025.2.7065` and later.
