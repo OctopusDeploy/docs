@@ -7,7 +7,7 @@ description: Tasks can be manually prioritized to run before other earlier queue
 ---
 
 :::div{.info}
-From <insert version number here>, **Priority Lifecycle Phase**, **Priority Deployments** and **Priority Runbooks** will require an Enterprise license.
+From version `2025.2.7584`, **Priority Lifecycle Phase**, **Priority Deployments** and **Priority Runbooks** will require an Enterprise license.
 :::
 
 Tasks are run sequentially based on the time they are queued to start. If you have many deployments or runbooks running simultaneously, this can result in a large queue of Tasks. Octopus **2023.4** adds support for prioritizing Tasks that require immediate execution, such as production hotfixes.
@@ -37,7 +37,7 @@ Octopus **2024.4** adds a feature to mark a phase within a lifecycle as a priori
 ## Priority Deployments and Runbooks
 
 :::div{.info}
-Priority runbooks requires version <insert version here>
+Priority runbooks requires version `2025.2.7584` or later
 :::
 
 You can set a deployment or runbook to be a priority task by checking the **Priority** option on the Deployment or Run page. This will put the execution task at the top of the task queue to be executed next.
