@@ -11,7 +11,7 @@ hideInThisSectionHeader: true
 :::div{.warning}
 **Multi-project deployment freezes**
 
-When this feature becomes generally available, only enterprise customers will be able to create deployment freezes that apply to multiple projects.
+From version `2025.2.7631`, only enterprise customers will be able to create deployment freezes that apply to multiple projects.
 However, all customers will be able to create [per-project deployment freezes](/docs/deployments/deployment-freezes/project-deployment-freezes) basis. Any freezes created prior to this change will still be able to be edited by customers on a non-enterprise license.
 :::
 
