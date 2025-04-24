@@ -30,11 +30,10 @@ Below are instructions on how to move your Octopus Server and SQL Database.
 5. Create a new Octopus instance using the same Octopus version as your original instance. You can find an older version and download the MSI in our [previous releases](https://octopus.com/downloads/previous) page.
 6. When installing your new instance, select the database you restored. It will prompt for the Master Key.
 7. Copy the following directories from your original server to the new server (each of these folders are located in C:\Octopus in standard installations).
-    * Artifacts
-    * Task Logs
-    * Packages
-      * This folder only needs to be moved if using the built-in package repository. External feed details are stored in the database and will connect automatically.
-    * Event Exports
+   - Task Logs
+   - Packages
+     - This folder only needs to be moved if using the built-in package repository. External feed details are stored in the database and will connect automatically.
+   - Event Exports
 
 :::div{.warning}
 The database stores the locations for these directories. After you connect to the database, your settings will be the same as they were on your original server. You can change the locations for these directories, but we recommend first moving the directories to their original location and then pointing to the new location. This process is outlined in the [moving the home directory](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory) page.
