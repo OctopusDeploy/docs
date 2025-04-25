@@ -177,7 +177,7 @@ Choose an incremental migration when:
 An incremental migration may not suitable when:
 
 * You require the complete audit history to be present on the cloud instance, as the export/import feature does not migrate audit events.
-* You have a large number of Config-as-Code enabled projects, as the export/import feature does not export these projects.
+* You have a large number of version control enabled projects, as the export/import feature does not export these projects.
 * You do not wish to reregister listening tentacles, as the new cloud instance has new certificates and will not be able to establish a connection to existing listening tentacles.
 * You have a large number of project triggers, as the export/import feature does not export triggers.
 * You have a large number of users and teams in the internal Octopus database, as these will have to be manually recreated.

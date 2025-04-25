@@ -10,7 +10,7 @@ navOrder: 60
 
 Version-control is configured per project and is accessed via the **Settings ➜ Version Control** link in the project navigation menu. This page will walk you through moving an existing config as code repository to a new location.
 
-## Moving configuration as code files
+## Moving version control enabled files
 
 Switching on version control for your project is a one-way change. You can't move the project back into the Octopus database once it's in a repository. However, you are free to move the configuration to a new folder or repository.
 

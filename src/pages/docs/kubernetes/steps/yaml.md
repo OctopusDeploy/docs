@@ -65,7 +65,7 @@ To configure an inline YAML source, select the `Inline YAML` as your YAML Source
 :::
 
 :::div{.warning}
-This is **not** the recommended approach for advanced cases as it does not allow for version management unless you are using it in conjunction with [Config As Code](/docs/projects/version-control).
+This is **not** the recommended approach for advanced cases as it does not allow for version management unless you are using it in conjunction with [version control](/docs/projects/version-control).
 :::
 
 ## Referencing packages
@@ -117,7 +117,7 @@ There are a few different ways to take advantage of this feature:
 **2024.1:**
 
 - `Deploy Raw Kubernetes YAML` was renamed to `Deploy Kubernetes YAML`.
-- If you store your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source your YAML from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the YAML files. You can learn more in [this blog post](https://octopus.com/blog/git-resources-in-deployments).
+- If you store your project configuration in a Git repository using the [version control feature](/docs/projects/version-control), you can source your YAML from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the YAML files. You can learn more in [this blog post](https://octopus.com/blog/git-resources-in-deployments).
 
 **2023.3:**
 

@@ -120,7 +120,7 @@ foreach ($project in $projects) {
     # Get project variables
     $projectVariableSet = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/variables/$($project.VariableSetId)" -Headers $header
 
-    # Get all GitRefs for CaC project
+    # Get all GitRefs for version control enabled project
     if ($project.IsVersionControlled) {
         $gitBranches = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)/git/branches" -Headers $header
         $gitTags = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)/git/tags" -Headers $header
@@ -174,7 +174,7 @@ foreach ($project in $projects) {
     # Search Deployment process if enabled
     if ($searchDeploymentProcesses -eq $True) {
         if ($project.IsVersionControlled) {
-            # For CaC Projects, loop through GitRefs
+            # For version control enabled projects, loop through GitRefs
             foreach ($gitRef in $gitRefs) {
                 $escapedGitRef = [Uri]::EscapeDataString($gitRef)
                 $processUrl = "$octopusURL/api/$($space.Id)/projects/$($project.Id)/$($escapedGitRef)/deploymentprocesses"
@@ -200,7 +200,7 @@ foreach ($project in $projects) {
 
         # Loop through each runbook
         foreach ($runbook in $runbooks.Items) {
-            # For CaC Projects, loop through GitRefs
+            # For version control enabled projects, loop through GitRefs
             if ($project.IsVersionControlled) {
                 foreach ($gitRef in $gitRefs) {
                     $escapedGitRef = [Uri]::EscapeDataString($gitRef)

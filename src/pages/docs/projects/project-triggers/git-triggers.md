@@ -32,7 +32,7 @@ A preview of the [lifecycle](/docs/releases/lifecycles) used by the selected cha
 
 Git repositories referenced in your project's deployment process can be selected to be monitored by the trigger to create releases.
 
-Please note that for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only steps that reference Git repositories in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in git triggers.
+Please note that for [version control](/docs/projects/version-control/config-as-code-reference) enabled projects, only steps that reference Git repositories in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in git triggers.
 
 :::figure
 ![Repository selection](/docs/projects/project-triggers/images/git-triggers/git-triggers-repository-selection.png)

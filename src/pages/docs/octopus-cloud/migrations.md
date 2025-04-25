@@ -257,7 +257,7 @@ In our experience, most people turn off their Octopus Server in about three to s
 ## Older versions
 
 - The **Export/Import Projects** feature is available from Octopus Deploy **2021.1** onwards.
-- Prior to version **2025.2.5601**, Config-as-Code projects were not supported by the **Export/Import Projects** feature.
+- Prior to version **2025.2.5601**, version control enabled projects were not supported by the **Export/Import Projects** feature.
 
 ## No longer offered or supported
 Please note that our existing [Migration API](https://octopus.com/docs/octopus-rest-api/migration-api) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.

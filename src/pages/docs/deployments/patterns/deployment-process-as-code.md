@@ -8,8 +8,8 @@ navOrder: 70
 ---
 
 :::div{.hint}
-**Looking for Configuration as Code?**
-This section looks at storing your deployment process as code **without** using the [Configuration as Code](/docs/projects/version-control) feature.
+**Looking for Version Control?**
+This section looks at storing your deployment process as code **without** using the [Version Control](/docs/projects/version-control) feature.
 :::
 
 With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else.

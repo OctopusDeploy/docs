@@ -28,7 +28,7 @@ The [Import/Export tool](https://octopus.com/docs/projects/export-import) is bui
 
 Typically, you would choose the Import/Export tool to perform a migration. However, there are cases where the Import/Export tool is not suitable:
 
-* You wish to migrate Config-as-Code (CaC) projects, as the Import/Export tool does not support CaC projects.
+* You wish to migrate version control enabled projects, as the Import/Export tool does not support version control enabled projects.
 * You wish to recreate targets, as the Import/Export tool does not migrate targets.
 * You wish to "own" or modify the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON format.
 
@@ -56,13 +56,13 @@ Octoterra will display an error like this when an unsupported step is encountere
 Action <step name> has the "Items" property, which indicates that it is from the new step framework. These steps are not supported and are not exported.
 ```
 
-### Config-as-Code (CaC) repositories
+### Version control enabled projects
 
-Octoterra converts CaC projects back to regular projects as part of the migration. The project can be converted back to CaC on the destination space once the migration is complete.
+Octoterra converts version control enabled projects back to regular projects as part of the migration. The project can be converted back to version control on the destination space once the migration is complete.
 
-However, be aware that Octopus does not support sharing project CaC configuration between two projects. You are prevented from doing so with multiple CaC projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared CaC project configuration from multiple Octopus instances, there are cases where the CaC configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project CaC configuration hosted in Git.
+However, be aware that Octopus does not support sharing project configuration between two projects. You are prevented from doing so with multiple version control enabled projects on a single Octopus instance. While you are not prevented from configuring two projects against a shared version control enabled project configuration from multiple Octopus instances, there are cases where the configuration references space specific resource IDs, such as step templates, which have unique (and incompatible) IDs across spaces and instances. This means you can not assume you can configure a new project in a new space or on a new instance against an existing project configuration hosted in Git.
 
-The recommended solution is to convert the projects in the destination space to a new directory or Git repository. This ensures that the new projects have valid CaC configuration.
+The recommended solution is to convert the projects in the destination space to a new directory or Git repository. This ensures that the new projects have valid configuration.
 
 ### Other settings
 
@@ -318,12 +318,12 @@ A number of sensitive values can not be migrated by Octoterra including:
 
 All these values must be manually reconfigured on the destination server.
 
-### Convert projects back to CaC
+### Convert projects back to version control
 
-CaC projects are converted back to regular projects during the migration. These projects must be manually converted back to CaC on the destination server.
+Version control enabled projects are converted back to regular projects during the migration. These projects must be manually converted back to version control on the destination server.
 
 :::div{.warning}
-You can not assume that you can point the projects back to their original configuration stored in Git. Values like step template IDs are hard coded in CaC configuration but are different between servers. Octopus also does not support pointing two projects to the same directory in a Git repository, so the source and destination servers can not reference the same Git repository and directory at the same time.
+You can not assume that you can point the projects back to their original configuration stored in Git. Values like step template IDs are hard coded in configuration but are different between servers. Octopus also does not support pointing two projects to the same directory in a Git repository, so the source and destination servers can not reference the same Git repository and directory at the same time.
 :::
 
 ### Migrate packages from built-in feed

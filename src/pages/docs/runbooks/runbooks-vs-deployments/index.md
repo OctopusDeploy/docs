@@ -61,7 +61,7 @@ You can choose to:
 
 The retention policy is applied **per environment**. For example, if you had three environments, Development, Staging and Production and you set the retention policy limit to 10, that would keep a total of **30** runbook runs - 10 in *each* of Development, Staging and Production.
 
-If you are using **config-as-code runbooks**, keep in mind that when a branch is deleted this includes any retention policies on that branch. The retention policy for any runbook runs made from that branch will then use the default time based retention policy (60 days).
+If you are using **version control enabled runbooks**, keep in mind that when a branch is deleted this includes any retention policies on that branch. The retention policy for any runbook runs made from that branch will then use the default time based retention policy (60 days).
 
 :::div{.hint}
 In Octopus 2020.2 and earlier, the runbook retention policy could not be set. Instead, Octopus would keep the last 1000 runs.

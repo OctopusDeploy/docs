@@ -2,24 +2,24 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-09
 modDate: 2023-11-09
-title: Validating CaC PRs
-description: Learn how to automatically validate pull requests in a CaC Git repository
+title: Validating Version Control PRs
+description: Learn how to automatically validate pull requests in a Git repository
 navOrder: 10
 ---
 
 One of the challenges when implementing the [shared responsibility (or eventual consistency) model](levels-of-responsibility) is the potential for complex conflicts to be introduced to the downstream repositories. Without any controls on what changes can be made to a downstream project, it may become impractical to continue to push changes downstream.
 
-One way to constrain the changes introduced to downstream CaC Git repositories is to automatically validate changes during a pull request (PR). This allows the platform team to introduce minimum requirements that all downstream CaC projects must adhere to while also allowing internal customers to customize their projects.
+One way to constrain the changes introduced to downstream Git repositories is to automatically validate changes during a pull request (PR). This allows the platform team to introduce minimum requirements that all downstream version control enabled projects must adhere to while also allowing internal customers to customize their projects.
 
 ## Parsing OCL
 
-CaC projects persist their configuration in the [Octopus Configuration Language (OCL)](/docs/projects/version-control/ocl-file-format). This format is parsed by the [`@octopusdeploy/ocl`](https://github.com/OctopusDeploy/ocl.ts) JavaScript library.
+Version control enabled projects persist their configuration in the [Octopus Configuration Language (OCL)](/docs/projects/version-control/ocl-file-format). This format is parsed by the [`@octopusdeploy/ocl`](https://github.com/OctopusDeploy/ocl.ts) JavaScript library.
 
 The `@octopusdeploy/ocl` library offers a low level parser that exposes individual OCL tokens. In addition, the library exposes a wrapper that allows the OCL data structure to be accessed via a read-only JavaScript object. This wrapped object can then be passed to any JavaScript library used to compare values or validate objects.
 
 ## Validating PRs with GitHub Actions
 
-The workflow shown below is an example that combines the `@octopusdeploy/ocl` and `expect` libraries to verify that the merge result of a CaC Git repository meets certain minimum requirements:
+The workflow shown below is an example that combines the `@octopusdeploy/ocl` and `expect` libraries to verify that the merge result of a Git repository meets certain minimum requirements:
 
 ```yaml
 on: pull_request_target
@@ -43,7 +43,7 @@ jobs:
             const {expect} = require("expect");
             
             /**
-            * This function performs the validation of the Octopus CaC OCL file
+            * This function performs the validation of the Octopus OCL file
             * @param ocl The OCL file to parse
             */
             function checkPr(ocl) {
@@ -116,7 +116,7 @@ The verification logic is defined in the function called `checkPr` whose paramet
 
 ```javascript
             /**
-            * This function performs the validation of the Octopus CaC OCL file
+            * This function performs the validation of the Octopus OCL file
             * @param ocl The OCL file to parse
             */
             function checkPr(ocl) {
@@ -187,7 +187,7 @@ The example below embeds a step OCL snippet as a string, parses the string, and 
             }`
             
             /**
-            * This function performs the validation of the Octopus CaC OCL file
+            * This function performs the validation of the Octopus OCL file
             * @param ocl The OCL file to parse
             */
             function checkPr(ocl) {
@@ -237,7 +237,7 @@ This example uses the [`lodash`](https://lodash.com/) library to clone the wrapp
             }`
             
             /**
-            * This function performs the validation of the Octopus CaC OCL file
+            * This function performs the validation of the Octopus OCL file
             * @param ocl The OCL file to parse
             */
             function checkPr(ocl) {

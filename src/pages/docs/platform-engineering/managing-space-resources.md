@@ -24,7 +24,7 @@ Managed, or downstream, spaces (i.e. spaces with centrally managed resources) ar
 Space level resources are best managed with the [Octopus Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs).
 
 :::div{.hint}
-[Config-as-code](/docs/projects/version-control) only supports persisting a subset of project settings in a Git repository, and can not be used to define space level resources.
+[Version control](/docs/projects/version-control) only supports persisting a subset of project settings in a Git repository, and can not be used to define space level resources.
 :::
 
 Space level resources can be defined in a Terraform module in two ways:

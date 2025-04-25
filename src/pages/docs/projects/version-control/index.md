@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-09-17
-title: Configuration as Code
+title: Version Control
 description: Projects can be version-controlled as text in a Git repository 
 icon: fa-brands fa-git-alt
 navOrder: 110 
@@ -11,7 +11,7 @@ hideInThisSection: true
 
 ## Introduction 
 
-The Configuration as Code (config-as-code) feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, your _deployment process_, _runbook processes_, _deployment settings_, and _non-sensitive variables_ can be version-controlled.
+The version control feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, your _deployment process_, _runbook processes_, _deployment settings_, and _non-sensitive variables_ can be version-controlled.
 
 The Octopus UI needed to remain fully functional for version-controlled projects, and it has. You can continue to use the UI exactly as you always have, but with an additional superpower: Git branches are now exposed in the UI, allowing editing of currently supported project configuration on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes too.
 
@@ -51,7 +51,7 @@ Learn more about [Configuring version control on a project](/docs/projects/versi
 
 Several resources previously stored in SQL Server will now be stored in git once a project is version-controlled.
 
-Learn more about [Configuration as Code reference](/docs/projects/version-control/config-as-code-reference)
+Learn more about [Version Control reference](/docs/projects/version-control/config-as-code-reference)
 
 ## Making changes to a version-controlled project
 
@@ -61,7 +61,7 @@ Learn more about [Editing a project with version control enabled](/docs/projects
 
 ## Migrating projects to support new features
 
-Since the initial public release of config-as-code, we've added support for additional project configuration in Git. Learn more about [migrating variables to Git](/docs/projects/version-control/converting/migrating-variables)
+Since the initial public release of version control enabled projects, we've added support for additional project configuration in Git. Learn more about [migrating variables to Git](/docs/projects/version-control/converting/migrating-variables)
 
 ## Creating and deploying releases
 
@@ -71,6 +71,6 @@ Learn more about [creating and deploying releases in a version controlled projec
 
 ## Unsupported scenarios
 
-The Configuration as Code feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios.
+The version control feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios.
 
-Learn more about [unsupported config-as-code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios)
+Learn more about [unsupported version control scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios)

@@ -95,7 +95,7 @@ To configure Terraform steps to use a Git repository, select the `Git Repository
 
 #### Database projects
 
-If you are storing your project configuration directly in Octopus (i.e. not in a Git repository using the [Configuration as code feature](/docs/projects/version-control)), you can source your files from a Git repository by entering the details of the repository directly on the step, including:
+If you are storing your project configuration directly in Octopus (i.e. not in a Git repository using [version control](/docs/projects/version-control)), you can source your files from a Git repository by entering the details of the repository directly on the step, including:
 
 - URL
 - Credentials (either anonymous or selecting a Git credential from the Library)
@@ -104,7 +104,7 @@ When creating a Release, you choose the tip of a branch for your files. The comm
 
 #### Version-controlled projects
 
-If you are storing your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), in addition to the option above, you can source your files from the same Git repository as your deployment process by selecting **Project** as the Git repository source. When creating a Release using this option, the commit hash used for your deployment process will also be used to source the files.
+If you are storing your project configuration in a Git repository using [version control](/docs/projects/version-control), in addition to the option above, you can source your files from the same Git repository as your deployment process by selecting **Project** as the Git repository source. When creating a Release using this option, the commit hash used for your deployment process will also be used to source the files.
 
 ### Variable replacements
 

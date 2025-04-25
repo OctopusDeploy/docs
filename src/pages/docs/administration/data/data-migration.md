@@ -31,7 +31,7 @@ The data migration tools are only suitable for some scenarios. In most cases, th
 1. To split a single Octopus Server into multiple separate Octopus Servers in a one-time operation, use the [Export/Import Projects feature](/docs/projects/export-import).
 1. To sync projects with disparate environments, tenants, lifecycles, channels, variable values, or deployment process steps, see [syncing multiple instances](/docs/administration/sync-instances)
 1. To consolidate multiple Octopus Servers into a single Octopus Server, use the [Export/Import Projects feature](/docs/projects/export-import).
-1. To audit your project configuration, see [configuration as code](/docs/projects/version-control).
+1. To audit your project configuration, see [version control](/docs/projects/version-control).
 1. To split a single space into multiple spaces, see the [Export/Import Projects feature](/docs/projects/export-import).
 1. To migrate data from older versions of Octopus see [upgrading old versions of Octopus](/docs/administration/upgrading/legacy).
 1. For general disaster recovery, learn about [backup and restore for your Octopus Server](/docs/administration/data/backup-and-restore).

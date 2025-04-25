@@ -16,7 +16,7 @@ However, it can be useful to treat runbooks as an independently deployable artif
 Runbooks can be defined as a Terraform module and applied to an existing project, effectively "deploying" the runbook into the project.
 
 :::div{.hint}
-Runbooks are not managed by Config-as-code.
+Runbooks are not managed with version control.
 :::
 
 Runbooks can be defined in a Terraform module in two ways:
