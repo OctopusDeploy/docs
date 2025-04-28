@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
+modDate: 2025-04-28
 title: Keeping deployment targets up to date
 description: Octopus can ensure that deployment targets are kept up to date with the relevant releases. This can be useful when deploying to transient targets or when new deployment targets are added to an environment.
 navOrder: 2
@@ -11,11 +11,11 @@ Octopus Deploy can ensure that deployment targets are kept up to date with the r
 
 ## Triggers {#triggers}
 
-Triggers are per-project settings that execute an action in response to an event. For this example we will create an automatic deployment trigger so that machines associated with the **TradingWebServer** [target tag](/docs/infrastructure/deployment-targets/#target-roles) are automatically kept up to date with the latest releases for OctoFX. Triggers can be found by selecting the _Triggers_ menu item on the project screen.
+Triggers are per-project settings that execute an action in response to an event. For this example we will create an automatic deployment trigger so that machines associated with the **TradingWebServer** [target tag](/docs/infrastructure/deployment-targets/#target-roles) are automatically kept up to date with the latest releases for OctoFX. Triggers can be found by selecting the *Triggers* menu item on the project screen.
 
 ## Creating an automatic deployment trigger {#create-automatic-deployment-trigger}
 
-1. Navigate to the project _Triggers_ page.
+1. Navigate to the project *Triggers* page.
 2. Create a new trigger by selecting **Create trigger**:
 
 :::figure
@@ -24,7 +24,7 @@ Triggers are per-project settings that execute an action in response to an event
 
 3. Add events to the trigger.
 
-- For **Octopus 3.6** and above, select the event group _"Machine becomes available for deployment"_.
+- For **Octopus 3.6** and above, select the event group *"Machine becomes available for deployment"*.
 
 4. Select the environments (**Test A**) that this trigger applies to.
 
@@ -60,7 +60,7 @@ To test the trigger, we will disable a deployment target, deploy to that target'
 
 ## Overriding the release used for automatic deployments {#override-release-for-automatic-deployments}
 
-Automatic deployments attempts to calculate the release to use for a project and environment (using the _current_ and _successful_ release that has been deployed, as shown in your Project Overview dashboard). In some cases the calculated release may not be the release that should be automatically deployed, or Octopus may not be able to find a deployment for an environment (maybe you have a release, but have not yet deployed it anywhere). It is possible to explicitly set the release that should be automatically deployed by overriding the automatic-deployment-release. Overrides can be configured using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) or through [Octopus.Client](/docs/octopus-rest-api/octopus.client). Overrides define a release for a project when deploying to an environment (this can, for example, be useful for cloud-testing-automation when standing up new cloud infrastructure). For multi-tenanted deployments, overrides may be configured for each environment/tenant combination.
+Automatic deployments attempts to calculate the release to use for a project and environment (using the *current* and *successful* release that has been deployed, as shown in your Project Overview dashboard). In some cases the calculated release may not be the release that should be automatically deployed, or Octopus may not be able to find a deployment for an environment (maybe you have a release, but have not yet deployed it anywhere). It is possible to explicitly set the release that should be automatically deployed by overriding the automatic-deployment-release. Overrides can be configured using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) or through [Octopus.Client](/docs/octopus-rest-api/octopus.client). Overrides define a release for a project when deploying to an environment (this can, for example, be useful for cloud-testing-automation when standing up new cloud infrastructure). For multi-tenanted deployments, overrides may be configured for each environment/tenant combination.
 
 **Octopus CLI**
 
@@ -92,7 +92,7 @@ Automatic deployment overrides are cleared when a deployment is performed to the
 
 ## Troubleshooting automatic deployments {#troubleshoot-automatic-deployments}
 
-Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently _successfully_ deployed as shown on the [project dashboard](/docs/projects/project-dashboard). If a release is deployed and it fails, the previous successful release will continue to be automatically deployed. Octopus will not attempt automatic deployments for a project/environment/tenant while a release is being deployed to that project/environment/tenant. Once the deployment finishes, Octopus will deploy to any machines that require the deployment.
+Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the [project dashboard](/docs/projects/project-dashboard). If a release is deployed and it fails, the previous successful release will continue to be automatically deployed. Octopus will not attempt automatic deployments for a project/environment/tenant while a release is being deployed to that project/environment/tenant. Once the deployment finishes, Octopus will deploy to any machines that require the deployment.
 
 Troubleshoot automatic deployment by viewing the auto deploy logs from the diagnostics page in the configuration section or viewing the [Audit log](/docs/security/users-and-teams/auditing).
 
