@@ -142,7 +142,7 @@ To enable a project to enforce a requirement for an approved CR:
 ### Setting up runbooks for CR approval
 
 :::div{.warning}
-This feature is only available for version **2025.2.x** and later
+This feature is only available for version **2025.2.7878** and later
 :::
 
 To enforce a runbook run to require an approved CR, the runbook needs to be included in the **Enabled Runbooks** setting and the **Change Controlled** setting also needs to be enabled in **both** the project and the environment the runbook is run in. 
