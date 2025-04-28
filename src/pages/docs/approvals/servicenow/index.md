@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2025-04-28
 title: ServiceNow Integration
 description: Octopus Deploy can integrate with your ServiceNow instance for deployment control using Change Request approvals
 navOrder: 10
@@ -320,4 +320,4 @@ The ServiceNow integration uses the following REST endpoints:
 
 ## Older versions
 
-- Prior to version **2025.2.x** ServiceNow approvals for runbooks were not supported.
+- Prior to version **2025.2.7878** ServiceNow approvals for runbooks were not supported.

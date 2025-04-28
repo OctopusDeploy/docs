@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-13
+modDate: 2025-04-28
 title: Jira Service Management Integration
 description: Octopus Deploy can integrate with your Jira Service Management instance for deployment control using Change Requests/Issues
 navOrder: 10
@@ -248,4 +248,4 @@ The following list assumes the linked change is in an **approved** state.
 
 ## Older versions
 
-- Prior to version **2025.2.x** runbooks did not support JSM approvals.
+- Prior to version **2025.2.7878** runbooks did not support JSM approvals.
