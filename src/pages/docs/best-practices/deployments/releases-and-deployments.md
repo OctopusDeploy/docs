@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-05-03
+modDate: 2025-04-28
 title: Releases and Deployments
 description: Guidelines and recommendations for creating releases and deploying them in Octopus Deploy.
 navOrder: 95
