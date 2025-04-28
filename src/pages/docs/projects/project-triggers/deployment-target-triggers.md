@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-28
+modDate: 2025-04-28
 title: Deployment target triggers
 icon: fa-solid fa-desktop
 description: Deployment target triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
@@ -26,13 +26,13 @@ Deployment target triggers can be triggered by any machine-related event. A sche
 
 Events have been placed into the following pre-defined groups:
 
-| Event group                                       | Included Events                                                                                                                                                                                                                                 |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Machine events**                                | Machine cleanup failed, Machine created, Machine deployment-related property modified, Machine disabled, Machine enabled, Machine found healthy, Machine found to be unavailable, Machine found to be unhealthy, Machine found to have warnings |
-| **Machine critical-events**                       | Machine cleanup failed, Machine found to be unavailable                                                                                                                                                                                         |
-| **Machine becomes available for deployment**      | Machine enabled, Machine found healthy, Machine found to have warnings                                                                                                                                                                          |
-| **Machine is no longer available for deployment** | Machine disabled, Machine found to be unavailable, Machine found to be unhealthy                                                                                                                                                                |
-| **Machine health changed**                        | Machine found healthy, Machine found to be unavailable, Machine found to be unhealthy, Machine found to have warnings                                                                                                                           |
+| Event group | Included Events |
+| ----------- | --------------- |
+| **Machine events** | Machine cleanup failed, Machine created, Machine deployment-related property modified, Machine disabled, Machine enabled, Machine found healthy, Machine found to be unavailable, Machine found to be unhealthy, Machine found to have warnings |
+| **Machine critical-events** | Machine cleanup failed, Machine found to be unavailable |
+| **Machine becomes available for deployment** | Machine enabled, Machine found healthy, Machine found to have warnings |
+| **Machine is no longer available for deployment** | Machine disabled, Machine found to be unavailable, Machine found to be unhealthy |
+| **Machine health changed** | Machine found healthy, Machine found to be unavailable, Machine found to be unhealthy, Machine found to have warnings |
 
 :::div{.success}
 For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the **Machine becomes available for deployment** event group.
@@ -74,8 +74,8 @@ Deployment target triggers let you configure unattended deployment behavior that
 
 When a deployment target trigger fires, the following rules are applied:
 
-- By default, Octopus will re-run the _currently successful_ deployment for the project/environment/tenant combination. You can override this behavior by configuring an [auto deploy override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride). Note, if multiple identical deployment targets all become available within the same 30 second polling window, they will all be included in the same automatic deployment. This could happen if you scale your web farm up by four nodes, and all four nodes finish provisioning within the same time window. However, this kind of behavior should not be expected or relied on (one or more of the targets might fall outside the 30 second window).
-- The steps that were run for the _currently successful_ deployment will be run for the deployment targets that triggered the deployment. This includes [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) and [guided failure](/docs/releases/guided-failures) steps. Note, if you skip steps in a manual deployment, they will be skipped in the subsequent automatic deployment. If you need to run a deployment and skip some steps, there are two ways you can reset the skipped steps:
+- By default, Octopus will re-run the *currently successful* deployment for the project/environment/tenant combination. You can override this behavior by configuring an [auto deploy override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride). Note, if multiple identical deployment targets all become available within the same 30 second polling window, they will all be included in the same automatic deployment. This could happen if you scale your web farm up by four nodes, and all four nodes finish provisioning within the same time window. However, this kind of behavior should not be expected or relied on (one or more of the targets might fall outside the 30 second window).
+- The steps that were run for the *currently successful* deployment will be run for the deployment targets that triggered the deployment. This includes [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) and [guided failure](/docs/releases/guided-failures) steps. Note, if you skip steps in a manual deployment, they will be skipped in the subsequent automatic deployment. If you need to run a deployment and skip some steps, there are two ways you can reset the skipped steps:
   1. Re-running the entire deployment of the same release again (we generally recommend designing your steps so they can be re-run without negative side-effects).
   2. Configuring an [auto deploy override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride) for the same release to the same environment/tenant (this will result in a new deployment being generated without the manually skipped steps).
 - If a deployment of a release fails, Octopus will continue deploying the last successful deployment. This ensures auto-deployments will continue, even if a release has been updated and failed.
@@ -102,7 +102,7 @@ The [Chain Deployment](https://library.octopus.com/step-template/actiontemplate-
 
 ### Specifying a specific release to be deployed
 
-If you need to specify a specific release, either because the release hasn't been deployed yet, or Octopus is calculating the wrong release for a particular situation, you can configure an [auto deploy override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride/) to override the default automatic deployment behavior. This is useful for scenarios like [immutable infrastructure](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure/), [deploying to transient targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets), and force deployment target triggers to use a specific release for a specific environment/tenant.
+If you need to specify a specific release, either because the release hasn't been deployed yet, or Octopus is calculating the wrong release for a particular situation, you can configure an [auto deploy override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride/) to override the default automatic deployment behavior.  This is useful for scenarios like [immutable infrastructure](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure/), [deploying to transient targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets), and force deployment target triggers to use a specific release for a specific environment/tenant.
 
 ## Deployment target trigger subscription notifications
 
@@ -114,7 +114,7 @@ There are a number of reasons why automatic deployments may not work the way you
 
 ### Is the dashboard green?
 
-Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently _successfully_ deployed as shown on the [project dashboard](/docs/projects/project-dashboard).
+Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the [project dashboard](/docs/projects/project-dashboard).
 
 - Octopus will not automatically deploy a release if the deployment for that release was not successful (this can be a failed deployment or even a canceled deployment)
 
