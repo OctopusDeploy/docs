@@ -4,7 +4,7 @@ title: Project dashboard
 icon: fa-solid fa-shapes
 description: Understanding the different project dashboard views.
 pubDate: 2025-04-17
-navOrder: 10
+navOrder: 11
 ---
 
 The project dashboard gives you an at-a-glance view of your project. You’ll see a cherry-picked **selection of your releases**. You’ll also see where and when they were deployed in your [environments](/docs/infrastructure/environments), [tenants](/docs/tenants/), and [channels](/docs/releases/channels).
@@ -87,7 +87,7 @@ From this view you can filter by release and then deploy the selected release in
 
 ### Alternative tenants views
 
-- Grouping:
+- Group by dropdown:
   - When **no grouping** is selected:
     - The environments shown are from your **project’s lifecycle**.
   - When **grouping by channel** is selected:
