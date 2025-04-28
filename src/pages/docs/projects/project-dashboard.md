@@ -3,10 +3,8 @@ layout: src/layouts/Default.astro
 title: Project dashboard
 icon: fa-solid fa-shapes
 description: Understanding the different project dashboard views.
-position: 20
-hideInThisSection: true
-hideInThisSectionHeader: true
 pubDate: 2025-04-17
+navOrder: 10
 ---
 
 The project dashboard gives you an at-a-glance view of your project. You’ll see a cherry-picked **selection of your releases**. You’ll also see where and when they were deployed in your [environments](/docs/infrastructure/environments), [tenants](/docs/tenants/), and [channels](/docs/releases/channels).
