@@ -83,7 +83,7 @@ From this view you can filter by release and then deploy the selected release in
   - The most recently deployed release is shown.
 - If untenanted deployments are allowed:
   - For each **environment**:
-  - The most recently deployed, untenanted release is shown.
+    - The most recently deployed, untenanted release is shown.
 
 ### Alternative tenants views
 
