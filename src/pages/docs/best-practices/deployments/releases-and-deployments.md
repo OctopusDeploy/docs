@@ -98,7 +98,7 @@ As you deploy more frequently, the available disk space on your deployment targe
 - How long should we keep releases? That means how long the release is retained on the Octopus Server.
 - How long should we keep extracted packages and files on disk on Tentacles? That means how long the release is retained on your deployment targets.
 
-Unless you are using a [custom install directory](/docs/projects/steps/configuration-features/custom-installation-directory), Octopus Deploy will create a unique folder on your deployment targets to extract packages to. The unique folder is generated _per deployment_. If the same release is deployed five times, expect to see five unique folders.
+Unless you are using a [custom install directory](/docs/projects/steps/configuration-features/custom-installation-directory), Octopus Deploy will create a unique folder on your deployment targets to extract packages to. The unique folder is generated *per deployment*. If the same release is deployed five times, expect to see five unique folders.
 
 Our recommendation is to configure your deployment target retention policies to match your release retention policies. Unless, of course, you are limited by disk space. If that happens, then set your deployment target retention policy to something smaller than the release retention policy.
 
