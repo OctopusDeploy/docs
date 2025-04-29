@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-13
+modDate: 2025-04-28
 title: Jira Service Management Integration
 description: Octopus Deploy can integrate with your Jira Service Management instance for deployment control using Change Requests/Issues
 navOrder: 10
@@ -20,11 +20,22 @@ Request** (aka issue).
 To enable this behavior, both the Octopus Project and Environment you are deploying to must be 
 configured and the JSM configuration is set up before deployments can be managed.
 
+### Deployments
+
 | Project | Environment | Outcome |
 |--|--|--|
 | Change controlled| Change controlled| Approval required for deployment |
 | **_Not_** Change controlled| Change controlled| No approval required |
 | Change controlled| **_Not_** Change controlled| No approval required |
+
+### Runbooks
+
+| Project | Environment | Runbook | Outcome |
+|--|--|--|--|
+| Change controlled | Change controlled | Enabled | Approval required |
+| Change controlled | Change controlled | **_Not_** Enabled | No approval required |
+| **_Not_** Change controlled | Change controlled | Enabled | No approval required |
+| Change controlled | **_Not_** Change controlled | Enabled | No approval required |
 
 ## Getting started
 
@@ -111,11 +122,11 @@ Integration**, click the **Customer Comments Enabled** checkbox show below then 
 ![JSM Integration Enable Work Notes](/docs/approvals/jira-service-management/images/jsm-customer-comments-settings.png)
 :::
 
-## Configuring deployments
+## Configuring approvals
+
+### Setting up deployments for CR approval
 
 To enforce a deployment to require an approved CR, the **Change Controlled** setting needs to be enabled in **both** the project and the environment it is being deployed to.
-
-### Setting up projects for CR approval
 
 To enable a project to enforce a requirement for an approved CR:
 
@@ -128,9 +139,28 @@ To enable a project to enforce a requirement for an approved CR:
 ![JSM Integration Project settings](/docs/approvals/jira-service-management/images/jsm-project-settings.png)
 :::
 
+### Setting up runbooks for CR approval
+
+:::div{.warning}
+This feature is only available for version **2025.2.7878** and later
+:::
+
+To enforce a runbook run to require an approved CR, the runbook needs to be included in the **Enabled Runbooks** setting and the **Change Controlled** setting also needs to be enabled in **both** the project and the environment the runbook is run in. 
+
+To enable a runbook to enforce a requirement for an approved CR:
+
+1. Navigate to the project and then **Settings ➜ ITSM Providers**.
+2. Check the **Jira Service Management Integration ➜ Change Controlled** setting.
+3. Select your JSM connection in the **Jira Service Management Connection** setting.
+4. Select the runbooks you want to require an approved CR in the **Enabled Runbooks** setting, and then press **SAVE**
+
+:::figure
+![JSM Integration Project settings](/docs/approvals/jira-service-management/images/jsm-runbooks-settings.png)
+:::
+
 ### Default behavior
 
-Deployments resulting in a CR creation will produce an issue with a Request Type of **Request a 
+Deployments and runbook runs resulting in a CR creation will produce an issue with a Request Type of **Request a 
 change**
 
 ### Supplying the CR number to a deployment
@@ -215,3 +245,7 @@ The following list assumes the linked change is in an **approved** state.
   the deployment to proceed. If the Issue is incorrect, you will need to cancel the deployment, 
   close the CR and try the deployment again.
 - Each project only supports a single JSM connection.
+
+## Older versions
+
+- Prior to version **2025.2.7878** runbooks did not support JSM approvals.
