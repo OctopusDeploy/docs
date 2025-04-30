@@ -2,7 +2,6 @@
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
 import { Accelerator } from 'astro-accelerator-utils';
-import Separator from './Separator.astro';
 
 const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/components/ArticleNav.astro');
@@ -32,7 +31,7 @@ stats.stop();
         <summary class="article-nav__title">
           {_(Translations.toc.title)}
         </summary>
-        <Separator />
+
         <ol class="article-nav__list">
           {headings.map((heading) => (
             <li
