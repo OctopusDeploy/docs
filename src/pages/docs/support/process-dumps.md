@@ -39,7 +39,7 @@ We recommend using [Process Explorer](https://docs.microsoft.com/en-us/sysintern
 
 1. On the Tentacle that is having the issues. Download and install [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
 from Microsoft.
-1. Once installed you need to **run the program as an administrator** by right clicking on the relevent procexp.exe file and selecting `Run as Administrator`.
+1. Once installed you need to **run the program as an administrator** by right clicking on the relevant procexp.exe file and selecting `Run as Administrator`.
 1. Once opened you need to make sure the process tree is shown by clicking on the `View` menu on the top navigation bar and selecting `Show Process Tree`.
 1. You will notice the program looks similar to task manager. Navigate to the **tentacle.exe** process in the list of tasks.
 1. Run the process that is causing the issue/fault in Octopus (ie run the deployment or task that is failing). 
