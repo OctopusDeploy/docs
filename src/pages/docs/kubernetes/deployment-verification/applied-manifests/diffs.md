@@ -58,6 +58,16 @@ Next to the `Show Diffs` toggle, there is a menu for changing diff options. This
 ![A screenshot of the Kubernetes Applied Manifests diffs menu](/docs/deployments/kubernetes/deployment-verification/diffs-menu.png)
 :::
 
+## Kubernetes Secret resources and Octopus sensitive variable changes
+
+As detailed in the [Applied Manifest](/docs/kubernetes/deployment-verification/applied-manifests#kubernetes-secret-resources-and-octopus-sensitive-variables) documentation, Octopus will obfuscate values in Kubernetes Secrets and well as any identified sensitive Octopus variable.
+
+When performing a diff, Octopus continues to obfuscate the secrets, but will still indicate if the obfuscated value has changed between deployments.
+
+:::figure
+![A screenshot of the Kubernetes Applied Manifests diffs for secrets](/docs/deployments/kubernetes/deployment-verification/secret-diffs.png)
+:::
+
 ## Can I compare to my live resources?
 
 The `Applied Manifest` view allows users to independently compare manifests generated at each step. In contrast, the live view aggregates the manifests, displaying the combined manifest from all steps completed during a deployment. You cannot compare or view the combined manifest on this page. Navigate to the Live page for the combined manifest. To learn more about the live status page and combined manifests, see the docs [here](/docs/kubernetes/live-object-status).
