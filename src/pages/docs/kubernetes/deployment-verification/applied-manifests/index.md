@@ -2,10 +2,11 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-07-31
 modDate: 2025-03-25
-title: Applied Manifests in Octopus
-navTitle: Applied Manifests
+navSection: Applied Manifests
+navTitle: Overview
+title: Applied Manifests
 description: Applied Manifests guide
-navOrder: 20
+navOrder: 10
 ---
 
 As part of your deployment, Octopus also captures the Kubernetes manifests that were applied to the cluster. This allows you to validate and verify the exact manifests that were applied, allowing for easier debugging of any issues.
