@@ -1,0 +1,61 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2025-05-07
+title: octopus runbook snapshot create
+description: Create a runbook snapshot
+navOrder: 123
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Create a runbook snapshot in Octopus Deploy
+
+```
+Usage:
+  octopus runbook snapshot create [flags]
+
+Aliases:
+  create, new
+
+Flags:
+      --git-resource stringArray     Git reference for a specific Git resource.
+                                     Format as {step}:{git-ref}, {step}:{git-resource-name}:{git-ref}
+                                     You may specify this multiple times.
+                                     Only relevant for config-as-code projects where runbooks are stored in Git.
+  -n, --name string                  Override the snapshot name
+      --package stringArray          Version specification a specific packages.
+                                     Format as {package}:{version}, {step}:{version} or {package-ref-name}:{packageOrStep}:{version}
+                                     You may specify this multiple times
+      --package-version string       Default version to use for all packages. Only relevant for config-as-code projects where runbooks are stored in Git.
+  -p, --project string               Name or ID of the project where the runbook is
+      --publish                      Publish the snapshot immediately
+  -r, --runbook string               Name or ID of the runbook to create the snapshot for
+      --snapshot-notes string        Release notes to attach
+      --snapshot-notes-file string   Release notes to attach (from file)
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus runbook snapshot create --project MyProject --runbook "Rebuild DB Indexes"
+$ octopus runbook snapshot create --project MyProject --runbook "Rebuild DB Indexes" --name "My cool snapshot"
+$ octopus runbook snapshot create -p MyProject -r "Restart App" --package "azure-cli:1.2.3" --no-prompt
+$ octopus runbook snapshot create -p MyProject -r "Restart App" --git-resource "Script step from Git:refs/heads/dev-branch" --publish --no-prompt
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
