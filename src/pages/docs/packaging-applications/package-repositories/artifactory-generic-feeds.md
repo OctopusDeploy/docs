@@ -60,3 +60,7 @@ On the test page, you can search for packages, this will return the packageId ex
 :::figure
 ![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-test.png)
 :::
+
+### Known limitations
+
+- Due to a limitation in the Octo CLI, that has been deprecated, our TeamCity pluign does not support creating releases for projects that utilize Artifactory Generic Feeds
