@@ -63,4 +63,4 @@ On the test page, you can search for packages, this will return the packageId ex
 
 ### Known limitations
 
-- Due to a limitation in the Octo CLI, that has been deprecated, our TeamCity pluign does not support creating releases for projects that utilize Artifactory Generic Feeds
+- Due to a limitation in the Octo CLI, that has been deprecated, our TeamCity plugin does not support creating releases for projects that utilize Artifactory Generic Feeds
