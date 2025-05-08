@@ -2,23 +2,22 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2025-05-07
-title: octopus project delete
-description: Delete a project
-navOrder: 91
+title: octopus runbook snapshot publish
+description: Publish a runbook snapshot
+navOrder: 125
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-Delete a project in Octopus Deploy
+Publish a runbook snapshot in Octopus Deploy
 
 ```
 Usage:
-  octopus project delete {<name> | <id> | <slug>} [flags]
-
-Aliases:
-  delete, del, rm, remove
+  octopus runbook snapshot publish [flags]
 
 Flags:
-  -y, --confirm   Don't ask for confirmation before deleting the project.
+  -p, --project string    Name or ID of the project where the runbook is
+  -r, --runbook string    Name or ID of the runbook to publish an existing snapshot
+      --snapshot string   Name or ID of the snapshot to publish
 
 
 Global Flags:
@@ -34,8 +33,7 @@ Global Flags:
 <SamplesInstance />
 
 ```
-$ octopus project delete
-$ octopus project rm
+$ octopus runbook snapshot publish --project MyProject --runbook "Rebuild DB Indexes" --snapshot "Snapshot 40C9ENM"
 
 
 ```
