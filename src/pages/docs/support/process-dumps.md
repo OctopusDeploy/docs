@@ -62,7 +62,7 @@ To aid in debugging, process dumps on Linux should be captured using `createdump
 `createdump` is included with installations of the dotnet runtime. You will first need to install the dotnet runtime by [following the instructions on the dotnet download page](https://dotnet.microsoft.com/en-us/download).
 
 Here is an example of a manual installation:
-```
+```bash
 wget https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.15/dotnet-runtime-8.0.15-linux-x64.tar.gz
 DOTNET_FILE=dotnet-runtime-8.0.15-linux-x64.tar.gz
 export DOTNET_ROOT=~/.dotnet
@@ -74,7 +74,7 @@ Once the dotnet runtime has been installed, locate the installation directory by
 
 Use `ps ax` to list the running processes on the machine, taking note of the process PID. To find Calamari, for example, use `ps ax | grep Calamari`. Then, capture a dump of the process using `createdump`:
 
-```
+```bash
 > dotnet --list-runtimes
 Microsoft.NETCore.App 8.0.15 [/home/ec2-user/.dotnet/shared/Microsoft.NETCore.App]
 > ps ax | grep Calamari
