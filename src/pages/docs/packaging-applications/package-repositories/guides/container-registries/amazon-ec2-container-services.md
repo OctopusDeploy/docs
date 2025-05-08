@@ -37,6 +37,14 @@ Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `AWS E
 
 Save and test your registry to ensure that the connection is authorized successfully.
 
+## Using worker configured credentials
+From Octopus Server `2025.2`, you can now use worker configured credentials by setting `Execute using the credentials configured on the worker` to `Yes` when creating your AWS ECR feed.
+
+:::div{.warning}
+If your AWS credentials are not set up on server, package search and package version resolution will not find any results. You can still enter your full package name and version for package acquisition on your worker.
+:::
+
+
 ## Adding an AWS OpenID Connect ECR External feed
 Octopus Server `2025.2` adds support for OpenID Connect to ECR feeds. To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). The configuration of 
 
