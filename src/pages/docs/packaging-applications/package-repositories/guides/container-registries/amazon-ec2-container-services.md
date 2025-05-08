@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-03-28
+modDate: 2025-05-08
 title: AWS Elastic Container Registry (ECR)  
 description: How to add an AWS Elastic Container Registry as an Octopus feed 
 navOrder: 30
