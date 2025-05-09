@@ -93,7 +93,7 @@ When a step is run on a worker, the following variables are available:
 
 ## Removing worker pools
 
-For projects using version control, it's up to you to take care to avoid deleting any worker pools required by your deployments or runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
+For projects using version control, it's up to you to take care to avoid deleting any worker pools required by your deployments or runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-version-control-scenarios#core-design-decision) for more information. 
 
 ## Workers Q&A
 

@@ -248,4 +248,4 @@ The image below shows an example dashboard with discrete channel release enabled
 
 ## Removing channels
 
-For projects using version control, it's up to you to take care to avoid deleting any channels required by your deployments. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
+For projects using version control, it's up to you to take care to avoid deleting any channels required by your deployments. See our [core design decisions](/docs/projects/version-control/unsupported-version-control-scenarios#core-design-decision) for more information. 

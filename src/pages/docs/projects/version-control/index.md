@@ -73,4 +73,4 @@ Learn more about [creating and deploying releases in a version controlled projec
 
 The version control feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios.
 
-Learn more about [unsupported version control scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios)
+Learn more about [unsupported version control scenarios](/docs/projects/version-control/unsupported-version-control-scenarios)

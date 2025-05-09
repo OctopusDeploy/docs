@@ -90,6 +90,6 @@ If you use automated scripts that run runbooks via the Octopus Server API, and y
 
 ## Deleting required resources
 
-Once your Runbooks are version controlled, it's up to you to take care to avoid deleting any Octopus resources required by your Runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
+Once your Runbooks are version controlled, it's up to you to take care to avoid deleting any Octopus resources required by your Runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-version-control-scenarios#core-design-decision) for more information. 
 
 
