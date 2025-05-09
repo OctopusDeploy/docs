@@ -145,7 +145,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus runbook list](/docs/octopus-rest-api/cli/octopus-runbook-list)**:  List runbooks.
 - **[octopus runbook run](/docs/octopus-rest-api/cli/octopus-runbook-run)**:  Run runbooks in Octopus Deploy.
 - **[octopus runbook snapshot](/docs/octopus-rest-api/cli/octopus-runbook-snapshot)**:  Manage runbook snapshots.
+- **[octopus runbook snapshot create](/docs/octopus-rest-api/cli/octopus-runbook-snapshot-create)**:  Create a runbook snapshot.
 - **[octopus runbook snapshot list](/docs/octopus-rest-api/cli/octopus-runbook-snapshot-list)**:  List runbook snapshots.
+- **[octopus runbook snapshot publish](/docs/octopus-rest-api/cli/octopus-runbook-snapshot-publish)**:  Publish a runbook snapshot.
 - **[octopus space](/docs/octopus-rest-api/cli/octopus-space)**:  Manage spaces.
 - **[octopus space create](/docs/octopus-rest-api/cli/octopus-space-create)**:  Create a space.
 - **[octopus space delete](/docs/octopus-rest-api/cli/octopus-space-delete)**:  Delete a space.

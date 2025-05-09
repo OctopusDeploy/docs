@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-19
+modDate: 2025-05-07
 title: octopus tenant variables update
 description: Update the value of a tenant variable
-navOrder: 143
+navOrder: 145
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -15,7 +15,7 @@ Usage:
   octopus tenant variables update [flags]
 
 Flags:
-  -e, --environment string            The environment
+      --environment strings           Assign environment scopes to the variable. Multiple scopes can be supplied.
   -l, --library-variable-set string   The library variable set
   -n, --name string                   The name of the variable
   -p, --project string                The project

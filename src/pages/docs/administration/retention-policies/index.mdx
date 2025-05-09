@@ -1,16 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-03-12
+modDate: 2025-04-28
 title: Retention policies
 icon: fa-solid fa-broom
 description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
 navOrder: 70
 hideInThisSectionHeader: true
 ---
+
 import OctopusCloudStorageLimits from 'src/shared-content/octopus-cloud/octopus-cloud-storage-limits-hint.include.md';
 
-As you deploy more often and to different environments, files and releases can build up. Octopus handles this using retention policies. They allow you to control how Octopus decides which releases, packages and files are kept.   
+As you deploy more often and to different environments, files and releases can build up. Octopus handles this using retention policies. They allow you to control how Octopus decides which releases, packages and files are kept.
 
 ## What is deleted \{#what-is-deleted}
 
@@ -22,9 +23,9 @@ The Octopus Server settings delete **releases** from the database. This is a dat
 
 #### Releases included on a dashboard
 
-One important thing to note about the release retention policy is that any releases displayed on either the main dashboard or a project dashboard are **never deleted**. This is true even if it matches a retention policy rule. 
+One important thing to note about the release retention policy is that any releases displayed on either the main dashboard or a [project dashboard](/docs/projects/project-dashboard) are **never deleted**. This is true even if it matches a retention policy rule.
 
-These releases are assumed to be a working release and may still be promoted (even if their dates fall well outside the retention policy). This can be helpful as it means you don't have to worry about a recent release in the Staging environment being deleted before it can be promoted to Production. 
+These releases are assumed to be a working release and may still be promoted (even if their dates fall well outside the retention policy). This can be helpful as it means you don't have to worry about a recent release in the Staging environment being deleted before it can be promoted to Production.
 
 :::div{.hint}
 If you see a release that isn't being cleaned up, check the dashboards to see if it's being displayed.
@@ -47,7 +48,6 @@ Workers also clean up any files and folders older than 90 days.
 
 Note that if you use the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
 
-
 #### Packages
 
 Packages that are transferred during the deployment are managed based on free disk space. For each deployment, prior to acquiring the package, the free disk space is checked and if less than 20% it will delete the “least used” package(s) from the Tentacle file store location. Packages that gets removed will be reacquired if needed for another deployment.
@@ -58,10 +58,11 @@ The disk space calculation for both targets and workers looks at the entire disk
 A retention policy can be applied to packages in the built-in Octopus package repository. By default, the policy is set to keep all packages indefinitely. This policy is *separate* from the [release retention policy](#releases-whats-deleted) described above.
 
 :::figure
-![](/docs/administration/retention-policies/images/built-in-repository.png "width=500")
+![](/docs/administration/retention-policies/images/built-in-repository.png)
 :::
 
 When a package retention policy is applied, Octopus will delete packages that meet *both* of the following criteria:
+
 1. The time span from the package's initial publish date exceeds the configured time period in the policy
 2. The package is **not associated with any releases in Octopus**.
 
@@ -72,6 +73,7 @@ When configuring the repository retention policy, it's also worth making note of
 ### Build information \{#build-information-whats-deleted}
 
 [Build information](/docs/packaging-applications/build-servers/build-information) stored in Octopus is associated with **packages**. Octopus will decide how long to keep the build information based on the package they are linked to:
+
 - If the package is used by a release, it will be kept.
 - If the package is present in the built-in repository, and a package retention policy has been configured, then the record will be kept according to that value. If no package retention policy has been configured, then the build information record will be kept indefinitely.
 - If the package is not present in the built-in repository, it's assumed that the package belongs to an [external package repository](/docs/packaging-applications/package-repositories). The build information record will be kept for a fixed value of 100 days from when it was published to Octopus.
@@ -81,9 +83,10 @@ When configuring the repository retention policy, it's also worth making note of
 [Tasks](/docs/tasks) stored in Octopus are kept based on their time of completion.
 
 Octopus will retain:
- - All incomplete tasks.
- - The 20 most recently completed task per type.
- - The 20,000 most recently completed task per type within the last 30 days.
+
+- All incomplete tasks.
+- The 20 most recently completed task per type.
+- The 20,000 most recently completed task per type within the last 30 days.
 
 ## What isn't deleted \{#what-is-not-deleted}
 
@@ -108,10 +111,10 @@ If you have a release retention policy for a project that has a final phase of k
 In this section we walk through what's deleted for an example project when the retention policy task runs. Consider a project that has the following lifecycle defined:
 
 :::figure
-![Release retention task example lifecycle](/docs/administration/retention-policies/images/retention-lifecycle-example.png "width=500")
+![Release retention task example lifecycle](/docs/administration/retention-policies/images/retention-lifecycle-example.png)
 :::
 
-It contains two phases, both are set to keep the last 3 releases. 
+It contains two phases, both are set to keep the last 3 releases.
 
 The project has 15 releases, of which:
 
@@ -119,11 +122,12 @@ The project has 15 releases, of which:
 - `0.0.7` through `0.0.9` are deployed to Staging.
 - `0.0.1` through `0.0.6` are deployed to both Staging and Production.
 
-When the retention policy runs for this lifecycle, it keeps a count of both **undeployed releases** it finds, as well as a separate count for **releases per phase**. 
+When the retention policy runs for this lifecycle, it keeps a count of both **undeployed releases** it finds, as well as a separate count for **releases per phase**.
 
 For a release to be deleted, the count must be greater than the required number for each phase the release has been deployed to. In this example, release `0.0.2` is the fourth release kept for Staging, but only the third for Production, so it will be kept.
 
 Each phase defined in this lifecycle will keep a maximum of **5 releases**:
+
 - 1 release for the current dashboard version.
 - 1 release for the dashboard version's rollback.
 - The last 3 releases, as configured in the phase.
@@ -164,13 +168,13 @@ Undeployed releases will simply keep the number we have selected and no more. Wh
 Under **Deploy ➜ Lifecycles** you select the Lifecycle you want to define or edit your retention policy for:
 
 :::figure
-![](/docs/administration/retention-policies/images/lifecycles.png "width=500")
+![](/docs/administration/retention-policies/images/lifecycles.png)
 :::
 
 Each phase will inherit the retention policy from the above phase, but this is something you can change by expanding the Retention Policy panel.
 
 :::figure
-![](/docs/administration/retention-policies/images/lifecycle-retention-policy.png "width=500")
+![](/docs/administration/retention-policies/images/lifecycle-retention-policy.png)
 :::
 
 *Releases* determines what is kept on the Octopus Server, and *Files on Tentacle* determines what files are kept on the Tentacle.
@@ -184,15 +188,17 @@ Alternatively, you can specify a number of days worth of releases and files to k
 ### Inherited retention policies
 
 As mentioned above, any phase that does not have a retention policy set will inherit its retention policy in the following priority:
+
 1. From the latest previous phase with a custom retention policy
 2. From the lifecycle retention policy
 
 This can be observed in the following retention policy setup:
-* Lifecycle: Keep 3 Releases
-* Phase 1 (Dev): Inherit (Keep 3 Releases)
-* Phase 2 (Test): Inherit (Keep 3 Releases)
-* Phase 3 (Staging): Keep 5 Releases
-* Phase 4 (Prod): Inherit (Keep 5 Releases)
+
+- Lifecycle: Keep 3 Releases
+- Phase 1 (Dev): Inherit (Keep 3 Releases)
+- Phase 2 (Test): Inherit (Keep 3 Releases)
+- Phase 3 (Staging): Keep 5 Releases
+- Phase 4 (Prod): Inherit (Keep 5 Releases)
 
 Note how Dev and Test inherit their policies from the lifecycle retention policy as there is no previous phase with a custom retention policy. As Prod comes after Staging, a phase which has a custom retention policy, Prod inherits its retention policy from Staging instead.
 
@@ -203,7 +209,7 @@ Phases prioritize retention policies from the latest previous phase over the lif
 You can find the built-in repository retention policy settings under **Deploy ➜ Packages**.
 
 :::figure
-![](/docs/administration/retention-policies/images/built-in-feed-retention-policy.png "width=500")
+![](/docs/administration/retention-policies/images/built-in-feed-retention-policy.png)
 :::
 
 In Octopus Server, this can be set to keep packages forever, or for a set number of days.
@@ -211,7 +217,7 @@ In Octopus Server, this can be set to keep packages forever, or for a set number
 <OctopusCloudStorageLimits />
 
 :::figure
-![](/docs/administration/retention-policies/images/built-in-repository.png "width=500")
+![](/docs/administration/retention-policies/images/built-in-repository.png)
 :::
 
 Choosing *A limited time* will allow you to select the number of days to keep a package in the repository. The default value is 30, but you can choose something shorter or longer based on your needs.
@@ -230,13 +236,13 @@ Octopus does not apply any retention policies to external feeds. However the pac
 
 Whether you have an existing Octopus Server or are setting it up for the first time, we have some recommendations when setting retention policies.
 
-### Change the defaults 
+### Change the defaults
 
-Octopus comes with default retention policies to keep everything, forever. If you have small packages or don't release frequently, you may never notice any adverse effects. As your usage grows, you might run into disk space or performance issues as Octopus continues to store everything. 
+Octopus comes with default retention policies to keep everything, forever. If you have small packages or don't release frequently, you may never notice any adverse effects. As your usage grows, you might run into disk space or performance issues as Octopus continues to store everything.
 
 We recommend changing the default values on the different retention policies available in Octopus.
 
-For releases, you have the choice to clean up after a specified number of releases or a specified number of days. If you're not sure what value to pick, we recommend keeping the last three releases for both releases and the extracted packages. 
+For releases, you have the choice to clean up after a specified number of releases or a specified number of days. If you're not sure what value to pick, we recommend keeping the last three releases for both releases and the extracted packages.
 
 Remember, if you have multiple lifecycles then we recommend configuring the retention policies on each lifecycle and any defined phases.
 

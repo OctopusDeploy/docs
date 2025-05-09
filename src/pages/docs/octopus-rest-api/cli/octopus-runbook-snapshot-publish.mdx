@@ -1,0 +1,44 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2025-05-07
+title: octopus runbook snapshot publish
+description: Publish a runbook snapshot
+navOrder: 125
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Publish a runbook snapshot in Octopus Deploy
+
+```
+Usage:
+  octopus runbook snapshot publish [flags]
+
+Flags:
+  -p, --project string    Name or ID of the project where the runbook is
+  -r, --runbook string    Name or ID of the runbook to publish an existing snapshot
+      --snapshot string   Name or ID of the snapshot to publish
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus runbook snapshot publish --project MyProject --runbook "Rebuild DB Indexes" --snapshot "Snapshot 40C9ENM"
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

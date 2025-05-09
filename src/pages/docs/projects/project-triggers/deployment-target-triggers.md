@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-28
+modDate: 2025-04-28
 title: Deployment target triggers
 icon: fa-solid fa-desktop
 description: Deployment target triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
@@ -114,7 +114,7 @@ There are a number of reasons why automatic deployments may not work the way you
 
 ### Is the dashboard green?
 
-Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the project dashboard.
+Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the [project dashboard](/docs/projects/project-dashboard).
 
 - Octopus will not automatically deploy a release if the deployment for that release was not successful (this can be a failed deployment or even a canceled deployment)
 
