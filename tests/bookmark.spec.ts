@@ -79,7 +79,7 @@ const bookmarks = [
   '/docs/projects/steps/execution-containers-for-workers#which-image',
   '/docs/projects/variables/variable-filters#json-parsing',
   '/docs/projects/variables/variable-substitutions#extended-syntax',
-  '/docs/projects/version-control/config-as-code-reference#authentication',
+  '/docs/projects/version-control/version-control-reference#authentication',
   '/docs/releases/channels#manually-create-release',
   '/docs/releases/channels#version-rules',
   '/docs/releases/deployment-changes#templates',

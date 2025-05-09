@@ -51,7 +51,7 @@ Learn more about [Configuring version control on a project](/docs/projects/versi
 
 Several resources previously stored in SQL Server will now be stored in git once a project is version-controlled.
 
-Learn more about [Version Control Reference](/docs/projects/version-control/config-as-code-reference)
+Learn more about [Version Control Reference](/docs/projects/version-control/version-control-reference)
 
 ## Making changes to a version-controlled project
 
