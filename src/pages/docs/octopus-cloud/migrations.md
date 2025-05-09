@@ -35,7 +35,7 @@ Before you start planning your migration, it’s worth setting some expectations
 
 | **Instance Size**         | **Characteristics** | **Effort** |
 | ------------------------- | ---- | ----------- |
-| Small and/or simple       | <ul><li>10 or fewer projects</li><li>10 or fewer deployment targets</li><li>Integrations with cloud-based products only</li><li>No config as code</li></ul> | Migration typically takes 1-3 days with minimal manual configuration. |
+| Small and/or simple       | <ul><li>10 or fewer projects</li><li>10 or fewer deployment targets</li><li>Integrations with cloud-based products only</li><li>No version control</li></ul> | Migration typically takes 1-3 days with minimal manual configuration. |
 | Medium                    | <ul><li>10–50 projects</li><li>Integrations with a mix of self-hosted and cloud-based products</li><li>Fewer than 100 deployment targets</li></ul> | Migration requires thorough planning, testing, and may take multiple weeks to migrate. |
 | Large or complex          | <ul><li>50+ projects</li><li>Advanced configurations</li><li>Integrations primarily with other self-hosted tools</li><li>More than 100 deployment targets</li></ul> | Migrations may take several weeks or months of preparation, testing, and execution. |
 

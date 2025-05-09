@@ -9,11 +9,11 @@ icon: fa-brands fa-git-alt
 ---
 import VersionControlRepositoryUrlFormat from 'src/shared-content/version-control-repository-url-format.include.md';
 
-The version control feature enables you to save some project-level settings as files in a Git repository instead of SQL Server. The files are written in the OCL (Octopus Configuration Language) format. Storing resources as files lets you leverage version control features such as branching, pull requests, and reverting changes. In addition, you can save both your source code and how you deploy your code in the same Git repository. This page is a reference document of how the config-as-code feature works.
+The version control feature enables you to save some project-level settings as files in a Git repository instead of SQL Server. The files are written in the OCL (Octopus Configuration Language) format. Storing resources as files lets you leverage version control features such as branching, pull requests, and reverting changes. In addition, you can save both your source code and how you deploy your code in the same Git repository. This page is a reference document of how the version control feature works.
 
 ## Octopus project level only
 
-The config-as-code feature will store Octopus Project resources in Git instead of SQL Server.
+The version control feature will store Octopus Project resources in Git instead of SQL Server.
 
 ### Project resources version controlled
 
@@ -56,12 +56,12 @@ Currently, the Project level resources saved to SQL Server when version control 
     - Project Group
 
 :::div{.hint}
-Sensitive Variables are planned for future releases of config-as-code.
+Sensitive Variables are planned for future releases of version control.
 :::
 
-### Resources **not** version controlled by config-as-code
+### Resources **not** version controlled
 
-The config-as-code feature manages project-level resources. However, it is worth explicitly mentioning some things that are **not included**:
+This feature manages project-level resources. However, it is worth explicitly mentioning some things that are **not included**:
 
 - Infrastructure
     - Environments
@@ -93,10 +93,10 @@ The config-as-code feature manages project-level resources. However, it is worth
     - Users
     - User Roles
 
-Currently, there are no plans to include these resources in the config-as-code feature. Several of the resources above can be put into version control using the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs). 
+Currently, there are no plans to include these resources in the version control feature. Several of the resources above can be put into version control using the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs). 
 
 :::div{.hint}
-Resources managed by the Octopus Terraform Provider will have their state managed by Terraform. Resources managed by the Octopus config-as-code feature will have the state managed by Octopus Deploy. The two are not the same and shouldn't be treated as such.
+Resources managed by the Octopus Terraform Provider will have their state managed by Terraform. Resources managed by version control capabilities will have the state managed by Octopus Deploy. The two are not the same and shouldn't be treated as such.
 :::
 
 ## Git configuration options
@@ -113,7 +113,7 @@ The repository must be initialized (i.e. contain at least one branch) prior to s
 
 ### Authentication
 
-The config-as-code feature is designed to work with _any_ Git repository. When configuring a project to be version-controlled, you can optionally provide credentials for authentication.
+The version control feature is designed to work with _any_ Git repository. When configuring a project to be version-controlled, you can optionally provide credentials for authentication.
 
 :::div{.hint}
 Do not use credentials from a personal account. Select a shared or service account. When Octopus Deploy saves to your Git repo, you will typically see the message `[User Name] authored and [Service Account] committed on [Date].`
@@ -164,7 +164,7 @@ The _Default Branch Name_ is the branch on which the Octopus configuration will 
 For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
 
 :::div{.hint}
-When snapshotting a Runbook in a Git project that is not yet using config-as-code Runbooks, the variables will always be taken from the default branch.
+When snapshotting a Runbook in a Git project that is not yet using version control enabled Runbooks, the variables will always be taken from the default branch.
 :::
 
 #### Initial commit branch
@@ -322,14 +322,14 @@ All other resources will be referenced from OCL via their ID. We plan on growing
 
 ## Items of note
 
-When designing the config-as-code feature, we made several decisions to keep an appropriate balance of usability and functionality. There are a few limitations and items of note you should be aware of with config-as-code.
+When designing the version control feature, we made several decisions to keep an appropriate balance of usability and functionality. There are a few limitations and items of note you should be aware of with version control.
 
 - The Octopus Terraform Provider and OCL are not a 1:1 match. You cannot copy resources between the two and expect everything to work. We want to narrow the gap as much as possible, but as of right now, a gap exists.
 - Octopus currently only supports connecting to Git repositories over HTTPS and not SSH. 
 - Shared resources (environments, external feeds, channels, etc.) are referenced by their slug from OCL. The API however will still use IDs.
 - Shared resources referenced in OCL that no longer exist in Octopus Server will result in an error when loading through the portal or API. The provided error message should provide information indicating what reference is no longer valid and should be updated or removed before being loaded again.
 - Shared resources must exist before loading an OCL file into Octopus Deploy. What that means is if you copy the OCL files from one Git repo to another, and point a new project at those files, then any shared resource must exist before creating that project. That only applies when projects are in different spaces or on different instances. If the resources do not exist, an error message will appear.
-- Pointing multiple projects to the same folder in the same Git repo is unsupported. Please see our [unsupported config as code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios) for more information.
+- Pointing multiple projects to the same folder in the same Git repo is unsupported. Please see our [unsupported version control scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios) for more information.
 - Converting a project to be version-controlled is a one-way process. At this time, you cannot convert back.
 
 ## Older versions

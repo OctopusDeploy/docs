@@ -29,7 +29,7 @@ All the components in a single "solution" or built in the same configuration sho
 If you want to have a project per component, you need to ensure each component is decoupled from one another and can be deployed on a separate schedule.  
 
 :::div{.hint}
-Previous versions of this guide recommended having a project per component.  Octopus Deploy now includes new features, including ITSM integration, Config as Code, and more options for variable run conditions.  There is also a logistical overhead with a project per component.  That recommendation was made in 2021.  At that time, a project per component made sense.  It is no longer applicable with the 2023 version of Octopus Deploy.
+Previous versions of this guide recommended having a project per component.  Octopus Deploy now includes new features, including ITSM integration, version control, and more options for variable run conditions.  There is also a logistical overhead with a project per component.  That recommendation was made in 2021.  At that time, a project per component made sense.  It is no longer applicable with the 2023 version of Octopus Deploy.
 :::
 
 ## Anti-patterns to avoid

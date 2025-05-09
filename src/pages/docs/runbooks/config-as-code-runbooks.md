@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-11-24
 modDate: 2025-02-18
-title: Config as Code runbooks
+title: Version Control Enabled Runbooks
 description: Details about using version control with runbooks.
 navOrder: 20
 icon: fa-brands fa-git-alt
@@ -84,7 +84,7 @@ The information that was previously found on the **Snapshot** page is still avai
 
 ## Custom automated scripts
 
-If you use automated scripts that run runbooks via the Octopus Server API and you convert your runbooks to Config As Code the URL for the runbook will change to include a branch reference (e.g. `refs/heads/main`) as a result you need to update your scripts to include the branch reference where the runbook is stored. 
+If you use automated scripts that run runbooks via the Octopus Server API, and you convert your runbooks to version control, the URL for the runbook will change to include a branch reference (e.g. `refs/heads/main`) as a result you need to update your scripts to include the branch reference where the runbook is stored. 
 
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Runbooks/RunConfigAsCodeRunbook.ps1)
 

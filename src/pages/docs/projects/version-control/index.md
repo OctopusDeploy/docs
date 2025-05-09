@@ -24,12 +24,12 @@ Of course, there is now a text representation of the process in the Git reposito
 That means that where previously there was only a single current version of the deployment or runbook process, it is now possible to have many. When creating releases, the relevant branch can be selected. We have also added [branch system variables](/docs/projects/variables/system-variables/#release-branch-information) that can be used in your custom deployment scripts.
 
 :::div{.warning}
-Config-as-code only supports [git](https://git-scm.com/) repositories.  Before using this feature, you should be familiar with [git concepts](https://git-scm.com/doc) such as distributed version control, pushing, pulling, branching, merging, and fetching.
+Version control only supports [git](https://git-scm.com/) repositories.  Before using this feature, you should be familiar with [git concepts](https://git-scm.com/doc) such as distributed version control, pushing, pulling, branching, merging, and fetching.
 :::
 
 ### We want your feedback
 
-Our major goal for the early stages of this feature is to discover the ways people want config-as-code to evolve. What scenarios would you like to see unlocked? What doesn't work the way you hoped? 
+Our major goal for the early stages of this feature is to discover the ways people want version control to evolve. What scenarios would you like to see unlocked? What doesn't work the way you hoped? 
 
 You can provide feedback through whichever of the following channels you feel most comfortable with: 
 
@@ -41,17 +41,17 @@ You can provide feedback through whichever of the following channels you feel mo
 
 Version-control is configured per project and is accessed via the **Settings ➜ Version Control** navigation menu item. 
 
-New version controlled projects will automatically have config-as-code for both deployment and runbook processes. 
+New version controlled projects will automatically have this enabled for both deployment and runbook processes. 
 
-You can [migrate an existing version controlled project](/docs/runbooks/config-as-code-runbooks#cac-runbooks-on-an-existing-version-controlled-project) to use config as code runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
+You can [migrate an existing version controlled project](/docs/runbooks/config-as-code-runbooks#cac-runbooks-on-an-existing-version-controlled-project) to use version control enabled runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
 
 Learn more about [Configuring version control on a project](/docs/projects/version-control/converting).
 
-## Config-as-code reference
+## Version Control Reference
 
 Several resources previously stored in SQL Server will now be stored in git once a project is version-controlled.
 
-Learn more about [Version Control reference](/docs/projects/version-control/config-as-code-reference)
+Learn more about [Version Control Reference](/docs/projects/version-control/config-as-code-reference)
 
 ## Making changes to a version-controlled project
 

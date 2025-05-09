@@ -70,7 +70,7 @@ In Octopus 2020.2 and earlier, the runbook retention policy could not be set. In
 ## Snapshots versus Releases
 
 :::div{.success}
-Config-as-code runbooks use commits instead of snapshots. If your project uses config-as-code runbooks, read about [snapshots vs commits](/docs/runbooks/config-as-code-runbooks#snapshots-vs-commits) instead. 
+Version control enabled runbooks use commits instead of snapshots. If your project uses version control for runbooks, read about [snapshots vs commits](/docs/runbooks/config-as-code-runbooks#snapshots-vs-commits) instead. 
 :::
 
 Runbooks are similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/runbooks/runbook-publishing/#snapshots) versus a [release](/docs/releases) for a deployment. Runbooks can have two different types of snapshots:

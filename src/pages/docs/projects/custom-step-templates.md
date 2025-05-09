@@ -122,7 +122,7 @@ Be careful when changing names. Octopus commonly uses names as a convenient iden
 
 ## Removing step templates
 
-For projects using Config as Code, it's up to you to take care to avoid deleting any step templates required by your deployments or runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
+For projects using version control, it's up to you to take care to avoid deleting any step templates required by your deployments or runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
 
 ## Learn more
 

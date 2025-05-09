@@ -8,7 +8,7 @@ icon: fa-brands fa-git-alt
 navOrder: 60
 ---
 
-Version-control is configured per project and is accessed via the **Settings ➜ Version Control** link in the project navigation menu. This page will walk you through moving an existing config as code repository to a new location.
+Version-control is configured per project and is accessed via the **Settings ➜ Version Control** link in the project navigation menu. This page will walk you through moving an existing repository to a new location.
 
 ## Moving version control enabled files
 

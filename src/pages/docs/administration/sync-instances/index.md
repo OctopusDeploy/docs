@@ -48,7 +48,7 @@ In talking to users, the primary reason for splitting an instance is due to perm
 - Release managers can modify the variables on a set of tenants assigned to them.  All other tenants are read-only.
 
 ### Approval process
-Another reason we hear about is needing an approval process for changes to the deployment process.  Please see our [config as code feature](/docs/projects/version-control) as that integrates with git, which allows for branching and pull requests.  
+Another reason we hear about is needing an approval process for changes to the deployment process.  Please see our [version control feature](/docs/projects/version-control) as that integrates with git, which allows for branching and pull requests.  
 
 ### Performance improvement
 The final reason we hear about is to "speed up the deployment."  Typically we hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
@@ -62,7 +62,7 @@ The final reason we hear about is to "speed up the deployment."  Typically we he
 
 Do not split an instance and sync it for any of the following use cases.
 
-- You want an approval process for any changes to your deployment process.  Please see our [config as code feature](/docs/projects/version-control) as that integrates with git.
+- You want an approval process for any changes to your deployment process.  Please see our [version control feature](/docs/projects/version-control) as that integrates with git.
 - You want to move a project from the default space to another space on the same instance (or different instance).  Please see our documentation on our [Export/Import Projects feature](/docs/projects/export-import).
 - You want to create a test instance to test out upgrades or try out new processes.  Please see our guide on [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance)
 - You want to upgrade the underlying VM hosting Octopus Deploy from Windows Server 2012 to Windows Server 2019.  Please see our guide on [moving the Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server).
@@ -90,9 +90,9 @@ The Migrator and Export/Import Project feature can be run multiple times for the
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) includes the [export](/docs/octopus-rest-api/octopus-cli/export/) and [import](/docs/octopus-rest-api/octopus-cli/import) commands.  Those commands are deprecated and should not be used.  
 
-### Config as Code and Octopus Terraform Provider
+### Version Control and Octopus Terraform Provider
 
-Terraform uses Hashicorp Configuration Language or HCL.  The [Config as Code feature](/docs/projects/version-control) uses Octopus Configuration Language (OCL) and that is based on HCL.  HCL does not support complex logic.  That means you'd need a unique set of files per instance.  To sync instances using these features, you'd need to use a comparison tool such as Beyond Compare to move changes between instances manually.  Anything manual is error-prone and will eventually fail. 
+Terraform uses Hashicorp Configuration Language or HCL.  The [version control feature](/docs/projects/version-control) uses Octopus Configuration Language (OCL) and that is based on HCL.  HCL does not support complex logic.  That means you'd need a unique set of files per instance.  To sync instances using these features, you'd need to use a comparison tool such as Beyond Compare to move changes between instances manually.  Anything manual is error-prone and will eventually fail. 
 
 You can write a tool to compare files between instances automatically and make the necessary modifications.  You will run into the a lot of the same roadblocks as below as you'll need to consider dependencies, environment mis-matches, and more.  
 
