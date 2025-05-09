@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-19
+modDate: 2025-05-07
 title: octopus release deploy
 description: Deploy releases
 navOrder: 113
@@ -15,20 +15,22 @@ Usage:
   octopus release deploy [flags]
 
 Flags:
-  -p, --project string                          Name or ID of the project to deploy the release from
-      --version string                          Release version to deploy
-  -e, --environment stringArray                 Deploy to this environment (can be specified multiple times)
-      --tenant stringArray                      Deploy to this tenant (can be specified multiple times)
-      --tenant-tag stringArray                  Deploy to tenants matching this tag (can be specified multiple times). Format is 'Tag Set Name/Tag Name', such as 'Regions/South'.
-      --deploy-at string                        Deploy at a later time. Deploy now if omitted. TODO date formats and timezones!
-      --deploy-at-expiry string                 Cancel the deployment if it hasn't started within this time period.
-  -v, --variable stringArray                    Set the value for a prompted variable in the format Label:Value
-      --update-variables                        Overwrite the release variable snapshot by re-importing variables from the project.
-      --skip stringArray                        Exclude specific steps from the deployment
-      --guided-failure string                   Enable Guided failure mode (true/false/default)
-      --force-package-download                  Force re-download of packages
-      --deployment-target stringArray           Deploy to this target (can be specified multiple times)
-      --exclude-deployment-target stringArray   Deploy to targets except for this (can be specified multiple times)
+  -p, --project string                             Name or ID of the project to deploy the release from
+      --version string                             Release version to deploy
+  -e, --environment stringArray                    Deploy to this environment (can be specified multiple times)
+      --tenant stringArray                         Deploy to this tenant (can be specified multiple times)
+      --tenant-tag stringArray                     Deploy to tenants matching this tag (can be specified multiple times). Format is 'Tag Set Name/Tag Name', such as 'Regions/South'.
+      --deploy-at string                           Deploy at a later time. Deploy now if omitted. TODO date formats and timezones!
+      --deploy-at-expiry string                    Cancel the deployment if it hasn't started within this time period.
+  -v, --variable stringArray                       Set the value for a prompted variable in the format Label:Value
+      --update-variables                           Overwrite the release variable snapshot by re-importing variables from the project.
+      --skip stringArray                           Exclude specific steps from the deployment
+      --guided-failure string                      Enable Guided failure mode (true/false/default)
+      --force-package-download                     Force re-download of packages
+      --deployment-target stringArray              Deploy to this target (can be specified multiple times)
+      --exclude-deployment-target stringArray      Deploy to targets except for this (can be specified multiple times)
+      --deployment-freeze-name stringArray         Override this deployment freeze (can be specified multiple times)
+      --deployment-freeze-override-reason string   Reason for overriding a deployment freeze
 
 
 Global Flags:
