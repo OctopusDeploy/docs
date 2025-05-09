@@ -98,6 +98,10 @@
   --slate-800: #282f38ff;
   --slate-900: #16191fff;
 
+  --purple-200: #8c5fc7;
+  --purple-300: #6950ff;
+  --purple-400: #9747ff;
+
   /* Font sizes */
   --text-heading-xxlarge: 30px;
   --text-heading-xlarge: 24px;
@@ -253,10 +257,10 @@
   --color-header-icon-background: var(--blue-100);
 
   /* Button */
-  --button-primary: #00e693ff;
-  --button-primary-focus: #00ffa3ff;
-  --button-primary-text: var(--slate-800);
-  --button-ring-color: rgba(0, 255, 163, 0.5);
+  --button-primary: var(--purple-300);
+  --button-primary-focus: var(--purple-400);
+  --button-primary-text: var(--white);
+  --button-ring-color: var(--purple-300);
 
   /* Search */
   --search-height: 3rem;
@@ -308,10 +312,16 @@
 
   --content-width: 78vw;
   --content-width-mobile: calc(100vw - 4rem);
-  --toc-width: 300px;
+  --toc-width: 340px;
   --grid-max-width: 1250px;
-  --grid-gap: 1rem;
-  --grid-gap-main: 1rem;
+  --grid-gap: 4rem;
+  --grid-gap-main: 2rem;
+}
+
+@media (max-width: 1480px) {
+  :root {
+    --toc-width: 240px;
+  }
 }
 
 @media (max-width: 860px) {

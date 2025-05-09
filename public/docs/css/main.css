@@ -55,7 +55,7 @@ a:focus,
 summary:hover,
 summary:focus,
 dt[data-destination]:hover {
-  color: var(--color-text-link-hover);
+  color: var(--color-text-link-default);
 }
 
 button[data-share] {
@@ -71,7 +71,7 @@ button[data-share] {
 
 .page-content a:hover,
 .page-content a:focus {
-  color: var(--color-text-link-hover);
+  color: var(--color-text-link-default);
 }
 
 blockquote {
@@ -120,7 +120,7 @@ code {
   /* border: 1px solid var(--color-code-border); */
   border-radius: var(--radius-medium);
   padding: 0.2rem 0.3rem 0.1rem 0.3rem;
-  font-size: var(--text-body-medium);
+  font-size: var(--text-body-large);
 }
 
 pre {
@@ -154,8 +154,8 @@ div.warning code:not(pre code),
 div.problem code:not(pre code),
 div.question code:not(pre code),
 div.hint code:not(pre code) {
-  background-color: var(--code-background);
-  color: var(--code-color);
+  background-color: var(--color-code-background);
+  color: var(--color-code-text);
 }
 
 html[data-theme='dark'] {
@@ -2530,7 +2530,7 @@ a[data-youtube] {
 
 .result-headings:has(li:nth-child(n + 4))::after {
   content: 'See more >';
-  color: var(--octo-blue);
+  color: var(--color-text-link-default);
   text-decoration: underline;
 }
 
@@ -2834,7 +2834,7 @@ figure:focus .magnify-icon {
 }
 
 .reading-list-options .select-element {
-  border: 2px solid var(--octo-blue-lighter);
+  border: 2px solid var(--color-text-link-default);
   display: block;
   border-radius: 100px;
   padding: 0.3em 1em;
@@ -2845,7 +2845,7 @@ figure:focus .magnify-icon {
   display: block;
   border-radius: 100px;
   text-decoration: none;
-  color: var(--octo-blue-lighter);
+  color: var(--color-text-link-default);
   text-transform: uppercase;
   font-size: var(--text-body-medium);
   font-weight: 600;
