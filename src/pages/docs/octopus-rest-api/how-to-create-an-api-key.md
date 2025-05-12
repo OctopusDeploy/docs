@@ -11,7 +11,7 @@ API keys allow you to access the Octopus Deploy [REST API](/docs/octopus-rest-ap
 
 See the [Service Accounts docs](/docs/security/users-and-teams/service-accounts) for information about creating service accounts.
 
-## Creating an API Key {#HowtocreateanAPIkey-CreatinganAPIkey}
+## Creating an API Key
 
 [Getting Started - API Keys](https://www.youtube.com/watch?v=f3-vRjpB0cE)
 
@@ -58,7 +58,7 @@ The background task which raises the api-key-expiry events runs:
 - Every 4 hours
 :::
 
-## Disabling API Key Creation {#HowtocreateanAPIkey-DisablingAPIKeyCreation}
+## Disabling API Key Creation
 :::div{.hint}
 The ability to disable API key creation for user accounts was added in Octopus Deploy **2023.2**.
 :::
