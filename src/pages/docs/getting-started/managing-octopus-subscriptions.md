@@ -82,7 +82,7 @@ We use outage windows to perform updates to the Octopus Deploy software, so you 
 4. Specify the new URL.
 5. Click **Submit**.
 
-## Access control
+## User Access
 
 ### Understanding access control
 
@@ -99,21 +99,21 @@ Below are the roles for Subscription Group access, the permissions they provide 
 | ------------------------------ | ------------- | ----------------- | --------------- |
 | **Subscription Group**         |
 | Delete and rename group        | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
-| Access Control                 | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
+| User Access                    | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | **Subscriptions within Group** |
 | Server: View License Key       | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Server: Manage Billing         | <i class="fa-circle-check"></i>             | <i class="fa-solid fa-circle-xmark"></i>        | <i class="fa-circle-check"></i>                    |
-| Server: Manage Access Control  | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
+| Server: Manage Admin Access    | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Cloud: View Overview           | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-circle-check"></i>                    |
 | Cloud: Manage Billing          | <i class="fa-circle-check"></i>             | <i class="fa-solid fa-circle-xmark"></i>        | <i class="fa-circle-check"></i>                    |
 | Cloud: Manage Configuration    | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
-| Cloud: Manage Access Control   | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
+| Cloud: Manage User Access      | <i class="fa-circle-check"></i>             | <i class="fa-circle-check"></i>                 | <i class="fa-solid fa-circle-xmark"></i>           |
 | Instance access                | <i class="fa-circle-check"></i> Admin       | <i class="fa-circle-check"></i> Octopus Manager | <i class="fa-solid fa-circle-xmark"></i>           |
 
 #### Inviting users to Subscription Group access
 
 1. Navigate to the dashboard and locate your subscription group.
-2. Click **Access Control**.
+2. Click **User Access**.
 3. Click **Invite User**.
 4. Enter the user's details and click **Invite**.
 
@@ -130,21 +130,21 @@ Below are the roles available for Direct access:
 | Cloud: View Overview         | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>                          |
 | Cloud: Manage Billing        | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
 | Cloud: Manage Configuration  | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
-| Cloud: Manage Access Control | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
+| Cloud: Manage User Access    | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
 | Instance access              | <i class="fa-circle-check"></i> Admin     | <i class="fa-circle-check"></i> User                     |
 
 |                              | Server License Owner | Server License Viewer |
 | ---------------------------- | ----------- | ---------- |
-| Server: View License Key      | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>                          |
-| Server: Manage Billing        | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
-| Server: Manage Access Control | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
+| Server: View License Key     | <i class="fa-circle-check"></i>           | <i class="fa-circle-check"></i>                          |
+| Server: Manage Billing       | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
+| Server: Manage Admin Access  | <i class="fa-circle-check"></i>           | <i class="fa-solid fa-circle-xmark"></i>                 |
 
 #### Inviting users to Direct access
 
 ##### Cloud
 
 1. Navigate to your Cloud instance.
-2. Click **Access Control** in the left sidebar.
+2. Click **User Access** in the left sidebar.
 3. Click **Invite User**.
 4. Enter the user's details and click **Invite**.
 
@@ -159,7 +159,7 @@ If the invited user already has an Octopus ID, they must still accept the invite
 ##### Server
 
 1. Navigate to your Server License.
-2. Click **Access Control** in the left sidebar.
+2. Click **Admin Access** in the left sidebar.
 3. Click **Invite User**.
 4. Enter the user's details and click **Invite**.
 
@@ -176,14 +176,14 @@ To change a user's role, you must remove that user's access and then re-invite t
 Deleting Subscription Group access users:
 
 1. Navigate to the dashboard and locate your subscription group.
-2. Click **Access Control**.
+2. Click **User Access**.
 3. Locate the user in the table and click the trash icon.
 4. Click **Delete** in the confirmation dialog.
 
 Deleting Direct access users:
 
 1. Navigate to your subscription.
-2. Click **Access Control** in the left sidebar.
+2. Click **User Access** in the left sidebar.
 3. Locate the user in the table and click the trash icon.
 4. Click **Delete** in the confirmation dialog.
 

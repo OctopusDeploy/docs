@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-28
+modDate: 2025-05-12
 title: System variables
 icon: fa-solid fa-desktop
 description: System variables are variables provided by Octopus that can be used in your deployments.
@@ -987,6 +987,40 @@ Example: *C:\Octopus\Work\20210821060923-7117-31\Acme.zip*
 The name of the package file (if the package has been configured to not be extracted).
 
 Example: *Acme.zip*
+
+#### Docker image package variables {#docker-image-package-variables}
+
+In a scenario where your package reference is a Docker image, some additional variables will be contributed. Assuming a package-reference named `Acme`:
+
+`Octopus.Action.Package[Acme].Image`
+
+The fully qualified image name.
+
+Example: *index.docker.io/Acme:1.4.0*
+
+`Octopus.Action.Package[Acme].Registry`
+
+The URI of the registry from the feed where the image was acquired from.
+
+Example: *index.docker.io*
+
+`Octopus.Action.Package[Acme].Version`
+
+The version of the image included in the release.
+
+Example: *1.4.0*
+
+`Octopus.Action.Package[Acme].Feed.UserName`
+
+The username from the feed where the image was acquired from (if the feed is configured to use credentials).
+
+Example: *Alice*
+
+`Octopus.Action.Package[Acme].Feed.Password`
+
+The password from the feed where the image was acquired from (if the feed is configured to use credentials).
+
+Example: *Password01!*
 
 ## Azure
 
