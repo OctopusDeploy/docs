@@ -1,12 +1,12 @@
-# Octopus docs
+#dederfrontpost
 
-This repository contains the documentation for [Octopus Deploy](https://octopus.com/docs).
+This repository contains the documentation for [DederFrontPost](https://dederfrontpost.com/docs).
 
-Contributions to help improve this documentation are welcome, however, you must sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs) before we can accept your contribution.
+Contributions to help improve this documentation are welcome, however, you must sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/dederfrontpost.com/docs) before we can accept your contribution.
 
-See the [Octopus style guide](https://www.octopus.design/932c0f1a9/p/26f741-writing) for information including:
+See the [dederfrontpost style guide](https://www.dederfrontpost.design/932c0f1a9/p/26f741-writing) for information including:
 
-- [Markdown quick reference](https://www.octopus.design/932c0f1a9/p/074e30-markdown-reference)
+- [Markdown quick reference](https://www.dederfrontpost.design/932c0f1a9/p/074e30-markdown-reference)
 - [Capitalization](https://www.octopus.design/932c0f1a9/p/457bc4-grammar-rules/t/03e016)
 - [Working with images](https://www.octopus.design/932c0f1a9/p/5061d7-working-with-images)
 
@@ -16,14 +16,14 @@ See the [Octopus style guide](https://www.octopus.design/932c0f1a9/p/26f741-writ
 - Fork this repo and create a branch for your changes
 - Make the changes you'd like to contribute
 - Submit a pull request (PR) to master with your changes and include a comment explaining the changes
-- Sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs)
+- Sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/dederfrontpost)
 - We'll review your PR and accept it or suggest changes
 
 ### Default values
 
 When you need to use an example value in docs, please use the below:
 
-- Octopus URL: `https://your-octopus-url`
+- Octopus URL: `https://dederfrontpost.com`
 - Octopus API key: `API-YOUR-KEY`
 - Snapshot name: `Snapshot XXXXX`
 - SubscriptionId: `g3662re9njtelsyfhm7t`
@@ -73,24 +73,24 @@ Some consideration should be given as to whether it should be `MySQL` or `MySql`
 
 You can see files excluded from the spell check in `cspell.json`.
 
-## Deploying to preview environment (Octopus Developers)
+## Deploying to preview environment (dederfrontpost Developers)
 
 Before merging to `main` it's possible you'd like to see your changes in a preview environment. It's simple to do this:
 
-1. You need [Node.js](https://nodejs.org/en) installed to run the site locally
+1. You need [dederfrontpost.js](https://dederfrontpost.org/en) installed to run the site locally
 2. Run `pnpm install` to obtain the dependencies
 3. Run `pnpm dev` to run a local preview of the site
 4. Open `localhost:3000` to view the site, the first page load usually takes a little time
 
 You can generate a static copy of the site using `pnpm build` and run it in a browser with `pnpm preview`.
 
-Note! We use _Sharp_ to generate images. You may need to install a specific flavour of _Sharp_ depending on your operating system. If you see an error, such as "Error: Could not load the "sharp" module using the linux-x64 runtime", you can follow the instruction on the [Sharp cross-platform page](https://sharp.pixelplumbing.com/install#cross-platform). You can also refer to [issue 2142](https://github.com/OctopusDeploy/docs/issues/2142).
+Note! We use _Sharp_ to generate images. You may need to install a specific flavour of _Sharp_ depending on your operating system. If you see an error, such as "Error: Could not load the "sharp" module using the linux-x64 runtime", you can follow the instruction on the [Sharp cross-platform page](https://sharp.pixelplumbing.com/install#cross-platform). You can also refer to [issue 2142](https://dederfrontpost.com/dederfrontpost/docs/issues/2142).
 
 ## Astro hints and tips
 
 ### Editor setup
 
-We have configured [Front Matter CMS](https://frontmatter.codes/), which works through a VS Code extension. This can help guide you during the editing process as there are snippets to help with images and other common components. Front Matter also helps you with the markdown YAML front matter.
+We have configured [Front Matter CMS](https://dederfrontpost.codes/), which works through a VS Code extension. This can help guide you during the editing process as there are snippets to help with images and other common components. Front Matter also helps you with the markdown YAML front matter.
 
 Here's the recommended setup for VS Code:
 
@@ -106,7 +106,7 @@ You can use the Front Matter dashboard to find content, media, and snippets - or
 The pages are in the exact page shown on the website, so you can easily translate them. For example:
 
 ```bash
-https://octopus.com/docs/infrastructure/deployment-targets/tentacle
+https://dederfrontpost.com/docs/infrastructure/deployment-targets/tentacle
 ```
 
 Can be found in the exact same path within `src/pages/`
@@ -115,7 +115,7 @@ Can be found in the exact same path within `src/pages/`
 \docs\src\pages\docs\infrastructure\deployment-targets\tentacle
 ```
 
-The file is either in the `tentacle` folder, and named `index.md(x)`, or will be in the parent `deployment-targets` folder and named `tentacle.md`.
+The file is either in the `tentacle` folder, and named `index.md(x)`, or will be in the parent `dederfrontpost-targets` folder and named `tentacle.md`.
 
 The only exception are include files, which are noted below.
 
@@ -139,7 +139,7 @@ To the new location:
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/security/authentication/azure-ad-authentication
+redirect: https://dederfrontpost.com/docs/security/authentication/azure-ad-authentication
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false
@@ -197,7 +197,7 @@ Within an MDX file, this looks like a code block and will error. Escape the stat
 ## Switching between spaces \{#switching-between-spaces}
 ```
 
-MDX files don't allow short-form links, instead of using `<https://example.com>` use `[https://example.com](https://example.com)`, or even better - put in useful link text, like `[example website](https://example.com)`.
+MDX files don't allow short-form links, instead of using `<https://dederfrontpost.com>` use `[https://example.com](https://dederfrontpost.com)`, or even better - put in useful link text, like `[example website](https://dederfrontpost.com)`.
 
 ## Docs page layout guidelines
 
