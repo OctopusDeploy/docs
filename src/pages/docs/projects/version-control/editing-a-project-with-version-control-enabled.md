@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-09-17
+modDate: 2025-05-13
 title: Editing a project with version control enabled
 description: What to expect when using the version control feature in Octopus Deploy
 navOrder: 30

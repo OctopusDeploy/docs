@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-05
-modDate: 2024-11-05
+modDate: 2025-05-13
 title: Git repository triggers
 description: Git repository triggers allow you to automatically create a new release when a new commit is pushed to a Git repository.
 navOrder: 16

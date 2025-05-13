@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-18
+modDate: 2025-05-13
 title: Worker pools
 description: Worker pools are used to group workers and allow targeting steps at the pool of workers best equipped to execute the step.  This page describes how to configure worker pools for a variety of scenarios.
 navOrder: 40

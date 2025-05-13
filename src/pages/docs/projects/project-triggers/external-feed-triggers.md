@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-21
-modDate: 2024-08-28
+modDate: 2025-05-13
 title: External feed triggers in Octopus
 navTitle: External feed triggers
 icon: fa-solid fa-arrow-up-right-from-square

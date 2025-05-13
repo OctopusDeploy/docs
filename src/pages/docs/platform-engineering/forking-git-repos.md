@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-11-09
-modDate: 2023-11-09
+modDate: 2025-05-13
 title: Forking Git repositories
 description: Learn how to fork repositories when deploying a copy of version control enabled projects
 navOrder: 7

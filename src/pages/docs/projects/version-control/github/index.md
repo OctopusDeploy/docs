@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-14
-modDate: 2024-09-17
+modDate: 2025-05-13
 title: GitHub integration 
 description: Octopus Deploy GitHub integration
 icon: fa-brands fa-github

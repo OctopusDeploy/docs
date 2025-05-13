@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-11-09
-modDate: 2023-11-09
+modDate: 2025-05-13
 title: Validating Version Control PRs
 description: Learn how to automatically validate pull requests in a Git repository
 navOrder: 10

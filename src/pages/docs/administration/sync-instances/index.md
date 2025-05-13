@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2025-05-13
 title: Sync multiple instances
 description: How to keep two or more Octopus Deploy instances in sync.
 navOrder: 45

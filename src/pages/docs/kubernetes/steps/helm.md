@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-11-07
+modDate: 2025-05-13
 title: Deploy a Helm chart
 description: Deploy a Helm chart to a Kubernetes cluster.
 navOrder: 30

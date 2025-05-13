@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-18
+modDate: 2025-05-13
 title: Tenant tags
 icon: fa-solid fa-tags
 description: Tenant Tags help you to classify your tenants with custom tags so you can tailor your tenanted deployments accordingly.

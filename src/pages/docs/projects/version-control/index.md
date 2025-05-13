@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-09-17
+modDate: 2025-05-13
 title: Version Control
 description: Projects can be version-controlled as text in a Git repository 
 icon: fa-brands fa-git-alt

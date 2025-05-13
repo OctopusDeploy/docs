@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-13
 title: Terraform step configuration with Octopus
 navTitle: Terraform step configuration
 description: Configuring common Terraform options using the Octopus built in steps 

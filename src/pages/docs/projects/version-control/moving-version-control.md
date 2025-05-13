@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-13
 title: Moving version control
 description: Changing the location of your configuration repository.
 icon: fa-brands fa-git-alt 
