@@ -5,10 +5,5 @@
     },
     "[markdown]": {
     },
-    "markdownlint.run": "onSave",
-    "markdownlint.config": {
-        "emphasis": { "style": "asterisk" },
-        "no-inline-html": false,
-        "ul-style": { "style": "dash" }
-    },
+    "markdownlint.run": "onSave"
 }
