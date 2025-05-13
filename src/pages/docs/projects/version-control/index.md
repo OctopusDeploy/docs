@@ -43,7 +43,7 @@ Version-control is configured per project and is accessed via the **Settings ➜
 
 New version controlled projects will automatically have this enabled for both deployment and runbook processes. 
 
-You can [migrate an existing version controlled project](/docs/runbooks/config-as-code-runbooks#cac-runbooks-on-an-existing-version-controlled-project) to use version control enabled runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
+You can [migrate an existing version controlled project](/docs/runbooks/version-control-runbooks#version-control-for-runbooks-on-an-existing-version-controlled-project) to use version control enabled runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
 
 Learn more about [Configuring version control on a project](/docs/projects/version-control/converting).
 
