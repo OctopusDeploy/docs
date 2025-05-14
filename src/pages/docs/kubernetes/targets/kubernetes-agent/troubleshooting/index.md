@@ -78,6 +78,49 @@ If you are using the default NFS storage however, then the script pod would be d
 - being evicted due to exceeding its storage quota
 - being moved or restarted as part of routine cluster operation
 
+### `Pod log line is not correctly pipe-delimited: 'sh: 1: /octopus/Work/_/bootstrapRunner: Exec format error`
+
+This error indicates that the script pod has been scheduled onto a node with a different architecture (ARM/AMD) to the Tentacle pod.
+
+There is currently a limitation that the script pods must run on the nodes with the same architecture as the Tentacle pod. This is due to a bootstrap runner utility that is built and packaged into the tentacle container image, but is run inside the script pod.
+
+To mitigate this issue, you can set the pod affinity for both the Tentacle and script pods as part of a Helm update command.
+The steps to do this are:
+
+1. Determine what node architecture you want to run on. This will be either `amd64` or `arm64`
+2. Create a yaml file with the following content (replacing `[ARCH]` with the architecture determined in 1.):
+
+```yaml
+agent:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/arch
+              operator: In
+              values:
+                - [ARCH]
+
+scriptPods:
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/arch
+              operator: In
+              values:
+                - [ARCH]
+```
+
+3. In a terminal connected to the cluster with the agent installed, run a Helm upgrade referencing the yaml file created above. You can get the `HELM-RELEASE-NAME` and `NAMESPACE` from the **Connectivity** page on the **Deployment Target** or **Worker** details page
+
+```bash
+helm upgrade --atomic --namespace [NAMESPACE] --reset-then-reuse-values -f [YAML-FILENAME] [HELM-RELEASE-NAME] oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+```
+
+
 ## Health Checks and Upgrades
 
 ### `error looking up service account octopus-agent-XXX/octopus-agent-auto-upgrader: serviceaccount \"octopus-agent-auto-upgrader\" not found`
