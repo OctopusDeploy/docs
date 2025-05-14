@@ -97,6 +97,10 @@ agent:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
           - matchExpressions:
+            - key: kubernetes.io/os
+              operator: In
+              values:
+                - linux
             - key: kubernetes.io/arch
               operator: In
               values:
@@ -108,6 +112,10 @@ scriptPods:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
           - matchExpressions:
+            - key: kubernetes.io/os
+              operator: In
+              values:
+                - linux
             - key: kubernetes.io/arch
               operator: In
               values:
