@@ -128,7 +128,6 @@ scriptPods:
 helm upgrade --atomic --namespace [NAMESPACE] --reset-then-reuse-values -f [YAML-FILENAME] [HELM-RELEASE-NAME] oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
-
 ## Health Checks and Upgrades
 
 ### `error looking up service account octopus-agent-XXX/octopus-agent-auto-upgrader: serviceaccount \"octopus-agent-auto-upgrader\" not found`
