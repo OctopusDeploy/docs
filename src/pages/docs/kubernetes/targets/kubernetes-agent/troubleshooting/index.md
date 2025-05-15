@@ -122,7 +122,7 @@ scriptPods:
                 - [ARCH]
 ```
 
-3. In a terminal connected to the cluster with the agent installed, run a Helm upgrade referencing the yaml file created above. You can get the `HELM-RELEASE-NAME` and `NAMESPACE` from the **Connectivity** page on the **Deployment Target** or **Worker** details page
+3. In a terminal connected to the cluster with the agent installed, run a Helm upgrade referencing the YAML file created above. You can get the `HELM-RELEASE-NAME` and `NAMESPACE` from the **Connectivity** page on the **Deployment Target** or **Worker** details page
 
 ```bash
 helm upgrade --atomic --namespace [NAMESPACE] --reset-then-reuse-values -f [YAML-FILENAME] [HELM-RELEASE-NAME] oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
