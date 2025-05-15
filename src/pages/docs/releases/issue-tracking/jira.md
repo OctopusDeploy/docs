@@ -88,7 +88,7 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
     :::div{.warning}
     **Safari and third-party cookies in an `iframe`**
 
-    Please note: The Octopus Deploy for Jira plugin uses cookies and Safari, by default, discards cookies set in an `iframe` unless the host that's serving the `iframe` has set a cookie before, outside the `iframe` which in our case does not happen. Attempting to configure our plugin using Safari will fail with a blank screen and a HTTP 400 error in the network tab, due to this limitation we recommend using a different browser that allows third-party cookies in an `iframe`.
+    Please note: The Octopus Deploy for Jira plugin uses cookies, and Safari, by default, discards cookies set in an `iframe` unless the host that's serving the `iframe` has set a cookie before, outside the `iframe`. In our case, this does not happen. As a result, attempting to configure our plugin using Safari will fail with a blank screen and a HTTP 400 error in the network tab. Due to this limitation, we recommend using a different browser that allows third-party cookies in an `iframe`.
     :::
 
     Note: Keep this configuration page open while you complete the next steps as you need to copy values between Octopus and Jira.
