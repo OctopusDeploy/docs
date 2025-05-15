@@ -168,7 +168,7 @@ h1 {
   font-weight: 600;
   color: var(--color-heading);
   font-family: var(--heading-font);
-  letter-spacing: -0.2px;
+  letter-spacing: -0.02em;
 }
 
 .ruler-25 {
@@ -187,7 +187,7 @@ h6 {
   color: var(--color-text-primary);
   padding: 1.5rem 0 0 0;
   font-family: var(--heading-font);
-  letter-spacing: -0.2px;
+  letter-spacing: -0.02em;
   transition: color var(--duration-default) ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
