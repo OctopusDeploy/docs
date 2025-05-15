@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-12
+modDate: 2025-05-16
 title: Getting started with Cloud
 navOrder: 5
-description: Learn how to setup your Cloud instance, add users to your instance, and set the maintenance window
+description: Learn how to set up and manage your Octopus Cloud instance.
 ---
 
 ## Create an Octopus account \{#create-an-octopus-account}
@@ -16,7 +16,7 @@ You can sign up with your existing Google, Microsoft, or GitHub account, or crea
 1. Enter your name.
 2. Provide your email address and create a password.
 3. On the next screen, verify your email address.
-4. After your email has been verified, you’ll be signed into your Octopus account.
+4. After you verify your email, you’ll be signed into your Octopus account.
 
 After you create an Octopus account, you can create a new Octopus Cloud instance.
 
@@ -31,7 +31,7 @@ To create a new Octopus Cloud instance, make sure you’re signed in to your Oct
 5. Review the terms of our customer agreement, privacy policy, and acceptable usage policy.
 6. Click **Start your trial**.
 
-You’ll be taken to the account provisioning screen. Your Octopus Cloud instance should be ready within a minute. We’ll also email you when it’s ready to use.
+You'll see the account provisioning screen. Your Octopus Cloud instance should be ready within a minute. We’ll also email you when it’s ready to use.
 
 ## Access your Octopus Cloud instance \{#access-your-octopus-cloud-instance}
 
@@ -47,7 +47,7 @@ https://your-url.octopus.app/app#/users/sign-in
 
 To invite a user to your Octopus Cloud instance:
 
-1. Navigate to your Cloud instance in [Control Center V2](https://billing.octopus.com/).
+1. Navigate to your Cloud instance in [Control Center](https://billing.octopus.com/).
 2. Click **User Access** in the left sidebar.
 3. Click **Invite User**.
 4. Enter the user’s details.
@@ -55,7 +55,7 @@ To invite a user to your Octopus Cloud instance:
 6. Click **Invite**.
 
 :::figure
-![User Access page in Control Center V2](/docs/octopus-cloud/images/control-center-access-control.png)
+![User Access page in Control Center](/docs/octopus-cloud/images/control-center-access-control.png)
 :::
 
 #### Email invitation \{#email-invitation}
@@ -94,7 +94,7 @@ To adjust a user’s permissions, you can add them to other teams:
 
 1. In your Octopus Cloud instance, go to **Configuration** (the cog icon in the bottom left sidebar).
 2. Select **Teams**.
-3. Create a new team or select an existing one, such as **Space Administrators**.
+3. Create a new team or select an existing one, such as **Space Managers**.
 4. Select **Add Member**.
 5. Select the user from the dropdown list.
 6. Click **Add**, then **Save**.
@@ -109,7 +109,7 @@ Learn about best practices for [users, roles, and teams](/docs/best-practices/oc
 
 To keep Octopus Cloud running smoothly, we use outage windows to perform updates. To minimize disruptions to your deployments, please pick a two-hour [maintenance window](/docs/octopus-cloud/maintenance-window) outside of your regular business hours.
 
-1. Navigate to your Cloud instance in [Control Center V2](https://billing.octopus.com/).
+1. Navigate to your Cloud instance in [Control Center](https://billing.octopus.com/).
 2. Click **Configuration**.
 3. Locate the Maintenance Window section and click **Change Window**.
 4. Select a two-hour window.
@@ -119,7 +119,7 @@ To keep Octopus Cloud running smoothly, we use outage windows to perform updates
 
 To change your password for the Octopus instance and Octopus account:
 
-1. Navigate to [Control Center V2](https://billing.octopus.com/).
+1. Navigate to [Control Center](https://billing.octopus.com/).
 2. In the top-right corner, click the dropdown menu next to your username.
 3. Click **Profile**.
 4. Click **Change Password**.
