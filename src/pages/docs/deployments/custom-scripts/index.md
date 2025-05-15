@@ -17,10 +17,16 @@ Octopus supports the following scripting environments:
  - PowerShell scripts (.ps1)
  - Bash scripts (.sh)
  - Python scripts (.py)
- - C# scripts (.csx) using [ScriptCS](https://github.com/scriptcs/scriptcs)
+ - C# scripts (.csx) using [dotnet-script](https://github.com/dotnet-script/dotnet-script)
  - F# scripts (.fsx)
 
  Octopus can run these scripts on almost any operating system as long as the script runtime is installed and configured correctly.
+
+:::div{.warning} C# scripts (.csx) using [ScriptCS](https://github.com/scriptcs/scriptcs) will still work, but is marked for deprecation. You can find the announcement from ScriptCS that the project is no longer being maintained [here](https://github.com/scriptcs/scriptcs/issues/1323).
+
+C# scripts using ScriptCS will generate warning in your Octopus task logs from version 2024.2.7996+ advising users to use dotnet-script. For more information and ScriptCS to dotnet-script migration instructions, see our [blog announcement here](https://octopus.com/blog/rfc-migrate-scriptcs-dotnet-script).
+
+To view previous and upcoming deprecations, please visit our [deprecations page](https://octopus.com/docs/deprecations). :::
 
 ## What you can do with custom scripts
 
