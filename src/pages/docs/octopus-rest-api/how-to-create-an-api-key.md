@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-12
 title: How to Create an API Key
 description: How to create an API key to interact with Octopus without the need for a username and password.
 navOrder: 10
@@ -11,7 +11,7 @@ API keys allow you to access the Octopus Deploy [REST API](/docs/octopus-rest-ap
 
 See the [Service Accounts docs](/docs/security/users-and-teams/service-accounts) for information about creating service accounts.
 
-## Creating an API Key {#HowtocreateanAPIkey-CreatinganAPIkey}
+## Creating an API Key
 
 [Getting Started - API Keys](https://www.youtube.com/watch?v=f3-vRjpB0cE)
 
@@ -32,10 +32,9 @@ After you generate an API key, it cannot be retrieved from the Octopus Web Porta
 :::div{.hint}
 The ability to set an expiry date on new API keys was added in Octopus Deploy **2020.6**.
 :::
+By default, new API keys are valid for 180 days from the point they are created. Optionally, you can choose to update this expiry date.
 
-You can optionally set an expiry date on new API keys. By default, keys have no expiry date and are valid until they're revoked.
-
-When creating an API key in the Octopus Web Portal, you can choose from a preset list of offsets from the current date, or select a custom date. Keys will expire at the end of the selected day. When using the Octopus REST API to create a key, you can set the expiry date to your preferred  date and time, including time zone offset.
+When creating an API key in the Octopus Web Portal, you can choose from a preset list of offsets from the current date, or select a custom date. Keys will expire at the end of the selected day. When using the Octopus REST API to create a key, you can set the expiry date to your preferred date and time, including time zone offset.
 
 There are two restrictions on the expiry date:
 
@@ -59,7 +58,7 @@ The background task which raises the api-key-expiry events runs:
 - Every 4 hours
 :::
 
-## Disabling API Key Creation {#HowtocreateanAPIkey-DisablingAPIKeyCreation}
+## Disabling API Key Creation
 :::div{.hint}
 The ability to disable API key creation for user accounts was added in Octopus Deploy **2023.2**.
 :::

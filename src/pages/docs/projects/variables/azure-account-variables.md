@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-29
+modDate: 2025-05-09
 title: Azure account variables
 icon: fa-brands fa-microsoft
 description: Create an Azure account variable to use it in Azure deployment steps
@@ -34,11 +34,13 @@ The Azure account Variable also exposes the following properties that you can re
 | -------------------- | ------------------------|
 | **`SubscriptionNumber`** <br/> The Azure Subscription Id | cd21dc34-73dc-4c7d-bd86-041284e0bc45 |
 | **`Client`** <br/> The Azure Application Id | 57dfa713-f4c1-4b15-b21d-d14ff7941f7c |
-| **`Password`** <br/> | correct horse battery staple |
+| **`Password`** <br/> The Client Secret for the Azure Application. <br/> Only set if **Use a Service Principal** is selected | correct horse battery staple |
+| **`OpenIdConnect.Jwt`** <br/> The JWT identity token for the current task <br/> Only set if **Use OpenID Connect** is selected | *(dynamically generated token)* |
 | **`TenantId`** <br/> The Azure Active Directory Tenant Id | 2a681dca-3230-4e01-abcb-b1fd225c0982 |
 | **`AzureEnvironment`** <br/> The Azure environment | AzureCloud, AzureGermanCloud, AzureChinaCloud, AzureUSGovernment |
 | **`ResourceManagementEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | https://management.microsoftazure.de/  |
 | **`ActiveDirectoryEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | https://login.microsoftonline.de/ |
+| **`Audience`** <br/> Federated credentials audience <br/> Only set if **Use OpenID Connect** is selected | api://AzureADTokenExchange |
 
 ### Management certificate
 
@@ -65,8 +67,12 @@ Write-Host 'AzureAccount.Id=' $OctopusParameters["azure account"]
 Write-Host 'AzureAccount.Client=' $OctopusParameters["azure account.Client"]
 
 # Directly as a variable
-Write-Host 'AzureAccount.Id=' $azureAccount
-Write-Host 'AzureAccount.Client=' $azureAccountClient
+Write-Host 'AzureAccount.Id=' #{Azure account.Id}
+Write-Host 'AzureAccount.Client='#{Azure account.Client}
+
+# For an OpenId Connect account
+Write-Host 'AzureAccount.OpenIdConnect.Jwt='#{Azure account.OpenIdConnect.Jwt}
+Write-Host 'AzureAccount.Audience='#{Azure account.Audience}
 ```
 
 </details>
@@ -80,6 +86,12 @@ id=$(get_octopusvariable "azure account")
 client=$(get_octopusvariable "azure account.Client")
 echo "Azure Account Id is: $id"
 echo "Azure Account Client is: $client"
+
+# For an OpenID Connect account 
+jwt=$(get_octopusvariable "azure account.OpenIdConnect.Jwt")
+audience=$(get_octopusvariable "azure account.Audience")
+echo "Azure Account JWT is: $jwt"
+echo "Azure Account OIDC Audience is: $audience"
 ```
 
 </details>

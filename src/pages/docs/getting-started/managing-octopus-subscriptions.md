@@ -149,6 +149,7 @@ Octopus uses teams and user roles to manage permissions. The “Octopus Administ
 | ------------ | ------------------------ | ------------------------------ | ----------------------- |
 | **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View License Key <br>Manage Billing</br> Manage User Access | View License Key <br>Manage User Access</br>  | View License Key <br>Manage Billing</br> |
 
+
 </details>
 
 ### Direct Subscription access

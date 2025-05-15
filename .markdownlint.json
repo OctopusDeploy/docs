@@ -1,0 +1,6 @@
+{
+    "MD013": false,
+    "emphasis": { "style": "asterisk" },
+    "no-inline-html": false,
+    "ul-style": { "style": "dash" }
+}
