@@ -88,7 +88,7 @@ To mitigate this issue, you can set the pod affinity for both the Tentacle and s
 The steps to do this are:
 
 1. Determine what node architecture you want to run on. This will be either `amd64` or `arm64`
-2. Create a yaml file with the following content (replacing `[ARCH]` with the architecture determined in 1.):
+2. Create a YAML file with the following content (replacing `[ARCH]` with the architecture determined in 1.):
 
 ```yaml
 agent:
