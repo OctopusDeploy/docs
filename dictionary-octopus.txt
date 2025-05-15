@@ -62,11 +62,13 @@ configmap
 Conjur
 contoso
 cooldown
+coredump
 corepack
 Cpath
 Cpus
 Cpuset
 createartifact
+createdump
 creds
 crossorigin
 cscfg
@@ -136,6 +138,7 @@ fontawesome
 frontmatter
 g3662re9njtelsyfhm7t
 gcloud
+gcore
 getenv
 gifs
 gitcredential
@@ -224,6 +227,7 @@ mattc
 maxage
 mdast
 milli
+minidump
 minifier
 MITM
 Moines
@@ -328,6 +332,7 @@ Println
 printverbose
 printwait
 printwarning
+procexp
 PROGRAMFILES
 projectgroup
 projectgroups
