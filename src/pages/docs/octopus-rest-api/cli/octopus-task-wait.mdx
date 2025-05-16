@@ -15,8 +15,10 @@ Usage:
   octopus task wait [TaskIDs] [flags]
 
 Flags:
-      --progress      Show detailed progress of the tasks
-      --timeout int   Duration to wait (in seconds) before stopping execution (default 600)
+      --cancel-on-timeout   Cancel the tasks if the wait timeout is reached
+      --poll-interval int   Polling interval in seconds to check task status during wait (default 10)
+      --progress            Show detailed progress of the tasks
+      --timeout int         Time in seconds to wait for the tasks to complete (default 600)
 
 
 Global Flags:
