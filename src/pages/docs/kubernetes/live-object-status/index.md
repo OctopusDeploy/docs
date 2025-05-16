@@ -155,6 +155,16 @@ To ensure that we never exfiltrate secret data that Octopus is not privy to, the
 
 Please be aware that outputting Kubernetes secrets into pod logs may result in them being sent un-redacted if they are not sourced from Octopus sensitive variables originally.
 
+## Configuration
+
+### Prioritize health status on dashboards
+
+There can be [many reasons](/docs/kubernetes/live-object-status/troubleshooting#why-is-an-object-out-of-sync) that a particular object is marked as out of sync, some of these are not critical to the day to day operations of your application. In these cases, marking the entire application as out of sync on all dashboards may be more alarming than necessary.
+
+To counteract this, there is a project setting that will prioritize health statuses over the sync status of your application. When enabled, the sync status of objects will not be considered when calculating the application status.
+
+This setting defaults to on for all projects, but may change in the future.
+
 ## Known issues and limitations
 
 ### Excluded steps
