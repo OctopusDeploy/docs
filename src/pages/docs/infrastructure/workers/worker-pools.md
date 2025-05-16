@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-18
+modDate: 2025-05-13
 title: Worker pools
 description: Worker pools are used to group workers and allow targeting steps at the pool of workers best equipped to execute the step.  This page describes how to configure worker pools for a variety of scenarios.
 navOrder: 40
@@ -93,7 +93,7 @@ When a step is run on a worker, the following variables are available:
 
 ## Removing worker pools
 
-For projects using Config as Code, it's up to you to take care to avoid deleting any worker pools required by your deployments or runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
+For projects using version control, it's up to you to take care to avoid deleting any worker pools required by your deployments or runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-version-control-scenarios#core-design-decision) for more information. 
 
 ## Workers Q&A
 

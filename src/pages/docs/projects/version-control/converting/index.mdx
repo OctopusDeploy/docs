@@ -1,9 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-09-16
+modDate: 2025-05-13
 title: Converting projects to Git
-description: Converting a project to leverage the configuration as a code feature.
+description: Converting a project to leverage the version control feature.
 navOrder: 10
 hideInThisSection: true
 icon: fa-brands fa-git-alt
@@ -18,7 +18,7 @@ Git settings are configured per project and are accessed via the **Settings ➜ 
 
 ## Creating a new version-controlled project
 
-To get a feel for the config-as-code feature, you may want to create a new project that you can test before committing to permanently converting an existing project. This project's deployment process, deployment settings, runbook processes, and non-sensitive variables will be stored in a Git repository when configured.
+To get a feel for the version control feature, you may want to create a new project that you can test before committing to permanently converting an existing project. This project's deployment process, deployment settings, runbook processes, and non-sensitive variables will be stored in a Git repository when configured.
 
 Click the **New Project** button and select **Use version control for this project.**
 
@@ -30,7 +30,7 @@ Once you click the **Save** button, you'll be sent to the version control screen
 
 <VersionControlRepositoryUrlFormat />
 
-Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference).
+Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/version-control-reference).
 
 Next, add the directory you would like Octopus to store the project configuration. You can connect multiple projects to the same repository if they all use a different sub-directory (e.g. `.octopus/acme` and `.octopus/another-project`).
 
@@ -63,7 +63,7 @@ If your repository has branch protection setup, see [Setting up in a repository 
 Converting a project to use Git is a one-way change. Once you convert a project Git, you **cannot** convert it back. Please make sure you want to do this, and consider cloning your project to test how it works, so you know what to expect before converting important projects.
 :::
 
-Using config-as-code, you can perform a one-way conversion of existing projects to leverage Git.
+Using version control, you can perform a one-way conversion of existing projects to leverage Git.
 
 Select the project you would like to convert and click on the **Settings ➜ Version Control** link on the project navigation menu.
 Enter the connection information for your Git repository. You need to provide: 
@@ -72,7 +72,7 @@ Enter the connection information for your Git repository. You need to provide:
 - The directory you would like Octopus to store the deployment process in
 - The name of the default branch
 
-Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference).
+Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/version-control-reference).
 
 :::div{.hint}
 You can have multiple deployment processes in the same repository if they all use a different sub-directory.
@@ -114,23 +114,23 @@ Optionally, you can also nominate protected branches for your Project. This will
 ![protected branches](/docs/projects/version-control/converting/configure-protected-branches.png)
 :::
 
-## Migrating to config-as-code runbooks on an existing Git project
+## Migrating to version control enabled runbooks on an existing Git project
 
-Projects which converted to Git before the introduction of config-as-code runbooks can be easily updated. 
+Projects which converted to Git before the introduction of version control for runbooks can be easily updated. 
 
-You can [migrate an existing version controlled project](/docs/runbooks/config-as-code-runbooks#cac-runbooks-on-an-existing-version-controlled-project) to use config-as-code runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
+You can [migrate an existing version controlled project](/docs/runbooks/version-control-runbooks#version-control-for-runbooks-on-an-existing-version-controlled-project) to use version control enabled runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
 
 ## Migrating variables on an existing Git project
 
-Since the initial public release of config-as-code, we've added support for additional project configuration in Git. You can now [migrate non-sensitive variables to Git](/docs/projects/version-control/converting/migrating-variables).
+Since the initial public release of version control enabled projects, we've added support for additional project configuration in Git. You can now [migrate non-sensitive variables to Git](/docs/projects/version-control/converting/migrating-variables).
 
 ## Not everything is saved to version control
 
-The Configuration as Code feature is per-project. Currently, the deployment process, runbook processes, settings, and non-sensitive variables are saved to version control.
+The version control feature is per-project. Currently, the deployment process, runbook processes, settings, and non-sensitive variables are saved to version control.
 
 A number of project-level and instance-level settings will not be stored in version control.
 
-Learn more about [what is stored in version control](/docs/projects/version-control/config-as-code-reference).
+Learn more about [what is stored in version control](/docs/projects/version-control/version-control-reference).
 
 ## Using a project with version control enabled
 

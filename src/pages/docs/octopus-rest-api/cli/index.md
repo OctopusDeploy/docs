@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-13
 title: CLI
 description: The all-new Octopus CLI
 navOrder: 100
@@ -111,7 +111,7 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus project branch list](/docs/octopus-rest-api/cli/octopus-project-branch-list)**:  List project branches.
 - **[octopus project clone](/docs/octopus-rest-api/cli/octopus-project-clone)**:  Clone a project.
 - **[octopus project connect](/docs/octopus-rest-api/cli/octopus-project-connect)**:  Connect a tenant to a project.
-- **[octopus project convert](/docs/octopus-rest-api/cli/octopus-project-convert)**:  Convert a project to use Config As Code.
+- **[octopus project convert](/docs/octopus-rest-api/cli/octopus-project-convert)**:  Convert a project to use version control.
 - **[octopus project create](/docs/octopus-rest-api/cli/octopus-project-create)**:  Create a project.
 - **[octopus project delete](/docs/octopus-rest-api/cli/octopus-project-delete)**:  Delete a project.
 - **[octopus project disable](/docs/octopus-rest-api/cli/octopus-project-disable)**:  Disable a project.
