@@ -35,12 +35,12 @@ In almost all cases, we have found restarting the Kubernetes monitor pod will re
 
 Similar to the [error above](#failed-to-establish–connection-with-kubernetes-monitor), however more severe.
 
-This error will be shown when Octopus fails to find the registration of a Kubernetes monitor at all and means the Kubernetes monitor will need to be re-registered.
+This error will be shown when Octopus fails to find the registration of a Kubernetes monitor at all. If the Kubernetes agent and monitor are both still running in your Kubernetes cluster, this means the Kubernetes monitor will need to be re-registered with Octopus.
 
 The cleanest way to do this is to delete and re-install your Kubernetes agent entirely. If there are no deployments currently running on the agent, this is a safe operation that will not affect future deployments.
 
 If deleting your Kubernetes agent is not an option for your use case, you can also delete the Kubernetes monitor's authentication secret and restart the Kubernetes monitor pod to trigger re-registration.
-The authentication secret will live in the same namespace that your Kubernetes agent was installed in and have a name similar to `<agent name>-kubernetesmonitor-authentication`.
+The authentication secret lives in the same namespace that your Kubernetes agent was installed in and has a name similar to `<agent name>-kubernetesmonitor-authentication`.
 
 ## Unexpected object statuses
 
