@@ -37,7 +37,7 @@ The subject can be modified for the three different uses within Octopus:
 - [Deployments and Runbooks](#deployments-and-runbooks)
 - [Health Checks](#health-checks)
 - [Account Test](#account-test)
-- [Feeds] (#feeds)
+- [Feeds](#feeds)
 
 ### Subject key parts
 
