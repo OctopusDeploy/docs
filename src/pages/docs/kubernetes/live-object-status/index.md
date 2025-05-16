@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-03-28
+modDate: 2025-05-16
 navSection: Live Object Status
 title: Kubernetes Live Object Status
 navTitle: Overview
@@ -95,12 +95,23 @@ Logs are fetched on demand from the running object. We do not currently support 
 ![Object logs](/docs/kubernetes/live-object-status/live-status-drawer-logs.png)
 :::
 
-#### Manifest
+#### Manifests
 
-The manifest shown here is the live manifest as reported by the cluster back to Octopus.
+The first manifest shown is the live manifest as reported by the cluster back to Octopus.
+
+When viewing an object that has been applied to your cluster, you are able to view the applied manifest and see any differences between them using the controls at the top of the drawer.
 
 :::figure
 ![Object manifest](/docs/kubernetes/live-object-status/live-status-drawer-manifest.png)
+:::
+
+##### Diffs
+
+When the show diff toggle is enabled, we compare the live manifest that we expect to see on the left, with what the cluster is reporting on the right.
+Read about [applied manifest diffs](/docs/kubernetes/deployment-verification/applied-manifests/diffs) for more details on how to interpret the diff viewer.
+
+:::figure
+![Object manifest diffs](/docs/kubernetes/live-object-status/live-status-drawer-manifest-diffs.png)
 :::
 
 ## How it works
