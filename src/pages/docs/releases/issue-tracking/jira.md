@@ -85,6 +85,12 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
     From the Atlassian Marketplace, add the [Octopus Deploy for Jira](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) app and click 'Get Started' to configure it. Alternately, the app is also available in Jira by navigating to **Jira Settings ➜ Find new apps**.
 
+    :::div{.warning}
+    **Safari and third-party cookies in an `iframe`**
+
+    Please note: The Octopus Deploy for Jira plugin uses cookies, and Safari, by default, discards cookies set in an `iframe` unless the host that's serving the `iframe` has set a cookie before, outside the `iframe`. In our case, this does not happen. As a result, attempting to configure our plugin using Safari will fail with a blank screen and a HTTP 400 error in the network tab. Due to this limitation, we recommend using a different browser that allows third-party cookies in an `iframe`.
+    :::
+
     Note: Keep this configuration page open while you complete the next steps as you need to copy values between Octopus and Jira.
 
 2. Configure the Jira extension in Octopus Deploy.
