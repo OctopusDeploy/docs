@@ -41,7 +41,7 @@ As a safe guard to ensure that your Octopus Server instance remains free from in
 
 The rate limit is not a hard stop to messages being sent between Octopus Server and the Kubernetes monitor. Instead we are slowing messages down to better handle burst-y traffic.
 
-### Why is an object out of sync?
+### Why is an object out of sync? \{#why-is-an-object-out-of-sync}
 
 Objects are reported out of sync when the manifest the Kubernetes cluster sends back to use does not match the one that Octopus applied in your deployment.
 
