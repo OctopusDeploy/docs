@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-03-28
+modDate: 2025-05-16
 navTitle: Troubleshooting
 title: Troubleshooting
 navSection: Troubleshooting
@@ -30,6 +30,17 @@ If the Kubernetes monitor cannot be accessed, follow these steps to determine wh
 3. Confirm that the Kubernetes monitor pod logs report no errors. If the logs indicate failure, please confirm that connectivity to your Octopus server instance has not changed and reach out to support for assistance.
 
 In almost all cases, we have found restarting the Kubernetes monitor pod will re-establish connection if there are no external factors at play. Please reach out to support if you are finding cases of repeated, unexpected failure.
+
+### We couldn’t find a Kubernetes monitor associated with the deployment target \{#kubernetes-monitor-not-found}
+
+Similar to the [error above](#failed-to-establish–connection-with-kubernetes-monitor), however more severe.
+
+This error will be shown when Octopus fails to find the registration of a Kubernetes monitor at all. If the Kubernetes agent and monitor are both still running in your Kubernetes cluster, this means the Kubernetes monitor will need to be re-registered with Octopus.
+
+The cleanest way to do this is to delete and re-install your Kubernetes agent entirely. If there are no deployments currently running on the agent, this is a safe operation that will not affect future deployments.
+
+If deleting your Kubernetes agent is not an option for your use case, you can also delete the Kubernetes monitor's authentication secret and restart the Kubernetes monitor pod to trigger re-registration.
+The authentication secret lives in the same namespace that your Kubernetes agent was installed in and has a name similar to `<agent name>-kubernetesmonitor-authentication`.
 
 ## Unexpected object statuses
 
