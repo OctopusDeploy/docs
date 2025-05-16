@@ -32,6 +32,14 @@ To provide ample time to act, from Octopus Server `2024.1`, workloads that run o
 
 Further notes about this pending change can be found in the [2024.1 deprecation blog post](https://octopus.com/blog/2024-deprecated-features#windows-server-2008)
 
+## Deprecations for 2024.4
+
+### ScriptCS
+
+On 30 September, 2022 it was [announced](https://github.com/scriptcs/scriptcs/issues/1323) that ScriptCS would no longer be maintained.
+
+As of `2024.4` the usage of ScriptCS is being deprecated in Octopus. This has been replaced with [dotnet-script](https://github.com/dotnet-script/dotnet-script). See our post on migrating from [scriptcs to dotnet-script](https://g.octopushq.com/ScriptCSDeprecation).
+
 ## Deprecations for 2024.3
 
 ### Azure Resource Manager Powershell Module
