@@ -8,6 +8,8 @@ icon: fa-brands fa-github
 navOrder: 55
 ---
 
+import BuildInformationInReleaseNotesWithArc from 'src/shared-content/build-information/using-build-information-in-release-notes-with-arc.include.md'
+
 Use [GitHub Actions](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions) to orchestrate Octopus from your CI pipeline for a seamless CI/CD workflow. 
 
 Integrating GitHub Actions with Octopus Deploy allows you to trigger events in Octopus (like creating a Release) based on events in GitHub (like pushing to main) for an effortless transition from CI to CD.
@@ -195,6 +197,92 @@ jobs:
 | `files`               | A list of files to be included in the package relative to the base path. Add each item on a new line.            |
 | `packages`            | Used by the Push Packages action. A list of packages to push to Octopus Deploy. Add each item on a new line.     |
 | `packages`            | Used by the Create Release action. A list of packages to be used in the Release. Add each item on a new line.    |
+
+## Handling build information
+
+<BuildInformationInReleaseNotesWithArc />
+
+### Example workflow - Working with packages and build information
+
+```yaml
+# .github/workflows/hello-octopus-packages-and-build-information.yml
+name: Hello Octopus Packages and Build Information
+
+on:
+  workflow_dispatch:
+
+jobs:
+  octopus-packages:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Required by login action
+
+    env:
+      OCTOPUS_SPACE: 'Outer Space'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Action to Login to Octopus Deploy
+      - name: Login to Octopus Deploy 🐙
+        uses: OctopusDeploy/login@v1
+        with: 
+          server: ${{ secrets.SERVER }}
+          service_account_id: a1a1a1a1-b2b2-c3c3-d4d4-e5e5e5e5e5e5
+      
+      # Action to Create a Zip Package
+      - name: Create a Zip package 🐙
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: 'HelloPackage'
+          version: '1.0.0'
+          output_folder: './packages/'
+          base_path: './src/files-to-package/'
+          files: |
+            **/*.*
+      
+      # Action to Push Packages to Octopus Deploy
+      - name: Push a package to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-package-action@v3
+        with:
+          packages: |
+            packages/**/*.zip
+      
+      # Action to Push Build Information to Octopus Deploy
+      - name: Push build information to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-build-information-action@v3
+        with:
+          packages: |
+            HelloPackage
+          version: '1.0.0'
+      
+      # Using your Package in a Release
+      - name: Use the Package in a Release 🎉
+        uses: OctopusDeploy/create-release-action@v3
+        with:
+          project: 'MyProject'
+          release_number: '1.0.0'
+          git_ref: ${{ github.ref }}
+          git_commit: ${{ github.sha }}
+          packages: |
+            HelloPackage:1.0.0
+```
+
+### 📥 Additional inputs
+
+| Name                  | Description                                                                                                               |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------------------------|
+| `package_id`          | The name of the package.                                                                                                  |
+| `version`             | Used by the Create a Zip Package action. The version of the package.                                                      |
+| `output_folder`       | The folder to put the resulting package in, relative to the current working directory.                                    |
+| `base_path`           | The path to the folder containing the files to be used in the package                                                     |
+| `files`               | A list of files to be included in the package relative to the base path. Add each item on a new line.                     |
+| `packages`            | Used by the Push Packages action. A list of packages to push to Octopus Deploy. Add each item on a new line.              |
+| `packages`            | Used by the Push Build Information action. A list of packages to push to Octopus Deploy. Add each item on a new line.     |
+| `version`             | Used by the Push Build Information action. The version of the package.                                                    |
+| `packages`            | Used by the Create Release action. A list of packages to be used in the Release. Add each item on a new line.             |
 
 ## Runners
 
