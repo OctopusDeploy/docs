@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-27
+modDate: 2025-05-19
 title: Output variables
 description: Your scripts can emit variables that are available in subsequent deployment steps.
 icon: fa-solid fa-file-export
@@ -24,7 +24,7 @@ Set-OctopusVariable -name "AppInstanceName" -value "MyAppInstance"
 <summary>C#</summary>
 
 ```csharp
-Octopus.SetVariable("AppInstanceName", "MyAppInstance");
+SetVariable("AppInstanceName", "MyAppInstance");
 ```
 
 </details>
@@ -67,7 +67,7 @@ $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Nam
 <summary>C#</summary>
 
 ```csharp
-var appInstanceName = Octopus.Parameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
+var appInstanceName = OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
 ```
 
 </details>

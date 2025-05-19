@@ -84,15 +84,15 @@ if(completed.Any(c => c.State != TaskState.Success))
 This example re-queues the currently executing project at 3am the next day.
 
 ```csharp
-var releaseId = Octopus.Parameters["Octopus.Web.ReleaseLink"].Split('/').Last();
+var releaseId = OctopusParameters["Octopus.Web.ReleaseLink"].Split('/').Last();
 var tomorrow3amServerTime = new DateTimeOffset(DateTimeOffset.Now.Date, DateTimeOffset.Now.Offset).AddDays(1).AddHours(3);
 repository.Deployments.Create(
     new DeploymentResource()
     {
         ReleaseId = releaseId,
-    	ProjectId = Octopus.Parameters["Octopus.Project.Id"],
-    	ChannelId = Octopus.Parameters["Octopus.Release.Channel.Id"],
-    	EnvironmentId = Octopus.Parameters["Octopus.Environment.Id"],
+    	ProjectId = OctopusParameters["Octopus.Project.Id"],
+    	ChannelId = OctopusParameters["Octopus.Release.Channel.Id"],
+    	EnvironmentId = OctopusParameters["Octopus.Environment.Id"],
     	QueueTime = tomorrow3amServerTime
     }
 );
@@ -105,7 +105,7 @@ This example uses the dynamic dashboard API to check whether a different project
 
 ```csharp
 var otherProject = repository.Projects.FindByName("Other Project");
-var environmentId = Octopus.Parameters["Octopus.Environment.Id"];
+var environmentId = OctopusParameters["Octopus.Environment.Id"];
 var dash = repository.Dashboards.GetDynamicDashboard(new[] { otherProject.Id }, new[] { environmentId });
 if (dash.Items.Any(i => i.State == TaskState.Queued || i.State == TaskState.Executing))
 	throw new Exception($"{otherProject.Name} is currently queued or executing");
@@ -116,9 +116,9 @@ if (dash.Items.Any(i => i.State == TaskState.Queued || i.State == TaskState.Exec
 This example retrieves the last release to the same environment of a different project and fails if it is not the expected release version.
 
 ```csharp
-var requiredVersion = Octopus.Parameters["OtherProjectRequiredVersion"];
+var requiredVersion = OctopusParameters["OtherProjectRequiredVersion"];
 var otherProject = repository.Projects.FindByName("Other Project");
-var environmentId = Octopus.Parameters["Octopus.Environment.Id"];
+var environmentId = OctopusParameters["Octopus.Environment.Id"];
 var dash = repository.Dashboards.GetDynamicDashboard(new[] { otherProject.Id }, new[] { environmentId });
 var last = dash.Items.SingleOrDefault(i => i.IsCurrent);
 if (last == null || last.ReleaseVersion != requiredVersion)
@@ -130,7 +130,7 @@ if (last == null || last.ReleaseVersion != requiredVersion)
 This example finds the latest release for a different project and deploys it if it is not currently deployed to the environment.
 
 ```csharp
-var environmentId = Octopus.Parameters["Octopus.Environment.Id"];
+var environmentId = OctopusParameters["Octopus.Environment.Id"];
 var otherProject = repository.Projects.FindByName("Other Project");
 var latestRelease = repository.Projects.GetReleases(otherProject).Items.FirstOrDefault();
 var dash = repository.Dashboards.GetDynamicDashboard(new[] { otherProject.Id }, new[] { environmentId });
