@@ -386,6 +386,7 @@ runtimes
 SAMEORIGIN
 Schannel
 scopeduserroles
+scriptcs
 secpol
 secureclientcertificate
 securestring
