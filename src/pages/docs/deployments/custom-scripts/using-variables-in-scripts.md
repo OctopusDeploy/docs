@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-19
 title: Using variables in scripts
 description: With Octopus you can define variables for use with your custom scripts.
 icon: fa-regular fa-file-code
@@ -32,7 +32,7 @@ Write-Host "Connection string is: $connectionString"
 
 ```csharp
 // It's a good idea to copy the value into a local variable to avoid quoting issues
-var connectionString = Octopus.Parameters["MyApp.ConnectionString"];
+var connectionString = OctopusParameters["MyApp.ConnectionString"];
 Console.WriteLine("MyApp.ConnectionString: " + connectionString);
 ```
 
