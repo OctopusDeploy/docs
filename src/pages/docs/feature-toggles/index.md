@@ -1,9 +1,9 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2025-05-22
-modDate: 2025-05-22
+pubDate: 2025-05-21
+modDate: 2025-05-21
 title: Feature Toggles 
-navTitle: Overview
+navTitle: Feature Toggles
 navSection: Feature Toggles
 description: Octopus Feature Toggles allow progressive delivery of changes and instant rollback 
 navOrder: 95 
@@ -21,11 +21,12 @@ If you are interested in this feature please register your interest on the [road
 
 ### Create a Feature Toggle 
 
-Feature Toggles are located within Octopus Projects: {{ Project,Feature Toggles }}
+Feature Toggles are located within Octopus Projects: 
+**Project ➜ Feature Toggles**
 
 Create a new Toggle and give it name.
 
-![New toggle name](new-toggle-name.png "width=500")
+![New toggle name](/docs/feature-toggles/new-toggle-name.png "width=500")
 
 ### Configure OpenFeature in your client application {#configure-open-feature-client-app}
 
@@ -45,9 +46,9 @@ For applications deployed by Octopus, the recommended way is to have Octopus inj
 
 For applications not deployed by Octopus, or cannot have the client identifier supplied during deployment for any reason, the client identifier can be obtained via the portal UI, as shown below.
 
-![Client identifier preview menu item](client-identifier-preview-menu-item.png "width=500")
+![Client identifier preview menu item](/docs/feature-toggles/client-identifier-preview-menu-item.png "width=500")
 
-![Client identifier preview UI](client-identifier-preview.png "width=500")
+![Client identifier preview UI](/docs/feature-toggles/client-identifier-preview.png "width=500")
 
 The previewed client identifier may then be copied into your application configuration.
 
@@ -79,11 +80,11 @@ await OpenFeature.Api.Instance.SetProviderAsync(octopusProvider);
 
 ### Evaluate a Toggle
 
-The [Provider](/docs/feature-toggles/providers.md#providers) for each language documents how to evaluate toggles.
+The [Provider](#providers) for each language documents how to evaluate toggles.
 
 You will need the Toggle slug in order to reference the toggle in code. This can be found in the Octopus portal:
 
-![Feature Toggle slug](feature-toggle-slug.png "width=500")
+![Feature Toggle slug](/docs/feature-toggles/feature-toggle-slug.png "width=500")
 
 Below is an example of evaluating the toggle with slug `dark-mode` in C#:
 
@@ -91,16 +92,18 @@ Below is an example of evaluating the toggle with slug `dark-mode` in C#:
 var darkModeEnabled = await featureClient.GetBooleanValueAsync("dark-mode", false);
 ```
 
-The second argument is the default value. Read more about [default values](/docs/feature-toggles/providers.md#default) below.
+The second argument is the default value. Read more about [default values](#default-values) below.
 
 ### Rollout 
-To enable your toggle for an environment, add the environment to the Toggle. {{ Project,Feature Toggles, Toggle }}
+To enable your toggle for an environment, add the environment to the Toggle. 
 
-![Add Environment button](add-environment-button.png "width=500")
+![Add Environment button](/docs/feature-toggles/add-environment-button.png "width=500")
 
 Select your environment, and whether you want the toggle on or off.
 
-![Add Environment dialog](add-environment-dialog.png "width=500")
+![Add Environment dialog](/docs/feature-toggles/add-environment-dialog.png "width=500")
+
+You can additionally target specific [Tenants](#tenants) or [User Segments](#segments).
 
 ## Providers {#providers}
 
@@ -143,7 +146,7 @@ client.SetContext(EvaluationContext.Builder().Set("license-type", "free").Build(
 
 Segments can then be configured for Environments on the Feature Toggle in Octopus.
 
-![Add Segment](segment-add.png "width=500")
+![Add Segment](/docs/feature-toggles/segment-add.png "width=500")
 
 A Toggle evaluation will match on segments if the evaluation context matches at least one segment for each key. 
 
@@ -169,7 +172,7 @@ The options for configuring a Feature Toggle for Tenants are:
 
 For example, the configuration shown below will result in the Toggle evaluating as `On` for 10% of Tenants, always including `Acme` and never including `Cyberdyne Systems`. 
 
-![Tenanted Rollout](tenant-rollout.png "width=500")
+![Tenanted Rollout](/docs/feature-toggles/tenant-rollout.png "width=500")
 
 ## Default Values {#default-values}
 
@@ -179,7 +182,7 @@ The default value on the Toggle in Octopus will be returned if the environment b
 
 In the example below, the `Production` and `Staging` environments have values configured. The default value for the Toggle is `Off`. If an evaluation is made by an application running in the `Development` environment, or any other environment not configured, it would receive the default value (`Off`).  
 
-![Default Values](default-values.png "width=500")
+![Default Values](/docs/feature-toggles/default-values.png "width=500")
 
 The default value supplied in client code (the `false` argument in the example below) will only be used if the Octopus Feature Toggle service cannot be reached, for example if there are network issues or the service is unavailable.
 
