@@ -9,7 +9,7 @@ description: Octopus Feature Toggles allow progressive delivery of changes and i
 navOrder: 95 
 ---
 
-Octopus Feature Toggles support toggling features on or off in real-time, without reploying, and progressively releasing changes to subsets of your users.
+Octopus Feature Toggles support toggling features on or off in real-time, without redeploying, and progressively releasing changes to subsets of your users.
 
 :::div{.hint}
 Octopus Feature Toggles are currently in Alpha, available to a small set of customers. 
@@ -21,7 +21,7 @@ If you are interested in this feature please register your interest on the [road
 
 ### Create a Feature Toggle 
 
-Feature Toggles are located within Octopus Projects: {% raw %}{{ Project,Feature Toggles }}{% endraw %}
+Feature Toggles are located within Octopus Projects: {{ Project,Feature Toggles }}
 
 Create a new Toggle and give it name.
 
@@ -94,7 +94,7 @@ var darkModeEnabled = await featureClient.GetBooleanValueAsync("dark-mode", fals
 The second argument is the default value. Read more about [default values](/docs/feature-toggles/providers.md#default) below.
 
 ### Rollout 
-To enable your toggle for an environment, add the environment to the Toggle. {% raw %}{{ Project,Feature Toggles, Toggle }}{% endraw %} 
+To enable your toggle for an environment, add the environment to the Toggle. {{ Project,Feature Toggles, Toggle }}
 
 ![Add Environment button](add-environment-button.png "width=500")
 
@@ -153,8 +153,8 @@ Some examples:
 |-----------|--------------------|--------|
 | `user-id/123456`   | `user-id/123456` | `On` |
 | `user-id/123456`   | `user-id/789383` | `Off` |
-| `license-type/free` `region/apac` `region/eu`  | `license-type/free` `region/apac`  | `On` |
-| `license-type/free` `region/apac` `region/eu`  | `license-type/free` `region/us`  | `Off` |
+| `license-type/free` `region/Asia` `region/EU`  | `license-type/free` `region/Asia`  | `On` |
+| `license-type/free` `region/Asia` `region/EU`  | `license-type/free` `region/US`  | `Off` |
 
 ## Tenants {#tenants}
 
@@ -167,7 +167,7 @@ The options for configuring a Feature Toggle for Tenants are:
 - % of Tenants
 - Specific Tenants Excluded
 
-For example, the configuration shown below will result in the Toggle evaluating as `On` for 10% of Tenants, always including `Acme` and never including `Spacely Sprockets`. 
+For example, the configuration shown below will result in the Toggle evaluating as `On` for 10% of Tenants, always including `Acme` and never including `Cyberdyne Systems`. 
 
 ![Tenanted Rollout](tenant-rollout.png "width=500")
 
