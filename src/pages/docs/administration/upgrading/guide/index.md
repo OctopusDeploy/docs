@@ -13,7 +13,7 @@ A modern version of Octopus Deploy is any version running on SQL Server.  When O
 
 The default upgrade scenario is an in-place upgrade.  Thousands of customers upgrade every month without errors.  However, no upgrade process is ever 100% error-free 100% of the time.  The typical errors we see are:
 
-- Compatability Errors: Upgrading to a new version isn't supported by a license limitation, host OS version deprecation or SQL Server version deprecation.
+- Compatibility Errors: Upgrading to a new version isn't supported by a license limitation, host OS version deprecation, or SQL Server version deprecation.
 - Hyper-specific use cases: Windows runs a specific version of Windows without a random patch of .NET Framework installed.
 - Breaking changes introduced in the product: we do our best to minimize these, but they can happen.  For example, Octopus Deploy 2019.1.0 introduced spaces and how teams and roles were assigned.  Any API scripts manipulating teams had to be updated.
 
