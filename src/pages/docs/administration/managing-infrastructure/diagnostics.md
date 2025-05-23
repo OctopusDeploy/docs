@@ -26,4 +26,4 @@ It runs at start up and then again every 24 hours. It can also be run on demand 
 :::
 
 ### Schema
-The schema integrity check compares the current schema of the database against what the application expects it to be. If the schema differs, server version upgrades may fail. It will error if tables, indexes or columns have been added, removed or altered. Items in the `sys` and `sysdiagram` schemas are ignored.
+The schema integrity check compares the current schema of the database against what the application expects it to be. If the schema differs, server version upgrades may fail. It will error if tables, indexes or columns have been added, removed or altered. Items in the `sys` and `sys diagram` schemas are ignored.
