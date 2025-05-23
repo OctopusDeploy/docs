@@ -161,7 +161,7 @@ Some examples:
 
 ## Tenants {#tenants}
 
-If your Project uses [Tenants](/docs/tenants), then Toggles may be enabled for subsets of your Tenants. 
+If your Project uses [Tenants](/docs/tenants/), then Toggles may be enabled for subsets of your Tenants. 
 
 The options for configuring a Feature Toggle for Tenants are:
 
