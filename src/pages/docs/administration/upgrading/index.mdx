@@ -109,7 +109,8 @@ Since Octopus Deploy 3.x, the backing database is SQL Server.  Prior to Octopus 
 
 ## Mitigating risk
 
-The best way to mitigate risk is to automate the upgrade and/or create a test instance.  Automation ensures all steps, including backups, are followed for every upgrade.  A test instance allows you to test out upgrades and new features without affecting your main instance.
+The best way to mitigate risk is to automate the upgrade and/or create a test instance.  Automation ensures all steps, including backups, are followed for every upgrade.  A test instance allows you to test out upgrades and new features without affecting your main instance. We also recommend performing a System Integrity Check on your live instance before attempting to upgrade. If the integrity check fails, please contact [support](https://octopus.com/support) with the [raw output of the task](/docs/support/get-the-raw-output-from-a-task), and we can get that fixed for you.
 
+- [Perform a System Integrity Check](docs/administration/managing-infrastructure/diagnostics)
 - [Automating upgrades](/docs/administration/upgrading/guide/automate-upgrades)
 - [Create a test instance](/docs/administration/upgrading/guide/creating-test-instance)
