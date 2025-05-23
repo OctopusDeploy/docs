@@ -34,7 +34,7 @@ Octopus Feature Toggles rely on [OpenFeature](https://openfeature.dev/) as the c
 
 Follow the [OpenFeature guide for installing the SDK for your language](https://openfeature.dev/ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=SDK) into your application. 
 
-Configure OpenFeature to use the [Octopus Provider](/docs/feature-toggles/providers.md#providers).
+Configure OpenFeature to use the [Octopus Provider](#providers).
 
 The Octopus OpenFeature Provider requires a client identifier when instantiated. This is a [JWT](https://jwt.io/introduction) which specifies the Octopus Project, Environment, and Tenant (if applicable). This tells the Octopus Feature Toggle service which set of toggles to evaluate.
 
