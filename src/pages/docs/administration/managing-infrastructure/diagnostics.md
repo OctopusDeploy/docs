@@ -12,7 +12,7 @@ navOrder: 2400
 The System Diagnostics report generates a compressed folder which includes a set of reports that capture specific system data, such as previous Octopus Server logs, a subset of recently run system tasks (for example, a System Integrity check), a short list of previous errors reported on the Octopus Server and installation history. Octopus Support may ask for this report to help diagnose common faults or for recommendations on customer queries. The report can be found by going to **Configuration ➜ Diagnostics** and clicking the `Download System Diagnostics Report` button:
 
 :::figure
-![](/docs/administration/managing-infrastructure/images/system-integrity-check.png)
+![](/docs/administration/managing-infrastructure/images/system-diag-report.png)
 :::
 
 ## System integrity check
@@ -22,7 +22,7 @@ The system integrity check performs several checks on the database and the data.
 It runs at start up and then again every 24 hours. It can also be run on demand by going to **Configuration ➜ Diagnostics** and clicking the `Check System Integrity` button
 
 :::figure
-![](/docs/administration/managing-infrastructure/images/system-diag-report.png)
+![](/docs/administration/managing-infrastructure/images/system-integrity-check.png)
 :::
 
 ### Schema
