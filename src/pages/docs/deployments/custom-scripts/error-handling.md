@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-19
 title: Error handling
 description: Error handling for scripts in Octopus.
 icon: fa-regular fa-circle-exclamation
@@ -69,7 +69,7 @@ Fail-Step "A friendly message"
 <summary>C#</summary>
 
 ```csharp
-Octopus.FailStep("A friendly message");
+FailStep("A friendly message");
 ```
 
 </details>
