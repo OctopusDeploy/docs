@@ -36,8 +36,14 @@ With all of the above available, you can create your Private Endpoint by:
 2. Click "Create" and search for "Private Endpoint", clicking the result from Microsoft.
 3. Ensure the pre-filled Subscription and resource group are correct.
 4. Give the new Private Endpoint a name and either accept or customize the generated Network Interface Name. Click "Next".
+:::figure
+![An example of how to fill in the basics tab while creating a private endpoint in the Azure Portal](/docs/octopus-cloud/images/create-private-endpoint-basics.png)
+:::
 5. Select "Connect to an Azure resource by resource ID or alias" and paste the provided alias into the displayed field.
 6. Enter your Octopus Cloud instance's DNS prefix into the Request message field. Click "Next".
+:::figure
+![An example of how to fill in the resource tab while creating a private endpoint in the Azure Portal](/docs/octopus-cloud/images/create-private-endpoint-resource.png)
+:::
 7. Select the virtual network and subnet for the Private Endpoint to use. Click "Next".
 8. Complete the remainder of the Private Endpoint creation according to your requirements.
 
@@ -45,8 +51,14 @@ Now that you have a Private Endpoint created and a request issued to your Octopu
 By sharing this value with us, we can ensure that we only approve Private Link requests that you configure.
 Retrieving this value can also be done through the Azure Portal by doing the following:
 1. Navigate to the newly created Private Endpoint.
-2. Click the "JSON View" link on the right of the page.
+2. Click the "JSON View" button on the right of the page.
+:::figure
+![A screenshot of a Private Endpoint in the Azure Portal showing where the JSON View button is](/docs/octopus-cloud/images/private-endpoint-json-view-button.png)
+:::
 3. In the Resource JSON pane that appears, the value you will want to retrieve is under `properties` and then `resourceGuid`
+:::figure
+![A screenshot of a Private Endpoint's JSON View in the Azure Portal highlighting the ResourceGuid field](/docs/octopus-cloud/images/private-endpoint-json-resource-guid.png)
+:::
 
 With these details available, get in touch with [our support team](mailto:support@octopus.com) and ask that the Private Endpoint be approved.
 Once approved, you will be able to begin using your new Azure Inbound Private Link.
