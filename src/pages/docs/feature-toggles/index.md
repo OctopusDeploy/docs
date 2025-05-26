@@ -110,7 +110,7 @@ You can additionally target specific [Tenants](#tenants) or [User Segments](#seg
 Below are the Octopus OpenFeature provider SDKs currently available:
 
 - [.NET](https://github.com/OctopusDeploy/openfeature-provider-dotnet)
-- JavaScript/TypeScript
+- [TypeScript/JavaScript](https://github.com/OctopusDeploy/openfeature-provider-ts-web)
 
 Configuring the providers is documented in the README files in the repositories.
 
