@@ -1,15 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-13
 title: Deployment process as code
 description: With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else. This page describes the different options available in Octopus to store your deployment process as code.
 navOrder: 70
 ---
 
 :::div{.hint}
-**Looking for Configuration as Code?**
-This section looks at storing your deployment process as code **without** using the [Configuration as Code](/docs/projects/version-control) feature.
+**Looking for Version Control?**
+This section looks at storing your deployment process as code **without** using the [Version Control](/docs/projects/version-control) feature.
 :::
 
 With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else.
@@ -66,7 +66,7 @@ Follow this process to move your Octopus project configuration to code:
 
 1. Move your [deployment scripts to code](#scripts-as-code) and decide if you want to take this next step.
 1. Convert your project configuration to code: learn about [configuring Octopus using code](#configure-octopus-using-code).
-1. Test your project configuration as code, targeting a dummy project so your real project continues to work uninterrupted.
+1. Test your project configuration, targeting a dummy project so your real project continues to work uninterrupted.
 1. When you are happy with your testing, update your build pipeline to target the real project.
 1. Train your people to make changes safely using **project as code**.
 
@@ -82,15 +82,13 @@ The process flow of using **project as code** looks similar to what you already 
 
 ### Configure Octopus using code {#configure-octopus-using-code}
 
-Octopus has a comprehensive HTTP API and .NET SDK you can use to automate **everything** in Octopus. If you can do something through the user interface, you can automate it with code. You can create and update projects, variables, deployment processes, and more. A downside of this approach is how much work is involved: you need to write code that detects drift and applies deltas, or is idempotent. Today, this is our only fully-supported solution to define your Octopus configuration as code.
+Octopus has a comprehensive HTTP API and .NET SDK you can use to automate **everything** in Octopus. If you can do something through the user interface, you can automate it with code. You can create and update projects, variables, deployment processes, and more. A downside of this approach is how much work is involved: you need to write code that detects drift and applies deltas, or is idempotent.
 
 There is an [open source Terraform provider for Octopus](https://github.com/OctopusDeploy/terraform-provider-octopusdeploy), which is built on top of the Octopus HTTP API. The Terraform provider for Octopus detects drift and applies deltas. We are using this Terraform provider ourselves for [Octopus Cloud](https://octopus.com/cloud) (our SaaS product), and we are actively contributing to the provider. It doesn't cover 100% of all Octopus features yet, and the structure of the Terraform resources are subject to change. We will be building first-class support for this into the Octopus ecosystem in the future.
 
-If you want to do **Octopus configuration as code** today, we recommend using our .NET SDK which will always be supported. The Terraform provider will be a simpler, more declarative approach, that we will support in the future.
-
 ### Consistency and repeatability using project as code
 
-When managing your Octopus configuration as code, Octopus still makes sure your deployments are consistent and repeatable. Whenever you push a configuration change to your Octopus project via code, it's just like people using the user interface or API to make changes. When you create a release, Octopus takes a snapshot of the deployment process, variables, and packages making every deployment of that release consistent and repeatable, regardless of whether the project was configured by a person or by code.
+When managing your Octopus configuration, Octopus still makes sure your deployments are consistent and repeatable. Whenever you push a configuration change to your Octopus project via code, it's just like people using the user interface or API to make changes. When you create a release, Octopus takes a snapshot of the deployment process, variables, and packages making every deployment of that release consistent and repeatable, regardless of whether the project was configured by a person or by code.
 
 This means you can push configuration changes to Octopus as code, and get the same consistent and repeatable experience you expect for your deployments.
 

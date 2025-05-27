@@ -22,9 +22,9 @@ foreach ($project in $projectList) {
     
     $deploymentProcessLink = $project.Links.DeploymentProcess
     
-    # Check if project is Config-as-Code
+    # Check if project is version control enabled
     if ($project.IsVersionControlled) {
-        # Get default Git branch for Config-as-Code project
+        # Get default Git branch for version control enabled project
         $defaultBranch = $project.PersistenceSettings.DefaultBranch
         $deploymentProcessLink = $deploymentProcessUri -Replace "{gitRef}", $defaultBranch
     }

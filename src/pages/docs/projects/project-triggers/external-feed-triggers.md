@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-21
-modDate: 2024-08-28
+modDate: 2025-05-13
 title: External feed triggers in Octopus
 navTitle: External feed triggers
 icon: fa-solid fa-arrow-up-right-from-square
@@ -53,7 +53,7 @@ A preview of the [lifecycle](/docs/releases/lifecycles) used by the selected cha
 
 Any container images or Helm Charts referenced in your project's deployment process can be selected to trigger release creation.
 
-Please note that for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only container images and Helm Charts in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in external feed triggers.
+Please note that for [version control](/docs/projects/version-control/version-control-reference) enabled projects, only container images and Helm Charts in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in external feed triggers.
 
 :::figure
 ![Package selection](/docs/projects/project-triggers/images/external-feed-trigger-packages.png)
@@ -100,7 +100,7 @@ When you are using external feed triggers there are a few reasons why a release 
 
 7. If you have a **chain of package dependencies** with your external feed packages, make sure your trigger uses the package which will be **pushed to its repository last**. Otherwise some of the packages required for the release may be missing.
 
-8. As [mentioned above](/docs/projects/project-triggers/external-feed-triggers#trigger-sources), for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only container images and Helm Charts in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in external feed triggers.
+8. As [mentioned above](/docs/projects/project-triggers/external-feed-triggers#trigger-sources), for [version control](/docs/projects/version-control/version-control-reference) enabled projects, only container images and Helm Charts in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in external feed triggers.
 
 ## Learn more
 
