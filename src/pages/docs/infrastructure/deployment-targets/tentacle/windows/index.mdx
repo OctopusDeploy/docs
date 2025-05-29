@@ -24,6 +24,12 @@ Before you install Tentacle, review the software and hardware requirements for:
 - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements).
 - [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements).
 
+## .NET Framework dependency
+
+ Tentacle for Windows is published as either a .NET Framework dependent executable or a self-contained executable. The framework-dependent Tentacle will require a compatible version of .NET Framework to be installed. The self-contained Tentacle bundles the .NET runtime with the application. 
+
+ Once you have installed one type of Tentacle, future updates of Tentacle done via Octopus Server will respect the current publishing mode. 
+
 ## Communication mode
 
 Tentacles can be configured to communicate in Listening mode or Polling mode. Listening mode is the recommended communication style. Learn about the differences between the two modes and when you might choose to use Polling mode instead of Listening mode on the [Tentacle communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication) page.
