@@ -60,6 +60,10 @@ If a package has been found and selected but fetching versions fails when creati
 
 On the test page, you can search for packages, this will return the packageId expected by Octopus along with the artifact details. The expected packageId is `path/module` where the path is the folder structure to the artifact returned from the AQL query <code>items.find(...)</code> and the module is determined by the regex expression set on the feed within Octopus.
 
+:::div{.warning}
+The package search for the feed is case-sensitive, so you must match the package's case in the Package Name field exactly to find the package. A package name can be partially searched for, or the full package name and version can be searched for. For example, for a package called 'FileTransferService-10.0.zip,' you can search for 'File', 'FileTransferService', or 'FileTransferService-10.0.zip'.
+:::
+
 :::figure
 ![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-test.png)
 :::
@@ -108,6 +112,10 @@ As mentioned previously in this documentation the file has to have a dependency 
 :::
 
 Once you have set this up you should then be able to search for the package in Octopus:
+
+:::div{.warning}
+The package search for the feed is case-sensitive, so you must match the package's case in the Package Name field exactly to find the package. A package name can be partially searched for, or the full package name and version can be searched for. For example, for a package called 'FileTransferService-10.0.zip,' you can search for 'File', 'FileTransferService', or 'FileTransferService-10.0.zip'.
+:::
 
 :::figure
 ![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-package-search-example.png)
