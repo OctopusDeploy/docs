@@ -19,7 +19,7 @@ navOrder: 50
 The procedure for configuring Polling Tentacles to use port 443 varies based upon your chosen method of hosting Octopus Server.
 
 :::hint
-It may be helpful to know that the Tentacle agent supports command-line operations. If you're using a Polling Tentacle and need to configure a Polling Proxy, you can refer to our documentation on [Polling Proxy](docs/octopus-rest-api/tentacle.exe-command-line/polling-proxy) for more details.
+It may be helpful to know that the Tentacle agent supports command-line operations. If you're using a Polling Tentacle and need to configure a Polling Proxy, you can refer to our documentation on [Polling Proxy](/docs/octopus-rest-api/tentacle.exe-command-line//polling-proxy) for more details.
 :::
 
 ## Octopus Cloud
