@@ -311,6 +311,18 @@ Machine policies can be configured to automatically remove unavailable machines 
 ![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-clean-up-unavailable.png)
 :::
 
+## Package cache retention policy
+
+:::div{.hint}
+Configurable machine package cache retention was introduced in **Octopus 2025.3**. Support for this feature is provided via the feature toggle, `OCTOPUS__FeatureToggles__ConfigurablePackageCacheRetentionFeatureToggle`.
+:::
+
+The machine package cache retention policy ensures that packages are periodically removed from the machine cache. This is handled by Octopus by default, but can be configured per machine policy as required.policy
+
+:::figure
+![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-package-cache-retention.png)
+:::
+
 ## Assign machine policies to machines
 
 Assign a machine policy to a machine by selecting a machine from the *Deployment Targets* or *Workers* screen and using the *Policy* drop down to select the machine policy:
