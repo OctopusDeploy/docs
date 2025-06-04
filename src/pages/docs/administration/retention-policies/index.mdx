@@ -56,8 +56,6 @@ These options can be configured for each machine under the Machine Policy.
 To configure quantity to keep, create a custom [Machine Policy](/docs/infrastructure/deployment-targets/machine-policies) and set the `Package Cache` policy to `Keep a limited number`. This will allow you to specify a number of versions to keep per package in the cache. By default this number of versions will be kept for all packages in the cache. 
 To restrict the number of packages to keep, select `From the most recently used packages`, and enter your preferred number of packages to keep. Octopus will ensure that only the least recently used packages and versions are removed.
 
-Targets configured with this policy use the quantity to keep policy for retention.
-
 :::figure
 ![Machine policy settings for package cache retention](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-package-cache-retention.png)
 :::
