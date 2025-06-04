@@ -77,6 +77,11 @@ From Octopus Cloud version <INSERT_OCTOPUS_VERSION>, packages associated with re
 
 This option ensures that packages associated with releases and runbook runs are deleted from the Built-in Repository. Any packages associated with releases displayed on either the main dashboard or a [project dashboard](/docs/projects/project-dashboard) are **never deleted**. Any packages associated with runbooks displayed on the projects runbook dashboard are also **never deleted**.
 
+When this option is selected and a package retention policy is applied, Octopus will delete packages that meet *both* of the following criteria:
+
+1. The time span from the package's initial publish date exceeds the configured time period in the policy
+2. The package is **not associated with a release or runbook run displayed on the dashboard**
+
 ### Build information \{#build-information-whats-deleted}
 
 [Build information](/docs/packaging-applications/build-servers/build-information) stored in Octopus is associated with **packages**. Octopus will decide how long to keep the build information based on the package they are linked to:
