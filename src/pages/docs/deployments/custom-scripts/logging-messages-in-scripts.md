@@ -217,12 +217,16 @@ To return to the default standard output log level, write the following message:
 ```
 
 
-The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard error will be treated with the relevant log level. `stderr-progress` will cause error log lines to be written as `verbose` log lines.
+The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard error will be treated with the relevant log level. 
 ```
 ##octopus[stderr-ignore]
 ##octopus[stderr-error]
 ##octopus[stderr-progress]
+##octopus[stderr-output]
 ```
+
+- `stderr-progress` will cause error log lines to be written as `verbose` log lines. 
+- `stderr-output` will cause error log lines to be written as `info` log lines (standard output).
 
 To return to the default standard error log level, write the following message:
 ```
