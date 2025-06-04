@@ -50,16 +50,6 @@ Note that if you use the [Custom Installation Directory](/docs/projects/steps/co
 
 #### Packages
 
-:::div{.hint}
-Configurable machine package cache retention was introduced in **Octopus 2025.3** to optionally allow configuring Octopus to keep packages by quantity. Support for this feature is provided via the feature toggle, `OCTOPUS__FeatureToggles__ConfigurablePackageCacheRetentionFeatureToggle`.
-If `OCTOPUS__FeatureToggles__UseQuantityPackageCacheRetentionFeatureToggle` is also enabled, Octopus will default to managing the package cache by quantity rather than disk space.
-:::
-
-##### Free disk space
-
-Packages that are transferred during the deployment are managed based on free disk space. For each deployment, prior to acquiring the package, the free disk space is checked and if less than 20% it will delete the “least used” package(s) from the Tentacle file store location. Packages that get removed will be reacquired if needed for another deployment.
-The disk space calculation for both targets and workers looks at the entire disk, however Octopus only cleans up in the file store.
-
 ##### Quantity to keep
 
 Packages that are transferred during the deployment are managed based on quantities of packages and version to keep. By default, Octopus keeps all packages, with a maximum of 2 versions of each. 
