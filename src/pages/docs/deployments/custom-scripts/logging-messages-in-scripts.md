@@ -226,7 +226,7 @@ The following service messages can be written directly to standard output which 
 ```
 
 - `stderr-progress` will cause error log lines to be written as `verbose` log lines. 
-- `stderr-output` will cause error log lines to be written as `info` log lines (standard output).
+- `stderr-output` will cause error log lines to be written as `info` log lines (standard output). Requires version `2025.3`. 
 
 To return to the default standard error log level, write the following message:
 ```
