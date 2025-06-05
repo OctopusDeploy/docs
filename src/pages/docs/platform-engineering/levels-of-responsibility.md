@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-13
 title: Managing Octopus with code
 description: This section describes the levels of responsibility that define how projects are managed over time.
 navOrder: 3
@@ -25,9 +25,9 @@ This is also called the eventual inconsistency model because the upstream and do
 
 ## Shared responsibility model
 
-The shared responsibility model relies on Git based workflows to merge changes between forked Git repositories backing Config-as-Code (CaC) projects.
+The shared responsibility model relies on Git based workflows to merge changes between forked Git repositories backing version control enabled projects.
 
-Because the two CaC repos are forks of each other, they share the same Git history, and processes like Git merges can be used to synchronize changes between these repositories over time.
+Because the two version control repos are forks of each other, they share the same Git history, and processes like Git merges can be used to synchronize changes between these repositories over time.
 
 This is also called the eventual consistency model because the upstream and downstream artifacts are expected to drift but have the option to incorporate any important changes.
 

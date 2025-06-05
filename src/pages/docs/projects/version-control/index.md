@@ -1,8 +1,8 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-09-17
-title: Configuration as Code
+modDate: 2025-05-13
+title: Version Control
 description: Projects can be version-controlled as text in a Git repository 
 icon: fa-brands fa-git-alt
 navOrder: 110 
@@ -11,7 +11,7 @@ hideInThisSection: true
 
 ## Introduction 
 
-The Configuration as Code (config-as-code) feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, your _deployment process_, _runbook processes_, _deployment settings_, and _non-sensitive variables_ can be version-controlled.
+The version control feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, your _deployment process_, _runbook processes_, _deployment settings_, and _non-sensitive variables_ can be version-controlled.
 
 The Octopus UI needed to remain fully functional for version-controlled projects, and it has. You can continue to use the UI exactly as you always have, but with an additional superpower: Git branches are now exposed in the UI, allowing editing of currently supported project configuration on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes too.
 
@@ -24,12 +24,12 @@ Of course, there is now a text representation of the process in the Git reposito
 That means that where previously there was only a single current version of the deployment or runbook process, it is now possible to have many. When creating releases, the relevant branch can be selected. We have also added [branch system variables](/docs/projects/variables/system-variables/#release-branch-information) that can be used in your custom deployment scripts.
 
 :::div{.warning}
-Config-as-code only supports [git](https://git-scm.com/) repositories.  Before using this feature, you should be familiar with [git concepts](https://git-scm.com/doc) such as distributed version control, pushing, pulling, branching, merging, and fetching.
+Version control only supports [git](https://git-scm.com/) repositories.  Before using this feature, you should be familiar with [git concepts](https://git-scm.com/doc) such as distributed version control, pushing, pulling, branching, merging, and fetching.
 :::
 
 ### We want your feedback
 
-Our major goal for the early stages of this feature is to discover the ways people want config-as-code to evolve. What scenarios would you like to see unlocked? What doesn't work the way you hoped? 
+Our major goal for the early stages of this feature is to discover the ways people want version control to evolve. What scenarios would you like to see unlocked? What doesn't work the way you hoped? 
 
 You can provide feedback through whichever of the following channels you feel most comfortable with: 
 
@@ -41,17 +41,17 @@ You can provide feedback through whichever of the following channels you feel mo
 
 Version-control is configured per project and is accessed via the **Settings ➜ Version Control** navigation menu item. 
 
-New version controlled projects will automatically have config-as-code for both deployment and runbook processes. 
+New version controlled projects will automatically have this enabled for both deployment and runbook processes. 
 
-You can [migrate an existing version controlled project](/docs/runbooks/config-as-code-runbooks#cac-runbooks-on-an-existing-version-controlled-project) to use config as code runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
+You can [migrate an existing version controlled project](/docs/runbooks/version-control-runbooks#version-control-for-runbooks-on-an-existing-version-controlled-project) to use version control enabled runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
 
 Learn more about [Configuring version control on a project](/docs/projects/version-control/converting).
 
-## Config-as-code reference
+## Version Control Reference
 
 Several resources previously stored in SQL Server will now be stored in git once a project is version-controlled.
 
-Learn more about [Configuration as Code reference](/docs/projects/version-control/config-as-code-reference)
+Learn more about [Version Control Reference](/docs/projects/version-control/version-control-reference)
 
 ## Making changes to a version-controlled project
 
@@ -61,7 +61,7 @@ Learn more about [Editing a project with version control enabled](/docs/projects
 
 ## Migrating projects to support new features
 
-Since the initial public release of config-as-code, we've added support for additional project configuration in Git. Learn more about [migrating variables to Git](/docs/projects/version-control/converting/migrating-variables)
+Since the initial public release of version control enabled projects, we've added support for additional project configuration in Git. Learn more about [migrating variables to Git](/docs/projects/version-control/converting/migrating-variables)
 
 ## Creating and deploying releases
 
@@ -71,6 +71,6 @@ Learn more about [creating and deploying releases in a version controlled projec
 
 ## Unsupported scenarios
 
-The Configuration as Code feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios.
+The version control feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios.
 
-Learn more about [unsupported config-as-code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios)
+Learn more about [unsupported version control scenarios](/docs/projects/version-control/unsupported-version-control-scenarios)

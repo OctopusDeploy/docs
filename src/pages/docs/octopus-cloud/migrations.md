@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-18
+modDate: 2025-05-13
 title: Migrating to Octopus Cloud
 navOrder: 30
 description:  This guide outlines the benefits of Octopus Cloud, the effort involved in migrating, and step-by-step instructions to help you have a smooth transition.
@@ -35,7 +35,7 @@ Before you start planning your migration, it’s worth setting some expectations
 
 | **Instance Size**         | **Characteristics** | **Effort** |
 | ------------------------- | ---- | ----------- |
-| Small and/or simple       | <ul><li>10 or fewer projects</li><li>10 or fewer deployment targets</li><li>Integrations with cloud-based products only</li><li>No config as code</li></ul> | Migration typically takes 1-3 days with minimal manual configuration. |
+| Small and/or simple       | <ul><li>10 or fewer projects</li><li>10 or fewer deployment targets</li><li>Integrations with cloud-based products only</li><li>No version control</li></ul> | Migration typically takes 1-3 days with minimal manual configuration. |
 | Medium                    | <ul><li>10–50 projects</li><li>Integrations with a mix of self-hosted and cloud-based products</li><li>Fewer than 100 deployment targets</li></ul> | Migration requires thorough planning, testing, and may take multiple weeks to migrate. |
 | Large or complex          | <ul><li>50+ projects</li><li>Advanced configurations</li><li>Integrations primarily with other self-hosted tools</li><li>More than 100 deployment targets</li></ul> | Migrations may take several weeks or months of preparation, testing, and execution. |
 
@@ -257,7 +257,7 @@ In our experience, most people turn off their Octopus Server in about three to s
 ## Older versions
 
 - The **Export/Import Projects** feature is available from Octopus Deploy **2021.1** onwards.
-- Prior to version **2025.2.5601**, Config-as-Code projects were not supported by the **Export/Import Projects** feature.
+- Prior to version **2025.2.5601**, version control enabled projects were not supported by the **Export/Import Projects** feature.
 
 ## No longer offered or supported
 Please note that our existing [Migration API](https://octopus.com/docs/octopus-rest-api/migration-api) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.

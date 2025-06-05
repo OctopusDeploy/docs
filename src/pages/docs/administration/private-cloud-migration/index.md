@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-13
 title: Private cloud migration
 description: Guidelines for migrating an on-premises Octopus instance to private cloud hosting
 navOrder: 55
@@ -177,7 +177,7 @@ Choose an incremental migration when:
 An incremental migration may not suitable when:
 
 * You require the complete audit history to be present on the cloud instance, as the export/import feature does not migrate audit events.
-* You have a large number of Config-as-Code enabled projects, as the export/import feature does not export these projects.
+* You have a large number of version control enabled projects, as the export/import feature does not export these projects.
 * You do not wish to reregister listening tentacles, as the new cloud instance has new certificates and will not be able to establish a connection to existing listening tentacles.
 * You have a large number of project triggers, as the export/import feature does not export triggers.
 * You have a large number of users and teams in the internal Octopus database, as these will have to be manually recreated.

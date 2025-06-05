@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-13
 title: Managing project resources
 description: This section documents how to manage project level resources as code.
 navOrder: 5
@@ -24,11 +24,11 @@ Managed, or downstream, spaces (i.e. spaces with centrally managed resources) ar
 There are two ways to manage project level resources:
 
 * Define database backed projects, complete with all deployment steps, with Terraform
-* Define the configuration of a [Config-as-code](/docs/projects/version-control) (CaC) project with Terraform, while deferring the configuration of CaC managed settings like the deployment process, non-secret variables, and some project settings to configuration stored in Git
+* Define the configuration of a [version control](/docs/projects/version-control) enabled project with Terraform, while deferring the configuration of managed settings like the deployment process, non-secret variables, and some project settings to configuration stored in Git
 
 Defining database backed projects in Terraform is useful for [centralized responsibility](levels-of-responsibility) projects where the customer has little or no ability to modify the project, or [customer responsibility](levels-of-responsibility) projects where projects are not centrally updated after they are created.
 
-Defining CaC projects is useful for [shared responsibility](levels-of-responsibility) projects where deployment processes can be modified by customers and the platform team, with differences reconciled with Git merges.
+Defining version control enabled projects is useful for [shared responsibility](levels-of-responsibility) projects where deployment processes can be modified by customers and the platform team, with differences reconciled with Git merges.
 
 Project level resources can be defined in a Terraform module in two ways:
 
@@ -189,7 +189,7 @@ The following steps create a project in an existing space with the Terraform mod
     4. Set the `Octopus Server URL` field to the URL of the Octopus server to create the new project in. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
     5. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used when accessing the instance defined in the `Octopus Server URL` field.
     6. Set the `Octopus Space ID` field to the ID of an existing space where the project will be created.
-    7. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to define the value of secrets such as secret variables e.g. `-var=eks_octopub_frontend_my_secret_1=TheSecretValue`. It is also useful to override the Git repository for a CaC enabled project, as [projects can not share Git repositories](/docs/projects/version-control/config-as-code-reference) e.g. `-var=project_frontend_webapp_git_url=http://github.com/username/project`.
+    7. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to define the value of secrets such as secret variables e.g. `-var=eks_octopub_frontend_my_secret_1=TheSecretValue`. It is also useful to override the Git repository for a version control enabled project, as [projects can not share Git repositories](/docs/projects/version-control/version-control-reference) e.g. `-var=project_frontend_webapp_git_url=http://github.com/username/project`.
     8. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terraform init` command. Leave this field blank unless you have a specific reason to pass an argument to Terraform.
     9. Each `Octopus - Populate Octoterra Space` step exposes values relating to their specific Terraform backend that must be configured. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
 

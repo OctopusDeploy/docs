@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-13
 title: Scheduled runbook triggers
 description: Scheduled runbook triggers allow you to define unattended behavior for your runbook that will cause an automatic runbook run to environments of your choosing.
 navOrder: 40
@@ -10,7 +10,7 @@ navOrder: 40
 Scheduled runbook triggers allow you to define an unattended behavior for your [runbook](/docs/runbooks) that will cause an automatic runbook run to environments of your choosing.
 
 :::div{.hint}
-Only published snapshots can be used to create a scheduled runbook trigger, draft snapshots cannot be used to create a scheduled trigger. For config-as-code runbooks, scheduled runbook triggers will always run the runbook from the latest commit on your default branch.
+Only published snapshots can be used to create a scheduled runbook trigger, draft snapshots cannot be used to create a scheduled trigger. For version control enabled runbooks, scheduled runbook triggers will always run the runbook from the latest commit on your default branch.
 :::
 
 ## Schedule

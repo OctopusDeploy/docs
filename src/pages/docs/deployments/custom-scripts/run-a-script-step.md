@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-27
+modDate: 2025-05-13
 title: Run a script step
 description: Standalone scripts allow you to run scripts contained in a package, in a git repository, or ad-hoc scripts you've saved as part of the step.
 icon: fa-regular fa-file-code
@@ -58,7 +58,7 @@ Using scripts from inside a package or a git repository are a great way to versi
 :::
 
 :::div{.hint}
-If you are storing your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the files.
+If you are storing your project configuration in a Git repository using the [version control feature](/docs/projects/version-control), you can source files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the files.
 
 You can find more information about this feature in this [blog post on using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments).
 :::

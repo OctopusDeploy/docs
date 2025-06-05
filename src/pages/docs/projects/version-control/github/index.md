@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-14
-modDate: 2024-09-17
+modDate: 2025-05-13
 title: GitHub integration 
 description: Octopus Deploy GitHub integration
 icon: fa-brands fa-github
@@ -55,7 +55,7 @@ Octopus can only see repositories that are available to the app installation and
 To connect a repository, you must be an administrator of the repository on GitHub. If you're not an administrator (but can view the repository), you will still see the repository in the list, but will not be able to select it.
 
 ## Using GitHub App Connections
-You can currently use GitHub App Connections to connect to Configuration as Code projects. This removes the need for using Personal Access Tokens to connect to GitHub repositories, and allows users to commit as their GitHub users (rather than using a shared account).
+You can currently use GitHub App Connections to connect to version control enabled projects. This removes the need for using Personal Access Tokens to connect to GitHub repositories, and allows users to commit as their GitHub users (rather than using a shared account).
 
 ## More information on installing and authorizing the Octopus GitHub App
 You install the Octopus GitHub App on an account (organization or user) to give the repositories or other content within that account. Authorizing gives the Octopus GitHub App permission to act on your behalf in any account that has the app installed.

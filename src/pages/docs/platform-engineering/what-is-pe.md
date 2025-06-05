@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-13
 title: What is platform engineering?
 description: A brief overview of what platform engineering is.
 navOrder: 1
@@ -21,4 +21,4 @@ While platform engineering is not limited to CI/CD pipelines, CI/CD platforms pr
 * They manage execution environments in which to run automated tasks
 * They already have access to existing DevOps systems
 
-Octopus can function as an IDP through a combination of IaC (with the [Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs)), Git based workflows (with [Config-as-code](/docs/projects/version-control)), and specially designed step templates to deploy and track changes to deployment projects and runbooks.
+Octopus can function as an IDP through a combination of IaC (with the [Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs)), Git based workflows (with [version control](/docs/projects/version-control)), and specially designed step templates to deploy and track changes to deployment projects and runbooks.

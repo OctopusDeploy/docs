@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-05
-modDate: 2024-11-05
+modDate: 2025-05-13
 title: Git repository triggers
 description: Git repository triggers allow you to automatically create a new release when a new commit is pushed to a Git repository.
 navOrder: 16
@@ -32,7 +32,7 @@ A preview of the [lifecycle](/docs/releases/lifecycles) used by the selected cha
 
 Git repositories referenced in your project's deployment process can be selected to be monitored by the trigger to create releases.
 
-Please note that for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only steps that reference Git repositories in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in git triggers.
+Please note that for [version control](/docs/projects/version-control/version-control-reference) enabled projects, only steps that reference Git repositories in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in git triggers.
 
 :::figure
 ![Repository selection](/docs/projects/project-triggers/images/git-triggers/git-triggers-repository-selection.png)
