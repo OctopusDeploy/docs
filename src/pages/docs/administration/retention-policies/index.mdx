@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-04-28
+modDate: 2025-06-03
 title: Retention policies
 icon: fa-solid fa-broom
 description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
@@ -55,7 +55,7 @@ The disk space calculation for both targets and workers looks at the entire disk
 
 ### Built-in repository \{#built-in-repo-whats-deleted}
 
-A retention policy can be applied to packages in the built-in Octopus package repository. By default, the policy is set to keep all packages indefinitely. This policy is *separate* from the [release retention policy](#releases-whats-deleted) described above.
+A retention policy can be applied to packages in the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/built-in-repository). By default, the policy is set to keep all packages indefinitely. This policy is *separate* from the [release retention policy](#releases-whats-deleted) described above.
 
 :::figure
 ![](/docs/administration/retention-policies/images/built-in-repository.png)
@@ -69,6 +69,22 @@ When a package retention policy is applied, Octopus will delete packages that me
 :::div{.hint}
 When configuring the repository retention policy, it's also worth making note of your [release retention policy](#releases-whats-deleted) settings too. When releases are deleted as a result of your release retention policy, then packages associated with those releases may become subject to cleanup by your repository policy.
 :::
+
+:::div{.info}
+From Octopus Cloud version 2025.3.672, packages associated with releases in the Octopus Built-in repository can be deleted. This feature is behind a feature toggle, please contact michelle.obrien@octopus.com if you would like to turn this feature on.
+:::
+
+From the Built-in Repository Retention configuration page:
+
+- Select **A limited time** and configure the number of days to retain packages.
+- Select **Always keep packages used by releases and runbook runs on the dashboard**
+
+This option ensures that packages associated with releases and runbook runs are deleted from the Built-in Repository. Any packages associated with releases displayed on either the main dashboard or a [project dashboard](/docs/projects/project-dashboard) are **never deleted**. Any packages associated with runbooks displayed on the projects runbook dashboard are also **never deleted**.
+
+When this option is selected and a package retention policy is applied, Octopus will delete packages that meet *both* of the following criteria:
+
+1. The time span from the package's initial publish date exceeds the configured time period in the policy
+2. The package is **not associated with a release or runbook run displayed on the dashboard**
 
 ### Build information \{#build-information-whats-deleted}
 
