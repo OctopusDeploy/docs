@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-04-03
+modDate: 2025-06-06
 title: Jira issue tracking
 description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 navOrder: 20
@@ -23,6 +23,11 @@ Octopus integrates with Jira issues. The integration includes the ability to:
 3. The Jira issue-tracker extension in Octopus parses the commit messages and recognizes the issue references.
 4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-changes).
 5. As the release is deployed to each environment, Octopus notifies Jira to update the issue.
+
+:::div{.hint}
+From 2025.3 the Jira issue-tracker extension in Octopus will parse both commit messages and branch names for Jira issue references.
+:::
+
 
 :::figure
 ![Octopus release with Jira issues](/docs/releases/issue-tracking/images/octo-jira-release-details.png)
@@ -54,7 +59,7 @@ The following steps explain how to integrate Octopus with Jira.
 
 ## Configure your build server to push build information to Octopus {#configure-your-build-server}
 
-To integrate with Jira issues, Octopus needs to understand which issues are associated with a [release](/docs/releases). Octopus does this by inspecting commit messages associated with any packages contained in the release.
+To integrate with Jira issues, Octopus needs to understand which issues are associated with a [release](/docs/releases). Octopus does this by inspecting commit messages and branch names associated with any packages contained in the release.
 
 To supply the commit messages:
 
@@ -217,7 +222,7 @@ Navigate to **Infrastructure ➜ Environments**, and next to each environment cl
 
 ### Ensure casing on issue/work item IDs match {#troubleshooting-check-case-on-ids}
 
-The commits that are pushed to Octopus as build information need to have the exact same case as the issue/work item found in Jira. For example, if the work item in Jira is `OBJ-123`, but your commit message includes the work item as `obj-123` (notice the lower-case value) you will need to remediate the case in your commits. This will allow the deployment status update to appear in Jira successfully.
+The commits that are pushed to Octopus as build information need to have the exact same case as the issue/work item found in Jira. For example, if the work item in Jira is `OBJ-123`, but your commit message or branch name includes the work item as `obj-123` (notice the lower-case value) you will need to remediate the case in your commits. This will allow the deployment status update to appear in Jira successfully.
 
 ### Push build information before creating a release {#troubleshooting-push-build-info-first}
 
