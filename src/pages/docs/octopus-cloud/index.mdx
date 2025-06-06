@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-24
+modDate: 2025-06-06
 title: Octopus Cloud
 subtitle: We host Octopus for you
 icon: fa-solid fa-cloud
 navTitle: Overview
 navSection: Octopus Cloud
 navOrder: 10
-description: How to work with Octopus Cloud.
+description: How to work with Octopus Cloud
 hideInThisSectionHeader: true
 ---
 import OctopusAccount from 'src/shared-content/octopus-cloud/octopus-account.include.md';
@@ -16,45 +16,54 @@ import OctopusCloudInstance from 'src/shared-content/octopus-cloud/octopus-cloud
 import OctopusCloudRegions from 'src/shared-content/octopus-cloud/octopus-cloud-regions.include.md';
 import OctopusCloudStorageLimits from 'src/shared-content/octopus-cloud/octopus-cloud-storage-limits.include.md';
 
-Octopus Cloud is the easiest way to run Octopus Deploy. It has the same functionality as Octopus Server, delivered as a highly available, scalable, secure SaaS application hosted for you. You get the best Octopus experience from the experts in hosting, maintaining, scaling, and securing Octopus Deploy. We recommend Octopus Cloud over Octopus Server for the following reasons:
+Octopus Cloud is the easiest way to run Octopus Deploy. It has the same functionality as Octopus Server, delivered as a highly available, scalable, secure SaaS application hosted for you. You get the best Octopus experience from the experts in hosting, maintaining, scaling, and securing Octopus Deploy.
+
+We recommend Octopus Cloud over Octopus Server for the following reasons:
 
 ## Minimize downtime and increase resilience
+
 - We take care of any issues that arise so you don't have to worry about downtime, data loss, or disruptions
-    - Our 24x7 monitoring and alerting and proactive issue detection means problems get addressed before they impact your operations
-    - Automatic recovery with comprehensive [disaster recovery](https://octopus.com/docs/octopus-cloud/disaster-recovery#disaster-recovery-procedure) procedures means your data is safe and quickly recoverable in case of a failure
+  - Our 24x7 monitoring and alerting and proactive issue detection means problems get addressed before they impact your operations
+  - Automatic recovery with comprehensive [disaster recovery](https://octopus.com/docs/octopus-cloud/disaster-recovery#disaster-recovery-procedure) procedures means your data is safe and quickly recoverable in case of a failure
 
 ## Secure and compliant out-of-the-box
+
 - Peace of mind with internationally recognized security standards, ensuring business compliance and protecting your reputation
-    - ISO 27001 and SOC II certifications with regular audits, ensuring your deployments and data are safe and secure
-    - Data and application layer isolation per customer, so there are no noisy neighbors or cross-talk
-    - OpenID Connect (OIDC) support so you can integrate with other services securely and without needing to manage credentials
-    - Network security and static IP addresses
-    - Flexibility of hosting region choices
+  - ISO 27001 and SOC II certifications with regular audits, ensuring your deployments and data are safe and secure
+  - Data and application layer isolation per customer, so there are no noisy neighbors or cross-talk
+  - OpenID Connect (OIDC) support so you can integrate with other services securely and without needing to manage credentials
+  - Network security and static IP addresses
+  - Flexibility of hosting region choices
 
 ## Increase team efficiency
+
 - Stay ahead of the competition with less time maintaining software and more time shipping new features
-    - Automatic upgrades to the latest version of Octopus, including improvements, bug fixes, security enhancements, and [new features](https://octopus.com/whatsnew) before they’re released on Octopus Server
-    - Expert support by experienced Octopus Support and Cloud Operations teams who swiftly resolve issues and provide regular maintenance
+  - Automatic upgrades to the latest version of Octopus, including improvements, bug fixes, security enhancements, and [new features](https://octopus.com/whatsnew) before they’re released on Octopus Server
+  - Expert support by experienced Octopus Support and Cloud Operations teams who swiftly resolve issues and provide regular maintenance
 
 ## Effortlessly scale your deployments
+
 - Your teams can scale their use without the hassle of resource management and additional infrastructure costs
-    - We provide appropriate resources and automatic scaling for seamless performance 
-    - Ample bandwidth and storage resources to handle your data and traffic without additional costs
-    - Windows and Linux dynamic workers provide flexible and scalable deployment options
+  - We provide appropriate resources and automatic scaling for seamless performance
+  - Ample bandwidth and storage resources to handle your data and traffic without additional costs
+  - Windows and Linux dynamic workers provide flexible and scalable deployment options
 
 :::figure
-![](/docs/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
+![Octopus Cloud architecture diagram](/docs/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
 :::
 
 When you’re ready, [start a free trial](https://octopus.com/start) to explore Octopus.
 
 ## Are there any differences between Octopus Cloud and Server?
-In providing Octopus as a service, some configuration and diagnostic functions in Octopus Cloud differ from the Octopus Server. These include disabling specific items related to the cloud server's provisioning and management. You can learn more on the [migration page](/docs/octopus-cloud/migrations#differences-between-octopus-cloud-and-octopus-server). 
+
+In providing Octopus as a service, some configuration and diagnostic functions in Octopus Cloud differ from the Octopus Server. These include disabling specific items related to the cloud server's provisioning and management. You can learn more on the [migration page](/docs/octopus-cloud/migrations#differences-between-octopus-cloud-and-octopus-server).
 
 ## Where is Octopus Cloud hosted? \{#octopus-cloud-hosting-locations}
-Octopus Cloud runs in the Microsoft Azure cloud. When you create an Octopus Cloud instance, we provision a Linux container to run the Octopus Server in, along with all the other resources we need to provide Octopus as a service. We deploy this to one of our Kubernetes clusters. 
+
+Octopus Cloud runs in the Microsoft Azure cloud. When you create an Octopus Cloud instance, we provision a Linux container to run the Octopus Server in, along with all the other resources we need to provide Octopus as a service. We deploy this to one of our Kubernetes clusters.
 
 We host Octopus Cloud in the following Azure regions:
+
 - West US 2
 - West Europe
 - Australia East
@@ -62,6 +71,7 @@ We host Octopus Cloud in the following Azure regions:
 If you’d like to move an existing Octopus Cloud instance to one of the other regions or request a new region, please [contact us](https://octopus.com/company/contact).
 
 ## Octopus Cloud storage thresholds \{#octopus-cloud-storage-limits}
+
 Octopus Cloud instances are subject to storage thresholds.
 
 - Maximum file storage for artifacts, task logs, packages, package cache, and event exports is limited to 1 TB.
@@ -74,6 +84,7 @@ If you think you will exceed these thresholds, please [contact our Sales team](h
 Please see our [Cloud pricing FAQ](https://octopus.com/pricing/faq#are-there-any-storage-limits) for further details.
 
 ## Learn more
+
 - [Octopus Cloud FAQs](/docs/octopus-cloud/frequently-asked-questions)
 - [Octopus Cloud pricing FAQs](https://octopus.com/pricing/faq#are-there-any-differences-between-cloud-and-server)
 - [Octopus pricing page](https://octopus.com/pricing/overview)

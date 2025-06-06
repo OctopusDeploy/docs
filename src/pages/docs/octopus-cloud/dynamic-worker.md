@@ -1,10 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-07
-modDate: 2025-03-07
+modDate: 2025-06-06
 title: Dynamic workers
-navOrder: 45
-description: Describes what dynamic workers are, how they work, their limitations and other worker type options available for Octopus Cloud
+navTitle: Dynamic workers
+navOrder: 50
+description: What dynamic workers are, how they work, their limitations and other worker options available for Octopus Cloud
 ---
 
 [Workers](docs/infrastructure/workers) are machines that can execute tasks that don’t need to be run on the Octopus Server or individual deployment targets.
