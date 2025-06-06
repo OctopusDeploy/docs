@@ -1,10 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-04
-title: Octopus Cloud Uptime SLO
-navOrder: 50
-description: The uptime SLO for Octopus Cloud instances
+modDate: 2025-06-06
+title: Uptime SLO
+navTitle: Uptime SLO
+navOrder: 70
+description: Information about Octopus Cloud's uptime SLO, including the last 12 month's historical uptime data
 ---
 
 Each Octopus Cloud customer has their own Octopus Server delivered as a highly available, scalable, secure SaaS application hosted for you. Octopus Deploy manages maintenance and resource provisioning for these hosted servers, letting our customers focus on happy deployments.  

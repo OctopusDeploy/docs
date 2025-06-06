@@ -1,10 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-16
+modDate: 2025-06-06
 title: Getting started with Cloud
-navOrder: 5
-description: Learn how to set up and manage your Octopus Cloud instance.
+navTitle: Getting started with Cloud
+navOrder: 20
+description: Learn how to set up and manage your Octopus Cloud instance
 ---
 
 ## Create an Octopus account \{#create-an-octopus-account}
@@ -37,7 +38,7 @@ You'll see the account provisioning screen. Your Octopus Cloud instance should b
 
 You can access your Octopus Cloud instance using the URL you chose during registration. In this example URL, `your-url` is the part of the URL you provided:
 
-```
+```html
 https://your-url.octopus.app/app#/users/sign-in
 ```
 
@@ -60,7 +61,7 @@ To invite a user to your Octopus Cloud instance:
 
 #### Email invitation \{#email-invitation}
 
-The invited user will receive an email invitation. 
+The invited user will receive an email invitation.
 
 If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they just need to click **Accept invite** in the email to gain access to the subscription and then click **Sign in** to view the Octopus instance.
 
@@ -86,8 +87,10 @@ By default, the “Everyone” team includes no user roles, so users assigned to
 
 :::div{.hint}
 To give an “Everyone” team user (Cloud Subscription User) the correct permissions, you can do one or both of the following in your Octopus Cloud instance:
+
 - Edit the “Everyone” team to include the minimum permissions all users need.
 - Add the user to other teams with the correct permissions after they first sign in.
+
 :::
 
 To adjust a user’s permissions, you can add them to other teams:
