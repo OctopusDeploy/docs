@@ -208,11 +208,11 @@ h4 {
 }
 
 h5 {
-  font-size: var(--text-heading-small);
+  font-size: var(--text-heading-regular);
 }
 
 h6 {
-  font-size: var(--text-heading-small);
+  font-size: var(--text-heading-regular);
 }
 
 img {
