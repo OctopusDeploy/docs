@@ -13,7 +13,7 @@ A modern version of Octopus Deploy is any version running on SQL Server.  When O
 
 The default upgrade scenario is an in-place upgrade.  Thousands of customers upgrade every month without errors.  However, no upgrade process is ever 100% error-free 100% of the time.  The typical errors we see are:
 
-- Compatability Errors: Upgrading to a new version isn't supported by a license limitation, host OS version deprecation or SQL Server version deprecation.
+- Compatibility Errors: Upgrading to a new version isn't supported by a license limitation, host OS version deprecation, or SQL Server version deprecation.
 - Hyper-specific use cases: Windows runs a specific version of Windows without a random patch of .NET Framework installed.
 - Breaking changes introduced in the product: we do our best to minimize these, but they can happen.  For example, Octopus Deploy 2019.1.0 introduced spaces and how teams and roles were assigned.  Any API scripts manipulating teams had to be updated.
 
@@ -27,7 +27,8 @@ Please choose from one of five common upgrade scenarios:
 
 ## Mitigating risk
 
-The best way to mitigate risk is to automate the upgrade and/or creating a test instance.  Automation ensures all steps, including backups, are followed for every upgrade.  A test instance allows you to test out upgrades and new features without affecting your main instance.
+The best way to mitigate risk is to automate the upgrade and/or create a test instance.  Automation ensures all steps, including backups, are followed for every upgrade.  A test instance allows you to test out upgrades and new features without affecting your main instance. We also recommend performing a System Integrity Check on your live instance before attempting to upgrade. If the integrity check fails, please contact [support](https://octopus.com/support) with the [raw output of the task](/docs/support/get-the-raw-output-from-a-task), and we can get that fixed for you.
 
+- [Perform a System Integrity Check](/docs/administration/managing-infrastructure/diagnostics)
 - [Automating upgrades](/docs/administration/upgrading/guide/automate-upgrades)
 - [Create a test instance](/docs/administration/upgrading/guide/creating-test-instance)

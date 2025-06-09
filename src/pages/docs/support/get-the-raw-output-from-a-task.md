@@ -18,8 +18,7 @@ To download the task log do the following:
 ![](/docs/support/images/tasklog.png)
 :::
 
-3. Click **RAW** to display the raw log.
-3. Click **DOWNLOAD** to download the log to a text file.
+3. Click the **Download** button on the right to download the raw task log.
 
 :::figure
 ![](/docs/support/images/tasklog2.png)

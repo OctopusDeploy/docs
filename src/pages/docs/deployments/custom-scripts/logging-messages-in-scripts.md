@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-07-18
+modDate: 2025-06-05
 title: Logging messages from scripts
 description: When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message.
 icon: fa-solid fa-clock-rotate-left
@@ -31,10 +31,10 @@ Write-Error "This will be logged as an Error and may cause your script to stop r
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
-Octopus.WriteVerbose("Verbose!!!");
-Octopus.WriteHighlight("This is a highlight");
-Octopus.WriteWait("Deployment is waiting on something");
-Octopus.WriteWarning("Warning");
+WriteVerbose("Verbose!!!");
+WriteHighlight("This is a highlight");
+WriteWait("Deployment is waiting on something");
+WriteWarning("Warning");
 ```
 
 </details>
@@ -107,8 +107,8 @@ Update-Progress 50 "We're halfway there!"
 <summary>C#</summary>
 
 ```csharp
-Octopus.UpdateProgress(10);
-Octopus.UpdateProgress(50, "We're halfway there!");
+UpdateProgress(10);
+UpdateProgress(50, "We're halfway there!");
 ```
 
 </details>
@@ -217,12 +217,16 @@ To return to the default standard output log level, write the following message:
 ```
 
 
-The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard error will be treated with the relevant log level. `stderr-progress` will cause error log lines to be written as `verbose` log lines.
+The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard error will be treated with the relevant log level. 
 ```
 ##octopus[stderr-ignore]
 ##octopus[stderr-error]
 ##octopus[stderr-progress]
+##octopus[stderr-output]
 ```
+
+- `stderr-progress` will cause error log lines to be written as `verbose` log lines. 
+- `stderr-output` will cause error log lines to be written as `info` log lines (standard output). Requires version `2025.3`. 
 
 To return to the default standard error log level, write the following message:
 ```

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-03-28
+modDate: 2025-05-16
 navTitle: Troubleshooting
 title: Troubleshooting
 navSection: Troubleshooting
@@ -31,6 +31,17 @@ If the Kubernetes monitor cannot be accessed, follow these steps to determine wh
 
 In almost all cases, we have found restarting the Kubernetes monitor pod will re-establish connection if there are no external factors at play. Please reach out to support if you are finding cases of repeated, unexpected failure.
 
+### We couldn’t find a Kubernetes monitor associated with the deployment target \{#kubernetes-monitor-not-found}
+
+Similar to the [error above](#failed-to-establish–connection-with-kubernetes-monitor), however more severe.
+
+This error will be shown when Octopus fails to find the registration of a Kubernetes monitor at all. If the Kubernetes agent and monitor are both still running in your Kubernetes cluster, this means the Kubernetes monitor will need to be re-registered with Octopus.
+
+The cleanest way to do this is to delete and re-install your Kubernetes agent entirely. If there are no deployments currently running on the agent, this is a safe operation that will not affect future deployments.
+
+If deleting your Kubernetes agent is not an option for your use case, you can also delete the Kubernetes monitor's authentication secret and restart the Kubernetes monitor pod to trigger re-registration.
+The authentication secret lives in the same namespace that your Kubernetes agent was installed in and has a name similar to `<agent name>-kubernetesmonitor-authentication`.
+
 ## Unexpected object statuses
 
 ### Out of date or slow to update object statuses
@@ -41,7 +52,7 @@ As a safe guard to ensure that your Octopus Server instance remains free from in
 
 The rate limit is not a hard stop to messages being sent between Octopus Server and the Kubernetes monitor. Instead we are slowing messages down to better handle burst-y traffic.
 
-### Why is an object out of sync?
+### Why is an object out of sync? \{#why-is-an-object-out-of-sync}
 
 Objects are reported out of sync when the manifest the Kubernetes cluster sends back to use does not match the one that Octopus applied in your deployment.
 

@@ -77,6 +77,7 @@ Csvg
 customisation
 Customscripts
 cutover
+Cyberdyne
 dacpac
 Datacenter
 datetime
@@ -386,6 +387,7 @@ runtimes
 SAMEORIGIN
 Schannel
 scopeduserroles
+scriptcs
 secpol
 secureclientcertificate
 securestring
@@ -429,6 +431,7 @@ swaggerui
 systemprofile
 tabindex
 tabpanel
+Tasklogs
 tagset
 tagsets
 TCPIP

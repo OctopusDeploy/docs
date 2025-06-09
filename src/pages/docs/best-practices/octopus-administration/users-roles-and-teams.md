@@ -41,23 +41,28 @@ If your company doesn't already have a policy, then our recommendation is:
 
 ## User Roles
 
-Octopus Deploy also includes several built-in roles:
-- Build Server: Can publish packages and create releases, deployments, runbook snapshots, and runbook runs.
-- Certificate managers: can edit certificates and export private-keys
-- Deployment creators: can create new deployments and runbook runs.
-- Environment managers: can view and edit infrastructure, including environments, machines, workers, proxies, and accounts.
-- Environment viewers: can view environments, machines, workers, proxies, and accounts but not edit them.
-- Project contributor: All project viewer permissions, plus: editing and viewing variables, editing the deployment steps. Project contributors can't create or deploy releases.
-- Project deployer: All project contributor permissions, plus: deploying releases but not creating them.
-- Project lead: All project contributor permissions, plus: creating releases but not deploying them.
-- Project viewers: have read-only access to a project. They can see a project in their dashboard, view releases and deployments, and tenants. Restrict this role by the project to limit it to a subset of projects, and restrict it by the environment to limit which environments they can view deployments to.
-- Release creators: can create new releases and runbook snapshots.
-- Runbook consumers: can view and execute runbooks.
-- Runbook producers: can edit and execute runbooks.
-- Space managers: can do everything within the context of the space they own.
-- System administrators: can do everything at the system level.
-- System managers: can do everything at the system level except certain system-level functions reserved for system administrators.
-- Tenant managers: can edit tenants and their tags.
+Octopus Deploy includes several built-in roles:
+
+| User role            | Description                              |
+| -------------------- | ---------------------------------------- |
+| Build Server         | Build servers can publish packages, and create releases, deployments, runbook snapshots and runbook runs. |
+| Certificate Manager  | Certificate managers can edit certificates and export private-keys |
+| Deployment Creator   | Deployment creators can create new deployments and runbook runs. |
+| <span class="nowrap">Environment Manager</span>  | Environment managers can view and edit environments and their machines. |
+| Environment Viewer   | Environment viewers can view environments and their machines, but not edit them. |
+| Package Publisher    | Permits packages to be pushed to the Octopus Server's built-in NuGet feed. |
+| Project Viewer       | Project viewers have read-only access to a project. They can see a project in their dashboard, view releases and deployments. Restrict this role by project to limit it to a subset of projects, and restrict it by environment to limit which environments they can view deployments to. |
+| Project Contributor  | All project viewer permissions, plus: editing and viewing variables, editing the deployment steps. Project contributors can't create or deploy releases. |
+| Project Initiator    | All project viewer permissions, plus: create new projects. |
+| Project Deployer     | All project contributor permissions, plus: deploying releases, but not creating them. |
+| Project Lead         | All project contributor permissions, plus: creating releases, but not deploying them. |
+| Release Creator      | Release creators can create new releases and runbook snapshots. |
+| Runbook Consumer     | Runbook consumers can view and execute runbooks. |
+| Runbook Producer     | Runbook producers can edit and execute runbooks. |
+| Space Managers       | Space managers can do everything within the context of the space they own. |
+| System Administrator | System administrators can do everything at the system level.  |
+| System Manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
+| Tenant Manager       | Tenant managers can edit tenants and their tags |
 
 We recommend using the built-in roles as much as possible.  When we write migration scripts or upgrade scripts that add additional permissions, we will ensure we update those built-in roles.  Custom roles will be skipped, so we don't accidentally grant permissions.
 
@@ -71,7 +76,7 @@ Octopus Deploy includes four built-in teams:
 
 By default, no one has any permissions outside of members of Octopus Administrators, Octopus Managers, and Space Managers.  Every user is automatically a member of the everyone team.  Only assign roles to the `Everyone` team if you are sure you want every user to have that permission.
 
-Teams can either be a system team, meaning it can be used across all spaces, or a space team, meaning a specific space can only access it.  We recommend creating space-specific teams whenever possible.  That will allow you to manage the membership and permissions on a smaller scale.  
+Teams can either be a system team, meaning it can be used across all spaces, or a space team, meaning a specific space can only access it.  We recommend creating space-specific teams whenever possible.  That will allow you to manage the membership and permissions on a smaller scale.
 
 ## Common RBAC scenarios
 
@@ -95,7 +100,7 @@ Here are some of the more common scenarios we get asked about, along with the as
 
 ## Further reading
 
-For further reading on users, roles, and teams in Octopus Deploy please see:
+Further reading on users, roles, and teams:
 
 - [User](/docs/security/users-and-teams)
 - [User roles](/docs/security/users-and-teams/user-roles)

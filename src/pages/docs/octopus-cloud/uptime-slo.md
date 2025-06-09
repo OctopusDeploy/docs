@@ -1,10 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-04
-title: Octopus Cloud Uptime SLO
-navOrder: 50
-description: The uptime SLO for Octopus Cloud instances
+modDate: 2025-06-06
+title: Uptime SLO
+navTitle: Uptime SLO
+navOrder: 70
+description: Information about Octopus Cloud's uptime SLO, including the last 12 month's historical uptime data
 ---
 
 Each Octopus Cloud customer has their own Octopus Server delivered as a highly available, scalable, secure SaaS application hosted for you. Octopus Deploy manages maintenance and resource provisioning for these hosted servers, letting our customers focus on happy deployments.  
@@ -25,6 +26,7 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 
 | Month  | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
 | :----- | ------: | ------: | ------: | ------: |
+| May 2025 | 100% | 0s | 99.9125% | 532s |
 | April 2025 | 99.9925% | 49s | 99.9479% | 315s |
 | March 2025 | 99.9809% | 119s | 99.9292% | 434s |
 | February 2025 | 100% | 0s | 99.9212% | 483s |
@@ -36,7 +38,6 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 | August 2024 | 99.9955% | 28s | 99.8978% | 623s |
 | July 2024 | 99.9978% | 14s | 99.8602% | 847s |
 | June 2024 | 99.9931% | 49s | 99.9196% | * 490s |
-| May 2024 | 99.9976% | 21s | - | - |
 
 \* We began capturing planned downtime metrics on June 10, 2024.
 

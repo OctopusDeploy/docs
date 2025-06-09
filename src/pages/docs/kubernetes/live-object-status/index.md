@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-03-28
+modDate: 2025-05-16
 navSection: Live Object Status
 title: Kubernetes Live Object Status
 navTitle: Overview
@@ -95,12 +95,23 @@ Logs are fetched on demand from the running object. We do not currently support 
 ![Object logs](/docs/kubernetes/live-object-status/live-status-drawer-logs.png)
 :::
 
-#### Manifest
+#### Manifests
 
-The manifest shown here is the live manifest as reported by the cluster back to Octopus.
+The first manifest shown is the live manifest as reported by the cluster back to Octopus.
+
+When viewing an object that has been applied to your cluster, you are able to view the applied manifest and see any differences between them using the controls at the top of the drawer.
 
 :::figure
 ![Object manifest](/docs/kubernetes/live-object-status/live-status-drawer-manifest.png)
+:::
+
+##### Diffs
+
+When the show diff toggle is enabled, we compare the live manifest that we expect to see on the left, with what the cluster is reporting on the right.
+Read about [applied manifest diffs](/docs/kubernetes/deployment-verification/applied-manifests/diffs) for more details on how to interpret the diff viewer.
+
+:::figure
+![Object manifest diffs](/docs/kubernetes/live-object-status/live-status-drawer-manifest-diffs.png)
 :::
 
 ## How it works
@@ -143,6 +154,16 @@ The well defined structure of Kubernetes secrets allow us to confidently redact 
 To ensure that we never exfiltrate secret data that Octopus is not privy to, the Kubernetes monitor salts and hashes the secret data using sha256. By hashing secrets Octopus can tell you when something changed in your secret, but Octopus will never know what the secrets are unless you have populated them using Octopus sensitive variables.
 
 Please be aware that outputting Kubernetes secrets into pod logs may result in them being sent un-redacted if they are not sourced from Octopus sensitive variables originally.
+
+## Configuration
+
+### Prioritize health status on dashboards
+
+There can be [many reasons](/docs/kubernetes/live-object-status/troubleshooting#why-is-an-object-out-of-sync) that a particular object is marked as out of sync, some of these are not critical to the day to day operations of your application. In these cases, marking the entire application as out of sync on all dashboards may be more alarming than necessary.
+
+To counteract this, there is a project setting that will prioritize health statuses over the sync status of your application. When enabled, the sync status of objects will not be considered when calculating the application status.
+
+This setting defaults to on for all projects, but may change in the future.
 
 ## Known issues and limitations
 

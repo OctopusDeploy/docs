@@ -16,7 +16,7 @@ Custom step templates can be based on a built-in or installed community step tem
 
 To create your own step template, perform the following.
 
-1. Navigate to the **Deploy ➜ Step templates** area and click **Add**.
+1. Navigate to the **Deploy ➜ Step templates** area and click **Create Step Template**.
 2. Select a built-in step to base your custom step template on.  
 3. Populate the step template. 
 

@@ -6,7 +6,7 @@ See the [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api) 
 These examples use the [Octopus.Client](/docs/octopus-rest-api/octopus.client/) library, see the [Loading in an Octopus Step](/docs/octopus-rest-api/octopus.client/using-client-in-octopus/) section of the [Octopus.Client](/docs/octopus-rest-api/octopus.client) documentation for details on how to load the library from inside Octopus using PowerShell or C# Script steps.
 :::
 
-## Querying the current state {#ProjectCoordinationCodeSamples-Queryingthecurrentstate}
+## Querying the current state
 
 The best way to get the current state for one or more projects is to use the Dashboard API, which is also used by the dashboards in the WebUI:
 
@@ -29,7 +29,7 @@ $repository.Dashboards.GetDashboard().Items
  http://localhost/api/dashboard
 ```
 
-## Viewing recent deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeployments}
+## Viewing recent deployments
 
 The following code returns the deployments started in the last 7 days:
 
@@ -48,7 +48,7 @@ repository.Deployments.Paginate(projects, environments,
  );
 ```
 
-## Promoting a group of projects {#ProjectCoordinationCodeSamples-Promotingagroupofprojects}
+## Promoting a group of projects
 
 This example finds all the releases that are in UAT but not Production. It then queues them for deployment to Production and waits for them to complete.
 
@@ -79,58 +79,58 @@ if(completed.Any(c => c.State != TaskState.Success))
 	throw new Exception("One or more projects did not complete successfully");
 ```
 
-## Queuing a project to run later {#ProjectCoordinationCodeSamples-Queuingaprojecttorunlater}
+## Queuing a project to run later
 
 This example re-queues the currently executing project at 3am the next day.
 
 ```csharp
-var releaseId = Octopus.Parameters["Octopus.Web.ReleaseLink"].Split('/').Last();
+var releaseId = OctopusParameters["Octopus.Web.ReleaseLink"].Split('/').Last();
 var tomorrow3amServerTime = new DateTimeOffset(DateTimeOffset.Now.Date, DateTimeOffset.Now.Offset).AddDays(1).AddHours(3);
 repository.Deployments.Create(
     new DeploymentResource()
     {
         ReleaseId = releaseId,
-    	ProjectId = Octopus.Parameters["Octopus.Project.Id"],
-    	ChannelId = Octopus.Parameters["Octopus.Release.Channel.Id"],
-    	EnvironmentId = Octopus.Parameters["Octopus.Environment.Id"],
+    	ProjectId = OctopusParameters["Octopus.Project.Id"],
+    	ChannelId = OctopusParameters["Octopus.Release.Channel.Id"],
+    	EnvironmentId = OctopusParameters["Octopus.Environment.Id"],
     	QueueTime = tomorrow3amServerTime
     }
 );
 Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 ```
 
-## Failing a deployment if another deployment is running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
+## Failing a deployment if another deployment is running
 
 This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously) what can run at the same time already.
 
 ```csharp
 var otherProject = repository.Projects.FindByName("Other Project");
-var environmentId = Octopus.Parameters["Octopus.Environment.Id"];
+var environmentId = OctopusParameters["Octopus.Environment.Id"];
 var dash = repository.Dashboards.GetDynamicDashboard(new[] { otherProject.Id }, new[] { environmentId });
 if (dash.Items.Any(i => i.State == TaskState.Queued || i.State == TaskState.Executing))
 	throw new Exception($"{otherProject.Name} is currently queued or executing");
 ```
 
-## Failing a deployment if a dependency is not deployed {#ProjectCoordinationCodeSamples-Failingadeploymentifadependencyisnotdeployed}
+## Failing a deployment if a dependency is not deployed
 
 This example retrieves the last release to the same environment of a different project and fails if it is not the expected release version.
 
 ```csharp
-var requiredVersion = Octopus.Parameters["OtherProjectRequiredVersion"];
+var requiredVersion = OctopusParameters["OtherProjectRequiredVersion"];
 var otherProject = repository.Projects.FindByName("Other Project");
-var environmentId = Octopus.Parameters["Octopus.Environment.Id"];
+var environmentId = OctopusParameters["Octopus.Environment.Id"];
 var dash = repository.Dashboards.GetDynamicDashboard(new[] { otherProject.Id }, new[] { environmentId });
 var last = dash.Items.SingleOrDefault(i => i.IsCurrent);
 if (last == null || last.ReleaseVersion != requiredVersion)
 	throw new Exception($"This project requires version {requiredVersion} of {otherProject.Name} to be deployed to the same environment");
 ```
 
-## Triggering and waiting for another project {#ProjectCoordinationCodeSamples-Triggeringandwaitingforanotherproject}
+## Triggering and waiting for another project
 
 This example finds the latest release for a different project and deploys it if it is not currently deployed to the environment.
 
 ```csharp
-var environmentId = Octopus.Parameters["Octopus.Environment.Id"];
+var environmentId = OctopusParameters["Octopus.Environment.Id"];
 var otherProject = repository.Projects.FindByName("Other Project");
 var latestRelease = repository.Projects.GetReleases(otherProject).Items.FirstOrDefault();
 var dash = repository.Dashboards.GetDynamicDashboard(new[] { otherProject.Id }, new[] { environmentId });
@@ -151,7 +151,7 @@ if (latestRelease != null && last.ReleaseId != latestRelease.Id)
 }
 ```
 
-## Waiting for another project to reach a certain stage {#ProjectCoordinationCodeSamples-Waitingforanotherprojecttoreachacertainstage}
+## Waiting for another project to reach a certain stage
 
 This example builds on the previous, by waiting until a particular step is complete instead of the whole task.
 

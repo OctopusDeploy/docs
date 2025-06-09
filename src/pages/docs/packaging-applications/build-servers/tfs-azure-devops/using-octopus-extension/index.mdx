@@ -8,6 +8,8 @@ navOrder: 1
 ---
 import TfsNotice from 'src/shared-content/azure-ado/tfs-notice.include.md';
 
+import BuildInformationInReleaseNotesWithArc from 'src/shared-content/build-information/using-build-information-in-release-notes-with-arc.include.md'
+
 :::div{.warning}
 Version 6 of the Octopus extension for Azure DevOps no longer requires the Octopus CLI to be installed.
 
@@ -146,6 +148,8 @@ Add a step to your build or release process, search for **Push Packages(s) to Oc
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/push) for more details).
 
 ### Add a push package build information to Octopus step
+
+<BuildInformationInReleaseNotesWithArc />
 
 Add a step to your Build or Release process, search for **Push Package Build Information to Octopus** task.
 
