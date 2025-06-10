@@ -169,6 +169,8 @@ If you add a variable to your project named `Octopus.JiraServiceManagement.Chang
 then an Issue will not be created, and instead, the supplied number will be used during the 
 approval check. This variable can also be [scoped](/docs/projects/variables/getting-started/#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables).
 
+From **2025.2** on this can be set under the `Jira Service Management Issue settings` section on the deployment or runbook run creation page. Setting the Issue number at the deployment or runbook run level will override any predefined variable.
+
 ### Setting up environments for CR approval
 
 To enable an environment to enforce a requirement for an approved CR, navigate to **{
