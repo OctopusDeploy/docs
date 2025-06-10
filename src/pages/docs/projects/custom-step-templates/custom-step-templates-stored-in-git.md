@@ -12,7 +12,7 @@ Since Octopus 2023.4, it is now possible to create [custom step templates](/docs
 
 To start, use the same steps you would normally take to create a custom step template. Just be sure to select a compatible step as some steps aren’t suitable for being sourced from Git.
 
-## Git compatible base steps
+## Git compatible base steps
 
 The built-in steps listed below are compatible with being sourced from Git and can be used for custom step templates:
 
@@ -28,7 +28,6 @@ The built-in steps listed below are compatible with being sourced from Git and c
 - [Deploy with Kustomize](/docs/kubernetes/steps/kustomize)
 - [Deploy a Bicep template](https://octopus.com/blog/using-the-deploy-a-bicep-template-step)
 - [Deploy an AWS CloudFormation template](/docs/deployments/aws/cloudformation)
-
 - [Apply a Terraform template](/docs/deployments/terraform/apply-terraform-changes)
 - [Destroy Terraform resources](/docs/deployments/terraform/apply-terraform-changes)
 - [Plan to apply a Terraform template](/docs/deployments/terraform/plan-terraform)
@@ -132,9 +131,10 @@ Similar to packages, you also have the option to implement [Git Protection Rules
 
 ## Additional resources
 
-You can find more information on Git sourced steps with the resources below:
+Using Git resources directly in deployments:
+[Octopus Blog](https://octopus.com/blog/git-resources-in-deployments)
 
-- [Using Git resources directly in deployments](https://octopus.com/blog/git-resources-in-deployments)
-- [Octopus 2023.4: Source Scripts in Git](https://www.youtube.com/watch?v=waUktRhFY-g)
+Octopus 2023.4 - Sourcing scripts from Git:
+[YouTube](https://www.youtube.com/watch?v=waUktRhFY-g)
 
 
