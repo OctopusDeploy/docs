@@ -47,9 +47,9 @@ var server = "http://myoctopusserver/";
 var apiKey = "API-XXXXXXXX";             // Get this from your 'profile' page in the Octopus Web Portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 var repository = new OctopusRepository(endpoint);
-var webportalConfig = repository.Configuration.Get<WebPortalConfigResource>();
-webportalConfig.Security.HttpStrictTransportSecurityEnabled = true;
-webportalConfig = repository.Configuration.Modify(webportalConfig);
+var webPortalConfig = repository.Configuration.Get<WebPortalConfigResource>();
+webPortalConfig.Security.HttpStrictTransportSecurityEnabled = true;
+webPortalConfig = repository.Configuration.Modify(webPortalConfig);
 ```
 
 ### PowerShell
