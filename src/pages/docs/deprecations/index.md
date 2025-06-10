@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-10
+modDate: 2025-06-10
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -27,11 +27,12 @@ Deprecations are subject to change in detail or time frame. If you need help ass
 
 ### Defaulting C# scripting to dotnet-script
 
-We announced the deprecation of ScriptCS back in 2022, with pathways for migrating added in 2024. As of 2025.2 we have switched the default C# scripting library over to dotnet-script. A migration guide is available [here.](https://g.octopushq.com/ScriptCSDeprecation)
+We announced the deprecation of ScriptCS back in 2022, with pathways for migrating added in 2024. As of 2025.2 we have switched the default C# scripting library over to dotnet-script. A migration guide is available [here](https://g.octopushq.com/ScriptCSDeprecation).
+
 ScriptCS is still supported in 2025.2 by setting the `OCTOPUS__FeatureToggles__UseDotnetScriptCSharpExecutorFeatureToggle` environment variable to false or at the project level using the variable `Octopus.Action.Script.CSharp.UseDotnetScript`. This is not recommended as support for ScriptCS will be removed in 2025.3.
 
-
 ### Dropping capability for Windows Server 2008 Workers and Targets in 2025.1
+
 Microsoft [dropped extended support](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008) for the Windows Server 2008 family in January 2020. This operating system is also the last Windows OS that does not support .NET Core, one of the languages used to build Octopus Deploy. The complexity required to support this legacy platform outweighs the value to our customers.
 
 It has been [noted for several years](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/windows/requirements) that Octopus no longer actively tests against or supports Windows Server 2008. The planned change in `2025.1` will make this operating system requirement more definitive by introducing changes that may prevent standard deployment and runbook tasks from executing on this operating system.
@@ -51,6 +52,7 @@ As of `2024.4` the usage of ScriptCS is being deprecated in Octopus. This has be
 ## Deprecations for 2024.3
 
 ### Azure Resource Manager Powershell Module
+
 The AzureRM Powershell modules were Microsoft's way of integrating Powershell with Azure resources. Microsoft has deprecated AzureRM in favor of the Azure CLI or the Az Powershell modules.
 
 AzureRM was [deprecated by Microsoft](https://learn.microsoft.com/en-us/powershell/azure/azurerm-retirement-overview) as of February 29, 2024.
@@ -61,6 +63,7 @@ for Azure authentication.
 ## Deprecations for 2024.2
 
 ### Bundled Tools
+
 For some time, command line tools for AWS, Azure, and Terraform have been included with Octopus Deploy as a convenience mechanism. The provided versions of these tools are out of date and won't be updated.
 
 As of `2024.2`, you won't be able to configure deployment steps to use the bundled tools, but existing steps will continue to function. The bundled tools will be removed from Octopus Deploy in `2025.1`.
@@ -70,6 +73,7 @@ If you're currently using these bundled tools, you'll need to either manually in
 ## Deprecations for 2024.1
 
 ### Helm V2
+
 Helm V2 was [deprecated in November 2020](https://helm.sh/blog/helm-v2-deprecation-timeline/) and is no longer receiving updates.
 
 As a result, coupled with very low usage, Helm V2 support will be switched off in `2024.3` and removed in `2025.1`. When you use `2024.1`, you'll see deprecation warnings in both the UI and task logs if you use Helm V2.
@@ -77,6 +81,7 @@ As a result, coupled with very low usage, Helm V2 support will be switched off i
 An official [Helm V2 to V3 migration guide](https://helm.sh/docs/topics/v2_v3_migration/) details migration to Helm V3. After upgrading Helm, you should update deployment process steps in Octopus to use Helm V3 rather than Helm V2.
 
 ### Azure Cloud Services (Classic)
+
 Azure has announced the sunsetting of the original _Cloud Services_ resource, renamed _Cloud Services (Classic)_, with the [final retirement date set as August 31, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-cloud-services-classic). In a little over 6 months, teams still relying on this cloud service will be unable to deploy to them, with Octopus Deploy or otherwise.
 
 In the lead-up, Octopus workloads using Azure Cloud Service Targets, Azure Cloud Service Steps, or Management Certificates in Octopus Deploy will start to see in-app and in-task warnings appear in Octopus Server `2024.1`. 
