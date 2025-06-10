@@ -12,7 +12,8 @@ Since Octopus 2023.4, it is now possible to create [custom step templates](/docs
 
 To start, use the same steps you would normally take to create a custom step template. Just be sure to select a compatible step as some steps aren’t suitable for being sourced from Git.
 
-<a name="git-compatible-base-steps"></a>
+## Git compatible base steps
+
 The built-in steps listed below are compatible with being sourced from Git and can be used for custom step templates:
 
 - [Run a Script](/docs/deployments/custom-scripts/run-a-script-step)
