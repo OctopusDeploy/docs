@@ -23,6 +23,14 @@ Deprecations are subject to change in detail or time frame. If you need help ass
 
 ## Planned Deprecations
 
+## Deprecations for 2025.2
+
+### Defaulting C# scripting to dotnet-script
+
+We announced the deprecation of ScriptCS back in 2022, with pathways for migrating added in 2024. As of 2025.2 we have switched the default C# scripting library over to dotnet-script. A migration guide is available [here.](https://g.octopushq.com/ScriptCSDeprecation)
+ScriptCS is still supported in 2025.2 by setting the `OCTOPUS__FeatureToggles__UseDotnetScriptCSharpExecutorFeatureToggle` environment variable to false or at the project level using the variable `Octopus.Action.Script.CSharp.UseDotnetScript`. This is not recommended as support for ScriptCS will be removed in 2025.3.
+
+
 ### Dropping capability for Windows Server 2008 Workers and Targets in 2025.1
 Microsoft [dropped extended support](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008) for the Windows Server 2008 family in January 2020. This operating system is also the last Windows OS that does not support .NET Core, one of the languages used to build Octopus Deploy. The complexity required to support this legacy platform outweighs the value to our customers.
 
