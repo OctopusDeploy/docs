@@ -23,7 +23,7 @@ In the Octopus Web Portal, you can access configuration by navigating to **Confi
 Using [Octopus.Client](/docs/octopus-rest-api/octopus.client), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database.
 
 :::div{.hint}
-This requires version 15.1.0 or later of the client library.
+This requires version 15.2.0 or later of the client library.
 :::
 
 ### .Net / C#
