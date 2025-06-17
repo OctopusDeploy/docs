@@ -8,11 +8,11 @@ navOrder: 50
 description: What dynamic workers are, how they work, their limitations and other worker options available for Octopus Cloud
 ---
 
-[Workers](docs/infrastructure/workers) are machines that can execute tasks that don’t need to be run on the Octopus Server or individual deployment targets.
+[Workers](/docs/infrastructure/workers) are machines that can execute tasks that don’t need to be run on the Octopus Server or individual deployment targets.
 
 There are 2 types of worker you can use in Octopus Cloud - external workers and dynamic workers.
 
-The most flexible type of worker are [external workers](docs/infrastructure/workers#external-workers), which are machines, provided by the customer, accessed from Octopus Cloud via Windows or Linux Tentacle, via SSH, or via [Kubernetes workers](/docs/infrastructure/workers/kubernetes-worker).
+The most flexible type of worker are [external workers](/docs/infrastructure/workers#external-workers), which are machines, provided by the customer, accessed from Octopus Cloud via Windows or Linux Tentacle, via SSH, or via [Kubernetes workers](/docs/infrastructure/workers/kubernetes-worker).
 
 External workers are recommended when the customer needs full control of
 
