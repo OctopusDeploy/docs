@@ -65,7 +65,7 @@ step "slack-notify-feed-website-automation" {
     action {
         properties = {
             Channel = "#feed-website-automation"
-            DeploymentInfoText = "#{Octopus.Project.Name} release #{Octopus.Release.Number} to #{Octopus.Environment.Name} #{AWS.Website}"
+            DeploymentInfoText = "#{Octopus.Project.Name} release #{Octopus.Release.Number} to <#{AWS.Website}|#{Octopus.Environment.Name} ↗️>"
             HookUrl = "#{FeedWebsiteAutomation.WebHook}"
             IconUrl = "https://octopus.com/content/resources/favicon.png"
             IncludeErrorMessageOnFailure = "false"
