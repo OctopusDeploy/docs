@@ -15,6 +15,7 @@
         "dev:watch": "pnpm watch",
         "test": "astro build && npx playwright install --with-deps && npx playwright test",
         "spellcheck": "git fetch origin main:refs/remotes/origin/main && git diff origin/main --name-only --diff-filter=ACMRTUXB | cspell --no-must-find-files --file-list stdin",
+        "spellcheck-all": "cspell \"**/*.{md,mdx}\"",
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
