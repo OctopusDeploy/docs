@@ -226,7 +226,7 @@ Most of the YAML in this guide can be used with any Kubernetes provider. However
 To find out more about storage classes, refer to the [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) documentation.
 :::
 
-Whilst it is possible to mount external storage by manually defining Persistent Volume definitions in YAML, Cloud providers offering Kubernetes managed services typically include the option to dynamically provision file storage based on persistent volume claim definitions. 
+While it is possible to mount external storage by manually defining Persistent Volume definitions in YAML, Cloud providers offering Kubernetes managed services typically include the option to dynamically provision file storage based on persistent volume claim definitions. 
 
 The next sections describe how to create file storage for use with Octopus running in Kubernetes using different Kubernetes providers to dynamically provision file storage.
 
@@ -768,7 +768,7 @@ Once the old Stateful Set has been deleted, the new fresh copy of the Stateful S
 
 It's recommended best practice to access your Octopus instance over a secure HTTPS connection.
 
-Whilst this guide doesn't include specific instructions on how to configure access to Octopus Server in Kubernetes using an SSL/TLS certificate, there are many guides available.
+While this guide doesn't include specific instructions on how to configure access to Octopus Server in Kubernetes using an SSL/TLS certificate, there are many guides available.
 
 In Kubernetes, this can be configured using an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/), for example [NGINX](https://kubernetes.github.io/ingress-nginx/user-guide/tls/). 
 
