@@ -148,7 +148,7 @@ spec:
 
 Unlike the Octopus Web Portal, Polling Tentacles must be able to connect to each Octopus node individually to pick up new tasks. Our Octopus HA cluster assumes two nodes, therefore a load balancer is required for each node to allow direct access.
 
-The following YAML creates load balancers with separate public IPs for each node. They direct web traffic to each node on port `80` and Polling Tentacle traffic on port `10943`.
+The following YAML creates load balancers with separate public IPs for each node. They direct web traffic to each node on port `80`, Polling Tentacle traffic on port `10943` and gRPC traffic on port `8443`.
 
 The `octopus-0` load balancer:
 ```yaml
@@ -166,6 +166,10 @@ spec:
     - name: tentacle
       port: 10943
       targetPort: 10943
+      protocol: TCP
+    - name: gRPC
+      port: 8443
+      targetPort: 8443
       protocol: TCP
   selector:
     statefulset.kubernetes.io/pod-name: octopus-0
@@ -188,6 +192,10 @@ spec:
     - name: tentacle
       port: 10943
       targetPort: 10943
+      protocol: TCP
+    - name: gRPC
+      port: 8443
+      targetPort: 8443
       protocol: TCP
   selector:
     statefulset.kubernetes.io/pod-name: octopus-1
