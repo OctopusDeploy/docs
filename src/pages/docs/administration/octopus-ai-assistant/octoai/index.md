@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-04-04
 modDate: 2025-04-14
-title: OctoAI
-description: How to use OctoAI
+title: Octopus AI Assistant
+description: How to use Octopus AI Assistant
 navOrder: 100
 hideInThisSection: true
 navSearch: false
@@ -12,27 +12,27 @@ navMenu: false
 robots: noindex, follow
 ---
 
-OctoAI is a Alpha feature currently under development to integrate AI functionality into the Octopus user interface. The goal of OctoAI is:
+Octopus AI Assistant is a Alpha feature currently under development to integrate AI functionality into the Octopus user interface. The goal of Octopus AI Assistant is:
 
 - To support new Octopus users as they get started with the platform
 - To guide teams with large existing Octopus spaces with best practices and suggestions to optimize and scale their Octopus usage
 
 :::div{.warning}
-The OctoAI Alpha is a feature released to an audience who has opted-in to provide feedback. The feature is not finished or fully tested. It may not be supported through regular channels. It may change drastically or may never ship.
+The Octopus AI Assistant Alpha is a feature released to an audience who has opted-in to provide feedback. The feature is not finished or fully tested. It may not be supported through regular channels. It may change drastically or may never ship.
 :::
 
-![OctoAI Screenshot](/docs/administration/octoai/octoai.png)
+![Octopus AI Assistant Screenshot](/docs/administration/octopus-ai-assistant/octopus-ai-assistant.png)
 
-## What can I do with OctoAI?
+## What can I do with Octopus AI Assistant?
 
 - Onboard new DevOps teams to Octopus with prompts like `What is an Octopus Runbook?`
 - Generate Terraform configuration for the Octopus Terraform provider with prompts like `Generate a Terraform module that creates 3 environments called "Development", "Test", and "Production"`
 - Optimize your Octopus space with prompts like `Check the space for unused projects` and `Find unused variables in the project.`
 - Debug failed deployments with prompts like `Why did the deployment fail?`
 
-## We want your feedback!
+## We want your feedback
 
-We are looking for feedback on the OctoAI feature, specifically:
+We are looking for feedback on Octopus AI Assistant, specifically:
 
 - What prompts do you want the service to respond to?
 - What would you change about the service?
@@ -40,30 +40,30 @@ We are looking for feedback on the OctoAI feature, specifically:
 
 As part of the Alpha, we will invite you to a private channel in the [Octopus Community Slack](https://octopus.com/community) where you can provide feedback.
 
-## Getting started with OctoAI
+## Getting started with Octopus AI Assistant
 
-OctoAI has the following prerequisites:
+Octopus AI Assistant has the following prerequisites:
 
 - An Octopus instance, either
   - A cloud instance
-  - An on-premises Octopus instance with a hostname accessible from the OctoAI service (more on this requirement below)
+  - An on-premises Octopus instance with a hostname accessible from the Octopus AI Assistant service (more on this requirement below)
 - Google Chrome
 
-OctoAI is delivered via a Chrome extension which is available from the [Chrome Store](https://chromewebstore.google.com/detail/octoai/acpcjpmjmbdmfabgdpdkiaadnbkcgfon). Once the extension is installed, you will see a new icon in the top right corner of your Chrome browser. Click on the icon to open the OctoAI interface.
+Octopus AI Assistant is delivered via a Chrome extension which is available from the [Chrome Store](https://oc.to/install-ai-assistant). Once the extension is installed, you will see a new icon in the top right corner of your Chrome browser. Click on the icon to open the Octopus AI Assistant interface.
 
-## Using OctoAI with an on-premises Octopus instance
+## Using Octopus AI Assistant with an on-premises Octopus instance
 
-OctoAI is implemented as an Azure Function. The function must be able to call the Octopus API.
+Octopus AI Assistant is implemented as an Azure Function. The function must be able to call the Octopus API.
 
 On-premises Octopus instances must allow HTTP requests from the IP address `51.8.40.170`.
 
 :::div{.warning}
-It is not possible to integrate OctoAI with an on-premises Octopus instance that can not accept HTTP requests from this public IP address.
+It is not possible to integrate Octopus AI Assistant with an on-premises Octopus instance that can not accept HTTP requests from this public IP address.
 :::
 
 ## Adding custom prompts
 
-OctoAI will present custom prompts defined in a Library Variable Set called `OctoAI Prompts`. The Library Variable set contains variables named:
+Octopus AI Assistant will present custom prompts defined in a Library Variable Set called `Octopus AI Assistant Prompts`. The Library Variable set contains variables named:
 
 - `PageName[#].Prompt` - The prompt displayed in the UI and passed to the LLM
 - `PageName[#].SystemPrompt` - Additional prompt instructions passed to the LLM but not shown in the UI
@@ -131,7 +131,7 @@ For example:
 
 ## Writing custom prompts
 
-To write a custom prompt, you need to define the prompt variable, which is in the format `PageName[#].Prompt`. The prompt variable represents what an Octopus user might write themselves when interacting with OctoAI.
+To write a custom prompt, you need to define the prompt variable, which is in the format `PageName[#].Prompt`. The prompt variable represents what an Octopus user might write themselves when interacting with Octopus AI Assistant.
 
 You can optionally define the system prompt variable, which is in the format `PageName[#].SystemPrompt`. The system prompt variable is used to provide additional context to the LLM, usually to capture unique business knowledge. The system prompt is not shown to the user.
 
@@ -146,7 +146,7 @@ On its own, this prompt variable relies on the knowledge built into the LLM to p
 
 To improve the response, you can add a system prompt variable `Project.Deployment[0].SystemPrompt`:
 
-> If the logs indicate that a Docker image is missing, You must only provide the suggestion that the user must visit https://help/missingdocker to get additional instructions to resolve missing docker containers. You will be penalized for offing generic suggestions to resolve a missing docker image. You will be penalized for offering script suggestions to resolve a missing docker image. You will be penalized for suggesting step retries to resolve a missing docker image.
+> If the logs indicate that a Docker image is missing, You must only provide the suggestion that the user must visit <https://help/missingdocker> to get additional instructions to resolve missing docker containers. You will be penalized for offing generic suggestions to resolve a missing docker image. You will be penalized for offering script suggestions to resolve a missing docker image. You will be penalized for suggesting step retries to resolve a missing docker image.
 
 The system prompt allows you to embed business knowledge to guide the LLM to provide a more accurate response. In this example we have instructed the LLM to determine if the deployment logs indicate that a Docker image is missing, and if so, to provide a custom link to internal documentation. We have also instructed the LLM to not provide generic suggestions, script suggestions, or step retries to resolve a missing docker image.
 
@@ -154,7 +154,7 @@ The system prompt allows you to embed business knowledge to guide the LLM to pro
 
 Q: What data is collected?
 
-A: We collect prompts entered into OctoAI. All logs are sanitized to remove personally identifiable information. We do not log:
+A: We collect prompts entered into Octopus AI Assistant. All logs are sanitized to remove personally identifiable information. We do not log:
 
 - Prompt responses
 - Sensitive values
@@ -164,9 +164,9 @@ Q: Is my data used to train AI models?
 
 A: No, we do not train AI models on customer data. We use the Azure OpenAI platform, and [Azure does not use customer data to train models either](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy?tabs=azure-portal).
 
-Q: How do I turn off OctoAI?
+Q: How do I turn off Octopus AI Assistant?
 
-A: Disabling or uninstalling the Chrome extension will disable OctoAI.
+A: Disabling or uninstalling the Chrome extension will disable Octopus AI Assistant.
 
 Q: How much does the service cost?
 
@@ -174,16 +174,16 @@ A: The service is free during the Alpha phase.
 
 Q: How secure is the service?
 
-A: OctoAI is implemented as an external service that accesses Octopus via the API. This means OctoAI does not have access to any sensitive values, as the API never exposes sensitive values. It also means access to the Octopus instance is limited by the existing permissions of the current user. Additionally, OctoAI shares the same backend as the Octopus Copilot Extension, which has been audited by an independent external security team. The report is available via the [trust center](https://trust.octopus.com/).
+A: Octopus AI Assistant is implemented as an external service that accesses Octopus via the API. This means Octopus AI Assistant does not have access to any sensitive values, as the API never exposes sensitive values. It also means access to the Octopus instance is limited by the existing permissions of the current user. Additionally, Octopus AI Assistant shares the same backend as the Octopus Copilot Extension, which has been audited by an independent external security team. The report is available via the [trust center](https://trust.octopus.com/).
 
 Q: Can I see the source code?
 
-A: Yes. The OctoAI backend source code is available from [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusCopilot).
+A: Yes. The Octopus AI Assistant backend source code is available from [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusCopilot).
 
 Q: Do I need to sign up for an account?
 
-A: No, OctoAI is self-contained and only requires access to an Octopus instance.
+A: No, Octopus AI Assistant is self-contained and only requires access to an Octopus instance.
 
-Q: Is OctoAI a supported service?
+Q: Is Octopus AI Assistant a supported service?
 
-A: No, the OctoAI Alpha is not subject to any existing SLAs or support agreements. It is an experimental feature that may not be supported through regular channels. It may change drastically or may never ship.
+A: No, the Octopus AI Assistant Alpha is not subject to any existing SLAs or support agreements. It is an experimental feature that may not be supported through regular channels. It may change drastically or may never ship.
