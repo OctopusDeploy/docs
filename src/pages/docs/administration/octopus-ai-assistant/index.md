@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-04-04
-modDate: 2025-04-14
+modDate: 2025-06-30
 title: Octopus AI Assistant
 description: How to use Octopus AI Assistant
 navOrder: 100
