@@ -135,10 +135,10 @@ Otherwise, they will first need to **Register** a new account using the email ad
 |              | Administrator            | Technical Manager              | Billing Manager         |
 | ------------ | ------------------------ | ------------------------------ | ----------------------- |
 | **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview <br>Manage Configuration</br> Manage User Access | View Overview <br>Manage Billing</br> |
-| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Administrators" team | “Octopus Managers” team | -  |
+| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Managers" team | “Space Managers” team | -  |
 
 :::div{.hint}
-Octopus uses teams and user roles to manage permissions. The “Octopus Administrators” and “Octopus Managers” teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
+Octopus uses teams and user roles to manage permissions. The “Octopus Managers” and “Space Managers” teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
 :::
 
 </details>
