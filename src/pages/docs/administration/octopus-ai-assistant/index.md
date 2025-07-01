@@ -5,11 +5,6 @@ modDate: 2025-06-30
 title: Octopus AI Assistant
 description: How to use Octopus AI Assistant
 navOrder: 100
-hideInThisSection: true
-navSearch: false
-navSitemap: false
-navMenu: false
-robots: noindex, follow
 ---
 
 Octopus AI Assistant is a Alpha feature currently under development to integrate AI functionality into the Octopus user interface. The goal of Octopus AI Assistant is:
