@@ -46,6 +46,7 @@ services:
     ports:
       - 8080:8080
       - 11111:10943
+      - 8443:8443
     depends_on:
       - db
     volumes:
