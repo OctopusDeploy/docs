@@ -26,6 +26,7 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 
 | Month  | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
 | :----- | ------: | ------: | ------: | ------: |
+| June 2025 | 99.9974% | 21s | 99.9307% | 420s |
 | May 2025 | 100% | 0s | 99.9125% | 532s |
 | April 2025 | 99.9925% | 49s | 99.9479% | 315s |
 | March 2025 | 99.9809% | 119s | 99.9292% | 434s |
@@ -37,9 +38,6 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 | September 2024 | 99.9977% | 14s | 99.9165% | 511s |
 | August 2024 | 99.9955% | 28s | 99.8978% | 623s |
 | July 2024 | 99.9978% | 14s | 99.8602% | 847s |
-| June 2024 | 99.9931% | 49s | 99.9196% | * 490s |
-
-\* We began capturing planned downtime metrics on June 10, 2024.
 
 ### How we calculate uptime
 
