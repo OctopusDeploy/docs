@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2025-07-02
-modDate: 2025-07-02
+pubDate: 2025-07-07
+modDate: 2025-07-07
 title: Project creation
 description: 
 navOrder: 10
