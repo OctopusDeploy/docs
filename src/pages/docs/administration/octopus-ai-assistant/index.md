@@ -3,9 +3,12 @@ layout: src/layouts/Default.astro
 pubDate: 2025-04-04
 modDate: 2025-06-30
 title: Octopus AI Assistant
+navTitle: Overview
+navSection: Octopus AI Assistant
 description: How to use Octopus AI Assistant
 navOrder: 100
 ---
+
 
 Octopus AI Assistant is a Alpha feature currently under development to integrate AI functionality into the Octopus user interface. The goal of Octopus AI Assistant is:
 
