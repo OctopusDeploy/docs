@@ -21,7 +21,8 @@
         "astro": "astro",
         "css": "robocopy ./public/docs/css/ ./dist/docs/css/ /mir && robocopy ./public/docs/js/ ./dist/docs/js/ /mir",
         "format": "prettier --write --plugin=prettier-plugin-astro 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css'",
-        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
+        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}",
+        "llms": "node generate-llms-txt.js"
     },
     "dependencies": {
         "@astrojs/mdx": "^4.3.0",
