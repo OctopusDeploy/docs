@@ -21,9 +21,9 @@ Selecting this will present you with our pre-configured project creation prompts
 
 ![Octopus AI Assistant pre-configured project options](/docs/administration/octopus-ai-assistant/octopus-ai-assistant-project-creation-examples-2.png)
 
-You can choose one of the example prompts to create an opinionated project. In the example (below), I'll select the prompt **Create an Azure Web App project called "Azure Web App"**. You can further tweak and customize the prompt based on your specific requirements, check the [expanding on the example prompts](#expanding-on-the-example-prompts) section of the documentation.
+Choose one of the example prompts to create an opinionated project. In the example (below), the prompt **Create an Azure Web App project called "Azure Web App"** is selected. This can be customized through the prompt based on your specific requirements. Check the [expanding on the example prompts](#expanding-on-the-example-prompts) section of the documentation.
 
-The Octopus AI Assistant may take 60-90 seconds to generate plan for the project. When it has generated the Terraform configuration, you will be provided with the output of `terraform plan` so you can see all resources that will be created. You can approve or abort.
+The Octopus AI Assistant may take 60-90 seconds to generate plan for the project. When it has generated the resource configuration, the output of `terraform plan` will be displayed so you can see all resources that will be created. You can approve or abort.
 
 ![Deploying an Azure web app project with the Octopus AI Assistant](/docs/administration/octopus-ai-assistant/octopus-ai-assistant-project-create-azure-webapp.png)
 
