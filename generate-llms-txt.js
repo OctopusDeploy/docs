@@ -9,8 +9,16 @@ const __dirname = path.dirname(__filename);
 
 // Helper function to extract frontmatter from markdown files
 function extractFrontmatter(content) {
+  // Remove BOM (Byte Order Mark) if present
+  if (content.charCodeAt(0) === 0xFEFF) {
+    content = content.slice(1);
+  }
+  
+  // Normalize line endings - handle both \r\n and \n
+  const normalizedContent = content.replace(/\r\n/g, '\n');
+  
   const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---/;
-  const match = content.match(frontmatterRegex);
+  const match = normalizedContent.match(frontmatterRegex);
   if (!match) return {};
   
   const frontmatter = {};
@@ -46,6 +54,7 @@ function extractFrontmatter(content) {
         if (value.startsWith("'") && value.endsWith("'")) {
           value = value.slice(1, -1);
         }
+        
         frontmatter[key] = value;
       }
     }
@@ -83,7 +92,7 @@ function findDocumentationPages(dir) {
         }
         
         // Skip redirect pages
-        if (frontmatter.layout && frontmatter.layout.includes('Redirect')) {
+        if (frontmatter.redirect) {
           continue;
         }
         
