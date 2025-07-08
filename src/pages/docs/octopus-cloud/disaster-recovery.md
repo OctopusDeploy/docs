@@ -12,7 +12,7 @@ This page describes the disaster recovery procedure and data imports/exports for
 
 ## Disaster Recovery Procedure
 
-Octopus Deploy hosts the cloud offering (Octopus Cloud) on Microsoft Azure utilizing several Azure services. Octopus Deploy shall endeavor to ensure business continuity of Octopus Cloud in the event of any disaster.  Octopus Cloud disaster resiliency and recovery are largely determined by the disaster recovery measures that are provided by these services, in addition to the Customer's own disaster recovery preparations such as determining which restore point to use for the recovery. Depending upon the nature of the event, Octopus Deploy's response may be limited to assisting customers and Azure support to restore service.
+Octopus Deploy hosts the cloud offering (Octopus Cloud) on Microsoft Azure using several Azure services. Octopus Deploy shall endeavor to ensure business continuity of Octopus Cloud in the event of any disaster.  Octopus Cloud disaster resiliency and recovery are largely determined by the disaster recovery measures that are provided by these services, in addition to the Customer's own disaster recovery preparations such as determining which restore point to use for the recovery. Depending upon the nature of the event, Octopus Deploy's response may be limited to assisting customers and Azure support to restore service.
 
 Consequently, this information is provided as guidance information only and does not form part of our Customer Agreement, nor does it affect or limit the operation of any force majeure releases. Customers should ensure that they have their own disaster recovery procedures in place following disaster recovery best practice.
 

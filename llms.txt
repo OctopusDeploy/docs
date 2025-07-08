@@ -188,7 +188,7 @@
 - [Runbooks vs Deployments](https://octopus.com/docs/runbooks/runbooks-vs-deployments): Describing the differences between a deployment and a runbook.
 - [Moving your Octopus Server to another Active Directory domain](https://octopus.com/docs/security/authentication/active-directory/moving-active-directory-domains): the steps and considerations to move your Octopus Server from one Active Directory domain to another.
 - [Microsoft Entra ID authentication](https://octopus.com/docs/security/authentication/azure-ad-authentication): Octopus Deploy can use Microsoft Entra ID authentication to identify users.
-- [Hardening Octopus](https://octopus.com/docs/security/hardening-octopus): If you are hosting Octopus Deploy yourself, this guide will help you harden your network, host operating system, and Octopus Server itself. This includes things such as configuring malware protection (anti-virus), and utilizing allow lists.
+- [Hardening Octopus](https://octopus.com/docs/security/hardening-octopus): If you are hosting Octopus Deploy yourself, this guide will help you harden your network, host operating system, and Octopus Server itself. This includes things such as configuring malware protection (anti-virus), and using allow lists.
 - [Teams with mixed environment privileges in Octopus](https://octopus.com/docs/security/users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges): This guide describes how to create a teams for a user with mixed environment privileges.
 - [Multi-tenant regions](https://octopus.com/docs/tenants/guides/multi-tenant-region): A guide showing you how to use tenants to deploy an application to regions using different release rings in Octopus Deploy.
 - [Multi-tenant SaaS applications in Octopus](https://octopus.com/docs/tenants/guides/multi-tenant-saas-application): A guide showing you how to use tenants to deploy a multi-tenant SaaS application using Octopus Deploy.
@@ -493,7 +493,7 @@
 - [Logging messages from scripts](https://octopus.com/docs/deployments/custom-scripts/logging-messages-in-scripts): When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message.
 - [.NET deployments](https://octopus.com/docs/deployments/dotnet): Octopus Deploy can help you perform repeatable, reliable deployments of your .NET applications.
 - [Canary deployments](https://octopus.com/docs/deployments/patterns/canary-deployments-with-octopus): Implementing canary deployments, i.e. rolling out releases to a subset of users or servers, with Octopus.
-- [Terraform output variables](https://octopus.com/docs/deployments/terraform/terraform-output-variables): Instructions on accessing and utilizing Terraform output variables
+- [Terraform output variables](https://octopus.com/docs/deployments/terraform/terraform-output-variables): Instructions on accessing and using Terraform output variables
 - [Define and use variables](https://octopus.com/docs/getting-started/first-deployment/define-and-use-variables): This tutorial will walk you through defining and using variables in an Octopus Deploy deployment.
 - [Running a Runbook](https://octopus.com/docs/getting-started/first-runbook-run/running-a-runbook): Step by step guide on how to run a runbook in Octopus Deploy.
 - [Samples](https://octopus.com/docs/getting-started/samples-instance): View real-world deployment and runbook examples in our Octopus Cloud samples instance - https://samples.octopus.app
