@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2025-07-07
-modDate: 2025-07-07
-title: Project creation
-description: 
-navOrder: 10
+pubDate: 2025-07-09
+modDate: 2025-07-09
+title: Prompt-based project creation
+description: Learn how to use the Octopus AI Assistant to create deployment projects from text prompts and customize projects for your requirements.
+navOrder: 20
 ---
 
-The Octopus AI Assistant can create fully configured deployment projects from a simple text prompt, helping you get started with deployments quickly. Instead of manually setting up project configurations, deployment processes, targets, and environments, you can describe what you want to deploy and let the AI Assistant generate a complete project based on proven best practices. The assistant generates Terraform code which is provided to you in the chat interface to review, before approving or aborting the deployment.
+The Octopus AI Assistant can create fully configured deployment projects from a simple text prompt, helping you get started with deployments quickly. Instead of manually setting up project configurations, deployment processes, targets, and environments, you can describe what you want to deploy and let the AI Assistant generate a complete project based on proven best practices. The assistant generates resource configuration in [HCL](https://developer.hashicorp.com/terraform/language) (HashiCorp Configuration Language) through the chat interface for you to review before approving or aborting the deployment.
 
 We've trained the large language model used by the Octopus AI Assistant with hand-crafted template projects that bake in best practices for common deployment scenarios.
 
@@ -20,7 +20,6 @@ When you launch the Octopus AI Assistant, one of the examples is to create a new
 Selecting this will present you with our pre-configured project creation prompts, which use a scaffolded template with our best practices built in:
 
 ![Octopus AI Assistant pre-configured project options](/docs/administration/octopus-ai-assistant/octopus-ai-assistant-project-creation-examples-2.png)
-
 
 You can choose one of the example prompts to create an opinionated project. In the example (below), I'll select the prompt **Create an Azure Web App project called "Azure Web App"**. You can further tweak and customize the prompt based on your specific requirements, check the [expanding on the example prompts](#expanding-on-the-example-prompts) section of the documentation.
 
@@ -49,7 +48,7 @@ When the deployment completes, go to the **Task Summary** tab for the release. T
 
 You can also use the Octopus AI Assistant to help guide you through these configuration items. Treat the assistant like any other large language model chatbot. For example, you could ask:
 
-```
+```text
 Can you help me configure an azure service principal for use from Octopus Deploy
 ```
 
@@ -62,12 +61,14 @@ We provide example prompts for project creation in the Octopus AI Assistant to h
 You can expand on the example prompts with variations to configure the project based on your requirements.
 
 For example, you can ask the Octopus AI Assistant to configure an additional environment, and to place the project in an existing project group:
-```
+
+```text
 Create an AWS Lambda project called "My Lambda App" in the project group "Banking". Create an environment called "QA". Include the "QA" environment in the project lifecycle before the "Production" environment.
 ```
 
 You may want to modify the default steps in the deployment process:
-```
+
+```text
 Create an AWS Lambda project called "Gift Card" in the project group "Retail". Create an additional step in the deployment process called "Run smoke tests". The step should be a bash script and should test a HTTP endpoint returns a 200 status code. Add the step after the Deploy a Lambda step in the deployment process. Ensure the new step doesn't run in the Security environment.
 ```
 
