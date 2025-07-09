@@ -39,6 +39,7 @@ bootstrapper
 bufio
 buildevent
 buildinfo
+CAIQ
 Ceph
 certkeyName
 Certstore
@@ -72,6 +73,7 @@ createdump
 creds
 crossorigin
 cscfg
+cscript
 cspkg
 Csvg
 customisation
@@ -215,6 +217,7 @@ linejoin
 linkerd
 Linq
 Liquibase
+llms
 lstrip
 ltsc
 Lucene
@@ -258,6 +261,7 @@ newguid
 NEWID
 Newtonsoft
 nfsadmin
+nmap
 noconsolelogging
 nologo
 nologs
@@ -319,11 +323,13 @@ petclinic
 Petlife
 petshop
 Pids
+Pitstop
 PKCE
 pkcs
 PKWARE
 planetside
 podannotation
+Posgre
 preproduction
 prerender
 prerenderingchange
@@ -344,6 +350,7 @@ pscustomobject
 publicip
 pwsh
 pycryptodome
+Qualys
 querystring
 quickstart
 QUOTENAME
@@ -384,9 +391,11 @@ runc
 RUNMANAGERONEXIT
 Runspace
 runtimes
+sakila
 SAMEORIGIN
 Schannel
 scopeduserroles
+Scregedit
 scriptcs
 secpol
 secureclientcertificate
@@ -479,6 +488,7 @@ VARCHAR
 variablename
 variableset
 vhdx
+VMSS
 vnet
 Voltron
 vserver

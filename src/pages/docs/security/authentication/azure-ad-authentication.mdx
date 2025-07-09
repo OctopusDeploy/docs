@@ -294,7 +294,7 @@ You can see the OpenID Connect metadata by going to the Issuer address in your b
 ### Inspect the contents of the security token
 
 :::div{.hint}
-When utilizing OAuth code flow with PKCE, the JWT token will not be visible to the end user. To use this debugging method, please remove the client secret and ensure that your configuration lines up with the pre-PKCE method, [detailed above](/docs/security/authentication/azure-ad-authentication#enable-id-tokens-and-configure).
+When using OAuth code flow with PKCE, the JWT token will not be visible to the end user. To use this debugging method, please remove the client secret and ensure that your configuration lines up with the pre-PKCE method, [detailed above](/docs/security/authentication/azure-ad-authentication#enable-id-tokens-and-configure).
 :::
 
 Sometimes the contents of the security token sent back by Microsoft Entra ID aren't exactly what Octopus expects; certain claims might be missing or named differently. This will usually result in the Microsoft Entra ID user incorrectly mapping to a different Octopus user than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT), which is sent from Microsoft Entra ID to Octopus via your browser. To inspect the contents of your security token:
