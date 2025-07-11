@@ -36,7 +36,7 @@ To add custom prompts to your Octopus AI Assistant:
 1. Open the Octopus Deploy web portal
 2. On the main page for the space, click **Variable Sets**
 3. Click **Add Variable Set**
-4. Enter `Octopus AI Assistant Prompts` for the variable set name
+4. Enter `OctoAI Prompts` for the variable set name
 5. Add variables in the new variable set using the naming convention below
 
 ### Variable naming convention
