@@ -1,0 +1,43 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-07-14
+modDate: 2025-07-14
+title: Git credentials
+icon: fa-solid fa-key
+description: How to work with Git credentials.
+navOrder: 35
+---
+
+Git credentials allow you to define your Git authentication credentials once, and reuse them across projects.
+
+You can manage your Git credentials by navigating to **Manage ➜ Git Credentials** in the Octopus Web Portal:
+
+:::figure
+![The Git credentials area of Octopus Deploy](/docs/infrastructure/git-credentials/images/git-credentials.png)
+:::
+
+## Edit your Git credentials
+
+To edit individual environments, click the Git credential name. From here, it is possible to edit the name, description, change the username and password, set repository restrictions, or delete the Git credential.
+
+## Git credential permissions
+
+You can control who has access to view and edit Git credentials by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/security/users-and-teams).
+
+## Repository Restrictions
+
+You can optionally restrict the Git credential to specified repository URL's. These can be complete repository URL’s or you can add a wildcard at the end to include everything under that path.
+
+:::figure
+![The Git credentials area of Octopus Deploy](/docs/infrastructure/git-credentials/images/git-credential-details.png)
+:::
+
+## Older versions
+
+```markdown
+Repository Restrictions is a new feature currently rolling out in Octopus Cloud. This property will be missing in versions earlier than 2025.3.
+```
+
+## Links
+
+[Github issue](https://github.com/OctopusDeploy/Issues/issues/9509)
