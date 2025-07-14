@@ -21,6 +21,13 @@ The Octopus AI Assistant Alpha is a feature released to an audience who has opte
 
 The Octopus AI Assistant provides four main capabilities designed to support different aspects of your deployment workflow:
 
+1. Tier-0 support
+2. Prompt-based project creation
+3. Deployment failure analysis
+4. Best practices optimization
+
+Combined with these features, the AI Assistant makes managing deployments easier and keeps things running smoothly.
+
 ### Tier-0 support
 
 Get instant answers to common questions about Octopus Deploy without searching through documentation. The AI Assistant draws from the complete Octopus Deploy documentation to provide natural language responses to your questions.
