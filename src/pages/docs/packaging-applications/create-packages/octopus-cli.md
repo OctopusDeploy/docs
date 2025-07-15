@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-07-15
 title: Create packages with the Octopus CLI
 description: Using the Octopus CLI (octopus) command line tool to create packages for deployment.
 navOrder: 30
