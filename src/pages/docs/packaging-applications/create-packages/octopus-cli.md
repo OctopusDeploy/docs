@@ -3,65 +3,86 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Create packages with the Octopus CLI
-description: Using the Octopus CLI (octo) command line tool to create packages for deployment.
+description: Using the Octopus CLI (octopus) command line tool to create packages for deployment.
 navOrder: 30
 ---
 <!-- spell-checker:ignore Myatt's, PKWARE, Packagingyourapplicationfromafolder -->
-The Octopus CLI (`octo`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/) and includes a [pack](/docs/octopus-rest-api/octopus-cli/pack) command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
+The Octopus CLI (`octopus`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/) and includes packaging commands to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
 
 ## Installation
 
-The [Octopus CLI downloads page](https://github.com/OctopusDeploy/OctopusCLI/releases) provides installation options for various platforms.
+The [Octopus CLI downloads page](https://github.com/OctopusDeploy/cli/blob/main/README.md#installation) provides installation options for various platforms.
 
 After installation, you can run the following to verify the version of the Octopus CLI that was installed (if you're using Windows, remember to open a new command prompt):
 
 ```
-dotnet octo --version
+octopus --version
 ```
 
-For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli).
+For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/octopus-rest-api/cli).
 
-For a full list of the `pack` command options see [Octopus CLI - Pack](/docs/octopus-rest-api/octopus-cli/pack) or run the following command:
+For a full list of the `pack` command options see [Octopus CLI - Package](/docs/octopus-rest-api/cli/octopus-package) or run the following command:
 
 ```powershell
-dotnet octo help pack
+octopus package --help
 ```
 
 ## Usage
 
-At a minimum `octo pack` requires an ID:
+The Octopus CLI supports two package formats: NuGet packages and ZIP packages
+
+### Create NuGet packages {#create-nuget-packages}
+
+At a minimum, `octopus package nuget create` requires an ID:
 
 ```powershell
-dotnet octo pack --id="OctoWeb"
+octopus package nuget create --id="OctoWeb"
 ```
 
 The above command will generate a NuGet package in the current working directory with a time-stamp based version number such as:
 
 > `OctoWeb.2018.6.26.190140.nupkg`.
 
-If you want to provide your own version, you can pass the `--version` parameter in the call to `octo`:
+If you want to provide your own version, you can pass the `--version` parameter:
 
 ```powershell
-dotnet octo pack --id="OctoWeb" --version="1.0.0"
+octopus package nuget create --id="OctoWeb" --version="1.0.0"
 ```
 
 > `OctoWeb.1.0.0.nupkg`
 
-You can also change the output directory with the `--outFolder` parameter, and the folder which will be packed with the `--basePath` parameter.
+You can also change the output directory with the `--out-folder` parameter, and the folder which will be packed with the `--base-path` parameter:
 
 ```powershell
-dotnet octo pack --id="OctoWeb" --version="1.0.0" --basePath="folder/to/pack" --outFolder="destination/folder/path"
-```
+octopus package nuget create --id="OctoWeb" --version="1.0.0" --base-path="folder/to/pack" --out-folder="destination/folder/path"
 
-## Creating Zip packages {#create-zip-packages}
 
-By default, `octo` will create NuGet packages. You can specify Zip packages with the `--format` parameter:
+
+### Create ZIP packages {#create-zip-packages}
+
+At a minimum, `octopus package zip create` requires an ID:
 
 ```powershell
-dotnet octo pack --id="OctoWeb" --version="1.0.0.0" --format=zip
+octopus package zip create --id="OctoWeb"
 ```
 
->  `OctoWeb.1.0.0.zip`
+The above command will generate a ZIP package in the current working directory with a time-stamp based version number such as:
+
+> `OctoWeb.2018.6.26.190140.zip`
+
+If you want to provide your own version, you can pass the `--version` parameter:
+
+```powershell
+octopus package zip create --id="OctoWeb" --version="1.0.0"
+```
+
+> `OctoWeb.1.0.0.zip`
+
+You can also change the output directory with the `--out-folder` parameter, and the folder which will be packed with the `--base-path` parameter:
+
+```powershell
+octopus package zip create --id="OctoWeb" --version="1.0.0" --base-path="folder/to/pack" --out-folder="destination/folder/path"
+```
 
 This will create a zip package that contains the same files as the output folder of your build.
 
@@ -69,11 +90,11 @@ See also, [known issues with other compression libraries](#known-issues).
 
 ## Packaging a .NET Core application
 
-To package a .NET core application, first publish the application, and then call `octo pack` on the output folder for example:
+To package a .NET core application, first publish the application, and then call `octopus package` on the output folder for example:
 
 ```powershell
 dotnet publish ./OctoWeb.csproj --output ./dist
-dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
+octopus package zip create --id="OctoWeb" --version="1.0.0" --base-path="./dist"
 ```
 
 Please refer to [Microsoft's publish and packing](/docs/deployments/dotnet/netcore-webapp/#publishing-and-packing-the-website) documentation for more information.
@@ -84,7 +105,7 @@ If you are using .NET Core for class libraries, we recommend using [dotnet pack 
 
 ```powershell
 dotnet pack ./SomeLibrary.csproj --output ./dist
-dotnet octo pack ./dist --id="SomeLibrary" --version="1.0.0"
+octopus package zip create --id="SomeLibrary" --version="1.0.0" --base-path="./dist"
 ```
 
 ## Packaging a .NET Framework web application
@@ -93,7 +114,7 @@ There are usually some extra steps required to get the resulting application bui
 
 ```
 msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /p:publishUrl=dist
-dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
+octopus package zip create --id="OctoWeb" --version="1.0.0-alpha0001" --base-path="./dist"
 ```
 
 ## Packaging your application from a folder
@@ -102,7 +123,7 @@ If you have a build process that places all build outputs into a final destinati
 
 ```powershell
 npm run build
-dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
+octopus package zip create --id="OctoWeb" --version="1.0.0" --base-path="./dist"
 ```
 
 ## Known issues with other compression libraries {#known-issues}
