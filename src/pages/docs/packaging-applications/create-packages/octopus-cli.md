@@ -49,6 +49,28 @@ If you want to provide your own version, you can pass the `--version` parameter:
 octopus package nuget create --id="OctoWeb" --version="1.0.0"
 ```
 
+When you run this command, you'll be prompted for additional configuration options:
+
+```
+? Base Path .
+? Out Folder .
+? Include patterns
+? Verbose Yes
+? Overwrite Yes
+? Author (leave blank to continue)
+```
+
+Here's what each configuration does:
+
+- **Base Path**: Root folder containing the contents to package (defaults to current directory)
+- **Out Folder**: Folder where the package file will be written (defaults to current directory)
+- **Include patterns**: File patterns to include, relative to base path (defaults to "**" for all files)
+- **Verbose**: Enable verbose output during packaging
+- **Overwrite**: Allow overwriting an existing package file with the same ID/version
+- **Author**: Add author metadata to the package (optional)
+
+You can accept the defaults by pressing Enter, or provide your own values. This will create:
+
 > `OctoWeb.1.0.0.nupkg`
 
 You can also change the output directory with the `--out-folder` parameter, and the folder which will be packed with the `--base-path` parameter:
@@ -75,6 +97,28 @@ If you want to provide your own version, you can pass the `--version` parameter:
 ```powershell
 octopus package zip create --id="OctoWeb" --version="1.0.0"
 ```
+
+When you run this command, you'll be prompted for additional configuration options:
+
+```
+? Base Path .
+? Out Folder .
+? Include patterns
+? Verbose Yes
+? Overwrite Yes
+? Author (leave blank to continue)
+```
+
+Here's what each configuration does:
+
+- **Base Path**: Root folder containing the contents to zip (defaults to current directory)
+- **Out Folder**: Folder where the zip file will be written (defaults to current directory)
+- **Include patterns**: File patterns to include, relative to base path (defaults to "**" for all files)
+- **Verbose**: Enable verbose output during packaging
+- **Overwrite**: Allow overwriting an existing package file with the same ID/version
+- **Author**: Add author metadata to the package (optional)
+
+You can accept the defaults by pressing Enter, or provide your own values. This will create:
 
 > `OctoWeb.1.0.0.zip`
 
