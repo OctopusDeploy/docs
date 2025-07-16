@@ -21,7 +21,7 @@ octopus --version
 
 For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/octopus-rest-api/cli).
 
-For a full list of the `pack` command options see [Octopus CLI - Package](/docs/octopus-rest-api/cli/octopus-package) or run the following command:
+For a full list of the `package` command options see [Octopus CLI - Package](/docs/octopus-rest-api/cli/octopus-package) or run the following command:
 
 ```powershell
 octopus package --help
@@ -31,106 +31,40 @@ octopus package --help
 
 The Octopus CLI supports two package formats: NuGet packages and ZIP packages
 
+## Configuration Options
+
+Both NuGet and ZIP packaging commands support the following configuration options:
+
+- **--id**: The ID of the package
+- **--version**: The version of the package, must be a valid SemVer
+- **--base-path**: Root folder containing the contents to zip
+- **--out-folder**: Folder into which the zip file will be written
+- **--include**: Add a file pattern to include, relative to the base path e.g. /bin/*.dll; defaults to "**"
+- **--verbose**: Verbose output
+- **--overwrite**: Allow an existing package file of the same ID/version to be overwritten
+
+Additional NuGet-specific options:
+- **--author**: Add author/s to the package metadata
+- **--title**: The title of the package
+- **--description**: A description of the package, defaults to "A deployment package created from files on disk."
+- **--releaseNotes**: Release notes for this version of the package
+- **--releaseNotesFile**: A file containing release notes for this version of the package
+
 ### Create NuGet packages {#create-nuget-packages}
 
-At a minimum, `octopus package nuget create` requires an ID:
+Basic usage:
 
 ```powershell
-octopus package nuget create --id="OctoWeb"
+octopus package nuget create
 ```
-
-The above command will generate a NuGet package in the current working directory with a time-stamp based version number such as:
-
-> `OctoWeb.2018.6.26.190140.nupkg`.
-
-If you want to provide your own version, you can pass the `--version` parameter:
-
-```powershell
-octopus package nuget create --id="OctoWeb" --version="1.0.0"
-```
-
-When you run this command, you'll be prompted for additional configuration options:
-
-```
-? Base Path .
-? Out Folder .
-? Include patterns
-? Verbose Yes
-? Overwrite Yes
-? Author (leave blank to continue)
-```
-
-Here's what each configuration does:
-
-- **Base Path**: Root folder containing the contents to package (defaults to current directory)
-- **Out Folder**: Folder where the package file will be written (defaults to current directory)
-- **Include patterns**: File patterns to include, relative to base path (defaults to "**" for all files)
-- **Verbose**: Enable verbose output during packaging
-- **Overwrite**: Allow overwriting an existing package file with the same ID/version
-- **Author**: Add author metadata to the package (optional)
-
-You can accept the defaults by pressing Enter, or provide your own values. This will create:
-
-> `OctoWeb.1.0.0.nupkg`
-
-You can also change the output directory with the `--out-folder` parameter, and the folder which will be packed with the `--base-path` parameter:
-
-```powershell
-octopus package nuget create --id="OctoWeb" --version="1.0.0" --base-path="folder/to/pack" --out-folder="destination/folder/path"
-```
-
 
 ### Create ZIP packages {#create-zip-packages}
 
-At a minimum, `octopus package zip create` requires an ID:
+Basic usage:
 
 ```powershell
-octopus package zip create --id="OctoWeb"
+octopus package zip create
 ```
-
-The above command will generate a ZIP package in the current working directory with a time-stamp based version number such as:
-
-> `OctoWeb.2018.6.26.190140.zip`
-
-If you want to provide your own version, you can pass the `--version` parameter:
-
-```powershell
-octopus package zip create --id="OctoWeb" --version="1.0.0"
-```
-
-When you run this command, you'll be prompted for additional configuration options:
-
-```
-? Base Path .
-? Out Folder .
-? Include patterns
-? Verbose Yes
-? Overwrite Yes
-? Author (leave blank to continue)
-```
-
-Here's what each configuration does:
-
-- **Base Path**: Root folder containing the contents to zip (defaults to current directory)
-- **Out Folder**: Folder where the zip file will be written (defaults to current directory)
-- **Include patterns**: File patterns to include, relative to base path (defaults to "**" for all files)
-- **Verbose**: Enable verbose output during packaging
-- **Overwrite**: Allow overwriting an existing package file with the same ID/version
-- **Author**: Add author metadata to the package (optional)
-
-You can accept the defaults by pressing Enter, or provide your own values. This will create:
-
-> `OctoWeb.1.0.0.zip`
-
-You can also change the output directory with the `--out-folder` parameter, and the folder which will be packed with the `--base-path` parameter:
-
-```powershell
-octopus package zip create --id="OctoWeb" --version="1.0.0" --base-path="folder/to/pack" --out-folder="destination/folder/path"
-```
-
-This will create a zip package that contains the same files as the output folder of your build.
-
-See also, [known issues with other compression libraries](#known-issues).
 
 ## Packaging a .NET Core application
 
