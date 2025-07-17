@@ -1,16 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-04-04
-modDate: 2025-06-30
+modDate: 2025-07-14
 title: Octopus AI Assistant
-description: How to use Octopus AI Assistant
+navTitle: Overview
+navSection: Octopus AI Assistant
+description: How to use Octopus AI Assistant to create projects, analyze deployments, optimize configurations, and get instant help with Octopus Deploy
 navOrder: 100
 ---
 
-Octopus AI Assistant is a Alpha feature currently under development to integrate AI functionality into the Octopus user interface. The goal of Octopus AI Assistant is:
-
-- To support new Octopus users as they get started with the platform
-- To guide teams with large existing Octopus spaces with best practices and suggestions to optimize and scale their Octopus usage
+Octopus AI Assistant integrates AI functionality directly into the Octopus Deploy interface to accelerate your DevOps workflows. Whether you're getting started with Octopus Deploy, troubleshooting deployment failures, or optimizing existing configurations, the AI Assistant provides context-aware guidance and automation to help you work more efficiently.
 
 :::div{.warning}
 The Octopus AI Assistant Alpha is a feature released to an audience who has opted-in to provide feedback. The feature is not finished or fully tested. It may not be supported through regular channels. It may change drastically or may never ship.
@@ -18,136 +17,102 @@ The Octopus AI Assistant Alpha is a feature released to an audience who has opte
 
 ![Octopus AI Assistant Screenshot](/docs/administration/octopus-ai-assistant/octopus-ai-assistant.png)
 
-## What can I do with Octopus AI Assistant?
+## Core capabilities
 
-- Onboard new DevOps teams to Octopus with prompts like `What is an Octopus Runbook?`
-- Generate Terraform configuration for the Octopus Terraform provider with prompts like `Generate a Terraform module that creates 3 environments called "Development", "Test", and "Production"`
-- Optimize your Octopus space with prompts like `Check the space for unused projects` and `Find unused variables in the project.`
-- Debug failed deployments with prompts like `Why did the deployment fail?`
+The Octopus AI Assistant provides four main capabilities designed to support different aspects of your deployment workflow:
+
+1. Tier-0 support
+2. Prompt-based project creation
+3. Deployment failure analysis
+4. Best practices optimization
+
+Combined with these features, the AI Assistant makes managing deployments easier and keeps things running smoothly.
+
+### Tier-0 support
+
+Get instant answers to common questions about Octopus Deploy without searching through documentation. The AI Assistant draws from the complete Octopus Deploy documentation to provide natural language responses to your questions.
+
+Example prompts:
+
+- `What is a project in Octopus Deploy?`
+- `How do I use runbooks?`
+- `Explain the difference between environments and tenants`
+- `How do I set up automated deployments?`
+
+This capability is particularly valuable for new team members getting started with Octopus Deploy, or when you need quick clarification on specific features without leaving your workflow.
+
+### Prompt-based project creation
+
+Create fully configured deployment projects from simple text descriptions. Instead of manually setting up configurations, processes, and environments, describe what you want to deploy and let the AI Assistant generate a complete project using proven best practices.
+
+Example prompts:
+
+- `Create an Azure Web App project called "My Web App"`
+- `Generate an AWS Lambda project with QA and Production environments`
+
+[Learn more about project creation.](/docs/administration/octopus-ai-assistant/project-creation)
+
+### Deployment failure analysis
+
+When deployments fail, get immediate analysis of what went wrong and actionable steps to resolve issues. The analyzer examines deployment logs, process configuration, and error details to provide specific troubleshooting guidance.
+
+Example prompts:
+
+- `Why did the deployment fail?`
+- `Help me understand this deployment error`
+
+[Learn more about deployment failure analysis.](/docs/administration/octopus-ai-assistant/deployment-failure-analyzer)
+
+### Best practices optimization
+
+Identify optimization opportunities and maintain healthy configurations across your Octopus Deploy instance. The advisor analyzes your setup and provides recommendations for improving scalability, reducing technical debt, and following established best practices.
+
+Example prompts:
+
+- `Find unused variables in this project`
+- `Check for duplicate project variables`
+- `Suggest tenant tags to make tenants more manageable`
+
+[Learn more about the best practices adviser.](/docs/administration/octopus-ai-assistant/best-practices-adviser)
+
+## Custom prompts for organizational needs
+
+For teams with specific internal processes, you can enhance any AI Assistant capability with [custom prompts](/docs/administration/octopus-ai-assistant/custom-prompts) that embed your organization's knowledge, procedures, and support channels directly into the AI responses.
+
+## Getting started
+
+### Prerequisites
+
+- An Octopus instance (cloud or on-premises with [public accessibility](#using-with-on-premises-instances))
+- A Chromium-based browser (Chrome, Brave, Edge, etc.) that supports Chrome Web Store extensions
+
+### Installation
+
+1. Install the [Octopus AI Assistant Chrome extension](https://oc.to/install-ai-assistant)
+2. Navigate to your Octopus Deploy instance. You will see a new icon in the top right corner of your Chrome browser
+3. Click the AI Assistant icon in your browser to start using the assistant
+
+### Using with on-premises instances
+
+For on-premises Octopus instances, ensure your server accepts HTTP requests from IP address `51.8.40.170` to enable AI Assistant functionality.
+
+:::div{.warning}
+It is not possible to integrate Octopus AI Assistant with an on-premises Octopus instance that cannot accept HTTP requests from this public IP address.
+:::
 
 ## We want your feedback
 
-We are looking for feedback on Octopus AI Assistant, specifically:
+As part of the Alpha program, we're actively seeking feedback on:
 
-- What prompts do you want the service to respond to?
-- What would you change about the service?
-- Have the responses been helpful?
+- What prompts you want the service to respond to
+- What you would change about the service
+- Whether the responses have been helpful
 
-As part of the Alpha, we will invite you to a private channel in the [Octopus Community Slack](https://octopus.com/community) where you can provide feedback.
-
-## Getting started with Octopus AI Assistant
-
-Octopus AI Assistant has the following prerequisites:
-
-- An Octopus instance, either
-  - A cloud instance
-  - An on-premises Octopus instance with a hostname accessible from the Octopus AI Assistant service (more on this requirement below)
-- Google Chrome
-
-Octopus AI Assistant is delivered via a Chrome extension which is available from the [Chrome Store](https://oc.to/install-ai-assistant). Once the extension is installed, you will see a new icon in the top right corner of your Chrome browser. Click on the icon to open the Octopus AI Assistant interface.
-
-## Using Octopus AI Assistant with an on-premises Octopus instance
-
-Octopus AI Assistant is implemented as an Azure Function. The function must be able to call the Octopus API.
-
-On-premises Octopus instances must allow HTTP requests from the IP address `51.8.40.170`.
-
-:::div{.warning}
-It is not possible to integrate Octopus AI Assistant with an on-premises Octopus instance that can not accept HTTP requests from this public IP address.
-:::
-
-## Adding custom prompts
-
-Octopus AI Assistant will present custom prompts defined in a Library Variable Set called `Octopus AI Assistant Prompts`. The Library Variable set contains variables named:
-
-- `PageName[#].Prompt` - The prompt displayed in the UI and passed to the LLM
-- `PageName[#].SystemPrompt` - Additional prompt instructions passed to the LLM but not shown in the UI
-
-Where:
-
-- `PageName` is one of the pages listed in the table below
-- `#` is a number from 0 to 4 inclusive for up to 5 prompts per page
-
-For example:
-
-- `Project.Deployment[0].Prompt` - A prompt displayed when a project deployment is viewed
-- `Project.Deployment[0].SystemPrompt` - The system prompt passed to the LLM when the project deployment is viewed
-
-| Page Name                               | Description                                         |
-|-----------------------------------------|-----------------------------------------------------|
-| `Dashboard`                             | The main dashboard                                  |
-| `Tasks`                                 | The tasks overview                                  |
-| `Project`                               | The project dashboard                               |
-| `Project.Settings`                      | The project settings                                |
-| `Project.VersionControl`                | The project version control settings                |
-| `Project.ITSMProviders`                 | The project ITSM settings                           |
-| `Project.Channels`                      | The project channels                                |
-| `Project.Triggers`                      | The project triggers                                |
-| `Project.Process`                       | The project deployment process editor               |
-| `Project.Step`                          | An individual step in the deployment process editor |
-| `Project.Variables`                     | The project variables editor                        |
-| `Project.AllVariables`                  | The overview of all the project variables           |
-| `Project.PreviewVariables`              | The preview of all the project variables            |
-| `Project.VariableSets`                  | The project library variable sets                   |
-| `Project.TenantVariables`               | The project tenant variables                        |
-| `Project.Operations`                    | The project runbooks dashboard                      |
-| `Project.Operations.Triggers`           | An runbook triggers                                 |
-| `Project.Deployment`                    | The project deployments                             |
-| `Project.Release`                       | The project releases                                |
-| `Project.Runbooks`                      | The project runbooks                                |
-| `Project.Runbook.Runbook`               | An individual runbook                               |
-| `Project.Runbook.Run`                   | A runbook run                                       |
-| `LibraryVariableSets`                   | The library variable sets                           |
-| `LibraryVariableSet.LibraryVariableSet` | An individual library variable set                  |
-| `Machines`                              | The targets dashboard                               |
-| `Machine.Machine`                       | An individual target                                |
-| `Accounts`                              | The accounts dashboard                              |
-| `Account.Account`                       | An individual account                               |
-| `Workers`                               | The workers dashboard                               |
-| `WorkerPools`                           | The workerpool dashboard                            |
-| `MachinePolicies`                       | An machine policies dashboard                       |
-| `MachineProxies`                        | An machine proxies dashboard                        |
-| `Feeds`                                 | The feeds dashboard                                 |
-| `GitCredentials`                        | The git credentials dashboard                       |
-| `GitConnections`                        | The GitHub App dashboard                            |
-| `Lifecycles`                            | The lifecycles dashboard                            |
-| `Packages`                              | The built-in feed dashboard                         |
-| `ScriptModules`                         | The script modules dashboard                        |
-| `StepTemplates`                         | The step templates dashboard                        |
-| `TagSets`                               | The tag sets dashboard                              |
-| `TagSets.TagSet`                        | An individual tag set                               |
-| `Tenants`                               | The tenants dashboard                               |
-| `Tenant.Tenant`                         | An individual tenant                                |
-| `Certificates`                          | The certificates dashboard                          |
-| `Environments`                          | The environments dashboard                          |
-| `Environment.Environment`               | An individual environment                           |
-| `Infrastructure`                        | The infrastructure dashboard                        |
-| `BuildInformation`                      | The build information dashboard                     |
-
-## Writing custom prompts
-
-To write a custom prompt, you need to define the prompt variable, which is in the format `PageName[#].Prompt`. The prompt variable represents what an Octopus user might write themselves when interacting with Octopus AI Assistant.
-
-You can optionally define the system prompt variable, which is in the format `PageName[#].SystemPrompt`. The system prompt variable is used to provide additional context to the LLM, usually to capture unique business knowledge. The system prompt is not shown to the user.
-
-For example, the prompt variable `Project.Deployment[0].Prompt`, which is displayed when a project deployment is viewed, might be:
-
-> Why did the deployment fail? If the deployment didn't fail, say so. Provide suggestions for resolving the issue.
-
-On its own, this prompt variable relies on the knowledge built into the LLM to provide an answer based on the context. The context for a project deployment is:
-
-- The deployment logs
-- The deployment process
-
-To improve the response, you can add a system prompt variable `Project.Deployment[0].SystemPrompt`:
-
-> If the logs indicate that a Docker image is missing, You must only provide the suggestion that the user must visit <https://help/missingdocker> to get additional instructions to resolve missing docker containers. You will be penalized for offing generic suggestions to resolve a missing docker image. You will be penalized for offering script suggestions to resolve a missing docker image. You will be penalized for suggesting step retries to resolve a missing docker image.
-
-The system prompt allows you to embed business knowledge to guide the LLM to provide a more accurate response. In this example we have instructed the LLM to determine if the deployment logs indicate that a Docker image is missing, and if so, to provide a custom link to internal documentation. We have also instructed the LLM to not provide generic suggestions, script suggestions, or step retries to resolve a missing docker image.
+Alpha participants are invited to a private channel in the [Octopus Community Slack](https://octopus.com/community) for providing feedback.
 
 ## FAQ
 
-Q: What data is collected?
+**Q: What data is collected?**
 
 A: We collect prompts entered into Octopus AI Assistant. All logs are sanitized to remove personally identifiable information. We do not log:
 
@@ -155,30 +120,30 @@ A: We collect prompts entered into Octopus AI Assistant. All logs are sanitized 
 - Sensitive values
 - Octopus configurations
 
-Q: Is my data used to train AI models?
+**Q: Is my data used to train AI models?**
 
 A: No, we do not train AI models on customer data. We use the Azure OpenAI platform, and [Azure does not use customer data to train models either](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy?tabs=azure-portal).
 
-Q: How do I turn off Octopus AI Assistant?
+**Q: How do I turn off Octopus AI Assistant?**
 
 A: Disabling or uninstalling the Chrome extension will disable Octopus AI Assistant.
 
-Q: How much does the service cost?
+**Q: How much does the service cost?**
 
 A: The service is free during the Alpha phase.
 
-Q: How secure is the service?
+**Q: How secure is the service?**
 
 A: Octopus AI Assistant is implemented as an external service that accesses Octopus via the API. This means Octopus AI Assistant does not have access to any sensitive values, as the API never exposes sensitive values. It also means access to the Octopus instance is limited by the existing permissions of the current user. Additionally, Octopus AI Assistant shares the same backend as the Octopus Copilot Extension, which has been audited by an independent external security team. The report is available via the [trust center](https://trust.octopus.com/).
 
-Q: Can I see the source code?
+**Q: Can I see the source code?**
 
 A: Yes. The Octopus AI Assistant backend source code is available from [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusCopilot).
 
-Q: Do I need to sign up for an account?
+**Q: Do I need to sign up for an account?**
 
 A: No, Octopus AI Assistant is self-contained and only requires access to an Octopus instance.
 
-Q: Is Octopus AI Assistant a supported service?
+**Q: Is Octopus AI Assistant a supported service?**
 
 A: No, the Octopus AI Assistant Alpha is not subject to any existing SLAs or support agreements. It is an experimental feature that may not be supported through regular channels. It may change drastically or may never ship.
