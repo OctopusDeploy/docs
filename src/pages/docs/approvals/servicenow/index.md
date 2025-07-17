@@ -261,7 +261,7 @@ For example to set the `Assigned To` or `Short Description` fields you can use t
 | Field | Variable | Example Value|
 |--|--|--|
 |Assigned To|Octopus.ServiceNow.Field[assigned_to]|beth.anglin|
-|Short Description|Octopus.ServiceNow.Field[short_description]Custom Short Description with #{SomeVariable} #{Octopus.Deployment.Id}|
+|Short Description|Octopus.ServiceNow.Field[short_description]|Custom Short Description with #{SomeVariable} #{Octopus.Deployment.Id}|
 
 :::div{.hint}
 Setting a `Short Description` will over-ride the auto generated Octopus description. [Title text matching](#title-text-matching) means this will automatically progress the deployment unless the resolved description is unique. This can be done by including variables like the deployment or environment Id.
