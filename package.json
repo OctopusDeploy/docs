@@ -10,7 +10,7 @@
     },
     "scripts": {
         "dev": "npm-run-all --parallel dev:img dev:astro dev:watch",
-        "dev:img": "node --no-experimental-fetch ./src/themes/octopus/utilities/img.mjs",
+        "dev:img": "node ./src/themes/octopus/utilities/img.mjs",
         "dev:astro": "astro dev",
         "dev:watch": "pnpm watch",
         "test": "astro build && npx playwright install --with-deps && npx playwright test",
@@ -21,8 +21,7 @@
         "astro": "astro",
         "css": "robocopy ./public/docs/css/ ./dist/docs/css/ /mir && robocopy ./public/docs/js/ ./dist/docs/js/ /mir",
         "format": "prettier --write --plugin=prettier-plugin-astro 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css'",
-        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}",
-        "llms": "node generate-llms-txt.js"
+        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
     },
     "dependencies": {
         "@astrojs/mdx": "^4.3.0",
