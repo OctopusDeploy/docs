@@ -22,17 +22,15 @@ jobs:
       SHOULD_DEPLOY: ${{ secrets.OCTOPUSSERVERURL != '' || '' }}
       OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
       OCTOPUS_API_KEY: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-      OCTOPUS_SPACE: "DevOps Microsite"
+      OCTOPUS_SPACE: 'DevOps Microsite'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9.10.0
           run_install: false
 
       - name: Setup Node
@@ -74,9 +72,9 @@ jobs:
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
           package_id: 'DocsMicrosite'
-          version: "${{ env.PACKAGE_VERSION  }}-pullrequest"
-          base_path: "./dist"
-          output_folder: "./artifacts"
+          version: '${{ env.PACKAGE_VERSION  }}-pullrequest'
+          base_path: './dist'
+          output_folder: './artifacts'
           files: |
             **/*.*
 
@@ -97,14 +95,14 @@ jobs:
         uses: OctopusDeploy/push-build-information-action@v3
         if: ${{ env.SHOULD_DEPLOY }}
         with:
-          version: "${{ env.PACKAGE_VERSION }}-pullrequest"
+          version: '${{ env.PACKAGE_VERSION }}-pullrequest'
           packages: ${{ steps.package.outputs.package_file_path }}
 
       - name: Create a release in Octopus Deploy 🐙
-        id: "create_release"
+        id: 'create_release'
         uses: OctopusDeploy/create-release-action@v3
         if: ${{ env.SHOULD_DEPLOY }}
         with:
-          project: "Docs Microsite"
-          package_version: "${{ env.PACKAGE_VERSION }}-pullrequest"
+          project: 'Docs Microsite'
+          package_version: '${{ env.PACKAGE_VERSION }}-pullrequest'
           git_ref: ${{ github.ref }}
