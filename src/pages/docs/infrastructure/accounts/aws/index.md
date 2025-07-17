@@ -50,7 +50,7 @@ When setting up the identity provider you need to use the host domain name of yo
 1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **AWS Account**.
 2. Add a memorable name for the account.
 3. Provide a description for the account.
-4. Set the **Role ARN** to the ARN from the identity provider associated role.
+4. Set the **Role ARN** to the ARN from the identity provider associated role. Note that this is different to the ARN of your Identity Provider.
 5. Set the **Session Duration** to the Maximum session duration from the role, in seconds.
 6. Click **SAVE** to save the account.
 7. Before you can test the account you need to add a condition to the identity provider in AWS under **IAM ➜ Roles ➜ {Your AWS Role} ➜ Trust Relationship** :
