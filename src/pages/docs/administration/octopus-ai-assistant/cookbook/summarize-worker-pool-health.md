@@ -22,7 +22,7 @@ Report on the current health of all worker pools
 
 ## 💡 Tips for customizing
 
-- Include worker utilization rates
+- Include worker use rates
 - Highlight disconnected or unhealthy workers
 - Group by worker pool
 
