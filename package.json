@@ -25,11 +25,11 @@
     },
     "dependencies": {
         "@astrojs/mdx": "^4.3.0",
-        "@pnpm/exe": "^10.11.1",
-        "astro": "^5.9.0",
-        "astro-accelerator-utils": "^0.3.43",
+        "@pnpm/exe": "^10.13.1",
+        "astro": "^5.11.2",
+        "astro-accelerator-utils": "^0.3.48",
         "cspell": "^8.19.4",
-        "glob": "^11.0.2",
+        "glob": "^11.0.3",
         "gray-matter": "^4.0.3",
         "hast-util-from-selector": "^3.0.1",
         "html-to-text": "^9.0.5",
@@ -40,11 +40,11 @@
         "sharp": "^0.33.5"
     },
     "devDependencies": {
-        "@playwright/test": "^1.52.0",
+        "@playwright/test": "^1.54.1",
         "csv-parse": "^5.6.0",
         "npm-run-all": "^4.1.5",
         "onchange": "^7.1.0",
-        "prettier": "^3.5.3",
+        "prettier": "^3.6.2",
         "prettier-plugin-astro": "^0.14.1"
     },
     "pnpm": {
