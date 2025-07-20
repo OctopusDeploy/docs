@@ -12,7 +12,7 @@ capability: Troubleshooting
 **🏷 Capability:** Troubleshooting
 :::
 
-Quickly find all recent failed deployments to spot patterns and initiate root cause analysis.
+Quickly find all recent failed deployments to spot patterns and initiate root cause analysis. Octopus AI Assistant requires the project name and environment name as additional context to process the request.
 
 ## 📝 Prompt
 
