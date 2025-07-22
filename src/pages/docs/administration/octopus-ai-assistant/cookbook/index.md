@@ -1,14 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-07-16
-modDate: 2025-07-16
+modDate: 2025-07-22
 title: Octopus AI Assistant Cookbook
+navTitle: Overview
+navSection: Cookbook
 description: A collection of prompt-based automation examples for Octopus Deploy
 navOrder: 1
-capability: Prompt-based project creation
 ---
-
-# Octopus AI Assistant Cookbook
 
 This cookbook includes ready-to-use prompts that help automate and optimize your work with Octopus Deploy.
 
