@@ -44,7 +44,7 @@ Below is a basic example of how the Deployment Failure Analyzer works in practic
 
 ## Adding business logic using custom prompts
 
-For organizations with specific internal processes and troubleshooting procedures, you can enhance the Deployment Failure Analyzer with custom business logic using [custom prompts](/docs/administration/octopus-ai-assistant/custom-prompts). Custom prompts are defined as variables in Library Variable Sets within Octopus Deploy, allowing you to embed organization-specific guidance and next steps directly into the failure analysis responses.
+For organizations with specific internal processes and troubleshooting procedures, you can enhance the Deployment Failure Analyzer with custom business logic using [custom prompts](/docs/octopus-ai-assistant/custom-prompts). Custom prompts are defined as variables in Library Variable Sets within Octopus Deploy, allowing you to embed organization-specific guidance and next steps directly into the failure analysis responses.
 
 Custom prompts work by combining a user-facing prompt (`PageName[#].Prompt`) with an optional system prompt (`PageName[#].SystemPrompt`) that contains your business logic. The `.Prompt` variable defines what users see and interact with, while the `.SystemPrompt` variable provides behind-the-scenes instructions that guide the AI's analysis without being visible to users.
 
@@ -69,4 +69,4 @@ In this example, when the analyzer detects an issue related to a missing Azure R
 
 This approach ensures users get immediate, actionable guidance that follows your organization's established support processes, reducing resolution time and ensuring consistency across teams.
 
-For detailed instructions on setting up custom prompts, including variable naming conventions and supported pages, see the [custom prompts documentation](/docs/administration/octopus-ai-assistant/custom-prompts).
+For detailed instructions on setting up custom prompts, including variable naming conventions and supported pages, see the [custom prompts documentation](/docs/octopus-ai-assistant/custom-prompts).
