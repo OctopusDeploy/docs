@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-03-10
+modDate: 2025-07-25
 title: Email notification step
 icon: fa-solid fa-envelope
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
@@ -68,6 +68,7 @@ Optionally for Microsoft SMTP authentication, you can use Federated Credentials 
 | Property           | Description                            | Example |
 | ------------------ | ------------------------------------   | ----------- |
 | Audience           | The audience set on the Federated Credential | Defaults to `api://AzureADTokenExchange` |
+| Permission Scopes  | The scopes to be included in the authentication token | Defaults to `https://outlook.office365.com/.default` |
 | Client ID          | The Azure Active Directory Application ID/Client ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | Tenant ID          | The Azure Active Directory Tenant ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 
@@ -85,6 +86,11 @@ For OAuth 2.0 you will need to:
     - Add SMTP permissions for your Entra AD application, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-entra-ad-application).
     - Register your application's service principal in Exchange, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#register-service-principals-in-exchange).
 
+:::div{.hint}
+From 2025.3, you can specify custom Permission Scopes to be included in the OAuth 2.0 authentication token.
+
+This supports the use of Azure Communication Services (ACS). To use this ensure your SMTP Username in Azure matches your specified `From Address`. More information can be found in the [ACS documentation](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-smtp/send-email-smtp-oauth).
+:::
 
 
 ## Add an email step
