@@ -76,6 +76,7 @@ cscfg
 cscript
 cspkg
 Csvg
+customextension
 customisation
 Customscripts
 cutover
@@ -154,6 +155,7 @@ gpedit
 groff
 Groupsand
 gruntfile
+guestloginenabled
 gulpfile
 GZRS
 hasattr
@@ -294,6 +296,7 @@ octopusdemos
 octopusdemos.app
 octopusdeploy
 octopusdsc
+octopushq
 octopusid
 octopuslabs
 octopusservernodes
