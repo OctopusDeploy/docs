@@ -75,4 +75,4 @@ In isolated/air-gapped scenarios without access to the internet, it may prove be
 - Dynamic Extensions
   - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
 - In-App Messaging via Chameleon
-  - Please contact [support@octopus.com](mailto:support@octopus.com) for assistance disabling In-App Messaging
+  - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --experiencesEnabled=false`
