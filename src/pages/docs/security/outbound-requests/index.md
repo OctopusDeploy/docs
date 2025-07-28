@@ -31,7 +31,7 @@ The Octopus Server makes the following outbound requests:
 5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates) (if enabled).
 6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates) (if enabled).
 7. Behavioral telemetry is sent to `https://telemetry.octopus.com` (if enabled).
-8. Email address is sent to `https://experiences.octopus.com` via In-App messaging (if enabled).
+8. Email address and behavioural data is sent to `https://experiences.octopus.com` via In-App messaging (if enabled).
 
 ### Built-in step templates
 
