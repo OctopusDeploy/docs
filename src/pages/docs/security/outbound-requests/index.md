@@ -45,7 +45,6 @@ From **Octopus 2022.1** some built-in step templates can be automatically update
 Our community contributed step template integration queries `library.octopus.com` for updates.
 
 ## What information is included when Octopus checks for updates?
-## What information is included when Octopus checks for updates?
 
 By default, Octopus will periodically check for new releases. You can opt-out of checking for updates by navigating to **Configuration ➜ Settings ➜ Updates** in Octopus.
 
