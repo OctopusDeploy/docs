@@ -10,10 +10,6 @@ navOrder: 45
 hideInThisSectionHeader: true
 ---
 
-:::div{.hint}
-The Kubernetes Live Object Status feature is in early access, it is rolling out in Octopus Cloud now. This feature is coming to self-hosted customers in H2 2025.
-:::
-
 Kubernetes Live Object Status shows the live status of your Kubernetes objects after they have been deployed. This allows you to monitor and safely troubleshoot your Kubernetes application directly from within Octopus Deploy.
 
 :::figure
@@ -24,7 +20,7 @@ Kubernetes Live Object Status shows the live status of your Kubernetes objects a
 
 Using Kubernetes Live Object Status requires the following:
 
-- An Octopus Cloud instance
+- Octopus Deploy 2025.3+
 - A [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) target
 - A project with a deployment process containing Kubernetes steps
   - The kubectl script step is currently unsupported
