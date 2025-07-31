@@ -25,7 +25,7 @@ async function getData() {
       pages.push(`
         <url>
           <loc>${SITE.url + url}</loc>
-          <lastmod>${article.frontmatter.pubDate}</lastmod>
+          <lastmod>${article.frontmatter.modDate ?? article.frontmatter.pubDate}</lastmod>
         </url>`);
     }
   }

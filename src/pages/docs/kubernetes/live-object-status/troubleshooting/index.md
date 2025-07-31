@@ -11,7 +11,7 @@ navOrder: 70
 
 This page will help you diagnose and solve issues with Kubernetes Live Object Status.
 
-## Installation
+## Installation \{#installation}
 
 ### The Kubernetes monitor can't connect gRPC port 8443
 
