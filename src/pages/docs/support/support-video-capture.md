@@ -14,7 +14,7 @@ If you have a mic and want to narrate the issue during the screen capture, you c
 Details on the app and the data usage:
 
 1. Recordings sent to Octopus will be used for diagnostic purposes only and will not be shared externally from Octopus in any way.
-2. All recordings are sent to an encrypted and secure Azure blob container.
+2. All recordings are sent to an encrypted and secure file storage.
 3. All recordings are deleted 30 days from the time of upload via retention policy and can be manually deleted on request.
 4. Only the Octopus support team has direct access to the recording files. The files may be shared with other internal teams if required during an issue escalation.
 
