@@ -20,7 +20,7 @@ Some firewalls may prevent the applications from making outbound connections ove
 For customers running a self-hosted instance, ensure that Octopus Server's `grpcListenPort` parameter is configured to be 8443, or that the Kubernetes monitors `server-grpc-url` parameter has been updated to match.
 
 :::div{.warning}
-The [kubernetes monitor]() is not yet compatible with high availability Octopus clusters, trying to install the Kubernetes monitor may result in unexpected behavior.
+The [Kubernetes monitor]() is not yet compatible with high availability Octopus clusters, trying to install the Kubernetes monitor may result in unexpected behavior.
 :::
 
 ## Runtime
