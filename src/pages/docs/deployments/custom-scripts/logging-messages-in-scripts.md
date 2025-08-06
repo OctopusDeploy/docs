@@ -17,7 +17,7 @@ When your scripts emit messages Octopus will display the messages in the Task Lo
 Write-Verbose "This will be logged as a Verbose message - verbose messages are hidden by default"
 Write-Host "This will be logged as Information"
 Write-Output "This will be logged as Information too!"
-Write-Highlight "This is a highlight"
+Write-Highlight "This is a highlight. You can also include markdown to include hyperlinks to [your favorite CD tool website](https://octopus.com)."
 Write-Wait "Deployment is waiting on something"
 Write-Warning "This will be logged as a Warning"
 Write-Error "This will be logged as an Error and may cause your script to stop running - take a look at the section on Error Handling"
@@ -44,7 +44,7 @@ WriteWarning("Warning");
 ```bash
 echo "This will be logged as Information"
 write_verbose "Verbose!!"
-write_highlight "This is a highlight"
+write_highlight "This is a highlight. You can also include markdown to include hyperlinks to [your favorite continuous delivery tool](https://octopus.com)."
 write_wait "Deployment is waiting on something"
 write_warning "Warning"
 >&2 echo "This will be logged as an Error"
@@ -85,6 +85,20 @@ Try these out for yourself using the [Script Console](/docs/administration/manag
 ## Highlight log level
 
 Highlight messages will be show in bold and blue in the task log. They will also appear under the step heading on the Task Summary tab. You can use the highlight level to call out important information such as which upgrade scripts were run, or the exact time a web server go added back into the load balancer pool.
+
+They can also use markdown to expose hyperlinks in your logs. For example, consider the following PowerShell code:
+
+```powershell
+$URI = "https://$($OctopusParameters['Octopus.Machine.Name']).uksouth.cloudapp.azure.com"
+Write-Highlight "Web Application Deployed!"
+Write-Highlight "Click [here]($URI) to open the newly deployed site."
+```
+
+When evaluated, the deployment task summary will show the hyperlink that can be clicked on:
+
+:::figure
+![The Octopus Deployment Task Summary showing an example of a highlighted log level message](/docs/deployments/custom-scripts/images/write-highlight-in-task-summary.png)
+:::
 
 ## Wait log level
 
