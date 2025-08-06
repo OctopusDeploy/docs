@@ -6,7 +6,7 @@ title: Octopus AI Assistant Cookbook
 navTitle: Overview
 navSection: Cookbook
 description: A collection of prompt-based automation examples for Octopus Deploy
-navOrder: 1
+navOrder: 4
 ---
 
 This cookbook includes ready-to-use prompts that help automate and optimize your work with Octopus Deploy.
