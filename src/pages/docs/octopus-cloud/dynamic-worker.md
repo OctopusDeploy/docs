@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-07
-modDate: 2025-06-06
+modDate: 2025-08-08
 title: Dynamic workers
 navTitle: Dynamic workers
 navOrder: 50
