@@ -34,7 +34,7 @@ Self-hosted Octopus Server customers have access to a third type of worker, know
 
 Dynamic workers are isolated virtual machines, hosted and created on-demand by Octopus to run your deployments and runbook steps. Dynamic workers are provided as part of your Octopus Cloud subscription.
 
-Customers may choose between Windows and Ubuntu virtual machine images for their dynamic workers. Octopus provides a [dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools) of these virtual machines from which, as required, your Octopus Cloud will lease a freshly provisioned dynamic worker VM. Leases are held for a maximum of 72 hours.
+Customers may choose between Windows and Ubuntu virtual machine images for their dynamic workers. Octopus provides a [dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools) of each type of these virtual machines from which, as required, your Octopus Cloud will lease a freshly provisioned dynamic worker VM. Leases are held for a maximum of 72 hours. Customers can lease one dynamic worker VM from each pool concurrently.
 
 ## Limitations of dynamic workers
 
