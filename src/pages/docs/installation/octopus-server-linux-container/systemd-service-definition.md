@@ -28,7 +28,7 @@ TimeoutStartSec=0
 RestartSec=5
 Environment="HOME=/root"
 SyslogIdentifier=docker-octopusdeploy
-ExecStartPre=-/usr/bin/docker create --net octopus -m 0b -e "ADMIN_USERNAME=admin" -e "ADMIN_EMAIL=example@example.org" -e "ADMIN_PASSWORD=Password01!" -e "ACCEPT_EULA=Y" -e "DB_CONNECTION_STRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!;ConnectRetryCount=6" -e "MASTER_KEY=6EdU6IWsCtMEwk0kPKflQQ==" -e "DISABLE_DIND=Y" -p 80:8080 -p 10943:10943 --restart=always --name octopusdeploy octopusdeploy/octopusdeploy
+ExecStartPre=-/usr/bin/docker create --net octopus -m 0b -e "ADMIN_USERNAME=admin" -e "ADMIN_EMAIL=example@example.org" -e "ADMIN_PASSWORD=Password01!" -e "ACCEPT_EULA=Y" -e "DB_CONNECTION_STRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!;ConnectRetryCount=6" -e "MASTER_KEY=6EdU6IWsCtMEwk0kPKflQQ==" -e "DISABLE_DIND=Y" -p 80:8080 -p 10943:10943 -p 8443:8443 --restart=always --name octopusdeploy octopusdeploy/octopusdeploy
 ExecStart=/usr/bin/docker start -a octopusdeploy
 ExecStop=-/usr/bin/docker stop --time=0 octopusdeploy
 

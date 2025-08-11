@@ -25,7 +25,12 @@ There are three components to an Octopus Deploy instance:
 - **SQL Server Database** Most data used by the Octopus Server nodes is stored in this database.  SQL Server 2016+ or Azure SQL is required.
 - **Files or BLOB Storage** Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database and are stored on the file system instead.  This can be a local folder, a network file share, or a cloud provider's storage.  
 
-All inbound traffic to Octopus Deploy is either http/https (ports 80/443) or polling tentacles (port 10943).  For production instances of Octopus Deploy, it is best to configure a [load balancer](/docs/installation/load-balancers) to route traffic to your instance.  Leveraging a load balancer offers numerous benefits, such as redirecting users to a maintenance page while the instance is down for upgrading, as well as making it much easier to configure High Availability later.
+All inbound traffic to Octopus Deploy is via:
+- HTTP/HTTPS (ports 80/443)
+- Polling tentacles (port 10943)  
+- gRPC (port 8443)
+
+For production instances of Octopus Deploy, it is best to configure a [load balancer](/docs/installation/load-balancers) to route traffic to your instance.  Leveraging a load balancer offers numerous benefits, such as redirecting users to a maintenance page while the instance is down for upgrading, as well as making it much easier to configure High Availability later.
 
 ## Self-hosted Octopus Server
 
