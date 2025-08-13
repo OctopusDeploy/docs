@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-06-06
+modDate: 2025-08-13
 title: Maintenance windows
 navTitle: Maintenance windows
 navOrder: 80
@@ -31,10 +31,10 @@ We don’t need to maintain your instance daily, and most of our maintenance act
 
 :::div{.hint}
 
-In the 4 months up to and including October 2024, Octopus Cloud instances:
+In the 13 months up to and including July 2025, Octopus Cloud instances:
 
-- Had an average downtime of fewer than 8 minutes per week
-- Experienced any downtime on average fewer than 2 days a week
+- Had average downtime of fewer than 5 minutes per week
+- Experienced downtime on average fewer than 2 days a week
 
 :::
 
