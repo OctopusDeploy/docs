@@ -27,7 +27,8 @@ Scheduled deployment triggers provide a way to configure your projects to create
 3. Set the trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can schedule a trigger based on either days of the week, or dates of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
 4. Select the action the trigger should take when executed.
    - **Deploy latest release** re-deploys a release or promote a release between environments. You need to specify the **source environment** and the **destination environment**. The latest successful release in the source environment will be deployed to the destination environment.
-   - **Deploy new release** deploys a new release which will deployed to the environment you specify in the **destination environment**.
+   - **Deploy new release** which will create new release and deployed to the environment you specify in the **destination environment**.
+   - **Deploy latest release to an environment** deploy the latest release to an environment that in first phase of the selected channel's lifecycle. You need to specify the **destination environment**.
 
     If you are using [channels](/docs/releases/channels) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
 
