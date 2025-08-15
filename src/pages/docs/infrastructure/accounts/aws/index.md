@@ -120,7 +120,7 @@ To pass session tags, use the `Custom Claims` field on the AWS OIDC Account.
 The Claim should be `https://aws.amazon.com/tags`, and the Value should be a JSON object with a `principal_tags` property as documented in the [AWS docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role-idp). 
 
 The example below demonstrates supplying a session tag with a key of `octopus-project` and a value of the project name.
-```
+```json
 
 {
     "principal_tags": {
@@ -136,7 +136,7 @@ The example below demonstrates supplying a session tag with a key of `octopus-pr
 
 You will need to [allow the sts:TagSession action](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_permissions-required) in the Trust relationships policy for the AWS role. For example:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -163,7 +163,7 @@ These session tags can then be used to control access to AWS resources by [taggi
 
 For example, the policy below allows starting and stopping EC2 instances which are tagged with a key of `octopus-project` and a value matching the project supplied in the session tags supplied as shown above. 
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -187,10 +187,6 @@ For example, the policy below allows starting and stopping EC2 instances which a
 }
 ```
 ![AWS IAM Policy](./aws-iam-ec2-start-stop-policy.png)
-
-
-
-
 
 ## AWS account variables
 
