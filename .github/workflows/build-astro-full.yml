@@ -1,7 +1,8 @@
-name: Deploy to Channel
+name: Deploy Full Refresh
 
-on: pull_request
-
+on:
+  workflow_dispatch:
+  
 # Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
@@ -13,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  branch_tests:
+  build_and_deploy:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -60,7 +61,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           echo; echo "listing"
           ls
-          echo; echo "NPM install"
+          echo; echo "PNPM install"
           pnpm install
 
       - name: Astro build and test
@@ -69,7 +70,6 @@ jobs:
           pnpm dev:img
           pnpm test
           pnpm crawl
-          pnpm thin
 
       - name: Set Version
         run: |
@@ -87,7 +87,7 @@ jobs:
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
           package_id: 'DocsMicrosite'
-          version: "${{ env.PACKAGE_VERSION }}-pullrequest"
+          version: "${{ env.PACKAGE_VERSION }}-full"
           base_path: "./dist"
           output_folder: "./artifacts"
           files: |
@@ -110,7 +110,7 @@ jobs:
         uses: OctopusDeploy/push-build-information-action@v3
         if: ${{ env.SHOULD_DEPLOY }}
         with:
-          version: "${{ env.PACKAGE_VERSION }}-pullrequest"
+          version: "${{ env.PACKAGE_VERSION }}-full"
           packages: ${{ steps.package.outputs.package_file_path }}
 
       - name: Create a release in Octopus Deploy 🐙
@@ -119,5 +119,5 @@ jobs:
         if: ${{ env.SHOULD_DEPLOY }}
         with:
           project: "Docs Microsite"
-          package_version: "${{ env.PACKAGE_VERSION }}-pullrequest"
+          package_version: "${{ env.PACKAGE_VERSION }}-full"
           git_ref: ${{ github.ref }}
