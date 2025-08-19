@@ -19,5 +19,5 @@ The reference architecture steps are typically run from a runbook. The runbook r
 
 ## Reference architecture steps
 
-* [AWS EKS](reference-architectures/eks-reference-architecture)
-* [Azure Web Apps](reference-architectures/webapp-reference-architecture)
+- [AWS EKS](/docs/getting-started/reference-architectures/eks-reference-architecture)
+- [Azure Web Apps](/docs/getting-started/reference-architectures/webapp-reference-architecture)

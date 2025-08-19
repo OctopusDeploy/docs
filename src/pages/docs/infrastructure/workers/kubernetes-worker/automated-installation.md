@@ -8,28 +8,32 @@ navOrder: 50
 --- 
 
 ## Automated installation via Terraform
+
 The Kubernetes Worker can be installed and managed using a combination of the [Helm chart >= v2.2.1](https://hub.docker.com/r/octopusdeploy/kubernetes-agent), [Octopus Deploy >= v0.30.0 Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest) and/or [Helm Terraform provider](https://registry.terraform.io/providers/hashicorp/helm).
 
 ### Octopus Deploy & Helm
-Using a combination of the Octopus Deploy and Helm providers you can completely manage the Kubernetes Worker via Terraform. 
+
+Using a combination of the Octopus Deploy and Helm providers you can completely manage the Kubernetes Worker via Terraform.
 
 :::div{.info}
+
 To ensure that the Kubernetes Worker is correctly installed in Octopus, certain criteria must hold for the following Terraform resource properties:
 
-| **Kubernetes Worker resource** | | **Helm resource (chart value)** |
-|----------|----------|----------|
-| `octopusdeploy_kubernetes_agent_worker.name` | must be the same value as | `agent.name` |
-| `octopusdeploy_kubernetes_agent_worker.uri` | must be the same value as | `agent.serverSubscriptionId` |
-| `octopusdeploy_kubernetes_agent_worker.thumbprint` | is the thumbprint calculated from the certificate used in | `agent.certificate` |
+| **Kubernetes Worker resource**                     |                                                           | **Helm resource (chart value)** |
+| -------------------------------------------------- | --------------------------------------------------------- | ------------------------------- |
+| `octopusdeploy_kubernetes_agent_worker.name`       | must be the same value as                                 | `agent.name`                    |
+| `octopusdeploy_kubernetes_agent_worker.uri`        | must be the same value as                                 | `agent.serverSubscriptionId`    |
+| `octopusdeploy_kubernetes_agent_worker.thumbprint` | is the thumbprint calculated from the certificate used in | `agent.certificate`             |
+
 :::
 
 :::div{.warning}
 Always specify the major version in the **version** property on the **helm_release** resource (e.g. `version = "2.*.*"`) to prevent Terraform from defaulting to the latest Helm chart version. This is important, as a newer major version of the Kubernetes Worker Helm chart could introduce breaking changes.
 
-When upgrading to a new major version of the Kubernetes Worker, create a separate resource to ensure the Helm values match the updated schema. [Automatic upgrade support](../../../kubernetes/targets/kubernetes-agent/upgrading#automatic-updates-coming-in-20234) is expected in version 2023.4.
+When upgrading to a new major version of the Kubernetes Worker, create a separate resource to ensure the Helm values match the updated schema. [Automatic upgrade support](/docs/kubernetes/targets/kubernetes-agent/upgrading#automatic-updates-coming-in-20234) is expected in version 2023.4.
 :::
 
-```hcl
+```ruby
 terraform {
   required_providers {
     octopusdeploy = {
@@ -147,11 +151,12 @@ resource "helm_release" "kubernetes_worker" {
 ```
 
 ### Helm
-The Kubernetes Worker can be installed using just the Helm provider alone. However, the associated worker that is created in Octopus cannot be managed solely using the Helm provider. This is because the Helm chart values relating to the worker are only used on initial installation. Any further modifications to them will not trigger an update to the worker unless you perform a complete reinstall of the worker. 
+
+The Kubernetes Worker can be installed using just the Helm provider alone. However, the associated worker that is created in Octopus cannot be managed solely using the Helm provider. This is because the Helm chart values relating to the worker are only used on initial installation. Any further modifications to them will not trigger an update to the worker unless you perform a complete reinstall of the worker.
 
 If you don't intend to manage the Kubernetes Worker configuration through Terraform (choosing to handle it via the Octopus Portal or API instead), this option will be beneficial to you as it is simpler to set up.
 
-```hcl
+```ruby
 terraform {
   required_providers {
     helm = {
