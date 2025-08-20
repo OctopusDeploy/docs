@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-08-18
 title: AWS accounts
 description: Configure your infrastructure so Octopus can deploy infrastructure to AWS and run scripts against the AWS CLI.
 navOrder: 20
@@ -110,6 +110,83 @@ For example, to lock an identity role to any Octopus environment, you can update
 :::div{.hint}
 AWS steps can also defer to the IAM role assigned to the instance that hosts the Octopus Server for authentication. In this scenario there is no need to create the AWS account.
 :::
+
+#### Passing Session Tags
+
+AWS Accounts can be configured to pass [session tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role-idp) when assuming the AWS IAM role. This can be a useful tactic to allow using a single Octopus AWS Account and AWS IAM Role across many projects or environments, reducing configuration sprawl.
+
+To pass session tags, use the `Custom Claims` field on the AWS OIDC Account.
+
+The Claim should be `https://aws.amazon.com/tags`, and the Value should be a JSON object with a `principal_tags` property as documented in the [AWS docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role-idp). 
+
+The example below demonstrates supplying a session tag with a key of `octopus-project` and a value of the project name.
+```json
+
+{
+    "principal_tags": {
+        "octopus-project": ["#{Octopus.Project.Name}"]
+    },
+    "transitive_tag_keys": [
+        "octopus-project"
+    ]
+}
+```
+
+![AWS OIDC Custom Claim](./aws-oidc-custom-claim.png)
+
+You will need to [allow the sts:TagSession action](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_permissions-required) in the Trust relationships policy for the AWS role. For example:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::133577414924:oidc-provider/acme.octopus.app"
+            },
+            "Action": [
+                "sts:AssumeRoleWithWebIdentity",
+                "sts:TagSession"],
+            "Condition": {
+                "StringEquals": {
+                    "acme.octopus.app:aud": "acme.octopus.app"
+                }
+            }
+        }
+    ]
+}
+
+```
+
+These session tags can then be used to control access to AWS resources by [tagging the AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-resources). 
+
+For example, the policy below allows starting and stopping EC2 instances which are tagged with a key of `octopus-project` and a value matching the project supplied in the session tags supplied as shown above. 
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances"
+            ],
+            "Resource": "arn:aws:ec2:*:*:instance/*",
+            "Condition": {
+                "StringEquals": {"aws:ResourceTag/octopus-project": "${aws:PrincipalTag/octopus-project}"}
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:DescribeInstances",
+            "Resource": "*"
+        }
+    ]
+}
+```
+![AWS IAM Policy](./aws-iam-ec2-start-stop-policy.png)
 
 ## AWS account variables
 
