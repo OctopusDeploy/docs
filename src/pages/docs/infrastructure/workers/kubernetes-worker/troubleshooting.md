@@ -9,4 +9,4 @@ description: How to troubleshoot common Kubernetes Worker issues
 navOrder: 60
 ---
 
-For troubleshooting common issues, please refer to the Kubernetes Agent [troubleshooting page](../../../kubernetes/targets/kubernetes-agent/troubleshooting), as the Agent and Worker are based on the same underlying technology.
+For troubleshooting common issues, please refer to the Kubernetes Agent [troubleshooting page](/docs/kubernetes/targets/kubernetes-agent/troubleshooting), as the Agent and Worker are based on the same underlying technology.

@@ -18,8 +18,8 @@ Space level resources are shared by projects and do not tend to change as freque
 
 Managed, or downstream, spaces (i.e. spaces with centrally managed resources) are implemented by deploying space and project level resources as separate processes:
 
-* Space level resources are deployed first to support one or more projects
-* Project level resources are deployed second referencing the space level resources
+- Space level resources are deployed first to support one or more projects
+- Project level resources are deployed second referencing the space level resources
 
 Space level resources are best managed with the [Octopus Terraform provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs).
 
@@ -29,8 +29,8 @@ Space level resources are best managed with the [Octopus Terraform provider](htt
 
 Space level resources can be defined in a Terraform module in two ways:
 
-* Write the module by hand
-* Serialize an existing space to a Terraform module with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport)
+- Write the module by hand
+- Serialize an existing space to a Terraform module with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport)
 
 ## Writing by hand
 
@@ -69,13 +69,14 @@ The following process serializes a space to a Terraform module:
 
 Executing the runbook will:
 
-* Export space level resources (i.e. everything but projects) to a Terraform module
-* Zip the resulting Terraform module files into a package named after the current space
-* Upload the zip file to the built-in feed of the current space, or the space defined in the `Octopus Upload Space ID` field
+- Export space level resources (i.e. everything but projects) to a Terraform module
+- Zip the resulting Terraform module files into a package named after the current space
+- Upload the zip file to the built-in feed of the current space, or the space defined in the `Octopus Upload Space ID` field
 
 The package has two directories:
-* `space_creation`, which contains a Terraform module to create a new space
-* `space_population`, which contains a Terraform module to populate a space with the exported resources.
+
+- `space_creation`, which contains a Terraform module to create a new space
+- `space_population`, which contains a Terraform module to populate a space with the exported resources.
 
 :::div{.hint}
 Many of the exported resources expose values, like resource names, as Terraform variables with default values. You can override these variables when applying the module to customize the resources, or leave the Terraform variables with their default value to recreate the resources with their original names.

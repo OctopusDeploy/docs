@@ -7,7 +7,7 @@ description: Learn how to merge changes to downstream repos
 navOrder: 9
 ---
 
-When upstream and downstream projects are [configured with CaC and backed by forked repositories](forking-git-repos) it becomes possible to merge changes from upstream to downstream repositories.
+When upstream and downstream projects are [configured with CaC and backed by forked repositories](/docs/platform-engineering/forking-git-repos) it becomes possible to merge changes from upstream to downstream repositories.
 
 The `Octopus - Merge CaC Updates` steps merges changes by:
 

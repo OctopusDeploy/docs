@@ -33,14 +33,14 @@ This pattern is very easy to implement, as it often involves little more than cr
 
 However, spaces do have some limitations. Because spaces belong to a single Octopus installation, and Octopus installations need a low latency connection to the database, spaces do not let you co-locate Octopus with geographically dispersed teams. Plus, all tasks initiated by spaces use a shared task queue. When projects in a space queue many tasks, other spaces have to wait for their deployments to be processed. This is commonly known as the "noisy neighbor" problem.
 
-| Feature  | Solves  |
-|---|---|
-| Independent projects, runbooks, dashboards etc  | ✓ | 
-| Task execution guarantees for business unit/application | ✕ |
-| Shared authentication settings | ✓ |
-| Synchronized projects, runbooks, dashboards etc | ✕ |
-| Supports geographically disperse business units | ✕ |
-| Robust RBAC support | ✓ |
+| Feature                                                 | Solves |
+| ------------------------------------------------------- | ------ |
+| Independent projects, runbooks, dashboards etc          | ✓      |
+| Task execution guarantees for business unit/application | ✕      |
+| Shared authentication settings                          | ✓      |
+| Synchronized projects, runbooks, dashboards etc         | ✕      |
+| Supports geographically disperse business units         | ✕      |
+| Robust RBAC support                                     | ✓      |
 
 ## Independent instance per business unit/region
 
@@ -58,14 +58,14 @@ Like the independent space pattern, the independent instance pattern is easy to 
 - Audit log streaming
 - And more
 
-| Feature  | Solves  |
-|---|---|
-| Independent projects, runbooks, dashboards etc  | ✓ | 
-| Task execution guarantees for team/customer | ✓ |
-| Shared authentication settings | ✕ |
-| Synchronized projects, runbooks, dashboards etc | ✕ |
-| Supports geographically disperse teams/customers | ✓ |
-| Robust RBAC support | ✓ |
+| Feature                                          | Solves |
+| ------------------------------------------------ | ------ |
+| Independent projects, runbooks, dashboards etc   | ✓      |
+| Task execution guarantees for team/customer      | ✓      |
+| Shared authentication settings                   | ✕      |
+| Synchronized projects, runbooks, dashboards etc  | ✕      |
+| Supports geographically disperse teams/customers | ✓      |
+| Robust RBAC support                              | ✓      |
 
 ## Tenant per customer
 
@@ -79,14 +79,14 @@ However, the RBAC controls around tenants are not expressive enough to isolate c
 
 You can find more information about [tenants in our documentation](https://octopus.com/docs/tenants).
 
-| Feature  | Solves  |
-|---|---|
-| Independent projects, runbooks, dashboards etc  | ✕ | 
-| Task execution guarantees for team/customer | ✕ |
-| Shared authentication settings |  ✓|
-| Synchronized projects, runbooks, dashboards etc |✓  |
-| Supports geographically disperse teams/customers | ✕ |
-| Robust RBAC support |✕ |
+| Feature                                          | Solves |
+| ------------------------------------------------ | ------ |
+| Independent projects, runbooks, dashboards etc   | ✕      |
+| Task execution guarantees for team/customer      | ✕      |
+| Shared authentication settings                   | ✓      |
+| Synchronized projects, runbooks, dashboards etc  | ✓      |
+| Supports geographically disperse teams/customers | ✕      |
+| Robust RBAC support                              | ✕      |
 
 ## Managed space per business unit/application
 
@@ -96,15 +96,14 @@ This solution represents a typical "hub and spoke", or [platform engineering](ht
 
 A tenant represents each space in the management space, also known as the upstream space. And deployment projects or runbooks configure the managed spaces, also known as downstream spaces. You can use the Terraform provider or raw API scripting to push configuration for shared resources, like template projects, to the managed spaces.
 
-
-| Feature  | Solves  |
-|---|---|
-| Independent projects, runbooks, dashboards etc  | ✓ | 
-| Task execution guarantees for team/customer | ✕ |
-| Shared authentication settings |  ✓|
-| Synchronized projects, runbooks, dashboards etc |✓  |
-| Supports geographically disperse teams/customers | ✕ |
-| Robust RBAC support |✓ |
+| Feature                                          | Solves |
+| ------------------------------------------------ | ------ |
+| Independent projects, runbooks, dashboards etc   | ✓      |
+| Task execution guarantees for team/customer      | ✕      |
+| Shared authentication settings                   | ✓      |
+| Synchronized projects, runbooks, dashboards etc  | ✓      |
+| Supports geographically disperse teams/customers | ✕      |
+| Robust RBAC support                              | ✓      |
 
 ## Managed instance per business unit/region
 
@@ -114,14 +113,14 @@ Like the "managed space per business unit/application" pattern, this represents 
 
 A tenant represents each managed Octopus instance in the management (or upstream) space. And deployment projects or runbooks configure the managed (or downstream) Octopus instances. You can use the Terraform provider or raw API scripting to push configuration for shared resources, like template projects, to the managed instances.
 
-| Feature  | Solves  |
-|---|---|
-| Independent projects, runbooks, dashboards etc  | ✓ | 
-| Task execution guarantees for team/customer | ✓ |
-| Shared authentication settings |  ✓|
-| Synchronized projects, runbooks, dashboards etc |✓  |
-| Supports geographically disperse teams/customers | ✓ |
-| Robust RBAC support |✓ |
+| Feature                                          | Solves |
+| ------------------------------------------------ | ------ |
+| Independent projects, runbooks, dashboards etc   | ✓      |
+| Task execution guarantees for team/customer      | ✓      |
+| Shared authentication settings                   | ✓      |
+| Synchronized projects, runbooks, dashboards etc  | ✓      |
+| Supports geographically disperse teams/customers | ✓      |
+| Robust RBAC support                              | ✓      |
 
 ## Facade space per customer
 
@@ -131,14 +130,14 @@ This pattern provides each customer with their own space. Each customer space ha
 
 This approach has the benefit of only requiring you to create very simple projects in each managed space. A tenant represents each customer in the management space, taking advantage of the built-in features of tenants. Customers log into their own space, providing a high degree of security.
 
-| Feature  | Solves  |
-|---|---|
-| Independent projects, runbooks, dashboards etc  | not required| 
-| Task execution guarantees for team/customer | ✕ |
-| Shared authentication settings |  ✓|
-| Synchronized projects, runbooks, dashboards etc | not required |
-| Supports geographically disperse teams/customers | ✕ |
-| Robust RBAC support |✓ |
+| Feature                                          | Solves       |
+| ------------------------------------------------ | ------------ |
+| Independent projects, runbooks, dashboards etc   | not required |
+| Task execution guarantees for team/customer      | ✕            |
+| Shared authentication settings                   | ✓            |
+| Synchronized projects, runbooks, dashboards etc  | not required |
+| Supports geographically disperse teams/customers | ✕            |
+| Robust RBAC support                              | ✓            |
 
 ## Custom UI over Octopus Installation
 
@@ -152,15 +151,14 @@ This solution also allows orchestrating deployments across multiple Octopus inst
 
 You can find more information about the [Octopus REST API in our documentation](https://octopus.com/docs/octopus-rest-api).
 
-| Feature  | Solves  |
-|---|---|
-| Independent projects, runbooks, dashboards etc  | ✓| 
-| Task execution guarantees for team/customer | ✓ |
-| Shared authentication settings |  ✓|
-| Synchronized projects, runbooks, dashboards etc | not required |
-| Supports geographically disperse teams/customers | ✓ |
-| Robust RBAC support |✓ |
-
+| Feature                                          | Solves       |
+| ------------------------------------------------ | ------------ |
+| Independent projects, runbooks, dashboards etc   | ✓            |
+| Task execution guarantees for team/customer      | ✓            |
+| Shared authentication settings                   | ✓            |
+| Synchronized projects, runbooks, dashboards etc  | not required |
+| Supports geographically disperse teams/customers | ✓            |
+| Robust RBAC support                              | ✓            |
 
 ## Managed instance per environment
 
@@ -175,14 +173,14 @@ Unlike the previous patterns, this pattern is less concerned with providing the 
 This pattern may also use used to isolate Octopus installations for compliance reasons, such as PCI. Having a separate Octopus installation for the production environment makes it easy demonstrate access controls and other security measures when undertaking
 security audits.
 
-| Feature  | Solves  |
-|---|---|
-| Independent projects, runbooks, dashboards etc  | N/A | 
-| Task execution guarantees for team/customer | N/A |
-| Shared authentication settings | N/A|
-| Synchronized projects, runbooks, dashboards etc | ✓ |
-| Supports geographically disperse teams/customers | N/A |
-| Robust RBAC support | N/A |
+| Feature                                          | Solves |
+| ------------------------------------------------ | ------ |
+| Independent projects, runbooks, dashboards etc   | N/A    |
+| Task execution guarantees for team/customer      | N/A    |
+| Shared authentication settings                   | N/A    |
+| Synchronized projects, runbooks, dashboards etc  | ✓      |
+| Supports geographically disperse teams/customers | N/A    |
+| Robust RBAC support                              | N/A    |
 
 ## Conclusion
 
@@ -197,7 +195,7 @@ Some of these patterns require little effort to deploy or are deeply embedded in
 
 The "custom UI over Octopus installation" is an advanced pattern that requires a dedicated development team to build a web application that consumes the Octopus REST API. You can refer to the [API documentation](https://octopus.com/docs/octopus-rest-api) for more information if you're interested in this pattern.
 
-The following patterns are implemented using the strategies documented in the [managing space resources](managing-space-resources) and [managing project resources](managing-project-resources) sections:
+The following patterns are implemented using the strategies documented in the [managing space resources](/docs/platform-engineering/managing-space-resources) and [managing project resources](/docs/platform-engineering/managing-project-resources) sections:
 
 - Managed space per business unit/application
 - Managed instance per business unit/region
