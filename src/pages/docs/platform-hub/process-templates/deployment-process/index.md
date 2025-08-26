@@ -108,12 +108,12 @@ To define a simple deployment process in Octopus that executes a hello world scr
 8. In the Execution Location section select the **Run on the worker pool parameter** option.
 9. Create a Worker Pool parameter from the parameters tab.
 10. Add the Worker Pool parameter to the **Worker Pool** field.
-11. Paste the following PowerShell script into the **Inline Source Code** editor.
+11. Paste the following PowerShell script into the **Inline Source Code** editor:
 
-~~~ps
-Write-Host "Hello, World!" 
-~~~
+    ```powershell
+    Write-Host "Hello, World!" 
+    ```
 
-12. Click the **Commit** button
+12. Click the **Commit** button.
 
 You now have a simple hello world process template that can be published and shared with any project.
