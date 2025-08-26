@@ -3,7 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2025-07-17
 title: Platform Hub accounts
 navTitle: Accounts
-description: Creating and managing Accounts in Platform Hub 
+description: Creating and managing Accounts in Platform Hub
+navOrder: 100
 ---
 
 You can create and manage Accounts in Platform Hub that can be used inside process templates. 
