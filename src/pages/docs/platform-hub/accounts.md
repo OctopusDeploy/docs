@@ -7,7 +7,7 @@ description: Creating and managing Accounts in Platform Hub
 navOrder: 100
 ---
 
-You can create and manage Accounts in Platform Hub that can be used inside process templates. 
+You can create and manage Accounts in Platform Hub that can be used inside process templates.
 
 You can create the following Account types by visiting the **Accounts** navigation item in the Platform Hub navigation menu.
 
@@ -17,9 +17,9 @@ You can create the following Account types by visiting the **Accounts** navigati
 - SSH Key Pair
 - Username/Password
 - Token
-- Generic OIDC 
+- Generic OIDC
 
-To use these Accounts inside a process template, you must create a parameter that references these Accounts first. 
+To use these Accounts inside a process template, you must create a parameter that references these Accounts first.
 
 :::hint
 Platform Hub Account details will not be shown inside a consuming project
