@@ -1,5 +1,6 @@
 ---
 layout: src/layouts/Default.astro
+pubDate: 2025-07-17
 title: Platform Hub
 navTitle: Platform Hub Accounts
 navSection: Platform Hub
