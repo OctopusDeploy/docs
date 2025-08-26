@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-07-17
-title: Platform Hub
+title: Platform Hub accounts
 navTitle: Platform Hub Accounts
 navSection: Platform Hub
 description: Creating and managing Accounts in Platform Hub 
