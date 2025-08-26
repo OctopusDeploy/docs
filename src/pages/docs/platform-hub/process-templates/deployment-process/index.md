@@ -2,7 +2,6 @@
 layout: src/layouts/Default.astro
 title: Process template deployment process
 description: Defining your deployment process inside a process template
-hideInThisSection: false
 ---
 
 You've created your process template; now, define the deployment process it will use.
