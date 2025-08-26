@@ -19,7 +19,7 @@ Once you have set up a deployment process, you can use it in any space for a dep
 
 ## Parameters
 
-Parameters are how you easily manage and apply the correct vlaues during a deployment that uses a process template. Using parameters, you can use the same process template across your environments and tailor the inputs based on the projects needs.
+Parameters are how you easily manage and apply the correct values during a deployment that uses a process template. Using parameters, you can use the same process template across your environments and tailor the inputs based on the projects needs.
 
 Process Templates can manage the following as parameters.
 
@@ -104,7 +104,7 @@ To define a simple deployment process in Octopus that executes a hello world scr
 4. Click **Add Step**
 5. Choose the type of step you'd like to add to filter the available steps: **Script**.
 6. Find the **Run a Script** step and click **Add Step**.
-7. In the Process Editor, give the step a name, for instance > Run Hello World scipt.
+7. In the Process Editor, give the step a name, for instance > Run Hello World script.
 8. In the Execution Location section select the **Run on the worker pool parameter** option.
 9. Create a Worker Pool parameter from the parameters tab.
 10. Add the Worker Pool parameter to the **Worker Pool** field.
