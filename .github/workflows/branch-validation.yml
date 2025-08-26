@@ -22,7 +22,7 @@ jobs:
       SHOULD_DEPLOY: ${{ secrets.OCTOPUSSERVERURL != '' || '' }}
       OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
       OCTOPUS_API_KEY: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-      OCTOPUS_SPACE: 'DevOps Microsite'
+      OCTOPUS_SPACE: "DevOps Microsite"
 
     steps:
       - name: Checkout
@@ -31,6 +31,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
+          version: 10.13.1
           run_install: false
 
       - name: Setup Node
@@ -39,6 +40,19 @@ jobs:
           node-version: 18
           cache: 'pnpm'
           cache-dependency-path: 'pnpm-lock.yaml'
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: PNPM and Playwright install
         run: |
@@ -54,7 +68,8 @@ jobs:
           export NODE_OPTIONS=--max_old_space_size=4096
           pnpm dev:img
           pnpm test
-          node ./src/themes/octopus/utilities/page-report.js
+          pnpm crawl
+          pnpm thin
 
       - name: Set Version
         run: |
@@ -72,9 +87,9 @@ jobs:
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
           package_id: 'DocsMicrosite'
-          version: '${{ env.PACKAGE_VERSION  }}-pullrequest'
-          base_path: './dist'
-          output_folder: './artifacts'
+          version: "${{ env.PACKAGE_VERSION }}-pullrequest"
+          base_path: "./dist"
+          output_folder: "./artifacts"
           files: |
             **/*.*
 
@@ -95,14 +110,14 @@ jobs:
         uses: OctopusDeploy/push-build-information-action@v3
         if: ${{ env.SHOULD_DEPLOY }}
         with:
-          version: '${{ env.PACKAGE_VERSION }}-pullrequest'
+          version: "${{ env.PACKAGE_VERSION }}-pullrequest"
           packages: ${{ steps.package.outputs.package_file_path }}
 
       - name: Create a release in Octopus Deploy 🐙
-        id: 'create_release'
+        id: "create_release"
         uses: OctopusDeploy/create-release-action@v3
         if: ${{ env.SHOULD_DEPLOY }}
         with:
-          project: 'Docs Microsite'
-          package_version: '${{ env.PACKAGE_VERSION }}-pullrequest'
+          project: "Docs Microsite"
+          package_version: "${{ env.PACKAGE_VERSION }}-pullrequest"
           git_ref: ${{ github.ref }}

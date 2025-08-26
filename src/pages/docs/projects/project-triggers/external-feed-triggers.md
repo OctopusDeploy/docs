@@ -21,7 +21,7 @@ The details of these container images and Helm Charts are already known in Octop
 
   Create releases when any referenced images used in your Helm charts are updated.
 
-- [Tracking third party Helm charts](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts)
+- [Tracking third party Helm charts](/docs/kubernetes/tutorials/automatically-track-third-party-helm-charts)
 
   Create releases whenever a third party releases a new Helm chart.
 
