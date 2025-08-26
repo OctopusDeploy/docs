@@ -15,17 +15,17 @@ We've trained the large language model used by the Octopus AI Assistant with han
 
 When you launch the Octopus AI Assistant, one of the examples is to create a new project:
 
-![Octopus AI Assistant default prompt window](/docs/administration/octopus-ai-assistant/octopus-ai-assistant-project-creation-examples.png)
+![Octopus AI Assistant default prompt window](/docs/octopus-ai-assistant/octopus-ai-assistant-project-creation-examples.png)
 
 Selecting this will present you with our pre-configured project creation prompts, which use a scaffolded template with our best practices built in:
 
-![Octopus AI Assistant pre-configured project options](/docs/administration/octopus-ai-assistant/octopus-ai-assistant-project-creation-examples-2.png)
+![Octopus AI Assistant pre-configured project options](/docs/octopus-ai-assistant/octopus-ai-assistant-project-creation-examples-2.png)
 
 Choose one of the example prompts to create an opinionated project. In the example (below), the prompt **Create an Azure Web App project called "Azure Web App"** is selected. This can be customized through the prompt based on your specific requirements. Check the [expanding on the example prompts](#expanding-on-the-example-prompts) section of the documentation.
 
 The Octopus AI Assistant may take 60-90 seconds to generate plan for the project. When it has generated the resource configuration, the output of `terraform plan` will be displayed so you can see all resources that will be created. You can approve or abort.
 
-![Deploying an Azure web app project with the Octopus AI Assistant](/docs/administration/octopus-ai-assistant/octopus-ai-assistant-project-create-azure-webapp.png)
+![Deploying an Azure web app project with the Octopus AI Assistant](/docs/octopus-ai-assistant/octopus-ai-assistant-project-create-azure-webapp.png)
 
 After the project is created, the next step is to create and deploy a release to validate the project setup. The deployment logs provide instructions and links to help you customize your project further.
 
@@ -44,7 +44,7 @@ Each project deployed with our best practices has a step in the process to valid
 
 When the deployment completes, go to the **Task Summary** tab for the release. The important step to check is **Step 1: Validate setup**, and review the output. This step runs a predefined script to check the configuration of your Octopus Deploy environment, and highlights any steps you need to take before you can run a deployment using this project. If we tell you an element hasn't been configured, we also provide you with a link to the documentation on how to configure it.
 
-![Octopus AI Assistant pre-configured project options](/docs/administration/octopus-ai-assistant/octopus-ai-assistant-project-create-validate-setup.png)
+![Octopus AI Assistant pre-configured project options](/docs/octopus-ai-assistant/octopus-ai-assistant-project-create-validate-setup.png)
 
 You can also use the Octopus AI Assistant to help guide you through these configuration items. Treat the assistant like any other large language model chatbot. For example, you could ask:
 

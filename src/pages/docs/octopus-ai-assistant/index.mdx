@@ -1,12 +1,12 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-04-04
-modDate: 2025-07-14
+modDate: 2025-08-01
 title: Octopus AI Assistant
 navTitle: Overview
 navSection: Octopus AI Assistant
 description: How to use Octopus AI Assistant to create projects, analyze deployments, optimize configurations, and get instant help with Octopus Deploy
-navOrder: 100
+navOrder: 26
 ---
 
 Octopus AI Assistant integrates AI functionality directly into the Octopus Deploy interface to accelerate your DevOps workflows. Whether you're getting started with Octopus Deploy, troubleshooting deployment failures, or optimizing existing configurations, the AI Assistant provides context-aware guidance and automation to help you work more efficiently.
@@ -15,7 +15,9 @@ Octopus AI Assistant integrates AI functionality directly into the Octopus Deplo
 The Octopus AI Assistant Alpha is a feature released to an audience who has opted-in to provide feedback. The feature is not finished or fully tested. It may not be supported through regular channels. It may change drastically or may never ship.
 :::
 
-![Octopus AI Assistant Screenshot](/docs/administration/octopus-ai-assistant/octopus-ai-assistant.png)
+![Octopus AI Assistant Screenshot](/docs/octopus-ai-assistant/octopus-ai-assistant.png)
+
+To begin, see our [Getting Started](/docs/octopus-ai-assistant/getting-started) guide for setup instructions.
 
 ## Core capabilities
 
@@ -50,7 +52,7 @@ Example prompts:
 - `Create an Azure Web App project called "My Web App"`
 - `Generate an AWS Lambda project with QA and Production environments`
 
-[Learn more about project creation.](/docs/administration/octopus-ai-assistant/project-creation)
+[Learn more about project creation.](/docs/octopus-ai-assistant/project-creation)
 
 ### Deployment failure analysis
 
@@ -61,7 +63,7 @@ Example prompts:
 - `Why did the deployment fail?`
 - `Help me understand this deployment error`
 
-[Learn more about deployment failure analysis.](/docs/administration/octopus-ai-assistant/deployment-failure-analyzer)
+[Learn more about deployment failure analysis.](/docs/octopus-ai-assistant/deployment-failure-analyzer)
 
 ### Best practices optimization
 
@@ -73,32 +75,11 @@ Example prompts:
 - `Check for duplicate project variables`
 - `Suggest tenant tags to make tenants more manageable`
 
-[Learn more about the best practices adviser.](/docs/administration/octopus-ai-assistant/best-practices-adviser)
+[Learn more about the best practices adviser.](/docs/octopus-ai-assistant/best-practices-adviser)
 
 ## Custom prompts for organizational needs
 
-For teams with specific internal processes, you can enhance any AI Assistant capability with [custom prompts](/docs/administration/octopus-ai-assistant/custom-prompts) that embed your organization's knowledge, procedures, and support channels directly into the AI responses.
-
-## Getting started
-
-### Prerequisites
-
-- An Octopus instance (cloud or on-premises with [public accessibility](#using-with-on-premises-instances))
-- A Chromium-based browser (Chrome, Brave, Edge, etc.) that supports Chrome Web Store extensions
-
-### Installation
-
-1. Install the [Octopus AI Assistant Chrome extension](https://oc.to/install-ai-assistant)
-2. Navigate to your Octopus Deploy instance. You will see a new icon in the top right corner of your Chrome browser
-3. Click the AI Assistant icon in your browser to start using the assistant
-
-### Using with on-premises instances
-
-For on-premises Octopus instances, ensure your server accepts HTTP requests from IP address `51.8.40.170` to enable AI Assistant functionality.
-
-:::div{.warning}
-It is not possible to integrate Octopus AI Assistant with an on-premises Octopus instance that cannot accept HTTP requests from this public IP address.
-:::
+For teams with specific internal processes, you can enhance any AI Assistant capability with [custom prompts](/docs/octopus-ai-assistant/custom-prompts) that embed your organization's knowledge, procedures, and support channels directly into the AI responses.
 
 ## We want your feedback
 

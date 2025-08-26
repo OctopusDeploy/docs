@@ -22,12 +22,13 @@ To create a runbook to restart Tomcat:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
-| Tomcat Manage URL | URL of the Tomcat Manager | http://localhost:8080/manager |
-| Management user | Name of the management account | tomcat |
-| Management password | Password for the management account | MySecretPassword!!! |
-| Context path | The relative URL to your application | /myapp |
-| Deployment version | Version number of your application | 1.0.0.1 |
+| Tomcat Manage URL | URL of the Tomcat Manager | `http://localhost:8080/manager` |
+| Management user | Name of the management account | `tomcat` |
+| Management password | Password for the management account | `MySecretPassword!!!` |
+| Context path | The relative URL to your application | `/my-app` |
+| Deployment version | Version number of your application | `1.0.0.1` |
 
 The last option under `Advanced Options` is a radio button with two options:
+
 - Leave the application running (default). Note, This option will start the app if in a stopped state.
 - Stop the application

@@ -13,7 +13,7 @@ The suggested prompts in the Octopus AI Assistant will surface examples to use t
 
 For example, if you open a project and launch Octopus AI Assistant, you will see these suggested prompts:
 
-![Best Practices Adviser Screenshot](/docs/administration/octopus-ai-assistant/best-practices-adviser.png)
+![Best Practices Adviser Screenshot](/docs/octopus-ai-assistant/best-practices-adviser.png)
 
 `Find unused variables to help improve the maintainability of the project` is a suggested prompt that will use the best practices advisor. In the screenshot (above), it is run in the context of a project called "k8s deployment", and the Best Practices Adviser found three unused variables. It then links to documentation to provide more information about the finding, and actionable remediation steps.
 

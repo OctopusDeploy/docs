@@ -40,11 +40,11 @@ The Octopus AI Assistant will analyze the deployment context and provide:
 
 Below is a basic example of how the Deployment Failure Analyzer works in practice. The analyzer identified that an Azure Resource Group could not be found during deployment and provided troubleshooting guidance, including verifying the resource group exists, checking Azure account permissions, looking for typos in the configuration, and enabling step retries for intermittent issues.
 
-![Deployment failure analysis example](/docs/administration/octopus-ai-assistant/deployment-failure-analyzer-example.png)
+![Deployment failure analysis example](/docs/octopus-ai-assistant/deployment-failure-analyzer-example.png)
 
 ## Adding business logic using custom prompts
 
-For organizations with specific internal processes and troubleshooting procedures, you can enhance the Deployment Failure Analyzer with custom business logic using [custom prompts](/docs/administration/octopus-ai-assistant/custom-prompts). Custom prompts are defined as variables in Library Variable Sets within Octopus Deploy, allowing you to embed organization-specific guidance and next steps directly into the failure analysis responses.
+For organizations with specific internal processes and troubleshooting procedures, you can enhance the Deployment Failure Analyzer with custom business logic using [custom prompts](/docs/octopus-ai-assistant/custom-prompts). Custom prompts are defined as variables in Library Variable Sets within Octopus Deploy, allowing you to embed organization-specific guidance and next steps directly into the failure analysis responses.
 
 Custom prompts work by combining a user-facing prompt (`PageName[#].Prompt`) with an optional system prompt (`PageName[#].SystemPrompt`) that contains your business logic. The `.Prompt` variable defines what users see and interact with, while the `.SystemPrompt` variable provides behind-the-scenes instructions that guide the AI's analysis without being visible to users.
 
@@ -65,8 +65,8 @@ In this example, when the analyzer detects an issue related to a missing Azure R
 2. Provide specific instructions to create a support ticket via the team's Slack workflow
 3. Direct users to the appropriate team channel rather than providing generic troubleshooting steps
 
-![Deployment failure analysis example with custom prompt](/docs/administration/octopus-ai-assistant/deployment-failure-analyzer-custom-prompt-example.png)
+![Deployment failure analysis example with custom prompt](/docs/octopus-ai-assistant/deployment-failure-analyzer-custom-prompt-example.png)
 
 This approach ensures users get immediate, actionable guidance that follows your organization's established support processes, reducing resolution time and ensuring consistency across teams.
 
-For detailed instructions on setting up custom prompts, including variable naming conventions and supported pages, see the [custom prompts documentation](/docs/administration/octopus-ai-assistant/custom-prompts).
+For detailed instructions on setting up custom prompts, including variable naming conventions and supported pages, see the [custom prompts documentation](/docs/octopus-ai-assistant/custom-prompts).

@@ -18,22 +18,22 @@ Space level resources are shared by projects and do not tend to change as freque
 
 Managed, or downstream, spaces (i.e. spaces with centrally managed resources) are implemented by deploying space and project level resources as separate processes:
 
-* Space level resources are deployed first to support one or more projects
-* Project level resources are deployed second referencing the space level resources
+- Space level resources are deployed first to support one or more projects
+- Project level resources are deployed second referencing the space level resources
 
 There are two ways to manage project level resources:
 
-* Define database backed projects, complete with all deployment steps, with Terraform
-* Define the configuration of a [Config-as-code](/docs/projects/version-control) (CaC) project with Terraform, while deferring the configuration of CaC managed settings like the deployment process, non-secret variables, and some project settings to configuration stored in Git
+- Define database backed projects, complete with all deployment steps, with Terraform
+- Define the configuration of a [Config-as-code](/docs/projects/version-control) (CaC) project with Terraform, while deferring the configuration of CaC managed settings like the deployment process, non-secret variables, and some project settings to configuration stored in Git
 
-Defining database backed projects in Terraform is useful for [centralized responsibility](levels-of-responsibility) projects where the customer has little or no ability to modify the project, or [customer responsibility](levels-of-responsibility) projects where projects are not centrally updated after they are created.
+Defining database backed projects in Terraform is useful for [centralized responsibility](/docs/platform-engineering/levels-of-responsibility) projects where the customer has little or no ability to modify the project, or [customer responsibility](/docs/platform-engineering/levels-of-responsibility) projects where projects are not centrally updated after they are created.
 
-Defining CaC projects is useful for [shared responsibility](levels-of-responsibility) projects where deployment processes can be modified by customers and the platform team, with differences reconciled with Git merges.
+Defining CaC projects is useful for [shared responsibility](/docs/platform-engineering/levels-of-responsibility) projects where deployment processes can be modified by customers and the platform team, with differences reconciled with Git merges.
 
 Project level resources can be defined in a Terraform module in two ways:
 
-* Write the module by hand
-* Serialize an existing project to a Terraform module with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport)
+- Write the module by hand
+- Serialize an existing project to a Terraform module with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport)
 
 ## Writing by hand
 
@@ -167,9 +167,9 @@ The steps documented below are best run on the `Hosted Ubuntu` worker pools for 
 
 Executing the runbook will:
 
-* Export the project to a Terraform module
-* Zip the resulting files
-* Upload the zip file to the built-in feed of the current space or the space defined in the `Octopus Upload Space ID` field
+- Export the project to a Terraform module
+- Zip the resulting files
+- Upload the zip file to the built-in feed of the current space or the space defined in the `Octopus Upload Space ID` field
 
 The zip file has one directory called `space_population` which contains a Terraform module to populate a space with the exported resources.
 
