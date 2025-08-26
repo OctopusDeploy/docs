@@ -1,10 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-07-17
-title: Platform Hub
+title: Platform Hub Git Credentials
 icon: fa-solid fa-octopus
-navTitle: Platform Hub Git Credentials
-navSection: Platform Hub
+navTitle: Git Credentials
 description: Creating and managing Git Credentials in Platform Hub 
 ---
 

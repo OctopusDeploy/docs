@@ -2,6 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-07-17
 title: Using process templates in a project
+navTitle: Using Process Templates
 description: How to use a process template in a project
 
 ---
