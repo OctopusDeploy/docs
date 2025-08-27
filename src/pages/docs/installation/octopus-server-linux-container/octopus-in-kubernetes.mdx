@@ -148,7 +148,7 @@ spec:
 
 Unlike the Octopus Web Portal, Polling Tentacles must be able to connect to each Octopus node individually to pick up new tasks. Our Octopus HA cluster assumes two nodes, therefore a load balancer is required for each node to allow direct access.
 
-The following YAML creates load balancers with separate public IPs for each node. They direct web traffic to each node on port `80`, Polling Tentacle traffic on port `10943` and gRPC traffic on port `8443`.
+The following YAML creates load balancers with separate public IPs for each node. They direct web traffic to each node on port `80`, Polling Tentacle traffic on port `10943`, and gRPC traffic on port `8443`.
 
 The `octopus-0` load balancer:
 ```yaml
