@@ -7,7 +7,7 @@ description: Learn how to scan downstream CaC repos for drift
 navOrder: 8
 ---
 
-When upstream and downstream projects are [configured with CaC and backed by forked repositories](forking-git-repos) it becomes possible to track drift.
+When upstream and downstream projects are [configured with CaC and backed by forked repositories](/docs/platform-engineering/forking-git-repos) it becomes possible to track drift.
 
 The `Octopus - Find CaC Updates` steps detect drift by:
 
