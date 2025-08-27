@@ -17,7 +17,7 @@ This page will help you diagnose and solve issues with Kubernetes Live Object St
 
 Some firewalls may prevent the applications from making outbound connections over non-standard ports. If this is preventing the Kubernetes monitor from connecting to your Octopus Server, configure your environment to allow outbound connections.
 
-For customers running a self-hosted instance, ensure that Octopus Server's `grpcListenPort` parameter is configured to be 8443, or that the Kubernetes monitors `server-grpc-url` parameter has been updated to match.
+For customers running a self-hosted instance, ensure that Octopus Server's `grpcListenPort` parameter is configured to be 8443. If using a port other than 8443, ensure the Kubernetes monitor's `server-grpc-url` parameter has been updated to match.
 
 :::div{.warning}
 The [Kubernetes monitor]() is not yet compatible with high availability Octopus clusters, trying to install the Kubernetes monitor may result in unexpected behavior.
