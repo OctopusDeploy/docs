@@ -21,12 +21,12 @@ Runbooks are not managed by Config-as-code.
 
 Runbooks can be defined in a Terraform module in two ways:
 
-* Write the module by hand
-* Serialize an existing project to a Terraform module with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport)
+- Write the module by hand
+- Serialize an existing project to a Terraform module with [octoterra](https://github.com/OctopusSolutionsEngineering/OctopusTerraformExport)
 
 ## Writing by hand
 
-The process of defining a runbook in Terraform is much the same as defining a project. Both a runbook and a project have the concept of a deployment process that defines the steps to be run. See the [Managing project resources](managing-project-resources) section for more information on defining steps in Terraform by hand.
+The process of defining a runbook in Terraform is much the same as defining a project. Both a runbook and a project have the concept of a deployment process that defines the steps to be run. See the [Managing project resources](/docs/platform-engineering/managing-project-resources) section for more information on defining steps in Terraform by hand.
 
 ## Serializing with octoterra
 
@@ -55,9 +55,9 @@ The steps documented below are best run on the `Hosted Ubuntu` worker pools for 
 
 Executing the runbook will:
 
-* Export the runbook to a Terraform module
-* Zip the resulting files
-* Upload the zip file to the built-in feed of the current space or the space defined in the `Octopus Upload Space ID` field
+- Export the runbook to a Terraform module
+- Zip the resulting files
+- Upload the zip file to the built-in feed of the current space or the space defined in the `Octopus Upload Space ID` field
 
 The zip file has one directory called `space_population` which contains a Terraform module to populate a space with the exported resources.
 
@@ -69,7 +69,7 @@ Many of the exported resources expose values, like resource names, as Terraform 
 
 The exported module defines only the runbook and the runbook deployment process. It does not define other project level resources like project variables or variable sets. Any project that the exported runbook is added to is expected to define all the variables referenced by the runbook.
 
-Any project level variables required by the runbook can be defined as Terraform resources and deployed alongside the exported runbook module. The instructions documented in the [Managing project resources](managing-project-resources) section can be used to export a project to a Terraform module. The project level variables can be copied from the exported project module and placed in their own module as needed. 
+Any project level variables required by the runbook can be defined as Terraform resources and deployed alongside the exported runbook module. The instructions documented in the [Managing project resources](/docs/platform-engineering/managing-project-resources) section can be used to export a project to a Terraform module. The project level variables can be copied from the exported project module and placed in their own module as needed.
 
 ## Importing a runbook
 
@@ -84,9 +84,9 @@ The following steps create a runbook in an existing project with the Terraform m
     5. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used when accessing the instance defined in the `Octopus Server URL` field.
     6. Set the `Octopus Space ID` field to the ID of an existing space where the project will be created.
     7. Set the `Octopus Project Name` field to the name of the project to deploy the runbook into.
-    7. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to override the name of the runbook e.g. `"-var=runbook_eks_octopub_audits____describe_pods_name=The New Runbook Name"`. Leave this field blank if you do not wish to customize the deployed runbook.
-    8. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terraform init` command. Leave this field blank unless you have a specific reason to pass an argument to Terraform.
-    9. Each `Octopus - Add Runbook to Project` step exposes values relating to their specific Terraform backend that must be configured. For example, the `Octopus - Octopus - Add Runbook to Project (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
+    8. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to override the name of the runbook e.g. `"-var=runbook_eks_octopub_audits____describe_pods_name=The New Runbook Name"`. Leave this field blank if you do not wish to customize the deployed runbook.
+    9. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terraform init` command. Leave this field blank unless you have a specific reason to pass an argument to Terraform.
+    10. Each `Octopus - Add Runbook to Project` step exposes values relating to their specific Terraform backend that must be configured. For example, the `Octopus - Octopus - Add Runbook to Project (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
 
 Typically, downstream spaces are represented by tenants in the upstream space. For example, the space called `Acme` is represented by a tenant wth the same name. Configuring the `__ Deploy Runbook` runbook to run against a tenant allows you to manage the creation and updates of downstream projects with a typical tenant based deployment process.
 
@@ -96,4 +96,4 @@ Executing the runbook will create a new runbook in an existing project. Any spac
 
 ### Updating project resources
 
-The runbooks `__ Serialize Runbook` and `__ Deploy Runbook` can be run as needed to serialize any changes to the upstream runbook and deploy the changes to downstream runbooks. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way, you can use Octopus to deploy Octopus runbooks using the same processes you use Octopus to deploy applications. 
+The runbooks `__ Serialize Runbook` and `__ Deploy Runbook` can be run as needed to serialize any changes to the upstream runbook and deploy the changes to downstream runbooks. The Terraform module zip file pushed to the built-in feed is versioned with a unique value each time, so you can also revert changes by redeploying an older package.  In this way, you can use Octopus to deploy Octopus runbooks using the same processes you use Octopus to deploy applications.

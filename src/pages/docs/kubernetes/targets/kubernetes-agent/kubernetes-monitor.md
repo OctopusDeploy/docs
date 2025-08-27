@@ -7,18 +7,17 @@ description: How to manage the Kubernetes monitor component
 navOrder: 25
 ---
 
-The Kubernetes monitor is a component that runs alongside Tentacle in the cluster. The Kubernetes monitor tracks the health of resources deployed to the cluster via Octopus Server. 
+The Kubernetes monitor is a component that runs alongside Tentacle in the cluster. The Kubernetes monitor tracks the health of resources deployed to the cluster via Octopus Server.
 
 ## How it works
 
 The Kubernetes monitor communicates with Octopus Server over gRPC on a new port (8443) to send back object information to Octopus Deploy. Communications are initiated by the Kubernetes monitor, so no endpoints on the Kubernetes cluster need to be exposed.
 
-The monitor process utilizes the [Argo project gitops engine project](https://github.com/argoproj/gitops-engine) to internally keep track of the resources running on your cluster and react to changes as they occur.
-
+The monitor process uses the [Argo project gitops engine project](https://github.com/argoproj/gitops-engine) to internally keep track of the resources running on your cluster and react to changes as they occur.
 
 ## Required Kubernetes permissions
 
-### Registration 
+### Registration
 
 During registration, the Kubernetes monitor manages a secret to store it's authentication information.
 
@@ -36,8 +35,8 @@ To enabled this a `ClusterRole` is created for use by the Kubernetes monitor wit
 
 The Kubernetes monitor's upgrade process is directly tied to the Kubernetes agent.
 
-See [how upgrades work for the Kubernetes agent here](./upgrading)
+See [how upgrades work for the Kubernetes agent here](/docs/kubernetes/targets/kubernetes-agent/upgrading)
 
 ## Troubleshooting
 
-See [Kubernetes Live Object Status troubleshooting](../../live-object-status/troubleshooting)
+See [Kubernetes Live Object Status troubleshooting](/docs/kubernetes/live-object-status/troubleshooting)

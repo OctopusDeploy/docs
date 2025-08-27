@@ -7,7 +7,6 @@
 
 import fs from 'fs';
 import path from 'path';
-import sharp from 'sharp';
 
 const workingDirectory = process.cwd();
 
@@ -20,11 +19,11 @@ const imageModule = await import(
 const size = imageSize.size;
 const imagePaths = imageModule.imagePaths;
 
-const imagePath = path.join('public', imagePaths.src);
-const outputPath = path.join('public', imagePaths.dest);
+const imagePath = path.join('dist', imagePaths.src);
+const outputPath = path.join('dist', imagePaths.dest);
 const imageDirectory = path.join(workingDirectory, imagePath);
 
-const filesToProcess = [];
+ const filesToProcess = [];
 
 function getDestinationFilePathless(source, s) {
     let destination = path.join(
@@ -35,12 +34,6 @@ function getDestinationFilePathless(source, s) {
     );
     destination = destination.replace(path.parse(destination).ext, '');
     return destination;
-}
-
-async function createDestinationFolder(destinationFile) {
-    const file = path.parse(destinationFile + '.txt');
-
-    await fs.promises.mkdir(file.dir, { recursive: true });
 }
 
 async function recurseFiles(directory) {
@@ -71,13 +64,6 @@ async function recurseFiles(directory) {
                         webP: webP,
                     };
 
-                    const fullDestination = path.join(
-                        workingDirectory,
-                        outputPath,
-                        'x',
-                        info.path
-                    );
-
                     // Only processes images where there is no json metadata file
                     const metaPath = path.join(
                         workingDirectory,
@@ -85,20 +71,17 @@ async function recurseFiles(directory) {
                         sourcePath + '.json'
                     );
 
-                    if (!fs.existsSync(metaPath)) {
-                        console.log('Processing:', metaPath);
-                        filesToProcess.push(info);
-                    } else {
+                    
+                    if (fs.existsSync(metaPath)) {
                         const data = fs.readFileSync(metaPath, 'utf8');
                         const jsonData = JSON.parse(data);
                         const date90DaysAgo = new Date(
-                            Date.now() - 90 * 24 * 60 * 60 * 1000
+                            Date.now() - 14 /* <- days */ * 24 * 60 * 60 * 1000
                         );
 
-                        if (
-                            !jsonData.updated ||
-                            new Date(jsonData.updated) < date90DaysAgo
-                        ) {
+                        //console.log('Checking:', metaPath);
+
+                        if (jsonData.updated && new Date(jsonData.updated) < date90DaysAgo) {
                             console.log('Processing:', metaPath);
                             filesToProcess.push(info);
                         }
@@ -115,62 +98,38 @@ await recurseFiles('');
 for (const file of filesToProcess) {
     const source = path.join(imageDirectory, file.path);
     const destination = getDestinationFilePathless(file.path, 'x');
-    await createDestinationFolder(destination);
 
     const ext = path.parse(source).ext;
 
+    // Delete original file
+    fs.unlinkSync(source);
+
+    // Delete the fallback file
     switch (ext) {
         case '.png':
-            sharp(source)
-                .png()
-                .toFile(destination + '.png');
+            fs.unlinkSync(destination + '.png');
             break;
         case '.jpg':
         case '.jpeg':
-            sharp(source)
-                .jpeg({ mozjpeg: true })
-                .toFile(destination + '.jpg');
+            fs.unlinkSync(destination + '.jpg');
             break;
         case '.webp':
-            sharp(source)
-                .webp({ quality: 80 })
-                .toFile(destination + '.webp');
+            fs.unlinkSync(destination + '.webp');
             break;
     }
 
-    const info = await sharp(source).metadata();
-
-    const metadata = {
-        width: info.width,
-        height: info.height,
-        sizeInBytes: info.size,
-        updated: new Date().toISOString(),
-    };
-
     const metaFile = source + '.json';
-    await fs.promises.writeFile(metaFile, JSON.stringify(metadata));
 
-    // Create resized images
+    // Delete metadata file
+    fs.unlinkSync(metaFile);
+
+    // Delete resized images
     for (const key in size) {
         const resizeDestination = getDestinationFilePathless(
             file.path,
             size[key]
         );
-        await createDestinationFolder(resizeDestination);
 
-        const metadata = await sharp(source).metadata();
-
-        if (metadata.width > size[key]) {
-            // Only resize if the image is larger than the target size
-            sharp(source)
-                .resize(size[key], null)
-                .webp({ quality: 90 })
-                .toFile(resizeDestination + '.webp');
-        } else {
-            // Don't resize as it's smaller than target size
-            sharp(source)
-                .webp({ quality: 90 })
-                .toFile(resizeDestination + '.webp');
-        }
+        fs.unlinkSync(resizeDestination + '.webp');
     }
 }

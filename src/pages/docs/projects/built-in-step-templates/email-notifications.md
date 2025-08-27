@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-07-25
+modDate: 2025-08-11
 title: Email notification step
 icon: fa-solid fa-envelope
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
@@ -83,7 +83,8 @@ For OAuth 2.0 you will need to:
       - The Audience value can be left as the default, or set to a custom value if needed.
     - Set the `Audience` configuration property with the value from your federated credential.
 3. Configure Microsoft Exchange SMTP settings.
-    - Add SMTP permissions for your Entra AD application, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-entra-ad-application).
+    - Add SMTP permissions for your Entra AD application, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-microsoft-entra-application).
+      - For Exchange Online access, ensure you have added the `SMTP.SendAsApp` Office 365 Exchange Online application permission and granted admin consent.
     - Register your application's service principal in Exchange, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#register-service-principals-in-exchange).
 
 :::div{.hint}

@@ -7,7 +7,7 @@ description: Learn how to automatically validate pull requests in a CaC Git repo
 navOrder: 10
 ---
 
-One of the challenges when implementing the [shared responsibility (or eventual consistency) model](levels-of-responsibility) is the potential for complex conflicts to be introduced to the downstream repositories. Without any controls on what changes can be made to a downstream project, it may become impractical to continue to push changes downstream.
+One of the challenges when implementing the [shared responsibility (or eventual consistency) model](/docs/platform-engineering/levels-of-responsibility) is the potential for complex conflicts to be introduced to the downstream repositories. Without any controls on what changes can be made to a downstream project, it may become impractical to continue to push changes downstream.
 
 One way to constrain the changes introduced to downstream CaC Git repositories is to automatically validate changes during a pull request (PR). This allows the platform team to introduce minimum requirements that all downstream CaC projects must adhere to while also allowing internal customers to customize their projects.
 

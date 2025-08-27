@@ -57,8 +57,6 @@ export const OPEN_GRAPH = {
 };
 
 export const HEADER_SCRIPTS = `
-	<link rel="preload" href="/docs/css/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="/docs/css/roboto-bold.woff2" as="font" type="font/woff2" crossorigin>
 	<link href="/docs/css/fa/css/fontawesome.css" rel="stylesheet">
 	<link href="/docs/css/fa/css/brands.css" rel="stylesheet">
 	<link href="/docs/css/fa/css/solid.css" rel="stylesheet">
