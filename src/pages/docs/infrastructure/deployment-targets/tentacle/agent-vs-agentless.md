@@ -23,7 +23,7 @@ For Windows, Tentacle is required. WinRM is not supported.
 <tbody>
 <tr>
 <td>Tentacle</td>
-<td>Tentacle can operate in Listening or Polling modes. This avoids firewall headaches by allowing outbound-only connections from the targets.</td>
+<td>Tentacle can operate in <a href="/docs/infrastructure/deployment-targets/tentacle/tentacle-communication">Listening or Polling communication modes</a>. This avoids firewall headaches by allowing outbound-only connections from the targets.</td>
 </tr>
 <tr>
 <td>SSH</td>
@@ -43,7 +43,7 @@ For Windows, Tentacle is required. WinRM is not supported.
 <tr>
 <td>Tentacle</td>
 <td>
-Mutual X.509 certificate authentication. Both the Octopus Server and the Tentacle generate their own X.509 certificates when they’re installed. These are exchanged during the initial “trust” setup (the handshake). After that, each side verifies the other using the certificates before allowing communication. 
+<a href="/docs/security/octopus-tentacle-communication">Mutual X.509 certificate authentication</a>. Both the Octopus Server and the Tentacle generate their own X.509 certificates when they’re installed. These are exchanged during the initial “trust” setup (the handshake). After that, each side verifies the other using the certificates before allowing communication. 
 
 All communication between the Octopus Server and Tentacle is encrypted using TLS.  
 
