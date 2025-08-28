@@ -45,13 +45,13 @@ All policies are written in Rego and saved as an OCL file. For a comprehensive g
 
     :::warning You cannot use dashes in your policy file name :::
 
-    ```plaintext
-        checkformanualintervention.ocl # An example OCL file
+    ```JSON
+    checkformanualintervention.ocl
     ```
 
 2. After you’ve done this, open the OCL file in your code editor, and start with a name and an optional description
 
-    ```plaintext
+    ```JSON
     name = "Require Manual Intervention step"
     description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production"
     ```
@@ -60,7 +60,7 @@ All policies are written in Rego and saved as an OCL file. For a comprehensive g
 
     For example, Octopus provides the environment details that you are deploying to.
 
-    ```plaintext
+    ```JSON
         {
             "Environment": {
                 "Id": "Environments-1",
@@ -73,14 +73,14 @@ All policies are written in Rego and saved as an OCL file. For a comprehensive g
 
     To use the environment name in your Rego, you would add the following:
 
-    ```plaintext
+    ```JSON
         input.environment.name =- "Development"
     ```
 
     Full details on the data available for scoping can be found under the [schema section](#schema-for-policies).
     Our worked example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. All Rego code has to have a package defined, which is the name of your ocl file.
 
-    ```plaintext
+    ```JSON
     scope {
         rego = <<-EOT
             package checkformanualintervention 
@@ -96,7 +96,7 @@ All policies are written in Rego and saved as an OCL file. For a comprehensive g
 
 4. After defining your scope, you must specify the policy rules. These rules are written in Rego. Octopus will check the results of your Rego code to determine if a deployment complies with the policy. The result should contain a composite value with the properties “allowed” and an optional “reason.” In this example, we will set the default rule result to be non-compliant. Any deployment that does not meet the policy rules will be prevented from executing.
 
-    ```plaintext
+    ```JSON
     conditions {
         rego = <<-EOT
         package checkformanualintervention
@@ -108,7 +108,7 @@ All policies are written in Rego and saved as an OCL file. For a comprehensive g
 
 5. After you’ve set the default state, you’ll need to define the policy rules that will update the “result” state to be true so the deployment can execute. In this example, the deployment must contain at least one manual intervention step. We can do this by checking the step.ActionType is “Octopus.Manual”
 
-    ```plaintext
+    ```JSON
     conditions {
         rego = <<-EOT
             package checkformanualintervention
@@ -123,9 +123,9 @@ All policies are written in Rego and saved as an OCL file. For a comprehensive g
 
 6. You’ve now defined a basic policy to ensure a manual intervention step is present when deploying to any environment. You can test this policy by creating a deployment and deploying to an environment. If you choose not to include the manual intervention step, you will see errors in the task log and project dashboards when you try to run the deployment. All policy evaluations will appear in the Audit log (Configuration → Audit) with the “Compliance Policy Evaluated” type. Audit logs and Server Tasks will only appear for deployments within the policy's scope.
 
-    ```plaintext
+    ```JSON
     name = "Require Manual Intervention step" 
-    description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production" # Optional but recommended 
+    description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production" 
 
     scope {
         rego = <<-EOT
