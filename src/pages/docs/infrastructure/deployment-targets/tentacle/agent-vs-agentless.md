@@ -7,9 +7,15 @@ description: A comparison of agent-based deployments using Tentacle versus agent
 navOrder: 55 
 ---
 
-Generally speaking, the two options for communicating with remote machines are agent-based and agentless. Agent-based relies on an agent installed on the target, such as the Octopus Tentacle. Agentless is a misnomer, as there is an agent which is pre-installed on the machine, specifically SSH for Linux machines and WinRM for Windows.   
+Generally speaking, the two options for communicating with remote machines are agent-based and agentless. Agent-based relies on an agent installed on the target, such as the [Octopus Tentacle](/docs/infrastructure/deployment-targets/tentacle/index.md). Agentless is a misnomer, as there is an agent which is pre-installed on the machine, specifically SSH for Linux machines and [Windows Remote Management (WinRM)](https://learn.microsoft.com/en-us/windows/win32/winrm/portal) for Windows.   
 
 At Octopus, we prefer and recommend agent-based, using Octopus Tentacles. In this document, we compare the two approaches. 
+  
+:::div{.hint}
+Octopus supports both agent-based and agentless communications for Linux, via Tentacle and SSH respectively. 
+
+For Windows, Tentacle is required. WinRM is not supported. 
+:::
 
 ## Connectivity Model
 
