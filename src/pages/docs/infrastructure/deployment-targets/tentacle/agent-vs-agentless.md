@@ -7,7 +7,7 @@ description: A comparison of agent-based deployments using Tentacle versus agent
 navOrder: 55 
 ---
 
-Generally speaking, the two options for communicating with remote machines are agent-based and agentless. Agent-based relies on an agent installed on the target, such as the [Octopus Tentacle](/docs/infrastructure/deployment-targets/tentacle/index.md). Agentless is a misnomer, as there is an agent which is pre-installed on the machine, specifically SSH for Linux machines and [Windows Remote Management (WinRM)](https://learn.microsoft.com/en-us/windows/win32/winrm/portal) for Windows.   
+Generally speaking, the two options for communicating with remote machines are agent-based and agentless. Agent-based relies on an agent installed on the target, such as the [Octopus Tentacle](/docs/infrastructure/deployment-targets/tentacle). Agentless is a misnomer, as there is an agent which is pre-installed on the machine, specifically SSH for Linux machines and [Windows Remote Management (WinRM)](https://learn.microsoft.com/en-us/windows/win32/winrm/portal) for Windows.   
 
 At Octopus, we prefer and recommend agent-based, using Octopus Tentacles. In this document, we compare the two approaches. 
   
@@ -106,7 +106,7 @@ Requires correct system configuration and credential management.
 </table>
 
 ## Summary
-Using the Tentacle agent comes with the upfront cost of installing the service on target machines, but this is offset by
+Using the Tentacle agent comes with the upfront cost of installing the service on target machines, but this is offset by advantages including:
 
 - More flexible connectivity model, supporting both Listening and Polling modes.
 - Strong security independent of domain-trust or OS credentials, making it less likely to be misconfigured.
