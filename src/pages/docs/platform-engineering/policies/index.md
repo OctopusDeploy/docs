@@ -39,8 +39,6 @@ An example use-case you might have is to enforce that all deployments going to p
 
 All policies are written in Rego and saved as an OCL file. For a comprehensive guide to Rego, please visit the official [documentation.](https://www.openpolicyagent.org/docs/policy-language)
 
-
-
 ### Building your first policy
 
 1. To get started, you must create a new policies folder in your Platform Hub Git repository. In the folder, you will need to create an OCL file for your policy.
