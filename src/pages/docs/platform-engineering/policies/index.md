@@ -39,29 +39,7 @@ An example use-case you might have is to enforce that all deployments going to p
 
 All policies are written in Rego and saved as an OCL file. For a comprehensive guide to Rego, please visit the official [documentation.](https://www.openpolicyagent.org/docs/policy-language)
 
-Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value:
 
-​```plaintext
-input.VALUE
-​```
-
-For example, Octopus provides the environment details that you are deploying to.
-
-```plaintext
-{
-    "Environment": {
-        "Id": "Environments-1",
-        "Name": "Development",
-        "Slug": "development"
-    }
-}
-```
-
-To use the environment name in your Rego, you would add the following
-
-```plaintext
-input.environment.name == "Development"
-```
 
 ### Building your first policy
 
@@ -80,7 +58,7 @@ input.environment.name == "Development"
     description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production"
     ```
 
-3. You’ll now need to define the policy's scope, as Rego in the OCL file. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value input.VALUE
+3. You’ll now need to define the policy's scope, as Rego in the OCL file. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value input.VALUE.
 
     For example, Octopus provides the environment details that you are deploying to.
 
@@ -102,12 +80,12 @@ input.environment.name == "Development"
     ```
 
     Full details on the data available for scoping can be found under the [schema section](#schema-for-policies).
-    Our worked example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space.
+    Our worked example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. All Rego code has to have a package defined, which is the name of your ocl file.
 
     ```plaintext
     scope {
         rego = <<-EOT
-            package checkformanualintervention # Always has to be the file name
+            package checkformanualintervention 
             default evaluate := false
             evaluate := true if {
                 input.Environment.Name == "Production"
