@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2024-05-24
+pubDate: 2025-09-11
+modDate: 2025-09-11
 title: Policies
 subtitle: An overview of Policies
 icon: 
