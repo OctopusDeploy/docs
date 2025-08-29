@@ -19,12 +19,12 @@ Platform Hub is currently in Public Preview for all Enterprise Cloud Customers.
 
 You can create and manage your process templates and policies from Platform Hub.
 
-- [Process templates](process-templates/index.md) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
-- [Policies](index.md) in Octopus are designed to ensure compliance and governance by default, making it easier to enforce pre- and post-deployment controls at scale.
+- [Process templates](/docs/platform-hub/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
+- [Policies](/docs/platform-hub) in Octopus are designed to ensure compliance and governance by default, making it easier to enforce pre- and post-deployment controls at scale.
 
 To get started, configure your version control.
 
-![The overview page for Platform Hub](/public/docs/platform-hub/platform-hub-overview.png)
+![The overview page for Platform Hub](/docs/platform-hub/platform-hub-overview.png)
 
 :::hint This Git repository will be used for all features in Platform Hub.:::
 
@@ -44,7 +44,7 @@ You can create the following Account types by visiting the **Accounts** area in 
 
 To use these Accounts inside a process template, you must create a parameter that references these Accounts first.
 
-![Platform Hub Accounts area](/public/docs/platform-hub/platform-hub-accounts.png)
+![Platform Hub Accounts area](/docs/platform-hub/platform-hub-accounts.png)
 
 :::hint
 Platform Hub Account details will not be shown inside a consuming project
@@ -56,4 +56,4 @@ You can create and manage Git Credentials in Platform Hub by visiting the Git Cr
 
 :::hint These are not the same Git credentials that are used to configure Platform Hub:::
 
-![Platform Hub Git credentials area](/public/docs/platform-hub/platform-hub-git-credential.png)
+![Platform Hub Git credentials area](/docs/platform-hub/platform-hub-git-credential.png)
