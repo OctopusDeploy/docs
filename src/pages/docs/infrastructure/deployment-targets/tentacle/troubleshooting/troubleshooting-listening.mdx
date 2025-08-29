@@ -1,0 +1,107 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-08-28
+modDate: 2025-08-28
+title: Troubleshooting Listening Tentacles
+description: How to troubleshoot problems with Octopus Listening Tentacles.
+navOrder: 10
+---
+
+import TentacleConnectionsCheck from 'src/shared-content/infrastructure/tentacle-connection-check.include.md';
+import TentaclePing from 'src/shared-content/infrastructure/tentacle-ping.include.md';
+import TentacleFixes from 'src/shared-content/infrastructure/tentacle-general-fixes.include.md';
+import TentacleUninstall from 'src/shared-content/infrastructure/tentacle-uninstall.include.md';
+
+
+## Communication settings
+
+To verify the communication settings, *On the Tentacle machine*, open the Tentacle Manager application from the Start screen or Start menu.
+
+1. Ensure that the Tentacle is in *listening* mode.
+Below the thumbprint, you should see the text *This Tentacles listens for connections on port 10933*.
+2. Check the port that the Tentacle listens on.
+3. Check that the **Octopus Server** thumbprint shown in light gray in the Tentacle manager matches the one shown in the **Configuration ➜ Thumbprints** screen in the Octopus Web Portal.
+
+Note, that there are two thumbprints displayed - that of the Tentacle itself (shown first in bold) and the thumbprints of trusted servers (shown inline in the gray text).
+
+If any of the communications settings are incorrect, choose *Delete this Tentacle instance...*. After doing so, you'll be presented with the Tentacle installation wizard, where the correct settings can be chosen. If the settings are correct, continue to next step.
+
+## Check the connections
+
+<TentacleConnectionsCheck />
+
+*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933) (or your chosen Tentacle communications port if it isn't the default). Make sure you use an **HTTPS** URL is used.
+
+The page shown should look like the one below.
+
+:::figure
+![](/docs/infrastructure/deployment-targets/tentacle/images/3278074.png)
+:::
+
+:::div{.hint}
+**If you can't browse to the page...**
+If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files) and contact Octopus Deploy support.
+:::
+
+Next, repeat the process of connecting to the Tentacle with a web browser, but do this *from the Octopus Server machine*.
+
+When forming the URL to check:
+
+- First try using the Tentacle's DNS hostname, e.g. [https://my-tentacle:10933](https://my-tentacle:10933).
+- If this fails, try using the Tentacle's IP address instead, e.g. [https://1.2.3.4:10933](https://1.2.3.4:10933) - success using the IP address but not the DNS hostname will indicate a DNS issue.
+
+**If you can't connect...**
+Failing to connect at this step means that you have a network issue preventing traffic between the Octopus Server and Tentacles. Check that the Tentacle port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organization help diagnose the issue is the best first step. If that draws a blank, please get in touch.
+
+Remember to check both the built-in Windows Firewall, and any other firewalls (in Amazon EC2, check your security group settings for example).
+
+:::div{.problem}
+
+**Watch out for proxy servers or SSL offloading...**
+Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading** are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Octopus Server and Tentacle, without an HTTP proxy or a network appliance performing SSL offloading in between.
+
+Also see, [advanced support for HTTP proxies](/docs/infrastructure/deployment-targets/proxy-support).
+:::
+
+## Tentacle ping
+
+<TentaclePing />
+
+- Run **TentaclePing** on your Octopus Server machine (which is the client in this relationship).
+- Run **TentaclePong** on your Tentacle machine (which is the server in this relationship).
+
+Use the output to help diagnose what is going wrong.
+
+<TentacleFixes />
+
+## Check for zombie child processes locking TCP ports
+
+If Tentacle fails to start with an error message like this: **A required communications port is already in use.**
+
+The most common scenario is when you already have an instance of Tentacle (or something else) listening on the same TCP port. However, we have seen cases where there is no running Tentacle in the list of processes. In this very specific case it could be due to a zombie PowerShell.exe or Calamari.exe process that was launched by Tentacle that is still holding the TCP port. This can happen when attempting to cancel a task that has hung inside of Calamari/PowerShell. Simply rebooting the machine, or killing the zombie process will fix this issue, and you should be able to start Tentacle successfully.
+
+## Check the server service account permissions
+
+If the Tentacle is running as the *Local System* account you can skip this section.
+
+If the Tentacle is running as a specific user, make sure that the user has "full control" permission to the *Octopus Home* folder on the Tentacle machine. This is usually `C:\Octopus` - apply permissions recursively.
+
+## Check the load time
+
+In some DMZ-style environments without Internet access, failing to disable Windows code signing certificate revocation list checking will cause Windows to pause during loading of the Octopus applications and installers. This can have a significant negative performance impact, which may prevent Octopus and Tentacles connecting.
+
+To test this on a listening Tentacle, run:
+
+```powershell
+Tentacle.exe help
+```
+
+If the command help is not displayed immediately (< 1s) you may need to consider disabling the CRL check while the Tentacle is configured.
+
+To do this open **Control Panel ➜ Internet Options ➜ Advanced**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
+
+:::figure
+![](/docs/infrastructure/deployment-targets/tentacle/images/3278077.png)
+:::
+
+<TentacleUninstall />
