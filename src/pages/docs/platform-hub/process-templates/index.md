@@ -2,38 +2,160 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-30
 modDate: 2025-09-30
-title: Process Templates
+title: Overview
+subtitle: An overview of Process Templates
+icon:
 navTitle: Overview
 navSection: Process Templates
-description: Using Process Templates in Octopus
-
+description: An overview of Process Templates
+navOrder: 71
 ---
+## Overview
 
-Process templates let you standardize delivery across teams and applications without duplicating work. Developers move faster with less cognitive load, and platform teams get the consistency they need.
+Process templates are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy. Instead of copying and pasting deployment processes across teams and applications, which often leads to configuration drift, unnecessary duplication, and operational debt, you create a single source of truth that any project can consume. By abstracting your best practices for deployments into Process Templates, you make it easy for teams to follow standards and accelerate delivery.
 
-Each process template contains deployment steps that represent common deployment patterns that multiple teams use. Application teams can use process templates in any project for deployments or runbooks runs, continuously receiving updates as they are published.
+:::warning Process templates are in Public Preview for all Enterprise Cloud Customers:::
 
-## When to use Process Templates
+To create or manage your process templates, navigate to Platform Hub. If you haven't setup your Git repository, you must do so first before creating a process template. Similarly, If you've already created templates or are joining an existing team, you'll see the existing templates in the template overview screen.
 
-Process templates help you:
+![The Process Templates Overview page where users create Process templates](/public/docs/platform-hub/process-template-overview.png)
 
-- Create standardized deployment processes that any application engineer can pick up and use in their project
-- Let people self-serve best practice deployment processes
-- Easily update standard deployment processes with minimal work from you and your team
+Before you can define the deployment process for your template, you must create the template first.
 
-Consider using Process Templates if:
+1. Navigate to Process Templates in Platform Hub.
+2. Give the process template a **NAME** and an optional **DESCRIPTION**
+3. Create your process template.
 
-- You have common deployment patterns across teams and need to make it easy to standardise on these best practices.
-- You want to make it easy for application teams to onboard and use best practice deployment patterns in Octopus.
-- You want to reduce the amount of maintenance it takes to keep deployment processes up to date with the latest changes.
+![The experience after creating the template with a name and description](/public/docs/platform-hub/process-template-first-creation.png)
 
-Learn more about the ways you can use Process Templates in our [Process Templates examples.](/docs/src/pages/docs/platform-hub/process-templates/process-templates-examples.md).
+You've created your process template; now, define its deployment process.
 
-## Getting started
+A deployment process is a set of steps the Octopus Server orchestrates to deploy your software. Each process template has a single deployment process. You can use Octopus's built-in steps to define this process for your process template.
 
-Process templates are stored in Git and belong to Platform Hub. To create or manage your process templates, navigate to **Platform Hub --> Process Templates --> Add Process Template**.
+![The add step experience for a process template](/public/docs/platform-hub/process-template-add-step.png)
 
-## Learn more
+Some steps look different inside a process template. They ask for a parameter rather than allowing you to define a value. These steps ask for a resource that Platform Hub cannot define, such as Worker Pools, and you must define them inside a project. These fields accept parameters so you can define the values the process template needs inside a consuming project.
 
-- [Process Template getting started][/docs/src/pages/docs/platform-hub/process-templates/using-process-templates/index.md] - Learn how to setup a Process Template and use it in projects.
-- [Process Template examples][/Docs/src/pages/docs/platform-hub/process-templates/process-template-examples/index.md] - Learn about the ways you can use Process Templates.
+![The run a script step asks for a worker pool parameter instead of a worker pool](/public/docs/platform-hub/process-template-step-example.png)
+
+:::Warning
+Our initial release of Process Templates does not include support for custom step templates, community step templates, and a few built-in steps.
+:::
+
+Once you have set up a deployment process, you can use it in any space for a deployment process or runbook.
+
+## Parameters
+
+Parameters are how you easily manage and apply the correct values during a deployment that uses a process template. Using parameters, you can use the same process template across your environments and tailor the inputs based on the projects needs.
+
+Process Templates can manage the following as parameters.
+
+- AWS Account
+- Azure Account
+- Certificate
+- Channels
+- Checkbox
+- Container Feed
+- Drop down
+- Environments
+- Generic OIDC Account
+- Google Cloud Account
+- Multi-line text box
+- Single-line text box
+- Target Tags
+- Teams
+- Tenant Tags
+- Username Password Account
+- Worker Pool
+- A previous step name
+
+To create a parameter, you can navigate to the parameters tab on a process template and add a new parameter.
+
+![The parameters section in a process template](/public/docs/platform-hub/process-template-parameters.png)
+
+### Parameter values
+
+The following parameters will allow you to set a default value in Platform Hub:
+
+- Single-line text
+- Multi-line text
+- Dropdown
+- Checkbox
+
+The following parameters will not allow you to set a default value in Platform Hub and must be set inside a project:
+
+- Certificate
+- Sensitive
+- Worker Pools
+- Package
+- Previous deployment step name
+
+### Parameter scoping
+
+Only Account parameters will allow you to scope them by environments. You can choose to scope them by any environment across your Octopus instance.
+
+![The account parameter allowing scoping to environments present across Octopus instance](/public/docs/platform-hub/process-templates-account-scoping.png)
+
+## Saving a Process Template
+
+Once you've finished making changes to your process template you can commit them to save the changes to your Git repository. You can either **Commit** with a description or quick commit without one.
+
+![The commit experience for a process template](/public/docs/platform-hub/process-templates-commit-experience.png)
+
+## Publishing a Process Template
+
+Once you've made your changes, you will have to publish the template to reflect them inside the process template within a project. You will have four options to choose from when publishing changes:
+
+- Major changes (breaking)
+- Minor changes (breaking)
+- Patch (bug fixes)
+- Flag as pre-release
+
+:::hint
+The first time you publish a template you can only publish a major or pre-release version
+:::
+
+Selecting any option increments the version number following Semantic Versioning. For minor or patch updates, consuming projects that accept these changes will automatically upgrade to the newly published version.
+
+![Publish experience for a process template](/public/docs/platform-hub/process-templates-publishing.png)
+
+### Pre-releases
+
+If you wish to test your changes before publishing a major, minor, or patch version, you can mark a template as a pre-release version.
+
+![Marking a process template as pre-release](/public/docs/platform-hub/process-template-prerelease.png)
+
+## Sharing a template
+
+You must share the process template before it can be consumed by any projects. Process Templates can be shared with all current and future spaces, or a select few spaces.
+
+:::hint
+Sharing settings can be updated anytime.
+:::
+
+![Sharing experience for process templates](/public/docs/platform-hub/process-template-sharing.png)
+
+## A Hello world deployment process in a process template
+
+To define a simple deployment process in Octopus that executes a hello world script on the Octopus Server, complete the following steps:
+
+1. Navigate to **Platform Hub**
+2. Add a process template
+3. Name the template, for instance, "Hello World", and add an optional description.
+4. Add a deployment step.
+5. Choose the type of step you'd like to add to filter the available steps.
+6. Find the **Run a Script** step and add it to your deployment process.
+7. In the Process Editor, give the step a name, for instance "Run a Hello World script".
+8. In the Execution Location section use the **Run on the worker pool parameter** option.
+9. Create a Worker Pool parameter.
+10. Add the Worker Pool parameter to the **Worker Pool** field.
+11. Paste the following PowerShell script into the **Inline Source Code** editor:
+
+```ps
+Write-Host "Hello, World!" 
+```
+
+12. Commit your template.
+13. Publish and Share your template.
+
+You now have a simple Hello World process template that can be published and shared with any project.
