@@ -21,7 +21,7 @@ The following examples will cover various ways that you can scope your policies:
 
 ```plaintext
 name = "Block executions"
-description = "This policy applies to all deployments and runbook runs in one or more space(s) and will block executions."
+description = "This policy applies to all Deployments and Runbook runs in one or more space(s) and will block executions."
 ViolationReason = "Execution are blocked"
 
 scope {
@@ -32,7 +32,7 @@ scope {
         evaluate := true if { 
             # input.Space.Name == "<space-name>" - If you want to use Space Name
             # input.Space.Id == "<space-id>" - If you want to use Space Id
-            # input.Space.Slug in ["<space-slug>", "<space-slug2>"] - If you want to check multiple spaces
+            # input.Space.Slug in ["<space-slug>", "<space-slug2>"] - If you want to check multiple Spaces
             input.Space.Slug == "<space-slug>"
 
         }
@@ -52,7 +52,7 @@ conditions {
 
 ```plaintext
 name = "Block executions"
-description = "This policy applies to all deployments and runbook runs and will block executions, to particular environment(s)."
+description = "This policy applies to all Deployments and Runbook runs and will block executions, to particular Environment(s)."
 ViolationReason = "Execution are blocked"
 
 scope {
@@ -63,7 +63,7 @@ scope {
         evaluate := true if { 
             # input.Environment.Name == "<environment-name>" - If you want to use Environment Name
             # input.Environment.Id == "<environment-id>" - If you want to use Environment Id
-            # input.Environment.Slug in ["<environment-slug>", "<environment-slug2>"] - If you want to check multiple environments
+            # input.Environment.Slug in ["<environment-slug>", "<environment-slug2>"] - If you want to check multiple Environments
             input.Environment.Slug == "<environment-slug>"
 
         }
@@ -83,7 +83,7 @@ conditions {
 
 ```plaintext
 name = "Block executions"
-description = "This policy applies to all deployments and runbook runs and will block executions, to particular environment(s)."
+description = "This policy applies to all Deployments and Runbook runs and will block executions, to particular Project(s)."
 ViolationReason = "Execution are blocked"
 
 scope {
@@ -94,7 +94,7 @@ scope {
         evaluate := true if { 
             # input.Project.Name == "<project-name>" - If you want to use Project Name
             # input.Project.Id == "<project-id>" - If you want to use Project Id
-            # input.Project.Slug in ["<project-slug>", "<project-slug2>"] - If you want to check multiple projects
+            # input.Project.Slug in ["<project-slug>", "<project-slug2>"] - If you want to check multiple Projects
             input.Project.Slug == "<project-slug>"
 
         }
@@ -114,7 +114,7 @@ conditions {
 
 ```plaintext
 name = "Block executions"
-description = "This policy applies only to runbook runs and will block executions to all runbook runs."
+description = "This policy applies only to Runbook runs and will block executions to all Runbook runs."
 ViolationReason = "Execution are blocked"
 
 scope {
@@ -137,11 +137,11 @@ conditions {
 }
 ```
 
-### Scope policy to a Runbook run(s)
+### Scope policy to a Runbook and its runs
 
 ```plaintext
 name = "Block executions"
-description = "This policy applies only to runbook runs and will block executions to specific runbook runs."
+description = "This policy applies only to Runbook runs and will block executions to specific Runbook runs."
 ViolationReason = "Execution are blocked"
 
 scope {
@@ -151,8 +151,8 @@ scope {
         default evaluate := false
         evaluate := true if {
             # input.Runbook.Name == "<runbook-name>" - If you want to use Runbook Name
-            # input.Runbook.Snapshot == "<runbook-snapshot-name>" - If you want to use Runbook Id
-            # input.Runbook.Id in ["<runbook-id>", "<runbook-id2>"] - If you want to check multiple runbooks
+            # input.Runbook.Snapshot == "<runbook-snapshot-name>" - If you want to use Runbook Snapshot
+            # input.Runbook.Id in ["<runbook-id>", "<runbook-id2>"] - If you want to check multiple Runbooks
             input.Runbook.Id == "<runbook-id>"
         }
     EOT
@@ -171,7 +171,7 @@ conditions {
 
 ```plaintext
 name = "Block executions"
-description = "This policy applies only to deployments and will block executions to all deployments."
+description = "This policy applies only to Deployments and will block executions to all Deployments."
 ViolationReason = "Execution are blocked"
 
 scope {
@@ -202,7 +202,7 @@ The following examples will cover different deployment scenarios that can be enf
 
 ```plaintext
 name = "All steps are not skipped"
-description = "This policy applies to all deployments and runbook runs and will check that all steps are not skipped"
+description = "This policy applies to all Deployments and Runbook runs and will check that all steps are not skipped"
 violationreason = "No steps can be skipped."
 
 scope {
@@ -231,7 +231,7 @@ conditions {
 
 ```plaintext
 name = "All steps must be enabled"
-description = "This policy applies to all deployments and runbook runs and will check that all steps are enabled"
+description = "This policy applies to all Deployments and Runbook runs and will check that all steps are enabled"
 ViolationReason = "No steps can be disabled."
 
 scope {
@@ -261,7 +261,7 @@ conditions {
 ### Check that a step exists at the beginning or end during execution
 ```plaintext
 name = "Check Step location"
-description = "This policy applies to all deployments and runbook runs and will check that a particular step exists at the start or the end of the execution."
+description = "This policy applies to all Deployments and Runbook runs and will check that a particular step exists at the start or the end of the execution."
 ViolationReason = "Step needs to be at the start or end"
 
 scope {
@@ -291,11 +291,11 @@ conditions {
 }
 ```
 
-### Check that a step template is in the execution (check that it isn’t skipped or disabled) 
+### Check that a Step Template is in the execution (check that it isn’t skipped or disabled) 
 
 ```plaintext
 name = "Step Template is executed"
-description = "This policy applies to all deployments and runbook runs and will check that a particular step template exists and is not skipped."
+description = "This policy applies to all Deployments and Runbook runs and will check that a particular Step Template exists and is not skipped."
 ViolationReason = "Step Template must be run"
 
 scope {
@@ -327,11 +327,11 @@ conditions {
 ```
 
 
-### Check that a step template is in the execution that is a particular version (check that it isn’t skipped or disabled) 
+### Check that a Step Template is in the execution that is a particular version (check that it isn’t skipped or disabled) 
 
 ```plaintext
 name = "Step Template with version is executed"
-description = "This policy applies to all deployments and runbook runs and will check that a particular step template with a version exists and is not skipped."
+description = "This policy applies to all Deployments and Runbook runs and will check that a particular Step Template with a version exists and is not skipped."
 ViolationReason = "Step Template with version must be run"
 
 scope {
@@ -364,7 +364,7 @@ conditions {
 ```
 
 
-### Check that a deployment process contains a manual intervention step
+### Check that a Exection contains a manual intervention step
 
  ```plaintext
 name = "Require Manual Intervention step"
