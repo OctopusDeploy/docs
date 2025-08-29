@@ -151,7 +151,7 @@ All policies are written in Rego and saved as an OCL file. For a comprehensive g
     }
     ```
 
-If you wish to see more comprehensive examples for other deployment scenarios, please visit the [examples page](src/pages/docs/platform-engineering/policies/examples.md).
+If you wish to see more comprehensive examples for other deployment scenarios, please visit the [examples page](examples.md).
 
 ## Schema for Policies
 
