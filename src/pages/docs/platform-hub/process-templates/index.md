@@ -18,7 +18,7 @@ Process templates are reusable sets of deployment steps that can be shared acros
 
 To create or manage your process templates, navigate to Platform Hub. If you haven't setup your Git repository, you must do so first before creating a process template. Similarly, If you've already created templates or are joining an existing team, you'll see the existing templates in the template overview screen.
 
-![The Process Templates Overview page where users create Process templates](/public/docs/platform-hub/process-template-overview.png)
+![The Process Templates Overview page where users create Process templates](/docs/platform-hub/process-template-overview.png)
 
 Before you can define the deployment process for your template, you must create the template first.
 
@@ -26,17 +26,17 @@ Before you can define the deployment process for your template, you must create 
 2. Give the process template a **NAME** and an optional **DESCRIPTION**
 3. Create your process template.
 
-![The experience after creating the template with a name and description](/public/docs/platform-hub/process-template-first-creation.png)
+![The experience after creating the template with a name and description](/docs/platform-hub/process-template-first-creation.png)
 
 You've created your process template; now, define its deployment process.
 
 A deployment process is a set of steps the Octopus Server orchestrates to deploy your software. Each process template has a single deployment process. You can use Octopus's built-in steps to define this process for your process template.
 
-![The add step experience for a process template](/public/docs/platform-hub/process-template-add-step.png)
+![The add step experience for a process template](/docs/platform-hub/process-template-add-step.png)
 
 Some steps look different inside a process template. They ask for a parameter rather than allowing you to define a value. These steps ask for a resource that Platform Hub cannot define, such as Worker Pools, and you must define them inside a project. These fields accept parameters so you can define the values the process template needs inside a consuming project.
 
-![The run a script step asks for a worker pool parameter instead of a worker pool](/public/docs/platform-hub/process-template-step-example.png)
+![The run a script step asks for a worker pool parameter instead of a worker pool](/docs/platform-hub/process-template-step-example.png)
 
 :::Warning
 Our initial release of Process Templates does not include support for custom step templates, community step templates, and a few built-in steps.
@@ -71,7 +71,7 @@ Process Templates can manage the following as parameters.
 
 To create a parameter, you can navigate to the parameters tab on a process template and add a new parameter.
 
-![The parameters section in a process template](/public/docs/platform-hub/process-template-parameters.png)
+![The parameters section in a process template](/docs/platform-hub/process-template-parameters.png)
 
 ### Parameter values
 
@@ -94,13 +94,13 @@ The following parameters will not allow you to set a default value in Platform H
 
 Only Account parameters will allow you to scope them by environments. You can choose to scope them by any environment across your Octopus instance.
 
-![The account parameter allowing scoping to environments present across Octopus instance](/public/docs/platform-hub/process-templates-account-scoping.png)
+![The account parameter allowing scoping to environments present across Octopus instance](/docs/platform-hub/process-templates-account-scoping.png)
 
 ## Saving a Process Template
 
 Once you've finished making changes to your process template you can commit them to save the changes to your Git repository. You can either **Commit** with a description or quick commit without one.
 
-![The commit experience for a process template](/public/docs/platform-hub/process-templates-commit-experience.png)
+![The commit experience for a process template](/docs/platform-hub/process-templates-commit-experience.png)
 
 ## Publishing a Process Template
 
@@ -117,13 +117,13 @@ The first time you publish a template you can only publish a major or pre-releas
 
 Selecting any option increments the version number following Semantic Versioning. For minor or patch updates, consuming projects that accept these changes will automatically upgrade to the newly published version.
 
-![Publish experience for a process template](/public/docs/platform-hub/process-templates-publishing.png)
+![Publish experience for a process template](/docs/platform-hub/process-templates-publishing.png)
 
 ### Pre-releases
 
 If you wish to test your changes before publishing a major, minor, or patch version, you can mark a template as a pre-release version.
 
-![Marking a process template as pre-release](/public/docs/platform-hub/process-template-prerelease.png)
+![Marking a process template as pre-release](/docs/platform-hub/process-template-prerelease.png)
 
 ## Sharing a template
 
@@ -133,7 +133,7 @@ You must share the process template before it can be consumed by any projects. P
 Sharing settings can be updated anytime.
 :::
 
-![Sharing experience for process templates](/public/docs/platform-hub/process-template-sharing.png)
+![Sharing experience for process templates](/docs/platform-hub/process-template-sharing.png)
 
 ## A Hello world deployment process in a process template
 
