@@ -17,11 +17,182 @@ There are many different deployment scenarios that you might have that need to b
 
 The following examples will cover various ways that you can scope your policies:
 
-### Scope policy to all spaces
+### Scope policy to a Space(s)
 
- ```plaintext
-    Example code to go here
- ```
+```plaintext
+name = "Block executions"
+description = "This policy applies to all deployments and runbook runs in one or more space(s) and will block executions."
+ViolationReason = "Execution are blocked"
+
+scope {
+    rego = <<-EOT
+        package block_executions
+
+        default evaluate := false
+        evaluate := true if { 
+            # input.Space.Name == "<space-name>" - If you want to use Space Name
+            # input.Space.Id == "<space-id>" - If you want to use Space Id
+            # input.Space.Slug in ["<space-slug>", "<space-slug2>"] - If you want to check multiple spaces
+            input.Space.Slug == "<space-slug>"
+
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package block_executions
+
+        default result := {"allowed": false}
+    EOT
+}
+```
+
+### Scope policy to an Environment(s)
+
+```plaintext
+name = "Block executions"
+description = "This policy applies to all deployments and runbook runs and will block executions, to particular environment(s)."
+ViolationReason = "Execution are blocked"
+
+scope {
+    rego = <<-EOT
+        package block_executions
+
+        default evaluate := false
+        evaluate := true if { 
+            # input.Environment.Name == "<environment-name>" - If you want to use Environment Name
+            # input.Environment.Id == "<environment-id>" - If you want to use Environment Id
+            # input.Environment.Slug in ["<environment-slug>", "<environment-slug2>"] - If you want to check multiple environments
+            input.Environment.Slug == "<environment-slug>"
+
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package block_executions
+
+        default result := {"allowed": false} 
+    EOT
+}
+```
+
+### Scope policy to a Project(s)
+
+```plaintext
+name = "Block executions"
+description = "This policy applies to all deployments and runbook runs and will block executions, to particular environment(s)."
+ViolationReason = "Execution are blocked"
+
+scope {
+    rego = <<-EOT
+        package block_executions
+
+        default evaluate := false
+        evaluate := true if { 
+            # input.Project.Name == "<project-name>" - If you want to use Project Name
+            # input.Project.Id == "<project-id>" - If you want to use Project Id
+            # input.Project.Slug in ["<project-slug>", "<project-slug2>"] - If you want to check multiple projects
+            input.Project.Slug == "<project-slug>"
+
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package block_executions
+
+        default result := {"allowed": false}
+    EOT
+}
+```
+
+### Scope policy to Runbook runs only
+
+```plaintext
+name = "Block executions"
+description = "This policy applies only to runbook runs and will block executions to all runbook runs."
+ViolationReason = "Execution are blocked"
+
+scope {
+    rego = <<-EOT
+        package block_executions
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Runbook
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package block_executions
+
+        default result := {"allowed": false}
+    EOT
+}
+```
+
+### Scope policy to a Runbook run(s)
+
+```plaintext
+name = "Block executions"
+description = "This policy applies only to runbook runs and will block executions to specific runbook runs."
+ViolationReason = "Execution are blocked"
+
+scope {
+    rego = <<-EOT
+        package block_executions
+
+        default evaluate := false
+        evaluate := true if {
+            # input.Runbook.Name == "<runbook-name>" - If you want to use Runbook Name
+            # input.Runbook.Snapshot == "<runbook-snapshot-name>" - If you want to use Runbook Id
+            # input.Runbook.Id in ["<runbook-id>", "<runbook-id2>"] - If you want to check multiple runbooks
+            input.Runbook.Id == "<runbook-id>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package block_executions
+
+        default result := {"allowed": false}
+    EOT
+}
+```
+
+### Scope policy to Deployments only
+
+```plaintext
+name = "Block executions"
+description = "This policy applies only to deployments and will block executions to all deployments."
+ViolationReason = "Execution are blocked"
+
+scope {
+    rego = <<-EOT
+        package block_executions
+
+        default evaluate := false
+        evaluate := true if { 
+            not input.Runbook
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package block_executions
+
+        default result := {"allowed": false}
+    EOT
+}
+```
 
 ## Policy conditions
 
