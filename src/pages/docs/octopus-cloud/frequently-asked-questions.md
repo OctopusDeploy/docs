@@ -49,7 +49,7 @@ Please [contact Sales](https://octopus.com/company/contact) to trial Octopus Clo
 
 ### What does Octopus Cloud cost?
 
-We license Octopus Cloud in tiers. Our Starter tier costs USD $360 per year, and it allows 10 projects, 10 tenants, 10 machines, and task cap of 5. There are no additional platform fees.
+We license [Octopus Cloud in tiers](https://octopus.com/pricing/overview). Our Starter tier allows 10 projects, 10 tenants, 10 machines, and task cap of 5. There are no additional platform fees. 
 
 Our Professional and Enterprise tiers are [annual licenses priced per project](https://octopus.com/pricing/overview), with tenants and machines sold as add-ons to suit your requirements. We also charge Professional and Enterprise tier customers a [flat annual platform fee](https://octopus.com/pricing/faq#what-is-the-pricing-for-octopus-cloud) based on the task cap selected, which defines the number of concurrent deployments/runbook runs your instance can perform.
 
