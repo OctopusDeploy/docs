@@ -17,7 +17,7 @@ There are many different deployment scenarios that you might have that need to b
 
 The following examples will cover various ways that you can scope your policies:
 
-### Scope policy to a Space(s)
+### Scope policy to a space or many spaces
 
 ```plaintext
 name = "Block executions"
@@ -48,7 +48,7 @@ conditions {
 }
 ```
 
-### Scope policy to an Environment(s)
+### Scope policy to an environment or many environments
 
 ```plaintext
 name = "Block executions"
@@ -79,7 +79,7 @@ conditions {
 }
 ```
 
-### Scope policy to a Project(s)
+### Scope policy to a project or many projects
 
 ```plaintext
 name = "Block executions"
@@ -110,7 +110,7 @@ conditions {
 }
 ```
 
-### Scope policy to Runbook runs only
+### Scope policy to runbook runs only
 
 ```plaintext
 name = "Block executions"
@@ -137,7 +137,7 @@ conditions {
 }
 ```
 
-### Scope policy to a Runbook and its runs
+### Scope policy to a runbook and its runs
 
 ```plaintext
 name = "Block executions"
@@ -167,7 +167,7 @@ conditions {
 }
 ```
 
-### Scope policy to Deployments only
+### Scope policy to deployments only
 
 ```plaintext
 name = "Block executions"
@@ -198,7 +198,7 @@ conditions {
 
 The following examples will cover different deployment scenarios that can be enforced with policies:
 
-### Check that no steps in a deployment is skipped
+### Check that a step isn't skipped in a deployment
 
 ```plaintext
 name = "All steps are not skipped"
@@ -227,7 +227,7 @@ conditions {
 }
 ```
 
-### Check that all steps are enabled
+### Check that all deployment steps are enabled
 
 ```plaintext
 name = "All steps must be enabled"
@@ -257,8 +257,8 @@ conditions {
 }
 ```
 
+### Check that a step exists at the beginning or at the end during execution
 
-### Check that a step exists at the beginning or end during execution
 ```plaintext
 name = "Check Step location"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular step exists at the start or the end of the execution."
@@ -291,7 +291,7 @@ conditions {
 }
 ```
 
-### Check that a Step Template is in the execution (check that it isn’t skipped or disabled) 
+### Check that a Step Template isn't skipped or disabled during a deployment
 
 ```plaintext
 name = "Step Template is executed"
@@ -326,8 +326,7 @@ conditions {
 }
 ```
 
-
-### Check that a Step Template is in the execution that is a particular version (check that it isn’t skipped or disabled) 
+### Check that a Step Template is of a certain version when deployments occur
 
 ```plaintext
 name = "Step Template with version is executed"
@@ -363,8 +362,7 @@ conditions {
 }
 ```
 
-
-### Check that a Exection contains a manual intervention step
+### Check that a deployment contains a manual intervention step
 
  ```plaintext
 name = "Require Manual Intervention step"
