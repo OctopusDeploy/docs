@@ -45,7 +45,7 @@ All policies are written in Rego and saved as an OCL file. For a comprehensive g
 1. To get started, you must create a new policies folder in your Platform Hub Git repository. In the folder, you will need to create an OCL file for your policy.
 
 :::div{.warning}
-You cannot use dashes in your policy file name 
+You cannot use dashes in your policy file name
 :::
 
 ```json
@@ -53,7 +53,6 @@ checkformanualintervention.ocl
 ```
 
 2. After you’ve done this, open the OCL file in your code editor, and start with a name and an optional description
-
 
 ```json
 name = "Require Manual Intervention step"
@@ -135,9 +134,7 @@ conditions {
 }
 ```
 
-
 6. You’ve now defined a basic policy to ensure a manual intervention step is present when deploying to any environment. You can test this policy by creating a deployment and deploying to an environment. If you choose not to include the manual intervention step, you will see errors in the task log and project dashboards when you try to run the deployment. All policy evaluations will appear in the Audit log (Configuration → Audit) with the “Compliance Policy Evaluated” type. Audit logs and Server Tasks will only appear for deployments within the policy's scope.
-
 
 ```json
 name = "Require Manual Intervention step" 
@@ -166,7 +163,6 @@ conditions {
     EOT
 }
 ```
-
 
 If you wish to see more comprehensive examples for other deployment scenarios, please visit the [examples page](examples.md).
 
