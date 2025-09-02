@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-06-13
+modDate: 2025-05-12
 title: Getting started with Cloud
 navTitle: Getting started with Cloud
 navOrder: 20
@@ -12,19 +12,25 @@ description: Learn how to set up and manage your Octopus Cloud instance
 
 An Octopus account lets you manage your Octopus Cloud instances. You can register an account at [octopus.com/register](https://octopus.com/register).
 
+An Octopus account lets you manage your Octopus Cloud instances. You can register an account at [octopus.com/register](https://octopus.com/register).
+
 You can sign up with your existing Google, Microsoft, or GitHub account, or create a unique login for Octopus:
 
 1. Enter your name.
 2. Provide your email address and create a password.
 3. On the next screen, verify your email address.
-4. After you verify your email, you’ll be signed into your Octopus account.
+4. After your email has been verified, you’ll be signed into your Octopus account.
 
+After you create an Octopus account, you can create a new Octopus Cloud instance.
 After you create an Octopus account, you can create a new Octopus Cloud instance.
 
 ## Create a Cloud instance \{#create-a-cloud-instance}
 
 To create a new Octopus Cloud instance, make sure you’re signed in to your Octopus account:
+To create a new Octopus Cloud instance, make sure you’re signed in to your Octopus account:
 
+1. Go to [octopus.com/start](https://octopus.com/start).
+2. Enter the URL you’d like to use to access your instance. If that URL isn’t available, try another one.
 1. Go to [octopus.com/start](https://octopus.com/start).
 2. Enter the URL you’d like to use to access your instance. If that URL isn’t available, try another one.
 3. Select the region where you’d like to host your instance.
@@ -32,10 +38,11 @@ To create a new Octopus Cloud instance, make sure you’re signed in to your Oct
 5. Review the terms of our customer agreement, privacy policy, and acceptable usage policy.
 6. Click **Start your trial**.
 
-You'll see the account provisioning screen. Your Octopus Cloud instance should be ready within a minute. We’ll also email you when it’s ready to use.
+You’ll be taken to the account provisioning screen. Your Octopus Cloud instance should be ready within a minute. We’ll also email you when it’s ready to use.
 
 ## Access your Octopus Cloud instance \{#access-your-octopus-cloud-instance}
 
+You can access your Octopus Cloud instance using the URL you chose during registration. In this example URL, `your-url` is the part of the URL you provided:
 You can access your Octopus Cloud instance using the URL you chose during registration. In this example URL, `your-url` is the part of the URL you provided:
 
 ```html
@@ -48,7 +55,7 @@ https://your-url.octopus.app/app#/users/sign-in
 
 To invite a user to your Octopus Cloud instance:
 
-1. Navigate to your Cloud instance in [Control Center](https://billing.octopus.com/).
+1. Navigate to your Cloud instance in [Control Center V2](https://billing.octopus.com/).
 2. Click **User Access** in the left sidebar.
 3. Click **Invite User**.
 4. Enter the user’s details.
@@ -56,12 +63,12 @@ To invite a user to your Octopus Cloud instance:
 6. Click **Invite**.
 
 :::figure
-![User Access page in Control Center](/docs/octopus-cloud/images/control-center-access-control.png)
+![User Access page in Control Center V2](/docs/octopus-cloud/images/control-center-access-control.png)
 :::
 
 #### Email invitation \{#email-invitation}
 
-The invited user will receive an email invitation.
+The invited user will receive an email invitation. 
 
 If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they just need to click **Accept invite** in the email to gain access to the subscription and then click **Sign in** to view the Octopus instance.
 
@@ -69,37 +76,39 @@ Otherwise, they will first need to **Register** a new account using the email ad
 
 #### Role permissions \{#role-permissions}
 
-|                             | Cloud Subscription Owner                 | Cloud Subscription User (Contributor)            | Cloud Subscription User (Base)                   |
-| --------------------------- | ---------------------------------------- | ------------------------------------------------ | ------------------------------------------------ |
-| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview | View Overview |
-| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Managers” team <div class="table-hint">By default, the user has full permissions across all spaces.</div>| “Space Managers” team  <div class="table-hint">By default, the user has full permissions in the “Default” space only.</div> <div class="table-hint" style="padding-top: 8px;">If you delete the “Default” space, the user will be added to the “Everyone” team.</div> | “Everyone” team  <div class="table-hint">By default, the user can sign in but can't view or do anything.</div> |
+|                             | Cloud Subscription Owner                                  | Cloud Subscription User                          |
+| --------------------------- | --------------------------------------------------------- | ------------------------------------------------ |
+| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview |
+| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Managers” team <div class="table-hint">By default, this team includes full permissions – a user can sign in and see and do everything.</div>| “Everyone” team  <div class="table-hint">By default, this team includes no permissions – a user can sign in but can’t see or do anything.</div> |
 
 ### Manage user permissions in Octopus Cloud \{#manage-user-permissions-in-octopus-cloud}
 
-Invited users are only added to an Octopus Cloud instance after their first sign-in. To manage a newly invited user's permissions, you will need to ask them to sign in to your Octopus Cloud instance first.
+Invited users are only added to an Octopus Cloud instance after their first sign-in. To manage a newly invited user’s permissions, you will need to ask them to sign in to your Octopus Cloud instance first.
 
 Octopus uses teams and user roles to manage permissions. After the invited user first signs in, they are automatically assigned to one of these teams:
 
 - “Octopus Managers” team (Cloud Subscription Owner)
-- “Space Managers” team (Cloud Subscription User (Contributor))
-- “Everyone” team (Cloud Subscription User (Base))
+- “Everyone” team (Cloud Subscription User)
 
 By default, the “Everyone” team includes no user roles, so users assigned to this team can sign in to your Octopus Cloud instance but won’t have permission to see or do anything.
 
 :::div{.hint}
-To give an “Everyone” team user (Cloud Subscription User (Base)) the correct permissions, you can do one or both of the following in your Octopus Cloud instance:
-
+To give an “Everyone” team user (Cloud Subscription User) the correct permissions, you can do one or both of the following in your Octopus Cloud instance:
 - Edit the “Everyone” team to include the minimum permissions all users need.
 - Add the user to other teams with the correct permissions after they first sign in.
-
 :::
 
-To adjust a user's permissions, you can add them to other teams:
+To adjust a user’s permissions, you can add them to other teams:
 
 1. In your Octopus Cloud instance, go to **Configuration** (the cog icon in the bottom left sidebar).
+1. In your Octopus Cloud instance, go to **Configuration** (the cog icon in the bottom left sidebar).
 2. Select **Teams**.
-3. Create a new team or select an existing one, such as **Space Managers**.
+3. Create a new team or select an existing one, such as **Space Administrators**.
 4. Select **Add Member**.
+5. Select the user from the dropdown list.
+6. Click **Add**, then **Save**.
+
+Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
 5. Select the user from the dropdown list.
 6. Click **Add**, then **Save**.
 
@@ -108,12 +117,15 @@ Learn about best practices for [users, roles, and teams](/docs/best-practices/oc
 :::figure
 ![Teams page in Octopus Cloud instance](/docs/octopus-cloud/images/cloud-instance-teams.png)
 :::
+:::figure
+![Teams page in Octopus Cloud instance](/docs/octopus-cloud/images/cloud-instance-teams.png)
+:::
 
 ## Set the maintenance window \{#set-the-maintenance-window}
 
 To keep Octopus Cloud running smoothly, we use outage windows to perform updates. To minimize disruptions to your deployments, please pick a two-hour [maintenance window](/docs/octopus-cloud/maintenance-window) outside of your regular business hours.
 
-1. Navigate to your Cloud instance in [Control Center](https://billing.octopus.com/).
+1. Navigate to your Cloud instance in [Control Center V2](https://billing.octopus.com/).
 2. Click **Configuration**.
 3. Locate the Maintenance Window section and click **Change Window**.
 4. Select a two-hour window.
@@ -123,9 +135,10 @@ To keep Octopus Cloud running smoothly, we use outage windows to perform updates
 
 To change your password for the Octopus instance and Octopus account:
 
-1. Navigate to [Control Center](https://billing.octopus.com/).
+1. Navigate to [Control Center V2](https://billing.octopus.com/).
 2. In the top-right corner, click the dropdown menu next to your username.
 3. Click **Profile**.
+4. Click **Change Password**.
 4. Click **Change Password**.
 5. Enter your new password.
 6. Confirm the new password, and click **Change password**.
@@ -133,13 +146,17 @@ To change your password for the Octopus instance and Octopus account:
 ## Reset your password \{#reset-password}
 
 To reset your password:
+To reset your password:
 
 1. Go to [octopus.com/signin](https://octopus.com/signin).
+1. Go to [octopus.com/signin](https://octopus.com/signin).
 2. Click **Forgot your password?**
+3. Reset your credentials and sign into your Octopus account.
 3. Reset your credentials and sign into your Octopus account.
 
 ## Find your Octopus Cloud version \{#octopus-cloud-version}
 
+Octopus Cloud is always up to date with the latest version of Octopus Deploy. To check which version your instance is running:
 Octopus Cloud is always up to date with the latest version of Octopus Deploy. To check which version your instance is running:
 
 1. Sign in to your Octopus Cloud instance.
