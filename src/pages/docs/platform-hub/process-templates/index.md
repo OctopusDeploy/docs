@@ -18,7 +18,7 @@ Process templates are reusable sets of deployment steps that can be shared acros
 Process templates are in Public Preview for all Enterprise Cloud Customers.
 :::
 
-To create or manage your process templates, navigate to Platform Hub. If you haven't set up your Git repository, you must do so first before creating a process template. Similarly, if you've already created templates or are joining an existing team, you'll see the existing templates in the template overview screen.
+To create or manage your process templates, navigate to Platform Hub. If you haven't set up your Git repository, you must do so first before creating a process template. Similarly, if you've already created templates or are joining an existing team, you'll see the existing templates on the template overview screen.
 
 ![The Process Templates Overview page where users create Process templates](/docs/platform-hub/process-template-overview.png)
 
