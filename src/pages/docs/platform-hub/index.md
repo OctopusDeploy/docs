@@ -19,8 +19,8 @@ Platform Hub is currently in Public Preview for all Enterprise Cloud Customers.
 
 You can create and manage your process templates and policies from Platform Hub.
 
-- [Process templates](~/docs/platform-hub/process-templates~) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
-- [Policies](~/docs/platform-hub~) in Octopus are designed to ensure compliance and governance by default, making enforcing pre- and post-deployment controls at scale easier.
+- [Process templates](/docs/platform-hub/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
+- [Policies](/docs/platform-hub) in Octopus are designed to ensure compliance and governance by default, making enforcing pre- and post-deployment controls at scale easier.
 
 To get started, configure your version control.
 

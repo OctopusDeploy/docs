@@ -12,7 +12,7 @@
         "dev": "npm-run-all --parallel dev:img dev:astro dev:watch",
         "dev:img": "node ./src/themes/octopus/utilities/img.mjs",
         "dev:astro": "astro dev",
-        "dev:watch": "pnpm watch",
+        "dev:watch": "npm run watch",
         "crawl": "linkinator ./dist --skip \"^(?!http://localhost)\" --recurse  --verbosity error",
         "test": "astro build && npx playwright install --with-deps && npx playwright test",
         "spellcheck": "git fetch origin main:refs/remotes/origin/main && git diff origin/main --name-only --diff-filter=ACMRTUXB | cspell --no-must-find-files --file-list stdin",
