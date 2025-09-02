@@ -20,7 +20,7 @@ Platform Hub is currently in Public Preview for all Enterprise Cloud Customers.
 You can create and manage your process templates and policies from Platform Hub.
 
 - [Process templates](/docs/platform-hub/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
-- [Policies](/docs/platform-hub) in Octopus are designed to ensure compliance and governance by default, making it easier to enforce pre- and post-deployment controls at scale.
+- [Policies](/docs/platform-hub) in Octopus are designed to ensure compliance and governance by default, making enforcing pre- and post-deployment controls at scale easier.
 
 To get started, configure your version control.
 
@@ -54,6 +54,8 @@ Platform Hub Account details will not be shown inside a consuming project
 
 You can create and manage Git Credentials in Platform Hub by visiting the Git Credentials screen in the Platform Hub navigation menu. You can use Git Credentials inside your process templates by selecting them from a dropdown in the step field that requires them.
 
-:::hint These are not the same Git credentials that are used to configure Platform Hub:::
+:::div{.hint}
+This Git repository will be used for all features in Platform Hub.
+:::
 
 ![Platform Hub Git credentials area](/docs/platform-hub/platform-hub-git-credential.png)

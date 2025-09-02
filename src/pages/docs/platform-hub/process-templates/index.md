@@ -14,9 +14,11 @@ navOrder: 71
 
 Process templates are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy. Instead of copying and pasting deployment processes across teams and applications, which often leads to configuration drift, unnecessary duplication, and operational debt, you create a single source of truth that any project can consume. By abstracting your best practices for deployments into Process Templates, you make it easy for teams to follow standards and accelerate delivery.
 
-:::warning Process templates are in Public Preview for all Enterprise Cloud Customers:::
+:::div{.warning}
+Process templates are in Public Preview for all Enterprise Cloud Customers.
+:::
 
-To create or manage your process templates, navigate to Platform Hub. If you haven't setup your Git repository, you must do so first before creating a process template. Similarly, If you've already created templates or are joining an existing team, you'll see the existing templates in the template overview screen.
+To create or manage your process templates, navigate to Platform Hub. If you haven't set up your Git repository, you must do so first before creating a process template. Similarly, if you've already created templates or are joining an existing team, you'll see the existing templates in the template overview screen.
 
 ![The Process Templates Overview page where users create Process templates](/docs/platform-hub/process-template-overview.png)
 
@@ -151,7 +153,7 @@ To define a simple deployment process in Octopus that executes a hello world scr
 10. Add the Worker Pool parameter to the **Worker Pool** field.
 11. Paste the following PowerShell script into the **Inline Source Code** editor:
 
-```ps
+```powershell
 Write-Host "Hello, World!" 
 ```
 
