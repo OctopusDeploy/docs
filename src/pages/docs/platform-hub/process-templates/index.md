@@ -48,7 +48,7 @@ Once you have set up a deployment process, you can use it in any space for a dep
 
 ## Parameters
 
-Parameters help you easily manage and apply the correct values during a deployment or runbook run that uses a process template. Using parameters, you can use the same process template across your environments and tailor the inputs based on the projects needs.
+Parameters help you easily manage and apply the correct values during a deployment or runbook run that uses a process template. Using parameters, you can use the same process template across your projects and tailor the inputs based on the projects needs.
 
 Process Templates can manage the following as parameters.
 
@@ -83,6 +83,11 @@ You can set an optional default value for these parameters:
 - Multi-line text
 - Dropdown
 - Checkbox
+- AWS Account
+- Azure Account
+- Generic OIDC Account
+- Google Cloud Account
+- Username Password Account
 
 You cannot set a default value for these parameters, they must be set inside a project:
 
@@ -91,6 +96,12 @@ You cannot set a default value for these parameters, they must be set inside a p
 - Worker Pools
 - Package
 - Previous deployment step name
+- Target Tags
+- Teams
+- Tenant Tags
+- Environments
+- Container Feed
+- Channels
 
 ### Parameter scoping
 
