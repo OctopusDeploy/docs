@@ -6,7 +6,7 @@ title: Platform Hub
 subtitle: An overview of Platform Hub
 icon: 
 navTitle: Overview
-navSection: platform-hub
+navSection: Platform Hub
 description: Platform Hub is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence.
 navOrder: 70
 ---
@@ -21,4 +21,6 @@ To get started, configure your version control, and then follow [our guide](poli
 
 ![The overview page for Platform Hub](/docs/platform-hub/platform-hub-overview.png)
 
-:::hint This Git repository will be used for all features in Platform Hub.:::
+:::div{.hint}
+This Git repository will be used for all features in Platform Hub.
+:::
