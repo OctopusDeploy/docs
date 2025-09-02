@@ -26,7 +26,9 @@ To get started, configure your version control.
 
 ![The overview page for Platform Hub](/docs/platform-hub/platform-hub-overview.png)
 
-:::hint This Git repository will be used for all features in Platform Hub.:::
+:::hint 
+This Git repository will be used for all features in Platform Hub.
+:::
 
 ### Accounts in Platform Hub
 
