@@ -24,7 +24,7 @@ You can create and manage your process templates and policies from Platform Hub.
 
 To get started, configure your version control.
 
-![The overview page for Platform Hub](~/docs/platform-hub/platform-hub-overview.png~)
+![The overview page for Platform Hub](/docs/platform-hub/platform-hub-overview.png)
 
 :::hint This Git repository will be used for all features in Platform Hub.:::
 
@@ -44,7 +44,7 @@ You can create the following account types by visiting the **Accounts** area in 
 
 To use these accounts inside a process template, you must create a parameter that references these accounts first.
 
-![Accounts in Platform Hub](~/docs/platform-hub/platform-hub-accounts.png~)
+![Accounts in Platform Hub](/docs/platform-hub/platform-hub-accounts.png)
 
 :::hint
 Platform Hub account details will not be shown inside a consuming project
@@ -58,4 +58,4 @@ You can create and manage Git credentials in Platform Hub by visiting the Git cr
 This Git repository will be used for all features in Platform Hub.
 :::
 
-![Platform Hub Git credentials area](~/docs/platform-hub/platform-hub-git-credential.png~)
+![Platform Hub Git credentials area](/docs/platform-hub/platform-hub-git-credential.png)
