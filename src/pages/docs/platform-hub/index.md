@@ -6,7 +6,7 @@ title: Platform Hub
 subtitle: An overview of Platform Hub
 icon: 
 navTitle: Overview
-navSection: platform-hub
+navSection: Platform Hub
 description: Platform Hub is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence.
 navOrder: 70
 ---
@@ -30,9 +30,9 @@ To get started, configure your version control.
 
 ### Accounts in Platform Hub
 
-You can create and manage Accounts in Platform Hub that can be used inside process templates.
+You can create and manage accounts in Platform Hub that can be used inside process templates.
 
-You can create the following Account types by visiting the ****Accounts**** area in Platform Hub.
+You can create the following account types by visiting the **Accounts** area in Platform Hub.
 
 - AWS Accounts
 - Azure Accounts
@@ -42,17 +42,17 @@ You can create the following Account types by visiting the ****Accounts**** area
 - Token
 - Generic OIDC
 
-To use these Accounts inside a process template, you must create a parameter that references these Accounts first.
+To use these accounts inside a process template, you must create a parameter that references these accounts first.
 
-![Platform Hub Accounts area](~/docs/platform-hub/platform-hub-accounts.png~)
+![Accounts in Platform Hub](~/docs/platform-hub/platform-hub-accounts.png~)
 
 :::hint
-Platform Hub Account details will not be shown inside a consuming project
+Platform Hub account details will not be shown inside a consuming project
 :::
 
 ### Git Credentials in Platform Hub
 
-You can create and manage Git Credentials in Platform Hub by visiting the Git Credentials screen in the Platform Hub navigation menu. You can use Git Credentials inside your process templates by selecting them from a dropdown in the step field that requires them.
+You can create and manage Git credentials in Platform Hub by visiting the Git credentials area in the Platform Hub navigation menu. You can use Git credentials inside your process templates by selecting them from a dropdown in the step field that requires them.
 
 :::div{.hint}
 This Git repository will be used for all features in Platform Hub.
