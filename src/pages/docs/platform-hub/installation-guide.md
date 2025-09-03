@@ -26,8 +26,8 @@ You should only install a Public Preview version of Octopus server if you are co
 docker pull octopusdeploy/octopusdeploy:2025.3.9834-PublicPreview
 ```
 
-2. After downloading, upgrade each node of Octopus Server. After upgrading each node, restart Octopus server.
-3. You should now see the Platform Hub icon in your instance which you can click into and get started
+2. After downloading, you can upgrade your Octopus instance with our [upgrading guide](/docs/administration/upgrading/index.md).
+3. You should now see the Platform Hub icon in your instance.
 
 :::div{.hint}
 Users must have **PlatformHubEdit** and **PlatformHubView** permissions enabled to access Platform Hub. These permissions can only be assigned to system teams.
