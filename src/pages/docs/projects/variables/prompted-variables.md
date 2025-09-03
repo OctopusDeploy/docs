@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-29
+modDate: 2025-09-03
 title: Prompted variables
 icon: fa-solid fa-terminal
 description: Prompted variables allow you to prompt a user to enter a value rather than storing it in Octopus.

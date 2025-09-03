@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2025-09-03
 title: Immutable Infrastructure
 description: This guide covers deploying to immutable infrastructure where a new version of the infrastructure is provisioned and the old infrastructure is terminated.
 navOrder: 4

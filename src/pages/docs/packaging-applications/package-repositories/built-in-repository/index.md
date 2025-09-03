@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-09-03
 title: Built-in Octopus repository
 description: Using the Octopus built-in repository.
 navOrder: 10

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-29
-modDate: 2024-06-25
+modDate: 2025-09-03
 title: Creating a release
 description: Learn how to create a release in Octopus Deploy  
 navOrder: 2
