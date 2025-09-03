@@ -59,9 +59,6 @@ importers:
       '@playwright/test':
         specifier: ^1.54.2
         version: 1.54.2
-      '@pnpm/exe':
-        specifier: ^10.14.0
-        version: 10.14.0
       csv-parse:
         specifier: ^5.6.0
         version: 5.6.0
@@ -640,46 +637,6 @@ packages:
   '@playwright/test@1.54.2':
     resolution: {integrity: sha512-A+znathYxPf+72riFd1r1ovOLqsIIB0jKIoPjyK2kqEIe30/6jF6BC7QNluHuwUmsD2tv1XZVugN8GqfTMOxsA==}
     engines: {node: '>=18'}
-    hasBin: true
-
-  '@pnpm/exe@10.14.0':
-    resolution: {integrity: sha512-h6YL32buLQTkp40IB6UFTmElmw/YRMoREYjqoHxGsl1SAJKuLMZu4TobYCQZvjcXMIOYFDmGenZGxCqn73vsOw==}
-    hasBin: true
-
-  '@pnpm/linux-arm64@10.14.0':
-    resolution: {integrity: sha512-hZ2y0Oiit7Z386kErgvfFJ7J+5j24TJP2aTEC+lNLwuwO/CbbreBAPArr6UKRF/0pM7hhKjNLOaHgywnd5GGkw==}
-    cpu: [arm64]
-    os: [linux]
-    hasBin: true
-
-  '@pnpm/linux-x64@10.14.0':
-    resolution: {integrity: sha512-Oq7EdN/NQ6SP2uKZ4XgA2KC6rhqnULmcrD0OrJw1WR90k5q1G1MnZ5Ha7SjMyzcb+ZiShwBev+org/fH3dOSMQ==}
-    cpu: [x64]
-    os: [linux]
-    hasBin: true
-
-  '@pnpm/macos-arm64@10.14.0':
-    resolution: {integrity: sha512-ztl7jUtPOsGcoflir9R1L0RZ31KV/2I7u5wUDBfOiGhoKsK0qaB4jxN8rIgfYeb+wUanqzL+0f29dHw7YCWXXA==}
-    cpu: [arm64]
-    os: [darwin]
-    hasBin: true
-
-  '@pnpm/macos-x64@10.14.0':
-    resolution: {integrity: sha512-Dwxc1rdiS5KfF22kmW6e4xz1CbJjzsFKDfdY6DF36+E7Y1xEwzQTktSct9zUoo0hNwpPANEGNGv+YhZQNHzqLA==}
-    cpu: [x64]
-    os: [darwin]
-    hasBin: true
-
-  '@pnpm/win-arm64@10.14.0':
-    resolution: {integrity: sha512-3kkot8kFQpQsUV+nZg4EO4bqKeSnF15e0eHODoJGMCgwTvfO9QGdEiWL2Hk7BiSqOI6lnF8PYvh4QGSSXXovCQ==}
-    cpu: [arm64]
-    os: [win32]
-    hasBin: true
-
-  '@pnpm/win-x64@10.14.0':
-    resolution: {integrity: sha512-4FUUOCFpvvqVgeXcbmN7B/qQpAPym04g9nPF19Y9yrVszu8b11+jCrbvWbiate3nN7revV4TPAi5sUNKSH94FQ==}
-    cpu: [x64]
-    os: [win32]
     hasBin: true
 
   '@rollup/pluginutils@5.2.0':
@@ -3496,33 +3453,6 @@ snapshots:
   '@playwright/test@1.54.2':
     dependencies:
       playwright: 1.54.2
-
-  '@pnpm/exe@10.14.0':
-    optionalDependencies:
-      '@pnpm/linux-arm64': 10.14.0
-      '@pnpm/linux-x64': 10.14.0
-      '@pnpm/macos-arm64': 10.14.0
-      '@pnpm/macos-x64': 10.14.0
-      '@pnpm/win-arm64': 10.14.0
-      '@pnpm/win-x64': 10.14.0
-
-  '@pnpm/linux-arm64@10.14.0':
-    optional: true
-
-  '@pnpm/linux-x64@10.14.0':
-    optional: true
-
-  '@pnpm/macos-arm64@10.14.0':
-    optional: true
-
-  '@pnpm/macos-x64@10.14.0':
-    optional: true
-
-  '@pnpm/win-arm64@10.14.0':
-    optional: true
-
-  '@pnpm/win-x64@10.14.0':
-    optional: true
 
   '@rollup/pluginutils@5.2.0(rollup@4.46.2)':
     dependencies:
