@@ -2,19 +2,19 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-30
 modDate: 2025-09-30
-title: Overview
+title: Process Templates
 subtitle: An overview of Process Templates
 icon:
 navTitle: Process Templates
 description: An overview of Process Templates
-navOrder: 71
+navOrder: 148
 ---
 ## Overview
 
 Process templates are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy. Instead of copying and pasting deployment processes across teams and applications, which often leads to configuration drift, unnecessary duplication, and operational debt, you create a single source of truth that any project can consume. By abstracting your best practices for deployments into Process Templates, you make it easy for teams to follow standards and accelerate delivery.
 
 :::div{.warning}
-Process templates are in Public Preview for all Enterprise Cloud Customers.
+Process templates are in Public Preview for all Enterprise Cloud Customers. For Octopus server customers who want Platform Hub please visit the [installation guide](/docs/platform-hub/installation-guide)
 :::
 
 To create or manage your process templates, navigate to Platform Hub. If you haven't set up your Git repository, you must do so first before creating a process template. Similarly, if you've already created templates or are joining an existing team, you'll see the existing templates on the template overview.
@@ -39,7 +39,7 @@ Some steps look different inside a process template. They ask for a parameter ra
 
 ![The run a script step asks for a worker pool parameter instead of a worker pool](/docs/platform-hub/process-template-step-example.png)
 
-:::Warning
+:::div{.warning}
 Our initial release of Process Templates does not include support for custom step templates, community step templates, and a few built-in steps.
 :::
 

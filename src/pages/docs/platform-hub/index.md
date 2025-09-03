@@ -8,12 +8,12 @@ icon:
 navTitle: Overview
 navSection: Platform Hub
 description: Platform Hub is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence.
-navOrder: 70
+navOrder: 146
 ---
 
 Platform Hub is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence.
 
-:::warning
+:::div{.warning}
 Platform Hub is currently in Public Preview for all Enterprise Cloud Customers.
 :::
 
@@ -26,7 +26,9 @@ To get started, configure your version control.
 
 ![The overview page for Platform Hub](/docs/platform-hub/platform-hub-overview.png)
 
-:::hint This Git repository will be used for all features in Platform Hub.:::
+:::div{.hint}
+This Git repository will be used for all features in Platform Hub.
+:::
 
 ### Accounts in Platform Hub
 
@@ -46,7 +48,7 @@ To use these accounts inside a process template, you must create a parameter tha
 
 ![Accounts in Platform Hub](/docs/platform-hub/platform-hub-accounts.png)
 
-:::hint
+:::div{.hint}
 Platform Hub account details will not be shown inside a consuming project
 :::
 
