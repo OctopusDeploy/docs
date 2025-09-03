@@ -81,7 +81,7 @@ Whichever option from above that you select, the objective is to get the `Publis
 <summary>PowerShell</summary>
 
 ```powershell
-octo pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication\pkg\Release
+octopus package zip create --id MyFabricApplication --version VERSION --base-path MyFabricApplication\pkg\Release --out-folder OUTPUT --include '**'
 ```
 
 </details>
@@ -89,7 +89,7 @@ octo pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OU
 <summary>Bash</summary>
 
 ```bash
-octo pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication/pkg/Release
+octopus package zip create --id MyFabricApplication --version VERSION --base-path MyFabricApplication/pkg/Release --out-folder OUTPUT --include '**'
 ```
 
 </details>

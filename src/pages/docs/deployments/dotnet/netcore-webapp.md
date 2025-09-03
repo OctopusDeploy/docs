@@ -24,7 +24,7 @@ When your application has been published you need to package it:
 
 ```powershell
 # Package the folder into a ZIP
-octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
+octopus package zip create --id 'MyApp.Web' --version '1.0.0' --base-path 'published-app'
 ```
 
 For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).

@@ -27,7 +27,7 @@ We've crafted and packaged v1.0.0 of this sample application for you to try out 
 dotnet publish source/NginxSampleWebApp --output published-app --configuration Release
 
 # Package the folder into a ZIP
-octo pack --id NginxSampleWebApp --version 1.0.0 --basePath published-app
+octopus package zip create --id NginxSampleWebApp --version 1.0.0 --base-path published-app
 ```
 
 :::div{.hint}

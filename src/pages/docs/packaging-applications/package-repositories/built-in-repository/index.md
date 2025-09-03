@@ -11,15 +11,15 @@ Your Octopus Server comes with a built-in repository which is the best choice fo
 
 The built-in feed can only be consumed by Octopus. Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required. See [package repositories](/docs/packaging-applications/package-repositories).
 
-## Pushing packages to the built-in repository {#pushing-packages-to-the-built-in-repository}
+## Uploading packages to the built-in repository {#pushing-packages-to-the-built-in-repository}
 
 It is possible to manually upload a package file from your local machine via the Octopus Web Portal by navigating to **Library ➜ Packages** and clicking the **Upload Package** button.
 
-However, we recommend using a [build server](/docs/packaging-applications/build-servers) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository.
+However, we recommend using a [build server](/docs/packaging-applications/build-servers) to build, test, package and automatically upload your release packages into the Octopus Deploy built-in repository.
 
-In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
+In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
 
-In addition to manually uploading packages or using your build server, you can add, upload, and push packages to the built-in feed in the following ways:
+In addition to manually uploading packages or using your build server, you can add, upload packages to the built-in feed in the following ways:
 
 - [Using the Octopus CLI](#UsingOctopusCli).
 - [Using the Octopus API (HTTP POST)](#UsingTheOctopusAPI(HttpPost)).
@@ -34,13 +34,13 @@ To push packages using these methods, you will need:
 
 ## Using the Octopus CLI {#UsingOctopusCli}
 
-You can push one or more packages using the [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli), the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
+You can upload one or more packages using the [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli), the command-line tool for Octopus Deploy. The example below will upload `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
 
 <details data-group="packaging-built-in-repository">
 <summary>PowerShell</summary>
 
 ```powershell
-C:\> octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server https://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
+C:\> octopus package upload --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --overwrite-mode overwrite
 ```
 
 </details>
@@ -48,7 +48,7 @@ C:\> octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.
 <summary>Bash</summary>
 
 ```bash
-$ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server https://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
+$ octopus package upload --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --overwrite-mode overwrite
 ```
 
 </details>
