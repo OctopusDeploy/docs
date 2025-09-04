@@ -9,6 +9,7 @@ navTitle: Getting started
 navSection: Policies
 description: Policies let you enforce standards across your Octopus instance with ease. 
 navOrder: 165
+listable: false
 ---
 
 Policies in Octopus are designed to ensure compliance and governance by default, making it easier to enforce pre- and post-deployment controls at scale. This approach allows you to shift compliance left, alleviating the burden of manual audits and enabling you to maintain high standards across your organization. With policies, you can enforce organization-wide compliance across teams and regions, moving governance out of Confluence docs and Slack threads and into the heart of your delivery pipeline. Using Rego, you can write custom policy checks that align with your requirements, block non-compliant deployments, and access detailed audit logs of policy evaluation events. This method ensures compliance is not an afterthought; it is embedded within every deployment pipeline, providing a seamless and efficient way to uphold governance standards across all activities.
