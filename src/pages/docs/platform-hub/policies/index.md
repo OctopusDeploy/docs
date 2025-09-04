@@ -32,7 +32,7 @@ Policies is currently in Open Alpha
 
 For the Alpha release of Policies, you can enforce that all deployments to specific environments contain a certain step.
 
-Deployments refers to regular deployments and runbook runs. Policies can verify the presence of built-in steps, custom step templates, and community step templates.
+Deployments refers to regular deployments and runbook runs. Policies can verify the presence of built-in steps, custom step templates, community step templates, and process templates.
 
 An example use-case you might have is to enforce that all deployments going to production environments must contain a manual intervention step.
 
@@ -77,16 +77,15 @@ description = "This Policy checks that a manual intervention step isn't skipped 
 ```
 
 
-    To use the environment name in your Rego, you would add the following:
+To use the environment name in your Rego, you would add the following:
 
 
 ```json
 input.environment.name = "Development"
 ```
 
-
-    Full details on the data available for scoping can be found under the [schema section](#schema-for-policies).
-    Our worked example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. All Rego code has to have a package defined, which is the name of your ocl file.
+Full details on the data available for scoping can be found under the [schema section](#schema-for-policies).
+Our worked example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. All Rego code has to have a package defined, which is the name of your ocl file.
 
 
 ```json
