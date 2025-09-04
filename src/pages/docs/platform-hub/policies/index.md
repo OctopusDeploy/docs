@@ -38,11 +38,11 @@ An example use-case you might have is to enforce that all deployments going to p
 
 ## Getting Started
 
-All policies are written in Rego and saved as an OCL file. For a comprehensive guide to Rego, please visit the official [documentation.](https://www.openpolicyagent.org/docs/policy-language). If you would like to jump straight to examples that are more representative of the deployment scenario you want to enforce, please visit our [examples page](/docs/platform-hub/policies/examples).
+All policies are written in Rego and saved as an OCL file. For a comprehensive guide to Rego, please visit the official [documentation.](https://www.openpolicyagent.org/docs/policy-language) If you would like to jump straight to examples that are more representative of the deployment scenario you want to enforce, please visit our [examples page](/docs/platform-hub/policies/examples).
 
 ### Building your first policy
 
-1. To get started, you must create a new folder called **policies** in your [Platform Hub Git repository](/docs/platform-hub/index). In the folder, you will need to create an OCL file for your policy.
+1. To get started, you must create a new folder called **policies** in your [Platform Hub Git repository](/docs/platform-hub). In the folder, you will need to create an OCL file for your policy.
 
 :::div{.warning}
 You cannot use dashes in your policy file name
