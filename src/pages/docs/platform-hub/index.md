@@ -19,7 +19,3 @@ You can create and manage your policies from Platform Hub.
 - [Policies](/docs/platform-hub/policies) in Octopus are designed to ensure compliance and governance by default, making it easier to enforce pre- and post-deployment controls at scale.
 
 To get started, configure your version control, and then follow [our guide](/docs/platform-hub/policies) to create your first policy.
-
-:::div{.hint}
-This Git repository will be used for all features in Platform Hub.
-:::
