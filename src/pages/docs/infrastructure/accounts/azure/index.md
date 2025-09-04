@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-09-04
 title: Azure
 description: Configure your infrastructure so Octopus can deploy software to your Windows servers, Linux servers, or cloud regions.
 navOrder: 10
@@ -60,7 +60,7 @@ To use OpenID Connect authentication you have to follow the [required minimum co
 
 #### Microsoft Entra ID Service Principal configuration 
 
-To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-credentials) section in the Microsoft Entra ID documentation, or create it with a [script](#create-federated-credential-via-script).
+To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-federated-credentials) section in the Microsoft Entra ID documentation, or create it with a [script](#create-federated-credential-via-script). For more information on configuring external identity providers see [Configure an app to trust an external identity provider](https://oc.to/configure-azure-identity-providers).
 
 The federated credential will need the **Issuer** value set to the publicly accessible Octopus Server URI configured in the previous step, this value must also not have a trailing slash (/), for example `https://samples.octopus.app`.
 
