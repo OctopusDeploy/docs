@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2025-09-11
+modDate: 2025-09-30
 title: Policies examples
 subtitle: Examples of policies for different deployment scenarios
 icon: 
