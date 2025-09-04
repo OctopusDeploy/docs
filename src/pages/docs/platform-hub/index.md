@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2025-09-30
-modDate: 2025-09-30
+pubDate: 2025-09-11
+modDate: 2025-09-11
 title: Platform Hub
 subtitle: An overview of Platform Hub
 icon: 
