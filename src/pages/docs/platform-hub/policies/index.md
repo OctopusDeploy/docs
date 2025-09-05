@@ -10,6 +10,7 @@ navSection: Policies
 description: Policies let you enforce standards across your Octopus instance with ease. 
 navOrder: 165
 listable: false
+navMenu: false
 ---
 
 Policies in Octopus are designed to ensure compliance and governance by default, making it easier to enforce pre- and post-deployment controls at scale. This approach allows you to shift compliance left, alleviating the burden of manual audits and enabling you to maintain high standards across your organization. With policies, you can enforce organization-wide compliance across teams and regions, moving governance out of Confluence docs and Slack threads and into the heart of your delivery pipeline. Using Rego, you can write custom policy checks that align with your requirements, block non-compliant deployments, and access detailed audit logs of policy evaluation events. This method ensures compliance is not an afterthought; it is embedded within every deployment pipeline, providing a seamless and efficient way to uphold governance standards across all activities.
@@ -45,131 +46,122 @@ All policies are written in Rego and saved as an OCL file. For a comprehensive g
 
 1. To get started, you must create a new folder called **policies** in your [Platform Hub Git repository](/docs/platform-hub). In the folder, you will need to create an OCL file for your policy.
 
-:::div{.warning}
-You cannot use dashes in your policy file name
-:::
+   :::div{.warning}
+   You cannot use dashes in your policy file name
+   :::
 
-```json
-checkformanualintervention.ocl
-```
+   ```json
+   checkformanualintervention.ocl
+   ```
 
 2. After you’ve done this, open the OCL file in your code editor, and start with a name and an optional description
 
-```json
-name = "Require Manual Intervention step"
-description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production"
-```
-
+   ```json
+   name = "Require Manual Intervention step"
+   description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production"
+   ```
 
 3. You’ll now need to define the policy's scope, as Rego in the OCL file. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value ```input.VALUE```.
+
+   For example, Octopus provides the environment details that you are deploying to.
+
+   ```json
+   {
+       "Environment": {
+           "Id": "Environments-1",
+           "Name": "Development",
+           "Slug": "development"
    
-    
-For example, Octopus provides the environment details that you are deploying to.
+       }
+   }
+   ```
 
+   To use the environment name in your Rego, you would add the following:
 
-```json
-{
-    "Environment": {
-        "Id": "Environments-1",
-        "Name": "Development",
-        "Slug": "development"
+   ```json
+   input.environment.name = "Development"
+   ```
 
-    }
-}
-```
+   Full details on the data available for scoping can be found under the [schema page](/docs/platform-hub/policies/schema).
 
+   Our worked example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. All Rego code has to have a package defined, which is the name of your ocl file.
 
-To use the environment name in your Rego, you would add the following:
-
-
-```json
-input.environment.name = "Development"
-```
-
-Full details on the data available for scoping can be found under the [schema page](/docs/platform-hub/policies/schema).
-Our worked example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. All Rego code has to have a package defined, which is the name of your ocl file.
-
-
-```json
-scope {
-    rego = <<-EOT
-        package checkformanualintervention 
-        default evaluate := false
-        evaluate := true if {
-            input.Environment.Name == "Production"
-            input.Project.Name == "ACME"
-            input.Space.Name == "Default"
-        }
-    EOT
-}
-```
+   ```ruby
+   scope {
+       rego = <<-EOT
+           package checkformanualintervention 
+           default evaluate := false
+           evaluate := true if {
+               input.Environment.Name == "Production"
+               input.Project.Name == "ACME"
+               input.Space.Name == "Default"
+           }
+       EOT
+   }
+   ```
 
 4. After defining your scope, you must specify the policy rules. These rules are written in Rego. Octopus will check the results of your Rego code to determine if a deployment complies with the policy. The result should contain a composite value with the properties **allowed** and an optional **reason.** In this example, we will set the default rule result to be non-compliant. Any deployment that does not meet the policy rules will be prevented from executing.
 
-:::div{.warning}
-- You cannot rename **result**, it must be called **result**.
-- The package name must be the same as your policy file name.
-:::
+   :::div{.warning}
+   - You cannot rename **result**, it must be called **result**.
+   - The package name must be the same as your policy file name.
+   :::
 
-
-```json
-conditions {
-    rego = <<-EOT
-    package checkformanualintervention
-    default result := {"allowed": false}
-    EOT
-}
-
-```
-
+   ```json
+   conditions {
+       rego = <<-EOT
+       package checkformanualintervention
+       default result := {"allowed": false}
+       EOT
+   } 
+   ```
 
 5. After you’ve set the default state, you’ll need to define the policy rules that will update the **result** state to be true so the deployment can execute. In this example, the deployment must contain at least one manual intervention step. We can do this by checking the step.ActionType is “Octopus.Manual”
 
-
-```json
-conditions {
-    rego = <<-EOT
-        package checkformanualintervention
-        default result := {"allowed": false}
-        result := {"allowed": true} if {
-            some step in input.Steps
-            step.ActionType == "Octopus.Manual"
-        }
-    EOT
-}
-```
+   ```ruby
+   conditions {
+       rego = <<-EOT
+           package checkformanualintervention
+           default result := {"allowed": false}
+           result := {"allowed": true} if {
+               some step in input.Steps
+               step.ActionType == "Octopus.Manual"
+           }
+       EOT
+   }
+   ```
 
 6. You’ve now defined a basic policy to ensure a manual intervention step is present when deploying to any environment. You can test this policy by customizing the values in the scope block, and then deploying to an environment. If you choose not to include the manual intervention step in your process, you will see errors in the task log and project dashboards when you try to run the deployment. All policy evaluations will appear in the Audit log (**Configuration** → **Audit**) with the “Compliance Policy Evaluated” filter applied. Audit logs and Server Tasks will only appear for deployments within the policy's scope.
 
-```json
-name = "Require Manual Intervention step" 
-description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production" 
+   ```ruby
+   name = "Require Manual Intervention step" 
+   description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production" 
+    
+   scope {
+       rego = <<-EOT
+           package checkformanualintervention 
+           default evaluate := false
+           evaluate := true if {
+               input.Environment.Name == "Production"
+               input.Project.Name == "ACME"
+               input.Space.Name == "Default"
+           }
+       EOT
+   } 
+    
+   conditions {
+       rego = <<-EOT
+           package checkformanualintervention
+           default result := {"allowed": false}
+           result := {"allowed": true} if {
+               some step in input.Steps
+               step.ActionType == "Octopus.Manual"
+           }
+       EOT
+   }
+   ```
 
-scope {
-    rego = <<-EOT
-        package checkformanualintervention 
-        default evaluate := false
-        evaluate := true if {
-            input.Environment.Name == "Production"
-            input.Project.Name == "ACME"
-            input.Space.Name == "Default"
-        }
-    EOT
-} 
-
-conditions {
-    rego = <<-EOT
-        package checkformanualintervention
-        default result := {"allowed": false}
-        result := {"allowed": true} if {
-            some step in input.Steps
-            step.ActionType == "Octopus.Manual"
-        }
-    EOT
-}
-```
-
-:::div{.hint}
-- If you wish to see more comprehensive examples for other deployment scenarios, please visit the [examples page](/docs/platform-hub/policies/examples).
-- If you wish to see the schema of inputs available for policies, please visit the [schemas page](/docs/platform-hub/policies/schema).
-:::
+   :::div{.hint}
+   - If you wish to see more comprehensive examples for other deployment scenarios, please visit the [examples page](/docs/platform-hub/policies/examples).
+   - If you wish to see the schema of inputs available for policies, please visit the [schemas page](/docs/platform-hub/policies/schema).
+   :::

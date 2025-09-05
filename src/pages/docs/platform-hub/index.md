@@ -10,6 +10,7 @@ navSection: Platform Hub
 description: Platform Hub is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence.
 navOrder: 146
 listable: false
+navMenu: false
 ---
 
 [Platform Hub](https://octopus.com/blog/introducing-platform-hub) is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence. Our first feature is [Policies](/docs/platform-hub/policies), with more coming soon.

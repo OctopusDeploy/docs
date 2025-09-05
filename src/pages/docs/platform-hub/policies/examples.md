@@ -10,6 +10,7 @@ navSection: Policies
 description: Example code for enforcing policies
 navOrder: 166
 listable: false
+navMenu: false
 ---
 
 There are many different deployment scenarios that you might have that need to be evaluated in order to meet policy conditions. You can use this page as a reference document to help you quickly get started with enforcing policies.
@@ -20,7 +21,7 @@ The following examples will cover various ways that you can scope your policies:
 
 ### Scope policy to a space or many spaces
 
-```plaintext
+```ruby
 name = "Block executions"
 description = "This policy applies to all Deployments and Runbook runs in one or more space(s) and will block executions."
 ViolationReason = "Execution are blocked"
@@ -51,7 +52,7 @@ conditions {
 
 ### Scope policy to an environment or many environments
 
-```plaintext
+```ruby
 name = "Block executions"
 description = "This policy applies to all Deployments and Runbook runs and will block executions, to particular Environment(s)."
 ViolationReason = "Execution are blocked"
@@ -82,7 +83,7 @@ conditions {
 
 ### Scope policy to a project or many projects
 
-```plaintext
+```ruby
 name = "Block executions"
 description = "This policy applies to all Deployments and Runbook runs and will block executions, to particular Project(s)."
 ViolationReason = "Execution are blocked"
@@ -113,7 +114,7 @@ conditions {
 
 ### Scope policy to runbook runs only
 
-```plaintext
+```ruby
 name = "Block executions"
 description = "This policy applies only to Runbook runs and will block executions to all Runbook runs."
 ViolationReason = "Execution are blocked"
@@ -140,7 +141,7 @@ conditions {
 
 ### Scope policy to a runbook and its runs
 
-```plaintext
+```ruby
 name = "Block executions"
 description = "This policy applies only to Runbook runs and will block executions to specific Runbook runs."
 ViolationReason = "Execution are blocked"
@@ -170,7 +171,7 @@ conditions {
 
 ### Scope policy to deployments only
 
-```plaintext
+```ruby
 name = "Block executions"
 description = "This policy applies only to Deployments and will block executions to all Deployments."
 ViolationReason = "Execution are blocked"
@@ -201,7 +202,7 @@ The following examples will cover different deployment scenarios that can be enf
 
 ### Check that a step isn't skipped in a deployment
 
-```plaintext
+```ruby
 name = "All steps are not skipped"
 description = "This policy applies to all Deployments and Runbook runs and will check that all steps are not skipped"
 violationreason = "No steps can be skipped."
@@ -230,7 +231,7 @@ conditions {
 
 ### Check that all deployment steps are enabled
 
-```plaintext
+```ruby
 name = "All steps must be enabled"
 description = "This policy applies to all Deployments and Runbook runs and will check that all steps are enabled"
 ViolationReason = "No steps can be disabled."
@@ -260,7 +261,7 @@ conditions {
 
 ### Check that a step exists at the beginning or at the end during execution
 
-```plaintext
+```ruby
 name = "Check Step location"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular step exists at the start or the end of the execution."
 ViolationReason = "Step needs to be at the start or end"
@@ -294,7 +295,7 @@ conditions {
 
 ### Check that a Step Template isn't skipped or disabled during a deployment
 
-```plaintext
+```ruby
 name = "Step Template is executed"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular Step Template exists and is not skipped."
 ViolationReason = "Step Template must be run"
@@ -329,7 +330,7 @@ conditions {
 
 ### Check that a Step Template is of a certain version when deployments occur
 
-```plaintext
+```ruby
 name = "Step Template with version is executed"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular Step Template with a version exists and is not skipped."
 ViolationReason = "Step Template with version must be run"
@@ -365,46 +366,46 @@ conditions {
 
 ### Check that a deployment contains a manual intervention step
 
- ```plaintext
+ ```ruby
 name = "Require Manual Intervention step"
 description = "Require Manual Intervention step"
 violationreason = "Manual intervention step is required in production environment"
 
 scope {
-	rego = <<-EOT
-		package manualintervention
+    rego = <<-EOT
+        package manualintervention
 
-		default evaluate := false
+        default evaluate := false
 
-		evaluate := true if { 
-			startswith(input.Space.Name, "Policies")
-			startswith(input.Project.Name, "Payment")
-			startswith(input.Environment.Name, "Production")
-		}
-	EOT
+        evaluate := true if { 
+            startswith(input.Space.Name, "Policies")
+            startswith(input.Project.Name, "Payment")
+            startswith(input.Environment.Name, "Production")
+        }
+    EOT
 }
 
 conditions {
-	rego = <<-EOT
-		package manualintervention
+    rego = <<-EOT
+        package manualintervention
 
-		default result := {"allowed": false }
+        default result := {"allowed": false }
 
-		result := {"allowed": true} if {
-			some step in input.Steps
-			step.ActionType == "Octopus.Manual"
-			not manual_intervention_skipped
-		}
+        result := {"allowed": true} if {
+            some step in input.Steps
+            step.ActionType == "Octopus.Manual"
+            not manual_intervention_skipped
+        }
 
-		result := {"allowed": false, "Reason": "Manual intervention step cannot be skipped in production environment"} if {
-			manual_intervention_skipped
-		}
+        result := {"allowed": false, "Reason": "Manual intervention step cannot be skipped in production environment"} if {
+            manual_intervention_skipped
+        }
 
-		manual_intervention_skipped if {
-			some step in input.Steps
-			step.Id in input.SkippedSteps
-			step.ActionType == "Octopus.Manual"
-		}
-	EOT
+        manual_intervention_skipped if {
+            some step in input.Steps
+            step.Id in input.SkippedSteps
+            step.ActionType == "Octopus.Manual"
+        }
+    EOT
 }
  ```

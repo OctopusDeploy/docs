@@ -520,7 +520,6 @@ xxlarge
 youtu
 Zuora
 rego
-Rego
 checkformanualintervention
 manualintervention
 violationreason
