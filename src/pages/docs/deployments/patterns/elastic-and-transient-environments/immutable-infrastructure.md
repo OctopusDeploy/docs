@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2025-09-03
 title: Immutable Infrastructure
 description: This guide covers deploying to immutable infrastructure where a new version of the infrastructure is provisioned and the old infrastructure is terminated.
 navOrder: 4
@@ -88,10 +88,23 @@ We are almost there! Next we need to bump the version of **Hello World** and aut
 
 Octopus will automatically deploy the current successful deployment for a project. That means if you deploy release 1.0.0 and then create release 1.0.1, the version 1.0.0 will continue to be deployed until 1.0.1 has been manually deployed.  This is not ideal for immutable infrastructure, because we do not want to deploy 1.0.1 to our old infrastructure, so we have no way to indicate to Octopus that it should start deploying release 1.0.1.  Enter auto deploy overrides. By creating both a new release and an auto deploy override when our infrastructure is provisioned, we can indicate to Octopus that the new release should be deployed to the new infrastructure.
 
-1. Create an auto deploy override using the Octopus CLI:
+1. Create an auto deploy override using the Octopus C# Client:
 
 ```powershell
-octo create-autodeployoverride --project "Hello World" --environment $environment --version $version --server $octopusURI --apiKey $apiKey
+Add-Type -Path 'Octopus.Client.dll'
+
+$octopusURI = 'https://your-octopus-url'
+$apiKey = 'API-YOUR-KEY'
+
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI, $apiKey
+$repository = New-Object Octopus.Client.OctopusRepository $endpoint
+
+$project = $repository.Projects.Get("Projects-1")
+$environment = $repository.Environments.Get("Environments-1")
+$release = $repository.Releases.Get("Releases-1")
+
+$project.AddAutoDeployReleaseOverride($environment, $release)
+$repository.Projects.Modify($project)
 ```
 
 ## Magic {#ImmutableInfrastructure-Magic}
@@ -105,15 +118,23 @@ $octopusURI = "https://your-octopus-url"
 $apiKey = "API-YOUR-KEY"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI, $apiKey
+octopus login --server $octopusURI --api-key $apiKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
 
-octo create-release --project "Hello World Infrastructure"  --packageversion "1.0.0.0" --deployto "Development" --server $octopusURI --apiKey $apiKey
-octo create-release --project "Hello World" --server $octopusURI --apiKey $apiKey
+octopus release create --project "Hello World Infrastructure" --package-version "1.0.0.0"
+$infraProject = $repository.Projects.FindByName("Hello World Infrastructure")
+$infraRelease = $repository.Projects.GetReleases($project).Items | Select-Object -first 1
+octopus release deploy --project 'Hello World Infrastructure' --version $infraRelease.Version --environment 'Development' --no-prompt
+
+octopus release create --project "Hello World"
 
 $project = $repository.Projects.FindByName("Hello World")
 $release = $repository.Projects.GetReleases($project).Items | Select-Object -first 1
+$environment = $repository.Environments.FindByName("Development")
+$project.AddAutoDeployReleaseOverride($environment, $release)
 
-octo create-autodeployoverride --project "Hello World" --environment "Development" --version $release.Version --server $octopusURI --apiKey $apiKey
+$project.AddAutoDeployReleaseOverride($environment, $release)
+$repository.Projects.Modify($project)
 
 ```
 
