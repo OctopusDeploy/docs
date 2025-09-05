@@ -519,3 +519,8 @@ xvzf
 xxlarge
 youtu
 Zuora
+rego
+checkformanualintervention
+manualintervention
+violationreason
+startswith
