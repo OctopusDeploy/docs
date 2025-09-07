@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-18
+modDate: 2025-09-03
 title: Tenant tags
 icon: fa-solid fa-tags
 description: Tenant Tags help you to classify your tenants with custom tags so you can tailor your tenanted deployments accordingly.
@@ -108,7 +108,7 @@ Consider an example deploying a release to the tenants tagged with the **Alpha**
 
 ```powershell
 # Deploys My Project 1.0.1 to all tenants tagged as in the Alpha ring
-./octo deploy-release --server=http://octopus.company.com --apiKey=API-1234567890123456 --project="My Project" --version="1.0.1" --tenantTag="Release ring/Alpha"
+octopus release deploy --project "My Project" --version "1.0.1" --tenant-tag "Release ring/Alpha"
 ```
 
 Some places you can use tags are:
