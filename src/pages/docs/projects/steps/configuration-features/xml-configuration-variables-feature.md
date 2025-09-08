@@ -61,11 +61,11 @@ In this example, you would have variables similar to the following:
 | Variable Name    | Value     | Sensitive    | Scope |
 | ----------------------- | --------------- | -------- | -------- |
 | `AWSAccessKey` | `ABCDEFG` | `No` | `Test` |
-| `AWSAccessKey` | `HIJKLMN` | `No` | `Production` |
+| `AWSAccessKey` | `XXXXXXX` | `No` | `Production` |
 | `AWSSecretKey` | `1111111` | `Yes` | `Test` |
 | `AWSSecretKey` | `2222222` | `Yes` | `Production` |
-| `DBConnectionString` | `Server=testserver.mycompany.com;Database=Test-Database;Integrated Security=SSPI` | `No` | `Test` |
-| `DBConnectionString` | `Server=prodserver.mycompany.com;Database=Prod-Database;Integrated Security=SSPI` | `No` | `Production` |
+| `DBConnectionString` | `Server=test-server.your-company.com;Database=Test-Database;Integrated Security=SSPI` | `No` | `Test` |
+| `DBConnectionString` | `Server=prod-server.your-company.com;Database=Prod-Database;Integrated Security=SSPI` | `No` | `Production` |
 | `WelcomeMessage` | `Hello tester!` | `No` | `Test` |
 | `WelcomeMessage` | `Hello customer!` | `No` | `Production` |
 
@@ -82,7 +82,7 @@ Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the
     <add key="AWSSecretKey" value="1111111"/>
   </appSettings>
   <connectionStrings>
-    <add name="DBConnectionString" connectionString="Server=testserver.mycompany.com;Database=Test-Database;Integrated Security=SSPI" />
+    <add name="DBConnectionString" connectionString="Server=test-server.your-company.com;Database=Test-Database;Integrated Security=SSPI" />
   </connectionStrings>
   <applicationSettings>
     <AppSettings.Properties.Settings>
@@ -99,11 +99,11 @@ Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the
 ```xml
 <configuration>
   <appSettings>
-    <add key="AWSAccessKey" value="HIJKLMN"/>
+    <add key="AWSAccessKey" value="XXXXXXX"/>
     <add key="AWSSecretKey" value="2222222"/>
   </appSettings>
   <connectionStrings>
-    <add name="DBConnectionString" connectionString="Server=prodserver.mycompany.com;Database=Prod-Database;Integrated Security=SSPI" />
+    <add name="DBConnectionString" connectionString="Server=prod-server.your-company.com;Database=Prod-Database;Integrated Security=SSPI" />
   </connectionStrings>
   <applicationSettings>
     <AppSettings.Properties.Settings>
@@ -117,7 +117,7 @@ Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the
 
 Values are matched based on the `key` attribute for `appSettings`, and the `name` element for `applicationSettings` and `connectionStrings`.
 
-## Replacing variables outside appSettings, applicationSettings and connectionStrings {#Configurationfiles-VariablesInFilesReplacingvariablesoutsideappSettings,applicationSettingsandconnectionStrings}
+## Replacing variables outside appSettings, applicationSettings and connectionStrings
 
 There may be other variables you would like Octopus to replace in your configuration files that are outside both the `appSettings`, `connectionStrings`, and `applicationSettings` areas. For example, changing the `loginUrl` for forms authentication in an ASP.NET application:
 

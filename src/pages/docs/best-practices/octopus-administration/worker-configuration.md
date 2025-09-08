@@ -50,7 +50,7 @@ The built-in worker and [dynamic workers](/docs/infrastructure/workers/dynamic-w
 If you plan on using Octopus Deploy at scale, [disable the built-in worker](/docs/infrastructure/workers/built-in-worker/#switching-off-the-built-in-worker) for self-hosted or stop using the dynamic workers and host your own workers and worker pools.
 
 - Establish an easy-to-understand naming convention for workers.  For example, `p-db-omaha-worker-01` for a worker located in Omaha to do database deployments on Production.  
-- Configure workers to run in the same data centers as your deployment targets.  For example, if you are hosting Octopus Deploy in an on-premise data center, but you are deploying to the US-central region in Azure, then create workers to run in that region in Azure.  
+- Configure workers to run in the same data centers as your deployment targets.  For example, if you are hosting Octopus Deploy in an on-premises data center, but you are deploying to the US-central region in Azure, then create workers to run in that region in Azure.  
 - Name the worker pool to match the purpose, location, and environment.  For example, `Azure Central US Production Worker Pool`.
 - When possible, configure the underlying Tentacle Windows service as a specific Active Directory account to better control the permissions.  Consider not only what it should have access to (this worker can run SQL Scripts on a Dev SQL Server) and what it shouldn't have access to (this worker cannot run SQL Scripts on any Test or Production SQL Server).
 - For redundancy, have at least two workers per pool.

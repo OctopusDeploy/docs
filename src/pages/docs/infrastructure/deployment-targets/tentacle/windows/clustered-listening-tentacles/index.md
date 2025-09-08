@@ -47,29 +47,33 @@ Tentacle.exe configure --instance "Tentacle" --trust "<OCTOPUS SERVER THUMBPRINT
 "netsh" advfirewall firewall add rule "name=Octopus Deploy Tentacle" dir=in action=allow protocol=TCP localport=10933
 Tentacle.exe service --instance "Tentacle" --install --stop --start
 ```
+
 In the script, we:
- - Installed the Tentacle instance using the default instance name of `Tentacle` and made sure the `Tentacle.config` file was installed into the default location of `C:\Octopus\Tentacle.config`.
- - Configured the new instance to listen on TCP Port `10933` and set the Application and Home directories to our shared storage drive.
- - Configured the Tentacle to trust the Octopus Server holding a certificate which matches the specified certificate thumbprint.
- - Ensured the Windows Firewall has a rule configured to allow incoming connections on TCP Port `10933`, allowing the Octopus Server to talk to our new Tentacle.
+
+- Installed the Tentacle instance using the default instance name of `Tentacle` and made sure the `Tentacle.config` file was installed into the default location of `C:\Octopus\Tentacle.config`.
+- Configured the new instance to listen on TCP Port `10933` and set the Application and Home directories to our shared storage drive.
+- Configured the Tentacle to trust the Octopus Server holding a certificate which matches the specified certificate thumbprint.
+- Ensured the Windows Firewall has a rule configured to allow incoming connections on TCP Port `10933`, allowing the Octopus Server to talk to our new Tentacle.
 
 Using the Tentacle Manager stop the Octopus Tentacle service which was just installed on the first node and take the shared disk offline in Windows Disk Management.
 
 Now go to the second Tentacle server in the active/passive cluster and bring the same disk online, repeating the steps which were just performed on the first node to install the Octopus Tentacle service. Please keep the Octopus Tentacle service started and ensure that the shared storage is still mounted this time so that the .pfx file can be exported out of Octopus Tentacle.
 
-## Generate an Octopus Tentacle PFX file {#ClusteringTentacles-Newpfx}
+## Generate an Octopus Tentacle PFX file
 
 Open `cmd` as Administrator again and run these commands to generate a new Private Key from an Octopus Deploy Tentacle (replacing relevant values as appropriate).
+
 ```batch
 cd "C:\Program Files\Octopus Deploy\Tentacle\"
-Tentacle.exe new-certificate --export-pfx="<SHARED STORAGE DRIVE LETTER>:\TentacleClusterPrivateKey.pfx" --pfx-password="Yourpfxpassword"
+Tentacle.exe new-certificate --export-pfx="<SHARED STORAGE DRIVE LETTER>:\TentacleClusterPrivateKey.pfx" --pfx-password="YOUR-PFX-PASSWORD"
 ```
 
-## Import the new Octopus Tentacle PFX file {#ClusteringTentacles-Importpfx}
+## Import the new Octopus Tentacle PFX file
 
 Now import the new pfx file into the server from which it was just generated.
+
 ```batch
-Tentacle.exe import-certificate --instance="Tentacle" --from-file="<SHARED STORAGE DRIVE LETTER>:\TentacleClusterPrivateKey.pfx" --pfx-password="Yourpfxpassword"
+Tentacle.exe import-certificate --instance="Tentacle" --from-file="<SHARED STORAGE DRIVE LETTER>:\TentacleClusterPrivateKey.pfx" --pfx-password="YOUR-PFX-PASSWORD"
 Tentacle.exe service --instance="Tentacle" --stop --start
 ```
 
@@ -79,7 +83,7 @@ Once both Tentacles are installed and configured ensure that neither node has th
 
 ## Configure a new clustered service {#ClusteringTentacles-NewCluster}
 
-Ensure each node that will be participating in the Tentacle Cluster is joined to the Active Directory Domain and has the **Failover Clustering** feature installed in Windows. For more information on installing the Failover Clustering feature in Windows please see the  [Microsoft Failover Clustering documentation](https://blogs.msdn.microsoft.com/clustering/2012/04/06/installing-the-failover-cluster-feature-and-tools-in-windows-server-2012/ "installing the failover cluster service feature and toold in windows server 2012").
+Ensure each node that will be participating in the Tentacle Cluster is joined to the Active Directory Domain and has the **Failover Clustering** feature installed in Windows. For more information on installing the Failover Clustering feature in Windows please see the  [Microsoft Failover Clustering documentation](https://blogs.msdn.microsoft.com/clustering/2012/04/06/installing-the-failover-cluster-feature-and-tools-in-windows-server-2012/ "installing the failover cluster service feature and tools in windows server 2012").
 
 Open the **Failover Cluster Manager** console on one of the nodes. If there is no cluster configured yet, you can right click **Failover Cluster Manager** and select **New Cluster**
 

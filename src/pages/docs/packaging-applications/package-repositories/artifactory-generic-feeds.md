@@ -70,7 +70,7 @@ The package search for the feed is case-sensitive, so you must match the package
 
 ### Known limitations
 
-- Due to a limitation in the Octo CLI, that has been deprecated, our TeamCity plugin does not support creating releases for projects that utilize Artifactory Generic Feeds
+- Due to a limitation in the Octo CLI, that has been deprecated, our TeamCity plugin does not support creating releases for projects that use Artifactory Generic Feeds
 
 ### Example Repository Layout
 

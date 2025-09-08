@@ -303,7 +303,7 @@ Another common scenario is to have a one way trust between the domains. This con
 
 In this example, DomainA trusts DomainB. Given that both domains trust users from DomainB, the Octopus service should be configured to run as an account from DomainB. If the service was configured to run as an account from DomainA then users from DomainB wouldn't be able to log in and Octopus wouldn't be able to query group information from DomainB.
 
-Learn about [configuring Teams to utilize Trusted Domains](/docs/security/users-and-teams/external-groups-and-roles).
+Learn about [configuring Teams to use Trusted Domains](/docs/security/users-and-teams/external-groups-and-roles).
 
 ## Learn more
 

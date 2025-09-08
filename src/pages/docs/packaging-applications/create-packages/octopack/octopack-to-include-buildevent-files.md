@@ -29,7 +29,7 @@ This is resolved by creating a NuSpec file, and creating a files tag to tell Oct
 ![](/docs/img/packaging-applications/create-packages/octopack/images/nuspec-file.png)
 :::
 
-It is important to note here that for OctoPack to find and use a NuSpec file, it must be named the same as your project as seen above. For instance, in our example, the project is called `OctoFX.TradingWebsite` so our NuSpec file must be called `OctoFx.TragingWebsite.nuspec`.
+It is important to note here that for OctoPack to find and use a NuSpec file, it must be named the same as your project as seen above. For instance, in our example, the project is called `OctoFX.TradingWebsite` so our NuSpec file must be called `OctoFx.TradingWebsite.nuspec`.
 
 To ensure I don't just get the files defined within the NeSpec file, I add `/p:OctoPackEnforceAddingFiles=true`, to tell OctoPack to also add the files it would normally add while building as well as those targeted by my files tag in the NuSpec file.
 

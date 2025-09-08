@@ -13,16 +13,16 @@ Preventing progression can be useful if you need to temporarily block the releas
 
 These basic rules are applied when a release is prevented from progressing:
 
-- If a phase has _no successful_ deployments then _no_ deployments to that phase can take place.
-- If a phase has _only failed_ deployments, then _no_ deployments to that phase can take place.
-- If a phase has _a successful_ deployment, then deployments to any environment in that phase _can_ take place.
+- If a phase has *no successful* deployments then *no* deployments to that phase can take place.
+- If a phase has *only failed* deployments, then *no* deployments to that phase can take place.
+- If a phase has *a successful* deployment, then deployments to any environment in that phase *can* take place.
 - The first phase can always be deployed to even if the release is blocked before any deployment has taken place.
 - Optional phases are treated like any other phase and so the above rules apply, even if the previous phase is complete.
 - The above rules apply to each Tenant individually with respect to the relevant phase they have reached.
 
 Essentially, a blocked release is about blocking progression to yet to be deployed phases, not about deploying to phases you have already started deploying to. This allows you to, for example, block deployments to the production phase due to a problem uncovered in UAT-1, while still deploying to UAT-2 for further analysis.
 
-## Block deployment {#BlockingDeployments-BlockDeployment}
+## Block deployment
 
 You can block a release of a project from being used in any future deployments, no matter which phase the release is currently on. This can be done from the release page of the project you're wishing to block:
 
@@ -42,7 +42,7 @@ Provide a reason, so your team is aware and on the same page, and hit **Prevent 
 ![](/docs/img/releases/images/5865858.png)
 :::
 
-## Resolve and unblock {#BlockingDeployments-ResolveandUnblock}
+## Resolve and unblock
 
 When you're happy for the deployment process continuing, go back to the release page of the project, and select "**Unblock**":
 
@@ -50,7 +50,7 @@ When you're happy for the deployment process continuing, go back to the release 
 ![](/docs/img/releases/images/5865859.png)
 :::
 
-## Permissions {#BlockingDeployments-Permissions}
+## Permissions
 
 There are two permissions required for the act of preventing progression and unblocking your deployments, which you have to assign to the user performing the task:
 
@@ -65,4 +65,3 @@ When you block a release from being deployed, we actually use the Octopus API to
 ## Learn more
 
 - [Managing roles and permissions](/docs/security/users-and-teams/user-roles).
-

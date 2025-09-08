@@ -164,6 +164,7 @@ if ([string]::IsNullOrWhiteSpace($dismAppList) -eq $false){
 :::
 
 The features which will be installed are:
+
 - IIS-WindowsAuthentication
 - NetFx4Extended-ASPNET45
 - IIS-Security

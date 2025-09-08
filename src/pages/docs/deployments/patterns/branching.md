@@ -37,7 +37,7 @@ Builds from this single branch will produce a NuGet package, and that package go
 
 ### Release branches
 
-Sometimes developers work on new features that aren't quite ready to ship, whilst also maintaining a current production release. Bugs can be fixed on the release branch, and deployed, without needing to also ship the half-baked features.
+Sometimes developers work on new features that aren't quite ready to ship, while also maintaining a current production release. Bugs can be fixed on the release branch, and deployed, without needing to also ship the half-baked features.
 
 :::figure
 ![](/docs/img/deployments/patterns/images/3278439.png)

@@ -44,7 +44,7 @@ Prior to 2020.3.0, the packaging type is determined automatically from the exten
 
 So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `2017.10.0` would download the WAR file https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/2017.10.0/testsuite-https-2017.10.0.war.
 
-Since 2020.3.0, Maven artifacts can be specified with an optional packaging and classifier. For example, the artifact ID of `org.example:myartifact:zip` will select the ZIP package with the group `org.example` and the artifact ID of `myartifact`, or `org.example:myartifact:jar:sources` will select the JAR package with the `sources` classification. 
+Since 2020.3.0, Maven artifacts can be specified with an optional packaging and classifier. For example, the artifact ID of `org.example:my-artifact:zip` will select the ZIP package with the group `org.example` and the artifact ID of `my-artifact`, or `org.example:my-artifact:jar:sources` will select the JAR package with the `sources` classification. 
 
 The packaging must be defined when using a classifier.
 
@@ -80,7 +80,7 @@ The following qualifiers in the version are used to indicate that it is a pre-re
 * `beta` (or the `b` shorthand) e.g. `1.0.0-beta1` or `1.0.0-b1`.
 * `milestone` (or the `m` shorthand) e.g. `1.0.0-milestone1` or `1.0.0-m1`.
 * `rc` or `cr` e.g. `1.0.0-rc1` or `1.0.0-cr1`.
-* `SHAPSHOT` e.g. `1.0.0-SNAPSHOT`.
+* `SNAPSHOT` e.g. `1.0.0-SNAPSHOT`.
 
 ## Version ranges with Maven feeds
 

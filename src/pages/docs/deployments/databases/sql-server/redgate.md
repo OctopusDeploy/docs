@@ -144,7 +144,7 @@ Octopus Deploy and Redgate provide a number of plugins for several build servers
 - TeamCity:
     - [Octopus plugin](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration).
     - [Redgate plugin](https://www.red-gate.com/dlmas/TeamCity-download).
-- VSTS/TFS:
+- Azure DevOps:
     - [Octopus plugin](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
     - [Redgate plugin](https://marketplace.visualstudio.com/items?itemName=redgatesoftware.redgateDlmAutomationBuild).
 - Bamboo:
@@ -161,12 +161,12 @@ The first step builds the database package from source control.  The plugin prov
 ![Build step in Azure DevOps](/docs/img/deployments/databases/sql-server/images/azure-devops-build-database-package.png)
 :::
 
-The push package to Octopus step can be a little tricky.  The folder where the package is saved is not very apparent in the previous step. In this example, the package was saved in `$(Build.Repository.Localpath)`.
+The push package to Octopus step can be a little tricky.  The folder where the package is saved is not very apparent in the previous step. In this example, the package was saved in `$(Build.Repository.LocalPath)`.
 
 The full path for this example is:
 
 ```
-    $(Build.Repository.Localpath)\RandomQuotes-SQLChangeAutomation.1.0.$(Build.BuildNumber).nupkg
+    $(Build.Repository.LocalPath)\RandomQuotes-SQLChangeAutomation.1.0.$(Build.BuildNumber).nupkg
 ```
 
 The Octopus Server must be configured in Azure DevOps.  The steps to do that are detailed in [this documentation](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/#add-a-connection-to-octopus-deploy).

@@ -43,7 +43,7 @@ Given an `X509Certificate2` object, here's a PowerShell function that checks whe
 
 ```powershell
 function Test-CertificateIsSha1{
-    [cmdletbinding()]
+    [CmdletBinding()]
     param(  
     [Parameter(
         Position=0,

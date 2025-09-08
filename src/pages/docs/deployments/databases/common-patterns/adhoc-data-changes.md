@@ -9,7 +9,7 @@ navOrder: 20
 
 Sometimes an application causes data to get into an odd state, but the bug can be hard to reproduce and the priority to fix the bug might be low. However, the data still needs to be fixed. It might only be one record in one environment in one database, and it doesn't make sense to send a script to fix the data through the standard automated database deployment pipeline.
 
-The majority of the time, the fix is a manual process and varies from company to company.  It could be as simple as emailing the script to a DBA to as complicated as submitting a lengthly request form.  
+The majority of the time, the fix is a manual process and varies from company to company.  It could be as simple as emailing the script to a DBA to as complicated as submitting a lengthy request form.  
 
 Just like database deployments, it is possible to automate this. Automation has multiple advantages over a manual process.
 

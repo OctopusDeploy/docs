@@ -62,6 +62,7 @@ The [Octopus Deploy Jenkins plugin](/docs/packaging-applications/build-servers/j
 :::
 
 Fill in the inputs:
+
 - Package ID: A unique name for this package like `petclinic.mysql.flyway`.
 - Version Number: The unique version number for this package.
 - Package format: Zip or nuget.
@@ -69,9 +70,10 @@ Fill in the inputs:
 - Package include paths:
 - Package output directory: `${WORKSPACE}`.
 
-### Jenkins build number formating
+### Jenkins build number formatting
 
 To configure Jenkins to produce build numbers in a format like yyyy.mm.dd.hhmmss (2020.03.25.145344), install the following plugins:
+
 - Build Name and Description Setter.
 - Date Parameter Plugin.
 
@@ -96,7 +98,7 @@ Then use the Date parameter to create some parameters:
 ![An image showing the Jenkins' date parameters](/docs/img/deployments/databases/mysql-flyway/images/jenkins-build-date-parameters.png)
 :::
 
-Lastly, set the build name in the **Build Environment** section, by checking the `Set Build Name` checkbox and adding the build name, for instance: 
+Lastly, set the build name in the **Build Environment** section, by checking the `Set Build Name` checkbox and adding the build name, for instance:
 
 `${Year}.${Month}.${Day}.${Time}`
 
@@ -175,6 +177,7 @@ This template is similar to the Flyway migrate step but uses a package parameter
 Choose the **Flyway Info from a Referenced Package** for whichever OS you intend to deploy.  This guide uses the Bash version for use with Linux Tentacles:
 
 Fill in the fields:
+
 - **Relative path to flyway.cmd (optional)**: Use if your flyway bash file isn't within the root of the package.
 - **Locations (relative path, optional)**: Use if your `sql` directory is not off the root directory.
 - **Target -url (required)**: Connection string to MySql - `#{Project.MySql.ConnectionString}`.
@@ -227,5 +230,6 @@ If you receive an error message like the following:
 Your build server has converted line endings from LF to CRLF.  This typically happens on Windows-based build servers.
 
 Workarounds are:
+
 - Run the following command on your build agent `git config --global core.eol lf`
 - Set the `text eol=lf` setting within the `.gitattributes` of the git repo

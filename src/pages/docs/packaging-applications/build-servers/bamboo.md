@@ -261,7 +261,7 @@ sudo yum install libunwind libicu
 The Bamboo build logs show how the command line tool is run. Look for log messages like this:
 
 ```
-running command line: \n/opt/octocli/Octo push --server http://localhost --apiKey API-....................QGWUHKO --replace-existing --debug --package /opt/atlassian-bamboo-6.0.0/xml-data/build-dir/BPT-TBD-JOB1/myapplication.0.0.5.tar.gz
+running command line: \n/opt/octocli/Octo push --server http://localhost --apiKey API-....................XXXXXX --replace-existing --debug --package /opt/atlassian-bamboo-6.0.0/xml-data/build-dir/BPT-TBD-JOB1/myapplication.0.0.5.tar.gz
 ```
 
 This is the command that was run to perform the actual interaction with the Octopus Server, with the exception of the

@@ -26,7 +26,7 @@ Octopus integrates with Active Directory to authenticate users as well as author
 
 :::div{.hint}
 **Teams are not Distribution Groups**
-Whilst you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/administration/managing-infrastructure/subscriptions) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group, email address will require setting up a user with that email address and assigning them to the appropriate Octopus team.
+While you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/administration/managing-infrastructure/subscriptions) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group, email address will require setting up a user with that email address and assigning them to the appropriate Octopus team.
 :::
 
 ## How Active Directory authentication works
@@ -48,7 +48,7 @@ Assuming the login is successful, Octopus Deploy will create  [System.DirectoryS
 
 When a cross-domain trust is configured, both `GetAuthorizationGroups()` and `GetGroups()` methods will include groups in the trusted domains of the user.  Octopus Deploy relies on what those methods return to determine group membership.  We've found the vast majority of the time; Active Directory issues are a misconfiguration within Active Directory itself.  We've provided scripts below where you can take Octopus Deploy out of the equation and test your configuration directly.
 
-## Configuring Active Directory users {#TroubleshootingActiveDirectoryintegration-ConfiguringActiveDirectoryusers}
+## Configuring Active Directory users
 
 Octopus relies on Active Directory users being configured with enough information to distinguish them. We recommend making sure each Active Directory user you want to use with Octopus has been configured with:
 
@@ -64,7 +64,7 @@ Octopus relies on Active Directory users being configured with enough informatio
 
 These values can be used by Octopus to uniquely identify which Octopus User Account should be associated with each Active Directory User.
 
-## Verifying configuration values {#TroubleshootingActiveDirectoryintegration-Verifyingconfigurationvalues}
+## Verifying configuration values
 
 Most errors we've seen are due to a lack of permissions or various active directory configuration issues.  Additionally, errors are generally found when trying to retrieve a user's groups.  The following are some examples.
 
@@ -137,7 +137,7 @@ Notes:
 Octopus only uses Security Groups for controlling access permissions. When searching for groups to add to an Octopus team, Distribution Groups will be filtered out.
 :::
 
-## Logging {#TroubleshootingActiveDirectoryintegration-Logging}
+## Logging
 
 If problems persist, we suggest turning on active directory diagnostic logging and then executing the PowerShell script above to test changes based on the results.  We've found the best way to get actionable details out of the logs is to set the following registry settings on the server running active directory domain services (i.e. your relevant domain controller).
 
@@ -170,13 +170,13 @@ The diagnostic logs can be viewed in the Event Viewer.
 Remember to reset the registry values once you're finished troubleshooting.
 :::
 
-## Read-only domain controllers are not supported {#TroubleshootingActiveDirectoryintegration-Read-OnlyDomainControllersarenotsupported}
+## Read-only domain controllers are not supported
 
 Read-only Domain Controllers are not currently supported by Octopus. The .NET API we're using ignores read-only DCs.
 
 If there are any development teams willing to investigate RODCs further, our [AD/Directory Services authentication provider](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider) is open source (if you are using **Octopus 3.5**+), so please feel free to checkout the current implementation if you wish to "roll your own" AD provider that includes support for RODCs and share with the Octopus community. ​:smiley:​
 
-## Run as a different user not working {#TroubleshootingActiveDirectoryintegration-Runasadifferentusernotworking}
+## Run as a different user not working
 
 If you are signed into your Windows AD account and wish to sign in as a different AD user to Octopus, you need to do so via forms-based authentication and login with a fully qualified domain username (*eg. domain\user*). You **cannot** right-click and launch your browser as a different AD user.
 

@@ -114,7 +114,7 @@ Here are some common pitfalls to avoid:
 ## Logging {#logging}
 
 :::div{.warning}
-Avoid logging sensitive values! Whilst Octopus will attempt to mask sensitive values, it is better there is no value to mask in the first place!
+Avoid logging sensitive values! While Octopus will attempt to mask sensitive values, it is better there is no value to mask in the first place!
 :::
 
 Octopus/Tentacle will do its best to prevent sensitive values from inadvertently appearing in any logs. For example, if a custom PowerShell script accidentally did this:

@@ -15,7 +15,7 @@ When guest login is enabled, the sign in page for the Octopus Web Portal will pr
 ![](/docs/img/security/authentication/images/guest.png)
 :::
 
-## Enable guest user via UI {#Guestlogin-Enableguestlogin}
+## Enable guest user via UI {#enable-guest-user}
 
 You can enable your guest accounts from the Octopus Web Portal by navigating to **Configuration ➜ Settings ➜ Guest Login**. From there you can click the **Is Enabled** checkbox to enable or disable the Guest account.
 
@@ -24,7 +24,7 @@ You can enable your guest accounts from the Octopus Web Portal by navigating to 
 
 The guest account will now be activated and added to your Octopus Users.
 
-## Guest user permissions {#Guestlogin-Guestuserpermissions}
+## Guest user permissions
 
 The guest user is created as a standard user managed by Octopus. If you are using Active Directory authentication, you don't need a matching AD user account. The user is automatically added to the **Everyone** team. The guest user can be found in the **Users** tab in the **Configuration** area:
 
@@ -47,7 +47,7 @@ For example, you could assign the guest user to your **Octopus Administrators** 
 Please note, if you do add the guest user to your **Octopus Administrators** team, they will be able to view **all** settings and configuration. This includes viewing the license key, viewing the private keys for any uploaded certificates and potentially other information you don't want readable. Depending on your use case, you may want to create a custom role instead.
 :::
 
-## Configuring guest login {#Guestlogin-Configuringguestlogin}
+## Configuring guest login
 
 Octopus Server can be configured to enable or disable guest access via the command line, as follows:
 
@@ -55,11 +55,14 @@ Octopus Server can be configured to enable or disable guest access via the comma
 Octopus.Server.exe configure --instance=[your_instance_name] --guestLoginEnabled=true
 ```
 
-## Automatic guest login {#Guestlogin-Automaticguestlogin}
-Sometimes, you need to demonstrate an Octopus Server to others, but don't want people to have a choice between the guest login and one of the other login providers. In these cases, by appending `autologin=guest` to the sign in URL, visitors will be automatically logged in as a guest. This requires that the [Guest User is enabled](#Guestlogin-Enableguestlogin).
+## Automatic guest login
+
+Sometimes, you need to demonstrate an Octopus Server to others, but don't want people to have a choice between the guest login and one of the other login providers. In these cases, by appending `autologin=guest` to the sign in URL, visitors will be automatically logged in as a guest. This requires that the [Guest User is enabled](#enable-guest-user).
 
 For e.g.:
-```
+
+```text
 https://octopus.mydomain.com/app#/users/sign-in?autologin=guest
 ```
-Will allow visitors to https://octopus.mydomain.com to be automatically logged in as the guest account.
+
+Will allow visitors to `https://octopus.mydomain.com` to be automatically logged in as the guest account.

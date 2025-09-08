@@ -54,7 +54,7 @@ To use your own version of the Azure CLI or Azure Powershell cmdlets when using 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers).
 - Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
 
-## Run an Azure PowerShell script step {#RunningAzurePowerShell-RunanAzurePowerShellScriptStep}
+## Run an Azure PowerShell script step
 
 Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for executing PowerShell in the context of an Azure Subscription. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 

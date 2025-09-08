@@ -50,12 +50,11 @@ A Slack app must be configured to enable a message to be sent through to Slack.
 6. Copy the webhook URL, this is the value for the `SLACK_URI_APIKEY` environment variable on the Azure Function App:
 ![Copy webhook URL](/docs/img/administration/managing-infrastructure/subscriptions/images/slack-add-app-5.png)
 
-
-## Create an Azure Function App 
+## Create an Azure Function App
 
 ### Create the Function App in Azure
 
-The Function App can be created via the [Azure Portal](https://portal.azure.com), and [ARM Template](https://azure.microsoft.com/en-gb/resources/templates/) or with the [Azure CLI ](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest).
+The Function App can be created via the [Azure Portal](https://portal.azure.com), and [ARM Template](https://azure.microsoft.com/en-gb/resources/templates/) or with the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest).
 
 To use the Azure CLI, create the Resource Group to contain the Function App:
 
@@ -307,7 +306,7 @@ Hit F5 to compile and run the app, a URL will be output to the terminal to which
 ![Debug URL](/docs/img/administration/managing-infrastructure/subscriptions/images/azure-function-debug-1.png)
 :::
 
-[Postman](https://www.postman.com/) can send a test request, passing in a test JSON payload. 
+[Postman](https://www.postman.com/) can send a test request, passing in a test JSON payload.
 
 :::figure
 ![Postman](/docs/img/administration/managing-infrastructure/subscriptions/images/azure-function-debug-postman.png)
@@ -319,10 +318,9 @@ If this is configured correctly, it will return `200 OK`, and the message will a
 ![Slack message](/docs/img/administration/managing-infrastructure/subscriptions/images/slack-message.png)
 :::
 
-
 ### Build the Azure App Function
 
-This example uses [Github Actions](https://github.com/features/actions) to build the function code, package it, and push it to Octopus, which deploys it to Azure. 
+This example uses [Github Actions](https://github.com/features/actions) to build the function code, package it, and push it to Octopus, which deploys it to Azure.
 
 :::figure
 ![Build output](/docs/img/administration/managing-infrastructure/subscriptions/images/github-action-build-output.png)
@@ -341,6 +339,7 @@ A [project](/docs/projects) has been configured to deploy the Function App.
 :::
 
 The project has two steps:
+
 1. Deploy the Azure Function App.
 2. Set the environment variable for `SLACK_URI_APIKEY`.
 
@@ -359,5 +358,3 @@ And the message is sent from the subscription webhook to the Azure Function App 
 :::figure
 ![Slack message](/docs/img/administration/managing-infrastructure/subscriptions/images/slack-message-final.png)
 :::
-
-
