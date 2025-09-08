@@ -18,7 +18,7 @@ The **Manual Intervention Required** step lets you add approvals or manual check
 4. Locate the Manual Intervention Required card and click **Add Step**.
 
 :::figure
-![Add Manual Intervention Required step to deployment process](/docs/getting-started/first-deployment/images/manual-intervention-step.png)
+![Add Manual Intervention Required step to deployment process](/docs/img/getting-started/first-deployment/images/manual-intervention-step.png)
 :::
 
 ### Step name
@@ -54,7 +54,7 @@ Currently, your deployment process will run manual intervention after the script
 4. **Save** your deployment process.
 
 :::figure
-![Reorder steps](/docs/getting-started/first-deployment/images/reorder-steps.png)
+![Reorder steps](/docs/img/getting-started/first-deployment/images/reorder-steps.png)
 :::
 
 ## Release and deploy
@@ -64,7 +64,7 @@ Currently, your deployment process will run manual intervention after the script
 You will notice manual intervention doesn’t run in the Development or Staging environments. When the deployment reaches Production, it will pause and request approval.
 
 :::figure
-![Manual intervention is required in production](/docs/getting-started/first-deployment/images/manual-intervention.png)
+![Manual intervention is required in production](/docs/img/getting-started/first-deployment/images/manual-intervention.png)
 :::
 
 Your project is coming together well! Next, let's add a [deployment target](/docs/getting-started/first-deployment/add-deployment-targets).

@@ -25,7 +25,7 @@ Due to the deprecation of Ubuntu 18.04, we are upgrading our dynamic workers to 
 
 ## Who will be impacted?
 
-Users of Octopus Cloud utilizing Ubuntu workers and running custom scripts or community steps may be impacted as there are breaking changes between Ubuntu 18.04 and Ubuntu 22.04, and breaking changes between .NET Core 2.1/3.1 and .NET 6.
+Users of Octopus Cloud using Ubuntu workers and running custom scripts or community steps may be impacted as there are breaking changes between Ubuntu 18.04 and Ubuntu 22.04, and breaking changes between .NET Core 2.1/3.1 and .NET 6.
 
 Cloud customers impacted by the GCloud CLI update will be those with a deployment process which:
 
@@ -45,7 +45,7 @@ Any impacted custom scripts will need to be updated to use Ubuntu 22.04 and test
 The `Ubuntu 22.04` image can be found within the configuration of a worker pool:
 
 :::figure
-![Ubuntu 22.04 in worker image list](/docs/infrastructure/workers/dynamic-worker-pools/images/ubuntu-2204-worker-image-list.png)
+![Ubuntu 22.04 in worker image list](/docs/img/infrastructure/workers/dynamic-worker-pools/images/ubuntu-2204-worker-image-list.png)
 :::
 
 **Octopus preparation**

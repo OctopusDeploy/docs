@@ -15,7 +15,7 @@ This approach is only supported for self-hosted Octopus. For Octopus Cloud you'l
 ::::
 
 :::figure
-![](/docs/administration/reporting/images/sql.png)
+![](/docs/img/administration/reporting/images/sql.png)
 :::
 
 A few notes about accessing the table directly:

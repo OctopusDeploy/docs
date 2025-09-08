@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Terraform output variables
-description: Instructions on accessing and utilizing Terraform output variables
+description: Instructions on accessing and using Terraform output variables
 navOrder: 50
 ---
 

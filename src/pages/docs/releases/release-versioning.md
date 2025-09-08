@@ -17,7 +17,7 @@ We recommend using [SemVer](/docs/packaging-applications/create-packages/version
 Within a project, click **Settings ➜ Release Versioning**:
 
 :::figure
-![Release Versioning](/docs/releases/images/release-versioning.png)
+![Release Versioning](/docs/img/releases/images/release-versioning.png)
 :::
 
 You can use variables from the project (un-scoped or scoped only to a channel). In addition, some special variables are provided - example:

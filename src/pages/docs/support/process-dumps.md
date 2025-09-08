@@ -53,7 +53,7 @@ Sometimes the deployment in Octopus can complete or error out too quickly, which
 :::
 
 :::figure
-![Process explorer capturing child processes from Tentacle](/docs/support/images/processexplorer.png)
+![Process explorer capturing child processes from Tentacle](/docs/img/support/images/processexplorer.png)
 :::
 
 ## Creating process dumps on Linux

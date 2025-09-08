@@ -21,7 +21,7 @@ Google Cloud provides a [container registry](https://cloud.google.com/container-
     - **Google Cloud JSON Key:** _{{Upload your JSON keyfile}}_
 
 :::figure
-![](/docs/packaging-applications/package-repositories/guides/container-registries/images/google-container-registry.png)
+![](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/google-container-registry.png)
 :::
 
 ## Adding an OpenID Connect Google Container Registry to Octopus 

@@ -38,7 +38,7 @@ As the agent is running in the cluster, it can retrieve the cluster's version an
 When you install the agent, several resources will be created within a cluster, all running in the same namespace. Please refer to the diagram below (some details such as ServiceAccounts have been omitted).
 
 :::figure
-![Kubernetes agent component diagram](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-diagram-components.png)
+![Kubernetes agent component diagram](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-diagram-components.png)
 :::
 
 - Certain resource names may vary based on the target name and any overrides.
@@ -52,7 +52,7 @@ When you install the agent, several resources will be created within a cluster, 
 During a deployment, the agent generates temporary pods for each deployment task. These pods are not shown in the diagram above as they are not part of the installation process. Refer to the next diagram to understand how they are created and removed.
 
 :::figure
-![Kubernetes agent how it works diagram](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-diagram-how-it-works.png)
+![Kubernetes agent how it works diagram](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-diagram-how-it-works.png)
 :::
 
 1. Octopus Tentacle, which runs inside the `kubernetes-agent-tentacle` pod, maintains a connection to the Octopus Server.
@@ -111,7 +111,7 @@ kubectl config view
 3. This launches the Add New Kubernetes Agent dialog
 
 :::figure
-![Kubernetes Agent Wizard Config Page](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-config.png)
+![Kubernetes Agent Wizard Config Page](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-config.png)
 :::
 
 1. Enter a unique display name for the target. This name is used to generate the Kubernetes namespace, as well as the Helm release name
@@ -129,7 +129,7 @@ If you do want a Kubernetes agent and Kubernetes worker to have the same name, T
 #### Advanced options
 
 :::figure
-![Kubernetes Agent default namespace](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-default-namespace.png)
+![Kubernetes Agent default namespace](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-default-namespace.png)
 :::
 
 You can choose a default Kubernetes namespace that resources are deployed to. This is only used if the step configuration or Kubernetes manifests don’t specify a namespace.
@@ -141,7 +141,7 @@ If no [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classe
 A requirement of using the NFS pod is the installation of the [NFS CSI Driver](https://github.com/kubernetes-csi/csi-driver-nfs). This can be achieved by executing the presented helm command in a terminal connected to the target Kubernetes cluster.
 
 :::figure
-![Kubernetes Agent Wizard NFS CSI Page](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-nfs.png)
+![Kubernetes Agent Wizard NFS CSI Page](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-nfs.png)
 :::
 
 :::div{.warning}
@@ -156,7 +156,7 @@ helm repo update
 At the end of the wizard, Octopus generates a Helm command that you copy and paste into a terminal connected to the target cluster. After it's executed, Helm installs all the required resources and starts the agent.
 
 :::figure
-![Kubernetes Agent Wizard Helm command Page](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-helm-command.png)
+![Kubernetes Agent Wizard Helm command Page](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-helm-command.png)
 :::
 
 :::div{.hint}
@@ -170,7 +170,7 @@ The terminal Kubernetes context must have enough permissions to create namespace
 If left open, the installation dialog waits for the agent to establish a connection and run a health check. Once successful, the Kubernetes agent target is ready for use!
 
 :::figure
-![Kubernetes Agent Wizard successful installation](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-success.png)
+![Kubernetes Agent Wizard successful installation](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-success.png)
 :::
 
 :::div{.hint}
@@ -184,7 +184,7 @@ While the wizard doesn't support selecting Tenants or Tenant tags, the agent can
 1. Use the Deployment Target settings UI at **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Settings** to add a Tenant and set the Tenanted Deployment Participation as required. This is done after the agent has successfully installed and registered.
 
 :::figure
-![Kubernetes Agent ](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-settings-page-tenants.png)
+![Kubernetes Agent ](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-settings-page-tenants.png)
 :::
 
 2. Set additional variables in the helm command to allow the agent to register itself with associated Tenants or Tenant tags. You also need to provider a value for the `TenantedDeploymentParticipation` value. Possible values are `Untenanted` (default), `Tenanted`, and `TenantedOrUntenanted`.
@@ -285,7 +285,7 @@ This behavior is controlled by the [Machine Policy](/docs/infrastructure/deploym
 To check if a Kubernetes agent can be manually upgraded, navigate to the **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Connectivity** page. If the agent can be upgraded, there will be an *Upgrade available* banner. Clicking **Upgrade to latest** button will trigger the upgrade via a new task. If the upgrade fails, the previous version of the agent is restored.
 
 :::figure
-![Kubernetes Agent updated interface](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-portal.png)
+![Kubernetes Agent updated interface](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-portal.png)
 :::
 
 ### Helm upgrade command
@@ -315,5 +315,5 @@ To fully remove the Kubernetes agent, you need to delete the agent from the Kube
 The deployment target deletion confirmation dialog will provide you with the commands to delete the agent from the cluster.Once these have been successfully executed, you can then click **Delete** and delete the deployment target.
 
 :::figure
-![Kubernetes Agent delete dialog](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-delete-dialog.png)
+![Kubernetes Agent delete dialog](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-delete-dialog.png)
 :::

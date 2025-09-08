@@ -65,7 +65,7 @@ These can be set by clicking **Add Variable** from the **Variable** menu of your
 Enter your variable name and value. To insert the variable in your workflow, use the Codefresh variable syntax `${{YOUR_VARIABLE_NAME}}`
 
 :::figure
-![Use variables in your Codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables.png)
+![Use variables in your Codefresh workflow](/docs/img/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables.png)
 :::
 
 For more details on Codefresh pipeline variables, see the Codefresh documentation on [Variables in pipelines](https://codefresh.io/docs/docs/pipelines/variables/).
@@ -75,7 +75,7 @@ For more details on Codefresh pipeline variables, see the Codefresh documentatio
 To store sensitive information such as Octopus Deploy API keys, you can use Codefresh's encrypted variables in your workflow. To encrypt the variable, click on the lock next to the variable value. 
 
 :::figure
-![Encrypt variables in your Codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables-encrypt.png)
+![Encrypt variables in your Codefresh workflow](/docs/img/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables-encrypt.png)
 :::
 
 ## Triggering a build

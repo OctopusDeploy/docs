@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-04-14
+modDate: 2025-09-04
 title: Azure Container Registry
 description: How to add an Azure Container Registry as an Octopus Deploy feed
 navOrder: 40
@@ -18,7 +18,7 @@ Provide the unique registry name that all your repositories (packages) will be s
 Make sure you select **Enable** under the **Admin user** option. This is what will expose the credentials that are needed by Octopus to connect to the API.
 
 :::figure
-![Azure Container Services Access Key blade](/docs/packaging-applications/package-repositories/guides/container-registries/images/azure-blade.png)
+![Azure Container Services Access Key blade](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/azure-blade.png)
 :::
 
 Azure Container Registries can be configured as an external feed in Octopus by navigating to **Library ➜ External Feeds** and adding an new feed of type `Azure Container Registry`.
@@ -32,7 +32,7 @@ With the Admin user toggle enabled, you will be provided with username and passw
 Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `Azure Container Registry` Feed type. With this selected you will need to provide the username and password credentials configured above.
 
 :::figure
-![Azure Container Services Registry Feed](/docs/packaging-applications/package-repositories/guides/container-registries/images/azure-feed.png)
+![Azure Container Services Registry Feed](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/azure-feed.png)
 :::
 
 Save and test your registry to ensure that the connection is authorized successfully.
@@ -45,7 +45,7 @@ Before creating an OpenID Connect Azure Container Registry feed, you will need a
 
 If you do not currently have an Microsoft Entra ID App Registration follow the [App Registration](https://oc.to/create-azure-app-registration) guide.
 
-To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-credentials) section in the Microsoft Entra ID documentation. The federated credential will need the **Issuer** value set to the configured Octopus Server URI. This URI must be publicly available and the value must not have a trailing slash (/). For example `https://samples.octopus.app`.
+To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-federated-credentials) section in the Microsoft Entra ID documentation. The federated credential will need the **Issuer** value set to the configured Octopus Server URI. This URI must be publicly available and the value must not have a trailing slash (/). For example `https://samples.octopus.app`. For more information on configuring external identity providers see [Configure an app to trust an external identity provider](https://oc.to/configure-azure-identity-providers).
 
 Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `Azure Container Registry` Feed type. With this selected you will need choose OpenID Connect as the authentication type.
 

@@ -20,10 +20,10 @@ Offline package drop currently only supports Windows operating systems as the ta
 Offline package drop is available as a deployment target.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/images/adding-new-offline-package-drop-target.png)
+![](/docs/img/infrastructure/deployment-targets/images/adding-new-offline-package-drop-target.png)
 :::
 
-![](/docs/infrastructure/deployment-targets/images/create-new-offline-package-drop-target-part2.png)
+![](/docs/img/infrastructure/deployment-targets/images/create-new-offline-package-drop-target-part2.png)
 
 ### Destination
 

@@ -6,7 +6,7 @@ To obtain your existing Master Key from your source Octopus instance, you can si
 
 
 :::figure
-![](/docs/upgrade/images/view-master-key.png)
+![](/docs/img/upgrade/images/view-master-key.png)
 :::
 
 Alternatively, you may also use the `show-master-key` command via the `Octopus.Server.exe` command-line tool. [You can find more information on this here](https://octopus.com/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key).

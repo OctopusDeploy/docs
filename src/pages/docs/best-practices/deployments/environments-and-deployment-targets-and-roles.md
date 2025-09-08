@@ -16,13 +16,13 @@ Environments are how you group deployment targets in a stage in your deployment 
 When you register a deployment target, you must provide at least one environment and one target tag.
 
 :::figure
-![Environments and target tags for a deployment target](/docs/getting-started/best-practices/images/registering-deployment-target.png)
+![Environments and target tags for a deployment target](/docs/img/getting-started/best-practices/images/registering-deployment-target.png)
 :::
 
 In the deployment process, you assign steps to run on deployment targets with specific target tags.
 
 :::figure
-![Deployment process target tag assignment](/docs/getting-started/best-practices/images/target-roles-in-deployment-process.png)
+![Deployment process target tag assignment](/docs/img/getting-started/best-practices/images/target-roles-in-deployment-process.png)
 :::
 
 For example, imagine you have three deployment targets in the **development** environment with the following target tags:
@@ -33,7 +33,7 @@ For example, imagine you have three deployment targets in the **development** en
 The deployment process from above targets the `hello-world-api` tag.  When a deployment to the **development** environment is triggered, Octopus will only select the two servers assigned to the **development** environment AND with the `hello-world-api` target tag.
 
 :::figure
-![Octopus selecting deployment targets](/docs/getting-started/best-practices/images/selecting-target-roles.png)
+![Octopus selecting deployment targets](/docs/img/getting-started/best-practices/images/selecting-target-roles.png)
 :::
 
 :::div{.hint}

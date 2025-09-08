@@ -10,7 +10,7 @@ navOrder: 10
 You can manage your projects by navigating to the **Projects** tab in the Octopus UI:
 
 :::figure
-![Octopus Dashboard](/docs/projects/octopus-projects-list.png)
+![Octopus Dashboard](/docs/img/projects/octopus-projects-list.png)
 :::
 
 If you have already created projects, or are joining an existing team, you’ll see the existing projects on the projects page.
@@ -107,7 +107,7 @@ Projects can be cloned.
 2. Click the overflow menu (...), and select **Clone**.
 
 :::figure
-![Clone a project](/docs/projects/images/clone-project.png "width=500")
+![Clone a project](/docs/img/projects/images/clone-project.png)
 :::
 
 :::div{.warning}

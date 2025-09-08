@@ -13,15 +13,15 @@ See [Java Applications](/docs/deployments/java) for details on deploying Java ap
 
 This guide provides a simple example of deploying a Java application using Octopus Deploy.
 
-## Prerequisites {#DeployingJavaapplications-Prerequisites}
+## Prerequisites
 
-This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/projects/)and have a [Tentacle or SSH deployment target](/docs/infrastructure) already configured.
+This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects](/docs/projects/) and have a [Tentacle or SSH deployment target](/docs/infrastructure) already configured.
 
 :::div{.hint}
-Naked scripting allows you to transfer and extract your package on remote targets without the need for Calamari or mono. Read the short guide [here](/docs/deployments/custom-scripts) for more details.
+Naked scripting allows you to transfer and extract your package on remote targets without the need for Calamari or mono. [Read the short guide here](/docs/deployments/custom-scripts) for more details.
 :::
 
-## Sample application {#DeployingJavaapplications-SampleApplication}
+## Sample application
 
 Here is a sample application that will prompt the user to press a key before exiting:
 
@@ -36,9 +36,9 @@ public class PressAnyKey {
 }
 ```
 
-## Deploying the application {#DeployingJavaapplications-Deployingtheapplication}
+## Deploying the application
 
-### Step 1: Upload the application to the built-in repository {#DeployingJavaapplications-Step1-Uploadtheapplicationtothebuilt-inrepository}
+### Step 1: Upload the application to the built-in repository
 
 In order to deploy the application with Octopus Deploy it must be compiled and packaged. This would usually be done by your build server but for the sake of this demonstration let's do it manually.
 
@@ -47,10 +47,11 @@ In order to deploy the application with Octopus Deploy it must be compiled and p
 ```powershell
 javac PressAnyKey.java
 ```
+
 2. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
 3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**Library ➜ Packages** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository)).
 
-### Step 2: Create the project and deployment process {#DeployingJavaapplications-Step2-Createtheprojectanddeploymentprocess}
+### Step 2: Create the project and deployment process
 
 1. Create a new project called **Press Any Key**.
 2. Add a **Deploy a package** step to the deployment process.
@@ -70,14 +71,14 @@ screen -d -m -S "PressAnyKey" java PressAnyKey
 ```
 
 :::figure
-![](/docs/deployments/java/5866219.png)
+![](/docs/img/deployments/java/5866219.png)
 :::
 
 :::div{.hint}
 The application must be launched in a new process or session so that control returns to the shell. Otherwise the deployment will wait until the application is terminated.
 :::
 
-### Step 3: Deploy {#DeployingJavaapplications-Step3-Deploy}
+### Step 3: Deploy
 
 Create a release and deploy.
 

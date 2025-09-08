@@ -7,7 +7,7 @@ description: Learn how to automatically validate pull requests in a CaC Git repo
 navOrder: 10
 ---
 
-One of the challenges when implementing the [shared responsibility (or eventual consistency) model](levels-of-responsibility) is the potential for complex conflicts to be introduced to the downstream repositories. Without any controls on what changes can be made to a downstream project, it may become impractical to continue to push changes downstream.
+One of the challenges when implementing the [shared responsibility (or eventual consistency) model](/docs/platform-engineering/levels-of-responsibility) is the potential for complex conflicts to be introduced to the downstream repositories. Without any controls on what changes can be made to a downstream project, it may become impractical to continue to push changes downstream.
 
 One way to constrain the changes introduced to downstream CaC Git repositories is to automatically validate changes during a pull request (PR). This allows the platform team to introduce minimum requirements that all downstream CaC projects must adhere to while also allowing internal customers to customize their projects.
 
@@ -156,7 +156,7 @@ The final step is to call the `checkPr` function, catch any exceptions, and prin
 
 The output of your validation script depends on the libraries used. The `expect` library is nice because it provides detailed differences between the expected and actual values. The end result of a failed validation looks something like this, where the JSON representation of the OCL data is presented as a diff showing which properties differed between the expected and input objects:
 
-![GitHub Actions failure screenshot](/docs/platform-engineering/github-action-failure-example.png "width=500")
+![GitHub Actions failure screenshot](/docs/img/platform-engineering/github-action-failure-example.png)
 
 ## Tips and tricks
 

@@ -60,7 +60,7 @@ To match multiple characters in a subject use `*`, and to match a single charact
 GitHub supports [customizing the subject claims for an organization or repository](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-subject-claims-for-an-organization-or-repository), allowing other properties to be used in the generated subject of the ID token instead of the standard properties above. When configuring an OIDC identity for GitHub Actions you can click the Edit icon next to the subject to enter a custom subject matching the generated one from GitHub.
 
 :::figure
-![Configuring a custom subject for GitHub Actions](/docs/octopus-rest-api/images/oidc-identity-github-actions-custom-subject.png "width=500")
+![Configuring a custom subject for GitHub Actions](/docs/img/octopus-rest-api/images/oidc-identity-github-actions-custom-subject.png)
 :::
 
 ### GitHub Enterprise (self-hosted)
@@ -68,7 +68,7 @@ GitHub supports [customizing the subject claims for an organization or repositor
 When configuring an OIDC identity for GitHub Actions, by default the issuer URL will be set to the well-known issuer for GitHub Cloud: `https://token.actions.githubusercontent.com`. If you are using GitHub Actions from self-hosted GitHub Enterprise you can configure the Issuer URL by clicking the Edit icon and entering the URL. The URL must be HTTPS.
 
 :::figure
-![Configuring an OIDC identity for self-hosted GitHub Enterprise](/docs/octopus-rest-api/images/oidc-identity-github-actions-enterprise.png "width=500")
+![Configuring an OIDC identity for self-hosted GitHub Enterprise](/docs/img/octopus-rest-api/images/oidc-identity-github-actions-enterprise.png)
 :::
 
 ## Using `OctopusDeploy/login` in GitHub Actions workflows

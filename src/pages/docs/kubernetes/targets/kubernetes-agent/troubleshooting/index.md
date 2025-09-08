@@ -20,23 +20,24 @@ The generated helm commands use the [`--atomic`](https://helm.sh/docs/helm/helm_
 If the helm command fails, then it may print an error message containing context deadline exceeded
 This indicates that the timeout was exceeded and the Kubernetes resources did not correctly start.
 
-To help diagnose these issues, the `kubectl` commands [`describe`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_describe/) and [`logs`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/) can be used _while the helm command is executing_ to help debug any issues.
+To help diagnose these issues, the `kubectl` commands [`describe`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_describe/) and [`logs`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/) can be used *while the helm command is executing* to help debug any issues.
 
 #### NFS CSI driver install command
 
-```
+```bash
 kubectl describe pods -l app.kubernetes.io/name=csi-driver-nfs -n kube-system
 ```
 
 #### Agent install command
 
-```
+```bash
 # To get pod information
 kubectl describe pods -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
 # To get pod logs
 kubectl logs -l app.kubernetes.io/name=octopus-agent -n [NAMESPACE]
 ```
-_Replace `[NAMESPACE]` with the namespace in the agent installation command_
+
+Replace `[NAMESPACE]` with the namespace in the agent installation command.
 
 If the Agent install command fails with a timeout error, it could be that:
 
@@ -47,6 +48,7 @@ If the Agent install command fails with a timeout error, it could be that:
 - (if using a custom Storage Class) the Storage Class name doesn't match
 
 #### Setting scriptPod Service Account annotations
+
 To add an annotation to the Service Account for the `scriptPods`, use the following syntax
 
 ```bash
@@ -61,9 +63,9 @@ To add an annotation to the Service Account for the `scriptPods`, use the follow
 
 ## Script Execution Issues
 
-### `Unexpected Script Pod log line number, expected: expected-line-no, actual: actual-line-no` 
+### `Unexpected Script Pod log line number, expected: expected-line-no, actual: actual-line-no`
 
-This error indicates that the logs from the script pods are incomplete or malformed. 
+This error indicates that the logs from the script pods are incomplete or malformed.
 
 When scripts are executed, any outputs or logs are stored in the script pod's container logs. The Tentacle pod then reads from the container logs to feed back to Octopus Server.
 
@@ -138,7 +140,7 @@ In version `2024.3.11946` onwards and all `2024.4` versions, Octopus Server uses
 
 This means, that if your version of Octopus Server is trying to use that service account, but the installed agent is on version before the version it was added, you will receive an error like
 
-```
+```text
 Operation returned an invalid status code 'Forbidden', response body {"kind":"Status","apiVersion":"v1","metadata":{},"status":"Failure","message":"pods \"octopus-script-xxx\" is forbidden: error looking up service account octopus-agent-XXX/octopus-agent-auto-upgrader: serviceaccount \"octopus-agent-auto-upgrader\" not found","reason":"Forbidden","details":{"name":"octopus-script-xxx","kind":"pods"},"code":403}
 ```
 
@@ -166,6 +168,6 @@ Executing this command in a terminal connected to the Kubernetes cluster will re
 
 This error indicates that the agent was unable to complete the initial SSL handshake with the Octopus Server.
 
-There are various reasons why this error may occur, but a likely cause is incompatibility with the SSL certificate configuration. Specifically, the agent **does not support SHA1RSA certificates when the Octopus Server is running on Windows Server 2012 R2**. If your setup matches this configuration and the inner exception in the error stack includes a message like `error:0A00042E:SSL routines::tlsv1 alert protocol version`, this likely indicates that the SSL connection issue is due to the certificate incompatibility. 
+There are various reasons why this error may occur, but a likely cause is incompatibility with the SSL certificate configuration. Specifically, the agent **does not support SHA1RSA certificates when the Octopus Server is running on Windows Server 2012 R2**. If your setup matches this configuration and the inner exception in the error stack includes a message like `error:0A00042E:SSL routines::tlsv1 alert protocol version`, this likely indicates that the SSL connection issue is due to the certificate incompatibility.
 
-For detailed instructions on diagnosing and resolving this issue, please refer to the guide on this [page](troubleshooting/sha1-certificate-incompatibility).
+For detailed instructions on diagnosing and resolving this issue, please refer to the guide on this [page](/docs/kubernetes/targets/kubernetes-agent/troubleshooting/sha1-certificate-incompatibility).

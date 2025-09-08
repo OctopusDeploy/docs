@@ -35,7 +35,7 @@ The instructions at [Creating an AWS Account](/docs/infrastructure/accounts/aws/
 AWS accounts are included in a project through a project variable of the type `Amazon Web Services Account`:
 
 :::figure
-![AWS Account Variable](/docs/deployments/custom-scripts/images/aws-account-variable.png)
+![AWS Account Variable](/docs/img/deployments/custom-scripts/images/aws-account-variable.png)
 :::
 
 The `Add Variable` window is then displayed and lists all the AWS accounts.
@@ -43,7 +43,7 @@ The `Add Variable` window is then displayed and lists all the AWS accounts.
 Select the account that was created in the previous step to assign it to the variable:
 
 :::figure
-![AWS Account Variable Selection](/docs/deployments/custom-scripts/images/aws-account-variable-selection.png)
+![AWS Account Variable Selection](/docs/img/deployments/custom-scripts/images/aws-account-variable-selection.png)
 :::
 
 ## Add AWS script step
@@ -55,19 +55,19 @@ Add the `Run an AWS CLI Script` step to the project, and provide it a name:
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or choose to execute using the service role assigned to the EC2 instance:
 
 :::figure
-![AWS Account](/docs/deployments/custom-scripts/images/step-aws-account.png)
+![AWS Account](/docs/img/deployments/custom-scripts/images/step-aws-account.png)
 :::
 
 The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected:
 
 :::figure
-![AWS Role](/docs/deployments/custom-scripts/images/step-aws-role.png)
+![AWS Role](/docs/img/deployments/custom-scripts/images/step-aws-role.png)
 :::
 
 The default AWS region in which to execute AWS CLI commands is defined in the `Region` section:
 
 :::figure
-![AWS Region](/docs/deployments/custom-scripts/images/step-aws-region.png)
+![AWS Region](/docs/img/deployments/custom-scripts/images/step-aws-region.png)
 :::
 
 ## Script section
@@ -100,7 +100,7 @@ Scripts can be run from two different locations: source code added to the step, 
 The first option is to add the script source code to the step directly. This is done by selecting the `Inline script` option, and entering the source code into the text box in the `Inline Source Code` section.
 
 :::figure
-![Source Code](/docs/deployments/custom-scripts/images/step-aws-script.png)
+![Source Code](/docs/img/deployments/custom-scripts/images/step-aws-script.png)
 :::
 
 ### Git repository
@@ -108,7 +108,7 @@ The first option is to add the script source code to the step directly. This is 
 The second option is to run a script from a git repository. This is done by selecting the `Git repository` option, configuring the repository details, and entering the path to the script file to run.
 
 :::figure
-![AWS script git repository](/docs/deployments/custom-scripts/images/step-aws-git.png)
+![AWS script git repository](/docs/img/deployments/custom-scripts/images/step-aws-git.png)
 :::
 
 ### Package
@@ -116,7 +116,7 @@ The second option is to run a script from a git repository. This is done by sele
 The third option is to run a script from a package. This is done by selecting the `Package` option, selecting the package, and entering the name of the script file within the package to run.
 
 :::figure
-![AWS script package](/docs/deployments/custom-scripts/images/step-aws-package.png)
+![AWS script package](/docs/img/deployments/custom-scripts/images/step-aws-package.png)
 :::
 
 ## Running scripts in Octopus Cloud
