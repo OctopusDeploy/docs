@@ -29,7 +29,7 @@ While policies may not be necessary in every deployment scenario, they are inval
 ## Enforceable Policies
 
 :::div{.warning}
-Policies is currently in Open Alpha
+Policies is currently in Alpha for all Enterprise Tier Cloud Customers.
 :::
 
 For the Alpha release of Policies, you can enforce that all deployments to specific environments contain a certain step.
