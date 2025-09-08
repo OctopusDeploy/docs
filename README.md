@@ -4,11 +4,12 @@ This repository contains the documentation for [Octopus Deploy](https://octopus.
 
 Contributions to help improve this documentation are welcome, however, you must sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs) before we can accept your contribution.
 
-See the [Octopus style guide](https://www.octopus.design/932c0f1a9/p/26f741-writing) for information including:
+See the [Octopus style guide](https://www.octopus.design/latest/brand/writing/overview-VLYeW2mi-VLYeW2mi) for information including:
 
-- [Markdown quick reference](https://www.octopus.design/932c0f1a9/p/074e30-markdown-reference)
-- [Capitalization](https://www.octopus.design/932c0f1a9/p/457bc4-grammar-rules/t/03e016)
-- [Working with images](https://www.octopus.design/932c0f1a9/p/5061d7-working-with-images)
+- [Markdown quick reference](https://www.octopus.design/latest/brand/writing/markdown-reference-z3FeFK04-z3FeFK04)
+- [Octopus features and terminology](https://www.octopus.design/latest/brand/writing/features-and-terminology-Bdty0FFd-Bdty0FFd)
+- [Grammar rules](https://www.octopus.design/latest/brand/writing/grammar-rules-8WpUimhK-8WpUimhK)
+- [Working with images](https://www.octopus.design/latest/brand/writing/working-with-images-SGltcd4n-SGltcd4n)
 
 ## How to contribute a change to the docs
 
