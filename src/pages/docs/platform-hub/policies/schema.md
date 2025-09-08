@@ -9,6 +9,8 @@ navTitle: Schema for policies
 navSection: Policies
 description: Schema for policies
 navOrder: 167
+navMenu: false
+listable: false
 ---
 
 ## Schema for Policies
