@@ -16,15 +16,15 @@ Octopus provides a Username and Password authentication provider allowing you to
 When Username and Password authentication is enabled, the sign in page for the Octopus Web Portal will present users with the option to sign in with an Octopus account:
 
 :::figure
-![Username and Password login screen](/docs/security/authentication/images/username-password-login.png)
+![Username and Password login screen](/docs/img/security/authentication/images/username-password-login.png)
 :::
 
 ## Enable username and password authentication via UI
 
 You can enable Username and Password authentication from the Octopus Web Portal by navigating to **Configuration ➜ Settings ➜ Username / Password**. From there you can click the **Is Enabled** checkbox to enable or disable the Username and Password provider.
 
-![Username and Password settings](/docs/security/authentication/images/enable-username-password-1.png)
-![Enable Username and Password checkbox](/docs/security/authentication/images/enable-username-password-2.png)
+![Username and Password settings](/docs/img/security/authentication/images/enable-username-password-1.png)
+![Enable Username and Password checkbox](/docs/img/security/authentication/images/enable-username-password-2.png)
 
 The Username and Password provider will now be activated and available for Octopus users.
 
@@ -41,9 +41,9 @@ Octopus.Server.exe configure --instance=[your_instance_name] --usernamePasswordI
 When a new Octopus user is created, they are automatically added to the **Everyone** team. To manage Octopus users, this can be done by navigating to **Configuration ➜ Users**. 
 
 :::figure
-![Managing users](/docs/security/authentication/images/username-password-managing-users.png)
+![Managing users](/docs/img/security/authentication/images/username-password-managing-users.png)
 :::
 
 With any Octopus user, you can [assign user accounts to different teams](/docs/security/users-and-teams) to give them permissions to view projects or environments, or any additional permissions they may need:
 
-![User permissions](/docs/security/authentication/images/username-password-user-permissions.png)
+![User permissions](/docs/img/security/authentication/images/username-password-user-permissions.png)

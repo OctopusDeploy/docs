@@ -18,7 +18,7 @@ Adding external groups or roles to Octopus Teams can be helpful in controlling t
 Depending on which authentication providers you have enabled, the following buttons may appear on the Team page.
 
 :::figure
-![](/docs/security/users-and-teams/images/members-buttons.png)
+![](/docs/img/security/users-and-teams/images/members-buttons.png)
 :::
 
 ## Add Active Directory group {#ExternalGroupsandRoles-AddActiveDirectorygroup}
@@ -26,7 +26,7 @@ Depending on which authentication providers you have enabled, the following butt
 This button appears if you have the Active Directory authentication provider enabled, and when activated you will see the following dialog
 
 :::figure
-![](/docs/security/users-and-teams/images/add-ad-group.png)
+![](/docs/img/security/users-and-teams/images/add-ad-group.png)
 :::
 
 The search on this dialog will locate any groups in the domain that start with the text you provide.
@@ -36,7 +36,7 @@ The search on this dialog will locate any groups in the domain that start with t
 If your environment has trusted domains, you can search for groups in the trusted domain by prefixing the search text with "**domain**" (where domain is the name of the Trusted Domain).
 
 :::figure
-![](/docs/security/users-and-teams/images/add-ad-group-trusted-domains.png)
+![](/docs/img/security/users-and-teams/images/add-ad-group-trusted-domains.png)
 :::
 
 :::div{.hint}
@@ -48,7 +48,7 @@ Domain trust is the only constraint when Active Directory users authenticate wit
 This button appears if you have an external authentication provider enabled (e.g. Microsoft Entra ID), and when activated you will see the following dialog
 
 :::figure
-![](/docs/security/users-and-teams/images/add-external-role.png)
+![](/docs/img/security/users-and-teams/images/add-external-role.png)
 :::
 
 The Role Id corresponds to the role id from the external provider (learn more about [roles for Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication)), Display Name is purely for display in the Team page.

@@ -228,7 +228,7 @@ Product screenshots used in Docs should reflect the UI in the latest version of 
 
 ```markdown
 :::figure
-![](/docs/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
+![](/docs/img/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
 :::
 ```
 

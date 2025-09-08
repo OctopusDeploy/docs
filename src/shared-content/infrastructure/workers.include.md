@@ -3,7 +3,7 @@ Workers are machines that can execute tasks that don't need to be run on the Oct
 You can manage your workers by navigating to **Infrastructure ➜ Worker Pools** in the Octopus Web Portal:
 
 :::figure
-![The Worker Pools area of Octopus Deploy](/docs/shared-content/concepts/images/worker-pools.png)
+![The Worker Pools area of Octopus Deploy](/docs/img/shared-content/concepts/images/worker-pools.png)
 :::
 
 Workers are useful for the following scenarios:
@@ -16,4 +16,4 @@ Workers are useful for the following scenarios:
 - Performing database schema migrations
 - Configuring load balancers.
 
-![Workers diagram](/docs/shared-content/concepts/images/workers-diagram-img.png)
+![Workers diagram](/docs/img/shared-content/concepts/images/workers-diagram-img.png)

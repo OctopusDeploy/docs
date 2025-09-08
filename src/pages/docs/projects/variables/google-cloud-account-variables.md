@@ -11,7 +11,7 @@ navOrder: 65
 [Google Cloud accounts](/docs/infrastructure/accounts/google-cloud/) are included in a project through a project [variable](/docs/projects/variables/) of the type **Google Cloud Account**. Before you create a **Google Cloud account variable**, you need to [create a Google Cloud account](/docs/infrastructure/accounts/google-cloud) in Octopus:
 
 :::figure
-![Google Cloud account variable](/docs/projects/variables/images/google-cloud-account-variable.png)
+![Google Cloud account variable](/docs/img/projects/variables/images/google-cloud-account-variable.png)
 :::
 
 The **Add Variable** window is then displayed and lists all the Google Cloud accounts.
@@ -19,7 +19,7 @@ The **Add Variable** window is then displayed and lists all the Google Cloud acc
 Select the Google Cloud account you want to access from the project to assign it to the variable:
 
 :::figure
-![Google Cloud account variable selection](/docs/projects/variables/images/google-cloud-account-variable-selection.png)
+![Google Cloud account variable selection](/docs/img/projects/variables/images/google-cloud-account-variable-selection.png)
 :::
 
 ## Google Cloud account variable properties

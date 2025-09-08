@@ -16,12 +16,12 @@ The credentials used for ECR feeds [only last 12 hours](http://docs.aws.amazon.c
 ## Configuring an AWS Elastic Container Registry (ECR)
 From the AWS Services dashboard go to `Elastic Container Registry`.
 
- ![AWS Services](/docs/packaging-applications/package-repositories/guides/container-registries/images/aws-services.png)
+ ![AWS Services](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/aws-services.png)
 
 Under the `Repositories` area you need to create a repository to match the what in Octopus-speak would be the PackageId. This should map to your distinct application image. If you attempt to push an image during your build process to this registry without first creating the corresponding repository you will receive an error.
 
 :::figure
-![AWS Registries](/docs/packaging-applications/package-repositories/guides/container-registries/images/aws-registries.png)
+![AWS Registries](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/aws-registries.png)
 :::
 
 With the repository configured, ensure that you also have an [AWS IAM](https://aws.amazon.com/iam/) user available that has at a minimum the permissions `ecr:GetAuthorizationToken`, `ecr:DescribeRepositories`, `ecr:DescribeImages` and `ecr:ListImages`. This user is the account which Octopus will use to retrieve the docker login token which is then used to perform the appropriate docker commands.
@@ -32,7 +32,7 @@ Further links for getting your AWS registry set up are available in their [onlin
 Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `AWS Elastic Container Registry` Feed type. With this selected you will need to provide the credentials configured above, as well as the region at which the registry was created. In AWS you are able to maintain separate repositories in each region.
 
 :::figure
-![AWS EC2 container service registry feed](/docs/packaging-applications/package-repositories/guides/container-registries/images/aws-ecr-feed.png)
+![AWS EC2 container service registry feed](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/aws-ecr-feed.png)
 :::
 
 Save and test your registry to ensure that the connection is authorized successfully.

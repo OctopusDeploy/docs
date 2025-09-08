@@ -199,22 +199,22 @@ If you want to see what information was provided to the policy engine when it ev
 
 1. Task logs
 
-![The task logs showing policy audit records](/docs/platform-hub/policies-task-log.png)
+![The task logs showing policy audit records](/docs/img/platform-hub/policies-task-log.png)
 
 <br>
 
 2. Project dashboards
 
-![Dashboards showing policy errors](/docs/platform-hub/policies-dashboard-notification.png)
+![Dashboards showing policy errors](/docs/img/platform-hub/policies-dashboard-notification.png)
 
 <br>
 
 3. Audit records
 
-![Audit log containing policy evaluation records](/docs/platform-hub/policies-audit-log.png)
+![Audit log containing policy evaluation records](/docs/img/platform-hub/policies-audit-log.png)
 
 <br>
 
 You can see what information was evaluated at the time of policy evaluation by using the verbose option in the task logs. This is useful if you want to troubleshoot a policy and see if it is evaluating deployments correctly.
 
-![Verbose options shown in task logs](/docs/platform-hub/policies-verbose-task-log.png)
+![Verbose options shown in task logs](/docs/img/platform-hub/policies-verbose-task-log.png)

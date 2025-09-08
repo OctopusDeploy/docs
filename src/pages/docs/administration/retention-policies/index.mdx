@@ -57,7 +57,7 @@ To configure quantity to keep, create a custom [Machine Policy](/docs/infrastruc
 To restrict the number of packages to keep, select `From the most recently used packages`, and enter your preferred number of packages to keep. Octopus will ensure that only the least recently used packages and versions are removed.
 
 :::figure
-![Machine policy settings for package cache retention](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-package-cache-retention.png)
+![Machine policy settings for package cache retention](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-package-cache-retention.png)
 :::
 
 ### Built-in repository \{#built-in-repo-whats-deleted}
@@ -65,7 +65,7 @@ To restrict the number of packages to keep, select `From the most recently used 
 A retention policy can be applied to packages in the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/built-in-repository). By default, the policy is set to keep all packages indefinitely. This policy is *separate* from the [release retention policy](#releases-whats-deleted) described above.
 
 :::figure
-![](/docs/administration/retention-policies/images/built-in-repository.png)
+![](/docs/img/administration/retention-policies/images/built-in-repository.png)
 :::
 
 When a package retention policy is applied, Octopus will delete packages that meet *both* of the following criteria:
@@ -134,7 +134,7 @@ If you have a release retention policy for a project that has a final phase of k
 In this section we walk through what's deleted for an example project when the retention policy task runs. Consider a project that has the following lifecycle defined:
 
 :::figure
-![Release retention task example lifecycle](/docs/administration/retention-policies/images/retention-lifecycle-example.png)
+![Release retention task example lifecycle](/docs/img/administration/retention-policies/images/retention-lifecycle-example.png)
 :::
 
 It contains two phases, both are set to keep the last 3 releases.
@@ -191,13 +191,13 @@ Undeployed releases will simply keep the number we have selected and no more. Wh
 Under **Deploy ➜ Lifecycles** you select the Lifecycle you want to define or edit your retention policy for:
 
 :::figure
-![](/docs/administration/retention-policies/images/lifecycles.png)
+![](/docs/img/administration/retention-policies/images/lifecycles.png)
 :::
 
 Each phase will inherit the retention policy from the above phase, but this is something you can change by expanding the Retention Policy panel.
 
 :::figure
-![](/docs/administration/retention-policies/images/lifecycle-retention-policy.png)
+![](/docs/img/administration/retention-policies/images/lifecycle-retention-policy.png)
 :::
 
 *Releases* determines what is kept on the Octopus Server, and *Files on Tentacle* determines what files are kept on the Tentacle.
@@ -232,7 +232,7 @@ Phases prioritize retention policies from the latest previous phase over the lif
 You can find the built-in repository retention policy settings under **Deploy ➜ Packages**.
 
 :::figure
-![](/docs/administration/retention-policies/images/built-in-feed-retention-policy.png)
+![](/docs/img/administration/retention-policies/images/built-in-feed-retention-policy.png)
 :::
 
 In Octopus Server, this can be set to keep packages forever, or for a set number of days.
@@ -240,7 +240,7 @@ In Octopus Server, this can be set to keep packages forever, or for a set number
 <OctopusCloudStorageLimits />
 
 :::figure
-![](/docs/administration/retention-policies/images/built-in-repository.png)
+![](/docs/img/administration/retention-policies/images/built-in-repository.png)
 :::
 
 Choosing *A limited time* will allow you to select the number of days to keep a package in the repository. The default value is 30, but you can choose something shorter or longer based on your needs.

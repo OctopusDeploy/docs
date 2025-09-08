@@ -104,14 +104,14 @@ To override a freeze:
 - If you have the correct permissions, the Deploy button should be green.
 
 :::figure
-![Override a project deployment freeze from deploy a release page](/docs/deployments/deployment-freeze-override.png)
+![Override a project deployment freeze from deploy a release page](/docs/img/deployments/deployment-freeze-override.png)
 :::
 
 - Click the **DEPLOY** button and enter a reason for the override in the dialog box.
 - Click **OVERRIDE AND DEPLOY**
 
 :::figure
-![Override a project deployment freeze confirmation dialog](/docs/deployments/deployment-freeze-override-dialog-confirm.png)
+![Override a project deployment freeze confirmation dialog](/docs/img/deployments/deployment-freeze-override-dialog-confirm.png)
 :::
 
 ## Project deployment freezes and automatic deployments

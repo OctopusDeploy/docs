@@ -58,26 +58,26 @@ Built in steps work on both Ubuntu and Windows Dynamic Workers with the exceptio
 ## Migration Guide
 1. For each Space on your Cloud instance, find the Windows Dynamic Worker Pool. The Worker Pool name is usually either `Hosted Windows` or `Default Worker Pool`. Make a note of the Worker Pool name.
    :::figure
-   ![Windows Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-windows-pool.png)
+   ![Windows Worker Pool](/docs/img/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-windows-pool.png)
    :::
 1. For each deployment step, check whether it runs on the Windows Dynamic Worker Pool you noted in Step 1.
    :::figure
-   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-step-worker-pool.png)
+   ![Worker Pool Selection](/docs/img/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-step-worker-pool.png)
    :::
 1. Create a temporary Dynamic Worker Pool targeting the `Windows Server Core 2022` image.
    :::figure
-   ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-windows-2022-pool.png)
+   ![Worker Pool Selection](/docs/img/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-windows-2022-pool.png)
    :::
 1. Open the deployment process for your project as well as any Runbooks. Make note of any steps using execution containers (these will display a `Runs in a container` chip) as these will need additional updates.
    :::figure
-   ![Deployment Process](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-deployment-process.png)
+   ![Deployment Process](/docs/img/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-deployment-process.png)
    :::
 1. For each step that runs on a Windows Dynamic Worker Pool
    - Change its Worker Pool to the new Windows 2022 Worker Pool you created in Step 3.
    - If the step runs in an execution container, change the container image to the Windows 2022 image that corresponds to your current Windows 2019 image. If your image is [multi-platform](https://docs.docker.com/build/building/multi-platform/), it's still prudent to check that the image still works as expected under Windows 2022.
    - Your step should look something like this:
       :::figure
-      ![Worker Pool Selection](/docs/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-step-container-image.png)
+      ![Worker Pool Selection](/docs/img/infrastructure/workers/dynamic-worker-pools/images/windows-2019-eol-step-container-image.png)
       :::
 1. Test your deployment by deploying a new Release of your project (Snapshot for a Runbook)
 

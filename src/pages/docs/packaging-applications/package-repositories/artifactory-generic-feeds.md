@@ -20,7 +20,7 @@ If you're using an Artifactory Generic Repository, you can create a feed in Octo
 You will then need to provide a feed name, the Artifactory repository name, an [access token](https://oc.to/ArtifactoryAccessToken) and the repository [Artifact Path regex](https://jfrog.com/help/r/jfrog-artifactory-documentation/layout-configuration).
 
 :::figure
-![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-creation.png)
+![](/docs/img/packaging-applications/package-repositories/images/artifactory-generic-feed-creation.png)
 :::
 
 Artifactory generic feeds accommodate files of any type without requiring a specific file name structure. To handle this Artifactory supports [custom layouts](https://jfrog.com/help/r/jfrog-artifactory-documentation/layout-configuration). 
@@ -41,7 +41,7 @@ For detailed guidance on configuring a custom layout that supports simple versio
 
 :::
 :::figure
-![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feeds-custom-layout.png)
+![](/docs/img/packaging-applications/package-repositories/images/artifactory-generic-feeds-custom-layout.png)
 :::
 
 The Octopus integration with Artifactory Generic Repositories depends on the artifacts matching the repository layout, specifically on the _module_ and _baseRev_ properties. An artifact can be tested whether it matches the layout regex by using the _Test Artifact Path Resolution_ in Artifactory. When artifacts match the layout pattern the [listing versions for a specific package](https://oc.to/ArtifactVersionSearch) endpoint will return a list of all available versions. 
@@ -49,7 +49,7 @@ The Octopus integration with Artifactory Generic Repositories depends on the art
 This also provides the package information when viewing an artifacts details in the Artifactory UI. If the package information properties (Dependency Declaration) are not visible in the Artifactory UI Octopus will not be able to list versions, or download these artifacts.
 
 :::figure
-![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-package-information.png)
+![](/docs/img/packaging-applications/package-repositories/images/artifactory-generic-feed-package-information.png)
 :::
 
 The regex layout in Artifactory is used to [list the versions of an artifact](https://oc.to/ArtifactVersionSearch). Searching and selecting a package uses the Artifactory Query Language to search within the repository, this does not depend on the layout.
@@ -65,7 +65,7 @@ The package search for the feed is case-sensitive, so you must match the package
 :::
 
 :::figure
-![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-test.png)
+![](/docs/img/packaging-applications/package-repositories/images/artifactory-generic-feed-test.png)
 :::
 
 ### Known limitations
@@ -81,7 +81,7 @@ If you have a repository setup with the default `simple-layout` regex generated 
 Using the picture below provided by Artifactory for an Artifact path pattern:
 
 :::figure
-![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-path-pattern.png)
+![](/docs/img/packaging-applications/package-repositories/images/artifactory-generic-feed-path-pattern.png)
 :::
 
 We can then break that down and add a repository file layout structure to it:
@@ -96,19 +96,19 @@ For this to work in an Octopus search, your artifactory generic feed has to be d
 - The module has to match the package name:
 
 :::figure
-![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-file-layout1.png)
+![](/docs/img/packaging-applications/package-repositories/images/artifactory-generic-feed-file-layout1.png)
 :::
 
 - The filename must also match the module:
 
 :::figure
-![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-file-layout2.png)
+![](/docs/img/packaging-applications/package-repositories/images/artifactory-generic-feed-file-layout2.png)
 :::
 
 As mentioned previously in this documentation the file has to have a dependency declaration for it to show in Octopus:
 
 :::figure
-![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-package-information.png)
+![](/docs/img/packaging-applications/package-repositories/images/artifactory-generic-feed-package-information.png)
 :::
 
 Once you have set this up you should then be able to search for the package in Octopus:
@@ -118,7 +118,7 @@ The package search for the feed is case-sensitive, so you must match the package
 :::
 
 :::figure
-![](/docs/packaging-applications/package-repositories/images/artifactory-generic-feed-package-search-example.png)
+![](/docs/img/packaging-applications/package-repositories/images/artifactory-generic-feed-package-search-example.png)
 :::
 
 This example is based on the default `simple-layout` regex in Artifactory and so is not a definitive example. Other layouts will work as long as you ensure your feed is designed to match the regex you are using. We recommend using the `simple-layout` as it is the easiest one to set up and use. Please contact support@octopus.com if you are still struggling to see your packages in a search, and we will do our best to help.

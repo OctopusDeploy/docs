@@ -25,7 +25,7 @@ Please download our sample package:
 1. From the left Deploy menu, click **Packages**.
 
 :::figure
-![Packages page](/docs/getting-started/first-deployment/images/packages-page.png)
+![Packages page](/docs/img/getting-started/first-deployment/images/packages-page.png)
 :::
 
 2. Click **Upload Package**.
@@ -44,7 +44,7 @@ Add a step to the deployment process to push that package to your deployment tar
 6. Locate the Deploy a Package card and click **Add Step**.
 
 :::figure
-![Add Deploy a Package step to deployment process](/docs/getting-started/first-deployment/images/deploy-package-step.png)
+![Add Deploy a Package step to deployment process](/docs/img/getting-started/first-deployment/images/deploy-package-step.png)
 :::
 
 ### Step name
@@ -61,7 +61,7 @@ You can leave this as the default *Deploy a Package*.
 When configuring your deployment process, you can click a target tag to see the deployment targets and environments the step will run on.
 
 :::figure
-![Target tags popover that shows correlating deployment targets](/docs/getting-started/first-deployment/images/target-tags-popover.png)
+![Target tags popover that shows correlating deployment targets](/docs/img/getting-started/first-deployment/images/target-tags-popover.png)
 :::
 
 ### Package
@@ -73,7 +73,7 @@ You can skip the other sections of this page for this tutorial.
 **Save** your deployment process and you can move on to create and deploy a release.
 
 :::figure
-![Deploy a package step with target tag and package selected](/docs/getting-started/first-deployment/images/deploy-package-step-form.png)
+![Deploy a package step with target tag and package selected](/docs/img/getting-started/first-deployment/images/deploy-package-step-form.png)
 :::
 
 ## Release and deploy
@@ -83,7 +83,7 @@ You can skip the other sections of this page for this tutorial.
 The release will deploy the *hello world* package to the *Hello world tutorial target*.
 
 :::figure
-![Task log of deploying a package to the Hello world tutorial target](/docs/getting-started/first-deployment/images/deploy-package-task-log.png)
+![Task log of deploying a package to the Hello world tutorial target](/docs/img/getting-started/first-deployment/images/deploy-package-task-log.png)
 :::
 
 You completed the first deployment tutorial, well done! 🎉  

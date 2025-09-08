@@ -74,7 +74,7 @@ You can achieve these behaviors using a custom script/application which leverage
 Yes! Each project can control its interaction with tenants. By default the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
 
 :::figure
-![](/docs/tenants/images/multi-tenant-project-settings.png)
+![](/docs/img/tenants/images/multi-tenant-project-settings.png)
 :::
 
 ## What is an "untenanted deployment"? Don't I have to choose a tenant when deploying my project?

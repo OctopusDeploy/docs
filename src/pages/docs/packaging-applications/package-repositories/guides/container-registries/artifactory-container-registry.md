@@ -29,4 +29,4 @@ To use an Artifactory Docker registry in Octopus Deploy, create an external feed
   The example values above would result in the value: `my-company.jfrog.io/my-local-repo` for use in the **Registry Path** field.
 - **Credentials:** By default, Artifactory requires a valid username and password/[access token](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens) combination to access the registry. However, anonymous authentication for reading from a registry [can be enabled](https://jfrog.com/help/r/how-to-perform-anonymous-pulls-but-require-authentication-for-pushing-to-a-docker-repository) with additional configuration in your Artifactory instance.
 
-![Artifactory Registry Feed](/docs/packaging-applications/package-repositories/guides/container-registries/images/artifactory-docker-feed.png)
+![Artifactory Registry Feed](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/artifactory-docker-feed.png)

@@ -35,7 +35,7 @@ Git repositories referenced in your project's deployment process can be selected
 Please note that for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only steps that reference Git repositories in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in git triggers.
 
 :::figure
-![Repository selection](/docs/projects/project-triggers/images/git-triggers/git-triggers-repository-selection.png)
+![Repository selection](/docs/img/projects/project-triggers/images/git-triggers/git-triggers-repository-selection.png)
 :::
 
 ### File path filters
@@ -43,7 +43,7 @@ Please note that for [configuration as code](/docs/projects/version-control/conf
 When selecting a repository to monitor you will be provided with the option to add file path filters. These filters allow you to specify file paths to include or exclude from the monitoring of new commits.
 
 :::figure
-![File path filters](/docs/projects/project-triggers/images/git-triggers/git-triggers-file-path-filters.png)
+![File path filters](/docs/img/projects/project-triggers/images/git-triggers/git-triggers-file-path-filters.png)
 :::
 
 - If no file path filters are specified, all commits to the monitored repository will trigger the creation of a new release. 
@@ -72,5 +72,5 @@ The history section contains information about the last time the trigger was eva
 If the trigger has created a release, a link to the created release will be shown alongside the date it was created.
 
 :::figure
-![History](/docs/projects/project-triggers/images/git-triggers/git-triggers-history.png)
+![History](/docs/img/projects/project-triggers/images/git-triggers/git-triggers-history.png)
 :::

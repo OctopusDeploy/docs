@@ -156,7 +156,7 @@ The final step is to call the `checkPr` function, catch any exceptions, and prin
 
 The output of your validation script depends on the libraries used. The `expect` library is nice because it provides detailed differences between the expected and actual values. The end result of a failed validation looks something like this, where the JSON representation of the OCL data is presented as a diff showing which properties differed between the expected and input objects:
 
-![GitHub Actions failure screenshot](/docs/platform-engineering/github-action-failure-example.png "width=500")
+![GitHub Actions failure screenshot](/docs/img/platform-engineering/github-action-failure-example.png)
 
 ## Tips and tricks
 

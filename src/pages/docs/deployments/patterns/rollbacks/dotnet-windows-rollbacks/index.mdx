@@ -31,7 +31,7 @@ For this guide, we will start with the following deployment process for the Octo
 1. Notify stakeholders
 
 :::figure
-![original windows deployment process](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/original-windows-deployment-process.png)
+![original windows deployment process](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/original-windows-deployment-process.png)
 :::
 
 :::div{.success}
@@ -58,7 +58,7 @@ The updated deployment process will be:
 1. Notify stakeholders
 
 :::figure
-![simple rollback for windows deployment](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-simple-rollback-process.png)
+![simple rollback for windows deployment](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-simple-rollback-process.png)
 :::
 
 :::div{.success}
@@ -82,7 +82,7 @@ To skip these steps during a rollback, set the variable run condition to be:
 We also recommend adding or updating the notes field to indicate it will only run on deployments.
 
 :::figure
-![windows updating notes field](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-updating-notes-field.png)
+![windows updating notes field](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-updating-notes-field.png)
 :::
 
 ### Prevent release progression
@@ -116,7 +116,7 @@ The resulting process will be:
 1. Notify stakeholders
 
 :::figure
-![windows complex rollbacks](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-complex-rollbacks.png)
+![windows complex rollbacks](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-complex-rollbacks.png)
 :::
 
 :::div{.success}
@@ -143,7 +143,7 @@ Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will 
 ```
 
 :::figure
-![windows skip if already installed](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-skip-if-already-installed.png)
+![windows skip if already installed](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-skip-if-already-installed.png)
 :::
 
 ### Windows Service rollback
