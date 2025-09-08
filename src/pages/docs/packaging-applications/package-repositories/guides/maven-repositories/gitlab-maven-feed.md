@@ -11,13 +11,13 @@ GitLab creates a Maven Registry for each Project or Group.  To add the Maven Reg
 Project Id
 
 :::figure
-![GitLab Project Id](/docs/packaging-applications/package-repositories/guides/images/gitlab-project-id.png)
+![GitLab Project Id](/docs/img/packaging-applications/package-repositories/guides/images/gitlab-project-id.png)
 :::
 
 Group Id
 
 :::figure
-![GitLab Group Id](/docs/packaging-applications/package-repositories/guides/images/gitlab-group-id.png)
+![GitLab Group Id](/docs/img/packaging-applications/package-repositories/guides/images/gitlab-group-id.png)
 :::
 
 ## Adding a GitLab Maven repository as an Octopus External Feed
@@ -36,7 +36,7 @@ Group:
 Replace the URL from the examples above.
 
 :::figure
-![GitLab NuGet Feed](/docs/packaging-applications/package-repositories/guides/maven-repositories/images/gitlab-maven-feed.png)
+![GitLab NuGet Feed](/docs/img/packaging-applications/package-repositories/guides/maven-repositories/images/gitlab-maven-feed.png)
 :::
 
 Optionally add Credentials if they are required.

@@ -14,7 +14,7 @@ We've included the hosting group name in the tenant name to help illustrate the 
 This tag will make it easy to choose to deploy to all tenants in a group and also map those tenants to the correct infrastructure.
 
 :::figure
-![](/docs/tenants/guides/tenants-sharing-machine-targets/tenant-list.png)
+![](/docs/img/tenants/guides/tenants-sharing-machine-targets/tenant-list.png)
 :::
 
 In the tenant overview, click on **Manage Tags** to manage what tags are associated with a tenant.

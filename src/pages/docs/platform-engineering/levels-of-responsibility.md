@@ -21,7 +21,7 @@ This responsibility model is like providing a template PowerPoint presentation. 
 
 This is also called the eventual inconsistency model because the upstream and downstream projects and spaces are expected to drift over time.
 
-![Customer Responsibility model](/docs/platform-engineering/customer-responsibility-model.png "width=500")
+![Customer Responsibility model](/docs/img/platform-engineering/customer-responsibility-model.png)
 
 ## Shared responsibility model
 
@@ -31,7 +31,7 @@ Because the two CaC repos are forks of each other, they share the same Git histo
 
 This is also called the eventual consistency model because the upstream and downstream artifacts are expected to drift but have the option to incorporate any important changes.
 
-![Shared Responsibility model](/docs/platform-engineering/shared-responsibility-model.png "width=500")
+![Shared Responsibility model](/docs/img/platform-engineering/shared-responsibility-model.png)
 
 ## Centralized responsibility model
 
@@ -41,7 +41,7 @@ This model makes it easy to push out new changes because the platform team knows
 
 This is also called the enforced consistency model because customers have little ability to edit projects or spaces.
 
-![Shared Responsibility model](/docs/platform-engineering/central-responsibility-model.png "width=500")
+![Shared Responsibility model](/docs/img/platform-engineering/central-responsibility-model.png)
 
 ## Further reading
 

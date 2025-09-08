@@ -25,13 +25,13 @@ From the project's trigger tab, click **Add Trigger**, and then select **Built-i
 As a project can contain multiple packages you need to select the package that will upload *last* in your build and push CI process. If you have multiple packages, make sure you select the package that is always uploaded last.
 
 :::figure
-![Built-in package repository package selection](/docs/projects/project-triggers/images/built-in-package-repository-package-selection.png)
+![Built-in package repository package selection](/docs/img/projects/project-triggers/images/built-in-package-repository-package-selection.png)
 :::
 
 When a release is set to be created this way, the audit will tell you that is how the release was created.
 
 :::figure
-![Built-in package repository release history](/docs/projects/project-triggers/images/built-in-package-repository-release-history.png)
+![Built-in package repository release history](/docs/img/projects/project-triggers/images/built-in-package-repository-release-history.png)
 :::
 
 If you combine uploading a package with the automatic deployment feature within [lifecycle phases](/docs/releases/lifecycles/#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.

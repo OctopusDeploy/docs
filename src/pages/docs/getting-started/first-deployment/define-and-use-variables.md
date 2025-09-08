@@ -24,7 +24,7 @@ Octopus lets you define variables and scope them for use in different phases of 
 10. Click **Save**.
 
 :::figure
-![The hello world variables](/docs/getting-started/first-deployment/images/project-variables.png)
+![The hello world variables](/docs/img/getting-started/first-deployment/images/project-variables.png)
 :::
 
 ## Update deployment process
@@ -71,7 +71,7 @@ A release snapshots everything about your project, including variables and the d
 As you promote through the environments, you will see the greeting change.
 
 :::figure
-![The results of the hello world deployment with variables](/docs/getting-started/first-deployment/images/environment-variables.png)
+![The results of the hello world deployment with variables](/docs/img/getting-started/first-deployment/images/environment-variables.png)
 :::
 
 Great job! Next, let's build on your deployment process and [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions). 

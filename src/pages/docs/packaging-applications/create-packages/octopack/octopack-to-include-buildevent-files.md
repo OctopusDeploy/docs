@@ -14,22 +14,22 @@ This example demonstrates the use of a PostBuild event in Visual Studio and the 
 I created a Post-Build Event using the Visual Studio Build Events feature. It uses Xcopy to move files from a path to my solution:
 
 :::figure
-![Post-build event](/docs/packaging-applications/create-packages/octopack/images/post-build-event.png)
+![Post-build event](/docs/img/packaging-applications/create-packages/octopack/images/post-build-event.png)
 :::
 
 However, when I use OctoPack to package my solution on build my moved files are not included in the build:
 
 :::figure
-![Sample package without files](/docs/packaging-applications/create-packages/octopack/images/sample-package-without-files.png)
+![Sample package without files](/docs/img/packaging-applications/create-packages/octopack/images/sample-package-without-files.png)
 :::
 
 This is resolved by creating a NuSpec file, and creating a files tag to tell OctoPack to take my moved files, and put them inside a folder called `bin\test` in the package:
 
 :::figure
-![](/docs/packaging-applications/create-packages/octopack/images/nuspec-file.png)
+![](/docs/img/packaging-applications/create-packages/octopack/images/nuspec-file.png)
 :::
 
-It is important to note here that for OctoPack to find and use a NuSpec file, it must be named the same as your project as seen above. For instance, in our example, the project is called `OctoFX.TradingWebsite` so our NuSpec file must be called `OctoFx.TragingWebsite.nuspec`.
+It is important to note here that for OctoPack to find and use a NuSpec file, it must be named the same as your project as seen above. For instance, in our example, the project is called `OctoFX.TradingWebsite` so our NuSpec file must be called `OctoFx.TradingWebsite.nuspec`.
 
 To ensure I don't just get the files defined within the NeSpec file, I add `/p:OctoPackEnforceAddingFiles=true`, to tell OctoPack to also add the files it would normally add while building as well as those targeted by my files tag in the NuSpec file.
 

@@ -11,7 +11,7 @@ navOrder: 60
 Certificates can be downloaded from Octopus to your local machine.  The certificate may be exported in any of the [supported file-formats](/docs/deployments/certificates), or exactly as it was originally uploaded.
 
 :::figure
-![](/docs/deployments/certificates/images/download-certificate-btn.png)
+![](/docs/img/deployments/certificates/images/download-certificate-btn.png)
 :::
 
 ## Private-keys

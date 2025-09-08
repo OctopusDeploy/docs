@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-04-28
+modDate: 2025-09-03
 title: Keeping deployment targets up to date
 description: Octopus can ensure that deployment targets are kept up to date with the relevant releases. This can be useful when deploying to transient targets or when new deployment targets are added to an environment.
 navOrder: 2
@@ -19,7 +19,7 @@ Triggers are per-project settings that execute an action in response to an event
 2. Create a new trigger by selecting **Create trigger**:
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865570.png)
+![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865570.png)
 :::
 
 3. Add events to the trigger.
@@ -31,7 +31,7 @@ Triggers are per-project settings that execute an action in response to an event
 5. Select the deployment target tags (**TradingWebServer**) that this trigger applies to.
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865705.png)
+![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865705.png)
 :::
 
 Once the trigger has been created, it will ensure that any deployment targets matching the trigger criteria will be kept up to date with the latest release of the project.
@@ -43,31 +43,24 @@ To test the trigger, we will disable a deployment target, deploy to that target'
 1. Disable a target with the target tag **TradingWebServer** in the **Test A** environment:
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865573.png)
+![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865573.png)
 :::
 
 2. Create a new release of OctoFX and deploy it to the **Test A** environment. It will skip the steps that have been scoped to the **TradingWebServer** target tag because no deployment targets are associated with that tag:
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865574.png)
+![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865574.png)
 :::
 
 3. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed. The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
 
 :::figure
-![](/docs/deployments/patterns/elastic-and-transient-environments/images/5865575.png)
+![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865575.png)
 :::
 
 ## Overriding the release used for automatic deployments {#override-release-for-automatic-deployments}
 
 Automatic deployments attempts to calculate the release to use for a project and environment (using the *current* and *successful* release that has been deployed, as shown in your Project Overview dashboard). In some cases the calculated release may not be the release that should be automatically deployed, or Octopus may not be able to find a deployment for an environment (maybe you have a release, but have not yet deployed it anywhere). It is possible to explicitly set the release that should be automatically deployed by overriding the automatic-deployment-release. Overrides can be configured using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) or through [Octopus.Client](/docs/octopus-rest-api/octopus.client). Overrides define a release for a project when deploying to an environment (this can, for example, be useful for cloud-testing-automation when standing up new cloud infrastructure). For multi-tenanted deployments, overrides may be configured for each environment/tenant combination.
-
-**Octopus CLI**
-
-```bash
-octo create-autodeployoverride --server https://your-octopus-url --apiKey API-YOUR-KEY --project HelloWorld --environment Test -version 1.3.0
-octo delete-autodeployoverride --server https://your-octopus-url --apiKey API-YOUR-KEY --project HelloWorld --environment Test
-```
 
 **Octopus.Client**
 

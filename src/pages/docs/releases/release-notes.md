@@ -11,11 +11,11 @@ navOrder: 135
 When you create a release, you can add notes:
 
 :::figure
-![Editing release notes](/docs/releases/images/release-notes-edit.png)
+![Editing release notes](/docs/img/releases/images/release-notes-edit.png)
 :::
 
 :::figure
-![Viewing release notes](/docs/releases/images/release-notes-view.png)
+![Viewing release notes](/docs/img/releases/images/release-notes-view.png)
 :::
 
 ## Using variables in release notes
@@ -27,7 +27,7 @@ Only variables in scope when the release is created will be available for use in
 [Build information](/docs/packaging-applications/build-servers/build-information) associated with packages in the release may also be used in release notes.
 
 :::figure
-![Build information variables in release notes](/docs/releases/images/release-notes-build-information.png)
+![Build information variables in release notes](/docs/img/releases/images/release-notes-build-information.png)
 :::
 
 ## Accessing release notes during a deployment
@@ -115,7 +115,7 @@ Inherent in building software is the idea that over time the product is the accu
 Consider this example:
 
 :::figure
-![release notes accumulation](/docs/releases/images/release-notes-accumulation.png)
+![release notes accumulation](/docs/img/releases/images/release-notes-accumulation.png)
 :::
 
 When deploying `1.0.3` to **Development** the only difference is `Enh 6` because the most recent release was `1.0.2`.  However, `1.0.2` was not deployed to **Staging**, when `1.0.3` is deployed to **Staging** is is the accumulation of both `1.0.2` and `1.0.3`.  

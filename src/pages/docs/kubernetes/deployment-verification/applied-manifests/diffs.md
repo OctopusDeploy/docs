@@ -13,7 +13,7 @@ Sometimes it is difficult to know what changes have occurred to your Kubernetes 
 By enabling the `Show Diffs` toggle on the `Applied Manifests` view on the `KUBERNETES` tab.
 
 :::figure
-![A screenshot of the Kubernetes Applied Manifests diffs toggle](/docs/deployments/kubernetes/deployment-verification/applied-manifests-diffs-toggle.png)
+![A screenshot of the Kubernetes Applied Manifests diffs toggle](/docs/img/deployments/kubernetes/deployment-verification/applied-manifests-diffs-toggle.png)
 :::
 
 ## How it works
@@ -21,7 +21,7 @@ By enabling the `Show Diffs` toggle on the `Applied Manifests` view on the `KUBE
 When `Show Diffs` is toggled on, the current Deployment is compared to the previous Deployment. You can change the deployment to compare against using the drop down.
 
 :::figure
-![A screenshot of the Kubernetes Applied Manifests diffs deployment selector](/docs/deployments/kubernetes/deployment-verification/applied-manifests-diffs-selector.png)
+![A screenshot of the Kubernetes Applied Manifests diffs deployment selector](/docs/img/deployments/kubernetes/deployment-verification/applied-manifests-diffs-selector.png)
 :::
 
 When comparing manifests between Deployments, Octopus uses the Resource information (Name, Namespace, Kind) as well as the Deployment step to match manifests. This means that if a resource has been renamed, or changes namespaces, it will be shown as a new manifest, not an changed manifest.
@@ -55,7 +55,7 @@ In cases 2,3 and 4; as Octopus Server matches manifests on the resource details 
 Next to the `Show Diffs` toggle, there is a menu for changing diff options. This allows you to either view the diffs in split view or a unified view and allows you hide manifests that were unchanged.
 
 :::figure
-![A screenshot of the Kubernetes Applied Manifests diffs menu](/docs/deployments/kubernetes/deployment-verification/diffs-menu.png)
+![A screenshot of the Kubernetes Applied Manifests diffs menu](/docs/img/deployments/kubernetes/deployment-verification/diffs-menu.png)
 :::
 
 ## Kubernetes Secret resources and Octopus sensitive variable changes
@@ -65,7 +65,7 @@ As detailed in the [Applied Manifest](/docs/kubernetes/deployment-verification/a
 When performing a diff, Octopus continues to obfuscate the secrets, but will still indicate if the obfuscated value has changed between deployments.
 
 :::figure
-![A screenshot of the Kubernetes Applied Manifests diffs for secrets](/docs/deployments/kubernetes/deployment-verification/secret-diffs.png)
+![A screenshot of the Kubernetes Applied Manifests diffs for secrets](/docs/img/deployments/kubernetes/deployment-verification/secret-diffs.png)
 :::
 
 ## Can I compare to my live resources?

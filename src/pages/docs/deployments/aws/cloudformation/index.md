@@ -19,13 +19,13 @@ Add the `Deploy an AWS CloudFormation template` step to the project, and provide
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).
 
 :::figure
-![AWS Account](/docs/deployments/aws/cloudformation/images/step-aws-account.png)
+![AWS Account](/docs/img/deployments/aws/cloudformation/images/step-aws-account.png)
 :::
 
 The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
 
 :::figure
-![AWS Role](/docs/deployments/aws/cloudformation/images/step-aws-role.png)
+![AWS Role](/docs/img/deployments/aws/cloudformation/images/step-aws-role.png)
 :::
 
 :::div{.hint}
@@ -57,7 +57,7 @@ If your template includes IAM resources, you can select `The template has IAM re
 If your template includes custom names for IAM resources, you must select `The template has IAM resources with custom names (CAPABILITY_NAMED_IAM)`.
 
 :::figure
-![AWS Region](/docs/deployments/aws/cloudformation/images/step-aws-region.png)
+![AWS Region](/docs/img/deployments/aws/cloudformation/images/step-aws-region.png)
 :::
 
 ### Template section
@@ -69,19 +69,19 @@ The CloudFormation template can come from two sources: directly entered source c
 The first option is to paste the template directly into the step. This is done by selecting the `Source code` option, and clicking the `ADD SOURCE CODE` button.
 
 :::figure
-![Source Code](/docs/deployments/aws/cloudformation/images/step-aws-sourcecode.png)
+![Source Code](/docs/img/deployments/aws/cloudformation/images/step-aws-sourcecode.png)
 :::
 
 This will present a dialog in which the CloudFormation template can be pasted, in either JSON or YAML.
 
 :::figure
-![Source Code Dialog](/docs/deployments/aws/cloudformation/images/step-aws-code-dialog.png)
+![Source Code Dialog](/docs/img/deployments/aws/cloudformation/images/step-aws-code-dialog.png)
 :::
 
 Once the `OK` button is clicked, the parameters defined in the template will be shown under the `Parameters` section.
 
 :::figure
-![Parameters](/docs/deployments/aws/cloudformation/images/step-parameters.png)
+![Parameters](/docs/img/deployments/aws/cloudformation/images/step-parameters.png)
 :::
 
 #### Package
@@ -89,7 +89,7 @@ Once the `OK` button is clicked, the parameters defined in the template will be 
 The second option is to reference a CloudFormation template and properties file from a package. This is done by selecting the `File inside a package` option, specifying the package, and the supplying the name of the template file (which can be a JSON or YAML file), and optionally the path to the parameters file (which [only supports JSON](https://github.com/aws/aws-cli/issues/2275)).
 
 :::figure
-![Package](/docs/deployments/aws/cloudformation/images/step-aws-package.png)
+![Package](/docs/img/deployments/aws/cloudformation/images/step-aws-package.png)
 :::
 
 #### Variable replacements
@@ -135,7 +135,7 @@ In addition to any outputs defined in your CloudFormation template, we also prov
 In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html) you must first [enable](/docs/projects/steps/configuration-features) the change set feature on your `Deploy an AWS CloudFormation template` step.
 
 :::figure
-![Change Set Feature](/docs/deployments/aws/cloudformation/images/aws-changeset-feature.png)
+![Change Set Feature](/docs/img/deployments/aws/cloudformation/images/aws-changeset-feature.png)
 :::
 
 :::div{.hint}
@@ -181,7 +181,7 @@ The last `Status Reason` from the stack events is displayed in the Octopus logs,
 For example, in the screenshot below you can see that the specified instance type could only be used in a VPC, triggering the rollback of this particular CloudFormation deployment.
 
 :::figure
-![CloudFormation Events](/docs/deployments/aws/cloudformation/images/cloud-formation-error.png)
+![CloudFormation Events](/docs/img/deployments/aws/cloudformation/images/cloud-formation-error.png)
 :::
 
 ### AWS-CLOUDFORMATION-ERROR-0002
@@ -249,7 +249,7 @@ An unrecognized exception was thrown while creating a CloudFormation stack.
 If the text `Requires capabilities : [CAPABILITY_NAMED_IAM]` or `Requires capabilities : [CAPABILITY_IAM]` appears in the error message, you will need to define these capabilities in the CloudFormation deployment step.
 
 :::figure
-![IAM Capabilities](/docs/deployments/aws/cloudformation/images/iam-capabilities.png)
+![IAM Capabilities](/docs/img/deployments/aws/cloudformation/images/iam-capabilities.png)
 :::
 
 ### AWS-CLOUDFORMATION-ERROR-0009
@@ -401,7 +401,7 @@ The role being assumed then needs trust relationship with the role or user that 
 ```
 
 :::figure
-![Trust Relationships](/docs/deployments/aws/cloudformation/images/trust-relationships.png)
+![Trust Relationships](/docs/img/deployments/aws/cloudformation/images/trust-relationships.png)
 :::
 
 ### AWS-LOGIN-ERROR-0005

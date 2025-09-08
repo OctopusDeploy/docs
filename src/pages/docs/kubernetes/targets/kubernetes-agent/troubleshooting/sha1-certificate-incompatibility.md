@@ -30,7 +30,7 @@ To confirm that the issue is caused by SHA1 compatibility, check each of the fol
 This error will occur when the agent attempts to connect to the server, typically during agent startup or installation.
 
 :::figure
-![Windows Event Viewer Schannel Error](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-troubleshooting-sha1-windows-event-viewer.png)
+![Windows Event Viewer Schannel Error](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-troubleshooting-sha1-windows-event-viewer.png)
 :::
 
 ## Solutions

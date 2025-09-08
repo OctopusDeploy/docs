@@ -108,7 +108,7 @@ Invite a user to manage a subscription group and access all current and future s
 6. Click **Invite**.
 
 :::figure
-![Invite users to a subscription group in Control Center](/docs/getting-started/managing-octopus-subscriptions/images/subscription-group-access.png)
+![Invite users to a subscription group in Control Center](/docs/img/getting-started/managing-octopus-subscriptions/images/subscription-group-access.png)
 :::
 
 #### Email invitation
@@ -177,7 +177,7 @@ Invite a user to access a specific subscription.
 6. Click **Invite**.
 
 :::figure
-![Invite users to a specific subscription in Control Center](/docs/getting-started/managing-octopus-subscriptions/images/direct-access.png)
+![Invite users to a specific subscription in Control Center](/docs/img/getting-started/managing-octopus-subscriptions/images/direct-access.png)
 :::
 
 #### Email invitation \{#email-invitation}
