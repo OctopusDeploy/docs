@@ -77,13 +77,13 @@ You can export data using the Export Wizard built into the Octopus Server Manage
 The wizard is a good way to get started, but the complete feature set is only available using the command-line interface.
 
 :::figure
-![The Octopus Export Wizard is accessed via the Octopus Manager, Export data... option](/docs/administration/data/images/octopus-manager-export-data-wizard.png)
+![The Octopus Export Wizard is accessed via the Octopus Manager, Export data... option](/docs/img/administration/data/images/octopus-manager-export-data-wizard.png)
 :::
 
 We have made the exported file structure predictable and easy to navigate.
 
 :::figure
-![The export file uses human readable JSON](/docs/administration/data/images/json-format.png)
+![The export file uses human readable JSON](/docs/img/administration/data/images/json-format.png)
 :::
 
 ### Importing {#importing}
@@ -95,7 +95,7 @@ It's a good idea to [perform a backup](/docs/administration/data/backup-and-rest
 You can import data using the Import Wizard built into the Octopus Server Manager or the command-line interface `Octopus.Migrator.exe import`. Similarly to exporting data, the wizard is a good way to get started, but the complete feature set is only available using the command-line interface.
 
 :::figure
-![The Octopus Import Wizard is accessed via the Octopus Manager, Import data... option](/docs/administration/data/images/octopus-manager-import-data-wizard.png)
+![The Octopus Import Wizard is accessed via the Octopus Manager, Import data... option](/docs/img/administration/data/images/octopus-manager-import-data-wizard.png)
 :::
 
 You'll get a chance to preview the changes first, and you can tell the tool to either:
@@ -144,13 +144,13 @@ The incoming data is viewed as the source of truth during the import, and existi
 For example, when importing a project that already exists in the destination server, all deployment steps that belong to the project in the destination server are overwritten, including any new deployment steps that may have been added.
 
 :::figure
-![Data in the file overwrites data in the destination](/docs/administration/data/images/import-overwrites.png)
+![Data in the file overwrites data in the destination](/docs/img/administration/data/images/import-overwrites.png)
 :::
 
 There is no out-of-the-box way to "merge" deployment steps, or other more granular changes when importing.
 
 :::figure
-![Data is not merged during the import operation](/docs/administration/data/images/import-doesnt-merge.png)
+![Data is not merged during the import operation](/docs/img/administration/data/images/import-doesnt-merge.png)
 :::
 
 There are certain cases where we can automatically merge data, like variable sets where you have specific values that only make sense in the target server or teams where certain users only make sense in the target server.
@@ -168,5 +168,5 @@ We use the IDs to map references between documents into the correct references f
 Yes! Most features are only available via the command line, so it is the most common way to perform data migration. Use `Octopus.Migrator.exe help` to see the full list of commands available. To see an example of the command syntax, you can use the Wizard in the Octopus Server Manager and click the **Show script** link.
 
 :::figure
-![The Wizard has a show script option so you can use it to understand the command syntax](/docs/administration/data/images/import-wizard-show-script.png)
+![The Wizard has a show script option so you can use it to understand the command syntax](/docs/img/administration/data/images/import-wizard-show-script.png)
 :::

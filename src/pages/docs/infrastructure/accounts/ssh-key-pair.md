@@ -9,11 +9,11 @@ navOrder: 40
 
 An SSH key pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target).
 
-## Creating an SSH key pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
+## Creating an SSH key pair
 
-Before you can configure the SSH key pair account in Octopus, you need to generate public and private keys. This can be done on either the [Linux target](#SSHKeyPair-Linux) or the [Octopus Server](#SSHKeyPair-Windows).
+Before you can configure the SSH key pair account in Octopus, you need to generate public and private keys. This can be done on either the [Linux target](#generate-key-pair-linux) or the [Octopus Server](#generate-key-pair-windows).
 
-### Generating a key pair on Linux {#SSHKeyPair-Linux}
+### Generating a key pair on Linux {#generate-key-pair-linux}
 
 :::div{.hint}
 From **Octopus 2021.1.7466**, Octopus supports newer ED25519 SSH keys. For older versions, and legacy compatibility, please follow the RSA instructions.
@@ -77,23 +77,23 @@ chmod 600 ~/.ssh/authorized_keys
 
 7. Copy the private key to the machine your Octopus Server is installed on.
 
-Proceed to [creating the SSH key pair account](#SSHKeyPair-Creatingtheaccount).
+Proceed to [creating the SSH key pair account](#create-ssh-account).
 
-If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
+If you need more information about generating an SSH key pair, see the [useful links section](#useful-links).
 
-### Generating a key pair on Windows {#SSHKeyPair-Windows}
+### Generating a key pair on Windows {#generate-key-pair-windows}
 
 The easiest way to generate valid keys on windows is to use a tool like[ PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
 
 :::figure
-![](/docs/infrastructure/accounts/ssh-key-create-putty.png)
+![](/docs/img/infrastructure/accounts/ssh-key-create-putty.png)
 :::
 
 Provide your passphrase if desired and export the private key to the accepted format by going to **Conversions ➜ Export OpenSSH Key**.  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.
 
-If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
+If you need more information about generating an SSH key pair, see the [useful links section](#useful-links).
 
-## Creating the SSH key pair account {#SSHKeyPair-Creatingtheaccount}
+## Creating the SSH key pair account {#create-ssh-account}
 
 1. Navigate to **Infrastructure ➜ Accounts** and click **ADD ACCOUNT**.
 1. Select **SSH key pair** from the drop-down menu.
@@ -111,7 +111,7 @@ The server will confirm that this private key matches its public key at the star
 
 If you are storing the private key on disk it is recommended, but not mandatory, that you encrypt the key.
 
-## Useful links {#SSHKeyPair-UsefulLinks}
+## Useful links {#useful-links}
 
 Due to the number and configurable nature of the various Linux distributions available, there are other dedicated sites that can provide more precise information & tutorials for your specific use case.
 

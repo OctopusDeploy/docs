@@ -97,7 +97,7 @@ Write-Highlight "Click [here]($URI) to open the newly deployed site."
 When evaluated, the deployment task summary will show the hyperlink that can be clicked on:
 
 :::figure
-![The Octopus Deployment Task Summary showing an example of a highlighted log level message](/docs/deployments/custom-scripts/images/write-highlight-in-task-summary.png)
+![The Octopus Deployment Task Summary showing an example of a highlighted log level message](/docs/img/deployments/custom-scripts/images/write-highlight-in-task-summary.png)
 :::
 
 ## Wait log level

@@ -34,13 +34,13 @@ To add your SMTP configuration navigate to **Configuration ➜ SMTP** and set th
 Click **Save and test** to save the SMTP configuration and verify the values are valid:
 
 :::figure
-![](/docs/projects/built-in-step-templates/images/smtp-configuration.png)
+![](/docs/img/projects/built-in-step-templates/images/smtp-configuration.png)
 :::
 
 You will be prompted for an email address to send a test email to. Enter a test email address and click **Ok**. A *Send test email* task will start to verify your SMTP Configuration:
 
 :::figure
-![](/docs/projects/built-in-step-templates/images/smtp-verify-task.png)
+![](/docs/img/projects/built-in-step-templates/images/smtp-verify-task.png)
 :::
 
 ### Google OAuth 2.0 Credentials
@@ -158,7 +158,7 @@ To use the template in your projects, replace `nuget.org` with the DNS name of y
 The output of the template will be an HTML email like:
 
 :::figure
-![](/docs/projects/built-in-step-templates/images/email-output.png)
+![](/docs/img/projects/built-in-step-templates/images/email-output.png)
 :::
 
 ### Step status summary template

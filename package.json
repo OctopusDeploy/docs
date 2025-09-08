@@ -9,7 +9,8 @@
         "pnpm": ">=9.10.0"
     },
     "scripts": {
-        "dev": "npm-run-all --parallel dev:img dev:astro dev:watch",
+        "dev": "npm-run-all --parallel dev:img dev:dictionary dev:astro dev:watch",
+        "dev:dictionary": "node ./dictionary-sorter.mjs",
         "dev:img": "node ./src/themes/octopus/utilities/img.mjs",
         "dev:astro": "astro dev",
         "dev:watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}",

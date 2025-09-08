@@ -74,12 +74,12 @@ You can achieve these behaviors using a custom script/application which leverage
 Yes! Each project can control its interaction with tenants. By default the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
 
 :::figure
-![](/docs/tenants/images/multi-tenant-project-settings.png)
+![](/docs/img/tenants/images/multi-tenant-project-settings.png)
 :::
 
 ## What is an "untenanted deployment"? Don't I have to choose a tenant when deploying my project?
 
-When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an environment-per-tenant model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not. Essentially an "untenanted deployment" is the same kind of deployment Octopus always performed: *there is no tenant for this deployment*. When you deploy using a tenant, Octopus includes variables from the tenant. The selected tenant can impact which steps are run, which variable values are used, and which deployment targets are included, at your discretion. For more information refer to our [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
+When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an environment-per-tenant model and will migrate to tenants over a period of time, so some deployments will start to have a tenant while others do not. Essentially an "untenanted deployment" is the same kind of deployment Octopus always performed: *there is no tenant for this deployment*. When you deploy using a tenant, Octopus includes variables from the tenant. The selected tenant can impact which steps are run, which variable values are used, and which deployment targets are included, at your discretion. For more information refer to our [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments) section.
 
 ## Can I prevent "untenanted deployments" of a project?
 

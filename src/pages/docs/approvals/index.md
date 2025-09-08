@@ -26,7 +26,7 @@ Our support focuses on:
 ## ServiceNow change management without friction
 
 :::figure
-![ServiceNow deployment waiting for approval](/docs/approvals/servicenow-task-status-with-cr.png)
+![ServiceNow deployment waiting for approval](/docs/img/approvals/servicenow-task-status-with-cr.png)
 :::
 
 This new integration links Octopus deployments and runbook runs to ServiceNow change requests and automatically creates pre-populated, normal change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment and runbook has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulations.
@@ -51,7 +51,7 @@ ServiceNow integration is available to customers with an [enterprise subscriptio
 ## Efficient change management approvals with Jira Service Management
 
 :::figure
-![Jira Service Management approvals configuration](/docs/approvals/jira-task-settings.png)
+![Jira Service Management approvals configuration](/docs/img/approvals/jira-task-settings.png)
 :::
 
 To build on our ITSM change management support further, we are also pleased to announce our Jira Service Management integration.

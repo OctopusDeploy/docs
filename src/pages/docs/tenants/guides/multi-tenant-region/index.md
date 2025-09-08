@@ -62,7 +62,7 @@ The Car Rental applications consist of a PHP web UI and a MySQL database backend
 After you've added each deployment target, ensure the target is associated with its respective tenant and tags by updating the **Tenanted Deployments** and **Associated Tenants** sections. For example, to configure the target which will deploy the Alpha version of the application to Des Moines, use the following associations:
 
 :::figure
-![](/docs/tenants/guides/multi-tenant-region/images/tenant-demoines-tenanted-alpha-tag.png)
+![](/docs/img/tenants/guides/multi-tenant-region/images/tenant-demoines-tenanted-alpha-tag.png)
 :::
 
 ### Example automation script
@@ -133,7 +133,7 @@ The SecOps team at Car Rental have a policy that when a deployment occurs, the i
 To accommodate the policy, you can create worker pools for each Azure region and create a worker in each one.
 
 :::figure
-![Region worker pools](/docs/tenants/guides/multi-tenant-region/images/region-worker-pools.png)
+![Region worker pools](/docs/img/tenants/guides/multi-tenant-region/images/region-worker-pools.png)
 :::
 
 ### Worker pool variable
@@ -141,7 +141,7 @@ To accommodate the policy, you can create worker pools for each Azure region and
 Region-specific worker pools are only half of the equation; the deployment still needs to be configured to select the correct pool based on the tenant being deployed to.  To solve this issue, you can use a [worker pool variable](/docs/projects/variables/worker-pool-variables). Just like other variables, these variables can be scoped to tenant tags.
 
 :::figure
-![Worker pool variables](/docs/tenants/guides/multi-tenant-region/images/worker-pool-variables.png)
+![Worker pool variables](/docs/img/tenants/guides/multi-tenant-region/images/worker-pool-variables.png)
 :::
 
 ### Configure steps to use a worker pool variable
@@ -149,7 +149,7 @@ Region-specific worker pools are only half of the equation; the deployment still
 The *MySQL - Create Database If Not Exists* step of the Car Rental deployment process is configured to run on a worker and use the `Project.Worker.Pool` variable
 
 :::figure
-![](/docs/tenants/guides/multi-tenant-region/images/car-rental-mysql-step.png)
+![](/docs/img/tenants/guides/multi-tenant-region/images/car-rental-mysql-step.png)
 :::
 
 Because the tenants for the Car Rental application have been assigned their appropriate Azure Region tag, Octopus Deploy will automatically select the correct worker when performing a deployment to the tenant.
@@ -163,7 +163,7 @@ Deploying a multi-tenanted application follows the same process as any other app
 If you deploy to the Development environment, you'll notice that only Des Moines will be deployed to, as this is the only tenant available in the environment with the **Beta** tag. Promoting the same release to Test with the **Beta** tag selected again will result in Des Moines and Norfolk being chosen for deployment.
 
 :::figure
-![Beta release ring test deployment](/docs/tenants/guides/multi-tenant-region/images/beta-release-ring-test-deployment.png)
+![Beta release ring test deployment](/docs/img/tenants/guides/multi-tenant-region/images/beta-release-ring-test-deployment.png)
 :::
 
 Because we assigned the infrastructure to their respective tenants, Octopus Deploy already knows what targets to deploy to. Deploying to Staging and Production would yield the same results as Test as `Des Moines` and `Norfolk` are the only two locations who are participating in the `Beta` tag.

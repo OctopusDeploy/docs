@@ -114,13 +114,13 @@ Each sensitive variable must have a unique name and no scopes in order for Octop
 
 However, it is common for sensitive variables to share a name and use scopes to define unique values for different contexts. For example, you may have two sensitive variables called `Database.Password`, with the first variable scoped to the `Dev` environment, and the second scoped to the `Production` environment. This is demonstrated in the screenshot below:
 
-![Sensitive project variables](/docs/administration/migrate-spaces-with-octoterra/sensitive-variables.png)
+![Sensitive project variables](/docs/img/administration/migrate-spaces-with-octoterra/sensitive-variables.png)
 
 The process of renaming sensitive variables, removing their scopes, and recursively referencing them via regular variables that have the names and scopes of the original sensitive variables is called "variable spreading".
 
 Here is a screenshot that shows the spread variables:
 
-![Spread sensitive variables](/docs/administration/migrate-spaces-with-octoterra/spread-variables.png)
+![Spread sensitive variables](/docs/img/administration/migrate-spaces-with-octoterra/spread-variables.png)
 
 Existing steps that referenced the variable `Database.Password` continue to function, as the value of that variable is recursively resolved from the Octostache template syntax in the regular variable to return the value held by the referenced sensitive variable.
 
@@ -370,7 +370,7 @@ Here is a sample PowerShell command for Windows tentacles (or Linux tentacles wh
 & "${TentacleExecutablePath}" poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
-![Script Console](/docs/administration/migrate-spaces-with-octoterra/polling-tentacle-update.png)
+![Script Console](/docs/img/administration/migrate-spaces-with-octoterra/polling-tentacle-update.png)
 
 ### Reconfigure listening tentacles
 
@@ -404,7 +404,7 @@ Here is a sample PowerShell command for Windows tentacles (or Linux tentacles wh
 & "${TentacleExecutablePath}" configure --trust=D21887C5EB73D21DDC3DEAB3E8840A47E6279F21
 ```
 
-![Script Console](/docs/administration/migrate-spaces-with-octoterra/listening-tentacle-update.png)
+![Script Console](/docs/img/administration/migrate-spaces-with-octoterra/listening-tentacle-update.png)
 
 ### Update CI servers
 

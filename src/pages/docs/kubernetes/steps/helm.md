@@ -21,7 +21,7 @@ You can source your Helm charts from two different sources:
 A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/topics/chart_repository/). This repository is effectively just an HTTP server that houses an `index.yaml` which describes the charts available on that server. Octopus uses this index file to determine the available "packages" (Charts) and versions. A chart is a tarball that looks like `alpine-0.1.2.tgz` which for this example Octopus will interpret as having PackageID `alpine` and version `0.1.2`. There are various ways you can host a chart repository, including third-party tools like [ChartMuseum](https://github.com/chartmuseum/chartmuseum), [Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/kubernetes-helm-chart-repositories), [Cloudsmith](https://help.cloudsmith.io/docs/helm-chart-repository), or even hosting your own [static web server](https://helm.sh/docs/topics/chart_repository/#hosting-chart-repositories).
 
 :::figure
-![Helm Feed](/docs/deployments/kubernetes/helm-update/helm-feed.png)
+![Helm Feed](/docs/img/deployments/kubernetes/helm-update/helm-feed.png)
 :::
 
 :::div{.info}
@@ -52,7 +52,7 @@ The Open Container Initiative (OCI) is a lightweight, open governance structure 
 An OCI-based registry can contain zero or more Helm repositories and each of those repositories can contain zero or more packaged Helm charts.
 
 :::figure
-![OCI Registry Feed](/docs/deployments/kubernetes/helm-update/oci-registry-feed.png)
+![OCI Registry Feed](/docs/img/deployments/kubernetes/helm-update/oci-registry-feed.png)
 :::
 
 For more information about using OCI-based registries and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/registries/).
@@ -87,7 +87,7 @@ Remember that since the Kubernetes cluster connection context is available via t
 ### Upgrade options
 
 :::figure
-![Upgrade options](/docs/deployments/kubernetes/helm-update/upgrade-options.png)
+![Upgrade options](/docs/img/deployments/kubernetes/helm-update/upgrade-options.png)
 :::
 
 #### Kubernetes release
@@ -115,7 +115,7 @@ Since it is quite common to have different versions of Helm across your deployme
 ### Template values
 
 :::figure
-![Template Values](/docs/deployments/kubernetes/helm-update/new-template-values.png)
+![Template Values](/docs/img/deployments/kubernetes/helm-update/new-template-values.png)
 :::
 
 The configuration for the Kubernetes resources required in a Helm Chart can be provided by making use of [Chart Templates](https://docs.helm.sh/chart_template_guide/). In each of the following options, the values files are passed into the `helm upgrade` command with the `-f` argument.
@@ -137,7 +137,7 @@ To reorder the sources, click the **Reorder** button.
 In the following figure, the **Key values** source value for the **drink** key will take precedence over the value for the same key in the **Inline YAML** source. The value for the **drink** key defined in the chart default `values.yaml` file will be overridden.
 
 :::figure
-![Ordering Template Values](/docs/deployments/kubernetes/helm-update/reorder-template-values.png)
+![Ordering Template Values](/docs/img/deployments/kubernetes/helm-update/reorder-template-values.png)
 :::
 
 

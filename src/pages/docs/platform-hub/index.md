@@ -26,4 +26,4 @@ We recommend you use a separate Git repository to house your policy files.
 :::
 
 
-![Platform Hub overview screen where Git repository is configured](/docs/platform-hub/platform-hub-overview.png)
+![Platform Hub overview screen where Git repository is configured](/docs/img/platform-hub/platform-hub-overview_1.png)
