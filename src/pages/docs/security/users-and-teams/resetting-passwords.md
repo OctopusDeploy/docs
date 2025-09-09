@@ -7,71 +7,71 @@ description: The Octopus Web Portal makes it easy to change or reset your passwo
 navOrder: 1
 ---
 
-## Resetting your own password {#Resettingpasswords-Resettingyourownpassword}
+## Resetting your own password
 
 In the Octopus Web UI, click your username in the top right corner of the screen. Select **Profile** to go to your profile page.
 
 To change your password, select **Change password**:
 
 :::figure
-![](/docs/security/users-and-teams/images/resetpassword.png)
+![](/docs/img/security/users-and-teams/images/resetpassword.png)
 :::
 
 Enter and confirm your new password, then click **Save**:
 
 :::figure
-![](/docs/security/users-and-teams/images/newpassword.png)
+![](/docs/img/security/users-and-teams/images/newpassword.png)
 :::
 
-## Resetting user passwords {#Resettingpasswords-Resettinguserpasswords}
+## Resetting user passwords
 
 Octopus Server administrators can reset the passwords of other users from the Octopus Web Portal at **Configuration ➜ Users**.
 
 Select the user whose password you want to change:
 
 :::figure
-![](/docs/security/users-and-teams/images/usersearch.png)
+![](/docs/img/security/users-and-teams/images/usersearch.png)
 :::
 
 Click **Change password**:
 
 :::figure
-![](/docs/security/users-and-teams/images/changeuserpwd.png)
+![](/docs/img/security/users-and-teams/images/changeuserpwd.png)
 :::
 
 Enter and confirm the new password, then click **Save**:
 
 :::figure
-![](/docs/security/users-and-teams/images/userpasswordchange.png)
+![](/docs/img/security/users-and-teams/images/userpasswordchange.png)
 :::
 
-## Resetting administrator passwords {#Resettingpasswords-Resettingadministratorpasswords}
+## Resetting administrator passwords
 
 Users can be made administrators, and new administrator accounts created using the command line on the Octopus Server machine.
 
 To reset the password of an administrator, or to make a user into an administrator, open an administrative command prompt on the Octopus Server and run the following commands.
 
-### For username/password authentication {#Resettingpasswords-ForUsername/Passwordauthentication}
+### For username/password authentication
 
 ```powershell
 Octopus.Server.exe service --stop
-Octopus.Server.exe admin --username=YOURUSERNAME --password=YOURPASSWORD
+Octopus.Server.exe admin --username=YOUR-USERNAME --password=YOUR-PASSWORD
 Octopus.Server.exe service --start
 ```
 
-Replace `YOURUSERNAME` with the simple login name of the administrator account, and provide the **new password**.
+Replace `YOUR-USERNAME` with the simple login name of the administrator account, and provide the **new password**.
 
-### For Active Directory authentication {#Resettingpasswords-ForActiveDirectoryauthentication}
+### For Active Directory authentication
 
 When Active Directory authentication is in use, the `--password` argument is not required:
 
 ```powershell
 Octopus.Server.exe service --stop
-Octopus.Server.exe admin --username=YOURUSERNAME
+Octopus.Server.exe admin --username=YOUR-USERNAME
 Octopus.Server.exe service --start
 ```
 
-## Password complexity {#Resettingpasswords-PasswordComplexity}
+## Password complexity
 
 Passwords in Octopus must meet password complexity rules. Octopus applies a scoring system to a new password to decide if it meets the complexity rules.
 

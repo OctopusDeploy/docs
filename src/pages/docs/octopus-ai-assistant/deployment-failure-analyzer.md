@@ -40,7 +40,7 @@ The Octopus AI Assistant will analyze the deployment context and provide:
 
 Below is a basic example of how the Deployment Failure Analyzer works in practice. The analyzer identified that an Azure Resource Group could not be found during deployment and provided troubleshooting guidance, including verifying the resource group exists, checking Azure account permissions, looking for typos in the configuration, and enabling step retries for intermittent issues.
 
-![Deployment failure analysis example](/docs/octopus-ai-assistant/deployment-failure-analyzer-example.png)
+![Deployment failure analysis example](/docs/img/octopus-ai-assistant/deployment-failure-analyzer-example.png)
 
 ## Adding business logic using custom prompts
 
@@ -65,7 +65,7 @@ In this example, when the analyzer detects an issue related to a missing Azure R
 2. Provide specific instructions to create a support ticket via the team's Slack workflow
 3. Direct users to the appropriate team channel rather than providing generic troubleshooting steps
 
-![Deployment failure analysis example with custom prompt](/docs/octopus-ai-assistant/deployment-failure-analyzer-custom-prompt-example.png)
+![Deployment failure analysis example with custom prompt](/docs/img/octopus-ai-assistant/deployment-failure-analyzer-custom-prompt-example.png)
 
 This approach ensures users get immediate, actionable guidance that follows your organization's established support processes, reducing resolution time and ensuring consistency across teams.
 

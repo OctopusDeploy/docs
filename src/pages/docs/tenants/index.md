@@ -23,7 +23,7 @@ Although you can model these scenarios using multiple projects, or multiple envi
 [Tenants](https://octopus.com/features/tenants) let you easily create customer or location-specific deployment pipelines without duplicating project configuration. You can manage separate instances of your application in multiple environments – all from a single Octopus project. This allows you to define one process and easily deploy to any number of tenants. 
 
 :::figure
-![](/docs/tenants/images/octopus-tenants-deployments.png)
+![](/docs/img/tenants/images/octopus-tenants-deployments.png)
 :::
 
 Tenants let you:

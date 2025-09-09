@@ -11,7 +11,7 @@ navOrder: 170
 With bulk deployment creation, you will be redirected to a new server task upon deploying a release to multiple environments or tenants through Octopus Portal. There you will find each requested deployment as task summary items, which will display progress and any errors.
 
 :::figure
-![](/docs/deployments/bulk-deployment-creation.png)
+![](/docs/img/deployments/bulk-deployment-creation.png)
 :::
 
 You can also navigate away from the server task and it will continue creating deployments in the background.
@@ -22,7 +22,7 @@ If you need to return to a bulk deployment creation server task, you can navigat
 To retry failed requested deployments, navigate to the bulk deployment server task with the failed requested deployments and click **Re-run**. This will create a new server task that attempts to recreate only those deployments that failed to create previously.
 
 :::figure
-![](/docs/deployments/bulk-deployment-creation-retry.png)
+![](/docs/img/deployments/bulk-deployment-creation-retry.png)
 :::
 
 ## Permissions

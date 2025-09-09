@@ -13,7 +13,7 @@ Built-in step templates that use the new "step package" format can be updated au
 Optionally, the automatic version updates of built-in steps can be turned off by navigating to **Configuration ➜ Features** and turning off the **Step Template Updates** feature.
 
 :::figure
-![](/docs/projects/built-in-step-templates/images/automatic-updates-configuration.png)
+![](/docs/img/projects/built-in-step-templates/images/automatic-updates-configuration.png)
 :::
 
 ## Notes
@@ -22,7 +22,7 @@ Optionally, the automatic version updates of built-in steps can be turned off by
 * **Major version** upgrades of steps within existing deployment processes and runbooks will require manual intervention, as the steps will not be backward compatible and likely require additional input.
 
 :::figure
-![](/docs/projects/built-in-step-templates/images/step-migration-v2.png)
+![](/docs/img/projects/built-in-step-templates/images/step-migration-v2.png)
 :::
 
 * Only steps that are compatible with the current Octopus Server version will be automatically downloaded and updated.

@@ -83,7 +83,7 @@ You can reference the [deployment process of the Vet Clinic project on our sampl
 Deploying a multi-tenanted application follows the same process as any other application. The one difference is that when choosing where to deploy the release, you'll also need to choose the tenants or tags to deploy the release to.
 
 :::figure
-![](/docs/tenants/guides/multi-tenant-saas-application/images/multi-tenanted-dashboard.png)
+![](/docs/img/tenants/guides/multi-tenant-saas-application/images/multi-tenanted-dashboard.png)
 :::
 
 Tenants will only be eligible for deployment to the environments they've been connected to. Above is an example of what a multi-tenanted application's dashboard may look like.
@@ -91,5 +91,5 @@ Tenants will only be eligible for deployment to the environments they've been co
 One of our tenants **Capital City Pet Hospital** has the **Branding** tenant tag associated with them. As a result, the **Apply Custom Branding** step was applicable to them and we can see from the logs that it ran that step when we deployed to production for **Capital City Pet Hospital**.
 
 :::figure
-![](/docs/tenants/guides/multi-tenant-saas-application/images/deploying-release-production.png)
+![](/docs/img/tenants/guides/multi-tenant-saas-application/images/deploying-release-production.png)
 :::

@@ -12,13 +12,13 @@ The Deployment Timeline provides visual representation of all deployments made t
 It can be access by clicking the **Timeline** button within the deployment details page.
 
 :::figure
-![The Deployment Timeline button](/docs/releases/timeline/timeline-button.png)
+![The Deployment Timeline button](/docs/img/releases/timeline/timeline-button.png)
 :::
 
 A drawer opens showing all deployments for the current Environment, Project and Tenant you are viewing, sorted by when the deployment was created.
 
 :::figure
-![The deployment Timeline with overflow menu for last successful deployment](/docs/releases/timeline/timeline.png)
+![The deployment Timeline with overflow menu for last successful deployment](/docs/img/releases/timeline/timeline.png)
 :::
 
 For releases that have not been deleted, either manually or via [Retention policies](/docs/administration/retention-policies), an overflow menu provides actions that can be triggered:

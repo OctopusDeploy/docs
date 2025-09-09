@@ -85,7 +85,7 @@ If adding a pre-release tag to channels, you will also need to add the tag `^$` 
 The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
 
 :::figure
-![Design version rule](/docs/releases/channels/images/channel-design-version-rule.png)
+![Design version rule](/docs/img/releases/channels/images/channel-design-version-rule.png)
 :::
 
 6. Click **Save**.
@@ -104,7 +104,7 @@ You can use external repository rules to restrict which branches and tags can be
 4. Click **Save**.
 
 :::figure
-![External repository rules example](/docs/releases/channels/images/external-repository-rules.png)
+![External repository rules example](/docs/img/releases/channels/images/external-repository-rules.png)
 :::
 
 #### Project repository (version-controlled projects)
@@ -118,7 +118,7 @@ For [version-controlled](/docs/projects/version-control) projects, you can use r
 When patterns are entered, a sample of the matching branches/tags from the Git repository used by the project will be shown to help in configuring the rules.
 
 :::figure
-![Project repository example](/docs/releases/channels/images/project-repository.png)
+![Project repository example](/docs/img/releases/channels/images/project-repository.png)
 :::
 
 #### Glob patterns in Git protection rules {#git-rules-glob-patterns}
@@ -150,7 +150,7 @@ Some examples:
 | GitHub pull request | N/A | `refs/pulls/*/merge` |
 
 :::figure
-![Advanced patterns example](/docs/releases/channels/images/project-repository.png)
+![Advanced patterns example](/docs/img/releases/channels/images/project-repository.png)
 :::
 
 ## Using channels {#using-channels}
@@ -164,7 +164,7 @@ Each channel defines which [lifecycle](/docs/releases/lifecycles) to use when pr
 For instance, when you ship pre-release software to your early access users, you can use an early access (or beta) channel which uses a lifecycle that deploys the software to an environment your early access users have access to.
 
 :::figure
-![Channel lifecycle](/docs/releases/channels/images/channel-lifecycle.png)
+![Channel lifecycle](/docs/img/releases/channels/images/channel-lifecycle.png)
 :::
 
 ### Modifying deployment process {#modify-deployment-process}
@@ -174,7 +174,7 @@ Deployment steps can be restricted to only run on specific channels.
 For instance, you might decide you'd like to notify your early access users by email when an update version of the software is available. This can be achieved by adding an email step to your deployment process and scoping the step to the early access channel. That way the step will only run when a release is deployed to the early access channel and your early access users will only receive emails about relevant releases.
 
 :::figure
-![Step channel condition](/docs/releases/channels/images/step-channel-condition.png)
+![Step channel condition](/docs/img/releases/channels/images/step-channel-condition.png)
 :::
 
 ### Variables {#variables}
@@ -182,7 +182,7 @@ For instance, you might decide you'd like to notify your early access users by e
 As you release software to different channels, it's likely that some of the variables in those channels will need to be different. [Variables](/docs/projects/variables) can be scoped to specific channels.
 
 :::figure
-![Variable channel scope](/docs/releases/channels/images/variable-channel-scope.png)
+![Variable channel scope](/docs/img/releases/channels/images/variable-channel-scope.png)
 :::
 
 ### Deploying to tenants {#deploy-to-tenants}
@@ -190,7 +190,7 @@ As you release software to different channels, it's likely that some of the vari
 You can control which releases will be deployed to certain tenants using channels. You can configure this under the **Tenants** section of a channel. In this example, releases in this channel will only be deployed to tenants tagged with `Early access program/2.x Beta`.
 
 :::figure
-![Channel tenants](/docs/releases/channels/images/channel-tenants.png)
+![Channel tenants](/docs/img/releases/channels/images/channel-tenants.png)
 :::
 
 ## Creating releases
@@ -202,7 +202,7 @@ Every release in Octopus Deploy must be placed into a channel. Wherever possible
 When you are creating a release, you can select a channel.
 
 :::figure
-![Channel release](/docs/releases/channels/images/channel-release.png)
+![Channel release](/docs/img/releases/channels/images/channel-release.png)
 :::
 
 Selecting the channel will cause the release to use the lifecycle associated with the channel (or the project default, if the channel does not have a lifecycle).  It will also cause the deployment process and variables to be modified as specified above.
@@ -222,7 +222,7 @@ Any releases created automatically will use the configured channel. Additionally
 In the following example, if version 3.1.0 of OctoFX is pushed to the built-in repository, no release will be created as the package version does not meet the version rule of the channel.
 
 :::figure
-![Channel package version rule](/docs/releases/channels/images/channel-package-version-rule.png)
+![Channel package version rule](/docs/img/releases/channels/images/channel-package-version-rule.png)
 :::
 
 ## Discrete channel releases {#discrete-channel-releases}
@@ -234,7 +234,7 @@ In the second mode of use, releases deployed via different channels are differen
 In **Project Settings** there's an option named _Discrete Channel Releases_, designed to model this scenario.
 
 :::figure
-![Discrete channel releases project setting](/docs/releases/channels/images/discrete-channel-release.png)
+![Discrete channel releases project setting](/docs/img/releases/channels/images/discrete-channel-release.png)
 :::
 
 Setting this to `Treat independently from other channels` will cause: 
@@ -244,7 +244,7 @@ Setting this to `Treat independently from other channels` will cause:
 
 The image below shows an example dashboard with discrete channel release enabled:
 
-![Discrete channel releases on dashboard](/docs/releases/channels/images/discrete-channels-dashboard.png)
+![Discrete channel releases on dashboard](/docs/img/releases/channels/images/discrete-channels-dashboard.png)
 
 ## Removing channels
 

@@ -15,7 +15,7 @@ However, often it can be useful to check the health of deployment targets when e
 This can be achieved using the _Health Check_ step.
 
 :::figure
-![Health check step search](/docs/projects/built-in-step-templates/images/health-check-step-search.png)
+![Health check step search](/docs/img/projects/built-in-step-templates/images/health-check-step-search.png)
 :::
 
 This step allows a deployment target that was created in the currently executing deployment to be confirmed as healthy and then added to the running deployment for subsequent steps.
@@ -28,7 +28,7 @@ Health check steps are added to deployment and runbook processes in the same way
 
 1. Add a new *Health Check* step to your [project's deployment process](/docs/projects/steps).
 
-    ![Health check step](/docs/projects/built-in-step-templates/images/health-check-step-select.png)
+    ![Health check step](/docs/img/projects/built-in-step-templates/images/health-check-step-select.png)
 2. Select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the deployment targets you want to run a health check against. 
 
 3. In the **Health check** section, select an option for **Health check type**:
@@ -50,6 +50,6 @@ The number of concurrent health checks will be double the Octopus Server's logic
 
 ## Health check for workers
 
-Whilst the built-in *Health check* step works for deployment targets, it was not designed for [workers](/docs/infrastructure/workers).
+While the built-in *Health check* step works for deployment targets, it was not designed for [workers](/docs/infrastructure/workers).
 
 To check the health of a worker in a deployment or runbook, there is a [Worker - Health check](https://library.octopus.com/step-templates/c6c23c7b-876d-4758-a908-511f066156d7/actiontemplate-worker-health-check) community step template.

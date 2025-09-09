@@ -17,18 +17,18 @@ This guide was written using Artifactory version `7.11.5`.
 
 From the Artifactory web portal, navigate to **Administration ➜ Repositories**. From there, choose **Add Repositories ➜ Local Repository**:
 
- ![Artifactory repositories addition](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-repo-add.png)
+ ![Artifactory repositories addition](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-repo-add.png)
 
 From the Package Type selection screen, choose **NuGet**:
 
 :::figure
-![Artifactory local repository](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-repo-select.png)
+![Artifactory local repository](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-repo-select.png)
 :::
 
 Give the repository a name in the **Repository Key** field, and fill out any other settings for the repository.
 
 :::figure
-![Artifactory local repository settings](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-repo-initial-settings.png)
+![Artifactory local repository settings](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-repo-initial-settings.png)
 :::
 
 When you've entered all of the settings, click **Save & Finish**.
@@ -46,7 +46,7 @@ Every organization is different and the authentication example provided here is 
 From the Artifactory web portal, navigate to **Administration ➜ Identity and Access ➜ Users** and select **New User**.
 
 :::figure
-![Artifactory Add user](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-user.png)
+![Artifactory Add user](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-user.png)
 :::
 
 Fill out the **User Name**, **Email Address**, **Password** and any other settings.
@@ -62,7 +62,7 @@ Next, we need to ensure the user is in a [group](https://jfrog.com/help/r/jfrog-
 From the Artifactory web portal, navigate to **Administration ➜ Identity and Access ➜ Groups** and select **New Group**.
 
 :::figure
-![Artifactory Add Group](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-group.png)
+![Artifactory Add Group](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-group.png)
 :::
 
 Fill out the **Group Name** and any other settings. Ensure the user you created earlier is included in the group (in the right hand column).
@@ -76,31 +76,31 @@ From the Artifactory web portal, navigate to **Administration ➜ Identity and A
 From there, give the permission a **Name**, and choose the **Add Repositories** option:
 
 :::figure
-![Artifactory add permission](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission.png)
+![Artifactory add permission](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission.png)
 :::
 
 From the repository selection screen, choose the newly created repository so that it's in the **Included Repository** column and click **OK**:
 
 :::figure
-![Artifactory add permission repository](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission-repo.png)
+![Artifactory add permission repository](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission-repo.png)
 :::
 
 Next, switch to the **Groups** tab, and add a new group from **Selected Groups**:
 
 :::figure
-![Artifactory add permission group](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission-add-group.png)
+![Artifactory add permission group](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission-add-group.png)
 :::
 
 From the groups selection screen, choose the newly created group, or an existing group so that it's in the **Included Group** column and click **OK**.
 
 :::figure
-![Artifactory permissions include group](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission-include-group.png)
+![Artifactory permissions include group](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission-include-group.png)
 :::
 
 Finally, choose the permissions to grant the group on the included repositories:
 
 :::figure
-![Artifactory repository permissions](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission-repo-permissions.png)
+![Artifactory repository permissions](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-permission-repo-permissions.png)
 :::
 
 :::div{.hint}
@@ -128,7 +128,7 @@ Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the feed 
 Replace the URL and port from the example above. In addition, replace `local-nuget-repo` with the name of your Local NuGet repository.
 
 :::figure
-![Artifactory Local NuGet feed](/docs/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-feed.png)
+![Artifactory Local NuGet feed](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-feed.png)
 :::
 
 Save and test your feed to ensure that the connection is authenticated successfully.

@@ -36,7 +36,7 @@ To discover targets use the following steps:
 From **Octopus 2022.2**, deployment slots within an Azure Web App can also be discovered separately from the Web App it is a part of by adding tags to the slot. Any deployment slot discovered during deployment will be created as a separate target in Octopus.
 
 :::div{.hint}
-The name of discovered Azure Web Apps has changed in **Octopus 2022.2** to include additional information about the resource group. Any Web App targets discovered in **Octopus 2022.1** whilst this feature was in Early Access Preview will need to be deleted and will be rediscovered during the next deployment.
+The name of discovered Azure Web Apps has changed in **Octopus 2022.2** to include additional information about the resource group. Any Web App targets discovered in **Octopus 2022.1** while this feature was in Early Access Preview will need to be deleted and will be rediscovered during the next deployment.
 :::
 
 See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
@@ -52,7 +52,7 @@ To create an Azure Web App target within Octopus:
 - Fill out the necessary fields, being sure to provide a unique target tag (formerly target role) that clearly identifies your Azure Web App target.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/azure/web-app-targets/create-azure-web-app-target.png)
+![](/docs/img/infrastructure/deployment-targets/azure/web-app-targets/create-azure-web-app-target.png)
 :::
 
 :::div{.info}
@@ -67,7 +67,7 @@ You can also leave the slot selection blank and specify the slot, by name, on th
 - If all goes well, you should see your newly created target in your **Deployment Targets** list, with a status of _Healthy_.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/azure/web-app-targets/deployment-targets-web-app-healthy.png)
+![](/docs/img/infrastructure/deployment-targets/azure/web-app-targets/deployment-targets-web-app-healthy.png)
 :::
 
 ### Creating Web App targets by scripts

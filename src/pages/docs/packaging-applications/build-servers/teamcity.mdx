@@ -50,7 +50,7 @@ In version **4.38.0** of the TeamCity Plugin we have added a new build runner th
 :::
 
 :::figure
-![Octopus Pack](/docs/packaging-applications/build-servers/images/teamcity-pack-step.png "width=500")
+![Octopus Pack](/docs/img/packaging-applications/build-servers/images/teamcity-pack-step.png)
 :::
 
 :::div{.hint}
@@ -58,7 +58,7 @@ In version **3.3.1** of the TeamCity Plugin we added a new build runner that can
 :::
 
 :::figure
-![Octopus Push](/docs/packaging-applications/build-servers/images/5275665.png "width=500")
+![Octopus Push](/docs/img/packaging-applications/build-servers/images/5275665.png)
 :::
 
 ## Pushing build information from TeamCity to Octopus \{#TeamCity-pushing-build-info-from-teamcity-to-octopus}
@@ -71,12 +71,12 @@ Support for pushing information (metadata) to Octopus about the build has been a
 <BuildInformationInReleaseNotesWithArc />
 
 :::figure
-![Octopus Build information](/docs/packaging-applications/build-servers/images/teamcity-build-information-step.png "width=500")
+![Octopus Build information](/docs/img/packaging-applications/build-servers/images/teamcity-build-information-step.png)
 :::
 
 :::div{.hint}
 A **Branch specification** is required on the TeamCity VCS configuration to populate the `Branch` field for Build Information in Octopus Deploy.  For example, `+:*`
-![](/docs/packaging-applications/build-servers/images/teamcity-branch-specification.png "width=500")
+![](/docs/img/packaging-applications/build-servers/images/teamcity-branch-specification.png)
 
 The part of the branch name matched by the asterisk (`*`) wildcard becomes the short branch name to be displayed in the TeamCity user-level interface. This is also known as the **logical branch name** and it's this value that is passed to Octopus Deploy by the TeamCity Plugin.
 

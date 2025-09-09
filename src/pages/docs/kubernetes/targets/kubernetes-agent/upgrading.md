@@ -22,7 +22,7 @@ Changes to the Kubernetes agent Helm Chart necessitated a breaking change.
 The version of a Kubernetes agent is found by going to **Infrastructure** then into **DeploymentTargets**; from there click on the **Kubernetes agent** of interest; on its **Connectivity** sub-page you will see 'Current Version'.
 
 :::figure
-![Kubernetes agent default namespace](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-version.png)
+![Kubernetes agent default namespace](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-version.png)
 :::
 
 Installed v1 instances will continue to operate as expected, however they will receive no further updates other than security updates.

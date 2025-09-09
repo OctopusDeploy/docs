@@ -14,19 +14,19 @@ ProGet from Inedo is an package repository technology which contains a number of
 From the ProGet web portal, click on **Feeds ➜ Create New Feed** 
 
 :::figure
-![Create New Feed](/docs/packaging-applications/package-repositories/images/proget-create-feed.png)
+![Create New Feed](/docs/img/packaging-applications/package-repositories/images/proget-create-feed.png)
 :::
 
 Select the **Maven Artifacts** option from the `Developer Libraries` category
 
 :::figure
-![Container Images](/docs/packaging-applications/package-repositories/guides/maven-repositories/images/proget-new-maven-feed.png)
+![Container Images](/docs/img/packaging-applications/package-repositories/guides/maven-repositories/images/proget-new-maven-feed.png)
 :::
 
 Select **No Connectors (private artifacts only)** from the wizard
 
 :::figure
-![No Connectors](/docs/packaging-applications/package-repositories/guides/maven-repositories/images/proget-maven-no-connectors.png)
+![No Connectors](/docs/img/packaging-applications/package-repositories/guides/maven-repositories/images/proget-maven-no-connectors.png)
 :::
 
 Enter a name for your Feed, eg: ProGet-Docker, then click **Create Feed**
@@ -34,7 +34,7 @@ Enter a name for your Feed, eg: ProGet-Docker, then click **Create Feed**
 The next screen allows you to set optional features for your registry, configure these features or click **Close**.  Once the feed has been created, ProGet will display the `API endpoint URL` to push packages.  In this example it's `https://proget.octopusdemos.app/maven2/ProGet-Maven/`
 
 :::figure
-![API endpoint Url](/docs/packaging-applications/package-repositories/guides/maven-repositories/images/proget-maven-api-endpoint.png)
+![API endpoint Url](/docs/img/packaging-applications/package-repositories/guides/maven-repositories/images/proget-maven-api-endpoint.png)
 :::
 
 ## Adding a ProGet Maven as an Octopus External Feed
@@ -46,7 +46,7 @@ Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the ProGe
 `https://your.proget.url/maven2/feedname/`
 
 :::figure
-![ProGet Maven Feed](/docs/packaging-applications/package-repositories/guides/maven-repositories/images/proget-external-feed.png)
+![ProGet Maven Feed](/docs/img/packaging-applications/package-repositories/guides/maven-repositories/images/proget-external-feed.png)
 :::
 
 Optionally add Credentials if they are required. 

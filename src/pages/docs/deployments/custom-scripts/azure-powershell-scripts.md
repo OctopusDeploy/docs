@@ -68,7 +68,7 @@ Remove-AzureWebsite -Name #{WebSite} -Slot Staging -Force
 New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```
 
-![](/docs/deployments/custom-scripts/images/create-staging-slot.png)
+![](/docs/img/deployments/custom-scripts/images/create-staging-slot.png)
 
 ## Older versions
 

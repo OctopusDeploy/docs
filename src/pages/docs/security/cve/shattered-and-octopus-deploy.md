@@ -8,7 +8,7 @@ navOrder: 1
 ---
 
 :::figure
-![Shattered logo](/docs/security/cve/shattered-logo.png)
+![Shattered logo](/docs/img/security/cve/shattered-logo.png)
 :::
 
 _Extracted from our [blog post in 2017](https://octopus.com/blog/shattered)._
@@ -43,7 +43,7 @@ Given an `X509Certificate2` object, here's a PowerShell function that checks whe
 
 ```powershell
 function Test-CertificateIsSha1{
-    [cmdletbinding()]
+    [CmdletBinding()]
     param(  
     [Parameter(
         Position=0,
@@ -146,4 +146,4 @@ foreach ($site in Get-ChildItem IIS:\Sites)
 
 You can easily run this in the [Octopus Script Console](/docs/administration/managing-infrastructure/script-console) across all of your machines:
 
-![Running the IIS SHA1 binding detection in the Octopus script console](/docs/security/cve/shattered-console.png)
+![Running the IIS SHA1 binding detection in the Octopus script console](/docs/img/security/cve/shattered-console.png)
