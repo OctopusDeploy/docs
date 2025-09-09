@@ -32,12 +32,12 @@ If any of the communications settings are incorrect, choose *Delete this Tentacl
 Octopus Cloud instances have HSTS enabled so it will be impossible to bypass the "Your connection is not private" warning.
 :::
 
-*On the Octopus Server machine*, open a web browser and navigate to [https://localhost:10943](https://localhost:10943) (or your chosen Tentacle communications port if it isn't the default). Make sure an **HTTPS** URL is used.
+*On the Octopus Server machine*, open a web browser and navigate to `https://localhost:10943` (or your chosen Tentacle communications port if it isn't the default). Make sure an **HTTPS** URL is used.
 
 The page shown should look like the one below.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/tentacle/images/3277906.png)
+![](/docs/img/infrastructure/deployment-targets/tentacle/images/3277906.png)
 :::
 
 If you've made it this far, good news! Your Octopus Server is running and ready to accept inbound connections from Polling Tentacles.
@@ -53,8 +53,8 @@ Next, repeat the process of connecting to the Octopus Server with a web browser,
 
 When forming the URL to check:
 
-- First try using the Octopus Server's DNS hostname, e.g. [https://my-octopus:10943](https://my-octopus:10943).
-- If this fails, try using the Octopus Server's IP address instead, e.g. [https://1.2.3.4:10943](https://1.2.3.4:10943) - success using the IP address but not the DNS hostname will indicate a DNS issue.
+- First try using the Octopus Server's DNS hostname, e.g. `https://my-octopus:10943`.
+- If this fails, try using the Octopus Server's IP address instead, e.g. `https://1.2.3.4:10943` - success using the IP address but not the DNS hostname will indicate a DNS issue.
 
 **If you can't connect...**
 Failing to connect at this step means that you have a network issue preventing traffic between the Tentacles and Octopus Server. Check that the Octopus Server polling port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organization help diagnose the issue is the best first step. If that draws a blank, please get in touch.
@@ -103,7 +103,7 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 To do this open **Control Panel ➜ Internet Options ➜ Advanced**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/tentacle/images/5865771.png)
+![](/docs/img/infrastructure/deployment-targets/tentacle/images/5865771.png)
 :::
 
 <TentacleUninstall />

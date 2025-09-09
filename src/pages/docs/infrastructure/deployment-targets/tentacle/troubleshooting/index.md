@@ -10,7 +10,7 @@ navOrder: 60
 All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues, and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" (Listening Tentacles) or "Registered" (Polling Tentacles) with the Octopus Server, or a previously working machine fails a health-check with errors from the networking stack.
 
 :::div{.problem}
-**WARNING** 
+**WARNING**
 A breaking change in Tentacle releases with version 6.3+ means that all versions above 6.2.277 will require .NET 4.8 or above to run. This is a Microsoft dependency due to EOL for older .NET versions.
 :::
 

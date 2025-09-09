@@ -12,7 +12,6 @@ import TentaclePing from 'src/shared-content/infrastructure/tentacle-ping.includ
 import TentacleFixes from 'src/shared-content/infrastructure/tentacle-general-fixes.include.md';
 import TentacleUninstall from 'src/shared-content/infrastructure/tentacle-uninstall.include.md';
 
-
 ## Communication settings
 
 To verify the communication settings, *On the Tentacle machine*, open the Tentacle Manager application from the Start screen or Start menu.
@@ -30,12 +29,12 @@ If any of the communications settings are incorrect, choose *Delete this Tentacl
 
 <TentacleConnectionsCheck />
 
-*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933) (or your chosen Tentacle communications port if it isn't the default). Make sure you use an **HTTPS** URL is used.
+*On the Tentacle machine*, open a web browser and navigate to `https://localhost:10933` (or your chosen Tentacle communications port if it isn't the default). Make sure you use an **HTTPS** URL is used.
 
 The page shown should look like the one below.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/tentacle/images/3278074.png)
+![](/docs/img/infrastructure/deployment-targets/tentacle/images/3278074.png)
 :::
 
 :::div{.hint}
@@ -47,8 +46,8 @@ Next, repeat the process of connecting to the Tentacle with a web browser, but d
 
 When forming the URL to check:
 
-- First try using the Tentacle's DNS hostname, e.g. [https://my-tentacle:10933](https://my-tentacle:10933).
-- If this fails, try using the Tentacle's IP address instead, e.g. [https://1.2.3.4:10933](https://1.2.3.4:10933) - success using the IP address but not the DNS hostname will indicate a DNS issue.
+- First try using the Tentacle's DNS hostname, e.g. `https://my-tentacle:10933`.
+- If this fails, try using the Tentacle's IP address instead, e.g. `https://1.2.3.4:10933` - success using the IP address but not the DNS hostname will indicate a DNS issue.
 
 **If you can't connect...**
 Failing to connect at this step means that you have a network issue preventing traffic between the Octopus Server and Tentacles. Check that the Tentacle port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organization help diagnose the issue is the best first step. If that draws a blank, please get in touch.
@@ -101,7 +100,7 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 To do this open **Control Panel ➜ Internet Options ➜ Advanced**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/tentacle/images/3278077.png)
+![](/docs/img/infrastructure/deployment-targets/tentacle/images/3278077.png)
 :::
 
 <TentacleUninstall />
