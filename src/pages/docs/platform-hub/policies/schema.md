@@ -4,7 +4,7 @@ pubDate: 2025-09-11
 modDate: 2025-09-11
 title: Schema for Policies
 subtitle: A list of the inputs that are provided to the policy engine 
-icon: 
+icon: fa-solid fa-lock
 navTitle: Schema for policies
 navSection: Policies
 description: Schema for policies
@@ -62,6 +62,44 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
       ]
     },
     "Space": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug"
+      ]
+    },
+    "Tenant": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug"
+      ]
+    },
+    "ProjectGroup": {
       "type": "object",
       "properties": {
         "Id": {
@@ -158,7 +196,8 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
     "Project",
     "Space",
     "SkippedSteps",
-    "Steps"
+    "Steps", 
+    "ProjectGroup"
   ]
 }
 ```
