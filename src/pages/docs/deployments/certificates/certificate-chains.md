@@ -14,13 +14,13 @@ Uploaded PFX or PEM files may contain a certificate chain. i.e. A certificate wi
 Certificates which contain a chain are indicated by a chain icon on the certificate card, as shown below:
 
 :::figure
-![](/docs/deployments/certificates/images/certificate-chain-card.png)
+![](/docs/img/deployments/certificates/images/certificate-chain-card.png)
 :::
 
 The details page will show the details of all certificates in the chain:
 
 :::figure
-![](/docs/deployments/certificates/images/certificate-chain-details.png)
+![](/docs/img/deployments/certificates/images/certificate-chain-details.png)
 :::
 
 ## Importing certificate chains
@@ -42,4 +42,4 @@ When downloading a certificate containing a chain, the behavior depends on the f
    - Primary and Chain Certificates
    - Chain Certificates Only
 
-![Download Chain in PEM format dialog](/docs/deployments/certificates/images/download-pem-chain.png)
+![Download Chain in PEM format dialog](/docs/img/deployments/certificates/images/download-pem-chain.png)

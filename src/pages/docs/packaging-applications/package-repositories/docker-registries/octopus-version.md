@@ -31,7 +31,7 @@ The prerelease label captures all characters, excluding the plus symbol, after a
 
 The metadata field captures any characters after a plus symbol. Note however that [Docker tags can not include the plus character](https://oc.to/DockerTags), and so can not define a metadata component. The metadata field has been defined for future use.
 
-This versioning scheme allows for traditional labels like `1.0` or `V1.2.3.4`. A string with no integer components, like `myversion`, is captured in the prerelease label, and assumed to have a major, minor, patch and revision of `0.0.0.0`.
+This versioning scheme allows for traditional labels like `1.0` or `V1.2.3.4`. A string with no integer components, like `my-version`, is captured in the prerelease label, and assumed to have a major, minor, patch and revision of `0.0.0.0`.
 
 ## Examples
 
@@ -61,4 +61,4 @@ Docker image tags can be matched by a channel version rule. The NuGet version ra
 
 Pre-release tag regular expressions can be used to limit the tags that are made available when creating a new release. A common use case is to exclude the `latest` tag, which can be achieved with a regular expression like `^(?!latest\b).+$|^$`.
 
-![](/docs/packaging-applications/package-repositories/docker-registries/channel-rule.png)
+![](/docs/img/packaging-applications/package-repositories/docker-registries/channel-rule.png)

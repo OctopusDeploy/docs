@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-09-03
 title: Create and push an ASP.NET Core project
 description: This guide describes how to package and publish an ASP.NET Core project to Octopus from your development workstation.
 navOrder: 1
@@ -27,7 +27,7 @@ We've crafted and packaged v1.0.0 of this sample application for you to try out 
 dotnet publish source/NginxSampleWebApp --output published-app --configuration Release
 
 # Package the folder into a ZIP
-octo pack --id NginxSampleWebApp --version 1.0.0 --basePath published-app
+octopus package zip create --id NginxSampleWebApp --version 1.0.0 --base-path published-app
 ```
 
 :::div{.hint}

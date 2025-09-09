@@ -49,7 +49,7 @@ You may also select the source of the script, either:
 - A script file inside a package (shown below).
 
 :::figure
-![](/docs/deployments/custom-scripts/images/script-file-in-package.png)
+![](/docs/img/deployments/custom-scripts/images/script-file-in-package.png)
 :::
 
 :::div{.success}
@@ -72,7 +72,7 @@ When sourcing a script from a file inside a package you cannot choose to run the
 When you call external scripts (sourced from a file inside a package or git repository) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts).
 
 :::figure
-![](/docs/deployments/custom-scripts/images/5865636.png)
+![](/docs/img/deployments/custom-scripts/images/5865636.png)
 :::
 
 ## Referencing packages
@@ -86,7 +86,7 @@ In addition to being able to [source the custom script from a package](#choosing
     - Referencing multiple container images and performing `docker compose`
 
 :::figure
-![Script Step Package References](/docs/deployments/custom-scripts/images/script-step-package-references.png)
+![Script Step Package References](/docs/img/deployments/custom-scripts/images/script-step-package-references.png)
 :::
 
 Package references can be added regardless of whether the script is sourced inline, from a git repository or from a package.
@@ -112,7 +112,7 @@ Whether the package should be extracted. See [below](#referencing-packages-packa
 This will not be displayed for certain package-types (i.e. container images). This may also be bound to a variable-expression.
 
 :::figure
-![Script Step Package References](/docs/deployments/custom-scripts/images/script-step-package-reference-add.png)
+![Script Step Package References](/docs/img/deployments/custom-scripts/images/script-step-package-reference-add.png)
 :::
 
 ### Accessing package references from a custom script

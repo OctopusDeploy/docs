@@ -29,4 +29,4 @@ As you configure your deployment targets, select the environment, they will belo
 3. In your deployment target select enter in **hello-world** as the target tag. 
 4. Click on the **Save** button.
 
-![Deployment target with roles](/docs/shared-content/concepts/images/target-with-roles.png)
+![Deployment target with roles](/docs/img/shared-content/concepts/images/target-with-roles.png)

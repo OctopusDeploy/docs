@@ -30,7 +30,7 @@ For this guide, we'll start with an existing deployment process for deploying Pe
 1. Notify stakeholders
 
 :::figure
-![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-original-deployment-process.png)
+![](/docs/img/deployments/patterns/rollbacks/kubernetes/octopus-original-deployment-process.png)
 :::
 
 :::div{.success}
@@ -56,7 +56,7 @@ The updated deployment process for a simple rollback would look like this:
 1. Block Release Progression (only during rollback)
 
 :::figure
-![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-simple-rollback-process.png)
+![](/docs/img/deployments/patterns/rollbacks/kubernetes/octopus-simple-rollback-process.png)
 :::
 
 :::div{.success}
@@ -111,7 +111,7 @@ The new deployment process would look like this:
 1. Block Release Progression (only during rollback)
 
 :::figure
-![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-complex-rollback-process.png)
+![](/docs/img/deployments/patterns/rollbacks/kubernetes/octopus-complex-rollback-process.png)
 :::
 
 :::div{.success}
@@ -129,7 +129,7 @@ This is a [Manual Intervention](/docs/projects/built-in-step-templates/manual-in
 The revision history command for Kubernetes showed that there were multiple revisions stored within Kubernetes for deployment.  However, it's not obvious as to which revision belongs to which Octopus release.  Adding a `kubernetes.io/change-cause` annotation to the `Deploy PetClinic Web` step would add the Octopus Release Number as the `change-cause` so we could later parse it for which revision to roll back to.
 
 :::figure
-![](/docs/deployments/patterns/rollbacks/kubernetes/octopus-k8s-deployment-annotation.png)
+![](/docs/img/deployments/patterns/rollbacks/kubernetes/octopus-k8s-deployment-annotation.png)
 :::
 
 Running `kubectl rollout history deployment.v1.apps/<deployment-name>` would now show something like this.

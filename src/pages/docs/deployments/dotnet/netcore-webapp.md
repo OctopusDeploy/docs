@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-09-03
 title: ASP.NET Core webapp
 description: This guide covers everything you need to perform your first ASP.NET Core webapp deployment.
 navOrder: 0
@@ -24,7 +24,7 @@ When your application has been published you need to package it:
 
 ```powershell
 # Package the folder into a ZIP
-octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
+octopus package zip create --id 'MyApp.Web' --version '1.0.0' --base-path 'published-app'
 ```
 
 For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).

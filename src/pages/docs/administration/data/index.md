@@ -35,7 +35,7 @@ Octopus should be given its own database, which must not be shared with any othe
 The System Integrity Check at **Configuration ➜ Diagnostics** will let you know if the database schema has drifted from its intended state.
 
 :::figure
-![](/docs/administration/data/run-system-integrity-check.png)
+![](/docs/img/administration/data/run-system-integrity-check.png)
 :::
 
 ### Modifying the schema {#modifying-the-schema}

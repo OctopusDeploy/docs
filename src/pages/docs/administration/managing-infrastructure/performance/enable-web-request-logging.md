@@ -9,7 +9,7 @@ navOrder: 90
 
 Octopus can be configured to log HTTP requests to text files, which can be very useful for analyzing usage patterns and detecting performance problems. By default, web request logging is **turned off**. This page explains how to turn the feature on, as well as the format of the logs.
 
-## Log file format and retention {#Enablewebrequestlogging-Logfileformatandretention}
+## Log file format and retention
 
 Octopus web request logging uses the [W3C extended log file format](http://www.loganalyzer.net/log-analyzer/w3c-extended.html), the same format that IIS uses. This means that tools which normally work with IIS logs should also be able to work with Octopus logs.
 
@@ -27,7 +27,7 @@ The fields that Octopus logs for each request cannot currently be changed. It wi
 
 Octopus writes to a new log file each day, and keeps up to 7 files. Older logs are automatically deleted.
 
-## Configuring web request logging {#Enablewebrequestlogging-Configuringwebrequestlogging}
+## Configuring web request logging
 
 Web request logging can be enabled or disabled from the command line, using **Octopus.Server.exe**. A restart of the Octopus Server is required for the setting to take effect.
 
@@ -36,7 +36,7 @@ Octopus.Server.exe configure --requestLoggingEnabled=true
 Octopus.Server.exe service --stop --start
 ```
 
-## Use the logs {#Enablewebrequestlogging-Usingthelogs}
+## Use the logs
 
 Since Octopus uses the same log file format that IIS uses, tools that work with IIS logs will also work with Octopus web request logs, including:
 
@@ -55,27 +55,27 @@ For exploratory analysis of the logs to look for performance issues or trends, t
 3. Click the button to configure the logs folder to look at.
 
 :::figure
-![](/docs/administration/managing-infrastructure/performance/images/3278330.png)
+![](/docs/img/administration/managing-infrastructure/performance/images/3278330.png)
 :::
 
 4. By default, Octopus logs are written to `C:\Octopus\Server\Logs\`, and have the `*.log` extension. 
 
 :::figure
-![](/docs/administration/managing-infrastructure/performance/images/3278331.png)
+![](/docs/img/administration/managing-infrastructure/performance/images/3278331.png)
 :::
 
 5. The Library tab shows a list of sample scripts that will help you get started. Scroll down to the IIS section - these queries are a good starting point:
 
 :::figure
-![](/docs/administration/managing-infrastructure/performance/images/3278332.png)
+![](/docs/img/administration/managing-infrastructure/performance/images/3278332.png)
 :::
 
 6. Double-click a view to open it, for example, the *IIS: Top 25 Slow URLs* view. You can then modify the query, or simply execute it.
 
 :::figure
-![](/docs/administration/managing-infrastructure/performance/images/3278333.png)
+![](/docs/img/administration/managing-infrastructure/performance/images/3278333.png)
 :::
 
 7. Executing the query will display the results in a grid:
 
-![](/docs/administration/managing-infrastructure/performance/images/3278334.png)
+![](/docs/img/administration/managing-infrastructure/performance/images/3278334.png)

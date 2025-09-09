@@ -13,7 +13,7 @@ navOrder: 100
 Archiving a certificate will prevent it from being selected as the value of a variable, while still allowing it to be used by existing usages (projects, releases, deployments).
 
 :::figure
-![](/docs/deployments/certificates/images/archive-certificate.png)
+![](/docs/img/deployments/certificates/images/archive-certificate.png)
 :::
 
 Archived certificates can be viewed by navigating to **Deploy ➜ Certificates ➜ View Archive**.
