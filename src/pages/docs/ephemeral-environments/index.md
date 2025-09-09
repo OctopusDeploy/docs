@@ -9,7 +9,7 @@ description: Gain confidence in your changes with Ephemeral environments in Octo
 navOrder: 94
 ---
 
-Ephemeral environments in Octopus Deploy allow to you automatically create test environments on-demand to gain confidence in your changes whilst helping to keep your infrastructure costs down.
+Ephemeral environments in Octopus Deploy allow to you automatically create test environments on-demand to gain confidence in your changes while helping to keep your infrastructure costs down.
 
 :::div{.hint}
 Support for Ephemeral Environments is rolling out as an Early Access Preview to Octopus Cloud.
