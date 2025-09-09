@@ -56,7 +56,6 @@ To get started, you must create a new folder called **policies** in your Git Fil
 
 :::div{.warning}
 - You cannot use dashes in your policy file name.
-- Policies are a 1:1 relationship with an ocl file.
 :::
 
 ```json
