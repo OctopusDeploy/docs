@@ -80,6 +80,44 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         "Slug"
       ]
     },
+    "Tenant": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug"
+      ]
+    },
+    "ProjectGroup": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug"
+      ]
+    },
     "SkippedSteps": {
       "type": "array",
       "items": {}
@@ -158,7 +196,8 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
     "Project",
     "Space",
     "SkippedSteps",
-    "Steps"
+    "Steps", 
+    "ProjectGroup"
   ]
 }
 ```
