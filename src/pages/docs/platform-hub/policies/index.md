@@ -4,13 +4,11 @@ pubDate: 2025-09-11
 modDate: 2025-09-11
 title: Policies
 subtitle: An overview of Policies
-icon: 
+icon: fa-solid fa-lock
 navTitle: Getting started
 navSection: Policies
 description: Policies let you enforce standards across your Octopus instance with ease. 
 navOrder: 165
-navMenu: false
-listable: false
 ---
 
 Policies in Octopus are designed to ensure compliance and governance by default, making it easier to enforce deployment controls at scale. This approach allows you to shift compliance left, alleviating the burden of manual audits and enabling you to maintain high standards across your organization. With policies, you can enforce organization-wide compliance across teams and regions, moving governance out of Confluence docs and Slack threads and into the heart of your delivery pipeline. 
@@ -48,9 +46,11 @@ Policies can be created on any branch, but will only evaluate deployments from t
 
 In our example below, we are writing a policy that checks for the existence of a manual intervention step whenever deployments go to production.
 
-### Building your first policy
+## Building your first policy
 
-1. To get started, you must create a new folder called **policies** in your Git File Storage Directory. In the folder, you will need to create an OCL file for your policy.
+### 1. Create your policies file
+
+To get started, you must create a new folder called **policies** in your Git File Storage Directory. In the folder, you will need to create an OCL file for your policy.
 
 :::div{.warning}
 - You cannot use dashes in your policy file name.
@@ -61,9 +61,8 @@ In our example below, we are writing a policy that checks for the existence of a
 checkformanualintervention.ocl
 ```
 
-<br>
-
-2. After you’ve done this, open the OCL file in your code editor, and start with a name, an optional description, and an optional violation reason. A violation reason will show a custom message to users when they fail to meet the conditions of a policy.
+### 2. Give your policy a name
+After you’ve done this, open the OCL file in your code editor, and start with a name, an optional description, and an optional violation reason. A violation reason will show a custom message to users when they fail to meet the conditions of a policy.
 
 <br>
 
@@ -73,9 +72,9 @@ checkformanualintervention.ocl
    ViolationReason = "Manual intervention step is required to deploy"
    ```
 
-<br>
+### 3. Define the policy scope
 
-3. You’ll now need to define the policy's scope, as Rego in the OCL file. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value ```input.VALUE```. This scope section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The scope will evaluate to true if the deployment is going to the Production environment, for the ACME project, and in the Default space - all three conditions must be true at the same time.
+You’ll now need to define the policy's scope, as Rego in the OCL file. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value ```input.VALUE```. This scope section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The scope will evaluate to true if the deployment is going to the Production environment, for the ACME project, and in the Default space - all three conditions must be true at the same time.
 
 <br>
 
@@ -119,7 +118,9 @@ checkformanualintervention.ocl
    }
    ```
 
-4. After defining your scope, you must specify the policy rules. These rules are written in Rego. Octopus will check the results of your Rego code to determine if a deployment complies with the policy. The result should contain a composite value with the properties **allowed** and an optional **reason.** In this example, we will set the default rule result to be non-compliant. Any deployment that does not meet the policy rules will be prevented from executing. This conditions section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The condition will evaluate to true if the deployment contains the required steps.
+### 4. Define the policy conditions
+
+After defining your scope, you must specify the policy rules. These rules are written in Rego. Octopus will check the results of your Rego code to determine if a deployment complies with the policy. The result should contain a composite value with the properties **allowed** and an optional **reason.** In this example, we will set the default rule result to be non-compliant. Any deployment that does not meet the policy rules will be prevented from executing. This conditions section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The condition will evaluate to true if the deployment contains the required steps.
 
    :::div{.warning}
    - You cannot rename **result**, it must be called **result**.
@@ -137,7 +138,9 @@ checkformanualintervention.ocl
 
 <br>
 
-5. After you’ve set the default state, you’ll need to define the policy rules that will update the **result** state to be true so the deployment can execute. In this example, the deployment must contain at least one manual intervention step. We can do this by checking the step.ActionType is “Octopus.Manual”
+### 5. Check for a deployment step
+
+After you’ve set the default state, you’ll need to define the policy rules that will update the **result** state to be true so the deployment can execute. In this example, the deployment must contain at least one manual intervention step. We can do this by checking the step.ActionType is “Octopus.Manual”
 
 <br>
 
@@ -153,9 +156,12 @@ checkformanualintervention.ocl
        EOT
    }
    ```
+
 <br>
 
-6. You’ve now defined a basic policy to ensure a manual intervention step is present when deploying to any environment. You can test this policy by customizing the values in the scope block, and then deploying to an environment. If you choose not to include the manual intervention step in your process, you will see errors in the task log and project dashboards when you try to run the deployment. All policy evaluations will appear in the Audit log (**Configuration** → **Audit**) with the “Compliance Policy Evaluated” filter applied. Audit logs and Server Tasks will only appear for deployments within the policy's scope.
+### 6. Finalize and test your policy
+
+You’ve now defined a basic policy to ensure a manual intervention step is present when deploying to any environment. You can test this policy by customizing the values in the scope block, and then deploying to an environment. If you choose not to include the manual intervention step in your process, you will see errors in the task log and project dashboards when you try to run the deployment. All policy evaluations will appear in the Audit log (**Configuration** → **Audit**) with the “Compliance Policy Evaluated” filter applied. Audit logs and Server Tasks will only appear for deployments within the policy's scope.
 
 <br>
 

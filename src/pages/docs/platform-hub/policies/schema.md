@@ -4,13 +4,11 @@ pubDate: 2025-09-11
 modDate: 2025-09-11
 title: Schema for Policies
 subtitle: A list of the inputs that are provided to the policy engine 
-icon: 
+icon: fa-solid fa-lock
 navTitle: Schema for policies
 navSection: Policies
 description: Schema for policies
 navOrder: 167
-navMenu: false
-listable: false
 ---
 
 ## Schema for Policies
