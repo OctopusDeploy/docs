@@ -149,7 +149,7 @@ To deprovision an environment:
 - Select whether to keep the environment in Octopus or remove it after deprovisioning.
 - Click Deprovision
 
-![Deprovisioning an ephemeral environments from within a project](/docs/ephemeral-environments/deprovision-ephemeral-environments.png)
+![Deprovisioning an ephemeral environments from within a project](/docs/ephemeral-environments/deprovision-ephemeral-environment.png)
 
 ## Automatic deprovisioning of environments
 
