@@ -8,9 +8,7 @@ icon: fa-solid fa-lock
 navTitle: Getting started
 navSection: Policies
 description: Policies let you enforce standards across your Octopus instance with ease. 
-navOrder: 165
-navMenu: false
-listable: false
+navOrder: 111
 ---
 
 Policies in Octopus are designed to ensure compliance and governance by default, making it easier to enforce deployment controls at scale. This approach allows you to shift compliance left, alleviating the burden of manual audits and enabling you to maintain high standards across your organization. With policies, you can enforce organization-wide compliance across teams and regions, moving governance out of Confluence docs and Slack threads and into the heart of your delivery pipeline. 
@@ -206,22 +204,30 @@ If you want to see what information was provided to the policy engine when it ev
 
 1. Task logs
 
+:::figure
 ![The task logs showing policy audit records](/docs/img/platform-hub/policies-task-log.png)
+:::
 
 <br>
 
 2. Project dashboards
 
+:::figure
 ![Dashboards showing policy errors](/docs/img/platform-hub/policies-dashboard-notification.png)
+:::
 
 <br>
 
 3. Audit records
 
+:::figure
 ![Audit log containing policy evaluation records](/docs/img/platform-hub/policies-audit-log.png)
+:::
 
 <br>
 
 You can see what information was evaluated at the time of policy evaluation by using the verbose option in the task logs. This is useful if you want to troubleshoot a policy and see if it is evaluating deployments correctly.
 
+:::figure
 ![Verbose options shown in task logs](/docs/img/platform-hub/policies-verbose-task-log.png)
+:::
