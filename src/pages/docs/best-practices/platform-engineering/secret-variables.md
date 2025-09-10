@@ -1,11 +1,10 @@
 ---
-layout: src/layouts/Redirect.astro
-title: Redirect
-redirect: /docs/best-practices/platform-engineering/secret-variables
-pubDate:  2023-01-01
-navSearch: false
-navSitemap: false
-navMenu: false
+layout: src/layouts/Default.astro
+pubDate: 2023-11-23
+modDate: 2023-11-23
+title: Secret variables
+description: Learn how to export projects with secret variables
+navOrder: 11
 ---
 
 Octoterra interacts with Octopus via the Octopus API. One of the security features built into the Octopus API is that it does not return sensitive values. This means Octoterra can not export the values of any secrets, such as the value assigned secret variables.

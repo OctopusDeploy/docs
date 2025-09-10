@@ -1,11 +1,10 @@
 ---
-layout: src/layouts/Redirect.astro
-title: Redirect
-redirect: /docs/best-practices/platform-engineering/listing-downstream-drift
-pubDate:  2023-01-01
-navSearch: false
-navSitemap: false
-navMenu: false
+layout: src/layouts/Default.astro
+pubDate: 2023-11-09
+modDate: 2023-11-09
+title: Finding drift
+description: Learn how to scan downstream CaC repos for drift
+navOrder: 8
 ---
 
 When upstream and downstream projects are [configured with CaC and backed by forked repositories](/docs/platform-engineering/forking-git-repos) it becomes possible to track drift.

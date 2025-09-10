@@ -1,11 +1,10 @@
 ---
-layout: src/layouts/Redirect.astro
-title: Redirect
-redirect: /docs/best-practices/platform-engineering/validating-cac-prs
-pubDate:  2023-01-01
-navSearch: false
-navSitemap: false
-navMenu: false
+layout: src/layouts/Default.astro
+pubDate: 2023-11-09
+modDate: 2023-11-09
+title: Validating CaC PRs
+description: Learn how to automatically validate pull requests in a CaC Git repository
+navOrder: 10
 ---
 
 One of the challenges when implementing the [shared responsibility (or eventual consistency) model](/docs/platform-engineering/levels-of-responsibility) is the potential for complex conflicts to be introduced to the downstream repositories. Without any controls on what changes can be made to a downstream project, it may become impractical to continue to push changes downstream.

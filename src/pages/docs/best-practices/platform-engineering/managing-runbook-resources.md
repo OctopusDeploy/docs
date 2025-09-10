@@ -1,11 +1,10 @@
 ---
-layout: src/layouts/Redirect.astro
-title: Redirect
-redirect: /docs/best-practices/platform-engineering/managing-runbook-resources
-pubDate:  2023-01-01
-navSearch: false
-navSitemap: false
-navMenu: false
+layout: src/layouts/Default.astro
+pubDate: 2023-11-09
+modDate: 2023-11-09
+title: Managing runbook resources
+description: This section documents how to manage runbooks as code.
+navOrder: 6
 ---
 
 [Serializing and deploying runbook resources](https://www.youtube.com/watch?v=mPBeqOwkY4Q)

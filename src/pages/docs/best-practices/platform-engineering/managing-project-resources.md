@@ -1,11 +1,10 @@
 ---
-layout: src/layouts/Redirect.astro
-title: Redirect
-redirect: /docs/best-practices/platform-engineering/managing-project-resources
-pubDate:  2023-01-01
-navSearch: false
-navSitemap: false
-navMenu: false
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Managing project resources
+description: This section documents how to manage project level resources as code.
+navOrder: 5
 ---
 
 [Serializing and deploying project level resources](https://www.youtube.com/watch?v=QIcq2WxnrPs)

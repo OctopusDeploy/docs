@@ -1,11 +1,10 @@
 ---
-layout: src/layouts/Redirect.astro
-title: Redirect
-redirect: /docs/best-practices/platform-engineering/forking-git-repos
-pubDate:  2023-01-01
-navSearch: false
-navSitemap: false
-navMenu: false
+layout: src/layouts/Default.astro
+pubDate: 2023-11-09
+modDate: 2023-11-09
+title: Forking Git repositories
+description: Learn how to fork repositories when deploying a copy of CaC projects
+navOrder: 7
 ---
 
 [Serializing and deploying CaC enabled projects](https://www.youtube.com/watch?v=VGgR4PuWvOQ)

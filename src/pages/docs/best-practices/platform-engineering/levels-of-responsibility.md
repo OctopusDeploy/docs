@@ -1,11 +1,10 @@
 ---
-layout: src/layouts/Redirect.astro
-title: Redirect
-redirect: /docs/best-practices/platform-engineering/levels-of-responsibility
-pubDate:  2023-01-01
-navSearch: false
-navSitemap: false
-navMenu: false
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Managing Octopus with code
+description: This section describes the levels of responsibility that define how projects are managed over time.
+navOrder: 3
 ---
 
 There are three levels of responsibility that platform engineering teams can implement when managing downstream projects and spaces:
