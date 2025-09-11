@@ -25,15 +25,18 @@ Ephemeral environments are configured within Projects, see the [Getting Started]
 
 ## Scoping variables, deployment targets and accounts
 
-In order to support scoping of variables and access to deployment targets and accounts, an ephemeral environment is associated with a **Parent Environment**.
+Ephemeral environments will be created and removed regularly as part of testing changes. To avoid requiring ongoing configuration of variables, deployment targets and accounts, ephemeral environments are represented by a **Parent Environment**.
 
-Parent environments are configured alongside existing environments in the Octopus Web Portal. They cannot be used in lifecycles or deployed to, instead they are only used for scoping and access for ephemeral environments.
+Parent environments are configured alongside existing long-lived environments in the Octopus Web Portal but have key differences:
 
-Parent environments can be selected alongside existing environments in the following areas:
+- Parent environments cannot be used in lifecycles.
+- Parent environments cannot be deployed to.
+
+Parent environments can be selected alongside existing long-lived environments in the following areas of Octopus:
 
 - Deployment targets
 - Accounts
 - Certificates
 - Variable sets
 - Project variables
-- User roles assigned to teams.
+- User roles assigned to teams

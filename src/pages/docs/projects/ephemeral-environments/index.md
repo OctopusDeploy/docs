@@ -43,7 +43,7 @@ Give your parent environment a recognizable name that describes what you intend 
 
 ### Naming
 
-Octopus will automatically provision a new ephemeral environment for you from releases in your project. The name of each environment can be configured using an Environment Name Template. Templates support the same powerful syntax as Variables. Any [system variable for a release](docs/projects/variables/system-variables#release) can be used as part of the template.
+Octopus will automatically provision a new ephemeral environment for you from releases in your project. The name of each environment can be configured using an Environment Name Template. Templates support the same powerful syntax as Variables. Any [system variable for a release](/docs/projects/variables/system-variables#release) can be used as part of the template.
 
 Enter a template and click Next.
 
@@ -52,7 +52,7 @@ Enter a template and click Next.
 
 - Environment names only support a specific set of characters, Octopus will automatically replace the following invalid characters with a `-`: `< > : " / \ | ? * { }`
 - Environment names can have spaces in them. Leading and trailing dashes and underscores will be removed from your environment name.
-- Environment names have a limit of 50 characters, you can use [Variable filters](docs/projects/variables/variable-filters) to limit the length of the name if needed.
+- Environment names have a limit of 50 characters, you can use [Variable filters](/docs/projects/variables/variable-filters) to limit the length of the name if needed.
 
 :::
 
@@ -105,7 +105,7 @@ A release can be created using the:
 - Octopus Web Portal
 - Octopus API
 - [`OctopusDeploy/create-release-action` GitHub Action](https://github.com/OctopusDeploy/create-release-action)
-- [Octopus CLI](docs/octopus-rest-api/cli)
+- [Octopus CLI](/docs/octopus-rest-api/cli)
 
 :::div{.hint}
 **Tip:**
