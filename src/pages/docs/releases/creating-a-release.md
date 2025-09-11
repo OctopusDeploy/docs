@@ -3,9 +3,10 @@ layout: src/layouts/Default.astro
 pubDate: 2024-04-29
 modDate: 2025-09-03
 title: Creating a release
-description: Learn how to create a release in Octopus Deploy  
+description: Learn how to create a release in Octopus Deploy
 navOrder: 2
 ---
+
 ## How to create a release in Octopus Deploy
 
 1. With your deployment process defined, you can create a release on the project's Overview page, by clicking **CREATE RELEASE**.
@@ -17,7 +18,7 @@ navOrder: 2
 2. Depending on the type of steps you configured in the deployment process, there could be additional options available, for instance, if you're using a step to deploy a package, there will be a package section where you can specify which version of the package to use in the release.
 3. Give the release a version number, add any release notes you'd like to include, and click **SAVE**.
 
-You can fully automate your build and deployment pipeline, so that the releases are generally created automatically.  For more information on this topic, see our [build server documentation](/docs/packaging-applications/build-servers).
+You can fully automate your build and deployment pipeline, so that the releases are generally created automatically. For more information on this topic, see our [build server documentation](/docs/packaging-applications/build-servers).
 
 ## Releases
 
@@ -27,7 +28,7 @@ By navigating to the project's overview page and selecting **Releases**, you can
 
 After creating the release, if the [lifecycle](/docs/releases/lifecycles) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
 
-If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *(Environment)* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
+If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where _(Environment)_ is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
 
 ### Schedule a deployment
 
@@ -82,7 +83,7 @@ You can deploy releases to a specific subset of deployment targets.
 
 For each release you create, a snapshot is taken of the project variables. You can review the variables for a release from within a project:
 
-1. Using the project side menu, navigate to **Deployments ➜ Releases** 
+1. Using the project side menu, navigate to **Deployments ➜ Releases**
 1. Select the release that you wish to view the variable snapshot for
 1. On the release page scroll to the **Variable Snapshot** section
 1. Click **SHOW SNAPSHOT**
@@ -90,14 +91,14 @@ For each release you create, a snapshot is taken of the project variables. You c
 This lets you see the variables as they existed when the release was created.
 
 :::figure
-![](/docs/img/releases/images/release-variable-snapshot-section.png)
+![](/docs/releases/images/release-variable-snapshot-section.png 'width=500')
 :::
 
 You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
 
-* The release has not been deployed yet, but the variables have changed since the release was created.
-* The release needs to be **redeployed** and the variables have changed since the release was created.
-* The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
+- The release has not been deployed yet, but the variables have changed since the release was created.
+- The release needs to be **redeployed** and the variables have changed since the release was created.
+- The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
 
 After you've updated the variables, the release will use the updated variables when it is deployed.
 
@@ -108,7 +109,30 @@ The variable snapshot for Git projects is a combination of the variables on the 
 When updating the variable snapshot, the new snapshot is taken from the current tip of the Git reference that was used to create the release. If this reference no longer exists, the variable snapshot cannot be updated.
 
 :::figure
-![Screenshot of Octopus Release page showing process snapshot with Git reference main and commit 047cb76 and variable snapshot with reference main and commit 617aa79](/docs/img/releases/git-variables-release-snapshot.png)
+![Screenshot of Octopus Release page showing process snapshot with Git reference main and commit 047cb76 and variable snapshot with reference main and commit 617aa79](/docs/releases/git-variables-release-snapshot.png 'width=400')
 :::
 
 Updating the variable snapshot _only_ updates the variables (and not the deployment process). After updating, the commit for the process snapshot and variables snapshot will be different.
+
+## Custom fields
+
+Releases can have custom fields added to them when being created. Custom fields are a set of key/value pairs of data that can be used:
+
+- As part of naming of ephemeral environments.
+- During deployments within scripts and other steps.
+
+:::div{.hint}
+Support for custom fields on releases is rolling out Octopus Cloud in Early Access Preview as part of the Ephemeral Environments feature.
+:::
+
+The following restrictions apply to custom fields on releases:
+
+- A maximum of 10 custom fields can be added to each release.
+- The maximum length of the key and value of each custom field is 150 characters.
+
+### Limitations
+
+The following limitations apply to custom fields during the Early Access Preview:
+
+- Specifying specific custom fields as required on a release is not supported.
+- Support for providing custom fields is not yet available in the Octopus CLI.
