@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
-title: Argo CD Deployment Preview 
+title: Argo CD Deployment Preview
 description: Query affected applications before triggering the chanbge
 ---
 Argo CD Instances don't fall under the category of 'Deployment Target', and so 'Target Tags' can't be used by the associated

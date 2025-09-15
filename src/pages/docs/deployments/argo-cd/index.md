@@ -4,7 +4,7 @@ pubDate: 2025-09-15
 modDate: 2025-09-15
 title: Argo CD
 description: Octopus Deploy can help you manage your Argo CD applications navigate lifecycle promotion
-navOrder: 30
+navOrder: 10
 hideInThisSectionHeader: true
 ---
 
