@@ -28,7 +28,7 @@ Scheduled deployment triggers provide a way to configure your projects to create
 4. Select the action the trigger should take when executed.
    - **Deploy latest release** re-deploys a release or promote a release between environments. You need to specify the **source environment** and the **destination environment**. The latest successful release in the source environment will be deployed to the destination environment.
    - **Deploy new release** which will create new release and deploy it to the environment you specify in the **destination environment**.
-   - **Deploy latest release to an environment** deploy the latest release to an environment that in first phase of the selected channel's lifecycle. You need to specify the **destination environment**.
+   - **Deploy latest release to an environment** deploy the latest release to an environment in the first phase of the selected channel's lifecycle. You need to specify the **destination environment**.
 
     If you are using [channels](/docs/releases/channels) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
 
