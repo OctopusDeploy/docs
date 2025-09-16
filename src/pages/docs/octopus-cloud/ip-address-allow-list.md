@@ -81,4 +81,4 @@ Polling tentacle access is not restricted by an activated IP address allow list.
 
 If you suspect an activated IP address allow list is causing access issues, consider deactivating the feature, waiting 60 seconds, then testing if the access issue is now resolved. If the issue persists beyond 60 seconds, it is likely unrelated to IP address allow list. If the issue is resolved when your allow list is deactivated, consider if additional IP addresses are required on your allow list.
 
-If this approach has not resolved the issue, please contact [our support team](mailto:support@octopus.com) for further assistance.
+If this approach has not resolved the issue, please contact [our support team](https://octopus.com/support) for further assistance.
