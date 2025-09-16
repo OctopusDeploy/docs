@@ -46,7 +46,7 @@ Dynamic workers leased by your Octopus Cloud are not protected by your IP addres
 
 If you require a dynamic worker to have access to your Octopus Cloud instance when IP address allow list is activated, you need to include the IP address used for egress from the dynamic worker in your allow list.
 
-You can determine the egress IP address of a dynamic worker by running a script on it like ```curl -s https://api.ipify.org```.
+You can determine the egress IP address of a dynamic worker by running a script on it like `curl -s https://api.ipify.org`.
 
 Please note:
 
