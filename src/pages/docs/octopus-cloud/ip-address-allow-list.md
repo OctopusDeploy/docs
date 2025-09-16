@@ -72,7 +72,7 @@ These API endpoints retain public access in order to correctly function:
 
 - `/.well-known`
 - `/api/serverstatus/health`
-- ```/api/serverstatus/hosted/external```
+- `/api/serverstatus/hosted/external`
 - ```/token/v1```
 
 Polling tentacle access is not restricted by an activated IP address allow list.
