@@ -14,7 +14,7 @@ When activated, only traffic from the IPv4 address ranges you configure, or from
 
 ## Configuration
 
-IP address allow list is configured in [Control Center](https://billing.octopus.com/). Users with ```Cloud Subscription Owner``` role can administer the feature from the **Configuration** menu.
+IP address allow list is configured in [Control Center](https://billing.octopus.com/). Users with `Cloud Subscription Owner` role can administer the feature from the **Configuration** menu.
 
 :::div{.hint}
 Changes to IP address allow list content or activation status can take up to 60 seconds to apply.
