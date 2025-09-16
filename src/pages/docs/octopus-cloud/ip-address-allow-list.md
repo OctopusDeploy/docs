@@ -70,7 +70,7 @@ In addition, access is retained for the IPs and services that:
 
 These API endpoints retain public access in order to correctly function:
 
-- ```/.well-known```
+- `/.well-known`
 - ```/api/serverstatus/health```
 - ```/api/serverstatus/hosted/external```
 - ```/token/v1```
