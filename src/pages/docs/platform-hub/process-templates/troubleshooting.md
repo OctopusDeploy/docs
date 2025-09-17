@@ -71,10 +71,26 @@ When deploying to the **Development** environment, **Account-124** would be used
 
 <br>
 
-### Step Specific issues
+### Step specific issues
 
 - You cannot configure **Edit YAML** on the **Configure and apply Kubernetes resource** step.
 - You cannot configure cloud target discovery on steps. You must use project variables instead.
+
+### Cloning process templates
+
+You cannot clone a process template in Platform Hub through the Octopus UI. If you need to copy a deployment process from a process template, you can copy the OCL definition of the template, and use it in another file to copy an existing process.
+
+### Platform Hub account limitations
+
+The following account types are not supported:
+
+1. Token
+2. SSH
+
+Platform Hub accounts cannot be used in the following situations:
+
+- Cannot be used by targets
+- Cannot be used in Cloud Target Discovery  
 
 ### Public API
 

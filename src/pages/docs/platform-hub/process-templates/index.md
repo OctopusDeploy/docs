@@ -119,7 +119,7 @@ You cannot set a default value for these parameters, they must be set inside a p
 Only Account parameters will allow you to scope them by environments. You can choose to scope them by any environment across your Octopus instance.
 
 :::div{.hint}
-When a process template is used inside a project, the project supplied values will take precedence over the process template provided ones for overlapping scopes. This includes unscoped project supplied values.
+When a process template is used inside a project, the project supplied values will take precedence over the process template provided ones for overlapping scopes. This includes unscoped project supplied values. For more information on how the precedence works, please visit the [troubleshooting page](/docs/platform-hub/process-templates/troubleshooting)
 :::
 
 :::figure

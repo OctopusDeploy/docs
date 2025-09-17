@@ -42,9 +42,7 @@ You can create the following account types by visiting the **Accounts** area in 
 - AWS Accounts
 - Azure Accounts
 - Google Cloud Account
-- SSH Key Pair
 - Username/Password
-- Token
 - Generic OIDC
 
 To use these accounts inside a process template, you must create a parameter that references these accounts first.
