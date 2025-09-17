@@ -42,7 +42,7 @@ A couple scenarios that demonstrate the scoping precedence:
 | Origin           | Name         | Value            | Scope       |
 |------------------|--------------|------------------|-------------|
 | Process Template | AzureAccount | Account-123 | Development |
-| Project          | AzureAcc     | Account-124 | Development |
+| Project          | AzureAccount     | Account-124 | Development |
 
 When deploying to the **Development** environment, **Account-124** would be used.
 
@@ -53,7 +53,7 @@ When deploying to the **Development** environment, **Account-124** would be used
 | Origin           | Name         | Value            | Scope       |
 |------------------|--------------|------------------|-------------|
 | Process Template | AzureAccount | Account-123 | Development |
-| Project          | AzureAcc     | Account-124 | |
+| Project          | AzureAccount     | Account-124 | |
 
 When deploying to the **Development** environment, **Account-124** would be used.
 
@@ -64,7 +64,7 @@ When deploying to the **Development** environment, **Account-124** would be used
 | Origin           | Name         | Value            | Scope       |
 |------------------|--------------|------------------|-------------|
 | Process Template | AzureAccount | Account-123 | Development |
-| Project          | AzureAcc     | Account-124 | Staging |
+| Project          | AzureAccount     | Account-124 | Staging |
 
 - When deploying to the **Development** environment, **Account-123** would be used.
 - When deploying to the **Staging** environment, **Account-124** would be used.
@@ -74,11 +74,12 @@ When deploying to the **Development** environment, **Account-124** would be used
 ### Step specific issues
 
 - You cannot configure **Edit YAML** on the **Configure and apply Kubernetes resource** step.
-- You cannot configure cloud target discovery on steps. You must use project variables instead.
+- You cannot configure cloud target discovery on steps. You must use project variables when consuming a process template in a project instead.
+- You cannot pick the project Git repository source on any step.
 
 ### Cloning process templates
 
-You cannot clone a process template in Platform Hub through the Octopus UI. If you need to copy a deployment process from a process template, you can copy the OCL definition of the template, and use it in another file to copy an existing process.
+You cannot clone a process template in Platform Hub through the Octopus UI. If you need to copy a deployment process from a process template, you can copy the OCL definition of the deployment process, and use it in another file to copy an existing process.
 
 ### Platform Hub account limitations
 
@@ -89,8 +90,8 @@ The following account types are not supported:
 
 Platform Hub accounts cannot be used in the following situations:
 
-- Cannot be used by targets
-- Cannot be used in Cloud Target Discovery  
+- Cannot be used by targets.
+- Cannot be used in Cloud Target Discovery.  
 
 ### Public API
 
