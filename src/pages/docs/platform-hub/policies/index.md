@@ -41,7 +41,7 @@ An example use-case you might have is to enforce that all deployments going to p
 All policies are written in Rego and saved as an OCL file. For a comprehensive guide to Rego, please visit the official [documentation.](https://www.openpolicyagent.org/docs/policy-language) If you would like to jump straight to examples that are more representative of the deployment scenario you want to enforce, please visit our [examples page](/docs/platform-hub/policies/examples).
 
 :::div{.warning}
-Policies can be created on any branch, but will only evaluate deployments from the default branch
+The http, net, and graphql [built-ins](https://www.openpolicyagent.org/docs/policy-reference/builtins) are not supported in Octopus. 
 :::
 
 In our example below, we are writing a policy that checks for the existence of a manual intervention step whenever deployments go to production.
@@ -54,6 +54,7 @@ To get started, you must create a new folder called **policies** in your Git Fil
 
 :::div{.warning}
 - You cannot use dashes in your policy file name.
+- Policies can be created on any branch, but will only evaluate deployments from the default branch
 :::
 
 ```json
