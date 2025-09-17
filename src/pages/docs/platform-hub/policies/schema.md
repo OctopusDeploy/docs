@@ -8,7 +8,7 @@ icon: fa-solid fa-lock
 navTitle: Schema for policies
 navSection: Policies
 description: Schema for policies
-navOrder: 113
+navOrder: 26
 ---
 
 ## Schema for Policies

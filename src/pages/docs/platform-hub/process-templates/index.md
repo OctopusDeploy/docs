@@ -8,7 +8,7 @@ icon: fa-solid fa-layer-group
 navTitle: Process Templates
 navSection: Process Templates
 description: An overview of Process Templates
-navOrder: 105
+navOrder: 22
 ---
 ## Overview
 

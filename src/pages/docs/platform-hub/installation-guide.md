@@ -8,7 +8,7 @@ icon: fa-solid fa-layer-group
 navTitle: Installation Guide
 navSection: Public Preview Installation Guide
 description: Public Preview Installation Guide for Octopus server customers
-navOrder: 103
+navOrder: 33
 ---
 
 ## How to install a pre-release version of Octopus server

@@ -8,7 +8,7 @@ icon: fa-solid fa-layer-group
 navTitle: Troubleshooting
 navSection: Process Templates
 description: Common issues and their fixes for process templates
-navOrder: 106
+navOrder: 23
 ---
 
 ## Troubleshooting common issues
