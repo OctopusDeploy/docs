@@ -13,6 +13,7 @@ This example assumes:
 
 - NGINX will terminate your SSL connections.
 - [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) are not required.
+- [Kubernetes monitors](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) are not required.
 
 Our starting configuration:
 

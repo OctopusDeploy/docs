@@ -49,6 +49,7 @@ Where [<options>] is any of:
       --commsListenPort=VALUE
                              TCP port that the communications service should
                                listen on
+      --grpcListenPort=VALUE TCP port that the gRPC services should listen on
       --commsListenWebSocket=VALUE
                              WebSocket prefix that the communications service
                                should listen on (e.g.
