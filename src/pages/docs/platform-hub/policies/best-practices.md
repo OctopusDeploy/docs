@@ -24,7 +24,7 @@ For example:
 
 ### Turn on SIEM audit log streaming
 
-All policy evaluations are logged to the audit log.  Ensure [audit log streaming](docs/security/users-and-teams/auditing/audit-stream) is enabled to log those evaluations to Splunk, SumoLogic, or an OpenTelemetry collector.  SIEM tools can provide alerting and visualizations that you can customize to your requirements.
+All policy evaluations are logged to the audit log.  Ensure [audit log streaming](/docs/security/users-and-teams/auditing/audit-stream) is enabled to log those evaluations to Splunk, SumoLogic, or an OpenTelemetry collector.  SIEM tools can provide alerting and visualizations that you can customize to your requirements.
 
 ## Creating and Updating Policies
 
