@@ -11,7 +11,7 @@ navOrder: 1
 
 Quickly find out what version of your software a customer, represented by a Tenant, is running in Production, and identify if there were any issues with their most recent deployment.
 
-## 📝 Prompt
+### 📝 Prompt
 
 ```
 Customer X have submitted a support ticket complaining that there is a bug in the latest release of App. Can you tell me what release they are on, when it was deployed, and if there were any issues with the deployment?
@@ -19,31 +19,35 @@ Customer X have submitted a support ticket complaining that there is a bug in th
 
 ## Capability: Troubleshooting
 
-TODO: Something about diagnosing deployment failure. K8s - live object status to show failure.
+Check for failed deployments or unhealthy kubernetes workloads, analyze the failure reasons and suggest solutions.
 
-## 📝 Prompt
+### 📝 Prompt
 
 ```
-TODO
+Check health of the {ServiceName} service in the {SpaceName} space and report any issues found, check status of kubernetes services to produce a comprehensive report
 ```
+
+### 💡 Tips for customizing
+
+- Prompt for kubernetes status to trigger kubernetes [live object status](/docs/kubernetes/live-object-status) check
 
 ## Capability: Administration, Audit, and Compliance
 
-TODO: something about providing a list of certificates in a space that are expiring in the next x months.
+Identify unhealthy resources, expiriting certificates or find unused projects in your Octopus instance.
 
-## 📝 Prompt
+### 📝 Prompt
 
 ```
-TODO
+Find certificates soon set to expire in {SpaceName} space
 ```
 
-## Capability: Standardization at Scale
+## Capability: Configuration Management
 
 TODO: something about finding an account that will provide you access to a particular azure subscription.
 
 See if it can work together with Azure MCP.
 
-## 📝 Prompt
+### 📝 Prompt
 
 ```
 TODO
