@@ -11,7 +11,7 @@ Telemetry reporting is on by default. The data we receive helps us understand ho
 
 Self-hosted customers can turn off telemetry reporting by navigating to **Configuration ➜ Telemetry** and unchecking the **Send telemetry** checkbox in the Octopus instance.
 
-When telemetry reporting is on, Octopus will make a secure HTTPS request containing the following data.
+When **Telemetry Reporting** is on, Octopus will make a secure HTTPS request containing the following data.
 
 | Data | Description |
 | ----- | ------ |
@@ -23,4 +23,4 @@ Be assured that names, descriptions, URIs, and so on are _never_ included. You c
 
 To learn more about Octopus and data privacy, see our [GDPR page](https://octopus.com/legal/gdpr).
 
-Please consider keeping telemetry reporting on. We review the data every day, and it really does help us make Octopus a better product 💙.
+Please consider keeping **Telemetry Reporting** on. We review the data every day, and it really does help us make Octopus a better product 💙.
