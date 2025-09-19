@@ -2,6 +2,7 @@ accounttest
 actionid
 actiontemplates
 advfirewall
+agentic
 ALLUSERSPROFILE
 anglin
 anotherdir
