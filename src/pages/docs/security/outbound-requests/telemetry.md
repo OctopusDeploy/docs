@@ -19,7 +19,7 @@ When **Telemetry Reporting** is on, Octopus will make a secure HTTPS request con
 | Installation ID | A GUID that we generate when Octopus is installed. This GUID is a way for us to get a rough idea of the number of installations that exist in the wild, and which versions people are using, so we can make decisions about backwards compatibility support. |
 | Telemetry payload | Configuration and usage information help us make product decisions. For example, we expected users to have only a handful of machines, but the statistics tell us that some customers have over 900; we now take that into account when designing the user experience. |
 
-Be assured that names, descriptions, URIs, and so on are _never_ included. You can download a preview of the data that will be sent by clicking **Download Telemetry Preview** on the **Configuration ➜ Telemetry** page.
+Be assured that names, descriptions, URIs, and so on are *never* included. You can download a preview of the data that will be sent by clicking **Download Telemetry Preview** on the **Configuration ➜ Telemetry** page.
 
 To learn more about Octopus and data privacy, see our [GDPR page](https://octopus.com/legal/gdpr).
 
