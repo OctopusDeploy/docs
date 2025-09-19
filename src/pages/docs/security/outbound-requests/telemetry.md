@@ -23,4 +23,4 @@ Be assured that names, descriptions, URIs, and so on are _never_ included. You c
 
 To learn more about Octopus and data privacy, see our [GDPR page](https://octopus.com/legal/gdpr).
 
-Please consider keeping **Telemetry Reporting** on. We review the data every day, and it really does help us make Octopus a better product 💙.
+Please consider keeping **Telemetry Reporting** on. We review the data every week, and it really does help us make Octopus a better product 💙.
