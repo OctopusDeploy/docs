@@ -18,6 +18,7 @@ navOrder: 115
 Use a [ Prefix ] - [ Policy Name ] that is easy for everyone to understand the policy's purpose.  The [ Prefix ] should reflect when the policy will run.
 
 For example:
+
 - Deployments - [ Policy Name ] for policies designed to run during deployments only.
 - Runbook Runs - [ Policy Name ] for policies designed to run during runbooks runs only.
 - Deployments and Runbook Runs - [ Policy Name ] for policies for designed to run for deployments or runbooks runs.
@@ -33,8 +34,9 @@ All policy evaluations are logged to the audit log.  Ensure [audit log streaming
 Consider a policy that will block the execution of deployments and runbook runs.  By default that policy applies to all deployments and runbook runs.
 
 When creating a new policy, be as restrictive as possible by limiting it to:
+
 - A specific hook - such a deployment or a runbook run (not both)
-- A specific project 
+- A specific project
 
 That will a policy's "blast radius." Once you are confident the policy is working as intended, extend the policy to cover more projects or tenants.  When acceptable, switch the policy to project groups or spaces.
 
@@ -42,7 +44,9 @@ That will a policy's "blast radius." Once you are confident the policy is workin
 
 A policy violation will be the first experience for must users with policies within Octopus Deploy.  For example, when a policy blocks a deployment or runbook run.  Provide a verbose failure reason to help the user self-service the solution.  
 
-![An example of a verbose policy violation error message to help users self-service](policy-violation-user-message.png).
+:::figure
+![An example of a verbose policy violation error message to help users self-service](/docs/img/platform-hub/policies/policy-violation-user-message.png)
+:::
 
 ### Check for both the existence of steps and if they’ve been skipped
 
@@ -50,8 +54,12 @@ Policies can be written to check for the existence of specific steps within a de
 
 It is not enough for a policy to simply check for the existence of a specific step.  The policy must also ensure users don't elect to skip the required step (for whatever reason).
 
-![An example of a step that can be skipped before scheduling a deployment or runbook run](a-step-that-can-be-skipped-violating-a-policy.png)
+:::figure
+![An example of a step that can be skipped before scheduling a deployment or runbook run](/docs/img/platform-hub/policies/a-step-that-can-be-skipped-violating-a-policy.png)
+:::
 
 The resulting policy will have two conditions.
 
-![An example of a policy that has both the existence and that isn't skipped](example-of-policy-with-two-conditions.png)
+:::figure
+![An example of a policy that has both the existence and that isn't skipped](/docs/img/platform-hub/policies/example-of-policy-with-two-conditions.png)
+:::
