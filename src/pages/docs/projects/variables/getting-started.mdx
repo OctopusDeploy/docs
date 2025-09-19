@@ -113,6 +113,40 @@ Variable scoping also works like CSS rules; a value scoped twice is more specifi
 
 If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still doesn’t resolve the conflict, the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so they’re unlikely to conflict.
 
+### Process template parameter scoping \{#process-template-scoping}
+
+Project supplied values for parameters will always take precedence over process template supplied ones.
+
+A couple scenarios that demonstrate the scoping precedence:
+
+**1. Scoped value provided by the project and the process template.**
+
+| Origin           | Name         | Value            | Scope       |
+|------------------|--------------|------------------|-------------|
+| Process Template | AzureAccount | Account-123 | Development |
+| Project          | AzureAccount     | Account-124 | Development |
+
+When deploying to the **Development** environment, **Account-124** would be used.
+
+**2. Scoped value provided by the process template and an unscoped value provided by the project.**
+
+| Origin           | Name         | Value            | Scope       |
+|------------------|--------------|------------------|-------------|
+| Process Template | AzureAccount | Account-123 | Development |
+| Project          | AzureAccount     | Account-124 | |
+
+When deploying to the **Development** environment, **Account-124** would be used.
+
+**3. Scoped process template value and scoped project value for different environments.**
+
+| Origin           | Name         | Value            | Scope       |
+|------------------|--------------|------------------|-------------|
+| Process Template | AzureAccount | Account-123 | Development |
+| Project          | AzureAccount     | Account-124 | Staging |
+
+- When deploying to the **Development** environment, **Account-123** would be used.
+- When deploying to the **Staging** environment, **Account-124** would be used.
+
 ### Mutually exclusive scopes \{#mutually-exclusive-scopes}
 
 You can think of scopes of the same type as a grouping of logical `OR` expressions. Scopes of different types are evaluated as `AND` expressions between the groups of scopes. 

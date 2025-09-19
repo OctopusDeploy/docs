@@ -112,3 +112,26 @@ When updating the variable snapshot, the new snapshot is taken from the current 
 :::
 
 Updating the variable snapshot _only_ updates the variables (and not the deployment process). After updating, the commit for the process snapshot and variables snapshot will be different.
+
+## Custom fields
+
+Releases can have custom fields added to them when being created. Custom fields are a set of key/value pairs of data that can be used:
+
+- As part of naming of ephemeral environments.
+- During deployments within scripts and other steps.
+
+:::div{.hint}
+Support for custom fields on releases is rolling out Octopus Cloud in Early Access Preview as part of the Ephemeral Environments feature.
+:::
+
+The following restrictions apply to custom fields on releases:
+
+- A maximum of 10 custom fields can be added to each release.
+- The maximum length of the key and value of each custom field is 150 characters.
+
+### Limitations
+
+The following limitations apply to custom fields during the Early Access Preview:
+
+- Specifying specific custom fields as required on a release is not supported.
+- Support for providing custom fields is not yet available in the Octopus CLI.
