@@ -241,6 +241,22 @@ The following list assumes the linked change is in an **approved** state.
 
 **If at any time a `Planned end` is exceeded and the linked change request is not approved, the deployment will be terminated.**
 
+## Available Variables in a Deployment or Runbook
+
+:::div{.info}
+The following variables are only available in version 2025.4 and later
+:::
+
+| Variable | Notes |
+|--|--|
+| `Octopus.JiraServiceManagement.ChangeRequest.Number` | The number of the matched or created change request | 
+| `Octopus.JiraServiceManagement.ChangeRequest.Id` | The system identifier of the matched or created change request |
+| `Octopus.JiraServiceManagement.Connection.Id` |  |
+| `Octopus.JiraServiceManagement.Connection.Name` | |
+| `Octopus.JiraServiceManagement.Connection.BaseUrl` | |
+| `Octopus.JiraServiceManagement.Connection.Username` | |
+| `Octopus.JiraServiceManagement.Connection.Token` | |
+
 ## Known issues and limitations
 
 - Once an Issue is deemed to be related to a deployment, then only this Issue will be evaluated for 
