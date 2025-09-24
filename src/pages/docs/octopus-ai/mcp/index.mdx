@@ -11,7 +11,7 @@ navOrder: 2
 
 ### Octopus MCP Server
 
-The upcoming Octopus MCP ([Model Context Protocol](https://modelcontextprotocol.io/)) server represents a significant leap forward in AI integration capabilities. Built on Anthropic's open standard for connecting AI assistants to external data sources and tools, the MCP server will enable AI assistants like Claude to interact directly with your Octopus Deploy infrastructure.
+The Octopus MCP ([Model Context Protocol](https://modelcontextprotocol.io/)) server represents a significant leap forward in AI integration capabilities. Built on Anthropic's open standard for connecting AI assistants to external data sources and tools, the MCP server enables AI assistants like Claude to interact directly with your Octopus Deploy infrastructure.
 
 The Octopus MCP server provides similar capabilities to the Octopus AI Assistant, but provides further benefits:
 
@@ -22,11 +22,17 @@ The MCP server provides tools designed to solve key use-cases within change mana
 
 The MCP server architecture ensures that your deployment data remains secure while enabling powerful AI-assisted workflows. All interactions are logged and auditable, maintaining the compliance and governance standards your organization requires.
 
-We are releasing the MCP server as an open source tool that anyone can contribute to. It is available for free on Github at [https://github.com/OctopusDeploy/mcp-server](https://github.com/OctopusDeploy/mcp-server)
+The Octopus MCP Server is open source, and anyone can contribute to it. It's available for free on Github at [https://github.com/OctopusDeploy/mcp-server](https://github.com/OctopusDeploy/mcp-server)
 
 :::div{.info}
 This project is currently in Early Access, and subject to breaking changes.
 :::
+
+## Security
+
+The Octopus MCP Server works by communicating with your Octopus instance's REST API via a secure HTTPS connection. It leverages Octopus Server's existing API Key security mechanism, ensuring all interactions are authenticated, authorized for the permissions associated with the API Key, and audited.
+
+To learn more, read our [Octopus REST API](/docs/octopus-rest-api) documentation.
 
 ## 🚀 Installation
 

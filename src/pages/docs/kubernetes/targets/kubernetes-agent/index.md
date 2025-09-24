@@ -79,11 +79,11 @@ The Kubernetes agent follows [semantic versioning](https://semver.org/), so a ma
 | ---------------- | ------------------------ | -------------------- |
 | 1.0.0 - 1.16.1   | **2024.2.6580** or newer | **1.26** to **1.29** |
 | 1.17.0 - 1.19.2  | **2024.2.6580** or newer | **1.27** to **1.30** |
-| 1.20.0 - 1.21.0 | **2024.2.6580** or newer | **1.28** to **1.31** |
+| 1.20.0 - 1.21.0  | **2024.2.6580** or newer | **1.28** to **1.31** |
 | 1.22.0 - 1.\*.\* | **2024.2.6580** or newer | **1.29** to **1.32** |
 | 2.0.0 - 2.2.1    | **2024.2.9396** or newer | **1.26** to **1.29** |
 | 2.3.0 - 2.8.2    | **2024.2.9396** or newer | **1.27** to **1.30** |
-| 2.9.0 - 2.11.3  | **2024.2.9396** or newer | **1.28** to **1.31** |
+| 2.9.0 - 2.11.3   | **2024.2.9396** or newer | **1.28** to **1.31** |
 | 2.12.0 - 2.25.1  | **2024.2.9396** or newer | **1.29** to **1.32** |
 | 2.26.0 - 2.\*.\* | **2024.2.9396** or newer | **1.30** to **1.33** |
 
@@ -243,12 +243,29 @@ MII...
 -----END CERTIFICATE-----
 ```
 
-Once encoded, this string can be provided as part of the agent installation helm command via the `agent.serverCertificate` helm value.
+Once encoded, this string can be provided as part of the agent installation helm command via the `global.serverCertificate` (or `agent.ServerCertificate`) helm value.
 
 To include this in the installation command, add the following to the generated installation command:
 
 ```bash
---set agent.serverCertificate="<base64-encoded-cert>"
+--set global.serverCertificate="<base64-encoded-cert>"
+```
+
+You can also opt to use an existing secret containing your certificate under the `octopus-server-certificate.pem` key with the following addition:
+
+```bash
+--set global.serverCertificateSecretName="octopus-server-certificate"
+```
+
+The referenced secret should take the form:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: octopus-server-certificate
+data:
+  octopus-server-certificate.pem: "<base64-encoded-cert>"
 ```
 
 ## Agent tooling
