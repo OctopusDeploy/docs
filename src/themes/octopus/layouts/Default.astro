@@ -62,14 +62,35 @@ stats.stop();
       <main id="site-main">
         <article itemscope itemtype="https://schema.org/Article">
           <header>
-            <h1 itemprop="name headline"><Fragment set:html={title} /></h1>
-            {
-              subtitle && (
-                <p>
-                  <Fragment set:html={subtitle} />
-                </p>
-              )
-            }
+            <div class="article-header-content">
+              <h1 itemprop="name headline"><Fragment set:html={title} /></h1>
+              {
+                subtitle && (
+                  <p>
+                    <Fragment set:html={subtitle} />
+                  </p>
+                )
+              }
+            </div>
+            <div class="page-tools">
+              <button class="page-tool page-tool-copy" title="Copy page as markdown" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                  <rect x="9" y="3" width="6" height="4" rx="2" />
+                </svg>
+                Copy page
+              </button>
+              <button class="page-tool page-tool-markdown" title="View as markdown in new tab" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M7 15v-6l2 2l2 -2v6" />
+                  <path d="M14 13l2 2l2 -2m-2 2v-6" />
+                </svg>
+                View as markdown
+              </button>
+            </div>
           </header>
           <div class="page-content anim-show-parent" itemprop="articleBody">
             <TableOfContents

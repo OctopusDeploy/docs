@@ -39,6 +39,7 @@ export const SITE: Site = {
     headers: ['link'],
     details: ['tabs'],
     search: ['dialog'],
+    pageTools: ['copy', 'markdown'],
   },
   images: {
     contentSize:
