@@ -69,5 +69,5 @@ Your connected 'Argo CD Instances' appear under the Octopus' Infrastructure menu
 These pages allow you to:
 * View and edit the Octopus-managed properties of your Argo CD Instance (eg permitted environments),
 * View known Argo Applications, and how they map to Octopus project/environment/tenants
-* View connectivity and health related data of the isntance and gateway
+* View connectivity and health related data of the instance and gateway
 
