@@ -16,7 +16,7 @@ Octopus offers two in-built steps which are able to modify a mapped Argo CD appl
 This step is responsible for identifying images referenced by an application, and updating their image-tags to the
 value defined in the Octopus Deployment.
 
-For 'Basic Yaml' and 'Kustomize' based Argo CD Applications, the behaviour for performing the update relies on the known
+For 'Basic Yaml' and 'Kustomize' based Argo CD Applications, the behavior for performing the update relies on the known
 structure of the kubernetes/kustomize yaml to ensure the correct fields are updated.
 
 However, for Helm-based Argo CD Applications, where image-tags are specified within the `values.yaml` file, additional
