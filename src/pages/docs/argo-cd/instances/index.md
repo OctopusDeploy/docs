@@ -35,7 +35,7 @@ kubectl config view
 2. This launches the Add new Argo CD Instance dialog
 
 :::figure
-![Octopus-Argo-Gateway Wizard Config Page](/docs/img/infrastructure/argo-cd-instances/gateway-wizard-config.png)
+![Octopus-Argo-Gateway Wizard Config Page](/docs/img/argo-cd/gateway-wizard-config.png)
 :::
 
 1. Enter the unique name for the instance. This name is used to generate the Kubernetes namespace, as well as the Helm release name.
