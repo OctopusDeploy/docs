@@ -21,147 +21,142 @@ const markdownIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height=
 </svg>`;
 
 /**
- * Convert HTML element to markdown format
+ * Load Turndown library dynamically
  */
-function htmlToMarkdown(element) {
+async function loadTurndown() {
+  if (window.TurndownService) {
+    return window.TurndownService;
+  }
+
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/turndown/dist/turndown.js';
+    script.onload = () => resolve(window.TurndownService);
+    script.onerror = () => reject(new Error('Failed to load Turndown library'));
+    document.head.appendChild(script);
+  });
+}
+
+/**
+ * Convert HTML element to markdown using Turndown
+ */
+async function htmlToMarkdown(element) {
   if (!element) return '';
 
-  // Handle text nodes
-  if (element.nodeType === Node.TEXT_NODE) {
-    return element.textContent;
-  }
+  try {
+    const TurndownService = await loadTurndown();
 
-  const tagName = element.tagName?.toLowerCase();
-  let result = '';
+    // Configure Turndown service with same options as server-side
+    const turndownService = new TurndownService({
+      headingStyle: 'atx', // Use # ## ### style headers
+      bulletListMarker: '-', // Use - for bullet points
+      codeBlockStyle: 'fenced', // Use ``` for code blocks
+      linkStyle: 'inlined' // Use [text](url) for links
+    });
 
-  switch (tagName) {
-    case 'h1':
-      return `# ${element.textContent}\n\n`;
-    case 'h2':
-      return `## ${element.textContent}\n\n`;
-    case 'h3':
-      return `### ${element.textContent}\n\n`;
-    case 'h4':
-      return `#### ${element.textContent}\n\n`;
-    case 'h5':
-      return `##### ${element.textContent}\n\n`;
-    case 'h6':
-      return `###### ${element.textContent}\n\n`;
-
-    case 'p':
-      return `${convertChildren(element)}\n\n`;
-
-    case 'strong':
-    case 'b':
-      return `**${element.textContent}**`;
-
-    case 'em':
-    case 'i':
-      return `*${element.textContent}*`;
-
-    case 'code':
-      return `\`${element.textContent}\``;
-
-    case 'pre':
-      const codeElement = element.querySelector('code');
-      if (codeElement) {
-        return `\`\`\`\n${codeElement.textContent}\n\`\`\`\n\n`;
+    // Add custom rules to handle specific elements
+    turndownService.addRule('removeUnwanted', {
+      filter: function (node) {
+        // Remove elements that shouldn't be in markdown
+        return (
+          node.classList?.contains('magnify-container') ||
+          node.classList?.contains('magnify-icon') ||
+          node.classList?.contains('bookmark-link') ||
+          node.classList?.contains('header-anchor') ||
+          node.getAttribute('aria-hidden') === 'true' ||
+          node.tagName === 'BUTTON'
+        );
+      },
+      replacement: function () {
+        return '';
       }
-      return `\`\`\`\n${element.textContent}\n\`\`\`\n\n`;
+    });
 
-    case 'blockquote':
-      return `> ${convertChildren(element)}\n\n`;
-
-    case 'ul':
-      let ulResult = '';
-      Array.from(element.children).forEach(li => {
-        ulResult += `- ${convertChildren(li)}\n`;
-      });
-      return ulResult + '\n';
-
-    case 'ol':
-      let olResult = '';
-      Array.from(element.children).forEach((li, index) => {
-        olResult += `${index + 1}. ${convertChildren(li)}\n`;
-      });
-      return olResult + '\n';
-
-    case 'li':
-      return convertChildren(element);
-
-    case 'a':
-      const href = element.getAttribute('href');
-      if (href) {
-        return `[${element.textContent}](${href})`;
-      }
-      return element.textContent;
-
-    case 'img':
-      const src = element.getAttribute('src');
-      const alt = element.getAttribute('alt') || '';
-      if (src) {
-        return `![${alt}](${src})`;
-      }
-      return '';
-
-    case 'br':
-      return '\n';
-
-    case 'hr':
-      return '\n---\n\n';
-
-    default:
-      return convertChildren(element);
+    return turndownService.turndown(element);
+  } catch (error) {
+    console.warn('Turndown library failed, falling back to simple text extraction:', error);
+    // Simple fallback - just get text content
+    return getTextContent(element);
   }
 }
 
 /**
- * Convert children elements to markdown
+ * Get text content from element, cleaning up whitespace and unwanted content
  */
-function convertChildren(element) {
-  let result = '';
-  Array.from(element.childNodes).forEach(child => {
-    result += htmlToMarkdown(child);
+function getTextContent(element) {
+  if (!element) return '';
+
+  // Clone the element to avoid modifying the original
+  const clone = element.cloneNode(true);
+
+  // Remove elements that shouldn't contribute to the text content
+  const unwantedSelectors = [
+    '.bookmark-icon',
+    '.header-anchor',
+    '.anchor-link',
+    '.bookmark-link',
+    '[aria-hidden="true"]',
+    'button',
+    '.sr-only',
+    '.visually-hidden',
+    '.magnify-container',
+    '.magnify-icon'
+  ];
+
+  unwantedSelectors.forEach(selector => {
+    const elements = clone.querySelectorAll(selector);
+    elements.forEach(el => el.remove());
   });
-  return result;
+
+  // Get the text content and clean it up
+  let text = clone.textContent || '';
+
+  // Clean up whitespace - replace multiple spaces/newlines with single space
+  text = text.replace(/\s+/g, ' ').trim();
+
+  return text;
 }
 
 /**
- * Extract page content as markdown
+ * Extract page content as markdown using Turndown
  */
-function extractPageMarkdown() {
-  const titleElement = qs('article h1');
-  const contentElement = qs('.page-content');
+async function extractPageMarkdown() {
+  const titleElement = qs('article h1, .header__title');
+  const contentElement = qs('.page-content, article');
 
   let markdown = '';
 
   // Add title
   if (titleElement) {
-    markdown += `# ${titleElement.textContent}\n\n`;
+    markdown += `# ${getTextContent(titleElement)}\n\n`;
   }
 
-  // Add content, but skip the table of contents
+  // Add content, but skip unwanted sections
   if (contentElement) {
     const contentClone = contentElement.cloneNode(true);
 
-    // Remove table of contents
-    const toc = contentClone.querySelector('.page-toc');
-    if (toc) toc.remove();
+    // Remove unwanted sections
+    const sectionsToRemove = [
+      '.page-toc',           // Table of contents
+      '.authors',            // Authors section
+      '.taxonomy',           // Tags/categories
+      '.related',            // Related articles
+      '.page-tools',         // The page tools buttons themselves
+      '.article-journey',    // Navigation buttons
+      '.post-meta',          // Meta information
+      '.feedback',           // Feedback sections
+      '.octo-github-edit',   // GitHub edit links
+      '.page-feedback'       // Page feedback forms
+    ];
 
-    // Remove authors section
-    const authors = contentClone.querySelector('.authors');
-    if (authors) authors.remove();
+    sectionsToRemove.forEach(selector => {
+      const elements = contentClone.querySelectorAll(selector);
+      elements.forEach(el => el.remove());
+    });
 
-    // Remove taxonomy
-    const taxonomy = contentClone.querySelector('.taxonomy');
-    if (taxonomy) taxonomy.remove();
-
-    // Remove related section
-    const related = contentClone.querySelector('.related');
-    if (related) related.remove();
-
-    // Convert remaining content
-    markdown += convertChildren(contentClone);
+    // Convert remaining content using Turndown
+    const contentMarkdown = await htmlToMarkdown(contentClone);
+    markdown += contentMarkdown;
   }
 
   return markdown.trim();
@@ -181,7 +176,17 @@ function getCurrentPageSlug() {
  */
 async function copyPageToClipboard(button) {
   try {
-    const markdown = extractPageMarkdown();
+    // Use the same markdown endpoint that the "View as markdown" button uses
+    const slug = getCurrentPageSlug();
+    const markdownUrl = `/docs/markdown/${slug}.txt`;
+
+    const response = await fetch(markdownUrl);
+    if (!response.ok) {
+      throw new Error('Failed to fetch markdown content');
+    }
+
+    const markdown = await response.text();
+
     if (navigator.clipboard) {
       await navigator.clipboard.writeText(markdown);
       button.innerHTML = copyDoneIcon;
@@ -210,7 +215,39 @@ async function copyPageToClipboard(button) {
     }
   } catch (error) {
     console.error('Failed to copy to clipboard:', error);
-    button.title = 'Failed to copy';
+
+    // Fallback to client-side extraction if the fetch fails
+    try {
+      const markdown = await extractPageMarkdown();
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(markdown);
+        button.innerHTML = copyDoneIcon;
+        button.title = 'Copied to clipboard!';
+
+        setTimeout(() => {
+          button.innerHTML = copyIcon;
+          button.title = 'Copy page as markdown';
+        }, 2000);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = markdown;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        button.innerHTML = copyDoneIcon;
+        button.title = 'Copied to clipboard!';
+
+        setTimeout(() => {
+          button.innerHTML = copyIcon;
+          button.title = 'Copy page as markdown';
+        }, 2000);
+      }
+    } catch (fallbackError) {
+      console.error('Fallback copy also failed:', fallbackError);
+      button.title = 'Failed to copy';
+    }
   }
 }
 

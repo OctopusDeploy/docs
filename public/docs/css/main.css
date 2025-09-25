@@ -3115,21 +3115,21 @@ a.button.button--primary:active {
 
 /* Page Tools */
 
-article header {
+.header {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
 @media (min-width: 768px) {
-  article header {
+  .header {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
   }
 }
 
-.article-header-content {
+.header__content {
   flex: 1;
 }
 
