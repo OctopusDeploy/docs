@@ -25,8 +25,26 @@ information is required to explicitly define _which_ fields in the values repres
 ### Helm Annotations
 
 :::div{.info}
-These annotations are required if your application's repository contains a Helm chart, regardless of the 
+These annotations are required if your application's repository contains a Helm chart, regardless of its specified type
+(i.e. Helm or directory)
 :::
+To uniquely identify which field(s) in your values file represent an image-reference, Octopus requires you to add 
+extra annotations to your Argo CD Application.
+
+There are 2 annotations which may be required:
+1. `argo.octopus.com/image-replace-paths`
+    * Required
+    * Comma separated string of 'Image Path Definitions'
+    * Each `Image Path definition` is a helm-value formatted string, which when evaluated would contain a full container refernce
+2. `arg.octopus.com/image-replace-alias
+    * Optional
+    * Required where more than 1 Values file is referenced in the list of the application's sources
+    * 
+
+
+#### Use Cases
+Simple case - the application contains a single helm source, with a single values file.
+
 
 
 ## Update Application Manifests
