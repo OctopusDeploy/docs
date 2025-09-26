@@ -28,7 +28,9 @@ The [ Prefix ] should inform everyone where the template should be used.  For ex
 - Runbook - [ Template Name ] for templates designed for runbooks only.
 - Deploy and Runbook - [ Template Name ] for templates that can be used in deployments or runbooks.
 
-![A list of process templates with the appropriate prefix and template name](process-templates-overview-screen.png)
+:::figure
+![A list of process templates with the appropriate prefix and template name](/docs/img/platform-hub/process-templates/process-templates-overview-screen.png)
+:::
 
 ### Establish what the major/minor/patch/pre-release means to your company
 
@@ -59,6 +61,7 @@ Template changes should occur in a branch and be reviewed via a PR.  To test the
 Creating a single process template containing all the steps required to deploy an application can be tempting.  In practice, the "all-in-one" template falls apart at scale.
 
 #### Not all applications use the same components
+
 Consider this example:
 
 - Application #1 - Deploys a container to Kubernetes with a SQL Server Backend
@@ -66,7 +69,7 @@ Consider this example:
 
 No matter what, you will create two templates.  
 
-- Option #1 - Create a template for each application combination 
+- Option #1 - Create a template for each application combination
   - Kubernetes + SQL Server
   - Kubernetes + Queue
 - Option #2 - Create a template for each component
@@ -79,7 +82,9 @@ With option #2, you’ll have templates that can be mixed and matched with other
 
 Consider this deployment process:
 
-![A deployment process using process templates with a step between two templates](process-templates-requiring-steps-between-template-steps.png)
+:::figure
+![A deployment process using process templates with a step between two templates](/docs/img/platform-hub/process-templates/process-templates-requiring-steps-between-template-steps.png)
+:::
 
 It uses three process templates, but they don’t all run back to back to back.  Between the first process template, `Verify Build Artifacts`, and the second process template, `Deploy Databases`, a step to verify the infrastructure runs.  Not all applications need that specific step to run between those templates.  
 
@@ -110,7 +115,9 @@ A template should have a single purpose.  That doesn’t mean a single step, but
 
 The template should include all the necessary steps to accomplish that task.  Consider a template to deploy a database change.  The company policy might be build a delta report and verify it before deploying.  But DBAs don’t need to be bothered with every change, so only bother them when specific commands appear.  For example, `Drop Database`.  To accomplish that, the template would be:
 
-![A process template that deploys databases with all the necessary steps to accomplish the task](process-template-to-deploy-databases.png)
+:::figure
+![A process template that deploys databases with all the necessary steps to accomplish the task](/docs/img/platform-hub/process-templates/process-template-to-deploy-databases.png)
+:::
 
 ### Parameters
 
@@ -139,7 +146,7 @@ The consumer shouldn’t need to worry about:
 A consumer should be able to say:
 
 > I want to deploy to Kubernetes and verify the deployment using this information:
-> 
+>
 > - The container URL
 > - The Git repository of the manifest files
 > - The path to manifest files in that repository
@@ -152,7 +159,9 @@ It is the producer's job to figure out how to takes those parameters and deploy 
 
 Notes help the consumer understand the intent behind each step.  If a deployment fails, it is easier for them to self-service why the failure occurs if they have that context.  Sometimes, a step name is all that is required to understand the intent.  However, assuming everyone will understand the context based on the name alone is dangerous.  It is better to include notes by default.
 
-![Deploy process using process templates that leverage notes](deploy-process-using-process-templates-with-notes.png)
+:::figure
+![Deploy process using process templates that leverage notes](/docs/img/platform-hub/process-templates/deploy-process-using-process-templates-with-notes.png)
+:::
 
 ## Producer-managed script steps in templates
 
@@ -175,7 +184,9 @@ It is common for a script step to make a set of decisions and create an output v
 
 Those kinds of output variables should only be used by the template itself.  
 
-![A process template that makes a business decision in the first step and uses output variables in the next two steps](process-template-to-deploy-databases.png)
+:::figure
+![A process template that makes a business decision in the first step and uses output variables in the next two steps](/docs/img/platform-hub/process-templates/process-template-to-deploy-databases.png)
+:::
 
 ### Output variables must be surfaced via logs when intended for outside steps to use
 
@@ -194,4 +205,4 @@ Octopus supports different levels of logs:
 - Write-Highlight - writes the information to the task summary screen
 - Write-Error - writes an error message
 
-Use those log levels and write messages frequently.  This aids in debugging when a deployment or runbook run fails.  Logs are like an umbrella - better to have it and not need it than need it and not have it.  
+Use those log levels and write messages frequently.  This aids in debugging when a deployment or runbook run fails.  Logs are like an umbrella - better to have it and not need it than need it and not have it.
