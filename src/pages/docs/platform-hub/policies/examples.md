@@ -497,7 +497,7 @@ conditions {
             some step in input.Steps
             step.Source.Type == "Process Template"
             step.Source.SlugOrId == "<ProcessTemplate-ID>"
-            semver.compare(step.Source.Version, "<minimum-version>") == 0
+            semver.compare(step.Source.Version, "<specific-version>") == 0
             not step.Id in input.SkippedSteps
             step.Enabled == true
         }
@@ -509,7 +509,7 @@ conditions {
 
 ```ruby
 name = "Process Template step ordering"
-description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template exists before or after certain steps."
+description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template exists before or after a certain step."
 ViolationReason = "Process Template must be in correct position relative to other steps"
 
 scope {
