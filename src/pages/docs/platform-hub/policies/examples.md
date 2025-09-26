@@ -389,7 +389,7 @@ conditions {
         result := {"allowed": true} if {
             some step in input.Steps
             step.Source.Type == "Process Template"
-            step.Source.SlugOrId == "<ProcessTemplate-ID>"
+            step.Source.SlugOrId == "<ProcessTemplate-slug>"
             not step.Id in input.SkippedSteps
         }
     EOT
@@ -423,7 +423,7 @@ conditions {
         result := {"allowed": true} if {
             some step in input.Steps
             step.Source.Type == "Process Template"
-            step.Source.SlugOrId == "<ProcessTemplate-ID>"
+            step.Source.SlugOrId == "<ProcessTemplate-slug>"
             step.Enabled == true
         }
     EOT
@@ -457,13 +457,13 @@ conditions {
         # Process Template is at the start
         result := {"allowed": true} if {
             input.Steps[0].Source.Type == "Process Template"
-            input.Steps[0].Source.SlugOrId == "<ProcessTemplate-ID>"
+            input.Steps[0].Source.SlugOrId == "<ProcessTemplate-slug>"
         }
 
         # Process Template is at the end
         result := {"allowed": true} if {
             input.Steps[count(input.Steps)-1].Source.Type == "Process Template"
-            input.Steps[count(input.Steps)-1].Source.SlugOrId == "<ProcessTemplate-ID>"
+            input.Steps[count(input.Steps)-1].Source.SlugOrId == "<ProcessTemplate-slug>"
         }
     EOT
 }
@@ -496,7 +496,7 @@ conditions {
         result := {"allowed": true} if {
             some step in input.Steps
             step.Source.Type == "Process Template"
-            step.Source.SlugOrId == "<ProcessTemplate-ID>"
+            step.Source.SlugOrId == "<ProcessTemplate-slug>"
             semver.compare(step.Source.Version, "<specific-version>") == 0
             not step.Id in input.SkippedSteps
             step.Enabled == true
