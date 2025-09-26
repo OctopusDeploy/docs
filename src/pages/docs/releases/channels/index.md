@@ -155,10 +155,10 @@ Some examples:
 
 ## Custom fields {#custom-fields}
 
-Channels allow you to define which custom fields are required when creating a release within the channel, ensuring you can use them within scripts and steps in the deployment process.
+Channels allow you to define which custom fields are required when creating a release within the channel, ensuring you can use them within scripts and steps in the deployment process. A maximum of 10 custom fields can be defined on a channel.
 
 :::div{.hint}
-Support for custom fields in releases is rolling out Octopus Cloud in Early Access Preview.
+Support for custom fields in releases is rolling out to Octopus Cloud in Early Access Preview.
 :::
 
 1. When viewing a channel, click **Add Custom Field** in the Custom Fields section.

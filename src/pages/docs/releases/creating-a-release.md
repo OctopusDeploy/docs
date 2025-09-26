@@ -121,7 +121,7 @@ Releases can have custom fields added to them when being created. Custom fields 
 - During deployments within scripts and other steps.
 
 :::div{.hint}
-Support for custom fields on releases is rolling out Octopus Cloud in Early Access Preview.
+Support for custom fields on releases is rolling out to Octopus Cloud in Early Access Preview.
 :::
 
 :::div{.hint}
@@ -130,7 +130,7 @@ Support for custom fields on releases is available from v2.19.0 of the Octopus C
 
 ### Required custom fields
 
-Channels can define which custom fields are required when creating a release within the channel. The Octopus Web Portal will prompt to set any required custom fields when creating a release. Learn more about [configuring custom fields in channels](/docs/releases/channels).
+Channels can define which custom fields are required when creating a release within the channel. The Octopus Web Portal will prompt you to provide the value for any required custom fields when creating a release. Learn more about [configuring custom fields in channels](/docs/releases/channels).
 
 :::figure
 ![Screenshot of Octopus release page showing entering the value of a custom field for a Pull Request Number](/docs/img/releases/images/create-release-custom-fields.png)
