@@ -35,7 +35,7 @@ There are 2 annotations which may be required:
 1. `argo.octopus.com/image-replace-paths`
     * Required
     * Comma separated string of 'Image Path Definitions'
-    * Each `Image Path definition` is a helm-value formatted string, which when evaluated would contain a full container refernce
+    * Each `Image Path definition` is a helm-value formatted string, which when evaluated would contain a full container reference
 2. `arg.octopus.com/image-replace-alias
     * Optional
     * Required where more than 1 Values file is referenced in the list of the application's sources
