@@ -4,7 +4,7 @@ pubDate: 2025-09-15
 modDate: 2025-09-15
 title: Deployment Steps
 description: Deployment steps to modify your Argo CD Applications
-navOrder: 20
+navOrder: 30
 hideInThisSectionHeader: true
 ---
 Octopus offers two in-built steps which are able to modify a mapped Argo CD application in different ways:
