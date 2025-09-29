@@ -91,7 +91,7 @@ For detailed guidance on upgrading Tentacles and configuring TLS support, see ou
 
 | Period | Octopus Cloud | Self-Hosted Docker |
 |--------|---------------|-------------------|
-| September - November 2025 | Monitoring for usages of TLS 1.0/1.1 | Customers should assess their environments |
+| October - November 2025 | Monitoring for usages of TLS 1.0/1.1 | Customers should assess their environments |
 | Mid November 2025 | Disable TLS 1.0/1.1 on Octopus Cloud (with accommodations for impacted customers) | No immediate change |
 | December 2025 | Continue to monitor and help impacted customers | Customers should continue preparation |
 | January 2026 | TLS 1.0/1.1 will be unavailable in Octopus Cloud | Official Docker image upgraded to Debian 12, removing TLS 1.0/1.1 support |
