@@ -45,6 +45,13 @@ The date and time at which the release was created.
 
 Example: *Tuesday 10th September 1:23 PM*
 
+`Octopus.Release.CustomFields[_name_]`
+
+The value of a custom field set on a release.
+
+Example: *4587* for a custom field `Pull Request Number`
+Example: *TST-123* for a custom field `Jira Ticket Number`
+
 ### Release package build information {#release-package-build-information}
 
 `Octopus.Release.Package`

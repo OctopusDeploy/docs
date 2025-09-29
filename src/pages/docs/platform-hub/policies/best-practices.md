@@ -8,7 +8,7 @@ icon: fa-solid fa-lock
 navTitle: Best Practices
 navSection: Policies
 description: Best practices for creating policies within Platform Hub
-navOrder: 115
+navOrder: 165
 ---
 
 ## Policies administration
@@ -38,7 +38,7 @@ When creating a new policy, be as restrictive as possible by limiting it to:
 - A specific hook - such a deployment or a runbook run (not both)
 - A specific project
 
-That will a policy's "blast radius." Once you are confident the policy is working as intended, extend the policy to cover more projects or tenants.  When acceptable, switch the policy to project groups or spaces.
+That will limit a policy's "blast radius." Once you are confident the policy is working as intended, extend the policy to cover more projects or tenants.  When acceptable, switch the policy to project groups or spaces.
 
 ### Provide a verbose failure reason
 
