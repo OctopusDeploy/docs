@@ -23,7 +23,7 @@ Deprecations are subject to change in detail or time frame. If you need help ass
 
 ## Planned Deprecations
 
-## TLS 1.0-1.1 Support in Octopus Cloud
+## TLS 1.0-1.1 Support Deprecation
 
 Transport Layer Security (TLS) 1.0 and 1.1 are legacy cryptographic protocols that were first released in 1999 and 2006, respectively. These protocols contain known security vulnerabilities and have been superseded by more secure versions, particularly TLS 1.2 (2008) and TLS 1.3 (2018).
 
@@ -34,7 +34,7 @@ Microsoft has progressively phased out support for TLS 1.0 and 1.1 across Window
 - **Windows Server 2012 R2**: Requires updates to support TLS 1.2 as the default protocol
 - **Windows Server 2012**: Requires [specific updates](https://support.microsoft.com/en-au/topic/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-winhttp-in-windows-c4bd73d2-31d7-761e-0178-11268bb10392) to properly support TLS 1.2
 
-### Impact on Octopus Cloud Connections
+### Impact on Octopus Cloud Customers
 
 Octopus Cloud will be discontinuing support for TLS 1.0 and 1.1 protocols to enhance security and align with industry standards. This change will impact Tentacles running on older operating systems that do not support TLS 1.2 or higher.
 
@@ -45,36 +45,56 @@ Octopus Cloud will be discontinuing support for TLS 1.0 and 1.1 protocols to enh
 
 Once TLS 1.0 and 1.1 support is removed, these Tentacles will be unable to establish secure connections to Octopus Cloud, preventing deployments and other communications.
 
+### Impact on Self-Hosted Customers Using Linux Docker
+
+Self-hosted customers running Octopus Server on the official Linux Docker image will also be affected by TLS 1.0 and 1.1 deprecation. The timeline aligns with Octopus Cloud as both will remove TLS 1.0/1.1 support when the official Octopus Server Linux Docker image is upgraded to Debian 12 in January 2026.
+
+**This change may impact:**
+
+- **Tentacle connections**: Tentacles running on older operating systems that only support TLS 1.0/1.1 will be unable to connect to the Octopus Server
+- **External integrations**: Outbound connections from Octopus Server to external services that require TLS 1.0/1.1 may fail
+- **Third-party tools**: Any integrations or tools that connect to the Octopus Server API using only TLS 1.0/1.1
+
+Unlike Octopus Cloud customers, we cannot monitor self-hosted installations for TLS 1.0/1.1 usage. Self-hosted customers should proactively assess their environments for potential impacts.
+
 ### Customer Support and Monitoring
 
-Octopus Deploy is actively monitoring Octopus Cloud usage for connections using TLS 1.0 and 1.1 protocols. We are committed to ensuring a smooth transition for all customers and will be reaching out directly to any customers whose environments may be impacted by this change.
+**For Octopus Cloud customers:** Octopus Deploy is actively monitoring Octopus Cloud usage for connections using TLS 1.0 and 1.1 protocols. We are committed to ensuring a smooth transition for all customers and will be reaching out directly to any customers whose environments may be impacted by this change.
+
+**For self-hosted customers:** We cannot monitor self-hosted installations, so please proactively review your environment for TLS 1.0/1.1 dependencies before the January 2026 timeline.
 
 If you believe your organization may be affected, or if you have questions about TLS protocol support, please don't hesitate to contact our [support team](https://octopus.com/support) for assistance.
 
 ### Remediation Options
 
-To ensure continued connectivity to Octopus Cloud after TLS 1.0 and 1.1 support is removed, you have several options:
+To ensure continued connectivity after TLS 1.0 and 1.1 support is removed, you have several options:
 
-**Recommended approach:**
+**Recommended approach for all customers:**
 
-- **Upgrade your operating system** to a supported version (Windows Server 2016 or later)
+- **Upgrade your operating system** to a supported version (Windows Server 2016 or later, recent Linux distributions)
 - **Update your Tentacle** to the latest version, which includes enhanced TLS support
+- **Review external integrations** to ensure they support TLS 1.2 or higher
 
 **Alternative options for specific systems:**
 
 - **Windows Server 2012**: Apply the [Microsoft update to enable TLS 1.1 and TLS 1.2 as default protocols](https://support.microsoft.com/en-au/topic/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-winhttp-in-windows-c4bd73d2-31d7-761e-0178-11268bb10392)
 - **Windows Server 2012 R2**: Ensure all Windows updates are installed and TLS 1.2 is enabled in the registry
 
+**Options specific to self-hosted Docker customers:**
+
+- **Upgrade to newer Docker image**: When available, migrate to the Debian 12-based image before January 2026
+- **Custom base image modification**: While technically possible to modify the base image to extend TLS 1.0/1.1 support, this is not recommended due to security risks and limited support availability
+
 For detailed guidance on upgrading Tentacles and configuring TLS support, see our [Tentacle installation documentation](https://octopus.com/docs/infrastructure/deployment-targets/tentacle).
 
 ### Deprecation Timeline
 
-| Period | Action |
-|--------|--------|
-| September - November 2025 | Monitoring for usages of TLS 1.0/1.1 |
-| Mid November 2025 | Disable TLS 1.0/1.1 on Octopus Cloud (with accommodations for impacted customers) |
-| December 2025 | Continue to monitor and help impacted customers |
-| January 2026 | TLS 1.0/1.1 will be unavailable in Octopus Cloud |
+| Period | Octopus Cloud | Self-Hosted Docker |
+|--------|---------------|-------------------|
+| September - November 2025 | Monitoring for usages of TLS 1.0/1.1 | Customers should assess their environments |
+| Mid November 2025 | Disable TLS 1.0/1.1 on Octopus Cloud (with accommodations for impacted customers) | No immediate change |
+| December 2025 | Continue to monitor and help impacted customers | Customers should continue preparation |
+| January 2026 | TLS 1.0/1.1 will be unavailable in Octopus Cloud | Official Docker image upgraded to Debian 12, removing TLS 1.0/1.1 support |
 
 :::div{.info}
 **Note:** This timeline is subject to change based on customer impact analysis and feedback. We are committed to providing adequate notice and support throughout the transition process.
