@@ -362,6 +362,338 @@ conditions {
 }
 ```
 
+### Check that a Process Template is present, and not skipped
+
+```ruby
+name = "Process Template is executed"
+description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template exists and is not skipped."
+ViolationReason = "Process Template must be run"
+
+scope {
+    rego = <<-EOT
+        package process_template_is_executed
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Space.Slug == "<space-slug>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package process_template_is_executed
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            some step in input.Steps
+            step.Source.Type == "Process Template"
+            step.Source.SlugOrId == "<ProcessTemplate-slug>"
+            not step.Id in input.SkippedSteps
+        }
+    EOT
+}
+```
+
+### Check that a Process Template is enabled
+
+```ruby
+name = "Process Template is enabled"
+description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template is enabled."
+ViolationReason = "Process Template must be enabled"
+
+scope {
+    rego = <<-EOT
+        package process_template_is_enabled
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Space.Slug == "<space-slug>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package process_template_is_enabled
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            some step in input.Steps
+            step.Source.Type == "Process Template"
+            step.Source.SlugOrId == "<ProcessTemplate-slug>"
+            step.Enabled == true
+        }
+    EOT
+}
+```
+
+### Check that a Process Template is at the beginning or end of a process
+
+```ruby
+name = "Process Template location check"
+description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template exists at the start or the end of the execution."
+ViolationReason = "Process Template needs to be at the start or end"
+
+scope {
+    rego = <<-EOT
+        package process_template_location_check
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Space.Slug == "<space-slug>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package process_template_location_check
+
+        default result := {"allowed": false}
+
+        # Process Template is at the start
+        result := {"allowed": true} if {
+            input.Steps[0].Source.Type == "Process Template"
+            input.Steps[0].Source.SlugOrId == "<ProcessTemplate-slug>"
+        }
+
+        # Process Template is at the end
+        result := {"allowed": true} if {
+            input.Steps[count(input.Steps)-1].Source.Type == "Process Template"
+            input.Steps[count(input.Steps)-1].Source.SlugOrId == "<ProcessTemplate-slug>"
+        }
+    EOT
+}
+```
+
+### Check that a Process Template is of a certain version when deployments occur
+
+```ruby
+name = "Process Template with version is executed"
+description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template with a specific version exists and is not skipped."
+ViolationReason = "Process Template with specific version must be run"
+
+scope {
+    rego = <<-EOT
+        package process_template_with_version_is_executed
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Space.Slug == "<space-slug>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package process_template_with_version_is_executed
+
+        default result := {"allowed": false}
+        
+        result := {"allowed": true} if {
+            some step in input.Steps
+            step.Source.Type == "Process Template"
+            step.Source.SlugOrId == "<ProcessTemplate-slug>"
+            semver.compare(step.Source.Version, "<specific-version>") == 0
+            not step.Id in input.SkippedSteps
+            step.Enabled == true
+        }
+    EOT
+}
+```
+
+### Check that a Process Template exists before or after certain steps
+
+```ruby
+name = "Process Template step ordering"
+description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template exists before or after a certain step."
+ViolationReason = "Process Template must be in correct position relative to other steps"
+
+scope {
+    rego = <<-EOT
+        package process_template_step_ordering
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Space.Slug == "<space-slug>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package process_template_step_ordering
+
+        default result := {"allowed": false}
+
+        # Process Template exists before a specific step
+        result := {"allowed": true} if {
+            some i, step in input.Steps
+            step.Source.Type == "Process Template"
+            step.Source.SlugOrId == "<ProcessTemplate-ID>"
+            some j, target_step in input.Steps
+            target_step.Source.SlugOrId == "<target-step-id>"
+            i < j
+        }
+
+        # Process Template exists after a specific step
+        result := {"allowed": true} if {
+            some i, step in input.Steps
+            step.Source.Type == "Process Template"
+            step.Source.SlugOrId == "<ProcessTemplate-ID>"
+            some j, target_step in input.Steps
+            target_step.Source.SlugOrId == "<target-step-id>"
+            i > j
+        }
+    EOT
+}
+```
+
+### Check if a built-in step happens before another built-in step
+
+```ruby
+name = "Built-in step ordering - before"
+description = "This policy applies to all Deployments and Runbook runs and will check that one built-in step happens before another built-in step."
+ViolationReason = "Built-in step must occur before the target built-in step"
+
+scope {
+    rego = <<-EOT
+        package builtin_step_before_builtin
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Space.Slug == "<space-slug>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package builtin_step_before_builtin
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            some i, first_step in input.Steps
+            first_step.ActionType == "<first-builtin-action-type>"
+            some j, second_step in input.Steps
+            second_step.ActionType == "<second-builtin-action-type>"
+            i < j
+        }
+    EOT
+}
+```
+
+### Check if a built-in step happens after another built-in step
+
+```ruby
+name = "Built-in step ordering - after"
+description = "This policy applies to all Deployments and Runbook runs and will check that one built-in step happens after another built-in step."
+ViolationReason = "Built-in step must occur after the target built-in step"
+
+scope {
+    rego = <<-EOT
+        package builtin_step_after_builtin
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Space.Slug == "<space-slug>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package builtin_step_after_builtin
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            some i, first_step in input.Steps
+            first_step.ActionType == "<first-builtin-action-type>"
+            some j, second_step in input.Steps
+            second_step.ActionType == "<second-builtin-action-type>"
+            i > j
+        }
+    EOT
+}
+```
+
+### Check if a custom step template happens before a built-in step
+
+```ruby
+name = "Step Template before built-in step"
+description = "This policy applies to all Deployments and Runbook runs and will check that a custom step template happens before a built-in step."
+ViolationReason = "Step Template must occur before the built-in step"
+
+scope {
+    rego = <<-EOT
+        package step_template_before_builtin
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Space.Slug == "<space-slug>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package step_template_before_builtin
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            some i, template_step in input.Steps
+            template_step.Source.Type == "Step Template"
+            template_step.Source.SlugOrId == "<StepTemplate-ID>"
+            some j, builtin_step in input.Steps
+            builtin_step.ActionType == "<builtin-action-type>"
+            i < j
+        }
+    EOT
+}
+```
+
+### Check if a custom step template happens after a built-in step
+
+```ruby
+name = "Step Template after built-in step"
+description = "This policy applies to all Deployments and Runbook runs and will check that a custom step template happens after a built-in step."
+ViolationReason = "Step Template must occur after the built-in step"
+
+scope {
+    rego = <<-EOT
+        package step_template_after_builtin
+
+        default evaluate := false
+        evaluate := true if { 
+            input.Space.Slug == "<space-slug>"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package step_template_after_builtin
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            some i, template_step in input.Steps
+            template_step.Source.Type == "Step Template"
+            template_step.Source.SlugOrId == "<StepTemplate-ID>"
+            some j, builtin_step in input.Steps
+            builtin_step.ActionType == "<builtin-action-type>"
+            i > j
+        }
+    EOT
+}
+```
+
 ### Check that a deployment contains a manual intervention step
 
  ```ruby
