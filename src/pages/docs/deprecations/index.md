@@ -23,6 +23,78 @@ Deprecations are subject to change in detail or time frame. If you need help ass
 
 ## Planned Deprecations
 
+## TLS 1.0-1.1 Support in Octopus Cloud
+
+<!-- TODO: Add a background summary of TLS 1.0 and 1.1 including details on when they were disabled or removed from various Windows Server operating systems -->
+
+Transport Layer Security (TLS) 1.0 and 1.1 are legacy cryptographic protocols that were first released in 1999 and 2006, respectively. These protocols contain known security vulnerabilities and have been superseded by more secure versions, particularly TLS 1.2 (2008) and TLS 1.3 (2018).
+
+Microsoft has progressively phased out support for TLS 1.0 and 1.1 across Windows Server operating systems:
+
+- **Windows Server 2019 and later**: TLS 1.0 and 1.1 are disabled by default
+- **Windows Server 2016**: TLS 1.0 and 1.1 can be disabled via registry settings
+- **Windows Server 2012 R2**: Requires updates to support TLS 1.2 as the default protocol
+- **Windows Server 2012**: Requires [specific updates](https://support.microsoft.com/en-au/topic/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-winhttp-in-windows-c4bd73d2-31d7-761e-0178-11268bb10392) to properly support TLS 1.2
+
+<!-- TODO: Indicate the intended change and the impact that Tentacles running on Operating Systems that don't support TLS 1.2 or above will not be able to connect to Octopus Cloud -->
+
+### Impact on Octopus Cloud Connections
+
+Octopus Cloud will be discontinuing support for TLS 1.0 and 1.1 protocols to enhance security and align with industry standards. This change will impact Tentacles running on older operating systems that do not support TLS 1.2 or higher.
+
+**Tentacles affected by this change include those running on:**
+
+- Windows Server 2008 (without specific updates)
+- Windows Server 2012 (without TLS 1.2 patches)
+
+Once TLS 1.0 and 1.1 support is removed, these Tentacles will be unable to establish secure connections to Octopus Cloud, preventing deployments and other communications.
+
+<!-- TODO: Indicate that we are actively monitoring for TLS 1.0 and 1.1 customers and will contact affected customers directly -->
+
+### Customer Support and Monitoring
+
+Octopus Deploy is actively monitoring Octopus Cloud usage for connections using TLS 1.0 and 1.1 protocols. We are committed to ensuring a smooth transition for all customers and will be reaching out directly to any customers whose environments may be impacted by this change.
+
+If you believe your organization may be affected, or if you have questions about TLS protocol support, please don't hesitate to contact our [support team](https://octopus.com/support) for assistance.
+
+<!-- TODO: Briefly address remediation options: upgrading Tentacle or applying [this patch for Windows 2012](https://support.microsoft.com/en-au/topic/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-winhttp-in-windows-c4bd73d2-31d7-761e-0178-11268bb10392). -->
+
+### Remediation Options
+
+To ensure continued connectivity to Octopus Cloud after TLS 1.0 and 1.1 support is removed, you have several options:
+
+**Recommended approach:**
+
+- **Upgrade your operating system** to a supported version (Windows Server 2016 or later)
+- **Update your Tentacle** to the latest version, which includes enhanced TLS support
+
+**Alternative options for specific systems:**
+
+- **Windows Server 2012**: Apply the [Microsoft update to enable TLS 1.1 and TLS 1.2 as default protocols](https://support.microsoft.com/en-au/topic/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-winhttp-in-windows-c4bd73d2-31d7-761e-0178-11268bb10392)
+- **Windows Server 2012 R2**: Ensure all Windows updates are installed and TLS 1.2 is enabled in the registry
+
+For detailed guidance on upgrading Tentacles and configuring TLS support, see our [Tentacle installation documentation](https://octopus.com/docs/infrastructure/deployment-targets/tentacle).
+
+<!-- TODO: Format this timeline as a table:
+
+- September - November 2025: Monitoring for usages of TLS 1.0/1.1
+- Mid November 2025: Disable TLS 1.0/1.1 on Octopus Cloud (with accommodations for impacted customers)
+- December 2025: Continue to monitor and help impacted customers
+- January 2026: TLS 1.0/1.1 will be unavailable in Octopus Cloud -->
+
+### Deprecation Timeline
+
+| Period | Action |
+|--------|--------|
+| September - November 2025 | Monitoring for usages of TLS 1.0/1.1 |
+| Mid November 2025 | Disable TLS 1.0/1.1 on Octopus Cloud (with accommodations for impacted customers) |
+| December 2025 | Continue to monitor and help impacted customers |
+| January 2026 | TLS 1.0/1.1 will be unavailable in Octopus Cloud |
+
+<!-- TODO: Add a note that this timeline is subject to change based on customer impact. -->
+
+**Note:** This timeline is subject to change based on customer impact analysis and feedback. We are committed to providing adequate notice and support throughout the transition process.
+
 ## Deprecations for 2025.2
 
 ### Defaulting C# scripting to dotnet-script
