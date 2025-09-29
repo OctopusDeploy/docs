@@ -8,7 +8,7 @@ navOrder: 40
 hideInThisSectionHeader: true
 ---
 
-Octopus Deploy can help you manage your Argo CD applications navigate lifecycle promotion.
+
 
 ===
 This will need to talk about our two steps
