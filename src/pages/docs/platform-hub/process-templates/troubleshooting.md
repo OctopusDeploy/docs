@@ -158,3 +158,21 @@ We recommend all users use the Octopus Deploy UI to manage process templates dur
 ### GitHub Connections
 
 The GitHub Connection is not supported in Platform Hub. Only usernames and PATs.
+
+### Losing access to an Octopus Enterprise license
+
+Process templates and all Platform Hub features are restricted to customers who have an Enterprise Tier license. When you no longer have an Enterprise license, process templates will work differently.
+
+#### What will continue to work
+
+- Existing deployments and runbook runs can be redeployed or rerun.
+- New releases that have a process containing process templates can be created.
+- New runbook runs that have a process containing process templates can be created.
+- Auto-scheduled deployments or runbook runs will continue to work.
+
+#### What will not work anymore
+
+- Users will lose access to Platform Hub, including the ability to create and manage all Platform Hub features.
+- Process templates cannot be modified inside a project.
+- Process templates will no longer receive updates and automatically roll forward to a later version.
+- Projects that contain process templates cannot be cloned until the process template is removed.

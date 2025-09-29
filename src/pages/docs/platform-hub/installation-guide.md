@@ -13,6 +13,12 @@ navOrder: 33
 
 ## How to install a pre-release version of Octopus server
 
+:::div{.hint}
+Update September 30:
+
+Unfortunately, we've hit some delays releasing process templates to a pre-release version of Octopus server. We are working hard to put together a release for customers to adopt shortly, please keep checking this page for updates.
+:::
+
 Self-hosted customers can install a pre-release version of Octopus Server containing Process Templates and Policies from September 30. Please visit this page on September 30 for a download and installation guide.
 
 :::div{.warning}
