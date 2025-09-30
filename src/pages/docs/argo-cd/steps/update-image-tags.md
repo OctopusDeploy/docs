@@ -29,7 +29,7 @@ This step will execute on a worker of your choosing - if required it can run wit
 
 ### Inputs
 2. Specify the Container Images which are to be updated  in your Argo Application.
-`Note`: These packages can then be used in an [External Feed trigger](/doc/projects/project-triggers/external-feed-triggers.md), such that your cluster is automatically updated when new image versions become available.
+`Note`: These packages can then be used in an [External Feed trigger](/doc/projects/project-triggers/external-feed-triggers), such that your cluster is automatically updated when new image versions become available.
 
 
 ### Outputs
@@ -55,12 +55,12 @@ release.
 
 When deploying the release, Octopus will:
 * For each annotation-mapped application (all apps with relevant scoping annotations)
-  * Checkout each repository using git credentials determined via [Git AllowListing](docs/infrastructure/git-credentials#repository-restrictions)
+  * Checkout each repository using git credentials determined via [Git AllowListing](/docs/infrastructure/git-credentials#repository-restrictions)
   * If the source is kubernetes raw yaml
     * Search k8s resources which are known to reference images (does not look into other CRDs)
     * If a resource references an image from the set configured in the step's inputs - the image tag is updated to match that in the release
   * If the source is a helm chart
-    * The image fields are extracted from the [Helm Annotations](/docs/argo-cd/annotations/helm-annotations.md)
+    * The image fields are extracted from the [Helm Annotations](/docs/argo-cd/annotations/helm-annotations)
     * The matching image-tags in the `values.yaml` are replaced with container image versions configured in the step's inputs.
   * Changed files are committed, and pushed back to the repo/branch as specified in the Argo CD Application
     * A PR will be created (rather than merging to the targetRevision branch) if configured in the step UI 

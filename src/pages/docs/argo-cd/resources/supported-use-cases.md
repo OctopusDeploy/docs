@@ -18,8 +18,7 @@ There are a number of use cases which Octopus _cannot_ support due to data acces
 * Octopus will not update "pinned" `TargetRevisions` in your `Application.yaml` - Octopus will _only_ update content in the repositories referenced by your application
   * If your application specifies a constant `TargetRevision`, Octopus will treat it as a branch - and fail to push back to your repository. 
 * Octopus cannot update the content of Helm Sources as they typically references a chart from a Helm Repository or OCI feed which is static content.
-  * However, if your application is represented as a helm chart _in a directory_, Octopus can interact with the directory content via the applications repository 
-
+  * However, if your application is represented as a helm chart _in a directory_, Octopus can interact with the directory content via the applications repository
 
 ## Update Argo Manifest Step
 | Argo Source Type | Repository Content | Behavior                                                                                 |

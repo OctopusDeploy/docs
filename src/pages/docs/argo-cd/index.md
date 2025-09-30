@@ -20,5 +20,3 @@ Octopus makes integrating and deploying with Argo CD simple:
 
 The pages in this section expands each of these areas, while also providing useful resources and tutorials to get you
 up and running with Argo CD in Octopus faster.
-
-## Learn more

@@ -60,7 +60,7 @@ no outstanding configuration is required.
 
 When deploying a release containing an Update Argo CD Applications Manifest step, Octopus will:
 * Collect input-templates configured in the step
-* Populate the templates with Octopus [variables](/docs/best-practices/deployments/variables.md)
+* Populate the templates with Octopus [variables](/docs/best-practices/deployments/variables)
 * For each mapped Argo CD Application
   * Clone each source repository
   * Copy populated templates into the source repository
