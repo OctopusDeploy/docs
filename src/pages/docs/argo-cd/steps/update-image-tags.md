@@ -29,7 +29,7 @@ This step will execute on a worker of your choosing - if required it can run wit
 
 ### Inputs
 2. Specify the Container Images which are to be updated  in your Argo Application.
-`Note`: These packages can then be used in an [External Feed trigger](/doc/projects/project-triggers/external-feed-triggers), such that your cluster is automatically updated when new image versions become available.
+`Note`: These packages can then be used in an [external feed trigger](/docs/projects/project-triggers/external-feed-triggers), such that your cluster is automatically updated when new image versions become available.
 
 
 ### Outputs
