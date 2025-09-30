@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
-title: Update Argo Image Tags
+title: Update Argo CD Image Tags
 description: Deployment steps to modify your Argo CD Applications
 navOrder: 30
 ---
@@ -28,8 +28,8 @@ Add the `Update Argo CD Image Tags` step to the project, and provide it a name.
 This step will execute on a worker of your choosing - if required it can run within a container on the worker, though this should not be necessary.
 
 ### Inputs
-2. Specify the Container Images which are to be updated in your Argo Application.
-`Note`: These packages can then be used in an External Feed trigger, such that your cluster is automatically updated when new image versions become available.
+2. Specify the Container Images which are to be updated  in your Argo Application.
+`Note`: These packages can then be used in an [External Feed trigger](/doc/projects/project-triggers/external-feed-triggers.md), such that your cluster is automatically updated when new image versions become available.
 
 
 ### Outputs
@@ -62,3 +62,5 @@ When deploying the release, Octopus will:
   * If the source is a helm chart
     * The image fields are extracted from the [Helm Annotations](/docs/argo-cd/annotations/helm-annotations.md)
     * The matching image-tags in the `values.yaml` are replaced with container image versions configured in the step's inputs.
+  * Changed files are commited, and pushed back to the repo/branch as specified in the Argo CD Application
+    * A PR will be created (rather than merging to the targetRevision branch) if configured in the step UI 

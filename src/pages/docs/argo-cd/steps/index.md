@@ -2,11 +2,11 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
-title: Update Argo Manifest
+title: Overview
 description: Deployment steps to modify your Argo CD Applications
-navOrder: 30
+navOrder: 10
 navSection: Deployment Steps
-navTitle: Update Argo Manifest
+navTitle: Overview
 ---
 Octopus offers two in-built steps which are able to modify a mapped Argo CD application in different ways:
 
