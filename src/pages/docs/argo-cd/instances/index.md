@@ -74,27 +74,11 @@ If left open, the installation dialog waits for the gateway to establish a conne
 A successful health check indicates that the gateway can successfully connect to the target Argo CD instance and is communicating with Octopus Server.
 :::
 
-
 ### Health Checks and Updating
 
 Octopus performs health checks on the gateway in a manner similar to that used for workers and deployment targets.
 
 The gateway uses an internal cronjob to ensure it is always running the latest version.
-
-## System Configuration`
-
-Before executing deployment processes against your Argo CD Applications the relationship between Octopus Projects/Environments/Tenants
-and Argo CD Applications must be defined. This is to solve the problem:
-
-`When I deploy Project-X to Staging environment - which Argo CD Application should be updated?`
-
-To answer this, Octopus requires additional 'Scoping' annotations be added to your Argo CD Applications:
-* argo.octopus.com/project <-- the _slug_ of the Octopus project responsible for updating the application
-* argo.octopus.com/environment <-- the _slug_ of the Octopus environment this application is part of 
-* argo.octopus.com/tenant <-- the _slug_ of the Octopus tenant representing this application (optional)
-
-Additional annotations are required when 'Updating Image tags in a helm chart', and are documented as part of the deployment
-step process (TODO: add link)
 
 ## Status Display
 Your connected 'Argo CD Instances' appear under the Octopus' Infrastructure menu.
@@ -103,3 +87,8 @@ These pages allow you to:
 * View known Argo Applications, and how they map to Octopus project/environment/tenants
 * View connectivity and health related data of the instance and gateway
 
+## Next steps
+
+After the gateway has been configured, you need to define the relationships between Argo CD Applications and Octopus Projects, Environments and/or Tenants.
+
+See [Scoping Annotations](/docs/argo-cd/annotations) for more information
