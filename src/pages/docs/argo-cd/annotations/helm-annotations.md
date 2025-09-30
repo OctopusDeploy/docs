@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
-title: Helm Image Update Annotations
+title: Helm Image Tags Annotations
 description: What annotations are required to
 navTitle: Helm Annotations
 hideInThisSectionHeader: true
@@ -39,9 +39,190 @@ As the structure of Helm values files can vary widely between charts, it's neces
 
 The annotations are:
 
-| Annotation                                     | Alias required | Required | Value description                                                                |
-|------------------------------------------------|----------------|----------|----------------------------------------------------------------------------------|
-| `argo.octopus.com/image-replace-paths.{alias}` | false          | true     | A Helm-template style string that builds a full qualified image name             |
-| `argo.octopus.com/image-replace-alias.{alias}` | true           | false    | The path of a ValueFiles entry in the `spec.destinations.helm.valuesFiles` field |
+| Annotation                                     | Alias required | Required | Value description                                                                             |
+|------------------------------------------------|----------------|----------|-----------------------------------------------------------------------------------------------|
+| `argo.octopus.com/image-replace-paths.{alias}` | false          | true     | A comma-delimited Helm-template style string that builds a list of full qualified image names |
+| `argo.octopus.com/image-replace-alias.{alias}` | true           | false    | The path of a ValueFiles entry in the `spec.destinations.helm.valuesFiles` field              |
 
-## Further details
+## Details
+
+For Octopus to be able to update the tag of a container image, it must know the fully qualified name, including the registry. An example of a fully qualified name is: `docker.io/nginx/nginx:1.29.1`.
+This is important so that Octopus doesn't erroneously update an image from a different registry. For example: images may be set to be sourced from a company-managed registry, where only vetted & tested tags are added. 
+In this case, we don't want to update an image that looks like this: `my-company-registry.com/nginx/nginx:1.18.1`.
+
+As described above however, the structure of Helm values files can vary significantly. Rather than Octopus guessing (and possibly making a mistake), the onus is on you to specify a Helm-template string that builds a fully qualified name.
+Octopus can then use this to match on containers being updated and can then use this information to update the specific Helm value that contains the image tag. 
+
+## Examples
+
+### Image path templates
+
+The following is some examples of how to format the Helm-templated string to put into the `argo.octopus.com/image-replace-paths.{alias}` annotation based on different values file structures.
+
+#### Example 1
+
+**values.yaml**
+
+```yaml
+...
+agent:
+  image:
+    repository: octopusdeploy/kubernetes-agent-tentacle
+    pullPolicy: IfNotPresent
+    tag: "8.3.3244"
+    tagSuffix: ""
+...
+```
+
+**annotation value**
+
+```yaml
+metadata:
+  annotations:
+    argo.octopus.com/image-replace-paths: "docker.io/{{ .Values.agent.image.repository }}:{{ .Values.agent.image.tag }}"
+```
+
+#### Example 2
+
+**values.yaml**
+
+```yaml
+...
+global:
+  image:
+    registry: custom-registry.com
+    repositoryAndTag: octopusdeploy/kubernetes-agent-tentacle:8.3.3244
+    pullPolicy: IfNotPresent
+    tagSuffix: ""
+...
+```
+
+**annotation value**
+
+```yaml
+metadata:
+  annotations:
+    argo.octopus.com/image-replace-paths: "{{ .Values.global.image.registry }}/{{ .Values.global.image.repositoryAndTag }}"
+```
+
+### Ref sources and alias examples
+
+The following is a list of example Argo CD Application structures, the required annotations and sample values files.
+
+#### Example 1
+
+With a single values file and a single Helm source, we don't need the `alias` in the paths
+
+**application manifest**
+```yaml
+...
+metadata:
+  annotations:
+    argo.octopus.com/project: "proj-1"
+    argo.octopus.environment: "development"
+
+    # When there is a single source, with a single inline file, we use a single annotation to specify call paths
+    argo.octopus.com/image-replace-paths: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.another-image.name }}"
+...
+spec:
+  sources:    
+    - repoURL: https://github.com/my-org/my-argo-helm-app
+      path: "chart"
+      targetRevision: main
+      helm:
+        valueFiles:
+          - values.yaml
+```
+
+**values.yaml**
+```yaml
+image:
+  name: nginx/nginx
+  version: 1.19.0
+
+another-image:
+  name: busybox:1
+```
+
+#### Example 2
+
+A single Ref source used to source the values.yaml for the Helm source. In this scenario, the `alias` is the same as the `ref` value
+
+```yaml
+...
+metadata:
+  annotations:
+    argo.octopus.com/project: "proj-1"
+    argo.octopus.environment: "development"
+
+    argo.octopus.com/image-replace-paths.remote-values: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.another-image.name }}"
+...
+spec:
+  sources:    
+    - repoURL: https://github.com/my-org/my-argo-helm-app
+      path: "chart"
+      targetRevision: main
+      helm:
+        valueFiles:
+          - $remote-values/values.yaml
+
+    - repoURL: https://github.com/another-repo/values-files-here
+      targetRevision: main
+      ref: remote-values
+```
+
+**values.yaml**
+```yaml
+image:
+  name: nginx/nginx
+  version: 1.19.0
+
+another-image:
+  name: busybox:1
+```
+
+#### Example 3
+
+A Helm source that references both a ref source values file and also an in-repo value file
+
+```yaml
+...
+metadata:
+  annotations:
+    argo.octopus.com/project: "proj-1"
+    argo.octopus.environment: "development"
+
+    argo.octopus.com/image-replace-alias.core: "app-files/values.yaml"
+    argo.octopus.com/image-replace-alias.remote: "$remote-values/values.yaml"
+
+    argo.octopus.com/image-replace-paths.core: "{{ .Values.image.name}}:{{ .Values.image.version}}"
+    argo.octopus.com/image-replace-paths.remote: "{{ .Values.different.structure.here.image }}"
+...
+spec:
+  sources:    
+    - repoURL: https://github.com/my-org/my-argo-helm-app
+      path: "chart"
+      targetRevision: main
+      helm:
+        valueFiles:
+          - app-files/values.yaml
+          - $remote-values/values.yaml
+
+    - repoURL: https://github.com/another-repo/values-files-here
+      targetRevision: main
+      ref: remote-values
+```
+
+**app-files/values.yaml**
+```yaml
+image:
+  name: nginx/nginx
+  version: 1.19.0
+```
+**$remote-values/values.yaml**
+```yaml
+different:
+  structure:
+    here:
+      image: busybox:1
+```
