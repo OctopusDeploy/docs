@@ -54,4 +54,11 @@ When a release of the project is created, the versions of packages referenced in
 release.
 
 When deploying the release, Octopus will:
-*
+* For each annotation-mapped application (all apps with relevant scoping annotations)
+  * Checkout each repository using git credentials determined via [Git AllowListing](docs/infrastructure/git-credentials#repository-restrictions)
+  * If the source is kubernetes raw yaml
+    * Search k8s resources which are known to reference images (does not look into other CRDs)
+    * If a resource references an image from the set configured in the step's inputs - the image tag is updated to match that in the release
+  * If the source is a helm chart
+    * The image fields are extracted from the [Helm Annotations](/docs/argo-cd/annotations/helm-annotations.md)
+    * The matching image-tags in the `values.yaml` are replaced with container image versions configured in the step's inputs.
