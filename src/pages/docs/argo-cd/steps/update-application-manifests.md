@@ -25,8 +25,8 @@ This step will execute on a worker of your choosing - if required it can run wit
 
 ### Inputs
 2. Specify the set of input template files which can be sourced from either:
-* A git repository (requires URL, credentials and branchname), or a
-* Package from a configured feed (eg a zipfile, nuget package etc)
+* A git repository (requires URL, credentials and branch-name), or a
+* Package from a configured feed (eg a zip file, nuget package etc)
 
 3. Specify the "Input Path"
 * A subfolder (or file) within the previously specified repository/package which contains the template files to be used
@@ -48,7 +48,7 @@ The output section allows you to configure how changes are to be merged into you
 3. Git Commit Method specifies _how_ changes are merged - merging directly into the repo, or going via a PR.
     * A third option exists whereby you can specify which environments should use PRs, with all others falling back to a direct commit
     * This is useful if your Production environment requires PRs, but early environments do not.
-4. Purge Output Folder allows you to clear the `Path` diretory of the Argo CD Application's repository prior to adding newly templated files.
+4. Purge Output Folder allows you to clear the `Path` directory of the Argo CD Application's repository prior to adding newly templated files.
     * This can be useful when resources have been removed from your input-templates, but also need to be removed from the target repository.
 
 ## Creating and Deploying a Release
@@ -64,5 +64,5 @@ When deploying a release containing an Update Argo CD Applications Manifest step
 * For each mapped Argo CD Application
   * Clone each source repository
   * Copy populated templates into the source repository
-  * Changed files are commited, and pushed back to the repo/branch as specified in the Argo CD Application
+  * Changed files are committed, and pushed back to the repo/branch as specified in the Argo CD Application
       * A PR will be created (rather than merging to the targetRevision branch) if configured in the step UI

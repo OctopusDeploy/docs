@@ -22,19 +22,19 @@ There are a number of use cases which Octopus _cannot_ support due to data acces
 
 
 ## Update Argo Manifest Step
-| Argo Source Type | Repository Content | Behaviour                                                                                 |
-|------------|----------------|-------------------------------------------------------------------------------------------|
-| Directory | Kubernetes Yaml | &#x2705; Will successfully inject Octopus variables to the yaml                           |
-| Directory | Kubernetes Yaml | &#x2705; Will successfully inject Octopus variables to the yaml                           |
-| Diretory | Helm Chart | &#x2705; Will successfully inject variables to any file in the repository's path          |     
-| Multiple Directory | * | &#x1F7E1; Will write the _same_ content to both sources, in respective paths              |
+| Argo Source Type | Repository Content | Behavior                                                                                 |
+| Argo Source Type | Repository Content | Behavior                                                                                 |
+|------------|----------------|------------------------------------------------------------------------------------------|
+| Directory | Kubernetes Yaml | &#x2705; Will successfully inject Octopus variables to the yaml                          |
+| Directory | Kubernetes Yaml | &#x2705; Will successfully inject Octopus variables to the yaml                          |
+| Directory | Helm Chart | &#x2705; Will successfully inject variables to any file in the repository's path         |     
+| Multiple Directory | * | &#x1F7E1; Will write the _same_ content to both sources, in respective paths             |
 | Helm | Helm Chart | &#x274C; Not currently supported - work coming to update *referenced* `values.yaml` files |
 
 ## Update Argo Image Tags
-| Argo Source Type     | Repository Content       | Behaviour                                                                                                    |
-|----------------------|--------------------------|--------------------------------------------------------------------------------------------------------------|
-| Directory            | Kubernetes Yaml          | &#x2705; Will update image-tag fields without requiring additional annotations                               |
+| Argo Source Type     | Repository Content       | Behavior                                                                                                    |
+|----------------------|--------------------------|-------------------------------------------------------------------------------------------------------------|
+| Directory            | Kubernetes Yaml          | &#x2705; Will update image-tag fields without requiring additional annotations                              |
 | Directory            | Helm Chart w/values.yaml | &#x2705; Will update image-tag fields, will require helm-annotations to identify image-fields in values file |
 | Multiple Directories | Helm Char w/referenced values.yaml | &#x2705; Will update image-tag fields, will require multiple helm annotations|
-| Hel
 

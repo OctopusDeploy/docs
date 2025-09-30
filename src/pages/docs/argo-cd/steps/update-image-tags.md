@@ -62,5 +62,5 @@ When deploying the release, Octopus will:
   * If the source is a helm chart
     * The image fields are extracted from the [Helm Annotations](/docs/argo-cd/annotations/helm-annotations.md)
     * The matching image-tags in the `values.yaml` are replaced with container image versions configured in the step's inputs.
-  * Changed files are commited, and pushed back to the repo/branch as specified in the Argo CD Application
+  * Changed files are committed, and pushed back to the repo/branch as specified in the Argo CD Application
     * A PR will be created (rather than merging to the targetRevision branch) if configured in the step UI 
