@@ -3,9 +3,8 @@ layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
 title: Supported Use Cases
-description: Helpful examples to get you going
+description: How to make the most of Octopus/Argo integrations
 navOrder: 40
-hideInThisSectionHeader: true
 ---
 
 Initially setting up Octopus to interact with your Argo CD instance(s) can be complex, and the best way to accomplish
