@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-30
-modDate: 2025-09-23
+modDate: 2025-10-01
 title: Installing the Public Preview of Platform Hub
 subtitle: Guide for installing a pre-release version of Octopus server
 icon: fa-solid fa-layer-group
@@ -16,7 +16,7 @@ navOrder: 33
 :::div{.hint}
 Update September 30:
 
-Unfortunately, we've hit some delays releasing process templates and policies to a pre-release version of Octopus server. We are working hard to put together a release for customers to adopt shortly, please keep checking this page for updates.
+We're rolling out Platform Hub to our customers slowly over the next week. We expect to have the download ready for customers by the end of this week or early next week. Please keep checking this page for updates.
 :::
 
 Self-hosted customers can install a pre-release version of Octopus Server containing Process Templates and Policies from September 30. Please visit this page on September 30 for a download and installation guide.
