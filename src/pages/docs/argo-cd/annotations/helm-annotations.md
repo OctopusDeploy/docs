@@ -111,7 +111,7 @@ The following is a list of example Argo CD Application structures, the required 
 
 #### Example 1
 
-With a single values file and a single Helm source, we don't need the `alias` in the paths
+With a single values file and a single Helm source, we don't need the `alias` in the paths.
 
 **application manifest**
 ```yaml
@@ -146,7 +146,7 @@ another-image:
 
 #### Example 2
 
-A single Ref source used to source the values.yaml for the Helm source. In this scenario, the `alias` is the same as the `ref` value
+A single Ref source used to source the values.yaml for the Helm source. In this scenario, the `alias` is the same as the `ref` value.
 
 ```yaml
 ...
@@ -183,7 +183,7 @@ another-image:
 
 #### Example 3
 
-A Helm source that references both a ref source values file and also an in-repo value file
+A Helm source that references both a ref sourced values file and also an in-repo value file.
 
 ```yaml
 ...
@@ -220,6 +220,197 @@ image:
   version: 1.19.0
 ```
 **$remote-values/values.yaml**
+```yaml
+different:
+  structure:
+    here:
+      image: busybox:1
+```
+
+#### Example 4
+
+A Helm source that references multiple values files from the source repo.
+
+```yaml
+...
+metadata:
+  annotations:
+    argo.octopus.com/project: "proj-1"
+    argo.octopus.environment: "development"
+
+    # When there are multiple sources, we need an annotation to tell us which file path annotations belong to (Note: the actual name of the alias can be arbitrary)
+    # if an alias is not provided for a path, that values file will be ignored
+    argo.octopus.com/image-replace-alias.core: "app-files/values.yaml"
+    argo.octopus.com/image-replace-alias.overlay: "app-files/values-overlay.yaml"
+
+    argo.octopus.com/image-replace-paths.core: "{{ .Values.image.name}}:{{ .Values.image.version}}"
+    argo.octopus.com/image-replace-paths.overlay: "{{ .Values.different.structure.here.image }}"
+...
+spec:
+  sources:    
+    - repoURL: https://github.com/my-org/my-argo-helm-app
+      path: "chart"
+      targetRevision: main
+      helm:
+        valueFiles:
+          - app-files/values.yaml
+          - app-files/values-overlay.yaml
+```
+
+**app-files/values.yaml**
+```yaml
+image:
+  name: nginx/nginx
+  version: 1.19.0
+```
+**$remote-values/values-overlay.yaml**
+```yaml
+different:
+  structure:
+    here:
+      image: busybox:1
+```
+
+#### Example 5
+
+A Helm source that has multiple ref sourced values files.
+
+```yaml
+...
+metadata:
+  annotations:
+    argo.octopus.com/project: "proj-1"
+    argo.octopus.environment: "development"
+
+    argo.octopus.com/image-replace-paths.other-values: "{{ .Values.another-image.name }}"
+    argo.octopus.com/image-replace-paths.remote-values: "{{ .Values.image.name}}:{{ .Values.image.version}}"
+...
+spec:
+  sources:
+    - repoURL: https://github.com/main-repo/values-files-here
+      targetRevision: main
+      ref: other-values
+
+    - repoURL: https://github.com/another-repo/values-files-here
+      targetRevision: main
+      ref: remote-values
+
+    - repoURL: https://github.com/my-repo/my-argo-app
+      path: "./"
+      targetRevision: main
+      helm:
+        valueFiles:
+          - $other-values/values.yaml
+          - $remote-values/values.yaml
+```
+
+**$remote-values/values.yaml**
+```yaml
+image:
+  name: nginx/nginx
+  version: 1.19.0
+```
+**$other-values/values.yaml**
+```yaml
+another-image:
+  name: busybox:1
+```
+
+#### Example 6
+
+Multiple Helm sources with a same values file path in both sources.
+
+Note: The alias requires a fully qualified repo path in the format: `{repoUrl}/{targetRevision}/{path}/{valuesFile}`.
+
+```yaml
+...
+metadata:
+  annotations:
+    argo.octopus.com/project: "proj-1"
+    argo.octopus.environment: "development"
+
+    argo.octopus.com/image-replace-alias.app1: "https://github.com/my-repo/my-argo-app/main/values.yaml"
+    argo.octopus.com/image-replace-alias.app2: "https://github.com/my-repo/my-other-argo-app/main/cool/values.yaml"
+
+    argo.octopus.com/image-replace-paths.app1: "{{ .Values.image.name}}:{{ .Values.image.version}}"
+    argo.octopus.com/image-replace-paths.app2: "{{ .Values.different.structure.here.image }}"
+...
+spec:
+  sources:
+    - repoURL: https://github.com/my-repo/my-argo-app
+      path: "./"
+      targetRevision: main
+      helm:
+        valueFiles:
+          - values.yaml
+
+    - repoURL: https://github.com/my-repo/my-other-argo-app
+      path: "cool"
+      targetRevision: main
+      helm:
+        valueFiles:
+          - values.yaml
+```
+
+**<span>https://</span>github.com/my-repo/my-argo-app/main/values.yaml**
+```yaml
+image:
+  name: nginx/nginx
+  version: 1.19.0
+```
+**<span>https://</span>github.com/my-repo/my-other-argo-app/main/cool/values.yaml**
+```yaml
+different:
+  structure:
+    here:
+      image: busybox:1
+```
+
+#### Example 7
+
+Multiple Helm sources that reference different values files from the same ref source.
+
+```yaml
+...
+metadata:
+  annotations:
+    argo.octopus.com/project: "proj-1"
+    argo.octopus.environment: "development"
+
+    argo.octopus.com/image-replace-alias.shared1: "$shared-values/some-path/values.yaml"
+    argo.octopus.com/image-replace-alias.shared2: "$shared-values/another-path/values.yaml"
+
+    argo.octopus.com/image-replace-paths.shared1: "{{ .Values.image.name}}:{{ .Values.image.version}}"
+    argo.octopus.com/image-replace-paths.shared2: "{{ .Values.different.structure.here.image }}"
+...
+spec:
+  sources:
+    - repoURL: https://github.com/another-repo/shared-values-files-here
+      targetRevision: main
+      ref: shared-values
+
+    - repoURL: https://github.com/my-repo/my-argo-app-be
+      path: "app-files"
+      targetRevision: main
+      helm:
+        valueFiles:
+          - $shared-values/some-path/values.yaml
+
+    - repoURL: https://github.com/my-repo/my-argo-app-fe
+      path: "app-files"
+      targetRevision: main
+      helm:
+        valueFiles:
+          - $shared-values/another-path/values.yaml
+```
+
+**$shared-values/some-path/values.yaml**
+```yaml
+image:
+  name: nginx/nginx
+  version: 1.19.0
+```
+**$shared-values/another-path/values.yaml**
 ```yaml
 different:
   structure:
