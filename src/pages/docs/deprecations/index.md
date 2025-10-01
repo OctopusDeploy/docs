@@ -23,6 +23,16 @@ Deprecations are subject to change in detail or time frame. If you need help ass
 
 ## Planned Deprecations
 
+## Deprecations for 2025.3
+
+### Removing support on Linux self-hosted and Cloud for SHA-1 certificates in Octopus Tentacles
+
+Starting in Octopus 2025.3, Tentacle instances using SHA‑1 certificates will no longer be supported. SHA‑1 is an outdated hashing algorithm with known security weaknesses, and modern security standards recommend stronger alternatives such as SHA‑256.
+
+If any of your deployment targets are running Tentacles with SHA‑1 certificates, they will be unable to connect to your Octopus Server after upgrading to 2025.3. We recommend updating your Tentacle certificates to SHA‑256 before upgrading.
+
+For background, migration guidance, and a detailed timeline, please see our blog post: [Removing support for SHA‑1 certificates in Octopus Tentacles](https://octopus.com/blog/removing-sha1-tentacles).
+
 ## Deprecations for 2025.2
 
 ### Defaulting C# scripting to dotnet-script
