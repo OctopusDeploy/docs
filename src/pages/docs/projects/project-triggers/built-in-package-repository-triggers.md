@@ -6,6 +6,8 @@ title: Built-in package repository triggers
 icon: fa-solid fa-box
 description: Built-in package repository triggers allows you to automatically create a new release when a new package is pushed to the built-in package repository.
 navOrder: 15
+navTitle:
+nav
 ---
 
 Formerly known as ***Automatic Release Creation***. Functionality remains the same.
