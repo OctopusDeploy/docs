@@ -52,6 +52,10 @@ kubectl config view
 
 At the end of the wizard, Octopus generates a Helm command that you copy and paste into a terminal connected to the target cluster. After it's executed, Helm installs all the required resources and starts the gateway.
 
+:::div{.hint}
+Full documentation for the Octopus Argo CD Gateway Helm chart values can be found in this [Github repository](https://github.com/OctopusDeploy/octopus-argocd-gateway-chart-docs/tree/main)
+:::
+
 :::figure
 ![Octopus Argo CD Gateway Wizard Helm command Page](/docs/img/argo-cd/gateway-wizard-helm-comand.png)
 :::
