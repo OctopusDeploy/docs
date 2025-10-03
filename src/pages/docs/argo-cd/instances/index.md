@@ -165,7 +165,7 @@ oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 
 ## Deleting an Octopus Argo CD Gateway
 When removing a Gateway two operations are required:
-1. Unregister the gateway with Octopus Server
+1. Deregister the gateway from Octopus Server
 2. Remove the application from your cluster
 
 The Octopus UI allows you to perform both of these operations.
