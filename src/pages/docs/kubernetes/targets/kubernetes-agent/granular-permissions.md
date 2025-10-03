@@ -7,7 +7,7 @@ description: Define Kubernetes RBAC for your Kubernetes agent deployment based o
 navOrder: 99
 ---
 
-Kubernetes offers a RBAC system to lock down what Kubernetes objects your workloads can create and access. The Kubernetes agent supports setting a [single ServiceAccount](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/permissions) for your script pods during installation, but this does not fit all use cases.
+Kubernetes offers a RBAC system to lock down what Kubernetes objects your workloads can create and access. The Kubernetes agent supports setting a [single service account](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/permissions) for your script pods during installation, but this does not fit all use cases.
 
 If you are sharing a cluster between teams and/or environments, granular Kubernetes agent permissions can help lock down your cluster without creating a Kubernetes agent per permission set.
 
@@ -15,7 +15,11 @@ Granular Kubernetes agent permissions works by having the cluster admin create o
 
 ## How does it work?
 
-TODO: You create WSAs, OPC reads WSAs to create SA, Script pods get assigned an SA based on the scope
+For each namespace you are deploying to in your Kubernetes cluster, you'll create a `WorkloadServiceAccount` that specifies the which spaces, projects, environments and/or tenants are allowed to act under a set of permissions.
+
+When you don't create a `WorkloadServiceAccount` with a matching scope for your deployment, the default script pod permissions configured during installation of the Kubernetes agent will be used instead.
+
+Once you've added your `WorkloadServiceAccounts`, Octopus will handle assigning permissions transparently.
 
 ## How do I use it?
 
@@ -27,7 +31,9 @@ Only a single Octopus Permissions Controller is required per cluster.
 
 ### Workload Service Accounts
 
+```yaml
 TODO: Example WSA
+```
 
 #### Creating Workload Service Accounts
 
@@ -71,7 +77,11 @@ Not all permissions exist in a vacuum and we don't want to repeat ourselves too 
 
 When a workload with a particular scope matches multiple `WorkloadServiceAccount` scopes, the permissions are combined and both applied to a single `ServiceAccount`.
 
+A deployment workload can access two namespaces in a single step by matching the scope of two or more `WorkloadServiceAccounts` that are spread across namespaces.
+
+```yaml
 TODO: Example
+```
 
 ### Running deployments
 
@@ -121,7 +131,7 @@ TODO:
 
 ### How does it work under the covers
 
-OPC is in charge of several duties:
+Octopus Permissions Controller is in charge of several duties:
 - Managing the lifecycle of `WSAs`
 - Creating roles, role bindings and service accounts as defined by your `WSAs`
 - Applying service accounts to your Kubernetes agent script pods that run your deployment workloads
@@ -142,11 +152,20 @@ As we deploy Octopus Permissions Controller as a Helm chart, you can use any met
 
 ### Installing on a cluster with existing agents
 
-TODO: Mention default permissions
+Octopus Permissions Controller can be installed on a cluster with existing Kubernetes agents and it will immediately start applying permissions from matching `WorkloadServiceAccounts`.
 
+It is highly recommended that you update each of your agents default script pod permissions to be more restrictive. If a matching `WorkloadServiceAccount` is found, it will correctly apply restricted permissions, but any misconfiguration that results in no matching `WorkloadServiceAccount` could result in your deployment having more permissive permissions than intended.
 
 ## Troubleshooting
 
-TODO:
-- Health check for active OPC
-- Deployment logs for applied scope
+### Is Octopus Permissions Controller operational?
+
+Octopus Permissions Controller will report it's status via the health check each of the Kubernetes agents on the same cluster performs.
+
+TODO: Image
+
+### Expected permissions are not being applied to script pods
+
+TODO: Checking what scope was applied via deployment logs
+TODO: Checking what WSAs contributed to the SA
+TODO: Example
