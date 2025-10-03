@@ -14,7 +14,7 @@ The following instructions can be followed to configure the `Update Argo CD Imag
 
 :::div{.info}
 When deploying a Helm Chart with multiple values files, specific annotations must be added to your Argo CD Application to
-ensure the correct sections of the relevant values files are updated. See [Annotations](/docs/argo-cd/anootations/helm-annotations) for
+ensure the correct sections of the relevant values files are updated. See [Helm Annotations](/docs/argo-cd/annotations/helm-annotations) for
 more information.
 :::
 
