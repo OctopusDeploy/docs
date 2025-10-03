@@ -7,7 +7,7 @@ description: Inject Octopus Variables into manifests to unlock lifecycle promoti
 navOrder: 30
 ---
 
-The Update ARgo CD Application Manifests step is responsible for generating a set of Argo CD Application manifests from
+The Update Argo CD Application Manifests step is responsible for generating a set of Argo CD Application manifests from
 a set of [Octostache](https://github.com/OctopusDeploy/Octostache) template files, which have been populated with Octopus variables.
 
 The following provides instructions around how to configure an Update Manifests step, constraints on its usage and

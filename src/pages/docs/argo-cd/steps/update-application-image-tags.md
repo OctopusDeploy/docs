@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
-title: Update Argo CD Image Tags
+title: Update Argo CD Application Image Tags
 description: Deployment steps to modify your Argo CD Applications
 navOrder: 30
 ---
@@ -28,6 +28,7 @@ Add the `Update Argo CD Image Tags` step to the project, and provide it a name.
 This step will execute on a worker of your choosing - if required it can run within a container on the worker, though this should not be necessary.
 
 ### Inputs
+
 2. Specify the Container Images which are to be updated  in your Argo Application.
 `Note`: These packages can then be used in an [external feed trigger](/docs/projects/project-triggers/external-feed-triggers), such that your cluster is automatically updated when new image versions become available.
 
