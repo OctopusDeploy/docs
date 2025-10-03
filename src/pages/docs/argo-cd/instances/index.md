@@ -138,12 +138,12 @@ oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 :::
 
 #### No Certificate
-If you are running your Argo CD instance without a certificate due to terminating SSL at a loadbalancer level the Gateway will likely fail to connect with the following error: 
+If you are running your Argo CD instance without a certificate due to terminating SSL at a load balancer level the Gateway will likely fail to connect with the following error: 
 ```
 transport: authentication handshake failed: EOF
 ```
 
-This is because the Gateway is configured by default to require encrypted traffic, if it is intented that you don't have a certificate you can disable encryption between the Gateway and Argo CD by doing the following: 
+This is because the Gateway is configured by default to require encrypted traffic, if it is intended that you don't have a certificate you can disable encryption between the Gateway and Argo CD by doing the following: 
 ```bash
 helm upgrade --atomic \
 --version "1.0.0" \
