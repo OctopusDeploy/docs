@@ -7,13 +7,18 @@ description:
 navOrder: 1
 ---
 
+Below are some typical example use cases that might give you a good starting point to experiment with the Octopus Deploy MCP server.
+
+We are eager to hear how you use it and what features you would like to see included in future versions.
+
 ## Capability: Change Management
 
 Reason about what changes have been deployed where, to help you understand what your customers are using in production.
 
-Example: Quickly find out what version of your software a customer, represented by a Tenant, is running in Production, and identify if there were any issues with their most recent deployment.
+### Production Version Tracking
+Quickly find out what version of your software a customer, represented by a Tenant, is running in Production, and identify if there were any issues with their most recent deployment.
 
-### 📝 Prompt
+#### 📝 Example Prompt
 
 ```
 Customer X have submitted a support ticket complaining that there is a bug in the latest release of App. Can you tell me what release they are on, when it was deployed, and if there were any issues with the deployment?
@@ -23,15 +28,17 @@ Customer X have submitted a support ticket complaining that there is a bug in th
 
 Get to the root cause of failures or unhealthy deployment targets, allowing you to more quickly recover from failures.
 
-Example: Check for failed deployments or unhealthy kubernetes workloads, analyze the failure reasons and suggest solutions.
+### Deployment Health Analysis
 
-### 📝 Prompt
+Check for failed deployments or unhealthy kubernetes workloads, analyze the failure reasons and suggest solutions.
+
+#### 📝 Example Prompt
 
 ```
 Check health of the {ServiceName} service in the {SpaceName} space and report any issues found, check status of kubernetes services to produce a comprehensive report
 ```
 
-### 💡 Tips for customizing
+#### 💡 Tips for customizing
 
 - Prompt for kubernetes status to trigger kubernetes [live object status](/docs/kubernetes/live-object-status) check
 
@@ -39,17 +46,21 @@ Check health of the {ServiceName} service in the {SpaceName} space and report an
 
 Ensure your Octopus instance is in optimal shape, and that deployments continue to execute happily and healthily.
 
-Example: Identify unhealthy resources, expiring certificates or find unused projects in your Octopus instance.
+### Certificate Expiry Monitoring
+ 
+Identify unhealthy resources, expiring certificates or find unused projects in your Octopus instance.
 
-### 📝 Prompt
+#### 📝 Example Prompt
 
 ```
 Find certificates soon set to expire in {SpaceName} space
 ```
 
-Example: Find configured resources in your Octopus instance and check if they have access to the desired targets.
+### Resource Access Validation
 
-### 📝 Prompt
+Find configured resources in your Octopus instance and check if they have access to the desired targets.
+
+#### 📝 Example Prompt
 
 ```
  Check accounts configured in {SpaceName} space in my Octopus instance, find the preproduction azure account and then check which resources are available in that subscription using the azure mcp
