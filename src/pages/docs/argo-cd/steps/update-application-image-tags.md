@@ -43,7 +43,7 @@ The output section allows you to configure how changes are to be merged into you
 3. Git Commit Method specifies _how_ changes are merged - merging directly into the repo, or going via a PR.
    * A third option exists whereby you can specify which environments should use PRs, with all others falling back to a direct commit
    * This is useful if your Production environment requires PRs, but early environments do not.
-:::div{.info}
+:::div{.warning}
 At this time, PRs can only be created for GitHub based repositories, work is coming to support other platforms.
 :::
 

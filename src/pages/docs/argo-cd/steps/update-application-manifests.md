@@ -17,21 +17,16 @@ how it executes.
 Add the `Update Argo CD Application Manifests` step to the project, and provide it a name.
 
 ## Provide the required configuration
-
-
 1. Specify an execution location
-
-This step will execute on a worker of your choosing - if required it can run within a container on the worker, though this should not be necessary.
-
+  * This step will execute on a worker of your choosing, if required it can run within a container on the worker, though this should not be necessary.
 ### Inputs
 1. Specify the set of input template files which can be sourced from either:
-* A git repository (requires URL, credentials and branch-name), or a
-* Package from a configured feed (eg a zip file, nuget package etc)
-
-2Specify the "Input Path"
-* A subfolder (or file) within the previously specified repository/package which contains the template files to be used
-  * If the string entered is a directory, all files (recursively) within that directory are considered templates
-  * If the string entered is a single file - only that file will be considered a template.
+   * A git repository (requires URL, credentials and branch-name), or a
+   * Package from a configured feed (eg a zip file, nuget package etc)
+2. Specify the "Input Path"
+   * A subfolder (or file) within the previously specified repository/package which contains the template files to be used
+   * If the string entered is a directory, all files (recursively) within that directory are considered templates
+   * If the string entered is a single file - only that file will be considered a template.
 :::div{.info}
 A single file will be copied into the _root_ directory of the Path defined in the mapped Argo CD Application.
 When a directory is specified, the structure below the specified path is maintained when moving files into the Argo CD Application's repository.
@@ -48,13 +43,12 @@ The output section allows you to configure how changes are to be merged into you
 3. Git Commit Method specifies _how_ changes are merged - merging directly into the repo, or going via a PR.
     * A third option exists whereby you can specify which environments should use PRs, with all others falling back to a direct commit
     * This is useful if your Production environment requires PRs, but early environments do not.
-:::div{.info}
+:::div{.warning}
    At this time, PRs can only be created for GitHub based repositories, work is coming to support other platforms.
 :::
 
 4. Purge Output Folder allows you to clear the `Path` directory of the Argo CD Application's repository prior to adding newly templated files.
     * This can be useful when resources have been removed from your input-templates, but also need to be removed from the target repository.
-
 
 
 ## Creating and Deploying a Release
