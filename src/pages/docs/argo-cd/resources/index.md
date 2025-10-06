@@ -20,20 +20,24 @@ There are a number of use cases which Octopus _cannot_ support due to data acces
     * If your application specifies a constant `TargetRevision`, Octopus will treat it as a branch - and fail to push back to your repository.
 * Octopus cannot update the content of Helm Sources as they typically references a chart from a Helm Repository or OCI feed which is static content.
     * However, if your application is represented as a helm chart _in a directory_, Octopus can interact with the directory content via the applications repository
+* Octopus can create PRs for github based repositories only - support for other platforms is coming in later builds.
+
 
 ## Update Argo Manifest Step
-| Argo Source Type   | Repository Content | Behavior                                                                                  |
-|--------------------|--------------------|-------------------------------------------------------------------------------------------|
-| Directory          | Kubernetes Yaml    | &#x2705; Will successfully inject Octopus variables to the yaml                           |
-| Directory          | Kubernetes Yaml    | &#x2705; Will successfully inject Octopus variables to the yaml                           |
-| Directory          | Helm Chart         | &#x2705; Will successfully inject variables to any file in the repository's path          |     
-| Multiple Directory | *                  | &#x1F7E1; Will write the _same_ content to both sources, in respective paths              |
-| Helm               | Helm Chart         | &#x274C; Not currently supported - work coming to update *referenced* `values.yaml` files |
+| Argo Source Type | Repository Content | Behavior                                                                                  |
+|------------------|--------------------|-------------------------------------------------------------------------------------------|
+| Directory        | Kubernetes Yaml    | &#x2705; Will successfully inject Octopus variables to the yaml                           |
+| Directory        | Kubernetes Yaml    | &#x2705; Will successfully inject Octopus variables to the yaml                           |
+| Directory        | Helm Chart         | &#x2705; Will successfully inject variables to any file in the repository's path          |
+ | Directory | Kustomize |  &#x2705; Will successfully inject variables to any file in the repository's path |
+| Multiple Source  | Any                | &#x274C; Not currently supported - work coming to update specifically referenced sources  |
+| Helm             | Helm Chart         | &#x274C; Not currently supported - work coming to update *referenced* `values.yaml` files |
 
 ## Update Argo Image Tags
-| Argo Source Type     | Repository Content                 | Behavior                                                                                                     |
-|----------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Directory            | Kubernetes Yaml                    | &#x2705; Will update image-tag fields without requiring additional annotations                               |
-| Directory            | Helm Chart w/values.yaml           | &#x2705; Will update image-tag fields, will require helm-annotations to identify image-fields in values file |
-| Multiple Directories | Helm Char w/referenced values.yaml | &#x2705; Will update image-tag fields, will require multiple helm annotations                                |
+| Argo Source Type     | Repository Content                 | Behavior                                                                                                 |
+|----------------------|------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Directory            | Kubernetes Yaml                    | &#x2705; Will update image-tag fields without requiring additional annotations                           |
+| Directory | Kustomize | &#x2705; Will replace image tag values in the kustomize file |
+| Directory            | Helm Chart w/internal values.yaml  | &#x2705; Will update image-tag fields, requires helm-annotations to identify image-fields in values file |
+| Multiple Directories | Helm Char w/referenced values.yaml | &#x2705; Will update image-tag fields, requires multiple helm annotations                                |
 

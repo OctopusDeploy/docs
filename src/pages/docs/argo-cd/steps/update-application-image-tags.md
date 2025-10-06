@@ -29,7 +29,7 @@ This step will execute on a worker of your choosing - if required it can run wit
 
 ### Inputs
 
-2. Specify the Container Images which are to be updated  in your Argo Application.
+1. Specify the Container Images which are to be updated  in your Argo Application.
 `Note`: These packages can then be used in an [external feed trigger](/docs/projects/project-triggers/external-feed-triggers), such that your cluster is automatically updated when new image versions become available.
 
 
@@ -43,6 +43,9 @@ The output section allows you to configure how changes are to be merged into you
 3. Git Commit Method specifies _how_ changes are merged - merging directly into the repo, or going via a PR.
    * A third option exists whereby you can specify which environments should use PRs, with all others falling back to a direct commit
    * This is useful if your Production environment requires PRs, but early environments do not.
+:::div{.info}
+At this time, PRs can only be created for GitHub based repositories, work is coming to support other platforms.
+:::
 
 ## Creating and Deploying a Release
 :::div{.info}
