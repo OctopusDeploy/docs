@@ -172,5 +172,5 @@ The Octopus UI allows you to perform both of these operations.
 
 Navigate to Infrastructure --> Argo CD Instances, and select the instance whose gateway is to be removed.
 
-From the overflow menu, select "Delete" which will display a confirmation dialog containing the helm command which when
+From the overflow menu, select "Delete" which will display a confirmation dialog containing the Helm command which when
 executed will remove the gateway from your cluster.
