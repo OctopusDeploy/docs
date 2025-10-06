@@ -13,6 +13,10 @@ hideInThisSectionHeader: true
 Octopus makes it easy to improve your Argo CD deployments with environment modeling and deployment orchestration. Automate everything 
 from environment promotion and compliance to tests and change management.
 
+:::figure
+![Argo in Octopus Overview](/docs/img/argo-cd/argo-cd-overview.png)
+:::
+
 Argo CD excels at synchronizing manifests to clusters and provides a powerful UI to verify and troubleshoot deployments.
 However, it treats each of your applications as independent entities, meaning there's no `codified` relationship between staging 
 and production installations of your applications. Because of this, you need to manage this staging/production relationship and promotion between them
