@@ -32,14 +32,15 @@ After you generate an API key, it cannot be retrieved from the Octopus Web Porta
 :::div{.hint}
 The ability to set an expiry date on new API keys was added in Octopus Deploy **2020.6**.
 :::
-By default, new API keys are valid for 180 days from the point they are created. Optionally, you can choose to update this expiry date.
+By default, new API keys are valid for 180 days from the point they are created.
 
 When creating an API key in the Octopus Web Portal, you can choose from a preset list of offsets from the current date, or select a custom date. Keys will expire at the end of the selected day. When using the Octopus REST API to create a key, you can set the expiry date to your preferred date and time, including time zone offset.
 
-There are two restrictions on the expiry date:
+There are three restrictions on the expiry date:
 
 - It cannot be in the past.
 - It cannot be after the expiry date of the key being used to create it (when using the REST API).
+- **Octopus Deploy 2025.4 and newer:** It cannot exceed the server's configured maximum expiry period (defaults to 366 days, configurable)
 
 ## Configure API keys for expiry notifications
 
@@ -54,20 +55,39 @@ There is an "API key expiry events" event-group and three events:
 :::div{.info}
 
 The background task which raises the api-key-expiry events runs:
+
 - 10 minutes after the Octopus Server service starts
 - Every 4 hours
+  :::
+
+## Configuring API Key default and maximum expiry durations
+
+:::div{.hint}
+The ability to control the default and maximum API key expiry was added in Octopus Deploy **2025.4**. The ability to create keys that never expire was removed in this version.
+
+Versions 2025.3 and below will use a default expiry of 180 days and have no maximum.
 :::
 
-## Disabling API Key Creation
+Octopus administrators can change the maximum API key expiry from 366 days to a value of their choice, up to 1096 days.
+
+Octopus administrators can change the default API key expiry from 180 days to a value of their choice. The default period must be less than or equal to the maximum.
+
+To change these values in the Octopus Web Portal:
+
+1. Navigate to **Configuration ➜ Settings** and click **Authentication**.
+1. Expand the sections for **API Key default expiry (days)** and **API Key maximum expiry (days)** and alter the values.
+1. Click Save.
+
+## Disabling API key creation for user accounts
+
 :::div{.hint}
 The ability to disable API key creation for user accounts was added in Octopus Deploy **2023.2**.
 :::
 
 Octopus administrators can disable the creation of API keys for regular user accounts. Existing API keys will continue to function, and new API keys can still be created for [Service Accounts](/docs/security/users-and-teams/service-accounts).
 
-You can disable API keys by performing the follow steps:
-1. Log into the Octopus Web Portal, navigate to **Configuration ➜ Settings**.
-1. Click **Authentication**
-1. Click **User API Keys**.
-1. Uncheck the **User API Keys** checkbox.
-1. Click **SAVE**.
+To change the value in the Octopus Web Portal:
+
+1. Navigate to **Configuration ➜ Settings** and click **Authentication**.
+1. Expand the section for **User API Keys** and alter the value.
+1. Click Save.
