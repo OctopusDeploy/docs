@@ -103,4 +103,4 @@ Adding Azure Private Links makes it possible to privately and securely connect t
 
 ## Outbound Azure Private Links
 
-Outbound Azure Private Links will provide private connectivity from your Octopus Cloud instance to your virtual network. This feature is under consideration and isn't yet available. If you are interested in this feature, please reach out to [our support team](https://octopus.com/support).
+Outbound Azure Private Links will provide private connectivity from your Octopus Cloud instance to your virtual network. This feature isn’t yet available. If you are interested in this feature, please indicate your interest and subscribe to progress updates via [our public roadmap](https://roadmap.octopus.com/c/231-outbound-azure-private-links-for-octopus-cloud).
