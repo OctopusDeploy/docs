@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-06-20
-modDate: 2025-06-20
+modDate: 2025-10-08
 title: Azure Private Links
 navOrder: 65
 description: Guides users through the Azure Private Links feature, including how to access and configure it
