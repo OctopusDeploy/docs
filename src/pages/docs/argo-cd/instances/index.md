@@ -46,6 +46,11 @@ kubectl config view
 3. If required, change the [in-cluster](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services) URL of the Argo CD API Server service. In many cases the default value provided will work.
 4. Optionally, add the URL used to access Argo CD's web frontend. This will be used for linking from Octopus to Argo CD to aid with deployment investigations.
 5. A valid Argo CD JWT authentication token is required. To generate this, you can use the [Argo CD CLI](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
+
+:::div{.warning}
+The owner of the specified JWT must have a role able to read Cluster and Application Argo CD resources. 
+:::
+
 6. Press "Next" to move to the next screen
 
 #### Installation helm command
