@@ -22,7 +22,7 @@ Customers maintain configuration within their own network in order to use Azure 
 
 Inbound Azure Private Links are available to Octopus Cloud customers on an Enterprise plan.
 
-If you would like to access this feature, please reach out to [our support team](mailto:support@octopus.com) so we can discuss how best to meet your private networking requirements.
+If you would like to access this feature, please reach out to [our support team](https://octopus.com/support) so we can discuss how best to meet your private networking requirements.
 
 ### Configuring an Azure Private Endpoint
 
