@@ -20,7 +20,7 @@ There are a number of use cases which Octopus _cannot_ support due to data acces
     * If your application specifies a constant `TargetRevision`, Octopus will treat it as a branch - and fail to push back to your repository.
 * Octopus cannot update the content of Helm Sources as they typically references a chart from a Helm Repository or OCI feed which is static content.
     * However, if your application is represented as a helm chart _in a directory_, Octopus can interact with the directory content via the applications repository
-* Octopus can create PRs for github based repositories only - support for other platforms is coming in later builds.
+* Octopus can currently only create Pull Requests for GitHub-based repositories. Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
 
 
 ## Update Argo Manifest Step

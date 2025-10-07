@@ -41,10 +41,11 @@ The output section allows you to configure how changes are to be merged into you
 2. Commit message allows you to specify the summary, and description of the change. The description will be automatically populated if left empty.
     * The content here will be reused for Pull Request messages if you have selected for the change to merge via Pull Request
 3. Git Commit Method specifies _how_ changes are merged - merging directly into the repo, or going via a PR.
-    * A third option exists whereby you can specify which environments should use PRs, with all others falling back to a direct commit
+    * A third option exists whereby you can specify which environments should use Pull Requests, with all others falling back to a direct commit
     * This is useful if your Production environment requires PRs, but early environments do not.
+
 :::div{.warning}
-   At this time, PRs can only be created for GitHub based repositories, work is coming to support other platforms.
+      Currently, Pull Requests can only be created for GitHub-based repositories. Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
 :::
 
 4. Purge Output Folder allows you to clear the `Path` directory of the Argo CD Application's repository prior to adding newly templated files.
