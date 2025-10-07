@@ -72,7 +72,7 @@ Retrieving this value can also be done through the Azure Portal by doing the fol
 ![A screenshot of a Private Endpoint's JSON View in the Azure Portal highlighting the ResourceGuid field](/docs/img/octopus-cloud/images/private-endpoint-json-resource-guid.png)
 :::
 
-With these details available, get in touch with [our support team](mailto:support@octopus.com) and ask that the Private Endpoint be approved.
+With these details available, get in touch with [our support team](https://octopus.com/support) and ask that the Private Endpoint be approved.
 Once approved, you will be able to begin accessing your Octopus Cloud instance using your new Azure Private Link Endpoint.
 
 ### Additional information
