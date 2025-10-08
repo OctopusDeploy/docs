@@ -10,6 +10,10 @@ navOrder: 30
 The Update Argo CD Application Image Tags step is responsible for iterating over your Argo Application's repository, and
 updating the image tag for referenced container images.
 
+Its behaviour may change, based on the content of the repository content:
+* If the supplied path contains any of `kustomization.yaml`, `kustomization.yml`, `Kustomization`
+  * Octopus will update the `newTag` field of the kustomize file, and will not attempt to modify
+
 The following instructions can be followed to configure the `Update Argo CD Image Tags`.
 
 :::div{.info}
