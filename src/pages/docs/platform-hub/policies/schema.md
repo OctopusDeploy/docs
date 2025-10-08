@@ -11,7 +11,7 @@ description: Schema for policies
 navOrder: 162
 ---
 
-## Schema for Policies
+## Input Schema
 
 Octopus has a set number of inputs that are provided to evaluate policies against deployments. The following is the full schema that is passed into the engine to evaluate deployments:
 
@@ -170,10 +170,10 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
                   "type": "string"
                 },
                 "Version": {
-                  "type": "string",
+                  "type": "string"
                 },
                 "GitRef": {
-                  "type": "string",
+                  "type": "string"
                 }
               },
               "required": [
@@ -214,7 +214,7 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         "Name",
         "Version"
       ]
-    }
+    },
     "Runbook": {
       "type": "object",
       "properties": {
@@ -246,5 +246,29 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
     "Steps", 
     "ProjectGroup"
   ]
+}
+```
+
+## Output Result Schema
+Octopus expects the conditions Rego code to define a result object that confirms to the following schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Policy Result Schema",
+  "type": "object",
+  "properties": {
+    "allowed": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "enum": ["block", "warn"]
+    }
+  },
+  "required": ["allowed"]
 }
 ```
