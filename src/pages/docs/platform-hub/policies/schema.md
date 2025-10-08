@@ -157,6 +157,30 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
               "Type",
               "SlugOrId"
             ]
+          },
+          "Packages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "Version": {
+                  "type": "string",
+                },
+                "GitRef": {
+                  "type": "string",
+                }
+              },
+              "required": [
+                "Id",
+                "Name"
+              ]
+            }
           }
         },
         "required": [
@@ -169,6 +193,28 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         ]
       }
     },
+    "Release": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "GitRef": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Version"
+      ]
+    }
     "Runbook": {
       "type": "object",
       "properties": {
@@ -179,6 +225,9 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
           "type": "string"
         },
         "Snapshot": {
+          "type": "string"
+        },
+        "GitRef": {
           "type": "string"
         }
       },
