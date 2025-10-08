@@ -1,7 +1,6 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2025-10-08
+pubDate: 2025-10-08
 title: Tag sets
 icon: fa-solid fa-tags
 description: Tag sets are a classification system that lets you add custom metadata to resources in Octopus Deploy.
@@ -26,7 +25,7 @@ Tag sets can have different types that control how tags can be selected:
 
 - **MultiSelect:** Allows selecting multiple predefined tags from the tag set. This is the standard behavior and works for most scenarios.
 - **SingleSelect:** Allows selecting only one predefined tag from the tag set. Useful when you need to ensure only one option is chosen, such as a cloud provider or deployment tier.
-- **FreeText:** Allows entering custom text values without requiring predefined tags. Useful for dynamic values like region identifiers, customer IDs, or version numbers. When using FreeText, only one value per tag set is allowed.
+- **FreeText:** Allows entering custom text values without requiring predefined tags. The tag set name must match exactly, but the tag value can be any arbitrary text. Useful for dynamic values like region identifiers, customer IDs, or version numbers. When using FreeText, only one value per tag set is allowed.
 
 ## Tag set scopes {#tag-set-scopes}
 
@@ -76,9 +75,9 @@ For projects using Config as Code, there are fewer guardrails in place. It's up 
 Tags are referenced using their **canonical name** which looks like this: `Tag Set Name/Tag Name`
 
 For example:
-- `Release Ring/Alpha`
-- `Importance/VIP`
-- `Region/us-west-2` (for FreeText tag sets)
+- `Release Ring/Alpha` - References the predefined "Alpha" tag in the "Release Ring" tag set
+- `Importance/VIP` - References the predefined "VIP" tag in the "Importance" tag set
+- `Region/us-west-2` - For FreeText tag sets, the tag set name "Region" must match exactly, but "us-west-2" can be any arbitrary value
 
 You can use canonical names when:
 
