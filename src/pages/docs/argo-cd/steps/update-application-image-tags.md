@@ -10,10 +10,6 @@ navOrder: 30
 The Update Argo CD Application Image Tags step is responsible for iterating over your Argo Application's repository, and
 updating the image tag for referenced container images.
 
-The step's behaviour may change based on the repository content:
-* If the supplied path contains any of `kustomization.yaml`, `kustomization.yml`, `Kustomization` (i.e. is a kustomize project)
-  * Octopus will _only_ update the `newTag` field(s) found in the kustomize file. No other files will be edited
-    
 The following instructions can be followed to configure the `Update Argo CD Image Tags`.
 
 :::div{.info}
@@ -70,5 +66,7 @@ When deploying the release, Octopus will:
   * If the source is a helm chart
     * The image fields are extracted from the [Helm Annotations](/docs/argo-cd/annotations/helm-annotations)
     * The matching image-tags in the `values.yaml` are replaced with container image versions configured in the step's inputs.
+  * If the supplied path contains any of `kustomization.yaml`, `kustomization.yml`, `Kustomization` (i.e. is a kustomize project)
+    * Octopus will _only_ update the `newTag` field(s) found in the kustomize file. No other files will be edited
   * Changed files are committed, and pushed back to the repo/branch as specified in the Argo CD Application
     * A PR will be created (rather than merging to the targetRevision branch) if configured in the step UI 
