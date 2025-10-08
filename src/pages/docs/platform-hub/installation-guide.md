@@ -27,5 +27,5 @@ docker pull octopusdeploy/octopusdeploy:2025.4.3044-PublicPreview
 2. After downloading, you can upgrade your Octopus instance with our [upgrading guide](/docs/administration/upgrading).
 3. You should now see the Platform Hub icon in your instance.
 :::div{.hint}
-Users must have **PlatformHubEdit** and **PlatformHubView** permissions enabled to access Platform Hub. These permissions can only be assigned to system teams. By default, system administrators and space managers will have **PlatformHubEdit** and **PlatformHubView** permissions enabled.
+Users must have **PlatformHubEdit** and **PlatformHubView** permissions enabled to access Platform Hub. These permissions can only be assigned to system teams. By default, system administrators and system managers will have **PlatformHubEdit** and **PlatformHubView** permissions enabled.
 :::
