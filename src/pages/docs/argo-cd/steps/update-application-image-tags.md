@@ -18,6 +18,11 @@ ensure the correct sections of the relevant values files are updated. See [Helm 
 more information.
 :::
 
+
+If the application cluster's default registry has been changed see [cluster annotations](/docs/argo-cd/annotations/cluster-annotations) to ensure
+the correct default registry is shared with Octopus.
+:::
+
 ## Add the Update Argo CD Application Image Tags step
 Add the `Update Argo CD Image Tags` step to the project, and provide it a name.
 
