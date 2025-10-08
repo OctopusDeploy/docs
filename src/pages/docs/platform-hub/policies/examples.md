@@ -28,8 +28,7 @@ scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             # input.Space.Name == "<space-name>" - If you want to use Space Name
             # input.Space.Id == "<space-id>" - If you want to use Space Id
             # input.Space.Slug in ["<space-slug>", "<space-slug2>"] - If you want to check multiple Spaces
@@ -59,8 +58,7 @@ scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             # input.Environment.Name == "<environment-name>" - If you want to use Environment Name
             # input.Environment.Id == "<environment-id>" - If you want to use Environment Id
             # input.Environment.Slug in ["<environment-slug>", "<environment-slug2>"] - If you want to check multiple Environments
@@ -90,8 +88,7 @@ scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             # input.Project.Name == "<project-name>" - If you want to use Project Name
             # input.Project.Id == "<project-id>" - If you want to use Project Id
             # input.Project.Slug in ["<project-slug>", "<project-slug2>"] - If you want to check multiple Projects
@@ -121,8 +118,7 @@ scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Runbook
         }
     EOT
@@ -148,8 +144,7 @@ scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if {
+        evaluate if {
             # input.Runbook.Name == "<runbook-name>" - If you want to use Runbook Name
             # input.Runbook.Snapshot == "<runbook-snapshot-name>" - If you want to use Runbook Snapshot
             # input.Runbook.Id in ["<runbook-id>", "<runbook-id2>"] - If you want to check multiple Runbooks
@@ -178,8 +173,7 @@ scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             not input.Runbook
         }
     EOT
@@ -302,8 +296,7 @@ scope {
     rego = <<-EOT
         package step_template_is_executed
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -337,8 +330,7 @@ scope {
     rego = <<-EOT
         package step_template_with_version_is_executed
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -373,8 +365,7 @@ scope {
     rego = <<-EOT
         package process_template_is_executed
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -407,8 +398,7 @@ scope {
     rego = <<-EOT
         package process_template_is_enabled
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -441,8 +431,7 @@ scope {
     rego = <<-EOT
         package process_template_location_check
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -480,8 +469,7 @@ scope {
     rego = <<-EOT
         package process_template_with_version_is_executed
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -516,8 +504,7 @@ scope {
     rego = <<-EOT
         package process_template_step_ordering
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -563,8 +550,7 @@ scope {
     rego = <<-EOT
         package builtin_step_before_builtin
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -598,8 +584,7 @@ scope {
     rego = <<-EOT
         package builtin_step_after_builtin
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -633,8 +618,7 @@ scope {
     rego = <<-EOT
         package step_template_before_builtin
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -669,8 +653,7 @@ scope {
     rego = <<-EOT
         package step_template_after_builtin
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -705,9 +688,7 @@ scope {
     rego = <<-EOT
         package manualintervention
 
-        default evaluate := false
-
-        evaluate := true if { 
+        evaluate if { 
             startswith(input.Space.Name, "Policies")
             startswith(input.Project.Name, "Payment")
             startswith(input.Environment.Name, "Production")
