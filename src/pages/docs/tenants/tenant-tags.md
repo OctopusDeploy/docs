@@ -88,7 +88,7 @@ You can create tag sets specifically to help with deployments and rolling out up
 
 First, create a tag set called **Upgrade Ring** with tags that allow each tenant to choose how early in the development/test cycle they want to receive upgrades.
 
-1. Go to **Tenant ➜ Tag Sets** and create a new tag set called **Upgrade Ring**.
+1. Go to **Deploy ➜ Tag Sets** and create a new tag set called **Upgrade Ring**.
 2. Add tags for **Tester**, **Early Adopter**, and **Stable**.
 3. Choose colors that highlight different tenants.
 
