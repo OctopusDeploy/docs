@@ -42,7 +42,7 @@ A tag set can be scoped to both Tenants and Environments if needed, allowing you
 
 ## Managing tag sets {#managing-tag-sets}
 
-Go to **Tenant ➜ Tag Sets** to create, modify and reorder tag sets and tags.
+Go to **Deploy ➜ Tag Sets** to create, modify and reorder tag sets and tags.
 
 :::figure
 ![](/docs/img/tenants/images/tenant-importance.png)
