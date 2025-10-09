@@ -22,14 +22,13 @@ The following examples will cover various ways that you can scope your policies:
 ```ruby
 name = "Block executions"
 description = "This policy applies to all Deployments and Runbook runs in one or more space(s) and will block executions."
-ViolationReason = "Execution are blocked"
+violation_reason = "Execution are blocked"
 
 scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             # input.Space.Name == "<space-name>" - If you want to use Space Name
             # input.Space.Id == "<space-id>" - If you want to use Space Id
             # input.Space.Slug in ["<space-slug>", "<space-slug2>"] - If you want to check multiple Spaces
@@ -53,14 +52,13 @@ conditions {
 ```ruby
 name = "Block executions"
 description = "This policy applies to all Deployments and Runbook runs and will block executions, to particular Environment(s)."
-ViolationReason = "Execution are blocked"
+violation_reason = "Execution are blocked"
 
 scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             # input.Environment.Name == "<environment-name>" - If you want to use Environment Name
             # input.Environment.Id == "<environment-id>" - If you want to use Environment Id
             # input.Environment.Slug in ["<environment-slug>", "<environment-slug2>"] - If you want to check multiple Environments
@@ -84,14 +82,13 @@ conditions {
 ```ruby
 name = "Block executions"
 description = "This policy applies to all Deployments and Runbook runs and will block executions, to particular Project(s)."
-ViolationReason = "Execution are blocked"
+violation_reason = "Execution are blocked"
 
 scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             # input.Project.Name == "<project-name>" - If you want to use Project Name
             # input.Project.Id == "<project-id>" - If you want to use Project Id
             # input.Project.Slug in ["<project-slug>", "<project-slug2>"] - If you want to check multiple Projects
@@ -115,14 +112,13 @@ conditions {
 ```ruby
 name = "Block executions"
 description = "This policy applies only to Runbook runs and will block executions to all Runbook runs."
-ViolationReason = "Execution are blocked"
+violation_reason = "Execution are blocked"
 
 scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Runbook
         }
     EOT
@@ -142,14 +138,13 @@ conditions {
 ```ruby
 name = "Block executions"
 description = "This policy applies only to Runbook runs and will block executions to specific Runbook runs."
-ViolationReason = "Execution are blocked"
+violation_reason = "Execution are blocked"
 
 scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if {
+        evaluate if {
             # input.Runbook.Name == "<runbook-name>" - If you want to use Runbook Name
             # input.Runbook.Snapshot == "<runbook-snapshot-name>" - If you want to use Runbook Snapshot
             # input.Runbook.Id in ["<runbook-id>", "<runbook-id2>"] - If you want to check multiple Runbooks
@@ -172,14 +167,13 @@ conditions {
 ```ruby
 name = "Block executions"
 description = "This policy applies only to Deployments and will block executions to all Deployments."
-ViolationReason = "Execution are blocked"
+violation_reason = "Execution are blocked"
 
 scope {
     rego = <<-EOT
         package block_executions
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             not input.Runbook
         }
     EOT
@@ -203,7 +197,7 @@ The following examples will cover different deployment scenarios that can be enf
 ```ruby
 name = "All steps are not skipped"
 description = "This policy applies to all Deployments and Runbook runs and will check that all steps are not skipped"
-violationreason = "No steps can be skipped."
+violation_reason = "No steps can be skipped."
 
 scope {
     rego = <<-EOT
@@ -232,7 +226,7 @@ conditions {
 ```ruby
 name = "All steps must be enabled"
 description = "This policy applies to all Deployments and Runbook runs and will check that all steps are enabled"
-ViolationReason = "No steps can be disabled."
+violation_reason = "No steps can be disabled."
 
 scope {
     rego = <<-EOT
@@ -262,7 +256,7 @@ conditions {
 ```ruby
 name = "Check Step location"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular step exists at the start or the end of the execution."
-ViolationReason = "Step needs to be at the start or end"
+violation_reason = "Step needs to be at the start or end"
 
 scope {
     rego = <<-EOT
@@ -296,14 +290,13 @@ conditions {
 ```ruby
 name = "Step Template is executed"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular Step Template exists and is not skipped."
-ViolationReason = "Step Template must be run"
+violation_reason = "Step Template must be run"
 
 scope {
     rego = <<-EOT
         package step_template_is_executed
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -331,14 +324,13 @@ conditions {
 ```ruby
 name = "Step Template with version is executed"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular Step Template with a version exists and is not skipped."
-ViolationReason = "Step Template with version must be run"
+violation_reason = "Step Template with version must be run"
 
 scope {
     rego = <<-EOT
         package step_template_with_version_is_executed
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -367,14 +359,13 @@ conditions {
 ```ruby
 name = "Process Template is executed"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template exists and is not skipped."
-ViolationReason = "Process Template must be run"
+violation_reason = "Process Template must be run"
 
 scope {
     rego = <<-EOT
         package process_template_is_executed
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -401,14 +392,13 @@ conditions {
 ```ruby
 name = "Process Template is enabled"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template is enabled."
-ViolationReason = "Process Template must be enabled"
+violation_reason = "Process Template must be enabled"
 
 scope {
     rego = <<-EOT
         package process_template_is_enabled
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -435,14 +425,13 @@ conditions {
 ```ruby
 name = "Process Template location check"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template exists at the start or the end of the execution."
-ViolationReason = "Process Template needs to be at the start or end"
+violation_reason = "Process Template needs to be at the start or end"
 
 scope {
     rego = <<-EOT
         package process_template_location_check
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -474,14 +463,13 @@ conditions {
 ```ruby
 name = "Process Template with version is executed"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template with a specific version exists and is not skipped."
-ViolationReason = "Process Template with specific version must be run"
+violation_reason = "Process Template with specific version must be run"
 
 scope {
     rego = <<-EOT
         package process_template_with_version_is_executed
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -510,14 +498,13 @@ conditions {
 ```ruby
 name = "Process Template step ordering"
 description = "This policy applies to all Deployments and Runbook runs and will check that a particular Process Template exists before or after a certain step."
-ViolationReason = "Process Template must be in correct position relative to other steps"
+violation_reason = "Process Template must be in correct position relative to other steps"
 
 scope {
     rego = <<-EOT
         package process_template_step_ordering
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -557,14 +544,13 @@ conditions {
 ```ruby
 name = "Built-in step ordering - before"
 description = "This policy applies to all Deployments and Runbook runs and will check that one built-in step happens before another built-in step."
-ViolationReason = "Built-in step must occur before the target built-in step"
+violation_reason = "Built-in step must occur before the target built-in step"
 
 scope {
     rego = <<-EOT
         package builtin_step_before_builtin
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -592,14 +578,13 @@ conditions {
 ```ruby
 name = "Built-in step ordering - after"
 description = "This policy applies to all Deployments and Runbook runs and will check that one built-in step happens after another built-in step."
-ViolationReason = "Built-in step must occur after the target built-in step"
+violation_reason = "Built-in step must occur after the target built-in step"
 
 scope {
     rego = <<-EOT
         package builtin_step_after_builtin
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -627,14 +612,13 @@ conditions {
 ```ruby
 name = "Step Template before built-in step"
 description = "This policy applies to all Deployments and Runbook runs and will check that a custom step template happens before a built-in step."
-ViolationReason = "Step Template must occur before the built-in step"
+violation_reason = "Step Template must occur before the built-in step"
 
 scope {
     rego = <<-EOT
         package step_template_before_builtin
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -663,14 +647,13 @@ conditions {
 ```ruby
 name = "Step Template after built-in step"
 description = "This policy applies to all Deployments and Runbook runs and will check that a custom step template happens after a built-in step."
-ViolationReason = "Step Template must occur after the built-in step"
+violation_reason = "Step Template must occur after the built-in step"
 
 scope {
     rego = <<-EOT
         package step_template_after_builtin
 
-        default evaluate := false
-        evaluate := true if { 
+        evaluate if { 
             input.Space.Slug == "<space-slug>"
         }
     EOT
@@ -699,15 +682,13 @@ conditions {
  ```ruby
 name = "Require Manual Intervention step"
 description = "Require Manual Intervention step"
-violationreason = "Manual intervention step is required in production environment"
+violation_reason = "Manual intervention step is required in production environment"
 
 scope {
     rego = <<-EOT
         package manualintervention
 
-        default evaluate := false
-
-        evaluate := true if { 
+        evaluate if { 
             startswith(input.Space.Name, "Policies")
             startswith(input.Project.Name, "Payment")
             startswith(input.Environment.Name, "Production")
@@ -727,7 +708,7 @@ conditions {
             not manual_intervention_skipped
         }
 
-        result := {"allowed": false, "Reason": "Manual intervention step cannot be skipped in production environment"} if {
+        result := {"allowed": false, "reason": "Manual intervention step cannot be skipped in production environment"} if {
             manual_intervention_skipped
         }
 
@@ -735,6 +716,143 @@ conditions {
             some step in input.Steps
             step.Id in input.SkippedSteps
             step.ActionType == "Octopus.Manual"
+        }
+    EOT
+}
+ ```
+
+### Check that a deployment have packages from main branch only
+
+ ```ruby
+name = "Require packages from main branch"
+violation_reason = "All packages must come from the main branch"
+
+scope {
+    rego = <<-EOT
+        package packages_from_main_branch
+
+        evaluate if { 
+            not input.Runbook
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package packages_from_main_branch
+
+        default result := {"allowed": true}
+
+		all_packages := [pkg | some step in input.Steps; some pkg in step.Packages]
+
+		result := {"allowed": false} if {
+			count(all_packages) > 0
+			some pkg in all_packages
+			pkg.GitRef != "refs/heads/main"
+		}
+    EOT
+}
+ ```
+
+### Check that a release version is greater than required minimum
+This policy will block deployments in production environments, but allow deployments with warnings in other environments.
+
+ ```ruby
+name = "Require specific release version"
+violation_action = "warn"
+
+scope {
+    rego = <<-EOT
+        package specific_release_version
+
+        evaluate if { 
+            input.Release
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package specific_release_version
+
+        default result := {"allowed": false}
+
+        result := {"allowed": false, "action": "block"} if {
+            production
+            version_less_than_required
+        }
+
+        result := {"allowed": false} if {
+            not production
+            version_less_than_required
+        }
+
+        result := {"allowed": true} if {
+            not version_less_than_required
+        }
+
+        production if {
+            startswith(input.Environment.Slug, "prod")
+        }
+
+        version_less_than_required if {
+            semver.compare(input.Release.Version, "1.0.0") < 0
+        }
+    EOT
+}
+ ```
+
+### Check that release is based on the main branch
+
+ ```ruby
+name = "Release must be from the main branch"
+
+scope {
+    rego = <<-EOT
+        package main_branch_release
+
+        evaluate if { 
+            input.Release
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package main_branch_release
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            input.Release.GitRef == "refs/heads/main"
+        }
+    EOT
+}
+ ```
+
+### Check that runbook is from the main branch
+
+ ```ruby
+name = "Runbook must be from the main branch"
+
+scope {
+    rego = <<-EOT
+        package main_branch_runbook
+
+        evaluate if { 
+            input.Runbook
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package main_branch_runbook
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            input.Runbook.GitRef == "refs/heads/main"
         }
     EOT
 }
