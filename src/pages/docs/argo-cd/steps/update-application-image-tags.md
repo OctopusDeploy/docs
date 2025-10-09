@@ -47,7 +47,7 @@ The output section allows you to configure how changes are to be merged into you
    * The content here will be reused for Pull Request messages if you have selected for the change to merge via Pull Request
      :::div{.warning}
      If the commit summary or description references a [Sensitive Variable](/docs/projects/variables/sensitive-variables) the deployment wil fail.
-     This ensures sensitive data is not leaked to git via the commit/PR message.
+     This ensures sensitive data is not leaked to Git via the commit/PR message.
      :::
 3. Git Commit Method specifies _how_ changes are merged - merging directly into the repo, or going via a PR.
    * A third option exists whereby you can specify which environments should use Pull Requests, with all others falling back to a direct commit
