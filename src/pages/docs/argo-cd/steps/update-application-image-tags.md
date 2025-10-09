@@ -71,5 +71,7 @@ When deploying the release, Octopus will:
   * If the source is a helm chart
     * The image fields are extracted from the [Helm Annotations](/docs/argo-cd/annotations/helm-annotations)
     * The matching image-tags in the `values.yaml` are replaced with container image versions configured in the step's inputs.
+  * If the source is a kustomize based install (i.e. supplied path contains  `kustomization.yaml`, `kustomization.yml` or `Kustomization`)
+    * Octopus will _only_ update the `newTag` field(s) found in the kustomize file. No other files will be edited
   * Changed files are committed, and pushed back to the repo/branch as specified in the Argo CD Application
     * A PR will be created (rather than merging to the targetRevision branch) if configured in the step UI 
