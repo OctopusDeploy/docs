@@ -74,5 +74,5 @@ When deploying a release containing an Update Argo CD Applications Manifest step
 
 ::div{.warning}
 If an input template references a [Sensitive Variable](/docs/projects/variables/sensitive-variables), the deployment will fail.
-This ensures sensitive data is not persisted in the Argo Application repository in plain text.
+This ensures sensitive data is not persisted in the target Git repository in plain text.
 :::
