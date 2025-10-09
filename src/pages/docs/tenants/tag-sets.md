@@ -13,13 +13,15 @@ Tag sets are a classification system that lets you add custom metadata to resour
 ![](/docs/img/tenants/images/tag-sets.png)
 :::
 
-## Tag set types {#tag-set-types}
+:::div{.warning}
+**Version and feature requirements**
 
-:::div{.hint}
-**Feature availability**
+Extended tag set functionality (types, scopes, environment tagging) requires Octopus Deploy version **2025.4.3897** or later with the `extended-tag-sets` feature toggle enabled.
 
-Tag set types (SingleSelect and FreeText) and environment scoping require the `extended-tag-sets` feature toggle to be enabled. Without this feature enabled, all tag sets default to MultiSelect type and Tenant scope.
+If you're running an earlier version or the feature toggle is disabled, tag sets use the original behavior described in [Tag sets without extended features](#tag-sets-without-extended-features).
 :::
+
+## Tag set types {#tag-set-types}
 
 Tag sets can have different types that control how tags can be selected:
 
@@ -89,6 +91,50 @@ You can use canonical names when:
 
 - **[Tenant tags](/docs/tenants/tenant-tags):** Learn how to use tags to classify tenants, deploy to multiple tenants, and design multi-tenant deployment processes.
 - **[Environment tags](/docs/infrastructure/environments#environment-tags):** Learn how to use tags to classify environments by attributes like cloud provider, region, or tier.
+
+## Tenant tags without extended features {#tag-sets-without-extended-features}
+
+If you're running Octopus Deploy version earlier than **2025.4.3897** or the `extended-tag-sets` feature toggle is disabled, the feature is called **Tenant tags** (not Tag sets) and uses the original behavior described below.
+
+### What are tenant tags?
+
+Tenant tags are a form of metadata you can add to tenants to classify them. Tenant tags allow you to:
+
+- Find tenants faster using tenant tag filters.
+- Group a project's deployments overview by tag set.
+- Deploy to multiple tenants at the same time.
+- Customize deployment processes for tenants.
+- Scope project variables to tags.
+- Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
+- Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/#guides).
+- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles) section.
+
+### Tenant tag sets
+
+Octopus allows you to group similar tags into tag sets, making it easier to work with tenants as groups instead of individuals. This enables you to understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags.
+
+**Limitations without extended features:**
+- All tag sets use **MultiSelect** type only (multiple predefined tags can be selected)
+- Tag sets are scoped to **Tenant** only - cannot tag environments
+- You must predefine all tags before they can be used
+- SingleSelect and FreeText types are not available
+
+### Managing tenant tags
+
+Go to **Tenant ➜ Tenant Tag Sets** to create, modify and reorder tag sets and tags.
+
+### Referencing tenant tags
+
+Tenant tags use the **canonical name** format: `Tag Set Name/Tag Name`
+
+For example: `Release Ring/Alpha` or `Importance/VIP`
+
+You can use tenant tags when:
+- Deploying releases using [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release)
+- Scoping deployment targets to tenants
+- Automating Octopus via the [Octopus REST API](/docs/octopus-rest-api)
+
+For complete information about using tenant tags, see [Tenant tags](/docs/tenants/tenant-tags).
 
 ## Learn more
 

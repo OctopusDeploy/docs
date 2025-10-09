@@ -10,6 +10,10 @@ navOrder: 40
 
 This page covers how to use tags with tenants. For general information about tag sets, types, and scopes, see [Tag sets](/docs/tenants/tag-sets).
 
+:::div{.hint}
+Tag set types (SingleSelect and FreeText) require Octopus Deploy version **2025.4.3897** or later with the `extended-tag-sets` feature toggle enabled. Without this feature, all tag sets use MultiSelect type with predefined tags only.
+:::
+
 Tenant tags allow you to:
 
 - Find tenants faster using tag filters.

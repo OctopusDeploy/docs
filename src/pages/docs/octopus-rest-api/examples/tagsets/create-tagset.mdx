@@ -1,13 +1,21 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-18
+modDate: 2025-10-08
 title: Create a tag set
 description: An example script that creates a tag set in Octopus Deploy.
 ---
 import CreateTagsetScripts from 'src/shared-content/scripts/create-tagset-scripts.include.md';
 
 This script demonstrates how to programmatically create a tag set in Octopus Deploy.
+
+:::div{.hint}
+**Extended features require version 2025.4.3897+**
+
+The script examples include `Type` and `Scopes` parameters that require Octopus Deploy version **2025.4.3897** or later with the `extended-tag-sets` feature toggle enabled.
+
+**Without extended features:** The API will ignore `Type` and `Scopes` parameters and create tag sets with **MultiSelect** type and **Tenant** scope only.
+:::
 
 ## Usage
 
@@ -17,8 +25,8 @@ Provide values for:
 - Octopus API Key
 - Name of the space to use
 - Name of the tag set to create
-- Scopes for the tag set (Tenant, Environment, or both)
 - Type for the tag set (MultiSelect, SingleSelect, or FreeText)
+- Scopes for the tag set (Tenant, Environment, or both)
 - Optional description for the tag set
 - Optional tags to add to the new tag set
 
