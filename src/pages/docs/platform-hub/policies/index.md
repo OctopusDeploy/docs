@@ -69,7 +69,7 @@ After you’ve done this, open the OCL file in your code editor, and start with 
    name = "Require Manual Intervention step"
    description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production"
    violation_reason = "Manual intervention step is required to deploy"
-   violation_action = "warn"
+   violation_action = "warn" or "block"
    ```
 
 The ```violation_reason``` can be overridden by the value of the ```reason``` property defined in the output result of the conditions Rego code. Similarly, the ```violation_action``` can be overridden by the value of the ```action``` property defined in the output result of the conditions Rego code.
