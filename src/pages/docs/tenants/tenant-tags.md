@@ -59,9 +59,9 @@ When paired with a well-structured tag design, this logic will enable you to tai
 
 ## Referencing tenant tags {#referencing-tenant-tags}
 
-When automating deployments to tenants, you reference tags using their **canonical name**: `Tag Set Name/Tag Name`
+If you want to use tenant tags to automate Octopus Deploy you should use the **canonical name** for the tag which looks like this: `Tag Set Name/Tag Name`
 
-Consider an example deploying a release to all tenants tagged with **Alpha** in the **Release Ring** tag set:
+Consider an example deploying a release to the tenants tagged with the **Alpha** tag in the **Release Ring** tag set.
 
 :::figure
 ![](/docs/img/tenants/images/release-ring.png)
@@ -82,7 +82,7 @@ For more information about canonical names and how to reference tags, see [Tag s
 
 ## Deploying to multiple tenants using tags {#deploying-to-multiple-tenants-tags}
 
-You can create tag sets specifically to help with deployments and rolling out upgrades. Often, you want to deploy targeted releases to your testers, and once they've finished testing, prove that upgrade with a smaller group of tenants before rolling it out to the rest of your tenants. This is also useful to split up a large number of tenants into smaller groups for deployment.
+You can create tag sets specifically to help with deployments and rolling out upgrades. Often, you want to deploy targeted releases to your testers, and once they've finished testing, prove that upgrade with a smaller group of tenants before rolling it out to the rest of your tenants. This is also useful to split up a large number of tenants into smaller groups for deployment. We've outlined the steps to design this process using tenant tags:
 
 ### Step 1: Create a tag set called Upgrade Ring {#deploy-step-1-create-tagset}
 
@@ -123,5 +123,4 @@ You can also use the project overview to deploy to groups of tenants by grouping
 ## Learn more
 
 - [Tag sets](/docs/tenants/tag-sets) - General information about tag sets, types, and scopes
-- [Environment tags](/docs/infrastructure/environments#environment-tags) - Using tags with environments
 - [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns)
