@@ -801,3 +801,59 @@ conditions {
     EOT
 }
  ```
+
+### Check that release is based on the main branch
+
+ ```ruby
+name = "Release must be from the main branch"
+
+scope {
+    rego = <<-EOT
+        package main_branch_release
+
+        evaluate if { 
+            input.Release
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package main_branch_release
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            input.Release.GitRef == "refs/heads/main"
+        }
+    EOT
+}
+ ```
+
+### Check that runbook is from the main branch
+
+ ```ruby
+name = "Runbook must be from the main branch"
+
+scope {
+    rego = <<-EOT
+        package main_branch_runbook
+
+        evaluate if { 
+            input.Runbook
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package main_branch_runbook
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            input.Runbook.GitRef == "refs/heads/main"
+        }
+    EOT
+}
+ ```
