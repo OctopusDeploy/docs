@@ -119,7 +119,7 @@ With a single values file and a single Helm source, we don't need the `alias` in
 metadata:
   annotations:
     argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/environment: "development"
 
     # When there is a single source, with a single inline file, we use a single annotation to specify call paths
     argo.octopus.com/image-replace-paths: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.another-image.name }}"
@@ -153,7 +153,7 @@ A single Ref source used to source the values.yaml for the Helm source. In this 
 metadata:
   annotations:
     argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/environment: "development"
 
     argo.octopus.com/image-replace-paths.remote-values: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.another-image.name }}"
 ...
@@ -190,7 +190,7 @@ A Helm source that references both a ref sourced values file and also an in-repo
 metadata:
   annotations:
     argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/environment: "development"
 
     argo.octopus.com/image-replace-alias.core: "app-files/values.yaml"
     argo.octopus.com/image-replace-alias.remote: "$remote-values/values.yaml"
@@ -236,7 +236,7 @@ A Helm source that references multiple values files from the source repo.
 metadata:
   annotations:
     argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/environment: "development"
 
     # When there are multiple sources, we need an annotation to tell us which file path annotations belong to (Note: the actual name of the alias can be arbitrary)
     # if an alias is not provided for a path, that values file will be ignored
@@ -280,7 +280,7 @@ A Helm source that has multiple ref sourced values files.
 metadata:
   annotations:
     argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/environment: "development"
 
     argo.octopus.com/image-replace-paths.other-values: "{{ .Values.another-image.name }}"
     argo.octopus.com/image-replace-paths.remote-values: "{{ .Values.image.name}}:{{ .Values.image.version}}"
@@ -327,7 +327,7 @@ Note: The alias requires a fully qualified repo path in the format: `{repoUrl}/{
 metadata:
   annotations:
     argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/environment: "development"
 
     argo.octopus.com/image-replace-alias.app1: "https://github.com/my-repo/my-argo-app/main/values.yaml"
     argo.octopus.com/image-replace-alias.app2: "https://github.com/my-repo/my-other-argo-app/main/cool/values.yaml"
@@ -375,7 +375,7 @@ Multiple Helm sources that reference different values files from the same ref so
 metadata:
   annotations:
     argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/environment: "development"
 
     argo.octopus.com/image-replace-alias.shared1: "$shared-values/some-path/values.yaml"
     argo.octopus.com/image-replace-alias.shared2: "$shared-values/another-path/values.yaml"
