@@ -109,30 +109,7 @@ Tenant tags are a form of metadata you can add to tenants to classify them. Tena
 - Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/#guides).
 - Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles) section.
 
-### Tenant tag sets
-
-Octopus allows you to group similar tags into tag sets, making it easier to work with tenants as groups instead of individuals. This enables you to understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags.
-
-**Limitations without extended features:**
-- All tag sets use **MultiSelect** type only (multiple predefined tags can be selected)
-- Tag sets are scoped to **Tenant** only - cannot tag environments
-- You must predefine all tags before they can be used
-- SingleSelect and FreeText types are not available
-
-### Managing tenant tags
-
-Go to **Tenant ➜ Tenant Tag Sets** to create, modify and reorder tag sets and tags.
-
-### Referencing tenant tags
-
-Tenant tags use the **canonical name** format: `Tag Set Name/Tag Name`
-
-For example: `Release Ring/Alpha` or `Importance/VIP`
-
-You can use tenant tags when:
-- Deploying releases using [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release)
-- Scoping deployment targets to tenants
-- Automating Octopus via the [Octopus REST API](/docs/octopus-rest-api)
+### Tenant tags
 
 For complete information about using tenant tags, see [Tenant tags](/docs/tenants/tenant-tags).
 
