@@ -16,11 +16,9 @@ Currently, tags can be applied to tenants and environments, with support for add
 :::
 
 :::div{.warning}
-**Version and feature requirements**
+From Octopus Cloud version **2025.4.3897** we have extended the functionality of tag sets to include the type and scope of a tag set.
 
-Extended tag set functionality (types, scopes, environment tagging) requires Octopus Deploy version **2025.4.3897** or later with the `extended-tag-sets` feature toggle enabled.
-
-If you're running an earlier version or the feature toggle is disabled, tag sets use the original behavior described in [Tag sets without extended features](#tag-sets-without-extended-features).
+This functionality is behind the `Extended Tag Sets` feature toggle, to request this functionality early, please contact [support](https://octopus.com/support).
 :::
 
 ## Tag set types {#tag-set-types}
