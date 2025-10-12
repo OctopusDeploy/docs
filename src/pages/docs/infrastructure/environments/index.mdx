@@ -43,7 +43,9 @@ You can apply tags to environments to classify them with custom metadata. This a
 - Classify environments by attributes like cloud provider, region, or tier.
 - Filter environments by tags.
 
-To use tags with environments, you need to create tag sets with the **Environment** scope. Tags are referenced using their canonical name format: `TagSetName/TagName`. For FreeText tag sets, the tag set name must match exactly, but the tag value can be any arbitrary text, such as `Region/us-west-2` or `Region/custom-value-123`.
+:::{.hint}
+Only tags from tag sets that have been configured with the **Environment** scope can be used to tag environments.
+:::
 
 Learn more about [tag sets](/docs/tenants/tag-sets), including tag set types, scopes, and how to create and manage them.
 
