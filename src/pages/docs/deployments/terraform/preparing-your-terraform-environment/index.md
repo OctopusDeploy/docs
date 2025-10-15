@@ -75,9 +75,9 @@ terraform {
 }
 ```
 
-Cloud block settings can be set via [environment variable](https://developer.hashicorp.com/terraform/language/block/terraform#tf_cloud_organization):
+Cloud block settings can be set via [environment variable](https://developer.hashicorp.com/terraform/language/block/terraform#tf_cloud_organization) and omitted from HCL:
 - `TF_CLOUD_ORGANIZATION`
 - `TF_CLOUD_PROJECT`
 - `TF_WORKSPACE`
 
-_note: if you set all 3 environment variables, a empty cloud block **must** exist in the hcl root configuration_
+_note: if you set all 3 environment variables, a empty cloud block **must** exist in the hcl root configuration (ex: `terraform { cloud {} }`)._
