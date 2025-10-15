@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-10-02
+modDate: 2025-10-15
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -22,6 +22,16 @@ Deprecations are subject to change in detail or time frame. If you need help ass
 :::
 
 ## Planned Deprecations
+
+## TLS 1.0-1.1 Support Deprecation
+
+We're dropping support for TLS 1.0 and 1.1 in Octopus Cloud. This change will also impact self-hosted customers using the official Linux image.
+
+- **Octopus Cloud** customers will see us disable TLS 1.0/1.1 from mid-November 2025, with complete removal by January 2026
+- **Self-hosted Docker** customers will experience changes when we upgrade the official image to Debian 12 in January 2026
+- **Self-hosted Windows** customers will continue to work as before
+
+We expect most customers to be unaffected by this change as TLS 1.2+ support is already widely adopted. For more information see our blog post: [Deprecating support for TLS 1.0 and 1.1](https://octopus.com/blog/deprecating-tls-1-0-and-1-1)
 
 ## Deprecations for 2025.3
 
