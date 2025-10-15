@@ -25,13 +25,13 @@ Deprecations are subject to change in detail or time frame. If you need help ass
 
 ## TLS 1.0-1.1 Support Deprecation
 
-We're dropping support for TLS 1.0 and 1.1 in Octopus Cloud. This change will also impact self-hosted customers using the official Linux image.
+We're removing support for TLS 1.0 and 1.1 to improve security. This affects both Octopus Cloud and self-hosted customers using our official Linux Docker image.
 
-- **Octopus Cloud** customers will see us disable TLS 1.0/1.1 from mid-November 2025, with complete removal by January 2026
-- **Self-hosted Docker** customers will experience changes when we upgrade the official image to Debian 12 in January 2026
-- **Self-hosted Windows** customers will continue to work as before
+- **Octopus Cloud**: We'll disable TLS 1.0/1.1 from mid-November 2025, with complete removal by January 2026
+- **Self-hosted Docker**: You'll see changes when we upgrade the official image to Debian 12 in January 2026  
+- **Self-hosted Windows**: Your setup will continue to work as before
 
-We expect most customers to be unaffected by this change as TLS 1.2+ support is already widely adopted. For more information see our blog post: [Deprecating support for TLS 1.0 and 1.1](https://octopus.com/blog/deprecating-tls-1-0-and-1-1)
+Most customers won't be affected since TLS 1.2+ support is already widely adopted. For detailed information, timeline, and migration guidance, see our blog post: [Deprecating support for TLS 1.0 and 1.1](https://octopus.com/blog/deprecating-tls-1-0-and-1-1)
 
 ## Deprecations for 2025.3
 
