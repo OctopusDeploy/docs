@@ -28,7 +28,7 @@ You can optionally prepare the environment that Terraform runs in using the deta
 
 ## Remote state Terraform cloud
 
-Using Terraform enterprise for remote state requires a data source using referencing the `remote` backend
+Using Terraform Enterprise for remote state requires a data source using referencing the `remote` backend
 
 ```
 variable "token" {
@@ -59,9 +59,25 @@ As with any other data source, it must exist remotely first. To achieve this, yo
 `terraform plan` to generate the empty state. The remote state can then be seeded using `terraform state push .\.terraform\terraform.tfstate`. This is necessary as including resources as part of the template will result in errors such as
 `No stored state was found for the given workspace in the given backend.` as terraform tries to first read the remote state that doesn't exist.
 
-## Enhanced backends
+## HCP Terraform
 
-Terraform has the concept of enhanced backends which enable both storage and execution of remote operations such as plan and apply. Octopus does not prevent you from using backends such as these, however the execution of actions remotely may not
-always work as intended. It is for this reason that we recommend using remote state and keep execution of actions local. Terraform Cloud / Enterprise provides an option as part of the workspace settings which makes this rather trivial.
+Using Terraform Enterprise or HCP Terraform for execution and/or state management can be achieved using the [Terraform cloud block](https://developer.hashicorp.com/terraform/language/block/terraform).
 
-![Terraform cloud execution mode](/docs/img/deployments/terraform/preparing-your-terraform-environment/terraform-cloud-execution-mode.png)
+```hcl
+terraform {
+  cloud {
+	organization = "my-org" 
+    workspaces {
+      project = "Default Project"
+      name = "base_layer"
+    }
+  }
+}
+```
+
+Cloud block settings can be set via [environment variable](https://developer.hashicorp.com/terraform/language/block/terraform#tf_cloud_organization):
+- `TF_CLOUD_ORGANIZATION`
+- `TF_CLOUD_PROJECT`
+- `TF_WORKSPACE`
+
+_note: if you set all 3 environment variables, a empty cloud block **must** exist in the hcl root configuration_
