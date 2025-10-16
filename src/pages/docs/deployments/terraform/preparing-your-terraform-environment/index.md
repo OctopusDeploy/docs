@@ -63,7 +63,7 @@ As with any other data source, it must exist remotely first. To achieve this, yo
 
 Using Terraform Enterprise or HCP Terraform for execution and/or state management can be achieved using the [Terraform cloud block](https://developer.hashicorp.com/terraform/language/block/terraform).
 
-```hcl
+```ruby
 terraform {
   cloud {
 	organization = "my-org" 
