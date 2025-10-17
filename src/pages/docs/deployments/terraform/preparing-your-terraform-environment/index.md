@@ -57,6 +57,12 @@ Cloud block settings can be set via [environment variable](https://developer.has
 
 _note: if you set all 3 environment variables, a empty cloud block **must** exist in the hcl root configuration (ex: `terraform { cloud {} }`)._
 
+### Adding environment variables to Octopus Project
+
+You can add environment Variables to your Octopus project like this:
+
+![setting environment variables in octopus project](environment_variables.png)
+
 ## Managed cloud accounts
 
 You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template. Using credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable. Credentials defined in the Terraform template take precedence over any credentials defined in the step. The following pages provide instruction on creating cloud accounts:
