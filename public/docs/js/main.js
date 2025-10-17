@@ -71,3 +71,8 @@ if (enabled(f.search, 'dialog')) {
   const searchDialog = await import('./modules/search-dialog.js');
   searchDialog.enhanceSearchIcon();
 }
+
+if (enabled(f.pageTools, 'copy') || enabled(f.pageTools, 'markdown')) {
+  const pageTools = await import('./modules/page-tools.js');
+  pageTools.enhancePageTools();
+}

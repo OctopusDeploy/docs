@@ -39,7 +39,8 @@
         "optional": "^0.1.4",
         "remark-directive": "^4.0.0",
         "remark-heading-id": "^1.0.1",
-        "sharp": "^0.33.5"
+        "sharp": "^0.33.5",
+        "turndown": "^7.2.1"
     },
     "devDependencies": {
         "@playwright/test": "^1.55.0",
