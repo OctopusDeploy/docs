@@ -15,7 +15,7 @@ Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/in
 
 ## Caution on Terraform runs
 
-By default, Terraform stores statefiles [locally](https://developer.hashicorp.com/terraform/language/backend/local). If a remote backend is not configured, attempts to update or delete existing resources will fail because the **statefile is lost between deployments**. We therefore recommend using a remote backend, such as [HCP Terraform](#hcp-terraform), when using Terraform with Octopus. There are many options for storing statefiles, you can learn more about storing state remotely in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
+By default, Terraform stores state files [locally](https://developer.hashicorp.com/terraform/language/backend/local). If a remote backend is not configured, attempts to update or delete existing resources will fail because the **state file is lost between deployments**. We therefore recommend using a remote backend, such as [HCP Terraform](#hcp-terraform), when using Terraform with Octopus. There are many options for storing state files, you can learn more about storing state remotely in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
 
 ## HCP Terraform
 
@@ -73,7 +73,7 @@ You can optionally prepare the environment that Terraform runs in using the deta
 
 ## Querying outputs from HCP Terraform
 
-You can query Terraform Enterprise for values from a remote statefile using a data source referencing the `tfe_outputs` backend. A token is required and should be set as an ENV variable (`TFE_TOKEN`)
+You can query Terraform Enterprise for values from a remote state file using a data source referencing the `tfe_outputs` backend. A token is required and should be set as an ENV variable (`TFE_TOKEN`)
 
 ```ruby
 data "tfe_outputs" "previous_step_outputs" {
