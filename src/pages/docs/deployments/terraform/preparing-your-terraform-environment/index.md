@@ -36,7 +36,7 @@ terraform {
 ```
 ### Common Example
 
-A common setup will be use a combination of Octopus environment variables, Octopus Project Variables, and hardcoded values. The below example shows the `organization` is inherrited from an ENV variable in Octopus, the HCP Terraform project is derived from a combination of Octopus project name and environment name, and the workspace name is hardcoded. 
+A common setup will be use a combination of Octopus environment variables, Octopus Project Variables, and hardcoded values. The below example shows the `organization` is inherited from an ENV variable in Octopus, the HCP Terraform project is derived from a combination of Octopus project name and environment name, and the workspace name is hardcoded. 
 
 ```ruby
 # organization is inherited from ENV variable TF_CLOUD_ORGANIZATION
