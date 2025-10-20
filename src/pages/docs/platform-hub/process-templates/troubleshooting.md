@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-23
-modDate: 2025-09-23
+modDate: 2025-10-21
 title: Troubleshooting
 subtitle: Known issues that you may run into
 icon: fa-solid fa-layer-group
@@ -26,8 +26,6 @@ Process templates currently supports most Octopus steps.  It currently doesn't s
 1. Deploy a Bicep Template
 2. AWS S3 Create Bucket
 3. AWS ECS
-4. All Custom Step Templates
-5. All Community Step Templates
 
 This document will be updated as additional step support is added.
 
