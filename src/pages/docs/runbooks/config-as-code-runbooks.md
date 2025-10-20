@@ -82,7 +82,7 @@ The information that was previously found on the **Snapshot** page is still avai
 
 [Runbook triggers](/docs/runbooks/scheduled-runbook-trigger) will always run CaC Runbooks from the latest commit on your default branch, just as non-CaC runbook triggers will only run published runbooks.
 
-:::{.hint}
+:::div{.hint}
 If you have steps that use packages in your runbook process we only support getting latest non-prerelease versions. To use prerelease packages you would need to hard-code the version on individual steps.
 :::
 

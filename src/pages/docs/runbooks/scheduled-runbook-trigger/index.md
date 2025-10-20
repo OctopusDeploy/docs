@@ -34,7 +34,7 @@ Scheduled runbook triggers provide a way to configure your runbooks to run on a 
 
 If you are using [tenants](/docs/tenants) you can select the tenants that the runbook will run against. For each tenant, the published runbook will run against the tenant's environment. 
 
-:::{.hint}
+:::div{.hint}
 If you have steps that use packages in your runbook process we only support getting latest non-prerelease versions. To use prerelease packages you would need to hard-code the version on individual steps.
 :::
 
