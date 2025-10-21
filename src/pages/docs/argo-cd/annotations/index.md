@@ -10,7 +10,7 @@ navOrder: 20
 hideInThisSectionHeader: true
 ---
 
-For Octopus to deploy to the correct Argo CD Applications for the target Project/Environment/Tenant in the deployment, the relationship between Argo CD Application sources and a Project, Environment and/or a Tenant must be defined.
+For an Octopus deployment to update the desired Argo CD Application Source, the relationship between an Argo CD Application source and a Project, Environment and/or a Tenant must be defined.
 By setting up these relationships, you answer the question:
 
 > When I deploy `Project-X` to the `Staging` environment - which Argo CD Application source(s) should be updated?
