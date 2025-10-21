@@ -26,15 +26,18 @@ If the Argo CD Application contains a single source, the source being scoped is 
 | `argo.octopus.com/environment` | true     | This is the _slug_ of the Octopus Environment |
 | `argo.octopus.com/tenant`      | false    | This is the _slug_ of the Octopus Tenant      |
 
+:::div{.info}
+If the source is named, then the annotation must also be qualified with the source name.
+:::
 
 ### Multiple sources
-If there are multiple sources, the source being scope must be named and the annotation must also be qualified with the source name.
+If there are multiple sources, the sources to be updated via Octopus must be named and the annotation must also be qualified with the source name.
 
 | Annotation                     | Required | Value description                             |
 |--------------------------------|----------|-----------------------------------------------|
-| `argo.octopus.com/project.source-name`     | true     | This is the _slug_ of the Octopus Project     |
-| `argo.octopus.com/environment.source-name` | true     | This is the _slug_ of the Octopus Environment |
-| `argo.octopus.com/tenant.source-name`      | false    | This is the _slug_ of the Octopus Tenant      |
+| `argo.octopus.com/project.<source-name>`     | true     | This is the _slug_ of the Octopus Project     |
+| `argo.octopus.com/environment.<source-name>` | true     | This is the _slug_ of the Octopus Environment |
+| `argo.octopus.com/tenant.<source-name>`      | false    | This is the _slug_ of the Octopus Tenant      |
 
 ## Updating in Argo CD Web UI
 
@@ -51,8 +54,8 @@ You can update the annotations for an Argo CD Application via the Argo CD Web UI
 ![Argo CD Application Edit](/docs/img/argo-cd/argo-cd-app-annotation-edit.png)
 :::
 
-## Updating the Argo CD Application resource manifest~~
-~~
+## Updating the Argo CD Application resource manifest
+
 If you are managing your Argo CD Application manifests in YAML files, you can add the annotations directly into the `metadata.annotations` node.
 
 Example:
