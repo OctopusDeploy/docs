@@ -29,7 +29,7 @@ The three scoping annotations are (where `<source-name>` is the name of the sour
 ## Single source
 If the Argo CD Application contains a single source, the `name` property is optional. 
 
-If the source is not named, the annotation must be unscoped.
+If the source is not named, the annotations must be unscoped.
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -47,7 +47,7 @@ spec:
     path: ./    
 ```
 
-If the source is named, then the annotation must also source-scoped.
+If the source is named, then the annotations must also source-scoped.
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
