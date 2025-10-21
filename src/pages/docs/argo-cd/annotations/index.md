@@ -26,7 +26,7 @@ The three scoping annotations are (where `<source-name>` is the name of the sour
 | `argo.octopus.com/tenant[.<source-name>]`      | false    | This is the _slug_ of the Octopus Tenant      |
 
 
-### Single source
+## Single source
 If the Argo CD Application contains a single source, the source being updated is allowed to be unnamed.
 
 ```yaml
@@ -65,7 +65,7 @@ spec:
 ```
 
 
-### Multiple sources
+## Multiple sources
 If there are multiple sources, the sources to be updated must be named and the annotations must also be qualified with the source name.
 
 ```yaml
