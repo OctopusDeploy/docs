@@ -18,7 +18,7 @@ ensure the correct sections of the relevant values files are updated. See [Helm 
 more information.
 :::
 
-
+:::div{.info}
 If the application cluster's default registry has been changed see [cluster annotations](/docs/argo-cd/annotations/cluster-annotations) to ensure
 the correct default registry is shared with Octopus.
 :::
