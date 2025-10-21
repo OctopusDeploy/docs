@@ -58,7 +58,7 @@ Enter a template and click Next.
 
 #### Custom Fields
 
-Releases support Custom Fields which can be used to configure the name of an ephemeral environment. See [Using custom fields in releases](/docs/releases#custom-fields) for more information.
+Releases support Custom Fields which can be used to configure the name of an ephemeral environment. See [Using custom fields in releases](/docs/releases/creating-a-release#custom-fields) for more information.
 
 :::div{.hint}
 Remember that custom fields referenced in your Environment Name Template must be provided with any release that you use to create an ephemeral environment.

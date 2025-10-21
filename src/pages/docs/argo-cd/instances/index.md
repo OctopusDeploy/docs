@@ -46,6 +46,11 @@ kubectl config view
 3. If required, change the [in-cluster](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services) URL of the Argo CD API Server service. In many cases the default value provided will work.
 4. Optionally, add the URL used to access Argo CD's web frontend. This will be used for linking from Octopus to Argo CD to aid with deployment investigations.
 5. A valid Argo CD JWT authentication token is required. To generate this, you can use the [Argo CD CLI](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
+
+:::div{.warning}
+The JWT token must belong to an Argo CD user with permission to read Application and Cluster resources.
+:::
+
 6. Press "Next" to move to the next screen
 
 #### Installation helm command
@@ -161,3 +166,16 @@ oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 :::div{.warning}
 **WARNING:** By setting `gateway.argocd.plaintext="true"` all traffic between the Gateway and Argo CD will be unencrypted, ensure that it is necessary that you set this configuration to avoid potential security issues.
 :::
+
+
+## Deleting an Octopus Argo CD Gateway
+When removing a Gateway two operations are required:
+1. Deregister the gateway from Octopus Server
+2. Remove the application from your cluster
+
+The Octopus UI allows you to perform both of these operations.
+
+Navigate to Infrastructure --> Argo CD Instances, and select the instance whose gateway is to be removed.
+
+From the overflow menu, select "Delete" which will display a confirmation dialog containing the Helm command which when
+executed will remove the gateway from your cluster.
