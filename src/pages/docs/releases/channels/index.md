@@ -33,15 +33,41 @@ Channels are managed from the Projects page by selecting the specific project yo
 
 As you add more channels, you'll notice that they are arranged in alphabetical order on the channels page.
 
-## Create a new channel
+### Channel Types
+
+There are two types of channel:
+- Lifecycle channels: Releases in this channel will progress through the lifecycle defined for the channel.
+- Ephemeral Environment channels: Releases in this channel will be deployed to ephemeral environments. The environment will be provisioned automatically when it is first deployed to. A project can only have one ephemeral environment channel.
+
+## Create a new lifecycle channel
 
 1. From the Channels page, click on the **Add Channel** button.
-2. Give the channel a name and add a description. The channel name must be unique within the project.
-3. Select the [lifecycle](/docs/releases/lifecycles/) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [lifecycle docs](/docs/releases/lifecycles) for information about creating new lifecycles.
-4. If you want to make this the default channel for the project, click the **Default channel** check-box.
-5. Design the [version rules](#version-rules) that will be used to enforce which versions of your packages are deployed to this channel.
+2. Select **Lifecycle** for the channel type
+3. Give the channel a name and add a description. The channel name must be unique within the project.
+4. Select the [lifecycle](/docs/releases/lifecycles/) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [lifecycle docs](/docs/releases/lifecycles) for information about creating new lifecycles.
+5. If you want to make this the default channel for the project, click the **Default channel** check-box.
+6. Configure the [channel rules](#channel-rules).
+   - [Package version](#version-rules) will be used to enforce which versions of your packages are deployed to this channel
+   - [Git protection rules](#git-protection-rules) will be used to control the use of files from Git repositories during deployments
+7. Configure any [custom fields](#custom-fields) you want to require when creating releases in this channel.
 
-## Channel rules
+## Create a new ephemeral environment channel
+
+Ephemeral Environment channels are designed to work with [ephemeral environments](/docs/projects/ephemeral-environments). When a release is deployed to an ephemeral environment channel, the environment will be provisioned automatically if it does not already exist.
+
+1. From the Channels page, click on the **Add Channel** button.
+2. Select **Ephemeral Environment** for the channel type
+3. Give the channel a name and add a description. The channel name must be unique within the project.
+4. If you want to make this the default channel for the project, click the **Default channel** check-box.
+5. Select the [parent environment](/docs/projects/ephemeral-environments#parent-environment).
+6. Select whether you want to [automatically deploy](/docs/projects/ephemeral-environments#auto-deploy) to the environment when a release is created.
+7. Provide a [name template](/docs/projects/ephemeral-environments#naming) for the ephemeral environment.
+8. Configure the [channel rules](#channel-rules).
+    - [Package version](#version-rules) will be used to enforce which versions of your packages are deployed to this channel
+    - [Git protection rules](#git-protection-rules) will be used to control the use of files from Git repositories during deployments
+9. Configure any [custom fields](#custom-fields) you want to require when creating releases in this channel.
+
+### Channel rules
 
 Channels allow to you to configure rules to ensure that package versions and Git resources that meet specific criteria can be deployed using the channel.
 
