@@ -27,7 +27,9 @@ The three scoping annotations are (where `<source-name>` is the name of the sour
 
 
 ## Single source
-If the Argo CD Application contains a single source, the source being updated is allowed to be unnamed.
+If the Argo CD Application contains a single source, the `name` property is optional. 
+
+If the source is not named, the annotation must be unscoped.
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -45,7 +47,7 @@ spec:
     path: ./    
 ```
 
-If the source is named, then the annotation must also be qualified with the source name.
+If the source is named, then the annotation must also source-scoped.
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -66,7 +68,7 @@ spec:
 
 
 ## Multiple sources
-If there are multiple sources, the sources to be updated must be named and the annotations must also be qualified with the source name.
+If there are multiple sources, the sources being updated must be named and the annotations must also be source-scoped.
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
