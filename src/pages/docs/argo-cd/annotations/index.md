@@ -10,20 +10,31 @@ navOrder: 20
 hideInThisSectionHeader: true
 ---
 
-For Octopus to deploy to the correct Argo CD Applications for the target Project/Environment/Tenant in the deployment, the relationship between Argo CD Applications and a Project, Environment and/or a Tenant must be defined.
+For Octopus to deploy to the correct Argo CD Applications for the target Project/Environment/Tenant in the deployment, the relationship between Argo CD Application sources and a Project, Environment and/or a Tenant must be defined.
 By setting up these relationships, you answer the question:
 
-> When I deploy `Project-X` to the `Staging` environment - which Argo CD Application(s) should be updated?
+> When I deploy `Project-X` to the `Staging` environment - which Argo CD Application source(s) should be updated?
 
 This is done by adding "Scoping" annotations to the Argo CD Application definition, either through the Argo CD Web UI, or directly in the Argo CD Application resource manifest (YAML).
 
-The three scoping annotations are:
+### Single source
+If the Argo CD Application contains a single source, the source being scoped is allowed to be unnamed. In this case, the annotation must omit the source name:
 
 | Annotation                     | Required | Value description                             |
 |--------------------------------|----------|-----------------------------------------------|
 | `argo.octopus.com/project`     | true     | This is the _slug_ of the Octopus Project     |
 | `argo.octopus.com/environment` | true     | This is the _slug_ of the Octopus Environment |
 | `argo.octopus.com/tenant`      | false    | This is the _slug_ of the Octopus Tenant      |
+
+
+### Multiple sources
+If there are multiple sources, the source being scope must be named and the annotation must also be qualified with the source name.
+
+| Annotation                     | Required | Value description                             |
+|--------------------------------|----------|-----------------------------------------------|
+| `argo.octopus.com/project.source-name`     | true     | This is the _slug_ of the Octopus Project     |
+| `argo.octopus.com/environment.source-name` | true     | This is the _slug_ of the Octopus Environment |
+| `argo.octopus.com/tenant.source-name`      | false    | This is the _slug_ of the Octopus Tenant      |
 
 ## Updating in Argo CD Web UI
 
