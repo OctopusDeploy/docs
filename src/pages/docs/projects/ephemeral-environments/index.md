@@ -43,7 +43,11 @@ Give your parent environment a recognizable name that describes what you intend 
 
 ### Auto Deploy
 
-With ephemeral environments, you can choose to automatically deploy a release to the environment when it is created. This can help to streamline your workflows by reducing the number of manual steps required to get your changes deployed.
+You can choose to automatically deploy releases to ephemeral environments when they created. This can help to streamline your workflows by reducing the number of manual steps required to get your changes deployed.
+
+When auto deployment is configured, Octopus will automatically create a new ephemeral environment for you from releases in your project. The name of each environment can be configured using an Environment Name Template. Templates support the same powerful syntax as Variables. Any [system variable for a release](/docs/projects/variables/system-variables#release) can be used as part of the template.
+
+When auto deployment is not configured, you need to manually create ephemeral environments and deploy releases to them. You can do this using the Octopus Portal, API and CLI.
 You can also select to manually create and deploy to an environment.
 
 Select whether to automatically deploy releases to ephemeral environments.
@@ -126,13 +130,13 @@ Support for providing custom fields is not yet available in the Octopus CLI.
 
 ### Manually
 
-If manual deployments is selected, ephemeral environments can be created manually from the Ephemeral Environments page within the project.
+If automatic deployments is not selected, ephemeral environments can be created from the Ephemeral Environments page within the project.
 
 To create an ephemeral environment manually:
 - Select **Add Ephemeral Environment** from the Ephemeral Environments page.
 - Enter a name for the environment.
 
-The environment will now be created in the Not Provisioned state, ready to be provisioned and deployed to. Provisioning will be performed automatically by the configured runbook when the environment is deployed to.
+The environment will now be created in the Not Provisioned state, ready for a release to be deployed to it. Provisioning will be performed automatically by the configured runbook when a release is deployed to the environment.
 
 ## Provisioning infrastructure
 
@@ -156,11 +160,11 @@ Environments can be filtered by name and by the current state of the environment
 
 ### Automatic Deployments
 
-Create another release that results in the same environment name based on the environment name template.
+Create another release that results in the same environment name based on the environment name template. The release will be automatically deployed into the environment.
 
 ### Manual Deployments
 
-Create a new release and select the environment to deploy to.
+Create a new release, then deploy it and select the existing environment in the Deploy to step. Octopus deploys the release to that environment without creating a new one.
 
 ## Deprovisioning an environment
 
