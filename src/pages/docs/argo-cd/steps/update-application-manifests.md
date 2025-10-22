@@ -72,7 +72,7 @@ When deploying a release containing an Update Argo CD Applications Manifest step
   * Changed files are committed, and pushed back to the repo/branch as specified in the Argo CD Application
       * A PR will be created (rather than merging to the targetRevision branch) if configured in the step UI
 
-::div{.warning}
+:::div{.warning}
 If an input template references a [Sensitive Variable](/docs/projects/variables/sensitive-variables), the deployment will fail.
 This ensures sensitive data is not persisted in the target Git repository in plain text.
 :::
