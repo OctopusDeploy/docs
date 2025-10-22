@@ -261,6 +261,8 @@ Tentacle and Kubernetes agents can be toggled to manually or automatically updat
 
 Conversely, Octopus will not automatically update Tentacle or Kubernetes agents but instead will display a prompt to begin a Tentacle and Kubernetes agents update on the Deployment Targets and Environments screens.
 
+Kubernetes also has a 3rd option: **Block** which disables both automatic and manual updates to keep the Agent on a static version.
+
 ### Maximum number of concurrent upgrades
 
 There is a limit to the number of concurrent upgrades possible when choosing `Always keep Calamari up to date`. This ensures that upgrades do not adversely effect the performance of your Octopus Server.
