@@ -101,7 +101,6 @@ jobs:
 
       - name: Let people download package
         uses: actions/upload-artifact@v4
-        if: ${{ ! env.SHOULD_DEPLOY }}
         with:
           name: docs-microsite
           path: ${{ steps.package.outputs.package_file_path }}
