@@ -35,6 +35,12 @@ On the test page, you can check whether the feed is working by searching for pac
 
 Learn more about [hosting your own NuGet Feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds)
 
+:::div{.info}
+
+Note: Local packages must be stored in a single folder. Octopus does not currently support hierarchical local NuGet feeds. 
+
+:::
+
 ## NuGet.Server performance
 
 A popular external NuGet hosting option is **NuGet.Server**. However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
