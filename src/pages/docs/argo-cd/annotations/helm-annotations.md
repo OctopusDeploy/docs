@@ -106,7 +106,7 @@ metadata:
     argo.octopus.com/image-replace-paths: "{{ .Values.global.image.registry }}/{{ .Values.global.image.repositoryAndTag }}"
 ```
 
-### Ref source examples
+### Application examples
 
 The following is a list of example Argo CD Application structures, the required annotations and sample values files.
 
@@ -148,7 +148,9 @@ another-image:
 
 #### Example 2
 
-A single Ref source used to source the values.yaml for the Helm source. In this scenario, both sources need to be named and the paths annotation is source-scoped. Note that the scoping annotation for the project/environment is against the ref-source while the path annotation is against the chart/helm source.
+A single Ref source used to source the values.yaml for the Helm source. In this scenario, both sources need to be named and the paths annotation is source-scoped. 
+
+Note that the scoping annotation for the project/environment is against the ref-source while the path annotation is against the chart/helm source.
 
 ```yaml
 ...
@@ -239,9 +241,9 @@ A Helm source that has multiple ref sourced values files. Each ref source can be
 metadata:
   annotations:
     argo.octopus.com/project.remote-source: "proj-1"
-    argo.octopus.com/environmen.remote-source: "development"
+    argo.octopus.com/environment.remote-source: "development"
     argo.octopus.com/project.other-source: "proj-2"
-    argo.octopus.com/environmen.other-source: "development"
+    argo.octopus.com/environment.other-source: "development"
 
     argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.another-image.name }}"
     argo.octopus.com/image-replace-paths.remote-values: "{{ .Values.image.name}}:{{ .Values.image.version}}"
