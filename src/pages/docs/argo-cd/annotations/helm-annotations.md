@@ -196,10 +196,10 @@ metadata:
   annotations:
     argo.octopus.com/project.helm-source: "proj-1"
     argo.octopus.com/environment.helm-source: "development"
-    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.image.name}}:{{ .Values.image.version}}"
     argo.octopus.com/project.ref-source: "proj-1"
     argo.octopus.com/environment.ref-source: "development"
-    argo.octopus.com/image-replace-paths.ref-source: "{{ .Values.different.structure.here.image }}"
+
+    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.image.name}}:{{ .Values.image.version}}"
 ...
 spec:
   sources:    
@@ -246,7 +246,6 @@ metadata:
     argo.octopus.com/environment.other-source: "development"
 
     argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.another-image.name }}"
-    argo.octopus.com/image-replace-paths.remote-values: "{{ .Values.image.name}}:{{ .Values.image.version}}"
 ...
 spec:
   sources:
@@ -284,7 +283,7 @@ another-image:
 
 #### Example 5
 
-Multiple Helm sources that reference different values files from the same ref source.
+Multiple Helm sources that reference different values files from the same ref source. If you need to update your value files independently, then we recommend letting the Helm sources reference different ref sources.
 
 ```yaml
 ...
