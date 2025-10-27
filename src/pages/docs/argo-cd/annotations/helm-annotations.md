@@ -43,7 +43,7 @@ The annotation is as follows:
 |-------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | `argo.octopus.com/image-replace-paths[.<helm source name>]` | A comma-delimited Helm-template style string that builds a list of fully qualified image names |
 
-Note that while the scoping annotation for the project/environment is against the source to be updated, the path annotation is against the chart/helm source. All value files for a given chart are assumed to contain the same structure.
+Note that while the scoping annotation for the project/environment is defined for the source to be *updated*, the path annotation is defined for the chart/helm source. All value files for a given chart are assumed to have the same structure.
 
 ## Details
 
