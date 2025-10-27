@@ -133,7 +133,6 @@ spec:
       helm:
         valueFiles:
           - values.yaml
-          - app-files/values-overlay.yaml
 ```
 
 **values.yaml**
