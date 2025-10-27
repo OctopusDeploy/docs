@@ -150,7 +150,7 @@ another-image:
 
 A single Ref source used to source the values.yaml for the Helm source. In this scenario, both sources need to be named and the paths annotation must explicitly specify the helm source.
 
-Note that the scoping annotation for the project/environment is against the ref-source while the path annotation is against the chart/helm source.
+Note that the scoping annotation for the project/environment specifies the ref-source while the path annotation is specified for the chart/helm source.
 
 ```yaml
 ...
