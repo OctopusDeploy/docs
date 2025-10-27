@@ -198,7 +198,7 @@ metadata:
     argo.octopus.com/project.ref-source: "proj-1"
     argo.octopus.com/environment.ref-source: "development"
 
-    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.image.name}}:{{ .Values.image.version}}"
+    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.different.structure.here.image }}"
 ...
 spec:
   sources:    
@@ -244,7 +244,7 @@ metadata:
     argo.octopus.com/project.other-source: "proj-2"
     argo.octopus.com/environment.other-source: "development"
 
-    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.another-image.name }}"
+    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.another-image.name }}"
 ...
 spec:
   sources:
