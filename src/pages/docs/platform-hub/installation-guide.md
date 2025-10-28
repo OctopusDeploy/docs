@@ -19,11 +19,9 @@ Self-hosted customers can install a Public Preview version of Octopus Server con
 You should only install a Public Preview version of Octopus server if you are comfortable adopting a feature before it’s fully complete. Any issues or bugs you encounter will **not** be fixed immediately. Please contact <sales@octopus.com> with any queries about whether this approach is right for you.
 :::
 1. You can download the Public Preview version of Octopus server via a direct link or by pulling a Docker image.
-- If you are running Octopus on Windows, you can download this [server release](https://download.octopusdeploy.com/octopus/Octopus.2025.4.3044-x64.msi).
-- If you are running Octopus on Linux, you can run the following Docker command
-```
-docker pull octopusdeploy/octopusdeploy:2025.4.3044-PublicPreview
-```
+- If you are running Octopus on Windows, you can download this [server release](https://g.octopushq.com/platform-hub-preview-download).
+- If you are running Octopus on Linux, you can download this [Docker image](https://g.octopushq.com/platform-hub-preview-dockerhub-download).
+
 2. After downloading, you can upgrade your Octopus instance with our [upgrading guide](/docs/administration/upgrading).
 3. You should now see the Platform Hub icon in your instance.
 :::div{.hint}
