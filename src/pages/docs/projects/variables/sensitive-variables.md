@@ -169,4 +169,4 @@ Of course, the best protection is not to `echo` potentially sensitive variables 
 
 ## Learn more
 
-- [Variable blog posts](https://octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables/1)

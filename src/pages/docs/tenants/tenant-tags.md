@@ -156,4 +156,4 @@ You can also use the project overview to deploy to groups of tenants by grouping
 
 ## Learn more {#learn-more}
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns)
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1)

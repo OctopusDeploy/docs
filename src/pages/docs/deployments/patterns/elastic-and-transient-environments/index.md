@@ -28,4 +28,4 @@ OctoFX is being deployed to trading desks in offices around the world.  Occasion
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).

@@ -1049,7 +1049,7 @@ For example, to change the name assigned to the ConfigMap resource to include th
 
 ## Learn more
 
-- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
+- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes/1)
 
 :::div{.hint}
 **Step updates**
