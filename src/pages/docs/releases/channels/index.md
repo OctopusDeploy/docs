@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-09-23
+modDate: 2025-10-28
 title: Channels
 icon: fa-solid fa-arrows-split-up-and-left
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
