@@ -27,11 +27,11 @@ in Ubuntu, and in Red Hat:
 sudo: sorry you must have a tty to run sudo
 ```
 
-## Enabling sudo command {#SudoCommands-EnablingSudocommand}
+## Enabling sudo command 
 
 The recommended way to enable these commands to be run is to disable the password prompt for the user account used for deployments.
 
-### Disable password prompt {#SudoCommands-DisablePasswordPrompt}
+### Disable password prompt
 
 Running the following command (from a shell with interactive mode so you can enter any required passwords) adds a file that is read in conjunction with the sudoers file to configure valid sudo policies.
 
@@ -51,9 +51,9 @@ Further information regarding how this file is used and how to make the configur
 - [sudoers manual](http://www.sudo.ws/man/1.8.13/sudoers.man.html)
 - [simple configuration explanation](http://superuser.com/questions/357467/what-do-the-alls-in-the-line-admin-all-all-all-in-ubuntus-etc-sudoers#357472)
 
-If you are using a distro such as Ubuntu, you should now be able to utilize the sudo command throughout your scripts.
+If you are using a distro such as Ubuntu, you should now be able to use the sudo command throughout your scripts.
 
-### Disable RequireTTY {#SudoCommands-DisbleRequireTTY}
+### Disable RequireTTY
 
 Although the sudo may no longer require a password, some distros, such as Centos and its derivatives, are configured by default to still require interactive input, or tty, when running sudo.
 
