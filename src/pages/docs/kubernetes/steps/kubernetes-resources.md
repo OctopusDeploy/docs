@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-11-07
+modDate: 2025-10-29
 title: Configure and apply Kubernetes resources
 description: Configure and apply Kubernetes resources.
 navOrder: 50
@@ -223,6 +223,10 @@ The Blue/Green deployment strategy always waits for the rollout to succeed, as t
 The volumes can reference externally managed storage, such as disks hosted by a cloud provider, network shares, or ConfigMap and Secret resources that are created outside of the step.
 
 The volumes can also reference ConfigMap and Secret resources created by the step. When created by the step, new ConfigMap and Secret resources are always created as new resources in Kubernetes with each deployment and their unique names are automatically referenced by the Deployment resource. This ensures that deployments see the data in their associated ConfigMap or Secret resource, and new deployments don't leave old deployments in an undefined state by overwriting their data. Once a deployment has successfully completed, old Secret and ConfigMap resources created by the step will be removed.
+
+When configuring ConfigMap and Secret volumes types, an optional Default Mode can be specified to tell Kubernetes what file permissions to apply to the mounted volume. These are specifed in a standard Unix-style octal format. E.g. `0644`
+
+**Note:** Other areas of Octopus UI may display permissions values converted to decimal format, reflecting the way Kubernetes stores values internally.
 
 Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
