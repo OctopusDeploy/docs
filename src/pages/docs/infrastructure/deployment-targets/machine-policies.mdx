@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-01-10
+modDate: 2025-10-23
 title: Machine policies
 description: Machine Policies allow you to customize the behavior of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
 navOrder: 110
@@ -260,6 +260,8 @@ By default, Calamari will be installed or updated when a machine is involved in 
 Tentacle and Kubernetes agents can be toggled to manually or automatically update.  If **Automatically** is selected, Octopus will start a task to update Tentacles and Kubernetes agents whenever Octopus detects that there is a pending Tentacle or Kubernetes agents upgrade (after health checks for example). 
 
 Conversely, Octopus will not automatically update Tentacle or Kubernetes agents but instead will display a prompt to begin a Tentacle and Kubernetes agents update on the Deployment Targets and Environments screens.
+
+Kubernetes also has a 3rd option: **Block** which disables both automatic and manual updates to keep the Agent on a static version.
 
 ### Maximum number of concurrent upgrades
 
