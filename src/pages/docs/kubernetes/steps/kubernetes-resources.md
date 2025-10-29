@@ -226,7 +226,7 @@ The volumes can also reference ConfigMap and Secret resources created by the ste
 
 When configuring ConfigMap and Secret volumes types, an optional Default Mode can be specified to tell Kubernetes what file permissions to apply to the mounted volume. These are specifed in a standard Unix-style octal format. E.g. `0644`
 
-**Note:** Other areas of Octopus UI may display permissions values converted to decimal format, reflecting the way Kubernetes stores values internally.
+**Note:** Kubernetes converts and stores Octal permission values to Decimals when applying. Other areas of Octopus UI will reflect this conversion, but editing remains in the more broadly adopted Octal format.
 
 Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
