@@ -224,7 +224,7 @@ The volumes can reference externally managed storage, such as disks hosted by a 
 
 The volumes can also reference ConfigMap and Secret resources created by the step. When created by the step, new ConfigMap and Secret resources are always created as new resources in Kubernetes with each deployment and their unique names are automatically referenced by the Deployment resource. This ensures that deployments see the data in their associated ConfigMap or Secret resource, and new deployments don't leave old deployments in an undefined state by overwriting their data. Once a deployment has successfully completed, old Secret and ConfigMap resources created by the step will be removed.
 
-When configuring ConfigMap and Secret volumes types, an optional Default Mode can be specified to tell Kubernetes what file permissions to apply to the mounted volume. These are specifed in a standard Unix-style octal format. E.g. `0644`
+When configuring ConfigMap and Secret volumes types, an optional Default Mode can be specified to tell Kubernetes what file permissions to apply to the mounted volume. These are specified in a standard Unix-style octal format. E.g. `0644`
 
 **Note:** Kubernetes converts and stores Octal permission values to Decimals when applying. Other areas of Octopus UI will reflect this conversion, but editing remains in the more broadly adopted Octal format.
 
