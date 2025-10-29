@@ -20,7 +20,7 @@ navOrder: 3
 
 ## Using with on-premises instances
 
-For on-premises Octopus instances, ensure your server accepts HTTP requests from IP address `51.8.40.170` to enable AI Assistant functionality.  The DNS entry of your Octopus Server will also need to be resolvable over the Internet for the IP address to be able to communicate with it.
+For on-premises Octopus instances, ensure your server accepts HTTPS requests from IP address `51.8.40.170` to enable AI Assistant functionality.  The DNS entry of your Octopus Server will also need to be resolvable over the Internet for the IP address to be able to communicate with it.
 
 :::div{.warning}
 It is not possible to integrate Octopus AI Assistant with an on-premises Octopus instance that cannot accept HTTP requests from this public IP address.
