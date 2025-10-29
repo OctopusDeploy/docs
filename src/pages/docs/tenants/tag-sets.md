@@ -96,18 +96,6 @@ You can use canonical names when:
 
 If you're running Octopus Deploy version earlier than **2025.4.3897** or the `extended-tag-sets` feature toggle is disabled, the feature is called **Tenant tags** (not Tag sets) and uses the original behavior described below.
 
-### What are tenant tags?
-
-Tenant tags are a form of metadata you can add to tenants to classify them. Tenant tags allow you to:
-
-- Find tenants faster using tenant tag filters.
-- Group a project's deployments overview by tag set.
-- Deploy to multiple tenants at the same time.
-- Customize deployment processes for tenants.
-- Scope project variables to tags.
-- Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
-- Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/#guides).
-- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles) section.
 
 ### Tenant tags
 
