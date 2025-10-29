@@ -140,4 +140,4 @@ $repository.Projects.Modify($project)
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).

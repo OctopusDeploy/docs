@@ -51,5 +51,5 @@ Flexible, [role-based security](/docs/security/users-and-teams/user-roles/) allo
 
 ## Learn more
 
-- [AWS blog posts](https://octopus.com/blog/tag/aws)
+- [AWS blog posts](https://octopus.com/blog/tag/aws/1)
 - [AWS runbook examples](/docs/runbooks/runbook-examples/aws)

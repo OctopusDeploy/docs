@@ -17,6 +17,7 @@ appsettings
 Appstep
 Appsteps
 argparse
+askpass
 asax
 ASPNET
 aspnetcore
@@ -112,6 +113,7 @@ Directorygroup
 DISM
 Distro
 distros
+Djava
 Dockerfiles
 dockerhub
 Domainname
@@ -413,6 +415,7 @@ replicasets
 reprioritize
 reprovisioned
 reprovisioning
+requiretty
 resolv.conf
 ResolvConfPath
 RHEV
@@ -512,6 +515,7 @@ thepassword
 timespan
 tlsv1
 tmpfs
+tomcatadmin
 Toolbelt
 Toolsets
 Topshelf
@@ -531,6 +535,7 @@ updateprogress
 upgradeavailability
 upgradelog
 upgrader
+urandom
 urllib
 urlset
 Userns
