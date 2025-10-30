@@ -8,10 +8,10 @@ description: Use tags to classify tenants and tailor your multi-tenant deploymen
 navOrder: 40
 ---
 
-This page covers how to use tags with tenants. For general information about tag sets, types, and scopes, see [Tag sets](/docs/tenants/tag-sets).
 
 :::div{.hint}
-Tag set types (SingleSelect and FreeText) require Octopus Deploy version **2025.4.3897** or later with the `extended-tag-sets` feature toggle enabled. Without this feature, all tag sets use MultiSelect type with predefined tags only.
+This page covers how to use tags with tenants. For general information about tag sets, types, and scopes, see [Tag sets](/docs/tenants/tag-sets).
+From Octopus Cloud version **2025.4.3897** we've introduced **SingleSelect** and **FreeText** tag set types. This functionality is behind the `Extended Tag Sets` feature toggle, to request this functionality early, please contact [support](https://octopus.com/support).
 :::
 
 Tenant tags allow you to:
