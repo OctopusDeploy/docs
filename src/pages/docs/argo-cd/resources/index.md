@@ -39,5 +39,5 @@ There are a number of use cases which Octopus _cannot_ support due to data acces
 | Directory            | Kubernetes Yaml                    | &#x2705; Will update image-tag fields without requiring additional annotations                           |
 | Directory | Kustomize | &#x2705; Will replace image tag values in the kustomize file |
 | Directory            | Helm Chart w/internal values.yaml  | &#x2705; Will update image-tag fields, requires helm-annotations to identify image-fields in values file |
-| Multiple Directories | Helm Char w/referenced values.yaml | &#x2705; Will update image-tag fields, requires multiple helm annotations                                |
+| Multiple Directories | Helm Chart w/referenced values.yaml | &#x2705; Will update image-tag fields, requires multiple helm annotations                                |
 
