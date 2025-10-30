@@ -92,15 +92,6 @@ You can use canonical names when:
 - **[Tenant tags](/docs/tenants/tenant-tags):** Learn how to use tags to classify tenants, deploy to multiple tenants, and design multi-tenant deployment processes.
 - **[Environment tags](/docs/infrastructure/environments#environment-tags):** Learn how to use tags to classify environments by attributes like cloud provider, region, or tier.
 
-## Tenant tags without extended features {#tag-sets-without-extended-features}
-
-If you're running Octopus Deploy version earlier than **2025.4.3897** or the `extended-tag-sets` feature toggle is disabled, the feature is called **Tenant tags** (not Tag sets) and uses the original behavior described below.
-
-
-### Tenant tags
-
-For complete information about using tenant tags, see [Tenant tags](/docs/tenants/tenant-tags).
-
 ## Learn more
 
 - [Create a tag set via the REST API](/docs/octopus-rest-api/examples/tagsets/create-tagset)
