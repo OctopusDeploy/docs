@@ -35,8 +35,9 @@ Tag sets can be scoped to specific resource types:
 
 - **Tenant:** The tag set can be used to tag tenants.
 - **Environment:** The tag set can be used to tag environments.
+- **Project:** The tag set can be used to tag projects.
 
-A tag set can be scoped to both Tenants and Environments if needed, allowing you to use the same tag set across both resource types.
+A tag set can be scoped to multiple resource types (Tenant, Environment, and/or Project), allowing you to use the same tag set across different resources.
 
 ## Managing tag sets {#managing-tag-sets}
 
@@ -91,6 +92,7 @@ You can use canonical names when:
 
 - **[Tenant tags](/docs/tenants/tenant-tags):** Learn how to use tags to classify tenants, deploy to multiple tenants, and design multi-tenant deployment processes.
 - **[Environment tags](/docs/infrastructure/environments#environment-tags):** Learn how to use tags to classify environments by attributes like cloud provider, region, or tier.
+- **[Project tags](/docs/projects/setting-up-projects#project-tags):** Learn how to use tags to classify and organize projects.
 
 ## Learn more
 

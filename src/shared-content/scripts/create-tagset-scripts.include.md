@@ -12,7 +12,7 @@ $spaceName = "Default"
 $tagsetName = "Upgrade Ring"
 $tagsetDescription = "Describes which upgrade ring the tenant belongs to"
 $tagsetType = "MultiSelect" # Options: MultiSelect, SingleSelect, FreeText
-$tagsetScopes = @("Tenant") # Options: Tenant, Environment (can specify multiple)
+$tagsetScopes = @("Tenant") # Options: Tenant, Environment, Project (can specify multiple)
 
 # Optional Tags to add in the format "Tag name", "Tag Color"
 $optionalTags = @{}
@@ -70,7 +70,7 @@ $spaceName = "Default"
 $tagsetName = "Upgrade Ring"
 $tagsetDescription = "Describes which upgrade ring the tenant belongs to"
 $tagsetType = "MultiSelect" # Options: MultiSelect, SingleSelect, FreeText
-$tagsetScopes = @("Tenant") # Options: Tenant, Environment (can specify multiple)
+$tagsetScopes = @("Tenant") # Options: Tenant, Environment, Project (can specify multiple)
 
 # Optional Tags to add in the format "Tag name", "Tag Color"
 $optionalTags = @{}
@@ -123,7 +123,7 @@ var spaceName = "Default";
 var tagsetName = "Upgrade Ring";
 var tagsetDescription = "Describes which upgrade ring the tenant belongs to";
 var tagsetType = "MultiSelect"; // Options: MultiSelect, SingleSelect, FreeText
-var tagsetScopes = new[] { "Tenant" }; // Options: Tenant, Environment (can specify multiple)
+var tagsetScopes = new[] { "Tenant" }; // Options: Tenant, Environment, Project (can specify multiple)
 
 // Optional Tags to add in the format "Tag name", "Tag Color"
 var optionalTags = new Dictionary<string, string>();
@@ -205,7 +205,7 @@ space_name = "Default"
 tagset_name = "MyTagset"
 tagset_description = "My description"
 tagset_type = "MultiSelect"  # Options: MultiSelect, SingleSelect, FreeText
-tagset_scopes = ["Tenant"]  # Options: Tenant, Environment (can specify multiple)
+tagset_scopes = ["Tenant"]  # Options: Tenant, Environment, Project (can specify multiple)
 tags = []
 tag = {
     'Id': None,
