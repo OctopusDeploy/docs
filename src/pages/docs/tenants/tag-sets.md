@@ -7,9 +7,7 @@ description: Tag sets are a categorizing system that let you add custom metadata
 navOrder: 35
 ---
 
-Tag sets group similar tags together, making it easier to work with resources as groups instead of individuals. This enables you to understand which tags fit together, what effect they should have on your deployments, and design powerful tag-based queries using combinations of tags.
-
-Currently, tags can be applied to tenants and environments, with support for additional resource types planned for the future.
+Tag sets provide the structure for grouping similar tags together, resulting in more orderly metadata. Currently, tags can be applied to tenants and environments, with support for additional resource types planned for the future.
 
 :::figure
 ![](/docs/img/tenants/images/tag-sets.png)
