@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2025-10-08
 title: Tag sets
 icon: fa-solid fa-tags
-description: Tag sets are a classification system that lets you add custom metadata to resources in Octopus Deploy.
+description: Tag sets are a categorizing system that let you add custom metadata to resources in Octopus Deploy.
 navOrder: 35
 ---
 
@@ -23,7 +23,7 @@ This functionality is behind the `Extended Tag Sets` feature toggle, to request 
 
 ## Tag set types {#tag-set-types}
 
-Tag sets can have different types that control how tags can be selected:
+There are three types of tag sets that can be created:
 
 - **MultiSelect:** Allows selecting multiple predefined tags from the tag set. This is the standard behavior and works for most scenarios.
 - **SingleSelect:** Allows selecting only one predefined tag from the tag set. Useful when you need to ensure only one option is chosen, such as a cloud provider or deployment tier.
@@ -33,9 +33,9 @@ Tag sets can have different types that control how tags can be selected:
 
 Tag sets can be scoped to specific resource types:
 
-- **Tenant:** The tag set can be used to tag tenants.
-- **Environment:** The tag set can be used to tag environments.
-- **Project:** The tag set can be used to tag projects.
+- **Tenant** 
+- **Environment** 
+- **Project**
 
 A tag set can be scoped to multiple resource types (Tenant, Environment, and/or Project), allowing you to use the same tag set across different resources.
 
@@ -51,13 +51,13 @@ Go to **Deploy ➜ Tag Sets** to create, modify and reorder tag sets and tags.
 
 We suggest taking some time to design your tag sets based on how you will apply them to your resources. Our recommendation is to make sure each of your tag sets are orthogonal, like different axes on a chart. This kind of design is important because of [how tags are combined when filtering](/docs/tenants/tenant-tags#tag-based-filters).
 
-Let's look at an example tag set design:
+Let's look at example tag sets:
 
 - **Importance (VIP, Standard, Trial):** concerned with classifying resources so they can be found easily.
 - **Hosting Region (West US, East US 2):** concerned with where resources are hosted or deployed.
 - **Release Ring (Alpha, Beta, Stable):** concerned with when updates are applied.
 
-This kind of tag set design will make it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on your deployments.
+Grouping tag sets makes it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on their deployments.
 
 ### Ordering tag sets and tags {#ordering-tag-sets}
 
