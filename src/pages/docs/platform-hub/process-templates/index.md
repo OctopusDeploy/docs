@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-23
-modDate: 2025-09-23
+modDate: 2025-10-21
 title: Process templates
 subtitle: An overview of Process Templates
 icon: fa-solid fa-layer-group
@@ -50,7 +50,7 @@ Some steps look different inside a process template. They ask for a parameter ra
 
 
 :::div{.warning}
-Our initial release of Process Templates does not include support for custom step templates, community step templates, and a few built-in steps.
+Our initial release of Process Templates does not include support for a few built-in steps.
 :::
 
 Once you have set up a deployment process, you can use it in any space for a deployment or runbook.
@@ -196,9 +196,8 @@ Write-Host "Hello, World!"
 12. Commit your template.
 13. Publish and Share your template.
 14. Visit a project, and its deployment process
-15. Add Step > Add Process Template
-16. Choose the process template you just published
-17. Choose the Worker Pool in the parameters tab
-18. Add any steps before or after the process template
+15. Choose the process template you just published
+16. Choose the Worker Pool in the parameters tab
+17. Add any steps before or after the process template
 
 You can now deploy this process to say "Hello, World!".

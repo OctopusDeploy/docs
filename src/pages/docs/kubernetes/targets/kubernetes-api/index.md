@@ -394,4 +394,4 @@ If you are finding that certain API calls are failing, for example `https://your
 ## Learn more
 
 - [Kubernetes Deployment](/docs/deployments/kubernetes)
-- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
+- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes/1)

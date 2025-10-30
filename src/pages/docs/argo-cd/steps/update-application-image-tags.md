@@ -18,7 +18,7 @@ ensure the correct sections of the relevant values files are updated. See [Helm 
 more information.
 :::
 
-
+:::div{.info}
 If the application cluster's default registry has been changed see [cluster annotations](/docs/argo-cd/annotations/cluster-annotations) to ensure
 the correct default registry is shared with Octopus.
 :::
@@ -45,6 +45,10 @@ The output section allows you to configure how changes are to be merged into you
    * More information can be found [here](/docs/argo-cd/steps/deployment-preview)
 2. Commit message allows you to specify the summary, and description of the change. The description will be automatically populated if left empty.
    * The content here will be reused for Pull Request messages if you have selected for the change to merge via Pull Request
+     :::div{.warning}
+     If the commit summary or description references a [Sensitive Variable](/docs/projects/variables/sensitive-variables) the deployment wil fail.
+     This ensures sensitive data is not leaked to Git via the commit/PR message.
+     :::
 3. Git Commit Method specifies _how_ changes are merged - merging directly into the repo, or going via a PR.
    * A third option exists whereby you can specify which environments should use Pull Requests, with all others falling back to a direct commit
    * This is useful if your Production environment requires PRs, but early environments do not.

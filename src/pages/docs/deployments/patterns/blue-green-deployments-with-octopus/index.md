@@ -31,4 +31,4 @@ Configuring your [lifecycle](/docs/releases/lifecycles) will need to be done acc
 - [Change load-balancer group Runbook example](/docs/runbooks/runbook-examples/aws/change-load-balancer-group).
 - [Blue/Green deployment knowledge base articles](https://oc.to/BlueGreenTaggedKBArticles).
 - [Ask Octopus Episode: Blue/Green Deployments](https://www.youtube.com/watch?v=qFqoVwVzeo0)
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).

@@ -6,7 +6,7 @@ title: Deployment Preview
 description: Query affected applications before triggering the change
 ---
 Argo CD Instances don't fall under the category of 'Deployment Target', and does not support the idea of 'Target Tags',
-instead - Argo CD _Application_ are annotated with [Scoping Annotations[(/docs/argo-cd/annotations)] to provide a similar
+instead - Argo CD _Application_ are annotated with [Scoping Annotations](/docs/argo-cd/annotations) to provide a similar
 mapping between project/environment and an output location (in this case, an Argo Application's repository).
 
 As this data isn't readily visible during the step - we've added a drawer so you can see what applications will be updated

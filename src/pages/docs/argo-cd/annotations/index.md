@@ -10,20 +10,88 @@ navOrder: 20
 hideInThisSectionHeader: true
 ---
 
-For Octopus to deploy to the correct Argo CD Applications for the target Project/Environment/Tenant in the deployment, the relationship between Argo CD Applications and a Project, Environment and/or a Tenant must be defined.
+For an Octopus deployment to update the desired Argo CD Application Source, the relationship between an Argo CD Application Source and a Project, Environment and/or a Tenant must be defined.
 By setting up these relationships, you answer the question:
 
-> When I deploy `Project-X` to the `Staging` environment - which Argo CD Application(s) should be updated?
+> When I deploy `Project-X` to the `Staging` environment - which Argo CD Application Source(s) should be updated?
 
 This is done by adding "Scoping" annotations to the Argo CD Application definition, either through the Argo CD Web UI, or directly in the Argo CD Application resource manifest (YAML).
 
-The three scoping annotations are:
+The three scoping annotations are (where `<source-name>` is the name of the source to be updated):
 
 | Annotation                     | Required | Value description                             |
 |--------------------------------|----------|-----------------------------------------------|
-| `argo.octopus.com/project`     | true     | This is the _slug_ of the Octopus Project     |
-| `argo.octopus.com/environment` | true     | This is the _slug_ of the Octopus Environment |
-| `argo.octopus.com/tenant`      | false    | This is the _slug_ of the Octopus Tenant      |
+| `argo.octopus.com/project[.<source-name>]`     | true     | This is the _slug_ of the Octopus Project     |
+| `argo.octopus.com/environment[.<source-name>]` | true     | This is the _slug_ of the Octopus Environment |
+| `argo.octopus.com/tenant[.<source-name>]`      | false    | This is the _slug_ of the Octopus Tenant      |
+
+
+## Single source
+If the Argo CD Application contains a single source, the `name` property is optional. 
+
+If the source is not named, the annotations must be unscoped.
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+  annotations:
+    argo.octopus.com/environment: development
+    argo.octopus.com/project: argo-cd-guestbook
+spec:
+  source:
+    repoURL: https://github.com/example-org/guestbook.git
+    targetRevision: HEAD
+    path: ./    
+```
+
+If the source is named, then the annotations must also source-scoped.
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+  annotations:
+    argo.octopus.com/environment.guestbook-source: development
+    argo.octopus.com/project.guestbook-source: argo-cd-guestbook
+spec:
+  source:
+    repoURL: https://github.com/example-org/guestbook.git
+    targetRevision: HEAD
+    path: ./
+    name: guestbook-source
+```
+
+
+## Multiple sources
+If there are multiple sources, the sources being updated must be named and the annotations must also be source-scoped.
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+  annotations:
+    argo.octopus.com/environment.guestbook-service-1: development
+    argo.octopus.com/project.guestbook-service-1: argo-cd-guestbook-service-1
+    argo.octopus.com/environment.guestbook-service-2: development
+    argo.octopus.com/project.guestbook-service-2: argo-cd-guestbook-service-2
+spec:
+  sources:
+    - repoURL: https://github.com/example-org/guestbook-service-1.git
+      targetRevision: HEAD
+      path: ./
+      name: guestbook-service-1
+    - repoURL: https://github.com/example-org/guestbook-service-2.git
+      targetRevision: HEAD
+      path: ./
+      name: guestbook-service-2
+```
 
 ## Updating in Argo CD Web UI
 
@@ -40,8 +108,8 @@ You can update the annotations for an Argo CD Application via the Argo CD Web UI
 ![Argo CD Application Edit](/docs/img/argo-cd/argo-cd-app-annotation-edit.png)
 :::
 
-## Updating the Argo CD Application resource manifest~~
-~~
+## Updating the Argo CD Application resource manifest
+
 If you are managing your Argo CD Application manifests in YAML files, you can add the annotations directly into the `metadata.annotations` node.
 
 Example:

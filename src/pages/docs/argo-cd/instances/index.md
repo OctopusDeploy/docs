@@ -48,7 +48,7 @@ kubectl config view
 5. A valid Argo CD JWT authentication token is required. To generate this, you can use the [Argo CD CLI](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
 
 :::div{.warning}
-The owner of the specified JWT must have a role able to read Cluster and Application Argo CD resources. 
+The JWT token must belong to an Argo CD user with permission to read Application and Cluster resources.
 :::
 
 6. Press "Next" to move to the next screen

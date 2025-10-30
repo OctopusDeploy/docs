@@ -122,4 +122,4 @@ Due to the number and configurable nature of the various Linux distributions ava
 
 ## Learn more
 
-- [Linux blog posts](https://octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux/1)

@@ -37,12 +37,13 @@ In this case, the `global.image.repositoryAndTag` contains the tag to be updated
 
 As the structure of Helm values files can vary widely between charts, it's necessary to require you to specify custom annotations on the Argo CD Applications.
 
-The annotations are:
+The annotation is as follows:
 
-| Annotation                                     | Alias required | Required | Value description                                                                             |
-|------------------------------------------------|----------------|----------|-----------------------------------------------------------------------------------------------|
-| `argo.octopus.com/image-replace-paths.{alias}` | false          | true     | A comma-delimited Helm-template style string that builds a list of full qualified image names |
-| `argo.octopus.com/image-replace-alias.{alias}` | true           | false    | The path of a ValueFiles entry in the `spec.destinations.helm.valuesFiles` field              |
+| Annotation                                                  | Value description                                                                             |
+|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `argo.octopus.com/image-replace-paths[.<helm source name>]` | A comma-delimited Helm-template style string that builds a list of fully qualified image names |
+
+Note that while the scoping annotation for the project/environment is defined for the source to be *updated*, the path annotation is defined for the chart/helm source. All value files for a given chart are assumed to have the same structure.
 
 ## Details
 
@@ -57,7 +58,7 @@ Octopus can then use this to match on containers being updated and can then use 
 
 ### Image path templates
 
-The following is some examples of how to format the Helm-templated string to put into the `argo.octopus.com/image-replace-paths.{alias}` annotation based on different values file structures.
+The following is some examples of how to format the Helm-templated string to put into the `argo.octopus.com/image-replace-paths[.<helm source name>]` annotation based on different values file structures.
 
 #### Example 1
 
@@ -105,13 +106,13 @@ metadata:
     argo.octopus.com/image-replace-paths: "{{ .Values.global.image.registry }}/{{ .Values.global.image.repositoryAndTag }}"
 ```
 
-### Ref sources and alias examples
+### Application examples
 
 The following is a list of example Argo CD Application structures, the required annotations and sample values files.
 
 #### Example 1
 
-With a single values file and a single Helm source, we don't need the `alias` in the paths.
+With a single Helm source, the Helm source can be unnamed and the paths annotation is unscoped. The same path is applied to all value files belonging to the chart/Helm source.
 
 **application manifest**
 ```yaml
@@ -119,7 +120,7 @@ With a single values file and a single Helm source, we don't need the `alias` in
 metadata:
   annotations:
     argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/environment: "development"
 
     # When there is a single source, with a single inline file, we use a single annotation to specify call paths
     argo.octopus.com/image-replace-paths: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.another-image.name }}"
@@ -146,16 +147,18 @@ another-image:
 
 #### Example 2
 
-A single Ref source used to source the values.yaml for the Helm source. In this scenario, the `alias` is the same as the `ref` value.
+A single Ref source used to source the values.yaml for the Helm source. In this scenario, both sources need to be named and the paths annotation must explicitly specify the helm source.
+
+Note that the scoping annotation for the project/environment specifies the ref-source while the path annotation is specified for the chart/helm source.
 
 ```yaml
 ...
 metadata:
   annotations:
-    argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/project.ref-source: "proj-1"
+    argo.octopus.com/environment.ref-source: "development"
 
-    argo.octopus.com/image-replace-paths.remote-values: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.another-image.name }}"
+    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.another-image.name }}"
 ...
 spec:
   sources:    
@@ -165,10 +168,11 @@ spec:
       helm:
         valueFiles:
           - $remote-values/values.yaml
-
+      name: helm-source
     - repoURL: https://github.com/another-repo/values-files-here
       targetRevision: main
       ref: remote-values
+      name: ref-source
 ```
 
 **values.yaml**
@@ -189,14 +193,12 @@ A Helm source that references both a ref sourced values file and also an in-repo
 ...
 metadata:
   annotations:
-    argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/project.helm-source: "proj-1"
+    argo.octopus.com/environment.helm-source: "development"
+    argo.octopus.com/project.ref-source: "proj-1"
+    argo.octopus.com/environment.ref-source: "development"
 
-    argo.octopus.com/image-replace-alias.core: "app-files/values.yaml"
-    argo.octopus.com/image-replace-alias.remote: "$remote-values/values.yaml"
-
-    argo.octopus.com/image-replace-paths.core: "{{ .Values.image.name}}:{{ .Values.image.version}}"
-    argo.octopus.com/image-replace-paths.remote: "{{ .Values.different.structure.here.image }}"
+    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.different.structure.here.image }}"
 ...
 spec:
   sources:    
@@ -207,10 +209,11 @@ spec:
         valueFiles:
           - app-files/values.yaml
           - $remote-values/values.yaml
-
+      name: helm-source
     - repoURL: https://github.com/another-repo/values-files-here
       targetRevision: main
       ref: remote-values
+      name: ref-source
 ```
 
 **app-files/values.yaml**
@@ -227,73 +230,33 @@ different:
       image: busybox:1
 ```
 
+
 #### Example 4
 
-A Helm source that references multiple values files from the source repo.
+A Helm source that has multiple ref sourced values files. Each ref source can be updated by a different project if required.
 
 ```yaml
 ...
 metadata:
   annotations:
-    argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/project.remote-source: "proj-1"
+    argo.octopus.com/environment.remote-source: "development"
+    argo.octopus.com/project.other-source: "proj-2"
+    argo.octopus.com/environment.other-source: "development"
 
-    # When there are multiple sources, we need an annotation to tell us which file path annotations belong to (Note: the actual name of the alias can be arbitrary)
-    # if an alias is not provided for a path, that values file will be ignored
-    argo.octopus.com/image-replace-alias.core: "app-files/values.yaml"
-    argo.octopus.com/image-replace-alias.overlay: "app-files/values-overlay.yaml"
-
-    argo.octopus.com/image-replace-paths.core: "{{ .Values.image.name}}:{{ .Values.image.version}}"
-    argo.octopus.com/image-replace-paths.overlay: "{{ .Values.different.structure.here.image }}"
-...
-spec:
-  sources:    
-    - repoURL: https://github.com/my-org/my-argo-helm-app
-      path: "chart"
-      targetRevision: main
-      helm:
-        valueFiles:
-          - app-files/values.yaml
-          - app-files/values-overlay.yaml
-```
-
-**app-files/values.yaml**
-```yaml
-image:
-  name: nginx/nginx
-  version: 1.19.0
-```
-**$remote-values/values-overlay.yaml**
-```yaml
-different:
-  structure:
-    here:
-      image: busybox:1
-```
-
-#### Example 5
-
-A Helm source that has multiple ref sourced values files.
-
-```yaml
-...
-metadata:
-  annotations:
-    argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
-
-    argo.octopus.com/image-replace-paths.other-values: "{{ .Values.another-image.name }}"
-    argo.octopus.com/image-replace-paths.remote-values: "{{ .Values.image.name}}:{{ .Values.image.version}}"
+    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.image.name}}:{{ .Values.image.version}}, {{ .Values.another-image.name }}"
 ...
 spec:
   sources:
     - repoURL: https://github.com/main-repo/values-files-here
       targetRevision: main
       ref: other-values
+      name: other-source
 
-    - repoURL: https://github.com/another-repo/values-files-here
+- repoURL: https://github.com/another-repo/values-files-here
       targetRevision: main
       ref: remote-values
+      name: remote-source
 
     - repoURL: https://github.com/my-repo/my-argo-app
       path: "./"
@@ -302,6 +265,7 @@ spec:
         valueFiles:
           - $other-values/values.yaml
           - $remote-values/values.yaml
+      name: helm-source
 ```
 
 **$remote-values/values.yaml**
@@ -316,92 +280,42 @@ another-image:
   name: busybox:1
 ```
 
-#### Example 6
+#### Example 5
 
-Multiple Helm sources with a same values file path in both sources.
-
-Note: The alias requires a fully qualified repo path in the format: `{repoUrl}/{targetRevision}/{path}/{valuesFile}`.
+Multiple Helm sources that reference different values files from the same ref source. If you need to update your value files independently, then we recommend letting the Helm sources reference different ref sources.
 
 ```yaml
 ...
 metadata:
   annotations:
-    argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
+    argo.octopus.com/project.values-source: "proj-1"
+    argo.octopus.com/environment.values-source: "development"
 
-    argo.octopus.com/image-replace-alias.app1: "https://github.com/my-repo/my-argo-app/main/values.yaml"
-    argo.octopus.com/image-replace-alias.app2: "https://github.com/my-repo/my-other-argo-app/main/cool/values.yaml"
-
-    argo.octopus.com/image-replace-paths.app1: "{{ .Values.image.name}}:{{ .Values.image.version}}"
-    argo.octopus.com/image-replace-paths.app2: "{{ .Values.different.structure.here.image }}"
-...
-spec:
-  sources:
-    - repoURL: https://github.com/my-repo/my-argo-app
-      path: "./"
-      targetRevision: main
-      helm:
-        valueFiles:
-          - values.yaml
-
-    - repoURL: https://github.com/my-repo/my-other-argo-app
-      path: "cool"
-      targetRevision: main
-      helm:
-        valueFiles:
-          - values.yaml
-```
-
-**<span>https://</span>github.com/my-repo/my-argo-app/main/values.yaml**
-```yaml
-image:
-  name: nginx/nginx
-  version: 1.19.0
-```
-**<span>https://</span>github.com/my-repo/my-other-argo-app/main/cool/values.yaml**
-```yaml
-different:
-  structure:
-    here:
-      image: busybox:1
-```
-
-#### Example 7
-
-Multiple Helm sources that reference different values files from the same ref source.
-
-```yaml
-...
-metadata:
-  annotations:
-    argo.octopus.com/project: "proj-1"
-    argo.octopus.environment: "development"
-
-    argo.octopus.com/image-replace-alias.shared1: "$shared-values/some-path/values.yaml"
-    argo.octopus.com/image-replace-alias.shared2: "$shared-values/another-path/values.yaml"
-
-    argo.octopus.com/image-replace-paths.shared1: "{{ .Values.image.name}}:{{ .Values.image.version}}"
-    argo.octopus.com/image-replace-paths.shared2: "{{ .Values.different.structure.here.image }}"
+    argo.octopus.com/image-replace-paths.service-1-source: "{{ .Values.image.name}}:{{ .Values.image.version}}"
+    argo.octopus.com/image-replace-paths.service-2-source: "{{ .Values.different.structure.here.image }}"
 ...
 spec:
   sources:
     - repoURL: https://github.com/another-repo/shared-values-files-here
       targetRevision: main
       ref: shared-values
+      name: values-source
 
     - repoURL: https://github.com/my-repo/my-argo-app-be
-      path: "app-files"
+      path: "service-1-files"
       targetRevision: main
       helm:
         valueFiles:
           - $shared-values/some-path/values.yaml
+      name: service-1-source
 
     - repoURL: https://github.com/my-repo/my-argo-app-fe
-      path: "app-files"
+      path: "service-2-files"
       targetRevision: main
       helm:
         valueFiles:
           - $shared-values/another-path/values.yaml
+      name: service-2-source
 ```
 
 **$shared-values/some-path/values.yaml**

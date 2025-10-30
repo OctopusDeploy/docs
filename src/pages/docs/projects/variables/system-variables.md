@@ -1555,4 +1555,4 @@ Example: #{Octopus.Deployment.Tenant.Id}/#{Octopus.Project.Id}/#{Octopus.Environ
 
 ## Learn more
 
-- [Variable blog posts](https://octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables/1)

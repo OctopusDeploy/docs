@@ -40,12 +40,16 @@ The output section allows you to configure how changes are to be merged into you
     * More information can be found [here](/docs/argo-cd/steps/deployment-preview)
 2. Commit message allows you to specify the summary, and description of the change. The description will be automatically populated if left empty.
     * The content here will be reused for Pull Request messages if you have selected for the change to merge via Pull Request
+:::div{.warning}
+If the commit summary or description references a [Sensitive Variable](/docs/projects/variables/sensitive-variables) the deployment wil fail.
+This ensures sensitive data is not leaked to Git via the commit/PR message.
+:::
 3. Git Commit Method specifies _how_ changes are merged - merging directly into the repo, or going via a PR.
     * A third option exists whereby you can specify which environments should use Pull Requests, with all others falling back to a direct commit
     * This is useful if your Production environment requires PRs, but early environments do not.
 
 :::div{.warning}
-      Currently, Pull Requests can only be created for GitHub-based repositories. Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
+Currently, Pull Requests can only be created for GitHub-based repositories. Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
 :::
 
 4. Purge Output Folder allows you to clear the `Path` directory of the Argo CD Application's repository prior to adding newly templated files.
@@ -67,3 +71,8 @@ When deploying a release containing an Update Argo CD Applications Manifest step
   * Copy populated templates into the source repository
   * Changed files are committed, and pushed back to the repo/branch as specified in the Argo CD Application
       * A PR will be created (rather than merging to the targetRevision branch) if configured in the step UI
+
+:::div{.warning}
+If an input template references a [Sensitive Variable](/docs/projects/variables/sensitive-variables), the deployment will fail.
+This ensures sensitive data is not persisted in the target Git repository in plain text.
+:::

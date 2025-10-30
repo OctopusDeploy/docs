@@ -270,9 +270,11 @@ data:
 
 ## Agent tooling
 
-For all Kubernetes steps, except the `Run a kubectl script` step, the agent uses the `octopusdeploy/kubernetes-agent-tools-base` default container image to execute it's workloads. It will correctly select the version of the image that's specific to the cluster's version.
+For all Kubernetes steps, except the `Run a kubectl script` step, the agent uses the `octopusdeploy/kubernetes-agent-tools-base` default container image to execute it's workloads. It will correctly select and pull the version of the image that's specific to the cluster's version.
 
 For the `Run a kubectl script` step, if there is a [container image](/docs/projects/steps/execution-containers-for-workers) defined in the step, then that container image is used. If one is not specified, the default container image is used.
+
+To override these automatically resolved tooling images, you can set the helm chart values of `scriptPods.worker.image.repository` and `scriptPods.worker.image.tag` for the agent running as a worker, or `scriptPods.deploymentTarget.image` and `scriptPods.deploymentTarget.tag` when running the agent as a deployment target.
 
 :::div{.warning}
 In Octopus Server versions prior to `2024.3.7669`, the Kubernetes agent erroneously used container images defined in _all_ Kubernetes steps, not just the `Run a kubectl script` step.

@@ -78,7 +78,7 @@ When designing channels in Octopus, don't think about channels as another name f
 - **Branches** can be short lived and tend to get merged, and model the way code changes in the system.
 - **Channels** are often long lived, and model your release process.
 
-For example, [Google Chrome have four different channels](https://www.chromium.org/getting-involved/dev-channel) (Stable, Beta, Dev, and Canary). Their channels are designed around user's tolerance for bleeding edge features vs. stability. Underneath, they may have many release branches contributing to those channels. You can read about implementing [early-access programs in the Channels Walk-through](https://octopus.com/blog/channels-walkthrough#early-access-programs).
+For example, [Google Chrome have four different channels](https://www.chromium.org/getting-involved/dev-channel) (Stable, Beta, Dev, and Canary). Their channels are designed around user's tolerance for bleeding edge features vs. stability. Underneath, they may have many release branches contributing to those channels.
 
 It's important to realize that **branches will map to different channels over time**. For example, right now, packages from the `release/v2` branch might map to your "Stable" channel in Octopus, while packages from `release/v3` go to your "Early Adopter" channel.
 
@@ -209,4 +209,4 @@ When creating the release, you can then choose whether the release is for an ind
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).
