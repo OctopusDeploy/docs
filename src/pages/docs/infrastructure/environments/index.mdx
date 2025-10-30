@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-18
+modDate: 2025-10-08
 title: Environments
 description: Environments are how you group your deployment targets so you can promote your software through different phases, for instance, into Development, then Test, and finally into Production.
 navOrder: 20
@@ -32,6 +32,24 @@ Take a look at our [environment recommendations](/docs/infrastructure/environmen
 
 To edit individual environments, click the overflow menu (...) for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure), or delete the environment.
 
+## Environment tags
+
+:::div{.warning}
+From Octopus Cloud version **2025.4.3897** we support tagging environments. This functionality is behind the `Extended Tag Sets` feature toggle, to request this functionality early, please contact [support](https://octopus.com/support).
+:::
+
+You can create and assign tags to environments. This allows you to:
+
+- Classify environments by attributes like cloud provider, region, or tier.
+- Filter environments by tags on the Environments page.
+- Configure your deployment dashboard to display only environments with specific tags.
+
+:::div{.hint}
+Only tags from tag sets that have been configured with the **Environment** scope can be used to tag environments.
+:::
+
+Learn more about [tag sets](/docs/tenants/tag-sets), including tag set types, scopes, and how to create and manage them.
+
 ## Environment permissions
 
 You can control who has access to view, edit, and deploy to environments by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/security/users-and-teams).
@@ -60,6 +78,7 @@ This will let you search by:
 - Name
 - Deployment target
 - Environment
+- Environment tags
 - Target tags
 - Health Status
 - Communication style
