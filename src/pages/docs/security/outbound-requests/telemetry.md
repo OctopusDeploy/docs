@@ -9,7 +9,7 @@ navOrder: 25
 
 Telemetry reporting is on by default. The data we receive helps us understand how our customers use Octopus and guides product decisions. We also collect usage patterns for the purpose of improving our user experience.
 
-Self-hosted customers can turn off telemetry reporting by navigating to **Configuration ➜ Telemetry** and unchecking the **Send telemetry** checkbox in the Octopus instance.
+Paid self-hosted customers can turn off telemetry reporting by navigating to **Configuration ➜ Telemetry** and unchecking the **Send telemetry** checkbox in the Octopus instance.
 
 When **Telemetry Reporting** is on, Octopus will make a secure HTTPS request containing the following data.
 
