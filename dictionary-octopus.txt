@@ -17,10 +17,12 @@ appsettings
 Appstep
 Appsteps
 argparse
-askpass
 asax
+askpass
 ASPNET
 aspnetcore
+Asterix
+asterix
 astro
 astrojs
 auditability
@@ -123,6 +125,8 @@ dotnetcore
 dotnetfx
 DPAPI
 dpkg
+Dreamdata
+dreamdata
 dryrun
 Dspring
 DWORD
@@ -259,6 +263,8 @@ maintenanceconfiguration
 majeure
 makedirs
 manualintervention
+Marketo
+marketo
 mattc
 maxage
 mdast
@@ -267,6 +273,8 @@ milli
 minidump
 minifier
 MITM
+Mkto
+mkto
 Moines
 mozjpeg
 mozroots
@@ -459,6 +467,7 @@ sfproj
 shiki
 Showplan
 SIEM
+Signup
 signingkeys
 skiplinks
 snapshotted
@@ -484,6 +493,7 @@ statefulset
 statefulsets
 stepsprodpackages
 sthumb
+storyblok
 strconv
 struct
 stylesheet
