@@ -117,6 +117,9 @@ We recommend changing the default values on the different retention policies ava
 For releases, you have the choice to clean up after a specified number of releases or a specified number of days. If you're not sure what value to pick, we recommend keeping the last three releases for both releases and the extracted packages.
 
 Remember, if you have multiple lifecycles then we recommend configuring the retention policies on each lifecycle and any defined phases.
+:::div{.info}
+From Octopus version 2025.4, the default lifecycle retention policy for a space can be customized.
+:::
 
 For the built-in repository, even if you don't plan to use it, it's good to update the retention policy so that it's set if you start using the repository in the future. Normally we recommend a short length of time, for instance, something close to 7 days.
 

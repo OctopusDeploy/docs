@@ -76,7 +76,7 @@ Undeployed releases will simply keep the number we have selected and no more. Wh
 
 ## Set release retention policies \{#set-release-retention-policies}
 
-Under **Deploy ➜ Lifecycles** you select the Lifecycle you want to define or edit your retention policy for:
+Under **Manage ➜ Lifecycles** you select the Lifecycle you want to define or edit your retention policy for:
 
 :::figure
 ![](/docs/img/administration/retention-policies/images/lifecycles.png)
@@ -95,6 +95,22 @@ In Octopus Server, you can keep all, or select a number of releases to keep.
 Alternatively, you can specify a number of days worth of releases and files to keep.
 
 <OctopusCloudStorageLimits />
+
+### Updating the default retention policy
+
+:::div{.info}
+From Octopus Cloud version 2025.4, the default lifecycle retention policy for a space can be customized. This feature is behind a feature toggle, please contact michelle.obrien@octopus.com if you would like to turn this feature on.
+:::
+
+:::figure
+![](/docs/img/administration/retention-policies/images/centralized-retention-lifecycle.png)
+:::
+
+You can update the default retention settings used by lifecycle under **Manage ➜ Retention ➜ Release Retention**.
+
+:::div{.info}
+Updating this retention policy will update all Lifecycles in the space that is using the "_Default retention policy_".
+:::
 
 ### Inherited retention policies
 
