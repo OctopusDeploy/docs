@@ -1,0 +1,63 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-11-03
+modDate: 2025-11-03
+title: Configuring built-in feed retention policy
+icon: fa-solid fa-bug
+description: How to configure package retention for the built-in feed
+---
+
+import OctopusCloudStorageLimits from 'src/shared-content/octopus-cloud/octopus-cloud-storage-limits-hint.include.md';
+
+## Set built-in feed retention policy \{#built-in-feed}
+
+You can find the built-in repository retention policy settings under **Deploy ➜ Packages**.
+
+:::figure
+![](/docs/img/administration/retention-policies/images/built-in-feed-retention-policy.png)
+:::
+
+In Octopus Server, this can be set to keep packages forever, or for a set number of days.
+
+<OctopusCloudStorageLimits />
+
+:::figure
+![](/docs/img/administration/retention-policies/images/built-in-repository.png)
+:::
+
+Choosing _A limited time_ will allow you to select the number of days to keep a package in the repository. The default value is 30, but you can choose something shorter or longer based on your needs.
+
+### Which packages are deleted
+
+:::div{.hint}
+**Note on package clean-up**
+
+Only packages that are not associated with releases will be cleaned up. That means even if a package is older than the value you choose, if it's attached to an existing release, it won't be cleaned up until that release is also cleaned up.
+:::
+
+When a package retention policy is applied, Octopus will delete packages that meet _both_ of the following criteria:
+
+1. The time span from the package's initial publish date exceeds the configured time period in the policy
+2. The package is **not associated with any releases in Octopus**.
+
+## Set up deleting packages associated with releases
+
+:::div{.info}
+From Octopus version 2025.3.672, packages associated with releases in the Octopus Built-in repository can be deleted. This feature is behind a feature toggle, please contact michelle.obrien@octopus.com if you would like to turn this feature on.
+:::
+
+:::figure
+![](/docs/img/administration/retention-policies/images/built-in-repository-decoupled.png)
+:::
+
+To enable deleting packages associated with releases, from the Built-in Repository Retention configuration page:
+
+- Select **A limited time** and configure the number of days to retain packages.
+- Select **Delete all packages after the number of days specified above**
+
+This option ensures that packages associated with releases and runbook runs are deleted from the Built-in Repository. Any packages associated with releases displayed on either the main dashboard or a [project dashboard](/docs/projects/project-dashboard) are **never deleted**. Any packages associated with runbooks displayed on the projects runbook dashboard are also **never deleted**.
+
+When this option is selected and a package retention policy is applied, Octopus will delete packages that meet _both_ of the following criteria:
+
+1. The time span from the package's initial publish date exceeds the configured time period in the policy
+2. The package is **not associated with a release or runbook run displayed on the dashboard**
