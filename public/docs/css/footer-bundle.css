@@ -1,0 +1,7 @@
+/* Navbar CSS Bundle */
+
+@import './footer/variables.css';
+@import './footer/global-styles.css';
+@import './footer/marketo-footer.css';
+@import './footer/container.css';
+@import './footer/footer.css';
