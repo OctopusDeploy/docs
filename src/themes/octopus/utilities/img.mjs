@@ -71,13 +71,6 @@ async function recurseFiles(directory) {
                         webP: webP,
                     };
 
-                    const fullDestination = path.join(
-                        workingDirectory,
-                        outputPath,
-                        'x',
-                        info.path
-                    );
-
                     // Only processes images where there is no json metadata file
                     const metaPath = path.join(
                         workingDirectory,
@@ -88,20 +81,6 @@ async function recurseFiles(directory) {
                     if (!fs.existsSync(metaPath)) {
                         console.log('Processing:', metaPath);
                         filesToProcess.push(info);
-                    } else {
-                        const data = fs.readFileSync(metaPath, 'utf8');
-                        const jsonData = JSON.parse(data);
-                        const date90DaysAgo = new Date(
-                            Date.now() - 90 * 24 * 60 * 60 * 1000
-                        );
-
-                        if (
-                            !jsonData.updated ||
-                            new Date(jsonData.updated) < date90DaysAgo
-                        ) {
-                            console.log('Processing:', metaPath);
-                            filesToProcess.push(info);
-                        }
                     }
 
                     break;

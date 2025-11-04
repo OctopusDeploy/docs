@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-03
+modDate: 2025-10-08
 title: Setting up projects and project groups
 description: How to setup projects and project groups
 navOrder: 10
@@ -41,6 +41,24 @@ You can change the projects settings by accessing the settings menu on the proje
 - [Project group](#project-group)
 - [Release versioning](/docs/releases/release-versioning)
 - [Release notes template](/docs/releases/release-notes#templates)
+
+## Project tags {#project-tags}
+
+:::div{.warning}
+From Octopus Cloud version **2025.4.3897** we support tagging projects. This functionality is behind the `Extended Tag Sets` feature toggle, to request this functionality early, please contact [support](https://octopus.com/support).
+:::
+
+You can apply tags to projects to classify and organize them with custom metadata. This allows you to:
+
+- Classify projects by attributes like team, application type, or technology stack.
+- Configure your deployment dashboard to display only projects with specific tags.
+- Use project tags in dashboard advanced filters to customize your view.
+
+:::div{.hint}
+Only tags from tag sets that have been configured with the **Project** scope can be used to tag projects.
+:::
+
+Learn more about [tag sets](/docs/tenants/tag-sets), including tag set types, scopes, and how to create and manage them.
 
 ## Deployment settings
 - Package re-deployment
