@@ -2,7 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
-title: Argo CD Instances
+navSection: Argo CD Instances
+navTitle: Overview
+title: Overview
 description: How Octopus tracks your Argo CD Instances
 navOrder: 10
 hideInThisSectionHeader: true
