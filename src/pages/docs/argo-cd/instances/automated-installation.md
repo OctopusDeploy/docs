@@ -22,10 +22,10 @@ The Gateway requires the following configuration items which define how it conne
 | registration.octopus.serverApiUrl      | string | Required                  | The URL of the Octopus Server that the gateway will register                                                                                                    |
 | registration.octopus.serverAccessToken | string | Required                  | The bearer or API token used for authentication during initial registration process with Octopus Server                                                         |
 | registration.octopus.spaceId           | string | Required                  | The unique id of the Octopus Deploy space in which the gateway should reside                                                                                    |
-| registration.argocd.webUiUrl           | string | Optional (default: null)  | The URL of your Argo CD instance's Web UI, used for generating deeplinks within Octopus Deploy                                                                  |   
+| registration.argocd.webUiUrl           | string | Optional (default: null)  | The URL of your Argo CD instance's Web UI, used for generating deep-links within Octopus Deploy                                                                 |   
 | gateway.octopus.serverThumbprint       | string | Optional                  | Needed only if your Octopus server uses a self-signed certificate for its grpc endpoints. The thumbprint of the X509 certificate used by Octopus's GRPC service |
-| gateway.octopus.serverGrpcUrl          | string | Required                  | The URL at which Octopus Server expects to receive grpc traffic (grpc://yourserver.com:8443)                                                                    |
-| gateway.octopus.plainText              | string | Optional (default: false) | True if Octopus' grpc endpoint is using un-encrupted connections, false otherwise.                                                                              |
+| gateway.octopus.serverGrpcUrl          | string | Required                  | The URL at which Octopus Server expects to receive grpc traffic (grpc://your-server.com:8443)                                                                   |
+| gateway.octopus.plainText              | string | Optional (default: false) | True if Octopus' grpc endpoint is using un-encrypted connections, false otherwise.                                                                              |
 | gateway.argocd.serverGrpcUrl           | string | Required                  | The URL on which your Argo CD instance is listening for connections                                                                                             |
 | gateway.argocd.insecure                | string | Optional (default: false) | Set to True if your Argo CD instance is using a self-signed cert, false otherwise                                                                               |
 | gateway.argocd.plaintext               | string | Optional (default: false) | Set to True if your Argo CD instance is using un-encrypted connections, false otherwise. If true, Insecure is not considered.                                   |
@@ -34,7 +34,7 @@ It should be noted that the gateway self-registers with Octopus Deploy Server wh
 
 ## Scripted helm
 The Octopus Server webUI offers a process to aid in the creation of the required helm command to install the Gateway chart.
-Hoever, it can also be scripted, using a command similar to the following:
+However it can also be scripted, using a command similar to the following:
 ```
 helm upgrade --install --atomic \
 --create-namespace --namespace octo-argo-gateway-release-name \
@@ -61,7 +61,7 @@ resource "helm_release" "argo_gateway" {
   version          = "1.3.0"
   atomic           = true
   create_namespace = true
-  namespace        = "octopus-argo-gateway-yournamespace)}"
+  namespace        = "octopus-argo-gateway-your-namespace)}"
   timeout = 60 
     set = [
     {
