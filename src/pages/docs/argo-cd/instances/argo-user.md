@@ -101,7 +101,7 @@ To ensure the octopus user has the correct permissions, the following argocd cli
 
 * ```argocd account can-i --auth-token <octopus-apikey> get applications '*'```
 
-* ```argocd account can-i --auth-token <octopus-apikey> get logss '*/*'```
+* ```argocd account can-i --auth-token <octopus-apikey> get logs '*/*'```
 
 These commands should all respond `yes`.
 
