@@ -28,6 +28,7 @@ aufs
 augeas
 australiaeast
 australiasoutheast
+Authentik
 auths
 autodeployoverride
 autologin
