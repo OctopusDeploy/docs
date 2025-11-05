@@ -1,0 +1,26 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-11-05
+modDate: 2025-11-05
+title: Transferring packages before deployment
+description: Transferring packages to environments before the main deployment in Octopus.
+navOrder: 80
+---
+
+It is sometimes necessary to transfer deployment packages to your environment before you are ready to install and configure them.
+
+The largest benefit of this approach is that the package acquisition portion of the main deployment will take much less time as long as the packages are in the cache on each target.
+
+This is mainly a concern for deployments to Windows and Linux machines. Container based platforms like Kubernetes handle the container image acquisition during the deployment.
+
+In this guide, we will detail different methods of transferring your deployment packages to an environment.
+
+:::div{.hint}
+Before trying out any of the methods in this guide, verify that [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers) is optimized. You may find that with delta compression working as intended, there's no need for further intervention.
+:::
+
+## Learn more
+
+- [Transferring packages with a separate environment](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-environment).
+- [Transferring packages with a separate project](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-project).
+- [Wait for package acquisition with a manual intervention](/docs/deployments/packages/stage-package-uploads).
