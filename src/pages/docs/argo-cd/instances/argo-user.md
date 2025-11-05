@@ -2,18 +2,18 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
-title: Octopus user in Argo
+title: Argo CD Authentication
 description: Limiting Octopus' access in Argo CD
 navOrder: 10
 hideInThisSectionHeader: true
 ---
 
 OctopusDeploy fetches application, cluster and log data from your Argo CD Instance. This data is used in the Octopus UI to provide
-a rich integration, and also during step execution to determine which applications/repositories are to be updated.
+a rich integration, and also during step execution to determine which applications are to be updated.
 
 To request this data, Octopus must authenticate with Argo CD as a user with appropriate permissions.
 
-While a new token could be generated for an existing user, it is highly advised that a new user be created within Argo to
+While a new token could be generated for an existing user, it is recommended that a new user be created within Argo CD to
 represent the Octopus interactions.
 
 To do this, the following must be performed:
@@ -30,41 +30,43 @@ via Argo's web-ui.
 apiVersion: v1
 kind: ConfigMap
 metadata:
-name: argocd-cm
-namespace: argocd
-labels:
-app.kubernetes.io/name: argocd-cm
-app.kubernetes.io/part-of: argocd
+  name: argocd-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
 data:
 # add an additional local user with apiKey and login capabilities
 #   apiKey - allows generating API keys
   accounts.octopus: apiKey
-  accounts.octopus.enabled: true
+  accounts.octopus.enabled: "true"
 ```
 For more information see [Argo User docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/).
 
+The newly created account will appear in Argo's webUI under Settings --> Accounts.
+Alternatively, from the command line, the Argo CD Cli can be executed to confirm the user creation was successful:
+```
+argocd account list
+```
+Ensure the terminal output includes the `octopus` user, with an apiKey capability.
+
 ## Add Required Permissions
-With the user created, an RBAC policy must be created, to allow the new user to access required data.
+With the user created, an RBAC policy must be created allowing the new user to access required data.
 
 The RBAC policies are stored within the `argocd-rbac-cm` configmap.
 
-The following shows an Octopus user which has read only access to applications, cluster and log data.
+The following shows an Octopus user which has read only access to all applications, cluster and log data.
 ```
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
+apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: my-project
+  name: argocd-rbac-cm
   namespace: argocd
-spec:
-  sourceRepos:
-    '*'
-  destinations:
-    namespace: my-namespace server: https://kubernetes.default.svc roles:
-    name: my-project-role description: Defines permissions for my-project.
-  policies:
+data:
+  policy.csv: |
     p, octopus, applications, get, *, allow
-    p, octopus, logs, get, *, allow
     p, octopus, clusters, get, *, allow
+    p, octopus, logs, get, */*, allow
 ```
 
 If the permissions are not correctly set, Octopus will be able to connect to Argo, but will report an empty Application
@@ -73,18 +75,17 @@ list for the connected Argo CD instance (as Octopus had insufficient permissions
 For more information see [Argo RBC docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/).
 
 ## Generate Authentication Token
+There are two methods for creating an new authentication tokens in ArgoCD:
+1. Via the webUI under Settings --> Accounts --> octopus
+2. Via the `Argo CD Cli` tool.
 
-To generate the authentication token for Octopus, you are required to use the `Argo CD CLI` tool.
-
-Firstly, you must login as a user with sufficient privileges to generate API tokens, then you may create the required token.
-
-To login:
+To generate the authentication token for Octopus via the `Argo CD CLI` tool:
+1. Login as a user with permission to create API Keys:
 ```
 argocd account login <your argo web ui>
 ```
-You will be prompted for a username and password.
-
-Once logged in, you can create the API token for the Octopus user by executing:
+You will be prompted for a username and password - select a user with the apiKey-creation capability.
+2. Create the API token for the Octopus user by executing:
 ```
 argocd account generate-token --account octopus
 ```
@@ -92,3 +93,19 @@ The authentication token will be echoed to the terminal, and must be copied into
 the Octopus UI, or helm installation).
 
 For more information see see [Argo Cli Config](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
+
+## Verify Permissions
+To ensure the octopus user has the correct permissions, the following argocd cli commands can be executed:
+
+* ```argocd account can-i --auth-token <octopus-apikey> get clusters '*'```
+
+* ```argocd account can-i --auth-token <octopus-apikey> get applications '*'```
+
+* ```argocd account can-i --auth-token <octopus-apikey> get logss '*/*'```
+
+These commands should all respond `yes`.
+
+To confirm the account's access is limited, execute:
+* ```argocd account can-i --auth-token <octopus-apikey> delete applications '*'```
+
+Which should respond `no`.
