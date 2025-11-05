@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-10-03
+modDate: 2025-11-05
 title: Uptime SLO
 navTitle: Uptime SLO
 navOrder: 70
