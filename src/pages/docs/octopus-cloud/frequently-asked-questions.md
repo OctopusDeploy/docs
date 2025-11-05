@@ -41,7 +41,9 @@ Professional and Enterprise tier customers receive our expert-guided onboarding 
 
 ### How do I purchase Octopus Cloud?
 
-We recommend new customers [start a free trial](https://octopus.com/pricing/overview) to get 30 days of access to Octopus Cloud Professional. A credit card is not required. [Contact Sales](https://octopus.com/company/contact) during the trial period to convert to an annual subscription with no data loss.
+We recommend new customers get started with a [free Octopus account](https://octopus.com/free-signup). A credit card is not needed. You can start with our Free tier, which includes 10 projects, 10 tenants, and 10 machines.
+
+We recommend [trialing the Professional tier](https://octopus.com/start) if you'd like to start with more projects, tenants, or machines. Contact sales to convert to an annual subscription with no data loss during your trial.
 
 ### How can I trial Enterprise tier?
 
