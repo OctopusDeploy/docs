@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-11-05
+modDate: 2025-10-03
 title: Uptime SLO
 navTitle: Uptime SLO
 navOrder: 70
@@ -24,20 +24,20 @@ This table lists Octopus Cloud's monthly uptime statistics for the last 12 month
 
 We list our achieved uptime percentage and weekly unplanned downtime duration. We also show these data points including planned maintenance. Data points measured at 95th percentile of all paid subscriptions.
 
-| Month          | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
-|:---------------| ------: | ------: | ------: | ------: |
+| Month  | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
+| :----- | ------: | ------: | ------: | ------: |
 | October 2025 | 99.9851% | 91s | 99.8663% | 812s |
 | September 2025 | 99.9989% | 7s | 99.8722% | 777s |
-| August 2025    | 99.9989% | 7s | 99.9281% | 441s |
-| July 2025      | 99.9992% | 7s | 99.9207% | 483s |
-| June 2025      | 99.9974% | 21s | 99.9307% | 420s |
-| May 2025       | 100% | 0s | 99.9125% | 532s |
-| April 2025     | 99.9925% | 49s | 99.9479% | 315s |
-| March 2025     | 99.9809% | 119s | 99.9292% | 434s |
-| February 2025  | 100% | 0s | 99.9212% | 483s |
-| January 2025   | 99.9924% | 49s | 99.9397% | 371s |
-| December 2024  | 100% | 0s | 99.9666% | 203s |
-| November 2024  | 100% | 0s | 99.8895% | 672s |
+| August 2025 | 99.9989% | 7s | 99.9281% | 441s |
+| July 2025 | 99.9992% | 7s | 99.9207% | 483s |
+| June 2025 | 99.9974% | 21s | 99.9307% | 420s |
+| May 2025 | 100% | 0s | 99.9125% | 532s |
+| April 2025 | 99.9925% | 49s | 99.9479% | 315s |
+| March 2025 | 99.9809% | 119s | 99.9292% | 434s |
+| February 2025 | 100% | 0s | 99.9212% | 483s |
+| January 2025 | 99.9924% | 49s | 99.9397% | 371s |
+| December 2024 | 100% | 0s | 99.9666% | 203s |
+| November 2024 | 100% | 0s | 99.8895% | 672s |
 
 ### How we calculate uptime
 
