@@ -1,0 +1,68 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-11-05
+modDate: 2025-11-05
+title: Transferring packages with a separate project
+description: Transferring packages to environments before the main deployment in Octopus with a separate project.
+navOrder: 90
+---
+
+One way to transfer deployment packages to your `Production` environment prior to a deployment is to use a separate project to handle the package transfer.
+
+## Package transfer project
+
+In this example, I've configured a separate project named `OctoFX Package Transfer`. This project is used only to transfer the packages used by the `OctoFX` project and does not configure the applications.
+
+It follows the same lifecycle as the project that configures the app, but you could also limit it to just the environments that need the packages beforehand.
+
+:::figure
+![](/docs/img/deployments/patterns/transferring-packages-before-deployment/project-group.png)
+:::
+
+## Package transfer process
+
+The deployment process for the package transfer project contains the steps to [transfer the same packages](/docs/deployments/packages/transfer-package) to the same targets as the main project.
+
+You can add in any other checks or steps that you would also like to perform (compliance, verification, notifications, etc).
+
+:::figure
+![](/docs/img/deployments/patterns/transferring-packages-before-deployment/transfer-project-process.png)
+:::
+
+## Acquisition logs from transfer project
+
+We can see that the packages were uploaded to the targets when deploying the release in the transfer project.
+
+:::figure
+![](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-transfer-project.png)
+:::
+
+## Acquisition logs from main project
+
+We can see that the packages were found in the cache and not uploaded when deploying the release in the main project.
+
+:::figure
+![](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-main-project.png)
+:::
+
+## Pros of this approach
+
+This approach to transferring packages ahead of deployments has the following benefits:
+
+- Simplified deployment process management.
+- No extra environment or target configuration required.
+- Release creation for main application deployment project doesn't require duplicate package selection.
+
+## Cons of this approach
+
+This approach to transferring packages ahead of deployments has the following benefits:
+
+- Requires multiple projects with releases that have the same package versions.
+- Difficult to enforce transfer happens before application deployment.
+- Difficult to promote changes that have already been transferred.
+
+## Learn more
+
+- [Transferring packages with a separate environment](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-environment).
+- [Transferring packages with a separate project](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-project).
+- [Wait for package acquisition with a manual intervention](/docs/deployments/packages/stage-package-uploads).
