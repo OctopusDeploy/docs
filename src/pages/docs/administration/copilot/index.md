@@ -28,7 +28,7 @@ The Octopus extension has 4 prerequisites:
 * The Octopus for GitHub Copilot application
 
 ### Creating an Octopus cloud instance
-The Octopus extension is available for cloud Octopus instances. Click [here](https://octopus.com/start) to sign up for a trial cloud Octopus instance.
+The Octopus extension is available for cloud Octopus instances. Click [here](https://octopus.com/free-signup) to sign up for a free Octopus Cloud account.
 
 ### Integrating an on-premises Octopus instance
 

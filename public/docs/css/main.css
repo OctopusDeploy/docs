@@ -2705,19 +2705,28 @@ a[data-youtube] {
   padding-inline-end: 1em;
 }
 
-.fa-heart.green, .fa-check.green, .fa-plus-square.green  {
+.fa-heart.green,
+.fa-check.green,
+.fa-plus-square.green {
   color: var(--green-500);
 }
 
-.fa-circle-notch.blue , .fa-hourglass.blue, .fa-arrows-rotate.blue {
+.fa-circle-notch.blue,
+.fa-hourglass.blue,
+.fa-arrows-rotate.blue {
   color: var(--blue-500);
 }
 
-.fa-circle-exclamation.red, .fa-heart-crack.red, .fa-minus-square.red {
+.fa-circle-exclamation.red,
+.fa-heart-crack.red,
+.fa-minus-square.red {
   color: var(--red-500);
 }
 
-.fa-question.grey, .fa-ghost.grey, .fa-pause.grey, .fa-equals.grey {
+.fa-question.grey,
+.fa-ghost.grey,
+.fa-pause.grey,
+.fa-equals.grey {
   color: var(--grey-500);
 }
 
@@ -3040,7 +3049,7 @@ a.button.button--primary:active {
 }
 
 .octo-header a.button {
-  width: 100px;
+  width: 120px;
 }
 
 .inline-note {
