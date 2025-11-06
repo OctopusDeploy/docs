@@ -26,7 +26,7 @@ To use OIDC authentication with Octopus you will need to:
 
 1. Configure your Identity Provider (IdP) to trust your Octopus Deploy instance, by setting up a client ID & secret.
 2. Configure your Octopus Deploy instance to trust and use OIDC as an authentication provider.
-3. You can optionally assign users to **Teams** based on the role information provided by your identity provider.
+3. Optionally assign users to **Teams** based on the role information provided by your identity provider.
 
 ## Configure your identity provider
 
@@ -48,7 +48,7 @@ To use OIDC authentication with Octopus you will need to:
      - **Role Claim Type** is optional, but should specify the claim that your identity provider returns containing role or group assignment information.
      - **Username Claim Type** should be set to the claim that your identity provider uses as a username.
      - **Resource** is optional, but allows you to specify a resource identifier for the identity provider. For example, AD FS requires a resource identifier to map custom claims.
-     - **Scopes** has a default value, but can be configured if your identity provider requires a custom scope. The scope of `groups` is optional can be omitted but the scopes of `openid profile email` are required for Octopus Deploy to retrieve user information from your identity provider.
+     - **Scopes** has a default value, but can be configured if your identity provider requires a custom scope. The scope of `groups` is optional and can be omitted but the scopes of `openid profile email` are required for Octopus Deploy to retrieve user information from your identity provider.
      - **Display Name** can be used to customize the appearance of the button on the Octopus Deploy login screen. Use a name that your users will recognize for this identity provider.
      - **Issuer** should be set to the URL of your identity provider.
      - **Client ID** and **Client Secret** should be set based on the newly created client application in your identity provider.
