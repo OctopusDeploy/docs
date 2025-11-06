@@ -39,7 +39,7 @@ To use OIDC authentication with Octopus you will need to:
     Note that Keycloak supports multiple realms on the same server, so the `Issuer URL` needs to include the realm path, eg: `https://keycloak-server/realms/octopus` rather than just `https://keycloak-server`.
     :::
 
-1. Configure at least one **Redirect URL** to be `https://octopus.example.com/api/users/authenticatedToken/GenericOidc` (replacing `https://octopus.example.com` with the URL of your Octopus Server)
+1. Configure at least one **Redirect URL** to be `https://your-octopus-url/api/users/authenticatedToken/GenericOidc` (replacing `https://your-octopus-url` with the URL of your Octopus Server)
 
 1. If you want Octopus users to be automatically assigned to teams, configure your IdP to send a list of roles or groups in a custom claim. The default role claim is `groups`, but you can configure this if required.
 
@@ -54,7 +54,9 @@ To use OIDC authentication with Octopus you will need to:
      - **Display Name** can be used to customize the appearance of the button on the Octopus Deploy login screen. Use a name that your users will recognize for this identity provider.
      - **Issuer** should be set to the URL of your identity provider.
      - **Client ID** and **Client Secret** should be set based on the newly created client application in your identity provider.
-         > _Note:_ the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted
+         :::div{.hint}
+         Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted
+         :::
      - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
 2. Click **Save** to apply the changes.
 3. If you sign out of Octopus Deploy, you should now see a new button on the login screen to authenticate with the OIDC provider.
@@ -71,7 +73,7 @@ If you followed the optional steps to include role information as a claim, you c
 
    ![Adding Octopus Teams from external providers](/docs/img/security/authentication/images/add-octopus-teams-external.png)
 
-   [Can't see the "Add External Group/Role" button?](#add-external-grouprole-button-is-missing).
+   [Can't see the "Add External Group/Role" button?](#add-external-grouprole-button-is-missing)
 
 1. Create a mapping from the groups or roles in your identity provider to a team in Octopus Deploy. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `OctopusTesters` as the **Display Name**.
 
