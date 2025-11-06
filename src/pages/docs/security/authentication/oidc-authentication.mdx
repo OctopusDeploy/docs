@@ -1,0 +1,156 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-11-05
+modDate: 2025-11-05
+title: OpenID Connect authentication
+description: Octopus Deploy can use OpenID Connect authentication to identify users.
+navOrder: 25
+---
+import AdminUser from 'src/shared-content/installation/admin-user.include.md';
+
+:::div{.info}
+Support for OIDC authentication is currently being rolled out to Octopus Cloud customers, from **Octopus 2025.4.7317**.
+
+It will be included in a future Octopus Deploy release for self-hosted customers.
+:::
+
+Octopus Deploy supports authentication using OpenID Connect (OIDC) from a third-party identity provider, such as:
+
+- [Azure Directory Federation Services (AD FS)](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/ad-fs-overview)
+- [Keycloak](https://keycloak.org)
+- [Authentik](https://goauthentik.io/)
+- [Ping Identity](https://www.pingidentity.com/)
+- etc
+
+To use OIDC authentication with Octopus you will need to:
+
+1. Configure your Identity Provider (IdP) to trust your Octopus Deploy instance, by setting up a client ID & secret.
+2. Configure your Octopus Deploy instance to trust and use OIDC as an authentication provider.
+3. Optionally assign users to **Teams** based on the role information provided by your identity provider.
+
+## Configure your identity provider
+
+1. Create a new client application in your identity provider, noting down the following details:
+     - Issuer URL (usually the root URL of the identity provider)
+     - Client ID
+     - Client Secret
+
+    :::div{.hint}
+    Note that Keycloak supports multiple realms on the same server, so the `Issuer URL` needs to include the realm path, eg: `https://keycloak-server/realms/octopus` rather than just `https://keycloak-server`.
+    :::
+
+1. Configure at least one **Redirect URL** to be `https://your-octopus-url/api/users/authenticatedToken/GenericOidc` (replacing `https://your-octopus-url` with the URL of your Octopus Server)
+
+1. If you want Octopus users to be automatically assigned to teams, configure your IdP to send a list of roles or groups in a custom claim. The default role claim is `groups`, but you can configure this if required.
+
+## Configure OIDC in Octopus Deploy
+
+1. Navigate to **Configuration ➜ Settings ➜ OpenID Connect** and populate the following fields:
+     - **Enabled** should be set to `Yes`.
+     - **Role Claim Type** is optional, but should specify the claim that your identity provider returns containing role or group assignment information.
+     - **Username Claim Type** should be set to the claim that your identity provider uses as a username.
+     - **Resource** is optional, but allows you to specify a resource identifier for the identity provider. For example, AD FS requires a resource identifier to map custom claims.
+     - **Scopes** has a default value, but can be configured if your identity provider requires a custom scope. The scope of `groups` is optional and can be omitted but the scopes of `openid profile email` are required for Octopus Deploy to retrieve user information from your identity provider.
+     - **Display Name** can be used to customize the appearance of the button on the Octopus Deploy login screen. Use a name that your users will recognize for this identity provider.
+     - **Issuer** should be set to the URL of your identity provider.
+     - **Client ID** and **Client Secret** should be set based on the newly created client application in your identity provider.
+         :::div{.hint}
+         Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted
+         :::
+     - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
+2. Click **Save** to apply the changes.
+3. If you sign out of Octopus Deploy, you should now see a new button on the login screen to authenticate with the OIDC provider.
+
+## Assign external groups or roles to Octopus teams (optional)
+
+If you followed the optional steps to include role information as a claim, you can assign them to **Teams** in the Octopus Portal.
+
+1. Open the Octopus Portal and select **Configuration ➜ Teams**.
+
+1. Either create a new **Team** or choose an existing one.
+
+1. Under the **Members** section, select the option **Add External Group/Role**.
+
+   ![Adding Octopus Teams from external providers](/docs/img/security/authentication/images/add-octopus-teams-external.png)
+
+   [Can't see the "Add External Group/Role" button?](#add-external-grouprole-button-is-missing)
+
+1. Create a mapping from the groups or roles in your identity provider to a team in Octopus Deploy. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `OctopusTesters` as the **Display Name**.
+
+   ![Add Octopus Teams Dialog](/docs/img/security/authentication/images/add-octopus-teams-external-dialog.png)
+
+   The **Group/Role ID** value must match the value of the claim in the security token. The matching is performed without case sensitivity.
+
+1. Save your changes by clicking the **Save** button.
+
+## Troubleshooting
+
+We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with your identity provider, be sure to check your [server logs](/docs/support/log-files) for warnings.
+
+Your identity provider likely also has logging functionality, so check to see what the logs report on that side too.
+
+### Double and triple check your configuration
+
+Unfortunately security-related configuration is sensitive to everything. Make sure:
+
+- You don't have any typos or copy-paste errors.
+- Remember things are case-sensitive.
+- Remember to remove or add slash characters - they matter too!
+
+### Check OpenID Connect metadata is working
+
+You can see the OpenID Connect metadata by going to the Issuer address in your browser adding `/.well-known/openid-configuration` to the end.
+
+### Inspect the contents of the security token
+
+:::div{.warning}
+**Inspection of a JWT is impossible with OAuth code flow with PKCE**
+Please note: It's impossible to inspect the JWT within the Network tab of your browser's developer tools if you use OAuth code flow with PKCE (with a Client Secret specified in your OIDC configuration in Octopus).
+
+If you'd like to use it for troubleshooting, you would need to remove the Client Secret, which would revert to Implicit flow authentication. We have plans to improve this in an upcoming version of Octopus, allowing more debug information to be visible while using PKCE.
+:::
+
+Perhaps the contents of the security token sent back by your identity provider aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the external user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from your IdP to Octopus via your browser. To inspect the contents of your security token:
+
+1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
+2. In Chrome Dev Tools this is called "Preserve Log". In Firefox this is called "Persist Logs".
+
+   ![The preserve log checkbox in the browser's developer tools](/docs/img/security/authentication/images/5866122.png)
+
+3. Attempt to sign into Octopus using OIDC and find the HTTP POST coming back to your Octopus instance from your identity provider on a route like `/api/users/authenticatedToken/GenericOidc`. You should see an `id_token` field in the HTTP POST body.
+4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
+
+   ![A screenshot of the JWT debugger](/docs/img/security/authentication/images/5866123.png)
+
+5. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
+6. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
+
+### Octopus user accounts are still required
+
+Octopus still requires a [user account](/docs/security/users-and-teams/) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. If you have enabled **Allow Auto User Creation**, Octopus will automatically create a [user account](/docs/security/users-and-teams) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
+
+:::div{.hint}
+
+**How Octopus matches external identities to user accounts**
+
+When the security token is returned from the external identity provider, Octopus looks for a user account with a matching **Identifier**. If there is no match, Octopus looks for a user account with a matching **Email Address**. If a user account is found, the External Identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
+
+:::
+
+:::div{.success}
+
+**Already have Octopus user accounts?**
+
+If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
+
+:::
+
+### Add External Group/Role button is missing
+
+At least one authentication provider must be enabled and have valid configuration for this button to show.
+
+If the **Add External Group/Role** button is missing, check your OIDC configuration. Ensure that it is **Enabled**, there are no errors and that the required fields are populated.
+
+### Getting permissions
+
+<AdminUser />
