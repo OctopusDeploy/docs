@@ -72,7 +72,7 @@ data:
 If the permissions are not correctly set, Octopus will be able to connect to Argo, but will report an empty Application
 list for the connected Argo CD instance (as Octopus had insufficient permissions to read the list).
 
-For more information see [Argo RBC docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/).
+For more information see [Argo RBAC docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/).
 
 ## Generate Authentication Token
 There are two methods for creating an new authentication tokens in ArgoCD:
@@ -92,7 +92,7 @@ argocd account generate-token --account octopus
 The authentication token will be echoed to the terminal, and must be copied into the Gateway's installation mechanism (either
 the Octopus UI, or helm installation).
 
-For more information see see [Argo Cli Config](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
+For more information see see [Argo CD Cli docs](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
 
 ## Verify Permissions
 To ensure the octopus user has the correct permissions, the following argocd cli commands can be executed:
