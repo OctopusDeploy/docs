@@ -71,7 +71,7 @@ If you followed the optional steps to include role information as a claim, you c
 
    ![Adding Octopus Teams from external providers](/docs/img/security/authentication/images/add-octopus-teams-external.png)
 
-   > _Note:_ if the **Add External Group/Role** button is missing, check your OIDC configuration. At least one authentication provider must be enabled and have valid configuration for this button to show.
+   [Can't see the "Add External Group/Role" button?](#add-external-grouprole-button-is-missing).
 
 1. Create a mapping from the groups or roles in your identity provider to a team in Octopus Deploy. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `OctopusTesters` as the **Display Name**.
 
@@ -142,6 +142,12 @@ When the security token is returned from the external identity provider, Octopus
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 
 :::
+
+### Add External Group/Role button is missing
+
+At least one authentication provider must be enabled and have valid configuration for this button to show.
+
+If the **Add External Group/Role** button is missing, check your OIDC configuration. Ensure that it is **Enabled**, there are no errors and that the required fields are populated.
 
 ### Getting permissions
 
