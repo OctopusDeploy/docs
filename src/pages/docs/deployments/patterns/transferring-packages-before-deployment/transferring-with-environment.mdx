@@ -57,7 +57,7 @@ We can see that the packages were found in the cache and not uploaded when deplo
 ![](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-production-phase.png)
 :::
 
-## Pros of this approach
+## Benefits of this approach
 
 This approach to transferring packages ahead of deployments has the following benefits:
 
@@ -65,9 +65,9 @@ This approach to transferring packages ahead of deployments has the following be
 - Easy to enforce package transfer before deployment.
 - Easy to promote from `Transfer` to `Production` within the same lifecycle.
 
-## Cons of this approach
+## Drawbacks of this approach
 
-This approach to transferring packages ahead of deployments has the following benefits:
+This approach to transferring packages ahead of deployments has the following drawbacks:
 
 - The deployment process can be complex with each step needing an environment filter.
 - Packages will appear multiple times on release creation and need the same version selected.
