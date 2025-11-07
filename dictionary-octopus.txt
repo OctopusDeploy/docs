@@ -22,7 +22,6 @@ askpass
 ASPNET
 aspnetcore
 Asterix
-asterix
 astro
 astrojs
 auditability
@@ -127,7 +126,6 @@ dotnetfx
 DPAPI
 dpkg
 Dreamdata
-dreamdata
 dryrun
 Dspring
 DWORD
@@ -265,7 +263,6 @@ majeure
 makedirs
 manualintervention
 Marketo
-marketo
 mattc
 maxage
 mdast
@@ -275,7 +272,6 @@ minidump
 minifier
 MITM
 Mkto
-mkto
 Moines
 mozjpeg
 mozroots
@@ -468,8 +464,8 @@ sfproj
 shiki
 Showplan
 SIEM
-Signup
 signingkeys
+Signup
 skiplinks
 snapshotted
 snapshotting
