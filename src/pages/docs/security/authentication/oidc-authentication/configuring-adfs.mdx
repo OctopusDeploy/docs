@@ -32,29 +32,29 @@ For more information, see the [Microsoft documentation on AD FS](https://learn.m
 
 ### Registering a new client application
 
-1. Log in to your AD FS server. Open the Start menu and search for "AD FS Management". 
+1. Log in to your AD FS server. Open the Start menu and search for "AD FS Management".
 
-:::figure
-![AD FS Management](/docs/img/security/authentication/oidc-authentication/images/adfs-start-menu.png)
-:::
+    :::figure
+    ![AD FS Management](/docs/img/security/authentication/oidc-authentication/images/adfs-start-menu.png)
+    :::
 
-2. Expand "AD FS", select "Application Groups", and choose "Add Application Group". Choose "Server application" and give the group a useful name (e.g., "Octopus Deploy"). 
-   
-:::figure
-![Add an Application Group](/docs/img/security/authentication/oidc-authentication/images/adfs-add-application-group.png)
-:::
+2. Expand "AD FS", select "Application Groups", and choose "Add Application Group". Choose "Server application" and give the group a useful name (e.g., "Octopus Deploy").
+
+    :::figure
+    ![Add an Application Group](/docs/img/security/authentication/oidc-authentication/images/adfs-add-application-group.png)
+    :::
 
 3. Click "Next". This page configures the first application in the group. Please make a note of the **Client ID**; you will need it later. Give the application a useful name and description, then add `https://your-octopus-url/api/users/authenticatedToken/GenericOidc` as a **Redirect URI**.
 
-:::figure
-![Add an Application](/docs/img/security/authentication/oidc-authentication/images/adfs-add-application.png)
-:::
+    :::figure
+    ![Add an Application](/docs/img/security/authentication/oidc-authentication/images/adfs-add-application.png)
+    :::
 
 4. Click "Next". This page specifies the credentials that Octopus Deploy will use to authenticate with AD FS. Select "Generate a shared secret". Securely retain this **Client Secret**; you will need it later.
 
-:::figure
-![Generate a shared secret](/docs/img/security/authentication/oidc-authentication/images/adfs-generate-shared-secret.png)
-:::
+    :::figure
+    ![Generate a shared secret](/docs/img/security/authentication/oidc-authentication/images/adfs-generate-shared-secret.png)
+    :::
 
 5. Click "Next", confirm the information is correct, and click "Next" one last time. You should see a message indicating that the Application Group has been successfully created.
 
@@ -62,29 +62,24 @@ For more information, see the [Microsoft documentation on AD FS](https://learn.m
 
 By default, AD FS returns only the `userinfo` profile unless the `resource` indicator is provided in the authorization request. The ID token will contain limited information about the user, such as their email address, their `DOMAIN\username`, their SID, and a unique identifier.
 
-If you require more, you will need to customize the claims in the ID token by
-- creating a "Relying Party Trust" with a "Claims Issuance Policy", 
-- authorizing the client application that represents Octopus Deploy for the relying party trust, and
-- specifying the identifier of the relying party trust as the **Resource** in the OpenID Connect configuration in Octopus Deploy.
+If you require more, you will need to customize the claims in the ID token by:
+
+1. Creating a "Relying Party Trust" with a "Claims Issuance Policy"
+2. Authorizing the client application that represents Octopus Deploy for the relying party trust, and
+3. Specifying the identifier of the relying party trust as the **Resource** in the OpenID Connect configuration in Octopus Deploy
 
 #### Creating a Relying Party Trust
 
 :::div{.info}
-Microsoft defines "Relying Party Trust" [here](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/technical-reference/understanding-key-ad-fs-concepts).
+Microsoft defines ["Relying Party Trust" here](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/technical-reference/understanding-key-ad-fs-concepts).
 :::
 
 1. In "AD FS Management", expand "AD FS", select "Relying Party Trusts", right click, and select "Add Relying Party Trust".
-
 2. Choose "Claims aware" and click "Start".
- 
 3. Choose "Enter data about the relying party manually" and click "Next".
-
 4. Specify a display name and click "Next".
-
 5. Click "Next" to skip providing a token encryption certificate.
-
 6. Click "Next" to skip providing optional protocol URLs.
-
 7. Enter `https://your-octopus-url` as the "Relying party trust identifier". This must be an absolute URL, and should resolve to your Octopus Deploy instance. Click "Next".
 
 8. Select a suitable access control policy for the users in Active Directory that will be allowed to sign in to Octopus Deploy, and click "Next"
@@ -100,20 +95,18 @@ This example will show how to include the user's full name in the `name` claim s
 If you need to send other claims to Octopus Deploy, refer to the [AD FS documentation on configuring claims](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-claim-rules).
 
 1. In "AD FS Management", expand "AD FS", and select "Relying Party Trusts". Right-click on the appropriate relying party trust and select "Edit Claim Issuance Policy".
-
 2. Click "Add Rule..."
-
 3. Choose "Send Claims Using a Custom Rule" and click "Next"
-
 4. Name the rule "Send user display name" and paste the following text into the "Custom rule" box:
 
-```
-c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
- => issue(store = "Active Directory", types = ("name"), query = ";displayName;{0}", param = c.Value);
-```
-:::div{.info}
-The above text is AD FS [claim rule language](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/technical-reference/the-role-of-the-claim-rule-language).
-:::
+    ```text
+    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
+     => issue(store = "Active Directory", types = ("name"), query = ";displayName;{0}", param = c.Value);
+    ```
+
+    :::div{.info}
+    The above text is AD FS [claim rule language](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/technical-reference/the-role-of-the-claim-rule-language).
+    :::
 
 5. Click "Finish"
 
@@ -123,7 +116,7 @@ For Octopus Deploy to specify the `resource` indicator of the relying party trus
 
 On the AD FS server, run the following PowerShell command:
 
-```
+```powershell
 Grant-AdfsApplicationPermission -ClientRoleIdentifier ClientId -ServerRoleIdentifier "https://your-octopus-url" -ScopeNames @("openid", "profile", "email", "allatclaims")
 ```
 
@@ -132,31 +125,32 @@ Grant-AdfsApplicationPermission -ClientRoleIdentifier ClientId -ServerRoleIdenti
 
 You can double-check that it was applied correctly by running:
 
-```
+```powershell
 Get-AdfsApplicationPermission -ServerRoleIdentifier "https://your-octopus-url"
 ```
 
 ## Configure Octopus Server
 
 1. Navigate to **Configuration ➜ Settings ➜ OpenID Connect** and populate the following fields:
-     - **Enabled** should be set to `Yes`.
-     - **Role Claim Type** is optional. If you have configured a [claims issuance policy](#creating-a-claims-issuance-policy) that returns group information, set this to be the name of the claim containing the group information.
-     - **Username Claim Type** is optional. If you leave it unset, the `sub` claim will be used for the username, which is a unique identifier of the user. Some other options:
-       - To use the user's email, set `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
-       - To use the user's `DOMAIN\username`, set `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
-       - To use the user's SID, set `sid`
-     - **Resource** should be `https://your-octopus-url`. This is the relying party trust identifier that you assigned to the relying party trust.
-     - **Scopes** should be left as the default of `openid profile email`.
-     - **Display Name** can be used to customize the appearance of the button on the Octopus Deploy login screen. Use a name that your users will recognize for this identity provider.
-     - **Issuer** should be a URL like `https://adfs.your-domain.com/adfs` 
-     - **Client ID** and **Client Secret** should be the values you noted when creating the client application. **Client Secret** can't be retrieved from AD FS - if you lose it, you will need to assign a new one.
-         :::div{.hint}
-         Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted.
-         :::
-     - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
+   - **Enabled** should be set to `Yes`.
+   - **Role Claim Type** is optional. If you have configured a [claims issuance policy](#creating-a-claims-issuance-policy) that returns group information, set this to be the name of the claim containing the group information.
+   - **Username Claim Type** is optional. If you leave it unset, the `sub` claim will be used for the username, which is a unique identifier of the user. Some other options:
+     - To use the user's email, set `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
+     - To use the user's `DOMAIN\username`, set `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+     - To use the user's SID, set `sid`
+   - **Resource** should be `https://your-octopus-url`. This is the relying party trust identifier that you assigned to the relying party trust.
+   - **Scopes** should be left as the default of `openid profile email`.
+   - **Display Name** can be used to customize the appearance of the button on the Octopus Deploy login screen. Use a name that your users will recognize for this identity provider.
+   - **Issuer** should be a URL like `https://adfs.your-domain.com/adfs`
+   - **Client ID** and **Client Secret** should be the values you noted when creating the client application. **Client Secret** can't be retrieved from AD FS - if you lose it, you will need to assign a new one.
+
+        :::div{.hint}
+        Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted.
+        :::
+
+   - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
 2. Click **Save** to apply the changes.
 3. If you sign out of Octopus Deploy, you should now see a new button on the login screen to authenticate with the OIDC provider.
-
 
 ## Troubleshooting
 
