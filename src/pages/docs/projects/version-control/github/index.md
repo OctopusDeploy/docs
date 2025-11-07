@@ -66,7 +66,7 @@ Installing and authorizing are both GitHub concepts. If you want to find out mor
 - [Installing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party)
 - [Authorizing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/authorizing-github-apps)
 
-## Known issues and limitations
+## Known limitations
 
 * Connecting to GitHub organizations with IP allow lists enabled is not currently supported with Octopus GitHub App Connections.
 
