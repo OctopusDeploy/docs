@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-14
-modDate: 2024-09-17
+modDate: 2024-11-07
 title: GitHub integration 
 description: Octopus Deploy GitHub integration
 icon: fa-brands fa-github
@@ -65,6 +65,10 @@ Installing and authorizing are both GitHub concepts. If you want to find out mor
 - [GitHub Apps documentation](https://docs.github.com/en/apps/using-github-apps/about-using-github-apps)
 - [Installing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party)
 - [Authorizing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/authorizing-github-apps)
+
+## Known issues and limitations
+
+* Connecting to GitHub organizations with IP allow lists enabled is not currently supported with Octopus GitHub App Connections.
 
 ## Older versions
 
