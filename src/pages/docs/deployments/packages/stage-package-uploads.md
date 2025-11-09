@@ -42,3 +42,9 @@ When configuring your manual intervention step, take note:
 - Under the **Package Requirements** section, select **After package acquisition**.
 
 ![](/docs/img/deployments/packages/images/package-acquisition.png)
+
+## Learn more
+
+- [Transferring packages with a separate environment](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-environment).
+- [Transferring packages with a separate project](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-project).
+- [Wait for package acquisition with a manual intervention](/docs/deployments/packages/stage-package-uploads).
