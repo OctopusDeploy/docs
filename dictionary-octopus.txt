@@ -1,8 +1,10 @@
 accounttest
 actionid
 actiontemplates
+Adfs
 advfirewall
 agentic
+allatclaims
 ALLUSERSPROFILE
 anglin
 anotherdir
