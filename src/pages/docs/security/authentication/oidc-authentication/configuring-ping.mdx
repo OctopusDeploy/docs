@@ -1,0 +1,129 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2023-01-01
+title: Configuring Ping Identity
+description: How to configure Octopus Deploy and Ping Identity to authenticate and identify users with OpenID Connect authentication.
+navTitle: Ping Identity
+navSection: OpenID Connect
+navOrder: 5
+---
+import AdminUser from 'src/shared-content/installation/admin-user.include.md';
+
+:::div{.info}
+Support for OIDC authentication is currently being rolled out to Octopus Cloud customers.
+
+It will be included in the **Octopus 2025.4** release for self-hosted customers.
+:::
+
+Authentication using [Ping Identity](https://www.pingidentity.com/en.html), a cloud-based identity management service.
+
+To use Ping Identity authentication with Octopus you will need to:
+
+1. Configure Ping to trust your Octopus Deploy instance (by setting it up as an app in Ping).
+2. Configure your Octopus Deploy instance to trust and use Ping as an Identity Provider.
+
+## Configure Ping Identity
+
+You need to configure Ping Identity to trust your instance of Octopus Deploy by creating an application in your Ping Identity account.
+
+:::div{.info}
+For more information, see the [Ping Identity documentation](https://docs.pingidentity.com/pingone/p1_cloud__platform_main_landing_page.html).
+:::
+
+### Create an application
+
+You must first have an account at [Ping Identity](https://www.pingidentity.com). Once you have an account, log in to the console. 
+
+:::div{.hint}
+After signing up to Ping Identity you will receive your own url to access the console. It will look something similar to: `https://console.pingone.com.au`.
+:::
+
+1. Select the Applications tab on the left and click the + icon near "Applications" on the right.
+
+    :::figure
+    ![Add Ping Identity application](/docs/img/security/authentication/oidc-authentication/images/ping-add-application.png)
+    :::
+
+2. Enter a name for the application (e.g. Octopus Deploy), a description, optionally an icon, and select `OIDC Web App`.
+
+3. Click "Save". The application configuration panel will appear. On this page you have access to the application's **Client ID**, **Client Secret** and the **Issuer** - you will need these later.
+
+    :::figure
+    ![Ping Identity application configuration](/docs/img/security/authentication/oidc-authentication/images/ping-application-configuration.png)
+    :::
+
+4. Click "Protocol OpenID Connect". The OIDC configuration settings appear. Ensure the following and click "Save":
+   - Response Type: `Code`
+   - Grant Type: `Authorization Code`
+   - PKCE Enforcement: `S256_REQUIRED`
+   - Redirect URIs: `https://your-octopus-url/api/users/authenticatedToken/GenericOidc`
+   - Token Endpoint Authentication Method: `Client Secret Post`
+
+5. Click the "Resources" tab followed by the edit icon. You will see a list of scopes that are allowed by the application. Allow `email` and `profile` by checking them on. Click "Save".
+
+6. Toggle the switch in the top right of the panel to enable the application for use.
+
+    :::figure
+    ![Enable the Ping Identity application](/docs/img/security/authentication/oidc-authentication/images/ping-application-enabled.png)
+    :::
+
+## Configure Octopus Server
+
+1. Navigate to **Configuration ➜ Settings ➜ OpenID Connect** and populate the following fields:
+   - **Enabled** should be set to `Yes`.
+   - **Role Claim Type** should be left unset.
+   - **Username Claim Type** should be set to `preferred_username`.
+   - **Resource** should be left unset.
+   - **Scopes** should be left as the default of `openid profile email`.
+   - **Display Name** can be used to customize the appearance of the button on the Octopus Deploy login screen. Use a name that your users will recognize for this identity provider.
+   - **Issuer**, **Client ID** and **Client Secret** should be the values you noted when creating the application.
+
+        :::div{.hint}
+        Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted.
+        :::
+
+   - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
+2. Click **Save** to apply the changes.
+3. If you sign out of Octopus Deploy, you should now see a new button on the login screen to authenticate with the OIDC provider.
+
+### Octopus user accounts are still required
+
+Octopus still requires a [user account](/docs/security/users-and-teams/) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
+
+:::div{.hint}
+**How Octopus matches external identities to user accounts**
+When the security token is returned from the external identity provider, Octopus looks for a user account with a matching **Identifier**. If there is no match, Octopus looks for a user account with a matching **Email Address**. If a user account is found, the External Identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
+:::
+
+:::div{.success}
+**Already have Octopus user accounts?**
+If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
+:::
+
+### Getting permissions
+
+<AdminUser />
+
+## Troubleshooting
+
+If you are having difficulty configuring Octopus to authenticate with Ping Identity, check your [server logs](/docs/support/log-files) for warnings.
+
+### Double and triple check your configuration
+
+Unfortunately security-related configuration is sensitive to everything. Make sure:
+
+- You don't have any typos or copy-paste errors.
+- Remember things are case-sensitive.
+- Remember to remove or add slash characters - they matter too!
+
+### Check OpenID Connect metadata is working
+
+You can see the OpenID Connect metadata by going to the Issuer address in your browser adding `/.well-known/openid-configuration` to the end. In our example this would have been something like `https://auth.pingone.com.au/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/as/.well-known/openid-configuration`
+
+### Contact Octopus Support
+
+If you aren't able to resolve the authentication problems yourself using these troubleshooting tips, please reach out to our [support team](https://octopus.com/support) with:
+
+1. The contents of your OpenID Connect Metadata or the link to download it (see above).
+2. A screenshot of the Octopus User Accounts, including their username, email address, and name.
