@@ -59,6 +59,6 @@ oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 
 ## Kubernetes Monitor
 
-:::div{.warning}
-The [Kubernetes monitor]() is not yet compatible with high availability Octopus clusters, trying to install the Kubernetes monitor may result in unexpected behavior.
+:::div{.info}
+Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) with high availability Octopus clusters was added in v2025.4
 :::
