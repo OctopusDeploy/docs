@@ -164,4 +164,4 @@ Whenever we discover a limitation or problem with multi-tenant deployments we cr
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).

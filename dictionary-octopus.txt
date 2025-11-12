@@ -1,7 +1,10 @@
 accounttest
 actionid
 actiontemplates
+Adfs
 advfirewall
+agentic
+allatclaims
 ALLUSERSPROFILE
 anglin
 anotherdir
@@ -17,8 +20,10 @@ Appstep
 Appsteps
 argparse
 asax
+askpass
 ASPNET
 aspnetcore
+Asterix
 astro
 astrojs
 auditability
@@ -26,6 +31,7 @@ aufs
 augeas
 australiaeast
 australiasoutheast
+Authentik
 auths
 autodeployoverride
 autologin
@@ -111,6 +117,7 @@ Directorygroup
 DISM
 Distro
 distros
+Djava
 Dockerfiles
 dockerhub
 Domainname
@@ -120,6 +127,7 @@ dotnetcore
 dotnetfx
 DPAPI
 dpkg
+Dreamdata
 dryrun
 Dspring
 DWORD
@@ -222,6 +230,7 @@ JSSE
 jwks
 keyrings
 keyserver
+kubeadm
 kubeconfig
 Kubelet
 kubelogin
@@ -255,6 +264,7 @@ maintenanceconfiguration
 majeure
 makedirs
 manualintervention
+Marketo
 mattc
 maxage
 mdast
@@ -263,6 +273,7 @@ milli
 minidump
 minifier
 MITM
+Mkto
 Moines
 mozjpeg
 mozroots
@@ -411,6 +422,7 @@ replicasets
 reprioritize
 reprovisioned
 reprovisioning
+requiretty
 resolv.conf
 ResolvConfPath
 RHEV
@@ -455,6 +467,7 @@ shiki
 Showplan
 SIEM
 signingkeys
+Signup
 skiplinks
 snapshotted
 snapshotting
@@ -479,6 +492,7 @@ statefulset
 statefulsets
 stepsprodpackages
 sthumb
+storyblok
 strconv
 struct
 stylesheet
@@ -510,6 +524,7 @@ thepassword
 timespan
 tlsv1
 tmpfs
+tomcatadmin
 Toolbelt
 Toolsets
 Topshelf
@@ -529,6 +544,7 @@ updateprogress
 upgradeavailability
 upgradelog
 upgrader
+urandom
 urllib
 urlset
 Userns

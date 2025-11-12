@@ -242,4 +242,4 @@ See the [dynamic package tradeoffs](/docs/deployments/packages/dynamically-selec
 
  ## Learn more
 
- - [Jira blog posts](https://octopus.com/blog/tag/jira)
+ - [Jira blog posts](https://octopus.com/blog/tag/jira/1)

@@ -217,4 +217,4 @@ In the case of our simple scenario above, the final step should display the IP a
 
 ## Learn more
 
- - [Docker blog posts](https://octopus.com/blog/tag/docker)
+ - [Docker blog posts](https://octopus.com/blog/tag/docker/1)

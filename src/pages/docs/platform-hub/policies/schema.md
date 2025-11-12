@@ -4,16 +4,14 @@ pubDate: 2025-09-11
 modDate: 2025-09-11
 title: Schema for Policies
 subtitle: A list of the inputs that are provided to the policy engine 
-icon: 
+icon: fa-solid fa-lock
 navTitle: Schema for policies
 navSection: Policies
 description: Schema for policies
-navOrder: 167
-navMenu: false
-listable: false
+navOrder: 162
 ---
 
-## Schema for Policies
+## Input Schema
 
 Octopus has a set number of inputs that are provided to evaluate policies against deployments. The following is the full schema that is passed into the engine to evaluate deployments:
 
@@ -80,6 +78,44 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         "Slug"
       ]
     },
+    "Tenant": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug"
+      ]
+    },
+    "ProjectGroup": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug"
+      ]
+    },
     "SkippedSteps": {
       "type": "array",
       "items": {}
@@ -121,6 +157,30 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
               "Type",
               "SlugOrId"
             ]
+          },
+          "Packages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "Version": {
+                  "type": "string"
+                },
+                "GitRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Id",
+                "Name"
+              ]
+            }
           }
         },
         "required": [
@@ -133,6 +193,28 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         ]
       }
     },
+    "Release": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "GitRef": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Version"
+      ]
+    },
     "Runbook": {
       "type": "object",
       "properties": {
@@ -143,6 +225,9 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
           "type": "string"
         },
         "Snapshot": {
+          "type": "string"
+        },
+        "GitRef": {
           "type": "string"
         }
       },
@@ -158,7 +243,32 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
     "Project",
     "Space",
     "SkippedSteps",
-    "Steps"
+    "Steps", 
+    "ProjectGroup"
   ]
+}
+```
+
+## Output Result Schema
+Octopus expects the conditions Rego code to define a result object that confirms to the following schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Policy Result Schema",
+  "type": "object",
+  "properties": {
+    "allowed": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "enum": ["block", "warn"]
+    }
+  },
+  "required": ["allowed"]
 }
 ```

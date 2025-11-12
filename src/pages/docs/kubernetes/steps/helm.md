@@ -188,7 +188,7 @@ To ensure a smooth deployment experience, we recommend setting a larger Octopus 
 
 ## Learn more
 
-- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
+- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes/1)
 
 :::div{.hint}
 **Step updates**

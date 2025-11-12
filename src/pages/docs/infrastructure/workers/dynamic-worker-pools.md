@@ -171,5 +171,5 @@ If you choose to install additional software on a dynamic worker, you are respon
 
 ## Learn more
 
-- [Worker blog posts](https://octopus.com/blog/tag/workers)
+- [Worker blog posts](https://octopus.com/blog/tag/workers/1)
 - [Worker Tools, versioning and caching](/docs/infrastructure/workers/worker-tools-versioning-and-caching)

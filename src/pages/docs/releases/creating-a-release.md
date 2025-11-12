@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-29
-modDate: 2025-09-03
+modDate: 2025-09-23
 title: Creating a release
 description: Learn how to create a release in Octopus Deploy  
 navOrder: 2
@@ -112,3 +112,37 @@ When updating the variable snapshot, the new snapshot is taken from the current 
 :::
 
 Updating the variable snapshot _only_ updates the variables (and not the deployment process). After updating, the commit for the process snapshot and variables snapshot will be different.
+
+## Custom fields
+
+Releases can have custom fields added to them when being created. Custom fields are a set of key/value pairs of data that can be used:
+
+- As part of naming of ephemeral environments.
+- During deployments within scripts and other steps.
+
+:::div{.hint}
+Support for custom fields on releases is rolling out to Octopus Cloud in Early Access Preview.
+:::
+
+:::div{.hint}
+Support for custom fields on releases is available from v2.19.0 of the Octopus CLI.
+:::
+
+### Required custom fields
+
+Channels can define which custom fields are required when creating a release within the channel. The Octopus Web Portal will prompt you to provide the value for any required custom fields when creating a release. Learn more about [configuring custom fields in channels](/docs/releases/channels).
+
+:::figure
+![Screenshot of Octopus release page showing entering the value of a custom field for a Pull Request Number](/docs/img/releases/images/create-release-custom-fields.png)
+:::
+
+### Using custom fields in scripts and steps
+
+Custom fields can be used within scripts and steps with the variable `#{Octopus.Release.CustomFields[_name_]}`.
+
+### Restrictions
+
+The following restrictions apply to custom fields on releases:
+
+- A maximum of 10 custom fields can be added to each release.
+- The maximum length of the key and value of each custom field is 150 characters.

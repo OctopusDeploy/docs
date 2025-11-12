@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-06-10
+modDate: 2025-10-15
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -22,6 +22,26 @@ Deprecations are subject to change in detail or time frame. If you need help ass
 :::
 
 ## Planned Deprecations
+
+## TLS 1.0-1.1 Support Deprecation
+
+We're removing support for TLS 1.0 and 1.1 to improve security. This affects both Octopus Cloud and self-hosted customers using our official Linux Docker image.
+
+- **Octopus Cloud**: We'll disable TLS 1.0/1.1 from mid-November 2025, with complete removal by January 2026
+- **Self-hosted Docker**: You'll see changes when we upgrade the official image to Debian 12 in January 2026  
+- **Self-hosted Windows**: Your setup will continue to work as before
+
+Most customers won't be affected since TLS 1.2+ support is already widely adopted. For detailed information, timeline, and migration guidance, see our blog post: [Deprecating support for TLS 1.0 and 1.1](https://octopus.com/blog/deprecating-tls-1-0-and-1-1)
+
+## Deprecations for 2025.3
+
+### Removing support on Linux self-hosted and Cloud for SHA-1 certificates in Octopus Tentacles
+
+Starting in Octopus 2025.3, Tentacle instances using SHA‑1 certificates will no longer be supported. SHA‑1 is an outdated hashing algorithm with known security weaknesses, and modern security standards recommend stronger alternatives such as SHA‑256.
+
+If any of your deployment targets are running Tentacles with SHA‑1 certificates, they will be unable to connect to your Octopus Server after upgrading to 2025.3. We recommend updating your Tentacle certificates to SHA‑256 before upgrading.
+
+For background, migration guidance, and a detailed timeline, please see our blog post: [Removing support for SHA‑1 certificates in Octopus Tentacles](https://octopus.com/blog/removing-sha1-tentacles).
 
 ## Deprecations for 2025.2
 

@@ -19,7 +19,7 @@ Octopus Cloud is the easiest way to start with Octopus Deploy; we take care of e
 
 ### Where do I begin?
 
-Many customers begin with our [getting started](/docs/getting-started) guide, which covers the key concepts and terminology we use. When you’re ready, [start a free trial](https://octopus.com/start) to explore Octopus Cloud.
+Many customers begin with our [getting started](/docs/getting-started) guide, which covers the key concepts and terminology we use. When you’re ready, [start a free account](https://octopus.com/free-signup) to explore Octopus Cloud.
 
 ### How is Octopus Cloud built?
 
@@ -41,7 +41,9 @@ Professional and Enterprise tier customers receive our expert-guided onboarding 
 
 ### How do I purchase Octopus Cloud?
 
-We recommend new customers [start a free trial](https://octopus.com/pricing/overview) to get 30 days of access to Octopus Cloud Professional. A credit card is not required. [Contact Sales](https://octopus.com/company/contact) during the trial period to convert to an annual subscription with no data loss.
+We recommend new customers get started with a [free Octopus account](https://octopus.com/free-signup). A credit card is not needed. You can start with our Free tier, which includes 10 projects, 10 tenants, and 10 machines.
+
+We recommend [trialing the Professional tier](https://octopus.com/start) if you'd like to start with more projects, tenants, or machines. Contact sales to convert to an annual subscription with no data loss during your trial.
 
 ### How can I trial Enterprise tier?
 
@@ -49,7 +51,7 @@ Please [contact Sales](https://octopus.com/company/contact) to trial Octopus Clo
 
 ### What does Octopus Cloud cost?
 
-We license [Octopus Cloud in tiers](https://octopus.com/pricing/overview). Our Starter tier allows 10 projects, 10 tenants, 10 machines, and task cap of 5. There are no additional platform fees. 
+We license [Octopus Cloud in tiers](https://octopus.com/pricing/overview). Our [Free tier](https://octopus.com/free-signup) costs USD $0 per year, and it allows 10 projects, 10 tenants, 10 machines, 10 users, and task cap of 5.
 
 Our Professional and Enterprise tiers are [annual licenses priced per project](https://octopus.com/pricing/overview), with tenants and machines sold as add-ons to suit your requirements. We also charge Professional and Enterprise tier customers a [flat annual platform fee](https://octopus.com/pricing/faq#what-is-the-pricing-for-octopus-cloud) based on the task cap selected, which defines the number of concurrent deployments/runbook runs your instance can perform.
 
@@ -63,9 +65,7 @@ Our Sales team can [provide a quote](https://octopus.com/company/contact) that m
 
 ### How do I use a purchase order?
 
-For customers purchasing or renewing on Starter, simply enter a Customer Reference in the online form. This value will appear on our quote or invoice PDF.
-
-For customers on Professional or Enterprise, please provide our Sales team with your purchase order, which we'll include in your quote or invoice.
+For customers on Professional or Enterprise, please provide our Sales team with your purchase order, which we’ll include in your quote or invoice.
 
 ### Where can I learn more about pricing?
 

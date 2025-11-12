@@ -1,0 +1,15 @@
+/* main.css styles by tag instead of classes. This file has to remove those styles */
+
+.footer.footer-pu {
+  .image-wrapper {
+    display: flex;
+    
+    img {
+      background-color: transparent;
+    }
+  }
+
+  .button--primary {
+    border-radius: .5rem;
+  }
+}

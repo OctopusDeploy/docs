@@ -94,4 +94,4 @@ Tenants offer a balanced approach to modeling multi-region deployments, offering
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).

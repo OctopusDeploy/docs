@@ -60,5 +60,5 @@ Using non-cached versions of these worker-tools can result in long downloads.
 
 ## Learn more
 
-- [Worker blog posts](https://octopus.com/blog/tag/workers)
+- [Worker blog posts](https://octopus.com/blog/tag/workers/1)
 - [Custom docker images](/docs/projects/steps/execution-containers-for-workers/#custom-docker-images)

@@ -22,6 +22,7 @@ The list below contains Identity Provider-specific integrations. These can be us
 - [Microsoft Entra ID Authentication](/docs/security/authentication/azure-ad-authentication)
 - [Okta Authentication](/docs/security/authentication/okta-authentication)
 - [Google Workspace Authentication](/docs/security/authentication/googleapps-authentication)
+- [OpenID Connect Authentication](/docs/security/authentication/oidc-authentication)
 
 ### Directory-based Authentication
 
@@ -61,6 +62,7 @@ You can manually manage the members of your teams, or you can configure certain 
 - Learn about [automatically managing teams with Active Directory](/docs/security/authentication/active-directory).
 - Learn about [automatically managing teams with Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication).
 - Learn about [automatically managing teams with Okta](/docs/security/authentication/okta-authentication).
+- Learn about [automatically managing teams with OpenID Connect](/docs/security/authentication/oidc-authentication).
 
 ## Auto login
 

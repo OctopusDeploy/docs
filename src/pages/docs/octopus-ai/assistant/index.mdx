@@ -1,0 +1,130 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-04-04
+modDate: 2025-08-01
+title: Octopus AI Assistant
+navTitle: Overview
+navSection: Octopus AI Assistant
+description: How to use Octopus AI Assistant to create projects, analyze deployments, optimize configurations, and get instant help with Octopus Deploy
+navOrder: 1
+---
+
+Octopus AI Assistant integrates AI functionality directly into the Octopus Deploy interface to accelerate your DevOps workflows. Whether you're getting started with Octopus Deploy, troubleshooting deployment failures, or optimizing existing configurations, the AI Assistant provides context-aware guidance and automation to help you work more efficiently.
+
+:::div{.warning}
+The Octopus AI Assistant Alpha is a feature released to an audience who has opted-in to provide feedback. The feature is not finished or fully tested. It may not be supported through regular channels. It may change drastically or may never ship.
+:::
+
+![Octopus AI Assistant Screenshot](/docs/img/octopus-ai-assistant/octopus-ai-assistant.png)
+
+To begin, see our [Getting Started](/docs/octopus-ai/assistant/getting-started) guide for setup instructions.
+
+## Core capabilities
+
+The Octopus AI Assistant provides four main capabilities designed to support different aspects of your deployment workflow:
+
+1. Tier-0 support
+2. Prompt-based project creation
+3. Deployment failure analysis
+4. Best practices optimization
+
+Combined with these features, the AI Assistant makes managing deployments easier and keeps things running smoothly.
+
+### Tier-0 support
+
+Get instant answers to common questions about Octopus Deploy without searching through documentation. The AI Assistant draws from the complete Octopus Deploy documentation to provide natural language responses to your questions.
+
+Example prompts:
+
+- `What is a project in Octopus Deploy?`
+- `How do I use runbooks?`
+- `Explain the difference between environments and tenants`
+- `How do I set up automated deployments?`
+
+This capability is particularly valuable for new team members getting started with Octopus Deploy, or when you need quick clarification on specific features without leaving your workflow.
+
+### Prompt-based project creation
+
+Create fully configured deployment projects from simple text descriptions. Instead of manually setting up configurations, processes, and environments, describe what you want to deploy and let the AI Assistant generate a complete project using proven best practices.
+
+Example prompts:
+
+- `Create an Azure Web App project called "My Web App"`
+- `Generate an AWS Lambda project with QA and Production environments`
+
+[Learn more about project creation.](/docs/octopus-ai/assistant/project-creation)
+
+### Deployment failure analysis
+
+When deployments fail, get immediate analysis of what went wrong and actionable steps to resolve issues. The analyzer examines deployment logs, process configuration, and error details to provide specific troubleshooting guidance.
+
+Example prompts:
+
+- `Why did the deployment fail?`
+- `Help me understand this deployment error`
+
+[Learn more about deployment failure analysis.](/docs/octopus-ai/assistant/deployment-failure-analyzer)
+
+### Best practices optimization
+
+Identify optimization opportunities and maintain healthy configurations across your Octopus Deploy instance. The advisor analyzes your setup and provides recommendations for improving scalability, reducing technical debt, and following established best practices.
+
+Example prompts:
+
+- `Find unused variables in this project`
+- `Check for duplicate project variables`
+- `Suggest tenant tags to make tenants more manageable`
+
+[Learn more about the best practices adviser.](/docs/octopus-ai/assistant/best-practices-adviser)
+
+## Custom prompts for organizational needs
+
+For teams with specific internal processes, you can enhance any AI Assistant capability with [custom prompts](/docs/octopus-ai/assistant/custom-prompts) that embed your organization's knowledge, procedures, and support channels directly into the AI responses.
+
+## We want your feedback
+
+As part of the Alpha program, we're actively seeking feedback on:
+
+- What prompts you want the service to respond to
+- What you would change about the service
+- Whether the responses have been helpful
+
+Alpha participants are invited to a private channel in the [Octopus Community Slack](https://octopus.com/community) for providing feedback.
+
+## FAQ
+
+**Q: What data is collected?**
+
+A: We collect prompts entered into Octopus AI Assistant. All logs are sanitized to remove personally identifiable information. We do not log:
+
+- Prompt responses
+- Sensitive values
+- Octopus configurations
+
+**Q: Is my data used to train AI models?**
+
+A: No, we do not train AI models on customer data. We use the Azure OpenAI platform, and [Azure does not use customer data to train models either](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy?tabs=azure-portal).
+
+**Q: How do I turn off Octopus AI Assistant?**
+
+A: Disabling or uninstalling the Chrome extension will disable Octopus AI Assistant.
+
+**Q: How much does the service cost?**
+
+A: The service is free during the Alpha phase.
+
+**Q: How secure is the service?**
+
+A: Octopus AI Assistant is implemented as an external service that accesses Octopus via the API. This means Octopus AI Assistant does not have access to any sensitive values, as the API never exposes sensitive values. It also means access to the Octopus instance is limited by the existing permissions of the current user. Additionally, Octopus AI Assistant shares the same backend as the Octopus Copilot Extension, which has been audited by an independent external security team. The report is available via the [trust center](https://trust.octopus.com/).
+
+**Q: Can I see the source code?**
+
+A: Yes. The Octopus AI Assistant backend source code is available from [GitHub](https://github.com/OctopusSolutionsEngineering/OctopusCopilot).
+
+**Q: Do I need to sign up for an account?**
+
+A: No, Octopus AI Assistant is self-contained and only requires access to an Octopus instance.
+
+**Q: Is Octopus AI Assistant a supported service?**
+
+A: No, the Octopus AI Assistant Alpha is not subject to any existing SLAs or support agreements. It is an experimental feature that may not be supported through regular channels. It may change drastically or may never ship.

@@ -36,6 +36,6 @@ The Octopus concepts of feeds, packages and versions can be mapped to the Docker
 
 ## Learn more
 
- - [Docker blog posts](https://octopus.com/blog/tag/docker)
- - [Docker registries as feeds](/docs/packaging-applications/package-repositories/docker-registries)
- - [Accessing container details](/docs/deployments/docker/accessing-container-details)
+- [Docker blog posts](https://octopus.com/blog/tag/docker/1)
+- [Docker registries as feeds](/docs/packaging-applications/package-repositories/docker-registries)
+- [Accessing container details](/docs/deployments/docker/accessing-container-details)
