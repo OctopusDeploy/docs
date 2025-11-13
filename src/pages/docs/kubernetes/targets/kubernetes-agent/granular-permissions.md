@@ -39,7 +39,7 @@ TODO: Example WSA
 
 `WorkloadServiceAccounts` can be created as you would any other Kubernetes object. Your `WorkloadServiceAccount` should be created in the namespace you will be deploying your application resources into.
 
-TODO: Diagram of SA, WSA, roles, rolebindings
+TODO: Diagram of SA, WSA, roles, role bindings
 
 The `WorkloadServiceAccount` consists of two main parts; the scope and the permission set.
 
