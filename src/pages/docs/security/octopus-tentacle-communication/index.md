@@ -9,7 +9,7 @@ navOrder: 40
 
 This page describes how the [Octopus Server](/docs/installation/) and the [Tentacle deployment agents](/docs/infrastructure/deployment-targets/tentacle/windows) communicate in a secure way.
 
-## Background {#Octopus-Tentaclecommunication-Background}
+## Background
 
 Some deployment technologies are designed for the LAN and have no security at all. Some require machines to be on the same Active Directory domain. Others require you to set up usernames and passwords, and to store them in configuration files.
 
@@ -17,7 +17,7 @@ When designing Octopus, we wanted to make it easy to have secure deployments out
 
 We achieve this security using [public-key cryptography](http://en.wikipedia.org/wiki/Public-key_cryptography "Wikipedia article on Public-key cryptography").
 
-## Octopus/Tentacle trust relationship {#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship}
+## Octopus/Tentacle trust relationship
 
 Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles), all communication between the Tentacle and Octopus is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Octopus and Tentacle both have a public/private key pair that they use to establish the TLS connection and verify the identity of the other party.
 
@@ -32,7 +32,7 @@ The only way another system can impersonate either party is by getting hold of t
 If necessary you can further restrict access using IPSec or VPNs.
 :::
 
-### Octopus certificates {#Octopus-Tentaclecommunication-Octopuscertificates}
+### Octopus certificates
 
 The X.509 certificates used by Octopus and Tentacle are generated on installation and use 2048-bit private keys. There is an insightful discussion of [why Octopus uses self-signed certificates](https://octopus.com/blog/why-self-signed-certificates) by default.
 
@@ -40,7 +40,7 @@ The X.509 certificates used by Octopus and Tentacle are generated on installatio
 Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation/#export-and-import-tentacle-certificates-without-a-profile) which is helpful when [automating Tentacle installation](/docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation).
 :::
 
-### Scenario: Listening Tentacles {#Octopus-Tentaclecommunication-Scenario-ListeningTentacles}
+### Scenario: Listening Tentacles
 
 Tentacle plays the role of server and Octopus as the client:
 
@@ -49,7 +49,7 @@ Tentacle plays the role of server and Octopus as the client:
 3. Octopus presents its certificate as a client certificate so the Tentacle can verify the identity of Octopus.
 4. Once the identity of the Octopus and Tentacle have been established the connection is held open and Octopus will start issuing commands to the Tentacle.
 
-### Scenario: Polling Tentacles {#Octopus-Tentaclecommunication-Scenario-PollingTentacles}
+### Scenario: Polling Tentacles
 
 Octopus plays the role of server and Tentacle as the client:
 
@@ -92,7 +92,7 @@ If your environment enforces custom TLS hardening policies, ensure they meet the
 
 To further secure your Octopus installation by disabling weak protocols or limiting cipher suites, review our documentation on [Hardening Octopus](/docs/security/hardening-octopus/#disable-weak-tls-protocols).
 
-## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
+## Troubleshooting Tentacle communication problems
 
 We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles).
 
