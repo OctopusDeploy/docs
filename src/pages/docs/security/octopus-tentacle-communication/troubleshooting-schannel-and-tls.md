@@ -254,7 +254,7 @@ Tentacle certificates are less likely to use SHA-1, as they are regenerated loca
 2. **Regenerate the Octopus Server certificate with SHA-256:**
 
 
-  Follow the [certificate regeneration documentation](/docs/security/octopus-tentacle-communication/regenerate-certificates) to create a new SHA-256 signed certificate for your Octopus Server.
+  Follow the [certificate regeneration documentation](docs/security/octopus-tentacle-communication/regenerate-certificates-with-octopus-server-and-tentacle) to create a new SHA-256 signed certificate for your Octopus Server.
 
 
 3. **Update Tentacle trust** after certificate regeneration
