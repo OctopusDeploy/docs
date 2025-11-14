@@ -230,7 +230,7 @@ Modern operating systems, especially:
 
 
 :::div{.hint}
-Tentacle certificates are less likely to use SHA-1, as they are regenerated locally on the client machine during the installation process. This issue primarily affects long-running Octopus Server instances with certificates that have never been regenerated. [This API Script](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Targets/FindSHA1Tentacles.ps1) can be utilized to check if any Tentacles are communicating with a SHA1 certificate.
+Tentacle certificates are less likely to use SHA-1, as they are regenerated locally on the client machine during the installation process. This issue primarily affects long-running Octopus Server instances with certificates that have never been regenerated. [This API Script](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Targets/FindSHA1Tentacles.ps1) can be used to check if any Tentacles are communicating with a SHA1 certificate.
 :::
 
 
@@ -254,7 +254,7 @@ Tentacle certificates are less likely to use SHA-1, as they are regenerated loca
 2. **Regenerate the Octopus Server certificate with SHA-256:**
 
 
-  Follow the [certificate regeneration documentation](docs/security/octopus-tentacle-communication/regenerate-certificates-with-octopus-server-and-tentacle) to create a new SHA-256 signed certificate for your Octopus Server.
+  Follow the [certificate regeneration documentation](/docs/security/octopus-tentacle-communication/regenerate-certificates-with-octopus-server-and-tentacle) to create a new SHA-256 signed certificate for your Octopus Server.
 
 
 3. **Update Tentacle trust** after certificate regeneration
