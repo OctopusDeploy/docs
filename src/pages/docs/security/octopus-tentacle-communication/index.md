@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-11-14
 title: Octopus - Tentacle communication
 description: Octopus Server and Tentacle communications details.
 navOrder: 40
@@ -64,17 +64,33 @@ Octopus uses [Halibut](https://github.com/OctopusDeploy/Halibut) to communicate.
 
 Both Tentacle and Server expose a simple page on the listening port to web browsers to allow you to confirm your configuration. Some security scanners detect this page and incorrectly assume that it's a web server or a web app and warn about self-signed certificates.
 
-### Transport Layer Security (TLS) implementation {#Octopus-Tentaclecommunication-TransportLayerSecurity(TLS)implementation}
+## Transport Layer Security (TLS) implementation
 
-Octopus Server and Tentacle rely on the host OS for the available TLS version to use when establishing a secure TLS connection when communicating. 
+Octopus Server and Tentacle use TLS for all communication, with the protocol version and cipher suites negotiated based on the host operating system's cryptographic capabilities.
 
-The TLS implementation uses the [.NET SslStream](https://docs.microsoft.com/en-us/dotnet/api/system.net.security.sslstream) class, and uses the best available of TLS 1.2, TLS 1.1 or TLS 1.0. Fallback to SSL is disallowed. 
+**Protocol Support:**
+- **TLS 1.2** - Minimum required version
+- **TLS 1.3** - Supported on modern operating systems (Windows Server 2022+, Windows 11+, and current Linux distributions)
 
-:::div{.hint}
-TLS 1.2 requires .NET 4.5 which was introduced as a requirement in **Octopus 3.1**. Earlier versions of Octopus use TLS 1.0.
+Modern versions of Octopus rely on the underlying OS TLS implementation:
+- **Windows**: Schannel (Windows' native TLS/SSL provider)
+- **Linux**: OpenSSL
+
+The TLS handshake negotiates the strongest mutually supported protocol version and cipher suite. Both peers must support at least one compatible protocol, cipher suite, and signature algorithm to establish a connection.
+
+:::div{.warning}
+**TLS 1.0 and TLS 1.1 are deprecated and insecure.** While legacy Octopus versions may support these protocols if configured at the OS level, they should not be used in production environments. Ensure all systems support at least TLS 1.2.
 :::
 
-To harden the TLS implementation used, review our documentation on [Disabling weak TLS protocols](/docs/security/hardening-octopus/#disable-weak-tls-protocols).
+**Configuration Requirements:**
+
+For details on the specific protocols, cipher suites, and signature algorithms required for Octopus communication, see [Minimum TLS Requirements](/docs/security/octopus-tentacle-communication/minimum-tls-requirements).
+
+If your environment enforces custom TLS hardening policies, ensure they meet the minimum requirements to maintain connectivity between Octopus Server and Tentacle agents.
+
+**Hardening TLS:**
+
+To further secure your Octopus installation by disabling weak protocols or limiting cipher suites, review our documentation on [Hardening Octopus](/docs/security/hardening-octopus/#disable-weak-tls-protocols).
 
 ## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 
