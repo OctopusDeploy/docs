@@ -69,10 +69,12 @@ Both Tentacle and Server expose a simple page on the listening port to web brows
 Octopus Server and Tentacle use TLS for all communication, with the protocol version and cipher suites negotiated based on the host operating system's cryptographic capabilities.
 
 **Protocol Support:**
+
 - **TLS 1.2** - Minimum required version
 - **TLS 1.3** - Supported on modern operating systems (Windows Server 2022+, Windows 11+, and current Linux distributions)
 
 Modern versions of Octopus rely on the underlying OS TLS implementation:
+
 - **Windows**: Schannel (Windows' native TLS/SSL provider)
 - **Linux**: OpenSSL
 
