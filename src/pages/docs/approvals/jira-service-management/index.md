@@ -224,6 +224,24 @@ e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
 The title must match the format **exactly**, including the double-quotes.
 :::
 
+### Populating CR fields through Octopus
+
+:::div{.warning}
+This feature is only available for version [Version] and later
+:::
+
+To control the Summary (Title) of Change Requests, the variable `Octopus.JiraServiceManagement.Field[summary]` can be set at the project level. This allows you to customize the change request title instead of using the auto-generated format.
+
+For example, to set a custom `Summary`:
+
+| Field | Variable | Example Value |
+|--|--|--|
+| Summary | Octopus.JiraServiceManagement.Field[summary] | Custom Summary with #{SomeVariable} #{Octopus.Deployment.Id} |
+
+:::div{.hint}
+Setting a `Summary` will override the auto-generated Octopus summary. [Title text matching](#title-text-matching) means this will automatically progress the deployment unless the resolved summary is unique. This can be done by including variables like the deployment or environment Id.
+:::
+
 ### Respecting change windows
 
 In addition to a change request being approved, a change must also be in its schedule change 
