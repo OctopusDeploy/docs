@@ -5,8 +5,10 @@
  * @format
  */
 
-import fs from 'fs';
+
 import path from 'path';
+import fs from 'fs/promises';
+
 
 const workingDirectory = process.cwd();
 
@@ -36,10 +38,12 @@ function getDestinationFilePathless(source, s) {
     return destination;
 }
 
-function unlinkFile(path) {
-    if (path && fs.existsSync(path)) {
-        fs.unlink(path)
-    }
+async function unlinkFile(path) {
+    try {
+        await fs.unlink(path);
+    } catch { 
+        console.debug("File '" + path + "' was not found to unlick");
+     }
 }
 
 async function recurseFiles(directory) {
