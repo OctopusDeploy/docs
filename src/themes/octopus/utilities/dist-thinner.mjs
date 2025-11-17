@@ -37,7 +37,7 @@ function getDestinationFilePathless(source, s) {
 }
 
 function unlinkFile(path) {
-    if (fs.existsSync(path)) {
+    if (path && fs.existsSync(path)) {
         fs.unlink(path)
     }
 }
@@ -127,7 +127,7 @@ for (const file of filesToProcess) {
     const metaFile = source + '.json';
 
     // Delete metadata file
-    fs.unlinkSync(metaFile);
+    unlinkFile(metaFile);
 
     // Delete resized images
     for (const key in size) {
