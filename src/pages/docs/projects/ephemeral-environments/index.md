@@ -130,9 +130,14 @@ Support for providing custom fields is not yet available in the Octopus CLI.
 
 ### Manually
 
-If automatic deployments is not selected, ephemeral environments can be created from the Ephemeral Environments page within the project.
+If automatic deployment is not selected, ephemeral environments can be created using the: 
 
-To create an ephemeral environment manually:
+- Octopus Web Portal
+- Octopus API
+- [`OctopusDeploy/create-ephemeral-environment` GitHub Action](https://github.com/OctopusDeploy/create-ephemeral-environment)
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+
+To manually create an ephemeral environment in the Octopus portal, visit the Ephemeral Environments page within the project then:
 - Select **Add Ephemeral Environment** from the Ephemeral Environments page.
 - Enter a name for the environment.
 
@@ -173,7 +178,14 @@ When an ephemeral environment is no longer needed it can be deprovisioned and an
 - For projects using runbooks stored in Octopus the published snapshot will be used to run the runbook.
 - For projects using runbooks stored in version control, the Git reference used to provision the environment will be used to run the runbook.
 
-To deprovision an environment:
+Ephemeral environments can be deprovisioned via the:
+
+- Octopus Web Portal
+- Octopus API
+- [`OctopusDeploy/deprovision-ephemeral-environment` GitHub Action](https://github.com/OctopusDeploy/deprovision-ephemeral-environment)
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+
+To deprovision an ephemeral environment in the Octopus portal:
 
 - Select **Deploy** from the main navigation in the Octopus Web Portal and select your project.
 - Select the **Ephemeral Environments** navigation menu in the sidebar.
