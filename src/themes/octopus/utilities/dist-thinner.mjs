@@ -36,6 +36,12 @@ function getDestinationFilePathless(source, s) {
     return destination;
 }
 
+function unlinkFile(path) {
+    if (fs.existsSync(metaPath)) {
+        fs.unlink(path)
+    }
+}
+
 async function recurseFiles(directory) {
     const f = await fs.promises.readdir(path.join(imageDirectory, directory), {
         withFileTypes: true,
@@ -102,19 +108,19 @@ for (const file of filesToProcess) {
     const ext = path.parse(source).ext;
 
     // Delete original file
-    fs.unlinkSync(source);
+    unlinkFile(source);
 
     // Delete the fallback file
     switch (ext) {
         case '.png':
-            fs.unlinkSync(destination + '.png');
+            unlinkFile(destination + '.png');
             break;
         case '.jpg':
         case '.jpeg':
-            fs.unlinkSync(destination + '.jpg');
+            unlinkFile(destination + '.jpg');
             break;
         case '.webp':
-            fs.unlinkSync(destination + '.webp');
+            unlinkFile(destination + '.webp');
             break;
     }
 
@@ -130,6 +136,7 @@ for (const file of filesToProcess) {
             size[key]
         );
 
-        fs.unlinkSync(resizeDestination + '.webp');
+        unlinkFile(resizeDestination + '.webp')
     }
 }
+
