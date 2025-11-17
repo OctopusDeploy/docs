@@ -8,6 +8,7 @@
 
 import path from 'path';
 import fs from 'fs/promises';
+import { constants } from 'fs';
 
 
 const workingDirectory = process.cwd();
@@ -42,8 +43,8 @@ async function unlinkFile(path) {
     try {
         await fs.unlink(path);
     } catch { 
-        console.debug("File '" + path + "' was not found to unlick");
-     }
+        console.debug("File '" + path + "' was not found to unlock");
+    }
 }
 
 async function recurseFiles(directory) {
@@ -81,21 +82,25 @@ async function recurseFiles(directory) {
                         sourcePath + '.json'
                     );
 
-                    
-                    if (fs.existsSync(metaPath)) {
-                        const data = fs.readFileSync(metaPath, 'utf8');
+                    try {
+                        // Check if file exists
+                        await fs.access(metaPath, constants.F_OK);
+
+                        // Read and parse JSON
+                        const data = await readFile(metaPath, 'utf8');
                         const jsonData = JSON.parse(data);
-                        const date90DaysAgo = new Date(
-                            Date.now() - 14 /* <- days */ * 24 * 60 * 60 * 1000
-                        );
 
-                        //console.log('Checking:', metaPath);
+                        const date14DaysAgo = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000);
 
-                        if (jsonData.updated && new Date(jsonData.updated) < date90DaysAgo) {
+                        if (jsonData.updated && new Date(jsonData.updated) < date14DaysAgo) {
                             console.log('Processing:', metaPath);
                             filesToProcess.push(info);
-                        }
+                        }               
                     }
+                    catch{
+                        // ignore file note found
+                            
+                    } 
 
                     break;
             }
