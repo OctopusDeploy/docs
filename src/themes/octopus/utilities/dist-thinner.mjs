@@ -5,11 +5,9 @@
  * @format
  */
 
-
 import path from 'path';
 import fs from 'fs/promises';
 import { constants } from 'fs';
-
 
 const workingDirectory = process.cwd();
 
@@ -26,7 +24,7 @@ const imagePath = path.join('dist', imagePaths.src);
 const outputPath = path.join('dist', imagePaths.dest);
 const imageDirectory = path.join(workingDirectory, imagePath);
 
- const filesToProcess = [];
+const filesToProcess = [];
 
 function getDestinationFilePathless(source, s) {
     let destination = path.join(
@@ -85,9 +83,9 @@ async function recurseFiles(directory) {
                     try {
                         // Check if file exists
                         await fs.access(metaPath, constants.F_OK);
-
+                        
                         // Read and parse JSON
-                        const data = await readFile(metaPath, 'utf8');
+                        const data = await fs.readFile(metaPath, 'utf8');
                         const jsonData = JSON.parse(data);
 
                         const date14DaysAgo = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000);
@@ -97,9 +95,9 @@ async function recurseFiles(directory) {
                             filesToProcess.push(info);
                         }               
                     }
-                    catch{
+                    catch (error) {
                         // ignore file note found
-                            
+                        console.log(error);
                     } 
 
                     break;
@@ -109,6 +107,8 @@ async function recurseFiles(directory) {
 }
 
 await recurseFiles('');
+
+console.log('Total files to process:', filesToProcess.length);
 
 for (const file of filesToProcess) {
     const source = path.join(imageDirectory, file.path);
@@ -148,4 +148,3 @@ for (const file of filesToProcess) {
         await unlinkFile(resizeDestination + '.webp')
     }
 }
-
