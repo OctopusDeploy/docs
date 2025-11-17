@@ -48,7 +48,7 @@ async function unlinkFile(path) {
 }
 
 async function recurseFiles(directory) {
-    const f = await fs.promises.readdir(path.join(imageDirectory, directory), {
+    const f = await fs.readdir(path.join(imageDirectory, directory), {
         withFileTypes: true,
     });
 
