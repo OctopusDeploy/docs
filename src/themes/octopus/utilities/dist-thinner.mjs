@@ -117,26 +117,26 @@ for (const file of filesToProcess) {
     const ext = path.parse(source).ext;
 
     // Delete original file
-    unlinkFile(source);
+    await unlinkFile(source);
 
     // Delete the fallback file
     switch (ext) {
         case '.png':
-            unlinkFile(destination + '.png');
+            await unlinkFile(destination + '.png');
             break;
         case '.jpg':
         case '.jpeg':
-            unlinkFile(destination + '.jpg');
+            await unlinkFile(destination + '.jpg');
             break;
         case '.webp':
-            unlinkFile(destination + '.webp');
+            await unlinkFile(destination + '.webp');
             break;
     }
 
     const metaFile = source + '.json';
 
     // Delete metadata file
-    unlinkFile(metaFile);
+    await unlinkFile(metaFile);
 
     // Delete resized images
     for (const key in size) {
@@ -145,7 +145,7 @@ for (const file of filesToProcess) {
             size[key]
         );
 
-        unlinkFile(resizeDestination + '.webp')
+        await unlinkFile(resizeDestination + '.webp')
     }
 }
 
