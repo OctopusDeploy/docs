@@ -37,7 +37,7 @@ function getDestinationFilePathless(source, s) {
 }
 
 function unlinkFile(path) {
-    if (fs.existsSync(metaPath)) {
+    if (fs.existsSync(path)) {
         fs.unlink(path)
     }
 }
