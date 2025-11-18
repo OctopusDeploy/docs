@@ -41,7 +41,7 @@ To use Authentik authentication with Octopus you will need to:
 1. Enter the following details:
     - **Authentication Flow**: `default-provider-authorization-implicit-consent`
     - **Client type**: `Confidential`
-    - **Redirect URIs/Origins** should have a single `Strict` entry of `https://octopus.example.com/api/users/authenticatedToken/GenericOidc` (replacing `https://octopus.example.com` with the URL of your Octopus Server).
+    - **Redirect URIs/Origins** should have a single `Strict` entry of `https://your-octopus-url/api/users/authenticatedToken/GenericOidc` (replacing `https://your-octopus-url` with the URL of your Octopus Server).
 
     ![New Application Configure Provider](/docs/img/security/authentication/authentik/new-application-configure-provider.png)
 

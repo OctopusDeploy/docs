@@ -55,13 +55,13 @@ To use Keycloak authentication with Octopus you will need to:
 
     ![Create Client Capability Config](/docs/img/security/authentication/keycloak/create-client-capability-config.png)
 
-1. On the **Login settings** screen, configure the URLs for Octopus Deploy. The **Root**, **Home**, **Post Logout** and **Web Origins** URLs should all be the URL of the Octopus Deploy server, eg: `https://octopus.example.com/`. The **Valid redirect URIs** should be `https://octopus.example.com/api/users/authenticatedToken/GenericOidc` (replacing `https://octopus.example.com` with the URL of your Octopus Server). Click **Save**.
+1. On the **Login settings** screen, configure the URLs for Octopus Deploy. The **Root**, **Home**, **Post Logout** and **Web Origins** URLs should all be the URL of the Octopus Deploy server. The **Valid redirect URIs** should be `https://your-octopus-url/api/users/authenticatedToken/GenericOidc` (replacing `https://your-octopus-url` with the URL of your Octopus Server). Click **Save**.
 
     ![Create Client Login Settings](/docs/img/security/authentication/keycloak/create-client-login-settings.png)
 
-1. Navigate to **Client scopes**, click **Add client scope** and check the box beside `groups`, to allow Octopus Deploy to request group membership information. Click **Add**. 
+1. Navigate to **Client scopes**, click **Add client scope** and check the box beside `groups`, to allow Octopus Deploy to request group membership information. Click **Add**.
 1. Now collect the details you'll need for configuring Octopus Server:
-    - **Issuer URL**: the root URL for your Keycloak server, followed by `/realms/` and the name of the realm, eg: `https://keycloak.example.com/realms/company` if the name of the realm is `company`.
+    - **Issuer URL**: the root URL for your Keycloak server, followed by `/realms/` and the name of the realm, eg: `https://keycloak-server/realms/company` if the name of the realm is `company`.
     - **Client ID**: as configured above, and shown on the client page on the **Settings** tab
     - **Client Secret**: on the client page, go to the **Credentials** tab, then click the copy button beside **Client Secret**.
 
@@ -129,7 +129,7 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 
 ### Check OpenID Connect metadata is working
 
-You can see the OpenID Connect metadata by going to the Issuer address in your browser adding `/.well-known/openid-configuration` to the end. In our example this would have been something like `https://keycloak.example.com/realms/company/.well-known/openid-configuration`
+You can see the OpenID Connect metadata by going to the Issuer address in your browser adding `/.well-known/openid-configuration` to the end. In our example this would have been something like `https://keycloak-server/realms/company/.well-known/openid-configuration`
 
 ### Contact Octopus Support
 
