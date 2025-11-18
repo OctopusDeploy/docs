@@ -232,7 +232,7 @@ This feature is only available for version 2025.4.9247 and later
 
 To control the content of the CRs the variable `Octopus.JiraServiceManagement.Field[jsm_field]` can be set at the project level. These are contributed to the create CR body as a dictionary allowing any field to be set.
 
-For example, to set a custom `Summary`:
+For example, to set a custom `Summary` or `Due Date`:
 
 | Field | Variable | Example Value |
 |--|--|--|
