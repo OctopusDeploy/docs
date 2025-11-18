@@ -53,6 +53,7 @@ CAIQ
 Ceph
 certkeyName
 Certstore
+CHACHA
 changeit
 checkformanualintervention
 checkservices
@@ -135,6 +136,7 @@ DWORD
 eastus
 EBNF
 echoerror
+ecparam
 elbv2
 elif
 Elyton
@@ -292,6 +294,7 @@ myfile
 mykey
 myoctoregistry
 namespacing
+Nartac
 navigationid
 NETBIOS
 netcore
@@ -435,6 +438,7 @@ ROOTDIR
 rootelement
 Rootfs
 RSASSA
+rsae
 rstrip
 runbook
 runbookprocesses
@@ -453,6 +457,7 @@ Schannel
 scopeduserroles
 Scregedit
 scriptcs
+secp
 secpol
 secureclientcertificate
 securestring
@@ -465,6 +470,7 @@ Sesna
 setspn
 sfproj
 shiki
+showcerts
 Showplan
 SIEM
 signingkeys
@@ -507,6 +513,7 @@ tabpanel
 tagset
 tagsets
 Tasklogs
+tcpdump
 TCPIP
 templateid
 templating
@@ -530,6 +537,7 @@ Toolbelt
 Toolsets
 Topshelf
 toptags
+tracefile
 Traefik
 Trivy
 tsconfigs
