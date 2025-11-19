@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-11-19
 title: New certificate
 description: Creates a new certificate that Octopus Server can use to authenticate itself with its Tentacles
 navOrder: 140
@@ -9,9 +9,9 @@ navOrder: 140
 
 Use the new certificate command to create a new certificate that Octopus Server can use to authenticate itself with its Tentacles.
 
-**New certificate options**
+## New certificate options
 
-```
+```bash
 Usage: Octopus.Server new-certificate [<options>]
 
 Where [<options>] is any of:
@@ -44,19 +44,25 @@ The `--type` parameter is only available in versions `>= 2025.4`
 ## Basic examples
 
 ### Replacing existing Tentacle certificate
+
 This example creates a new Tentacle certificate for instance `MyNewInstance` and replaces the old one:
-```
+
+```bash
 octopus.server new-certificate --instance="MyNewInstance" --replace
 ```
 
 ### Generating and exporting a new Tentacle certificate
+
 This example creates a new Tentacle certificate and exports it to a PFX file:
-```
+
+```bash
 octopus.server new-certificate --export-pfx="c:\temp\new-certificate.pfx" --pfx-password="$uper$3cretPassw0rd"
 ```
 
 ### Replacing existing gRPC certificate
+
 This example creates a new gRPC certificate for instance `MyNewInstance` and replaces the old one:
-```
+
+```bash
 octopus.server new-certificate --instance="MyNewInstance" --replace --type="grpc"
 ```

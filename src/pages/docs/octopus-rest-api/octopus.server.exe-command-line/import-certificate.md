@@ -9,9 +9,9 @@ navOrder: 80
 
 Use the import certificate command to replace the certificate that Octopus Server uses to authenticate itself with its Tentacles.
 
-**Import certificate options**
+## Import certificate options
 
-```
+```bash
 Usage: Octopus.Server import-certificate [<options>]
 
 Where [<options>] is any of:
@@ -45,15 +45,17 @@ The `--type` parameter is only available in versions `>= 2025.4`
 ## Basic examples
 
 ### Importing Tentacle certificate
+
 This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows):
 
-```
+```bash
 octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd"
 ```
 
 ### Importing gRPC certificate
-This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Kubernetes Monitors](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) and [Argo CD Gateways](/docs/argo-cd/instances): 
-```
-octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd" --type="grpc"
 
+This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Kubernetes Monitors](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) and [Argo CD Gateways](/docs/argo-cd/instances):
+
+```bash
+octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd" --type="grpc"
 ```
