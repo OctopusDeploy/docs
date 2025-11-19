@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-11-19
 title: Import certificates
 description:  Replace the certificate that Octopus Server uses to authenticate itself with its Tentacles
 navOrder: 80
@@ -12,7 +12,7 @@ Use the import certificate command to replace the certificate that Octopus Serve
 **Import certificate options**
 
 ```
-Usage: octopus.server import-certificate [<options>]
+Usage: Octopus.Server import-certificate [<options>]
 
 Where [<options>] is any of:
 
@@ -24,6 +24,9 @@ Where [<options>] is any of:
       --pw, --pfx-password=VALUE
                              Personal Information Exchange (PFX) private key
                                password
+      --type=VALUE           Sets which certificate will be updated. Valid
+                               options are: 'tentacle' or 'grpc'. Default:
+                               'tentacle'
       --skipDatabaseCompatibilityCheck
                              Skips the database compatibility check
       --skipDatabaseSchemaUpgradeCheck
@@ -35,10 +38,22 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
-## Basic example
+:::div{.hint}
+The `--type` parameter is only available in versions `>= 2025.4`
+:::
 
+## Basic examples
+
+### Importing Tentacle certificate
 This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows):
 
 ```
 octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd"
+```
+
+### Importing gRPC certificate
+This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Kubernetes Monitors](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) and [Argo CD Gateways](/docs/argo-cd/instances): 
+```
+octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd" --type="grpc"
+
 ```
