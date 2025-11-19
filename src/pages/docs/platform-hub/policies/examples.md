@@ -857,3 +857,44 @@ conditions {
     EOT
 }
  ```
+
+### Check that the project and tenant have a tag from the specified tag set
+Example of a policy that consumes tags specified at the space level
+
+ ```ruby
+name = "Specific tag should be set"
+
+scope {
+    rego = <<-EOT
+        package tags
+
+        evaluate if { 
+            some tag in input.Environment.Tags
+            tag == "type/production"
+        }
+    EOT
+}
+
+conditions {
+    rego = <<-EOT
+        package tags
+
+        default result := {"allowed": false}
+
+        result := {"allowed": true} if {
+            has_size_tags
+            has_lang_tags
+        }
+            
+        has_size_tags if {
+            some tag in input.Tenant.Tags
+            startswith(tag, "size/")
+        }
+            
+        has_lang_tags if {
+            some tag in input.Project.Tags
+            startswith(tag, "lang/")
+        }
+    EOT
+}
+ ```

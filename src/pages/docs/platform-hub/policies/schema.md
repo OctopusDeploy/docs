@@ -32,12 +32,21 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         },
         "Slug": {
           "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
         }
       },
       "required": [
         "Id",
         "Name",
-        "Slug"
+        "Slug",
+        "Tags"
       ]
     },
     "Project": {
@@ -51,12 +60,21 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         },
         "Slug": {
           "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
         }
       },
       "required": [
         "Id",
         "Name",
-        "Slug"
+        "Slug",
+        "Tags"
       ]
     },
     "Space": {
@@ -89,12 +107,21 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         },
         "Slug": {
           "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
         }
       },
       "required": [
         "Id",
         "Name",
-        "Slug"
+        "Slug",
+        "Tags"
       ]
     },
     "ProjectGroup": {
@@ -118,7 +145,11 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
     },
     "SkippedSteps": {
       "type": "array",
-      "items": {}
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
     },
     "Steps": {
       "type": "array",
@@ -236,6 +267,31 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         "Name",
         "Snapshot"
       ]
+    },
+    "Execution": {
+      "type": "array",
+      "items": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "StartTrigger": {
+            "type": "string"
+          },
+          "Steps": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "required": [
+          "StartTrigger",
+          "Steps"
+        ]
+      }
     }
   },
   "required": [
@@ -244,7 +300,8 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
     "Space",
     "SkippedSteps",
     "Steps", 
-    "ProjectGroup"
+    "ProjectGroup",
+    "Execution"
   ]
 }
 ```
