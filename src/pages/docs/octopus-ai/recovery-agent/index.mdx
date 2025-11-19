@@ -9,27 +9,30 @@ description: An overview of the the Recovery Agent feature, allowing AI clients 
 navOrder: 3
 ---
 
-### Recovery Agent
-
-Overview
 One of the most important aspects of Continuous Delivery is being able to rapidly recover when something goes wrong. There are many tools you can use to boost recovery, like feature toggles, blue/green deployments, canary deployments, and rollbacks. A short mean time to recovery is the hallmark of an elite software delivery engine.
+
 The Recovery Agent is designed to help you recover from failure, fast. In the current release the agent uses AI to analyze and diagnose the cause of deployment failures within the deployments you manage, and suggest potential steps to recover. In the future, the Agent will be able to execute those remediation steps for you. You will be in the loop and in control, but the Recovery Agent will take care of the heavy lifting in the heat of the moment.
 
-The Recovery Agent is currently an Alpha release feature, and has been developed and tested against a limited set of failure scenarios. We will continue to evolve and refine the Recovery Agent alongside customer feedback we gain throughout the Alpha release phase. 
-
+The Recovery Agent is currently an Alpha release feature, and has been developed and tested against a limited set of failure scenarios. We will continue to evolve and refine the Recovery Agent alongside customer feedback we gain throughout the Alpha release phase.
 
 ## FAQ
+
 ### Who is the Recovery Agent available to?
+
 The Recovery Agent is available to Octopus Cloud customers only. We do not yet have a specific date for when it will be available to self-hosted customers.
+
 How do I get early access?
-For early access, [fill in this form](https://octopusdeploy.typeform.com/to/yNMUnzxc), and we’ll add this feature to your instance. 
+
+For early access, [fill in this form](https://octopusdeploy.typeform.com/to/yNMUnzxc), and we’ll add this feature to your instance.
 
 ### Is my data being used to train AI?
+
 No. Octopus Agents leverage pre-trained foundational AI models from providers like OpenAI. We host these models in Azure, as we do with all of our Octopus Cloud resources.
 
 Interactions with foundational AI models are entirely stateless. Your data is not used to train the models. Your data is not stored by the models, and they do not retain a “history” of interactions.
 
 ### How is my data being processed?
+
 Our foundational models are hosted within Azure, which provides strong guarantees about how your data is processed and stored.
 
 In short, your prompts (inputs) and completions (outputs) are not available to other customers and are not used to train the models.
@@ -39,11 +42,15 @@ If your Octopus Cloud instance is hosted in the EU, it will work with a foundati
 It is important to note that Octopus never prints out or sends secrets to external services as long as they are clearly [identified as sensitive](https://octopus.com/docs/projects/variables/sensitive-variables).
 
 For a deeper understanding of the technical aspects of data processing, please consult [Data, privacy, and security for Azure Direct Models in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/data-privacy?tabs=azure-portal).
+
 ### Will you charge me for this feature?
+
 We won’t charge customers for this feature while it’s an Alpha release. This may change in the future as we move to a full feature release, however we’ll clearly inform customers before introducing pricing.
-Is there any setup or configuration for this feature?
+
+### Is there any setup or configuration for this feature?
+
 No! Once enabled, this feature will appear in your UI as shown in the image above.
 
 ### Can I opt out of having the Recovery Agent in my instance?
-Yes, you can get in touch with our [Support team](support@octopus.com) who can opt you out.
 
+Yes, you can get in touch with our [Support team]([support@octopus.com](https://octopus.com/support)) who can opt you out.
