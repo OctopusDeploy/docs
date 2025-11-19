@@ -859,7 +859,7 @@ conditions {
  ```
 
 ### Check that the project and tenant have a tag from the specified tag set
-Example of a policy that consumes tags specified at the space level
+Example of a policy that checks tags for Environments, Tenants and Projects
 
  ```ruby
 name = "Specific tag should be set"
