@@ -40,7 +40,7 @@ The `--type` parameter is only available in versions `>= 2025.4`
 This example exports the certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows):
 
 ```bash
-octopus.server export-certificate --instance="OctopusServer" --export-pfx="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd"
+octopus.server export-certificate --instance="OctopusServer" --export-pfx="C:\temp\OctopusServer-certificate.pfx" --pfx-password="your-secret-password"
 ```
 
 ### Exporting gRPC certificate
@@ -48,5 +48,5 @@ octopus.server export-certificate --instance="OctopusServer" --export-pfx="C:\te
 This example exports the certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Kubernetes Monitors](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) and [Argo CD Gateways](/docs/argo-cd/instances):
 
 ```bash
-octopus.server export-certificate --instance="OctopusServer" --export-pfx="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd" --type="grpc"
+octopus.server export-certificate --instance="OctopusServer" --export-pfx="C:\temp\OctopusServer-certificate.pfx" --pfx-password="your-secret-password" --type="grpc"
 ```

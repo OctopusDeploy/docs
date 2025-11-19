@@ -56,7 +56,7 @@ octopus.server new-certificate --instance="MyNewInstance" --replace
 This example creates a new Tentacle certificate and exports it to a PFX file:
 
 ```bash
-octopus.server new-certificate --export-pfx="c:\temp\new-certificate.pfx" --pfx-password="$uper$3cretPassw0rd"
+octopus.server new-certificate --export-pfx="c:\temp\new-certificate.pfx" --pfx-password="your-secret-password"
 ```
 
 ### Replacing existing gRPC certificate

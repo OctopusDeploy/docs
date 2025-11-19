@@ -49,7 +49,7 @@ The `--type` parameter is only available in versions `>= 2025.4`
 This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows):
 
 ```bash
-octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd"
+octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="your-secret-password"
 ```
 
 ### Importing gRPC certificate
@@ -57,5 +57,5 @@ octopus.server import-certificate --instance="OctopusServer" --from-file="C:\tem
 This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Kubernetes Monitors](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) and [Argo CD Gateways](/docs/argo-cd/instances):
 
 ```bash
-octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd" --type="grpc"
+octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="your-secret-password" --type="grpc"
 ```
