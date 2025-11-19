@@ -1,11 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-23
-modDate: 2025-10-21
+modDate: 2025-11-20
 title: Process templates
 subtitle: An overview of Process Templates
 icon: fa-solid fa-layer-group
-navTitle: Process Templates
+navTitle: Overview
 navSection: Process Templates
 description: An overview of Process Templates
 navOrder: 150
@@ -13,10 +13,6 @@ navOrder: 150
 ## Overview
 
 Process templates are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy. Instead of copying and pasting deployment processes across teams and applications, which often leads to configuration drift, unnecessary duplication, and operational debt, you create a single source of truth that any project can consume. By abstracting your best practices for deployments into Process Templates, you make it easy for teams to follow standards and accelerate delivery.
-
-:::div{.warning}
-Process Templates is in Public Preview for all Enterprise Tier Customers. The feature is mostly complete, and mostly tested. Expect some changes between Public Preview and the Generally Available release. For Octopus server customers who want Platform Hub please visit the [installation guide](/docs/platform-hub/installation-guide)
-:::
 
 To create or manage your process templates, navigate to Platform Hub. If you haven't set up your Git repository, you must do so first before creating a process template. Similarly, if you've already created templates or are joining an existing team, you'll see the existing templates on the template overview.
 

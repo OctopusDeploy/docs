@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2025-09-23
+modDate: 2025-11-20
 title: Platform Hub
 subtitle: An overview of Platform Hub
 icon: fa-solid fa-landmark
@@ -12,11 +12,6 @@ navOrder: 32
 ---
 
 [Platform Hub](https://octopus.com/blog/introducing-platform-hub) is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence.
-
-:::div{.warning}
-- Policies is currently in Alpha for all Enterprise Tier Customers. The feature is not finished or fully tested, and may change drastically as we iterate and build more functionality.
-- Process Templates is in Public Preview for all Enterprise Tier Customers. The feature is mostly complete, and mostly tested. Expect some changes between Public Preview and the Generally Available release.
-:::
 
 You can create and manage your process templates and policies from Platform Hub.
 
