@@ -44,15 +44,14 @@ You can import a CSV file of IP addresses or ranges, with optional descriptions,
 
 Dynamic workers leased by your Octopus Cloud are not protected by your IP address allow list.
 
-If you require a dynamic worker to have access to your Octopus Cloud instance when IP address allow list is activated, you need to include the IP address used for egress from the dynamic worker in your allow list.
+These dynamic workers do not bypass your IP address allow list, either.
 
-You can determine the egress IP address of a dynamic worker by running a script on it like `curl -s https://api.ipify.org`.
+We do not support adding your leased dynamic workers to the allow list.
 
-Please note:
+If you need to access your Octopus Cloud instance from a dynamic worker, consider provisioning your own [external worker](/docs/infrastructure/workers#external-workers-external-workers).
 
-- Dynamic workers do not have static IP addresses
-- You may need to adjust your allow list if a dynamic worker's IP address changes
-- Dynamic workers in your Octopus Cloud Azure region can be leased by any customer in that region
+If using an IP address allow list on your Octopus Cloud instance is important to you and you must use a dynamic worker which initiates communication with your instance, please let us know by leaving a comment on our public [roadmap card](https://roadmap.octopus.com/c/189-higher-resourced-more-secure-dynamic-workers-for-octopus-cloud).
+
 
 ## Azure Private Links
 
