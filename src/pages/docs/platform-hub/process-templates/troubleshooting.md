@@ -142,12 +142,16 @@ Platform Hub accounts cannot be used in the following situations:
 
 ### Public API
 
-We do not currently have support for creating or managing process templates through the API, CLI or the Terraform provider.  
+Process templates can be created and managed through our [public API](/docs/octopus-rest-api).
 
-- Process templates are stored as code in the configured Git repository.  The OCL files store all relevant information about the template - including the parameters, the steps, name, description and other settings.  
+- Process templates are stored as code in the configured Git repository.  The OCL files store all relevant information about the template - including the parameters, the steps, name, description and other settings.
 - The published versions and Spaces configured are stored and managed via the database.
 
-We recommend all users use the Octopus Deploy UI to manage process templates during the public preview.  Any processes or workflows you build outside of the Octopus Deploy UI is subject to change and without warning.  
+:::div{.warning}
+We do not currently support creating or managing process templates through the CLI or the Terraform provider.
+:::
+
+See [CreateProcessTemplateUsageStep](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/DeploymentProcesses/CreateProcessTemplateUsageStep.cs) for an example of how to configure a process template on a deployment process using [Octopus.Client](/docs/octopus-rest-api/octopus.client).
 
 ### GitHub Connections
 

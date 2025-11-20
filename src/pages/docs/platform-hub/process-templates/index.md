@@ -163,7 +163,7 @@ If you wish to test your changes before publishing a major, minor, or patch vers
 
 You must share the process template before it can be consumed by any projects. Process templates can be shared with all current and future spaces, or a select few spaces.
 
-:::hint
+:::div{.hint}
 Sharing settings can be updated anytime.
 :::
 
