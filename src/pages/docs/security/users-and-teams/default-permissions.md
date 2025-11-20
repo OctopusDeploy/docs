@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-11-26
+modDate: 2025-11-20
 title: Default permissions for built-in user roles
 description: A listing of the default permissions for each of the built-in user roles.
 ---
@@ -575,56 +575,60 @@ description: A listing of the default permissions for each of the built-in user 
 
 ## System Administrator {#DefaultPermissions-SystemAdministrator}
 
-| System Permission           | Description                              |
-| --------------------------- | ---------------------------------------- |
-| AdministerSystem            | Perform system-level functions like configuring HTTP web hosting, the public URL, server nodes, maintenance mode, and server diagnostics |
-| ConfigureServer             | Configure server settings like Authentication, SMTP, and HTTP Security Headers |
-| EventRetentionDelete        | Delete archived event files |
-| EventRetentionView          | View/list archived event files |
-| EventView                   | View Events, including access to the Audit screen |
-| SpaceCreate                 | Create spaces |
-| SpaceDelete                 | Delete spaces |
-| SpaceEdit                   | Edit spaces |
-| SpaceView                   | View spaces |
-| TaskCancel                  | Cancel server tasks |
-| TaskCreate                  | Explicitly create (run) server tasks |
-| TaskEdit                    | Edit server tasks |
-| TaskView                    | View summary-level information associated with a task |
-| TeamCreate                  | Create teams |
-| TeamDelete                  | Delete teams |
-| TeamEdit                    | Edit teams |
-| TeamView                    | View teams |
-| UserEdit                    | Edit users |
-| UserInvite                  | Invite users to register accounts |
-| UserRoleEdit                | Edit user role definitions |
-| UserRoleView                | View other user's roles |
-| UserView                    | View users |
+| System Permission    | Description                                                                                                                              |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| AdministerSystem     | Perform system-level functions like configuring HTTP web hosting, the public URL, server nodes, maintenance mode, and server diagnostics |
+| ConfigureServer      | Configure server settings like Authentication, SMTP, and HTTP Security Headers                                                           |
+| EventRetentionDelete | Delete archived event files                                                                                                              |
+| EventRetentionView   | View/list archived event files                                                                                                           |
+| EventView            | View Events, including access to the Audit screen                                                                                        |
+| PlatformHubEdit      | Edit Platform Hub configuration and resources                                                                                            |
+| PlatformHubView      | View Platform Hub configuration and resources                                                                                            | |
+| SpaceCreate          | Create spaces                                                                                                                            |
+| SpaceDelete          | Delete spaces                                                                                                                            |
+| SpaceEdit            | Edit spaces                                                                                                                              |
+| SpaceView            | View spaces                                                                                                                              |
+| TaskCancel           | Cancel server tasks                                                                                                                      |
+| TaskCreate           | Explicitly create (run) server tasks                                                                                                     |
+| TaskEdit             | Edit server tasks                                                                                                                        |
+| TaskView             | View summary-level information associated with a task                                                                                    |
+| TeamCreate           | Create teams                                                                                                                             |
+| TeamDelete           | Delete teams                                                                                                                             |
+| TeamEdit             | Edit teams                                                                                                                               |
+| TeamView             | View teams                                                                                                                               |
+| UserEdit             | Edit users                                                                                                                               |
+| UserInvite           | Invite users to register accounts                                                                                                        |
+| UserRoleEdit         | Edit user role definitions                                                                                                               |
+| UserRoleView         | View other user's roles                                                                                                                  |
+| UserView             | View users                                                                                                                               |
 
 ## System Manager {#DefaultPermissions-SystemManager}
 
-| System Permission           | Description                              |
-| --------------------------- | ---------------------------------------- |
-| ConfigureServer             | Configure server settings like Authentication, SMTP, and HTTP Security Headers |
-| EventRetentionDelete        | Delete archived event files |
-| EventRetentionView          | View/list archived event files |
-| EventView                   | View Events, including access to the Audit screen |
-| SpaceCreate                 | Create spaces |
-| SpaceDelete                 | Delete spaces |
-| SpaceEdit                   | Edit spaces |
-| SpaceView                   | View spaces |
-| TaskCancel                  | Cancel server tasks |
-| TaskCreate                  | Explicitly create (run) server tasks |
-| TaskEdit                    | Edit server tasks |
-| TaskView                    | View summary-level information associated with a task |
-| TeamCreate                  | Create teams |
-| TeamDelete                  | Delete teams |
-| TeamEdit                    | Edit teams |
-| TeamView                    | View teams |
-| UserEdit                    | Edit users |
-| UserInvite                  | Invite users to register accounts |
-| UserRoleEdit                | Edit user role definitions |
-| UserRoleView                | View other user's roles |
-| UserView                    | View users |
+| System Permission    | Description                                                                    |
+|----------------------|--------------------------------------------------------------------------------|
+| ConfigureServer      | Configure server settings like Authentication, SMTP, and HTTP Security Headers |
+| EventRetentionDelete | Delete archived event files                                                    |
+| EventRetentionView   | View/list archived event files                                                 |
+| EventView            | View Events, including access to the Audit screen                              |
+| PlatformHubEdit      | Edit Platform Hub configuration and resources                                  |
+| PlatformHubView      | View Platform Hub configuration and resources                                  |
+| SpaceCreate          | Create spaces                                                                  |
+| SpaceDelete          | Delete spaces                                                                  |
+| SpaceEdit            | Edit spaces                                                                    |
+| SpaceView            | View spaces                                                                    |
+| TaskCancel           | Cancel server tasks                                                            |
+| TaskCreate           | Explicitly create (run) server tasks                                           |
+| TaskEdit             | Edit server tasks                                                              |
+| TaskView             | View summary-level information associated with a task                          |
+| TeamCreate           | Create teams                                                                   |
+| TeamDelete           | Delete teams                                                                   |
+| TeamEdit             | Edit teams                                                                     |
+| TeamView             | View teams                                                                     |
+| UserEdit             | Edit users                                                                     |
+| UserInvite           | Invite users to register accounts                                              |
+| UserRoleEdit         | Edit user role definitions                                                     |
+| UserRoleView         | View other user's roles                                                        |
+| UserView             | View users                                                                     |
 
 ## Tenant Manager {#DefaultPermissions-TenantManager}
 

@@ -18,6 +18,11 @@ You can create and manage your process templates and policies from Platform Hub.
 - [Process templates](/docs/platform-hub/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
 - [Policies](/docs/platform-hub/policies) in Octopus are designed to ensure compliance and governance by default, making enforcing pre- and post-deployment controls at scale easier.
 
+:::div{.hint}
+To access Platform Hub users must have **PlatformHubEdit** and **PlatformHubView** permissions enabled. These permissions can only be assigned to system teams. 
+[System administrators](/docs/security/users-and-teams/default-permissions#DefaultPermissions-SystemAdministrator) and [system managers](/docs/security/users-and-teams/default-permissions#DefaultPermissions-SystemManager) have **PlatformHubEdit** and **PlatformHubView** permissions enabled by default.
+:::
+
 To get started, configure your version control.
 
 :::figure
