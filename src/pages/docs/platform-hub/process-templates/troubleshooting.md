@@ -200,15 +200,14 @@ Consider a process template named **Build and Create Web App** containing a step
 name = "Build and Create Web App"
 description = ""
 
-    step "run-a-script" {
+step "run-a-script" {
     name = "Collect Details"
-
-        action {
-            action_type = "Octopus.Script"
+    
+    action {
+        action_type = "Octopus.Script"
             ...
         }
         ...
-    }
 }
 ```
 
@@ -224,12 +223,12 @@ When this process template is used in a project with a process template usage st
 
 ```
 process_template "run-a-process-template" {
-name = "Create Web App"
-process_template_slug = "build-and-create-web-app"
-version_mask = "1.X"
+    name = "Create Web App"
+    process_template_slug = "build-and-create-web-app"
+    version_mask = "1.X"
 
     parameter "linux worker" {
-    value = "WorkerPools-1"
+        value = "WorkerPools-1"
     }
     ...
 }

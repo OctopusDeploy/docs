@@ -583,7 +583,7 @@ description: A listing of the default permissions for each of the built-in user 
 | EventRetentionView   | View/list archived event files                                                                                                           |
 | EventView            | View Events, including access to the Audit screen                                                                                        |
 | PlatformHubEdit      | Edit Platform Hub configuration and resources                                                                                            |
-| PlatformHubView      | View Platform Hub configuration and resources                                                                                            | |
+| PlatformHubView      | View Platform Hub configuration and resources                                                                                            |
 | SpaceCreate          | Create spaces                                                                                                                            |
 | SpaceDelete          | Delete spaces                                                                                                                            |
 | SpaceEdit            | Edit spaces                                                                                                                              |
