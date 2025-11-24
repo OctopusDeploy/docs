@@ -55,6 +55,16 @@ From **Octopus 2022.3**, Azure steps that support target discovery will allow yo
 
 Once the variables for target discovery have been configured the **Azure** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.
 
+#### Disabling Azure cloud target discovery
+
+To disable cloud target discovery for Azure:
+
+1. Navigate to your project's **Variables** screen.
+2. Find and delete the `Octopus.Azure.Account` variable.
+3. Click **SAVE**.
+
+Once the variable is removed, cloud target discovery will be disabled for Azure resources in this project. The **Azure** tile in the **Cloud Connections** section of your Azure deployment steps will show **Configure** again, indicating that cloud target discovery is no longer active.
+
 ### AWS
 
 To discover AWS cloud resources, Octopus uses the following variables:
@@ -82,6 +92,20 @@ From **Octopus 2022.3**, AWS steps that support target discovery will allow you 
 :::
 
 Once the variables for target discovery have been configured the **Amazon Web Services** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.
+
+#### Disabling AWS cloud target discovery
+
+To disable cloud target discovery for AWS:
+
+1. Navigate to your project's **Variables** screen.
+2. Find and delete the following variables:
+   - `Octopus.Aws.Regions` (required)
+   - `Octopus.Aws.Account` (if configured)
+   - `Octopus.Aws.WorkerPool` (if configured)
+   - Any `Octopus.Aws.AssumedRole.*` variables (if configured)
+3. Click **SAVE**.
+
+Once the variables are removed, cloud target discovery will be disabled for AWS resources in this project. The **Amazon Web Services** tile in the **Cloud Connections** section of your AWS deployment steps will show **Configure** again, indicating that cloud target discovery is no longer active.
 
 ## Tag cloud resources
 
