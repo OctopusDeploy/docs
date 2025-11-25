@@ -31,17 +31,41 @@ Only a single Octopus Permissions Controller is required per cluster.
 
 ### Workload Service Accounts
 
-```yaml
-TODO: Example WSA
-```
+`WorkloadServiceAccounts` can be created as you would any other Kubernetes object. Your `WorkloadServiceAccount` should be created in the namespace you will be deploying your application resources into.
+
+:::figure
+![Deployed resources](/docs/img/kubernetes/targets/kubernetes-agent/granular-permissions/deployed-resources.png)
+:::
+
+Roles and RoleBindings will be created in the application namespace. A linked ServiceAccount will be created in the Kubernetes agent namespace.
+
+:::figure
+![Created resources](/docs/img/kubernetes/targets/kubernetes-agent/granular-permissions/created-resources.png)
+:::
+
+When a deployment that matches the scope configured on the `WorkloadServiceAccount` starts, it will automatically be assigned the created ServiceAccount.
 
 #### Creating Workload Service Accounts
 
-`WorkloadServiceAccounts` can be created as you would any other Kubernetes object. Your `WorkloadServiceAccount` should be created in the namespace you will be deploying your application resources into.
-
-TODO: Diagram of SA, WSA, roles, role bindings
-
 The `WorkloadServiceAccount` consists of two main parts; the scope and the permission set.
+
+```yaml
+apiVersion: agent.octopus.com/v1beta1
+kind: WorkloadServiceAccount
+metadata:
+  name: sample-wsa
+  namespace: your-application-namespace
+spec:
+  scope:
+    spaces: [default]
+    projects: [guestbook]
+    environments: [dev-a,dev-b]
+  permissions:
+    permissions:
+      - verbs: ["*"]
+        apiGroups: ["*"]
+        resources: ["*"]
+```
 
 ##### Scope
 
@@ -69,7 +93,7 @@ The permissions applied for each scope can be configured a couple of ways:
 
 #### Cluster Workload Service Accounts
 
-When cluster scoped permissions are required (ie. `ClusterRoleBindings` are required), `ClusterWorkloadServiceAccount` are available to configure your permissions. These work the same way as `WorkloadServiceAccounts`.
+When non-namespaced scoped permissions are required, `ClusterWorkloadServiceAccount` are available to configure your permissions. These work the same way as `WorkloadServiceAccounts`.
 
 #### Combining WSAs
 
@@ -77,10 +101,83 @@ Not all permissions exist in a vacuum and we don't want to repeat ourselves too 
 
 When a workload with a particular scope matches multiple `WorkloadServiceAccount` scopes, the permissions are combined and both applied to a single `ServiceAccount`.
 
+##### Example - Multiple namespaces
+
 A deployment workload can access two namespaces in a single step by matching the scope of two or more `WorkloadServiceAccounts` that are spread across namespaces.
 
 ```yaml
-TODO: Example
+apiVersion: agent.octopus.com/v1beta1
+kind: WorkloadServiceAccount
+metadata:
+  name: sample-wsa
+  namespace: your-application-namespace-1
+spec:
+  scope:
+    spaces: [default]
+    projects: [guestbook]
+    environments: [dev-a,dev-b]
+  permissions:
+    permissions:
+      - verbs: ["*"]
+        apiGroups: ["*"]
+        resources: ["*"]
+
+--- 
+
+apiVersion: agent.octopus.com/v1beta1
+kind: WorkloadServiceAccount
+metadata:
+  name: sample-wsa
+  namespace: your-application-namespace-2
+spec:
+  scope:
+    spaces: [default]
+    projects: [guestbook]
+    environments: [dev-a,dev-b]
+  permissions:
+    permissions:
+      - verbs: ["*"]
+        apiGroups: ["*"]
+        resources: ["*"]
+```
+
+##### Example - Added permissions
+
+A deployment workload can access two namespaces in a single step by matching the scope of two or more `WorkloadServiceAccounts` that are spread across namespaces.
+
+```yaml
+# All projects in space `default` can GET any resource
+apiVersion: agent.octopus.com/v1beta1
+kind: WorkloadServiceAccount
+metadata:
+  name: default-space-view
+  namespace: your-application-namespace
+spec:
+  scope:
+    spaces: [default]
+  permissions:
+    permissions:
+      - verbs: ["GET"]
+        apiGroups: ["*"]
+        resources: ["*"]
+
+--- 
+
+# All projects in space `default` and a `development` environment have full permissions
+apiVersion: agent.octopus.com/v1beta1
+kind: WorkloadServiceAccount
+metadata:
+  name: development-full-access
+  namespace: your-application-namespace
+spec:
+  scope:
+    spaces: [default]
+    environments: [development]
+  permissions:
+    permissions:
+      - verbs: ["*"]
+        apiGroups: ["*"]
+        resources: ["*"]
 ```
 
 ### Running deployments
@@ -148,7 +245,11 @@ Interested in more detail? Check out the [Octopus Permissions Controller reposit
 
 Because this component is shared between Kubernetes agents on your cluster, we have opted to separate it's upgrade cycle from a since Kubernetes agent.
 
-As we deploy Octopus Permissions Controller as a Helm chart, you can use any method you wish to install new versions. Notification of new versions will be available in the "Machines" page of your Kubernetes agent, as well as a command to help upgrade your existing installation.
+As we deploy Octopus Permissions Controller as a Helm chart, you can use any method you wish to install new versions. Notification of new versions will be available in the connectivity page of your Kubernetes agent, as well as a command to help upgrade your existing installation.
+
+:::figure
+![Permissions controller update](/docs/img/kubernetes/targets/kubernetes-agent/granular-permissions/opc-update.png)
+:::
 
 ### Installing on a cluster with existing agents
 
@@ -156,13 +257,49 @@ Octopus Permissions Controller can be installed on a cluster with existing Kuber
 
 It is highly recommended that you update each of your agents default script pod permissions to be more restrictive. If a matching `WorkloadServiceAccount` is found, it will correctly apply restricted permissions, but any misconfiguration that results in no matching `WorkloadServiceAccount` could result in your deployment having more permissive permissions than intended.
 
+For basic installations of the Kubernetes agent, this command will remove default permissions.
+```
+helm upgrade --install --atomic \
+--create-namespace --namespace ${agent_namespace} \
+--reset-then-reuse-values \
+--set scriptPods.serviceAccount.clusterRole.enabled="false" \
+${releaseName} \
+oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
+```
+
+### Removing Octopus Permissions Controller
+
+If the Octopus Permissions Controller is no longer desired, it can be removed in two steps.
+
+1. Uninstall the Helm chart from your cluster. If you installed the permissions controller with the default parameters the commands below will do this.
+```
+helm uninstall --namespace octopus-permissions-controller-system octopus-permissions-controller
+kubectl delete namespace octopus-permissions-controller-system
+```
+
+2. Update your Kubernetes agent default permissions if required. This command will allow for unrestricted deployments.
+```
+helm upgrade --install --atomic \
+--create-namespace --namespace ${agent_namespace} \
+--reset-then-reuse-values \
+--set scriptPods.serviceAccount.clusterRole.enabled="true" \
+${releaseName} \
+oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
+```
+
 ## Troubleshooting
 
 ### Is Octopus Permissions Controller operational?
 
 Octopus Permissions Controller will report it's status via the health check each of the Kubernetes agents on the same cluster performs.
 
-TODO: Image
+:::figure
+![Permissions controller connectivity](/docs/img/kubernetes/targets/kubernetes-agent/granular-permissions/opc-connectivity.png)
+:::
+
+If the permissions controller is reported as not found, try running a new health check and monitor the Octopus Permissions Controller pod logs in Kubernetes to confirm that the script pod is being discovered.
+
+### Deployments fail after installing Octopus Permissions Controller
 
 ### Expected permissions are not being applied to script pods
 
