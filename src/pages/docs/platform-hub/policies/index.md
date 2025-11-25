@@ -86,6 +86,10 @@ This will create the Policy file in your Platform Hub repository and then take y
 :::div{.hint}
 - ```violation_reason``` can be overridden by the value of the ```reason``` property defined in the output result of the conditions Rego code.
 - ```violation_action``` can be overridden by the value of the ```action``` property defined in the output result of the conditions Rego code.
+
+Full details of output schema is available on the [schema page](/docs/platform-hub/policies/schema).
+
+See 
 :::
 
 
@@ -102,8 +106,8 @@ For example, Octopus provides the environment details that you are deploying to.
     "Environment": {
         "Id": "Environments-1",
         "Name": "Development",
-        "Slug": "development"
-
+        "Slug": "development",
+        "Tags": ["country/australia", "animal/octopus"]
     }
 }
 ```
@@ -111,13 +115,8 @@ For example, Octopus provides the environment details that you are deploying to.
 To use the environment name in your Rego, you would add the following:
 
 ```json
-input.environment.name = "Development"
+input.Environment.Name = "Development"
 ```
-
-:::div{.info}
-Full details on the data available for scoping can be found under the [schema page](/docs/platform-hub/policies/schema).
-:::
-
 
 Our example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. **All Rego code has to have a package defined, which is the policy slug.**
 
@@ -146,6 +145,10 @@ package manual_intervention_required
 
 default result := {"allowed": false}
 ```
+
+:::div{.info}
+Full details on the data available for policy scoping and conditions can be found under the [schema page](/docs/platform-hub/policies/schema).
+:::
 
 <br>
 

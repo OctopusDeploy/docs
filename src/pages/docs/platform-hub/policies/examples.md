@@ -20,6 +20,7 @@ You can create policies using the editor available when editing a policy in the 
 ### Using the policy editor
 
 When creating a policy using the policy editor in Platform Hub:
+
 1. Enter the policy name, description, violation action and violation reason in the UI fields
 2. Add the package name at the top of both the Scope and Conditions editors - this must match your policy's slug
 3. Copy the scope Rego code into the Scope editor (including the package declaration)

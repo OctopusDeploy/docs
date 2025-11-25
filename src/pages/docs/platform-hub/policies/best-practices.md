@@ -69,6 +69,7 @@ The resulting policy will have two conditions.
 Steps can be configured to run in parallel or sequentially. If your organization requires sequential execution for compliance or troubleshooting purposes, create a policy to check the `Execution` array in the input schema.
 
 Each execution phase has a `StartTrigger` property that indicates when it should run:
+
 - `StartAfterPrevious` - Steps run sequentially
 - `StartWithPrevious` - Steps run in parallel
 
