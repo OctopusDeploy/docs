@@ -168,7 +168,7 @@ result := {"allowed": true} if {
 
 <br>
 
-After your policy details have been finalised you will need to commit, publish and activate your policy for it to be available for evaluation.
+After your policy details have been finalized you will need to commit, publish and activate your policy for it to be available for evaluation.
 
 ### 7. Saving a Policy
 
@@ -203,7 +203,7 @@ Activation settings can be updated anytime, from the Versions tab on the edit po
 :::
 
 :::figure
-![Activation statuc for a policy](/docs/img/platform-hub/policies/policies-activation.png)
+![Activation status for a policy](/docs/img/platform-hub/policies/policies-activation.png)
 :::
 
 ### 10. Finalize and test your policy
