@@ -145,7 +145,7 @@ Interested in more detail? Check out the [Octopus Permissions Controller reposit
 
 ### Upgrades
 
-Because this component is shared between Kubernetes agents on your cluster, we have opted to separate it's upgrade cycle from a since Kubernetes agent.
+Because this component is shared between Kubernetes agents on your cluster, we have opted to separate its upgrade cycle from a single Kubernetes agent.
 
 As we deploy Octopus Permissions Controller as a Helm chart, you can use any method you wish to install new versions. Notification of new versions will be available in the connectivity page of your Kubernetes agent, as well as a command to help upgrade your existing installation.
 
