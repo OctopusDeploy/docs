@@ -35,6 +35,11 @@ Octopus Permissions Controller is a standalone component that is installed via H
 
 Only a single Octopus Permissions Controller is required per cluster.
 
+:::div{.info}
+**Pre-requisites:**
+- Kubernetes agent v2.28.1+
+:::
+
 ### Workload Service Accounts
 
 `WorkloadServiceAccounts` can be created as you would any other Kubernetes object. Your `WorkloadServiceAccount` should be created in the namespace you will be deploying your application resources into.
@@ -80,7 +85,6 @@ spec:
 :::div{.info}
 For more examples and common scenarios, have a look at the [Octopus Permissions Controller repo](https://github.com/OctopusDeploy/octopus-permissions-controller/tree/main/examples)
 :::
-
 
 ##### Scope
 
@@ -165,7 +169,7 @@ helm upgrade --install --atomic \
 --create-namespace --namespace ${agent_namespace} \
 --reset-then-reuse-values \
 --set scriptPods.serviceAccount.clusterRole.enabled="false" \
-${releaseName} \
+${release_name) \
 oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
 ```
 
@@ -185,7 +189,7 @@ helm upgrade --install --atomic \
 --create-namespace --namespace ${agent_namespace} \
 --reset-then-reuse-values \
 --set scriptPods.serviceAccount.clusterRole.enabled="true" \
-${releaseName} \
+${release_name) \
 oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
 ```
 
