@@ -1,0 +1,38 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-11-05
+modDate: 2025-11-05
+title: Configuring Google Workspace
+description: How to configure Octopus Deploy and Google Workspace to authenticate and identify users with OpenID Connect authentication.
+navTitle: Google Workspace
+navSection: OpenID Connect
+navOrder: 4
+---
+
+:::div{.info}
+Support for OIDC authentication is currently being rolled out to Octopus Cloud customers.
+
+It will be included in the **Octopus 2025.4** release for self-hosted customers.
+:::
+
+## Configure Google Workspace
+
+[How to configure Google Workspace](/docs/security/authentication/googleapps-authentication#configure-google-workspace).
+
+## Configure Octopus Server
+
+1. Navigate to **Configuration ➜ Settings ➜ OpenID Connect** and populate the following fields:
+     - **Enabled** should be set to `Yes`.
+     - **Role Claim Type** should be left unset.
+     - **Username Claim Type** should be left unset.
+     - **Resource** should be left unset.
+     - **Scopes** should be left as the default of `openid profile email`.
+     - **Display Name** can be used to customize the appearance of the button on the Octopus Deploy login screen. Use a name that your users will recognize for this identity provider.
+     - **Issuer** should be `https://accounts.google.com`.
+     - **Client ID** and **Client secret** should be the values you noted when creating the application. You can also find them in the "Additional Information" page of [the application](https://console.cloud.google.com/auth/clients).
+         :::div{.hint}
+         Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted
+         :::
+     - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
+2. Click **Save** to apply the changes.
+3. If you sign out of Octopus Deploy, you should now see a new button on the login screen to authenticate with the OIDC provider.

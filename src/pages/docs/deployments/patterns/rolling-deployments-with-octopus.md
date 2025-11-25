@@ -126,4 +126,4 @@ Octopus will evaluate the value of the [Output variable](/docs/projects/variable
 ## Learn more
 - [View rolling deployment examples on our samples instance](https://oc.to/PatternRollingSamplesSpace).
 - [Rolling deployment knowledge base articles](https://oc.to/RollingDeployTaggedKBArticles).
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).

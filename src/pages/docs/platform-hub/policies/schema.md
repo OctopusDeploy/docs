@@ -11,7 +11,7 @@ description: Schema for policies
 navOrder: 162
 ---
 
-## Schema for Policies
+## Input Schema
 
 Octopus has a set number of inputs that are provided to evaluate policies against deployments. The following is the full schema that is passed into the engine to evaluate deployments:
 
@@ -32,12 +32,21 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         },
         "Slug": {
           "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
         }
       },
       "required": [
         "Id",
         "Name",
-        "Slug"
+        "Slug",
+        "Tags"
       ]
     },
     "Project": {
@@ -51,12 +60,21 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         },
         "Slug": {
           "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
         }
       },
       "required": [
         "Id",
         "Name",
-        "Slug"
+        "Slug",
+        "Tags"
       ]
     },
     "Space": {
@@ -89,12 +107,21 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         },
         "Slug": {
           "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
         }
       },
       "required": [
         "Id",
         "Name",
-        "Slug"
+        "Slug",
+        "Tags"
       ]
     },
     "ProjectGroup": {
@@ -118,7 +145,11 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
     },
     "SkippedSteps": {
       "type": "array",
-      "items": {}
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
     },
     "Steps": {
       "type": "array",
@@ -157,6 +188,30 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
               "Type",
               "SlugOrId"
             ]
+          },
+          "Packages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "Version": {
+                  "type": "string"
+                },
+                "GitRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Id",
+                "Name"
+              ]
+            }
           }
         },
         "required": [
@@ -169,6 +224,28 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         ]
       }
     },
+    "Release": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "GitRef": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Version"
+      ]
+    },
     "Runbook": {
       "type": "object",
       "properties": {
@@ -180,6 +257,9 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         },
         "Snapshot": {
           "type": "string"
+        },
+        "GitRef": {
+          "type": "string"
         }
       },
       "required": [
@@ -187,6 +267,31 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
         "Name",
         "Snapshot"
       ]
+    },
+    "Execution": {
+      "type": "array",
+      "items": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "StartTrigger": {
+            "type": "string"
+          },
+          "Steps": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "required": [
+          "StartTrigger",
+          "Steps"
+        ]
+      }
     }
   },
   "required": [
@@ -195,7 +300,32 @@ Octopus has a set number of inputs that are provided to evaluate policies agains
     "Space",
     "SkippedSteps",
     "Steps", 
-    "ProjectGroup"
+    "ProjectGroup",
+    "Execution"
   ]
+}
+```
+
+## Output Result Schema
+Octopus expects the conditions Rego code to define a result object that confirms to the following schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Policy Result Schema",
+  "type": "object",
+  "properties": {
+    "allowed": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "enum": ["block", "warn"]
+    }
+  },
+  "required": ["allowed"]
 }
 ```

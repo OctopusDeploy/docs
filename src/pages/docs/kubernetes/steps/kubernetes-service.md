@@ -75,7 +75,7 @@ There are some advanced use cases where creating a Service resource without sele
 
 ## Learn more
 
-- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
+- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes/1)
 
 :::div{.hint}
 **Step updates**

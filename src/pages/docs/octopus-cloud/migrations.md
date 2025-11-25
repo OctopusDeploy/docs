@@ -155,7 +155,7 @@ Listening Tentacles require an inbound connection from Octopus Cloud to your inf
 
 ### 4. Create your Octopus Cloud instance
 
-The remaining prep work involves testing connectivity. You will need to [create an Octopus Cloud instance](https://octopus.com/start/cloud) at this time if you haven’t already done so.
+The remaining prep work involves testing connectivity. If you haven't already, you will need to create a [free Octopus account](https://octopus.com/free-signup) now.
 
 ### 5. Firewall settings for your Tentacles
 

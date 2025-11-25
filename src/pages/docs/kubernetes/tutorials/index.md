@@ -11,7 +11,7 @@ hideInThisSectionHeader: true
 
 👋 Welcome to Octopus Deploy!
 
-This tutorial will walk you through sourcing YAML files from a Git repository, and deploying them to a Kubernetes cluster. 
+This tutorial will walk you through sourcing YAML files from a Git repository, and deploying them to a Kubernetes cluster.
 
 :::div{.hint}
 If you’re using Octopus **2024.2** or earlier, please visit the legacy [Kubernetes First deployment](https://octopus.com/docs/kubernetes/tutorials/legacy-guide) guide.
@@ -20,7 +20,7 @@ If you’re using Octopus **2024.2** or earlier, please visit the legacy [Kubern
 ## Before you start
 To follow this tutorial, you need:
 
-* **An Octopus instance.** If you don’t already have one, you can start a free trial of [Octopus Cloud](https://octopus.com/start).
+* **An Octopus instance.** If you don’t already have one, you can get started with a free [Octopus Cloud](https://octopus.com/free-signup) account.
 * **A Kubernetes cluster** you have terminal access to. If you don’t have one you can [install minikube locally](https://oc.to/minikube).
 * A [GitHub account](https://github.com/) with access to a repository with YAML files to deploy, or you can fork our sample repository below.
 

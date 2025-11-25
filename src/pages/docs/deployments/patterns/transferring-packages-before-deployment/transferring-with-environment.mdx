@@ -1,0 +1,80 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-11-05
+modDate: 2025-11-05
+title: Transferring packages with a separate environment
+description: Transferring packages to environments the main deployment in Octopus with a separate environment.
+navOrder: 85
+---
+
+One way to transfer deployment packages to your `Production` environment prior to a deployment is to use a separate environment to handle the package transfer.
+
+## Lifecycle changes
+
+In this example, I've configured an [environment](/docs/infrastructure/environments) named `Transfer` and created a [lifecycle](/docs/releases/lifecycles) that includes this environment before the Production phase.
+
+You will need to ensure that the same targets are in the `Transfer` and `Production` environments.
+
+:::figure
+![](/docs/img/deployments/patterns/transferring-packages-before-deployment/lifecycle-with-transfer-environment.png)
+:::
+
+## Process changes
+
+The next step is to modify the process so that packages are transferred to targets during a deployment to the `Transfer` environment.
+
+The process has [transfer a package](/docs/deployments/packages/transfer-package) steps for each package that are set to only run in the `Transfer` environment. All other steps are set to skip `Transfer`.
+
+:::div{.warning}
+It is very important that you make sure no other steps run in the `Transfer` environment so that you don't inadvertently deploy the packages during the `Transfer` phase.
+:::
+
+:::figure
+![](/docs/img/deployments/patterns/transferring-packages-before-deployment/process-with-transfer-environment.png)
+:::
+
+## Creating the release
+
+You'll now choose versions for the packages used by the transfer steps when the release is created. These packages should use the same versions as the packages in the corresponding deploy steps.
+
+:::figure
+![](/docs/img/deployments/patterns/transferring-packages-before-deployment/creating-the-release.png)
+:::
+
+## Acquisition logs from Transfer phase
+
+We can see that the packages were uploaded to the targets when deploying the release to the `Transfer` phase.
+
+:::figure
+![](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-transfer-phase.png)
+:::
+
+## Acquisition logs from Production phase
+
+We can see that the packages were found in the cache and not uploaded when deploying the release to the `Production` phase.
+
+:::figure
+![](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-production-phase.png)
+:::
+
+## Benefits of this approach
+
+This approach to transferring packages ahead of deployments has the following benefits:
+
+- Only one project and process to manage the pre-deployment transfer and the application deployment.
+- Easy to enforce package transfer before deployment.
+- Easy to promote from `Transfer` to `Production` within the same lifecycle.
+
+## Drawbacks of this approach
+
+This approach to transferring packages ahead of deployments has the following drawbacks:
+
+- The deployment process can be complex with each step needing an environment filter.
+- Packages will appear multiple times on release creation and need the same version selected.
+- Targets have to be registered to two environments.
+
+## Learn more
+
+- [Transferring packages with a separate environment](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-environment).
+- [Transferring packages with a separate project](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-project).
+- [Wait for package acquisition with a manual intervention](/docs/deployments/packages/stage-package-uploads).

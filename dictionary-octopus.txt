@@ -1,8 +1,10 @@
 accounttest
 actionid
 actiontemplates
+Adfs
 advfirewall
 agentic
+allatclaims
 ALLUSERSPROFILE
 anglin
 anotherdir
@@ -18,8 +20,10 @@ Appstep
 Appsteps
 argparse
 asax
+askpass
 ASPNET
 aspnetcore
+Asterix
 astro
 astrojs
 auditability
@@ -27,6 +31,7 @@ aufs
 augeas
 australiaeast
 australiasoutheast
+Authentik
 auths
 autodeployoverride
 autologin
@@ -48,6 +53,7 @@ CAIQ
 Ceph
 certkeyName
 Certstore
+CHACHA
 changeit
 checkformanualintervention
 checkservices
@@ -112,6 +118,7 @@ Directorygroup
 DISM
 Distro
 distros
+Djava
 Dockerfiles
 dockerhub
 Domainname
@@ -121,12 +128,15 @@ dotnetcore
 dotnetfx
 DPAPI
 dpkg
+Dreamdata
 dryrun
 Dspring
+duedate
 DWORD
 eastus
 EBNF
 echoerror
+ecparam
 elbv2
 elif
 Elyton
@@ -223,6 +233,7 @@ JSSE
 jwks
 keyrings
 keyserver
+kubeadm
 kubeconfig
 Kubelet
 kubelogin
@@ -256,6 +267,7 @@ maintenanceconfiguration
 majeure
 makedirs
 manualintervention
+Marketo
 mattc
 maxage
 mdast
@@ -264,6 +276,7 @@ milli
 minidump
 minifier
 MITM
+Mkto
 Moines
 mozjpeg
 mozroots
@@ -281,6 +294,7 @@ myfile
 mykey
 myoctoregistry
 namespacing
+Nartac
 navigationid
 NETBIOS
 netcore
@@ -412,6 +426,7 @@ replicasets
 reprioritize
 reprovisioned
 reprovisioning
+requiretty
 resolv.conf
 ResolvConfPath
 RHEV
@@ -422,6 +437,7 @@ rolename
 ROOTDIR
 rootelement
 Rootfs
+rsae
 RSASSA
 rstrip
 runbook
@@ -441,6 +457,7 @@ Schannel
 scopeduserroles
 Scregedit
 scriptcs
+secp
 secpol
 secureclientcertificate
 securestring
@@ -453,9 +470,11 @@ Sesna
 setspn
 sfproj
 shiki
+showcerts
 Showplan
 SIEM
 signingkeys
+Signup
 skiplinks
 snapshotted
 snapshotting
@@ -480,6 +499,7 @@ statefulset
 statefulsets
 stepsprodpackages
 sthumb
+storyblok
 strconv
 struct
 stylesheet
@@ -493,6 +513,7 @@ tabpanel
 tagset
 tagsets
 Tasklogs
+tcpdump
 TCPIP
 templateid
 templating
@@ -511,10 +532,12 @@ thepassword
 timespan
 tlsv1
 tmpfs
+tomcatadmin
 Toolbelt
 Toolsets
 Topshelf
 toptags
+tracefile
 Traefik
 Trivy
 tsconfigs
@@ -530,6 +553,7 @@ updateprogress
 upgradeavailability
 upgradelog
 upgrader
+urandom
 urllib
 urlset
 Userns

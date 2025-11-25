@@ -56,4 +56,4 @@ add a variable named `Octopus.Action.PowerShell.ExecuteWithoutProfile` with a va
 
 ## Learn more
 
-- [PowerShell blog posts](https://octopus.com/blog/tag/powershell)
+- [PowerShell blog posts](https://octopus.com/blog/tag/powershell/1)
