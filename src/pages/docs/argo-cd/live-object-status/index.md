@@ -61,7 +61,7 @@ The project status is a roll-up of the status of all objects, in line with the f
 | Healthy     |    <i class="fa-solid fa-heart green"></i>    | Object is in sync and reporting that it is running as expected                                              |
 | Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have information about the live status of this object                                              |
 | Degraded    |  <i class="fa-solid fa-heart-crack red"></i>  | Object has run into a problem, check the logs or events to find out more                                    |
-| Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Object manifest in the cluster is different from that specified in tha Argo CD application's git repository |
+| Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Object manifest in the cluster is different from that specified in the Argo CD application's git repository |
 | Missing     |    <i class="fa-solid fa-ghost grey"></i>     | Object is missing from the cluster                                                                          |
 | In Sync     |    <i class="fa-solid fa-check green"></i>    | Object manifest matches what was applied, but does not report any additional health status                  |
 | Suspended   |    <i class="fa-solid fa-pause grey"></i>     | Job is not currently running                                                                                |
@@ -79,12 +79,10 @@ The drawer contains up-to-date information regarding the selected object:
 For Argo CD, all of these data fields are fetched on demand from your Argo instance. We do not currently support tailing logs.
 
 #### Manifest Diffs
-Octopus presents manifest diffs in the _opposite direction_ to that shown in Argo.
+Octopus presents manifest diffs in the _opposite order_ to that shown in Argo.
 
 In Argo, the left panel shows the manifest which is currently executing in the cluster, and the right-panel shows the manifest
 that will be deployed when the application/resource is synced.
-Left = Current Cluster content
-Right = Current git-repository content
 
 In Octopus, the left panel indicates "what was mostly recently written to the git repository", while the right shows what is currently
 in the live system (i.e. installed in the cluster).
