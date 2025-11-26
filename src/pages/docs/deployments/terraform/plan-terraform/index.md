@@ -61,7 +61,7 @@ The resource change counts are captured in the following variables:
 
 ## Manual intervention
 
-Typically the result of a plan will be displayed in a Manual Intervention step. Because the plan text can contain markdown characters, the variable should be wrapped up in back ticks to display it verbatim.
+The result of a plan will typically be displayed in a Manual Intervention step. Because the plan text can contain markdown characters, the variable should be wrapped up in back ticks to display it verbatim.
 
 ````
 ```
