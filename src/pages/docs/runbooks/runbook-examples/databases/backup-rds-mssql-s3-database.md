@@ -34,7 +34,7 @@ For more information on setting up AWS RDS instances for native backups, please 
 | SQL Login | The login of the user who has permissions to create a database. | backupuser |
 | SQL Password | The password of the user who has permissions to create SQL Logins. | MyGreatPassword! |
 | Database Name | The name of the database to backup. | MyDatabase |
-| S3 Bucket Name | The name of the bucket (including any sub directories). | MyS3Bucket/backups/sql |
+| S3 Bucket Name | The name of the bucket (including any subdirectories). | MyS3Bucket/backups/sql |
 | Backup File Name and Extension | The name of the back up file (including the extension). | MyBackup.bak |
 
 :::div{.hint}

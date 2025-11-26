@@ -57,5 +57,5 @@ Add the following properties to the feed credentials:
 - **Audience**  *{{The audience set on the Federated Credential}}* *This can be set to the default of* `api://AzureADTokenExchange` *or a custom value if needed*
 
 :::div{.warning}
-At this time, OpenID Connect external feeds are not supported for use with Kubernetes containers. This is because the short lived credentials they generate are not suitable for long running workloads.
+At this time, OpenID Connect external feeds are not supported for use with Kubernetes containers. This is because the short-lived credentials they generate are not suitable for long-running workloads.
 :::

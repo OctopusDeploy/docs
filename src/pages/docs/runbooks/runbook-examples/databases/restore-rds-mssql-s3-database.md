@@ -34,7 +34,7 @@ For more information on setting up AWS RDS instances for native backup and resto
 | SQL Login | The login of the user who has permissions to create a database. | backupuser |
 | SQL Password | The password of the user who has permission to create SQL Logins. | MyGreatPassword! |
 | Database Name | The name of the database to restore to. | MyDatabase |
-| S3 Bucket Name | The name of the bucket (including any sub directories) where the backup is stored. | MyS3Bucket/backups/sql |
+| S3 Bucket Name | The name of the bucket (including any subdirectories) where the backup is stored. | MyS3Bucket/backups/sql |
 | Backup File Name and Extension | The name of the back up file (including the extension). | MyBackup.bak |
 
 :::div{.hint}

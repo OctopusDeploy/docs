@@ -47,26 +47,26 @@ Remember these connections are usually initiated by your deployment targets or w
 
 ## Hanging tasks
 
-Sometimes tasks appear to be unresponsive or "hanging". In most cases, this ends up being anti-virus or anti-malware software interfering with the task, and the first step in diagnosing the problem is to eliminate this source of interference, [see below](#anti-virus-software). 
+Sometimes tasks appear to be unresponsive or "hanging". In most cases, this ends up being antivirus or anti-malware software interfering with the task, and the first step in diagnosing the problem is to eliminate this source of interference, [see below](#anti-virus-software). 
 
-If you can completely rule out anti-virus software as a source of interference, then the problem may lie in your [custom scripts](/docs/deployments/custom-scripts). The next step to diagnosing these problems is to examine your logs and determine the exact location that the task became unresponsive. If this occurs within the logs output by a custom script, then the bug likely originates from your script.
+If you can completely rule out antivirus software as a source of interference, then the problem may lie in your [custom scripts](/docs/deployments/custom-scripts). The next step to diagnosing these problems is to examine your logs and determine the exact location that the task became unresponsive. If this occurs within the logs output by a custom script, then the bug likely originates from your script.
 
 If you are still unable to determine the cause of your hanging tasks, please contact support for further assistance.
 
-### Anti-virus software {#anti-virus-software}
+### Antivirus software {#anti-virus-software}
 
-If the task appears to hang after a log message output by the Octopus Server or Tentacle, then in most cases the cause is anti-virus or anti-malware software interfering with the task. The first step is to determine if your anti-virus software is actually affecting your Tasks, and this can easily be done by removing your anti-virus protection and confirming whether the tasks continue to be unresponsive.
+If the task appears to hang after a log message output by the Octopus Server or Tentacle, then in most cases the cause is antivirus or anti-malware software interfering with the task. The first step is to determine if your antivirus software is actually affecting your Tasks, and this can easily be done by removing your antivirus protection and confirming whether the tasks continue to be unresponsive.
 
-If this test shows that anti-virus is interfering with your tasks, you may need to configure your anti-virus software with the appropriate exclusions to ensure that it does not lock any files owned by Octopus, or affect any running processes initiated by Octopus. Consult your anti-virus provider's documentation for more information.
+If this test shows that antivirus is interfering with your tasks, you may need to configure your antivirus software with the appropriate exclusions to ensure that it does not lock any files owned by Octopus, or affect any running processes initiated by Octopus. Consult your antivirus provider's documentation for more information.
 
-Some examples of directories (and their sub-directories) you could try adding to an allow list are:
+Some examples of directories (and their subdirectories) you could try adding to an allow-list are:
 
 - `<Tentacle Home>\Tools`
     - This is where the Calamari packages and other tools are installed so Tentacle can execute deployments on your behalf.
 - `<Tentacle Home>\Work`
     - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
 
-If you're still seeing issues you could also try including these additional directories (and their sub-directories):
+If you're still seeing issues you could also try including these additional directories (and their subdirectories):
 
 - `<Tentacle Home>\Files`
     - This is the package cache used to store the most recent packages in case they need to be used again.
@@ -74,7 +74,7 @@ If you're still seeing issues you could also try including these additional dire
     - This is where the Tentacle log files are stored.
 
 :::div{.hint}
-We recommend including sub-directories in any allow list for the directories listed above as processes initiated by Octopus may also create new folders within them.
+We recommend including subdirectories in any allow list for the directories listed above as processes initiated by Octopus may also create new folders within them.
 :::
 
 ## Steps are slow to start

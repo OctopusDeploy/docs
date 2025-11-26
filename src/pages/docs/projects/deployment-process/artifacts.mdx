@@ -33,7 +33,7 @@ You can collect artifacts using any of the scripting languages supported by Octo
 # Collect a custom log file from the current working directory using the file name as the name of the artifact
 New-OctopusArtifact "output.log"
 
-# Collect all .xml files contained in the current working directory recursing sub-directories
+# Collect all .xml files contained in the current working directory recursing subdirectories
 Get-ChildItem . -Recurse -Include *.xml | New-OctopusArtifact
 
 # Collect the hosts file but using a custom name for each machine so you can differentiate between them

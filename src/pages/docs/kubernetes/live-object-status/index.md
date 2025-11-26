@@ -145,7 +145,7 @@ The flexibility that Octopus variables provide mean that sensitive variables can
 
 ### Kubernetes secrets
 
-The well defined structure of Kubernetes secrets allow us to confidently redact secret data.
+The well-defined structure of Kubernetes secrets allow us to confidently redact secret data.
 
 To ensure that we never exfiltrate secret data that Octopus is not privy to, the Kubernetes monitor salts and hashes the secret data using sha256. By hashing secrets Octopus can tell you when something changed in your secret, but Octopus will never know what the secrets are unless you have populated them using Octopus sensitive variables.
 

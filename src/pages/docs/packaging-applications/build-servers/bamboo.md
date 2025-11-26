@@ -13,7 +13,7 @@ The Octopus Deploy [add-on for Bamboo](https://octopus.com/downloads) allows pac
 
 The plugin relies on a local copy of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download page](https://octopus.com/downloads).
 
-Note that while the command line tool package is largely self contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
+Note that while the command line tool package is largely self-contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
 
 To verify that the command line tool can be run, execute it from a terminal. When run with no arguments, the `Octo` executable will display a list of available commands.
 
@@ -241,7 +241,7 @@ For this reason it is recommended that the promote release task not be used as p
 
 ### Octopus command line tool failed to run in Linux
 
-The Octopus Command Line tool packages for Linux are relatively self contained, but depending on your Linux distribution you may need to install some additional dependencies for the command line tool to run.
+The Octopus Command Line tool packages for Linux are relatively self-contained, but depending on your Linux distribution you may need to install some additional dependencies for the command line tool to run.
 
 For example, in Centos 7 you might see this error:
 

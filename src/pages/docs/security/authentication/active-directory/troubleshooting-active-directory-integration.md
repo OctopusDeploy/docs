@@ -98,7 +98,7 @@ $principalContext.Dispose()
 Notes:
 
 - Ensure you replace the domain name ``acme.local`` with the appropriate value for you network.
-- Ensure you replace the domain user name ``ExampleUser`` with a sample Octopus username who would normally log into the system.
+- Ensure you replace the domain username ``ExampleUser`` with a sample Octopus username who would normally log into the system.
 - It's recommended that you run this script as the same user you're running the Octopus service under and on the same server so it reproduces the problem accurately.
 
 If specifying a container.

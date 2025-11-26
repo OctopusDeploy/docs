@@ -52,7 +52,7 @@ And you can get help for a specific command using:
 Octopus.Migrator help <command>
 ```
 
-Arguments are not case sensitive and can take the following forms:
+Arguments are not case-sensitive and can take the following forms:
 
 ```powershell
 --project OctoFX                # Space between argument name and value

@@ -1,5 +1,5 @@
 
-Octopus does not guess or auto-populate the commit or branch when creating a release from a build-server plug-in. Instead, to provide this information, we have added two new fields to our standard integrations - TeamCity, Azure DevOps, Jenkins, GitHub Actions, and Bamboo.
+Octopus does not guess or autopopulate the commit or branch when creating a release from a build-server plug-in. Instead, to provide this information, we have added two new fields to our standard integrations - TeamCity, Azure DevOps, Jenkins, GitHub Actions, and Bamboo.
 
 * Git Reference - a user-friendly alias for a commit hash. This is typically a branch name or tag.
 * Git Commit - the commit SHA-1 hash.

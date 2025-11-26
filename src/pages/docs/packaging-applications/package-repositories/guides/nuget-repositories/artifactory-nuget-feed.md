@@ -49,7 +49,7 @@ From the Artifactory web portal, navigate to **Administration ➜ Identity and A
 ![Artifactory Add user](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-user.png)
 :::
 
-Fill out the **User Name**, **Email Address**, **Password** and any other settings.
+Fill out the **Username**, **Email Address**, **Password** and any other settings.
 
 :::div{.hint}
 If you have an existing group to add the user to, you can do that here. Alternatively you can add the user account when creating a new group.

@@ -119,7 +119,7 @@ CAIQ ID: **CCC-04.1**
 
 > Do you have controls in place to restrict and monitor the installation of unauthorized software onto your systems?
 
-Yes. We automate the provisioning of infrastructure we use to deliver our services. Customers are not able to install software on their Octopus instances, however they are able to install software on dynamic workers that we provide for the purposes of running scripts and other automations. These systems are reserved per tenant, are short lived and periodically re-provisioned. We run real time antivirus protection on these dynamic workers.
+Yes. We automate the provisioning of infrastructure we use to deliver our services. Customers are not able to install software on their Octopus instances, however they are able to install software on dynamic workers that we provide for the purposes of running scripts and other automations. These systems are reserved per tenant, are short-lived and periodically re-provisioned. We run real time antivirus protection on these dynamic workers.
 
 ## Data Security & Information Lifecycle Management
 
@@ -563,7 +563,7 @@ CAIQ ID: **TVM-01.1**
 
 > Do you have anti-malware programs that support or connect to your cloud service offerings installed on all of your IT infrastructure network and systems components?
 
-No. A large majority of our system components are provisioned using PaaS services, whose infrastructure we don't own. Threat & vulnerability management for those applications is tackled via automated tools that review our source code, and ultimately human review. The production components that do use IaaS use real time anti-virus. Employees are required to use default operating system anti-virus applications running when using company provisioned hardware.
+No. A large majority of our system components are provisioned using PaaS services, whose infrastructure we don't own. Threat & vulnerability management for those applications is tackled via automated tools that review our source code, and ultimately human review. The production components that do use IaaS use real time antivirus. Employees are required to use default operating system antivirus applications running when using company provisioned hardware.
 
 ### Vulnerability / Patch Management
 

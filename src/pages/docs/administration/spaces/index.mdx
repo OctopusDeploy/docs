@@ -130,7 +130,7 @@ When you log into the Octopus Web Portal, the first item on the navigation menu 
 
 ## System scoped or space scoped \{#system-scope-space-scoped}
 
-There is a hard barrier between spaces, so, for instance, a deployment target configured for Space-A isn't available to projects in Space-B. However, there are some things that aren't scoped to a space, and are available system wide.
+There is a hard barrier between spaces, so, for instance, a deployment target configured for Space-A isn't available to projects in Space-B. However, there are some things that aren't scoped to a space, and are available system-wide.
 
 The following table shows which Octopus resources are space-scoped, system-scoped, or scoped to both.
 
@@ -157,6 +157,6 @@ If a resource isn't listed below, then it's space-scoped.
 
 ## Automation changes to be aware of \{#automation-changes}
 
-As always, using our client libraries offer the best chance of a successful upgrade for your existing automation, and our latest release of Octopus Client has all the changes required to inter-operate with any version of Octopus, as do most of our plugins for other build systems. However, due to the depth and breadth of the changes required to make spaces a reality, we weren't able to maintain backwards compatibility for the REST API in all cases.
+As always, using our client libraries offer the best chance of a successful upgrade for your existing automation, and our latest release of Octopus Client has all the changes required to interoperate with any version of Octopus, as do most of our plugins for other build systems. However, due to the depth and breadth of the changes required to make spaces a reality, we weren't able to maintain backwards compatibility for the REST API in all cases.
 
 Please refer to [release notes](https://octopus.com/downloads/compare?from=2018.12.1&to=2019.1.0) for a complete list of breaking changes.

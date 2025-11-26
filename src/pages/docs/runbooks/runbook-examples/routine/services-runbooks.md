@@ -59,7 +59,7 @@ Using a runbook in Octopus can provide a self-service mechanism for developers t
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
-| Service Name | Name of the service to start (case sensitive). | wildfly |
+| Service Name | Name of the service to start (case-sensitive). | wildfly |
 | Action | Start, Stop, Restart. | Restart |
 | Sleep in seconds | Length of time in seconds to wait for the service to start. | 5 (default) |
 

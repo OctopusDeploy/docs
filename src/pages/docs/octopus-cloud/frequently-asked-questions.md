@@ -211,7 +211,7 @@ Our [retention policies](/docs/administration/retention-policies) let you contro
 
 ### What access do Octopus staff have to our data?
 
-We protect all access with multi-factor authentication (MFA), role-based access control (RBAC), and the principle of least privilege (PLP).
+We protect all access with multifactor authentication (MFA), role-based access control (RBAC), and the principle of least privilege (PLP).
 
 In case of issues related to your data or the availability of your Cloud instance, Support Users can be granted temporary access to your Cloud instance, and queries can be run against your Cloud instance database. Only competent, trained, background-checked, and authorized engineers can gain this access. These activities are tightly controlled and have automatic revocation of access mechanisms.
 
