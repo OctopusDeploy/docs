@@ -20,7 +20,7 @@ If there is an available port, we recommend using [TCP Polling Tentacles](/docs/
 The following prerequisites must be met to use this feature:
 
 - Octopus Server must be self-hosted, and not an [Octopus Cloud](/docs/octopus-cloud) instance.
-- Both the Octopus Server and Tentacle must be running windows 2012 or later.
+- Both the Octopus Server and Tentacle must be running Windows 2012 or later.
 - The server expects an SSL/TLS connection, so SSL offloading is not supported.
 - The other application using the port must be using the standard Windows networking library ([HTTP.sys](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys)). This includes IIS, .NET apps and Octopus itself. However, it does not include any applications that use non-HTTP.sys TCP/IP or HTTP stacks. Check your product's documentation for more information.
 - The other application must be using HTTPS on that port.

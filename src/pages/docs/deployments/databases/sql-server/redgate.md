@@ -51,9 +51,9 @@ This documentation assumes a Windows VM already has the Tentacle installed on it
 ![Tentacle communication mode selection in the Octopus Web Portal](/docs/img/deployments/databases/sql-server/images/redgate-octopus-create-worker-select-tentacle-type.png)
 :::
 
-### Install the Tentacle on a Windows server {#install-the-tentacle-on-a-windows-server}
+### Install the Tentacle on a Windows Server {#install-the-tentacle-on-a-windows-server}
 
-Next, install the Tentacle on a Windows server.  Aside from the latest version of .NET, no other software is required.  The Redgate tooling will be automatically downloaded during the deployment.  
+Next, install the Tentacle on a Windows Server.  Aside from the latest version of .NET, no other software is required.  The Redgate tooling will be automatically downloaded during the deployment.  
 
 :::div{.info}
 The server needs to access the PowerShell gallery to download the Redgate tooling.  

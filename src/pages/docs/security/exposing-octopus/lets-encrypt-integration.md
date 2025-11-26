@@ -47,7 +47,7 @@ At this point, we recommend enabling [Force SSL](/docs/security/exposing-octopus
 
 ## Let's Encrypt for Containers
 
-The integration for Let's Encrypt was designed for self-hosted Octopus Server installations running on a Windows server. There are currently no plans to support Let's Encrypt when running [Octopus in a container](/docs/installation/octopus-server-linux-container).
+The integration for Let's Encrypt was designed for self-hosted Octopus Server installations running on a Windows Server. There are currently no plans to support Let's Encrypt when running [Octopus in a container](/docs/installation/octopus-server-linux-container).
 
 In **Octopus 2020.5** and earlier, when attempting to configure the Let's Encrypt integration on an Octopus Server Linux container, it would fail with a message similar to `We received an error 'Unix LocalMachine X509Stores are read-only for all users`.
 

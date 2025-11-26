@@ -83,7 +83,7 @@ Once both Tentacles are installed and configured ensure that neither node has th
 
 ## Configure a new clustered service {#ClusteringTentacles-NewCluster}
 
-Ensure each node that will be participating in the Tentacle Cluster is joined to the Active Directory Domain and has the **Failover Clustering** feature installed in Windows. For more information on installing the Failover Clustering feature in Windows please see the  [Microsoft Failover Clustering documentation](https://blogs.msdn.microsoft.com/clustering/2012/04/06/installing-the-failover-cluster-feature-and-tools-in-windows-server-2012/ "installing the failover cluster service feature and tools in windows server 2012").
+Ensure each node that will be participating in the Tentacle Cluster is joined to the Active Directory Domain and has the **Failover Clustering** feature installed in Windows. For more information on installing the Failover Clustering feature in Windows please see the  [Microsoft Failover Clustering documentation](https://blogs.msdn.microsoft.com/clustering/2012/04/06/installing-the-failover-cluster-feature-and-tools-in-windows-server-2012/ "installing the failover cluster service feature and tools in Windows Server 2012").
 
 Open the **Failover Cluster Manager** console on one of the nodes. If there is no cluster configured yet, you can right-click **Failover Cluster Manager** and select **New Cluster**
 

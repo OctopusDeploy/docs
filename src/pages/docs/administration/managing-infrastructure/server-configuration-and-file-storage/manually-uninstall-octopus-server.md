@@ -42,7 +42,7 @@ Learn about [Octopus Server configuration and file storage](/docs/administration
 These steps will remove all traces of Octopus Server from your computer:
 
 1. Before uninstalling the MSI, use the Octopus Server Manager to delete the Octopus Server instance from the computer.
-    * This will stop and uninstall the Octopus Server windows service.
+    * This will stop and uninstall the Octopus Server Windows service.
 2. Now uninstall the MSI.
     * This will remove the application files.
 3. Find and delete the Octopus Home folder. By default, this is in **`%SYSTEMDRIVE%\Octopus`**.
@@ -52,4 +52,4 @@ These steps will remove all traces of Octopus Server from your computer:
     * **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
 6. Find and delete any Octopus certificates from the following certificate stores:
     * **`Local Computer\Octopus`**
-    * **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Octopus Server windows service
+    * **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Octopus Server Windows service
