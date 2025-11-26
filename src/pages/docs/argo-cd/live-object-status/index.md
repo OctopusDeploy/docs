@@ -9,7 +9,7 @@ description: Argo CD Live Object Status guide.
 navOrder: 45
 hideInThisSectionHeader: true
 ---
-Argo Live Object Status shows the live status of the Kuberentes resources deployed by the Argo CD Applications mapped
+Argo Live Object Status shows the live status of the Kubernetes resources deployed by the Argo CD Applications mapped
 to the project.
 This allows you to monitor and safely troubleshoot Argo CD controlled deployments from within Octopus Deploy
 
@@ -19,7 +19,7 @@ However when used with Argo CD, the [Kubernetes monitor](/docs/kubernetes/target
 :::
 
 ## Where it is available
-Using Argo CD Live Objet Status requries the following:
+Using Argo CD Live Objet Status requires the following:
 * Octopus Deploy 2025.4+
 * An Argo CD Instance deployment target (and associated gateway)
 * [Annotations](/docs/argo-cd/annotations/index.md) on your Argo CD Applications, mapping them onto Octopus Deploy projects
@@ -86,7 +86,3 @@ Octopus treats manifest diffs in the _opposite direction_ to that shown in Argo.
 In Octopus, the left panel indicates "what was previously written to the applications git repository", while the right shows
 
 Whereas, in argo, the left panel
-
-| Octopus | Argo |
-|---|---|
-|asfsafaf|asfasfasf|
