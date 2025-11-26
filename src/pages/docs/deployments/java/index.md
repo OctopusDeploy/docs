@@ -133,7 +133,7 @@ The `Deploy to Tomcat via Manager` step is used to deploy a package from the Oct
 * If you want to take advantage of [Tomcat's parallel deployment](https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment) features, you need to define the populate `Deployment Version` field. To be effective, these values are required to increase with each deployment . Common values are the Octopus release number, which is defined in the `#{Octopus.Release.Number}` variable. The package version number can also be used, and is defined in the `#{Octopus.Action.Package.NuGetPackageVersion}` variable.
 * Define the path to the [Tomcat Manager](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html). The path is relative to the target machine that is running the step, and includes the manager application context path. In most cases the target machine is also the machine hosting Tomcat, so this URL will typically point to `localhost`. Common examples of the manager URL are `http://localhost:8080/manager`.
 * Supply the `Management User` and `Management Password` of the user was defined using the instructions from [Configure Tomcat](#configure_tomcat).
-* The `Start/Stop the Deployment` option allows you to deploy the application in a started or stopped state. Typically you will deploy in a started state.
+* The `Start/Stop the Deployment` option allows you to deploy the application in a started or stopped state. You will typically deploy in a started state.
 
 ## Deploying to Tomcat via Manager step details
 
@@ -173,7 +173,7 @@ The `Deploy to WildFly or Red Hat JBoss EAP` step is used to deploy a package fr
 * The `Management Protocol` field defines the protocol to be used when interacting with the management interface. For WildFly 10+ and JBoss EAP 7+, this will default to `http-remoting` or `remote+http` (the two are equivalent). For JBoss EAP 6, this will default to `remoting`.
 * If you wish to use silent authentication, and have configured the required permissions for the `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory, then the `Management User` and `Management Password` fields can be left blank. Alternatively these fields can hold the credentials that were configured via the `add-user` script.
 * If you are deploying to a standalone server, the deployment can be enabled or disabled using the `Enable/Disable the Deployment` field. This field has no effect when deploying to a domain controller.
-* If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
+* If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise, the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
 
 <a name="context_path"></a>
 #### Defining context paths
@@ -263,7 +263,7 @@ The `Enable/Disable deployment in WildFly` step is used to modify the state of a
 * The `Management Protocol` field defines the protocol to be used when interacting with the management interface. For WildFly 10+ and JBoss EAP 7+, this will default to `http-remoting` or `remote+http` (the two are equivalent). For JBoss EAP 6, this will default to `remoting`.
 * If you wish to use silent authentication, and have configured the required permissions for the `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory, then the `Management User` and `Management Password` fields can be left blank. Alternatively these fields can hold the credentials that were configured via the `add-user` script.
 * If you are deploying to a standalone server, the deployment can be enabled or disabled using the `Enable/Disable the Deployment` field. This field has no effect when deploying to a domain controller.
-* If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
+* If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise, the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
 
 ## Enabling/Disabling WildFly and EAP applications step details
 

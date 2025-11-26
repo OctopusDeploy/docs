@@ -19,7 +19,7 @@ In this example we will create an infrastructure project and an application proj
 
 ## Machine policy {#machine-policy}
 
-The Tentacles provisioned in this guide belong to the **Immutable Infrastructure** machine policy. For now, create a new machine policy called **Immutable Infrastructure** and leave all of the settings at their default value.
+The Tentacles provisioned in this guide belong to the **Immutable Infrastructure** machine policy. For now, create a new machine policy called **Immutable Infrastructure** and leave all settings at their default value.
 
 ## Application project {#application-project}
 
@@ -51,7 +51,7 @@ You could also create and deploy a release of the **Hello World** project to you
 
 ## Automating *all the things* {#automate-all-the-things}
 
-Imagine a developer makes a change to Hello World and would like to deploy it. At this stage, they would need to create and deploy a release of the Hello World Infrastructure project, wait for the new infrastructure to become available and then create and deploy a release of Hello World.  It is possible but clunky. Also, someone would be required to remove all of the orphaned deployment targets left in Octopus when new Tentacles are provisioned.
+Imagine a developer makes a change to Hello World and would like to deploy it. At this stage, they would need to create and deploy a release of the Hello World Infrastructure project, wait for the new infrastructure to become available and then create and deploy a release of Hello World.  It is possible but clunky. Also, someone would be required to remove all orphaned deployment targets left in Octopus when new Tentacles are provisioned.
 
 ### Cleaning machines {#cleaning-machines}
 
