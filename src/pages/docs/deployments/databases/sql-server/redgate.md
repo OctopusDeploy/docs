@@ -206,7 +206,7 @@ The publish package step requires all three of the options to be populated.  By 
 The final step is creating and deploying the release.  Very similar to before, provide the name of the project, the release number and the environment to deploy to:
 
 :::figure
-![[The release step in TeamCity](/docs/img/deployments/databases/sql-server/images/teamcity-create-database-release.png)
+![The release step in TeamCity](/docs/img/deployments/databases/sql-server/images/teamcity-create-database-release.png)
 :::
 
 ## Create and configure the Octopus Deploy project
