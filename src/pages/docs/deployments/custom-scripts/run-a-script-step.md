@@ -10,7 +10,7 @@ navOrder: 10
 
 Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/) or across the deployment targets in [tags](/docs/infrastructure/deployment-targets/target-tags). You can run scripts contained in a [package](/docs/deployments/packages/), in a git repository, or ad-hoc scripts you've saved as part of the [step](/docs/projects/steps).
 
-You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables), and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
+You can use all features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables), and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 
 ## Choosing where the script will run
 

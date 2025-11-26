@@ -410,5 +410,5 @@ And that's it! In a few steps, you have a network load balancer set up in Google
 We have a [Pattern - Rolling](https://oc.to/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. 
 You can sign in as `Guest` to take a look at these runbook steps in the `PetClinic Infrastructure` project:
 
-- The runbook named `Configure GCP NLB Target Pools` includes all of the steps to create the network load balancer. 
+- The runbook named `Configure GCP NLB Target Pools` includes all steps to create the network load balancer. 
 - The step to add machines to a target pool is included in the runbook named `Spin up GCP PetClinic Project Infrastructure`.

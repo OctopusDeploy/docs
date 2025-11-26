@@ -109,7 +109,7 @@ You can also group the results by month or other measures of time. First, drag t
 ![](/docs/img/administration/reporting/images/3278127.png)
 :::
 
-Now, right click any of the date values, and click **Group**.
+Now, right-click any of the date values, and click **Group**.
 
 :::figure
 ![](/docs/img/administration/reporting/images/3278126.png)
@@ -127,7 +127,7 @@ And the results will now be grouped by month:
 ![](/docs/img/administration/reporting/images/3278124.png)
 :::
 
-If you aren't happy with the order that environments or other items are shown in, you can right click and move them:
+If you aren't happy with the order that environments or other items are shown in, you can right-click and move them:
 
 :::figure
 ![](/docs/img/administration/reporting/images/3278123.png)
