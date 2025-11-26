@@ -20,7 +20,7 @@ You can configure the audit stream from the **Audit** page in the **Configuratio
 ![Audit Stream Not Configured](/docs/img/security/users-and-teams/auditing/images/audit-stream-not-configured.png)
 :::
 
-Currently we support streaming to **OpenTelemetry (OTLP)** compatible providers as well as directly to **Splunk** and **Sumo Logic**.
+We currently support streaming to **OpenTelemetry (OTLP)** compatible providers as well as directly to **Splunk** and **Sumo Logic**.
 
 :::figure
 ![Audit Stream Configure Dialog](/docs/img/security/users-and-teams/auditing/images/audit-stream-configure-dialog.png)

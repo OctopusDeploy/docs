@@ -10,7 +10,7 @@ navOrder: 80
 
 Octopus can help you to run scripts on targets within Microsoft Azure.
 
-Within your Azure scripts, you can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables) and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
+Within your Azure scripts, you can use all features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables) and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 
 These scripts typically rely on tools being available when they execute.
 

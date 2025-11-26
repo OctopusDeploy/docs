@@ -62,13 +62,13 @@ It's possible you may need to set the [Execution policy](https://docs.microsoft.
 
 ### Additional IIS features \{#install-additional-features}
 
-There are over 25 additional IIS features you could choose to install as part of your runbook. To list all of the IIS Windows features, run the following PowerShell:
+There are over 25 additional IIS features you could choose to install as part of your runbook. To list all IIS Windows features, run the following PowerShell:
 
 ```ps
 Get-WindowsOptionalFeature -Online | where FeatureName -like 'IIS-*'
 ```
 
-The following code installs all of the additional features found from the previous `Get-WindowsOptionalFeature` command using the [Enable-WindowsOptionalFeature](https://docs.microsoft.com/en-us/powershell/module/dism/enable-windowsoptionalfeature?view=win10-ps) PowerShell cmdlet:
+The following code installs all additional features found from the previous `Get-WindowsOptionalFeature` command using the [Enable-WindowsOptionalFeature](https://docs.microsoft.com/en-us/powershell/module/dism/enable-windowsoptionalfeature?view=win10-ps) PowerShell cmdlet:
 
 ```ps
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures
@@ -129,7 +129,7 @@ To create a runbook to stop your application pool:
 1. Give the runbook a Name and click **SAVE**.
 1. Add the community step template called [IIS AppPool - Stop](https://library.octopus.com/step-templates/3aaf34a5-90eb-4ea1-95db-15ec93c1e54d/actiontemplate-iis-apppool-stop), and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. Fill out all of the required parameters in the step, using [variables](/docs/projects/variables) where appropriate:
+1. Fill out all required parameters in the step, using [variables](/docs/projects/variables) where appropriate:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |

@@ -56,7 +56,7 @@ If you have scheduled the watchdog to monitor all instances on a server but you 
 
 ### Recreating the Watchdog {#ServiceWatchdog-RecreatingTheWatchdog}
 
-As mentioned above, running create again can be used to change the instances and interval for the watchdog, but all other settings will remain unchanged.  If you do want to reset all of the other settings you can easily combine the delete and create, for example
+As mentioned above, running create again can be used to change the instances and interval for the watchdog, but all other settings will remain unchanged.  If you do want to reset all other settings you can easily combine the delete and create, for example
 
 ```powershell
 Tentacle.exe watchdog --delete --create --instances * --interval 10
