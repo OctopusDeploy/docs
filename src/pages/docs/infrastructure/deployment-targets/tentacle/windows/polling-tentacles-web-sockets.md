@@ -22,7 +22,7 @@ The following prerequisites must be met to use this feature:
 - Octopus Server must be self-hosted, and not an [Octopus Cloud](/docs/octopus-cloud) instance.
 - Both the Octopus Server and Tentacle must be running windows 2012 or later.
 - The server expects an SSL/TLS connection, so SSL offloading is not supported.
-- The other application using the port must be using the standard Windows networking library ([HTTP.sys](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys)). This includes IIS, .NET apps and Octopus itself. However, it does not include any applications that utilize non-HTTP.sys TCP/IP or HTTP stacks. Check your product's documentation for more information.
+- The other application using the port must be using the standard Windows networking library ([HTTP.sys](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys)). This includes IIS, .NET apps and Octopus itself. However, it does not include any applications that use non-HTTP.sys TCP/IP or HTTP stacks. Check your product's documentation for more information.
 - The other application must be using HTTPS on that port.
 
 ### Listen address
@@ -84,7 +84,7 @@ poll-server --instance MyInstance --server "https://example.com/"  --server-web-
 
 ## Certificate
 Windows will need to be configured with a SSL certificate on the selected address and port. Usually this is done by the other application sharing the port.
-The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
+The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore, [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
 It does need to be installed into the Personal certificate store of the Machine account.
 
 The easiest way to get the SSL certificate set up is to configure [Octopus to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https) on that address and port.

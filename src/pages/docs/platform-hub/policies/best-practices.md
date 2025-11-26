@@ -31,7 +31,7 @@ All policy evaluations are logged to the audit log.  Ensure [audit log streaming
 
 ### Start restrictive, then make generic
 
-Consider a policy that will block the execution of deployments and runbook runs.  By default that policy applies to all deployments and runbook runs.
+Consider a policy that will block the execution of deployments and runbook runs.  By default, that policy applies to all deployments and runbook runs.
 
 When creating a new policy, be as restrictive as possible by limiting it to:
 

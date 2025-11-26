@@ -131,13 +131,13 @@ Learn more about the [NuSpec file format](http://docs.nuget.org/docs/reference/n
 
 OctoPack only packages the files in your .Net applications that are required to deploy the application.
 
-If you are packaging a .NET application, OctoPack will **automatically package all of the files in the build output directory for the project**. In most cases this will be the `bin`, `bin\Debug`, or `bin\Release` folder, depending on the build configuration and whether you have [changed the build output directory for your project in Visual Studio](https://msdn.microsoft.com/en-us/library/ms165410.aspx).
+If you are packaging a .NET application, OctoPack will **automatically package all files in the build output directory for the project**. In most cases this will be the `bin`, `bin\Debug`, or `bin\Release` folder, depending on the build configuration and whether you have [changed the build output directory for your project in Visual Studio](https://msdn.microsoft.com/en-us/library/ms165410.aspx).
 
 If you have customized the output directory, and you have added a custom files element to your custom nuspec file, the paths you specify must be relative to the nuspec file's location. This means that for the binaries files that are being built by the project you will have to use some combination of `..\` style prefix to refer to the assemblies.
 
 For Windows Service or Console applications, and many Windows Forms or WPF applications, the build output directory contains everything you need to deploy your application.
 
-The example below shows a Windows Service called `OctoFX.RateService.exe` and all of the files required to run the application, including libraries and configuration files.
+The example below shows a Windows Service called `OctoFX.RateService.exe` and all files required to run the application, including libraries and configuration files.
 
 :::figure
 ![An example of a Windows Service package](/docs/img/packaging-applications/create-packages/octopack/images/sample-package.png)
@@ -183,7 +183,7 @@ NuGet packages have version numbers. When you use OctoPack, the NuGet package ve
 4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used.
 5. If the `[assembly: AssemblyInformationalVersion]` value is not valid, the `[assembly: AssemblyFileVersion]` is used.
 6. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file.
-7. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
+7. Otherwise, we take the `[assembly: AssemblyInformationalVersion]`.
 
 During the build, messages are output at the `Normal` msbuild logging level which may help diagnose version retrieval problems.
 

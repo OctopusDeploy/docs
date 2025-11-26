@@ -84,7 +84,7 @@ You can delete spaces when you are the **space manager**. Deleting a space canno
 
 The **Default space** is provided to existing installations as a mechanism to ensure that the instance operates in much the same way as it did prior to upgrading to a version of Octopus that supports spaces. Enabled by default, its primary function is to provide an initial space for any existing resources. This also effectively hides the existence of spaces until you're ready to start using them.
 
-We create the default space when you install or upgrade your Octopus Server. In the case of an upgrade, we put all of the space scoped resources (like Projects, Environment, etc) into this space. For new installations, anything you create will be added to the default space.
+We create the default space when you install or upgrade your Octopus Server. In the case of an upgrade, we put all space scoped resources (like Projects, Environment, etc) into this space. For new installations, anything you create will be added to the default space.
 
 If you don't want to think about spaces, just leave everything in the Default space!
 
@@ -117,7 +117,7 @@ This means that by disabling the default space - **you are opting into a non-bac
 
 - Versions of Tentacle on target environments need to be upgraded to [Tentacle 4.0.0](https://octopus.com/downloads/2019.1.1) the latest version otherwise they will not connect.
 - Scripts you've written that directly call the API.
-- Integrations with Octopus Server are updated to their latest versions (like Azure DevOps, TFS, and Team City plugins)
+- Integrations with Octopus Server are updated to their latest versions (like Azure DevOps, TFS, and TeamCity plugins)
 - Community library templates that use the API are updated (you can [refer to this PR](https://github.com/OctopusDeploy/Library/pull/750) as a guide).
 
 To disable the default space, follow these steps:

@@ -27,7 +27,7 @@ Toby is a member of the sales team for [Vet Clinic](https://samples.octopus.app/
 Firstly we will create a custom role with the permissions required to deploy releases into tenant environments. This role is loosely based on the built-in **Project deployer** role but removing the permissions to edit the project.
 
 :::div{.success}
-It is usually a good idea to build smaller roles that can be composed together into a team to provide easier management of your team permissions. In this example, we are creating a single role to grant all of the required permissions to keep the example simple. In this case, you could create a **Tenant project viewer** role and a **Tenant project deployer** role and combine them into a single team.
+It is usually a good idea to build smaller roles that can be composed together into a team to provide easier management of your team permissions. In this example, we are creating a single role to grant all required permissions to keep the example simple. In this case, you could create a **Tenant project viewer** role and a **Tenant project deployer** role and combine them into a single team.
 :::
 
 1. In **Configuration ➜ User Roles** click **Add custom role** and call it **Tenant project deployer**.

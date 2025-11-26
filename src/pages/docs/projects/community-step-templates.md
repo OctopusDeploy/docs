@@ -57,7 +57,7 @@ After the step template has been installed, it will be available alongside the b
 
 ## Import a community step template from the community library
 
-If the Community Step Template feature has been disabled, you can still use community step templates by manually importing the JSON file (which contains all of the information required by Octopus) from the [Community Library](https://library.octopus.com/) into the step template library in Octopus.
+If the Community Step Template feature has been disabled, you can still use community step templates by manually importing the JSON file (which contains all information required by Octopus) from the [Community Library](https://library.octopus.com/) into the step template library in Octopus.
 
 1. Navigate to the [Community Library](https://library.octopus.com/) website.
 2. Find the template you want to use, review the details, and click the **Copy to clipboard** button.

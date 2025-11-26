@@ -62,4 +62,4 @@ You will need to transfer them to the new server to `C:\Octopus\Packages`. Once 
 
 ### Migrating historical data
 
-By default we migrate everything from your backup including all historical data. Learn about [minimizing migration time](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time).
+By default, we migrate everything from your backup including all historical data. Learn about [minimizing migration time](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time).

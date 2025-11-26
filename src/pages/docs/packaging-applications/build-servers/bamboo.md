@@ -130,7 +130,7 @@ It is recommended that this field be left blank, because the `Ignore existing re
 
 The `Ignore existing releases` option can be selected to skip the create release step if the release version already exists.
 
-Tick this option, as it allows builds to be rebuilt. Otherwise rebuilds will attempt to recreate an existing environment and the step will fail.
+Tick this option, as it allows builds to be rebuilt. Otherwise, rebuilds will attempt to recreate an existing environment and the step will fail.
 
 :::figure
 ![Create Release](/docs/img/packaging-applications/build-servers/images/create-release.png)
@@ -184,7 +184,7 @@ This `Promote to` field defines the environment whose release will be promoted f
 
 ## Common configuration
 
-All of the Octopus Deploy tasks share a number of common configuration fields.
+All Octopus Deploy tasks share a number of common configuration fields.
 
 ### Octopus URL
 

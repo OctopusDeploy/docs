@@ -58,13 +58,13 @@ CAIQ ID: **AAC-02.2**
 > Do you conduct network penetration tests of your cloud service infrastructure at least annually?
 
 Yes. We provide details of this on our [security page](https://octopus.com/docs/security).
- 
+
 CAIQ ID: **AAC-02.3**
- 
+
 > Do you conduct application penetration tests of your cloud infrastructure regularly as prescribed by industry best practices and guidance?
- 
+
 Yes. We provide details of this on our [security page](https://octopus.com/docs/security).
- 
+
 ### Information System Regulatory Mapping
 
 CAIQ ID: **AAC-03.1**
@@ -119,7 +119,7 @@ CAIQ ID: **CCC-04.1**
 
 > Do you have controls in place to restrict and monitor the installation of unauthorized software onto your systems?
 
-Yes. We automate the provisioning of infrastructure we use to deliver our services. Customers are not able to install software on their Octopus instances, however they are able to install software on dynamic workers that we provide for the purposes of running scripts and other automations. These systems are reserved per tenant, are short-lived and periodically re-provisioned. We run real time antivirus protection on these dynamic workers.
+Yes. We automate the provisioning of infrastructure we use to deliver our services. Customers are not able to install software on their Octopus instances, however they are able to install software on dynamic workers that we provide for the purposes of running scripts and other automation. These systems are reserved per tenant, are short lived and periodically re-provisioned. We run real time antivirus protection on these dynamic workers.
 
 ## Data Security & Information Lifecycle Management
 
@@ -133,7 +133,7 @@ Yes
 
 CAIQ ID: **DSI-03.2**
 
-> Do you utilize open encryption methodologies any time your infrastructure components need to communicate with each other via public networks (e.g., Internet-based replication of data from one environment to another)?
+> Do you use open encryption methodologies any time your infrastructure components need to communicate with each other via public networks (e.g., Internet-based replication of data from one environment to another)?
 
 Yes
 
@@ -157,7 +157,7 @@ CAIQ ID: **DSI-07.2**
 
 > Can you provide a published procedure for exiting the service arrangement, including assurance to sanitize all computing resources of tenant data once a customer has exited your environment or has vacated a resource?
 
-Yes. If customers would like to stop using our product, our website makes it easy to cancel or deactivate their instance. By default deactivated instances will be archived for 90 days from the deactivation date, to allow convenient reactivation if required. Customers are able to request deletion of their data at any time by contacting support. See our documentation for more details.
+Yes. If customers would like to stop using our product, our website makes it easy to cancel or deactivate their instance. By default, deactivated instances will be archived for 90 days from the deactivation date, to allow convenient reactivation if required. Customers are able to request deletion of their data at any time by contacting support. See our documentation for more details.
 
 ## Datacenter Security
 
@@ -167,7 +167,7 @@ CAIQ ID: **DCS-01.2**
 
 > Do you maintain a complete inventory of all of your critical assets located at all sites/ or geographical locations and their assigned ownership?
 
-Yes. We don't have a datacentre or any physical critical assets.  Digitally critical assets and their ownership are listed in our business continuity plan.
+Yes. We don't have a data centre or any physical critical assets.  Digitally critical assets and their ownership are listed in our business continuity plan.
 
 ### Controlled Access Points
 
@@ -297,7 +297,7 @@ CAIQ ID: **IAM-01.1**
 
 Yes
 
-Our cloud vendors provide alerts and logging of unusual login behavior which are actioned by operations and security team members. Only authorized engineers are granted access to our information security systems.
+Our cloud vendors provide alerts and logging of unusual login behavior for review by operations and security team members. Only authorized engineers are granted access to our information security systems.
 
 CAIQ ID: **IAM-01.2**
 
@@ -425,7 +425,7 @@ CAIQ ID: **IVS-11.1**
 
 > Do you restrict personnel access to all hypervisor management functions or administrative consoles for systems hosting virtualized systems based on the principle of least privilege and supported through technical controls (e.g., two-factor authentication, audit trails, IP address filtering, firewalls and TLS-encapsulated communications to the administrative consoles)?
 
-Yes. Access to infrastructure virtualization portals is restricted to authorized engineers only using IAM, MFA and TLS. Login anomaly detection is alerted and actioned by operations or security team members. 
+Yes. Access to infrastructure virtualization portals is restricted to authorized engineers only using IAM, MFA and TLS. Login anomaly detection is alerted to operations or security team members.
 
 ### Wireless Security
 
@@ -455,7 +455,7 @@ CAIQ ID: **IPY-01.1**
 
 > Do you publish a list of all APIs available in the service and indicate which are standard and which are customized?
 
-Yes. Our product is built 'API first' We provide usage examples on GitHub and have extensive user documentation on our website. We have .NET based client libraries available for interoprating with our API.
+Yes. Our product is built 'API first' We provide usage examples on GitHub and have extensive user documentation on our website. We have .NET based client libraries available to interact with our API.
 
 ## Mobile Security
 
@@ -465,7 +465,7 @@ CAIQ ID: **MOS-03.1**
 
 > Do you have a policy enforcement capability (e.g., XACML) to ensure that only approved applications and those from approved application stores can be loaded onto a mobile device?
 
-No. We haven't implemented an MDM solution, for a few reasons: our size, the fact that we discourage our employees from using their mobile devices for work and that most of our systems require a full size screen in order to be useful. However this is an area that we're looking to make improvements on. We'll review the status of this at our next security compliance review.
+No. We haven't implemented an MDM solution, for a few reasons: our size, the fact that we discourage our employees from using their mobile devices for work and that most of our systems require a full size screen in order to be useful. However, this is an area that we're looking to make improvements on. We'll review the status of this at our next security compliance review.
 
 ## Security Incident Management, E-Discovery, & Cloud Forensics
 

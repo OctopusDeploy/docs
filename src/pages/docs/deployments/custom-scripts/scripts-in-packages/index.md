@@ -82,8 +82,8 @@ If you are deploying the same package to multiple platforms, you can:
 
 The platform-specific priority order Octopus uses to select scripts is:
 
-- Linux: Bash, Python, C#, F#, Powershell
-- Windows: Powershell, Python, C#, F#, Bash
+- Linux: Bash, Python, C#, F#, PowerShell
+- Windows: PowerShell, Python, C#, F#, Bash
 
 Example: You are deploying an application to both Windows and Linux. You can write a single `PreDeploy.py` python script, making sure the python runtime is installed on both platforms. Alternatively, you can write both `PreDeploy.sh` and `PreDeploy.ps1`, and Octopus will run the Bash script on Linux and the PowerShell script on Windows.
 

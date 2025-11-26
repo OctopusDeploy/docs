@@ -190,7 +190,7 @@ Octopus.Server.exe service --start
 
 ## Domain Groups not loading across multiple domains
 
-In scenarios where you have to cross domain boundaries, issues can easily arise due to service account permissions.  One such issue can occur when you have users who are members of groups from multiple domains.  In this scenario, you may find that Octopus can only determine the groups in the same domain as the user itself and as such the user won't be treated as though they are in all of the correct teams.
+In scenarios where you have to cross domain boundaries, issues can easily arise due to service account permissions.  One such issue can occur when you have users who are members of groups from multiple domains.  In this scenario, you may find that Octopus can only determine the groups in the same domain as the user itself and as such the user won't be treated as though they are in all the correct teams.
 
 The cause of this relates to the permissions for the user the Octopus Server is running as.  Specifically, it is missing the "Read member of" permission in the domain(s) of the groups it isn't able to retrieve.  This can include the domain the service account itself is in (e.g. Domain Users don't get "Read member of" by default).
 

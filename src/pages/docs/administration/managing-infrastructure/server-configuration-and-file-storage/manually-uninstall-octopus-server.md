@@ -30,7 +30,7 @@ If you have just completed an in-place upgrade from Octopus Server 2.6 to a mode
 
 ## What does the Octopus Server MSI do? {#ManuallyuninstallOctopusServer-WhatdoestheOctopusServerMSIactuallydo?}
 
-The MSI will stop the Octopus Server windows service and remove the application files which are normally stored in your `%ProgramFiles%` folder. The MSI will leave all of the configuration required to run Octopus just like before you run the uninstaller. The installer behaves this way because the makes it easier for you to upgrade the application files for Octopus Server knowing your configuration and data are preserved.
+The MSI will stop the Octopus Server windows service and remove the application files which are normally stored in your `%ProgramFiles%` folder. The MSI will leave all configuration required to run Octopus just like before you run the uninstaller. The installer behaves this way because the makes it easier for you to upgrade the application files for Octopus Server knowing your configuration and data are preserved.
 
 ## Manually removing all traces of Octopus Server {#ManuallyuninstallOctopusServer-ManuallyremovingalltracesofOctopusServer}
 
@@ -45,7 +45,7 @@ These steps will remove all traces of Octopus Server from your computer:
     * This will stop and uninstall the Octopus Server windows service.
 2. Now uninstall the MSI.
     * This will remove the application files.
-3. Find and delete the Octopus Home folder. By default this is in **`%SYSTEMDRIVE%\Octopus`**.
+3. Find and delete the Octopus Home folder. By default, this is in **`%SYSTEMDRIVE%\Octopus`**.
 4. Find and delete the Octopus registry entries from **`HKLM\SOFTWARE\Octopus`**.
 5. Find and delete any Octopus folders from:
     * **`%ProgramData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
