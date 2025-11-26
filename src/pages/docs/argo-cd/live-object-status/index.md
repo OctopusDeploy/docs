@@ -88,11 +88,10 @@ In Octopus, the left panel indicates "what was mostly recently written to the gi
 in the live system (i.e. installed in the cluster).
 
 
-| Position | Octopus                                                    | Argo CD                                                           |
-|---|------------------------------------------------------------|-------------------------------------------------------------------|
-| Left| Manifest written to git repository as part of last release | The current manifest in the cluster                               |
-| Right | The current content of the application's resource in cluster | The manifest in the git repository, which will be applied on sync |
-
+|         | Left                                                         | Right                                                             |
+|---------|--------------------------------------------------------------|-------------------------------------------------------------------|
+| Octopus | Manifest written to git repository as part of last release   | The current content of the application's resource in cluster      |
+| Argo CD | The current content of the application's resource in cluster | The manifest in the git repository, which will be applied on sync |
 
 As an example, In the following images, the date of deployment was updated in a configmap by an Octopus deployment.
 
