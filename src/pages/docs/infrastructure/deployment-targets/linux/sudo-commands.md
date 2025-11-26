@@ -70,7 +70,7 @@ Defaults: !requiretty
 ```
 
 Alternatively you can make this configuration more precise by targeting specific users or groups as outlined at [How to disable requiretty for a single command in sudoers](http://unix.stackexchange.com/questions/79960/how-to-disable-requiretty-for-a-single-command-in-sudoers).
-(By default the Ubuntu does not contain this configuration and this modification should not be required)
+(By default, the Ubuntu does not contain this configuration and this modification should not be required)
 
 :::div{.problem}
 

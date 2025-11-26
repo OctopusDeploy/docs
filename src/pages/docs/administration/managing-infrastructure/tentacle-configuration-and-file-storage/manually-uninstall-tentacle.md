@@ -47,7 +47,7 @@ These steps will remove all traces of Octopus Tentacle from your computer:
    - This will stop and uninstall the Tentacle windows service.
 2. Now uninstall the MSI.
    - This will remove the application files.
-3. Find and delete the Octopus Home folder. By default this is in **`%SYSTEMDRIVE%\Octopus`**.
+3. Find and delete the Octopus Home folder. By default, this is in **`%SYSTEMDRIVE%\Octopus`**.
    :::div{.problem}
 
    This will also remove your deployed applications if you have not configured Tentacle to use a different Application folder. See below for more details.

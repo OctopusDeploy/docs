@@ -100,7 +100,7 @@ Due to the design of Helm, the release names must be [unique across the entire c
 
 #### Reset values
 
-By default Helm will carry forward any existing configuration between deployments if not explicitly overridden. To ensure that the Octopus provided configuration acts as the source of truth, the `--reset-values` argument is set on the invoked command however this can be disabled if desired.
+By default, Helm will carry forward any existing configuration between deployments if not explicitly overridden. To ensure that the Octopus provided configuration acts as the source of truth, the `--reset-values` argument is set on the invoked command however this can be disabled if desired.
 
 #### Helm client tool
 
