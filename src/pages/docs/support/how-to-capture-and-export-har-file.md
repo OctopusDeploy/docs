@@ -34,7 +34,7 @@ The following instructions are provided for each browser, starting from the Octo
 3. Click the **Network** tab in the panel after it loads.
 4. Click the **Clear** button (trash bin in upper left) to remove any undesired existing network recording in the current session. Recording should start automatically.
 6. Follow the same steps you did initially to reproduce the issue or unexpected behavior.
-7. Right click anywhere under the **File** column and select **Save all as HAR**, saving the file to your computer.
+7. Right-click anywhere under the **File** column and select **Save all as HAR**, saving the file to your computer.
 
 ## Safari {#safari}
 1. Click on the **Develop** menu and select **Show Web Inspector**.
