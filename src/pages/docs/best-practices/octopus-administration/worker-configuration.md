@@ -26,7 +26,7 @@ Some important items to note about workers:
 - Unlike deployment targets, workers are designed to run multiple tasks concurrently.  
 - **Octopus Server 2020.1** added the [Worker Pool Variable Type](/docs/projects/variables/worker-pool-variables) making it possible to scope worker pools to environments.
 - **Octopus Server 2020.2** added the [execution container for workers](/docs/projects/steps/execution-containers-for-workers) feature, making it easier to manage software dependencies.
-- We provide a [Tentacle docker image](https://hub.docker.com/repository/docker/octopusdeploy/tentacle) that can be configured to run as a worker.
+- We provide a [Tentacle Docker image](https://hub.docker.com/repository/docker/octopusdeploy/tentacle) that can be configured to run as a worker.
 
 ## Provided Workers
 

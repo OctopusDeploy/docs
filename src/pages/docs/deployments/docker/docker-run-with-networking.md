@@ -62,7 +62,7 @@ In a newly created project, click **Add Step ➜ Create a Docker network**. This
 ![](/docs/img/deployments/docker/images/add-docker-network-step.png)
 
 :::div{.hint}
-**docker network support**
+**Docker network support**
 Keep in mind that as the Docker Network Octopus step simply wraps the `docker network` command, you will need to ensure your installed version of docker-engine supports this command. This was provided as of the [1.9.0 Docker Engine release](https://github.com/docker/docker/blob/master/CHANGELOG/#networking-10).
 
 For detailed information about Docker networking and additional arguments you can provide, we suggest reading the [Understand Docker container networks](https://docs.docker.com/network/) and the [network create](https://docs.docker.com/engine/reference/commandline/network_create/) Docker documentation.
@@ -98,7 +98,7 @@ The command itself is arbitrary. What is important is that we start a process th
 
 ### Step 3: Creating container 2 {#step3-create-container2}
 
-Now we will create a second container, exactly the same as the first using busybox, but this container will connect to the first container to demonstrate how containers can communicate in a docker network.
+Now we will create a second container, exactly the same as the first using busybox, but this container will connect to the first container to demonstrate how containers can communicate in a Docker network.
 
 1. Create a new Run Docker Container step (very much like the first one, but notice some subtle differences):
     * Set the *Name* to **Second Server**.
@@ -185,7 +185,7 @@ Looking at the results of a deployment you will see some logging indicating the 
 **Having problems deploying to Docker?**
 Usually this will come down to problems with the Octopus Account you configured accessing the Docker daemon with messages like this:
 
-`Cannot connect to the Docker daemon. Is the docker daemon running on this host?`
+`Cannot connect to the Docker daemon. Is the Docker daemon running on this host?`
 
 For steps to grant the Octopus Account the ability to manage the Docker daemon, refer to the [Docker post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 :::
@@ -202,7 +202,7 @@ The Docker equivalent of the "Package Acquisition" phase involves retrieving the
 ![](/docs/img/deployments/docker/images/acquire-package-steps.png)
 :::
 
-When creating a network or container, the name and Id as simply echoed to the standard logs. The verbose logs will show the docker version on the target, the full docker command being called and if successful, the results of the inspect command that are passed to an output variable.
+When creating a network or container, the name and Id as simply echoed to the standard logs. The verbose logs will show the Docker version on the target, the full Docker command being called and if successful, the results of the inspect command that are passed to an output variable.
 
 :::figure
 ![](/docs/img/deployments/docker/images/first-and-second-server-task-output.png)

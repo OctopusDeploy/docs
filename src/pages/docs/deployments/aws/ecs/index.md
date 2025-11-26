@@ -18,7 +18,7 @@ At a high level, the `Deploy Amazon ECS Service` step will:
 
 * Select the Docker image tags for the task definition (version selection is performed when creating a release).
 * Build a CloudFormation template with:
-    * A task definition with the details specific to the deployment for the selected environment and docker image tags.
+    * A task definition with the details specific to the deployment for the selected environment and Docker image tags.
     * A service that references the task definition.
 * Perform variable substitution on the CloudFormation template.
 * Deploy a CloudFormation stack with the template.

@@ -65,13 +65,13 @@ The workflow would be as follows:
 9. Automated tests are run in Staging.
 10. Assuming tests pass, promote to Production.  If tests don't pass, then a new branch is created, and this process starts all over.
 
-Octopus Deploy provides the capability for dynamic package / docker image selection.  This allows you to have a different package per environment.  The intended use case is when using a third-party external feed and the feed changes between environments.  The external feed provides the capabilities to "promote" packages ready for deployment.
+Octopus Deploy provides the capability for dynamic package / Docker image selection.  This allows you to have a different package per environment.  The intended use case is when using a third-party external feed and the feed changes between environments.  The external feed provides the capabilities to "promote" packages ready for deployment.
 
 We don't recommend having a single lifecycle with all environments.  When that happens, we have seen customers create a single release and change the package or package version from QA to Staging.  Such an approach is challenging to audit and track.  
 
 Changes made on feature or short-lived branches are not ready for Production.  They should be deployed to testing environments for verification and testing, but they should never have the chance to make it to Production.  Merging into main should trigger a fresh build because you could be merging multiple changes from different branches for the first time.  The underlying code has changed, and a new build is needed to test and verify.
 
-For the packages / docker containers built from branches, append a pre-release tag to the release version.  Leverage channel version rules to only allow packages / docker containers with a pre-release tag for the Development lifecycle.  At the same time, only allow packages / docker containers **without** a pre-release tag for the release lifecycle.
+For the packages / Docker containers built from branches, append a pre-release tag to the release version.  Leverage channel version rules to only allow packages / Docker containers with a pre-release tag for the Development lifecycle.  At the same time, only allow packages / Docker containers **without** a pre-release tag for the release lifecycle.
 
 :::div{.hint}
 This section is another reason we recommend deploying all tightly coupled components stored in the same source control repository within the same project.  Attempting to coordinate different lifecycles and releases across multiple projects can add additional overhead, which runs the risk of something needing to be fixed.

@@ -52,7 +52,7 @@ Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](
 To use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers).
-- Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
+- Configure your step to run in an execution container with a [compatible Docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
 
 ## Run an Azure PowerShell script step
 

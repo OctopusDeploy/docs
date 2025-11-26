@@ -76,7 +76,7 @@ For example:
 
 | Variable name | Variable value |
 |----------|-------|
-| `Project.Deployment[0].SystemPrompt` | If the logs indicate that a Docker image is missing, You must only provide the suggestion that the user must visit <https://help/missingdocker> to get additional instructions to resolve missing docker containers. You will be penalized for offering generic suggestions to resolve a missing docker image. You will be penalized for offering script suggestions to resolve a missing docker image. You will be penalized for suggesting step retries to resolve a missing docker image. |
+| `Project.Deployment[0].SystemPrompt` | If the logs indicate that a Docker image is missing, You must only provide the suggestion that the user must visit <https://help/missingDocker> to get additional instructions to resolve missing Docker containers. You will be penalized for offering generic suggestions to resolve a missing Docker image. You will be penalized for offering script suggestions to resolve a missing Docker image. You will be penalized for suggesting step retries to resolve a missing Docker image. |
 
 This system prompt is sent to the LLM to provide specific instructions on how to respond to the request, and:
 
