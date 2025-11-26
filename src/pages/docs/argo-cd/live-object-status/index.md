@@ -22,8 +22,8 @@ However when used with Argo CD, the [Kubernetes monitor](/docs/kubernetes/target
 Using Argo CD Live Objet Status requires the following:
 * Octopus Deploy 2025.4+
 * A registered [Argo CD Instance](/docs/argo-cd/instances/)
-* [Annotations](/docs/argo-cd/annotations/index.md) on your Argo CD Applications, mapping them onto Octopus Deploy projects
-* A deployment process containing an Argo CD step (either [Update Argo CD Image Tags](/docs/argo-cd/steps/update-application-image-tag) or [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests))
+* [Annotations](/docs/argo-cd/annotations) on your Argo CD Applications, mapping them onto Octopus Deploy projects
+* A deployment process containing an Argo CD step (either [Update Argo CD Image Tags](/docs/argo-cd/steps/update-application-image-tags) or [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests))
 
 ## How to use Live Status
 Once the prerequisites have been fulfilled, simply toggle the switch on the  dashboard to show live status in place of deployment status.
