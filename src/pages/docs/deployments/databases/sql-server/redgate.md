@@ -228,7 +228,7 @@ In Octopus Deploy, that process will look like the following screenshot.  This e
 ![Deployment process overview in Octopus Deploy](/docs/img/deployments/databases/sql-server/images/redgate-octopus-deploy-deployment-process-overview.png)
 :::
 
-Before adding steps to the process, a number of variables need to be created.  We recommend namespacing the variables using [ProjectName].[Component].[Sub-component].
+Before adding steps to the process, a number of variables need to be created.  We recommend namespacing the variables using [ProjectName].[Component].[Subcomponent].
 
 - **Project.Database.Name**: The name of the database on the SQL Server to deploy to.
 - **Project.Database.Password**: The password of the user account who has permissions to deploy.  This is not required if you're using integrated security.

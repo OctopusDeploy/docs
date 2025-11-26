@@ -26,7 +26,7 @@ If you're attempting to configure access for your organization, and you would pr
 
 Create a GitHub package feed through **Library ➜ External feeds**. You can add as many GitHub feeds as you need. Each can have different credentials if required.
 
-In most cases the `FeedUri` that you will need to provide is the standard public GitHub endpoint `https://api.github.com`. You would only need to provide a different url if you have self hosted GitHub Enterprise (in which case you would provide `https://my-github-repo.com/api/v3`) or if you access GitHub via a proxy.
+In most cases the `FeedUri` that you will need to provide is the standard public GitHub endpoint `https://api.github.com`. You would only need to provide a different url if you have self-hosted GitHub Enterprise (in which case you would provide `https://my-github-repo.com/api/v3`) or if you access GitHub via a proxy.
 
 For authorization, it is recommended that you create a [Personal access tokens](https://github.com/blog/1509-personal-api-tokens) for your account and use this token as the password. Tokens can be created for your GitHub account by logging in to GitHub and navigating to  **Settings ➜ Developer Settings ➜ Personal access tokens** and click **Generate new token**.
 

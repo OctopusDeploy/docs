@@ -89,7 +89,7 @@ It does need to be installed into the Personal certificate store of the Machine 
 
 The easiest way to get the SSL certificate set up is to configure [Octopus to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https) on that address and port.
 
-If you need to generate a self signed certificate, this can be done by issuing the following PowerShell command. Take note of the thumbprint generated.
+If you need to generate a self-signed certificate, this can be done by issuing the following PowerShell command. Take note of the thumbprint generated.
 
 ```powershell
 New-SelfSignedCertificate -Subject "CN=Example Website" -CertStoreLocation "Cert:\localMachine\My" -KeyExportPolicy Exportable

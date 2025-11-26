@@ -563,7 +563,7 @@ CAIQ ID: **TVM-01.1**
 
 > Do you have anti-malware programs that support or connect to your cloud service offerings installed on all of your IT infrastructure network and systems components?
 
-No. A large majority of our system components are provisioned using PaaS services, whose infrastructure we don't own. Threat & vulnerability management for those applications is tackled via automated tools that review our source code, and ultimately human review. The production components that do use IaaS use real time anti-virus. Employees are required to use default operating system anti-virus applications running when using company provisioned hardware.
+No. A large majority of our system components are provisioned using PaaS services, whose infrastructure we don't own. Threat & vulnerability management for those applications is tackled via automated tools that review our source code, and ultimately human review. The production components that do use IaaS use real time antivirus. Employees are required to use default operating system antivirus applications running when using company provisioned hardware.
 
 ### Vulnerability / Patch Management
 
