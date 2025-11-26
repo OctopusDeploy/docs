@@ -21,9 +21,9 @@ However when used with Argo CD, the [Kubernetes monitor](/docs/kubernetes/target
 ## Where it is available
 Using Argo CD Live Objet Status requires the following:
 * Octopus Deploy 2025.4+
-* An Argo CD Instance deployment target (and associated gateway)
+* A registered [Argo CD Instance](/docs/argo-cd/instances/)
 * [Annotations](/docs/argo-cd/annotations/index.md) on your Argo CD Applications, mapping them onto Octopus Deploy projects
-* A deployment process containing an Argo CD step (either [Image Tag update](/docs/argo-cd/steps/update-application-image-tag) or [Update Application Manifests](/docs/argo-cd/steps/update-application-manifests)
+* A deployment process containing an Argo CD step (either [Update Argo CD Image Tags](/docs/argo-cd/steps/update-application-image-tag) or [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests))
 
 ## How to use Live Status
 Once the prerequisites have been fulfilled, simply toggle the switch on the  dashboard to show live status in place of deployment status.
@@ -32,45 +32,43 @@ Once the prerequisites have been fulfilled, simply toggle the switch on the  das
 ![Octopus Argo CD Live Status Dashboard](/docs/img/argo-cd/argo-cd-live-status-dashboard.png)
 :::
 
-Octopus displays individual status at both the object and application level, along with a rolled-up summary at the Argo Instance.
-
-Each kubernetes object created directly by the Argo CD Application will indicate its name, kind, namespace, sync and health status.
-Derived kubernetes objects (eg Pods created as part of a deployment) don't have a sync-status, so will present a blank field.
+Octopus populates the Live Status Table with content taken directly from Argo.
 
 :::figure
 ![Octopus Argo CD Live Status Objects](/docs/img/argo-cd/argo-cd-live-status-objects.png)
 :::
 
-### Application status
+### Project Live Status
 
-| Label       |                    Status Icon                     | Description                                                                 |
-| :---------- | :------------------------------------------------: | :-------------------------------------------------------------------------- |
-| Progressing |   <i class="fa-solid fa-circle-notch blue"></i>    | Objects in your application are currently in a progressing state            |
-| Healthy     |      <i class="fa-solid fa-heart green"></i>       | The objects in your cluster match what was specified in the last deployment |
-| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting live status updates for this application       |
-| Degraded    |    <i class="fa-solid fa-heart-crack red"></i>     | Your objects experienced errors after the deployment completed              |
-| Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | The objects on your cluster no longer match what you last deployed          |
-| Missing     |       <i class="fa-solid fa-ghost grey"></i>       | Objects in your application are currently in a missing state                |
-| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application live status is unavailable because your last deployment failed  |
-| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application live status will be available once the deployment completes     |
+The project status is a roll-up of the status of all objects, in line with the following table:
+
+| Label       |                    Status Icon                     | Description                                                                                                               |
+| :---------- | :------------------------------------------------: |:--------------------------------------------------------------------------------------------------------------------------|
+| Progressing |   <i class="fa-solid fa-circle-notch blue"></i>    | One or more objects of the mapped application are in a progressing state                                                  |
+| Healthy     |      <i class="fa-solid fa-heart green"></i>       | The objects in the cluster match that specified in the applications' source git repositories, and are executing correctly |
+| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting live status updates for this application                                                     |
+| Degraded    |    <i class="fa-solid fa-heart-crack red"></i>     | Your objects experienced errors after the deployment completed                                                            |
+| Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | Argo CD has detected differences between the application's git repository, and the manifest in the cluster.               |
+| Missing     |       <i class="fa-solid fa-ghost grey"></i>       | One or more desired objects are missing from the cluster                                                                  |
+| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application live status is unavailable because your last deployment failed                                                |
+| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application live status will be available once the deployment completes                                                   |
 
 ### Object status
 
-| Label       |                  Status Icon                  | Description                                                                                |
-| :---------- | :-------------------------------------------: | :----------------------------------------------------------------------------------------- |
-| Progressing | <i class="fa-solid fa-circle-notch blue"></i> | Object is attempting to reach the desired state                                            |
-| Healthy     |    <i class="fa-solid fa-heart green"></i>    | Object is in sync and reporting that it is running as expected                             |
-| Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have up-to-date information about the live status of this object                  |
-| Degraded    |  <i class="fa-solid fa-heart-crack red"></i>  | Object has run into a problem, check the logs or events to find out more                   |
-| Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Object manifest is not the same as what was applied                                        |
-| Missing     |    <i class="fa-solid fa-ghost grey"></i>     | Object is missing from the cluster                                                         |
-| In Sync     |    <i class="fa-solid fa-check green"></i>    | Object manifest matches what was applied, but does not report any additional health status |
-| Suspended   |    <i class="fa-solid fa-pause grey"></i>     | Job is not currently running                                                               |
-
+| Label       |                  Status Icon                  | Description                                                                                                 |
+| :---------- | :-------------------------------------------: |:------------------------------------------------------------------------------------------------------------|
+| Progressing | <i class="fa-solid fa-circle-notch blue"></i> | Object is attempting to reach the desired state                                                             |
+| Healthy     |    <i class="fa-solid fa-heart green"></i>    | Object is in sync and reporting that it is running as expected                                              |
+| Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have information about the live status of this object                                              |
+| Degraded    |  <i class="fa-solid fa-heart-crack red"></i>  | Object has run into a problem, check the logs or events to find out more                                    |
+| Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Object manifest in the cluster is different from that specified in tha Argo CD application's git repository |
+| Missing     |    <i class="fa-solid fa-ghost grey"></i>     | Object is missing from the cluster                                                                          |
+| In Sync     |    <i class="fa-solid fa-check green"></i>    | Object manifest matches what was applied, but does not report any additional health status                  |
+| Suspended   |    <i class="fa-solid fa-pause grey"></i>     | Job is not currently running                                                                                |
 
 
 ### Detailed object information
-Selecting an object's (or application's) name in the table will open a drawer containing detailed information.
+Selecting an object or application name in the table will open a drawer containing detailed information.
 
 The drawer contains up-to-date information regarding the selected object:
 * Summary
