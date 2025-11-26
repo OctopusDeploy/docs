@@ -598,3 +598,6 @@ xvzf
 xxlarge
 youtu
 Zuora
+mytransform.config
+nlog
+connstrings
