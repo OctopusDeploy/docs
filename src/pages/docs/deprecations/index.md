@@ -71,13 +71,13 @@ As of `2024.4` the usage of ScriptCS is being deprecated in Octopus. This has be
 
 ## Deprecations for 2024.3
 
-### Azure Resource Manager Powershell Module
+### Azure Resource Manager PowerShell Module
 
-The AzureRM Powershell modules were Microsoft's way of integrating Powershell with Azure resources. Microsoft has deprecated AzureRM in favor of the Azure CLI or the Az Powershell modules.
+The AzureRM PowerShell modules were Microsoft's way of integrating PowerShell with Azure resources. Microsoft has deprecated AzureRM in favor of the Azure CLI or the Az PowerShell modules.
 
 AzureRM was [deprecated by Microsoft](https://learn.microsoft.com/en-us/powershell/azure/azurerm-retirement-overview) as of February 29, 2024.
 
-AzureRm will remain available until July 2024 (with an in-app warning). After this, you'll need to move to either `az cli` or the `az module for powershell` 
+AzureRm will remain available until July 2024 (with an in-app warning). After this, you'll need to move to either `az cli` or the `az module for PowerShell` 
 for Azure authentication.
 
 ## Deprecations for 2024.2
@@ -126,7 +126,7 @@ Further details on the background for this update are available on the [Dropping
 
 ### F# Script Steps
 
-Due to the low uptake of F# script steps and the work required to upgrade them for continued use in our modern codebase, we will no longer support F# script steps from `2024.1`. Customers who continue to need F# scripts in later Octopus versions should use standard shell scripting (powershell or bash) and invoke their scripts via their own F# tools included in additional [referenced packages](https://octopus.com/docs/deployments/custom-scripts/run-a-script-step#referencing-packages).
+Due to the low uptake of F# script steps and the work required to upgrade them for continued use in our modern codebase, we will no longer support F# script steps from `2024.1`. Customers who continue to need F# scripts in later Octopus versions should use standard shell scripting (PowerShell or bash) and invoke their scripts via their own F# tools included in additional [referenced packages](https://octopus.com/docs/deployments/custom-scripts/run-a-script-step#referencing-packages).
 
 ## Deprecations for 2023.3
 

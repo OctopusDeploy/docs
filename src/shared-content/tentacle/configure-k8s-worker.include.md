@@ -15,10 +15,10 @@ kubectl config view
 3. Enter a **Name** for the worker, and select the **Worker Pools** to which the worker should belong, and select **NEXT**
    1. The dialog permits for the inline creation of a worker pool via the **+** button.
    2. Click **Show advanced** to provide a custom Storage class or override the Octopus Server URL if required
-4. Select the desired shell (bash or powershell) and copy and the supplied command
+4. Select the desired shell (bash or PowerShell) and copy and the supplied command
 5. Execute the copied command in a terminal configured with your k8s cluster, and click **NEXT**
    1. This step is not required if the NFS driver already exists in your cluster (due to prior installs of k8s worker or deployment target)
-5. Select the desired shell (bash or powershell), then copy the supplied command
+5. Select the desired shell (bash or PowerShell), then copy the supplied command
 6. Execute the copied command in a terminal configured with your k8s cluster.
    1. Installing the Helm chart will take some time (potentially minutes depending on infrastructure).
 6. A green 'success' bar will appear when the Helm Chart has completed installation, and the worker has registered with the Octopus Server.

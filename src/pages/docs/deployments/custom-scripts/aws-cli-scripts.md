@@ -84,7 +84,7 @@ Write-Host "Get caller identity with the AWS CLI"
 Write-Host "aws sts get-caller-identity"
 aws sts get-caller-identity
 
-Write-Host "Get the version of the Powershell module"
+Write-Host "Get the version of the PowerShell module"
 Write-Host "Get-AWSPowerShellVersion"
 Get-AWSPowerShellVersion
 
@@ -123,10 +123,10 @@ The third option is to run a script from a package. This is done by selecting th
 
 Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools). Octopus provides these, and you cannot easily install custom versions of the AWS tools on them.
 
-To use your own version of the AWS CLI or AWS Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+To use your own version of the AWS CLI or AWS PowerShell cmdlets when using Dynamic Worker Pools, please do the following:
 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers).
-- Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the AWS CLI or AWS Powershell cmdlets that you would like to use.
+- Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the AWS CLI or AWS PowerShell cmdlets that you would like to use.
 
 ## Older versions
 

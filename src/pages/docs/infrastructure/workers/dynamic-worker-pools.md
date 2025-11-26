@@ -89,7 +89,7 @@ Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools includ
 
 - .NET 6
 - Docker (latest)
-- Powershell Core (latest)
+- PowerShell Core (latest)
 - Python 3 (latest)
 - GCloud CLI (367.0.0)
 
@@ -117,7 +117,7 @@ Each `Windows Server Core 2022` worker is provisioned with a baseline of tools i
 - Nuget CLI (latest)
 - Octopus Client (latest)
 - Pip (latest)
-- Powershell Core (latest)
+- PowerShell Core (latest)
 - Python (3.7.4)
 - GCloud CLI (339.0.0)
 
