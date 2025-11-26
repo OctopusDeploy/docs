@@ -184,7 +184,7 @@ This `Promote to` field defines the environment whose release will be promoted f
 
 ## Common configuration
 
-All of the Octopus Deploy tasks share a number of common configuration fields.
+All Octopus Deploy tasks share a number of common configuration fields.
 
 ### Octopus URL
 

@@ -24,7 +24,8 @@
   "ignoreRegExpList": [
     "/{#[^}]+}/g",
     "/\\([^\\)]*#[\\w-]+/g",
-    "/href=\"[^\"]*#[\\w-]+/g"
+    "/href=\"[^\"]*#[\\w-]+/g",
+    "`[^`]+`"
   ],
   "suggestWords": [
     "allow->let",
