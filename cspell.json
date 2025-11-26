@@ -21,6 +21,9 @@
     "utilization->use",
     "whilst->while"
   ],
+  "ignoreRegExpList": [
+    "/\\{#(\\w|-)+\\}/g"
+  ],
   "suggestWords": [
     "allow->let",
     "allowing->letting",
